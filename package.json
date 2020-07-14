@@ -22,7 +22,8 @@
 		"url": "https://github.com/macCesar/purgeTSS/issues"
 	},
 	"homepage": "https://github.com/macCesar/purgeTSS#readme",
-	"devDependencies": {
+	"devDependencies": {},
+	"dependencies": {
 		"fs": "0.0.1-security",
 		"linebyline": "^1.3.0",
 		"lodash": "^4.17.19",
