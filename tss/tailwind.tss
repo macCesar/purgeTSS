@@ -1,0 +1,2046 @@
+// Tailwind CSS: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind UI Plugin ( https://www.npmjs.com/package/@tailwindcss/ui ).
+// Created by Adam Wathan ( https://twitter.com/adamwathan ).
+
+// Tailwind for Titanium
+// Converted by César Estrada
+// https://github.com/macCesar/tailwind-tss-color-generator
+
+// Reset Styles
+'Window': { backgroundColor: '#ffffff' }
+'ImageView[platform=ios]': { hires: true }
+'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+'.vertical': { layout: 'vertical' }
+'.horizontal': { layout: 'horizontal' }
+'.vertical[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
+
+// Colors
+// color Property
+'.text-transparent': { color: 'transparent' }
+'.text-white': { color: '#ffffff' }
+'.text-black': { color: '#000000' }
+'.text-gray-50': { color: '#f9fafb' }
+'.text-gray-100': { color: '#f4f5f7' }
+'.text-gray-200': { color: '#e5e7eb' }
+'.text-gray-300': { color: '#d2d6dc' }
+'.text-gray-400': { color: '#9fa6b2' }
+'.text-gray-500': { color: '#6b7280' }
+'.text-gray-600': { color: '#4b5563' }
+'.text-gray-700': { color: '#374151' }
+'.text-gray-800': { color: '#252f3f' }
+'.text-gray-900': { color: '#161e2e' }
+'.text-cool-gray-50': { color: '#fbfdfe' }
+'.text-cool-gray-100': { color: '#f1f5f9' }
+'.text-cool-gray-200': { color: '#e2e8f0' }
+'.text-cool-gray-300': { color: '#cfd8e3' }
+'.text-cool-gray-400': { color: '#97a6ba' }
+'.text-cool-gray-500': { color: '#64748b' }
+'.text-cool-gray-600': { color: '#475569' }
+'.text-cool-gray-700': { color: '#364152' }
+'.text-cool-gray-800': { color: '#27303f' }
+'.text-cool-gray-900': { color: '#1a202e' }
+'.text-red-50': { color: '#fdf2f2' }
+'.text-red-100': { color: '#fde8e8' }
+'.text-red-200': { color: '#fbd5d5' }
+'.text-red-300': { color: '#f8b4b4' }
+'.text-red-400': { color: '#f98080' }
+'.text-red-500': { color: '#f05252' }
+'.text-red-600': { color: '#e02424' }
+'.text-red-700': { color: '#c81e1e' }
+'.text-red-800': { color: '#9b1c1c' }
+'.text-red-900': { color: '#771d1d' }
+'.text-orange-50': { color: '#fff8f1' }
+'.text-orange-100': { color: '#feecdc' }
+'.text-orange-200': { color: '#fcd9bd' }
+'.text-orange-300': { color: '#fdba8c' }
+'.text-orange-400': { color: '#ff8a4c' }
+'.text-orange-500': { color: '#ff5a1f' }
+'.text-orange-600': { color: '#d03801' }
+'.text-orange-700': { color: '#b43403' }
+'.text-orange-800': { color: '#8a2c0d' }
+'.text-orange-900': { color: '#771d1d' }
+'.text-yellow-50': { color: '#fdfdea' }
+'.text-yellow-100': { color: '#fdf6b2' }
+'.text-yellow-200': { color: '#fce96a' }
+'.text-yellow-300': { color: '#faca15' }
+'.text-yellow-400': { color: '#e3a008' }
+'.text-yellow-500': { color: '#c27803' }
+'.text-yellow-600': { color: '#9f580a' }
+'.text-yellow-700': { color: '#8e4b10' }
+'.text-yellow-800': { color: '#723b13' }
+'.text-yellow-900': { color: '#633112' }
+'.text-green-50': { color: '#f3faf7' }
+'.text-green-100': { color: '#def7ec' }
+'.text-green-200': { color: '#bcf0da' }
+'.text-green-300': { color: '#84e1bc' }
+'.text-green-400': { color: '#31c48d' }
+'.text-green-500': { color: '#0e9f6e' }
+'.text-green-600': { color: '#057a55' }
+'.text-green-700': { color: '#046c4e' }
+'.text-green-800': { color: '#03543f' }
+'.text-green-900': { color: '#014737' }
+'.text-teal-50': { color: '#edfafa' }
+'.text-teal-100': { color: '#d5f5f6' }
+'.text-teal-200': { color: '#afecef' }
+'.text-teal-300': { color: '#7edce2' }
+'.text-teal-400': { color: '#16bdca' }
+'.text-teal-500': { color: '#0694a2' }
+'.text-teal-600': { color: '#047481' }
+'.text-teal-700': { color: '#036672' }
+'.text-teal-800': { color: '#05505c' }
+'.text-teal-900': { color: '#014451' }
+'.text-blue-50': { color: '#ebf5ff' }
+'.text-blue-100': { color: '#e1effe' }
+'.text-blue-200': { color: '#c3ddfd' }
+'.text-blue-300': { color: '#a4cafe' }
+'.text-blue-400': { color: '#76a9fa' }
+'.text-blue-500': { color: '#3f83f8' }
+'.text-blue-600': { color: '#1c64f2' }
+'.text-blue-700': { color: '#1a56db' }
+'.text-blue-800': { color: '#1e429f' }
+'.text-blue-900': { color: '#233876' }
+'.text-indigo-50': { color: '#f0f5ff' }
+'.text-indigo-100': { color: '#e5edff' }
+'.text-indigo-200': { color: '#cddbfe' }
+'.text-indigo-300': { color: '#b4c6fc' }
+'.text-indigo-400': { color: '#8da2fb' }
+'.text-indigo-500': { color: '#6875f5' }
+'.text-indigo-600': { color: '#5850ec' }
+'.text-indigo-700': { color: '#5145cd' }
+'.text-indigo-800': { color: '#42389d' }
+'.text-indigo-900': { color: '#362f78' }
+'.text-purple-50': { color: '#f6f5ff' }
+'.text-purple-100': { color: '#edebfe' }
+'.text-purple-200': { color: '#dcd7fe' }
+'.text-purple-300': { color: '#cabffd' }
+'.text-purple-400': { color: '#ac94fa' }
+'.text-purple-500': { color: '#9061f9' }
+'.text-purple-600': { color: '#7e3af2' }
+'.text-purple-700': { color: '#6c2bd9' }
+'.text-purple-800': { color: '#5521b5' }
+'.text-purple-900': { color: '#4a1d96' }
+'.text-pink-50': { color: '#fdf2f8' }
+'.text-pink-100': { color: '#fce8f3' }
+'.text-pink-200': { color: '#fad1e8' }
+'.text-pink-300': { color: '#f8b4d9' }
+'.text-pink-400': { color: '#f17eb8' }
+'.text-pink-500': { color: '#e74694' }
+'.text-pink-600': { color: '#d61f69' }
+'.text-pink-700': { color: '#bf125d' }
+'.text-pink-800': { color: '#99154b' }
+'.text-pink-900': { color: '#751a3d' }
+
+// backgroundColor Property
+'.bg-transparent': { backgroundColor: 'transparent' }
+'.bg-white': { backgroundColor: '#ffffff' }
+'.bg-black': { backgroundColor: '#000000' }
+'.bg-gray-50': { backgroundColor: '#f9fafb' }
+'.bg-gray-100': { backgroundColor: '#f4f5f7' }
+'.bg-gray-200': { backgroundColor: '#e5e7eb' }
+'.bg-gray-300': { backgroundColor: '#d2d6dc' }
+'.bg-gray-400': { backgroundColor: '#9fa6b2' }
+'.bg-gray-500': { backgroundColor: '#6b7280' }
+'.bg-gray-600': { backgroundColor: '#4b5563' }
+'.bg-gray-700': { backgroundColor: '#374151' }
+'.bg-gray-800': { backgroundColor: '#252f3f' }
+'.bg-gray-900': { backgroundColor: '#161e2e' }
+'.bg-cool-gray-50': { backgroundColor: '#fbfdfe' }
+'.bg-cool-gray-100': { backgroundColor: '#f1f5f9' }
+'.bg-cool-gray-200': { backgroundColor: '#e2e8f0' }
+'.bg-cool-gray-300': { backgroundColor: '#cfd8e3' }
+'.bg-cool-gray-400': { backgroundColor: '#97a6ba' }
+'.bg-cool-gray-500': { backgroundColor: '#64748b' }
+'.bg-cool-gray-600': { backgroundColor: '#475569' }
+'.bg-cool-gray-700': { backgroundColor: '#364152' }
+'.bg-cool-gray-800': { backgroundColor: '#27303f' }
+'.bg-cool-gray-900': { backgroundColor: '#1a202e' }
+'.bg-red-50': { backgroundColor: '#fdf2f2' }
+'.bg-red-100': { backgroundColor: '#fde8e8' }
+'.bg-red-200': { backgroundColor: '#fbd5d5' }
+'.bg-red-300': { backgroundColor: '#f8b4b4' }
+'.bg-red-400': { backgroundColor: '#f98080' }
+'.bg-red-500': { backgroundColor: '#f05252' }
+'.bg-red-600': { backgroundColor: '#e02424' }
+'.bg-red-700': { backgroundColor: '#c81e1e' }
+'.bg-red-800': { backgroundColor: '#9b1c1c' }
+'.bg-red-900': { backgroundColor: '#771d1d' }
+'.bg-orange-50': { backgroundColor: '#fff8f1' }
+'.bg-orange-100': { backgroundColor: '#feecdc' }
+'.bg-orange-200': { backgroundColor: '#fcd9bd' }
+'.bg-orange-300': { backgroundColor: '#fdba8c' }
+'.bg-orange-400': { backgroundColor: '#ff8a4c' }
+'.bg-orange-500': { backgroundColor: '#ff5a1f' }
+'.bg-orange-600': { backgroundColor: '#d03801' }
+'.bg-orange-700': { backgroundColor: '#b43403' }
+'.bg-orange-800': { backgroundColor: '#8a2c0d' }
+'.bg-orange-900': { backgroundColor: '#771d1d' }
+'.bg-yellow-50': { backgroundColor: '#fdfdea' }
+'.bg-yellow-100': { backgroundColor: '#fdf6b2' }
+'.bg-yellow-200': { backgroundColor: '#fce96a' }
+'.bg-yellow-300': { backgroundColor: '#faca15' }
+'.bg-yellow-400': { backgroundColor: '#e3a008' }
+'.bg-yellow-500': { backgroundColor: '#c27803' }
+'.bg-yellow-600': { backgroundColor: '#9f580a' }
+'.bg-yellow-700': { backgroundColor: '#8e4b10' }
+'.bg-yellow-800': { backgroundColor: '#723b13' }
+'.bg-yellow-900': { backgroundColor: '#633112' }
+'.bg-green-50': { backgroundColor: '#f3faf7' }
+'.bg-green-100': { backgroundColor: '#def7ec' }
+'.bg-green-200': { backgroundColor: '#bcf0da' }
+'.bg-green-300': { backgroundColor: '#84e1bc' }
+'.bg-green-400': { backgroundColor: '#31c48d' }
+'.bg-green-500': { backgroundColor: '#0e9f6e' }
+'.bg-green-600': { backgroundColor: '#057a55' }
+'.bg-green-700': { backgroundColor: '#046c4e' }
+'.bg-green-800': { backgroundColor: '#03543f' }
+'.bg-green-900': { backgroundColor: '#014737' }
+'.bg-teal-50': { backgroundColor: '#edfafa' }
+'.bg-teal-100': { backgroundColor: '#d5f5f6' }
+'.bg-teal-200': { backgroundColor: '#afecef' }
+'.bg-teal-300': { backgroundColor: '#7edce2' }
+'.bg-teal-400': { backgroundColor: '#16bdca' }
+'.bg-teal-500': { backgroundColor: '#0694a2' }
+'.bg-teal-600': { backgroundColor: '#047481' }
+'.bg-teal-700': { backgroundColor: '#036672' }
+'.bg-teal-800': { backgroundColor: '#05505c' }
+'.bg-teal-900': { backgroundColor: '#014451' }
+'.bg-blue-50': { backgroundColor: '#ebf5ff' }
+'.bg-blue-100': { backgroundColor: '#e1effe' }
+'.bg-blue-200': { backgroundColor: '#c3ddfd' }
+'.bg-blue-300': { backgroundColor: '#a4cafe' }
+'.bg-blue-400': { backgroundColor: '#76a9fa' }
+'.bg-blue-500': { backgroundColor: '#3f83f8' }
+'.bg-blue-600': { backgroundColor: '#1c64f2' }
+'.bg-blue-700': { backgroundColor: '#1a56db' }
+'.bg-blue-800': { backgroundColor: '#1e429f' }
+'.bg-blue-900': { backgroundColor: '#233876' }
+'.bg-indigo-50': { backgroundColor: '#f0f5ff' }
+'.bg-indigo-100': { backgroundColor: '#e5edff' }
+'.bg-indigo-200': { backgroundColor: '#cddbfe' }
+'.bg-indigo-300': { backgroundColor: '#b4c6fc' }
+'.bg-indigo-400': { backgroundColor: '#8da2fb' }
+'.bg-indigo-500': { backgroundColor: '#6875f5' }
+'.bg-indigo-600': { backgroundColor: '#5850ec' }
+'.bg-indigo-700': { backgroundColor: '#5145cd' }
+'.bg-indigo-800': { backgroundColor: '#42389d' }
+'.bg-indigo-900': { backgroundColor: '#362f78' }
+'.bg-purple-50': { backgroundColor: '#f6f5ff' }
+'.bg-purple-100': { backgroundColor: '#edebfe' }
+'.bg-purple-200': { backgroundColor: '#dcd7fe' }
+'.bg-purple-300': { backgroundColor: '#cabffd' }
+'.bg-purple-400': { backgroundColor: '#ac94fa' }
+'.bg-purple-500': { backgroundColor: '#9061f9' }
+'.bg-purple-600': { backgroundColor: '#7e3af2' }
+'.bg-purple-700': { backgroundColor: '#6c2bd9' }
+'.bg-purple-800': { backgroundColor: '#5521b5' }
+'.bg-purple-900': { backgroundColor: '#4a1d96' }
+'.bg-pink-50': { backgroundColor: '#fdf2f8' }
+'.bg-pink-100': { backgroundColor: '#fce8f3' }
+'.bg-pink-200': { backgroundColor: '#fad1e8' }
+'.bg-pink-300': { backgroundColor: '#f8b4d9' }
+'.bg-pink-400': { backgroundColor: '#f17eb8' }
+'.bg-pink-500': { backgroundColor: '#e74694' }
+'.bg-pink-600': { backgroundColor: '#d61f69' }
+'.bg-pink-700': { backgroundColor: '#bf125d' }
+'.bg-pink-800': { backgroundColor: '#99154b' }
+'.bg-pink-900': { backgroundColor: '#751a3d' }
+
+// borderColor Property
+'.border-transparent': { borderColor: 'transparent' }
+'.border-white': { borderColor: '#ffffff' }
+'.border-black': { borderColor: '#000000' }
+'.border-gray-50': { borderColor: '#f9fafb' }
+'.border-gray-100': { borderColor: '#f4f5f7' }
+'.border-gray-200': { borderColor: '#e5e7eb' }
+'.border-gray-300': { borderColor: '#d2d6dc' }
+'.border-gray-400': { borderColor: '#9fa6b2' }
+'.border-gray-500': { borderColor: '#6b7280' }
+'.border-gray-600': { borderColor: '#4b5563' }
+'.border-gray-700': { borderColor: '#374151' }
+'.border-gray-800': { borderColor: '#252f3f' }
+'.border-gray-900': { borderColor: '#161e2e' }
+'.border-cool-gray-50': { borderColor: '#fbfdfe' }
+'.border-cool-gray-100': { borderColor: '#f1f5f9' }
+'.border-cool-gray-200': { borderColor: '#e2e8f0' }
+'.border-cool-gray-300': { borderColor: '#cfd8e3' }
+'.border-cool-gray-400': { borderColor: '#97a6ba' }
+'.border-cool-gray-500': { borderColor: '#64748b' }
+'.border-cool-gray-600': { borderColor: '#475569' }
+'.border-cool-gray-700': { borderColor: '#364152' }
+'.border-cool-gray-800': { borderColor: '#27303f' }
+'.border-cool-gray-900': { borderColor: '#1a202e' }
+'.border-red-50': { borderColor: '#fdf2f2' }
+'.border-red-100': { borderColor: '#fde8e8' }
+'.border-red-200': { borderColor: '#fbd5d5' }
+'.border-red-300': { borderColor: '#f8b4b4' }
+'.border-red-400': { borderColor: '#f98080' }
+'.border-red-500': { borderColor: '#f05252' }
+'.border-red-600': { borderColor: '#e02424' }
+'.border-red-700': { borderColor: '#c81e1e' }
+'.border-red-800': { borderColor: '#9b1c1c' }
+'.border-red-900': { borderColor: '#771d1d' }
+'.border-orange-50': { borderColor: '#fff8f1' }
+'.border-orange-100': { borderColor: '#feecdc' }
+'.border-orange-200': { borderColor: '#fcd9bd' }
+'.border-orange-300': { borderColor: '#fdba8c' }
+'.border-orange-400': { borderColor: '#ff8a4c' }
+'.border-orange-500': { borderColor: '#ff5a1f' }
+'.border-orange-600': { borderColor: '#d03801' }
+'.border-orange-700': { borderColor: '#b43403' }
+'.border-orange-800': { borderColor: '#8a2c0d' }
+'.border-orange-900': { borderColor: '#771d1d' }
+'.border-yellow-50': { borderColor: '#fdfdea' }
+'.border-yellow-100': { borderColor: '#fdf6b2' }
+'.border-yellow-200': { borderColor: '#fce96a' }
+'.border-yellow-300': { borderColor: '#faca15' }
+'.border-yellow-400': { borderColor: '#e3a008' }
+'.border-yellow-500': { borderColor: '#c27803' }
+'.border-yellow-600': { borderColor: '#9f580a' }
+'.border-yellow-700': { borderColor: '#8e4b10' }
+'.border-yellow-800': { borderColor: '#723b13' }
+'.border-yellow-900': { borderColor: '#633112' }
+'.border-green-50': { borderColor: '#f3faf7' }
+'.border-green-100': { borderColor: '#def7ec' }
+'.border-green-200': { borderColor: '#bcf0da' }
+'.border-green-300': { borderColor: '#84e1bc' }
+'.border-green-400': { borderColor: '#31c48d' }
+'.border-green-500': { borderColor: '#0e9f6e' }
+'.border-green-600': { borderColor: '#057a55' }
+'.border-green-700': { borderColor: '#046c4e' }
+'.border-green-800': { borderColor: '#03543f' }
+'.border-green-900': { borderColor: '#014737' }
+'.border-teal-50': { borderColor: '#edfafa' }
+'.border-teal-100': { borderColor: '#d5f5f6' }
+'.border-teal-200': { borderColor: '#afecef' }
+'.border-teal-300': { borderColor: '#7edce2' }
+'.border-teal-400': { borderColor: '#16bdca' }
+'.border-teal-500': { borderColor: '#0694a2' }
+'.border-teal-600': { borderColor: '#047481' }
+'.border-teal-700': { borderColor: '#036672' }
+'.border-teal-800': { borderColor: '#05505c' }
+'.border-teal-900': { borderColor: '#014451' }
+'.border-blue-50': { borderColor: '#ebf5ff' }
+'.border-blue-100': { borderColor: '#e1effe' }
+'.border-blue-200': { borderColor: '#c3ddfd' }
+'.border-blue-300': { borderColor: '#a4cafe' }
+'.border-blue-400': { borderColor: '#76a9fa' }
+'.border-blue-500': { borderColor: '#3f83f8' }
+'.border-blue-600': { borderColor: '#1c64f2' }
+'.border-blue-700': { borderColor: '#1a56db' }
+'.border-blue-800': { borderColor: '#1e429f' }
+'.border-blue-900': { borderColor: '#233876' }
+'.border-indigo-50': { borderColor: '#f0f5ff' }
+'.border-indigo-100': { borderColor: '#e5edff' }
+'.border-indigo-200': { borderColor: '#cddbfe' }
+'.border-indigo-300': { borderColor: '#b4c6fc' }
+'.border-indigo-400': { borderColor: '#8da2fb' }
+'.border-indigo-500': { borderColor: '#6875f5' }
+'.border-indigo-600': { borderColor: '#5850ec' }
+'.border-indigo-700': { borderColor: '#5145cd' }
+'.border-indigo-800': { borderColor: '#42389d' }
+'.border-indigo-900': { borderColor: '#362f78' }
+'.border-purple-50': { borderColor: '#f6f5ff' }
+'.border-purple-100': { borderColor: '#edebfe' }
+'.border-purple-200': { borderColor: '#dcd7fe' }
+'.border-purple-300': { borderColor: '#cabffd' }
+'.border-purple-400': { borderColor: '#ac94fa' }
+'.border-purple-500': { borderColor: '#9061f9' }
+'.border-purple-600': { borderColor: '#7e3af2' }
+'.border-purple-700': { borderColor: '#6c2bd9' }
+'.border-purple-800': { borderColor: '#5521b5' }
+'.border-purple-900': { borderColor: '#4a1d96' }
+'.border-pink-50': { borderColor: '#fdf2f8' }
+'.border-pink-100': { borderColor: '#fce8f3' }
+'.border-pink-200': { borderColor: '#fad1e8' }
+'.border-pink-300': { borderColor: '#f8b4d9' }
+'.border-pink-400': { borderColor: '#f17eb8' }
+'.border-pink-500': { borderColor: '#e74694' }
+'.border-pink-600': { borderColor: '#d61f69' }
+'.border-pink-700': { borderColor: '#bf125d' }
+'.border-pink-800': { borderColor: '#99154b' }
+'.border-pink-900': { borderColor: '#751a3d' }
+
+// hintTextColor Property
+'.placeholder-transparent': { hintTextColor: 'transparent' }
+'.placeholder-white': { hintTextColor: '#ffffff' }
+'.placeholder-black': { hintTextColor: '#000000' }
+'.placeholder-gray-50': { hintTextColor: '#f9fafb' }
+'.placeholder-gray-100': { hintTextColor: '#f4f5f7' }
+'.placeholder-gray-200': { hintTextColor: '#e5e7eb' }
+'.placeholder-gray-300': { hintTextColor: '#d2d6dc' }
+'.placeholder-gray-400': { hintTextColor: '#9fa6b2' }
+'.placeholder-gray-500': { hintTextColor: '#6b7280' }
+'.placeholder-gray-600': { hintTextColor: '#4b5563' }
+'.placeholder-gray-700': { hintTextColor: '#374151' }
+'.placeholder-gray-800': { hintTextColor: '#252f3f' }
+'.placeholder-gray-900': { hintTextColor: '#161e2e' }
+'.placeholder-cool-gray-50': { hintTextColor: '#fbfdfe' }
+'.placeholder-cool-gray-100': { hintTextColor: '#f1f5f9' }
+'.placeholder-cool-gray-200': { hintTextColor: '#e2e8f0' }
+'.placeholder-cool-gray-300': { hintTextColor: '#cfd8e3' }
+'.placeholder-cool-gray-400': { hintTextColor: '#97a6ba' }
+'.placeholder-cool-gray-500': { hintTextColor: '#64748b' }
+'.placeholder-cool-gray-600': { hintTextColor: '#475569' }
+'.placeholder-cool-gray-700': { hintTextColor: '#364152' }
+'.placeholder-cool-gray-800': { hintTextColor: '#27303f' }
+'.placeholder-cool-gray-900': { hintTextColor: '#1a202e' }
+'.placeholder-red-50': { hintTextColor: '#fdf2f2' }
+'.placeholder-red-100': { hintTextColor: '#fde8e8' }
+'.placeholder-red-200': { hintTextColor: '#fbd5d5' }
+'.placeholder-red-300': { hintTextColor: '#f8b4b4' }
+'.placeholder-red-400': { hintTextColor: '#f98080' }
+'.placeholder-red-500': { hintTextColor: '#f05252' }
+'.placeholder-red-600': { hintTextColor: '#e02424' }
+'.placeholder-red-700': { hintTextColor: '#c81e1e' }
+'.placeholder-red-800': { hintTextColor: '#9b1c1c' }
+'.placeholder-red-900': { hintTextColor: '#771d1d' }
+'.placeholder-orange-50': { hintTextColor: '#fff8f1' }
+'.placeholder-orange-100': { hintTextColor: '#feecdc' }
+'.placeholder-orange-200': { hintTextColor: '#fcd9bd' }
+'.placeholder-orange-300': { hintTextColor: '#fdba8c' }
+'.placeholder-orange-400': { hintTextColor: '#ff8a4c' }
+'.placeholder-orange-500': { hintTextColor: '#ff5a1f' }
+'.placeholder-orange-600': { hintTextColor: '#d03801' }
+'.placeholder-orange-700': { hintTextColor: '#b43403' }
+'.placeholder-orange-800': { hintTextColor: '#8a2c0d' }
+'.placeholder-orange-900': { hintTextColor: '#771d1d' }
+'.placeholder-yellow-50': { hintTextColor: '#fdfdea' }
+'.placeholder-yellow-100': { hintTextColor: '#fdf6b2' }
+'.placeholder-yellow-200': { hintTextColor: '#fce96a' }
+'.placeholder-yellow-300': { hintTextColor: '#faca15' }
+'.placeholder-yellow-400': { hintTextColor: '#e3a008' }
+'.placeholder-yellow-500': { hintTextColor: '#c27803' }
+'.placeholder-yellow-600': { hintTextColor: '#9f580a' }
+'.placeholder-yellow-700': { hintTextColor: '#8e4b10' }
+'.placeholder-yellow-800': { hintTextColor: '#723b13' }
+'.placeholder-yellow-900': { hintTextColor: '#633112' }
+'.placeholder-green-50': { hintTextColor: '#f3faf7' }
+'.placeholder-green-100': { hintTextColor: '#def7ec' }
+'.placeholder-green-200': { hintTextColor: '#bcf0da' }
+'.placeholder-green-300': { hintTextColor: '#84e1bc' }
+'.placeholder-green-400': { hintTextColor: '#31c48d' }
+'.placeholder-green-500': { hintTextColor: '#0e9f6e' }
+'.placeholder-green-600': { hintTextColor: '#057a55' }
+'.placeholder-green-700': { hintTextColor: '#046c4e' }
+'.placeholder-green-800': { hintTextColor: '#03543f' }
+'.placeholder-green-900': { hintTextColor: '#014737' }
+'.placeholder-teal-50': { hintTextColor: '#edfafa' }
+'.placeholder-teal-100': { hintTextColor: '#d5f5f6' }
+'.placeholder-teal-200': { hintTextColor: '#afecef' }
+'.placeholder-teal-300': { hintTextColor: '#7edce2' }
+'.placeholder-teal-400': { hintTextColor: '#16bdca' }
+'.placeholder-teal-500': { hintTextColor: '#0694a2' }
+'.placeholder-teal-600': { hintTextColor: '#047481' }
+'.placeholder-teal-700': { hintTextColor: '#036672' }
+'.placeholder-teal-800': { hintTextColor: '#05505c' }
+'.placeholder-teal-900': { hintTextColor: '#014451' }
+'.placeholder-blue-50': { hintTextColor: '#ebf5ff' }
+'.placeholder-blue-100': { hintTextColor: '#e1effe' }
+'.placeholder-blue-200': { hintTextColor: '#c3ddfd' }
+'.placeholder-blue-300': { hintTextColor: '#a4cafe' }
+'.placeholder-blue-400': { hintTextColor: '#76a9fa' }
+'.placeholder-blue-500': { hintTextColor: '#3f83f8' }
+'.placeholder-blue-600': { hintTextColor: '#1c64f2' }
+'.placeholder-blue-700': { hintTextColor: '#1a56db' }
+'.placeholder-blue-800': { hintTextColor: '#1e429f' }
+'.placeholder-blue-900': { hintTextColor: '#233876' }
+'.placeholder-indigo-50': { hintTextColor: '#f0f5ff' }
+'.placeholder-indigo-100': { hintTextColor: '#e5edff' }
+'.placeholder-indigo-200': { hintTextColor: '#cddbfe' }
+'.placeholder-indigo-300': { hintTextColor: '#b4c6fc' }
+'.placeholder-indigo-400': { hintTextColor: '#8da2fb' }
+'.placeholder-indigo-500': { hintTextColor: '#6875f5' }
+'.placeholder-indigo-600': { hintTextColor: '#5850ec' }
+'.placeholder-indigo-700': { hintTextColor: '#5145cd' }
+'.placeholder-indigo-800': { hintTextColor: '#42389d' }
+'.placeholder-indigo-900': { hintTextColor: '#362f78' }
+'.placeholder-purple-50': { hintTextColor: '#f6f5ff' }
+'.placeholder-purple-100': { hintTextColor: '#edebfe' }
+'.placeholder-purple-200': { hintTextColor: '#dcd7fe' }
+'.placeholder-purple-300': { hintTextColor: '#cabffd' }
+'.placeholder-purple-400': { hintTextColor: '#ac94fa' }
+'.placeholder-purple-500': { hintTextColor: '#9061f9' }
+'.placeholder-purple-600': { hintTextColor: '#7e3af2' }
+'.placeholder-purple-700': { hintTextColor: '#6c2bd9' }
+'.placeholder-purple-800': { hintTextColor: '#5521b5' }
+'.placeholder-purple-900': { hintTextColor: '#4a1d96' }
+'.placeholder-pink-50': { hintTextColor: '#fdf2f8' }
+'.placeholder-pink-100': { hintTextColor: '#fce8f3' }
+'.placeholder-pink-200': { hintTextColor: '#fad1e8' }
+'.placeholder-pink-300': { hintTextColor: '#f8b4d9' }
+'.placeholder-pink-400': { hintTextColor: '#f17eb8' }
+'.placeholder-pink-500': { hintTextColor: '#e74694' }
+'.placeholder-pink-600': { hintTextColor: '#d61f69' }
+'.placeholder-pink-700': { hintTextColor: '#bf125d' }
+'.placeholder-pink-800': { hintTextColor: '#99154b' }
+'.placeholder-pink-900': { hintTextColor: '#751a3d' }
+
+// Top / Right / Bottom / Left
+'.top-0': { top: 0 }
+'.left-0': { left: 0 }
+'.right-0': { right: 0 }
+'.bottom-0': { bottom: 0 }
+'.top-auto': { top: null }
+'.left-auto': { left: null }
+'.right-auto': { right: null }
+'.bottom-auto': { bottom: null }
+'.inset-0': { top: 0, right: 0, bottom: 0, left: 0 }
+'.inset-y-0': { top: 0, bottom: 0 }
+'.inset-x-0': { right: 0, left: 0 }
+'.inset-auto': { top: null, right: null, bottom: null, left: null }
+'.inset-y-auto': { top: null, bottom: null }
+'.inset-x-auto': { right: null, left: null }
+
+// Font Sizes
+'.text-xs': { font: { fontSize: 12 } }
+'.text-sm': { font: { fontSize: 14 } }
+'.text-base': { font: { fontSize: 16 } }
+'.text-lg': { font: { fontSize: 18 } }
+'.text-xl': { font: { fontSize: 20 } }
+'.text-2xl': { font: { fontSize: 24 } }
+'.text-3xl': { font: { fontSize: 30 } }
+'.text-4xl': { font: { fontSize: 36 } }
+'.text-5xl': { font: { fontSize: 48 } }
+'.text-6xl': { font: { fontSize: 64 } }
+
+// Font Style ( iOS Only )
+'.italic[platform=ios]': { font: { fontStyle: 'italic' } }
+'.not-italic[platform=ios]': { font: { fontStyle: 'normal' } }
+
+// Font Weight ( iOS Only )
+'.font-hairline[platform=ios]': { font: { fontWeight: 'ultralight' } }
+'.font-thin[platform=ios]': { font: { fontWeight: 'thin' } }
+'.font-light[platform=ios]': { font: { fontWeight: 'light' } }
+'.font-normal[platform=ios]': { font: { fontWeight: 'normal' } }
+'.font-medium[platform=ios]': { font: { fontWeight: 'normal' } }
+'.font-semibold[platform=ios]': { font: { fontWeight: 'semibold' } }
+'.font-bold[platform=ios]': { font: { fontWeight: 'bold' } }
+'.font-extrabold[platform=ios]': { font: { fontWeight: 'bold' } }
+'.font-black[platform=ios]': { font: { fontWeight: 'bold' } }
+
+// Text Alignment
+'.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
+'.text-right': { textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT }
+'.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
+'.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
+
+// Vertical Alignment
+'.align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
+'.align-middle': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
+'.align-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
+
+// Border Radius
+'.rounded-none': { borderRadius: 0 }
+'.rounded-sm': { borderRadius: 2 }
+'.rounded': { borderRadius: 4 }
+'.rounded-md': { borderRadius: 6 }
+'.rounded-lg': { borderRadius: 8 }
+'.rounded-full': { borderRadius: 4 }
+
+// Border Radius - Extra Styles ( Radius is half de size of w-xx and h-xx spacings )
+'.rounded-0': { borderRadius: 0 }
+'.rounded-1': { borderRadius: 2 }
+'.rounded-2': { borderRadius: 4 }
+'.rounded-3': { borderRadius: 6 }
+'.rounded-4': { borderRadius: 8 }
+'.rounded-5': { borderRadius: 10 }
+'.rounded-6': { borderRadius: 12 }
+'.rounded-7': { borderRadius: 14 }
+'.rounded-8': { borderRadius: 16 }
+'.rounded-9': { borderRadius: 18 }
+'.rounded-10': { borderRadius: 20 }
+'.rounded-11': { borderRadius: 22 }
+'.rounded-12': { borderRadius: 24 }
+'.rounded-13': { borderRadius: 26 }
+'.rounded-14': { borderRadius: 28 }
+'.rounded-15': { borderRadius: 30 }
+'.rounded-16': { borderRadius: 32 }
+'.rounded-20': { borderRadius: 40 }
+'.rounded-24': { borderRadius: 48 }
+'.rounded-28': { borderRadius: 56 }
+'.rounded-32': { borderRadius: 64 }
+'.rounded-36': { borderRadius: 72 }
+'.rounded-40': { borderRadius: 80 }
+'.rounded-48': { borderRadius: 96 }
+'.rounded-56': { borderRadius: 112 }
+'.rounded-60': { borderRadius: 120 }
+'.rounded-64': { borderRadius: 128 }
+'.rounded-72': { borderRadius: 144 }
+'.rounded-80': { borderRadius: 160 }
+'.rounded-96': { borderRadius: 192 }
+'.rounded-px': { borderRadius: 8 }
+'.rounded-0.5': { borderRadius: 1 }
+'.rounded-1.5': { borderRadius: 3 }
+'.rounded-2.5': { borderRadius: 5 }
+'.rounded-3.5': { borderRadius: 7 }
+'.rounded-1/2': { borderRadius: '50%' }
+'.rounded-1/3': { borderRadius: '33.333333%' }
+'.rounded-2/3': { borderRadius: '66.666667%' }
+'.rounded-1/4': { borderRadius: '25%' }
+'.rounded-2/4': { borderRadius: '50%' }
+'.rounded-3/4': { borderRadius: '75%' }
+'.rounded-1/5': { borderRadius: '20%' }
+'.rounded-2/5': { borderRadius: '40%' }
+'.rounded-3/5': { borderRadius: '60%' }
+'.rounded-4/5': { borderRadius: '80%' }
+'.rounded-1/6': { borderRadius: '16.666667%' }
+'.rounded-2/6': { borderRadius: '33.333333%' }
+'.rounded-3/6': { borderRadius: '50%' }
+'.rounded-4/6': { borderRadius: '66.666667%' }
+'.rounded-5/6': { borderRadius: '83.333333%' }
+'.rounded-1/12': { borderRadius: '8.333333%' }
+'.rounded-2/12': { borderRadius: '16.666667%' }
+'.rounded-3/12': { borderRadius: '25%' }
+'.rounded-4/12': { borderRadius: '33.333333%' }
+'.rounded-5/12': { borderRadius: '41.666667%' }
+'.rounded-6/12': { borderRadius: '50%' }
+'.rounded-7/12': { borderRadius: '58.333333%' }
+'.rounded-8/12': { borderRadius: '66.666667%' }
+'.rounded-9/12': { borderRadius: '75%' }
+'.rounded-10/12': { borderRadius: '83.333333%' }
+'.rounded-11/12': { borderRadius: '91.666667%' }
+'.rounded-full': { borderRadius: '100%' }
+
+// Border Width
+'.border-0': { borderWidth: 0 }
+'.border-2': { borderWidth: 2 }
+'.border-4': { borderWidth: 4 }
+'.border-8': { borderWidth: 8 }
+'.border': { borderWidth: 1 }
+
+// Margin
+'.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
+'.m-1': { top: 4, right: 4, bottom: 4, left: 4 }
+'.m-2': { top: 8, right: 8, bottom: 8, left: 8 }
+'.m-3': { top: 12, right: 12, bottom: 12, left: 12 }
+'.m-4': { top: 16, right: 16, bottom: 16, left: 16 }
+'.m-5': { top: 20, right: 20, bottom: 20, left: 20 }
+'.m-6': { top: 24, right: 24, bottom: 24, left: 24 }
+'.m-7': { top: 28, right: 28, bottom: 28, left: 28 }
+'.m-8': { top: 32, right: 32, bottom: 32, left: 32 }
+'.m-9': { top: 36, right: 36, bottom: 36, left: 36 }
+'.m-10': { top: 40, right: 40, bottom: 40, left: 40 }
+'.m-11': { top: 44, right: 44, bottom: 44, left: 44 }
+'.m-12': { top: 48, right: 48, bottom: 48, left: 48 }
+'.m-13': { top: 52, right: 52, bottom: 52, left: 52 }
+'.m-14': { top: 56, right: 56, bottom: 56, left: 56 }
+'.m-15': { top: 60, right: 60, bottom: 60, left: 60 }
+'.m-16': { top: 64, right: 64, bottom: 64, left: 64 }
+'.m-20': { top: 80, right: 80, bottom: 80, left: 80 }
+'.m-24': { top: 96, right: 96, bottom: 96, left: 96 }
+'.m-28': { top: 112, right: 112, bottom: 112, left: 112 }
+'.m-32': { top: 128, right: 128, bottom: 128, left: 128 }
+'.m-36': { top: 144, right: 144, bottom: 144, left: 144 }
+'.m-40': { top: 160, right: 160, bottom: 160, left: 160 }
+'.m-48': { top: 192, right: 192, bottom: 192, left: 192 }
+'.m-56': { top: 224, right: 224, bottom: 224, left: 224 }
+'.m-60': { top: 240, right: 240, bottom: 240, left: 240 }
+'.m-64': { top: 256, right: 256, bottom: 256, left: 256 }
+'.m-72': { top: 288, right: 288, bottom: 288, left: 288 }
+'.m-80': { top: 320, right: 320, bottom: 320, left: 320 }
+'.m-96': { top: 384, right: 384, bottom: 384, left: 384 }
+'.m-px': { top: 1, right: 1, bottom: 1, left: 1 }
+'.m-0.5': { top: 2, right: 2, bottom: 2, left: 2 }
+'.m-1.5': { top: 6, right: 6, bottom: 6, left: 6 }
+'.m-2.5': { top: 10, right: 10, bottom: 10, left: 10 }
+'.m-3.5': { top: 14, right: 14, bottom: 14, left: 14 }
+'.m-1/2': { top: '50%', right: '50%', bottom: '50%', left: '50%' }
+'.m-1/3': { top: '33.333333%', right: '33.333333%', bottom: '33.333333%', left: '33.333333%' }
+'.m-2/3': { top: '66.666667%', right: '66.666667%', bottom: '66.666667%', left: '66.666667%' }
+'.m-1/4': { top: '25%', right: '25%', bottom: '25%', left: '25%' }
+'.m-2/4': { top: '50%', right: '50%', bottom: '50%', left: '50%' }
+'.m-3/4': { top: '75%', right: '75%', bottom: '75%', left: '75%' }
+'.m-1/5': { top: '20%', right: '20%', bottom: '20%', left: '20%' }
+'.m-2/5': { top: '40%', right: '40%', bottom: '40%', left: '40%' }
+'.m-3/5': { top: '60%', right: '60%', bottom: '60%', left: '60%' }
+'.m-4/5': { top: '80%', right: '80%', bottom: '80%', left: '80%' }
+'.m-1/6': { top: '16.666667%', right: '16.666667%', bottom: '16.666667%', left: '16.666667%' }
+'.m-2/6': { top: '33.333333%', right: '33.333333%', bottom: '33.333333%', left: '33.333333%' }
+'.m-3/6': { top: '50%', right: '50%', bottom: '50%', left: '50%' }
+'.m-4/6': { top: '66.666667%', right: '66.666667%', bottom: '66.666667%', left: '66.666667%' }
+'.m-5/6': { top: '83.333333%', right: '83.333333%', bottom: '83.333333%', left: '83.333333%' }
+'.m-1/12': { top: '8.333333%', right: '8.333333%', bottom: '8.333333%', left: '8.333333%' }
+'.m-2/12': { top: '16.666667%', right: '16.666667%', bottom: '16.666667%', left: '16.666667%' }
+'.m-3/12': { top: '25%', right: '25%', bottom: '25%', left: '25%' }
+'.m-4/12': { top: '33.333333%', right: '33.333333%', bottom: '33.333333%', left: '33.333333%' }
+'.m-5/12': { top: '41.666667%', right: '41.666667%', bottom: '41.666667%', left: '41.666667%' }
+'.m-6/12': { top: '50%', right: '50%', bottom: '50%', left: '50%' }
+'.m-7/12': { top: '58.333333%', right: '58.333333%', bottom: '58.333333%', left: '58.333333%' }
+'.m-8/12': { top: '66.666667%', right: '66.666667%', bottom: '66.666667%', left: '66.666667%' }
+'.m-9/12': { top: '75%', right: '75%', bottom: '75%', left: '75%' }
+'.m-10/12': { top: '83.333333%', right: '83.333333%', bottom: '83.333333%', left: '83.333333%' }
+'.m-11/12': { top: '91.666667%', right: '91.666667%', bottom: '91.666667%', left: '91.666667%' }
+'.m-full': { top: '100%', right: '100%', bottom: '100%', left: '100%' }
+'.m-auto': { top: null, right: null, bottom: null, left: null }
+'.-m-1': { top: -4, right: -4, bottom: -4, left: -4 }
+'.-m-2': { top: -8, right: -8, bottom: -8, left: -8 }
+'.-m-3': { top: -12, right: -12, bottom: -12, left: -12 }
+'.-m-4': { top: -16, right: -16, bottom: -16, left: -16 }
+'.-m-5': { top: -20, right: -20, bottom: -20, left: -20 }
+'.-m-6': { top: -24, right: -24, bottom: -24, left: -24 }
+'.-m-7': { top: -28, right: -28, bottom: -28, left: -28 }
+'.-m-8': { top: -32, right: -32, bottom: -32, left: -32 }
+'.-m-9': { top: -36, right: -36, bottom: -36, left: -36 }
+'.-m-10': { top: -40, right: -40, bottom: -40, left: -40 }
+'.-m-11': { top: -44, right: -44, bottom: -44, left: -44 }
+'.-m-12': { top: -48, right: -48, bottom: -48, left: -48 }
+'.-m-13': { top: -52, right: -52, bottom: -52, left: -52 }
+'.-m-14': { top: -56, right: -56, bottom: -56, left: -56 }
+'.-m-15': { top: -60, right: -60, bottom: -60, left: -60 }
+'.-m-16': { top: -64, right: -64, bottom: -64, left: -64 }
+'.-m-20': { top: -80, right: -80, bottom: -80, left: -80 }
+'.-m-24': { top: -96, right: -96, bottom: -96, left: -96 }
+'.-m-28': { top: -112, right: -112, bottom: -112, left: -112 }
+'.-m-32': { top: -128, right: -128, bottom: -128, left: -128 }
+'.-m-36': { top: -144, right: -144, bottom: -144, left: -144 }
+'.-m-40': { top: -160, right: -160, bottom: -160, left: -160 }
+'.-m-48': { top: -192, right: -192, bottom: -192, left: -192 }
+'.-m-56': { top: -224, right: -224, bottom: -224, left: -224 }
+'.-m-60': { top: -240, right: -240, bottom: -240, left: -240 }
+'.-m-64': { top: -256, right: -256, bottom: -256, left: -256 }
+'.-m-72': { top: -288, right: -288, bottom: -288, left: -288 }
+'.-m-80': { top: -320, right: -320, bottom: -320, left: -320 }
+'.-m-96': { top: -384, right: -384, bottom: -384, left: -384 }
+'.-m-px': { top: -1, right: -1, bottom: -1, left: -1 }
+'.-m-0.5': { top: -2, right: -2, bottom: -2, left: -2 }
+'.-m-1.5': { top: -6, right: -6, bottom: -6, left: -6 }
+'.-m-2.5': { top: -10, right: -10, bottom: -10, left: -10 }
+'.-m-3.5': { top: -14, right: -14, bottom: -14, left: -14 }
+'.-m-1/2': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
+'.-m-1/3': { top: '-33.333333%', right: '-33.333333%', bottom: '-33.333333%', left: '-33.333333%' }
+'.-m-2/3': { top: '-66.666667%', right: '-66.666667%', bottom: '-66.666667%', left: '-66.666667%' }
+'.-m-1/4': { top: '-25%', right: '-25%', bottom: '-25%', left: '-25%' }
+'.-m-2/4': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
+'.-m-3/4': { top: '-75%', right: '-75%', bottom: '-75%', left: '-75%' }
+'.-m-1/5': { top: '-20%', right: '-20%', bottom: '-20%', left: '-20%' }
+'.-m-2/5': { top: '-40%', right: '-40%', bottom: '-40%', left: '-40%' }
+'.-m-3/5': { top: '-60%', right: '-60%', bottom: '-60%', left: '-60%' }
+'.-m-4/5': { top: '-80%', right: '-80%', bottom: '-80%', left: '-80%' }
+'.-m-1/6': { top: '-16.666667%', right: '-16.666667%', bottom: '-16.666667%', left: '-16.666667%' }
+'.-m-2/6': { top: '-33.333333%', right: '-33.333333%', bottom: '-33.333333%', left: '-33.333333%' }
+'.-m-3/6': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
+'.-m-4/6': { top: '-66.666667%', right: '-66.666667%', bottom: '-66.666667%', left: '-66.666667%' }
+'.-m-5/6': { top: '-83.333333%', right: '-83.333333%', bottom: '-83.333333%', left: '-83.333333%' }
+'.-m-1/12': { top: '-8.333333%', right: '-8.333333%', bottom: '-8.333333%', left: '-8.333333%' }
+'.-m-2/12': { top: '-16.666667%', right: '-16.666667%', bottom: '-16.666667%', left: '-16.666667%' }
+'.-m-3/12': { top: '-25%', right: '-25%', bottom: '-25%', left: '-25%' }
+'.-m-4/12': { top: '-33.333333%', right: '-33.333333%', bottom: '-33.333333%', left: '-33.333333%' }
+'.-m-5/12': { top: '-41.666667%', right: '-41.666667%', bottom: '-41.666667%', left: '-41.666667%' }
+'.-m-6/12': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
+'.-m-7/12': { top: '-58.333333%', right: '-58.333333%', bottom: '-58.333333%', left: '-58.333333%' }
+'.-m-8/12': { top: '-66.666667%', right: '-66.666667%', bottom: '-66.666667%', left: '-66.666667%' }
+'.-m-9/12': { top: '-75%', right: '-75%', bottom: '-75%', left: '-75%' }
+'.-m-10/12': { top: '-83.333333%', right: '-83.333333%', bottom: '-83.333333%', left: '-83.333333%' }
+'.-m-11/12': { top: '-91.666667%', right: '-91.666667%', bottom: '-91.666667%', left: '-91.666667%' }
+'.-m-full': { top: '-100%', right: '-100%', bottom: '-100%', left: '-100%' }
+'.my-0': { top: 0, bottom: 0 }
+'.my-1': { top: 4, bottom: 4 }
+'.my-2': { top: 8, bottom: 8 }
+'.my-3': { top: 12, bottom: 12 }
+'.my-4': { top: 16, bottom: 16 }
+'.my-5': { top: 20, bottom: 20 }
+'.my-6': { top: 24, bottom: 24 }
+'.my-7': { top: 28, bottom: 28 }
+'.my-8': { top: 32, bottom: 32 }
+'.my-9': { top: 36, bottom: 36 }
+'.my-10': { top: 40, bottom: 40 }
+'.my-11': { top: 44, bottom: 44 }
+'.my-12': { top: 48, bottom: 48 }
+'.my-13': { top: 52, bottom: 52 }
+'.my-14': { top: 56, bottom: 56 }
+'.my-15': { top: 60, bottom: 60 }
+'.my-16': { top: 64, bottom: 64 }
+'.my-20': { top: 80, bottom: 80 }
+'.my-24': { top: 96, bottom: 96 }
+'.my-28': { top: 112, bottom: 112 }
+'.my-32': { top: 128, bottom: 128 }
+'.my-36': { top: 144, bottom: 144 }
+'.my-40': { top: 160, bottom: 160 }
+'.my-48': { top: 192, bottom: 192 }
+'.my-56': { top: 224, bottom: 224 }
+'.my-60': { top: 240, bottom: 240 }
+'.my-64': { top: 256, bottom: 256 }
+'.my-72': { top: 288, bottom: 288 }
+'.my-80': { top: 320, bottom: 320 }
+'.my-96': { top: 384, bottom: 384 }
+'.my-px': { top: 1, bottom: 1 }
+'.my-0.5': { top: 2, bottom: 2 }
+'.my-1.5': { top: 6, bottom: 6 }
+'.my-2.5': { top: 10, bottom: 10 }
+'.my-3.5': { top: 14, bottom: 14 }
+'.my-1/2': { top: '50%', bottom: '50%' }
+'.my-1/3': { top: '33.333333%', bottom: '33.333333%' }
+'.my-2/3': { top: '66.666667%', bottom: '66.666667%' }
+'.my-1/4': { top: '25%', bottom: '25%' }
+'.my-2/4': { top: '50%', bottom: '50%' }
+'.my-3/4': { top: '75%', bottom: '75%' }
+'.my-1/5': { top: '20%', bottom: '20%' }
+'.my-2/5': { top: '40%', bottom: '40%' }
+'.my-3/5': { top: '60%', bottom: '60%' }
+'.my-4/5': { top: '80%', bottom: '80%' }
+'.my-1/6': { top: '16.666667%', bottom: '16.666667%' }
+'.my-2/6': { top: '33.333333%', bottom: '33.333333%' }
+'.my-3/6': { top: '50%', bottom: '50%' }
+'.my-4/6': { top: '66.666667%', bottom: '66.666667%' }
+'.my-5/6': { top: '83.333333%', bottom: '83.333333%' }
+'.my-1/12': { top: '8.333333%', bottom: '8.333333%' }
+'.my-2/12': { top: '16.666667%', bottom: '16.666667%' }
+'.my-3/12': { top: '25%', bottom: '25%' }
+'.my-4/12': { top: '33.333333%', bottom: '33.333333%' }
+'.my-5/12': { top: '41.666667%', bottom: '41.666667%' }
+'.my-6/12': { top: '50%', bottom: '50%' }
+'.my-7/12': { top: '58.333333%', bottom: '58.333333%' }
+'.my-8/12': { top: '66.666667%', bottom: '66.666667%' }
+'.my-9/12': { top: '75%', bottom: '75%' }
+'.my-10/12': { top: '83.333333%', bottom: '83.333333%' }
+'.my-11/12': { top: '91.666667%', bottom: '91.666667%' }
+'.my-full': { top: '100%', bottom: '100%' }
+'.my-auto': { top: null, bottom: null }
+'.-my-1': { top: -4, bottom: -4 }
+'.-my-2': { top: -8, bottom: -8 }
+'.-my-3': { top: -12, bottom: -12 }
+'.-my-4': { top: -16, bottom: -16 }
+'.-my-5': { top: -20, bottom: -20 }
+'.-my-6': { top: -24, bottom: -24 }
+'.-my-7': { top: -28, bottom: -28 }
+'.-my-8': { top: -32, bottom: -32 }
+'.-my-9': { top: -36, bottom: -36 }
+'.-my-10': { top: -40, bottom: -40 }
+'.-my-11': { top: -44, bottom: -44 }
+'.-my-12': { top: -48, bottom: -48 }
+'.-my-13': { top: -52, bottom: -52 }
+'.-my-14': { top: -56, bottom: -56 }
+'.-my-15': { top: -60, bottom: -60 }
+'.-my-16': { top: -64, bottom: -64 }
+'.-my-20': { top: -80, bottom: -80 }
+'.-my-24': { top: -96, bottom: -96 }
+'.-my-28': { top: -112, bottom: -112 }
+'.-my-32': { top: -128, bottom: -128 }
+'.-my-36': { top: -144, bottom: -144 }
+'.-my-40': { top: -160, bottom: -160 }
+'.-my-48': { top: -192, bottom: -192 }
+'.-my-56': { top: -224, bottom: -224 }
+'.-my-60': { top: -240, bottom: -240 }
+'.-my-64': { top: -256, bottom: -256 }
+'.-my-72': { top: -288, bottom: -288 }
+'.-my-80': { top: -320, bottom: -320 }
+'.-my-96': { top: -384, bottom: -384 }
+'.-my-px': { top: -1, bottom: -1 }
+'.-my-0.5': { top: -2, bottom: -2 }
+'.-my-1.5': { top: -6, bottom: -6 }
+'.-my-2.5': { top: -10, bottom: -10 }
+'.-my-3.5': { top: -14, bottom: -14 }
+'.-my-1/2': { top: '-50%', bottom: '-50%' }
+'.-my-1/3': { top: '-33.333333%', bottom: '-33.333333%' }
+'.-my-2/3': { top: '-66.666667%', bottom: '-66.666667%' }
+'.-my-1/4': { top: '-25%', bottom: '-25%' }
+'.-my-2/4': { top: '-50%', bottom: '-50%' }
+'.-my-3/4': { top: '-75%', bottom: '-75%' }
+'.-my-1/5': { top: '-20%', bottom: '-20%' }
+'.-my-2/5': { top: '-40%', bottom: '-40%' }
+'.-my-3/5': { top: '-60%', bottom: '-60%' }
+'.-my-4/5': { top: '-80%', bottom: '-80%' }
+'.-my-1/6': { top: '-16.666667%', bottom: '-16.666667%' }
+'.-my-2/6': { top: '-33.333333%', bottom: '-33.333333%' }
+'.-my-3/6': { top: '-50%', bottom: '-50%' }
+'.-my-4/6': { top: '-66.666667%', bottom: '-66.666667%' }
+'.-my-5/6': { top: '-83.333333%', bottom: '-83.333333%' }
+'.-my-1/12': { top: '-8.333333%', bottom: '-8.333333%' }
+'.-my-2/12': { top: '-16.666667%', bottom: '-16.666667%' }
+'.-my-3/12': { top: '-25%', bottom: '-25%' }
+'.-my-4/12': { top: '-33.333333%', bottom: '-33.333333%' }
+'.-my-5/12': { top: '-41.666667%', bottom: '-41.666667%' }
+'.-my-6/12': { top: '-50%', bottom: '-50%' }
+'.-my-7/12': { top: '-58.333333%', bottom: '-58.333333%' }
+'.-my-8/12': { top: '-66.666667%', bottom: '-66.666667%' }
+'.-my-9/12': { top: '-75%', bottom: '-75%' }
+'.-my-10/12': { top: '-83.333333%', bottom: '-83.333333%' }
+'.-my-11/12': { top: '-91.666667%', bottom: '-91.666667%' }
+'.-my-full': { top: '-100%', bottom: '-100%' }
+'.mx-0': { right: 0, left: 0 }
+'.mx-1': { right: 4, left: 4 }
+'.mx-2': { right: 8, left: 8 }
+'.mx-3': { right: 12, left: 12 }
+'.mx-4': { right: 16, left: 16 }
+'.mx-5': { right: 20, left: 20 }
+'.mx-6': { right: 24, left: 24 }
+'.mx-7': { right: 28, left: 28 }
+'.mx-8': { right: 32, left: 32 }
+'.mx-9': { right: 36, left: 36 }
+'.mx-10': { right: 40, left: 40 }
+'.mx-11': { right: 44, left: 44 }
+'.mx-12': { right: 48, left: 48 }
+'.mx-13': { right: 52, left: 52 }
+'.mx-14': { right: 56, left: 56 }
+'.mx-15': { right: 60, left: 60 }
+'.mx-16': { right: 64, left: 64 }
+'.mx-20': { right: 80, left: 80 }
+'.mx-24': { right: 96, left: 96 }
+'.mx-28': { right: 112, left: 112 }
+'.mx-32': { right: 128, left: 128 }
+'.mx-36': { right: 144, left: 144 }
+'.mx-40': { right: 160, left: 160 }
+'.mx-48': { right: 192, left: 192 }
+'.mx-56': { right: 224, left: 224 }
+'.mx-60': { right: 240, left: 240 }
+'.mx-64': { right: 256, left: 256 }
+'.mx-72': { right: 288, left: 288 }
+'.mx-80': { right: 320, left: 320 }
+'.mx-96': { right: 384, left: 384 }
+'.mx-px': { right: 1, left: 1 }
+'.mx-0.5': { right: 2, left: 2 }
+'.mx-1.5': { right: 6, left: 6 }
+'.mx-2.5': { right: 10, left: 10 }
+'.mx-3.5': { right: 14, left: 14 }
+'.mx-1/2': { right: '50%', left: '50%' }
+'.mx-1/3': { right: '33.333333%', left: '33.333333%' }
+'.mx-2/3': { right: '66.666667%', left: '66.666667%' }
+'.mx-1/4': { right: '25%', left: '25%' }
+'.mx-2/4': { right: '50%', left: '50%' }
+'.mx-3/4': { right: '75%', left: '75%' }
+'.mx-1/5': { right: '20%', left: '20%' }
+'.mx-2/5': { right: '40%', left: '40%' }
+'.mx-3/5': { right: '60%', left: '60%' }
+'.mx-4/5': { right: '80%', left: '80%' }
+'.mx-1/6': { right: '16.666667%', left: '16.666667%' }
+'.mx-2/6': { right: '33.333333%', left: '33.333333%' }
+'.mx-3/6': { right: '50%', left: '50%' }
+'.mx-4/6': { right: '66.666667%', left: '66.666667%' }
+'.mx-5/6': { right: '83.333333%', left: '83.333333%' }
+'.mx-1/12': { right: '8.333333%', left: '8.333333%' }
+'.mx-2/12': { right: '16.666667%', left: '16.666667%' }
+'.mx-3/12': { right: '25%', left: '25%' }
+'.mx-4/12': { right: '33.333333%', left: '33.333333%' }
+'.mx-5/12': { right: '41.666667%', left: '41.666667%' }
+'.mx-6/12': { right: '50%', left: '50%' }
+'.mx-7/12': { right: '58.333333%', left: '58.333333%' }
+'.mx-8/12': { right: '66.666667%', left: '66.666667%' }
+'.mx-9/12': { right: '75%', left: '75%' }
+'.mx-10/12': { right: '83.333333%', left: '83.333333%' }
+'.mx-11/12': { right: '91.666667%', left: '91.666667%' }
+'.mx-full': { right: '100%', left: '100%' }
+'.mx-auto': { right: null, left: null }
+'.-mx-1': { right: -4, left: -4 }
+'.-mx-2': { right: -8, left: -8 }
+'.-mx-3': { right: -12, left: -12 }
+'.-mx-4': { right: -16, left: -16 }
+'.-mx-5': { right: -20, left: -20 }
+'.-mx-6': { right: -24, left: -24 }
+'.-mx-7': { right: -28, left: -28 }
+'.-mx-8': { right: -32, left: -32 }
+'.-mx-9': { right: -36, left: -36 }
+'.-mx-10': { right: -40, left: -40 }
+'.-mx-11': { right: -44, left: -44 }
+'.-mx-12': { right: -48, left: -48 }
+'.-mx-13': { right: -52, left: -52 }
+'.-mx-14': { right: -56, left: -56 }
+'.-mx-15': { right: -60, left: -60 }
+'.-mx-16': { right: -64, left: -64 }
+'.-mx-20': { right: -80, left: -80 }
+'.-mx-24': { right: -96, left: -96 }
+'.-mx-28': { right: -112, left: -112 }
+'.-mx-32': { right: -128, left: -128 }
+'.-mx-36': { right: -144, left: -144 }
+'.-mx-40': { right: -160, left: -160 }
+'.-mx-48': { right: -192, left: -192 }
+'.-mx-56': { right: -224, left: -224 }
+'.-mx-60': { right: -240, left: -240 }
+'.-mx-64': { right: -256, left: -256 }
+'.-mx-72': { right: -288, left: -288 }
+'.-mx-80': { right: -320, left: -320 }
+'.-mx-96': { right: -384, left: -384 }
+'.-mx-px': { right: -1, left: -1 }
+'.-mx-0.5': { right: -2, left: -2 }
+'.-mx-1.5': { right: -6, left: -6 }
+'.-mx-2.5': { right: -10, left: -10 }
+'.-mx-3.5': { right: -14, left: -14 }
+'.-mx-1/2': { right: '-50%', left: '-50%' }
+'.-mx-1/3': { right: '-33.333333%', left: '-33.333333%' }
+'.-mx-2/3': { right: '-66.666667%', left: '-66.666667%' }
+'.-mx-1/4': { right: '-25%', left: '-25%' }
+'.-mx-2/4': { right: '-50%', left: '-50%' }
+'.-mx-3/4': { right: '-75%', left: '-75%' }
+'.-mx-1/5': { right: '-20%', left: '-20%' }
+'.-mx-2/5': { right: '-40%', left: '-40%' }
+'.-mx-3/5': { right: '-60%', left: '-60%' }
+'.-mx-4/5': { right: '-80%', left: '-80%' }
+'.-mx-1/6': { right: '-16.666667%', left: '-16.666667%' }
+'.-mx-2/6': { right: '-33.333333%', left: '-33.333333%' }
+'.-mx-3/6': { right: '-50%', left: '-50%' }
+'.-mx-4/6': { right: '-66.666667%', left: '-66.666667%' }
+'.-mx-5/6': { right: '-83.333333%', left: '-83.333333%' }
+'.-mx-1/12': { right: '-8.333333%', left: '-8.333333%' }
+'.-mx-2/12': { right: '-16.666667%', left: '-16.666667%' }
+'.-mx-3/12': { right: '-25%', left: '-25%' }
+'.-mx-4/12': { right: '-33.333333%', left: '-33.333333%' }
+'.-mx-5/12': { right: '-41.666667%', left: '-41.666667%' }
+'.-mx-6/12': { right: '-50%', left: '-50%' }
+'.-mx-7/12': { right: '-58.333333%', left: '-58.333333%' }
+'.-mx-8/12': { right: '-66.666667%', left: '-66.666667%' }
+'.-mx-9/12': { right: '-75%', left: '-75%' }
+'.-mx-10/12': { right: '-83.333333%', left: '-83.333333%' }
+'.-mx-11/12': { right: '-91.666667%', left: '-91.666667%' }
+'.-mx-full': { right: '-100%', left: '-100%' }
+'.mt-0': { top: 0 }
+'.mt-1': { top: 4 }
+'.mt-2': { top: 8 }
+'.mt-3': { top: 12 }
+'.mt-4': { top: 16 }
+'.mt-5': { top: 20 }
+'.mt-6': { top: 24 }
+'.mt-7': { top: 28 }
+'.mt-8': { top: 32 }
+'.mt-9': { top: 36 }
+'.mt-10': { top: 40 }
+'.mt-11': { top: 44 }
+'.mt-12': { top: 48 }
+'.mt-13': { top: 52 }
+'.mt-14': { top: 56 }
+'.mt-15': { top: 60 }
+'.mt-16': { top: 64 }
+'.mt-20': { top: 80 }
+'.mt-24': { top: 96 }
+'.mt-28': { top: 112 }
+'.mt-32': { top: 128 }
+'.mt-36': { top: 144 }
+'.mt-40': { top: 160 }
+'.mt-48': { top: 192 }
+'.mt-56': { top: 224 }
+'.mt-60': { top: 240 }
+'.mt-64': { top: 256 }
+'.mt-72': { top: 288 }
+'.mt-80': { top: 320 }
+'.mt-96': { top: 384 }
+'.mt-px': { top: 1 }
+'.mt-0.5': { top: 2 }
+'.mt-1.5': { top: 6 }
+'.mt-2.5': { top: 10 }
+'.mt-3.5': { top: 14 }
+'.mt-1/2': { top: '50%' }
+'.mt-1/3': { top: '33.333333%' }
+'.mt-2/3': { top: '66.666667%' }
+'.mt-1/4': { top: '25%' }
+'.mt-2/4': { top: '50%' }
+'.mt-3/4': { top: '75%' }
+'.mt-1/5': { top: '20%' }
+'.mt-2/5': { top: '40%' }
+'.mt-3/5': { top: '60%' }
+'.mt-4/5': { top: '80%' }
+'.mt-1/6': { top: '16.666667%' }
+'.mt-2/6': { top: '33.333333%' }
+'.mt-3/6': { top: '50%' }
+'.mt-4/6': { top: '66.666667%' }
+'.mt-5/6': { top: '83.333333%' }
+'.mt-1/12': { top: '8.333333%' }
+'.mt-2/12': { top: '16.666667%' }
+'.mt-3/12': { top: '25%' }
+'.mt-4/12': { top: '33.333333%' }
+'.mt-5/12': { top: '41.666667%' }
+'.mt-6/12': { top: '50%' }
+'.mt-7/12': { top: '58.333333%' }
+'.mt-8/12': { top: '66.666667%' }
+'.mt-9/12': { top: '75%' }
+'.mt-10/12': { top: '83.333333%' }
+'.mt-11/12': { top: '91.666667%' }
+'.mt-full': { top: '100%' }
+'.mt-auto': { top: null }
+'.-mt-1': { top: -4 }
+'.-mt-2': { top: -8 }
+'.-mt-3': { top: -12 }
+'.-mt-4': { top: -16 }
+'.-mt-5': { top: -20 }
+'.-mt-6': { top: -24 }
+'.-mt-7': { top: -28 }
+'.-mt-8': { top: -32 }
+'.-mt-9': { top: -36 }
+'.-mt-10': { top: -40 }
+'.-mt-11': { top: -44 }
+'.-mt-12': { top: -48 }
+'.-mt-13': { top: -52 }
+'.-mt-14': { top: -56 }
+'.-mt-15': { top: -60 }
+'.-mt-16': { top: -64 }
+'.-mt-20': { top: -80 }
+'.-mt-24': { top: -96 }
+'.-mt-28': { top: -112 }
+'.-mt-32': { top: -128 }
+'.-mt-36': { top: -144 }
+'.-mt-40': { top: -160 }
+'.-mt-48': { top: -192 }
+'.-mt-56': { top: -224 }
+'.-mt-60': { top: -240 }
+'.-mt-64': { top: -256 }
+'.-mt-72': { top: -288 }
+'.-mt-80': { top: -320 }
+'.-mt-96': { top: -384 }
+'.-mt-px': { top: -1 }
+'.-mt-0.5': { top: -2 }
+'.-mt-1.5': { top: -6 }
+'.-mt-2.5': { top: -10 }
+'.-mt-3.5': { top: -14 }
+'.-mt-1/2': { top: '-50%' }
+'.-mt-1/3': { top: '-33.333333%' }
+'.-mt-2/3': { top: '-66.666667%' }
+'.-mt-1/4': { top: '-25%' }
+'.-mt-2/4': { top: '-50%' }
+'.-mt-3/4': { top: '-75%' }
+'.-mt-1/5': { top: '-20%' }
+'.-mt-2/5': { top: '-40%' }
+'.-mt-3/5': { top: '-60%' }
+'.-mt-4/5': { top: '-80%' }
+'.-mt-1/6': { top: '-16.666667%' }
+'.-mt-2/6': { top: '-33.333333%' }
+'.-mt-3/6': { top: '-50%' }
+'.-mt-4/6': { top: '-66.666667%' }
+'.-mt-5/6': { top: '-83.333333%' }
+'.-mt-1/12': { top: '-8.333333%' }
+'.-mt-2/12': { top: '-16.666667%' }
+'.-mt-3/12': { top: '-25%' }
+'.-mt-4/12': { top: '-33.333333%' }
+'.-mt-5/12': { top: '-41.666667%' }
+'.-mt-6/12': { top: '-50%' }
+'.-mt-7/12': { top: '-58.333333%' }
+'.-mt-8/12': { top: '-66.666667%' }
+'.-mt-9/12': { top: '-75%' }
+'.-mt-10/12': { top: '-83.333333%' }
+'.-mt-11/12': { top: '-91.666667%' }
+'.-mt-full': { top: '-100%' }
+'.mr-0': { right: 0 }
+'.mr-1': { right: 4 }
+'.mr-2': { right: 8 }
+'.mr-3': { right: 12 }
+'.mr-4': { right: 16 }
+'.mr-5': { right: 20 }
+'.mr-6': { right: 24 }
+'.mr-7': { right: 28 }
+'.mr-8': { right: 32 }
+'.mr-9': { right: 36 }
+'.mr-10': { right: 40 }
+'.mr-11': { right: 44 }
+'.mr-12': { right: 48 }
+'.mr-13': { right: 52 }
+'.mr-14': { right: 56 }
+'.mr-15': { right: 60 }
+'.mr-16': { right: 64 }
+'.mr-20': { right: 80 }
+'.mr-24': { right: 96 }
+'.mr-28': { right: 112 }
+'.mr-32': { right: 128 }
+'.mr-36': { right: 144 }
+'.mr-40': { right: 160 }
+'.mr-48': { right: 192 }
+'.mr-56': { right: 224 }
+'.mr-60': { right: 240 }
+'.mr-64': { right: 256 }
+'.mr-72': { right: 288 }
+'.mr-80': { right: 320 }
+'.mr-96': { right: 384 }
+'.mr-px': { right: 1 }
+'.mr-0.5': { right: 2 }
+'.mr-1.5': { right: 6 }
+'.mr-2.5': { right: 10 }
+'.mr-3.5': { right: 14 }
+'.mr-1/2': { right: '50%' }
+'.mr-1/3': { right: '33.333333%' }
+'.mr-2/3': { right: '66.666667%' }
+'.mr-1/4': { right: '25%' }
+'.mr-2/4': { right: '50%' }
+'.mr-3/4': { right: '75%' }
+'.mr-1/5': { right: '20%' }
+'.mr-2/5': { right: '40%' }
+'.mr-3/5': { right: '60%' }
+'.mr-4/5': { right: '80%' }
+'.mr-1/6': { right: '16.666667%' }
+'.mr-2/6': { right: '33.333333%' }
+'.mr-3/6': { right: '50%' }
+'.mr-4/6': { right: '66.666667%' }
+'.mr-5/6': { right: '83.333333%' }
+'.mr-1/12': { right: '8.333333%' }
+'.mr-2/12': { right: '16.666667%' }
+'.mr-3/12': { right: '25%' }
+'.mr-4/12': { right: '33.333333%' }
+'.mr-5/12': { right: '41.666667%' }
+'.mr-6/12': { right: '50%' }
+'.mr-7/12': { right: '58.333333%' }
+'.mr-8/12': { right: '66.666667%' }
+'.mr-9/12': { right: '75%' }
+'.mr-10/12': { right: '83.333333%' }
+'.mr-11/12': { right: '91.666667%' }
+'.mr-full': { right: '100%' }
+'.mr-auto': { right: null }
+'.-mr-1': { right: -4 }
+'.-mr-2': { right: -8 }
+'.-mr-3': { right: -12 }
+'.-mr-4': { right: -16 }
+'.-mr-5': { right: -20 }
+'.-mr-6': { right: -24 }
+'.-mr-7': { right: -28 }
+'.-mr-8': { right: -32 }
+'.-mr-9': { right: -36 }
+'.-mr-10': { right: -40 }
+'.-mr-11': { right: -44 }
+'.-mr-12': { right: -48 }
+'.-mr-13': { right: -52 }
+'.-mr-14': { right: -56 }
+'.-mr-15': { right: -60 }
+'.-mr-16': { right: -64 }
+'.-mr-20': { right: -80 }
+'.-mr-24': { right: -96 }
+'.-mr-28': { right: -112 }
+'.-mr-32': { right: -128 }
+'.-mr-36': { right: -144 }
+'.-mr-40': { right: -160 }
+'.-mr-48': { right: -192 }
+'.-mr-56': { right: -224 }
+'.-mr-60': { right: -240 }
+'.-mr-64': { right: -256 }
+'.-mr-72': { right: -288 }
+'.-mr-80': { right: -320 }
+'.-mr-96': { right: -384 }
+'.-mr-px': { right: -1 }
+'.-mr-0.5': { right: -2 }
+'.-mr-1.5': { right: -6 }
+'.-mr-2.5': { right: -10 }
+'.-mr-3.5': { right: -14 }
+'.-mr-1/2': { right: '-50%' }
+'.-mr-1/3': { right: '-33.333333%' }
+'.-mr-2/3': { right: '-66.666667%' }
+'.-mr-1/4': { right: '-25%' }
+'.-mr-2/4': { right: '-50%' }
+'.-mr-3/4': { right: '-75%' }
+'.-mr-1/5': { right: '-20%' }
+'.-mr-2/5': { right: '-40%' }
+'.-mr-3/5': { right: '-60%' }
+'.-mr-4/5': { right: '-80%' }
+'.-mr-1/6': { right: '-16.666667%' }
+'.-mr-2/6': { right: '-33.333333%' }
+'.-mr-3/6': { right: '-50%' }
+'.-mr-4/6': { right: '-66.666667%' }
+'.-mr-5/6': { right: '-83.333333%' }
+'.-mr-1/12': { right: '-8.333333%' }
+'.-mr-2/12': { right: '-16.666667%' }
+'.-mr-3/12': { right: '-25%' }
+'.-mr-4/12': { right: '-33.333333%' }
+'.-mr-5/12': { right: '-41.666667%' }
+'.-mr-6/12': { right: '-50%' }
+'.-mr-7/12': { right: '-58.333333%' }
+'.-mr-8/12': { right: '-66.666667%' }
+'.-mr-9/12': { right: '-75%' }
+'.-mr-10/12': { right: '-83.333333%' }
+'.-mr-11/12': { right: '-91.666667%' }
+'.-mr-full': { right: '-100%' }
+'.mb-0': { bottom: 0 }
+'.mb-1': { bottom: 4 }
+'.mb-2': { bottom: 8 }
+'.mb-3': { bottom: 12 }
+'.mb-4': { bottom: 16 }
+'.mb-5': { bottom: 20 }
+'.mb-6': { bottom: 24 }
+'.mb-7': { bottom: 28 }
+'.mb-8': { bottom: 32 }
+'.mb-9': { bottom: 36 }
+'.mb-10': { bottom: 40 }
+'.mb-11': { bottom: 44 }
+'.mb-12': { bottom: 48 }
+'.mb-13': { bottom: 52 }
+'.mb-14': { bottom: 56 }
+'.mb-15': { bottom: 60 }
+'.mb-16': { bottom: 64 }
+'.mb-20': { bottom: 80 }
+'.mb-24': { bottom: 96 }
+'.mb-28': { bottom: 112 }
+'.mb-32': { bottom: 128 }
+'.mb-36': { bottom: 144 }
+'.mb-40': { bottom: 160 }
+'.mb-48': { bottom: 192 }
+'.mb-56': { bottom: 224 }
+'.mb-60': { bottom: 240 }
+'.mb-64': { bottom: 256 }
+'.mb-72': { bottom: 288 }
+'.mb-80': { bottom: 320 }
+'.mb-96': { bottom: 384 }
+'.mb-px': { bottom: 1 }
+'.mb-0.5': { bottom: 2 }
+'.mb-1.5': { bottom: 6 }
+'.mb-2.5': { bottom: 10 }
+'.mb-3.5': { bottom: 14 }
+'.mb-1/2': { bottom: '50%' }
+'.mb-1/3': { bottom: '33.333333%' }
+'.mb-2/3': { bottom: '66.666667%' }
+'.mb-1/4': { bottom: '25%' }
+'.mb-2/4': { bottom: '50%' }
+'.mb-3/4': { bottom: '75%' }
+'.mb-1/5': { bottom: '20%' }
+'.mb-2/5': { bottom: '40%' }
+'.mb-3/5': { bottom: '60%' }
+'.mb-4/5': { bottom: '80%' }
+'.mb-1/6': { bottom: '16.666667%' }
+'.mb-2/6': { bottom: '33.333333%' }
+'.mb-3/6': { bottom: '50%' }
+'.mb-4/6': { bottom: '66.666667%' }
+'.mb-5/6': { bottom: '83.333333%' }
+'.mb-1/12': { bottom: '8.333333%' }
+'.mb-2/12': { bottom: '16.666667%' }
+'.mb-3/12': { bottom: '25%' }
+'.mb-4/12': { bottom: '33.333333%' }
+'.mb-5/12': { bottom: '41.666667%' }
+'.mb-6/12': { bottom: '50%' }
+'.mb-7/12': { bottom: '58.333333%' }
+'.mb-8/12': { bottom: '66.666667%' }
+'.mb-9/12': { bottom: '75%' }
+'.mb-10/12': { bottom: '83.333333%' }
+'.mb-11/12': { bottom: '91.666667%' }
+'.mb-full': { bottom: '100%' }
+'.mb-auto': { bottom: null }
+'.-mb-1': { bottom: -4 }
+'.-mb-2': { bottom: -8 }
+'.-mb-3': { bottom: -12 }
+'.-mb-4': { bottom: -16 }
+'.-mb-5': { bottom: -20 }
+'.-mb-6': { bottom: -24 }
+'.-mb-7': { bottom: -28 }
+'.-mb-8': { bottom: -32 }
+'.-mb-9': { bottom: -36 }
+'.-mb-10': { bottom: -40 }
+'.-mb-11': { bottom: -44 }
+'.-mb-12': { bottom: -48 }
+'.-mb-13': { bottom: -52 }
+'.-mb-14': { bottom: -56 }
+'.-mb-15': { bottom: -60 }
+'.-mb-16': { bottom: -64 }
+'.-mb-20': { bottom: -80 }
+'.-mb-24': { bottom: -96 }
+'.-mb-28': { bottom: -112 }
+'.-mb-32': { bottom: -128 }
+'.-mb-36': { bottom: -144 }
+'.-mb-40': { bottom: -160 }
+'.-mb-48': { bottom: -192 }
+'.-mb-56': { bottom: -224 }
+'.-mb-60': { bottom: -240 }
+'.-mb-64': { bottom: -256 }
+'.-mb-72': { bottom: -288 }
+'.-mb-80': { bottom: -320 }
+'.-mb-96': { bottom: -384 }
+'.-mb-px': { bottom: -1 }
+'.-mb-0.5': { bottom: -2 }
+'.-mb-1.5': { bottom: -6 }
+'.-mb-2.5': { bottom: -10 }
+'.-mb-3.5': { bottom: -14 }
+'.-mb-1/2': { bottom: '-50%' }
+'.-mb-1/3': { bottom: '-33.333333%' }
+'.-mb-2/3': { bottom: '-66.666667%' }
+'.-mb-1/4': { bottom: '-25%' }
+'.-mb-2/4': { bottom: '-50%' }
+'.-mb-3/4': { bottom: '-75%' }
+'.-mb-1/5': { bottom: '-20%' }
+'.-mb-2/5': { bottom: '-40%' }
+'.-mb-3/5': { bottom: '-60%' }
+'.-mb-4/5': { bottom: '-80%' }
+'.-mb-1/6': { bottom: '-16.666667%' }
+'.-mb-2/6': { bottom: '-33.333333%' }
+'.-mb-3/6': { bottom: '-50%' }
+'.-mb-4/6': { bottom: '-66.666667%' }
+'.-mb-5/6': { bottom: '-83.333333%' }
+'.-mb-1/12': { bottom: '-8.333333%' }
+'.-mb-2/12': { bottom: '-16.666667%' }
+'.-mb-3/12': { bottom: '-25%' }
+'.-mb-4/12': { bottom: '-33.333333%' }
+'.-mb-5/12': { bottom: '-41.666667%' }
+'.-mb-6/12': { bottom: '-50%' }
+'.-mb-7/12': { bottom: '-58.333333%' }
+'.-mb-8/12': { bottom: '-66.666667%' }
+'.-mb-9/12': { bottom: '-75%' }
+'.-mb-10/12': { bottom: '-83.333333%' }
+'.-mb-11/12': { bottom: '-91.666667%' }
+'.-mb-full': { bottom: '-100%' }
+'.ml-0': { left: 0 }
+'.ml-1': { left: 4 }
+'.ml-2': { left: 8 }
+'.ml-3': { left: 12 }
+'.ml-4': { left: 16 }
+'.ml-5': { left: 20 }
+'.ml-6': { left: 24 }
+'.ml-7': { left: 28 }
+'.ml-8': { left: 32 }
+'.ml-9': { left: 36 }
+'.ml-10': { left: 40 }
+'.ml-11': { left: 44 }
+'.ml-12': { left: 48 }
+'.ml-13': { left: 52 }
+'.ml-14': { left: 56 }
+'.ml-15': { left: 60 }
+'.ml-16': { left: 64 }
+'.ml-20': { left: 80 }
+'.ml-24': { left: 96 }
+'.ml-28': { left: 112 }
+'.ml-32': { left: 128 }
+'.ml-36': { left: 144 }
+'.ml-40': { left: 160 }
+'.ml-48': { left: 192 }
+'.ml-56': { left: 224 }
+'.ml-60': { left: 240 }
+'.ml-64': { left: 256 }
+'.ml-72': { left: 288 }
+'.ml-80': { left: 320 }
+'.ml-96': { left: 384 }
+'.ml-px': { left: 1 }
+'.ml-0.5': { left: 2 }
+'.ml-1.5': { left: 6 }
+'.ml-2.5': { left: 10 }
+'.ml-3.5': { left: 14 }
+'.ml-1/2': { left: '50%' }
+'.ml-1/3': { left: '33.333333%' }
+'.ml-2/3': { left: '66.666667%' }
+'.ml-1/4': { left: '25%' }
+'.ml-2/4': { left: '50%' }
+'.ml-3/4': { left: '75%' }
+'.ml-1/5': { left: '20%' }
+'.ml-2/5': { left: '40%' }
+'.ml-3/5': { left: '60%' }
+'.ml-4/5': { left: '80%' }
+'.ml-1/6': { left: '16.666667%' }
+'.ml-2/6': { left: '33.333333%' }
+'.ml-3/6': { left: '50%' }
+'.ml-4/6': { left: '66.666667%' }
+'.ml-5/6': { left: '83.333333%' }
+'.ml-1/12': { left: '8.333333%' }
+'.ml-2/12': { left: '16.666667%' }
+'.ml-3/12': { left: '25%' }
+'.ml-4/12': { left: '33.333333%' }
+'.ml-5/12': { left: '41.666667%' }
+'.ml-6/12': { left: '50%' }
+'.ml-7/12': { left: '58.333333%' }
+'.ml-8/12': { left: '66.666667%' }
+'.ml-9/12': { left: '75%' }
+'.ml-10/12': { left: '83.333333%' }
+'.ml-11/12': { left: '91.666667%' }
+'.ml-full': { left: '100%' }
+'.ml-auto': { left: null }
+'.-ml-1': { left: -4 }
+'.-ml-2': { left: -8 }
+'.-ml-3': { left: -12 }
+'.-ml-4': { left: -16 }
+'.-ml-5': { left: -20 }
+'.-ml-6': { left: -24 }
+'.-ml-7': { left: -28 }
+'.-ml-8': { left: -32 }
+'.-ml-9': { left: -36 }
+'.-ml-10': { left: -40 }
+'.-ml-11': { left: -44 }
+'.-ml-12': { left: -48 }
+'.-ml-13': { left: -52 }
+'.-ml-14': { left: -56 }
+'.-ml-15': { left: -60 }
+'.-ml-16': { left: -64 }
+'.-ml-20': { left: -80 }
+'.-ml-24': { left: -96 }
+'.-ml-28': { left: -112 }
+'.-ml-32': { left: -128 }
+'.-ml-36': { left: -144 }
+'.-ml-40': { left: -160 }
+'.-ml-48': { left: -192 }
+'.-ml-56': { left: -224 }
+'.-ml-60': { left: -240 }
+'.-ml-64': { left: -256 }
+'.-ml-72': { left: -288 }
+'.-ml-80': { left: -320 }
+'.-ml-96': { left: -384 }
+'.-ml-px': { left: -1 }
+'.-ml-0.5': { left: -2 }
+'.-ml-1.5': { left: -6 }
+'.-ml-2.5': { left: -10 }
+'.-ml-3.5': { left: -14 }
+'.-ml-1/2': { left: '-50%' }
+'.-ml-1/3': { left: '-33.333333%' }
+'.-ml-2/3': { left: '-66.666667%' }
+'.-ml-1/4': { left: '-25%' }
+'.-ml-2/4': { left: '-50%' }
+'.-ml-3/4': { left: '-75%' }
+'.-ml-1/5': { left: '-20%' }
+'.-ml-2/5': { left: '-40%' }
+'.-ml-3/5': { left: '-60%' }
+'.-ml-4/5': { left: '-80%' }
+'.-ml-1/6': { left: '-16.666667%' }
+'.-ml-2/6': { left: '-33.333333%' }
+'.-ml-3/6': { left: '-50%' }
+'.-ml-4/6': { left: '-66.666667%' }
+'.-ml-5/6': { left: '-83.333333%' }
+'.-ml-1/12': { left: '-8.333333%' }
+'.-ml-2/12': { left: '-16.666667%' }
+'.-ml-3/12': { left: '-25%' }
+'.-ml-4/12': { left: '-33.333333%' }
+'.-ml-5/12': { left: '-41.666667%' }
+'.-ml-6/12': { left: '-50%' }
+'.-ml-7/12': { left: '-58.333333%' }
+'.-ml-8/12': { left: '-66.666667%' }
+'.-ml-9/12': { left: '-75%' }
+'.-ml-10/12': { left: '-83.333333%' }
+'.-ml-11/12': { left: '-91.666667%' }
+'.-ml-full': { left: '-100%' }
+
+// Padding
+'.p-0': { padding: { top: 0, right: 0, bottom: 0, left: 0 } }
+'.p-1': { padding: { top: 4, right: 4, bottom: 4, left: 4 } }
+'.p-2': { padding: { top: 8, right: 8, bottom: 8, left: 8 } }
+'.p-3': { padding: { top: 12, right: 12, bottom: 12, left: 12 } }
+'.p-4': { padding: { top: 16, right: 16, bottom: 16, left: 16 } }
+'.p-5': { padding: { top: 20, right: 20, bottom: 20, left: 20 } }
+'.p-6': { padding: { top: 24, right: 24, bottom: 24, left: 24 } }
+'.p-7': { padding: { top: 28, right: 28, bottom: 28, left: 28 } }
+'.p-8': { padding: { top: 32, right: 32, bottom: 32, left: 32 } }
+'.p-9': { padding: { top: 36, right: 36, bottom: 36, left: 36 } }
+'.p-10': { padding: { top: 40, right: 40, bottom: 40, left: 40 } }
+'.p-11': { padding: { top: 44, right: 44, bottom: 44, left: 44 } }
+'.p-12': { padding: { top: 48, right: 48, bottom: 48, left: 48 } }
+'.p-13': { padding: { top: 52, right: 52, bottom: 52, left: 52 } }
+'.p-14': { padding: { top: 56, right: 56, bottom: 56, left: 56 } }
+'.p-15': { padding: { top: 60, right: 60, bottom: 60, left: 60 } }
+'.p-16': { padding: { top: 64, right: 64, bottom: 64, left: 64 } }
+'.p-20': { padding: { top: 80, right: 80, bottom: 80, left: 80 } }
+'.p-24': { padding: { top: 96, right: 96, bottom: 96, left: 96 } }
+'.p-28': { padding: { top: 112, right: 112, bottom: 112, left: 112 } }
+'.p-32': { padding: { top: 128, right: 128, bottom: 128, left: 128 } }
+'.p-36': { padding: { top: 144, right: 144, bottom: 144, left: 144 } }
+'.p-40': { padding: { top: 160, right: 160, bottom: 160, left: 160 } }
+'.p-48': { padding: { top: 192, right: 192, bottom: 192, left: 192 } }
+'.p-56': { padding: { top: 224, right: 224, bottom: 224, left: 224 } }
+'.p-60': { padding: { top: 240, right: 240, bottom: 240, left: 240 } }
+'.p-64': { padding: { top: 256, right: 256, bottom: 256, left: 256 } }
+'.p-72': { padding: { top: 288, right: 288, bottom: 288, left: 288 } }
+'.p-80': { padding: { top: 320, right: 320, bottom: 320, left: 320 } }
+'.p-96': { padding: { top: 384, right: 384, bottom: 384, left: 384 } }
+'.p-px': { padding: { top: 1, right: 1, bottom: 1, left: 1 } }
+'.p-0.5': { padding: { top: 2, right: 2, bottom: 2, left: 2 } }
+'.p-1.5': { padding: { top: 6, right: 6, bottom: 6, left: 6 } }
+'.p-2.5': { padding: { top: 10, right: 10, bottom: 10, left: 10 } }
+'.p-3.5': { padding: { top: 14, right: 14, bottom: 14, left: 14 } }
+'.p-1/2': { padding: { top: '50%', right: '50%', bottom: '50%', left: '50%' } }
+'.p-1/3': { padding: { top: '33.333333%', right: '33.333333%', bottom: '33.333333%', left: '33.333333%' } }
+'.p-2/3': { padding: { top: '66.666667%', right: '66.666667%', bottom: '66.666667%', left: '66.666667%' } }
+'.p-1/4': { padding: { top: '25%', right: '25%', bottom: '25%', left: '25%' } }
+'.p-2/4': { padding: { top: '50%', right: '50%', bottom: '50%', left: '50%' } }
+'.p-3/4': { padding: { top: '75%', right: '75%', bottom: '75%', left: '75%' } }
+'.p-1/5': { padding: { top: '20%', right: '20%', bottom: '20%', left: '20%' } }
+'.p-2/5': { padding: { top: '40%', right: '40%', bottom: '40%', left: '40%' } }
+'.p-3/5': { padding: { top: '60%', right: '60%', bottom: '60%', left: '60%' } }
+'.p-4/5': { padding: { top: '80%', right: '80%', bottom: '80%', left: '80%' } }
+'.p-1/6': { padding: { top: '16.666667%', right: '16.666667%', bottom: '16.666667%', left: '16.666667%' } }
+'.p-2/6': { padding: { top: '33.333333%', right: '33.333333%', bottom: '33.333333%', left: '33.333333%' } }
+'.p-3/6': { padding: { top: '50%', right: '50%', bottom: '50%', left: '50%' } }
+'.p-4/6': { padding: { top: '66.666667%', right: '66.666667%', bottom: '66.666667%', left: '66.666667%' } }
+'.p-5/6': { padding: { top: '83.333333%', right: '83.333333%', bottom: '83.333333%', left: '83.333333%' } }
+'.p-1/12': { padding: { top: '8.333333%', right: '8.333333%', bottom: '8.333333%', left: '8.333333%' } }
+'.p-2/12': { padding: { top: '16.666667%', right: '16.666667%', bottom: '16.666667%', left: '16.666667%' } }
+'.p-3/12': { padding: { top: '25%', right: '25%', bottom: '25%', left: '25%' } }
+'.p-4/12': { padding: { top: '33.333333%', right: '33.333333%', bottom: '33.333333%', left: '33.333333%' } }
+'.p-5/12': { padding: { top: '41.666667%', right: '41.666667%', bottom: '41.666667%', left: '41.666667%' } }
+'.p-6/12': { padding: { top: '50%', right: '50%', bottom: '50%', left: '50%' } }
+'.p-7/12': { padding: { top: '58.333333%', right: '58.333333%', bottom: '58.333333%', left: '58.333333%' } }
+'.p-8/12': { padding: { top: '66.666667%', right: '66.666667%', bottom: '66.666667%', left: '66.666667%' } }
+'.p-9/12': { padding: { top: '75%', right: '75%', bottom: '75%', left: '75%' } }
+'.p-10/12': { padding: { top: '83.333333%', right: '83.333333%', bottom: '83.333333%', left: '83.333333%' } }
+'.p-11/12': { padding: { top: '91.666667%', right: '91.666667%', bottom: '91.666667%', left: '91.666667%' } }
+'.p-full': { padding: { top: '100%', right: '100%', bottom: '100%', left: '100%' } }
+'.py-0': { padding: { top: 0, bottom: 0 } }
+'.py-1': { padding: { top: 4, bottom: 4 } }
+'.py-2': { padding: { top: 8, bottom: 8 } }
+'.py-3': { padding: { top: 12, bottom: 12 } }
+'.py-4': { padding: { top: 16, bottom: 16 } }
+'.py-5': { padding: { top: 20, bottom: 20 } }
+'.py-6': { padding: { top: 24, bottom: 24 } }
+'.py-7': { padding: { top: 28, bottom: 28 } }
+'.py-8': { padding: { top: 32, bottom: 32 } }
+'.py-9': { padding: { top: 36, bottom: 36 } }
+'.py-10': { padding: { top: 40, bottom: 40 } }
+'.py-11': { padding: { top: 44, bottom: 44 } }
+'.py-12': { padding: { top: 48, bottom: 48 } }
+'.py-13': { padding: { top: 52, bottom: 52 } }
+'.py-14': { padding: { top: 56, bottom: 56 } }
+'.py-15': { padding: { top: 60, bottom: 60 } }
+'.py-16': { padding: { top: 64, bottom: 64 } }
+'.py-20': { padding: { top: 80, bottom: 80 } }
+'.py-24': { padding: { top: 96, bottom: 96 } }
+'.py-28': { padding: { top: 112, bottom: 112 } }
+'.py-32': { padding: { top: 128, bottom: 128 } }
+'.py-36': { padding: { top: 144, bottom: 144 } }
+'.py-40': { padding: { top: 160, bottom: 160 } }
+'.py-48': { padding: { top: 192, bottom: 192 } }
+'.py-56': { padding: { top: 224, bottom: 224 } }
+'.py-60': { padding: { top: 240, bottom: 240 } }
+'.py-64': { padding: { top: 256, bottom: 256 } }
+'.py-72': { padding: { top: 288, bottom: 288 } }
+'.py-80': { padding: { top: 320, bottom: 320 } }
+'.py-96': { padding: { top: 384, bottom: 384 } }
+'.py-px': { padding: { top: 1, bottom: 1 } }
+'.py-0.5': { padding: { top: 2, bottom: 2 } }
+'.py-1.5': { padding: { top: 6, bottom: 6 } }
+'.py-2.5': { padding: { top: 10, bottom: 10 } }
+'.py-3.5': { padding: { top: 14, bottom: 14 } }
+'.py-1/2': { padding: { top: '50%', bottom: '50%' } }
+'.py-1/3': { padding: { top: '33.333333%', bottom: '33.333333%' } }
+'.py-2/3': { padding: { top: '66.666667%', bottom: '66.666667%' } }
+'.py-1/4': { padding: { top: '25%', bottom: '25%' } }
+'.py-2/4': { padding: { top: '50%', bottom: '50%' } }
+'.py-3/4': { padding: { top: '75%', bottom: '75%' } }
+'.py-1/5': { padding: { top: '20%', bottom: '20%' } }
+'.py-2/5': { padding: { top: '40%', bottom: '40%' } }
+'.py-3/5': { padding: { top: '60%', bottom: '60%' } }
+'.py-4/5': { padding: { top: '80%', bottom: '80%' } }
+'.py-1/6': { padding: { top: '16.666667%', bottom: '16.666667%' } }
+'.py-2/6': { padding: { top: '33.333333%', bottom: '33.333333%' } }
+'.py-3/6': { padding: { top: '50%', bottom: '50%' } }
+'.py-4/6': { padding: { top: '66.666667%', bottom: '66.666667%' } }
+'.py-5/6': { padding: { top: '83.333333%', bottom: '83.333333%' } }
+'.py-1/12': { padding: { top: '8.333333%', bottom: '8.333333%' } }
+'.py-2/12': { padding: { top: '16.666667%', bottom: '16.666667%' } }
+'.py-3/12': { padding: { top: '25%', bottom: '25%' } }
+'.py-4/12': { padding: { top: '33.333333%', bottom: '33.333333%' } }
+'.py-5/12': { padding: { top: '41.666667%', bottom: '41.666667%' } }
+'.py-6/12': { padding: { top: '50%', bottom: '50%' } }
+'.py-7/12': { padding: { top: '58.333333%', bottom: '58.333333%' } }
+'.py-8/12': { padding: { top: '66.666667%', bottom: '66.666667%' } }
+'.py-9/12': { padding: { top: '75%', bottom: '75%' } }
+'.py-10/12': { padding: { top: '83.333333%', bottom: '83.333333%' } }
+'.py-11/12': { padding: { top: '91.666667%', bottom: '91.666667%' } }
+'.py-full': { padding: { top: '100%', bottom: '100%' } }
+'.px-0': { padding: { right: 0, left: 0 } }
+'.px-1': { padding: { right: 4, left: 4 } }
+'.px-2': { padding: { right: 8, left: 8 } }
+'.px-3': { padding: { right: 12, left: 12 } }
+'.px-4': { padding: { right: 16, left: 16 } }
+'.px-5': { padding: { right: 20, left: 20 } }
+'.px-6': { padding: { right: 24, left: 24 } }
+'.px-7': { padding: { right: 28, left: 28 } }
+'.px-8': { padding: { right: 32, left: 32 } }
+'.px-9': { padding: { right: 36, left: 36 } }
+'.px-10': { padding: { right: 40, left: 40 } }
+'.px-11': { padding: { right: 44, left: 44 } }
+'.px-12': { padding: { right: 48, left: 48 } }
+'.px-13': { padding: { right: 52, left: 52 } }
+'.px-14': { padding: { right: 56, left: 56 } }
+'.px-15': { padding: { right: 60, left: 60 } }
+'.px-16': { padding: { right: 64, left: 64 } }
+'.px-20': { padding: { right: 80, left: 80 } }
+'.px-24': { padding: { right: 96, left: 96 } }
+'.px-28': { padding: { right: 112, left: 112 } }
+'.px-32': { padding: { right: 128, left: 128 } }
+'.px-36': { padding: { right: 144, left: 144 } }
+'.px-40': { padding: { right: 160, left: 160 } }
+'.px-48': { padding: { right: 192, left: 192 } }
+'.px-56': { padding: { right: 224, left: 224 } }
+'.px-60': { padding: { right: 240, left: 240 } }
+'.px-64': { padding: { right: 256, left: 256 } }
+'.px-72': { padding: { right: 288, left: 288 } }
+'.px-80': { padding: { right: 320, left: 320 } }
+'.px-96': { padding: { right: 384, left: 384 } }
+'.px-px': { padding: { right: 1, left: 1 } }
+'.px-0.5': { padding: { right: 2, left: 2 } }
+'.px-1.5': { padding: { right: 6, left: 6 } }
+'.px-2.5': { padding: { right: 10, left: 10 } }
+'.px-3.5': { padding: { right: 14, left: 14 } }
+'.px-1/2': { padding: { right: '50%', left: '50%' } }
+'.px-1/3': { padding: { right: '33.333333%', left: '33.333333%' } }
+'.px-2/3': { padding: { right: '66.666667%', left: '66.666667%' } }
+'.px-1/4': { padding: { right: '25%', left: '25%' } }
+'.px-2/4': { padding: { right: '50%', left: '50%' } }
+'.px-3/4': { padding: { right: '75%', left: '75%' } }
+'.px-1/5': { padding: { right: '20%', left: '20%' } }
+'.px-2/5': { padding: { right: '40%', left: '40%' } }
+'.px-3/5': { padding: { right: '60%', left: '60%' } }
+'.px-4/5': { padding: { right: '80%', left: '80%' } }
+'.px-1/6': { padding: { right: '16.666667%', left: '16.666667%' } }
+'.px-2/6': { padding: { right: '33.333333%', left: '33.333333%' } }
+'.px-3/6': { padding: { right: '50%', left: '50%' } }
+'.px-4/6': { padding: { right: '66.666667%', left: '66.666667%' } }
+'.px-5/6': { padding: { right: '83.333333%', left: '83.333333%' } }
+'.px-1/12': { padding: { right: '8.333333%', left: '8.333333%' } }
+'.px-2/12': { padding: { right: '16.666667%', left: '16.666667%' } }
+'.px-3/12': { padding: { right: '25%', left: '25%' } }
+'.px-4/12': { padding: { right: '33.333333%', left: '33.333333%' } }
+'.px-5/12': { padding: { right: '41.666667%', left: '41.666667%' } }
+'.px-6/12': { padding: { right: '50%', left: '50%' } }
+'.px-7/12': { padding: { right: '58.333333%', left: '58.333333%' } }
+'.px-8/12': { padding: { right: '66.666667%', left: '66.666667%' } }
+'.px-9/12': { padding: { right: '75%', left: '75%' } }
+'.px-10/12': { padding: { right: '83.333333%', left: '83.333333%' } }
+'.px-11/12': { padding: { right: '91.666667%', left: '91.666667%' } }
+'.px-full': { padding: { right: '100%', left: '100%' } }
+'.pt-0': { padding: { top: 0 } }
+'.pt-1': { padding: { top: 4 } }
+'.pt-2': { padding: { top: 8 } }
+'.pt-3': { padding: { top: 12 } }
+'.pt-4': { padding: { top: 16 } }
+'.pt-5': { padding: { top: 20 } }
+'.pt-6': { padding: { top: 24 } }
+'.pt-7': { padding: { top: 28 } }
+'.pt-8': { padding: { top: 32 } }
+'.pt-9': { padding: { top: 36 } }
+'.pt-10': { padding: { top: 40 } }
+'.pt-11': { padding: { top: 44 } }
+'.pt-12': { padding: { top: 48 } }
+'.pt-13': { padding: { top: 52 } }
+'.pt-14': { padding: { top: 56 } }
+'.pt-15': { padding: { top: 60 } }
+'.pt-16': { padding: { top: 64 } }
+'.pt-20': { padding: { top: 80 } }
+'.pt-24': { padding: { top: 96 } }
+'.pt-28': { padding: { top: 112 } }
+'.pt-32': { padding: { top: 128 } }
+'.pt-36': { padding: { top: 144 } }
+'.pt-40': { padding: { top: 160 } }
+'.pt-48': { padding: { top: 192 } }
+'.pt-56': { padding: { top: 224 } }
+'.pt-60': { padding: { top: 240 } }
+'.pt-64': { padding: { top: 256 } }
+'.pt-72': { padding: { top: 288 } }
+'.pt-80': { padding: { top: 320 } }
+'.pt-96': { padding: { top: 384 } }
+'.pt-px': { padding: { top: 1 } }
+'.pt-0.5': { padding: { top: 2 } }
+'.pt-1.5': { padding: { top: 6 } }
+'.pt-2.5': { padding: { top: 10 } }
+'.pt-3.5': { padding: { top: 14 } }
+'.pt-1/2': { padding: { top: '50%' } }
+'.pt-1/3': { padding: { top: '33.333333%' } }
+'.pt-2/3': { padding: { top: '66.666667%' } }
+'.pt-1/4': { padding: { top: '25%' } }
+'.pt-2/4': { padding: { top: '50%' } }
+'.pt-3/4': { padding: { top: '75%' } }
+'.pt-1/5': { padding: { top: '20%' } }
+'.pt-2/5': { padding: { top: '40%' } }
+'.pt-3/5': { padding: { top: '60%' } }
+'.pt-4/5': { padding: { top: '80%' } }
+'.pt-1/6': { padding: { top: '16.666667%' } }
+'.pt-2/6': { padding: { top: '33.333333%' } }
+'.pt-3/6': { padding: { top: '50%' } }
+'.pt-4/6': { padding: { top: '66.666667%' } }
+'.pt-5/6': { padding: { top: '83.333333%' } }
+'.pt-1/12': { padding: { top: '8.333333%' } }
+'.pt-2/12': { padding: { top: '16.666667%' } }
+'.pt-3/12': { padding: { top: '25%' } }
+'.pt-4/12': { padding: { top: '33.333333%' } }
+'.pt-5/12': { padding: { top: '41.666667%' } }
+'.pt-6/12': { padding: { top: '50%' } }
+'.pt-7/12': { padding: { top: '58.333333%' } }
+'.pt-8/12': { padding: { top: '66.666667%' } }
+'.pt-9/12': { padding: { top: '75%' } }
+'.pt-10/12': { padding: { top: '83.333333%' } }
+'.pt-11/12': { padding: { top: '91.666667%' } }
+'.pt-full': { padding: { top: '100%' } }
+'.pr-0': { padding: { right: 0 } }
+'.pr-1': { padding: { right: 4 } }
+'.pr-2': { padding: { right: 8 } }
+'.pr-3': { padding: { right: 12 } }
+'.pr-4': { padding: { right: 16 } }
+'.pr-5': { padding: { right: 20 } }
+'.pr-6': { padding: { right: 24 } }
+'.pr-7': { padding: { right: 28 } }
+'.pr-8': { padding: { right: 32 } }
+'.pr-9': { padding: { right: 36 } }
+'.pr-10': { padding: { right: 40 } }
+'.pr-11': { padding: { right: 44 } }
+'.pr-12': { padding: { right: 48 } }
+'.pr-13': { padding: { right: 52 } }
+'.pr-14': { padding: { right: 56 } }
+'.pr-15': { padding: { right: 60 } }
+'.pr-16': { padding: { right: 64 } }
+'.pr-20': { padding: { right: 80 } }
+'.pr-24': { padding: { right: 96 } }
+'.pr-28': { padding: { right: 112 } }
+'.pr-32': { padding: { right: 128 } }
+'.pr-36': { padding: { right: 144 } }
+'.pr-40': { padding: { right: 160 } }
+'.pr-48': { padding: { right: 192 } }
+'.pr-56': { padding: { right: 224 } }
+'.pr-60': { padding: { right: 240 } }
+'.pr-64': { padding: { right: 256 } }
+'.pr-72': { padding: { right: 288 } }
+'.pr-80': { padding: { right: 320 } }
+'.pr-96': { padding: { right: 384 } }
+'.pr-px': { padding: { right: 1 } }
+'.pr-0.5': { padding: { right: 2 } }
+'.pr-1.5': { padding: { right: 6 } }
+'.pr-2.5': { padding: { right: 10 } }
+'.pr-3.5': { padding: { right: 14 } }
+'.pr-1/2': { padding: { right: '50%' } }
+'.pr-1/3': { padding: { right: '33.333333%' } }
+'.pr-2/3': { padding: { right: '66.666667%' } }
+'.pr-1/4': { padding: { right: '25%' } }
+'.pr-2/4': { padding: { right: '50%' } }
+'.pr-3/4': { padding: { right: '75%' } }
+'.pr-1/5': { padding: { right: '20%' } }
+'.pr-2/5': { padding: { right: '40%' } }
+'.pr-3/5': { padding: { right: '60%' } }
+'.pr-4/5': { padding: { right: '80%' } }
+'.pr-1/6': { padding: { right: '16.666667%' } }
+'.pr-2/6': { padding: { right: '33.333333%' } }
+'.pr-3/6': { padding: { right: '50%' } }
+'.pr-4/6': { padding: { right: '66.666667%' } }
+'.pr-5/6': { padding: { right: '83.333333%' } }
+'.pr-1/12': { padding: { right: '8.333333%' } }
+'.pr-2/12': { padding: { right: '16.666667%' } }
+'.pr-3/12': { padding: { right: '25%' } }
+'.pr-4/12': { padding: { right: '33.333333%' } }
+'.pr-5/12': { padding: { right: '41.666667%' } }
+'.pr-6/12': { padding: { right: '50%' } }
+'.pr-7/12': { padding: { right: '58.333333%' } }
+'.pr-8/12': { padding: { right: '66.666667%' } }
+'.pr-9/12': { padding: { right: '75%' } }
+'.pr-10/12': { padding: { right: '83.333333%' } }
+'.pr-11/12': { padding: { right: '91.666667%' } }
+'.pr-full': { padding: { right: '100%' } }
+'.pb-0': { padding: { bottom: 0 } }
+'.pb-1': { padding: { bottom: 4 } }
+'.pb-2': { padding: { bottom: 8 } }
+'.pb-3': { padding: { bottom: 12 } }
+'.pb-4': { padding: { bottom: 16 } }
+'.pb-5': { padding: { bottom: 20 } }
+'.pb-6': { padding: { bottom: 24 } }
+'.pb-7': { padding: { bottom: 28 } }
+'.pb-8': { padding: { bottom: 32 } }
+'.pb-9': { padding: { bottom: 36 } }
+'.pb-10': { padding: { bottom: 40 } }
+'.pb-11': { padding: { bottom: 44 } }
+'.pb-12': { padding: { bottom: 48 } }
+'.pb-13': { padding: { bottom: 52 } }
+'.pb-14': { padding: { bottom: 56 } }
+'.pb-15': { padding: { bottom: 60 } }
+'.pb-16': { padding: { bottom: 64 } }
+'.pb-20': { padding: { bottom: 80 } }
+'.pb-24': { padding: { bottom: 96 } }
+'.pb-28': { padding: { bottom: 112 } }
+'.pb-32': { padding: { bottom: 128 } }
+'.pb-36': { padding: { bottom: 144 } }
+'.pb-40': { padding: { bottom: 160 } }
+'.pb-48': { padding: { bottom: 192 } }
+'.pb-56': { padding: { bottom: 224 } }
+'.pb-60': { padding: { bottom: 240 } }
+'.pb-64': { padding: { bottom: 256 } }
+'.pb-72': { padding: { bottom: 288 } }
+'.pb-80': { padding: { bottom: 320 } }
+'.pb-96': { padding: { bottom: 384 } }
+'.pb-px': { padding: { bottom: 1 } }
+'.pb-0.5': { padding: { bottom: 2 } }
+'.pb-1.5': { padding: { bottom: 6 } }
+'.pb-2.5': { padding: { bottom: 10 } }
+'.pb-3.5': { padding: { bottom: 14 } }
+'.pb-1/2': { padding: { bottom: '50%' } }
+'.pb-1/3': { padding: { bottom: '33.333333%' } }
+'.pb-2/3': { padding: { bottom: '66.666667%' } }
+'.pb-1/4': { padding: { bottom: '25%' } }
+'.pb-2/4': { padding: { bottom: '50%' } }
+'.pb-3/4': { padding: { bottom: '75%' } }
+'.pb-1/5': { padding: { bottom: '20%' } }
+'.pb-2/5': { padding: { bottom: '40%' } }
+'.pb-3/5': { padding: { bottom: '60%' } }
+'.pb-4/5': { padding: { bottom: '80%' } }
+'.pb-1/6': { padding: { bottom: '16.666667%' } }
+'.pb-2/6': { padding: { bottom: '33.333333%' } }
+'.pb-3/6': { padding: { bottom: '50%' } }
+'.pb-4/6': { padding: { bottom: '66.666667%' } }
+'.pb-5/6': { padding: { bottom: '83.333333%' } }
+'.pb-1/12': { padding: { bottom: '8.333333%' } }
+'.pb-2/12': { padding: { bottom: '16.666667%' } }
+'.pb-3/12': { padding: { bottom: '25%' } }
+'.pb-4/12': { padding: { bottom: '33.333333%' } }
+'.pb-5/12': { padding: { bottom: '41.666667%' } }
+'.pb-6/12': { padding: { bottom: '50%' } }
+'.pb-7/12': { padding: { bottom: '58.333333%' } }
+'.pb-8/12': { padding: { bottom: '66.666667%' } }
+'.pb-9/12': { padding: { bottom: '75%' } }
+'.pb-10/12': { padding: { bottom: '83.333333%' } }
+'.pb-11/12': { padding: { bottom: '91.666667%' } }
+'.pb-full': { padding: { bottom: '100%' } }
+'.pl-0': { padding: { left: 0 } }
+'.pl-1': { padding: { left: 4 } }
+'.pl-2': { padding: { left: 8 } }
+'.pl-3': { padding: { left: 12 } }
+'.pl-4': { padding: { left: 16 } }
+'.pl-5': { padding: { left: 20 } }
+'.pl-6': { padding: { left: 24 } }
+'.pl-7': { padding: { left: 28 } }
+'.pl-8': { padding: { left: 32 } }
+'.pl-9': { padding: { left: 36 } }
+'.pl-10': { padding: { left: 40 } }
+'.pl-11': { padding: { left: 44 } }
+'.pl-12': { padding: { left: 48 } }
+'.pl-13': { padding: { left: 52 } }
+'.pl-14': { padding: { left: 56 } }
+'.pl-15': { padding: { left: 60 } }
+'.pl-16': { padding: { left: 64 } }
+'.pl-20': { padding: { left: 80 } }
+'.pl-24': { padding: { left: 96 } }
+'.pl-28': { padding: { left: 112 } }
+'.pl-32': { padding: { left: 128 } }
+'.pl-36': { padding: { left: 144 } }
+'.pl-40': { padding: { left: 160 } }
+'.pl-48': { padding: { left: 192 } }
+'.pl-56': { padding: { left: 224 } }
+'.pl-60': { padding: { left: 240 } }
+'.pl-64': { padding: { left: 256 } }
+'.pl-72': { padding: { left: 288 } }
+'.pl-80': { padding: { left: 320 } }
+'.pl-96': { padding: { left: 384 } }
+'.pl-px': { padding: { left: 1 } }
+'.pl-0.5': { padding: { left: 2 } }
+'.pl-1.5': { padding: { left: 6 } }
+'.pl-2.5': { padding: { left: 10 } }
+'.pl-3.5': { padding: { left: 14 } }
+'.pl-1/2': { padding: { left: '50%' } }
+'.pl-1/3': { padding: { left: '33.333333%' } }
+'.pl-2/3': { padding: { left: '66.666667%' } }
+'.pl-1/4': { padding: { left: '25%' } }
+'.pl-2/4': { padding: { left: '50%' } }
+'.pl-3/4': { padding: { left: '75%' } }
+'.pl-1/5': { padding: { left: '20%' } }
+'.pl-2/5': { padding: { left: '40%' } }
+'.pl-3/5': { padding: { left: '60%' } }
+'.pl-4/5': { padding: { left: '80%' } }
+'.pl-1/6': { padding: { left: '16.666667%' } }
+'.pl-2/6': { padding: { left: '33.333333%' } }
+'.pl-3/6': { padding: { left: '50%' } }
+'.pl-4/6': { padding: { left: '66.666667%' } }
+'.pl-5/6': { padding: { left: '83.333333%' } }
+'.pl-1/12': { padding: { left: '8.333333%' } }
+'.pl-2/12': { padding: { left: '16.666667%' } }
+'.pl-3/12': { padding: { left: '25%' } }
+'.pl-4/12': { padding: { left: '33.333333%' } }
+'.pl-5/12': { padding: { left: '41.666667%' } }
+'.pl-6/12': { padding: { left: '50%' } }
+'.pl-7/12': { padding: { left: '58.333333%' } }
+'.pl-8/12': { padding: { left: '66.666667%' } }
+'.pl-9/12': { padding: { left: '75%' } }
+'.pl-10/12': { padding: { left: '83.333333%' } }
+'.pl-11/12': { padding: { left: '91.666667%' } }
+'.pl-full': { padding: { left: '100%' } }
+
+// Widths
+'.w-0': { width: 0 }
+'.w-1': { width: 4 }
+'.w-2': { width: 8 }
+'.w-3': { width: 12 }
+'.w-4': { width: 16 }
+'.w-5': { width: 20 }
+'.w-6': { width: 24 }
+'.w-7': { width: 28 }
+'.w-8': { width: 32 }
+'.w-9': { width: 36 }
+'.w-10': { width: 40 }
+'.w-11': { width: 44 }
+'.w-12': { width: 48 }
+'.w-13': { width: 52 }
+'.w-14': { width: 56 }
+'.w-15': { width: 60 }
+'.w-16': { width: 64 }
+'.w-20': { width: 80 }
+'.w-24': { width: 96 }
+'.w-28': { width: 112 }
+'.w-32': { width: 128 }
+'.w-36': { width: 144 }
+'.w-40': { width: 160 }
+'.w-48': { width: 192 }
+'.w-56': { width: 224 }
+'.w-60': { width: 240 }
+'.w-64': { width: 256 }
+'.w-72': { width: 288 }
+'.w-80': { width: 320 }
+'.w-96': { width: 384 }
+'.w-px': { width: 1 }
+'.w-0.5': { width: 2 }
+'.w-1.5': { width: 6 }
+'.w-2.5': { width: 10 }
+'.w-3.5': { width: 14 }
+'.w-auto': { width: Ti.UI.SIZE }
+'.w-1/2': { width: '50%' }
+'.w-1/3': { width: '33.333333%' }
+'.w-2/3': { width: '66.666667%' }
+'.w-1/4': { width: '25%' }
+'.w-2/4': { width: '50%' }
+'.w-3/4': { width: '75%' }
+'.w-1/5': { width: '20%' }
+'.w-2/5': { width: '40%' }
+'.w-3/5': { width: '60%' }
+'.w-4/5': { width: '80%' }
+'.w-1/6': { width: '16.666667%' }
+'.w-2/6': { width: '33.333333%' }
+'.w-3/6': { width: '50%' }
+'.w-4/6': { width: '66.666667%' }
+'.w-5/6': { width: '83.333333%' }
+'.w-1/12': { width: '8.333333%' }
+'.w-2/12': { width: '16.666667%' }
+'.w-3/12': { width: '25%' }
+'.w-4/12': { width: '33.333333%' }
+'.w-5/12': { width: '41.666667%' }
+'.w-6/12': { width: '50%' }
+'.w-7/12': { width: '58.333333%' }
+'.w-8/12': { width: '66.666667%' }
+'.w-9/12': { width: '75%' }
+'.w-10/12': { width: '83.333333%' }
+'.w-11/12': { width: '91.666667%' }
+'.w-full': { width: '100%' }
+'.w-screen': { width: Ti.UI.FILL }
+
+// Heights
+'.h-0': { height: 0 }
+'.h-1': { height: 4 }
+'.h-2': { height: 8 }
+'.h-3': { height: 12 }
+'.h-4': { height: 16 }
+'.h-5': { height: 20 }
+'.h-6': { height: 24 }
+'.h-7': { height: 28 }
+'.h-8': { height: 32 }
+'.h-9': { height: 36 }
+'.h-10': { height: 40 }
+'.h-11': { height: 44 }
+'.h-12': { height: 48 }
+'.h-13': { height: 52 }
+'.h-14': { height: 56 }
+'.h-15': { height: 60 }
+'.h-16': { height: 64 }
+'.h-20': { height: 80 }
+'.h-24': { height: 96 }
+'.h-28': { height: 112 }
+'.h-32': { height: 128 }
+'.h-36': { height: 144 }
+'.h-40': { height: 160 }
+'.h-48': { height: 192 }
+'.h-56': { height: 224 }
+'.h-60': { height: 240 }
+'.h-64': { height: 256 }
+'.h-72': { height: 288 }
+'.h-80': { height: 320 }
+'.h-96': { height: 384 }
+'.h-px': { height: 1 }
+'.h-0.5': { height: 2 }
+'.h-1.5': { height: 6 }
+'.h-2.5': { height: 10 }
+'.h-3.5': { height: 14 }
+'.h-auto': { height: Ti.UI.SIZE }
+'.h-full': { height: '100%' }
+'.h-screen': { height: Ti.UI.FILL }
+
+// Box Shadow ( iOS Only )
+'.shadow-xs[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#77000000' }
+'.shadow-sm[platform=ios]': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 1, viewShadowColor: '#77000000' }
+'.shadow[platform=ios]': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 2, viewShadowColor: '#77000000' }
+'.shadow-md[platform=ios]': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 4, viewShadowColor: '#77000000' }
+'.shadow-lg[platform=ios]': { viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 8, viewShadowColor: '#77000000' }
+'.shadow-xl[platform=ios]': { viewShadowOffset: { x: 0, y: 12 }, viewShadowRadius: 12, viewShadowColor: '#77000000' }
+'.shadow-2xl[platform=ios]': { viewShadowOffset: { x: 0, y: 16 }, viewShadowRadius: 16, viewShadowColor: '#77000000' }
+'.shadow-inner[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+'.shadow-outline[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 2, viewShadowColor: '#77000000' }
+'.shadow-none[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+
+// Opacity
+'.opacity-0': { opacity: 0 }
+'.opacity-25': { opacity: 0.25 }
+'.opacity-50': { opacity: 0.5 }
+'.opacity-75': { opacity: 0.75 }
+'.opacity-100': { opacity: 1 }
+
+// Touch Enabled
+'.pointer-events-none': { touchEnabled: false }
+'.pointer-events-auto': { touchEnabled: true }
