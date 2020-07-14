@@ -5,8 +5,7 @@ Creates a clean app.tss file by combining your own base.tss file and only the us
 purgeTSS will scan your xml files and will copy only the used classes into app.tss.
 
 # Warning!
-```
-This script will OVERWRITE your existing app.tss file
-
-Please rename your existing app.tss file to base.tss. PurgeTSS will combine it along with tailwind.tss and fontawesome.tss files.
-```
+- ### Font Size
+	> This script will OVERWRITE your existing app.tss file
+  > 
+  > Please rename your existing app.tss file to base.tss. PurgeTSS will combine it along with tailwind.tss and fontawesome.tss files.
