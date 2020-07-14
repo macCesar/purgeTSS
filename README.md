@@ -20,3 +20,10 @@ Before running this script, rename your existing `app.tss` file to `base.tss`
 ```bash
 npm explore purgetss -- npm run purgetss  
 ```
+
+## Sample files
+```xml
+<Alloy>
+    
+</Alloy>
+```
