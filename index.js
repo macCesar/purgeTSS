@@ -55,13 +55,13 @@ function purgetss() {
 
 	if (fs.existsSync(baseTSS)) {
 		console.log('::purgeTSS:: Copying Base styles...');
-		fs.appendFileSync(appTSS, '\n// Project’s Styles\n');
+		fs.appendFileSync(appTSS, '\n// Project Styles\n');
 		fs.appendFileSync(appTSS, fs.readFileSync(baseTSS, 'utf8'));
 	}
 
 	// ! FontAwesome
 	console.log('::purgeTSS:: Copying Font Awesome styles...');
-	fs.appendFileSync(appTSS, '\n// Font Awesome’s Styles\n');
+	fs.appendFileSync(appTSS, '\n// Font Awesome Styles\n');
 
 	fs.readFileSync(fontAwesomeSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
 		_.each(uniqueClasses, className => {
@@ -74,7 +74,7 @@ function purgetss() {
 
 	// ! Tailwind
 	console.log('::purgeTSS:: Copying Tailwind styles...');
-	fs.appendFileSync(appTSS, '\n// Tailwind’s Styles\n');
+	fs.appendFileSync(appTSS, '\n// Tailwind Styles\n');
 
 	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
 		_.each(uniqueClasses, className => {
