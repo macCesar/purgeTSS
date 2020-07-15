@@ -2,10 +2,12 @@
 ### This script will OVERWRITE your existing app.tss file
 > Please rename your existing `app.tss` file to `base.tss`. PurgeTSS will combine it along with `tailwind.tss` and `fontawesome.tss` files.
 
+
 # purgeTSS
 purgeTSS creates a clean `app.tss` file by copying only the classes used in your `views`.
 
 #### Must be used in combination with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss). ####
+
 
 ## Installation
 ```bash
@@ -13,11 +15,13 @@ purgeTSS creates a clean `app.tss` file by copying only the classes used in your
 [sudo] npm i purgetss --save
 ```
 
+
 ## Purging your classes
 Before running this script, rename your existing `app.tss` file to `base.tss`
 ```bash
 npm explore purgetss -- npm run purgetss
 ```
+
 
 ## Sample file
 Use this markup to test the script.
@@ -41,6 +45,7 @@ Use this markup to test the script.
     </Window>
 </Alloy>
 ```
+
 
 After runing the script you will have this in app.tss
 ```css
@@ -85,8 +90,10 @@ After runing the script you will have this in app.tss
 '.h-auto': { height: Ti.UI.SIZE }
 ```
 
+
 ## Contributing
 If you have any suggestions or enhancements, please make a PR.
+
 
 ## License
 purgeTSS is open-sourced software licensed under the MIT license.
