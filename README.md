@@ -20,7 +20,7 @@ npm explore purgetss -- npm run purgetss
 ```
 
 ## Sample file
-Put this markup to test the script.
+Use this markup to test the script.
 
 `index.xml`
 ```xml
