@@ -1,6 +1,6 @@
 # Warning!!!
 - ### This script will OVERWRITE your existing app.tss file
-  > Please rename your existing `app.tss` file to `base.tss`. PurgeTSS will combine it along with `tailwind.tss` and `fontawesome.tss` files.
+> Please rename your existing `app.tss` file to `base.tss`. PurgeTSS will combine it along with `tailwind.tss` and `fontawesome.tss` files.
 
 # purgeTSS
 purgeTSS creates a clean `app.tss` file by combining your `base.tss` file by copying only the classes used in your views.
