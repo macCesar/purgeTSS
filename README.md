@@ -1,19 +1,20 @@
 # Warning!!!
-- ### This script will OVERWRITE your existing app.tss file
-  > Please rename your existing `app.tss` file to `base.tss`. PurgeTSS will combine it along with `tailwind.tss` and `fontawesome.tss` files.
+### This script will OVERWRITE your existing app.tss file
+> Please rename your existing `app.tss` file to `base.tss`. PurgeTSS will combine it along with `tailwind.tss` and `fontawesome.tss` files.
+
 
 # purgeTSS
+purgeTSS creates a clean `app.tss` file by copying only the classes used in your `views`.
 
-Creates a clean `app.tss` file by combining your `base.tss` file and only the classes use from [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
+#### Must be used in combination with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss). ####
 
-purgeTSS will scan your xml files to copy into `app.tss` only the used classes.
 
 ## Installation
-
 ```bash
-# In your project's root directory run:
+# cd into your titanium project's root directory and run:
 [sudo] npm i purgetss --save
 ```
+
 
 ## Purging your classes
 Before running this script, rename your existing `app.tss` file to `base.tss`
@@ -21,28 +22,30 @@ Before running this script, rename your existing `app.tss` file to `base.tss`
 npm explore purgetss -- npm run purgetss
 ```
 
+
 ## Sample file
-Put this markup to test the script.
+Use this markup to test the script.
 
 `index.xml`
 ```xml
 <Alloy>
-	<Window class="bg-green-100">
-		<View class="w-auto h-auto bg-white rounded-lg">
-			<View class="my-4 w-9/12 mx-auto vertical">
-				<ImageView class="h-16 w-16 rounded-16 mx-auto" image="https://randomuser.me/api/portraits/men/43.jpg" />
+    <Window class="bg-green-100">
+        <View class="w-auto h-auto bg-white rounded-lg">
+            <View class="my-4 w-9/12 mx-auto vertical">
+                <ImageView class="h-16 w-16 rounded-16 mx-auto" image="https://randomuser.me/api/portraits/men/43.jpg" />
 
-				<View class="vertical">
-					<Label class="text-lg font-semibold">John W. Doe</Label>
-					<Label class="mt-0.5 text-purple-600 text-sm">Product Engineer</Label>
-					<Label class="text-gray-600 text-sm">john.doe@internet.com</Label>
-					<Label class="text-gray-600 text-sm">(555) 765-4321</Label>
-				</View>
-			</View>
-		</View>
-	</Window>
+                <View class="vertical">
+                    <Label class="text-lg font-semibold">John W. Doe</Label>
+                    <Label class="mt-0.5 text-purple-600 text-sm">Product Engineer</Label>
+                    <Label class="text-gray-600 text-sm">john.doe@internet.com</Label>
+                    <Label class="text-gray-600 text-sm">(555) 765-4321</Label>
+                </View>
+            </View>
+        </View>
+    </Window>
 </Alloy>
 ```
+
 
 After runing the script you will have this in app.tss
 ```css
@@ -87,8 +90,10 @@ After runing the script you will have this in app.tss
 '.h-auto': { height: Ti.UI.SIZE }
 ```
 
+
 ## Contributing
 If you have any suggestions or enhancements, please make a PR.
+
 
 ## License
 purgeTSS is open-sourced software licensed under the MIT license.
