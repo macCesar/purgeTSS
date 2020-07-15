@@ -29,21 +29,32 @@ Use this markup to test the script.
 `index.xml`
 ```xml
 <Alloy>
-    <Window class="bg-green-100">
+    <Window class="bg-primary">
         <View class="w-auto h-auto bg-white rounded-lg">
-            <View class="my-4 w-9/12 mx-auto vertical">
-                <ImageView class="h-16 w-16 rounded-16 mx-auto" image="https://randomuser.me/api/portraits/men/43.jpg" />
+            <View class="w-10/12 mx-auto my-4 vertical">
+                <ImageView class="w-16 h-16 mx-auto rounded-16" image="https://randomuser.me/api/portraits/men/43.jpg" />
 
                 <View class="vertical">
                     <Label class="text-lg font-semibold">John W. Doe</Label>
                     <Label class="mt-0.5 text-purple-600 text-sm">Product Engineer</Label>
-                    <Label class="text-gray-600 text-sm">john.doe@internet.com</Label>
-                    <Label class="text-gray-600 text-sm">(555) 765-4321</Label>
+
+                    <View class="w-screen">
+                        <View class="ml-0 horizontal">
+                            <Label class="mr-1 text-xs text-gray-600 far fa-envelope"></Label>
+                            <Label class="text-xs text-gray-600">john@internet.com</Label>
+                        </View>
+
+                        <View class="mr-0 horizontal">
+                            <Label class="mr-1 text-xs text-gray-600 fas fa-phone-alt"></Label>
+                            <Label class="text-xs text-gray-600">(555) 765-4321</Label>
+                        </View>
+                    </View>
                 </View>
             </View>
         </View>
     </Window>
 </Alloy>
+
 ```
 
 
@@ -67,15 +78,27 @@ After runing the script you will have this in `app.tss`
 '.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 
-// Project’s Styles
+// Project Styles
+'ImageView': {
+    hires: true,
+    preventDefaultImage: true
+}
 
-// FontAwesome’s Styles
+'.bg-primary': {
+    backgroundColor: '#002359'
+}
 
-// Tailwind’s Styles
+// Font Awesome Styles
+'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
+'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
+'.fa-phone-alt': { text: '\uf879', title: '\uf879' }
+
+// Tailwind Styles
 '.text-gray-600': { color: '#4b5563' }
 '.text-purple-600': { color: '#7e3af2' }
 '.bg-white': { backgroundColor: '#ffffff' }
-'.bg-green-100': { backgroundColor: '#def7ec' }
+'.text-xs': { font: { fontSize: 12 } }
 '.text-sm': { font: { fontSize: 14 } }
 '.text-lg': { font: { fontSize: 18 } }
 '.rounded-lg': { borderRadius: 8 }
@@ -83,9 +106,13 @@ After runing the script you will have this in `app.tss`
 '.my-4': { top: 16, bottom: 16 }
 '.mx-auto': { right: null, left: null }
 '.mt-0.5': { top: 2 }
+'.mr-0': { right: 0 }
+'.mr-1': { right: 4 }
+'.ml-0': { left: 0 }
 '.w-16': { width: 64 }
 '.w-auto': { width: Ti.UI.SIZE }
-'.w-9/12': { width: '75%' }
+'.w-10/12': { width: '83.333333%' }
+'.w-screen': { width: Ti.UI.FILL }
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
 ```
