@@ -85,6 +85,8 @@ function purgetss() {
 			}
 		});
 	});
+
+	console.log('[ purgeTSS ]:: app.tss file created!');
 };
 
 purgetss();
