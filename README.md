@@ -4,9 +4,9 @@
 
 # purgeTSS
 
-Creates a clean `app.tss` file by combining your own `base.tss` file and only the use classes from [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
+Creates a clean `app.tss` file by combining your `base.tss` file and only the classes use from [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
 
-purgeTSS will scan your xml files and will copy only the used classes into `app.tss`.
+purgeTSS will scan your xml files to copy into `app.tss` only the used classes.
 
 ## Installation
 
@@ -86,3 +86,9 @@ After runing the script you will have this in app.tss
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
 ```
+
+## Contributing
+If you have any suggestions or enhancements, please make a PR.
+
+## License
+ppurgeTSS is open-sourced software licensed under the MIT license.
