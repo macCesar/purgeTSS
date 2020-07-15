@@ -1,13 +1,14 @@
 # Warning!!!
-### This script will OVERWRITE your existing app.tss file
+### purgeTSS will OVERWRITE your existing app.tss file
 > Please rename your existing `app.tss` file to `base.tss`. PurgeTSS will combine it along with `tailwind.tss` and `fontawesome.tss` files.
 
 
 # purgeTSS
-purgeTSS creates a clean `app.tss` file by copying only the classes used in your `views`.
+purgeTSS is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
 
-#### Must be used in combination with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss). ####
+#### It will purge all unused classes from your Appcelerator Project. ####
 
+### from [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss) ###
 
 ## Installation
 ```bash
