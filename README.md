@@ -4,7 +4,7 @@
 
 # purgeTSS
 
-Creates a clean `app.tss` file by combining your `base.tss` file and only the classes use from [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
+Creates a clean `app.tss` file by combining your `base.tss` file by copying only the classes used. from [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
 
 purgeTSS will scan your xml files to copy into `app.tss` only the used classes.
 
