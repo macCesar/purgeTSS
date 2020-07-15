@@ -6,7 +6,9 @@
 # purgeTSS
 purgeTSS is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
 
-It will purge all unused classes from your Appcelerator Project. For now it works with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
+It will purge all unused classes from your Appcelerator Project.
+
+For now it works with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
 
 ## Installation
 Iinstall it globally on your machine.
