@@ -1,20 +1,4 @@
-// Tailwind CSS: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
-// Tailwind UI Plugin ( https://www.npmjs.com/package/@tailwindcss/ui ).
-// Created by Adam Wathan ( https://twitter.com/adamwathan ).
-
-// Tailwind for Titanium
-// Converted by César Estrada
-// https://github.com/macCesar/tailwind-tss-color-generator
-
-// Reset Styles
-'Window': { backgroundColor: '#ffffff' }
-'ImageView[platform=ios]': { hires: true }
-'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
-'.vertical': { layout: 'vertical' }
-'.horizontal': { layout: 'horizontal' }
-'.vertical[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
+// Tailwind Styles
 
 // Colors
 // color Property
@@ -60,7 +44,7 @@
 '.text-orange-600': { color: '#d03801' }
 '.text-orange-700': { color: '#b43403' }
 '.text-orange-800': { color: '#8a2c0d' }
-'.text-orange-900': { color: '#771d1d' }
+'.text-orange-900': { color: '#73230d' }
 '.text-yellow-50': { color: '#fdfdea' }
 '.text-yellow-100': { color: '#fdf6b2' }
 '.text-yellow-200': { color: '#fce96a' }
@@ -175,7 +159,7 @@
 '.bg-orange-600': { backgroundColor: '#d03801' }
 '.bg-orange-700': { backgroundColor: '#b43403' }
 '.bg-orange-800': { backgroundColor: '#8a2c0d' }
-'.bg-orange-900': { backgroundColor: '#771d1d' }
+'.bg-orange-900': { backgroundColor: '#73230d' }
 '.bg-yellow-50': { backgroundColor: '#fdfdea' }
 '.bg-yellow-100': { backgroundColor: '#fdf6b2' }
 '.bg-yellow-200': { backgroundColor: '#fce96a' }
@@ -290,7 +274,7 @@
 '.border-orange-600': { borderColor: '#d03801' }
 '.border-orange-700': { borderColor: '#b43403' }
 '.border-orange-800': { borderColor: '#8a2c0d' }
-'.border-orange-900': { borderColor: '#771d1d' }
+'.border-orange-900': { borderColor: '#73230d' }
 '.border-yellow-50': { borderColor: '#fdfdea' }
 '.border-yellow-100': { borderColor: '#fdf6b2' }
 '.border-yellow-200': { borderColor: '#fce96a' }
@@ -405,7 +389,7 @@
 '.placeholder-orange-600': { hintTextColor: '#d03801' }
 '.placeholder-orange-700': { hintTextColor: '#b43403' }
 '.placeholder-orange-800': { hintTextColor: '#8a2c0d' }
-'.placeholder-orange-900': { hintTextColor: '#771d1d' }
+'.placeholder-orange-900': { hintTextColor: '#73230d' }
 '.placeholder-yellow-50': { hintTextColor: '#fdfdea' }
 '.placeholder-yellow-100': { hintTextColor: '#fdf6b2' }
 '.placeholder-yellow-200': { hintTextColor: '#fce96a' }
@@ -563,7 +547,9 @@
 '.rounded-32': { borderRadius: 64 }
 '.rounded-36': { borderRadius: 72 }
 '.rounded-40': { borderRadius: 80 }
+'.rounded-44': { borderRadius: 88 }
 '.rounded-48': { borderRadius: 96 }
+'.rounded-52': { borderRadius: 104 }
 '.rounded-56': { borderRadius: 112 }
 '.rounded-60': { borderRadius: 120 }
 '.rounded-64': { borderRadius: 128 }
@@ -634,7 +620,9 @@
 '.m-32': { top: 128, right: 128, bottom: 128, left: 128 }
 '.m-36': { top: 144, right: 144, bottom: 144, left: 144 }
 '.m-40': { top: 160, right: 160, bottom: 160, left: 160 }
+'.m-44': { top: 176, right: 176, bottom: 176, left: 176 }
 '.m-48': { top: 192, right: 192, bottom: 192, left: 192 }
+'.m-52': { top: 208, right: 208, bottom: 208, left: 208 }
 '.m-56': { top: 224, right: 224, bottom: 224, left: 224 }
 '.m-60': { top: 240, right: 240, bottom: 240, left: 240 }
 '.m-64': { top: 256, right: 256, bottom: 256, left: 256 }
@@ -696,7 +684,9 @@
 '.-m-32': { top: -128, right: -128, bottom: -128, left: -128 }
 '.-m-36': { top: -144, right: -144, bottom: -144, left: -144 }
 '.-m-40': { top: -160, right: -160, bottom: -160, left: -160 }
+'.-m-44': { top: -176, right: -176, bottom: -176, left: -176 }
 '.-m-48': { top: -192, right: -192, bottom: -192, left: -192 }
+'.-m-52': { top: -208, right: -208, bottom: -208, left: -208 }
 '.-m-56': { top: -224, right: -224, bottom: -224, left: -224 }
 '.-m-60': { top: -240, right: -240, bottom: -240, left: -240 }
 '.-m-64': { top: -256, right: -256, bottom: -256, left: -256 }
@@ -758,7 +748,9 @@
 '.my-32': { top: 128, bottom: 128 }
 '.my-36': { top: 144, bottom: 144 }
 '.my-40': { top: 160, bottom: 160 }
+'.my-44': { top: 176, bottom: 176 }
 '.my-48': { top: 192, bottom: 192 }
+'.my-52': { top: 208, bottom: 208 }
 '.my-56': { top: 224, bottom: 224 }
 '.my-60': { top: 240, bottom: 240 }
 '.my-64': { top: 256, bottom: 256 }
@@ -820,7 +812,9 @@
 '.-my-32': { top: -128, bottom: -128 }
 '.-my-36': { top: -144, bottom: -144 }
 '.-my-40': { top: -160, bottom: -160 }
+'.-my-44': { top: -176, bottom: -176 }
 '.-my-48': { top: -192, bottom: -192 }
+'.-my-52': { top: -208, bottom: -208 }
 '.-my-56': { top: -224, bottom: -224 }
 '.-my-60': { top: -240, bottom: -240 }
 '.-my-64': { top: -256, bottom: -256 }
@@ -882,7 +876,9 @@
 '.mx-32': { right: 128, left: 128 }
 '.mx-36': { right: 144, left: 144 }
 '.mx-40': { right: 160, left: 160 }
+'.mx-44': { right: 176, left: 176 }
 '.mx-48': { right: 192, left: 192 }
+'.mx-52': { right: 208, left: 208 }
 '.mx-56': { right: 224, left: 224 }
 '.mx-60': { right: 240, left: 240 }
 '.mx-64': { right: 256, left: 256 }
@@ -944,7 +940,9 @@
 '.-mx-32': { right: -128, left: -128 }
 '.-mx-36': { right: -144, left: -144 }
 '.-mx-40': { right: -160, left: -160 }
+'.-mx-44': { right: -176, left: -176 }
 '.-mx-48': { right: -192, left: -192 }
+'.-mx-52': { right: -208, left: -208 }
 '.-mx-56': { right: -224, left: -224 }
 '.-mx-60': { right: -240, left: -240 }
 '.-mx-64': { right: -256, left: -256 }
@@ -1006,7 +1004,9 @@
 '.mt-32': { top: 128 }
 '.mt-36': { top: 144 }
 '.mt-40': { top: 160 }
+'.mt-44': { top: 176 }
 '.mt-48': { top: 192 }
+'.mt-52': { top: 208 }
 '.mt-56': { top: 224 }
 '.mt-60': { top: 240 }
 '.mt-64': { top: 256 }
@@ -1068,7 +1068,9 @@
 '.-mt-32': { top: -128 }
 '.-mt-36': { top: -144 }
 '.-mt-40': { top: -160 }
+'.-mt-44': { top: -176 }
 '.-mt-48': { top: -192 }
+'.-mt-52': { top: -208 }
 '.-mt-56': { top: -224 }
 '.-mt-60': { top: -240 }
 '.-mt-64': { top: -256 }
@@ -1130,7 +1132,9 @@
 '.mr-32': { right: 128 }
 '.mr-36': { right: 144 }
 '.mr-40': { right: 160 }
+'.mr-44': { right: 176 }
 '.mr-48': { right: 192 }
+'.mr-52': { right: 208 }
 '.mr-56': { right: 224 }
 '.mr-60': { right: 240 }
 '.mr-64': { right: 256 }
@@ -1192,7 +1196,9 @@
 '.-mr-32': { right: -128 }
 '.-mr-36': { right: -144 }
 '.-mr-40': { right: -160 }
+'.-mr-44': { right: -176 }
 '.-mr-48': { right: -192 }
+'.-mr-52': { right: -208 }
 '.-mr-56': { right: -224 }
 '.-mr-60': { right: -240 }
 '.-mr-64': { right: -256 }
@@ -1254,7 +1260,9 @@
 '.mb-32': { bottom: 128 }
 '.mb-36': { bottom: 144 }
 '.mb-40': { bottom: 160 }
+'.mb-44': { bottom: 176 }
 '.mb-48': { bottom: 192 }
+'.mb-52': { bottom: 208 }
 '.mb-56': { bottom: 224 }
 '.mb-60': { bottom: 240 }
 '.mb-64': { bottom: 256 }
@@ -1316,7 +1324,9 @@
 '.-mb-32': { bottom: -128 }
 '.-mb-36': { bottom: -144 }
 '.-mb-40': { bottom: -160 }
+'.-mb-44': { bottom: -176 }
 '.-mb-48': { bottom: -192 }
+'.-mb-52': { bottom: -208 }
 '.-mb-56': { bottom: -224 }
 '.-mb-60': { bottom: -240 }
 '.-mb-64': { bottom: -256 }
@@ -1378,7 +1388,9 @@
 '.ml-32': { left: 128 }
 '.ml-36': { left: 144 }
 '.ml-40': { left: 160 }
+'.ml-44': { left: 176 }
 '.ml-48': { left: 192 }
+'.ml-52': { left: 208 }
 '.ml-56': { left: 224 }
 '.ml-60': { left: 240 }
 '.ml-64': { left: 256 }
@@ -1440,7 +1452,9 @@
 '.-ml-32': { left: -128 }
 '.-ml-36': { left: -144 }
 '.-ml-40': { left: -160 }
+'.-ml-44': { left: -176 }
 '.-ml-48': { left: -192 }
+'.-ml-52': { left: -208 }
 '.-ml-56': { left: -224 }
 '.-ml-60': { left: -240 }
 '.-ml-64': { left: -256 }
@@ -1504,7 +1518,9 @@
 '.p-32': { padding: { top: 128, right: 128, bottom: 128, left: 128 } }
 '.p-36': { padding: { top: 144, right: 144, bottom: 144, left: 144 } }
 '.p-40': { padding: { top: 160, right: 160, bottom: 160, left: 160 } }
+'.p-44': { padding: { top: 176, right: 176, bottom: 176, left: 176 } }
 '.p-48': { padding: { top: 192, right: 192, bottom: 192, left: 192 } }
+'.p-52': { padding: { top: 208, right: 208, bottom: 208, left: 208 } }
 '.p-56': { padding: { top: 224, right: 224, bottom: 224, left: 224 } }
 '.p-60': { padding: { top: 240, right: 240, bottom: 240, left: 240 } }
 '.p-64': { padding: { top: 256, right: 256, bottom: 256, left: 256 } }
@@ -1566,7 +1582,9 @@
 '.py-32': { padding: { top: 128, bottom: 128 } }
 '.py-36': { padding: { top: 144, bottom: 144 } }
 '.py-40': { padding: { top: 160, bottom: 160 } }
+'.py-44': { padding: { top: 176, bottom: 176 } }
 '.py-48': { padding: { top: 192, bottom: 192 } }
+'.py-52': { padding: { top: 208, bottom: 208 } }
 '.py-56': { padding: { top: 224, bottom: 224 } }
 '.py-60': { padding: { top: 240, bottom: 240 } }
 '.py-64': { padding: { top: 256, bottom: 256 } }
@@ -1628,7 +1646,9 @@
 '.px-32': { padding: { right: 128, left: 128 } }
 '.px-36': { padding: { right: 144, left: 144 } }
 '.px-40': { padding: { right: 160, left: 160 } }
+'.px-44': { padding: { right: 176, left: 176 } }
 '.px-48': { padding: { right: 192, left: 192 } }
+'.px-52': { padding: { right: 208, left: 208 } }
 '.px-56': { padding: { right: 224, left: 224 } }
 '.px-60': { padding: { right: 240, left: 240 } }
 '.px-64': { padding: { right: 256, left: 256 } }
@@ -1690,7 +1710,9 @@
 '.pt-32': { padding: { top: 128 } }
 '.pt-36': { padding: { top: 144 } }
 '.pt-40': { padding: { top: 160 } }
+'.pt-44': { padding: { top: 176 } }
 '.pt-48': { padding: { top: 192 } }
+'.pt-52': { padding: { top: 208 } }
 '.pt-56': { padding: { top: 224 } }
 '.pt-60': { padding: { top: 240 } }
 '.pt-64': { padding: { top: 256 } }
@@ -1752,7 +1774,9 @@
 '.pr-32': { padding: { right: 128 } }
 '.pr-36': { padding: { right: 144 } }
 '.pr-40': { padding: { right: 160 } }
+'.pr-44': { padding: { right: 176 } }
 '.pr-48': { padding: { right: 192 } }
+'.pr-52': { padding: { right: 208 } }
 '.pr-56': { padding: { right: 224 } }
 '.pr-60': { padding: { right: 240 } }
 '.pr-64': { padding: { right: 256 } }
@@ -1814,7 +1838,9 @@
 '.pb-32': { padding: { bottom: 128 } }
 '.pb-36': { padding: { bottom: 144 } }
 '.pb-40': { padding: { bottom: 160 } }
+'.pb-44': { padding: { bottom: 176 } }
 '.pb-48': { padding: { bottom: 192 } }
+'.pb-52': { padding: { bottom: 208 } }
 '.pb-56': { padding: { bottom: 224 } }
 '.pb-60': { padding: { bottom: 240 } }
 '.pb-64': { padding: { bottom: 256 } }
@@ -1876,7 +1902,9 @@
 '.pl-32': { padding: { left: 128 } }
 '.pl-36': { padding: { left: 144 } }
 '.pl-40': { padding: { left: 160 } }
+'.pl-44': { padding: { left: 176 } }
 '.pl-48': { padding: { left: 192 } }
+'.pl-52': { padding: { left: 208 } }
 '.pl-56': { padding: { left: 224 } }
 '.pl-60': { padding: { left: 240 } }
 '.pl-64': { padding: { left: 256 } }
@@ -1940,7 +1968,9 @@
 '.w-32': { width: 128 }
 '.w-36': { width: 144 }
 '.w-40': { width: 160 }
+'.w-44': { width: 176 }
 '.w-48': { width: 192 }
+'.w-52': { width: 208 }
 '.w-56': { width: 224 }
 '.w-60': { width: 240 }
 '.w-64': { width: 256 }
@@ -2006,7 +2036,9 @@
 '.h-32': { height: 128 }
 '.h-36': { height: 144 }
 '.h-40': { height: 160 }
+'.h-44': { height: 176 }
 '.h-48': { height: 192 }
+'.h-52': { height: 208 }
 '.h-56': { height: 224 }
 '.h-60': { height: 240 }
 '.h-64': { height: 256 }

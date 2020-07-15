@@ -1,8 +1,14 @@
 {
 	"name": "purgetss",
-	"version": "1.0.7",
+	"version": "1.1.2",
 	"description": "Creates a clean app.tss file by combining your own base.tss file and all the used classes from tailwind.css and fontawesome.tss",
 	"main": "index.js",
+	"bin": {
+		"purgetss": "bin/purgetss"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"purgetss": "node index"
 	},
@@ -24,6 +30,8 @@
 	"homepage": "https://github.com/macCesar/purgeTSS#readme",
 	"devDependencies": {},
 	"dependencies": {
+		"arg": "^4.1.3",
+		"esm": "^3.2.25",
 		"lodash": "^4.17.19",
 		"path": "^0.12.7",
 		"xml-js": "^1.6.11",

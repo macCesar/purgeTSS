@@ -6,6 +6,12 @@
 // Converted by César Estrada
 // https://github.com/macCesar/tailwind-tss-color-generator
 
+// Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
+// License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+
+// .tss converted by César Estrada
+// To use FontAwesome in Buttons AND Labels each class sets 'text' and 'title' properties.
+
 // Reset Styles
 'Window': { backgroundColor: '#ffffff' }
 'ImageView[platform=ios]': { hires: true }

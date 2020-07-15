@@ -1,11 +1,7 @@
-// Font Awesome Free 5.13.1 by @fontawesome - https://fontawesome.com
-// License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
-
-// .tss converted by César Estrada
-// To use FontAwesome in Buttons AND Labels each class sets 'text' and 'title' properties.
+// Font Awesome Styles
 
 // Font Awesome Sizes
- '.fa-lg': { font: { fontSize: 21 } }
+'.fa-lg': { font: { fontSize: 21 } }
 '.fa-xs': { font: { fontSize: 12 } }
 '.fa-sm': { font: { fontSize: 14 } }
 '.fa-1x': { font: { fontSize: 16 } }
