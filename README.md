@@ -7,8 +7,6 @@ purgeTSS creates a clean app.tss file by combining your base.tss file by copying
 
 It is ment to be use in combination with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
 
-purgeTSS will scan your xml files to copy into `app.tss` only the used classes.
-
 ## Installation
 ```bash
 # In your project's root directory run:
