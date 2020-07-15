@@ -1,7 +1,6 @@
 const fs = require('fs');
 const _ = require('lodash');
 const path = require('path');
-const readline = require('linebyline');
 const convert = require('xml-js');
 const traverse = require('traverse');
 
@@ -9,8 +8,8 @@ const resetTSS = './tss/reset.tss';
 const appTSS = '../../app/styles/app.tss';
 const baseTSS = '../../app/styles/base.tss';
 
-const tailwindTSS = './tss/tailwind.tss';
-const fontAwesomeTSS = './tss/fontawesome.tss';
+const tailwindSourceTSS = './tss/tailwind.tss';
+const fontAwesomeSourceTSS = './tss/fontawesome.tss';
 
 function extractClasses(texto) {
 	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce(function (acc, value) {
@@ -51,19 +50,20 @@ function purgetss() {
 	let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
 
 	// ! Copy Reset template
+	console.log('::purgeTSS:: Copying Reset styles...');
 	fs.copyFileSync(resetTSS, appTSS);
 
 	if (fs.existsSync(baseTSS)) {
+		console.log('::purgeTSS:: Copying Base styles...');
 		fs.appendFileSync(appTSS, '\n// Project’s Styles\n');
 		fs.appendFileSync(appTSS, fs.readFileSync(baseTSS, 'utf8'));
 	}
 
 	// ! FontAwesome
-	let cleanFontAwesome = readline(fontAwesomeTSS);
+	console.log('::purgeTSS:: Copying Font Awesome styles...');
+	fs.appendFileSync(appTSS, '\n// Font Awesome’s Styles\n');
 
-	fs.appendFileSync(appTSS, '\n// FontAwesome’s Styles\n');
-
-	cleanFontAwesome.on('line', line => {
+	fs.readFileSync(fontAwesomeSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
 		_.each(uniqueClasses, className => {
 			if (line.includes(`'.${className}'`)) {
 				fs.appendFileSync(appTSS, line + '\n');
@@ -73,11 +73,10 @@ function purgetss() {
 	});
 
 	// ! Tailwind
-	let cleanTailwind = readline(tailwindTSS);
-
+	console.log('::purgeTSS:: Copying Tailwind styles...');
 	fs.appendFileSync(appTSS, '\n// Tailwind’s Styles\n');
 
-	cleanTailwind.on('line', line => {
+	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
 		_.each(uniqueClasses, className => {
 			if (className !== 'vertical' && className !== 'horizontal' && line.includes(`'.${className}'`)) {
 				fs.appendFileSync(appTSS, line + '\n');
@@ -86,7 +85,7 @@ function purgetss() {
 		});
 	});
 
-	console.log('[ purgeTSS ]:: app.tss file created!');
+	console.log('::purgeTSS:: app.tss file created!');
 };
 
 purgetss();
