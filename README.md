@@ -78,15 +78,27 @@ After runing the script you will have this in `app.tss`
 '.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 
-// Project’s Styles
+// Project Styles
+'ImageView': {
+    hires: true,
+    preventDefaultImage: true
+}
 
-// FontAwesome’s Styles
+'.bg-primary': {
+    backgroundColor: '#002359'
+}
 
-// Tailwind’s Styles
+// Font Awesome Styles
+'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
+'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
+'.fa-phone-alt': { text: '\uf879', title: '\uf879' }
+
+// Tailwind Styles
 '.text-gray-600': { color: '#4b5563' }
 '.text-purple-600': { color: '#7e3af2' }
 '.bg-white': { backgroundColor: '#ffffff' }
-'.bg-green-100': { backgroundColor: '#def7ec' }
+'.text-xs': { font: { fontSize: 12 } }
 '.text-sm': { font: { fontSize: 14 } }
 '.text-lg': { font: { fontSize: 18 } }
 '.rounded-lg': { borderRadius: 8 }
@@ -94,9 +106,13 @@ After runing the script you will have this in `app.tss`
 '.my-4': { top: 16, bottom: 16 }
 '.mx-auto': { right: null, left: null }
 '.mt-0.5': { top: 2 }
+'.mr-0': { right: 0 }
+'.mr-1': { right: 4 }
+'.ml-0': { left: 0 }
 '.w-16': { width: 64 }
 '.w-auto': { width: Ti.UI.SIZE }
-'.w-9/12': { width: '75%' }
+'.w-10/12': { width: '83.333333%' }
+'.w-screen': { width: Ti.UI.FILL }
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
 ```
