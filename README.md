@@ -11,7 +11,7 @@ purgeTSS creates a clean `app.tss` file by copying only the classes used in your
 
 ## Installation
 ```bash
-# In your project's root directory run:
+# cd into your titanium project's root directory and run:
 [sudo] npm i purgetss --save
 ```
 
