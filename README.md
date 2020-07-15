@@ -11,7 +11,7 @@ It will purge all unused classes from your Appcelerator Project. For now it work
 ## Installation
 Iinstall it globally on your machine.
 ```bash
-[sudo] npm i purgetss --save
+[sudo] npm i purgetss -g
 ```
 
 
