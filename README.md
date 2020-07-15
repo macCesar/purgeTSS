@@ -20,7 +20,7 @@ Before running this script, rename your existing `app.tss` file to `base.tss`
 ```bash
 purgetss [ -d, --dev ]
 ```
-Use the --dev flag if you want all to copy all utillity classes.
+Use the --dev flag if you want to copy all utillity classes.
 
 ## Sample file
 Use this markup to test the script.
