@@ -91,4 +91,4 @@ After runing the script you will have this in app.tss
 If you have any suggestions or enhancements, please make a PR.
 
 ## License
-ppurgeTSS is open-sourced software licensed under the MIT license.
+purgeTSS is open-sourced software licensed under the MIT license.
