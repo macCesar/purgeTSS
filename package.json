@@ -17,7 +17,7 @@
 		"fontawesome.tss"
 	],
 	"author": "César Estrada",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/macCesar/purgeTSS/issues"
 	},
