@@ -47,7 +47,7 @@ Use this markup to test the script.
 ```
 
 
-After runing the script you will have this in app.tss
+After runing the script you will have this in `app.tss`
 ```css
 // Tailwind CSS: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Tailwind UI Plugin ( https://www.npmjs.com/package/@tailwindcss/ui ).
