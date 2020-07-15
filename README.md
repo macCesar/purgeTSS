@@ -1,17 +1,16 @@
 # Warning!!!
-### This script will OVERWRITE your existing app.tss file
+### purgeTSS will OVERWRITE your existing app.tss file
 > Please rename your existing `app.tss` file to `base.tss`. PurgeTSS will combine it along with `tailwind.tss` and `fontawesome.tss` files.
 
 
 # purgeTSS
-purgeTSS creates a clean `app.tss` file by copying only the classes used in your `views`.
+purgeTSS is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
 
-#### Must be used in combination with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss). ####
-
+It will purge all unused classes from your Appcelerator Project. For now it works with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
 
 ## Installation
+Iinstall it globally on your machine.
 ```bash
-# cd into your titanium project's root directory and run:
 [sudo] npm i purgetss --save
 ```
 
@@ -19,9 +18,9 @@ purgeTSS creates a clean `app.tss` file by copying only the classes used in your
 ## Purging your classes
 Before running this script, rename your existing `app.tss` file to `base.tss`
 ```bash
-npm explore purgetss -- npm run purgetss
+purgetss [ -d, --dev ]
 ```
-
+Use the --dev flag if you want to copy all classes.
 
 ## Sample file
 Use this markup to test the script.
