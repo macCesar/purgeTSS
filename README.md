@@ -29,30 +29,30 @@ Use this markup to test the script.
 `index.xml`
 ```xml
 <Alloy>
-	<Window class="bg-primary">
-		<View class="w-auto h-auto bg-white rounded-lg">
-			<View class="w-10/12 mx-auto my-4 vertical">
-				<ImageView class="w-16 h-16 mx-auto rounded-16" image="https://randomuser.me/api/portraits/men/43.jpg" />
+    <Window class="bg-primary">
+        <View class="w-auto h-auto bg-white rounded-lg">
+            <View class="w-10/12 mx-auto my-4 vertical">
+                <ImageView class="w-16 h-16 mx-auto rounded-16" image="https://randomuser.me/api/portraits/men/43.jpg" />
 
-				<View class="vertical">
-					<Label class="text-lg font-semibold">John W. Doe</Label>
-					<Label class="mt-0.5 text-purple-600 text-sm">Product Engineer</Label>
+                <View class="vertical">
+                    <Label class="text-lg font-semibold">John W. Doe</Label>
+                    <Label class="mt-0.5 text-purple-600 text-sm">Product Engineer</Label>
 
-					<View class="w-screen">
-						<View class="ml-0 horizontal">
-							<Label class="mr-1 text-xs text-gray-600 far fa-envelope"></Label>
-							<Label class="text-xs text-gray-600">john@internet.com</Label>
-						</View>
+                    <View class="w-screen">
+                        <View class="ml-0 horizontal">
+                            <Label class="mr-1 text-xs text-gray-600 far fa-envelope"></Label>
+                            <Label class="text-xs text-gray-600">john@internet.com</Label>
+                        </View>
 
-						<View class="mr-0 horizontal">
-							<Label class="mr-1 text-xs text-gray-600 fas fa-phone-alt"></Label>
-							<Label class="text-xs text-gray-600">(555) 765-4321</Label>
-						</View>
-					</View>
-				</View>
-			</View>
-		</View>
-	</Window>
+                        <View class="mr-0 horizontal">
+                            <Label class="mr-1 text-xs text-gray-600 fas fa-phone-alt"></Label>
+                            <Label class="text-xs text-gray-600">(555) 765-4321</Label>
+                        </View>
+                    </View>
+                </View>
+            </View>
+        </View>
+    </Window>
 </Alloy>
 
 ```
