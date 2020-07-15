@@ -18,7 +18,7 @@ Iinstall it globally on your machine.
 ## Purging your classes
 Before running this script, rename your existing `app.tss` file to `base.tss`
 ```bash
-npm explore purgetss -- npm run purgetss
+purgetss [ -d, --dev ]
 ```
 
 
