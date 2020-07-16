@@ -1,23 +1,20 @@
 const fs = require('fs');
+const arg = require('arg');
+const junk = require('junk');
 const _ = require('lodash');
 const path = require('path');
 const convert = require('xml-js');
 const traverse = require('traverse');
-const arg = require('arg');
-const junk = require('junk');
 
-const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const appTSS = './app/styles/app.tss';
 const baseTSS = './app/styles/base.tss';
-
+const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
 
 function extractClasses(texto) {
 	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce(function (acc, value) {
-		if (this.key === 'class') {
-			acc.push(value.split(' '));
-		}
+		if (this.key === 'class') acc.push(value.split(' '));
 		return acc;
 	}, []);
 }
@@ -25,7 +22,7 @@ function extractClasses(texto) {
 function walkSync(currentDirPath, callback) {
 	let files = fs.readdirSync(currentDirPath);
 
-	files.filter(junk.not).forEach(function (name) {
+	files.filter(junk.not).forEach(name => {
 		let filePath = path.join(currentDirPath, name);
 
 		let stat = fs.statSync(filePath);
