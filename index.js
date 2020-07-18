@@ -7,7 +7,7 @@ const convert = require('xml-js');
 const traverse = require('traverse');
 
 const appTSS = './app/styles/app.tss';
-const baseTSS = './app/styles/base.tss';
+const _appTSS = './app/styles/_app.tss';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
@@ -65,14 +65,21 @@ function purgetss(args) {
 
 	let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
 
-	// ! Copy Reset template
+	//! FIRST: Backup original app.tss
+	if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
+		console.log('::purgeTSS:: Backing up app.tss...');
+		console.log('             FROM NOW ON, add, update or delete your custom classes from here...');
+		fs.copyFileSync(appTSS, _appTSS);
+	}
+
+	//! Copy Reset template
 	console.log('::purgeTSS:: Copying Reset styles...');
 	fs.copyFileSync(resetTSS, appTSS);
+	if (fs.existsSync(_appTSS)) {
 
-	if (fs.existsSync(baseTSS)) {
-		console.log('::purgeTSS:: Copying Base styles...');
-		fs.appendFileSync(appTSS, '\n// *** Project Styles ***\n');
-		fs.appendFileSync(appTSS, fs.readFileSync(baseTSS, 'utf8'));
+		console.log('::purgeTSS:: Copying _app.tss styles...');
+		fs.appendFileSync(appTSS, '\n// *** _app.tss Styles ***\n');
+		fs.appendFileSync(appTSS, fs.readFileSync(_appTSS, 'utf8'));
 	}
 
 	if (options.development) {
@@ -82,7 +89,7 @@ function purgetss(args) {
 
 		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
 	} else {
-		// ! FontAwesome
+		//! FontAwesome
 		console.log('::purgeTSS:: Copying Font Awesome styles...');
 
 		fs.appendFileSync(appTSS, '\n// *** Font Awesome Styles ***\n');
@@ -96,7 +103,7 @@ function purgetss(args) {
 			});
 		});
 
-		// ! Tailwind
+		//! Tailwind
 		console.log('::purgeTSS:: Copying Tailwind styles...');
 
 		fs.appendFileSync(appTSS, '\n// *** Tailwind Styles ***\n');

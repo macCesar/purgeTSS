@@ -1,10 +1,14 @@
-# WARNING!!!
+# IMPORTANT NOTICE!!!
 ### purgeTSS will OVERWRITE your existing app.tss file
-> Please rename your existing `app.tss` file to `base.tss`. PurgeTSS will combine it along with `tailwind.tss` and `fontawesome.tss` files.
+> When you run PurgeTSS for the first time, it will backup your existing `app.tss` file to `_app.tss`.
+>
+> It will use it along with `tailwind.tss` and `fontawesome.tss` files to create a new purged `app.tss` file.
+>
+> From now on, you will Add, Update or Delete your custom classes from `_app.tss`.
 
 
 # purgeTSS
-purgeTSS is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
+purgeTSS is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in `views`.
 
 It will purge all unused classes from your Appcelerator Project.
 
@@ -22,7 +26,7 @@ Before running this script, rename your existing `app.tss` file to `base.tss`
 ```bash
 purgetss [ -d, --dev ]
 ```
-Use the --dev flag if you want to copy all classes.
+Use the --dev flag if you want to copy all class definitions while prototyping your App.
 
 ## Sample file
 Use this markup to test the script.
