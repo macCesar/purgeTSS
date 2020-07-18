@@ -4,7 +4,7 @@
 >
 > It will use it along with `tailwind.tss` and `fontawesome.tss` files to create a new purged `app.tss` file.
 >
-> From now on, you will Add, Update or Delete your custom classes from `_app.tss`.
+> From now on you will have to Add, Update or Delete your custom classes from `_app.tss`.
 
 
 # purgeTSS
