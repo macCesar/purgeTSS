@@ -16,19 +16,26 @@ For now it only works with [tailwind.tss](https://github.com/macCesar/tailwind-t
 
 **ALL your custom classes form your `app.tss` file will be copied over without purging.**
 
+
 ## Installation
-Iinstall it globally on your machine.
+Install it globally on your machine.
 ```bash
-[sudo] npm i purgetss -g
+[sudo] npm i -g purgetss
+```
+
+
+## Updating
+```bash
+[sudo] npm update -g purgetss
 ```
 
 
 ## Purging your classes
-Before running this script, rename your existing `app.tss` file to `base.tss`
 ```bash
 purgetss [ -d, --dev ]
 ```
 Use the --dev flag if you want to copy all class definitions while prototyping your App.
+
 
 ## Sample file
 Use this markup to test the script.
