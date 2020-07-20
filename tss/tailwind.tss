@@ -1,4 +1,10 @@
-// Tailwind Styles
+// Tailwind CSS: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind UI Plugin ( https://www.npmjs.com/package/@tailwindcss/ui ).
+// Created by Adam Wathan ( https://twitter.com/adamwathan ).
+
+// Tailwind for Titanium
+// Converted by César Estrada
+// https://github.com/macCesar/tailwind-tss-color-generator
 
 // Colors
 // color Property
@@ -489,11 +495,11 @@
 '.text-5xl': { font: { fontSize: 48 } }
 '.text-6xl': { font: { fontSize: 64 } }
 
-// Font Style ( iOS Only )
+// Font Style
 '.italic': { font: { fontStyle: 'italic' } }
 '.not-italic': { font: { fontStyle: 'normal' } }
 
-// Font Weight ( iOS Only )
+// Font Weight
 '.font-hairline': { font: { fontWeight: 'ultralight' } }
 '.font-thin': { font: { fontWeight: 'thin' } }
 '.font-light': { font: { fontWeight: 'light' } }
@@ -2054,7 +2060,7 @@
 '.h-full': { height: '100%' }
 '.h-screen': { height: Ti.UI.FILL }
 
-// Box Shadow ( iOS Only )
+// Box Shadow
 '.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#77000000' }
 '.shadow-sm': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 1, viewShadowColor: '#77000000' }
 '.shadow': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 2, viewShadowColor: '#77000000' }
