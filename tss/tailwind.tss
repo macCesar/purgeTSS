@@ -490,19 +490,19 @@
 '.text-6xl': { font: { fontSize: 64 } }
 
 // Font Style ( iOS Only )
-'.italic[platform=ios]': { font: { fontStyle: 'italic' } }
-'.not-italic[platform=ios]': { font: { fontStyle: 'normal' } }
+'.italic': { font: { fontStyle: 'italic' } }
+'.not-italic': { font: { fontStyle: 'normal' } }
 
 // Font Weight ( iOS Only )
-'.font-hairline[platform=ios]': { font: { fontWeight: 'ultralight' } }
-'.font-thin[platform=ios]': { font: { fontWeight: 'thin' } }
-'.font-light[platform=ios]': { font: { fontWeight: 'light' } }
-'.font-normal[platform=ios]': { font: { fontWeight: 'normal' } }
-'.font-medium[platform=ios]': { font: { fontWeight: 'normal' } }
-'.font-semibold[platform=ios]': { font: { fontWeight: 'semibold' } }
-'.font-bold[platform=ios]': { font: { fontWeight: 'bold' } }
-'.font-extrabold[platform=ios]': { font: { fontWeight: 'bold' } }
-'.font-black[platform=ios]': { font: { fontWeight: 'bold' } }
+'.font-hairline': { font: { fontWeight: 'ultralight' } }
+'.font-thin': { font: { fontWeight: 'thin' } }
+'.font-light': { font: { fontWeight: 'light' } }
+'.font-normal': { font: { fontWeight: 'normal' } }
+'.font-medium': { font: { fontWeight: 'normal' } }
+'.font-semibold': { font: { fontWeight: 'semibold' } }
+'.font-bold': { font: { fontWeight: 'bold' } }
+'.font-extrabold': { font: { fontWeight: 'bold' } }
+'.font-black': { font: { fontWeight: 'bold' } }
 
 // Text Alignment
 '.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
@@ -2055,16 +2055,16 @@
 '.h-screen': { height: Ti.UI.FILL }
 
 // Box Shadow ( iOS Only )
-'.shadow-xs[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#77000000' }
-'.shadow-sm[platform=ios]': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 1, viewShadowColor: '#77000000' }
-'.shadow[platform=ios]': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 2, viewShadowColor: '#77000000' }
-'.shadow-md[platform=ios]': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 4, viewShadowColor: '#77000000' }
-'.shadow-lg[platform=ios]': { viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 8, viewShadowColor: '#77000000' }
-'.shadow-xl[platform=ios]': { viewShadowOffset: { x: 0, y: 12 }, viewShadowRadius: 12, viewShadowColor: '#77000000' }
-'.shadow-2xl[platform=ios]': { viewShadowOffset: { x: 0, y: 16 }, viewShadowRadius: 16, viewShadowColor: '#77000000' }
-'.shadow-inner[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
-'.shadow-outline[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 2, viewShadowColor: '#77000000' }
-'.shadow-none[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+'.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#77000000' }
+'.shadow-sm': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 1, viewShadowColor: '#77000000' }
+'.shadow': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 2, viewShadowColor: '#77000000' }
+'.shadow-md': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 4, viewShadowColor: '#77000000' }
+'.shadow-lg': { viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 8, viewShadowColor: '#77000000' }
+'.shadow-xl': { viewShadowOffset: { x: 0, y: 12 }, viewShadowRadius: 12, viewShadowColor: '#77000000' }
+'.shadow-2xl': { viewShadowOffset: { x: 0, y: 16 }, viewShadowRadius: 16, viewShadowColor: '#77000000' }
+'.shadow-inner': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+'.shadow-outline': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 2, viewShadowColor: '#77000000' }
+'.shadow-none': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 
 // Opacity
 '.opacity-0': { opacity: 0 }

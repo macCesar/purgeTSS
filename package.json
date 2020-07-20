@@ -1,6 +1,6 @@
 {
 	"name": "purgetss",
-	"version": "1.1.8",
+	"version": "1.2.0",
 	"description": "Creates a clean app.tss file by combining your own base.tss file and all the used classes from tailwind.css and fontawesome.tss",
 	"main": "index.js",
 	"bin": {
@@ -20,7 +20,8 @@
 		"Appcelerator",
 		"Titanium",
 		"tailwind.tss",
-		"fontawesome.tss"
+		"fontawesome.tss",
+		"cli"
 	],
 	"author": "César Estrada",
 	"license": "MIT",

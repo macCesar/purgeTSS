@@ -14,10 +14,8 @@
 
 // Reset Styles
 'Window': { backgroundColor: '#ffffff' }
-'ImageView[platform=ios]': { hires: true }
+'ImageView': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
-'.vertical': { layout: 'vertical' }
-'.horizontal': { layout: 'horizontal' }
-'.vertical[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
+'.vertical': { layout: 'vertical', clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.horizontal': { layout: 'horizontal', clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.clip-enabled': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
