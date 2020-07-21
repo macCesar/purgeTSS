@@ -10,6 +10,6 @@
 'Window': { backgroundColor: '#ffffff' }
 'ImageView': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
-'.vertical': { layout: vertical, clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.horizontal': { layout: horizontal, clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.vertical': { layout: 'vertical', clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.horizontal': { layout: 'horizontal', clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 '.clip-enabled': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }

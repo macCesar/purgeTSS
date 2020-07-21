@@ -32,10 +32,17 @@ Install it globally on your machine.
 
 ## Purging your classes
 ```bash
-purgetss [ -d, --dev ]
+purgetss [ -d, --dev ] [ --vendor ]
 ```
-Use the --dev flag if you want to copy all class definitions while prototyping your App.
+Use `--dev` if you want to copy all classes while prototyping your App.
 
+Use `--vendor` to copy the following [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts) inside of `app/assets/fonts` folder. With their names fixed to work in your app whether it is Android or iOS.
+
+> FontAwesome5Brands-Regular.ttf
+>
+> FontAwesome5Free-Regular.ttf
+>
+> FontAwesome5Free-Solid.ttf
 
 ## Sample file
 Use this markup to test the script.

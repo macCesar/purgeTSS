@@ -12,6 +12,10 @@ const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
 
+if (!fs.existsSync('./tss')) {
+	fs.mkdirSync('./tss')
+}
+
 function extractClasses(texto) {
 	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce(function (acc, value) {
 		if (this.key === 'class') acc.push(value.split(' '));
@@ -38,20 +42,53 @@ function walkSync(currentDirPath, callback) {
 function parseArgs(rawArgs) {
 	const args = arg({
 		'--dev': Boolean,
-		'-d': '--dev'
+		'-d': '--dev',
+		'--vendor': Boolean,
 	}, {
 		argv: rawArgs.slice(2)
 	});
 
 	return {
-		development: args['--dev'] || false
+		development: args['--dev'] || false,
+		vendor: args['--vendor'] || false
 	}
+}
+
+function callback(err) {
+	if (err) throw err;
 }
 
 function purgetss(args) {
 	'use strict';
 
 	let options = parseArgs(args);
+
+	if (options.vendor) {
+		copyFontsFolder();
+	} else {
+		purgeClasses(options);
+	}
+};
+
+module.exports.purgetss = purgetss;
+
+function copyFontsFolder() {
+	const detinationFontsFolder = './app/assets/fonts';
+	const sourceFontsFolder = path.resolve(__dirname, './assets/fonts');
+
+	if (!fs.existsSync(detinationFontsFolder)) {
+		fs.mkdirSync(detinationFontsFolder)
+	}
+
+	fs.copyFile(sourceFontsFolder + '/FontAwesome5Brands-Regular.ttf', detinationFontsFolder + '/FontAwesome5Brands-Regular.ttf', callback);
+	fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Regular.ttf', detinationFontsFolder + '/FontAwesome5Free-Regular.ttf', callback);
+	fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Solid.ttf', detinationFontsFolder + '/FontAwesome5Free-Solid.ttf', callback);
+
+	console.log('::purgeTSS:: Font Awesome Fonts copied to "app/assets/fonts"');
+}
+
+function purgeClasses(options) {
+
 
 	let viewPaths = [];
 	walkSync('./app/views', viewPath => {
@@ -119,6 +156,4 @@ function purgetss(args) {
 	}
 
 	console.log('::purgeTSS:: app.tss file created!');
-};
-
-module.exports.purgetss = purgetss;
+}
