@@ -11,11 +11,11 @@
 	},
 	"scripts": {
 		"purgetss": "node index",
-		"build:all": "npm run build:fa-js && npm run build:fa-tss && npm run build:tailwind && npm run build:fonts",
 		"build:fa-js": "node ./lib/build-fa-js",
 		"build:fa-tss": "node ./lib/build-fa-tss",
 		"build:tailwind": "node ./lib/build-tailwind",
-		"build:fonts": "node ./lib/build-fonts-folder"
+		"build:fonts": "node ./lib/build-fonts-folder",
+		"build:all": "npm run build:fa-js && npm run build:fa-tss && npm run build:tailwind && npm run build:fonts"
 	},
 	"repository": {
 		"type": "git",
