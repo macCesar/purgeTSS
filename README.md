@@ -87,8 +87,8 @@ After runing the script you will have this in `app.tss`
 // Tailwind UI Plugin ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
-// Tailwind for Titanium
-// Converted by César Estrada
+// Tailwind TSS Generator
+// Created by César Estrada
 // https://github.com/macCesar/tailwind-tss-color-generator
 
 // Reset Styles
