@@ -4,7 +4,7 @@
 >
 > It will use it along with `tailwind.tss` and `fontawesome.tss` files to create a new purged `app.tss` file.
 >
-> From now on you will have to Add, Update or Delete your custom classes from `_app.tss`.
+> From now on Add, Update or Delete your custom classes from `_app.tss`.
 
 
 # purgeTSS
@@ -87,8 +87,8 @@ After runing the script you will have this in `app.tss`
 // Tailwind UI Plugin ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
-// Tailwind for Titanium
-// Converted by César Estrada
+// Tailwind TSS Generator
+// Created by César Estrada
 // https://github.com/macCesar/tailwind-tss-color-generator
 
 // Reset Styles
