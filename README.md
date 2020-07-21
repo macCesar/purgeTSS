@@ -31,6 +31,7 @@ Install it globally on your machine.
 
 
 ## Purging your classes
+Run the following command inside your project's root directory.
 ```bash
 purgetss [ -d, --dev ] [ --vendor ]
 ```
