@@ -1,7 +1,8 @@
 // Font Awesome Free 5.14.0 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
-// .tss converted by César Estrada
+// Font Awesome TSS Generator
+// Created by César Estrada
 // To use FontAwesome in Buttons AND Labels each class sets 'text' and 'title' properties.
 
 // Font Awesome Sizes
