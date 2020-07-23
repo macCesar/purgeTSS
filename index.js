@@ -12,10 +12,6 @@ const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
 
-if (!fs.existsSync('./tss')) {
-	fs.mkdirSync('./tss')
-}
-
 function extractClasses(texto) {
 	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce(function (acc, value) {
 		if (this.key === 'class') acc.push(value.split(' '));
