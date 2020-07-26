@@ -1,6 +1,6 @@
 {
 	"name": "purgetss",
-	"version": "1.5.6",
+	"version": "1.5.7",
 	"description": "Creates a clean app.tss file by combining your own base.tss file and all the used classes from tailwind.css and fontawesome.tss",
 	"main": "index.js",
 	"bin": {
