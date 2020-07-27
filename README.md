@@ -8,7 +8,7 @@
 
 
 # purgeTSS
-purgeTSS is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in `views`.
+purgeTSS is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
 
 It will purge all unused classes from your Appcelerator Project.
 
