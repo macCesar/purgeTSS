@@ -78,7 +78,19 @@ Use this markup to test the script.
 </Alloy>
 ```
 
-## Purged `app.tss` file
+`app.tss`
+```css
+'ImageView': {
+    hires: true,
+    preventDefaultImage: true
+}
+
+'.bg-primary': {
+    backgroundColor: '#002359'
+}
+```
+
+## Purged `app.tss` file ( After backing up `app.tss` into `_app.tss` )
 After runing the script you will have this in `app.tss`
 
 ```css
