@@ -1,6 +1,6 @@
 # IMPORTANT NOTICE!!!
 ### purgeTSS will OVERWRITE your existing app.tss file
-> When you run PurgeTSS for the first time, it will backup your existing `app.tss` file to `_app.tss`.
+> When you run `purgeTSS` for the first time, it will backup your existing `app.tss` file to `_app.tss`.
 >
 > It will use it along with `tailwind.tss` and `fontawesome.tss` files to create a new purged `app.tss` file.
 >
@@ -8,7 +8,7 @@
 
 
 # purgeTSS
-purgeTSS is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
+`purgeTSS` is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
 
 It will purge all unused classes from your Appcelerator Project.
 
