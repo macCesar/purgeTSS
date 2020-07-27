@@ -46,7 +46,7 @@ Use `--vendor` to copy the following [Font Awesome Fonts](https://github.com/For
 > FontAwesome5Free-Solid.ttf
 
 ## Sample file
-Use this markup to test the script.
+Use this markup to test the `purgeTSS`.
 
 `index.xml`
 ```xml
