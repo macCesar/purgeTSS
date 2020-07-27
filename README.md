@@ -76,10 +76,9 @@ Use this markup to test the script.
         </View>
     </Window>
 </Alloy>
-
 ```
 
-
+## Purged `app.tss` file
 After runing the script you will have this in `app.tss`
 
 ```css
@@ -101,7 +100,8 @@ After runing the script you will have this in `app.tss`
 '.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 
-// Project Styles
+// *** _app.tss Styles ***
+// This is my original app.tss file
 'ImageView': {
     hires: true,
     preventDefaultImage: true
@@ -111,13 +111,13 @@ After runing the script you will have this in `app.tss`
     backgroundColor: '#002359'
 }
 
-// Font Awesome Styles
+// *** Font Awesome Styles ***
 '.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
 '.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
 '.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
 '.fa-phone-alt': { text: '\uf879', title: '\uf879' }
 
-// Tailwind Styles
+// *** Tailwind Styles ***
 '.text-gray-600': { color: '#4b5563' }
 '.text-purple-600': { color: '#7e3af2' }
 '.bg-white': { backgroundColor: '#ffffff' }
@@ -139,6 +139,10 @@ After runing the script you will have this in `app.tss`
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
 ```
+
+
+## Result
+<img src="assets/images/sample.png" width="375" alt="iOS Screen - Example" >
 
 
 ## Contributing
