@@ -156,6 +156,8 @@ After runing the script you will have this in `app.tss`
 ## Result
 <img src="assets/images/sample.png" width="375" alt="iOS Screen - Example" >
 
+## More examples in the accompanying app
+[Tailwind TSS Sample App](https://github.com/macCesar/tailwind.tss-sample-app)
 
 ## Contributing
 If you have any suggestions or enhancements, please make a PR.
