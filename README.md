@@ -39,12 +39,6 @@ Use `--dev` if you want to copy all available classes in `tailwind.tss` and `fon
 
 ## Commands
 ```bash
-purgetss auto-update
-```
-Use this command to update `purgeTSS` to the latest version.
-
-
-```bash
 purgetss fonts
 ```
 Use this command to copy the following [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts) to your `app/assets/fonts` folder. With their names fixed to work with your app whether it is iOS or Android.
@@ -54,6 +48,11 @@ Use this command to copy the following [Font Awesome Fonts](https://github.com/F
 > FontAwesome5Free-Regular.ttf
 >
 > FontAwesome5Free-Solid.ttf
+
+```bash
+purgetss auto-update
+```
+Use this command to update `purgeTSS` to the latest version.
 
 ## Sample file
 Use this markup to test the `purgeTSS`.
