@@ -17,7 +17,7 @@ program
 
 program
 	.command('fonts')
-	.description('To copy Font Awesome’s fonts into yout project’s app/assets/fonts/ folder.')
+	.description('To copy Font Awesome’s fonts into your project’s app/assets/fonts/ folder.')
 	.action(() => purgetss.copyFontsFolder());
 
 program
