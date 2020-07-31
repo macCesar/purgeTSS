@@ -35,6 +35,7 @@ Run the following command inside your project's root directory.
 ```bash
 purgetss [ -d, --dev ]
 ```
+Use `--dev` if you want to copy all available classes in `tailwind.tss` and `fontawesome.tss` while prototyping your App.
 
 ## Commands
 ```bash
