@@ -1,47 +1,49 @@
 #!/usr/bin/env node
 
 const chalk = require('chalk');
-const program = require('commander');
+const program = require('caporal');
 const purgetss = require('../index.js');
 const package = require('../package.json');
 
 program
-	.version(chalk.hex(purgetss.colores.verdeOscuro)(package.version), '-v, --version', chalk.hex(purgetss.colores.verdeOscuro)('Output the current version'))
-	.description(chalk.hex(purgetss.colores.verdeOscuro)(package.description))
-	.action(() => {
-		if (program.vendor) {
-			purgetss.copyFontsFolder();
-		}
-
-		purgetss.purgeClasses(program.opts());
+	.version(package.version)
+	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for more details.')
+	.option('-d, --dev', 'Copy all classes from tailwind.tss and fontawesome.tss files while prototyping your App')
+	.action((args, options, logger) => {
+		purgetss.purgeClasses(options);
 	});
 
 program
 	.command('fonts')
-	.description(chalk.hex(purgetss.colores.verdeOscuro)('To copy Font Awesome’s fonts into your project’s app/assets/fonts/ folder.'))
-	.action(() => purgetss.copyFontsFolder());
+	.description('To install the free version of Font Awesome icons in your projects’s app/assets/fonts/ folder')
+	.help('Copy the Free version of Font Awesome icons:\n\n   • Brands\n   • Regular\n   • Solid\n\nAnd with their names fixed to work with your app whether it is iOS or Android.')
+	.action((args, options, logger) => {
+		purgetss.copyFontsFolder();
+	});
 
 program
 	.command('auto-update')
-	.description(chalk.hex(purgetss.colores.verdeOscuro)('Update purgeTSS to the latest version.'))
-	.action(() => {
-		console.log(`${purgetss.colores.purgeLabel} Updating purgeTSS to the latest version...`);
+	.description('Update purgeTSS to the latest version')
+	.help('Run auto-update regularly!\n\nWe constantly update purgeTSS for bug fixes, new features and to include the latest versions of Tailwind and Font Awesome.')
+	.action((args, options, logger) => {
+		logger.info(`${purgetss.colores.purgeLabel} Updating purgeTSS to the latest version...`);
+
 		const { exec } = require("child_process");
+
 		exec("npm update -g purgetss", (error, stdout, stderr) => {
 			if (error) {
-				console.log(`${purgetss.colores.purgeLabel} error: ${error.message}`);
+				logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`);
 				return;
 			}
 
 			if (stderr) {
-				console.log(`${purgetss.colores.purgeLabel} stderr: ${stderr}`);
+				logger.info(`${purgetss.colores.purgeLabel} stderr: ${stderr}`);
 				return;
 			}
 
-			console.log(`${purgetss.colores.purgeLabel} Done Updating!`);
+			logger.info(`${purgetss.colores.purgeLabel} Done!`);
 		});
 	});
 
 program
-	.option('-d, --dev', chalk.hex(purgetss.colores.verdeOscuro)('To copy all available classes from tailwind.tss and fontawesome.tss files while prototyping your App.'))
 	.parse(process.argv);
