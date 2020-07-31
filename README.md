@@ -55,7 +55,7 @@ purgetss auto-update
 Use this command to update `purgeTSS` to the latest version.
 
 ## Sample file
-Use this markup to test the `purgeTSS`.
+Use this markup to test `purgeTSS`.
 
 `index.xml`
 ```xml
