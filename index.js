@@ -21,6 +21,10 @@ function extractClasses(texto) {
 	}, []);
 }
 
+function callback(err) {
+	if (err) throw err;
+}
+
 function walkSync(currentDirPath, callback) {
 	let files = fs.readdirSync(currentDirPath);
 
@@ -36,38 +40,6 @@ function walkSync(currentDirPath, callback) {
 		}
 	});
 }
-
-// function parseArgs(rawArgs) {
-// 	const args = arg({
-// 		'--dev': Boolean,
-// 		'-d': '--dev',
-// 		'--vendor': Boolean,
-// 	}, {
-// 		argv: rawArgs.slice(2)
-// 	});
-
-// 	return {
-// 		development: args['--dev'] || false,
-// 		vendor: args['--vendor'] || false
-// 	}
-// }
-
-function callback(err) {
-	if (err) throw err;
-}
-
-// function purgetss(args) {
-// 	'use strict';
-
-// 	let options = parseArgs(args);
-
-// 	if (options.vendor) {
-// 		copyFontsFolder();
-// 	} else {
-// 		purgeClasses(options);
-// 	}
-// };
-// module.exports.purgetss = purgetss;
 
 function copyFontsFolder() {
 	const detinationFontsFolder = cwd + '/app/assets/fonts';

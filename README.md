@@ -33,11 +33,20 @@ Install it globally on your machine.
 ## Purging your classes
 Run the following command inside your project's root directory.
 ```bash
-purgetss [ -d, --dev ] [ --vendor ]
+purgetss [ -d, --dev ]
 ```
-Use `--dev` if you want to copy all available classes in `tailwind.tss` and `fontawesome.tss` while prototyping your App.
 
-Use `--vendor` to copy the following [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts) to your `app/assets/fonts` folder. With their names fixed to work with your app whether it is Android or iOS.
+## Commands
+```bash
+purgetss auto-update
+```
+Use this command to update `purgeTSS` to the latest version.
+
+
+```bash
+purgetss fonts
+```
+Use this command to copy the following [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts) to your `app/assets/fonts` folder. With their names fixed to work with your app whether it is iOS or Android.
 
 > FontAwesome5Brands-Regular.ttf
 >

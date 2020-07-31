@@ -1,6 +1,6 @@
 {
 	"name": "purgetss",
-	"version": "1.5.8",
+	"version": "1.6.0",
 	"description": "purgeTSS is a small CLI that creates a clean app.tss file by copying only the classes used in your views. For now it only works with tailwind.tss and fontawesome.tss",
 	"main": "index.js",
 	"bin": {
