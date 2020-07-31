@@ -3,8 +3,18 @@ const arg = require('arg');
 const junk = require('junk');
 const _ = require('lodash');
 const path = require('path');
+const chalk = require('chalk');
 const convert = require('xml-js');
 const traverse = require('traverse');
+const colores = {
+	gris: '#53606B',
+	verdeClaro: '#8FB63E',
+	verdeOscuro: '#79A342',
+	purgeLabel: chalk.hex('#79A342')('::purgeTSS::')
+}
+module.exports.colores = colores;
+
+const purgeLabel = colores.purgeLabel;
 
 const cwd = process.cwd();
 
@@ -53,7 +63,7 @@ function copyFontsFolder() {
 	fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Regular.ttf', detinationFontsFolder + '/FontAwesome5Free-Regular.ttf', callback);
 	fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Solid.ttf', detinationFontsFolder + '/FontAwesome5Free-Solid.ttf', callback);
 
-	console.log('::purgeTSS:: Font Awesome Fonts copied to "app/assets/fonts"');
+	console.log(`${purgeLabel} Font Awesome Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
 }
 module.exports.copyFontsFolder = copyFontsFolder;
 
@@ -74,30 +84,30 @@ function purgeClasses(options) {
 
 	//! FIRST: Backup original app.tss
 	if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
-		console.log('::purgeTSS:: Backing up app.tss...');
-		console.log('             FROM NOW ON, add, update or delete your custom classes from here...');
+		console.log(purgeLabel + chalk.yellow('Backing up app.tss into _app.tss'));
+		console.log(chalk.yellow('             FROM NOW ON, add, update or delete your custom classes from here...'));
 		fs.copyFileSync(appTSS, _appTSS);
 	}
 
 	//! Copy Reset template
-	console.log('::purgeTSS:: Copying Reset styles...');
+	console.log(`${purgeLabel} Copying Reset styles...`);
 	fs.copyFileSync(resetTSS, appTSS);
 	if (fs.existsSync(_appTSS)) {
 
-		console.log('::purgeTSS:: Copying _app.tss styles...');
+		console.log(`${purgeLabel} Copying _app.tss styles...`);
 		fs.appendFileSync(appTSS, '\n// *** _app.tss Styles ***\n');
 		fs.appendFileSync(appTSS, fs.readFileSync(_appTSS, 'utf8'));
 	}
 
 	if (options.dev) {
-		console.log('::purgeTSS:: DEV MODE, Copying Everything...');
+		console.log(purgeLabel + chalk.yellow(' DEV MODE, Copying Everything...'));
 
 		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
 
 		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
 	} else {
 		//! FontAwesome
-		console.log('::purgeTSS:: Copying Font Awesome styles...');
+		console.log(`${purgeLabel} Copying Font Awesome styles...`);
 
 		fs.appendFileSync(appTSS, '\n// *** Font Awesome Styles ***\n');
 
@@ -111,7 +121,7 @@ function purgeClasses(options) {
 		});
 
 		//! Tailwind
-		console.log('::purgeTSS:: Copying Tailwind styles...');
+		console.log(`${purgeLabel} Copying Tailwind styles...`);
 
 		fs.appendFileSync(appTSS, '\n// *** Tailwind Styles ***\n');
 
@@ -125,6 +135,6 @@ function purgeClasses(options) {
 		});
 	}
 
-	console.log('::purgeTSS:: app.tss file created!');
+	console.log(`${purgeLabel} app.tss file created!`);
 }
 module.exports.purgeClasses = purgeClasses;

@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
+const chalk = require('chalk');
 const program = require('commander');
 const purgetss = require('../index.js');
 const package = require('../package.json');
 
 program
-	.version(package.version, '-v, --version', 'Output the current version')
-	.description(package.description)
+	.version(chalk.hex(purgetss.colores.verdeOscuro)(package.version), '-v, --version', chalk.hex(purgetss.colores.verdeOscuro)('Output the current version'))
+	.description(chalk.hex(purgetss.colores.verdeOscuro)(package.description))
 	.action(() => {
 		if (program.vendor) {
 			purgetss.copyFontsFolder();
@@ -17,30 +18,30 @@ program
 
 program
 	.command('fonts')
-	.description('To copy Font Awesome’s fonts into your project’s app/assets/fonts/ folder.')
+	.description(chalk.hex(purgetss.colores.verdeOscuro)('To copy Font Awesome’s fonts into your project’s app/assets/fonts/ folder.'))
 	.action(() => purgetss.copyFontsFolder());
 
 program
 	.command('auto-update')
-	.description('Update purgeTSS to the latest version.')
+	.description(chalk.hex(purgetss.colores.verdeOscuro)('Update purgeTSS to the latest version.'))
 	.action(() => {
-		console.log('::purgeTSS:: Updating purgeTSS to the latest version...');
+		console.log(`${purgetss.colores.purgeLabel} Updating purgeTSS to the latest version...`);
 		const { exec } = require("child_process");
 		exec("npm update -g purgetss", (error, stdout, stderr) => {
 			if (error) {
-				console.log(`::purgeTSS:: error: ${error.message}`);
+				console.log(`${purgetss.colores.purgeLabel} error: ${error.message}`);
 				return;
 			}
 
 			if (stderr) {
-				console.log(`::purgeTSS:: stderr: ${stderr}`);
+				console.log(`${purgetss.colores.purgeLabel} stderr: ${stderr}`);
 				return;
 			}
 
-			// console.log(`stdout: ${stdout}`);
+			console.log(`${purgetss.colores.purgeLabel} Done Updating!`);
 		});
 	});
 
 program
-	.option('-d, --dev', 'To copy all available classes from tailwind.tss and fontawesome.tss files while prototyping your App.')
+	.option('-d, --dev', chalk.hex(purgetss.colores.verdeOscuro)('To copy all available classes from tailwind.tss and fontawesome.tss files while prototyping your App.'))
 	.parse(process.argv);
