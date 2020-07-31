@@ -14,7 +14,7 @@ It will purge all unused classes from your Appcelerator Project.
 
 For now it only works with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
 
-**ALL your custom classes form your `app.tss` file will be copied over without purging.**
+**ALL your custom classes from your `app.tss` file will be copied over without purging.**
 
 
 ## Installation
