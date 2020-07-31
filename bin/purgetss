@@ -1,4 +1,45 @@
 #!/usr/bin/env node
 
-require = require('esm')(module /*, options */);
-require('../index').purgetss(process.argv);
+const program = require('commander');
+const purgetss = require('../index.js');
+const package = require('../package.json');
+
+program
+	.version(package.version, '-v, --version', 'Output the current version')
+	.description(package.description)
+	.action(() => {
+		if (program.vendor) {
+			purgetss.copyFontsFolder();
+		}
+
+		purgetss.purgeClasses(program.opts());
+	});
+
+program
+	.command('auto-update')
+	.description('Update purgeTSS to the latest version.')
+	.action(() => {
+		console.log('Updating purgeTSS to the latest version');
+		const { exec } = require("child_process");
+		exec("npm update -g purgetss", (error, stdout, stderr) => {
+			if (error) {
+				console.log(`error: ${error.message}`);
+				return;
+			}
+
+			if (stderr) {
+				console.log(`stderr: ${stderr}`);
+				return;
+			}
+
+			// console.log(`stdout: ${stdout}`);
+		});
+	});
+
+program
+	.option('-V, --vendor', "To copy Font Awesome’s fonts into yout project’s app/assets/fonts/ folder.")
+	.option('-d, --dev', "To copy all available classes from tailwind.tss and fontawesome.tss files while prototyping your App.")
+	.parse(process.argv);
+
+// program
+// 	.command('auto-update')

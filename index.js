@@ -6,8 +6,10 @@ const path = require('path');
 const convert = require('xml-js');
 const traverse = require('traverse');
 
-const appTSS = './app/styles/app.tss';
-const _appTSS = './app/styles/_app.tss';
+const cwd = process.cwd();
+
+const appTSS = cwd + '/app/styles/app.tss';
+const _appTSS = cwd + '/app/styles/_app.tss';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
@@ -35,41 +37,40 @@ function walkSync(currentDirPath, callback) {
 	});
 }
 
-function parseArgs(rawArgs) {
-	const args = arg({
-		'--dev': Boolean,
-		'-d': '--dev',
-		'--vendor': Boolean,
-	}, {
-		argv: rawArgs.slice(2)
-	});
+// function parseArgs(rawArgs) {
+// 	const args = arg({
+// 		'--dev': Boolean,
+// 		'-d': '--dev',
+// 		'--vendor': Boolean,
+// 	}, {
+// 		argv: rawArgs.slice(2)
+// 	});
 
-	return {
-		development: args['--dev'] || false,
-		vendor: args['--vendor'] || false
-	}
-}
+// 	return {
+// 		development: args['--dev'] || false,
+// 		vendor: args['--vendor'] || false
+// 	}
+// }
 
 function callback(err) {
 	if (err) throw err;
 }
 
-function purgetss(args) {
-	'use strict';
+// function purgetss(args) {
+// 	'use strict';
 
-	let options = parseArgs(args);
+// 	let options = parseArgs(args);
 
-	if (options.vendor) {
-		copyFontsFolder();
-	} else {
-		purgeClasses(options);
-	}
-};
-
-module.exports.purgetss = purgetss;
+// 	if (options.vendor) {
+// 		copyFontsFolder();
+// 	} else {
+// 		purgeClasses(options);
+// 	}
+// };
+// module.exports.purgetss = purgetss;
 
 function copyFontsFolder() {
-	const detinationFontsFolder = './app/assets/fonts';
+	const detinationFontsFolder = cwd + '/app/assets/fonts';
 	const sourceFontsFolder = path.resolve(__dirname, './assets/fonts');
 
 	if (!fs.existsSync(detinationFontsFolder)) {
@@ -82,16 +83,17 @@ function copyFontsFolder() {
 
 	console.log('::purgeTSS:: Font Awesome Fonts copied to "app/assets/fonts"');
 }
+module.exports.copyFontsFolder = copyFontsFolder;
 
 function purgeClasses(options) {
-
-
 	let viewPaths = [];
-	walkSync('./app/views', viewPath => {
+
+	walkSync(cwd + '/app/views', viewPath => {
 		viewPaths.push(viewPath);
 	});
 
 	let allClasses = [];
+
 	_.each(viewPaths, viewPath => {
 		allClasses.push(extractClasses(fs.readFileSync(viewPath, 'utf8')));
 	});
@@ -115,7 +117,7 @@ function purgeClasses(options) {
 		fs.appendFileSync(appTSS, fs.readFileSync(_appTSS, 'utf8'));
 	}
 
-	if (options.development) {
+	if (options.dev) {
 		console.log('::purgeTSS:: DEV MODE, Copying Everything...');
 
 		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
@@ -153,3 +155,4 @@ function purgeClasses(options) {
 
 	console.log('::purgeTSS:: app.tss file created!');
 }
+module.exports.purgeClasses = purgeClasses;
