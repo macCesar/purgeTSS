@@ -35,7 +35,7 @@ Run the following command inside your project's root directory.
 ```bash
 purgetss [ -d, --dev ] [ --vendor ]
 ```
-Use `--dev` if you want to copy all classes while prototyping your App.
+Use `--dev` if you want to copy all available classes in `tailwind.tss` and `fontawesome.tss` while prototyping your App.
 
 Use `--vendor` to copy the following [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts) to your `app/assets/fonts` folder. With their names fixed to work with your app whether it is Android or iOS.
 
