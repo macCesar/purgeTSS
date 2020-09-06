@@ -21,13 +21,6 @@ Install it globally on your machine.
 [sudo] npm i -g purgetss
 ```
 
-
-## Updating
-```bash
-[sudo] npm update -g purgetss
-```
-
-
 ## Purging your classes
 Run the following command inside your project's root directory.
 ```bash
