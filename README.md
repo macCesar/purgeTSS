@@ -2,7 +2,7 @@
 ### purgeTSS will OVERWRITE your existing app.tss file
 > When you run `purgeTSS` for the first time, it will backup your existing `app.tss` file to `_app.tss`.
 >
-> It will use it along with `tailwind.tss`, `fontawesome` or `lineicons.tss` files to create a new purged `app.tss` file.
+> It will use it along with `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` files to create a new purged `app.tss` file.
 >
 > From now on Add, Update, or Delete your custom classes in `_app.tss.`
 
@@ -10,7 +10,7 @@
 # purgeTSS
 `purgeTSS` is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
 
-For now it only works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss) and [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss).
+For now it only works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss) and [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss).
 
 **ALL your custom classes from your `app.tss` file will be copied over without purging.**
 
@@ -33,13 +33,13 @@ Run the following command inside your project's root directory.
 ```bash
 purgetss [ -d, --dev ]
 ```
-Use `--dev` if you want to copy all available classes in `tailwind.tss`, `fontawesome.tss` and `lineicons.tss` while prototyping your App.
+Use `--dev` if you want to copy all available classes in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` while prototyping your App.
 
 ## Commands
 ```bash
 purgetss fonts
 ```
-Use this command to copy the free versions of [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts) and [LineIcons Fonts](https://lineicons.com/free/) into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is iOS or Android.
+Use this command to copy the free versions of [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons Fonts](https://lineicons.com/free/) into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is iOS or Android.
 
 > FontAwesome5Brands-Regular.ttf
 >
@@ -48,6 +48,17 @@ Use this command to copy the free versions of [Font Awesome Fonts](https://githu
 > FontAwesome5Free-Solid.ttf
 >
 > LineIcons.ttf
+>
+> MaterialIcons-Regular.ttf
+>
+> MaterialIconsOutlined-Regular.otf
+>
+> MaterialIconsRound-Regular.otf
+>
+> MaterialIconsSharp-Regular.otf
+>
+> MaterialIconsTwoTone-Regular.otf
+
 
 ```bash
 purgetss auto-update

@@ -18,6 +18,7 @@ const _appTSS = cwd + '/app/styles/_app.tss';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
+const materialDesignIconsSourceTSS = path.resolve(__dirname, './tss/materialicons.tss');
 const lineiconsFontSourceTSS = path.resolve(__dirname, './tss/lineicons.tss');
 
 function extractClasses(texto) {
@@ -55,15 +56,26 @@ function copyFontsFolder() {
 		fs.mkdirSync(detinationFontsFolder)
 	}
 
+	// FontAwesome Fonts
 	fs.copyFile(sourceFontsFolder + '/FontAwesome5Brands-Regular.ttf', detinationFontsFolder + '/FontAwesome5Brands-Regular.ttf', callback);
 	fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Regular.ttf', detinationFontsFolder + '/FontAwesome5Free-Regular.ttf', callback);
 	fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Solid.ttf', detinationFontsFolder + '/FontAwesome5Free-Solid.ttf', callback);
 
 	console.log(`${purgeLabel} Font Awesome icons Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
 
+	// LineIcons Font
 	fs.copyFile(sourceFontsFolder + '/LineIcons.ttf', detinationFontsFolder + '/LineIcons.ttf', callback);
 
 	console.log(`${purgeLabel} LineIcons Font copied to ` + chalk.yellow('"app/assets/fonts"'));
+
+	// Material Desing Icons Font
+	fs.copyFile(sourceFontsFolder + '/MaterialIcons-Regular.ttf', detinationFontsFolder + '/MaterialIcons-Regular.ttf', callback);
+	fs.copyFile(sourceFontsFolder + '/MaterialIconsOutlined-Regular.otf', detinationFontsFolder + '/MaterialIconsOutlined-Regular.otf', callback);
+	fs.copyFile(sourceFontsFolder + '/MaterialIconsRound-Regular.otf', detinationFontsFolder + '/MaterialIconsRound-Regular.otf', callback);
+	fs.copyFile(sourceFontsFolder + '/MaterialIconsSharp-Regular.otf', detinationFontsFolder + '/MaterialIconsSharp-Regular.otf', callback);
+	fs.copyFile(sourceFontsFolder + '/MaterialIconsTwoTone-Regular.otf', detinationFontsFolder + '/MaterialIconsTwoTone-Regular.otf', callback);
+
+	console.log(`${purgeLabel} Material Design Icons Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
 }
 module.exports.copyFontsFolder = copyFontsFolder;
 
@@ -113,6 +125,8 @@ function purgeClasses(options) {
 
 			processFA(uniqueClasses);
 
+			processMD(uniqueClasses);
+
 			processLineIcons(uniqueClasses);
 		}
 
@@ -140,6 +154,25 @@ function processFA(uniqueClasses) {
 
 	if (encontrados) {
 		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/fontawesome-template.tss'), 'utf8') + encontrados);
+	}
+}
+
+function processFA(uniqueClasses) {
+	//! Material Design Icons
+	console.log(`${purgeLabel} Purging Material Design Icons styles...`);
+
+	let encontrados = '';
+	fs.readFileSync(materialDesignIconsSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
+		_.each(uniqueClasses, className => {
+			if (line.includes(`'.${className}'`)) {
+				encontrados += line + '\n';
+				return;
+			}
+		});
+	});
+
+	if (encontrados) {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/materialicons-template.tss'), 'utf8') + encontrados);
 	}
 }
 
