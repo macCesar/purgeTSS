@@ -91,11 +91,6 @@ Use this markup to test `purgeTSS`.
 
 `app.tss`
 ```css
-'ImageView': {
-    hires: true,
-    preventDefaultImage: true
-}
-
 '.bg-primary': {
     backgroundColor: '#002359'
 }
@@ -118,6 +113,11 @@ After runing the script you will have this in `app.tss`
 '.vertical[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 '.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
+
+// *** _app.tss Styles ***
+'.bg-primary': {
+    backgroundColor: '#002359'
+}
 
 // Tailwind CSS v1.8.2: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Tailwind UI Plugin v0.4.0 ( https://www.npmjs.com/package/@tailwindcss/ui ).
