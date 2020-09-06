@@ -32,7 +32,7 @@ Use `--dev` if you want to copy all available classes in `tailwind.tss`, `fontaw
 ```bash
 purgetss fonts
 ```
-Use this command to copy the free versions of [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons Fonts](https://lineicons.com/free/) into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is iOS or Android.
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is iOS or Android.
 
 > FontAwesome5Brands-Regular.ttf
 >
