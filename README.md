@@ -114,7 +114,7 @@ After runing the script you will have this in `app.tss`
 '.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 
-// *** _app.tss Styles ***
+// Custom styles from _app.tss
 '.bg-primary': {
     backgroundColor: '#002359'
 }
