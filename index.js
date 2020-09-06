@@ -157,7 +157,7 @@ function processFA(uniqueClasses) {
 	}
 }
 
-function processFA(uniqueClasses) {
+function processMD(uniqueClasses) {
 	//! Material Design Icons
 	console.log(`${purgeLabel} Purging Material Design Icons styles...`);
 
