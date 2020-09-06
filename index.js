@@ -6,23 +6,18 @@ const path = require('path');
 const chalk = require('chalk');
 const convert = require('xml-js');
 const traverse = require('traverse');
-const colores = {
-	gris: '#53606B',
-	verdeClaro: '#8FB63E',
-	verdeOscuro: '#79A342',
-	purgeLabel: chalk.hex('#79A342')('::purgeTSS::')
-}
-module.exports.colores = colores;
-
+const colores = require('./lib/colores').colores;
 const purgeLabel = colores.purgeLabel;
 
 const cwd = process.cwd();
 
+let encontrados = '';
 const appTSS = cwd + '/app/styles/app.tss';
 const _appTSS = cwd + '/app/styles/_app.tss';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
+const lineiconsFontSourceTSS = path.resolve(__dirname, './tss/lineicons.tss');
 
 function extractClasses(texto) {
 	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce(function (acc, value) {
@@ -64,6 +59,10 @@ function copyFontsFolder() {
 	fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Solid.ttf', detinationFontsFolder + '/FontAwesome5Free-Solid.ttf', callback);
 
 	console.log(`${purgeLabel} Font Awesome icons Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
+
+	fs.copyFile(sourceFontsFolder + '/LineIcons.ttf', detinationFontsFolder + '/LineIcons.ttf', callback);
+
+	console.log(`${purgeLabel} LineIcons Font copied to ` + chalk.yellow('"app/assets/fonts"'));
 }
 module.exports.copyFontsFolder = copyFontsFolder;
 
@@ -71,7 +70,6 @@ function purgeClasses(options) {
 	let viewPaths = [];
 
 	if (fs.existsSync(cwd + '/app/views')) {
-
 		walkSync(cwd + '/app/views', viewPath => {
 			viewPaths.push(viewPath);
 		});
@@ -81,8 +79,6 @@ function purgeClasses(options) {
 		_.each(viewPaths, viewPath => {
 			allClasses.push(extractClasses(fs.readFileSync(viewPath, 'utf8')));
 		});
-
-		let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
 
 		//! FIRST: Backup original app.tss
 		if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
@@ -94,47 +90,29 @@ function purgeClasses(options) {
 		//! Copy Reset template
 		console.log(`${purgeLabel} Copying Reset styles...`);
 		fs.copyFileSync(resetTSS, appTSS);
-		if (fs.existsSync(_appTSS)) {
 
-			console.log(`${purgeLabel} Copying _app.tss styles...`);
-			fs.appendFileSync(appTSS, '\n// *** _app.tss Styles ***\n');
-			fs.appendFileSync(appTSS, fs.readFileSync(_appTSS, 'utf8'));
+		if (fs.existsSync(_appTSS)) {
+			let appTSSContent = fs.readFileSync(_appTSS, 'utf8');
+			if (appTSSContent.length) {
+				console.log(`${purgeLabel} Copying _app.tss styles...`);
+				fs.appendFileSync(appTSS, '\n// *** _app.tss Styles ***\n');
+				fs.appendFileSync(appTSS, appTSSContent);
+			}
 		}
 
 		if (options.dev) {
 			console.log(purgeLabel + chalk.yellow(' DEV MODE, Copying Everything...'));
-
 			fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
-
-			fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
+			fs.appendFileSync(appTSS, '\n\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
+			fs.appendFileSync(appTSS, '\n\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
 		} else {
-			//! FontAwesome
-			console.log(`${purgeLabel} Copying Font Awesome styles...`);
+			let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
 
-			fs.appendFileSync(appTSS, '\n// *** Font Awesome Styles ***\n');
+			processTailwind(uniqueClasses);
 
-			fs.readFileSync(fontAwesomeSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
-				_.each(uniqueClasses, className => {
-					if (line.includes(`'.${className}'`)) {
-						fs.appendFileSync(appTSS, line + '\n');
-						return;
-					}
-				});
-			});
+			processFA(uniqueClasses);
 
-			//! Tailwind
-			console.log(`${purgeLabel} Copying Tailwind styles...`);
-
-			fs.appendFileSync(appTSS, '\n// *** Tailwind Styles ***\n');
-
-			fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
-				_.each(uniqueClasses, className => {
-					if (className !== 'vertical' && className !== 'horizontal' && line.includes(`'.${className}'`)) {
-						fs.appendFileSync(appTSS, line + '\n');
-						return;
-					}
-				});
-			});
+			processLineIcons(uniqueClasses);
 		}
 
 		console.log(`${purgeLabel} app.tss file created!`);
@@ -144,3 +122,60 @@ function purgeClasses(options) {
 	}
 }
 module.exports.purgeClasses = purgeClasses;
+
+function processFA(uniqueClasses) {
+	//! FontAwesome
+	console.log(`${purgeLabel} Purging Font Awesome styles...`);
+
+	let encontrados = '';
+	fs.readFileSync(fontAwesomeSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
+		_.each(uniqueClasses, className => {
+			if (line.includes(`'.${className}'`)) {
+				encontrados += line + '\n';
+				return;
+			}
+		});
+	});
+
+	if (encontrados) {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/fontawesome-template.tss'), 'utf8') + encontrados);
+	}
+}
+
+function processLineIcons(uniqueClasses) {
+	//! LineIcons
+	console.log(`${purgeLabel} Purging LineIcons styles...`);
+
+	let encontrados = '';
+	fs.readFileSync(lineiconsFontSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
+		_.each(uniqueClasses, className => {
+			if (line.includes(`'.${className}'`)) {
+				encontrados += line + '\n';
+				return;
+			}
+		});
+	});
+
+	if (encontrados) {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/lineicons-template.tss'), 'utf8') + encontrados);
+	}
+}
+
+function processTailwind(uniqueClasses) {
+	//! Tailwind
+	console.log(`${purgeLabel} Purging Tailwind styles...`);
+
+	let encontrados = '';
+	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
+		_.each(uniqueClasses, className => {
+			if (className !== 'vertical' && className !== 'horizontal' && line.includes(`'.${className}'`)) {
+				encontrados += line + '\n';
+				return;
+			}
+		});
+	});
+
+	if (encontrados) {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind-template.tss'), 'utf8') + encontrados);
+	}
+}

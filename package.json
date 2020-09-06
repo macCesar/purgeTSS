@@ -1,6 +1,6 @@
 {
 	"name": "purgetss",
-	"version": "1.6.2",
+	"version": "1.7.0",
 	"description": "purgeTSS is a small CLI that creates a clean app.tss file by purging unused classes from tailwind.tss and fontawesome.tss",
 	"main": "index.js",
 	"bin": {
@@ -10,12 +10,11 @@
 		"access": "public"
 	},
 	"scripts": {
-		"purgetss": "node index",
-		"build:fa-js": "node ./lib/build-fa-js",
-		"build:fa-tss": "node ./lib/build-fa-tss",
 		"build:tailwind": "node ./lib/build-tailwind",
 		"build:fonts": "node ./lib/build-fonts-folder",
-		"build:all": "npm run build:fa-js && npm run build:fa-tss && npm run build:tailwind && npm run build:fonts"
+		"build:fa": "node ./lib/build-fontawesome-tss",
+		"build:lineicons": "node ./lib/build-lineicons-tss",
+		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:lineicons && npm run build:fonts"
 	},
 	"repository": {
 		"type": "git",
@@ -38,14 +37,14 @@
 		"@fortawesome/fontawesome-free": "^5.14.0",
 		"@tailwindcss/ui": "^0.4.0",
 		"read-css": "^0.3.0",
-		"tailwindcss": "^1.6.0"
+		"tailwindcss": "^1.8.2"
 	},
 	"dependencies": {
 		"arg": "^4.1.3",
 		"caporal": "^1.4.0",
 		"chalk": "^4.1.0",
 		"junk": "^3.1.0",
-		"lodash": "^4.17.19",
+		"lodash": "^4.17.20",
 		"path": "^0.12.7",
 		"traverse": "^0.6.6",
 		"xml-js": "^1.6.11"

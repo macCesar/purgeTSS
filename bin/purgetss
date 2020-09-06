@@ -8,15 +8,15 @@ const package = require('../package.json');
 program
 	.version(package.version)
 	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for more details.')
-	.option('-d, --dev', 'Copy all classes from tailwind.tss and fontawesome.tss files while prototyping your App')
+	.option('-d, --dev', 'Copy all classes from tailwind.tss, fontawesome.tss and lineicons.tss files while prototyping your App')
 	.action((args, options, logger) => {
 		purgetss.purgeClasses(options);
 	});
 
 program
 	.command('fonts')
-	.description('To install the free version of Font Awesome icons in your projects’s app/assets/fonts/ folder')
-	.help('Copy the Free version of Font Awesome icons:\n\n   • Brands\n   • Regular\n   • Solid\n\nAnd with their names fixed to work with your app whether it is iOS or Android.')
+	.description('To install the free versions of Font Awesome icons and LineIcons Fonts into your projects’s app/assets/fonts/ folder')
+	.help('To copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • LineIcons\n\nWith their names fixed to work with your app whether it is iOS or Android.')
 	.action((args, options, logger) => {
 		purgetss.copyFontsFolder();
 	});
@@ -24,7 +24,7 @@ program
 program
 	.command('auto-update')
 	.description('Update purgeTSS to the latest version')
-	.help('Run auto-update regularly!\n\nWe constantly update purgeTSS for bug fixes, new features and to include the latest versions of Tailwind and Font Awesome.')
+	.help('Run auto-update regularly!\n\nWe constantly update purgeTSS for bug fixes, to add new features and to include the latest versions of Tailwind and all other resources like fonts.')
 	.action((args, options, logger) => {
 		logger.info(`${purgetss.colores.purgeLabel} Updating purgeTSS to the latest version...`);
 

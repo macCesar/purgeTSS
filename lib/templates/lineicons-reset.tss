@@ -1,0 +1,11 @@
+// Font Families
+'.lni': { font: { fontFamily: 'LineIcons' } }
+
+// Font Sizes
+'.lni-sm': { font: { fontSize: 12.8 } }
+'.lni-lg': { font: { fontSize: 19.2 } }
+'.lni-16': { font: { fontSize: 16 } }
+'.lni-32': { font: { fontSize: 32 } }
+
+// Font Icons
+// To use LineIcons in Buttons AND Labels each class sets 'text' and 'title' properties

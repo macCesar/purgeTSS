@@ -1,0 +1,23 @@
+// Font Families
+'.fab': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
+'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
+'.fa':{ font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+
+// Font Sizes
+'.fa-lg': { font: { fontSize: 21 } }
+'.fa-xs': { font: { fontSize: 12 } }
+'.fa-sm': { font: { fontSize: 14 } }
+'.fa-1x': { font: { fontSize: 16 } }
+'.fa-2x': { font: { fontSize: 32 } }
+'.fa-3x': { font: { fontSize: 48 } }
+'.fa-4x': { font: { fontSize: 64 } }
+'.fa-5x': { font: { fontSize: 80 } }
+'.fa-6x': { font: { fontSize: 96 } }
+'.fa-7x': { font: { fontSize: 112 } }
+'.fa-8x': { font: { fontSize: 128 } }
+'.fa-9x': { font: { fontSize: 144 } }
+'.fa-10x': { font: { fontSize: 160 } }
+
+// Font Icons
+// To use FontAwesome in Buttons AND Labels each class sets 'text' and 'title' properties.

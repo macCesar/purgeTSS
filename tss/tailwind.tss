@@ -1,10 +1,6 @@
-// Tailwind CSS: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
-// Tailwind UI Plugin ( https://www.npmjs.com/package/@tailwindcss/ui ).
+// Tailwind CSS v1.8.2: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind UI Plugin v0.4.0 ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
-
-// Tailwind TSS Generator
-// Created by César Estrada
-// https://github.com/macCesar/tailwind-tss-color-generator
 
 // Colors
 // color Property

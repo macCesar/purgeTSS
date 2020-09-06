@@ -2,17 +2,15 @@
 ### purgeTSS will OVERWRITE your existing app.tss file
 > When you run `purgeTSS` for the first time, it will backup your existing `app.tss` file to `_app.tss`.
 >
-> It will use it along with `tailwind.tss` and `fontawesome.tss` files to create a new purged `app.tss` file.
+> It will use it along with `tailwind.tss`, `fontawesome` or `lineicons.tss` files to create a new purged `app.tss` file.
 >
-> From now on Add, Update or Delete your custom classes from `_app.tss`.
+> From now on Add, Update, or Delete your custom classes in `_app.tss.`
 
 
 # purgeTSS
 `purgeTSS` is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
 
-It will purge all unused classes from your Appcelerator Project.
-
-For now it only works with [tailwind.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/app.tss) and [fontawesome.tss](https://github.com/macCesar/tailwind-tss-color-generator/blob/master/fontawesome.tss).
+For now it only works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss) and [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss).
 
 **ALL your custom classes from your `app.tss` file will be copied over without purging.**
 
@@ -35,24 +33,28 @@ Run the following command inside your project's root directory.
 ```bash
 purgetss [ -d, --dev ]
 ```
-Use `--dev` if you want to copy all available classes in `tailwind.tss` and `fontawesome.tss` while prototyping your App.
+Use `--dev` if you want to copy all available classes in `tailwind.tss`, `fontawesome.tss` and `lineicons.tss` while prototyping your App.
 
 ## Commands
 ```bash
 purgetss fonts
 ```
-Use this command to copy the following [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts) to your `app/assets/fonts` folder. With their names fixed to work with your app whether it is iOS or Android.
+Use this command to copy the free versions of [Font Awesome Fonts](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts) and [LineIcons Fonts](https://lineicons.com/free/) into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is iOS or Android.
 
 > FontAwesome5Brands-Regular.ttf
 >
 > FontAwesome5Free-Regular.ttf
 >
 > FontAwesome5Free-Solid.ttf
+>
+> LineIcons.ttf
 
 ```bash
 purgetss auto-update
 ```
 Use this command to update `purgeTSS` to the latest version.
+
+We constantly update `purgeTSS` for bug fixes, to add new features and to include the latest versions of Tailwind CSS and all other resources like Tailwind UI and Fonts.
 
 ## Sample file
 Use this markup to test `purgeTSS`.
@@ -103,13 +105,9 @@ Use this markup to test `purgeTSS`.
 After runing the script you will have this in `app.tss`
 
 ```css
-// Tailwind CSS: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
-// Tailwind UI Plugin ( https://www.npmjs.com/package/@tailwindcss/ui ).
-// Created by Adam Wathan ( https://twitter.com/adamwathan ).
-
-// Tailwind TSS Generator
+// purgeTSS
 // Created by César Estrada
-// https://github.com/macCesar/tailwind-tss-color-generator
+// https://github.com/macCesar/purgeTSS
 
 // Reset Styles
 'Window': { backgroundColor: '#ffffff' }
@@ -121,30 +119,16 @@ After runing the script you will have this in `app.tss`
 '.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 
-// *** _app.tss Styles ***
-// This is my original app.tss file
-'ImageView': {
-    hires: true,
-    preventDefaultImage: true
-}
-
-'.bg-primary': {
-    backgroundColor: '#002359'
-}
-
-// *** Font Awesome Styles ***
-'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
-'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
-'.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
-'.fa-phone-alt': { text: '\uf879', title: '\uf879' }
-
-// *** Tailwind Styles ***
+// Tailwind CSS v1.8.2: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind UI Plugin v0.4.0 ( https://www.npmjs.com/package/@tailwindcss/ui ).
+// Created by Adam Wathan ( https://twitter.com/adamwathan ).
 '.text-gray-600': { color: '#4b5563' }
 '.text-purple-600': { color: '#7e3af2' }
 '.bg-white': { backgroundColor: '#ffffff' }
 '.text-xs': { font: { fontSize: 12 } }
 '.text-sm': { font: { fontSize: 14 } }
 '.text-lg': { font: { fontSize: 18 } }
+'.font-semibold': { font: { fontWeight: 'semibold' } }
 '.rounded-lg': { borderRadius: 8 }
 '.rounded-16': { borderRadius: 32 }
 '.my-4': { top: 16, bottom: 16 }
@@ -159,6 +143,15 @@ After runing the script you will have this in `app.tss`
 '.w-screen': { width: Ti.UI.FILL }
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
+
+// Font Awesome Free 5.14.0 by @fontawesome - https://fontawesome.com
+// License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+
+// Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
+'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
+'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
+'.fa-phone-alt': { text: '\uf879', title: '\uf879' }
 ```
 
 

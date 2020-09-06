@@ -1,11 +1,15 @@
 // Font Awesome Free 5.14.0 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
-// Font Awesome TSS Generator
-// Created by César Estrada
-// To use FontAwesome in Buttons AND Labels each class sets 'text' and 'title' properties.
+// Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
 
-// Font Awesome Sizes
+// Font Families
+'.fab': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
+'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
+'.fa':{ font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+
+// Font Sizes
 '.fa-lg': { font: { fontSize: 21 } }
 '.fa-xs': { font: { fontSize: 12 } }
 '.fa-sm': { font: { fontSize: 14 } }
@@ -20,14 +24,8 @@
 '.fa-9x': { font: { fontSize: 144 } }
 '.fa-10x': { font: { fontSize: 160 } }
 
-// Font Families
-'.fab': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
-'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
-'.fa':{ font: { fontFamily: 'FontAwesome5Free-Solid' } }
-'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
-
-// Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
-
+// Font Icons
+// To use FontAwesome in Buttons AND Labels each class sets 'text' and 'title' properties.
 '.fa-500px': { text: '\uf26e', title: '\uf26e' }
 '.fa-accessible-icon': { text: '\uf368', title: '\uf368' }
 '.fa-accusoft': { text: '\uf369', title: '\uf369' }
