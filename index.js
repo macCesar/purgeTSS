@@ -95,7 +95,7 @@ function purgeClasses(options) {
 			let appTSSContent = fs.readFileSync(_appTSS, 'utf8');
 			if (appTSSContent.length) {
 				console.log(`${purgeLabel} Copying _app.tss styles...`);
-				fs.appendFileSync(appTSS, '\n// *** _app.tss Styles ***\n');
+				fs.appendFileSync(appTSS, '\n// Custom styles from _app.tss\n');
 				fs.appendFileSync(appTSS, appTSSContent);
 			}
 		}
