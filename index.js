@@ -7,6 +7,7 @@ const chalk = require('chalk');
 const convert = require('xml-js');
 const traverse = require('traverse');
 const colores = require('./lib/colores').colores;
+module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
 
 const cwd = process.cwd();
