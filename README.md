@@ -16,12 +16,12 @@ For now it only works with [tailwind.tss](https://github.com/macCesar/purgeTSS/b
 
 
 ## Installation
-Install it globally on your machine.
+Install it globally on your machine via [NPM](http://npmjs.org/).
 ```bash
 [sudo] npm i -g purgetss
 ```
 
-## Purging your classes
+## Purging classes
 Run `purgetss` inside your project's root directory.
 ```bash
 purgetss [ -d, --dev ]
