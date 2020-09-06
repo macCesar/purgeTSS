@@ -97,7 +97,7 @@ Use this markup to test `purgeTSS`.
 ```
 
 ## Purged `app.tss` file
-### (After auto backi up `app.tss` into `_app.tss`)
+### (After auto back up the original `app.tss` into `_app.tss`)
 After runing the script you will have this in `app.tss`
 
 ```css
