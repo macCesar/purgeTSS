@@ -20,7 +20,7 @@ const lineiconsFontSourceTSS = path.resolve(__dirname, './tss/lineicons.tss');
 const materialDesignIconsSourceTSS = path.resolve(__dirname, './tss/materialicons.tss');
 
 function extractClasses(texto) {
-	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce((acc, value) => {
+	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce(function (acc, value) {
 		if (this.key === 'class') acc.push(value.split(' '));
 		return acc;
 	}, []);
