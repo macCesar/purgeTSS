@@ -1,5 +1,4 @@
 const fs = require('fs');
-const arg = require('arg');
 const junk = require('junk');
 const _ = require('lodash');
 const path = require('path');
@@ -12,17 +11,16 @@ const purgeLabel = colores.purgeLabel;
 
 const cwd = process.cwd();
 
-let encontrados = '';
 const appTSS = cwd + '/app/styles/app.tss';
 const _appTSS = cwd + '/app/styles/_app.tss';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
-const materialDesignIconsSourceTSS = path.resolve(__dirname, './tss/materialicons.tss');
 const lineiconsFontSourceTSS = path.resolve(__dirname, './tss/lineicons.tss');
+const materialDesignIconsSourceTSS = path.resolve(__dirname, './tss/materialicons.tss');
 
 function extractClasses(texto) {
-	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce(function (acc, value) {
+	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce((acc, value) => {
 		if (this.key === 'class') acc.push(value.split(' '));
 		return acc;
 	}, []);
@@ -115,9 +113,10 @@ function purgeClasses(options) {
 
 		if (options.dev) {
 			console.log(purgeLabel + chalk.yellow(' DEV MODE, Copying Everything...'));
-			fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
-			fs.appendFileSync(appTSS, '\n\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
 			fs.appendFileSync(appTSS, '\n\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
+			fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
+			fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
+			fs.appendFileSync(appTSS, '\n\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
 		} else {
 			let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
 
@@ -143,7 +142,7 @@ function processFA(uniqueClasses) {
 	console.log(`${purgeLabel} Purging Font Awesome styles...`);
 
 	let encontrados = '';
-	fs.readFileSync(fontAwesomeSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
+	fs.readFileSync(fontAwesomeSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
 			if (line.includes(`'.${className}'`)) {
 				encontrados += line + '\n';
@@ -162,7 +161,7 @@ function processMD(uniqueClasses) {
 	console.log(`${purgeLabel} Purging Material Design Icons styles...`);
 
 	let encontrados = '';
-	fs.readFileSync(materialDesignIconsSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
+	fs.readFileSync(materialDesignIconsSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
 			if (line.includes(`'.${className}'`)) {
 				encontrados += line + '\n';
@@ -181,7 +180,7 @@ function processLineIcons(uniqueClasses) {
 	console.log(`${purgeLabel} Purging LineIcons styles...`);
 
 	let encontrados = '';
-	fs.readFileSync(lineiconsFontSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
+	fs.readFileSync(lineiconsFontSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
 			if (line.includes(`'.${className}'`)) {
 				encontrados += line + '\n';
@@ -200,7 +199,7 @@ function processTailwind(uniqueClasses) {
 	console.log(`${purgeLabel} Purging Tailwind styles...`);
 
 	let encontrados = '';
-	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach((line) => {
+	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
 			if (className !== 'vertical' && className !== 'horizontal' && line.includes(`'.${className}'`)) {
 				encontrados += line + '\n';
