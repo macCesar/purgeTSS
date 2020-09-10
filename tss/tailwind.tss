@@ -1,5 +1,5 @@
-// Tailwind CSS v1.8.2: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
-// Tailwind UI Plugin v0.4.0 ( https://www.npmjs.com/package/@tailwindcss/ui ).
+// Tailwind CSS v1.8.6: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind UI Plugin v0.6.0 ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // Colors
@@ -17,7 +17,7 @@
 '.text-gray-700': { color: '#374151' }
 '.text-gray-800': { color: '#252f3f' }
 '.text-gray-900': { color: '#161e2e' }
-'.text-cool-gray-50': { color: '#fbfdfe' }
+'.text-cool-gray-50': { color: '#f8fafc' }
 '.text-cool-gray-100': { color: '#f1f5f9' }
 '.text-cool-gray-200': { color: '#e2e8f0' }
 '.text-cool-gray-300': { color: '#cfd8e3' }
@@ -132,7 +132,7 @@
 '.bg-gray-700': { backgroundColor: '#374151' }
 '.bg-gray-800': { backgroundColor: '#252f3f' }
 '.bg-gray-900': { backgroundColor: '#161e2e' }
-'.bg-cool-gray-50': { backgroundColor: '#fbfdfe' }
+'.bg-cool-gray-50': { backgroundColor: '#f8fafc' }
 '.bg-cool-gray-100': { backgroundColor: '#f1f5f9' }
 '.bg-cool-gray-200': { backgroundColor: '#e2e8f0' }
 '.bg-cool-gray-300': { backgroundColor: '#cfd8e3' }
@@ -247,7 +247,7 @@
 '.border-gray-700': { borderColor: '#374151' }
 '.border-gray-800': { borderColor: '#252f3f' }
 '.border-gray-900': { borderColor: '#161e2e' }
-'.border-cool-gray-50': { borderColor: '#fbfdfe' }
+'.border-cool-gray-50': { borderColor: '#f8fafc' }
 '.border-cool-gray-100': { borderColor: '#f1f5f9' }
 '.border-cool-gray-200': { borderColor: '#e2e8f0' }
 '.border-cool-gray-300': { borderColor: '#cfd8e3' }
@@ -362,7 +362,7 @@
 '.placeholder-gray-700': { hintTextColor: '#374151' }
 '.placeholder-gray-800': { hintTextColor: '#252f3f' }
 '.placeholder-gray-900': { hintTextColor: '#161e2e' }
-'.placeholder-cool-gray-50': { hintTextColor: '#fbfdfe' }
+'.placeholder-cool-gray-50': { hintTextColor: '#f8fafc' }
 '.placeholder-cool-gray-100': { hintTextColor: '#f1f5f9' }
 '.placeholder-cool-gray-200': { hintTextColor: '#e2e8f0' }
 '.placeholder-cool-gray-300': { hintTextColor: '#cfd8e3' }
