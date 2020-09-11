@@ -40,11 +40,11 @@ We constantly update `purgeTSS` for bug fixes, to add new features and to includ
 ```bash
 purgetss dev-mode
 ```
-Use this command if you want to copy all available classes in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` while prototyping your App.
+Use this command if you want to copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` while prototyping your App.
 
 ### A caveat when working with very large .tss files
-> When compaling a ver large tss file you will get the following note:
->
+When compaling a ver large tss file you will get the following note:
+
 > ___[BABEL] Note: The code generator has deoptimised the styling of [ name-of-the-generated-style.js-file ] as it exceeds the max of 500KB.___
 
 To avoid this, you can copy the styles from the desired providers. *See below*.
@@ -203,3 +203,4 @@ If you have any suggestions or enhancements, please make a PR.
 
 ## License
 purgeTSS is open-sourced software licensed under the MIT license.
+0
