@@ -17,20 +17,20 @@ It only works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/mast
 ## Installation
 Install it globally on your machine via [NPM](http://npmjs.org/).
 ```bash
-[sudo] npm i -g purgetss
+> [sudo] npm i -g purgetss
 ```
 
 ## Purging classes
 To parse all your XML files, run `purgetss` inside your project's root directory.
 ```bash
-purgetss
+> purgetss
 ```
 `purgetss` will extract all found classes and copy them along with all styles originally declared in app.tss.
 ## Commands
 
 ### auto-update
 ```bash
-purgetss auto-update
+> purgetss auto-update
 ```
 Use this command to update `purgeTSS` to the latest version.
 
@@ -41,7 +41,7 @@ When you are prototyping your app, you will want to have all available classes i
 
 You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` with:
 ```bash
-purgetss dev-mode
+> purgetss dev-mode
 ```
 
 ### A caveat when working with very large .tss files
@@ -55,7 +55,7 @@ To avoid this, you can copy the styles from the desired providers. *See below*.
 
 ### Copying specific styles
 ```bash
-purgetss dev-mode --files="tw, fa, md, li"
+> purgetss dev-mode --files="tw, fa, md, li"
 ```
 Use any of the following arguments to copy the styles from specific providers:
 - tw = Tailwind styles
@@ -65,7 +65,7 @@ Use any of the following arguments to copy the styles from specific providers:
 
 ### copy-fonts
 ```bash
-purgetss copy-fonts
+> purgetss copy-fonts
 ```
 Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is for iOS or for Android.
 
