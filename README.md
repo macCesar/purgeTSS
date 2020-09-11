@@ -37,10 +37,12 @@ Use this command to update `purgeTSS` to the latest version.
 We constantly update `purgeTSS` for bug fixes, to add new features and to include the latest versions of Tailwind CSS and all other resources like Tailwind UI and Fonts.
 
 ### dev-mode
+When you are prototyping your app, you will want to have all available classes in app.tss file, instead of purging every time you add new classes in your views.
+
+You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` with:
 ```bash
 purgetss dev-mode
 ```
-Use this command if you want to copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` while prototyping your App.
 
 ### A caveat when working with very large .tss files
 When compiling a very large tss file you will get the following note:
