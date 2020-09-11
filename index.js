@@ -19,6 +19,9 @@ const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
 const lineiconsFontSourceTSS = path.resolve(__dirname, './tss/lineicons.tss');
 const materialDesignIconsSourceTSS = path.resolve(__dirname, './tss/materialicons.tss');
 
+const detinationFontsFolder = cwd + '/app/assets/fonts';
+const sourceFontsFolder = path.resolve(__dirname, './assets/fonts');
+
 function extractClasses(texto) {
 	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce(function (acc, value) {
 		if (this.key === 'class') acc.push(value.split(' '));
@@ -46,78 +49,75 @@ function walkSync(currentDirPath, callback) {
 	});
 }
 
-function copyFontsFolder() {
-	const detinationFontsFolder = cwd + '/app/assets/fonts';
-	const sourceFontsFolder = path.resolve(__dirname, './assets/fonts');
+function copyFont(vendor) {
+	switch (vendor) {
+		case 'fa':
+			// FontAwesome Fonts
+			fs.copyFile(sourceFontsFolder + '/FontAwesome5Brands-Regular.ttf', detinationFontsFolder + '/FontAwesome5Brands-Regular.ttf', callback);
+			fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Regular.ttf', detinationFontsFolder + '/FontAwesome5Free-Regular.ttf', callback);
+			fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Solid.ttf', detinationFontsFolder + '/FontAwesome5Free-Solid.ttf', callback);
 
+			console.log(`${purgeLabel} Font Awesome Icons Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
+			break;
+		case 'md':
+			// Material Desing Icons Font
+			fs.copyFile(sourceFontsFolder + '/MaterialIcons-Regular.ttf', detinationFontsFolder + '/MaterialIcons-Regular.ttf', callback);
+			fs.copyFile(sourceFontsFolder + '/MaterialIconsOutlined-Regular.otf', detinationFontsFolder + '/MaterialIconsOutlined-Regular.otf', callback);
+			fs.copyFile(sourceFontsFolder + '/MaterialIconsRound-Regular.otf', detinationFontsFolder + '/MaterialIconsRound-Regular.otf', callback);
+			fs.copyFile(sourceFontsFolder + '/MaterialIconsSharp-Regular.otf', detinationFontsFolder + '/MaterialIconsSharp-Regular.otf', callback);
+			fs.copyFile(sourceFontsFolder + '/MaterialIconsTwoTone-Regular.otf', detinationFontsFolder + '/MaterialIconsTwoTone-Regular.otf', callback);
+
+			console.log(`${purgeLabel} Material Design Icons Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
+			break;
+		case 'li':
+			// LineIcons Font
+			fs.copyFile(sourceFontsFolder + '/LineIcons.ttf', detinationFontsFolder + '/LineIcons.ttf', callback);
+
+			console.log(`${purgeLabel} LineIcons Font copied to ` + chalk.yellow('"app/assets/fonts"'));
+			break;
+	}
+}
+
+function copyFonts(options) {
 	if (!fs.existsSync(detinationFontsFolder)) {
 		fs.mkdirSync(detinationFontsFolder)
 	}
 
-	// FontAwesome Fonts
-	fs.copyFile(sourceFontsFolder + '/FontAwesome5Brands-Regular.ttf', detinationFontsFolder + '/FontAwesome5Brands-Regular.ttf', callback);
-	fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Regular.ttf', detinationFontsFolder + '/FontAwesome5Free-Regular.ttf', callback);
-	fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Solid.ttf', detinationFontsFolder + '/FontAwesome5Free-Solid.ttf', callback);
-
-	console.log(`${purgeLabel} Font Awesome icons Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
-
-	// LineIcons Font
-	fs.copyFile(sourceFontsFolder + '/LineIcons.ttf', detinationFontsFolder + '/LineIcons.ttf', callback);
-
-	console.log(`${purgeLabel} LineIcons Font copied to ` + chalk.yellow('"app/assets/fonts"'));
-
-	// Material Desing Icons Font
-	fs.copyFile(sourceFontsFolder + '/MaterialIcons-Regular.ttf', detinationFontsFolder + '/MaterialIcons-Regular.ttf', callback);
-	fs.copyFile(sourceFontsFolder + '/MaterialIconsOutlined-Regular.otf', detinationFontsFolder + '/MaterialIconsOutlined-Regular.otf', callback);
-	fs.copyFile(sourceFontsFolder + '/MaterialIconsRound-Regular.otf', detinationFontsFolder + '/MaterialIconsRound-Regular.otf', callback);
-	fs.copyFile(sourceFontsFolder + '/MaterialIconsSharp-Regular.otf', detinationFontsFolder + '/MaterialIconsSharp-Regular.otf', callback);
-	fs.copyFile(sourceFontsFolder + '/MaterialIconsTwoTone-Regular.otf', detinationFontsFolder + '/MaterialIconsTwoTone-Regular.otf', callback);
-
-	console.log(`${purgeLabel} Material Design Icons Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
+	if (options.files && typeof options.files === 'string') {
+		let selected = _.uniq(options.files.replace(/ /g, '').split(','));
+		_.each(selected, vendor => {
+			copyFont(vendor);
+		});
+	} else {
+		copyFont('fa');
+		copyFont('md');
+		copyFont('li');
+	}
 }
-module.exports.copyFontsFolder = copyFontsFolder;
+module.exports.copyFonts = copyFonts;
 
 function purgeClasses(options) {
 	let viewPaths = [];
 
 	if (fs.existsSync(cwd + '/app/views')) {
-		walkSync(cwd + '/app/views', viewPath => {
-			viewPaths.push(viewPath);
-		});
-
-		let allClasses = [];
-
-		_.each(viewPaths, viewPath => {
-			allClasses.push(extractClasses(fs.readFileSync(viewPath, 'utf8')));
-		});
-
-		//! FIRST: Backup original app.tss
-		if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
-			console.log(purgeLabel + chalk.yellow(' Backing up app.tss into _app.tss'));
-			console.log(chalk.yellow('             FROM NOW ON, add, update or delete your custom classes in _app.tss'));
-			fs.copyFileSync(appTSS, _appTSS);
-		}
-
-		//! Copy Reset template
-		console.log(`${purgeLabel} Copying Reset styles...`);
-		fs.copyFileSync(resetTSS, appTSS);
-
-		if (fs.existsSync(_appTSS)) {
-			let appTSSContent = fs.readFileSync(_appTSS, 'utf8');
-			if (appTSSContent.length) {
-				console.log(`${purgeLabel} Copying _app.tss styles...`);
-				fs.appendFileSync(appTSS, '\n// Custom styles from _app.tss\n');
-				fs.appendFileSync(appTSS, appTSSContent);
-			}
-		}
-
 		if (options.dev) {
-			console.log(purgeLabel + chalk.yellow(' DEV MODE, Copying Everything...'));
-			fs.appendFileSync(appTSS, '\n\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
-			fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
-			fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
-			fs.appendFileSync(appTSS, '\n\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
+			options.files = options.dev;
+			devMode(options);
 		} else {
+			backupOriginalAppTss();
+
+			copyResetTemplate();
+
+			walkSync(cwd + '/app/views', viewPath => {
+				viewPaths.push(viewPath);
+			});
+
+			let allClasses = [];
+
+			_.each(viewPaths, viewPath => {
+				allClasses.push(extractClasses(fs.readFileSync(viewPath, 'utf8')));
+			});
+
 			let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
 
 			processTailwind(uniqueClasses);
@@ -127,15 +127,85 @@ function purgeClasses(options) {
 			processMD(uniqueClasses);
 
 			processLineIcons(uniqueClasses);
+
+			console.log(`${purgeLabel} app.tss file created!`);
 		}
-
-		console.log(`${purgeLabel} app.tss file created!`);
-
 	} else {
 		console.log(chalk.red(purgeLabel + ' Please make sure you’re running purgeTSS inside an Alloy Project.'))
 	}
 }
 module.exports.purgeClasses = purgeClasses;
+
+function backupOriginalAppTss() {
+	//! FIRST: Backup original app.tss
+	if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
+		console.log(purgeLabel + chalk.yellow(' Backing up app.tss into _app.tss'));
+		console.log(chalk.yellow('             FROM NOW ON, add, update or delete your custom classes in _app.tss'));
+		fs.copyFileSync(appTSS, _appTSS);
+	}
+}
+
+function copyResetTemplate() {
+	//! Copy Reset template
+	console.log(`${purgeLabel} Copying Reset styles...`);
+	fs.copyFileSync(resetTSS, appTSS);
+
+	if (fs.existsSync(_appTSS)) {
+		let appTSSContent = fs.readFileSync(_appTSS, 'utf8');
+		if (appTSSContent.length) {
+			console.log(`${purgeLabel} Copying _app.tss styles...`);
+			fs.appendFileSync(appTSS, '\n// Custom styles from _app.tss\n');
+			fs.appendFileSync(appTSS, appTSSContent);
+		}
+	}
+}
+
+function copyEverything() {
+	console.log(purgeLabel + chalk.red(' DEV MODE: Copying Everything... Might slow down compilation time!'));
+	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
+	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
+	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
+	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
+}
+
+function devMode(options) {
+	backupOriginalAppTss();
+
+	copyResetTemplate();
+
+	if (options.files && typeof options.files === 'string') {
+		let selected = _.uniq(options.files.replace(/ /g, '').split(','));
+		if (selected.length === 4) {
+			copyEverything();
+		} else {
+			_.each(selected, option => {
+				switch (option) {
+					case 'tw':
+						console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying Tailwind styles...'));
+						fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
+						break;
+					case 'fa':
+						console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying Font Awesome styles...'));
+						fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
+						break;
+					case 'md':
+						console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying Material Design Icons styles...'));
+						fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
+						break;
+					case 'li':
+						console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying LineIcons styles...'));
+						fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
+						break;
+				}
+			});
+		}
+	} else {
+		copyEverything();
+	}
+
+	console.log(`${purgeLabel} app.tss file created!`);
+}
+module.exports.devMode = devMode;
 
 function processFA(uniqueClasses) {
 	//! FontAwesome

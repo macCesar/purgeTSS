@@ -14,7 +14,6 @@ For now it only works with [tailwind.tss](https://github.com/macCesar/purgeTSS/b
 
 **ALL your custom classes from your `app.tss` file will be copied over without purging.**
 
-
 ## Installation
 Install it globally on your machine via [NPM](http://npmjs.org/).
 ```bash
@@ -22,25 +21,55 @@ Install it globally on your machine via [NPM](http://npmjs.org/).
 ```
 
 ## Purging classes
-Run `purgetss` inside your project's root directory.
+To parse all your XML files, run `purgetss` inside your project's root directory.
 ```bash
-purgetss [ -d, --dev ]
+purgetss
 ```
-Use `--dev` if you want to copy all available classes in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` while prototyping your App.
-
+`purgetss` will extract all found classes and copy them along with all styles originally declared in app.tss.
 ## Commands
+
+### auto-update
 ```bash
-purgetss fonts
+purgetss auto-update
 ```
-Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is iOS or Android.
+Use this command to update `purgeTSS` to the latest version.
+
+We constantly update `purgeTSS` for bug fixes, to add new features and to include the latest versions of Tailwind CSS and all other resources like Tailwind UI and Fonts.
+
+### dev-mode
+```bash
+purgetss dev-mode
+```
+Use this command if you want to copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` while prototyping your App.
+
+### A caveat when working with very large .tss files
+When compaling a ver large tss file you will get the following note:
+
+> ___[BABEL] Note: The code generator has deoptimised the styling of [ name-of-the-generated-style.js-file ] as it exceeds the max of 500KB.___
+
+To avoid this, you can copy the styles from the desired providers. *See below*.
+
+### Copying specific styles
+```bash
+purgetss dev-mode --files="tw, fa, md, li"
+```
+Use any of the following arguments to copy styles from specific providers:
+- tw = Tailwind styles
+- fa = Font Awesome styles
+- md = Material Design Icons styles
+- li = LineIcons styles
+
+### copy-fonts
+```bash
+purgetss copy-fonts
+```
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is for iOS or for Android.
 
 > FontAwesome5Brands-Regular.ttf
 >
 > FontAwesome5Free-Regular.ttf
 >
 > FontAwesome5Free-Solid.ttf
->
-> LineIcons.ttf
 >
 > MaterialIcons-Regular.ttf
 >
@@ -51,14 +80,17 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 > MaterialIconsSharp-Regular.otf
 >
 > MaterialIconsTwoTone-Regular.otf
+>
+> LineIcons.ttf
 
-
+### Copying specific fonts
 ```bash
-purgetss auto-update
+> purgetss copy-fonts --files="fa, md, li"
 ```
-Use this command to update `purgeTSS` to the latest version.
-
-We constantly update `purgeTSS` for bug fixes, to add new features and to include the latest versions of Tailwind CSS and all other resources like Tailwind UI and Fonts.
+Use any of the following arguments to copy fonts from specific providers:
+- fa = Font Awesome Icons
+- md = Material Design Icons
+- li = LineIcons
 
 ## Sample file
 Use this markup to test `purgeTSS`.
