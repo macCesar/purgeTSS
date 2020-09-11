@@ -49,7 +49,7 @@ Use this command if you want to copy all available classes in `tailwind.tss`, `f
 
 To avoid this, you can copy the styles from the desired providers. *See below*.
 
-### Copy specific styles
+### Copying specific styles
 ```bash
 purgetss dev-mode --files="tw, fa, md, li"
 ```
@@ -83,7 +83,7 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 >
 > LineIcons.ttf
 
-### Copy specific fonts
+### Copying specific fonts
 ```bash
 > purgetss copy-fonts --files="fa, md, li"
 ```
