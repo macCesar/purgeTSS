@@ -43,7 +43,7 @@ purgetss dev-mode
 Use this command if you want to copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` while prototyping your App.
 
 ### A caveat when working with very large .tss files
-When compaling a ver large tss file you will get the following note:
+When compiling a very large tss file you will get the following note:
 
 > ___[BABEL] Note: The code generator has deoptimised the styling of [ name-of-the-generated-style.js-file ] as it exceeds the max of 500KB.___
 
