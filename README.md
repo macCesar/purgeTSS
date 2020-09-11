@@ -47,13 +47,15 @@ When compiling a very large tss file you will get the following note:
 
 > ___[BABEL] Note: The code generator has deoptimised the styling of [ name-of-the-generated-style.js-file ] as it exceeds the max of 500KB.___
 
+**Not to mention the increased amount of time to compile all the classes and the increased file size of all the generated JS files within the styles folder!!**
+
 To avoid this, you can copy the styles from the desired providers. *See below*.
 
 ### Copying specific styles
 ```bash
 purgetss dev-mode --files="tw, fa, md, li"
 ```
-Use any of the following arguments to copy styles from specific providers:
+Use any of the following arguments to copy the styles from specific providers:
 - tw = Tailwind styles
 - fa = Font Awesome styles
 - md = Material Design Icons styles
@@ -87,7 +89,7 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 ```bash
 > purgetss copy-fonts --files="fa, md, li"
 ```
-Use any of the following arguments to copy fonts from specific providers:
+Use any of the following arguments to copy the fonts from specific providers:
 - fa = Font Awesome Icons
 - md = Material Design Icons
 - li = LineIcons
