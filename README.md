@@ -37,6 +37,7 @@ Use this command to update `purgeTSS` to the latest version.
 We constantly update `purgeTSS` for bug fixes, to add new features and to include the latest versions of Tailwind CSS and all other resources like Tailwind UI and Fonts.
 
 ### dev-mode
+<<<<<<< HEAD
 ```bash
 purgetss dev-mode
 ```
@@ -63,6 +64,38 @@ Use any of the following arguments to copy styles from specific providers:
 ```bash
 purgetss copy-fonts
 ```
+=======
+When you are prototyping your app, you will want to have all available classes in app.tss file, instead of purging every time you add new classes in your views.
+
+You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` with:
+```bash
+purgetss dev-mode
+```
+
+### A caveat when working with very large .tss files
+When compiling a very large tss file you will get the following note:
+
+> ___[BABEL] Note: The code generator has deoptimised the styling of [ name-of-the-generated-style.js-file ] as it exceeds the max of 500KB.___
+
+**Not to mention the increased amount of time to compile all the classes and the increased file size of all the generated JS files within the styles folder!!**
+
+To avoid this, you can copy the styles from the desired providers. *See below*.
+
+### Copying specific styles
+```bash
+purgetss dev-mode --files="tw, fa, md, li"
+```
+Use any of the following arguments to copy the styles from specific providers:
+- tw = Tailwind styles
+- fa = Font Awesome styles
+- md = Material Design Icons styles
+- li = LineIcons styles
+
+### copy-fonts
+```bash
+purgetss copy-fonts
+```
+>>>>>>> 06a715eb95cc6b9e0417f74b2979c914e54a5427
 Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is for iOS or for Android.
 
 > FontAwesome5Brands-Regular.ttf
@@ -87,7 +120,11 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 ```bash
 > purgetss copy-fonts --files="fa, md, li"
 ```
+<<<<<<< HEAD
 Use any of the following arguments to copy fonts from specific providers:
+=======
+Use any of the following arguments to copy the fonts from specific providers:
+>>>>>>> 06a715eb95cc6b9e0417f74b2979c914e54a5427
 - fa = Font Awesome Icons
 - md = Material Design Icons
 - li = LineIcons
@@ -203,3 +240,4 @@ If you have any suggestions or enhancements, please make a PR.
 
 ## License
 purgeTSS is open-sourced software licensed under the MIT license.
+0
