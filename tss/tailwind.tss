@@ -463,6 +463,248 @@
 '.placeholder-pink-800': { hintTextColor: '#99154b' }
 '.placeholder-pink-900': { hintTextColor: '#751a3d' }
 
+// Background Image
+'.bg-none': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-t': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backFillStart: true } }
+'.bg-gradient-to-tr': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backFillStart: true } }
+'.bg-gradient-to-r': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-br': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '0%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-b': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-bl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backFillStart: true } }
+
+// Gradient Color Stops
+// From Color
+'.from-transparent': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }
+'.from-white': { backgroundGradient: { colors: [ '#00ffffff', '#ffffff' ] } }
+'.from-black': { backgroundGradient: { colors: [ '#00000000', '#000000' ] } }
+'.from-gray-50': { backgroundGradient: { colors: [ '#00f9fafb', '#f9fafb' ] } }
+'.from-gray-100': { backgroundGradient: { colors: [ '#00f4f5f7', '#f4f5f7' ] } }
+'.from-gray-200': { backgroundGradient: { colors: [ '#00e5e7eb', '#e5e7eb' ] } }
+'.from-gray-300': { backgroundGradient: { colors: [ '#00d2d6dc', '#d2d6dc' ] } }
+'.from-gray-400': { backgroundGradient: { colors: [ '#009fa6b2', '#9fa6b2' ] } }
+'.from-gray-500': { backgroundGradient: { colors: [ '#006b7280', '#6b7280' ] } }
+'.from-gray-600': { backgroundGradient: { colors: [ '#004b5563', '#4b5563' ] } }
+'.from-gray-700': { backgroundGradient: { colors: [ '#00374151', '#374151' ] } }
+'.from-gray-800': { backgroundGradient: { colors: [ '#00252f3f', '#252f3f' ] } }
+'.from-gray-900': { backgroundGradient: { colors: [ '#00161e2e', '#161e2e' ] } }
+'.from-cool-gray-50': { backgroundGradient: { colors: [ '#00f8fafc', '#f8fafc' ] } }
+'.from-cool-gray-100': { backgroundGradient: { colors: [ '#00f1f5f9', '#f1f5f9' ] } }
+'.from-cool-gray-200': { backgroundGradient: { colors: [ '#00e2e8f0', '#e2e8f0' ] } }
+'.from-cool-gray-300': { backgroundGradient: { colors: [ '#00cfd8e3', '#cfd8e3' ] } }
+'.from-cool-gray-400': { backgroundGradient: { colors: [ '#0097a6ba', '#97a6ba' ] } }
+'.from-cool-gray-500': { backgroundGradient: { colors: [ '#0064748b', '#64748b' ] } }
+'.from-cool-gray-600': { backgroundGradient: { colors: [ '#00475569', '#475569' ] } }
+'.from-cool-gray-700': { backgroundGradient: { colors: [ '#00364152', '#364152' ] } }
+'.from-cool-gray-800': { backgroundGradient: { colors: [ '#0027303f', '#27303f' ] } }
+'.from-cool-gray-900': { backgroundGradient: { colors: [ '#001a202e', '#1a202e' ] } }
+'.from-red-50': { backgroundGradient: { colors: [ '#00fdf2f2', '#fdf2f2' ] } }
+'.from-red-100': { backgroundGradient: { colors: [ '#00fde8e8', '#fde8e8' ] } }
+'.from-red-200': { backgroundGradient: { colors: [ '#00fbd5d5', '#fbd5d5' ] } }
+'.from-red-300': { backgroundGradient: { colors: [ '#00f8b4b4', '#f8b4b4' ] } }
+'.from-red-400': { backgroundGradient: { colors: [ '#00f98080', '#f98080' ] } }
+'.from-red-500': { backgroundGradient: { colors: [ '#00f05252', '#f05252' ] } }
+'.from-red-600': { backgroundGradient: { colors: [ '#00e02424', '#e02424' ] } }
+'.from-red-700': { backgroundGradient: { colors: [ '#00c81e1e', '#c81e1e' ] } }
+'.from-red-800': { backgroundGradient: { colors: [ '#009b1c1c', '#9b1c1c' ] } }
+'.from-red-900': { backgroundGradient: { colors: [ '#00771d1d', '#771d1d' ] } }
+'.from-orange-50': { backgroundGradient: { colors: [ '#00fff8f1', '#fff8f1' ] } }
+'.from-orange-100': { backgroundGradient: { colors: [ '#00feecdc', '#feecdc' ] } }
+'.from-orange-200': { backgroundGradient: { colors: [ '#00fcd9bd', '#fcd9bd' ] } }
+'.from-orange-300': { backgroundGradient: { colors: [ '#00fdba8c', '#fdba8c' ] } }
+'.from-orange-400': { backgroundGradient: { colors: [ '#00ff8a4c', '#ff8a4c' ] } }
+'.from-orange-500': { backgroundGradient: { colors: [ '#00ff5a1f', '#ff5a1f' ] } }
+'.from-orange-600': { backgroundGradient: { colors: [ '#00d03801', '#d03801' ] } }
+'.from-orange-700': { backgroundGradient: { colors: [ '#00b43403', '#b43403' ] } }
+'.from-orange-800': { backgroundGradient: { colors: [ '#008a2c0d', '#8a2c0d' ] } }
+'.from-orange-900': { backgroundGradient: { colors: [ '#0073230d', '#73230d' ] } }
+'.from-yellow-50': { backgroundGradient: { colors: [ '#00fdfdea', '#fdfdea' ] } }
+'.from-yellow-100': { backgroundGradient: { colors: [ '#00fdf6b2', '#fdf6b2' ] } }
+'.from-yellow-200': { backgroundGradient: { colors: [ '#00fce96a', '#fce96a' ] } }
+'.from-yellow-300': { backgroundGradient: { colors: [ '#00faca15', '#faca15' ] } }
+'.from-yellow-400': { backgroundGradient: { colors: [ '#00e3a008', '#e3a008' ] } }
+'.from-yellow-500': { backgroundGradient: { colors: [ '#00c27803', '#c27803' ] } }
+'.from-yellow-600': { backgroundGradient: { colors: [ '#009f580a', '#9f580a' ] } }
+'.from-yellow-700': { backgroundGradient: { colors: [ '#008e4b10', '#8e4b10' ] } }
+'.from-yellow-800': { backgroundGradient: { colors: [ '#00723b13', '#723b13' ] } }
+'.from-yellow-900': { backgroundGradient: { colors: [ '#00633112', '#633112' ] } }
+'.from-green-50': { backgroundGradient: { colors: [ '#00f3faf7', '#f3faf7' ] } }
+'.from-green-100': { backgroundGradient: { colors: [ '#00def7ec', '#def7ec' ] } }
+'.from-green-200': { backgroundGradient: { colors: [ '#00bcf0da', '#bcf0da' ] } }
+'.from-green-300': { backgroundGradient: { colors: [ '#0084e1bc', '#84e1bc' ] } }
+'.from-green-400': { backgroundGradient: { colors: [ '#0031c48d', '#31c48d' ] } }
+'.from-green-500': { backgroundGradient: { colors: [ '#000e9f6e', '#0e9f6e' ] } }
+'.from-green-600': { backgroundGradient: { colors: [ '#00057a55', '#057a55' ] } }
+'.from-green-700': { backgroundGradient: { colors: [ '#00046c4e', '#046c4e' ] } }
+'.from-green-800': { backgroundGradient: { colors: [ '#0003543f', '#03543f' ] } }
+'.from-green-900': { backgroundGradient: { colors: [ '#00014737', '#014737' ] } }
+'.from-teal-50': { backgroundGradient: { colors: [ '#00edfafa', '#edfafa' ] } }
+'.from-teal-100': { backgroundGradient: { colors: [ '#00d5f5f6', '#d5f5f6' ] } }
+'.from-teal-200': { backgroundGradient: { colors: [ '#00afecef', '#afecef' ] } }
+'.from-teal-300': { backgroundGradient: { colors: [ '#007edce2', '#7edce2' ] } }
+'.from-teal-400': { backgroundGradient: { colors: [ '#0016bdca', '#16bdca' ] } }
+'.from-teal-500': { backgroundGradient: { colors: [ '#000694a2', '#0694a2' ] } }
+'.from-teal-600': { backgroundGradient: { colors: [ '#00047481', '#047481' ] } }
+'.from-teal-700': { backgroundGradient: { colors: [ '#00036672', '#036672' ] } }
+'.from-teal-800': { backgroundGradient: { colors: [ '#0005505c', '#05505c' ] } }
+'.from-teal-900': { backgroundGradient: { colors: [ '#00014451', '#014451' ] } }
+'.from-blue-50': { backgroundGradient: { colors: [ '#00ebf5ff', '#ebf5ff' ] } }
+'.from-blue-100': { backgroundGradient: { colors: [ '#00e1effe', '#e1effe' ] } }
+'.from-blue-200': { backgroundGradient: { colors: [ '#00c3ddfd', '#c3ddfd' ] } }
+'.from-blue-300': { backgroundGradient: { colors: [ '#00a4cafe', '#a4cafe' ] } }
+'.from-blue-400': { backgroundGradient: { colors: [ '#0076a9fa', '#76a9fa' ] } }
+'.from-blue-500': { backgroundGradient: { colors: [ '#003f83f8', '#3f83f8' ] } }
+'.from-blue-600': { backgroundGradient: { colors: [ '#001c64f2', '#1c64f2' ] } }
+'.from-blue-700': { backgroundGradient: { colors: [ '#001a56db', '#1a56db' ] } }
+'.from-blue-800': { backgroundGradient: { colors: [ '#001e429f', '#1e429f' ] } }
+'.from-blue-900': { backgroundGradient: { colors: [ '#00233876', '#233876' ] } }
+'.from-indigo-50': { backgroundGradient: { colors: [ '#00f0f5ff', '#f0f5ff' ] } }
+'.from-indigo-100': { backgroundGradient: { colors: [ '#00e5edff', '#e5edff' ] } }
+'.from-indigo-200': { backgroundGradient: { colors: [ '#00cddbfe', '#cddbfe' ] } }
+'.from-indigo-300': { backgroundGradient: { colors: [ '#00b4c6fc', '#b4c6fc' ] } }
+'.from-indigo-400': { backgroundGradient: { colors: [ '#008da2fb', '#8da2fb' ] } }
+'.from-indigo-500': { backgroundGradient: { colors: [ '#006875f5', '#6875f5' ] } }
+'.from-indigo-600': { backgroundGradient: { colors: [ '#005850ec', '#5850ec' ] } }
+'.from-indigo-700': { backgroundGradient: { colors: [ '#005145cd', '#5145cd' ] } }
+'.from-indigo-800': { backgroundGradient: { colors: [ '#0042389d', '#42389d' ] } }
+'.from-indigo-900': { backgroundGradient: { colors: [ '#00362f78', '#362f78' ] } }
+'.from-purple-50': { backgroundGradient: { colors: [ '#00f6f5ff', '#f6f5ff' ] } }
+'.from-purple-100': { backgroundGradient: { colors: [ '#00edebfe', '#edebfe' ] } }
+'.from-purple-200': { backgroundGradient: { colors: [ '#00dcd7fe', '#dcd7fe' ] } }
+'.from-purple-300': { backgroundGradient: { colors: [ '#00cabffd', '#cabffd' ] } }
+'.from-purple-400': { backgroundGradient: { colors: [ '#00ac94fa', '#ac94fa' ] } }
+'.from-purple-500': { backgroundGradient: { colors: [ '#009061f9', '#9061f9' ] } }
+'.from-purple-600': { backgroundGradient: { colors: [ '#007e3af2', '#7e3af2' ] } }
+'.from-purple-700': { backgroundGradient: { colors: [ '#006c2bd9', '#6c2bd9' ] } }
+'.from-purple-800': { backgroundGradient: { colors: [ '#005521b5', '#5521b5' ] } }
+'.from-purple-900': { backgroundGradient: { colors: [ '#004a1d96', '#4a1d96' ] } }
+'.from-pink-50': { backgroundGradient: { colors: [ '#00fdf2f8', '#fdf2f8' ] } }
+'.from-pink-100': { backgroundGradient: { colors: [ '#00fce8f3', '#fce8f3' ] } }
+'.from-pink-200': { backgroundGradient: { colors: [ '#00fad1e8', '#fad1e8' ] } }
+'.from-pink-300': { backgroundGradient: { colors: [ '#00f8b4d9', '#f8b4d9' ] } }
+'.from-pink-400': { backgroundGradient: { colors: [ '#00f17eb8', '#f17eb8' ] } }
+'.from-pink-500': { backgroundGradient: { colors: [ '#00e74694', '#e74694' ] } }
+'.from-pink-600': { backgroundGradient: { colors: [ '#00d61f69', '#d61f69' ] } }
+'.from-pink-700': { backgroundGradient: { colors: [ '#00bf125d', '#bf125d' ] } }
+'.from-pink-800': { backgroundGradient: { colors: [ '#0099154b', '#99154b' ] } }
+'.from-pink-900': { backgroundGradient: { colors: [ '#00751a3d', '#751a3d' ] } }
+
+// To Color
+'.to-transparent': { backgroundGradient: { colors: [ 'transparent' ] } }
+'.to-white': { backgroundGradient: { colors: [ '#ffffff' ] } }
+'.to-black': { backgroundGradient: { colors: [ '#000000' ] } }
+'.to-gray-50': { backgroundGradient: { colors: [ '#f9fafb' ] } }
+'.to-gray-100': { backgroundGradient: { colors: [ '#f4f5f7' ] } }
+'.to-gray-200': { backgroundGradient: { colors: [ '#e5e7eb' ] } }
+'.to-gray-300': { backgroundGradient: { colors: [ '#d2d6dc' ] } }
+'.to-gray-400': { backgroundGradient: { colors: [ '#9fa6b2' ] } }
+'.to-gray-500': { backgroundGradient: { colors: [ '#6b7280' ] } }
+'.to-gray-600': { backgroundGradient: { colors: [ '#4b5563' ] } }
+'.to-gray-700': { backgroundGradient: { colors: [ '#374151' ] } }
+'.to-gray-800': { backgroundGradient: { colors: [ '#252f3f' ] } }
+'.to-gray-900': { backgroundGradient: { colors: [ '#161e2e' ] } }
+'.to-cool-gray-50': { backgroundGradient: { colors: [ '#f8fafc' ] } }
+'.to-cool-gray-100': { backgroundGradient: { colors: [ '#f1f5f9' ] } }
+'.to-cool-gray-200': { backgroundGradient: { colors: [ '#e2e8f0' ] } }
+'.to-cool-gray-300': { backgroundGradient: { colors: [ '#cfd8e3' ] } }
+'.to-cool-gray-400': { backgroundGradient: { colors: [ '#97a6ba' ] } }
+'.to-cool-gray-500': { backgroundGradient: { colors: [ '#64748b' ] } }
+'.to-cool-gray-600': { backgroundGradient: { colors: [ '#475569' ] } }
+'.to-cool-gray-700': { backgroundGradient: { colors: [ '#364152' ] } }
+'.to-cool-gray-800': { backgroundGradient: { colors: [ '#27303f' ] } }
+'.to-cool-gray-900': { backgroundGradient: { colors: [ '#1a202e' ] } }
+'.to-red-50': { backgroundGradient: { colors: [ '#fdf2f2' ] } }
+'.to-red-100': { backgroundGradient: { colors: [ '#fde8e8' ] } }
+'.to-red-200': { backgroundGradient: { colors: [ '#fbd5d5' ] } }
+'.to-red-300': { backgroundGradient: { colors: [ '#f8b4b4' ] } }
+'.to-red-400': { backgroundGradient: { colors: [ '#f98080' ] } }
+'.to-red-500': { backgroundGradient: { colors: [ '#f05252' ] } }
+'.to-red-600': { backgroundGradient: { colors: [ '#e02424' ] } }
+'.to-red-700': { backgroundGradient: { colors: [ '#c81e1e' ] } }
+'.to-red-800': { backgroundGradient: { colors: [ '#9b1c1c' ] } }
+'.to-red-900': { backgroundGradient: { colors: [ '#771d1d' ] } }
+'.to-orange-50': { backgroundGradient: { colors: [ '#fff8f1' ] } }
+'.to-orange-100': { backgroundGradient: { colors: [ '#feecdc' ] } }
+'.to-orange-200': { backgroundGradient: { colors: [ '#fcd9bd' ] } }
+'.to-orange-300': { backgroundGradient: { colors: [ '#fdba8c' ] } }
+'.to-orange-400': { backgroundGradient: { colors: [ '#ff8a4c' ] } }
+'.to-orange-500': { backgroundGradient: { colors: [ '#ff5a1f' ] } }
+'.to-orange-600': { backgroundGradient: { colors: [ '#d03801' ] } }
+'.to-orange-700': { backgroundGradient: { colors: [ '#b43403' ] } }
+'.to-orange-800': { backgroundGradient: { colors: [ '#8a2c0d' ] } }
+'.to-orange-900': { backgroundGradient: { colors: [ '#73230d' ] } }
+'.to-yellow-50': { backgroundGradient: { colors: [ '#fdfdea' ] } }
+'.to-yellow-100': { backgroundGradient: { colors: [ '#fdf6b2' ] } }
+'.to-yellow-200': { backgroundGradient: { colors: [ '#fce96a' ] } }
+'.to-yellow-300': { backgroundGradient: { colors: [ '#faca15' ] } }
+'.to-yellow-400': { backgroundGradient: { colors: [ '#e3a008' ] } }
+'.to-yellow-500': { backgroundGradient: { colors: [ '#c27803' ] } }
+'.to-yellow-600': { backgroundGradient: { colors: [ '#9f580a' ] } }
+'.to-yellow-700': { backgroundGradient: { colors: [ '#8e4b10' ] } }
+'.to-yellow-800': { backgroundGradient: { colors: [ '#723b13' ] } }
+'.to-yellow-900': { backgroundGradient: { colors: [ '#633112' ] } }
+'.to-green-50': { backgroundGradient: { colors: [ '#f3faf7' ] } }
+'.to-green-100': { backgroundGradient: { colors: [ '#def7ec' ] } }
+'.to-green-200': { backgroundGradient: { colors: [ '#bcf0da' ] } }
+'.to-green-300': { backgroundGradient: { colors: [ '#84e1bc' ] } }
+'.to-green-400': { backgroundGradient: { colors: [ '#31c48d' ] } }
+'.to-green-500': { backgroundGradient: { colors: [ '#0e9f6e' ] } }
+'.to-green-600': { backgroundGradient: { colors: [ '#057a55' ] } }
+'.to-green-700': { backgroundGradient: { colors: [ '#046c4e' ] } }
+'.to-green-800': { backgroundGradient: { colors: [ '#03543f' ] } }
+'.to-green-900': { backgroundGradient: { colors: [ '#014737' ] } }
+'.to-teal-50': { backgroundGradient: { colors: [ '#edfafa' ] } }
+'.to-teal-100': { backgroundGradient: { colors: [ '#d5f5f6' ] } }
+'.to-teal-200': { backgroundGradient: { colors: [ '#afecef' ] } }
+'.to-teal-300': { backgroundGradient: { colors: [ '#7edce2' ] } }
+'.to-teal-400': { backgroundGradient: { colors: [ '#16bdca' ] } }
+'.to-teal-500': { backgroundGradient: { colors: [ '#0694a2' ] } }
+'.to-teal-600': { backgroundGradient: { colors: [ '#047481' ] } }
+'.to-teal-700': { backgroundGradient: { colors: [ '#036672' ] } }
+'.to-teal-800': { backgroundGradient: { colors: [ '#05505c' ] } }
+'.to-teal-900': { backgroundGradient: { colors: [ '#014451' ] } }
+'.to-blue-50': { backgroundGradient: { colors: [ '#ebf5ff' ] } }
+'.to-blue-100': { backgroundGradient: { colors: [ '#e1effe' ] } }
+'.to-blue-200': { backgroundGradient: { colors: [ '#c3ddfd' ] } }
+'.to-blue-300': { backgroundGradient: { colors: [ '#a4cafe' ] } }
+'.to-blue-400': { backgroundGradient: { colors: [ '#76a9fa' ] } }
+'.to-blue-500': { backgroundGradient: { colors: [ '#3f83f8' ] } }
+'.to-blue-600': { backgroundGradient: { colors: [ '#1c64f2' ] } }
+'.to-blue-700': { backgroundGradient: { colors: [ '#1a56db' ] } }
+'.to-blue-800': { backgroundGradient: { colors: [ '#1e429f' ] } }
+'.to-blue-900': { backgroundGradient: { colors: [ '#233876' ] } }
+'.to-indigo-50': { backgroundGradient: { colors: [ '#f0f5ff' ] } }
+'.to-indigo-100': { backgroundGradient: { colors: [ '#e5edff' ] } }
+'.to-indigo-200': { backgroundGradient: { colors: [ '#cddbfe' ] } }
+'.to-indigo-300': { backgroundGradient: { colors: [ '#b4c6fc' ] } }
+'.to-indigo-400': { backgroundGradient: { colors: [ '#8da2fb' ] } }
+'.to-indigo-500': { backgroundGradient: { colors: [ '#6875f5' ] } }
+'.to-indigo-600': { backgroundGradient: { colors: [ '#5850ec' ] } }
+'.to-indigo-700': { backgroundGradient: { colors: [ '#5145cd' ] } }
+'.to-indigo-800': { backgroundGradient: { colors: [ '#42389d' ] } }
+'.to-indigo-900': { backgroundGradient: { colors: [ '#362f78' ] } }
+'.to-purple-50': { backgroundGradient: { colors: [ '#f6f5ff' ] } }
+'.to-purple-100': { backgroundGradient: { colors: [ '#edebfe' ] } }
+'.to-purple-200': { backgroundGradient: { colors: [ '#dcd7fe' ] } }
+'.to-purple-300': { backgroundGradient: { colors: [ '#cabffd' ] } }
+'.to-purple-400': { backgroundGradient: { colors: [ '#ac94fa' ] } }
+'.to-purple-500': { backgroundGradient: { colors: [ '#9061f9' ] } }
+'.to-purple-600': { backgroundGradient: { colors: [ '#7e3af2' ] } }
+'.to-purple-700': { backgroundGradient: { colors: [ '#6c2bd9' ] } }
+'.to-purple-800': { backgroundGradient: { colors: [ '#5521b5' ] } }
+'.to-purple-900': { backgroundGradient: { colors: [ '#4a1d96' ] } }
+'.to-pink-50': { backgroundGradient: { colors: [ '#fdf2f8' ] } }
+'.to-pink-100': { backgroundGradient: { colors: [ '#fce8f3' ] } }
+'.to-pink-200': { backgroundGradient: { colors: [ '#fad1e8' ] } }
+'.to-pink-300': { backgroundGradient: { colors: [ '#f8b4d9' ] } }
+'.to-pink-400': { backgroundGradient: { colors: [ '#f17eb8' ] } }
+'.to-pink-500': { backgroundGradient: { colors: [ '#e74694' ] } }
+'.to-pink-600': { backgroundGradient: { colors: [ '#d61f69' ] } }
+'.to-pink-700': { backgroundGradient: { colors: [ '#bf125d' ] } }
+'.to-pink-800': { backgroundGradient: { colors: [ '#99154b' ] } }
+'.to-pink-900': { backgroundGradient: { colors: [ '#751a3d' ] } }
+
 // Top / Right / Bottom / Left
 '.top-0': { top: 0 }
 '.left-0': { left: 0 }
