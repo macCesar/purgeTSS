@@ -1,4 +1,4 @@
-// Font Awesome Free 5.14.0 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 5.15.0 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -35,7 +35,6 @@
 '.fa-address-card': { text: '\uf2bb', title: '\uf2bb' }
 '.fa-adjust': { text: '\uf042', title: '\uf042' }
 '.fa-adn': { text: '\uf170', title: '\uf170' }
-'.fa-adobe': { text: '\uf778', title: '\uf778' }
 '.fa-adversal': { text: '\uf36a', title: '\uf36a' }
 '.fa-affiliatetheme': { text: '\uf36b', title: '\uf36b' }
 '.fa-air-freshener': { text: '\uf5d0', title: '\uf5d0' }
@@ -299,6 +298,7 @@
 '.fa-cloud-sun': { text: '\uf6c4', title: '\uf6c4' }
 '.fa-cloud-sun-rain': { text: '\uf743', title: '\uf743' }
 '.fa-cloud-upload-alt': { text: '\uf382', title: '\uf382' }
+'.fa-cloudflare': { text: '\ue07d', title: '\ue07d' }
 '.fa-cloudscale': { text: '\uf383', title: '\uf383' }
 '.fa-cloudsmith': { text: '\uf384', title: '\uf384' }
 '.fa-cloudversify': { text: '\uf385', title: '\uf385' }
@@ -630,6 +630,7 @@
 '.fa-grip-vertical': { text: '\uf58e', title: '\uf58e' }
 '.fa-gripfire': { text: '\uf3ac', title: '\uf3ac' }
 '.fa-grunt': { text: '\uf3ad', title: '\uf3ad' }
+'.fa-guilded': { text: '\ue07e', title: '\ue07e' }
 '.fa-guitar': { text: '\uf7a6', title: '\uf7a6' }
 '.fa-gulp': { text: '\uf3ae', title: '\uf3ae' }
 '.fa-h-square': { text: '\uf0fd', title: '\uf0fd' }
@@ -688,6 +689,7 @@
 '.fa-hips': { text: '\uf452', title: '\uf452' }
 '.fa-hire-a-helper': { text: '\uf3b0', title: '\uf3b0' }
 '.fa-history': { text: '\uf1da', title: '\uf1da' }
+'.fa-hive': { text: '\ue07f', title: '\ue07f' }
 '.fa-hockey-puck': { text: '\uf453', title: '\uf453' }
 '.fa-holly-berry': { text: '\uf7aa', title: '\uf7aa' }
 '.fa-home': { text: '\uf015', title: '\uf015' }
@@ -731,8 +733,10 @@
 '.fa-infinity': { text: '\uf534', title: '\uf534' }
 '.fa-info': { text: '\uf129', title: '\uf129' }
 '.fa-info-circle': { text: '\uf05a', title: '\uf05a' }
+'.fa-innosoft': { text: '\ue080', title: '\ue080' }
 '.fa-instagram': { text: '\uf16d', title: '\uf16d' }
 '.fa-instagram-square': { text: '\ue055', title: '\ue055' }
+'.fa-instalod': { text: '\ue081', title: '\ue081' }
 '.fa-intercom': { text: '\uf7af', title: '\uf7af' }
 '.fa-internet-explorer': { text: '\uf26b', title: '\uf26b' }
 '.fa-invision': { text: '\uf7b0', title: '\uf7b0' }
@@ -906,6 +910,7 @@
 '.fa-nutritionix': { text: '\uf3d6', title: '\uf3d6' }
 '.fa-object-group': { text: '\uf247', title: '\uf247' }
 '.fa-object-ungroup': { text: '\uf248', title: '\uf248' }
+'.fa-octopus-deploy': { text: '\ue082', title: '\ue082' }
 '.fa-odnoklassniki': { text: '\uf263', title: '\uf263' }
 '.fa-odnoklassniki-square': { text: '\uf264', title: '\uf264' }
 '.fa-oil-can': { text: '\uf613', title: '\uf613' }
@@ -952,6 +957,7 @@
 '.fa-people-arrows': { text: '\ue068', title: '\ue068' }
 '.fa-people-carry': { text: '\uf4ce', title: '\uf4ce' }
 '.fa-pepper-hot': { text: '\uf816', title: '\uf816' }
+'.fa-perbyte': { text: '\ue083', title: '\ue083' }
 '.fa-percent': { text: '\uf295', title: '\uf295' }
 '.fa-percentage': { text: '\uf541', title: '\uf541' }
 '.fa-periscope': { text: '\uf3da', title: '\uf3da' }
@@ -1342,6 +1348,7 @@
 '.fa-umbraco': { text: '\uf8e8', title: '\uf8e8' }
 '.fa-umbrella': { text: '\uf0e9', title: '\uf0e9' }
 '.fa-umbrella-beach': { text: '\uf5ca', title: '\uf5ca' }
+'.fa-uncharted': { text: '\ue084', title: '\ue084' }
 '.fa-underline': { text: '\uf0cd', title: '\uf0cd' }
 '.fa-undo': { text: '\uf0e2', title: '\uf0e2' }
 '.fa-undo-alt': { text: '\uf2ea', title: '\uf2ea' }
@@ -1393,6 +1400,8 @@
 '.fa-venus': { text: '\uf221', title: '\uf221' }
 '.fa-venus-double': { text: '\uf226', title: '\uf226' }
 '.fa-venus-mars': { text: '\uf228', title: '\uf228' }
+'.fa-vest': { text: '\ue085', title: '\ue085' }
+'.fa-vest-patches': { text: '\ue086', title: '\ue086' }
 '.fa-viacoin': { text: '\uf237', title: '\uf237' }
 '.fa-viadeo': { text: '\uf2a9', title: '\uf2a9' }
 '.fa-viadeo-square': { text: '\uf2aa', title: '\uf2aa' }
@@ -1423,6 +1432,7 @@
 '.fa-walking': { text: '\uf554', title: '\uf554' }
 '.fa-wallet': { text: '\uf555', title: '\uf555' }
 '.fa-warehouse': { text: '\uf494', title: '\uf494' }
+'.fa-watchman-monitoring': { text: '\ue087', title: '\ue087' }
 '.fa-water': { text: '\uf773', title: '\uf773' }
 '.fa-wave-square': { text: '\uf83e', title: '\uf83e' }
 '.fa-waze': { text: '\uf83f', title: '\uf83f' }
@@ -1448,6 +1458,7 @@
 '.fa-wine-glass-alt': { text: '\uf5ce', title: '\uf5ce' }
 '.fa-wix': { text: '\uf5cf', title: '\uf5cf' }
 '.fa-wizards-of-the-coast': { text: '\uf730', title: '\uf730' }
+'.fa-wodu': { text: '\ue088', title: '\ue088' }
 '.fa-wolf-pack-battalion': { text: '\uf514', title: '\uf514' }
 '.fa-won-sign': { text: '\uf159', title: '\uf159' }
 '.fa-wordpress': { text: '\uf19a', title: '\uf19a' }
