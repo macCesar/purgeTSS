@@ -1,6 +1,6 @@
 {
 	"name": "purgetss",
-	"version": "1.8.11",
+	"version": "1.8.12",
 	"description": "purgeTSS is a small CLI that creates a clean app.tss file by purging unused classes from tailwind.tss, fontawesome.tss, materialicons.tss and lineicons.tss",
 	"main": "index.js",
 	"bin": {
@@ -13,9 +13,10 @@
 		"build:tailwind": "node ./lib/build-tailwind",
 		"build:fonts": "node ./lib/build-fonts-folder",
 		"build:fa": "node ./lib/build-fontawesome-tss",
+		"build:fa-js": "node ./lib/build-fontawesome-js",
 		"build:lineicons": "node ./lib/build-lineicons-tss",
 		"build:material": "node ./lib/build-material-icons-tss",
-		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:lineicons && npm run build:material && npm run build:fonts"
+		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:lineicons && npm run build:material && npm run build:fonts"
 	},
 	"repository": {
 		"type": "git",
@@ -35,10 +36,10 @@
 	},
 	"homepage": "https://github.com/macCesar/purgeTSS#readme",
 	"devDependencies": {
-		"@fortawesome/fontawesome-free": "^5.15.0",
+		"@fortawesome/fontawesome-free": "^5.15.1",
 		"@tailwindcss/ui": "^0.6.2",
 		"read-css": "^0.3.0",
-		"tailwindcss": "^1.8.10"
+		"tailwindcss": "^1.8.12"
 	},
 	"dependencies": {
 		"arg": "^4.1.3",

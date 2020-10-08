@@ -184,7 +184,7 @@ backgroundColor: '#002359'
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
 
-// Font Awesome Free 5.14.0 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 5.15.0 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
