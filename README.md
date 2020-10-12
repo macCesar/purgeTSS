@@ -159,8 +159,8 @@ After runing the script you will have this in `app.tss`
 backgroundColor: '#002359'
 }
 
-// Tailwind CSS v1.8.2: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
-// Tailwind UI Plugin v0.4.0 ( https://www.npmjs.com/package/@tailwindcss/ui ).
+// Tailwind CSS v1.9.0: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind UI Plugin v0.6.2 ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 '.text-gray-600': { color: '#4b5563' }
 '.text-purple-600': { color: '#7e3af2' }
@@ -184,7 +184,7 @@ backgroundColor: '#002359'
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
 
-// Font Awesome Free 5.15.0 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons

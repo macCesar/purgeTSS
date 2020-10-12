@@ -1,4 +1,4 @@
-// Tailwind CSS v1.8.12: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind CSS v1.9.0: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Tailwind UI Plugin v0.6.2 ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
@@ -765,7 +765,9 @@
 '.rounded': { borderRadius: 4 }
 '.rounded-md': { borderRadius: 6 }
 '.rounded-lg': { borderRadius: 8 }
-'.rounded-full': { borderRadius: 4 }
+'.rounded-xl': { borderRadius: 12 }
+'.rounded-2xl': { borderRadius: 16 }
+'.rounded-3xl': { borderRadius: 24 }
 
 // Border Radius - Extra Styles ( Radius is half de size of w-xx and h-xx spacings )
 '.rounded-0': { borderRadius: 0 }
