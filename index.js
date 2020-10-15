@@ -23,7 +23,7 @@ const detinationFontsFolder = cwd + '/app/assets/fonts';
 const sourceFontsFolder = path.resolve(__dirname, './assets/fonts');
 
 function extractClasses(texto) {
-	return traverse(JSON.parse(convert.xml2json(texto, { compact: true }))).reduce(function (acc, value) {
+	return traverse(JSON.parse(convert.xml2json(encodeHTML(texto), { compact: true }))).reduce(function (acc, value) {
 		if (this.key === 'class') acc.push(value.split(' '));
 		return acc;
 	}, []);
@@ -281,4 +281,11 @@ function processTailwind(uniqueClasses) {
 	if (encontrados) {
 		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind-template.tss'), 'utf8') + encontrados);
 	}
+}
+
+function encodeHTML(str) {
+	const code = {
+		'&': '&amp;',
+	};
+	return str.replace(/[&]/gm, (i) => code[i]);
 }
