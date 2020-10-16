@@ -22,11 +22,17 @@ const materialDesignIconsSourceTSS = path.resolve(__dirname, './tss/materialicon
 const detinationFontsFolder = cwd + '/app/assets/fonts';
 const sourceFontsFolder = path.resolve(__dirname, './assets/fonts');
 
-function extractClasses(texto) {
-	return traverse(JSON.parse(convert.xml2json(encodeHTML(texto), { compact: true }))).reduce(function (acc, value) {
-		if (this.key === 'class') acc.push(value.split(' '));
-		return acc;
-	}, []);
+function extractClasses(currentText, currentFile) {
+	try {
+		let jsontext = convert.xml2json(encodeHTML(currentText), { compact: true });
+
+		return traverse(JSON.parse(jsontext)).reduce(function (acc, value) {
+			if (this.key === 'class') acc.push(value.split(' '));
+			return acc;
+		}, []);
+	} catch (error) {
+		throw chalk.red(`::purgeTSS:: Error processing: “${currentFile}”`);
+	}
 }
 
 function callback(err) {
@@ -115,7 +121,7 @@ function purgeClasses(options) {
 			let allClasses = [];
 
 			_.each(viewPaths, viewPath => {
-				allClasses.push(extractClasses(fs.readFileSync(viewPath, 'utf8')));
+				allClasses.push(extractClasses(fs.readFileSync(viewPath, 'utf8'), viewPath));
 			});
 
 			let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
