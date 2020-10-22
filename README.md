@@ -159,7 +159,7 @@ After runing the script you will have this in `app.tss`
 backgroundColor: '#002359'
 }
 
-// Tailwind CSS v1.9.2: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind CSS v1.9.5: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Tailwind UI Plugin v0.6.2 ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 '.text-gray-600': { color: '#4b5563' }
