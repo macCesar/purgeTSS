@@ -249,6 +249,7 @@ module.exports = {
 ```
 
 ```css
+// ./config/custom.tss
 // width Property
 '.w-banner': { width: 80 }
 ```
