@@ -14,8 +14,9 @@ const cwd = process.cwd();
 
 const appTSS = cwd + '/app/styles/app.tss';
 const _appTSS = cwd + '/app/styles/_app.tss';
-const configFile = cwd + '/purgetss.config.js';
-const customTSS = cwd + '/app/styles/custom.tss';
+const purgeTSSFolder = cwd + '/config';
+const customTSS = cwd + '/config/custom.tss';
+const configFile = cwd + '/config/purgetss.js';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
@@ -91,7 +92,11 @@ function copyFont(vendor) {
 function init() {
 	if (checkIfAlloyProject()) {
 		if (!fs.existsSync(configFile)) {
+			if (!fs.existsSync(purgeTSSFolder)) {
+				fs.mkdirSync(purgeTSSFolder)
+			}
 			console.log(chalk.yellow(purgeLabel + ' `purgetss.config.js` created!'));
+
 			fs.copyFileSync(srcConfigFile, configFile);
 		} else {
 			console.log(chalk.red(purgeLabel + ' `purgetss.config.js` already exists!'));
@@ -103,12 +108,15 @@ module.exports.init = init;
 function buildCustom() {
 	if (checkIfAlloyProject()) {
 		if (fs.existsSync(configFile)) {
-			const parceConfigFile = require(configFile);
+			const parseConfigFile = require(configFile);
 
 			let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8');
 
-			_.each(parceConfigFile.theme, (value, key) => {
-				convertedStyles += buildCustomValues(key, value);
+			let colors = parseConfigFile.theme.colors;
+			let spacing = parseConfigFile.theme.spacing;
+
+			_.each(parseConfigFile.theme, (value, key) => {
+				convertedStyles += buildCustomValues(key, value, colors, spacing);
 			});
 
 			saveFile(customTSS, convertedStyles);
@@ -119,30 +127,40 @@ function buildCustom() {
 }
 module.exports.buildCustom = buildCustom;
 
-function buildCustomValues(key, value) {
+function buildCustomValues(key, value, colors, spacing) {
 	switch (key) {
-		case 'colors':
-			return helpers.colors(value);
+		case 'textColor':
+			return helpers.textColor({ ...value, ...colors });
+		case 'backgroundColor':
+			return helpers.backgroundColor({ ...value, ...colors });
+		case 'borderColor':
+			return helpers.borderColor({ ...value, ...colors });
+		case 'placeholderColor':
+			return helpers.placeholderColor({ ...value, ...colors });
 		case 'gradientColorStops':
-			return helpers.gradientColorStops(value);
+			return helpers.gradientColorStops({ ...value, ...colors });
+		case 'fontFamily':
+			return helpers.fontFamily(value);
 		case 'fontSize':
 			return helpers.fontSize(value);
+		case 'fontWeight':
+			return helpers.fontWeight(value);
 		case 'borderRadius':
 			return helpers.borderRadius(value);
 		case 'borderWidth':
 			return helpers.borderWidth(value);
 		case 'margin':
-			return helpers.margin(value);
+			return helpers.margin({ ...value, ...spacing });
 		case 'padding':
-			return helpers.padding(value);
+			return helpers.padding({ ...value, ...spacing });
 		case 'width':
-			return helpers.width(value);
+			return helpers.width({ ...value, ...spacing });
 		case 'height':
-			return helpers.height(value);
+			return helpers.height({ ...value, ...spacing });
 		case 'opacity':
 			return helpers.opacity(value);
 		default:
-			break;
+			return '';
 	}
 }
 
@@ -227,7 +245,7 @@ function copyResetTemplate() {
 		let appTSSContent = fs.readFileSync(_appTSS, 'utf8');
 		if (appTSSContent.length) {
 			console.log(`${purgeLabel} Copying _app.tss styles...`);
-			fs.appendFileSync(appTSS, '\n// Custom styles from _app.tss\n');
+			fs.appendFileSync(appTSS, '\n// Styles from _app.tss\n');
 			fs.appendFileSync(appTSS, appTSSContent);
 		}
 	}
@@ -274,7 +292,7 @@ function devMode(options) {
 							console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying LineIcons styles...'));
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
 							break;
-						case 'ct':
+						case 'custom':
 							if (fs.existsSync(customTSS)) {
 								console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying custom.tss...'));
 								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTSS, 'utf8'));

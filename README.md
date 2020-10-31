@@ -36,13 +36,55 @@ Use this command to update `purgeTSS` to the latest version.
 
 We constantly update `purgeTSS` for bug fixes, to add new features and to include the latest versions of Tailwind CSS and all other resources like Tailwind UI and Fonts.
 
-### dev-mode
-When you are prototyping your app, you will want to have all available classes in app.tss file, instead of purging every time you add new classes in your views.
+### init
+```bash
+> purgetss init
+```
+It creates a `purgetss.js` file inside the `config` folder at the root of your project:
+```javascript
+// ./config/purgetss.js
+module.exports = {
+	theme: {
+		//
+	}
+};
+```
+You can create custom classes with the following keys:
 
-You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` with:
+- colors
+- spacing
+- width
+- height
+- textColor
+- backgroundColor
+- borderColor
+- placeholderColor
+- gradientColorStops
+- fontFamily
+- fontSize
+- fontWeight
+- borderRadius
+- borderWidth
+- opacity
+
+### build-custom
+```bash
+> purgetss build-custom
+```
+Generates a new `custom.tss` based on the options defined in `config/purgetss.js`.
+
+The file is stored inside the `config` folder.
+
+### To learn more see **[Configuring and customizing your styles](/configuring-guide.md)**
+
+### dev-mode
 ```bash
 > purgetss dev-mode
 ```
+
+When you are prototyping your app, you will want to have all available classes in app.tss file, instead of purging every time you add new classes in your views.
+
+You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss`.
 
 ### A caveat when working with very large .tss files
 When compiling a very large tss file you will get the following note:
@@ -62,6 +104,7 @@ Use any of the following arguments to copy the styles from specific providers:
 - fa = Font Awesome styles
 - md = Material Design Icons styles
 - li = LineIcons styles
+- custom = Your Custom styles
 
 ### copy-fonts
 ```bash

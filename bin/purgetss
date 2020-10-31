@@ -17,7 +17,7 @@ program
 	.command('dev-mode')
 	.description('To copy every style from tailwind.tss, fontawesome.tss, materialicons.tss and lineicons.tss into app.tss')
 	.help('Use this command if you want to copy all available styles from tailwind.tss, fontawesome.tss, materialicons.tss, and lineicons.tss into app.tss while prototyping your App.')
-	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from a specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   ct = custom.tss styles')
+	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from a specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom.tss styles')
 	.action((args, options, logger) => {
 		purgetss.devMode(options);
 	});
