@@ -268,6 +268,7 @@ module.exports = {
 ```
 
 ```css
+// ./config/custom.tss
 // height Property
 '.h-xl': { height: 48 }
 '.h-1/3': { height: '33.333333%' }
