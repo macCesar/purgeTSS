@@ -483,7 +483,7 @@ module.exports = {
 '.rounded-extra-large': { borderRadius: 32 }
 ```
 
-## Border Witdh
+## Border Width
 Utilities for controlling the width of an element's borders.
 ```javascript
 // ./config/purgetss.js
