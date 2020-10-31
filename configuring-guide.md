@@ -19,6 +19,13 @@ module.exports = {
 };
 ```
 
+## Generating your custom.tss file
+To generate your `custom.tss` file use the following commmand:
+```bash
+> purgetss build-custom
+```
+Will generate a new `custom.tss` based on the options defined in `config/purgetss.js`. The file is stored inside the `config` folder.
+
 ## Theme
 The `theme` property is where you define your `colors`, `spacing`, `width`, `height`, `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops`, `fontFamily`, `fontSize`, `fontWeight`, `borderRadius`, `borderWidth` and `opacity` to customize your project.
 
