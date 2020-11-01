@@ -14,9 +14,9 @@ const cwd = process.cwd();
 
 const appTSS = cwd + '/app/styles/app.tss';
 const _appTSS = cwd + '/app/styles/_app.tss';
-const purgeTSSFolder = cwd + '/config';
-const customTSS = cwd + '/config/custom.tss';
-const configFile = cwd + '/config/purgetss.js';
+const purgeTSSFolder = cwd + '/purgetss';
+const customTSS = purgeTSSFolder + '/custom.tss';
+const configFile = purgeTSSFolder + '/config.js';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');

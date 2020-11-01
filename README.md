@@ -40,9 +40,9 @@ We constantly update `purgeTSS` for bug fixes, to add new features and to includ
 ```bash
 > purgetss init
 ```
-It creates a `purgetss.js` file inside the `config` folder at the root of your project:
+It creates a `config.js` file inside the `config` folder at the root of your project:
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
 	theme: {
 		//
@@ -71,9 +71,9 @@ You can create custom classes with the following keys:
 ```bash
 > purgetss build-custom
 ```
-Generates a new `custom.tss` based on the options defined in `config/purgetss.js`.
+Generates a new `custom.tss` based on the options defined in `purgetss/config.js`.
 
-The file is stored inside the `config` folder.
+The file is stored inside the `purgetss` folder.
 
 ### To learn more see **[Configuring and customizing your styles](/configuring-guide.md)**
 

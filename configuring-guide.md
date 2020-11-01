@@ -11,7 +11,7 @@ To create a purgeTSS config file for your project use the following command:
 
 It will create a minimal `purgetss.js` file inside the `config` folder at the root of your project:
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         //
@@ -24,13 +24,13 @@ To generate your `custom.tss` file use the following commmand:
 ```bash
 > purgetss build-custom
 ```
-Will generate a new `custom.tss` based on the options defined in `config/purgetss.js`. The file is stored inside the `config` folder.
+Will generate a new `custom.tss` based on the options defined in `purgetss/config.js`. The file is stored inside the `config` folder.
 
 ## Theme
 The `theme` property is where you define your `colors`, `spacing`, `width`, `height`, `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops`, `fontFamily`, `fontSize`, `fontWeight`, `borderRadius`, `borderWidth` and `opacity` to customize your project.
 
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
   theme: {
     fontFamily: {
@@ -53,7 +53,7 @@ module.exports = {
 ## Text Colors
 Utilities for controlling the text color of an element.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         textColor: {
@@ -65,7 +65,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // color Property
 '.text-orange-peel': { color: '#FF9F1C' }
 '.text-ultramarine': { color: '#446DF6' }
@@ -74,7 +74,7 @@ module.exports = {
 ## Background Colors
 Utilities for controlling an element's background color.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         backgroundColor: {
@@ -86,7 +86,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // backgroundColor Property
 '.bg-minion': { backgroundColor: '#EDD83D' }
 '.bg-pacific': { backgroundColor: '#08A4BD' }
@@ -95,7 +95,7 @@ module.exports = {
 ## Border Colors
 Utilities for controlling the color of an element's borders.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         borderColor: {
@@ -107,7 +107,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // borderColor Property
 '.border-old-burgundy': { borderColor: '#4B3B40' }
 '.border-tea-green': { borderColor: '#D1F5BE' }
@@ -116,7 +116,7 @@ module.exports = {
 ## Placeholder Colors
 Utilities for controlling the color of placeholder text.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         placeholderColor: {
@@ -128,7 +128,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // hintTextColor Property
 '.placeholder-flame': { hintTextColor: '#EC4E20' }
 '.placeholder-spanish-blue': { hintTextColor: '#016FB9' }
@@ -137,7 +137,7 @@ module.exports = {
 ## Gradient Color Stops
 Utilities for controlling the color stops in background gradients.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         gradientColorStops: {
@@ -149,7 +149,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // Gradient Color Stops
 // From Color
 '.from-corporate': { backgroundGradient: { colors: [ '#003490dc', '#3490dc' ] } }
@@ -167,7 +167,7 @@ Customizing the color palette for your project.
 You can define your colors as a simple list of key-value pairs, or using a nested object notation where the nested keys are added to the base color name as modifiers
 
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         colors: {
@@ -196,7 +196,7 @@ module.exports = {
 The `colors` property are automatically shared by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, and `gradientColorStops` utilities:
 
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         colors: {
@@ -226,7 +226,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // color Property
 '.text-orange-peel': { color: '#FF9F1C' }
 '.text-ultramarine': { color: '#446DF6' }
@@ -245,7 +245,7 @@ module.exports = {
 ## Width scale
 Utilities for setting the width of an element
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         width: {
@@ -256,7 +256,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // width Property
 '.w-banner': { width: 80 }
 ```
@@ -264,7 +264,7 @@ module.exports = {
 ## Height scale
 Utilities for setting the height of an element
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         height: {
@@ -276,7 +276,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // height Property
 '.h-xl': { height: 48 }
 '.h-1/3': { height: '33.333333%' }
@@ -285,7 +285,7 @@ module.exports = {
 ## Margin
 Utilities for controlling an element's margin.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         margin: {
@@ -296,7 +296,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // Margin
 '.m-tiny': { top: 2, right: 2, bottom: 2, left: 2 }
 '.-m-tiny': { top: -2, right: -2, bottom: -2, left: -2 }
@@ -317,7 +317,7 @@ module.exports = {
 ## Padding
 Utilities for controlling an element's padding.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         padding: {
@@ -329,7 +329,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // padding Property
 '.p-sm': { padding: { top: 16, right: 16, bottom: 16, left: 16 } }
 '.p-md': { padding: { top: 24, right: 24, bottom: 24, left: 24 } }
@@ -350,7 +350,7 @@ module.exports = {
 ## Customizing Spacing
 Customizing the `spacing` scale for your project.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         spacing: {
@@ -365,7 +365,7 @@ module.exports = {
 The `spacing` scale is shared by the `margin`, `padding`, `width`, and `height` utilities.
 
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         spacing: {
@@ -384,7 +384,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // width Property
 '.w-banner': { width: 80 }
 '.w-tight': { width: 4 }
@@ -400,7 +400,7 @@ module.exports = {
 ## Font Family
 Utilities for controlling the font family of an element.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         fontFamily: {
@@ -412,7 +412,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // fontFamily Property
 '.font-display': { font: { fontFamily : 'AlfaSlabOne-Regular' } }
 '.font-body': { font: { fontFamily : 'BarlowSemiCondensed-Regular' } }
@@ -421,7 +421,7 @@ module.exports = {
 ## Font Size
 Utilities for controlling the font size of an element.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         fontSize: {
@@ -433,7 +433,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // fontSize Property
 '.text-10xl': { font: { fontSize: 128 } }
 '.text-small-print': { font: { fontSize: 8 } }
@@ -442,7 +442,7 @@ module.exports = {
 ## Font Weight
 Utilities for controlling the font weight of an element.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         fontWeight: {
@@ -454,7 +454,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // fontWeight Property
 '.font-extra-bold': { font: { fontWeight: 'extra-bold' } }
 '.font-extra-light': { font: { fontWeight: 'extra-light' } }
@@ -463,7 +463,7 @@ module.exports = {
 ## Border Radius
 Utilities for controlling the border radius of an element.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         borderRadius: {
@@ -476,7 +476,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // borderRadius Property
 '.rounded': { borderRadius: 4 }
 '.rounded-large': { borderRadius: 16 }
@@ -486,7 +486,7 @@ module.exports = {
 ## Border Width
 Utilities for controlling the width of an element's borders.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         borderWidth: {
@@ -499,7 +499,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // borderWidth Property
 '.border-3': { borderWidth: '3px' }
 '.border-6': { borderWidth: '6px' }
@@ -509,7 +509,7 @@ module.exports = {
 ## Opacity
 Utilities for controlling the opacity of an element.
 ```javascript
-// ./config/purgetss.js
+// ./purgetss/config.js
 module.exports = {
     theme: {
         opacity: {
@@ -527,7 +527,7 @@ module.exports = {
 ```
 
 ```css
-// ./config/custom.tss
+// ./purgetss/custom.tss
 // opacity Property
 '.opacity-10': { opacity: 0.1 }
 '.opacity-20': { opacity: 0.2 }
