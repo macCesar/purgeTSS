@@ -8,14 +8,14 @@ const package = require('../package.json');
 program
 	.version(package.version)
 	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for details.')
-	.help('purgeTSS will create a clean app.tss file by copying only the classes used in your views.\n\nIt works with tailwind.tss, fontawesome.tss, materialicons.tss and lineicons.tss.\n\nALL your custom classes from your app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by creating a purgetss.config.js with `purgetss init`.')
+	.help('purgeTSS will create a clean app.tss file by copying only the classes used in your views.\n\nIt works with tailwind.tss, fontawesome.tss, materialicons.tss and lineicons.tss.\n\nALL your custom classes from your app.tss file will be copied over without purging.\n\nCreate your own custom classes and values by running `purgetss init` and `purgetss build-custom`.')
 	.action((args, options, logger) => {
 		purgetss.purgeClasses(options);
 	});
 
 program
 	.command('dev-mode')
-	.description('To copy every style from tailwind.tss, fontawesome.tss, materialicons.tss and lineicons.tss into app.tss')
+	.description('To everything into app.tss')
 	.help('Use this command if you want to copy all available styles from tailwind.tss, fontawesome.tss, materialicons.tss, and lineicons.tss into app.tss while prototyping your App.')
 	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from a specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom.tss styles')
 	.action((args, options, logger) => {
@@ -58,15 +58,15 @@ program
 program
 	.command('init')
 	.description('Creates a config file for your project')
-	.help('This will create a minimal purgetss.config.js file at the root of your project')
+	.help('This will create a minimal `./purgetss/config.js` file at the root of your project.')
 	.action((args, options, logger) => {
 		purgetss.init();
 	});
 
 program
 	.command('build-custom')
-	.description('To generate your `custom.tss` file from `purgetss.config.js`')
-	.help('You can define any customizations to use in your project')
+	.description('To generate your `custom.tss` file from `./purgetss/config.js`')
+	.help('To generate a new `custom.tss` based on the options defined in `./purgetss/config.js`.')
 	.action((args, options, logger) => {
 		purgetss.buildCustom();
 	});

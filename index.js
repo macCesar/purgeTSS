@@ -95,11 +95,11 @@ function init() {
 			if (!fs.existsSync(purgeTSSFolder)) {
 				fs.mkdirSync(purgeTSSFolder)
 			}
-			console.log(chalk.yellow(purgeLabel + ' `purgetss.config.js` created!'));
+			console.log(chalk.yellow(purgeLabel + ' `./purgetss/config.js` created!'));
 
 			fs.copyFileSync(srcConfigFile, configFile);
 		} else {
-			console.log(chalk.red(purgeLabel + ' `purgetss.config.js` already exists!'));
+			console.log(chalk.red(purgeLabel + ' `./purgetss/config.js` already exists!'));
 		}
 	}
 }
@@ -121,7 +121,7 @@ function buildCustom() {
 
 			saveFile(customTSS, convertedStyles);
 		} else {
-			console.log(chalk.red(purgeLabel + ' `purgetss.config.js` doesn’t exists!\n              Please use `purgeTSS init` to create one!'));
+			console.log(chalk.red(purgeLabel + ' `./purgetss/config.js` doesn’t exists!\n              Please use `purgeTSS init` to create one!'));
 		}
 	}
 }
