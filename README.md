@@ -70,7 +70,7 @@ You can create custom classes with the following keys:
 ```bash
 > purgetss build-custom
 ```
-Generates a new `custom.tss` based on the options defined in `purgetss/config.js`.
+Generates a new `custom.tss` based on the options defined in `./purgetss/config.js`.
 
 The file is stored inside the `purgetss` folder.
 
