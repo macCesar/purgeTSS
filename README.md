@@ -2,7 +2,7 @@
 ### purgeTSS will OVERWRITE your existing app.tss file
 > When you run `purgeTSS` for the first time, it will backup your existing `app.tss` file to `_app.tss`.
 >
-> It will use it along with `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss` files to create a new purged `app.tss` file.
+> It will use it along with `tailwind.tss`, `fontawesome.tss`, `materialicons.tss`, `lineicons.tss` and your `custom.tss` files to create a new purged `app.tss` file.
 >
 > From now on Add, Update, or Delete your custom classes in `_app.tss.`
 
@@ -10,7 +10,7 @@
 # purgeTSS
 `purgeTSS` is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
 
-It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss) and [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss).
+It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss) and your `custom.tss` file.
 
 **ALL your custom classes from your `app.tss` file will be copied over without purging.**
 
