@@ -40,7 +40,7 @@ We constantly update `purgeTSS` for bug fixes, to add new features and to includ
 ```bash
 > purgetss init
 ```
-It creates a `config.js` file inside the `config` folder at the root of your project:
+It creates a `config.js` file inside the `purgetss` folder at the root of your project:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
