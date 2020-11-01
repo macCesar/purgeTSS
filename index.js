@@ -108,12 +108,39 @@ module.exports.init = init;
 function buildCustom() {
 	if (checkIfAlloyProject()) {
 		if (fs.existsSync(configFile)) {
+			const sortObject = obj => Object.keys(obj).sort().reduce((res, key) => (res[key] = obj[key], res), {});
+
 			const parseConfigFile = require(configFile);
 
 			let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8');
 
 			let colors = parseConfigFile.theme.colors;
 			let spacing = parseConfigFile.theme.spacing;
+
+			let spacingKeys = ['margin', 'padding', 'width', 'height'];
+			let colorKeys = ['textColor', 'backgroundColor', 'borderColor', 'placeholderColor', 'gradientColorStops'];
+
+			let clientKeys = [];
+			_.each(parseConfigFile.theme, (value, key) => {
+				clientKeys.push(key);
+			});
+
+			colorKeys = colorKeys.filter((el) => !clientKeys.includes(el));
+			spacingKeys = spacingKeys.filter((el) => !clientKeys.includes(el));
+
+			if (spacing) {
+				_.each(spacingKeys, (key) => {
+					parseConfigFile.theme[key] = {};
+				});
+				delete parseConfigFile.theme['spacing'];
+			}
+
+			if (colors) {
+				_.each(colorKeys, (key) => {
+					parseConfigFile.theme[key] = {};
+				});
+				delete parseConfigFile.theme['colors'];
+			}
 
 			_.each(parseConfigFile.theme, (value, key) => {
 				convertedStyles += buildCustomValues(key, value, colors, spacing);
