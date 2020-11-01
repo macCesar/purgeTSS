@@ -143,8 +143,6 @@ function buildCustomValues(key, value, colors, spacing) {
 			return helpers.fontFamily(value);
 		case 'fontSize':
 			return helpers.fontSize(value);
-		case 'fontWeight':
-			return helpers.fontWeight(value);
 		case 'borderRadius':
 			return helpers.borderRadius(value);
 		case 'borderWidth':
