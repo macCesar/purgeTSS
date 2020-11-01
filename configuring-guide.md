@@ -9,7 +9,7 @@ To create a purgeTSS config file for your project use the following command:
 > purgetss init
 ```
 
-It will create a minimal `purgetss.js` file inside the `config` folder at the root of your project:
+It will create a minimal `config.js` file inside the `purgetss` folder at the root of your project:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
