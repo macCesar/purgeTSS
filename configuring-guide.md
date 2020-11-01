@@ -27,7 +27,7 @@ To generate your `custom.tss` file use the following commmand:
 It will generate a new `custom.tss` based on the options defined in `purgetss/config.js`. The file is stored inside the `purgetss` folder at the root of your project.
 
 ## Theme
-The `theme` property is where you define your `colors`, `spacing`, `width`, `height`, `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops`, `fontFamily`, `fontSize`, `fontWeight`, `borderRadius`, `borderWidth` and `opacity` to customize your project.
+The `theme` property is where you define your `colors`, `spacing`, `width`, `height`, `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops`, `fontFamily`, `fontSize`, `borderRadius`, `borderWidth` and `opacity` to customize your project.
 
 ```javascript
 // ./purgetss/config.js
@@ -437,27 +437,6 @@ module.exports = {
 // fontSize Property
 '.text-10xl': { font: { fontSize: 128 } }
 '.text-small-print': { font: { fontSize: 8 } }
-```
-
-## Font Weight
-Utilities for controlling the font weight of an element.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-    theme: {
-        fontWeight: {
-            'extra-bold': 800,
-            'extra-light': 100,
-        }
-    }
-}
-```
-
-```css
-// ./purgetss/custom.tss
-// fontWeight Property
-'.font-extra-bold': { font: { fontWeight: 'extra-bold' } }
-'.font-extra-light': { font: { fontWeight: 'extra-light' } }
 ```
 
 ## Border Radius

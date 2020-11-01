@@ -62,7 +62,6 @@ You can create custom classes with the following keys:
 - gradientColorStops
 - fontFamily
 - fontSize
-- fontWeight
 - borderRadius
 - borderWidth
 - opacity
