@@ -2,7 +2,7 @@
 ### purgeTSS will OVERWRITE your existing app.tss file
 > When you run `purgeTSS` for the first time, it will backup your existing `app.tss` file to `_app.tss`.
 >
-> It will use it along with `tailwind.tss`, `fontawesome.tss`, `materialicons.tss`, `lineicons.tss` and your `custom.tss` files to create a new purged `app.tss` file.
+> It will use it along with `tailwind.tss`, `fontawesome.tss`, `materialicons.tss`, `lineicons.tss` and your `custom.tss` file to create a new purged `app.tss` file.
 >
 > From now on Add, Update, or Delete your custom classes in `_app.tss.`
 
