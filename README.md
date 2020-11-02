@@ -74,6 +74,10 @@ Generates a new `custom.tss` based on the options defined in `./purgetss/config.
 
 The file is stored inside the `purgetss` folder.
 
+After running this command, you can use any of the generated classes in your project.
+
+Remember to run `purgetss` to copy all used classes to `app.tss`.
+
 ### To learn more see **[Configuring and customizing your styles](/configuring-guide.md)**
 
 ### dev-mode
