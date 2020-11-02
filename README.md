@@ -44,9 +44,9 @@ It creates a `config.js` file inside the `purgetss` folder at the root of your p
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-	theme: {
-		//
-	}
+    theme: {
+        //
+    }
 };
 ```
 You can create custom classes with the following keys:
