@@ -554,8 +554,8 @@ module.exports = {
 ```
 
 
-## Custom classes
-You can use your own key names or any Ti Element with as many attributes as needed, you can optionally place a conditional block that can specify platform or device size conditionals.
+## Custom class names
+You can use your own class names or any Ti Element with as many attributes as needed, you can optionally place a conditional block that can specify platform or device size conditionals.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
