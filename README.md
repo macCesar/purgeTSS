@@ -65,7 +65,7 @@ You can create a custom TSS file with the following keys:
 - borderRadius
 - borderWidth
 - opacity
-- *Your own keys names or any Ti Element*
+- *Your own class names or any Ti Element with any number of attributes or conditional statements*
 
 ### build-custom
 ```bash
