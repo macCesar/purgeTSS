@@ -13,9 +13,9 @@ It will create a minimal `config.js` file inside the `purgetss` folder at the ro
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        //
-    }
+  theme: {
+    //
+  }
 };
 ```
 
@@ -24,27 +24,41 @@ To generate your `custom.tss` file use the following commmand:
 ```bash
 > purgetss build-custom
 ```
-It will generate a new `custom.tss` based on the options defined in `purgetss/config.js`. The file is stored inside the `purgetss` folder at the root of your project.
+It will generate a new `custom.tss` file based on the defined attributes in `./purgetss/config.js`. It will also be inside the `purgetss` folder.
+
+**After generating your `custom.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file and extract only the classes used in your `XMLs` files.**
 
 ## Theme
-The `theme` property is where you define your `colors`, `spacing`, `width`, `height`, `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops`, `fontFamily`, `fontSize`, `borderRadius`, `borderWidth` and `opacity` to customize your project.
+The `theme` key is where you define your `colors`, `spacing`, `width`, `height`, `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops`, `fontFamily`, `fontSize`, `borderRadius`, `borderWidth`, `opacity` and `any_custom` key or any `Ti Element` to customize your project.
 
 ```javascript
 // ./purgetss/config.js
 module.exports = {
   theme: {
     fontFamily: {
-        display: 'AlfaSlabOne-Regular',
-        body: 'BarlowSemiCondensed-Regular',
+      display: 'AlfaSlabOne-Regular',
+      body: 'BarlowSemiCondensed-Regular',
     },
     height: {
-        xl: '3rem',
-        '1/3': '33.333333%'
+      xl: '3rem',
+      '1/3': '33.333333%'
     },
     borderWidth: {
-        3: '3px',
-        6: '6px',
-        10: '10px'
+      3: '3px',
+      6: '6px',
+      10: '10px'
+    },
+    '.gallery': {
+      global: {
+        width: 'Ti.UI.FILL',
+        height: 'Ti.UI.SIZE'
+      },
+      ios: {
+        clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED'
+      },
+      android: {
+        hiddenBehavior: 'Ti.UI.HIDDEN_BEHAVIOR_GONE'
+      }
     }
   }
 };
@@ -55,12 +69,12 @@ Utilities for controlling the text color of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        textColor: {
-            'orange-peel': '#FF9F1C',
-            ultramarine: '#446DF6'
-        }
+  theme: {
+    textColor: {
+      'orange-peel': '#FF9F1C',
+      ultramarine: '#446DF6'
     }
+  }
 }
 ```
 
@@ -76,12 +90,12 @@ Utilities for controlling an element's background color.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        backgroundColor: {
-            minion: '#EDD83D',
-            pacific: '#08A4BD'
-        }
+  theme: {
+    backgroundColor: {
+      minion: '#EDD83D',
+      pacific: '#08A4BD'
     }
+  }
 }
 ```
 
@@ -97,12 +111,12 @@ Utilities for controlling the color of an element's borders.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        borderColor: {
-            'old-burgundy': '#4B3B40',
-            'tea-green': '#D1F5BE'
-        }
+  theme: {
+    borderColor: {
+      'old-burgundy': '#4B3B40',
+      'tea-green': '#D1F5BE'
     }
+  }
 }
 ```
 
@@ -118,12 +132,12 @@ Utilities for controlling the color of placeholder text.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        placeholderColor: {
-            flame: '#EC4E20',
-            'spanish-blue': '#016FB9'
-        }
+  theme: {
+    placeholderColor: {
+      flame: '#EC4E20',
+      'spanish-blue': '#016FB9'
     }
+  }
 }
 ```
 
@@ -139,12 +153,12 @@ Utilities for controlling the color stops in background gradients.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        gradientColorStops: {
-            corporate: '#3490dc',
-            danger: '#e3342f'
-        }
+  theme: {
+    gradientColorStops: {
+      corporate: '#3490dc',
+      danger: '#e3342f'
     }
+  }
 }
 ```
 
@@ -169,26 +183,26 @@ You can define your colors as a simple list of key-value pairs, or using a neste
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        colors: {
-            highlight: '#ffff00',
-            primary: {
-                solid: '#002359',
-                dark: '#000030',
-                transparent: '#D9002359'
-            },
-            secondary: {
-                solid: '#13294B',
-                dark: '#000023',
-                transparent: '#D913294B'
-            },
-            gray: {
-                light: '#f1f2f3',
-                medium: '#ebeff2',
-                dark: '#2B2B2B'
-            }
-        }
+  theme: {
+    colors: {
+      highlight: '#ffff00',
+      primary: {
+        solid: '#002359',
+        dark: '#000030',
+        transparent: '#D9002359'
+      },
+      secondary: {
+        solid: '#13294B',
+        dark: '#000023',
+        transparent: '#D913294B'
+      },
+      gray: {
+        light: '#f1f2f3',
+        medium: '#ebeff2',
+        dark: '#2B2B2B'
+      }
     }
+  }
 }
 ```
 
@@ -200,30 +214,30 @@ The `colors` property are automatically shared by the `textColor`, `backgroundCo
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        colors: {
-            highlight: '#ffff00',
-            primary: {
-                solid: '#002359',
-                dark: '#000030',
-                transparent: '#D9002359'
-            },
-            secondary: {
-                solid: '#13294B',
-                dark: '#000023',
-                transparent: '#D913294B'
-            },
-            gray: {
-                light: '#f1f2f3',
-                medium: '#ebeff2',
-                dark: '#2B2B2B'
-            }
-        },
-        textColor: {
-            'orange-peel': '#FF9F1C',
-            ultramarine: '#446DF6'
-        }
+  theme: {
+    colors: {
+      highlight: '#ffff00',
+      primary: {
+        solid: '#002359',
+        dark: '#000030',
+        transparent: '#D9002359'
+      },
+      secondary: {
+        solid: '#13294B',
+        dark: '#000023',
+        transparent: '#D913294B'
+      },
+      gray: {
+        light: '#f1f2f3',
+        medium: '#ebeff2',
+        dark: '#2B2B2B'
+      }
+    },
+    textColor: {
+      'orange-peel': '#FF9F1C',
+      ultramarine: '#446DF6'
     }
+  }
 }
 ```
 
@@ -259,11 +273,11 @@ Utilities for setting the width of an element
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        width: {
-            banner: '5rem'
-        }
+  theme: {
+    width: {
+      banner: '5rem'
     }
+  }
 }
 ```
 
@@ -278,12 +292,12 @@ Utilities for setting the height of an element
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        height: {
-            xl: '3rem',
-            '1/3': '33.333333%'
-        }
+  theme: {
+    height: {
+      xl: '3rem',
+      '1/3': '33.333333%'
     }
+  }
 }
 ```
 
@@ -299,11 +313,11 @@ Utilities for controlling an element's margin.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        margin: {
-            tiny: '.125rem',
-        }
+  theme: {
+    margin: {
+      tiny: '.125rem',
     }
+  }
 }
 ```
 
@@ -331,12 +345,12 @@ Utilities for controlling an element's padding.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        padding: {
-            sm: '1rem',
-            md: '1.5rem',
-        }
+  theme: {
+    padding: {
+      sm: '1rem',
+      md: '1.5rem',
     }
+  }
 }
 ```
 
@@ -364,12 +378,12 @@ Customizing the `spacing` scale for your project.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        spacing: {
-            tight: '0.25rem',
-            loose: '1.0rem'
-        }
+  theme: {
+    spacing: {
+      tight: '0.25rem',
+      loose: '1.0rem'
     }
+  }
 }
 ```
 
@@ -381,19 +395,19 @@ The `spacing` scale is shared by the `margin`, `padding`, `width`, and `height` 
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        spacing: {
-            tight: '0.25rem',
-            loose: '1.0rem'
-        },
-        width: {
-            banner: '5rem'
-        },
-        height: {
-            xl: '3rem',
-            '1/3': '33.333333%'
-        }
+  theme: {
+    spacing: {
+      tight: '0.25rem',
+      loose: '1.0rem'
+    },
+    width: {
+      banner: '5rem'
+    },
+    height: {
+      xl: '3rem',
+      '1/3': '33.333333%'
     }
+  }
 }
 ```
 
@@ -423,12 +437,12 @@ Utilities for controlling the font family of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        fontFamily: {
-            display: 'AlfaSlabOne-Regular',
-            body: 'BarlowSemiCondensed-Regular',
-        }
+  theme: {
+    fontFamily: {
+      display: 'AlfaSlabOne-Regular',
+      body: 'BarlowSemiCondensed-Regular',
     }
+  }
 }
 ```
 
@@ -444,12 +458,12 @@ Utilities for controlling the font size of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        fontSize: {
-            '10xl': '8rem',
-            'small-print': '.5rem',
-        }
+  theme: {
+    fontSize: {
+      '10xl': '8rem',
+      'small-print': '.5rem',
     }
+  }
 }
 ```
 
@@ -465,13 +479,13 @@ Utilities for controlling the border radius of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        borderRadius: {
-            default: '0.25rem',
-            large: '1.0rem',
-            'extra-large': '2.0rem'
-        }
+  theme: {
+    borderRadius: {
+      default: '0.25rem',
+      large: '1.0rem',
+      'extra-large': '2.0rem'
     }
+  }
 }
 ```
 
@@ -488,13 +502,13 @@ Utilities for controlling the width of an element's borders.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        borderWidth: {
-            3: '3px',
-            6: '6px',
-            10: '10px',
-        }
+  theme: {
+    borderWidth: {
+      3: '3px',
+      6: '6px',
+      10: '10px',
     }
+  }
 }
 ```
 
@@ -511,18 +525,18 @@ Utilities for controlling the opacity of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        opacity: {
-            10: '.1',
-            20: '.2',
-            30: '.3',
-            40: '.4',
-            60: '.6',
-            70: '.7',
-            80: '.8',
-            90: '.9',
-        }
+  theme: {
+    opacity: {
+      10: '.1',
+      20: '.2',
+      30: '.3',
+      40: '.4',
+      60: '.6',
+      70: '.7',
+      80: '.8',
+      90: '.9',
     }
+  }
 }
 ```
 
@@ -537,4 +551,49 @@ module.exports = {
 '.opacity-70': { opacity: 0.7 }
 '.opacity-80': { opacity: 0.8 }
 '.opacity-90': { opacity: 0.9 }
+```
+
+
+## Custom classes
+You can use your own key names or any Ti Element with as many attributes as needed, you can optionally place a conditional block that can specify platform or device size conditionals.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  theme: {
+    TextField: {
+      global: {
+        top: 10, left: 20, right: 20, bottom: 0
+      },
+      '[if=Alloy.Globals.iPhoneX]': {
+        bottom: 'Alloy.CFG.iPhoneXNotchSize'
+      },
+      android: {
+        touchFeedback: true
+      }
+    },
+    '.gallery': {
+      global: {
+        width: 'Ti.UI.FILL',
+        height: 'Ti.UI.SIZE'
+      },
+      ios: {
+        clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED'
+      },
+      android: {
+        hiddenBehavior: 'Ti.UI.HIDDEN_BEHAVIOR_GONE'
+      }
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/custom.tss
+'TextField': { top: 10, left: 20, right: 20, bottom: 0 }
+'TextField[if=Alloy.Globals.iPhoneX]': { bottom: Alloy.CFG.iPhoneXNotchSize }
+'TextField[platform=android]': { touchFeedback: true }
+
+'.gallery': { width: Ti.UI.FILL, height: Ti.UI.SIZE }
+'.gallery[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
+'.gallery[platform=android]': { hiddenBehavior: Ti.UI.HIDDEN_BEHAVIOR_GONE }
 ```

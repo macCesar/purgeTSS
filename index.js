@@ -108,14 +108,14 @@ module.exports.init = init;
 function buildCustom() {
 	if (checkIfAlloyProject()) {
 		if (fs.existsSync(configFile)) {
-			const sortObject = obj => Object.keys(obj).sort().reduce((res, key) => (res[key] = obj[key], res), {});
-
-			const parseConfigFile = require(configFile);
-
 			let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8');
 
+			let parseConfigFile = require(configFile);
 			let colors = parseConfigFile.theme.colors;
+			delete parseConfigFile.theme['colors'];
+
 			let spacing = parseConfigFile.theme.spacing;
+			delete parseConfigFile.theme['spacing'];
 
 			let spacingKeys = ['margin', 'padding', 'width', 'height'];
 			let colorKeys = ['textColor', 'backgroundColor', 'borderColor', 'placeholderColor', 'gradientColorStops'];
@@ -128,18 +128,18 @@ function buildCustom() {
 			colorKeys = colorKeys.filter((el) => !clientKeys.includes(el));
 			spacingKeys = spacingKeys.filter((el) => !clientKeys.includes(el));
 
+			// Fill in missing spacing keys
 			if (spacing) {
 				_.each(spacingKeys, (key) => {
 					parseConfigFile.theme[key] = {};
 				});
-				delete parseConfigFile.theme['spacing'];
 			}
 
+			// Fill in missing color keys
 			if (colors) {
 				_.each(colorKeys, (key) => {
 					parseConfigFile.theme[key] = {};
 				});
-				delete parseConfigFile.theme['colors'];
 			}
 
 			_.each(parseConfigFile.theme, (value, key) => {
@@ -185,7 +185,7 @@ function buildCustomValues(key, value, colors, spacing) {
 		case 'opacity':
 			return helpers.opacity(value);
 		default:
-			return '';
+			return helpers.customRules(value, key);
 	}
 }
 
