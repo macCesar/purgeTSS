@@ -26,7 +26,7 @@ To generate your `custom.tss` file use the following commmand:
 ```
 It will generate a new `custom.tss` file based on the defined attributes in `./purgetss/config.js`. It will also be inside the `purgetss` folder.
 
-**After generating your `custom.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file and extract only the classes used in your `XMLs` files.**
+**After generating your `custom.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file and extract only the classes used in your `XML` files.**
 
 ## Theme
 The `theme` key is where you define your `colors`, `spacing`, `width`, `height`, `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops`, `fontFamily`, `fontSize`, `borderRadius`, `borderWidth`, `opacity` and `any_custom` key or any `Ti Element` to customize your project.
