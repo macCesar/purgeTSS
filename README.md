@@ -178,7 +178,7 @@ Use this markup to try `purgeTSS`.
         <ImageView class="w-16 h-16 mx-auto rounded-16" image="https://randomuser.me/api/portraits/men/43.jpg" />
 
         <View class="vertical">
-          <Label class="text-lg font-semibold">John W. Doe</Label>
+          <Label class="text-lg text-gray-900 font-semibold">John W. Doe</Label>
           <Label class="mt-0.5 text-purple-600 text-sm">Product Engineer</Label>
 
           <View class="w-screen">
@@ -237,6 +237,7 @@ Every time you run `purgetss` it will copy everything from `_app.tss` to `app.ts
 // Tailwind UI Plugin v0.6.2 ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 '.text-gray-600': { color: '#4b5563' }
+'.text-gray-900': { color: '#161e2e' }
 '.text-purple-600': { color: '#7e3af2' }
 '.bg-white': { backgroundColor: '#ffffff' }
 '.text-xs': { font: { fontSize: 12 } }
