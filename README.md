@@ -79,7 +79,7 @@ After generating the file, you can use any of your custom classes in your projec
 
 **Remember to run `purgetss` to copy all used classes to `app.tss`.**
 
-### To learn more see **[Configuring and customizing your styles](/configuring-guide.md)**
+### To learn more see **[Configuring and customizing styles](/configuring-guide.md)**
 
 ### dev-mode
 ```bash
