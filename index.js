@@ -8,6 +8,22 @@ const traverse = require('traverse');
 const colores = require('./lib/colores').colores;
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
+
+const logger = {
+	info: function (...args) {
+		console.log(purgeLabel, args.join(' '));
+	},
+	warn: function (...args) {
+		console.log(purgeLabel, chalk.yellow(args.join(' ')));
+	},
+	error: function (...args) {
+		console.log(purgeLabel, chalk.red(args.join(' ')));
+	},
+	file: function (...args) {
+		console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!');
+	}
+}
+
 const helpers = require(path.resolve(__dirname, './lib/helpers'));
 
 const cwd = process.cwd();
@@ -63,14 +79,19 @@ function walkSync(currentDirPath, callback) {
 function copyFont(vendor) {
 	switch (vendor) {
 		case 'fa':
+		case 'fontawesome':
+		case 'font-awesome':
 			// FontAwesome Fonts
 			fs.copyFile(sourceFontsFolder + '/FontAwesome5Brands-Regular.ttf', detinationFontsFolder + '/FontAwesome5Brands-Regular.ttf', callback);
 			fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Regular.ttf', detinationFontsFolder + '/FontAwesome5Free-Regular.ttf', callback);
 			fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Solid.ttf', detinationFontsFolder + '/FontAwesome5Free-Solid.ttf', callback);
 
-			console.log(`${purgeLabel} Font Awesome Icons Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
+			logger.info('Font Awesome Icons Fonts copied to', chalk.yellow('./app/assets/fonts'));
 			break;
 		case 'md':
+		case 'material':
+		case 'materialdesign':
+		case 'material-design':
 			// Material Desing Icons Font
 			fs.copyFile(sourceFontsFolder + '/MaterialIcons-Regular.ttf', detinationFontsFolder + '/MaterialIcons-Regular.ttf', callback);
 			fs.copyFile(sourceFontsFolder + '/MaterialIconsOutlined-Regular.otf', detinationFontsFolder + '/MaterialIconsOutlined-Regular.otf', callback);
@@ -78,13 +99,16 @@ function copyFont(vendor) {
 			fs.copyFile(sourceFontsFolder + '/MaterialIconsSharp-Regular.otf', detinationFontsFolder + '/MaterialIconsSharp-Regular.otf', callback);
 			fs.copyFile(sourceFontsFolder + '/MaterialIconsTwoTone-Regular.otf', detinationFontsFolder + '/MaterialIconsTwoTone-Regular.otf', callback);
 
-			console.log(`${purgeLabel} Material Design Icons Fonts copied to ` + chalk.yellow('"app/assets/fonts"'));
+			logger.info('Material Design Icons Fonts copied to', chalk.yellow('./app/assets/fonts'));
 			break;
 		case 'li':
+		case 'line':
+		case 'lineicons':
+		case 'line-icons':
 			// LineIcons Font
 			fs.copyFile(sourceFontsFolder + '/LineIcons.ttf', detinationFontsFolder + '/LineIcons.ttf', callback);
 
-			console.log(`${purgeLabel} LineIcons Font copied to ` + chalk.yellow('"app/assets/fonts"'));
+			logger.info('LineIcons Font copied to', chalk.yellow('./app/assets/fonts'));
 			break;
 	}
 }
@@ -96,11 +120,12 @@ function init() {
 			if (!fs.existsSync(purgeTSSFolder)) {
 				fs.mkdirSync(purgeTSSFolder)
 			}
-			console.log(chalk.yellow(purgeLabel + ' ./purgetss/config.js created!'));
 
 			fs.copyFileSync(srcConfigFile, configFile);
+
+			logger.file('./purgetss/config.js');
 		} else {
-			console.log(chalk.red(purgeLabel + ' ./purgetss/config.js already exists!'));
+			logger.warn('./purgetss/config.js', chalk.red('file already exists!'));
 		}
 	}
 }
@@ -143,7 +168,7 @@ function purgeClasses(options) {
 
 			purgeLineIcons(uniqueClasses);
 
-			console.log(`${purgeLabel} app.tss file created!`);
+			logger.file('app.tss');
 		}
 	}
 }
@@ -190,9 +215,11 @@ function buildCustom() {
 				convertedStyles += buildCustomValues(key, value, colors, spacing);
 			});
 
-			saveFile(customTSS, convertedStyles);
+			fs.writeFileSync(customTSS, convertedStyles);
+
+			logger.file('./purgetss/custom.tss');
 		} else {
-			console.log(chalk.red(purgeLabel + ' ./purgetss/config.js doesn’t exists!\n              Please use `purgeTSS init` to create one!'));
+			logger.warn('./purgetss/config.js', chalk.red('file doesn’t exists!\n             Please use `purgeTSS init` to create one!'));
 		}
 	}
 }
@@ -207,30 +234,43 @@ function devMode(options) {
 
 		if (options.files && typeof options.files === 'string') {
 			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
-			if (selected.length === 4) {
+			if (selected.length === 5) {
 				copyEverything();
 			} else {
 				_.each(selected, option => {
 					switch (option) {
 						case 'tw':
-							console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying Tailwind styles...'));
+						case 'tail':
+						case 'tailwind':
+						case 'tail-wind':
+							logger.warn('DEV MODE: Copying Tailwind styles...');
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
 							break;
 						case 'fa':
-							console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying Font Awesome styles...'));
+						case 'fontawesome':
+						case 'font-awesome':
+							logger.warn('DEV MODE: Copying Font Awesome styles...');
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
 							break;
 						case 'md':
-							console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying Material Design Icons styles...'));
+						case 'material':
+						case 'materialdesign':
+						case 'material-design':
+							logger.warn('DEV MODE: Copying Material Design Icons styles...');
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
 							break;
 						case 'li':
-							console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying LineIcons styles...'));
+						case 'line':
+						case 'lineicons':
+						case 'line-icons':
+							logger.warn('DEV MODE: Copying LineIcons styles...');
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
 							break;
+						case 'cu':
 						case 'custom':
+						case 'custom-styles':
 							if (fs.existsSync(customTSS)) {
-								console.log(purgeLabel + chalk.yellow(' DEV MODE: Copying custom.tss...'));
+								logger.warn('DEV MODE: Copying Custom styles...');
 								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTSS, 'utf8'));
 							}
 							break;
@@ -241,7 +281,7 @@ function devMode(options) {
 			copyEverything();
 		}
 
-		console.log(`${purgeLabel} app.tss file created!`);
+		logger.file('app.tss');
 	}
 }
 module.exports.devMode = devMode;
@@ -269,7 +309,7 @@ module.exports.copyFonts = copyFonts;
 // Private Functions
 function checkIfAlloyProject() {
 	if (!fs.existsSync(cwd + '/app/views')) {
-		console.log(chalk.red(purgeLabel + ' Please make sure you’re running purgeTSS inside an Alloy Project.'));
+		logger.error('Please make sure you’re running purgeTSS inside an Alloy Project.');
 
 		return false;
 	}
@@ -280,8 +320,7 @@ function checkIfAlloyProject() {
 function backupOriginalAppTss() {
 	//! FIRST: Backup original app.tss
 	if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
-		console.log(purgeLabel + chalk.yellow(' Backing up app.tss into _app.tss'));
-		console.log(chalk.yellow('             FROM NOW ON, add, update or delete your custom classes in _app.tss'));
+		logger.warn('Backing up app.tss into _app.tss\n             FROM NOW ON, add, update or delete your original classes in _app.tss');
 		fs.copyFileSync(appTSS, _appTSS);
 	} else if (!fs.existsSync(_appTSS)) {
 		fs.appendFileSync(_appTSS, '// Empty _app.tss\n');
@@ -325,13 +364,13 @@ function buildCustomValues(key, value, colors, spacing) {
 
 function copyResetTemplateAndOriginalAppTSS() {
 	//! Copy Reset template
-	console.log(`${purgeLabel} Copying Reset styles...`);
+	logger.info('Copying Reset styles...');
 	fs.copyFileSync(resetTSS, appTSS);
 
 	if (fs.existsSync(_appTSS)) {
 		let appTSSContent = fs.readFileSync(_appTSS, 'utf8');
 		if (appTSSContent.length) {
-			console.log(`${purgeLabel} Copying _app.tss styles...`);
+			logger.info('Copying', chalk.yellow('_app.tss'), 'styles...');
 			fs.appendFileSync(appTSS, '\n// Styles from _app.tss\n');
 			fs.appendFileSync(appTSS, appTSSContent);
 		}
@@ -339,7 +378,7 @@ function copyResetTemplateAndOriginalAppTSS() {
 }
 
 function copyEverything() {
-	console.log(purgeLabel + chalk.red(' DEV MODE: Copying Everything... This could slow down compilation time!'));
+	logger.error('DEV MODE: Copying Everything... This could slow down compilation time!');
 	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
 	if (fs.existsSync(customTSS)) {
 		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTSS, 'utf8'));
@@ -351,7 +390,7 @@ function copyEverything() {
 
 function purgeTailwind(uniqueClasses) {
 	//! Tailwind
-	console.log(`${purgeLabel} Purging Tailwind styles...`);
+	logger.info('Purging Tailwind styles...');
 
 	let encontrados = '';
 	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
@@ -370,7 +409,7 @@ function purgeTailwind(uniqueClasses) {
 
 function purgeCustom(uniqueClasses) {
 	//! Custom
-	console.log(`${purgeLabel} Purging Custom styles...`);
+	logger.info('Purging Custom styles...');
 
 	let encontrados = '';
 	fs.readFileSync(customTSS, 'utf8').split(/\r?\n/).forEach(line => {
@@ -389,7 +428,7 @@ function purgeCustom(uniqueClasses) {
 
 function purgeFontAwesome(uniqueClasses) {
 	//! FontAwesome
-	console.log(`${purgeLabel} Purging Font Awesome styles...`);
+	logger.info('Purging Font Awesome styles...');
 
 	let encontrados = '';
 	fs.readFileSync(fontAwesomeSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
@@ -408,7 +447,7 @@ function purgeFontAwesome(uniqueClasses) {
 
 function purgeMaterialDesign(uniqueClasses) {
 	//! Material Design Icons
-	console.log(`${purgeLabel} Purging Material Design Icons styles...`);
+	logger.info('Purging Material Design Icons styles...');
 
 	let encontrados = '';
 	fs.readFileSync(materialDesignIconsSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
@@ -427,7 +466,7 @@ function purgeMaterialDesign(uniqueClasses) {
 
 function purgeLineIcons(uniqueClasses) {
 	//! LineIcons
-	console.log(`${purgeLabel} Purging LineIcons styles...`);
+	logger.info('Purging LineIcons styles...');
 
 	let encontrados = '';
 	fs.readFileSync(lineiconsFontSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
@@ -456,5 +495,5 @@ function saveFile(file, data) {
 		throw err;
 	});
 
-	console.log(`${purgeLabel} '${file}' file created!`);
+	logger.info(chalk.yellow(file + ' file created!'));
 }
