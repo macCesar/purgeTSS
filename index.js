@@ -79,8 +79,8 @@ function walkSync(currentDirPath, callback) {
 function copyFont(vendor) {
 	switch (vendor) {
 		case 'fa':
+		case 'font':
 		case 'fontawesome':
-		case 'font-awesome':
 			// FontAwesome Fonts
 			fs.copyFile(sourceFontsFolder + '/FontAwesome5Brands-Regular.ttf', detinationFontsFolder + '/FontAwesome5Brands-Regular.ttf', callback);
 			fs.copyFile(sourceFontsFolder + '/FontAwesome5Free-Regular.ttf', detinationFontsFolder + '/FontAwesome5Free-Regular.ttf', callback);
@@ -91,7 +91,6 @@ function copyFont(vendor) {
 		case 'md':
 		case 'material':
 		case 'materialdesign':
-		case 'material-design':
 			// Material Desing Icons Font
 			fs.copyFile(sourceFontsFolder + '/MaterialIcons-Regular.ttf', detinationFontsFolder + '/MaterialIcons-Regular.ttf', callback);
 			fs.copyFile(sourceFontsFolder + '/MaterialIconsOutlined-Regular.otf', detinationFontsFolder + '/MaterialIconsOutlined-Regular.otf', callback);
@@ -104,7 +103,6 @@ function copyFont(vendor) {
 		case 'li':
 		case 'line':
 		case 'lineicons':
-		case 'line-icons':
 			// LineIcons Font
 			fs.copyFile(sourceFontsFolder + '/LineIcons.ttf', detinationFontsFolder + '/LineIcons.ttf', callback);
 
@@ -242,33 +240,30 @@ function devMode(options) {
 						case 'tw':
 						case 'tail':
 						case 'tailwind':
-						case 'tail-wind':
 							logger.warn('DEV MODE: Copying Tailwind styles...');
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
 							break;
 						case 'fa':
+						case 'font':
 						case 'fontawesome':
-						case 'font-awesome':
 							logger.warn('DEV MODE: Copying Font Awesome styles...');
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
 							break;
 						case 'md':
 						case 'material':
 						case 'materialdesign':
-						case 'material-design':
 							logger.warn('DEV MODE: Copying Material Design Icons styles...');
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
 							break;
 						case 'li':
 						case 'line':
 						case 'lineicons':
-						case 'line-icons':
 							logger.warn('DEV MODE: Copying LineIcons styles...');
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
 							break;
 						case 'cu':
 						case 'custom':
-						case 'custom-styles':
+						case 'customstyles':
 							if (fs.existsSync(customTSS)) {
 								logger.warn('DEV MODE: Copying Custom styles...');
 								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTSS, 'utf8'));

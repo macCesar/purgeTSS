@@ -3,10 +3,13 @@
 
 ## Creating your configuration file
 
-To create a purgeTSS config file for your project use the following command:
+To create a purgeTSS configuration file for your project, run this command:
 
 ```bash
 > purgetss init
+
+# alias:
+> purgetss i
 ```
 
 It will create a minimal `config.js` file inside the `purgetss` folder at the root of your project:
@@ -20,9 +23,12 @@ module.exports = {
 ```
 
 ## Generating your custom.tss file
-To generate your `custom.tss` file use the following commmand:
+To generate your `custom.tss` file use the following command:
 ```bash
 > purgetss build-custom
+
+# alias:
+> purgetss b
 ```
 It will generate a new `custom.tss` file based on the attributes defined in `./purgetss/config.js`. It will also be inside the `purgetss` folder.
 
@@ -49,12 +55,12 @@ The `theme` key is where you define your own attributes to the following utiliti
 - Any `custom_class_name` or any `Ti Element` you want to use in your project.
 
 ## purgeTSS config file example
-- For the modifier keys, you can use whatever name or convention you like.
-- For `Titanium` constants, `Alloy Configuration Values` or `Global Variables` always enclosed them in quotes.
+- For the modifier keys, you can use any name or convention you want.
+- For `Titanium` constants, `Alloy Configuration Values` or `Global Variables` always enclose them in quotes.
 - For `spacing` values, you can use different type of units: `rem`, `percentage`, `px` or `dp`.
-  - `percentage` values will be passed thru without any conversion.
-  - `rem` values will be converted with this basic formula: `remValue * 16`.
-  - `dp` and `px` values will strip out the units and leave just the value. Except with your own custom class names where it will keep the pixel unit.
+  - `percentages` - The values in percentages will be passed on without any conversion..
+  - `rem` - The values in rem will be converted with this little formula: `remValue * 16`.
+  - `dp` and `px` - For these values the unit type will be removed and only the value will be left. Except for your custom classes where the unit of pixels will be maintained.
 
 ```javascript
 // ./purgetss/config.js
@@ -203,7 +209,7 @@ module.exports = {
 Customizing the color palette for your project with the `colors` utilities.
 
 ### Nested object syntax
-You can define your colors as a simple list of key-value pairs, or using a nested object notation where the nested keys are added to the base color name as modifiers
+You can define the colors as a simple list of key-value pairs, or using a nested object notation where the nested keys are added to the base color name as modifiers.
 
 ```javascript
 // ./purgetss/config.js
@@ -232,9 +238,9 @@ module.exports = {
 ```
 
 ## Shared Colors
-All the color properties defined in `colors` utilities are automatically shared by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, and `gradientColorStops` utilities.
+All color properties defined in the `colors` utilities are automatically shared with the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, and `gradientColorStops` utilities.
 
-> **When you include the `colors` utilities, `purgeTSS` will automatically generate all color-releated utilities and it will merge them with any other color-related utilities present in the config file**
+> **When you include the `colors` utilities, `purgeTSS` will automatically generate all color-related utilities and merge them with any other color-related utilities present in the configuration file.**
 
 ```javascript
 // ./purgetss/config.js
@@ -413,9 +419,9 @@ module.exports = {
 ```
 
 ## Shared Spacing
-The `spacing` scale is shared by the `margin`, `padding`, `width`, and `height` utilities.
+The `spacing` utilities are shared by the `margin`, `padding`, `width`, and `height` utilities.
 
-> **When you include the `spacing` utilities, `purgeTSS` will automatically generate all spacing-releated utilities, and it will merge them with any other spacing-related utilities present in the config file**
+> **When you include the `spacing` utilities, `purgeTSS` will automatically generate all spacing-related utilities and merge them with any other spacing-related utilities present in the configuration file.**
 
 ```javascript
 // ./purgetss/config.js
@@ -580,9 +586,9 @@ module.exports = {
 
 
 ## Custom class names
-You can use your own class names or any Ti Element with as many attributes as needed, you can optionally place a conditional block that can specify platform or device size conditionals.
+You can use your own class names or any Ti Element with as many attributes as needed, optionally you can place a conditional block that can specify platform or device size conditionals.
 
-Wether you want to style a Ti Element ( also know as markup element ), a custom class name prefixed with a period (.) or event a custom id name prefixed with a hash tag (#), the structure is as follows:
+Whether you want to style a Ti Element (also known as a markup element), a custom class name prefixed with a period (.) Or event a custom id name prefixed with a hash tag (#), the structure is as follows:
 
 ```javascript
 'Markup-.class-or-#id-name': {

@@ -1,10 +1,10 @@
 # IMPORTANT NOTICE!!!
 ### purgeTSS will OVERWRITE your existing app.tss file
-> When you run `purgeTSS` for the first time, it will backup your existing `app.tss` file to `_app.tss`.
+> When you run `purgeTSS` for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
-> It will use it along with `tailwind.tss`, `fontawesome.tss`, `materialicons.tss`, `lineicons.tss` and your `custom.tss` file to create a new purged `app.tss` file.
+> It will use it together with `tailwind.tss`,` fontawesome.tss`, `materialicons.tss`,` lineicons.tss` and your `custom.tss` file to create a new purged ʻapp.tss` file.
 >
-> From now on Add, Update, or Delete your custom classes in `_app.tss.`
+> From now on, add, update or remove your custom classes in `_app.tss.`
 
 
 # purgeTSS
@@ -12,7 +12,7 @@
 
 It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss) and your [custom.tss](https://github.com/macCesar/purgeTSS/blob/master/configuring-guide.md) file.
 
-**ALL your classes from your original `app.tss` file will be copied over without purging.**
+**ALL your classes from your original ʻapp.tss` file will be copied without purging.**
 
 ## Installation
 Install it globally on your machine via [NPM](http://npmjs.org/).
@@ -21,32 +21,38 @@ Install it globally on your machine via [NPM](http://npmjs.org/).
 ```
 
 ## Purging classes
-To parse all your XML files, run `purgetss` inside your project's root directory.
+To parse all your XML files, run `purgetss` inside the root directory of your project.
 ```bash
 > purgetss
 ```
-`purgetss` will extract all found classes and copy them along with all styles originally declared in app.tss.
+`purgetss` will extract all the classes found and copy them along with all the styles originally declared in app.tss.
 ## Commands
 
 ### auto-update
 ```bash
 > purgetss auto-update
+
+# alias:
+> purgetss a
 ```
 Use this command to update `purgeTSS` to the latest version.
 
-We constantly update `purgeTSS` for bug fixes, to add new features and to include the latest versions of Tailwind CSS and all other resources like Tailwind UI and Fonts.
+We constantly update purgeTSS to add new features, to include the latest versions of Tailwind, Tailwind UI and to fix bugs.
 
 ### init
 ```bash
 > purgetss init
+
+# alias:
+> purgetss i
 ```
-It creates a `config.js` file inside the `purgetss` folder at the root of your project:
+Create a `config.js` file inside the `purgetss` folder in the root of your project
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-    theme: {
-        //
-    }
+  theme: {
+    //
+  }
 };
 ```
 You can create a custom TSS file with the following keys:
@@ -70,8 +76,11 @@ You can create a custom TSS file with the following keys:
 ### build-custom
 ```bash
 > purgetss build-custom
+
+# alias:
+> purgetss b
 ```
-Generates a new `custom.tss` file based on the defined attributes in `./purgetss/config.js`.
+It generates a new `custom.tss` file based on the attributes defined in `./purgetss/config.js`.
 
 The file is stored inside the `purgetss` folder.
 
@@ -84,37 +93,47 @@ After generating the file, you can use any of your custom classes in your projec
 ### dev-mode
 ```bash
 > purgetss dev-mode
+
+# alias:
+> purgetss d
 ```
 
-When you are prototyping your app, you will want to have all available classes in app.tss file, instead of purging every time you add new classes in your views.
+When you are creating a prototype of your application, you will want to have all the classes available in the `app.tss` file, rather than purging each time you add new classes to your XML views.
 
-You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss` and `lineicons.tss`.
+You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss`, `lineicons.tss` and your `custom.tss` file.
 
-### A caveat when working with very large .tss files
-When compiling a very large tss file you will get the following note:
+### A warning when working with very large `.tss` files
+When you compile a very large `.tss` file, you will get the following note:
 
 > ___[BABEL] Note: The code generator has deoptimised the styling of [ name-of-the-generated-style.js-file ] as it exceeds the max of 500KB.___
 
-**Not to mention the increased amount of time to compile all the classes and the increased file size of all the generated JS files within the styles folder!!**
+**Not to mention the increased time to compile all classes and the increased size of all generated JS files within the styles folder!**
 
 To avoid this, you can copy the styles from the desired providers. *See below*.
 
 ### Copying specific styles
 ```bash
-> purgetss dev-mode --files="tw, fa, md, li"
+> purgetss dev-mode --files="tailwind, fontawesome, materialdesing, lineicons, customstyles"
+
+# alias:
+> purgetss d -f=tw,fa,md,li,cu
 ```
-Use any of the following arguments to copy the styles from specific providers:
-- tw = Tailwind styles
-- fa = Font Awesome styles
-- md = Material Design Icons styles
-- li = LineIcons styles
-- custom = Your Custom styles
+Use any of the following arguments to copy specific vendor styles:
+
+- tw, tail, tailwind = Tailwind styles
+- fa, font, fontawesome = Font Awesome styles
+- md, material, materialdesign = Material Design Icons styles
+- li, line, lineicons = LineIcons styles
+- cu, custom, customstyles = Your Custom styles
 
 ### copy-fonts
 ```bash
 > purgetss copy-fonts
+
+# alias:
+> purgetss c
 ```
-Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names fixed to work with your app whether it is for iOS or for Android.
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names corrected to work with your application, either for iOS or Android.
 
 > FontAwesome5Brands-Regular.ttf
 >
@@ -136,55 +155,63 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 
 ### Copying specific fonts
 ```bash
-> purgetss copy-fonts --files="fa, md, li"
-```
-Use any of the following arguments to copy the fonts from specific providers:
-- fa = Font Awesome Icons
-- md = Material Design Icons
-- li = LineIcons
+> purgetss copy-fonts --files="fontawesome, materialdesing, lineicons"
 
-## Sample file
-Use this markup to test `purgeTSS`.
+# alias:
+> purgetss c -f=fa,md,li
+```
+Use any of the following arguments to copy specific vendor sources:
+
+- fa, font, fontawesome = Font Awesome Icons
+- md, material, materialdesign = Material Design Icons
+- li, line, lineicons = LineIcons
+
+## Sample files
+Use this markup to try `purgeTSS`.
 
 `index.xml`
 ```xml
 <Alloy>
-    <Window class="bg-primary">
-        <View class="w-auto h-auto bg-white rounded-lg">
-            <View class="w-10/12 mx-auto my-4 vertical">
-                <ImageView class="w-16 h-16 mx-auto rounded-16" image="https://randomuser.me/api/portraits/men/43.jpg" />
+  <Window class="bg-primary">
+    <View class="w-auto h-auto bg-white rounded-lg">
+      <View class="w-10/12 mx-auto my-4 vertical">
+        <ImageView class="w-16 h-16 mx-auto rounded-16" image="https://randomuser.me/api/portraits/men/43.jpg" />
 
-                <View class="vertical">
-                    <Label class="text-lg font-semibold">John W. Doe</Label>
-                    <Label class="mt-0.5 text-purple-600 text-sm">Product Engineer</Label>
+        <View class="vertical">
+          <Label class="text-lg font-semibold">John W. Doe</Label>
+          <Label class="mt-0.5 text-purple-600 text-sm">Product Engineer</Label>
 
-                    <View class="w-screen">
-                        <View class="ml-0 horizontal">
-                            <Label class="mr-1 text-xs text-gray-600 far fa-envelope"></Label>
-                            <Label class="text-xs text-gray-600">john@internet.com</Label>
-                        </View>
-
-                        <View class="mr-0 horizontal">
-                            <Label class="mr-1 text-xs text-gray-600 fas fa-phone-alt"></Label>
-                            <Label class="text-xs text-gray-600">(555) 765-4321</Label>
-                        </View>
-                    </View>
-                </View>
+          <View class="w-screen">
+            <View class="ml-0 horizontal">
+              <Label class="mr-1 text-xs text-gray-600 far fa-envelope"></Label>
+              <Label class="text-xs text-gray-600">john@internet.com</Label>
             </View>
+
+            <View class="mr-0 horizontal">
+              <Label class="mr-1 text-xs text-gray-600 fas fa-phone-alt"></Label>
+              <Label class="text-xs text-gray-600">(555) 765-4321</Label>
+            </View>
+          </View>
         </View>
-    </Window>
+      </View>
+    </View>
+  </Window>
 </Alloy>
 ```
 
 `app.tss`
 ```css
 '.bg-primary': {
-backgroundColor: '#002359'
+  backgroundColor: '#002359'
 }
 ```
 
 ## Purged `app.tss` file
-After runing the script you will have this in `app.tss`
+After running `purgetss` you will have a new file `app.tss` with only the classes found in your XML files.
+
+Your original `app.tss` file is backed up in the `_app.tss` file. Use this file if you need to add, delete or update any of your original styles.
+
+Every time you run `purgetss` it will copy everything from `_app.tss` to `app.tss`.
 
 ```css
 // purgeTSS
@@ -201,12 +228,12 @@ After runing the script you will have this in `app.tss`
 '.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 
-// Custom styles from _app.tss
+// Styles from _app.tss
 '.bg-primary': {
-backgroundColor: '#002359'
+  backgroundColor: '#002359'
 }
 
-// Tailwind CSS v1.9.5: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind CSS v1.9.6: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Tailwind UI Plugin v0.6.2 ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 '.text-gray-600': { color: '#4b5563' }
@@ -239,8 +266,8 @@ backgroundColor: '#002359'
 '.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
 '.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
 '.fa-phone-alt': { text: '\uf879', title: '\uf879' }
-```
 
+```
 
 ## Result
 <img src="assets/images/sample.png" width="375" alt="iOS Screen - Example">
@@ -249,8 +276,8 @@ backgroundColor: '#002359'
 [Tailwind TSS Sample App](https://github.com/macCesar/tailwind.tss-sample-app)
 
 ## Contributing
-If you have any suggestions or enhancements, please make a PR.
+If you have any suggestions or improvements, please make a PR.
 
 
 ## License
-purgeTSS is open-sourced software licensed under the MIT license.
+`purgeTSS` is open-sourced software licensed under the MIT license.
