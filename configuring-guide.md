@@ -190,7 +190,7 @@ module.exports = {
 ```
 
 ## Customizing Colors
-Customizing the color palette for your project.
+Customizing the color palette for your project with the `colors` utilities.
 
 ### Nested object syntax
 You can define your colors as a simple list of key-value pairs, or using a nested object notation where the nested keys are added to the base color name as modifiers
@@ -222,9 +222,9 @@ module.exports = {
 ```
 
 ## Shared Colors
-The `colors` properties are automatically shared by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, and `gradientColorStops` utilities.
+All the color properties defined in `colors` utilities are automatically shared by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, and `gradientColorStops` utilities.
 
-> **When you include `colors` properties, purgeCSS will automatically generate all inherited utilities, it will also merge them with any other `color` utitilies if they are present**
+> **When you include the `colors` utilities, `purgeTSS` will automatically generate all color-releated utilities and it will merge them with any other color-related utilities present in the config file**
 
 ```javascript
 // ./purgetss/config.js
@@ -405,7 +405,7 @@ module.exports = {
 ## Shared Spacing
 The `spacing` scale is shared by the `margin`, `padding`, `width`, and `height` utilities.
 
-> **When you include `spacing` properties, purgeCSS will automatically generate all inherited utilities, it will also merge them with any other `spacing` utitilies if they are present****
+> **When you include the `spacing` utilities, `purgeTSS` will automatically generate all spacing-releated utilities, and it will merge them with any other spacing-related utilities present in the config file****
 
 ```javascript
 // ./purgetss/config.js
