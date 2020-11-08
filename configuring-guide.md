@@ -48,6 +48,7 @@ The `theme` key is where you define your own attributes to:
 - opacity
 - Any `custom_class_name` or any `Ti Element` you want to use in your project.
 
+### purgeTSS config file example
 ```javascript
 // ./purgetss/config.js
 module.exports = {
