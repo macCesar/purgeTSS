@@ -68,9 +68,9 @@ module.exports = {
       '1/3': '33.333333%'
     },
     borderWidth: {
-      3: '3px',
-      6: '6px',
-      10: '10px'
+      3: 3,
+      6: 6,
+      10: 10
     },
     '.gallery': {
       global: {
