@@ -24,7 +24,7 @@ To generate your `custom.tss` file use the following commmand:
 ```bash
 > purgetss build-custom
 ```
-It will generate a new `custom.tss` file based on the defined attributes in `./purgetss/config.js`. It will also be inside the `purgetss` folder.
+It will generate a new `custom.tss` file based on the attributes defined in `./purgetss/config.js`. It will also be inside the `purgetss` folder.
 
 **After generating your `custom.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file and extract only the classes used in your `XML` files.**
 
