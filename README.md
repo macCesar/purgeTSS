@@ -10,7 +10,7 @@
 # purgeTSS
 `purgeTSS` is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your `views`.
 
-It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss) and your `custom.tss` file.
+It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss) and your [custom.tss](https://github.com/macCesar/purgeTSS/blob/master/configuring-guide.md) file.
 
 **ALL your custom classes from your `app.tss` file will be copied over without purging.**
 
