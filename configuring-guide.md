@@ -32,6 +32,8 @@ It will generate a new `custom.tss` file based on the attributes defined in `./p
 The `theme` key is where you define your own attributes to:
 - colors ( auto generates: 'textColor', 'backgroundColor', 'borderColor', 'placeholderColor', 'gradientColorStops' )
 - spacing ( auto generatse: 'margin', 'padding', 'width', 'height' )
+- margin
+- padding
 - width
 - height
 - textColor
