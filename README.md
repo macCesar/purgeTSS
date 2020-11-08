@@ -12,7 +12,7 @@
 
 It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss) and your [custom.tss](https://github.com/macCesar/purgeTSS/blob/master/configuring-guide.md) file.
 
-**ALL your custom classes from your `app.tss` file will be copied over without purging.**
+**ALL your classes from your `app.tss` file will be copied over without purging.**
 
 ## Installation
 Install it globally on your machine via [NPM](http://npmjs.org/).
