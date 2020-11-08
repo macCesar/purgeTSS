@@ -50,7 +50,8 @@ The `theme` key is where you define your own attributes to the following utiliti
 
 ## purgeTSS config file example
 - For the modifier keys, you can use whatever name or convention you like.
-- You can use different type of units: `rem`, `percentage`, `px` or `dp`.
+- For `Titanium` constants, `Alloy Configuration Values` or `Global Variables` always enclosed them in quotes.
+- For `spacing` values, you can use different types of units: `rem`, `percentage`, `px` or `dp`.
   - `percentage` values will be passed thru without any conversion.
   - `rem` values will be converted with this basic formula: `remValue * 16`.
   - `dp` and `px` values will strip out the units and leave just the value. Except with your own custom class names where it will keep the pixel unit.
