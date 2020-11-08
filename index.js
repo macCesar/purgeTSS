@@ -89,6 +89,7 @@ function copyFont(vendor) {
 	}
 }
 
+// Commands
 function init() {
 	if (checkIfAlloyProject()) {
 		if (!fs.existsSync(configFile)) {
@@ -104,6 +105,49 @@ function init() {
 	}
 }
 module.exports.init = init;
+
+function purgeClasses(options) {
+	if (checkIfAlloyProject()) {
+		let viewPaths = [];
+
+		if (options.dev) {
+			options.files = options.dev;
+			devMode(options);
+		} else {
+			backupOriginalAppTss();
+
+			copyResetTemplateAndOriginalAppTSS();
+
+			walkSync(cwd + '/app/views', viewPath => {
+				viewPaths.push(viewPath);
+			});
+
+			let allClasses = [];
+
+			_.each(viewPaths, viewPath => {
+				allClasses.push(extractClasses(fs.readFileSync(viewPath, 'utf8'), viewPath));
+			});
+
+			let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
+
+			purgeTailwind(uniqueClasses);
+
+			// Parse Custom Classes from
+			if (fs.existsSync(customTSS)) {
+				purgeCustom(uniqueClasses);
+			}
+
+			purgeFontAwesome(uniqueClasses);
+
+			purgeMaterialDesign(uniqueClasses);
+
+			purgeLineIcons(uniqueClasses);
+
+			console.log(`${purgeLabel} app.tss file created!`);
+		}
+	}
+}
+module.exports.purgeClasses = purgeClasses;
 
 function buildCustom() {
 	if (checkIfAlloyProject()) {
@@ -154,145 +198,12 @@ function buildCustom() {
 }
 module.exports.buildCustom = buildCustom;
 
-function buildCustomValues(key, value, colors, spacing) {
-	switch (key) {
-		case 'textColor':
-			return helpers.textColor({ ...value, ...colors });
-		case 'backgroundColor':
-			return helpers.backgroundColor({ ...value, ...colors });
-		case 'borderColor':
-			return helpers.borderColor({ ...value, ...colors });
-		case 'placeholderColor':
-			return helpers.placeholderColor({ ...value, ...colors });
-		case 'gradientColorStops':
-			return helpers.gradientColorStops({ ...value, ...colors });
-		case 'fontFamily':
-			return helpers.fontFamily(value);
-		case 'fontSize':
-			return helpers.fontSize(value);
-		case 'borderRadius':
-			return helpers.borderRadius(value);
-		case 'borderWidth':
-			return helpers.borderWidth(value);
-		case 'margin':
-			return helpers.margin({ ...value, ...spacing });
-		case 'padding':
-			return helpers.padding({ ...value, ...spacing });
-		case 'width':
-			return helpers.width({ ...value, ...spacing });
-		case 'height':
-			return helpers.height({ ...value, ...spacing });
-		case 'opacity':
-			return helpers.opacity(value);
-		default:
-			return helpers.customRules(value, key);
-	}
-}
-
-function copyFonts(options) {
-	if (checkIfAlloyProject()) {
-		if (!fs.existsSync(detinationFontsFolder)) {
-			fs.mkdirSync(detinationFontsFolder)
-		}
-
-		if (options.files && typeof options.files === 'string') {
-			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
-			_.each(selected, vendor => {
-				copyFont(vendor);
-			});
-		} else {
-			copyFont('fa');
-			copyFont('md');
-			copyFont('li');
-		}
-	}
-}
-module.exports.copyFonts = copyFonts;
-
-function purgeClasses(options) {
-	if (checkIfAlloyProject()) {
-		let viewPaths = [];
-
-		if (options.dev) {
-			options.files = options.dev;
-			devMode(options);
-		} else {
-			backupOriginalAppTss();
-
-			copyResetTemplate();
-
-			walkSync(cwd + '/app/views', viewPath => {
-				viewPaths.push(viewPath);
-			});
-
-			let allClasses = [];
-
-			_.each(viewPaths, viewPath => {
-				allClasses.push(extractClasses(fs.readFileSync(viewPath, 'utf8'), viewPath));
-			});
-
-			let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
-
-			processTailwind(uniqueClasses);
-
-			// Parse Custom Classes from
-			if (fs.existsSync(customTSS)) {
-				processCustom(uniqueClasses);
-			}
-
-			processFA(uniqueClasses);
-
-			processMD(uniqueClasses);
-
-			processLineIcons(uniqueClasses);
-
-			console.log(`${purgeLabel} app.tss file created!`);
-		}
-	}
-}
-module.exports.purgeClasses = purgeClasses;
-
-function backupOriginalAppTss() {
-	//! FIRST: Backup original app.tss
-	if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
-		console.log(purgeLabel + chalk.yellow(' Backing up app.tss into _app.tss'));
-		console.log(chalk.yellow('             FROM NOW ON, add, update or delete your custom classes in _app.tss'));
-		fs.copyFileSync(appTSS, _appTSS);
-	}
-}
-
-function copyResetTemplate() {
-	//! Copy Reset template
-	console.log(`${purgeLabel} Copying Reset styles...`);
-	fs.copyFileSync(resetTSS, appTSS);
-
-	if (fs.existsSync(_appTSS)) {
-		let appTSSContent = fs.readFileSync(_appTSS, 'utf8');
-		if (appTSSContent.length) {
-			console.log(`${purgeLabel} Copying _app.tss styles...`);
-			fs.appendFileSync(appTSS, '\n// Styles from _app.tss\n');
-			fs.appendFileSync(appTSS, appTSSContent);
-		}
-	}
-}
-
-function copyEverything() {
-	console.log(purgeLabel + chalk.red(' DEV MODE: Copying Everything... Might slow down compilation time!'));
-	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
-	if (fs.existsSync(customTSS)) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTSS, 'utf8'));
-	}
-	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
-	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
-	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
-}
-
 function devMode(options) {
 	if (checkIfAlloyProject()) {
 
 		backupOriginalAppTss();
 
-		copyResetTemplate();
+		copyResetTemplateAndOriginalAppTSS();
 
 		if (options.files && typeof options.files === 'string') {
 			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
@@ -335,6 +246,27 @@ function devMode(options) {
 }
 module.exports.devMode = devMode;
 
+function copyFonts(options) {
+	if (checkIfAlloyProject()) {
+		if (!fs.existsSync(detinationFontsFolder)) {
+			fs.mkdirSync(detinationFontsFolder)
+		}
+
+		if (options.files && typeof options.files === 'string') {
+			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
+			_.each(selected, vendor => {
+				copyFont(vendor);
+			});
+		} else {
+			copyFont('fa');
+			copyFont('md');
+			copyFont('li');
+		}
+	}
+}
+module.exports.copyFonts = copyFonts;
+
+// Private Functions
 function checkIfAlloyProject() {
 	if (!fs.existsSync(cwd + '/app/views')) {
 		console.log(chalk.red(purgeLabel + ' Please make sure you’re running purgeTSS inside an Alloy Project.'));
@@ -345,7 +277,117 @@ function checkIfAlloyProject() {
 	return true;
 }
 
-function processFA(uniqueClasses) {
+function backupOriginalAppTss() {
+	//! FIRST: Backup original app.tss
+	if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
+		console.log(purgeLabel + chalk.yellow(' Backing up app.tss into _app.tss'));
+		console.log(chalk.yellow('             FROM NOW ON, add, update or delete your custom classes in _app.tss'));
+		fs.copyFileSync(appTSS, _appTSS);
+	} else if (!fs.existsSync(_appTSS)) {
+		fs.appendFileSync(_appTSS, '// Empty _app.tss\n');
+	}
+}
+
+function buildCustomValues(key, value, colors, spacing) {
+	switch (key) {
+		case 'textColor':
+			return helpers.textColor({ ...value, ...colors });
+		case 'backgroundColor':
+			return helpers.backgroundColor({ ...value, ...colors });
+		case 'borderColor':
+			return helpers.borderColor({ ...value, ...colors });
+		case 'placeholderColor':
+			return helpers.placeholderColor({ ...value, ...colors });
+		case 'gradientColorStops':
+			return helpers.gradientColorStops({ ...value, ...colors });
+		case 'fontFamily':
+			return helpers.fontFamily(value);
+		case 'fontSize':
+			return helpers.fontSize(value);
+		case 'borderRadius':
+			return helpers.borderRadius(value);
+		case 'borderWidth':
+			return helpers.borderWidth(value);
+		case 'margin':
+			return helpers.margin({ ...value, ...spacing });
+		case 'padding':
+			return helpers.padding({ ...value, ...spacing });
+		case 'width':
+			return helpers.width({ ...value, ...spacing });
+		case 'height':
+			return helpers.height({ ...value, ...spacing });
+		case 'opacity':
+			return helpers.opacity(value);
+		default:
+			return helpers.customRules(value, key);
+	}
+}
+
+function copyResetTemplateAndOriginalAppTSS() {
+	//! Copy Reset template
+	console.log(`${purgeLabel} Copying Reset styles...`);
+	fs.copyFileSync(resetTSS, appTSS);
+
+	if (fs.existsSync(_appTSS)) {
+		let appTSSContent = fs.readFileSync(_appTSS, 'utf8');
+		if (appTSSContent.length) {
+			console.log(`${purgeLabel} Copying _app.tss styles...`);
+			fs.appendFileSync(appTSS, '\n// Styles from _app.tss\n');
+			fs.appendFileSync(appTSS, appTSSContent);
+		}
+	}
+}
+
+function copyEverything() {
+	console.log(purgeLabel + chalk.red(' DEV MODE: Copying Everything... This could slow down compilation time!'));
+	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
+	if (fs.existsSync(customTSS)) {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTSS, 'utf8'));
+	}
+	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
+	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
+	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
+}
+
+function purgeTailwind(uniqueClasses) {
+	//! Tailwind
+	console.log(`${purgeLabel} Purging Tailwind styles...`);
+
+	let encontrados = '';
+	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
+		_.each(uniqueClasses, className => {
+			if (line.includes(`'.${className}'`)) {
+				encontrados += line + '\n';
+				return;
+			}
+		});
+	});
+
+	if (encontrados) {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind-template.tss'), 'utf8') + encontrados);
+	}
+}
+
+function purgeCustom(uniqueClasses) {
+	//! Custom
+	console.log(`${purgeLabel} Purging Custom styles...`);
+
+	let encontrados = '';
+	fs.readFileSync(customTSS, 'utf8').split(/\r?\n/).forEach(line => {
+		_.each(uniqueClasses, className => {
+			if (line.includes(`'.${className}'`)) {
+				encontrados += line + '\n';
+				return;
+			}
+		});
+	});
+
+	if (encontrados) {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8') + encontrados);
+	}
+}
+
+function purgeFontAwesome(uniqueClasses) {
 	//! FontAwesome
 	console.log(`${purgeLabel} Purging Font Awesome styles...`);
 
@@ -364,7 +406,7 @@ function processFA(uniqueClasses) {
 	}
 }
 
-function processMD(uniqueClasses) {
+function purgeMaterialDesign(uniqueClasses) {
 	//! Material Design Icons
 	console.log(`${purgeLabel} Purging Material Design Icons styles...`);
 
@@ -383,7 +425,7 @@ function processMD(uniqueClasses) {
 	}
 }
 
-function processLineIcons(uniqueClasses) {
+function purgeLineIcons(uniqueClasses) {
 	//! LineIcons
 	console.log(`${purgeLabel} Purging LineIcons styles...`);
 
@@ -399,44 +441,6 @@ function processLineIcons(uniqueClasses) {
 
 	if (encontrados) {
 		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/lineicons-template.tss'), 'utf8') + encontrados);
-	}
-}
-
-function processTailwind(uniqueClasses) {
-	//! Tailwind
-	console.log(`${purgeLabel} Purging Tailwind styles...`);
-
-	let encontrados = '';
-	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
-		_.each(uniqueClasses, className => {
-			if (className !== 'vertical' && className !== 'horizontal' && line.includes(`'.${className}'`)) {
-				encontrados += line + '\n';
-				return;
-			}
-		});
-	});
-
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind-template.tss'), 'utf8') + encontrados);
-	}
-}
-
-function processCustom(uniqueClasses) {
-	//! Custom
-	console.log(`${purgeLabel} Purging Custom styles...`);
-
-	let encontrados = '';
-	fs.readFileSync(customTSS, 'utf8').split(/\r?\n/).forEach(line => {
-		_.each(uniqueClasses, className => {
-			if (className !== 'vertical' && className !== 'horizontal' && line.includes(`'.${className}'`)) {
-				encontrados += line + '\n';
-				return;
-			}
-		});
-	});
-
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8') + encontrados);
 	}
 }
 
