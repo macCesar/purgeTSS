@@ -29,7 +29,22 @@ It will generate a new `custom.tss` file based on the attributes defined in `./p
 **After generating your `custom.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file and extract only the classes used in your `XML` files.**
 
 ## Theme
-The `theme` key is where you define your `colors`, `spacing`, `width`, `height`, `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops`, `fontFamily`, `fontSize`, `borderRadius`, `borderWidth`, `opacity` and `any_custom` key or any `Ti Element` to customize your project.
+The `theme` key is where you define your own attributes to:
+- colors
+- spacing
+- width
+- height
+- textColor
+- backgroundColor
+- borderColor
+- placeholderColor
+- gradientColorStops
+- fontFamily
+- fontSize
+- borderRadius
+- borderWidth
+- opacity
+- Any `custom_class_name` or any `Ti Element` you want to use in your project.
 
 ```javascript
 // ./purgetss/config.js
