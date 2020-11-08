@@ -415,7 +415,7 @@ module.exports = {
 ## Shared Spacing
 The `spacing` scale is shared by the `margin`, `padding`, `width`, and `height` utilities.
 
-> **When you include the `spacing` utilities, `purgeTSS` will automatically generate all spacing-releated utilities, and it will merge them with any other spacing-related utilities present in the config file****
+> **When you include the `spacing` utilities, `purgeTSS` will automatically generate all spacing-releated utilities, and it will merge them with any other spacing-related utilities present in the config file**
 
 ```javascript
 // ./purgetss/config.js
