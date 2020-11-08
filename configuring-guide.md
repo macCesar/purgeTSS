@@ -585,10 +585,10 @@ You can use your own class names or any Ti Element with as many attributes as ne
 Wether you want to style a Ti Element ( also know as markup element ), a custom class name prefixed with a period (.) or event a custom id name prefixed with a hash tag (#), the structure is as follows:
 
 ```javascript
-'markup-class-or-id-name': {
+'Markup-.class-or-#id-name': {
   global: {
     // Any global properties
-    // even custom properties to use in your Controllers.
+    // even custom properties to use in your Controllers
   },
   // Optional: platform specific properties
   'ios-android-[conditional-block]': {
