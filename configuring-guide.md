@@ -528,9 +528,9 @@ Utilities for controlling the width of an element's borders.
 module.exports = {
   theme: {
     borderWidth: {
-      3: '3px',
-      6: '6px',
-      10: '10px',
+      3: 3,
+      6: 6,
+      10: 10,
     }
   }
 }
