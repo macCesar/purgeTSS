@@ -1,4 +1,4 @@
-# Configuring and customizing your styles
+# Configuring and customizing styles
 
 
 ## Creating your configuration file
