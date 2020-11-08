@@ -581,6 +581,23 @@ module.exports = {
 
 ## Custom class names
 You can use your own class names or any Ti Element with as many attributes as needed, you can optionally place a conditional block that can specify platform or device size conditionals.
+
+Wether you want to style a Ti Element ( also know as markup element ), a custom class name prefixed with a period (.) or event a custom id name prefixed with a hash tag (#), the structure is as follows:
+
+```javascript
+'markup-class-or-id-name': {
+  global: {
+    // Any global properties
+    // even custom properties to use in your Controllers.
+  },
+  // Optional: platform specific properties
+  'ios-android-[conditional-block]': {
+    // platform specific properties
+  }
+}
+```
+
+
 ```javascript
 // ./purgetss/config.js
 module.exports = {
