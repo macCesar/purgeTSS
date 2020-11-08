@@ -100,7 +100,7 @@ module.exports = {
       ultramarine: '#446DF6'
     }
   }
-}
+};
 ```
 
 ```css
@@ -121,7 +121,7 @@ module.exports = {
       pacific: '#08A4BD'
     }
   }
-}
+};
 ```
 
 ```css
@@ -142,7 +142,7 @@ module.exports = {
       'tea-green': '#D1F5BE'
     }
   }
-}
+};
 ```
 
 ```css
@@ -163,7 +163,7 @@ module.exports = {
       'spanish-blue': '#016FB9'
     }
   }
-}
+};
 ```
 
 ```css
@@ -184,7 +184,7 @@ module.exports = {
       danger: '#e3342f'
     }
   }
-}
+};
 ```
 
 ```css
@@ -228,7 +228,7 @@ module.exports = {
       }
     }
   }
-}
+};
 ```
 
 ## Shared Colors
@@ -263,7 +263,7 @@ module.exports = {
       ultramarine: '#446DF6'
     }
   }
-}
+};
 ```
 
 ```css
@@ -303,7 +303,7 @@ module.exports = {
       banner: '5rem'
     }
   }
-}
+};
 ```
 
 ```css
@@ -323,7 +323,7 @@ module.exports = {
       '1/3': '33.333333%'
     }
   }
-}
+};
 ```
 
 ```css
@@ -343,7 +343,7 @@ module.exports = {
       tiny: '.125rem',
     }
   }
-}
+};
 ```
 
 ```css
@@ -376,7 +376,7 @@ module.exports = {
       md: '1.5rem',
     }
   }
-}
+};
 ```
 
 ```css
@@ -409,7 +409,7 @@ module.exports = {
       loose: '1.0rem'
     }
   }
-}
+};
 ```
 
 ## Shared Spacing
@@ -433,7 +433,7 @@ module.exports = {
       '1/3': '33.333333%'
     }
   }
-}
+};
 ```
 
 ```css
@@ -468,7 +468,7 @@ module.exports = {
       body: 'BarlowSemiCondensed-Regular',
     }
   }
-}
+};
 ```
 
 ```css
@@ -489,7 +489,7 @@ module.exports = {
       'small-print': '.5rem',
     }
   }
-}
+};
 ```
 
 ```css
@@ -511,7 +511,7 @@ module.exports = {
       'extra-large': '2.0rem'
     }
   }
-}
+};
 ```
 
 ```css
@@ -534,7 +534,7 @@ module.exports = {
       10: 10,
     }
   }
-}
+};
 ```
 
 ```css
@@ -562,7 +562,7 @@ module.exports = {
       90: '.9',
     }
   }
-}
+};
 ```
 
 ```css
@@ -594,7 +594,7 @@ Wether you want to style a Ti Element ( also know as markup element ), a custom 
   'ios-android-[conditional-block]': {
     // platform specific properties
   }
-}
+};
 ```
 
 
