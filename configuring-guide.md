@@ -49,11 +49,11 @@ The `theme` key is where you define your own attributes to:
 - Any `custom_class_name` or any `Ti Element` you want to use in your project.
 
 ## purgeTSS config file example
-You can use different type of units: `rem`, `percentage`, `px` or `dp`.
-
-`percentage` values will be passed thru without any conversion.
-`rem` values will be converted with this basic formula: `remValue * 16`.
-`dp` and `px` values will strip out the units and leave just the value. Except with your own custom class names where it will keep the pixel unit.
+- For the modifier keys, you can use whatever you want as the name.
+- You can use different type of units: `rem`, `percentage`, `px` or `dp`.
+  - `percentage` values will be passed thru without any conversion.
+  - `rem` values will be converted with this basic formula: `remValue * 16`.
+  - `dp` and `px` values will strip out the units and leave just the value. Except with your own custom class names where it will keep the pixel unit.
 
 ```javascript
 // ./purgetss/config.js
