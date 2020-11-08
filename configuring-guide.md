@@ -49,7 +49,7 @@ The `theme` key is where you define your own attributes to:
 - Any `custom_class_name` or any `Ti Element` you want to use in your project.
 
 ## purgeTSS config file example
-- For the modifier keys, you can use whatever you want as the name.
+- For the modifier keys, you can use whatever name or convention you like.
 - You can use different type of units: `rem`, `percentage`, `px` or `dp`.
   - `percentage` values will be passed thru without any conversion.
   - `rem` values will be converted with this basic formula: `remValue * 16`.
