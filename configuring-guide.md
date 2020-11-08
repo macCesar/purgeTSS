@@ -222,9 +222,9 @@ module.exports = {
 ```
 
 ## Shared Colors
-The `colors` property are automatically shared by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, and `gradientColorStops` utilities.
+The `colors` properties are automatically shared by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, and `gradientColorStops` utilities.
 
-> **When you include the `colors` property, purgeCSS will automatically generate all inherited utilities.**
+> **When you include `colors` properties, purgeCSS will automatically generate all inherited utilities, it will also merge them with any other `color` utitilies if they are present**
 
 ```javascript
 // ./purgetss/config.js
@@ -405,7 +405,7 @@ module.exports = {
 ## Shared Spacing
 The `spacing` scale is shared by the `margin`, `padding`, `width`, and `height` utilities.
 
-> **When you include the `spacing` property, purgeCSS will automatically generate all inherited utilities**
+> **When you include `spacing` properties, purgeCSS will automatically generate all inherited utilities, it will also merge them with any other `spacing` utitilies if they are present****
 
 ```javascript
 // ./purgetss/config.js
