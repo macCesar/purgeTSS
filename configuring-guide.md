@@ -29,7 +29,7 @@ It will generate a new `custom.tss` file based on the attributes defined in `./p
 **After generating your `custom.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file and extract only the classes used in your `XML` files.**
 
 ## Theme
-The `theme` key is where you define your own attributes to:
+The `theme` key is where you define your own attributes to the following utilities:
 - colors ( auto generates: 'textColor', 'backgroundColor', 'borderColor', 'placeholderColor', 'gradientColorStops' )
 - spacing ( auto generatse: 'margin', 'padding', 'width', 'height' )
 - margin
