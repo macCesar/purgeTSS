@@ -206,6 +206,11 @@ Use this markup to try `purgeTSS`.
 }
 ```
 
+Make sure to copy FontAwesome Fonts with
+```bash
+> purgetss copy-fonts --files="fontawesome"
+```
+
 ## Purged `app.tss` file
 After running `purgetss` you will have a new file `app.tss` with only the classes found in your XML files.
 
