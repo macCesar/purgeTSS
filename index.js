@@ -325,15 +325,15 @@ function backupOriginalAppTss() {
 function buildCustomValues(key, value, colors, spacing) {
 	switch (key) {
 		case 'textColor':
-			return helpers.textColor({ ...value, ...colors });
+			return helpers.textColor({ ...colors, ...value });
 		case 'backgroundColor':
-			return helpers.backgroundColor({ ...value, ...colors });
+			return helpers.backgroundColor({ ...colors, ...value });
 		case 'borderColor':
-			return helpers.borderColor({ ...value, ...colors });
+			return helpers.borderColor({ ...colors, ...value });
 		case 'placeholderColor':
-			return helpers.placeholderColor({ ...value, ...colors });
+			return helpers.placeholderColor({ ...colors, ...value });
 		case 'gradientColorStops':
-			return helpers.gradientColorStops({ ...value, ...colors });
+			return helpers.gradientColorStops({ ...colors, ...value });
 		case 'fontFamily':
 			return helpers.fontFamily(value);
 		case 'fontSize':
@@ -343,13 +343,13 @@ function buildCustomValues(key, value, colors, spacing) {
 		case 'borderWidth':
 			return helpers.borderWidth(value);
 		case 'margin':
-			return helpers.margin({ ...value, ...spacing });
+			return helpers.margin({ ...spacing, ...value });
 		case 'padding':
-			return helpers.padding({ ...value, ...spacing });
+			return helpers.padding({ ...spacing, ...value });
 		case 'width':
-			return helpers.width({ ...value, ...spacing });
+			return helpers.width({ ...spacing, ...value });
 		case 'height':
-			return helpers.height({ ...value, ...spacing });
+			return helpers.height({ ...spacing, ...value });
 		case 'opacity':
 			return helpers.opacity(value);
 		default:
