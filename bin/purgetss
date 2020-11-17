@@ -8,7 +8,7 @@ const package = require('../package.json');
 program
 	.version(package.version)
 	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for details.')
-	.help('purgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialicons.tss, lineicons.tss and your custom.tss file.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build-custom`.')
+	.help('purgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss ( or your custom tailwind.tss file when available ), fontawesome.tss, materialicons.tss, lineicons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build-custom`.')
 	.action((args, options, logger) => {
 		purgetss.purgeClasses(options);
 	});
@@ -25,8 +25,8 @@ program
 program
 	.command('build-custom')
 	.alias('b')
-	.description('Generate your custom.tss file')
-	.help('It will generate a new `custom.tss` file based on the attributes defined in `./purgetss/config.js`.')
+	.description('Generate a custom tailwind.tss file')
+	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.')
 	.action((args, options, logger) => {
 		purgetss.buildCustom();
 	});
@@ -35,8 +35,8 @@ program
 	.command('dev-mode')
 	.alias('d')
 	.description('Copy all available classes into app.tss')
-	.help('Use this command if you want to copy all available styles from tailwind.tss, fontawesome.tss, materialicons.tss, lineicons.tss and custom.tss files into app.tss while prototyping your App.')
-	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from a specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom.tss styles')
+	.help('Use this command if you want to copy all available styles from tailwind.tss ( or from a custom tailwind.tss when available ), fontawesome.tss, materialicons.tss, lineicons.tss files into app.tss while prototyping your App.')
+	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from a specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom tailwind.tss styles')
 	.action((args, options, logger) => {
 		purgetss.devMode(options);
 	});

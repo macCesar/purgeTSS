@@ -381,7 +381,7 @@ function devMode(options) {
 								logger.warn('DEV MODE: Copying Custom Tailwind styles...');
 								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTailwind, 'utf8'));
 							} else {
-								logger.warn('DEV MODE: Copying Tailwind styles...');
+								logger.warn('DEV MODE: Copying Default Tailwind styles...');
 								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
 							}
 							break;
