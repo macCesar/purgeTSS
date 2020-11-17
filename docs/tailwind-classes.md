@@ -2,8 +2,6 @@
 ## Layout
 - ### Top / Right / Bottom / Left
 	> For any element that uses the `'top'`, `'right'`, `'bottom'` and `'left'` properties.
-	>
-	> dsdsd
 
 ## Typography
 - ### Font Size

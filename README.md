@@ -1,5 +1,6 @@
 # IMPORTANT NOTICE!!!
 ### purgeTSS will OVERWRITE your existing app.tss file
+
 > When you run `purgeTSS` for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
 > It will use it together with `tailwind.tss`,` fontawesome.tss`, `materialicons.tss`,` lineicons.tss` and your `custom.tss` file to create a new purged ʻapp.tss` file.
@@ -10,7 +11,7 @@
 # purgeTSS
 `purgeTSS` is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your XML Files.
 
-It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss) and your [custom.tss](https://github.com/macCesar/purgeTSS/blob/master/configuring-guide.md) file.
+It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss) and your [custom.tss](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md) file.
 
 **ALL your classes from your original ʻapp.tss` file will be copied without purging.**
 
@@ -25,7 +26,9 @@ To parse all your XML files, run `purgetss` inside the root directory of your pr
 ```bash
 > purgetss
 ```
+
 `purgetss` will extract all the classes found and copy them along with all the styles originally declared in app.tss.
+
 ## Commands
 
 ### auto-update
@@ -35,6 +38,7 @@ To parse all your XML files, run `purgetss` inside the root directory of your pr
 # alias:
 > purgetss a
 ```
+
 Use this command to update `purgeTSS` to the latest version.
 
 We constantly update purgeTSS to add new features, to include the latest versions of Tailwind, Tailwind UI and to fix bugs.
@@ -88,7 +92,7 @@ After generating the file, you can use any of your custom classes in your projec
 
 **Remember to run `purgetss` to copy all used classes to `app.tss`.**
 
-### To learn more see **[Configuring and customizing styles](/configuring-guide.md)**
+### To learn more see **[Configuring and customizing styles](/docs/configuring-guide.md)**
 
 ### dev-mode
 ```bash

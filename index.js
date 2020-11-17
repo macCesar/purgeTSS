@@ -5,21 +5,22 @@ const path = require('path');
 const chalk = require('chalk');
 const convert = require('xml-js');
 const traverse = require('traverse');
+const { config } = require('process');
 const colores = require('./lib/colores').colores;
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
 
 const logger = {
-	info: function (...args) {
+	info: function(...args) {
 		console.log(purgeLabel, args.join(' '));
 	},
-	warn: function (...args) {
+	warn: function(...args) {
 		console.log(purgeLabel, chalk.yellow(args.join(' ')));
 	},
-	error: function (...args) {
+	error: function(...args) {
 		console.log(purgeLabel, chalk.red(args.join(' ')));
 	},
-	file: function (...args) {
+	file: function(...args) {
 		console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!');
 	}
 }
@@ -32,7 +33,8 @@ const appTSS = cwd + '/app/styles/app.tss';
 const _appTSS = cwd + '/app/styles/_app.tss';
 const purgeTSSFolder = cwd + '/purgetss';
 const customTSS = purgeTSSFolder + '/custom.tss';
-const configFile = purgeTSSFolder + '/config.js';
+const customTailwind = purgeTSSFolder + '/tailwind.tss';
+const configJS = purgeTSSFolder + '/config.js';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
@@ -47,7 +49,7 @@ function extractClasses(currentText, currentFile) {
 	try {
 		let jsontext = convert.xml2json(encodeHTML(currentText), { compact: true });
 
-		return traverse(JSON.parse(jsontext)).reduce(function (acc, value) {
+		return traverse(JSON.parse(jsontext)).reduce(function(acc, value) {
 			if (this.key === 'class') acc.push(value.split(' '));
 			return acc;
 		}, []);
@@ -114,12 +116,12 @@ function copyFont(vendor) {
 // Commands
 function init() {
 	if (checkIfAlloyProject()) {
-		if (!fs.existsSync(configFile)) {
+		if (!fs.existsSync(configJS)) {
 			if (!fs.existsSync(purgeTSSFolder)) {
 				fs.mkdirSync(purgeTSSFolder)
 			}
 
-			fs.copyFileSync(srcConfigFile, configFile);
+			fs.copyFileSync(srcConfigFile, configJS);
 
 			logger.file('./purgetss/config.js');
 		} else {
@@ -153,11 +155,10 @@ function purgeClasses(options) {
 
 			let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
 
-			purgeTailwind(uniqueClasses);
-
-			// Parse Custom Classes from
-			if (fs.existsSync(customTSS)) {
-				purgeCustom(uniqueClasses);
+			if (fs.existsSync(customTailwind)) {
+				purgeCustomTailwind(uniqueClasses);
+			} else {
+				purgeTailwind(uniqueClasses);
 			}
 
 			purgeFontAwesome(uniqueClasses);
@@ -174,54 +175,190 @@ module.exports.purgeClasses = purgeClasses;
 
 function buildCustom() {
 	if (checkIfAlloyProject()) {
-		if (fs.existsSync(configFile)) {
-			let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8');
-
-			let parseConfigFile = require(configFile);
-			let colors = parseConfigFile.theme.colors;
-			delete parseConfigFile.theme['colors'];
-
-			let spacing = parseConfigFile.theme.spacing;
-			delete parseConfigFile.theme['spacing'];
-
-			let spacingKeys = ['margin', 'padding', 'width', 'height'];
-			let colorKeys = ['textColor', 'backgroundColor', 'borderColor', 'placeholderColor', 'gradientColorStops'];
-
-			let clientKeys = [];
-			_.each(parseConfigFile.theme, (value, key) => {
-				clientKeys.push(key);
-			});
-
-			colorKeys = colorKeys.filter((el) => !clientKeys.includes(el));
-			spacingKeys = spacingKeys.filter((el) => !clientKeys.includes(el));
-
-			// Fill in missing spacing keys
-			if (spacing) {
-				_.each(spacingKeys, (key) => {
-					parseConfigFile.theme[key] = {};
-				});
-			}
-
-			// Fill in missing color keys
-			if (colors) {
-				_.each(colorKeys, (key) => {
-					parseConfigFile.theme[key] = {};
-				});
-			}
-
-			_.each(parseConfigFile.theme, (value, key) => {
-				convertedStyles += buildCustomValues(key, value, colors, spacing);
-			});
-
-			fs.writeFileSync(customTSS, convertedStyles);
-
-			logger.file('./purgetss/custom.tss');
-		} else {
-			logger.warn('./purgetss/config.js', chalk.red('file doesn’t exists!\n             Please use `purgeTSS init` to create one!'));
+		if (!fs.existsSync(configJS)) {
+			init();
 		}
+		buildCustomTailwind();
 	}
 }
 module.exports.buildCustom = buildCustom;
+
+function buildCustomTailwind() {
+	let configFile = require(configJS);
+	const defaultTheme = require('tailwindcss/defaultTheme');
+	const tailwindui = require('@tailwindcss/ui/index')({}, {}).config.theme;
+
+	if (!configFile.theme.extend) {
+		configFile.theme.extend = {};
+	}
+
+	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.width(theme => (tailwindui.spacing));
+	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.height(theme => (tailwindui.spacing));
+
+	let overwritten = {
+		colors: (configFile.theme.colors) ? configFile.theme.colors : { ...tailwindui.colors },
+		spacing: (configFile.theme.spacing) ? configFile.theme.spacing : { ...tailwindui.spacing },
+		width: (configFile.theme.width) ? configFile.theme.width : allWidthsCombined,
+		height: (configFile.theme.height) ? configFile.theme.height : allHeightsCombined
+	}
+
+	let base = {
+		colors: { ...overwritten.colors, ...configFile.theme.extend.colors },
+		spacing: { ...overwritten.spacing, ...configFile.theme.extend.spacing },
+		width: { ...overwritten.width, ...overwritten.spacing, ...configFile.theme.extend.width, ...configFile.theme.extend.spacing },
+		height: { ...overwritten.height, ...overwritten.spacing, ...configFile.theme.extend.height, ...configFile.theme.extend.spacing }
+	}
+
+	// color
+	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor', true);
+
+	// backgroundColor
+	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor', true);
+
+	// borderColor
+	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor', true);
+
+	// placeholderColor
+	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor', true);
+
+	// Background Gradient
+	configFile.theme.backgroundGradient = {};
+
+	// Gradient Color Stops
+	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops', true);
+
+	// Object Position
+	configFile.theme.placement = {};
+
+	// Font Sizes
+	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize', false);
+
+	// Font Style
+	configFile.theme.fontStyle = {};
+
+	// Font Weight
+	configFile.theme.fontWeight = defaultTheme.fontWeight;
+
+	// Text Align
+	configFile.theme.textAlign = {};
+
+	// Vertical Alignment
+	configFile.theme.verticalAlignment = {};
+
+	// Border Radius
+	// configFile.theme.borderRadius = combineKeys(configFile.theme, { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius', false);
+
+	// Border Radius ( Extra Styles )
+	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...{ none: 0, sm: '0.125rem', default: '0.25rem', md: '0.375rem', lg: '0.5rem' }, ...base.spacing };
+	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, { ...defaultBorderRadius, ...configFile.theme.spacing, ...configFile.theme.extend.spacing }, 'borderRadius', true);
+
+	// Border Width
+	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth', false);
+
+	// Margin
+	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin', true);
+
+	// Padding
+	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding', true);
+
+	// Sizing
+	configFile.theme.width = base.width;
+	configFile.theme.height = base.height;
+
+	// Box Shadow
+	configFile.theme.shadow = {};
+
+	// Opacity
+	configFile.theme.opacity = (configFile.theme.opacity) ? { ...configFile.theme.opacity, ...configFile.theme.extend.opacity } : { ...defaultTheme.opacity, ...configFile.theme.extend.opacity };
+
+	// Interactivity
+	configFile.theme.interactivity = {};
+
+	let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-tailwind-template.tss'), 'utf8');
+
+	delete configFile.theme.extend;
+	delete configFile.theme.colors;
+	delete configFile.theme.spacing;
+	delete configFile.theme.borderRadius;
+
+	_.each(configFile.corePlugins, (value, key) => {
+		// console.log('Key:', key);
+		delete configFile.theme[ key ];
+	});
+
+	let sorteado = Object.entries(configFile.theme).sort().reduce((o, [ k, v ]) => (o[ k ] = v, o), {});
+
+	_.each(sorteado, (value, key) => {
+		convertedStyles += buildCustomValues(key, value);
+	});
+
+	fs.writeFileSync(customTailwind, convertedStyles);
+
+	logger.file('./purgetss/tailwind.tss');
+}
+
+function combineKeys(values, base, key, extras = false) {
+	if (extras) {
+		_extras = base;
+	} else {
+		_extras = {};
+	}
+
+	return (values[ key ]) ? { ..._extras, ...values[ key ], ...values.extend[ key ] } : { ...base, ...values.extend[ key ] };
+}
+
+function buildCustomValues(key, value) {
+	switch (key) {
+		case 'textColor':
+			return helpers.textColor(value);
+		case 'backgroundColor':
+			return helpers.backgroundColor(value);
+		case 'borderColor':
+			return helpers.borderColor(value);
+		case 'placeholderColor':
+			return helpers.placeholderColor(value);
+		case 'backgroundGradient':
+			return helpers.backgroundGradient();
+		case 'gradientColorStops':
+			return helpers.gradientColorStops(value);
+		case 'placement':
+			return helpers.placement();
+		case 'fontFamily':
+			return helpers.fontFamily(value);
+		case 'fontSize':
+			return helpers.fontSize(value);
+		case 'fontStyle':
+			return helpers.fontStyle();
+		case 'fontWeight':
+			return helpers.fontWeight(value);
+		case 'textAlign':
+			return helpers.textAlign();
+		case 'verticalAlignment':
+			return helpers.verticalAlignment();
+		case 'borderRadius':
+			return helpers.borderRadius(value);
+		case 'borderRadiusExtraStyles':
+			return helpers.borderRadiusExtraStyles(value);
+		case 'borderWidth':
+			return helpers.borderWidth(value);
+		case 'margin':
+			return helpers.margin(value, true);
+		case 'padding':
+			return helpers.padding(value);
+		case 'width':
+			return helpers.width(value);
+		case 'height':
+			return helpers.height(value);
+		case 'shadow':
+			return helpers.shadow();
+		case 'opacity':
+			return helpers.opacity(value);
+		case 'interactivity':
+			return helpers.interactivity(value);
+		default:
+			return helpers.customRules(value, key);
+	}
+}
 
 function devMode(options) {
 	if (checkIfAlloyProject()) {
@@ -240,8 +377,13 @@ function devMode(options) {
 						case 'tw':
 						case 'tail':
 						case 'tailwind':
-							logger.warn('DEV MODE: Copying Tailwind styles...');
-							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
+							if (fs.existsSync(customTailwind)) {
+								logger.warn('DEV MODE: Copying Custom Tailwind styles...');
+								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTailwind, 'utf8'));
+							} else {
+								logger.warn('DEV MODE: Copying Tailwind styles...');
+								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
+							}
 							break;
 						case 'fa':
 						case 'font':
@@ -260,14 +402,6 @@ function devMode(options) {
 						case 'lineicons':
 							logger.warn('DEV MODE: Copying LineIcons styles...');
 							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
-							break;
-						case 'cu':
-						case 'custom':
-						case 'customstyles':
-							if (fs.existsSync(customTSS)) {
-								logger.warn('DEV MODE: Copying Custom styles...');
-								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTSS, 'utf8'));
-							}
 							break;
 					}
 				});
@@ -322,41 +456,6 @@ function backupOriginalAppTss() {
 	}
 }
 
-function buildCustomValues(key, value, colors, spacing) {
-	switch (key) {
-		case 'textColor':
-			return helpers.textColor({ ...colors, ...value });
-		case 'backgroundColor':
-			return helpers.backgroundColor({ ...colors, ...value });
-		case 'borderColor':
-			return helpers.borderColor({ ...colors, ...value });
-		case 'placeholderColor':
-			return helpers.placeholderColor({ ...colors, ...value });
-		case 'gradientColorStops':
-			return helpers.gradientColorStops({ ...colors, ...value });
-		case 'fontFamily':
-			return helpers.fontFamily(value);
-		case 'fontSize':
-			return helpers.fontSize(value);
-		case 'borderRadius':
-			return helpers.borderRadius(value);
-		case 'borderWidth':
-			return helpers.borderWidth(value);
-		case 'margin':
-			return helpers.margin({ ...spacing, ...value });
-		case 'padding':
-			return helpers.padding({ ...spacing, ...value });
-		case 'width':
-			return helpers.width({ ...spacing, ...value });
-		case 'height':
-			return helpers.height({ ...spacing, ...value });
-		case 'opacity':
-			return helpers.opacity(value);
-		default:
-			return helpers.customRules(value, key);
-	}
-}
-
 function copyResetTemplateAndOriginalAppTSS() {
 	//! Copy Reset template
 	logger.info('Copying Reset styles...');
@@ -374,9 +473,10 @@ function copyResetTemplateAndOriginalAppTSS() {
 
 function copyEverything() {
 	logger.error('DEV MODE: Copying Everything... This could slow down compilation time!');
-	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
-	if (fs.existsSync(customTSS)) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTSS, 'utf8'));
+	if (fs.existsSync(customTailwind)) {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTailwind, 'utf8'));
+	} else {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
 	}
 	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
 	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
@@ -385,7 +485,7 @@ function copyEverything() {
 
 function purgeTailwind(uniqueClasses) {
 	//! Tailwind
-	logger.info('Purging Tailwind styles...');
+	logger.info('Purging Default Tailwind styles...');
 
 	let encontrados = '';
 	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
@@ -408,6 +508,25 @@ function purgeCustom(uniqueClasses) {
 
 	let encontrados = '';
 	fs.readFileSync(customTSS, 'utf8').split(/\r?\n/).forEach(line => {
+		_.each(uniqueClasses, className => {
+			if (line.includes(`'.${className}'`)) {
+				encontrados += line + '\n';
+				return;
+			}
+		});
+	});
+
+	if (encontrados) {
+		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8') + encontrados);
+	}
+}
+
+function purgeCustomTailwind(uniqueClasses) {
+	//! Custom
+	logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...');
+
+	let encontrados = '';
+	fs.readFileSync(customTailwind, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
 			if (line.includes(`'.${className}'`)) {
 				encontrados += line + '\n';
@@ -482,7 +601,7 @@ function encodeHTML(str) {
 	const code = {
 		'&': '&amp;',
 	};
-	return str.replace(/[&]/gm, (i) => code[i]);
+	return str.replace(/[&]/gm, (i) => code[ i ]);
 }
 
 function saveFile(file, data) {
