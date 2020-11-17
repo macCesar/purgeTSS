@@ -63,13 +63,15 @@ You can create a custom TSS file with the following keys:
 
 - colors
 - spacing
-- width
-- height
 - textColor
 - backgroundColor
 - borderColor
 - placeholderColor
 - gradientColorStops
+- width
+- height
+- margin
+- padding
 - fontFamily
 - fontSize
 - borderRadius
