@@ -185,19 +185,23 @@ module.exports.buildCustom = buildCustom;
 
 function buildCustomTailwind() {
 	let configFile = require(configJS);
+	const defaultColors = require('tailwindcss/colors');
 	const defaultTheme = require('tailwindcss/defaultTheme');
 	const tailwindui = require('@tailwindcss/ui/index')({}, {}).config.theme;
+
+	// console.log('defaultTheme:', JSON.stringify(defaultTheme));
+	// console.log('ringColor:', JSON.stringify(defaultTheme.ringColor(theme => (defaultColors))));
 
 	if (!configFile.theme.extend) {
 		configFile.theme.extend = {};
 	}
 
-	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.width(theme => (tailwindui.spacing));
-	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.height(theme => (tailwindui.spacing));
+	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...tailwindui.width(theme => (tailwindui.spacing)), ...defaultTheme.width(theme => (defaultTheme.spacing)) };
+	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.height(theme => (defaultTheme.spacing));
 
 	let overwritten = {
-		colors: (configFile.theme.colors) ? configFile.theme.colors : { ...tailwindui.colors },
-		spacing: (configFile.theme.spacing) ? configFile.theme.spacing : { ...tailwindui.spacing },
+		colors: (configFile.theme.colors) ? configFile.theme.colors : { transparent: 'transparent', ...defaultColors },
+		spacing: (configFile.theme.spacing) ? configFile.theme.spacing : { ...tailwindui.spacing, ...defaultTheme.spacing },
 		width: (configFile.theme.width) ? configFile.theme.width : allWidthsCombined,
 		height: (configFile.theme.height) ? configFile.theme.height : allHeightsCombined
 	}
@@ -237,7 +241,7 @@ function buildCustomTailwind() {
 	configFile.theme.fontStyle = {};
 
 	// Font Weight
-	configFile.theme.fontWeight = defaultTheme.fontWeight;
+	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight', true);
 
 	// Text Align
 	configFile.theme.textAlign = {};
@@ -274,7 +278,8 @@ function buildCustomTailwind() {
 	// Interactivity
 	configFile.theme.interactivity = {};
 
-	let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-tailwind-template.tss'), 'utf8');
+	let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind-template.tss'), 'utf8');
+	convertedStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-tailwind-template.tss'), 'utf8');
 
 	delete configFile.theme.extend;
 	delete configFile.theme.colors;
@@ -282,7 +287,6 @@ function buildCustomTailwind() {
 	delete configFile.theme.borderRadius;
 
 	_.each(configFile.corePlugins, (value, key) => {
-		// console.log('Key:', key);
 		delete configFile.theme[ key ];
 	});
 
