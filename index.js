@@ -139,6 +139,18 @@ function purgeClasses(options) {
 			options.files = options.dev;
 			devMode(options);
 		} else {
+			let configFile = (fs.existsSync(configJS)) ? require(configJS) : false;
+
+			let safelist = false;
+			let purgeMode = 'all';
+			let purgeOptions = false;
+
+			if (configFile.purge) {
+				purgeMode = configFile.purge.mode || 'all';
+				purgeOptions = configFile.purge.options || false;
+				safelist = purgeOptions.safelist || false;
+			}
+
 			backupOriginalAppTss();
 
 			copyResetTemplateAndOriginalAppTSS();
@@ -150,8 +162,20 @@ function purgeClasses(options) {
 			let allClasses = [];
 
 			_.each(viewPaths, viewPath => {
-				allClasses.push(extractClasses(fs.readFileSync(viewPath, 'utf8'), viewPath));
+				let file = fs.readFileSync(viewPath, 'utf8');
+
+				if (purgeMode === 'all') {
+					allClasses.push(extractClasses(file, viewPath));
+				} else {
+					allClasses.push(file.match(/[^<>"'`\s]*[^<>"'`\s:]/g));
+				}
 			});
+
+			if (safelist) {
+				_.each(safelist, (safe) => {
+					allClasses.push(safe);
+				})
+			}
 
 			let uniqueClasses = _.uniq(_.flattenDeep(allClasses));
 
@@ -189,9 +213,6 @@ function buildCustomTailwind() {
 	const defaultTheme = require('tailwindcss/defaultTheme');
 	const tailwindui = require('@tailwindcss/ui/index')({}, {}).config.theme;
 
-	// console.log('defaultTheme:', JSON.stringify(defaultTheme));
-	// console.log('ringColor:', JSON.stringify(defaultTheme.ringColor(theme => (defaultColors))));
-
 	if (!configFile.theme.extend) {
 		configFile.theme.extend = {};
 	}
@@ -225,11 +246,11 @@ function buildCustomTailwind() {
 	// placeholderColor
 	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor', true);
 
-	// Background Gradient
-	configFile.theme.backgroundGradient = {};
-
 	// Gradient Color Stops
 	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops', true);
+
+	// Background Gradient
+	configFile.theme.backgroundGradient = {};
 
 	// Object Position
 	configFile.theme.placement = {};

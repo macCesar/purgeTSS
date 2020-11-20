@@ -17,6 +17,7 @@
     - [Overriding the default spacing scale](#overriding-the-default-spacing-scale)
     - [Extending the default spacing scale](#extending-the-default-spacing-scale)
   - [Individual properties](#individual-properties)
+  - [Purge property](#purge-property)
 - [**Overriding, extending or disabling properties**](#overriding-extending-or-disabling-properties)
   - [Overriding properties](#overriding-properties)
   - [Extending properties](#extending-properties)
@@ -57,6 +58,12 @@ It will create a minimal `config.js` file inside the `purgetss` folder at the ro
 ```javascript
 // ./purgetss/config.js
 module.exports = {
+  purge: {
+    mode: 'all',
+    options: {
+      safelist: [],
+    }
+  },
   theme: {
     extend: {}
   }
@@ -461,6 +468,28 @@ The example `borderRadius` configuration above would generate the following TSS 
 You'll notice that using a key of `default` in the theme configuration created the class `.rounded` with no suffix.
 
 This is a common convention in `purgeTSS` supported by many (although not all) of the properties.
+
+## Purge property
+
+You can control how `purgetss` removes unused classes or keep the ones you want.
+
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  purge: {
+      mode: 'all',
+
+      // These options are passed through directly to purgeTSS
+      options: {
+        safelist: [],
+      }
+    },
+}
+```
+
+- `purge.mode.all` By default, `purgetss` will search each `class` attribute of your XML files and copy only the styles found there.
+- `purge.mode.conservative` To keep **any style** found anywhere inside your XML files, like in comments, attributes, classes, and even the actual written content in your markup.
+- `purge.mode.options.safelist` List of classes that you would like to keep regardless of the purge mode or whether or not they are included in your XML files.
 
 # **Overriding, extending or disabling properties**
 Out of the box, your project will automatically inherit the values from the default theme configuration. If you would like to customize it, you have a few different options depending on your goals.
