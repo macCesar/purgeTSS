@@ -477,13 +477,13 @@ You can control how `purgetss` removes unused classes or keep the ones you want.
 // ./purgetss/config.js
 module.exports = {
   purge: {
-      mode: 'all',
+    mode: 'all',
 
-      // These options are passed through directly to purgeTSS
-      options: {
-        safelist: [],
-      }
-    },
+    // These options are passed through directly to purgeTSS
+    options: {
+      safelist: [],
+    }
+  },
 }
 ```
 
