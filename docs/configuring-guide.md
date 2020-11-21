@@ -488,12 +488,12 @@ module.exports = {
 }
 ```
 
-- `purge.mode.all` By default, `purgetss` will search each `class` attribute of your XML files and copy only the styles found there.
-- `purge.mode.conservative` To keep **any style** found anywhere inside your XML files, like in comments, attributes, classes, and even the actual written content in your markup.
-- `purge.mode.options.safelist` List of classes that you would like to keep regardless of the purge mode or whether or not they are included in your XML files.
+- `purge.mode.all` By default, `purgetss` will search each `class` and `id` attributes of your XML files and copy only the styles and names found there.
+- `purge.mode.conservative` Use `conservative` if you want to keep **any style** found anywhere inside your XML files, like in comments, attributes, classes, ids, and even the actual written content in your markup.
+- `purge.mode.options.safelist` List of styles that you would like to keep regardless of the purge mode or whether or not they are included in your XML files.
 
 ### Large safelist?
-If you need to keep a very large set of classes, you can create a CommonJS module with an array of all the classes and import it into your config file:
+If you need to keep a very large set of styles, you can create a CommonJS module with an array of all the styles and import it into your config file like this:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -510,7 +510,7 @@ It is recommended to store it inside the `purgetss` folder, to keep everything o
 ```javascript
 // ./purgetss/safelist.js
 exports.safelist = [
-  // A large list of classes to keep
+  // A large list of styles to keep
   'bg-blue-50',
   'bg-blue-100',
   'bg-blue-200',
@@ -948,9 +948,9 @@ module.exports = {
 ```
 
 # **Adding your own properties**
-You can use your own classes and any Ti Element with as many attributes as needed, optionally you can place a conditional block that can specify platform or device size conditionals.
+You can use your own classes, ids and any Ti Element with as many attributes as needed, optionally you can place a conditional block that can specify platform or device size conditionals.
 
-Whether you want to style a Ti Element (also known as a markup element), a custom class name prefixed with a period (.) Or event a custom id name prefixed with a hash tag (#), the structure is as follows:
+Whether you want to style a Ti Element (also known as a markup element), a custom class name prefixed with a period (.) or even a custom id name prefixed with a hash tag (#), the structure is as follows:
 
 ```javascript
 'Markup-.class-or-#id-name': {

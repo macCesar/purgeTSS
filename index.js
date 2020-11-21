@@ -50,7 +50,7 @@ function extractClasses(currentText, currentFile) {
 		let jsontext = convert.xml2json(encodeHTML(currentText), { compact: true });
 
 		return traverse(JSON.parse(jsontext)).reduce(function(acc, value) {
-			if (this.key === 'class') acc.push(value.split(' '));
+			if (this.key === 'class' || this.key === 'id') acc.push(value.split(' '));
 			return acc;
 		}, []);
 	} catch (error) {
@@ -172,7 +172,7 @@ function purgeClasses(options) {
 			});
 
 			if (safelist) {
-				_.each(safelist, (safe) => {
+				_.each(safelist, safe => {
 					allClasses.push(safe);
 				})
 			}
@@ -556,7 +556,7 @@ function purgeCustomTailwind(uniqueClasses) {
 	let encontrados = '';
 	fs.readFileSync(customTailwind, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
-			if (line.includes(`'.${className}'`)) {
+			if (line.includes(`'.${className}'`) || line.includes(`'.${className}[`) || line.includes(`'#${className}'`) || line.includes(`'#${className}[`)) {
 				encontrados += line + '\n';
 				return;
 			}
