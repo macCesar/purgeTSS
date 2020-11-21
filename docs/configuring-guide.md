@@ -18,6 +18,7 @@
     - [Extending the default spacing scale](#extending-the-default-spacing-scale)
   - [Individual properties](#individual-properties)
   - [Purge property](#purge-property)
+    - [Large safelist?](#large-safelist)
 - [**Overriding, extending or disabling properties**](#overriding-extending-or-disabling-properties)
   - [Overriding properties](#overriding-properties)
   - [Extending properties](#extending-properties)
@@ -490,6 +491,41 @@ module.exports = {
 - `purge.mode.all` By default, `purgetss` will search each `class` attribute of your XML files and copy only the styles found there.
 - `purge.mode.conservative` To keep **any style** found anywhere inside your XML files, like in comments, attributes, classes, and even the actual written content in your markup.
 - `purge.mode.options.safelist` List of classes that you would like to keep regardless of the purge mode or whether or not they are included in your XML files.
+
+### Large safelist?
+If you need to keep a very large set of classes, you can create a CommonJS module with an array of all the classes and import it into your config file:
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  purge: {
+    mode: 'all',
+
+    // These options are passed through directly to purgeTSS
+    options: require('./safelist'),
+  },
+}
+```
+
+It is recommended to store it inside the `purgetss` folder, to keep everything organized:
+```javascript
+// ./purgetss/safelist.js
+exports.safelist = [
+  // A large list of classes to keep
+  'bg-blue-50',
+  'bg-blue-100',
+  'bg-blue-200',
+  'bg-blue-300',
+  'bg-blue-400',
+  'bg-blue-500',
+  // ...
+  // ...
+  // ...
+  'bg-indigo-600',
+  'bg-indigo-700',
+  'bg-indigo-800',
+  'bg-indigo-900',
+];
+```
 
 # **Overriding, extending or disabling properties**
 Out of the box, your project will automatically inherit the values from the default theme configuration. If you would like to customize it, you have a few different options depending on your goals.
