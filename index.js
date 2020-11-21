@@ -557,7 +557,6 @@ function purgeCustomTailwind(uniqueClasses) {
 	fs.readFileSync(customTailwind, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
 			if (line.includes(`'.${className}'`) || line.includes(`'.${className}[`) || line.includes(`'#${className}'`) || line.includes(`'#${className}[`) || line.includes(`'${className}'`) || line.includes(`'${className}[`)) {
-				console.log('Class Name:', className, line);
 				encontrados += line + '\n';
 				return;
 			}
