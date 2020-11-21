@@ -359,8 +359,6 @@ function buildCustomValues(key, value) {
 			return helpers.fontStyle();
 		case 'fontWeight':
 			return helpers.fontWeight(value);
-		case 'fontFamily':
-			return helpers.fontFamily(value);
 		case 'textAlign':
 			return helpers.textAlign();
 		case 'verticalAlignment':
