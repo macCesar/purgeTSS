@@ -629,7 +629,7 @@ function encodeHTML(str) {
 	const code = {
 		'&': '&amp;',
 	};
-	return str.replace(/[&]/gm, (i) => code[ i ]);
+	return str.replace(/[&]/gm, i => code[ i ]);
 }
 
 function saveFile(file, data) {
