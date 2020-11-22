@@ -3,7 +3,7 @@
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // color Property
-'.text-transparente': { color: 'transparent' }
+'.text-transparent': { color: 'transparent' }
 '.text-black': { color: '#000' }
 '.text-white': { color: '#fff' }
 '.text-rose-50': { color: '#fff1f2' }
@@ -228,7 +228,7 @@
 '.text-blueGray-900': { color: '#0f172a' }
 
 // backgroundColor Property
-'.bg-transparente': { backgroundColor: 'transparent' }
+'.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000' }
 '.bg-white': { backgroundColor: '#fff' }
 '.bg-rose-50': { backgroundColor: '#fff1f2' }
@@ -453,7 +453,7 @@
 '.bg-blueGray-900': { backgroundColor: '#0f172a' }
 
 // borderColor Property
-'.border-transparente': { borderColor: 'transparent' }
+'.border-transparent': { borderColor: 'transparent' }
 '.border-black': { borderColor: '#000' }
 '.border-white': { borderColor: '#fff' }
 '.border-rose-50': { borderColor: '#fff1f2' }
@@ -678,7 +678,7 @@
 '.border-blueGray-900': { borderColor: '#0f172a' }
 
 // hintTextColor Property
-'.placeholder-transparente': { hintTextColor: 'transparent' }
+'.placeholder-transparent': { hintTextColor: 'transparent' }
 '.placeholder-black': { hintTextColor: '#000' }
 '.placeholder-white': { hintTextColor: '#fff' }
 '.placeholder-rose-50': { hintTextColor: '#fff1f2' }
@@ -915,7 +915,7 @@
 
 // Gradient Color Stops
 // From Color
-'.from-transparente': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }
+'.from-transparent': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }
 '.from-black': { backgroundGradient: { colors: [ '#0000', '#000' ] } }
 '.from-white': { backgroundGradient: { colors: [ '#0fff', '#fff' ] } }
 '.from-rose-50': { backgroundGradient: { colors: [ '#00fff1f2', '#fff1f2' ] } }
@@ -1140,7 +1140,7 @@
 '.from-blueGray-900': { backgroundGradient: { colors: [ '#000f172a', '#0f172a' ] } }
 
 // To Color
-'.to-transparente': { backgroundGradient: { colors: [ 'transparent' ] } }
+'.to-transparent': { backgroundGradient: { colors: [ 'transparent' ] } }
 '.to-black': { backgroundGradient: { colors: [ '#000' ] } }
 '.to-white': { backgroundGradient: { colors: [ '#fff' ] } }
 '.to-rose-50': { backgroundGradient: { colors: [ '#fff1f2' ] } }
@@ -1454,16 +1454,19 @@
 '.rounded-72': { borderRadius: 144 }
 '.rounded-80': { borderRadius: 160 }
 '.rounded-96': { borderRadius: 192 }
+'.rounded-px': { borderRadius: '1px' }
+'.rounded-0.5': { borderRadius: 1 }
+'.rounded-1.5': { borderRadius: 3 }
+'.rounded-2.5': { borderRadius: 5 }
+'.rounded-3.5': { borderRadius: 7 }
 '.rounded-none': { borderRadius: 0 }
 '.rounded-sm': { borderRadius: 1 }
 '.rounded': { borderRadius: 4 }
 '.rounded-md': { borderRadius: 3 }
 '.rounded-lg': { borderRadius: 4 }
-'.rounded-px': { borderRadius: 8 }
-'.rounded-0.5': { borderRadius: 1 }
-'.rounded-1.5': { borderRadius: 3 }
-'.rounded-2.5': { borderRadius: 5 }
-'.rounded-3.5': { borderRadius: 7 }
+'.rounded-xl': { borderRadius: 6 }
+'.rounded-2xl': { borderRadius: 8 }
+'.rounded-3xl': { borderRadius: 12 }
 
 // borderWidth Property
 '.border-0': { borderWidth: 0 }

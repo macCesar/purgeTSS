@@ -277,7 +277,7 @@ function buildCustomTailwind() {
 	// configFile.theme.borderRadius = combineKeys(configFile.theme, { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius', false);
 
 	// Border Radius ( Extra Styles )
-	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...{ none: 0, sm: '0.125rem', default: '0.25rem', md: '0.375rem', lg: '0.5rem' }, ...base.spacing };
+	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...base.spacing, ...defaultTheme.borderRadius };
 	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, { ...defaultBorderRadius, ...configFile.theme.spacing, ...configFile.theme.extend.spacing }, 'borderRadius', true);
 
 	// Border Width
@@ -316,7 +316,7 @@ function buildCustomTailwind() {
 
 	let sorteado = Object.entries(configFile.theme).sort().reduce((o, [ k, v ]) => (o[ k ] = v, o), {});
 
-	_.each(sorteado, (value, key) => {
+	_.each(configFile.theme, (value, key) => {
 		convertedStyles += buildCustomValues(key, value);
 	});
 
