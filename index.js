@@ -266,6 +266,9 @@ function buildCustomTailwind() {
 
 	// Font Family
 	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily', false);
+	if (!Object.keys(configFile.theme.fontFamily).length) {
+		delete configFile.theme.fontFamily;
+	}
 
 	// Text Align
 	configFile.theme.textAlign = {};
@@ -316,7 +319,7 @@ function buildCustomTailwind() {
 
 	let sorteado = Object.entries(configFile.theme).sort().reduce((o, [ k, v ]) => (o[ k ] = v, o), {});
 
-	_.each(configFile.theme, (value, key) => {
+	_.each(sorteado, (value, key) => {
 		convertedStyles += buildCustomValues(key, value);
 	});
 
