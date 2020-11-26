@@ -59,14 +59,16 @@ It will create a minimal `config.js` file inside the `purgetss` folder at the ro
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  purge: {
-    mode: 'all',
-    options: {
-      safelist: [],
+  'purge': {
+    'mode': 'all',
+
+    // These options are passed through directly to purgeTSS
+    'options': {
+      'safelist': [],
     }
   },
-  theme: {
-    extend: {}
+  'theme': {
+    'extend': {}
   }
 };
 ```
@@ -97,38 +99,38 @@ It will generate a new `tailwind.tss` file inside the `purgetss` folder, with th
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    colors: {
-      highlight: 'rgba(255, 255, 0, .70)',
-      primary: {
-        solid: '#002359',
-        dark: '#000030',
-        transparent: '#D9002359'
+  'theme': {
+    'colors': {
+      'highlight': 'rgba(255, 255, 0, .70)',
+      'primary': {
+        'solid': '#002359',
+        'dark': '#000030',
+        'transparent': '#D9002359'
       }
     },
-    fontFamily: {
-      display: 'AlfaSlabOne-Regular',
-      body: 'BarlowSemiCondensed-Regular',
+    'fontFamily': {
+      'display': 'AlfaSlabOne-Regular',
+      'body': 'BarlowSemiCondensed-Regular',
     },
-    height: {
-      xl: '3rem',
+    'height': {
+      'xl': '3rem',
       '1/3': '33.333333%'
     },
-    borderWidth: {
-      3: '3',
-      6: '6',
-      10: '10'
+    'borderWidth': {
+      '3': '3',
+      '6': '6',
+      '10': '10'
     },
     '.gallery': {
-      default: {
-        width: 'Ti.UI.FILL',
-        height: 'Ti.UI.SIZE'
+      'DEFAULT': {
+        'width': 'Ti.UI.FILL',
+        'height': 'Ti.UI.SIZE'
       },
-      ios: {
-        clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED'
+      'ios': {
+        'clipMode': 'Ti.UI.iOS.CLIP_MODE_ENABLED'
       },
-      android: {
-        hiddenBehavior: 'Ti.UI.HIDDEN_BEHAVIOR_GONE'
+      'android': {
+        'hiddenBehavior': 'Ti.UI.HIDDEN_BEHAVIOR_GONE'
       }
     }
   }
@@ -143,24 +145,24 @@ The `theme` property in `./purgetss/config.js`, is where you define your project
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    fontFamily: {
-      display: 'AlfaSlabOne-Regular',
-      body: 'BarlowSemiCondensed-Regular'
+  'theme': {
+    'fontFamily': {
+      'display': 'AlfaSlabOne-Regular',
+      'body': 'BarlowSemiCondensed-Regular'
     },
-    borderWidth: {
-      default: '1px',
-      0: '0',
-      2: '2px',
-      4: '4px',
+    'borderWidth': {
+      'DEFAULT': 1,
+      '0': '0',
+      '2': '2',
+      '4': '4',
     },
-    extend: {
-      colors: {
-        cyan: '#9cdbff',
+    'extend': {
+      'colors': {
+        'cyan': '#9cdbff',
       },
-      spacing: {
-        96: '24rem',
-        128: '32rem',
+      'spacing': {
+        '96': '24rem',
+        '128': '32rem',
       }
     }
   }
@@ -173,15 +175,15 @@ The `colors` property allows you to customize the global color palette for your 
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    colors: {
-      transparent: 'transparent',
-      black: '#000',
-      white: '#fff',
-      gray: {
-        100: '#f7fafc',
+  'theme': {
+    'colors': {
+      'transparent': 'transparent',
+      'black': '#000',
+      'white': '#fff',
+      'gray': {
+        '100': '#f7fafc',
         // ...
-        900: '#1a202c',
+        '900': '#1a202c',
       },
 
       // ...
@@ -199,23 +201,23 @@ You can define the colors as a simple list of key-value pairs, or using a nested
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    colors: {
-      highlight: '#ffff00',
-      primary: {
-        solid: '#002359',
-        dark: '#000030',
-        transparent: '#D9002359'
+  'theme': {
+    'colors': {
+      'highlight': '#ffff00',
+      'primary': {
+        'solid': '#002359',
+        'dark': '#000030',
+        'transparent': '#D9002359'
       },
-      secondary: {
-        solid: '#13294B',
-        dark: '#000023',
-        transparent: '#D913294B'
+      'secondary': {
+        'solid': '#13294B',
+        'dark': '#000023',
+        'transparent': '#D913294B'
       },
-      gray: {
-        light: '#f1f2f3',
-        medium: '#ebeff2',
-        dark: '#2B2B2B'
+      'gray': {
+        'light': '#f1f2f3',
+        'medium': '#ebeff2',
+        'dark': '#2B2B2B'
       }
     }
   }
@@ -230,28 +232,28 @@ All colors defined in the `colors` property are automatically shared with the `t
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    colors: {
-      highlight: '#ffff00',
-      primary: {
-        solid: '#002359',
-        dark: '#000030',
-        transparent: '#D9002359'
+  'theme': {
+    'colors': {
+      'highlight': '#ffff00',
+      'primary': {
+        'solid': '#002359',
+        'dark': '#000030',
+        'transparent': '#D9002359'
       },
-      secondary: {
-        solid: '#13294B',
-        dark: '#000023',
-        transparent: '#D913294B'
+      'secondary': {
+        'solid': '#13294B',
+        'dark': '#000023',
+        'transparent': '#D913294B'
       },
-      gray: {
-        light: '#f1f2f3',
-        medium: '#ebeff2',
-        dark: '#2B2B2B'
+      'gray': {
+        'light': '#f1f2f3',
+        'medium': '#ebeff2',
+        'dark': '#2B2B2B'
       }
     },
-    textColor: {
+    'textColor': {
       'orange-peel': '#FF9F1C',
-      ultramarine: '#446DF6'
+      'ultramarine': '#446DF6'
     }
   }
 };
@@ -291,10 +293,10 @@ For example, here we've replaced the default cool grays with a neutral gray pale
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        gray: {
+  'theme': {
+    'extend': {
+      'colors': {
+        'gray': {
           '100': '#f5f5f5',
           '200': '#eeeeee',
           '300': '#e0e0e0',
@@ -316,9 +318,9 @@ If you'd like to extend the default color palette, you can do so using the `them
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    extend: {
-      colors: {
+  'theme': {
+    'extend': {
+      'colors': {
         'regal-blue': '#243c5a',
       }
     }
@@ -334,12 +336,12 @@ The `spacing` property allows you to customize the global spacing and sizing sca
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    spacing: {
+  'theme': {
+    'spacing': {
       '0': '0',
-      px: '1px',
-      tight: '0.25rem',
-      loose: '1.0rem',
+      'px': '1px',
+      'tight': '0.25rem',
+      'loose': '1.0rem',
       'extra-loose': '3.0rem',
     }
   }
@@ -357,16 +359,16 @@ The `spacing` property is shared by the `margin`, `padding`, `width`, and `heigh
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    spacing: {
-      tight: '0.25rem',
-      loose: '1.0rem'
+  'theme': {
+    'spacing': {
+      'tight': '0.25rem',
+      'loose': '1.0rem'
     },
-    width: {
-      banner: '5rem'
+    'width': {
+      'banner': '5rem'
     },
-    height: {
-      xl: '3rem',
+    'height': {
+      'xl': '3rem',
       '1/3': '33.333333%'
     }
   }
@@ -404,12 +406,12 @@ If you'd like to override the default spacing scale, you can do so using the `th
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    spacing: {
-      sm: '8px',
-      md: '12px',
-      lg: '16px',
-      xl: '24px',
+  'theme': {
+    'spacing': {
+      'sm': '8',
+      'md': '12',
+      'lg': '16',
+      'xl': '24',
     }
   }
 }
@@ -422,9 +424,9 @@ If you'd like to extend the default spacing scale, you can do so using the `them
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    extend: {
-      spacing: {
+  'theme': {
+    'extend': {
+      'spacing': {
         '72': '18rem',
         '84': '21rem',
         '96': '24rem',
@@ -444,12 +446,12 @@ For example, the `borderRadius` property lets you customize which border radius 
 
 ```javascript
 module.exports = {
-  theme: {
-    borderRadius: {
-      none: '0',
-      sm: '.125rem',
-      default: '.25rem',
-      lg: '.5rem'
+  'theme': {
+    'borderRadius': {
+      'none': '0',
+      'sm': '.125rem',
+      'DEFAULT': '.25rem',
+      'lg': '.5rem'
     },
   }
 }
@@ -477,12 +479,12 @@ You can control how `purgetss` removes unused classes or keep the ones you want.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  purge: {
-    mode: 'all',
+  'purge': {
+    'mode': 'all',
 
     // These options are passed through directly to purgeTSS
-    options: {
-      safelist: [],
+    'options': {
+      'safelist': [],
     }
   },
 }
@@ -497,11 +499,11 @@ If you need to keep a very large set of styles, you can create a CommonJS module
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  purge: {
-    mode: 'all',
+  'purge': {
+    'mode': 'all',
 
     // These options are passed through directly to purgeTSS
-    options: require('./safelist'),
+    'options': require('./safelist'),
   },
 }
 ```
@@ -536,15 +538,15 @@ To override a property in the default theme, add the key you'd like to override.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
+  'theme': {
     // Replaces all of the default `opacity` values
-    opacity: {
-      0: '0',
-      20: '0.2',
-      40: '0.4',
-      60: '0.6',
-      80: '0.8',
-      100: '1',
+    'opacity': {
+      '0': '0',
+      '20': '0.2',
+      '40': '0.4',
+      '60': '0.6',
+      '80': '0.8',
+      '100': '1',
     }
   }
 }
@@ -563,10 +565,10 @@ For example, if you wanted to add an extra color but preserve the existing ones,
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    extend: {
+  'theme': {
+    'extend': {
       // Adds a new color in addition to the default colors
-      colors: {
+      'colors': {
         'primary': '#002359',
       }
     }
@@ -579,8 +581,8 @@ You can of course override some parts of the default theme and extend other part
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    opacity: {
+  'theme': {
+    'opacity': {
       '0': '0',
       '20': '0.2',
       '40': '0.4',
@@ -588,8 +590,8 @@ module.exports = {
       '80': '0.8',
       '100': '1',
     },
-    extend: {
-      colors: {
+    'extend': {
+      'colors': {
         'primary': '#002359',
       }
     }
@@ -603,8 +605,8 @@ If you don't want to generate any classes for a certain property, set that plugi
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  corePlugins: {
-    opacity: false,
+  'corePlugins': {
+    'opacity': false,
   }
 }
 ```
@@ -616,10 +618,10 @@ Utilities for controlling the text color of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    textColor: {
+  'theme': {
+    'textColor': {
       'orange-peel': '#FF9F1C',
-      ultramarine: '#446DF6'
+      'ultramarine': '#446DF6'
     }
   }
 };
@@ -637,10 +639,10 @@ Utilities for controlling an element's background color.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    backgroundColor: {
-      minion: '#EDD83D',
-      pacific: '#08A4BD'
+  'theme': {
+    'backgroundColor': {
+      'minion': '#EDD83D',
+      'pacific': '#08A4BD'
     }
   }
 };
@@ -658,8 +660,8 @@ Utilities for controlling the color of an element's borders.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    borderColor: {
+  'theme': {
+    'borderColor': {
       'old-burgundy': '#4B3B40',
       'tea-green': '#D1F5BE'
     }
@@ -679,9 +681,9 @@ Utilities for controlling the color of placeholder text.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    placeholderColor: {
-      flame: '#EC4E20',
+  'theme': {
+    'placeholderColor': {
+      'flame': '#EC4E20',
       'spanish-blue': '#016FB9'
     }
   }
@@ -700,10 +702,10 @@ Utilities for controlling the color stops in background gradients.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    gradientColorStops: {
-      corporate: '#3490dc',
-      danger: '#e3342f'
+  'theme': {
+    'gradientColorStops': {
+      'corporate': '#3490dc',
+      'danger': '#e3342f'
     }
   }
 };
@@ -726,9 +728,9 @@ Utilities for setting the width of an element
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    width: {
-      banner: '5rem'
+  'theme': {
+    'width': {
+      'banner': '5rem'
     }
   }
 };
@@ -745,9 +747,9 @@ Utilities for setting the height of an element
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    height: {
-      xl: '3rem',
+  'theme': {
+    'height': {
+      'xl': '3rem',
       '1/3': '33.333333%'
     }
   }
@@ -766,9 +768,9 @@ Utilities for controlling an element's margin.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    margin: {
-      tiny: '.125rem',
+  'theme': {
+    'margin': {
+      'tiny': '.125rem',
     }
   }
 };
@@ -798,10 +800,10 @@ Utilities for controlling an element's padding.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    padding: {
-      sm: '1rem',
-      md: '1.5rem',
+  'theme': {
+    'padding': {
+      'sm': '1rem',
+      'md': '1.5rem',
     }
   }
 };
@@ -831,10 +833,10 @@ Utilities for controlling the font family of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    fontFamily: {
-      display: 'AlfaSlabOne-Regular',
-      body: 'BarlowSemiCondensed-Regular',
+  'theme': {
+    'fontFamily': {
+      'display': 'AlfaSlabOne-Regular',
+      'body': 'BarlowSemiCondensed-Regular',
     }
   }
 };
@@ -843,8 +845,8 @@ module.exports = {
 ```css
 // ./purgetss/tailwind.tss
 // fontFamily Property
-'.font-display': { font: { fontFamily : 'AlfaSlabOne-Regular' } }
-'.font-body': { font: { fontFamily : 'BarlowSemiCondensed-Regular' } }
+'.font-display': { font: { fontFamily: 'AlfaSlabOne-Regular' } }
+'.font-body': { font: { fontFamily: 'BarlowSemiCondensed-Regular' } }
 ```
 
 ### Font Size
@@ -852,8 +854,8 @@ Utilities for controlling the font size of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    fontSize: {
+  'theme': {
+    'fontSize:' {
       '10xl': '8rem',
       'small-print': '.5rem',
     }
@@ -873,10 +875,10 @@ Utilities for controlling the border radius of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    borderRadius: {
-      default: '0.25rem',
-      large: '1.0rem',
+  'theme': {
+    'borderRadius:' {
+      'DEFAULT': '0.25rem',
+      'large': '1.0rem',
       'extra-large': '2.0rem'
     }
   }
@@ -896,11 +898,11 @@ Utilities for controlling the width of an element's borders.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    borderWidth: {
-      3: '3',
-      6: '6',
-      10: '10',
+  'theme': {
+    'borderWidth': {
+      '3': '3',
+      '6': '6',
+      '10': '10',
     }
   }
 };
@@ -919,16 +921,16 @@ Utilities for controlling the opacity of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    opacity: {
-      10: '.1',
-      20: '.2',
-      30: '.3',
-      40: '.4',
-      60: '.6',
-      70: '.7',
-      80: '.8',
-      90: '.9',
+  'theme': {
+    'opacity': {
+      '10': '.1',
+      '20': '.2',
+      '30': '.3',
+      '40': '.4',
+      '60': '.6',
+      '70': '.7',
+      '80': '.8',
+      '90': '.9',
     }
   }
 };
@@ -954,7 +956,7 @@ Whether you want to style a Ti Element (also known as a markup element), a custo
 
 ```javascript
 'Markup-.class-or-#id-name': {
-  default: {
+  'DEFAULT': {
     // Any default properties
     // even custom properties to use in your Controllers
   },
@@ -968,31 +970,31 @@ Whether you want to style a Ti Element (also known as a markup element), a custo
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    TextField: {
-      default: {
-        top: 10,
-        left: 20,
-        right: 20,
-        bottom: 0
+  'theme': {
+    'TextField': {
+      'DEFAULT': {
+        'top': '10',
+        'left': '20',
+        'right': '20',
+        'bottom': '0'
       },
       '[if=Alloy.Globals.iPhoneX]': {
-        bottom: 'Alloy.CFG.iPhoneXNotchSize'
+        'bottom': 'Alloy.CFG.iPhoneXNotchSize'
       },
-      android: {
-        touchFeedback: true
+      'android': {
+        'touchFeedback': true
       }
     },
     '.gallery': {
-      default: {
-        width: 'Ti.UI.FILL',
-        height: 'Ti.UI.SIZE'
+      'DEFAULT': {
+        'width': 'Ti.UI.FILL',
+        'height': 'Ti.UI.SIZE'
       },
-      ios: {
-        clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED'
+      'ios': {
+        'clipMode': 'Ti.UI.iOS.CLIP_MODE_ENABLED'
       },
-      android: {
-        hiddenBehavior: 'Ti.UI.HIDDEN_BEHAVIOR_GONE'
+      'android': {
+        'hiddenBehavior': 'Ti.UI.HIDDEN_BEHAVIOR_GONE'
       }
     }
   }

@@ -1473,7 +1473,7 @@
 '.border-2': { borderWidth: 2 }
 '.border-4': { borderWidth: 4 }
 '.border-8': { borderWidth: 8 }
-'.border': { borderWidth: '1px' }
+'.border': { borderWidth: 1 }
 
 // Margin
 '.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
