@@ -917,14 +917,10 @@ Utilities for controlling the opacity of an element.
 module.exports = {
   'theme': {
     'opacity': {
-      '10': '.1',
-      '20': '.2',
-      '30': '.3',
-      '40': '.4',
-      '60': '.6',
-      '70': '.7',
-      '80': '.8',
-      '90': '.9',
+      '15': '0.15',
+      '35': '0.35',
+      '65': '0.65',
+      '85': '0.85'
     }
   }
 };
@@ -933,14 +929,10 @@ module.exports = {
 ```css
 // ./purgetss/tailwind.tss
 // opacity Property
-'.opacity-10': { opacity: 0.1 }
-'.opacity-20': { opacity: 0.2 }
-'.opacity-30': { opacity: 0.3 }
-'.opacity-40': { opacity: 0.4 }
-'.opacity-60': { opacity: 0.6 }
-'.opacity-70': { opacity: 0.7 }
-'.opacity-80': { opacity: 0.8 }
-'.opacity-90': { opacity: 0.9 }
+'.opacity-15': { opacity: 0.15 }
+'.opacity-35': { opacity: 0.35 }
+'.opacity-65': { opacity: 0.65 }
+'.opacity-85': { opacity: 0.85 }
 ```
 
 # **Adding your own properties**
