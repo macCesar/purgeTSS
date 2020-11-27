@@ -4,8 +4,8 @@
 
 // color Property
 '.text-transparent': { color: 'transparent' }
-'.text-black': { color: '#000' }
-'.text-white': { color: '#fff' }
+'.text-black': { color: '#000000' }
+'.text-white': { color: '#ffffff' }
 '.text-rose-50': { color: '#fff1f2' }
 '.text-rose-100': { color: '#ffe4e6' }
 '.text-rose-200': { color: '#fecdd3' }
@@ -229,8 +229,8 @@
 
 // backgroundColor Property
 '.bg-transparent': { backgroundColor: 'transparent' }
-'.bg-black': { backgroundColor: '#000' }
-'.bg-white': { backgroundColor: '#fff' }
+'.bg-black': { backgroundColor: '#000000' }
+'.bg-white': { backgroundColor: '#ffffff' }
 '.bg-rose-50': { backgroundColor: '#fff1f2' }
 '.bg-rose-100': { backgroundColor: '#ffe4e6' }
 '.bg-rose-200': { backgroundColor: '#fecdd3' }
@@ -454,8 +454,8 @@
 
 // borderColor Property
 '.border-transparent': { borderColor: 'transparent' }
-'.border-black': { borderColor: '#000' }
-'.border-white': { borderColor: '#fff' }
+'.border-black': { borderColor: '#000000' }
+'.border-white': { borderColor: '#ffffff' }
 '.border-rose-50': { borderColor: '#fff1f2' }
 '.border-rose-100': { borderColor: '#ffe4e6' }
 '.border-rose-200': { borderColor: '#fecdd3' }
@@ -679,8 +679,8 @@
 
 // hintTextColor Property
 '.placeholder-transparent': { hintTextColor: 'transparent' }
-'.placeholder-black': { hintTextColor: '#000' }
-'.placeholder-white': { hintTextColor: '#fff' }
+'.placeholder-black': { hintTextColor: '#000000' }
+'.placeholder-white': { hintTextColor: '#ffffff' }
 '.placeholder-rose-50': { hintTextColor: '#fff1f2' }
 '.placeholder-rose-100': { hintTextColor: '#ffe4e6' }
 '.placeholder-rose-200': { hintTextColor: '#fecdd3' }
@@ -916,8 +916,8 @@
 // Gradient Color Stops
 // From Color
 '.from-transparent': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }
-'.from-black': { backgroundGradient: { colors: [ '#0000', '#000' ] } }
-'.from-white': { backgroundGradient: { colors: [ '#0fff', '#fff' ] } }
+'.from-black': { backgroundGradient: { colors: [ '#00000000', '#000000' ] } }
+'.from-white': { backgroundGradient: { colors: [ '#00ffffff', '#ffffff' ] } }
 '.from-rose-50': { backgroundGradient: { colors: [ '#00fff1f2', '#fff1f2' ] } }
 '.from-rose-100': { backgroundGradient: { colors: [ '#00ffe4e6', '#ffe4e6' ] } }
 '.from-rose-200': { backgroundGradient: { colors: [ '#00fecdd3', '#fecdd3' ] } }
@@ -1141,8 +1141,8 @@
 
 // To Color
 '.to-transparent': { backgroundGradient: { colors: [ 'transparent' ] } }
-'.to-black': { backgroundGradient: { colors: [ '#000' ] } }
-'.to-white': { backgroundGradient: { colors: [ '#fff' ] } }
+'.to-black': { backgroundGradient: { colors: [ '#000000' ] } }
+'.to-white': { backgroundGradient: { colors: [ '#ffffff' ] } }
 '.to-rose-50': { backgroundGradient: { colors: [ '#fff1f2' ] } }
 '.to-rose-100': { backgroundGradient: { colors: [ '#ffe4e6' ] } }
 '.to-rose-200': { backgroundGradient: { colors: [ '#fecdd3' ] } }
