@@ -31,18 +31,6 @@ To parse all your XML files, run `purgetss` inside the root directory of your pr
 
 ## Commands
 
-### auto-update
-```bash
-> purgetss auto-update
-
-# alias:
-> purgetss a
-```
-
-Use this command to update `purgeTSS` to the latest version.
-
-We constantly update purgeTSS to add new features, to include the latest versions of Tailwind, Tailwind UI and to fix bugs.
-
 ### init
 ```bash
 > purgetss init
@@ -50,16 +38,27 @@ We constantly update purgeTSS to add new features, to include the latest version
 # alias:
 > purgetss i
 ```
-Create a `config.js` file inside the `purgetss` folder in the root of your project
+Creates a minimal `config.js` file inside the `purgetss`  folder at the root of your project:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
-  theme: {
-    //
+  'purge': {
+    'mode': 'all',
+
+    // These options are passed through directly to purgeTSS
+    'options': {
+      'safelist': [],
+    }
+  },
+  'theme': {
+    'extend': {}
   }
 };
 ```
-You can create a custom TSS file with the following keys:
+By default, `purgetss` will look for an optional `./purgetss/config.js` where you can define any customizations.
+
+Every section of the config file is optional, so you only have to specify what you'd like to change. Any missing sections will fall back to the default configuration.
+You can customize the following keys:
 
 - colors
 - spacing
@@ -86,13 +85,9 @@ You can create a custom TSS file with the following keys:
 # alias:
 > purgetss b
 ```
-It generates a new `custom.tss` file based on the attributes defined in `./purgetss/config.js`.
+It will generate a new `tailwind.tss` file inside the `purgetss` folder, with the attributes defined in `./purgetss/config.js`.
 
-The file is stored inside the `purgetss` folder.
-
-After generating the file, you can use any of your custom classes in your project.
-
-**Remember to run `purgetss` to copy all used classes to `app.tss`.**
+**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file instead of the default Tailwind file.**
 
 ### To learn more see **[Configuring and customizing styles](/docs/configuring-guide.md)**
 
@@ -172,8 +167,20 @@ Use any of the following arguments to copy specific vendor sources:
 - md, material, materialdesign = Material Design Icons
 - li, line, lineicons = LineIcons
 
+### auto-update
+```bash
+> purgetss auto-update
+
+# alias:
+> purgetss a
+```
+
+Use this command to update `purgeTSS` to the latest version.
+
+We constantly update purgeTSS to add new features, to include the latest versions of Tailwind, Tailwind UI and to fix bugs.
+
 ## Sample files
-Use this markup to try `purgeTSS`.
+Use this markup to test `purgeTSS`.
 
 `index.xml`
 ```xml
@@ -217,7 +224,11 @@ Make sure to copy FontAwesome Fonts with
 > purgetss copy-fonts --files="fontawesome"
 ```
 
-## Purged `app.tss` file
+## Parse your XML files
+Run `purgetss`
+```bash
+> purgetss
+```
 After running `purgetss` you will have a new file `app.tss` with only the classes found in your XML files.
 
 Your original `app.tss` file is backed up in the `_app.tss` file. Use this file if you need to add, delete or update any of your original styles.

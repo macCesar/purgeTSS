@@ -491,7 +491,7 @@ module.exports = {
 ```
 
 - `purge.mode.all` By default, `purgetss` will search each `class` and `id` attributes of your XML files and copy only the styles and names found there.
-- `purge.mode.conservative` Use `conservative` if you want to keep **any style** found anywhere inside your XML files, like in comments, attributes, classes, ids, Ti Element, and even the actual written content in your markup, it may throw false-positives. **This mode is necessary if want `purgetss` to parse any Ti Element that you've styled in `config.js`**.
+- `purge.mode.conservative` Use `conservative` if you want to keep **any style** found anywhere inside your XML files, like in comments, attributes, classes, ids, Ti Element, and even the actual written content in your markup, it may throw false-positives. **This mode is necessary if you want `purgetss` to parse any Ti Element that you've styled in `config.js`**.
 - `purge.mode.options.safelist` List of styles that you would like to keep regardless of the purge mode or whether or not they are included in your XML files.
 
 ### Large safelist?
@@ -541,23 +541,19 @@ module.exports = {
   'theme': {
     // Replaces all of the default `opacity` values
     'opacity': {
-      '0': '0',
-      '20': '0.2',
-      '40': '0.4',
-      '60': '0.6',
-      '80': '0.8',
-      '100': '1',
+      '15': '0.15',
+      '35': '0.35',
+      '65': '0.65',
+      '85': '0.85'
     }
   }
 }
 ```
-
 This will completely replace the original default configuration for that key, so in the example above none of the default opacity utilities would be generated.
 
 **Any keys you do not provide will be inherited from the default theme, so in the above example, the default theme configuration for things like colors, spacing, border radius, background position, etc. would be preserved.**
 
 ## Extending properties
-
 If you'd like to preserve the default values for a theme option but also add new values, add your extensions under the `theme.extend` key.
 
 For example, if you wanted to add an extra color but preserve the existing ones, you could extend the `colors` property:
@@ -583,12 +579,10 @@ You can of course override some parts of the default theme and extend other part
 module.exports = {
   'theme': {
     'opacity': {
-      '0': '0',
-      '20': '0.2',
-      '40': '0.4',
-      '60': '0.6',
-      '80': '0.8',
-      '100': '1',
+      '15': '0.15',
+      '35': '0.35',
+      '65': '0.65',
+      '85': '0.85'
     },
     'extend': {
       'colors': {
@@ -614,7 +608,7 @@ module.exports = {
 # **Core Properties**
 
 ### Text Colors
-Utilities for controlling the text color of an element.
+Utilities for controlling the text/title color of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
