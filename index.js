@@ -230,10 +230,10 @@ function buildCustomTailwind() {
 	}
 
 	let base = {
-		colors: { ...overwritten.colors, ...configFile.theme.extend.colors },
-		spacing: { ...overwritten.spacing, ...configFile.theme.extend.spacing },
-		width: { ...overwritten.spacing, ...configFile.theme.extend.spacing, ...overwritten.width, ...configFile.theme.extend.width },
-		height: { ...overwritten.spacing, ...configFile.theme.extend.spacing, ...overwritten.height, ...configFile.theme.extend.height }
+		colors: _.merge(overwritten.colors, configFile.theme.extend.colors),
+		spacing: _.merge(overwritten.spacing, configFile.theme.extend.spacing),
+		width: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width),
+		height: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height)
 	}
 
 	// color
@@ -283,7 +283,7 @@ function buildCustomTailwind() {
 
 	// Border Radius ( Extra Styles )
 	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
-	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, { ...defaultBorderRadius, ...configFile.theme.spacing, ...configFile.theme.extend.spacing }, 'borderRadius', true);
+	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius', true);
 
 	// Border Width
 	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth', false);
@@ -302,7 +302,7 @@ function buildCustomTailwind() {
 	configFile.theme.shadow = {};
 
 	// Opacity
-	configFile.theme.opacity = (configFile.theme.opacity) ? { ...configFile.theme.opacity, ...configFile.theme.extend.opacity } : { ...defaultTheme.opacity, ...configFile.theme.extend.opacity };
+	configFile.theme.opacity = (configFile.theme.opacity) ? _.merge(configFile.theme.opacity, configFile.theme.extend.opacity) : _.merge(defaultTheme.opacity, configFile.theme.extend.opacity);
 
 	// Interactivity
 	configFile.theme.interactivity = {};
