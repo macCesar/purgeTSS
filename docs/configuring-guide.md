@@ -69,7 +69,8 @@ module.exports = {
   },
   'theme': {
     'extend': {}
-  }
+  },
+  corePlugins: {}
 };
 ```
 
