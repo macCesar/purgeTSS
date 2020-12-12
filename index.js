@@ -476,6 +476,7 @@ function backupOriginalAppTss() {
 	//! FIRST: Backup original app.tss
 	if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
 		logger.warn('Backing up app.tss into _app.tss\n             FROM NOW ON, add, update or delete your original classes in _app.tss');
+		fs.copyFileSync(appTSS, _appTSS);
 		return fs.readFileSync(appTSS, 'utf8');
 	} else if (!fs.existsSync(_appTSS)) {
 		fs.appendFileSync(_appTSS, '// Empty _app.tss\n');
