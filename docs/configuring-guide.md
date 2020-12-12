@@ -490,8 +490,8 @@ module.exports = {
 }
 ```
 
-- `purge.mode.all` By default, `purgetss` will search each `class` and `id` attributes of your XML files and copy only the styles and names found there.
-- `purge.mode.conservative` Use `conservative` if you want to keep **any style** found anywhere inside your XML files, like in comments, attributes, classes, ids, Ti Element, and even the actual written content in your markup, it may throw false-positives. **This mode is necessary if you want `purgetss` to parse any Ti Element that you've styled in `config.js`**.
+- `purge.mode.all` By default, `purgeTSS` will look everywhere inside your XML files, like in comments, attributes, classes, ids, Ti Element, and even the actual written content in your markup. **This mode is necessary if you want `purgetss` to parse any Ti Element that you've styled in `config.js`**.
+- `purge.mode.classes` Use `classes` to search only in `class` and `id` attributes of your XML files.
 - `purge.mode.options.safelist` List of styles that you would like to keep regardless of the purge mode or whether or not they are included in your XML files.
 
 ### Large safelist?
