@@ -114,7 +114,7 @@ To avoid this, you can copy the styles from the desired providers. *See below*.
 
 ### Copying specific styles
 ```bash
-> purgetss dev-mode --files="tailwind, fontawesome, materialdesing, lineicons, customstyles"
+> purgetss dev-mode --files="tailwind, fontawesome, materialdesign, lineicons, customstyles"
 
 # alias:
 > purgetss d -f=tw,fa,md,li,cu
@@ -156,7 +156,7 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 
 ### Copying specific fonts
 ```bash
-> purgetss copy-fonts --files="fontawesome, materialdesing, lineicons"
+> purgetss copy-fonts --files="fontawesome, materialdesign, lineicons"
 
 # alias:
 > purgetss c -f=fa,md,li
