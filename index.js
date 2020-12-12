@@ -45,6 +45,291 @@ const materialDesignIconsSourceTSS = path.resolve(__dirname, './tss/materialicon
 const detinationFontsFolder = cwd + '/app/assets/fonts';
 const sourceFontsFolder = path.resolve(__dirname, './assets/fonts');
 
+//! Interfase
+function init() {
+	if (alloyProject()) {
+		if (fs.existsSync(configJS)) {
+			logger.warn('./purgetss/config.js', chalk.red('file already exists!'));
+		} else {
+			if (!fs.existsSync(purgeTSSFolder)) {
+				fs.mkdirSync(purgeTSSFolder)
+			}
+
+			fs.copyFileSync(srcConfigFile, configJS);
+
+			logger.file('./purgetss/config.js');
+		}
+	}
+}
+module.exports.init = init;
+
+function buildCustom() {
+	if (alloyProject()) {
+		if (!fs.existsSync(configJS)) {
+			init();
+		}
+		buildCustomTailwind();
+	}
+}
+module.exports.buildCustom = buildCustom;
+
+function devMode(options) {
+	if (alloyProject()) {
+
+		let tempPurged = backupOriginalAppTss();
+
+		tempPurged += copyResetTemplateAnd_appTSS();
+
+		if (options.files && typeof options.files === 'string') {
+			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
+			tempPurged += (selected.length === 4) ? copyEverything() : copySelected(selected);
+		} else {
+			tempPurged += copyEverything();
+		}
+
+		saveFile(appTSS, tempPurged);
+
+		logger.file('app.tss');
+	}
+}
+module.exports.devMode = devMode;
+
+function copyFonts(options) {
+	if (alloyProject()) {
+		if (!fs.existsSync(detinationFontsFolder)) {
+			fs.mkdirSync(detinationFontsFolder)
+		}
+
+		if (options.files && typeof options.files === 'string') {
+			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
+			_.each(selected, vendor => {
+				copyFont(vendor);
+			});
+		} else {
+			copyFont('fa');
+			copyFont('md');
+			copyFont('li');
+		}
+	}
+}
+module.exports.copyFonts = copyFonts;
+
+function purgeClasses(options) {
+	if (alloyProject()) {
+		if (options.dev) {
+			options.files = options.dev;
+			devMode(options);
+		} else {
+			let uniqueClasses = getUniqueClasses();
+
+			let tempPurged = backupOriginalAppTss();
+
+			tempPurged += copyResetTemplateAnd_appTSS();
+
+			tempPurged += (fs.existsSync(customTailwind)) ? purgeCustomTailwind(uniqueClasses) : purgeDefaultTailwind(uniqueClasses);
+
+			tempPurged += purgeFontAwesome(uniqueClasses);
+
+			tempPurged += purgeMaterialDesign(uniqueClasses);
+
+			tempPurged += purgeLineIcons(uniqueClasses);
+
+			saveFile(appTSS, tempPurged);
+
+			logger.file('app.tss');
+		}
+	}
+}
+module.exports.purgeClasses = purgeClasses;
+
+//! Helper Functions
+function getUniqueClasses() {
+	let configFile = (fs.existsSync(configJS)) ? require(configJS) : false;
+
+	let safelist = false;
+	let purgeMode = 'all';
+	let purgeOptions = false;
+
+	if (configFile.purge) {
+		purgeMode = configFile.purge.mode || 'all';
+		purgeOptions = configFile.purge.options || false;
+		safelist = purgeOptions.safelist || false;
+	}
+
+	let viewPaths = [];
+
+	walkSync(cwd + '/app/views', viewPath => {
+		viewPaths.push(viewPath);
+	});
+
+	let allClasses = [];
+
+	_.each(viewPaths, viewPath => {
+		let file = fs.readFileSync(viewPath, 'utf8');
+
+		if (purgeMode === 'all') {
+			allClasses.push(file.match(/[^<>"'`\s]*[^<>"'`\s:]/g));
+		} else {
+			allClasses.push(extractClasses(file, viewPath));
+		}
+	});
+
+	if (safelist) {
+		_.each(safelist, safe => {
+			allClasses.push(safe);
+		})
+	}
+
+	let uniqueClasses = [];
+
+	// Clean even more unnecessary names
+	_.each(_.uniq(_.flattenDeep(allClasses)).sort(), uniqueClass => {
+		if (!uniqueClass.startsWith('{') && !uniqueClass.startsWith('[') && !uniqueClass.startsWith('--') && !uniqueClass.startsWith('!--') && !uniqueClass.startsWith('#') && !uniqueClass.startsWith('/')) {
+			uniqueClasses.push(uniqueClass);
+		}
+	});
+
+	return uniqueClasses;
+}
+
+function buildCustomTailwind() {
+	let configFile = require(configJS);
+	const defaultColors = require('tailwindcss/colors');
+	const defaultTheme = require('tailwindcss/defaultTheme');
+	const tailwindui = require('@tailwindcss/ui/index')({}, {}).config.theme;
+
+	if (!configFile.theme.extend) {
+		configFile.theme.extend = {};
+	}
+
+	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...tailwindui.width(theme => (tailwindui.spacing)), ...defaultTheme.width(theme => (defaultTheme.spacing)) };
+	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.height(theme => (defaultTheme.spacing));
+
+	let overwritten = {
+		colors: (configFile.theme.colors) ? configFile.theme.colors : { transparent: 'transparent', ...defaultColors },
+		spacing: (configFile.theme.spacing) ? configFile.theme.spacing : { ...tailwindui.spacing, ...defaultTheme.spacing },
+		width: (configFile.theme.width) ? configFile.theme.width : allWidthsCombined,
+		height: (configFile.theme.height) ? configFile.theme.height : allHeightsCombined
+	}
+
+	let base = {
+		colors: _.merge(overwritten.colors, configFile.theme.extend.colors),
+		spacing: _.merge(overwritten.spacing, configFile.theme.extend.spacing),
+		width: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width),
+		height: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height)
+	}
+
+	// Reset
+	configFile.theme.Window = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
+	configFile.theme.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
+	configFile.theme.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
+	configFile.theme[ '.vertical' ] = _.merge({ default: { layout: 'vertical' }, ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme[ '.vertical' ]);
+	configFile.theme[ '.horizontal' ] = _.merge({ default: { layout: 'horizontal' }, ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme[ '.horizontal' ]);
+	configFile.theme[ '.clip-enabled' ] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED' } }, configFile.theme[ '.clip-enabled' ]);
+	configFile.theme[ '.clip-disabled' ] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme[ '.clip-disabled' ]);
+
+	// color
+	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor', true);
+
+	// backgroundColor
+	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor', true);
+
+	// borderColor
+	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor', true);
+
+	// placeholderColor
+	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor', true);
+
+	// Gradient Color Stops
+	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops', true);
+
+	// Background Gradient
+	configFile.theme.backgroundGradient = {};
+
+	// Object Position
+	configFile.theme.placement = {};
+
+	// Font Sizes
+	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize', false);
+
+	// Font Style
+	configFile.theme.fontStyle = {};
+
+	// Font Weight
+	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight', true);
+
+	// Font Family
+	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily', false);
+	if (!Object.keys(configFile.theme.fontFamily).length) {
+		delete configFile.theme.fontFamily;
+	}
+
+	// Text Align
+	configFile.theme.textAlign = {};
+
+	// Vertical Alignment
+	configFile.theme.verticalAlignment = {};
+	configFile.theme.contentWidth = {};
+	configFile.theme.scrollIndicators = {};
+
+	// Border Radius
+	// configFile.theme.borderRadius = combineKeys(configFile.theme, { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius', false);
+
+	// Border Radius ( Extra Styles )
+	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
+	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius', true);
+
+	// Border Width
+	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth', false);
+
+	// Margin
+	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin', true);
+
+	// Padding
+	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding', true);
+
+	// Sizing
+	configFile.theme.width = base.width;
+	configFile.theme.height = base.height;
+
+	// Box Shadow
+	configFile.theme.shadow = {};
+
+	// Opacity
+	configFile.theme.opacity = (configFile.theme.opacity) ? _.merge(configFile.theme.opacity, configFile.theme.extend.opacity) : _.merge(defaultTheme.opacity, configFile.theme.extend.opacity);
+
+	// Interactivity
+	configFile.theme.interactivity = {};
+
+	let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind-template.tss'), 'utf8');
+	convertedStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-tailwind-template.tss'), 'utf8') + '\n// Custom Styles and Resets\n';
+
+	delete configFile.theme.extend;
+	delete configFile.theme.colors;
+	delete configFile.theme.spacing;
+	delete configFile.theme.borderRadius;
+
+	_.each(configFile.corePlugins, (value, key) => {
+		delete configFile.theme[ key ];
+	});
+
+	let sorted = Object.entries(configFile.theme).sort().reduce((object, [ key, value ]) => (object[ key ] = value, object), {});
+
+	_.each(sorted, (value, key) => {
+		convertedStyles += buildCustomValues(key, value);
+	});
+
+	fs.writeFileSync(customTailwind, convertedStyles);
+
+	logger.file('./purgetss/tailwind.tss');
+}
+
+function combineKeys(values, base, key, extras = false) {
+	let _extras = (extras) ? base : {};
+
+	return (values[ key ]) ? { ..._extras, ...values[ key ], ...values.extend[ key ] } : { ...base, ...values.extend[ key ] };
+}
+
 function extractClasses(currentText, currentFile) {
 	try {
 		let jsontext = convert.xml2json(encodeHTML(currentText), { compact: true });
@@ -56,6 +341,13 @@ function extractClasses(currentText, currentFile) {
 	} catch (error) {
 		throw chalk.red(`::purgeTSS:: Error processing: “${currentFile}”`);
 	}
+}
+
+function encodeHTML(str) {
+	const code = {
+		'&': '&amp;',
+	};
+	return str.replace(/[&]/gm, i => code[ i ]);
 }
 
 function callback(err) {
@@ -113,230 +405,6 @@ function copyFont(vendor) {
 	}
 }
 
-// Commands
-function init() {
-	if (checkIfAlloyProject()) {
-		if (!fs.existsSync(configJS)) {
-			if (!fs.existsSync(purgeTSSFolder)) {
-				fs.mkdirSync(purgeTSSFolder)
-			}
-
-			fs.copyFileSync(srcConfigFile, configJS);
-
-			logger.file('./purgetss/config.js');
-		} else {
-			logger.warn('./purgetss/config.js', chalk.red('file already exists!'));
-		}
-	}
-}
-module.exports.init = init;
-
-function purgeClasses(options) {
-	if (checkIfAlloyProject()) {
-		let viewPaths = [];
-
-		if (options.dev) {
-			options.files = options.dev;
-			devMode(options);
-		} else {
-			let configFile = (fs.existsSync(configJS)) ? require(configJS) : false;
-
-			let safelist = false;
-			let purgeMode = 'all';
-			let purgeOptions = false;
-
-			if (configFile.purge) {
-				purgeMode = configFile.purge.mode || 'all';
-				purgeOptions = configFile.purge.options || false;
-				safelist = purgeOptions.safelist || false;
-			}
-
-			backupOriginalAppTss();
-
-			copyResetTemplateAndOriginalAppTSS();
-
-			walkSync(cwd + '/app/views', viewPath => {
-				viewPaths.push(viewPath);
-			});
-
-			let allClasses = [];
-
-			_.each(viewPaths, viewPath => {
-				let file = fs.readFileSync(viewPath, 'utf8');
-
-				if (purgeMode === 'all') {
-					allClasses.push(extractClasses(file, viewPath));
-				} else {
-					allClasses.push(file.match(/[^<>"'`\s]*[^<>"'`\s:]/g));
-				}
-			});
-
-			if (safelist) {
-				_.each(safelist, safe => {
-					allClasses.push(safe);
-				})
-			}
-
-			let uniqueClasses = _.uniq(_.flattenDeep(allClasses)).sort();
-
-			if (fs.existsSync(customTailwind)) {
-				// originalPurgeCustomTailwind(uniqueClasses);
-				// somePurgeCustomTailwind(uniqueClasses);
-				eachPurgeCustomTailwind(uniqueClasses);
-			} else {
-				purgeTailwind(uniqueClasses);
-			}
-
-			purgeFontAwesome(uniqueClasses);
-
-			purgeMaterialDesign(uniqueClasses);
-
-			purgeLineIcons(uniqueClasses);
-
-			logger.file('app.tss');
-		}
-	}
-}
-module.exports.purgeClasses = purgeClasses;
-
-function buildCustom() {
-	if (checkIfAlloyProject()) {
-		if (!fs.existsSync(configJS)) {
-			init();
-		}
-		buildCustomTailwind();
-	}
-}
-module.exports.buildCustom = buildCustom;
-
-function buildCustomTailwind() {
-	let configFile = require(configJS);
-	const defaultColors = require('tailwindcss/colors');
-	const defaultTheme = require('tailwindcss/defaultTheme');
-	const tailwindui = require('@tailwindcss/ui/index')({}, {}).config.theme;
-
-	if (!configFile.theme.extend) {
-		configFile.theme.extend = {};
-	}
-
-	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...tailwindui.width(theme => (tailwindui.spacing)), ...defaultTheme.width(theme => (defaultTheme.spacing)) };
-	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.height(theme => (defaultTheme.spacing));
-
-	let overwritten = {
-		colors: (configFile.theme.colors) ? configFile.theme.colors : { transparent: 'transparent', ...defaultColors },
-		spacing: (configFile.theme.spacing) ? configFile.theme.spacing : { ...tailwindui.spacing, ...defaultTheme.spacing },
-		width: (configFile.theme.width) ? configFile.theme.width : allWidthsCombined,
-		height: (configFile.theme.height) ? configFile.theme.height : allHeightsCombined
-	}
-
-	let base = {
-		colors: _.merge(overwritten.colors, configFile.theme.extend.colors),
-		spacing: _.merge(overwritten.spacing, configFile.theme.extend.spacing),
-		width: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width),
-		height: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height)
-	}
-
-	// color
-	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor', true);
-
-	// backgroundColor
-	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor', true);
-
-	// borderColor
-	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor', true);
-
-	// placeholderColor
-	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor', true);
-
-	// Gradient Color Stops
-	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops', true);
-
-	// Background Gradient
-	configFile.theme.backgroundGradient = {};
-
-	// Object Position
-	configFile.theme.placement = {};
-
-	// Font Sizes
-	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize', false);
-
-	// Font Style
-	configFile.theme.fontStyle = {};
-
-	// Font Weight
-	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight', true);
-
-	// Font Family
-	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily', false);
-	if (!Object.keys(configFile.theme.fontFamily).length) {
-		delete configFile.theme.fontFamily;
-	}
-
-	// Text Align
-	configFile.theme.textAlign = {};
-
-	// Vertical Alignment
-	configFile.theme.verticalAlignment = {};
-
-	// Border Radius
-	// configFile.theme.borderRadius = combineKeys(configFile.theme, { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius', false);
-
-	// Border Radius ( Extra Styles )
-	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
-	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius', true);
-
-	// Border Width
-	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth', false);
-
-	// Margin
-	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin', true);
-
-	// Padding
-	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding', true);
-
-	// Sizing
-	configFile.theme.width = base.width;
-	configFile.theme.height = base.height;
-
-	// Box Shadow
-	configFile.theme.shadow = {};
-
-	// Opacity
-	configFile.theme.opacity = (configFile.theme.opacity) ? _.merge(configFile.theme.opacity, configFile.theme.extend.opacity) : _.merge(defaultTheme.opacity, configFile.theme.extend.opacity);
-
-	// Interactivity
-	configFile.theme.interactivity = {};
-
-	let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind-template.tss'), 'utf8');
-	convertedStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-tailwind-template.tss'), 'utf8');
-
-	delete configFile.theme.extend;
-	delete configFile.theme.colors;
-	delete configFile.theme.spacing;
-	delete configFile.theme.borderRadius;
-
-	_.each(configFile.corePlugins, (value, key) => {
-		delete configFile.theme[ key ];
-	});
-
-	let sorteado = Object.entries(configFile.theme).sort().reduce((o, [ k, v ]) => (o[ k ] = v, o), {});
-
-	_.each(sorteado, (value, key) => {
-		convertedStyles += buildCustomValues(key, value);
-	});
-
-	fs.writeFileSync(customTailwind, convertedStyles);
-
-	logger.file('./purgetss/tailwind.tss');
-}
-
-// combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth', true);
-function combineKeys(values, base, key, extras = false) {
-	let _extras = (extras) ? base : {};
-
-	return (values[ key ]) ? { ..._extras, ...values[ key ], ...values.extend[ key ] } : { ...base, ...values.extend[ key ] };
-}
-
 function buildCustomValues(key, value) {
 	switch (key) {
 		case 'textColor':
@@ -365,6 +433,10 @@ function buildCustomValues(key, value) {
 			return helpers.textAlign();
 		case 'verticalAlignment':
 			return helpers.verticalAlignment();
+		case 'contentWidth':
+			return helpers.contentWidth();
+		case 'scrollIndicators':
+			return helpers.scrollIndicators();
 		case 'borderRadius':
 			return helpers.borderRadius(value);
 		case 'borderRadiusExtraStyles':
@@ -390,83 +462,7 @@ function buildCustomValues(key, value) {
 	}
 }
 
-function devMode(options) {
-	if (checkIfAlloyProject()) {
-
-		backupOriginalAppTss();
-
-		copyResetTemplateAndOriginalAppTSS();
-
-		if (options.files && typeof options.files === 'string') {
-			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
-			if (selected.length === 5) {
-				copyEverything();
-			} else {
-				_.each(selected, option => {
-					switch (option) {
-						case 'tw':
-						case 'tail':
-						case 'tailwind':
-							if (fs.existsSync(customTailwind)) {
-								logger.warn('DEV MODE: Copying Custom Tailwind styles...');
-								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTailwind, 'utf8'));
-							} else {
-								logger.warn('DEV MODE: Copying Default Tailwind styles...');
-								fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
-							}
-							break;
-						case 'fa':
-						case 'font':
-						case 'fontawesome':
-							logger.warn('DEV MODE: Copying Font Awesome styles...');
-							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
-							break;
-						case 'md':
-						case 'material':
-						case 'materialdesign':
-							logger.warn('DEV MODE: Copying Material Design Icons styles...');
-							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
-							break;
-						case 'li':
-						case 'line':
-						case 'lineicons':
-							logger.warn('DEV MODE: Copying LineIcons styles...');
-							fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
-							break;
-					}
-				});
-			}
-		} else {
-			copyEverything();
-		}
-
-		logger.file('app.tss');
-	}
-}
-module.exports.devMode = devMode;
-
-function copyFonts(options) {
-	if (checkIfAlloyProject()) {
-		if (!fs.existsSync(detinationFontsFolder)) {
-			fs.mkdirSync(detinationFontsFolder)
-		}
-
-		if (options.files && typeof options.files === 'string') {
-			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
-			_.each(selected, vendor => {
-				copyFont(vendor);
-			});
-		} else {
-			copyFont('fa');
-			copyFont('md');
-			copyFont('li');
-		}
-	}
-}
-module.exports.copyFonts = copyFonts;
-
-// Private Functions
-function checkIfAlloyProject() {
+function alloyProject() {
 	if (!fs.existsSync(cwd + '/app/views')) {
 		logger.error('Please make sure you’re running purgeTSS inside an Alloy Project.');
 
@@ -480,146 +476,121 @@ function backupOriginalAppTss() {
 	//! FIRST: Backup original app.tss
 	if (!fs.existsSync(_appTSS) && fs.existsSync(appTSS)) {
 		logger.warn('Backing up app.tss into _app.tss\n             FROM NOW ON, add, update or delete your original classes in _app.tss');
-		fs.copyFileSync(appTSS, _appTSS);
+		return fs.readFileSync(appTSS, 'utf8');
 	} else if (!fs.existsSync(_appTSS)) {
 		fs.appendFileSync(_appTSS, '// Empty _app.tss\n');
 	}
+
+	return '';
 }
 
-function copyResetTemplateAndOriginalAppTSS() {
+function copyResetTemplateAnd_appTSS() {
 	//! Copy Reset template
 	logger.info('Copying Reset styles...');
-	fs.copyFileSync(resetTSS, appTSS);
+
+	let tempPurged = fs.readFileSync(resetTSS, 'utf8');
 
 	if (fs.existsSync(_appTSS)) {
 		let appTSSContent = fs.readFileSync(_appTSS, 'utf8');
+
 		if (appTSSContent.length) {
 			logger.info('Copying', chalk.yellow('_app.tss'), 'styles...');
-			fs.appendFileSync(appTSS, '\n// Styles from _app.tss\n');
-			fs.appendFileSync(appTSS, appTSSContent);
+			tempPurged += '\n// Styles from _app.tss\n' + appTSSContent;
 		}
 	}
+
+	return tempPurged;
 }
 
 function copyEverything() {
-	logger.error('DEV MODE: Copying Everything... This could slow down compilation time!');
+	let tempPurged = '';
+	logger.error('DEV MODE: Copying Everything... This will slow down compilation time!');
 	if (fs.existsSync(customTailwind)) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(customTailwind, 'utf8'));
+		tempPurged += '\n' + fs.readFileSync(customTailwind, 'utf8');
 	} else {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8'));
+		tempPurged += '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8');
 	}
-	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8'));
-	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8'));
-	fs.appendFileSync(appTSS, '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8'));
+	tempPurged += '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8');
+	tempPurged += '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8');
+	tempPurged += '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8');
+
+	return tempPurged;
 }
 
-function purgeTailwind(uniqueClasses) {
+function copySelected(selected) {
+	let tempPurged = '';
+	_.each(selected, option => {
+		switch (option) {
+			case 'tw':
+			case 'tail':
+			case 'tailwind':
+				if (fs.existsSync(customTailwind)) {
+					logger.warn('DEV MODE: Copying Custom Tailwind styles...');
+					tempPurged += '\n' + fs.readFileSync(customTailwind, 'utf8');
+				} else {
+					logger.warn('DEV MODE: Copying Default Tailwind styles...');
+					tempPurged += '\n' + fs.readFileSync(tailwindSourceTSS, 'utf8');
+				}
+				break;
+			case 'fa':
+			case 'font':
+			case 'fontawesome':
+				logger.warn('DEV MODE: Copying Font Awesome styles...');
+				tempPurged += '\n' + fs.readFileSync(fontAwesomeSourceTSS, 'utf8');
+				break;
+			case 'md':
+			case 'material':
+			case 'materialdesign':
+				logger.warn('DEV MODE: Copying Material Design Icons styles...');
+				tempPurged += '\n' + fs.readFileSync(materialDesignIconsSourceTSS, 'utf8');
+				break;
+			case 'li':
+			case 'line':
+			case 'lineicons':
+				logger.warn('DEV MODE: Copying LineIcons styles...');
+				tempPurged += '\n' + fs.readFileSync(lineiconsFontSourceTSS, 'utf8');
+				break;
+		}
+	});
+
+	return tempPurged;
+}
+
+//! Purge Functions
+function purgeDefaultTailwind(uniqueClasses) {
 	//! Tailwind
 	logger.info('Purging Default Tailwind styles...');
 
-	let encontrados = '';
+	let encontrados = '\n// Default Tailwind Styles\n';
+
 	fs.readFileSync(tailwindSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
-			if (line.includes(`'.${className}'`)) {
+			if (line.startsWith(`'.${className}'`) || line.startsWith(`'.${className}[`) || line.startsWith(`'#${className}'`) || line.startsWith(`'#${className}[`) || line.startsWith(`'${className}'`) || line.startsWith(`'${className}[`)) {
 				encontrados += line + '\n';
 				return;
 			}
 		});
 	});
 
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind-template.tss'), 'utf8') + encontrados);
-	}
+	return encontrados;
 }
 
-function purgeCustom(uniqueClasses) {
+function purgeCustomTailwind(uniqueClasses) {
 	//! Custom
-	logger.info('Purging Custom styles...');
+	logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...');
 
-	let encontrados = '';
-	fs.readFileSync(customTSS, 'utf8').split(/\r?\n/).forEach(line => {
-		_.each(uniqueClasses, className => {
-			if (line.includes(`'.${className}'`)) {
-				encontrados += line + '\n';
-				return;
-			}
-		});
-	});
+	let encontrados = '\n// Custom Tailwind Styles\n';
 
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8') + encontrados);
-	}
-}
-
-function originalPurgeCustomTailwind(uniqueClasses) {
-	//! Custom
-	logger.info('Purging', chalk.yellow('Custom Tailwind (Original)'), 'styles...');
-
-	let encontrados = '';
-
-	let inicio = new Date();
 	fs.readFileSync(customTailwind, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
-			if (line.includes(`'.${className}'`) || line.includes(`'.${className}[`) || line.includes(`'#${className}'`) || line.includes(`'#${className}[`) || line.includes(`'${className}'`) || line.includes(`'${className}[`)) {
+			if (line.startsWith(`'.${className}'`) || line.startsWith(`'.${className}[`) || line.startsWith(`'#${className}'`) || line.startsWith(`'#${className}[`) || line.startsWith(`'${className}'`) || line.startsWith(`'${className}[`)) {
 				encontrados += line + '\n';
 				return;
 			}
 		});
 	});
 
-	console.log('Total:', new Date() - inicio);
-
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8') + encontrados);
-	}
-}
-
-function eachPurgeCustomTailwind(uniqueClasses) {
-	//! Custom
-	logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...');
-
-	let encontrados = '';
-
-	let allClasses = fs.readFileSync(customTailwind, 'utf8').split(/\r?\n/);
-
-	_.each(uniqueClasses, className => {
-		_.each(allClasses, line => {
-			if (line.includes(`'.${className}'`) || line.includes(`'.${className}[`) || line.includes(`'#${className}'`) || line.includes(`'#${className}[`) || line.includes(`'${className}'`) || line.includes(`'${className}[`)) {
-				encontrados += line + '\n';
-				return true;
-			}
-		});
-	});
-
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8') + encontrados);
-	}
-}
-
-function somePurgeCustomTailwind(uniqueClasses) {
-	//! Custom
-	logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...');
-
-	let encontrados = '';
-
-	let allClasses = fs.readFileSync(customTailwind, 'utf8').split(/\r?\n/);
-
-	// let inicio = new Date();
-
-	_.some(uniqueClasses, className => {
-		_.some(allClasses, line => {
-			if (line.includes(`'.${className}'`) || line.includes(`'.${className}[`) || line.includes(`'#${className}'`) || line.includes(`'#${className}[`) || line.includes(`'${className}'`) || line.includes(`'${className}[`)) {
-				encontrados += line + '\n';
-				return true;
-			}
-		});
-	});
-
-	// console.log('Total:', new Date() - inicio);
-
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-template.tss'), 'utf8') + encontrados);
-	}
+	return encontrados;
 }
 
 function purgeFontAwesome(uniqueClasses) {
@@ -627,6 +598,7 @@ function purgeFontAwesome(uniqueClasses) {
 	logger.info('Purging Font Awesome styles...');
 
 	let encontrados = '';
+
 	fs.readFileSync(fontAwesomeSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
 			if (line.includes(`'.${className}'`)) {
@@ -636,9 +608,7 @@ function purgeFontAwesome(uniqueClasses) {
 		});
 	});
 
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/fontawesome-template.tss'), 'utf8') + encontrados);
-	}
+	return encontrados;
 }
 
 function purgeMaterialDesign(uniqueClasses) {
@@ -646,6 +616,7 @@ function purgeMaterialDesign(uniqueClasses) {
 	logger.info('Purging Material Design Icons styles...');
 
 	let encontrados = '';
+
 	fs.readFileSync(materialDesignIconsSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
 			if (line.includes(`'.${className}'`)) {
@@ -655,9 +626,7 @@ function purgeMaterialDesign(uniqueClasses) {
 		});
 	});
 
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/materialicons-template.tss'), 'utf8') + encontrados);
-	}
+	return encontrados;
 }
 
 function purgeLineIcons(uniqueClasses) {
@@ -665,6 +634,7 @@ function purgeLineIcons(uniqueClasses) {
 	logger.info('Purging LineIcons styles...');
 
 	let encontrados = '';
+
 	fs.readFileSync(lineiconsFontSourceTSS, 'utf8').split(/\r?\n/).forEach(line => {
 		_.each(uniqueClasses, className => {
 			if (line.includes(`'.${className}'`)) {
@@ -674,22 +644,11 @@ function purgeLineIcons(uniqueClasses) {
 		});
 	});
 
-	if (encontrados) {
-		fs.appendFileSync(appTSS, '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/lineicons-template.tss'), 'utf8') + encontrados);
-	}
-}
-
-function encodeHTML(str) {
-	const code = {
-		'&': '&amp;',
-	};
-	return str.replace(/[&]/gm, i => code[ i ]);
+	return encontrados;
 }
 
 function saveFile(file, data) {
 	fs.writeFileSync(file, data, err => {
 		throw err;
 	});
-
-	logger.info(chalk.yellow(file + ' file created!'));
 }
