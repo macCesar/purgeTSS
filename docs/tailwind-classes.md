@@ -3,6 +3,12 @@
 - ### Top / Right / Bottom / Left
 	> For any element that uses the `'top'`, `'right'`, `'bottom'` and `'left'` properties.
 
+- ### Scrollable Region 
+	> For ScrollViews `'contentWidth'`, `'contentHeight'` properties.
+
+- ### Scroll Indicators 
+	> For ScrollViews `'showHorizontalScrollIndicator'`, `'showVerticalScrollIndicator'` properties.
+
 ## Typography
 - ### Font Size
 	> For any element that uses the `'fontSize'` property.
