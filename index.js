@@ -9,6 +9,7 @@ const { config } = require('process');
 const colores = require('./lib/colores').colores;
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
+const glob = require("glob")
 
 const logger = {
 	info: function(...args) {
@@ -147,6 +148,7 @@ function getUniqueClasses() {
 	let configFile = (fs.existsSync(configJS)) ? require(configJS) : false;
 
 	let safelist = false;
+	let widgets = false;
 	let purgeMode = 'all';
 	let purgeOptions = false;
 
@@ -154,6 +156,7 @@ function getUniqueClasses() {
 		purgeMode = configFile.purge.mode || 'all';
 		purgeOptions = configFile.purge.options || false;
 		safelist = purgeOptions.safelist || false;
+		widgets = purgeOptions.widgets || false;
 	}
 
 	let viewPaths = [];
@@ -161,6 +164,11 @@ function getUniqueClasses() {
 	walkSync(cwd + '/app/views', viewPath => {
 		viewPaths.push(viewPath);
 	});
+
+	if (widgets) {
+		// Parse Widgets' Views ( Experimental )
+		viewPaths.push(...glob.sync(cwd + '/app/widgets/**/views/*.xml'));
+	}
 
 	let allClasses = [];
 
@@ -269,7 +277,7 @@ function buildCustomTailwind() {
 
 	// Vertical Alignment
 	configFile.theme.verticalAlignment = {};
-	configFile.theme.contentWidth = {};
+	configFile.theme.scrollableRegion = {};
 	configFile.theme.scrollIndicators = {};
 
 	// Border Radius
