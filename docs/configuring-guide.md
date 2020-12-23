@@ -29,6 +29,7 @@
     - [Border Colors](#border-colors)
     - [Placeholder Colors](#placeholder-colors)
     - [Gradient Color Stops](#gradient-color-stops)
+    - [Tint Color](#tint-color)
     - [Width scale](#width-scale)
     - [Height scale](#height-scale)
     - [Margin](#margin)
@@ -716,6 +717,28 @@ module.exports = {
 // To Color
 '.to-corporate': { backgroundGradient: { colors: [ '#3490dc' ] } }
 '.to-danger': { backgroundGradient: { colors: [ '#e3342f' ] } }
+```
+
+### Tint Color
+Utilities for controlling an element's tint color.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'tintColor': {
+      'corporate': '#3490dc',
+      'highlight': '#ffff00'
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+
+// tintColor Property
+'.tint-corporate': { tintColor: '#3490dc' }
+'.tint-highlight': { tintColor: '#ffff00' }
 ```
 
 ### Width scale

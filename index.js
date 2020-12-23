@@ -279,7 +279,7 @@ function buildCustomTailwind() {
 	configFile.theme.verticalAlignment = {};
 	configFile.theme.scrollableRegion = {};
 	configFile.theme.scrollIndicators = {};
-	configFile.theme.tintColors = combineKeys(configFile.theme, base.colors, 'tintColors', true);
+	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor', true);
 
 	// Border Radius
 	// configFile.theme.borderRadius = combineKeys(configFile.theme, { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius', false);
@@ -428,8 +428,8 @@ function buildCustomValues(key, value) {
 			return helpers.backgroundGradient();
 		case 'gradientColorStops':
 			return helpers.gradientColorStops(value);
-		case 'tintColors':
-			return helpers.tintColors(value);
+		case 'tintColor':
+			return helpers.tintColor(value);
 		case 'placement':
 			return helpers.placement();
 		case 'fontFamily':

@@ -71,6 +71,7 @@ You can customize the following keys:
 - height
 - margin
 - padding
+- tintColor
 - contentWidth/contentHeight
 - showHorizontalScrollIndicator/showVerticalScrollIndicator
 - fontFamily

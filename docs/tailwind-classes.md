@@ -3,10 +3,10 @@
 - ### Top / Right / Bottom / Left
 	> For any element that uses the `'top'`, `'right'`, `'bottom'` and `'left'` properties.
 
-- ### Scrollable Region 
+- ### Scrollable Region
 	> For ScrollViews `'contentWidth'`, `'contentHeight'` properties.
 
-- ### Scroll Indicators 
+- ### Scroll Indicators
 	> For ScrollViews `'showHorizontalScrollIndicator'`, `'showVerticalScrollIndicator'` properties.
 
 ## Typography
@@ -21,6 +21,9 @@
 
 - ### Placeholder Color
 	> For any element that uses the `'hintTextColor'` property.
+
+- ### Tint Color
+	> For any element that uses the `'tintColor'` property.
 
 - ### Text Align
 	> For any element that uses the `'textAlign'` property.
