@@ -36,11 +36,13 @@ const purgeTSSFolder = cwd + '/purgetss';
 const customTSS = purgeTSSFolder + '/custom.tss';
 const customTailwind = purgeTSSFolder + '/tailwind.tss';
 const configJS = purgeTSSFolder + '/config.js';
+const JMKFile = cwd + '/app/alloy.jmk';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
 const fontAwesomeSourceTSS = path.resolve(__dirname, './tss/fontawesome.tss');
 const lineiconsFontSourceTSS = path.resolve(__dirname, './tss/lineicons.tss');
 const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
+const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
 const materialDesignIconsSourceTSS = path.resolve(__dirname, './tss/materialicons.tss');
 
 const detinationFontsFolder = cwd + '/app/assets/fonts';
@@ -94,6 +96,38 @@ function devMode(options) {
 	}
 }
 module.exports.devMode = devMode;
+
+function watchMode(options) {
+	if (alloyProject()) {
+		if (fs.existsSync(JMKFile)) {
+			// SI existe
+			if (options.off) {
+				// quieren apagarlo
+				// quitar la línea o borrar archivo ???
+				fs.unlink(JMKFile, function(e) {
+					console.log('Deleted');
+				});
+			} else {
+				// quieren encenderlo
+				// agregar la línea o copiar de nueve el archivo ???
+				fs.copyFileSync(srcJMKFile, JMKFile);
+				logger.file('alloy.jmk');
+			}
+		} else {
+			// NO existe
+			if (options.off) {
+				// quieren apagarlo
+				// NO HACER NADA
+			} else {
+				// quieren encenderlo pero NO existe
+				// Copiar el archivo
+				fs.copyFileSync(srcJMKFile, JMKFile);
+				logger.file('alloy.jmk');
+			}
+		}
+	}
+}
+module.exports.watchMode = watchMode;
 
 function copyFonts(options) {
 	if (alloyProject()) {
@@ -454,6 +488,8 @@ function buildCustomValues(key, value) {
 			return helpers.borderRadiusExtraStyles(value);
 		case 'borderWidth':
 			return helpers.borderWidth(value);
+		case 'scrollableRegion':
+			return helpers.scrollableRegion();
 		case 'margin':
 			return helpers.margin(value, true);
 		case 'padding':

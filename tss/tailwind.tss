@@ -528,14 +528,6 @@
 '.border-8': { borderWidth: 8 }
 '.border': { borderWidth: 1 }
 
-// Content Width & Height ( for ScrollViews )
-'.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
-'.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
-'.content-w-auto': { contentWidth: Ti.UI.SIZE }
-'.content-w-screen': { contentWidth: Ti.UI.FILL }
-'.content-h-auto': { contentHeight: Ti.UI.SIZE }
-'.content-h-screen': { contentHeight: Ti.UI.FILL }
-
 // fontSize Property
 '.text-xs': { font: { fontSize: 12 } }
 '.text-sm': { font: { fontSize: 14 } }
@@ -2702,6 +2694,14 @@
 '.overflow-x-hidden': { showHorizontalScrollIndicator: false }
 '.overflow-y-scroll': { showVerticalScrollIndicator: true }
 '.overflow-y-hidden': { showVerticalScrollIndicator: false }
+
+// Content Width & Height ( for ScrollViews )
+'.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
+'.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
+'.content-w-auto': { contentWidth: Ti.UI.SIZE }
+'.content-w-screen': { contentWidth: Ti.UI.FILL }
+'.content-h-auto': { contentHeight: Ti.UI.SIZE }
+'.content-h-screen': { contentHeight: Ti.UI.FILL }
 
 // Box Shadow
 '.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#77000000' }

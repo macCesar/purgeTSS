@@ -1,0 +1,6 @@
+let exec = require('child_process').execSync;
+
+task('pre:compile', function(event, logger) {
+	exec('purgetss');
+	logger.warn('::purgeTSS:: Auto-Purging ' + event.dir.project);
+});

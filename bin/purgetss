@@ -32,6 +32,16 @@ program
 	});
 
 program
+	.command('watch')
+	.alias('w')
+	.description('Auto-Runs `purgetss` command before compiling your project.')
+	.help('Use this command if you want `purgetss` to auto-run before compiling your project. This is very usefull in combination with `liveview` because it will purge all your files everytime you make a change, for example when adding or deleting styles in your Views.')
+	.option('-o, --off', 'Use any of the following arguments to copy styles from a specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom tailwind.tss styles')
+	.action((args, options, logger) => {
+		purgetss.watchMode(options);
+	});
+
+program
 	.command('dev-mode')
 	.alias('d')
 	.description('Copy all available classes into app.tss')
