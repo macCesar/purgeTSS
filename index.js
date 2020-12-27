@@ -100,30 +100,36 @@ module.exports.devMode = devMode;
 function watchMode(options) {
 	if (alloyProject()) {
 		if (fs.existsSync(JMKFile)) {
-			// SI existe
+			logger.warn('./app/alloy.jmk', chalk.red('file already exists!'));
+
+			let updatedJMKFile = [];
+			let originalJMKFile = fs.readFileSync(JMKFile, 'utf8');
+			let includesPurgeTSS = (originalJMKFile.includes('purgeTSS'));
+			let includesPreCompileFunction = (originalJMKFile.includes('pre:compile'));
+
+			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
 			if (options.off) {
-				// quieren apagarlo
-				// quitar la línea o borrar archivo ???
-				fs.unlink(JMKFile, function(e) {
-					console.log('Deleted');
+				originalJMKFile.split(/\r?\n/).forEach((line) => {
+					if (!line.includes('purgeTSS')) {
+						updatedJMKFile.push(line);
+					}
 				});
-			} else {
-				// quieren encenderlo
-				// agregar la línea o copiar de nueve el archivo ???
-				fs.copyFileSync(srcJMKFile, JMKFile);
-				logger.file('alloy.jmk');
+				saveFile(JMKFile, updatedJMKFile.join("\n"));
+			} else if (!includesPurgeTSS) {
+				if (includesPreCompileFunction) {
+					originalJMKFile.split(/\r?\n/).forEach((line) => {
+						if (line.includes('pre:compile')) {
+							line += "\n\trequire('child_process').execSync('purgetss', logger.warn('::purgeTSS:: Auto-Purging ' + event.dir.project));";
+						}
+						updatedJMKFile.push(line);
+					});
+					saveFile(JMKFile, updatedJMKFile.join("\n"));
+				} else {
+					fs.appendFileSync(JMKFile, '\n' + fs.readFileSync(srcJMKFile, 'utf8'));
+				}
 			}
-		} else {
-			// NO existe
-			if (options.off) {
-				// quieren apagarlo
-				// NO HACER NADA
-			} else {
-				// quieren encenderlo pero NO existe
-				// Copiar el archivo
-				fs.copyFileSync(srcJMKFile, JMKFile);
-				logger.file('alloy.jmk');
-			}
+		} else if (!options.off) {
+			createJMKFile();
 		}
 	}
 }
@@ -699,4 +705,9 @@ function saveFile(file, data) {
 	fs.writeFileSync(file, data, err => {
 		throw err;
 	});
+}
+
+function createJMKFile() {
+	fs.copyFileSync(srcJMKFile, JMKFile);
+	logger.file('alloy.jmk');
 }
