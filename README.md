@@ -182,7 +182,7 @@ Autorun `purgetss` every time you compile your project.
 
 Use this command if you want `purgetss` to autorun every time you compile your project. This is very useful in combination with `LiveView` because it will purge all your files every time you make a change, for example when adding or deleting styles in your Views.
 
-To turn watch mode off use --off option
+To turn watch mode off use the --off option
 ```bash
 > purgetss watch --off
 
