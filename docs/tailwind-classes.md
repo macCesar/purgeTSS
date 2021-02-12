@@ -68,3 +68,6 @@
 
 - ### Opacity
 	> For any element that uses the `'opacity'` property.
+
+- ### Display
+	> For any element that uses the `'visible'` property.

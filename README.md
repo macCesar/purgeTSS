@@ -79,6 +79,7 @@ You can customize the following keys:
 - borderRadius
 - borderWidth
 - opacity
+- visible
 - *Your own class names or any Ti Element with any number of attributes or conditional statements*
 
 ### build-custom
@@ -212,8 +213,8 @@ Use this markup to test `purgeTSS`.
         <ImageView class="w-16 h-16 mx-auto rounded-16" image="https://randomuser.me/api/portraits/men/43.jpg" />
 
         <View class="vertical">
-          <Label class="text-lg text-gray-900 font-semibold">John W. Doe</Label>
-          <Label class="mt-0.5 text-purple-600 text-sm">Product Engineer</Label>
+          <Label class="text-lg font-semibold text-gray-900">John W. Doe</Label>
+          <Label class="text-sm text-purple-600 mt-0.5">Product Engineer</Label>
 
           <View class="w-screen">
             <View class="ml-0 horizontal">

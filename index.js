@@ -36,6 +36,7 @@ const purgeTSSFolder = cwd + '/purgetss';
 const customTSS = purgeTSSFolder + '/custom.tss';
 const customTailwind = purgeTSSFolder + '/tailwind.tss';
 const configJS = purgeTSSFolder + '/config.js';
+// const configJS = cwd + '/tailwind.config.js';
 const JMKFile = cwd + '/app/alloy.jmk';
 const resetTSS = path.resolve(__dirname, './tss/reset.tss');
 const tailwindSourceTSS = path.resolve(__dirname, './tss/tailwind.tss');
@@ -206,7 +207,7 @@ function getUniqueClasses() {
 	});
 
 	if (widgets) {
-		// Parse Widgets' Views ( Experimental )
+		//! Parse Widgets' Views ( Experimental )
 		viewPaths.push(...glob.sync(cwd + '/app/widgets/**/views/*.xml'));
 	}
 
@@ -330,6 +331,9 @@ function buildCustomTailwind() {
 
 	// Border Width
 	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth', false);
+
+	// Display
+	configFile.theme.displayUtilities = {};
 
 	// Margin
 	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin', true);
@@ -494,6 +498,8 @@ function buildCustomValues(key, value) {
 			return helpers.borderRadiusExtraStyles(value);
 		case 'borderWidth':
 			return helpers.borderWidth(value);
+		case 'displayUtilities':
+			return helpers.displayUtilities();
 		case 'scrollableRegion':
 			return helpers.scrollableRegion();
 		case 'margin':
