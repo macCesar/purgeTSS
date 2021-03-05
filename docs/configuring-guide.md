@@ -194,7 +194,7 @@ module.exports = {
 }
 ```
 
-By default, these colors are inherited by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` properties.
+By default, these colors are inherited by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor` properties.
 
 
 ### Nested object syntax
@@ -227,7 +227,7 @@ module.exports = {
 ```
 
 ### Shared colors
-All colors defined in the `colors` property are automatically shared with the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, and `gradientColorStops` properties.
+All colors defined in the `colors` property are automatically shared with the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor`  properties.
 
 > **When you include the `colors` property, `purgeTSS` will automatically generate all color-related preperties and merge them with any other color-related preperties present in the configuration file.**
 
