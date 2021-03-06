@@ -17,7 +17,7 @@ program
 	.command('init')
 	.alias('i')
 	.description('Create a purgeTSS config file for your project')
-	.help('It will create a minimal config.js file inside the purgetss folder at the root of your project.')
+	.help('It will create a minimal config.js file inside your project’s fonts folder.')
 	.action((args, options, logger) => {
 		purgetss.init();
 	});
@@ -46,7 +46,7 @@ program
 	.alias('d')
 	.description('Copy all available classes into app.tss')
 	.help('Use this command if you want to copy all available styles from tailwind.tss ( or from a custom tailwind.tss when available ), fontawesome.tss, materialicons.tss, lineicons.tss files into app.tss while prototyping your App.')
-	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from a specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom tailwind.tss styles')
+	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from an specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom tailwind.tss styles')
 	.action((args, options, logger) => {
 		purgetss.devMode(options);
 	});
@@ -56,7 +56,7 @@ program
 	.alias('c')
 	.description('Copy Font Awesome icons, Material Design Icons and LineIcons Fonts into your project')
 	.help('Command to copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • Material Design Icons\n   • LineIcons\n\nInto your projects’s app/assets/fonts/ folder.\n\nWith their names fixed to work with your app whether it is for iOS or for Android.')
-	.option('-f, --files <arguments>', 'Use any of the following arguments to copy fonts from a specific provider:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons')
+	.option('-f, --files <arguments>', 'Use any of the following arguments to copy fonts from an specific provider:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons')
 	.action((args, options, logger) => {
 		purgetss.copyFonts(options);
 	});
