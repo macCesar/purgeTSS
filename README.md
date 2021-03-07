@@ -93,7 +93,7 @@ It will generate a new `tailwind.tss` file inside the `purgetss` folder, with th
 
 **After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file instead of the default file.**
 
-### To learn more see [Configuring and customizing styles](/docs/configuring-guide.md)
+### To learn more see [Customization and Configuration Guide](/docs/configuring-guide.md)
 
 ### Custom `fontawesome.tss` file with Pro Account
 If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `fontawesome.tss` file with all available classes. ***(except duotone icons, see note below)***
