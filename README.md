@@ -96,7 +96,7 @@ It will generate a new `tailwind.tss` file inside the `purgetss` folder, with th
 ### To learn more see [Configuring and customizing styles](/docs/configuring-guide.md)
 
 ### Custom `fontawesome.tss` file with Pro Account
-If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `fontawesome.tss` file with all available classes. ***(except duotone icons see Note below)***
+If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `fontawesome.tss` file with all available classes. ***(except duotone icons, see note below)***
 
 After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro)** with your token, you can install them in your project's root folder with `npm init` and `npm install --save @fortawesome/fontawesome-pro`
 
