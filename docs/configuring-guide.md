@@ -1,7 +1,7 @@
 # **Customization and Configuration Guide**
 
-- [**Configuring Guide**](#configuring-guide)
-  - [Customization and configuration](#customization-and-configuration)
+- [**Customization and Configuration Guide**](#customization-and-configuration-guide)
+  - [Customization](#customization)
   - [Creating your configuration file](#creating-your-configuration-file)
   - [Generating your custom `tailwind.tss` file](#generating-your-custom-tailwindtss-file)
   - [Configuration file example](#configuration-file-example)
