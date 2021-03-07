@@ -1,4 +1,4 @@
-# **Configuring Guide**
+# **Customization and Configuration Guide**
 
 - [**Configuring Guide**](#configuring-guide)
   - [Customization and configuration](#customization-and-configuration)
@@ -41,7 +41,7 @@
     - [Opacity](#opacity)
 - [**Adding your own properties**](#adding-your-own-properties)
 
-## Customization and configuration
+## Customization
 By default, `purgetss` will look for an optional `./purgetss/config.js` where you can define any customizations.
 
 Every section of the config file is optional, so you only have to specify what you'd like to change. Any missing sections will fall back to the default configuration.
