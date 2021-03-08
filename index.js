@@ -42,7 +42,8 @@ const customTailwindFile = cwd + '/purgetss/tailwind.tss';
 const defaultTailwindFile = path.resolve(__dirname, './tss/tailwind.tss');
 //
 const customFontAwesomeFile = cwd + '/purgetss/fontawesome.tss';
-const customFontAwesomeJSFile = cwd + '/purgetss/fontawesome.js';
+const destLibFolder = cwd + '/app/lib';
+const customFontAwesomeJSFile = cwd + '/app/lib/fontawesome.js';
 const srcFontAwesomeProCSSFile = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css';
 const srcFontAwesomeProWebFontsFolder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/';
 //
@@ -123,7 +124,7 @@ function buildCustomFontAwesomeJS() {
 
 			});
 
-			let paraJS = '\nconst fontawesome = {\n';
+			let paraJS = 'const fontawesome = {\n';
 
 			_.each(rules, rule => {
 				if (rule) {
@@ -133,15 +134,17 @@ function buildCustomFontAwesomeJS() {
 
 			paraJS += '};\n';
 
-			let tssClasses = fs.readFileSync(path.resolve(__dirname, './lib/templates/fa.js'), 'utf8');
+			let tssClasses = fs.readFileSync(path.resolve(__dirname, './lib/templates/fa-custom.js'), 'utf8');
 
 			tssClasses += paraJS;
+
+			makeSureFolderExists(destLibFolder);
 
 			fs.writeFileSync(customFontAwesomeJSFile, tssClasses, err => {
 				throw err;
 			});
 
-			console.log(`${purgeLabel} './tss/fontawesome.js' file created!`);
+			logger.file('./purgetss/fontawesome.js');
 		});
 	}
 }
