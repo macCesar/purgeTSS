@@ -42,6 +42,7 @@ const customTailwindFile = cwd + '/purgetss/tailwind.tss';
 const defaultTailwindFile = path.resolve(__dirname, './tss/tailwind.tss');
 //
 const customFontAwesomeFile = cwd + '/purgetss/fontawesome.tss';
+const customFontAwesomeJSFile = cwd + '/purgetss/fontawesome.js';
 const srcFontAwesomeProCSSFile = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css';
 const srcFontAwesomeProWebFontsFolder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/';
 //
@@ -75,6 +76,7 @@ function buildCustom() {
 		initIfNotConfig()
 		buildCustomTailwind();
 		buildCustomFontAwesome();
+		buildCustomFontAwesomeJS();
 	}
 }
 module.exports.buildCustom = buildCustom;
@@ -98,9 +100,49 @@ function buildCustomFontAwesome() {
 
 			// Check if fonts are copied to assets/fonts
 			makeSureFolderExists(destFontsFolder);
+
 			copyProFonts();
 		});
 
+	}
+}
+
+function buildCustomFontAwesomeJS() {
+	if (fs.existsSync(srcFontAwesomeProCSSFile)) {
+		readCSS(srcFontAwesomeProCSSFile, (err, data) => {
+			if (err) throw err
+
+			let rules = _.map(data.stylesheet.rules, rule => {
+				// Without Duotones
+				if (rule.type === 'rule' && rule.selectors[ 0 ].includes(':before') && !rule.selectors[ 0 ].includes('.fad')) {
+					return {
+						'selector': rule.selectors[ 0 ].replace(':before', ''),
+						'property': rule.declarations[ 0 ].value.replace('\"\\', '').replace('\"', '')
+					};
+				}
+
+			});
+
+			let paraJS = '\nconst fontawesome = {\n';
+
+			_.each(rules, rule => {
+				if (rule) {
+					paraJS += `\t'${rule.selector}': '\\u${rule.property}',\n`;
+				}
+			});
+
+			paraJS += '};\n';
+
+			let tssClasses = fs.readFileSync(path.resolve(__dirname, './lib/templates/fa.js'), 'utf8');
+
+			tssClasses += paraJS;
+
+			fs.writeFileSync(customFontAwesomeJSFile, tssClasses, err => {
+				throw err;
+			});
+
+			console.log(`${purgeLabel} './tss/fontawesome.js' file created!`);
+		});
 	}
 }
 
