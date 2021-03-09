@@ -1,8 +1,9 @@
 // Font Families
+'.fa':{ font: { fontFamily: 'FontAwesome5Pro-Solid' } }
+'.fas': { font: { fontFamily: 'FontAwesome5Pro-Solid' } }
+'.fal': { font: { fontFamily: 'FontAwesome5Pro-Light' } }
+'.far': { font: { fontFamily: 'FontAwesome5Pro-Regular' } }
 '.fab': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
-'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
-'.fa':{ font: { fontFamily: 'FontAwesome5Free-Solid' } }
-'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
 
 // Font Sizes
 '.fa-lg': { font: { fontSize: 21 } }

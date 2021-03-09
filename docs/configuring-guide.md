@@ -1,7 +1,7 @@
-# **Configuring Guide**
+# **Customization and Configuration Guide**
 
-- [**Configuring Guide**](#configuring-guide)
-  - [Customization and configuration](#customization-and-configuration)
+- [**Customization and Configuration Guide**](#customization-and-configuration-guide)
+  - [Customization](#customization)
   - [Creating your configuration file](#creating-your-configuration-file)
   - [Generating your custom `tailwind.tss` file](#generating-your-custom-tailwindtss-file)
   - [Configuration file example](#configuration-file-example)
@@ -41,7 +41,7 @@
     - [Opacity](#opacity)
 - [**Adding your own properties**](#adding-your-own-properties)
 
-## Customization and configuration
+## Customization
 By default, `purgetss` will look for an optional `./purgetss/config.js` where you can define any customizations.
 
 Every section of the config file is optional, so you only have to specify what you'd like to change. Any missing sections will fall back to the default configuration.
@@ -194,7 +194,7 @@ module.exports = {
 }
 ```
 
-By default, these colors are inherited by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` properties.
+By default, these colors are inherited by the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor` properties.
 
 
 ### Nested object syntax
@@ -227,7 +227,7 @@ module.exports = {
 ```
 
 ### Shared colors
-All colors defined in the `colors` property are automatically shared with the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, and `gradientColorStops` properties.
+All colors defined in the `colors` property are automatically shared with the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor`  properties.
 
 > **When you include the `colors` property, `purgeTSS` will automatically generate all color-related preperties and merge them with any other color-related preperties present in the configuration file.**
 

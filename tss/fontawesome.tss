@@ -4,10 +4,10 @@
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
 
 // Font Families
-'.fab': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
-'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
 '.fa':{ font: { fontFamily: 'FontAwesome5Free-Solid' } }
 '.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
+'.fab': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
 
 // Font Sizes
 '.fa-lg': { font: { fontSize: 21 } }

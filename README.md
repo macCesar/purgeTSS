@@ -91,9 +91,18 @@ You can customize the following keys:
 ```
 It will generate a new `tailwind.tss` file inside the `purgetss` folder, with the attributes defined in `./purgetss/config.js`.
 
-**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file instead of the default Tailwind file.**
+**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file instead of the default file.**
 
-### To learn more see **[Configuring and customizing styles](/docs/configuring-guide.md)**
+### To learn more see [Customization and Configuration Guide](/docs/configuring-guide.md)
+
+### Custom `fontawesome.tss` file for Font Awesome Pro Account users
+If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `fontawesome.tss` file with all available classes. ***(except duotone icons, see note below)***
+
+After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro)** with your token, you can install them in your project's root folder with `npm init` and `npm install --save @fortawesome/fontawesome-pro` (current version 5.15.2)
+
+Now, all you have to do is run `purgetss custom-build` and it will automatically generate a new `purgetss/fontawesome.tss` file and if needed, it will copy the Pro fonts files into `assets/fonts`.
+
+**Note: Titanium can't use FontAwesome's Duotone icons because they have two separate glyphs for each individual icon.**
 
 ### dev-mode
 ```bash
