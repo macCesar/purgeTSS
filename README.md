@@ -102,6 +102,28 @@ After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-t
 
 Now, all you have to do is run `purgetss custom-build` and it will automatically generate a new `purgetss/fontawesome.tss` file and if needed, it will copy the Pro fonts files into `assets/fonts`.
 
+### Font Awesome 6 Alpha
+You can even generate a custom `fontawesome.tss` file from Font Awesome 6 Alpha.
+
+Just move the following folders from `fontawesome-pro-6.0.0-alpha2`:
+```bash
+fontawesome-pro-6.0.0-alpha2
+  /fontawesome6
+    /pro
+      /css
+      /webfonts
+```
+
+Into `purgetss/fontawesome-beta` folder:
+```bash
+purgetss
+  /fontawesome-beta
+    /css
+    /webfonts
+```
+
+And as with the Pro Version just run `purgetss build-custom` to generate your custom `fontawesome.tss` file to beta-test your new icons!
+
 **Note: Titanium can't use FontAwesome's Duotone icons because they have two separate glyphs for each individual icon.**
 
 ### dev-mode
@@ -312,7 +334,7 @@ Every time you run `purgetss` it will copy everything from `_app.tss` to `app.ts
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
 
-// Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
