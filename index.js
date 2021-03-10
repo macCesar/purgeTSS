@@ -143,7 +143,7 @@ function prettifyFontName(str) {
 		temp[ i ] = temp[ i ].charAt(0).toUpperCase() + temp[ i ].slice(1);
 	}
 
-	pretty = temp.join('').replace(':','');
+	pretty = temp.join('').replace(':', '');
 	pretty = pretty.replace(/^.{1}/g, pretty[ 0 ].toLowerCase());
 
 	return pretty;
