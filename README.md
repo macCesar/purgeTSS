@@ -108,8 +108,10 @@ You can even generate a custom `fontawesome.tss` file from Font Awesome 6 Alpha.
 Just move the following folders from `fontawesome-pro-6.0.0-alpha2`:
 ```bash
 fontawesome-pro-6.0.0-alpha2
-  /css
-  /webfonts
+  /fontawesome6
+    /pro
+      /css
+      /webfonts
 ```
 
 Into `purgetss/fontawesome-beta` folder:
