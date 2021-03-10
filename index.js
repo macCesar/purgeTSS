@@ -13,16 +13,16 @@ module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
 
 const logger = {
-	info: function (...args) {
+	info: function(...args) {
 		console.log(purgeLabel, args.join(' '));
 	},
-	warn: function (...args) {
+	warn: function(...args) {
 		console.log(purgeLabel, chalk.yellow(args.join(' ')));
 	},
-	error: function (...args) {
+	error: function(...args) {
 		console.log(purgeLabel, chalk.red(args.join(' ')));
 	},
-	file: function (...args) {
+	file: function(...args) {
 		console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!');
 	}
 }
@@ -44,8 +44,31 @@ const defaultTailwindFile = path.resolve(__dirname, './tss/tailwind.tss');
 const customFontAwesomeFile = cwd + '/purgetss/fontawesome.tss';
 const destLibFolder = cwd + '/app/lib';
 const customFontAwesomeJSFile = cwd + '/app/lib/fontawesome.js';
+
+// PRO
 const srcFontAwesomeProCSSFile = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css';
 const srcFontAwesomeProWebFontsFolder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/';
+const srcFontAwesomeProResetTSS = './lib/templates/fontawesome-pro-reset.tss';
+const srcFontAwesomeProTemplateTSS = './lib/templates/fontawesome-pro-template.tss';
+const srcFontAwesomeProFontFamilies = {
+	'fa-light-300.ttf': 'FontAwesome5Pro-Light.ttf',
+	'fa-brands-400.ttf': 'FontAwesome5Brands-Regular.ttf',
+	'fa-regular-400.ttf': 'FontAwesome5Pro-Regular.ttf',
+	'fa-solid-900.ttf': 'FontAwesome5Pro-Solid.ttf'
+}
+
+// BETA
+const srcFontAwesomeBetaCSSFile = cwd + '/purgetss/fontawesome-beta/css/all.css';
+const srcFontAwesomeBetaWebFontsFolder = cwd + '/purgetss/fontawesome-beta/webfonts/';
+const srcFontAwesomeBetaResetTSS = './lib/templates/fontawesome-beta-reset.tss';
+const srcFontAwesomeBetaTemplateTSS = './lib/templates/fontawesome-beta-template.tss';
+const srcFontAwesomeBetaFontFamilies = {
+	'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
+	'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
+	'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
+	'fa-regular-400.ttf': 'FontAwesome6Pro-Regular.ttf',
+	'fa-solid-900.ttf': 'FontAwesome6Pro-Solid.ttf',
+}
 //
 const srcFontsFolder = path.resolve(__dirname, './assets/fonts');
 const srcResetTSSFile = path.resolve(__dirname, './tss/reset.tss');
@@ -83,98 +106,109 @@ function buildCustom() {
 module.exports.buildCustom = buildCustom;
 
 function buildCustomFontAwesome() {
-	if (fs.existsSync(srcFontAwesomeProCSSFile)) {
-		readCSS(srcFontAwesomeProCSSFile, (err, data) => {
-			if (err) throw err
-
-			let tssClasses = fs.readFileSync(path.resolve(__dirname, './lib/templates/fontawesome-pro-template.tss'), 'utf8') + '\n';
-
-			tssClasses += fs.readFileSync(path.resolve(__dirname, './lib/templates/fontawesome-pro-reset.tss'), 'utf8') + '\n';
-
-			tssClasses += processFontawesomeStyles(data);
-
-			fs.writeFileSync(customFontAwesomeFile, tssClasses, err => {
-				throw err;
-			});
-
-			logger.file('./purgetss/fontawesome.tss');
-
-			// Check if fonts are copied to assets/fonts
-			makeSureFolderExists(destFontsFolder);
-
-			copyProFonts();
-		});
-
+	if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
+		processCustomFontAwesomeTSS(srcFontAwesomeBetaCSSFile, srcFontAwesomeBetaTemplateTSS, srcFontAwesomeBetaResetTSS, srcFontAwesomeBetaFontFamilies, srcFontAwesomeBetaWebFontsFolder);
+	} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
+		processCustomFontAwesomeTSS(srcFontAwesomeProCSSFile, srcFontAwesomeProTemplateTSS, srcFontAwesomeProResetTSS, srcFontAwesomeProFontFamilies, srcFontAwesomeProWebFontsFolder);
 	}
 }
 
+function processCustomFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilies, webFonts) {
+	readCSS(CSSFile, (err, data) => {
+		if (err) throw err
+
+		let tssClasses = fs.readFileSync(path.resolve(__dirname, templateTSS), 'utf8') + '\n';
+
+		tssClasses += fs.readFileSync(path.resolve(__dirname, resetTSS), 'utf8') + '\n';
+
+		tssClasses += processFontawesomeStyles(data);
+
+		fs.writeFileSync(customFontAwesomeFile, tssClasses, err => {
+			throw err;
+		});
+
+		logger.file('./purgetss/fontawesome.tss');
+
+		// Check if fonts are copied to assets/fonts
+		makeSureFolderExists(destFontsFolder);
+
+		copyProFonts(fontFamilies, webFonts);
+	});
+}
 function prettifyFontName(str) {
-	str = str.replace('.fa-', '');
+	str = str.replace('fa-', '');
 	var temp = str.split('-'), i, pretty;
 
 	for (i = 0; i < temp.length; i++) {
-		temp[i] = temp[i].charAt(0).toUpperCase() + temp[i].slice(1);
+		temp[ i ] = temp[ i ].charAt(0).toUpperCase() + temp[ i ].slice(1);
 	}
 
 	pretty = temp.join('');
-	pretty = pretty.replace(/^.{1}/g, pretty[0].toLowerCase());
+	pretty = pretty.replace(/^.{1}/g, pretty[ 0 ].toLowerCase());
 
 	return pretty;
 };
 
 function buildCustomFontAwesomeJS() {
-	if (fs.existsSync(srcFontAwesomeProCSSFile)) {
-		readCSS(srcFontAwesomeProCSSFile, (err, data) => {
-			if (err) throw err
-
-			let rules = _.map(data.stylesheet.rules, rule => {
-				// Without Duotones
-				if (rule.type === 'rule' && rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
-					return {
-						'selector': rule.selectors[0].replace(':before', ''),
-						'property': rule.declarations[0].value.replace('\"\\', '').replace('\"', '')
-					};
-				}
-
-			});
-
-			let paraJS = 'const fontawesome = {\n';
-
-			_.each(rules, rule => {
-				if (rule) {
-					paraJS += `\t'${rule.selector}': '\\u${rule.property}',\n`;
-				}
-			});
-
-			paraJS += '};\n';
-
-			let tssClasses = fs.readFileSync(path.resolve(__dirname, './lib/templates/fa-custom.js'), 'utf8');
-
-			tssClasses += paraJS;
-
-			let exportIcons = 'const icons = {\n';
-
-			_.each(rules, rule => {
-				if (rule) {
-					exportIcons += `\t'${prettifyFontName(rule.selector)}': '\\u${rule.property}',\n`;
-				}
-			});
-
-			exportIcons += '};\n';
-			exportIcons += 'exports.icons = icons;\n';
-
-			tssClasses += exportIcons;
-
-
-			makeSureFolderExists(destLibFolder);
-
-			fs.writeFileSync(customFontAwesomeJSFile, tssClasses, err => {
-				throw err;
-			});
-
-			logger.file('./purgetss/fontawesome.js');
-		});
+	if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
+		processCustomFontAwesomeJS(srcFontAwesomeBetaCSSFile, './lib/templates/fa-beta.js');
+	} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
+		processCustomFontAwesomeJS(srcFontAwesomeProCSSFile, './lib/templates/fa-pro.js');
 	}
+}
+
+function processCustomFontAwesomeJS(CSSFile, faJS) {
+	readCSS(CSSFile, (err, data) => {
+		if (err) throw err
+
+		let rules = _.map(data.stylesheet.rules, rule => {
+			if (rule.type === 'rule' && rule.selectors[ 0 ].includes(':before') && !rule.selectors[ 0 ].includes('.fad')) {
+				return {
+					'selector': rule.selectors[ 0 ].replace(':before', '').replace('.', ''),
+					'property': rule.declarations[ 0 ].value.replace('\"\\', '').replace('\"', '')
+				};
+			}
+		});
+
+		let paraJS = 'const fontawesome = {\n';
+
+		_.each(rules, rule => {
+			if (rule) {
+				paraJS += `\t'${rule.selector}': '\\u${rule.property}',\n`;
+			}
+		});
+
+		paraJS += '};\n';
+
+		paraJS += 'exports.fontawesome = fontawesome;\n';
+
+		let tssClasses = fs.readFileSync(path.resolve(__dirname, faJS), 'utf8');
+
+		tssClasses += '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/fa-functions.js'), 'utf8');
+
+		tssClasses += '\n' + paraJS;
+
+		let exportIcons = '\nconst icons = {\n';
+
+		_.each(rules, rule => {
+			if (rule) {
+				exportIcons += `\t'${prettifyFontName(rule.selector)}': '\\u${rule.property}',\n`;
+			}
+		});
+
+		exportIcons += '};\n';
+		exportIcons += 'exports.icons = icons;\n';
+
+		tssClasses += exportIcons;
+
+		makeSureFolderExists(destLibFolder);
+
+		fs.writeFileSync(customFontAwesomeJSFile, tssClasses, err => {
+			throw err;
+		});
+
+		logger.file('./purgetss/fontawesome.js');
+	});
 }
 
 function copyFreeFonts() {
@@ -185,21 +219,15 @@ function copyFreeFonts() {
 
 	logger.info('Font Awesome Free Icons Fonts copied to', chalk.yellow('./app/assets/fonts'));
 }
-function copyProFonts() {
-	let fontFamilies = {
-		'fa-brands-400.ttf': 'FontAwesome5Brands-Regular.ttf',
-		'fa-light-300.ttf': 'FontAwesome5Pro-Light.ttf',
-		'fa-regular-400.ttf': 'FontAwesome5Pro-Regular.ttf',
-		'fa-solid-900.ttf': 'FontAwesome5Pro-Solid.ttf',
-		'fa-thin-100.ttf': 'FontAwesome6Pro-Thin'
-	}
 
+function copyProFonts(fontFamilies, webFonts) {
 	_.each(fontFamilies, (dest, src) => {
-		if (copyFile(`${srcFontAwesomeProWebFontsFolder}/${src}`, dest)) {
+		if (copyFile(`${webFonts}/${src}`, dest)) {
 			logger.info(`${dest} Font copied to`, chalk.yellow('./app/assets/fonts'));
 		}
 	});
 }
+
 function copyMaterialDesignFonts() {
 	// Material Desing Icons Font
 	let fontFamilies = [
@@ -216,6 +244,7 @@ function copyMaterialDesignFonts() {
 		}
 	});
 }
+
 function copyLineIconsFonts() {
 	// LineIcons Font
 	if (copyFile(srcFontsFolder + '/LineIcons.ttf', 'LineIcons.ttf')) {
@@ -228,10 +257,10 @@ function processFontawesomeStyles(data) {
 
 	let rules = _.map(data.stylesheet.rules, rule => {
 		// Without Duotones
-		if (rule.type === 'rule' && rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
+		if (rule.type === 'rule' && rule.selectors[ 0 ].includes(':before') && !rule.selectors[ 0 ].includes('.fad')) {
 			return {
-				'selector': rule.selectors[0].replace(':before', ''),
-				'property': rule.declarations[0].value.replace('\"\\', '').replace('\"', '')
+				'selector': rule.selectors[ 0 ].replace(':before', ''),
+				'property': rule.declarations[ 0 ].value.replace('\"\\', '').replace('\"', '')
 			};
 		}
 
@@ -482,10 +511,10 @@ function buildCustomTailwind() {
 	configFile.theme.Window = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 	configFile.theme.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
 	configFile.theme.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
-	configFile.theme['.vertical'] = _.merge({ default: { layout: 'vertical' }, ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme['.vertical']);
-	configFile.theme['.horizontal'] = _.merge({ default: { layout: 'horizontal' }, ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme['.horizontal']);
-	configFile.theme['.clip-enabled'] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED' } }, configFile.theme['.clip-enabled']);
-	configFile.theme['.clip-disabled'] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme['.clip-disabled']);
+	configFile.theme[ '.vertical' ] = _.merge({ default: { layout: 'vertical' }, ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme[ '.vertical' ]);
+	configFile.theme[ '.horizontal' ] = _.merge({ default: { layout: 'horizontal' }, ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme[ '.horizontal' ]);
+	configFile.theme[ '.clip-enabled' ] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED' } }, configFile.theme[ '.clip-enabled' ]);
+	configFile.theme[ '.clip-disabled' ] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme[ '.clip-disabled' ]);
 
 	// color
 	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor', true);
@@ -573,10 +602,10 @@ function buildCustomTailwind() {
 	delete configFile.theme.borderRadius;
 
 	_.each(configFile.corePlugins, (value, key) => {
-		delete configFile.theme[key];
+		delete configFile.theme[ key ];
 	});
 
-	let sorted = Object.entries(configFile.theme).sort().reduce((object, [key, value]) => (object[key] = value, object), {});
+	let sorted = Object.entries(configFile.theme).sort().reduce((object, [ key, value ]) => (object[ key ] = value, object), {});
 
 	_.each(sorted, (value, key) => {
 		convertedStyles += buildCustomValues(key, value);
@@ -590,14 +619,14 @@ function buildCustomTailwind() {
 function combineKeys(values, base, key, extras = false) {
 	let _extras = (extras) ? base : {};
 
-	return (values[key]) ? { ..._extras, ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] };
+	return (values[ key ]) ? { ..._extras, ...values[ key ], ...values.extend[ key ] } : { ...base, ...values.extend[ key ] };
 }
 
 function extractClasses(currentText, currentFile) {
 	try {
 		let jsontext = convert.xml2json(encodeHTML(currentText), { compact: true });
 
-		return traverse(JSON.parse(jsontext)).reduce(function (acc, value) {
+		return traverse(JSON.parse(jsontext)).reduce(function(acc, value) {
 			if (this.key === 'class' || this.key === 'id') acc.push(value.split(' '));
 			return acc;
 		}, []);
@@ -610,7 +639,7 @@ function encodeHTML(str) {
 	const code = {
 		'&': '&amp;',
 	};
-	return str.replace(/[&]/gm, i => code[i]);
+	return str.replace(/[&]/gm, i => code[ i ]);
 }
 
 function callback(err) {
@@ -640,7 +669,13 @@ function copyFont(vendor) {
 		case 'fa':
 		case 'font':
 		case 'fontawesome':
-			fs.existsSync(customFontAwesomeFile) ? copyProFonts() : copyFreeFonts();
+			if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
+				copyProFonts(srcFontAwesomeBetaFontFamilies, srcFontAwesomeBetaWebFontsFolder);
+			} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
+				copyProFonts(srcFontAwesomeProFontFamilies, srcFontAwesomeProWebFontsFolder);
+			} else {
+				copyFreeFonts();
+			}
 			break;
 		case 'md':
 		case 'material':
