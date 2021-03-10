@@ -164,7 +164,7 @@ function processCustomFontAwesomeJS(CSSFile, faJS) {
 		let rules = _.map(data.stylesheet.rules, rule => {
 			if (rule.type === 'rule' && rule.selectors[ 0 ].includes(':before') && !rule.selectors[ 0 ].includes('.fad')) {
 				return {
-					'selector': rule.selectors[ 0 ].replace(':before', '').replace('.', ''),
+					'selector': rule.selectors[ 0 ].replace(':before', '').replace('.', '').replace(':', ''),
 					'property': rule.declarations[ 0 ].value.replace('\"\\', '').replace('\"', '')
 				};
 			}
@@ -259,7 +259,7 @@ function processFontawesomeStyles(data) {
 		// Without Duotones
 		if (rule.type === 'rule' && rule.selectors[ 0 ].includes(':before') && !rule.selectors[ 0 ].includes('.fad')) {
 			return {
-				'selector': rule.selectors[ 0 ].replace(':before', ''),
+				'selector': rule.selectors[ 0 ].replace(':before', '').replace(':', ''),
 				'property': rule.declarations[ 0 ].value.replace('\"\\', '').replace('\"', '')
 			};
 		}
