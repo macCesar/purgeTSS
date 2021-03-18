@@ -8,9 +8,20 @@
 > From now on, add, update or remove your custom classes in `_app.tss.`
 
 # purgeTSS
-`purgeTSS` is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your XML Files.
+`purgeTSS` An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that generates a set of Tailwind-like classes and values to easily and quickly create beautiful designs in your mobile Apps.
 
-It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss) and your [custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md) file.
+It will create a clean `app.tss` with only used classes on-the-fly. In addition, all default classes can be customized by a simple configuration file. 
+
+Also, the use of Font Awesome, Material Design and Line Icons is supported.
+
+It is the all-round package for all Titanium Developers who want to easily and quickly create beautiful designs to satisfy their customers.
+
+List of available classes:
+- [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss)
+- [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss)
+- [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss)
+- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss)
+- [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md) file.
 
 **ALL your classes from your original ʻapp.tss` file will be copied without purging.**
 
