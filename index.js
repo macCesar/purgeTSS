@@ -188,7 +188,7 @@ function purgeClasses(options) {
 
 			logger.file('app.tss');
 
-			logger.info(end());
+			logger.info(finish());
 		}
 	}
 }
@@ -874,26 +874,15 @@ function copySelectedLibraries(selected) {
 	return tempPurged;
 }
 
-let startTime, endTime;
+let startTime;
 
 function start() {
 	startTime = new Date();
 };
 
-function end() {
-	endTime = new Date();
-
-	let elapsedTime = endTime - startTime; //in ms
-	let ms = elapsedTime % 1000;
-
-	elapsedTime = (elapsedTime - ms) / 1000;
-	let secs = elapsedTime % 60;
-	elapsedTime = (elapsedTime - secs) / 60;
-
-	let mins = elapsedTime % 60;
-	let hrs = (elapsedTime - mins) / 60;
-
-	return 'Finished purging in ' + chalk.green(`${secs}s ${ms}ms`);
+function finish() {
+	let endTime = new Date(new Date() - startTime);
+	return 'Finished purging in ' + chalk.green(`${endTime.getSeconds()}s ${endTime.getMilliseconds()}ms`);
 }
 
 //! Purge Functions
