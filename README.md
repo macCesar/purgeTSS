@@ -8,13 +8,13 @@
 > From now on, add, update or remove your custom classes in `_app.tss.`
 
 # purgeTSS
-`purgeTSS` An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that generates a set of Tailwind-like classes and values to easily and quickly create beautiful designs in your mobile Apps.
+An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that provides a set of Tailwind-like classes.
 
-It will create a clean `app.tss` with only used classes on-the-fly. In addition, all default classes can be customized by a simple configuration file. 
+- It creates a clean `app.tss` on-the-fly by parsing all XML files.
+- Every default class can be customized through a simple configuration file.
+- It allows you to use Font Awesome, Material Design and Line Icons in Lables and Buttons.
 
-Also, the use of Font Awesome, Material Design and Line Icons is supported.
-
-It is the all-round package for all Titanium Developers who want to easily and quickly create beautiful designs to satisfy their customers.
+It is the all-round package for all Titanium Developers who want to easily and quickly create beautifully designed mobile apps to satisfy their customers.
 
 List of available classes:
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss)
