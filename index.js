@@ -162,12 +162,14 @@ module.exports.copyFonts = copyFonts;
 
 //! Command: purgetss
 function purgeClasses(options) {
-	start();
+
 	if (alloyProject()) {
 		if (options.dev) {
 			options.files = options.dev;
 			devMode(options);
 		} else {
+			start();
+
 			let uniqueClasses = getUniqueClasses();
 
 			let tempPurged = backupOriginalAppTss();
@@ -185,10 +187,10 @@ function purgeClasses(options) {
 			saveFile(destAppTSSFile, tempPurged);
 
 			logger.file('app.tss');
+
+			logger.info(end());
 		}
 	}
-
-	logger.warn(end());
 }
 module.exports.purgeClasses = purgeClasses;
 
@@ -881,17 +883,17 @@ function start() {
 function end() {
 	endTime = new Date();
 
-	let milli = timeDiff = endTime - startTime; //in ms
+	let elapsedTime = endTime - startTime; //in ms
+	let ms = elapsedTime % 1000;
 
-	// strip the ms
-	timeDiff /= 1000;
+	elapsedTime = (elapsedTime - ms) / 1000;
+	let secs = elapsedTime % 60;
+	elapsedTime = (elapsedTime - secs) / 60;
 
-	// get seconds
-	let seconds = Math.round(timeDiff);
+	let mins = elapsedTime % 60;
+	let hrs = (elapsedTime - mins) / 60;
 
-	let plural = (seconds === 1) ? 'second' : 'seconds';
-
-	return `${seconds} ${plural} (${milli} ms)`;
+	return 'Finished purging in ' + chalk.green(`${secs}s ${ms}ms`);
 }
 
 //! Purge Functions
