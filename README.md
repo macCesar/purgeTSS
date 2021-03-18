@@ -7,7 +7,6 @@
 >
 > From now on, add, update or remove your custom classes in `_app.tss.`
 
-
 # purgeTSS
 `purgeTSS` is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your XML Files.
 
