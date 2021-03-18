@@ -95,6 +95,8 @@ function devMode(options) {
 			tempPurged += copyAllLibraries();
 		}
 
+		removeHook();
+
 		saveFile(destAppTSSFile, tempPurged);
 
 		logger.file('app.tss');
@@ -106,33 +108,13 @@ module.exports.devMode = devMode;
 function watchMode(options) {
 	if (alloyProject()) {
 		if (fs.existsSync(destJMKFile)) {
-			logger.warn('./app/alloy.jmk', chalk.red('file already exists!'));
-
-			let updatedJMKFile = [];
-			let originalJMKFile = fs.readFileSync(destJMKFile, 'utf8');
-			let includesPurgeTSS = (originalJMKFile.includes('purgeTSS'));
-			let includesPreCompileFunction = (originalJMKFile.includes('pre:compile'));
-
 			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
 			if (options.off) {
-				originalJMKFile.split(/\r?\n/).forEach((line) => {
-					if (!line.includes('purgeTSS')) {
-						updatedJMKFile.push(line);
-					}
-				});
-				saveFile(destJMKFile, updatedJMKFile.join("\n"));
-			} else if (!includesPurgeTSS) {
-				if (includesPreCompileFunction) {
-					originalJMKFile.split(/\r?\n/).forEach((line) => {
-						if (line.includes('pre:compile')) {
-							line += "\n\trequire('child_process').execSync('purgetss', logger.warn('::purgeTSS:: Auto-Purging ' + event.dir.project));";
-						}
-						updatedJMKFile.push(line);
-					});
-					saveFile(destJMKFile, updatedJMKFile.join("\n"));
-				} else {
-					fs.appendFileSync(destJMKFile, '\n' + fs.readFileSync(srcJMKFile, 'utf8'));
-				}
+				removeHook();
+			} else if (!fs.readFileSync(destJMKFile, 'utf8').includes('purgeTSS')) {
+				addHook();
+			} else {
+				logger.warn(chalk.yellow('Auto-Purging hook already present!'));
 			}
 		} else if (!options.off) {
 			createJMKFile();
@@ -409,6 +391,44 @@ function processFontawesomeStyles(data) {
 }
 
 //! Helper Functions
+function addHook() {
+	logger.warn(chalk.green('Adding Auto-Purging hook!'));
+	let originalJMKFile = fs.readFileSync(destJMKFile, 'utf8');
+
+	if (originalJMKFile.includes('pre:compile')) {
+		let updatedJMKFile = [];
+
+		originalJMKFile.split(/\r?\n/).forEach((line) => {
+			if (line.includes('pre:compile')) {
+				line += "\n\trequire('child_process').execSync('purgetss', logger.warn('::purgeTSS:: Auto-Purging ' + event.dir.project));";
+			}
+			updatedJMKFile.push(line);
+		});
+
+		saveFile(destJMKFile, updatedJMKFile.join("\n"));
+	} else {
+		fs.appendFileSync(destJMKFile, '\n' + fs.readFileSync(srcJMKFile, 'utf8'));
+	}
+}
+
+function removeHook() {
+	let updatedJMKFile = [];
+	let originalJMKFile = fs.readFileSync(destJMKFile, 'utf8');
+	let purgeCmdPresent = (originalJMKFile.includes('purgeTSS'));
+
+	if (purgeCmdPresent) {
+		originalJMKFile.split(/\r?\n/).forEach((line) => {
+			if (!line.includes('purgeTSS')) {
+				updatedJMKFile.push(line);
+			}
+		});
+
+		logger.warn(chalk.red('Auto-Purging hook removed!'));
+
+		saveFile(destJMKFile, updatedJMKFile.join("\n"));
+	}
+}
+
 function initIfNotConfig() {
 	if (!fs.existsSync(destConfigJSFile)) {
 		init();
@@ -999,6 +1019,7 @@ function saveFile(file, data) {
 }
 
 function createJMKFile() {
+	logger.warn(chalk.green('Adding Auto-Purging hook!'));
 	fs.copyFileSync(srcJMKFile, destJMKFile);
-	logger.file('alloy.jmk');
+	logger.file('./app/alloy.jmk');
 }
