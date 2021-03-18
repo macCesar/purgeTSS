@@ -187,7 +187,8 @@ function purgeClasses(options) {
 			logger.file('app.tss');
 		}
 	}
-	end();
+
+	logger.warn(end());
 }
 module.exports.purgeClasses = purgeClasses;
 
@@ -879,15 +880,18 @@ function start() {
 
 function end() {
 	endTime = new Date();
-	let timeDiff = endTime - startTime; //in ms
-	console.warn(timeDiff + " miliseconds");
-	/*
+
+	let milli = timeDiff = endTime - startTime; //in ms
+
 	// strip the ms
 	timeDiff /= 1000;
+
 	// get seconds
 	let seconds = Math.round(timeDiff);
-	console.warn(seconds + " seconds");
-	*/
+
+	let plural = (seconds === 1) ? 'second' : 'seconds';
+
+	return `${seconds} ${plural} (${milli} ms)`;
 }
 
 //! Purge Functions
