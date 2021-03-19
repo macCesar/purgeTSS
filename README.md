@@ -21,7 +21,7 @@ List of available classes:
 - [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss)
 - [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss)
 - [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss)
-- [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md) file.
+- [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 **ALL your classes from your original ʻapp.tss` file will be copied without purging.**
 
