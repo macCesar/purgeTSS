@@ -240,7 +240,7 @@ Use this command to update `purgeTSS` to the latest version.
 
 We constantly update purgeTSS to add new features, to include the latest versions of Tailwind, Tailwind UI and to fix bugs.
 
-## Sample files
+## Example files
 Use this markup to test `purgeTSS`.
 
 `index.xml`
