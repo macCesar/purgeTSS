@@ -3,7 +3,9 @@
 
 > When you run `purgeTSS` for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
-> From now on, add, update or remove your own classes in `_app.tss.`
+> From now on, add, update or remove your custom classes in `_app.tss.`
+>
+> Or better yet! Create a `config.js` file to **[configure and customize](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)** purgeTSS.
 
 # purgeTSS
 An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that provides a set of Tailwind-like classes.
@@ -14,7 +16,7 @@ An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile)
 
 It is the all-round package for all Titanium Developers who want to easily and quickly create beautifully designed mobile apps to satisfy their customers.
 
-List of available classes:
+List of available libraries:
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss)
 - [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss)
 - [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss)
@@ -24,18 +26,18 @@ List of available classes:
 **ALL your classes from your original ʻapp.tss` file will be copied without purging.**
 
 ## Installation
-Install it globally on your machine via [NPM](http://npmjs.org/).
+**Install it globally on your machine via [NPM](http://npmjs.org/).**
 ```bash
 > [sudo] npm i -g purgetss
 ```
 
 ## Purging classes
-To parse all your XML files, run `purgetss` inside the root directory of your project.
+To parse all your XML files, run `purgetss` inside your project's root directory.
 ```bash
 > purgetss
 ```
 
-`purgetss` will extract all the classes found and copy them along with all the styles originally declared in app.tss.
+`purgetss` will extract all available classes from your Views and copy them along with all your original styles from `app.tss`.
 
 **To test it, see the [example files](https://github.com/macCesar/purgeTSS/blob/master/README.md#example-files)**
 
@@ -48,7 +50,10 @@ To parse all your XML files, run `purgetss` inside the root directory of your pr
 # alias:
 > purgetss i
 ```
-Creates a minimal `config.js` file inside the `purgetss`  folder at the root of your project:
+
+By default, `purgetss` will look for an optional `./purgetss/config.js` file where you can define any customization.
+
+Creates a minimal `./purgetss/config.js` file at the root of your project:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -65,9 +70,9 @@ module.exports = {
   }
 };
 ```
-By default, `purgetss` will look for an optional `./purgetss/config.js` where you can define any customizations.
 
-Every section of the config file is optional, so you only have to specify what you'd like to change. Any missing sections will fall back to the default configuration.
+Every section of the config file is optional, so you only have to specify whatever you'd like to customize. Any missing sections will fall back to the default configuration.
+
 You can customize the following keys:
 
 - colors
@@ -90,30 +95,31 @@ You can customize the following keys:
 - borderWidth
 - opacity
 - visible
-- *Your own class names or any Ti Element with any number of attributes or conditional statements*
+- *Your own class names and any Ti Element with any number of attributes or conditional statements*
 
-### build-custom
+### build
+After customizing your `config.js` file, you'll need to generate a new `./purgetss/tailwind.tss` file by running:
+
 ```bash
-> purgetss build-custom
+> purgetss build
 
 # alias:
 > purgetss b
 ```
-It will generate a new `tailwind.tss` file inside the `purgetss` folder, with the attributes defined in `./purgetss/config.js`.
 
-**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file instead of the default file.**
+**After generating your custom `tailwind.tss` file, `purgeTSS` will use it instead of the default one.**
 
-### To learn more see [Customization and Configuration Guide](/docs/configuring-guide.md)
+## To learn more see [Customization and Configuration Guide](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 ### Custom `fontawesome.tss` file for Font Awesome Pro Account users
-If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `fontawesome.tss` file with all the available classes. ***(except duotone icons, see note below)***
+If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `./purgetss/fontawesome.tss` file with all the extra classes that the Pro version has. ***(except duotone icons, see note below)***
 
-After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro)** with your token, you can install them in your project's root folder with `npm init` and `npm install --save @fortawesome/fontawesome-pro` (current version 5.15.2)
+After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro)** with your token, you can install them in your project's root folder with `npm init` and `npm install --save @fortawesome/fontawesome-pro` (current version 5.15.3)
 
-Now, all you have to do is run `purgetss custom-build` and it will automatically generate a new `purgetss/fontawesome.tss` file and if needed, it will copy the Pro fonts files into `assets/fonts`.
+Now, all you have to do is run `purgetss build` and it will generate a new `purgetss/fontawesome.tss` file and if needed, it will automatically copy the Pro fonts files into `assets/fonts`.
 
 ### Font Awesome 6 Alpha
-You can even generate a custom `fontawesome.tss` file from Font Awesome 6 Alpha.
+You can even generate a custom `fontawesome.tss` file from **Font Awesome 6 Alpha**.
 
 Just move the following folders from `fontawesome-pro-6.0.0-alpha2`:
 ```bash
@@ -132,19 +138,19 @@ purgetss
     /webfonts
 ```
 
-And as with the Pro Version just run `purgetss build-custom` to generate your custom `fontawesome.tss` file to beta-test your new icons!
+And as with the Pro Version just run `purgetss build` to generate your custom `fontawesome.tss` file to beta-test your new icons!
 
 **Note: Titanium can't use FontAwesome's Duotone icons because they have two separate glyphs for each individual icon.**
 
-### dev-mode
+### dev ( NO LONGER RECOMMENDED, use [`purgetss watch`](https://github.com/macCesar/purgeTSS#watch) instead )
 ```bash
-> purgetss dev-mode
+> purgetss dev
 
 # alias:
 > purgetss d
 ```
 
-When you are creating a prototype of your application, you will want to have all the classes available in the `app.tss` file, rather than purging each time you add new classes to your XML views.
+When you are prototyping your application, you will want to have all available classes in `app.tss`, rather than purging each time you add/remove classes to your XML views.
 
 You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss`, `lineicons.tss` and your `custom.tss` file.
 
@@ -155,31 +161,34 @@ When you compile a very large `.tss` file, you will get the following note:
 
 **Not to mention the increased time to compile all classes and the increased size of all generated JS files within the styles folder!**
 
-To avoid this, you can copy the styles from the desired providers. *See below*.
+To avoid this, you can specify certain providers. *See below*.
 
-### Copying specific styles
+### Copying specific libraries
+Use any of the following arguments to copy specific vendor styles.
+
 ```bash
-> purgetss dev-mode --files="tailwind, fontawesome, materialdesign, lineicons, customstyles"
+> purgetss dev --files="tailwind, fontawesome, materialdesign, lineicons, customstyles"
 
 # alias:
 > purgetss d -f=tw,fa,md,li,cu
 ```
-Use any of the following arguments to copy specific vendor styles:
 
+Available aliases:
 - tw, tail, tailwind = Tailwind styles
 - fa, font, fontawesome = Font Awesome styles
 - md, material, materialdesign = Material Design Icons styles
 - li, line, lineicons = LineIcons styles
 - cu, custom, customstyles = Your Custom styles
 
-### copy-fonts
+### fonts
 ```bash
-> purgetss copy-fonts
+> purgetss fonts
 
 # alias:
-> purgetss c
+> purgetss f
 ```
-Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names corrected to work with your application, either for iOS or Android.
+
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names fixed to work with your application, either for iOS or Android.
 
 > FontAwesome5Brands-Regular.ttf
 >
@@ -200,14 +209,16 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 > LineIcons.ttf
 
 ### Copying specific fonts
+Use any of the following arguments to copy specific vendors:
+
 ```bash
-> purgetss copy-fonts --files="fontawesome, materialdesign, lineicons"
+> purgetss fonts --vendor="fontawesome, materialdesign, lineicons"
 
 # alias:
-> purgetss c -f=fa,md,li
+> purgetss c -v=fa,md,li
 ```
-Use any of the following arguments to copy specific vendor sources:
 
+Available aliases:
 - fa, font, fontawesome = Font Awesome Icons
 - md, material, materialdesign = Material Design Icons
 - li, line, lineicons = LineIcons
@@ -220,9 +231,15 @@ Use any of the following arguments to copy specific vendor sources:
 > purgetss w
 ```
 
-Use this command if you want `purgetss` to autorun every time you compile your project. This is very useful in combination with `LiveView` because it will purge all your files every time you make a change, for example when adding or deleting styles in your Views.
+Use this command to autorun `purgetss` every time you compile your project.
 
-To turn watch mode off use the --off option
+This is very useful in combination with `LiveView` because it will purge all your files every time you make a change, for example when adding or deleting styles in your Views.
+
+**You'll get instant feedback of any change you made and speed up your prototyping process significantly.**
+
+*This only works with regular Alloy projects compiled with `[appc] ti build` command, we haven't test it with any other type of project like webpack or vue.*
+
+**Use the `--off` option to turn it off.**
 ```bash
 > purgetss watch --off
 
@@ -230,17 +247,27 @@ To turn watch mode off use the --off option
 > purgetss w -o
 ```
 
-### auto-update
+### update
 ```bash
-> purgetss auto-update
+> purgetss update
 
 # alias:
-> purgetss a
+> purgetss u
 ```
 
 Use this command to update `purgeTSS` to the latest version.
 
-We constantly update purgeTSS to add new features, to include the latest versions of Tailwind, Tailwind UI and to fix bugs.
+We constantly update **purgeTSS** to add new features, to include the latest versions of Tailwind, Tailwind UI, FontAwesome, etc., and for bug fixes.
+
+### sudo-update
+If you need to use `sudo` to install NPM modules, please use `purgetss sudo-update`
+
+```bash
+> purgetss sudo-update
+
+# alias:
+> purgetss su
+```
 
 ## Example files
 Use this markup to test `purgeTSS`.
