@@ -128,8 +128,8 @@ function copyFonts(options) {
 	if (alloyProject()) {
 		makeSureFolderExists(destFontsFolder);
 
-		if (options.files && typeof options.files === 'string') {
-			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
+		if (options.vendor && typeof options.vendor === 'string') {
+			let selected = _.uniq(options.vendor.replace(/ /g, '').split(','));
 			_.each(selected, vendor => {
 				copyFont(vendor);
 			});
@@ -337,17 +337,16 @@ function copyMaterialDesignFonts() {
 	];
 
 	_.each(fontFamilies, familyName => {
-		if (copyFile(`${srcFontsFolder}/${familyName}`, familyName)) {
-			logger.info(`${familyName} Font copied to`, chalk.yellow('./app/assets/fonts'));
-		}
+		copyFile(`${srcFontsFolder}/${familyName}`, familyName);
 	});
+
+	logger.info('Material Desing Icons Font copied to', chalk.yellow('./app/assets/fonts'));
 }
 
 function copyLineIconsFonts() {
 	// LineIcons Font
-	if (copyFile(srcFontsFolder + '/LineIcons.ttf', 'LineIcons.ttf')) {
-		logger.info('LineIcons Font copied to', chalk.yellow('./app/assets/fonts'));
-	}
+	copyFile(srcFontsFolder + '/LineIcons.ttf', 'LineIcons.ttf');
+	logger.info('LineIcons Font copied to', chalk.yellow('./app/assets/fonts'));
 }
 
 function processFontawesomeStyles(data) {
