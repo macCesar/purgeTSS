@@ -1,7 +1,7 @@
 {
 	"name": "purgetss",
-	"version": "2.2.4",
-	"description": "purgeTSS is a small CLI that creates a clean app.tss file by purging unused classes from tailwind.tss, fontawesome.tss, materialicons.tss, lineicons.tss and your custom.tss file.",
+	"version": "2.2.5",
+	"description": "An extension for Titanium SDK that generates a set of Tailwind-like classes and values to easily and quickly create beautiful designs in your mobile Apps.",
 	"main": "index.js",
 	"bin": {
 		"purgetss": "bin/purgetss"
