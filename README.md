@@ -3,9 +3,7 @@
 
 > When you run `purgeTSS` for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
-> It will use it together with `tailwind.tss`,` fontawesome.tss`, `materialicons.tss`,` lineicons.tss` and your custom styles file to create a new purged ʻapp.tss` file.
->
-> From now on, add, update or remove your custom classes in `_app.tss.`
+> From now on, add, update or remove your own classes in `_app.tss.`
 
 # purgeTSS
 An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that provides a set of Tailwind-like classes.
