@@ -215,7 +215,7 @@ Use any of the following arguments to copy specific vendors:
 > purgetss fonts --vendor="fontawesome, materialdesign, lineicons"
 
 # alias:
-> purgetss c -v=fa,md,li
+> purgetss f -v=fa,md,li
 ```
 
 Available aliases:
