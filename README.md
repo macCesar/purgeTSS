@@ -29,7 +29,7 @@ Install it globally on your machine via [NPM](http://npmjs.org/).
 > [sudo] npm i -g purgetss
 ```
 
-To test it see the [example files](https://github.com/macCesar/purgeTSS/blob/master/README.md#example-files)
+**To test it see the [example files](https://github.com/macCesar/purgeTSS/blob/master/README.md#example-files)**
 
 ## Purging classes
 To parse all your XML files, run `purgetss` inside the root directory of your project.
