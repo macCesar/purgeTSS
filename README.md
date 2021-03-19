@@ -10,11 +10,11 @@
 # purgeTSS
 An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that provides a set of Tailwind-like classes.
 
-- It creates a clean `app.tss` on-the-fly by parsing all XML files.
+- It creates a clean `app.tss` on-the-fly by parsing all your XML files.
 - Every default class can be customized through a simple configuration file.
-- It allows you to use Font Awesome, Material Design and Line Icons in Labels and Buttons.
+- You can easily use Font Awesome, Material Design and Line Icons in Labels and Buttons.
 
-It is the all-round package for all Titanium Developers who want to easily and quickly create beautifully designed mobile apps to satisfy their customers.
+It is an all-round package for all Titanium Developers who want to easily and quickly create beautifully designed mobile apps to satisfy their customers.
 
 List of available libraries:
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss)
