@@ -80,6 +80,103 @@ const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './tss/materialico
 //
 
 //! Interfase
+//! Command: dev-mode
+function devMode(options) {
+	if (alloyProject()) {
+
+		let tempPurged = backupOriginalAppTss();
+
+		tempPurged += copyResetTemplateAnd_appTSS();
+
+		if (options.files && typeof options.files === 'string') {
+			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
+			tempPurged += (selected.length === 4) ? copyAllLibraries() : copySelectedLibraries(selected);
+		} else {
+			tempPurged += copyAllLibraries();
+		}
+
+		removeHook();
+
+		saveFile(destAppTSSFile, tempPurged);
+
+		logger.file('app.tss');
+	}
+}
+module.exports.devMode = devMode;
+
+//! Command: watch
+function watchMode(options) {
+	if (alloyProject()) {
+		if (fs.existsSync(destJMKFile)) {
+			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
+			if (options.off) {
+				removeHook();
+			} else if (!fs.readFileSync(destJMKFile, 'utf8').includes('purgeTSS')) {
+				addHook();
+			} else {
+				logger.warn(chalk.yellow('Auto-Purging hook already present!'));
+			}
+		} else if (!options.off) {
+			createJMKFile();
+		}
+	}
+}
+module.exports.watchMode = watchMode;
+
+//! Command: copy-fonts
+function copyFonts(options) {
+	if (alloyProject()) {
+		makeSureFolderExists(destFontsFolder);
+
+		if (options.vendor && typeof options.vendor === 'string') {
+			let selected = _.uniq(options.vendor.replace(/ /g, '').split(','));
+			_.each(selected, vendor => {
+				copyFont(vendor);
+			});
+		} else {
+			copyFont('fa');
+			copyFont('li');
+			copyFont('md');
+		}
+	}
+}
+module.exports.copyFonts = copyFonts;
+
+//! Command: purgetss
+function purgeClasses(options) {
+
+	if (alloyProject()) {
+		if (options.dev) {
+			options.files = options.dev;
+			devMode(options);
+		} else {
+			start();
+
+			let uniqueClasses = getUniqueClasses();
+
+			let tempPurged = backupOriginalAppTss();
+
+			tempPurged += copyResetTemplateAnd_appTSS();
+
+			tempPurged += purgeTailwind(uniqueClasses);
+
+			tempPurged += purgeFontAwesome(uniqueClasses);
+
+			tempPurged += purgeMaterialDesign(uniqueClasses);
+
+			tempPurged += purgeLineIcons(uniqueClasses);
+
+			saveFile(destAppTSSFile, tempPurged);
+
+			logger.file('app.tss');
+
+			logger.info(finish());
+		}
+	}
+}
+module.exports.purgeClasses = purgeClasses;
+
+//! Command: init
 function init() {
 	if (alloyProject()) {
 		if (fs.existsSync(destConfigJSFile)) {
@@ -95,6 +192,7 @@ function init() {
 }
 module.exports.init = init;
 
+//! Command: build-custom
 function buildCustom() {
 	if (alloyProject()) {
 		initIfNotConfig()
@@ -239,17 +337,16 @@ function copyMaterialDesignFonts() {
 	];
 
 	_.each(fontFamilies, familyName => {
-		if (copyFile(`${srcFontsFolder}/${familyName}`, familyName)) {
-			logger.info(`${familyName} Font copied to`, chalk.yellow('./app/assets/fonts'));
-		}
+		copyFile(`${srcFontsFolder}/${familyName}`, familyName);
 	});
+
+	logger.info('Material Desing Icons Font copied to', chalk.yellow('./app/assets/fonts'));
 }
 
 function copyLineIconsFonts() {
 	// LineIcons Font
-	if (copyFile(srcFontsFolder + '/LineIcons.ttf', 'LineIcons.ttf')) {
-		logger.info('LineIcons Font copied to', chalk.yellow('./app/assets/fonts'));
-	}
+	copyFile(srcFontsFolder + '/LineIcons.ttf', 'LineIcons.ttf');
+	logger.info('LineIcons Font copied to', chalk.yellow('./app/assets/fonts'));
 }
 
 function processFontawesomeStyles(data) {
@@ -292,113 +389,45 @@ function processFontawesomeStyles(data) {
 	return convertedTSSClasses;
 }
 
-function devMode(options) {
-	if (alloyProject()) {
-
-		let tempPurged = backupOriginalAppTss();
-
-		tempPurged += copyResetTemplateAnd_appTSS();
-
-		if (options.files && typeof options.files === 'string') {
-			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
-			tempPurged += (selected.length === 4) ? copyAllLibraries() : copySelectedLibraries(selected);
-		} else {
-			tempPurged += copyAllLibraries();
-		}
-
-		saveFile(destAppTSSFile, tempPurged);
-
-		logger.file('app.tss');
-	}
-}
-module.exports.devMode = devMode;
-
-function watchMode(options) {
-	if (alloyProject()) {
-		if (fs.existsSync(destJMKFile)) {
-			logger.warn('./app/alloy.jmk', chalk.red('file already exists!'));
-
-			let updatedJMKFile = [];
-			let originalJMKFile = fs.readFileSync(destJMKFile, 'utf8');
-			let includesPurgeTSS = (originalJMKFile.includes('purgeTSS'));
-			let includesPreCompileFunction = (originalJMKFile.includes('pre:compile'));
-
-			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
-			if (options.off) {
-				originalJMKFile.split(/\r?\n/).forEach((line) => {
-					if (!line.includes('purgeTSS')) {
-						updatedJMKFile.push(line);
-					}
-				});
-				saveFile(destJMKFile, updatedJMKFile.join("\n"));
-			} else if (!includesPurgeTSS) {
-				if (includesPreCompileFunction) {
-					originalJMKFile.split(/\r?\n/).forEach((line) => {
-						if (line.includes('pre:compile')) {
-							line += "\n\trequire('child_process').execSync('purgetss', logger.warn('::purgeTSS:: Auto-Purging ' + event.dir.project));";
-						}
-						updatedJMKFile.push(line);
-					});
-					saveFile(destJMKFile, updatedJMKFile.join("\n"));
-				} else {
-					fs.appendFileSync(destJMKFile, '\n' + fs.readFileSync(srcJMKFile, 'utf8'));
-				}
-			}
-		} else if (!options.off) {
-			createJMKFile();
-		}
-	}
-}
-module.exports.watchMode = watchMode;
-
-function copyFonts(options) {
-	if (alloyProject()) {
-		makeSureFolderExists(destFontsFolder);
-
-		if (options.files && typeof options.files === 'string') {
-			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
-			_.each(selected, vendor => {
-				copyFont(vendor);
-			});
-		} else {
-			copyFont('fa');
-			copyFont('li');
-			copyFont('md');
-		}
-	}
-}
-module.exports.copyFonts = copyFonts;
-
-//! Main Command
-function purgeClasses(options) {
-	if (alloyProject()) {
-		if (options.dev) {
-			options.files = options.dev;
-			devMode(options);
-		} else {
-			let uniqueClasses = getUniqueClasses();
-
-			let tempPurged = backupOriginalAppTss();
-
-			tempPurged += copyResetTemplateAnd_appTSS();
-
-			tempPurged += purgeTailwind(uniqueClasses);
-
-			tempPurged += purgeFontAwesome(uniqueClasses);
-
-			tempPurged += purgeMaterialDesign(uniqueClasses);
-
-			tempPurged += purgeLineIcons(uniqueClasses);
-
-			saveFile(destAppTSSFile, tempPurged);
-
-			logger.file('app.tss');
-		}
-	}
-}
-module.exports.purgeClasses = purgeClasses;
-
 //! Helper Functions
+function addHook() {
+	logger.warn(chalk.green('Adding Auto-Purging hook!'));
+	let originalJMKFile = fs.readFileSync(destJMKFile, 'utf8');
+
+	if (originalJMKFile.includes('pre:compile')) {
+		let updatedJMKFile = [];
+
+		originalJMKFile.split(/\r?\n/).forEach((line) => {
+			if (line.includes('pre:compile')) {
+				line += "\n\trequire('child_process').execSync('purgetss', logger.warn('::purgeTSS:: Auto-Purging ' + event.dir.project));";
+			}
+			updatedJMKFile.push(line);
+		});
+
+		saveFile(destJMKFile, updatedJMKFile.join("\n"));
+	} else {
+		fs.appendFileSync(destJMKFile, '\n' + fs.readFileSync(srcJMKFile, 'utf8'));
+	}
+}
+
+function removeHook() {
+	let updatedJMKFile = [];
+	let originalJMKFile = fs.readFileSync(destJMKFile, 'utf8');
+	let purgeCmdPresent = (originalJMKFile.includes('purgeTSS'));
+
+	if (purgeCmdPresent) {
+		originalJMKFile.split(/\r?\n/).forEach((line) => {
+			if (!line.includes('purgeTSS')) {
+				updatedJMKFile.push(line);
+			}
+		});
+
+		logger.warn(chalk.red('Auto-Purging hook removed!'));
+
+		saveFile(destJMKFile, updatedJMKFile.join("\n"));
+	}
+}
+
 function initIfNotConfig() {
 	if (!fs.existsSync(destConfigJSFile)) {
 		init();
@@ -452,6 +481,7 @@ function getUniqueClasses() {
 
 	let allClasses = [];
 
+	// read all XML files
 	_.each(viewPaths, viewPath => {
 		let file = fs.readFileSync(viewPath, 'utf8');
 
@@ -473,9 +503,11 @@ function getUniqueClasses() {
 	// Clean even more unnecessary names
 	_.each(_.uniq(_.flattenDeep(allClasses)).sort(), uniqueClass => {
 		if (!uniqueClass.startsWith('{') && !uniqueClass.startsWith('[') && !uniqueClass.startsWith('--') && !uniqueClass.startsWith('!--') && !uniqueClass.startsWith('#') && !uniqueClass.startsWith('/')) {
-			uniqueClasses.push(uniqueClass);
+			uniqueClasses.push(uniqueClass.replace(',', ''));
 		}
 	});
+
+	uniqueClasses = _.uniq(uniqueClasses);
 
 	return uniqueClasses;
 }
@@ -507,7 +539,7 @@ function buildCustomTailwind() {
 		height: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height)
 	}
 
-	// Reset
+	// Reset some stiles
 	configFile.theme.Window = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 	configFile.theme.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
 	configFile.theme.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
@@ -861,94 +893,122 @@ function copySelectedLibraries(selected) {
 	return tempPurged;
 }
 
+let startTime;
+
+function start() {
+	startTime = new Date();
+};
+
+function finish() {
+	let endTime = new Date(new Date() - startTime);
+	return 'Finished purging in ' + chalk.green(`${endTime.getSeconds()}s ${endTime.getMilliseconds()}ms`);
+}
+
 //! Purge Functions
 function purgeTailwind(uniqueClasses) {
-	//! Custom
+	//! Custom Tailwind
 
-	let encontrados = '';
 	let sourceFolder = '';
+	let purgedClasses = '';
 
 	if (fs.existsSync(customTailwindFile)) {
 		sourceFolder = customTailwindFile;
-		encontrados = '\n// Custom Tailwind Styles\n';
+		purgedClasses = '\n// Custom Tailwind Styles\n';
 		logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...');
 	} else {
 		sourceFolder = defaultTailwindFile;
-		encontrados = '\n// Default Tailwind Styles\n';
+		purgedClasses = '\n// Default Tailwind Styles\n';
 		logger.info('Purging Default Tailwind styles...');
 	}
 
-	fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/).forEach(line => {
-		_.each(uniqueClasses, className => {
-			if (line.startsWith(`'.${className}'`) || line.startsWith(`'.${className}[`) || line.startsWith(`'#${className}'`) || line.startsWith(`'#${className}[`) || line.startsWith(`'${className}'`) || line.startsWith(`'${className}[`)) {
-				encontrados += line + '\n';
-				return;
-			}
-		});
+	let sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
+	let soc = sourceTSS.toString(); // soc = String of Classes
+
+	_.each(uniqueClasses, className => {
+		if (soc.includes(`'.${className}'`) || soc.includes(`'.${className}[`) || soc.includes(`'#${className}'`) || soc.includes(`'#${className}[`) || soc.includes(`'${className}'`) || soc.includes(`'${className}[`)) {
+			_.each(sourceTSS, line => {
+				if (line.startsWith(`'.${className}'`) || line.startsWith(`'.${className}[`) || line.startsWith(`'#${className}'`) || line.startsWith(`'#${className}[`) || line.startsWith(`'${className}'`) || line.startsWith(`'${className}[`)) {
+					purgedClasses += line + '\n';
+				}
+			});
+		}
 	});
 
-	return encontrados;
+	return purgedClasses;
 }
 
 function purgeFontAwesome(uniqueClasses) {
 	//! FontAwesome
-	let encontrados = '';
 	let sourceFolder = '';
+	let purgedClasses = '';
 
 	if (fs.existsSync(customFontAwesomeFile)) {
-		logger.info('Purging', chalk.yellow('Custom Font Awesome'), 'styles...');
 		sourceFolder = customFontAwesomeFile;
+		purgedClasses = '\n// Custom Font Awesome styles\n';
+		logger.info('Purging', chalk.yellow('Custom Font Awesome'), 'styles...');
 	} else {
-		logger.info('Purging Default Font Awesome styles...');
 		sourceFolder = srcFontAwesomeTSSFile;
+		purgedClasses = '\n// Default Font Awesome styles\n';
+		logger.info('Purging Default Font Awesome styles...');
 	}
 
-	fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/).forEach(line => {
-		_.each(uniqueClasses, className => {
-			if (line.includes(`'.${className}'`)) {
-				encontrados += line + '\n';
-				return;
-			}
-		});
+	let sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
+	let soc = sourceTSS.toString(); // soc = String of Classes
+
+	_.each(uniqueClasses, className => {
+		if (soc.includes(`'.${className}'`)) {
+			_.each(sourceTSS, line => {
+				if (line.startsWith(`'.${className}'`)) {
+					purgedClasses += line + '\n';
+				}
+			});
+		}
 	});
 
-	return encontrados;
+	return (purgedClasses === '\n// Custom Font Awesome styles\n' || purgedClasses === '\n// Default Font Awesome styles\n') ? '' : purgedClasses;
 }
 
 function purgeMaterialDesign(uniqueClasses) {
 	//! Material Design Icons
 	logger.info('Purging Material Design Icons styles...');
+	let purgedClasses = '\n// Material Design Icons styles\n';
 
-	let encontrados = '';
+	let sourceTSS = fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8').split(/\r?\n/);
+	let soc = sourceTSS.toString(); // soc = String of Classes
 
-	fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8').split(/\r?\n/).forEach(line => {
-		_.each(uniqueClasses, className => {
-			if (line.includes(`'.${className}'`)) {
-				encontrados += line + '\n';
-				return;
-			}
-		});
+	_.each(uniqueClasses, className => {
+		if (soc.includes(`'.${className}'`)) {
+			_.each(sourceTSS, line => {
+				if (line.startsWith(`'.${className}'`)) {
+					purgedClasses += line + '\n';
+				}
+			});
+		}
 	});
 
-	return encontrados;
+	return (purgedClasses === '\n// Material Design Icons styles\n') ? '' : purgedClasses;
 }
 
 function purgeLineIcons(uniqueClasses) {
 	//! LineIcons
 	logger.info('Purging LineIcons styles...');
 
-	let encontrados = '';
+	let purgedClasses = '\n// LineIcons styles\n';
 
-	fs.readFileSync(srcLineiconsFontTSSFile, 'utf8').split(/\r?\n/).forEach(line => {
-		_.each(uniqueClasses, className => {
-			if (line.includes(`'.${className}'`)) {
-				encontrados += line + '\n';
-				return;
-			}
-		});
+	let sourceTSS = fs.readFileSync(srcLineiconsFontTSSFile, 'utf8').split(/\r?\n/);
+	let soc = sourceTSS.toString(); // soc = String of Classes
+
+	_.each(uniqueClasses, className => {
+		if (soc.includes(`'.${className}'`)) {
+			_.each(sourceTSS, line => {
+				if (line.startsWith(`'.${className}'`)) {
+					purgedClasses += line + '\n';
+				}
+			});
+		}
 	});
 
-	return encontrados;
+	return (purgedClasses === '\n// LineIcons styles\n') ? '' : purgedClasses;
 }
 
 function saveFile(file, data) {
@@ -958,6 +1018,7 @@ function saveFile(file, data) {
 }
 
 function createJMKFile() {
+	logger.warn(chalk.green('Adding Auto-Purging hook!'));
 	fs.copyFileSync(srcJMKFile, destJMKFile);
-	logger.file('alloy.jmk');
+	logger.file('./app/alloy.jmk');
 }

@@ -1,18 +1,29 @@
 /**
-* Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
+* Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com
 * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 */
 
 exports.getIcon = function getIcon(selector) {
+	if (selector === undefined) throw new Error('Selector missing!');
 	return (icons[ selector ] !== undefined) ? icons[ selector ] : fontawesome[ selector ];
 };
 
 exports.setTitle = function setTitle(selector, object) {
+	if (selector === undefined || object === undefined) throw new Error('Selector or target Object missing!');
 	object.title = (icons[ selector ] !== undefined) ? icons[ selector ] : fontawesome[ selector ];
 };
 
 exports.setText = function setText(selector, object) {
+	if (selector === undefined || object === undefined) throw new Error('Selector or target Object missing!');
 	object.text = (icons[ selector ] !== undefined) ? icons[ selector ] : fontawesome[ selector ];
+};
+
+exports.getRandomKey = function getRandomKey() {
+	return Object.keys(icons)[ Math.floor(Math.random() * Object.keys(icons).length) ];
+};
+
+exports.getRandomValue = function getRandomValue() {
+	return icons[ Object.keys(icons)[ Math.floor(Math.random() * Object.keys(icons).length) ] ];
 };
 
 const fontawesome = {

@@ -3,33 +3,45 @@
 
 > When you run `purgeTSS` for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
-> It will use it together with `tailwind.tss`,` fontawesome.tss`, `materialicons.tss`,` lineicons.tss` and your `custom.tss` file to create a new purged ʻapp.tss` file.
->
 > From now on, add, update or remove your custom classes in `_app.tss.`
-
+>
+> Or better yet! Create a `config.js` file to **[configure and customize](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)** purgeTSS.
 
 # purgeTSS
-`purgeTSS` is a small **CLI** that creates a clean `app.tss` file by copying only the classes used in your XML Files.
+An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that provides a set of Tailwind-like classes.
 
-It works with [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss), [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss), [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss), [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss) and your [custom.tss](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md) file.
+- It creates a clean `app.tss` on-the-fly by parsing all your XML files.
+- Every default class can be customized through a simple configuration file.
+- You can easily use Font Awesome, Material Design and Line Icons in Labels and Buttons.
+
+It is an all-round package for all Titanium Developers who want to easily and quickly create beautifully designed mobile apps to satisfy their customers.
+
+List of available libraries:
+- [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss)
+- [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss)
+- [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss)
+- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss)
+- [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 **ALL your classes from your original ʻapp.tss` file will be copied without purging.**
 
 ## Installation
-Install it globally on your machine via [NPM](http://npmjs.org/).
+**Install it globally on your machine via [NPM](http://npmjs.org/).**
 ```bash
 > [sudo] npm i -g purgetss
 ```
 
 ## Purging classes
-To parse all your XML files, run `purgetss` inside the root directory of your project.
+To parse all your XML files, run `purgetss` inside your project's root directory.
 ```bash
 > purgetss
 ```
 
-`purgetss` will extract all the classes found and copy them along with all the styles originally declared in app.tss.
+`purgetss` will extract all available classes from your Views and copy them along with all your original styles from `app.tss`.
 
-## Commands
+**To test it, see the [example files](https://github.com/macCesar/purgeTSS/blob/master/README.md#example-files)**
+
+## Available Commands
 
 ### init
 ```bash
@@ -38,7 +50,10 @@ To parse all your XML files, run `purgetss` inside the root directory of your pr
 # alias:
 > purgetss i
 ```
-Creates a minimal `config.js` file inside the `purgetss`  folder at the root of your project:
+
+By default, `purgetss` will look for an optional `./purgetss/config.js` file where you can define any customization.
+
+Creates a minimal `./purgetss/config.js` file at the root of your project:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -55,9 +70,9 @@ module.exports = {
   }
 };
 ```
-By default, `purgetss` will look for an optional `./purgetss/config.js` where you can define any customizations.
 
-Every section of the config file is optional, so you only have to specify what you'd like to change. Any missing sections will fall back to the default configuration.
+Every section of the config file is optional, so you only have to specify whatever you'd like to customize. Any missing sections will fall back to the default configuration.
+
 You can customize the following keys:
 
 - colors
@@ -80,30 +95,31 @@ You can customize the following keys:
 - borderWidth
 - opacity
 - visible
-- *Your own class names or any Ti Element with any number of attributes or conditional statements*
+- *Your own class names and any Ti Element with any number of attributes or conditional statements*
 
-### build-custom
+### build
+After customizing your `config.js` file, you'll need to generate a new `./purgetss/tailwind.tss` file by running:
+
 ```bash
-> purgetss build-custom
+> purgetss build
 
 # alias:
 > purgetss b
 ```
-It will generate a new `tailwind.tss` file inside the `purgetss` folder, with the attributes defined in `./purgetss/config.js`.
 
-**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file instead of the default file.**
+**After generating your custom `tailwind.tss` file, `purgeTSS` will use it instead of the default one.**
 
-### To learn more see [Customization and Configuration Guide](/docs/configuring-guide.md)
+## To learn more see [Customization and Configuration Guide](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 ### Custom `fontawesome.tss` file for Font Awesome Pro Account users
-If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `fontawesome.tss` file with all available classes. ***(except duotone icons, see note below)***
+If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `./purgetss/fontawesome.tss` file with all the extra classes that the Pro version has. ***(except duotone icons, see note below)***
 
-After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro)** with your token, you can install them in your project's root folder with `npm init` and `npm install --save @fortawesome/fontawesome-pro` (current version 5.15.2)
+After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro)** with your token, you can install them in your project's root folder with `npm init` and `npm install --save @fortawesome/fontawesome-pro` (current version 5.15.3)
 
-Now, all you have to do is run `purgetss custom-build` and it will automatically generate a new `purgetss/fontawesome.tss` file and if needed, it will copy the Pro fonts files into `assets/fonts`.
+Now, all you have to do is run `purgetss build` and it will generate a new `purgetss/fontawesome.tss` file and if needed, it will automatically copy the Pro fonts files into `app/assets/fonts`.
 
 ### Font Awesome 6 Alpha
-You can even generate a custom `fontawesome.tss` file from Font Awesome 6 Alpha.
+You can even generate a custom `fontawesome.tss` file from **Font Awesome 6 Alpha**.
 
 Just move the following folders from `fontawesome-pro-6.0.0-alpha2`:
 ```bash
@@ -114,7 +130,7 @@ fontawesome-pro-6.0.0-alpha2
       /webfonts
 ```
 
-Into `purgetss/fontawesome-beta` folder:
+Into `./purgetss/fontawesome-beta` folder:
 ```bash
 purgetss
   /fontawesome-beta
@@ -122,19 +138,19 @@ purgetss
     /webfonts
 ```
 
-And as with the Pro Version just run `purgetss build-custom` to generate your custom `fontawesome.tss` file to beta-test your new icons!
+And as with the Pro Version, just run `purgetss build` to generate your custom `fontawesome.tss` file to beta-test your new icons!
 
 **Note: Titanium can't use FontAwesome's Duotone icons because they have two separate glyphs for each individual icon.**
 
-### dev-mode
+### dev ( NO LONGER RECOMMENDED, use [`purgetss watch`](https://github.com/macCesar/purgeTSS#watch) instead )
 ```bash
-> purgetss dev-mode
+> purgetss dev
 
 # alias:
 > purgetss d
 ```
 
-When you are creating a prototype of your application, you will want to have all the classes available in the `app.tss` file, rather than purging each time you add new classes to your XML views.
+When you are prototyping your application, you will want to have all available classes in `app.tss`, rather than purging each time you add/remove classes to your XML views.
 
 You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss`, `lineicons.tss` and your `custom.tss` file.
 
@@ -145,31 +161,34 @@ When you compile a very large `.tss` file, you will get the following note:
 
 **Not to mention the increased time to compile all classes and the increased size of all generated JS files within the styles folder!**
 
-To avoid this, you can copy the styles from the desired providers. *See below*.
+To avoid this, you can specify certain providers. *See below*.
 
-### Copying specific styles
+### Copying specific libraries
+Use any of the following arguments to copy specific vendor styles.
+
 ```bash
-> purgetss dev-mode --files="tailwind, fontawesome, materialdesign, lineicons, customstyles"
+> purgetss dev --files="tailwind, fontawesome, materialdesign, lineicons, customstyles"
 
 # alias:
 > purgetss d -f=tw,fa,md,li,cu
 ```
-Use any of the following arguments to copy specific vendor styles:
 
+Available aliases:
 - tw, tail, tailwind = Tailwind styles
 - fa, font, fontawesome = Font Awesome styles
 - md, material, materialdesign = Material Design Icons styles
 - li, line, lineicons = LineIcons styles
 - cu, custom, customstyles = Your Custom styles
 
-### copy-fonts
+### fonts
 ```bash
-> purgetss copy-fonts
+> purgetss fonts
 
 # alias:
-> purgetss c
+> purgetss f
 ```
-Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names corrected to work with your application, either for iOS or Android.
+
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names fixed to work with your application, either for iOS or Android.
 
 > FontAwesome5Brands-Regular.ttf
 >
@@ -190,14 +209,16 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 > LineIcons.ttf
 
 ### Copying specific fonts
+Use any of the following arguments to copy specific vendors:
+
 ```bash
-> purgetss copy-fonts --files="fontawesome, materialdesign, lineicons"
+> purgetss fonts --vendor="fontawesome, materialdesign, lineicons"
 
 # alias:
-> purgetss c -f=fa,md,li
+> purgetss f -v=fa,md,li
 ```
-Use any of the following arguments to copy specific vendor sources:
 
+Available aliases:
 - fa, font, fontawesome = Font Awesome Icons
 - md, material, materialdesign = Material Design Icons
 - li, line, lineicons = LineIcons
@@ -210,9 +231,15 @@ Use any of the following arguments to copy specific vendor sources:
 > purgetss w
 ```
 
-Use this command if you want `purgetss` to autorun every time you compile your project. This is very useful in combination with `LiveView` because it will purge all your files every time you make a change, for example when adding or deleting styles in your Views.
+Use this command to autorun `purgetss` every time you compile your project.
 
-To turn watch mode off use the --off option
+This is very useful in combination with `LiveView` because it will purge all of your files every time you make a change, for example when adding or deleting styles in your Views.
+
+**You'll get instant feedback of any change you made and speed up your prototyping process significantly.**
+
+*This only works with regular Alloy projects compiled with `[appc] ti build` command, we haven't test it with any other type of project like webpack or vue.*
+
+**Use the `--off` option to turn it off.**
 ```bash
 > purgetss watch --off
 
@@ -220,19 +247,29 @@ To turn watch mode off use the --off option
 > purgetss w -o
 ```
 
-### auto-update
+### update
 ```bash
-> purgetss auto-update
+> purgetss update
 
 # alias:
-> purgetss a
+> purgetss u
 ```
 
 Use this command to update `purgeTSS` to the latest version.
 
-We constantly update purgeTSS to add new features, to include the latest versions of Tailwind, Tailwind UI and to fix bugs.
+We constantly update **purgeTSS** to add new features, to include the latest versions of Tailwind, Tailwind UI, FontAwesome, etc., and for bug fixes.
 
-## Sample files
+### sudo-update
+If you need to use `sudo` to install NPM modules, please use `purgetss sudo-update`
+
+```bash
+> purgetss sudo-update
+
+# alias:
+> purgetss su
+```
+
+## Example files
 Use this markup to test `purgeTSS`.
 
 `index.xml`
@@ -265,7 +302,9 @@ Use this markup to test `purgeTSS`.
 </Alloy>
 ```
 
+
 `app.tss`
+
 ```css
 '.bg-primary': {
   backgroundColor: '#002359'
@@ -274,7 +313,7 @@ Use this markup to test `purgeTSS`.
 
 Make sure to copy FontAwesome Fonts with
 ```bash
-> purgetss copy-fonts --files="fontawesome"
+> purgetss fonts --vendor="fontawesome"
 ```
 
 ## Parse your XML files
@@ -284,65 +323,56 @@ Run `purgetss`
 ```
 After running `purgetss` you will have a new file `app.tss` with only the classes found in your XML files.
 
-Your original `app.tss` file is backed up in the `_app.tss` file. Use this file if you need to add, delete or update any of your original styles.
+**Your original `app.tss` file is backed up in `_app.tss`. Use this file if you need to add, delete or update any of your original styles.**
 
-Every time you run `purgetss` it will copy everything from `_app.tss` to `app.tss`.
+**Every time you run `purgetss` it will copy everything from `_app.tss` to `app.tss`.**
 
 ```css
 // purgeTSS
 // Created by César Estrada
 // https://github.com/macCesar/purgeTSS
 
-// Reset Styles
-'Window': { backgroundColor: '#ffffff' }
-'ImageView[platform=ios]': { hires: true }
-'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
-'.vertical': { layout: 'vertical' }
-'.horizontal': { layout: 'horizontal' }
-'.vertical[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
-
 // Styles from _app.tss
 '.bg-primary': {
   backgroundColor: '#002359'
 }
 
-// Tailwind CSS v1.9.6: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
-// Tailwind UI Plugin v0.6.2 ( https://www.npmjs.com/package/@tailwindcss/ui ).
-// Created by Adam Wathan ( https://twitter.com/adamwathan ).
-'.text-gray-600': { color: '#4b5563' }
-'.text-gray-900': { color: '#161e2e' }
-'.text-purple-600': { color: '#7e3af2' }
+// Default Tailwind Styles
+'ImageView[platform=ios]': { hires: true }
+'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+'Window': { backgroundColor: '#ffffff' }
 '.bg-white': { backgroundColor: '#ffffff' }
-'.text-xs': { font: { fontSize: 12 } }
-'.text-sm': { font: { fontSize: 14 } }
-'.text-lg': { font: { fontSize: 18 } }
 '.font-semibold': { font: { fontWeight: 'semibold' } }
-'.rounded-lg': { borderRadius: 8 }
-'.rounded-16': { borderRadius: 32 }
-'.my-4': { top: 16, bottom: 16 }
-'.mx-auto': { right: null, left: null }
-'.mt-0.5': { top: 2 }
-'.mr-0': { right: 0 }
-'.mr-1': { right: 4 }
-'.ml-0': { left: 0 }
-'.w-16': { width: 64 }
-'.w-auto': { width: Ti.UI.SIZE }
-'.w-10/12': { width: '83.333333%' }
-'.w-screen': { width: Ti.UI.FILL }
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
+'.horizontal': { layout: 'horizontal' }
+'.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.ml-0': { left: 0 }
+'.mr-0': { right: 0 }
+'.mr-1': { right: 4 }
+'.mt-0.5': { top: 2 }
+'.mx-auto': { right: null, left: null }
+'.my-4': { top: 16, bottom: 16 }
+'.rounded-16': { borderRadius: 32 }
+'.rounded-lg': { borderRadius: 4 }
+'.text-gray-600': { color: '#52525b' }
+'.text-gray-900': { color: '#18181b' }
+'.text-lg': { font: { fontSize: 18 } }
+'.text-purple-600': { color: '#9333ea' }
+'.text-sm': { font: { fontSize: 14 } }
+'.text-xs': { font: { fontSize: 12 } }
+'.vertical': { layout: 'vertical' }
+'.vertical[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.w-10/12': { width: '83.333333%' }
+'.w-16': { width: 64 }
+'.w-auto': { width: Ti.UI.SIZE }
+'.w-screen': { width: Ti.UI.FILL }
 
-// Font Awesome Free 5.15.2 by @fontawesome - https://fontawesome.com
-// License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
-
-// Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
-'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
-'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+// Default Font Awesome styles
 '.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
 '.fa-phone-alt': { text: '\uf879', title: '\uf879' }
-
+'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
+'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
 ```
 
 ## Result
