@@ -42,9 +42,9 @@
 - [**Adding your own properties**](#adding-your-own-properties)
 
 ## Customization
-By default, `purgetss` will look for an optional `./purgetss/config.js` where you can define any customizations.
+By default, `purgetss` will look for an optional `./purgetss/config.js` file where you can define any customization.
 
-Every section of the config file is optional, so you only have to specify what you'd like to change. Any missing sections will fall back to the default configuration.
+Every section of the config file is optional, so you only specify what you'd like to change. Any missing sections will fall back to the default configuration.
 
 ## Creating your configuration file
 To create a purgeTSS configuration file for your project, run this command:
@@ -56,7 +56,7 @@ To create a purgeTSS configuration file for your project, run this command:
 > purgetss i
 ```
 
-It will create a minimal `config.js` file inside the `purgetss` folder at the root of your project:
+It will create a minimal `./purgetss/config.js` file in your project's root directory:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -76,7 +76,7 @@ module.exports = {
 ```
 
 ## Generating your custom `tailwind.tss` file
-To generate your custom `tailwind.tss` file use the following command:
+To generate your custom `./purgetss/tailwind.tss` file use the following command:
 
 ```bash
 > purgetss build
@@ -85,18 +85,18 @@ To generate your custom `tailwind.tss` file use the following command:
 > purgetss b
 ```
 
-It will generate a new `tailwind.tss` file inside the `purgetss` folder, with the attributes defined in `./purgetss/config.js`.
+It will generate a new `tailwind.tss` file with every attribute defined in `./purgetss/config.js`.
 
-**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file instead of the default Tailwind file.**
+**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file instead of Tailwind's default file.**
 
 ## Configuration file example
-- **For the modifier keys, you can use any name or convention you want**.
+- **For the modifier keys, you can use any name or convention you want. For example: '.my-custom-class', or '.anotherCustomClassName'**.
 - For `Titanium` constants, `Alloy Configuration Values` or `Global Variables` always enclose them in quotes.
 - For `color` values, you can use `hex`, `8-digit hex`, `rgb(R,G,B)`, `rgba(R,G,B,A)`, `transparent` or any of the standard color names.
 - For `spacing` values, you can use different type of units: `rem`, `%`, `px` or `dp`.
-  - `percentages` - This values will be passed on without any conversion.
+  - `percentages` - These values are passed without any conversion.
   - `rem` - Values in rem will be converted with this little formula: `remValue * 16`.
-  - `dp` and `px` - For these values, the unit type will be removed and the value will be left. Except for your custom classes where pixel units will be maintained.
+  - `dp` and `px` - For these values, the unit type will be removed and the value will remain intact. Except the pixel units in your custom classes will remain the same.
 
 ```javascript
 // ./purgetss/config.js
@@ -142,7 +142,7 @@ module.exports = {
 # **`config.js` file structure**
 
 ## Theme Property
-The `theme` property in `./purgetss/config.js`, is where you define your project's color palette, type scale, font stacks, border radius values, and more.
+The `theme` property in `config.js`, is where you define your project's color palette, type scale, font stacks, border radius values, and more.
 
 ```javascript
 // ./purgetss/config.js
@@ -172,7 +172,7 @@ module.exports = {
 ```
 
 ## Colors property
-The `colors` property allows you to customize the global color palette for your project.
+The `colors` property allows you to customize the global color palette values.
 
 ```javascript
 // ./purgetss/config.js
@@ -198,7 +198,7 @@ By default, these colors are inherited by the `textColor`, `backgroundColor`, `b
 
 
 ### Nested object syntax
-You can define the colors as a simple list of key-value pairs, or using a nested object notation where the nested keys are added to the base color name as modifiers.
+Colors are defined as a simple list of key-value pairs, or as nested object notation. The nested keys are added to the base color name as modifiers.
 
 ```javascript
 // ./purgetss/config.js
@@ -227,7 +227,7 @@ module.exports = {
 ```
 
 ### Shared colors
-All colors defined in the `colors` property are automatically shared with the `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor`  properties.
+All colors defined in the `colors` property are automatically shared with `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor`  properties.
 
 > **When you include the `colors` property, `purgeTSS` will automatically generate all color-related preperties and merge them with any other color-related preperties present in the configuration file.**
 
@@ -286,10 +286,11 @@ module.exports = {
 // placeholderColor
     ...
 // gradientColorStops
+    ...
 ```
 
 ### Overriding a default color
-If you'd like to override one of the default colors but preserve the rest, simply provide the new values in the `theme.extend.colors` section of your `config.js` file.
+If you want to override one of the default colors but preserve the rest, simply provide the new values in the `theme.extend.colors` section of your `config.js` file.
 
 For example, here we've replaced the default cool grays with a neutral gray palette:
 ```javascript
@@ -316,7 +317,7 @@ module.exports = {
 ```
 
 ### Extending the default palette
-If you'd like to extend the default color palette, you can do so using the `theme.extend.colors` section of your `config.js` file:
+If you want to to extend the default color palette, you can do so using the `theme.extend.colors` section of your `config.js` file:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -333,7 +334,7 @@ module.exports = {
 This will generate classes like bg-regal-blue in addition to all of Tailwind's default colors.
 
 ## Spacing property
-The `spacing` property allows you to customize the global spacing and sizing scale for your project.
+The `spacing` property allows you to customize the global spacing and sizing scale values.
 
 ```javascript
 // ./purgetss/config.js
@@ -404,7 +405,7 @@ module.exports = {
 ```
 
 ### Overriding the default spacing scale
-If you'd like to override the default spacing scale, you can do so using the `theme.spacing` section of your `config.js` file:
+If you want to override the default spacing scale, you can do so using the `theme.spacing` section of your `config.js` file:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -422,7 +423,7 @@ module.exports = {
 This will disable the default spacing scale and generate classes like p-sm, m-md, w-lg, and h-xl instead.
 
 ### Extending the default spacing scale
-If you'd like to extend the default spacing scale, you can do so using the `theme.extend.spacing` section of your `config.js` file:
+If you want to extend the default spacing scale, you can do so using the `theme.extend.spacing` section of your `config.js` file:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -440,12 +441,10 @@ module.exports = {
 
 This will generate classes like p-72, m-84, and h-96 in addition to all of the default spacing/sizing utilities.
 
-
 ## Individual properties
-The rest of the theme section is used to configure which values are available for each individual property.
+The rest of the theme section is used to configure what values are available for each individual property.
 
-For example, the `borderRadius` property lets you customize which border radius classes will be generated:
-
+For example, the `borderRadius` property allows you customize what border radius classes will be generated:
 ```javascript
 module.exports = {
   'theme': {
@@ -476,7 +475,7 @@ This is a common convention in `purgeTSS` supported by many (although not all) o
 
 ## Purge property
 
-You can control how `purgetss` removes unused classes or keep the ones you want.
+You can control how `purgetss` remove unused classes. Or to keep the ones you want.
 
 ```javascript
 // ./purgetss/config.js
@@ -493,11 +492,11 @@ module.exports = {
 ```
 
 - `purge.mode.all` By default, `purgeTSS` will look everywhere inside your XML files, like in comments, attributes, classes, ids, Ti Element, and even the actual written content in your markup. **This mode is necessary if you want `purgetss` to parse any Ti Element that you've styled in `config.js`**.
-- `purge.mode.classes` Use `classes` to search only in `class` and `id` attributes of your XML files.
-- `purge.mode.options.safelist` List of styles that you would like to keep regardless of the purge mode or whether or not they are included in your XML files.
+- `purge.mode.class` Use `class` to search only in `class` and `id` attributes in your XML files.
+- `purge.mode.options.safelist` List of classes and Ti Elements that you want to keep regardless of the purge mode or whether or not they are included in your XML files.
 
 ### Large safelist?
-If you need to keep a very large set of styles, you can create a CommonJS module with an array of all the styles and import it into your config file like this:
+If you need to keep a very large list, you can create a CommonJS module with an array of all the styles and require it in `config.js` like this:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -510,32 +509,35 @@ module.exports = {
 }
 ```
 
-It is recommended to store it inside the `purgetss` folder, to keep everything organized:
+You should put it inside `purgetss` to keep everything organized:
 ```javascript
 // ./purgetss/safelist.js
 exports.safelist = [
-  // A large list of styles to keep
-  'bg-blue-50',
-  'bg-blue-100',
-  'bg-blue-200',
-  'bg-blue-300',
-  'bg-blue-400',
-  'bg-blue-500',
+  // A large list of classes to keep
+  'Label',
+  'Botton',
+  'Window',
+  'ListView',
+  'TableView',
+  'Scrollview',
+  'ScrollableView',
   // ...
   // ...
   // ...
-  'bg-indigo-600',
-  'bg-indigo-700',
+  'bg-indigo-50',
+  'bg-indigo-100',
+  // ...
+  // ...
   'bg-indigo-800',
   'bg-indigo-900',
 ];
 ```
 
 # **Overriding, extending or disabling properties**
-Out of the box, your project will automatically inherit the values from the default theme configuration. If you would like to customize it, you have a few different options depending on your goals.
+Out of the box, your project will automatically inherit the values from the default theme configuration. If you want to customize it, you have a few different options depending on your goals.
 
 ## Overriding properties
-To override a property in the default theme, add the key you'd like to override.
+To override a default property, add it directly in `theme`.
 
 ```javascript
 // ./purgetss/config.js
@@ -551,14 +553,14 @@ module.exports = {
   }
 }
 ```
-This will completely replace the original default configuration for that key, so in the example above none of the default opacity utilities would be generated.
+This will completely replace the original default `opacity` values with the new ones.
 
-**Any keys you do not provide will be inherited from the default theme, so in the above example, the default theme configuration for things like colors, spacing, border radius, background position, etc. would be preserved.**
+**Any keys you do not provide will be inherited from the default theme, so in the above example, the default theme configuration for things like colors, spacing, border radius, background position, etc. will be preserved.**
 
 ## Extending properties
-If you'd like to preserve the default values for a theme option but also add new values, add your extensions under the `theme.extend` key.
+If you want to preserve the default values for a theme option but also add new values, add your extensions under the `theme.extend` key.
 
-For example, if you wanted to add an extra color but preserve the existing ones, you could extend the `colors` property:
+For example, if you want to add an extra color but preserve the existing ones, you could extend the `colors` property:
 
 ```javascript
 // ./purgetss/config.js
@@ -574,7 +576,7 @@ module.exports = {
 }
 ```
 
-You can of course override some parts of the default theme and extend other parts of the default theme within the same configuration:
+You can of course override some parts of the default theme and extend others within the same configuration:
 
 ```javascript
 // ./purgetss/config.js
@@ -596,7 +598,7 @@ module.exports = {
 ```
 
 ## Disabling properties
-If you don't want to generate any classes for a certain property, set that plugin to false in your `corePlugins` configuration.
+If you don't want to generate any classes for a certain property, set that plugin to false in `corePlugins` configuration.
 
 ```javascript
 // ./purgetss/config.js
@@ -652,7 +654,7 @@ module.exports = {
 ```
 
 ### Border Colors
-Utilities for controlling the color of an element's borders.
+Utilities to control the color of the borders of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -981,6 +983,27 @@ Whether you want to style a Ti Element (also known as a markup element), a custo
 // ./purgetss/config.js
 module.exports = {
   'theme': {
+    '#mainBanner': {
+      'DEFAULT': {
+        'width': '300px',
+        'height': '80px'
+      },
+      'ios': {
+        'clipMode': 'Ti.UI.iOS.CLIP_MODE_DISABLED'
+      }
+    },
+    '.gallery': {
+      'DEFAULT': {
+        'width': 'Ti.UI.FILL',
+        'height': 'Ti.UI.SIZE'
+      },
+      'ios': {
+        'clipMode': 'Ti.UI.iOS.CLIP_MODE_ENABLED'
+      },
+      'android': {
+        'hiddenBehavior': 'Ti.UI.HIDDEN_BEHAVIOR_GONE'
+      }
+    },
     'TextField': {
       'DEFAULT': {
         'top': '10',
@@ -995,29 +1018,22 @@ module.exports = {
         'touchFeedback': true
       }
     },
-    '.gallery': {
-      'DEFAULT': {
-        'width': 'Ti.UI.FILL',
-        'height': 'Ti.UI.SIZE'
-      },
-      'ios': {
-        'clipMode': 'Ti.UI.iOS.CLIP_MODE_ENABLED'
-      },
-      'android': {
-        'hiddenBehavior': 'Ti.UI.HIDDEN_BEHAVIOR_GONE'
-      }
-    }
   }
 };
 ```
 
 ```css
 // ./purgetss/tailwind.tss
-'TextField': { top: 10, left: 20, right: 20, bottom: 0 }
-'TextField[if=Alloy.Globals.iPhoneX]': { bottom: Alloy.CFG.iPhoneXNotchSize }
-'TextField[platform=android]': { touchFeedback: true }
+...
+'#mainBanner': { width: '300px', height: '80px' }
+'#mainBanner[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 
 '.gallery': { width: Ti.UI.FILL, height: Ti.UI.SIZE }
 '.gallery[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.gallery[platform=android]': { hiddenBehavior: Ti.UI.HIDDEN_BEHAVIOR_GONE }
+
+'TextField': { top: 10, left: 20, right: 20, bottom: 0 }
+'TextField[if=Alloy.Globals.iPhoneX]': { bottom: Alloy.CFG.iPhoneXNotchSize }
+'TextField[platform=android]': { touchFeedback: true }
+...
 ```
