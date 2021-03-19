@@ -39,7 +39,7 @@ To parse all your XML files, run `purgetss` inside the root directory of your pr
 
 **To test it, see the [example files](https://github.com/macCesar/purgeTSS/blob/master/README.md#example-files)**
 
-## Commands
+## Available Commands
 
 ### init
 ```bash
