@@ -79,7 +79,7 @@ module.exports = {
 To generate your custom `tailwind.tss` file use the following command:
 
 ```bash
-> purgetss build-custom
+> purgetss build
 
 # alias:
 > purgetss b
