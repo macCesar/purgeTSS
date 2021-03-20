@@ -121,21 +121,21 @@ Now, all you have to do is run `purgetss build` and it will generate a new `purg
 ### Font Awesome 6 Alpha
 You can even generate a custom `fontawesome.tss` file from **Font Awesome 6 Alpha**.
 
-Just move the following folders from `fontawesome-pro-6.0.0-alpha2`:
+Just move `css` and `webfonts` folders from `fontawesome-pro-6.0.0-alpha2/fontawesome6/pro/`:
 ```bash
 fontawesome-pro-6.0.0-alpha2
-  /fontawesome6
-    /pro
-      /css
-      /webfonts
+└── fontawesome6
+    └── pro
+        ├── css
+        └── webfonts
 ```
 
-Into `./purgetss/fontawesome-beta` folder:
+Into `./purgetss/fontawesome-beta`:
 ```bash
 purgetss
-  /fontawesome-beta
-    /css
-    /webfonts
+└── fontawesome-beta
+    ├── css
+    └── webfonts
 ```
 
 And as with the Pro Version, just run `purgetss build` to generate your custom `fontawesome.tss` file to beta-test your new icons!
