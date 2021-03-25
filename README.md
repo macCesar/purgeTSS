@@ -122,6 +122,7 @@ Now, all you have to do is run `purgetss build` and it will generate a new `purg
 You can even generate a custom `fontawesome.tss` file from **Font Awesome 6 Alpha**.
 
 Just move `css` and `webfonts` folders from `fontawesome-pro-6.0.0-alpha2/fontawesome6/pro/`:
+
 ```bash
 fontawesome-pro-6.0.0-alpha2
 └─ fontawesome6
@@ -131,6 +132,7 @@ fontawesome-pro-6.0.0-alpha2
 ```
 
 Into `./purgetss/fontawesome-beta`:
+
 ```bash
 purgetss
 └─ fontawesome-beta

@@ -513,13 +513,13 @@
 '.rounded-2.5': { borderRadius: 5 }
 '.rounded-3.5': { borderRadius: 7 }
 '.rounded-none': { borderRadius: 0 }
-'.rounded-sm': { borderRadius: 1 }
+'.rounded-sm': { borderRadius: 2 }
 '.rounded': { borderRadius: 4 }
-'.rounded-md': { borderRadius: 3 }
-'.rounded-lg': { borderRadius: 4 }
-'.rounded-xl': { borderRadius: 6 }
-'.rounded-2xl': { borderRadius: 8 }
-'.rounded-3xl': { borderRadius: 12 }
+'.rounded-md': { borderRadius: 6 }
+'.rounded-lg': { borderRadius: 8 }
+'.rounded-xl': { borderRadius: 12 }
+'.rounded-2xl': { borderRadius: 16 }
+'.rounded-3xl': { borderRadius: 24 }
 
 // borderWidth Property
 '.border-0': { borderWidth: 0 }
