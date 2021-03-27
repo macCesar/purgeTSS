@@ -17,7 +17,7 @@ program
 	.command('init')
 	.alias('i')
 	.description('Create a `config.js` file for your project')
-	.help('It will create a minimal `config.js` file inside your project’s fonts folder.')
+	.help('Creates a minimal `./purgetss/config.js` file at the root of your project.')
 	.action((args, options, logger) => {
 		purgetss.init();
 	});

@@ -540,13 +540,13 @@ function buildCustomTailwind() {
 	}
 
 	// Reset some stiles
-	configFile.theme.Window = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
-	configFile.theme.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
-	configFile.theme.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
-	configFile.theme['.vertical'] = _.merge({ default: { layout: 'vertical' } }, configFile.theme['.vertical']);
-	configFile.theme['.horizontal'] = _.merge({ default: { layout: 'horizontal' } }, configFile.theme['.horizontal']);
-	configFile.theme['.clip-enabled'] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED' } }, configFile.theme['.clip-enabled']);
 	configFile.theme['.clip-disabled'] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme['.clip-disabled']);
+	configFile.theme['.clip-enabled'] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED' } }, configFile.theme['.clip-enabled']);
+	configFile.theme['.horizontal'] = _.merge({ default: { layout: 'horizontal' } }, configFile.theme['.horizontal']);
+	configFile.theme['.vertical'] = _.merge({ default: { layout: 'vertical' } }, configFile.theme['.vertical']);
+	configFile.theme['ImageView'] = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
+	configFile.theme['View'] = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
+	configFile.theme['Window'] = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 
 	// color
 	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor', true);
