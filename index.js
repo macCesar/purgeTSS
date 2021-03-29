@@ -84,9 +84,9 @@ const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './tss/materialico
 function devMode(options) {
 	if (alloyProject()) {
 
-		let tempPurged = backupOriginalAppTss();
+		backupOriginalAppTss();
 
-		tempPurged += copyResetTemplateAnd_appTSS();
+		let tempPurged = copyResetTemplateAnd_appTSS();
 
 		if (options.files && typeof options.files === 'string') {
 			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
@@ -152,11 +152,11 @@ function purgeClasses(options) {
 		} else {
 			start();
 
+			backupOriginalAppTss();
+
 			let uniqueClasses = getUniqueClasses();
 
-			let tempPurged = backupOriginalAppTss();
-
-			tempPurged += copyResetTemplateAnd_appTSS();
+			let tempPurged = copyResetTemplateAnd_appTSS();
 
 			tempPurged += purgeTailwind(uniqueClasses);
 
@@ -512,6 +512,7 @@ function getUniqueClasses() {
 	return uniqueClasses;
 }
 
+//! Build Custom Tailwind ( Main )
 function buildCustomTailwind() {
 	let configFile = require(destConfigJSFile);
 	const defaultColors = require('tailwindcss/colors');
@@ -553,6 +554,9 @@ function buildCustomTailwind() {
 
 	// backgroundColor
 	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor', true);
+
+	// backgroundSelectedColor
+	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor', true);
 
 	// borderColor
 	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor', true);
@@ -694,6 +698,7 @@ function walkSync(currentDirPath, callback) {
 	});
 }
 
+//! Coyp Fonts
 function copyFont(vendor) {
 	makeSureFolderExists(destFontsFolder);
 
@@ -722,12 +727,15 @@ function copyFont(vendor) {
 	}
 }
 
+//! Build tailwind's custom values
 function buildCustomValues(key, value) {
 	switch (key) {
 		case 'textColor':
 			return helpers.textColor(value);
 		case 'backgroundColor':
 			return helpers.backgroundColor(value);
+		case 'backgroundSelectedColor':
+			return helpers.backgroundSelectedColor(value);
 		case 'borderColor':
 			return helpers.borderColor(value);
 		case 'placeholderColor':
@@ -785,6 +793,7 @@ function buildCustomValues(key, value) {
 	}
 }
 
+//! Check if running inside an Alloy Project
 function alloyProject() {
 	if (!fs.existsSync(cwd + '/app/views')) {
 		logger.error('Please make sure you’re running purgeTSS inside an Alloy Project.');
@@ -795,21 +804,18 @@ function alloyProject() {
 	return true;
 }
 
+//! FIRST: Backup original app.tss
 function backupOriginalAppTss() {
-	//! FIRST: Backup original app.tss
 	if (!fs.existsSync(dest_appTSSFile) && fs.existsSync(destAppTSSFile)) {
 		logger.warn('Backing up app.tss into _app.tss\n             FROM NOW ON, add, update or delete your original classes in _app.tss');
 		fs.copyFileSync(destAppTSSFile, dest_appTSSFile);
-		// return fs.readFileSync(dest_appTSSFile, 'utf8');
 	} else if (!fs.existsSync(dest_appTSSFile)) {
 		fs.appendFileSync(dest_appTSSFile, '// Empty _app.tss\n');
 	}
-
-	return '';
 }
 
+//! Copy Reset template
 function copyResetTemplateAnd_appTSS() {
-	//! Copy Reset template
 	logger.info('Copying Reset styles...');
 
 	let tempPurged = fs.readFileSync(srcResetTSSFile, 'utf8');
@@ -826,6 +832,7 @@ function copyResetTemplateAnd_appTSS() {
 	return tempPurged;
 }
 
+//! Copy ALL Libraries
 function copyAllLibraries() {
 	let tempPurged = '';
 
@@ -854,6 +861,7 @@ function copyAllLibraries() {
 	return tempPurged;
 }
 
+//! Copy Selected Libraries
 function copySelectedLibraries(selected) {
 	let tempPurged = '';
 	_.each(selected, option => {
@@ -905,9 +913,8 @@ function finish() {
 }
 
 //! Purge Functions
+//! Tailwind
 function purgeTailwind(uniqueClasses) {
-	//! Custom Tailwind
-
 	let sourceFolder = '';
 	let purgedClasses = '';
 
@@ -928,7 +935,7 @@ function purgeTailwind(uniqueClasses) {
 		if (soc.includes(`'.${className}'`) || soc.includes(`'.${className}[`) || soc.includes(`'#${className}'`) || soc.includes(`'#${className}[`) || soc.includes(`'${className}'`) || soc.includes(`'${className}[`)) {
 			_.each(sourceTSS, line => {
 				if (line.startsWith(`'.${className}'`) || line.startsWith(`'.${className}[`) || line.startsWith(`'#${className}'`) || line.startsWith(`'#${className}[`) || line.startsWith(`'${className}'`) || line.startsWith(`'${className}[`)) {
-					purgedClasses += line + '\n';
+					purgedClasses += `${line}\n`;
 				}
 			});
 		}
@@ -937,8 +944,8 @@ function purgeTailwind(uniqueClasses) {
 	return purgedClasses;
 }
 
+//! FontAwesome
 function purgeFontAwesome(uniqueClasses) {
-	//! FontAwesome
 	let sourceFolder = '';
 	let purgedClasses = '';
 
@@ -959,7 +966,7 @@ function purgeFontAwesome(uniqueClasses) {
 		if (soc.includes(`'.${className}'`)) {
 			_.each(sourceTSS, line => {
 				if (line.startsWith(`'.${className}'`)) {
-					purgedClasses += line + '\n';
+					purgedClasses += `${line}\n`;
 				}
 			});
 		}
@@ -968,9 +975,10 @@ function purgeFontAwesome(uniqueClasses) {
 	return (purgedClasses === '\n// Custom Font Awesome styles\n' || purgedClasses === '\n// Default Font Awesome styles\n') ? '' : purgedClasses;
 }
 
+//! Material Design Icons
 function purgeMaterialDesign(uniqueClasses) {
-	//! Material Design Icons
 	logger.info('Purging Material Design Icons styles...');
+
 	let purgedClasses = '\n// Material Design Icons styles\n';
 
 	let sourceTSS = fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8').split(/\r?\n/);
@@ -980,7 +988,7 @@ function purgeMaterialDesign(uniqueClasses) {
 		if (soc.includes(`'.${className}'`)) {
 			_.each(sourceTSS, line => {
 				if (line.startsWith(`'.${className}'`)) {
-					purgedClasses += line + '\n';
+					purgedClasses += `${line}\n`;
 				}
 			});
 		}
@@ -989,8 +997,8 @@ function purgeMaterialDesign(uniqueClasses) {
 	return (purgedClasses === '\n// Material Design Icons styles\n') ? '' : purgedClasses;
 }
 
+//! LineIcons
 function purgeLineIcons(uniqueClasses) {
-	//! LineIcons
 	logger.info('Purging LineIcons styles...');
 
 	let purgedClasses = '\n// LineIcons styles\n';
@@ -1002,7 +1010,7 @@ function purgeLineIcons(uniqueClasses) {
 		if (soc.includes(`'.${className}'`)) {
 			_.each(sourceTSS, line => {
 				if (line.startsWith(`'.${className}'`)) {
-					purgedClasses += line + '\n';
+					purgedClasses += `${line}\n`;
 				}
 			});
 		}
