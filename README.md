@@ -19,7 +19,7 @@ It is an all-round package for all Titanium Developers who want to easily and qu
 List of available libraries:
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss)
 - [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss)
-- [materialicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialicons.tss)
+- [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialdesignicons.tss)
 - [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss)
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
@@ -154,7 +154,7 @@ And as with the Pro Version, just run `purgetss build` to generate your custom `
 
 When you are prototyping your application, you will want to have all available classes in `app.tss`, rather than purging each time you add/remove classes to your XML views.
 
-You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialicons.tss`, `lineicons.tss` and your `custom.tss` file.
+You can copy **all available classes** in `tailwind.tss`, `fontawesome.tss`, `materialdesignicons.tss`, `lineicons.tss` and your `custom.tss` file.
 
 ### A warning when working with very large `.tss` files
 When you compile a very large `.tss` file, you will get the following note:
@@ -224,6 +224,28 @@ Available aliases:
 - fa, font, fontawesome = Font Awesome Icons
 - md, material, materialdesign = Material Design Icons
 - li, line, lineicons = LineIcons
+
+### Copying corresponding CommonJS Modules
+Add the `--modules` flag to also copy the corresponding CommonJS modules into `./app/lib/` folder:
+
+```bash
+> purgetss fonts --modules
+> purgetss fonts --modules --vendor="fontawesome, materialdesign, lineicons"
+
+# alias:
+> purgetss f -m
+> purgetss f -m -v=fa,md,li
+```
+
+Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Material Design Icons and Line Icons fonts.
+
+All prefixes are stripped out from the names, for example:
+
+- Font Awesome: fa-flag becomes flag
+- Line Icons: lni-flag becomes flag
+- Material Design Icons: md-flag becomes flag
+
+All Icon names are camelCased, arrow-up becomes arrowUp.
 
 ### watch
 ```bash
