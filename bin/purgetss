@@ -8,7 +8,7 @@ const package = require('../package.json');
 program
 	.version(package.version)
 	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for details.')
-	.help('purgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialicons.tss, lineicons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
+	.help('purgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialdesignicons.tss, lineicons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
 	.action((args, options, logger) => {
 		purgetss.purgeClasses(options);
 	});
@@ -42,24 +42,25 @@ program
 	});
 
 program
-	.command('dev')
-	.alias('d')
-	.description('Copy all available classes into `app.tss`')
-	.help('Use this command if you want to copy all available styles from tailwind.tss ( or from a custom tailwind.tss when available ), fontawesome.tss, materialicons.tss, lineicons.tss files into app.tss while prototyping your App.')
-	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from an specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom tailwind.tss styles')
-	.action((args, options, logger) => {
-		purgetss.devMode(options);
-	});
-
-program
 	.command('fonts')
 	.alias('f')
 	.description('Copy Font Awesome icons, Material Design Icons and LineIcons Fonts into your project')
 	.help('Command to copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • Material Design Icons\n   • LineIcons\n\nInto your projects’s app/assets/fonts/ folder.\n\nWith their names fixed to work with your app whether it is for iOS or for Android.')
 	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons')
+	.option('-m, --modules', 'Use the `--modules` option to also copy the corresponding CommonJS module into `./app/lib/` folder.')
 	.action((args, options, logger) => {
 		purgetss.copyFonts(options);
 	});
+
+// program
+// 	.command('library')
+// 	.alias('l')
+// 	.description('Copy `fontawesome.js`, `lineicons.js` and `materialdesignicons.js` libraries into your project')
+// 	.help('Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Line Icons and Material Design Icons\n')
+// 	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons')
+// 	.action((args, options, logger) => {
+// 		purgetss.copyFontLibraries(options);
+// 	});
 
 program
 	.command('update')
@@ -109,6 +110,16 @@ program
 
 			logger.info(`${purgetss.colores.purgeLabel} Done!`);
 		});
+	});
+
+program
+	.command('dev')
+	.alias('d')
+	.description('Copy all available classes into `app.tss` ' + chalk.yellow('( NO LONGER RECOMMENDED )'))
+	.help('Use this command if you want to copy all available styles from tailwind.tss ( or from a custom tailwind.tss when available ), fontawesome.tss, materialdesignicons.tss, lineicons.tss files into app.tss while prototyping your App.')
+	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from an specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom tailwind.tss styles')
+	.action((args, options, logger) => {
+		purgetss.devMode(options);
 	});
 
 // Deprecated commands and will be removed in v3
