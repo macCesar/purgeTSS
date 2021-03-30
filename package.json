@@ -1,6 +1,6 @@
 {
 	"name": "purgetss",
-	"version": "2.2.10",
+	"version": "2.2.11",
 	"description": "An extension for Titanium SDK that generates a set of Tailwind-like classes and values to easily and quickly create beautifully designed mobile apps.",
 	"main": "index.js",
 	"bin": {
@@ -10,13 +10,16 @@
 		"access": "public"
 	},
 	"scripts": {
+		"build": "npm run build:all",
 		"build:tailwind": "node ./lib/build-tailwind",
 		"build:fonts": "node ./lib/build-fonts-folder",
 		"build:fa": "node ./lib/build-fontawesome-free-tss",
 		"build:fa-js": "node ./lib/build-fontawesome-free-js",
 		"build:lineicons": "node ./lib/build-lineicons-tss",
+		"build:lineicons-js": "node ./lib/build-lineicons-js",
 		"build:material": "node ./lib/build-material-icons-tss",
-		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:lineicons && npm run build:material && npm run build:fonts"
+		"build:material-js": "node ./lib/build-material-icons-js",
+		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:lineicons && npm run build:lineicons-js && npm run build:material && npm run build:material-js && npm run build:fonts"
 	},
 	"repository": {
 		"type": "git",
