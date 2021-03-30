@@ -38,8 +38,13 @@ const destAppTSSFile = cwd + '/app/styles/app.tss';
 const dest_appTSSFile = cwd + '/app/styles/_app.tss';
 const destConfigJSFile = cwd + '/purgetss/config.js';
 //
+const srcLibLI = path.resolve(__dirname, './dist/lineicons.js');
+const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
+const srcLibMD = path.resolve(__dirname, './dist/materialdesignicons.js');
+
+//
 const customTailwindFile = cwd + '/purgetss/tailwind.tss';
-const defaultTailwindFile = path.resolve(__dirname, './tss/tailwind.tss');
+const defaultTailwindFile = path.resolve(__dirname, './dist/tailwind.tss');
 //
 const customFontAwesomeFile = cwd + '/purgetss/fontawesome.tss';
 const destLibFolder = cwd + '/app/lib';
@@ -48,8 +53,8 @@ const customFontAwesomeJSFile = cwd + '/app/lib/fontawesome.js';
 // PRO
 const srcFontAwesomeProCSSFile = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css';
 const srcFontAwesomeProWebFontsFolder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/';
-const srcFontAwesomeProResetTSS = './lib/templates/fontawesome-pro-reset.tss';
-const srcFontAwesomeProTemplateTSS = './lib/templates/fontawesome-pro-template.tss';
+const srcFontAwesomeProResetTSS = './lib/templates/fontawesome/pro-reset.tss';
+const srcFontAwesomeProTemplateTSS = './lib/templates/fontawesome/pro-template.tss';
 const srcFontAwesomeProFontFamilies = {
 	'fa-light-300.ttf': 'FontAwesome5Pro-Light.ttf',
 	'fa-brands-400.ttf': 'FontAwesome5Brands-Regular.ttf',
@@ -60,8 +65,8 @@ const srcFontAwesomeProFontFamilies = {
 // BETA
 const srcFontAwesomeBetaCSSFile = cwd + '/purgetss/fontawesome-beta/css/all.css';
 const srcFontAwesomeBetaWebFontsFolder = cwd + '/purgetss/fontawesome-beta/webfonts/';
-const srcFontAwesomeBetaResetTSS = './lib/templates/fontawesome-beta-reset.tss';
-const srcFontAwesomeBetaTemplateTSS = './lib/templates/fontawesome-beta-template.tss';
+const srcFontAwesomeBetaResetTSS = './lib/templates/fontawesome/beta-reset.tss';
+const srcFontAwesomeBetaTemplateTSS = './lib/templates/fontawesome/beta-template.tss';
 const srcFontAwesomeBetaFontFamilies = {
 	'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
 	'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
@@ -71,12 +76,12 @@ const srcFontAwesomeBetaFontFamilies = {
 }
 //
 const srcFontsFolder = path.resolve(__dirname, './assets/fonts');
-const srcResetTSSFile = path.resolve(__dirname, './tss/reset.tss');
+const srcResetTSSFile = path.resolve(__dirname, './dist/reset.tss');
 const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
-const srcFontAwesomeTSSFile = path.resolve(__dirname, './tss/fontawesome.tss');
-const srcLineiconsFontTSSFile = path.resolve(__dirname, './tss/lineicons.tss');
+const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss');
+const srcLineiconsFontTSSFile = path.resolve(__dirname, './dist/lineicons.tss');
 const srcPurgetssConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
-const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './tss/materialicons.tss');
+const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialdesignicons.tss');
 //
 
 //! Interfase
@@ -138,9 +143,32 @@ function copyFonts(options) {
 			copyFont('li');
 			copyFont('md');
 		}
+
+		if (options.modules) {
+			copyFontLibraries(options);
+		}
 	}
 }
 module.exports.copyFonts = copyFonts;
+
+//! Command: copy-font-liraries
+function copyFontLibraries(options) {
+	if (alloyProject()) {
+		makeSureFolderExists(destLibFolder);
+
+		if (options.vendor && typeof options.vendor === 'string') {
+			let selected = _.uniq(options.vendor.replace(/ /g, '').split(','));
+			_.each(selected, vendor => {
+				copyFontLibrary(vendor);
+			});
+		} else {
+			copyFontLibrary('fa');
+			copyFontLibrary('li');
+			copyFontLibrary('md');
+		}
+	}
+}
+module.exports.copyFontLibraries = copyFontLibraries;
 
 //! Command: purgetss
 function purgeClasses(options) {
@@ -249,9 +277,9 @@ function prettifyFontName(str) {
 
 function buildCustomFontAwesomeJS() {
 	if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
-		processCustomFontAwesomeJS(srcFontAwesomeBetaCSSFile, './lib/templates/fa-beta.js');
+		processCustomFontAwesomeJS(srcFontAwesomeBetaCSSFile, './lib/templates/fontawesome/beta-template.js');
 	} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
-		processCustomFontAwesomeJS(srcFontAwesomeProCSSFile, './lib/templates/fa-pro.js');
+		processCustomFontAwesomeJS(srcFontAwesomeProCSSFile, './lib/templates/fontawesome/pro-template.js');
 	}
 }
 
@@ -268,23 +296,9 @@ function processCustomFontAwesomeJS(CSSFile, faJS) {
 			}
 		});
 
-		let paraJS = 'const fontawesome = {\n';
+		let fontAwesomeContent = fs.readFileSync(path.resolve(__dirname, faJS), 'utf8');
 
-		_.each(rules, rule => {
-			if (rule) {
-				paraJS += `\t'${rule.selector}': '\\u${rule.property}',\n`;
-			}
-		});
-
-		paraJS += '};\n';
-
-		paraJS += 'exports.fontawesome = fontawesome;\n';
-
-		let tssClasses = fs.readFileSync(path.resolve(__dirname, faJS), 'utf8');
-
-		tssClasses += '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/fa-functions.js'), 'utf8');
-
-		tssClasses += '\n' + paraJS;
+		fontAwesomeContent += '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8');
 
 		let exportIcons = '\nconst icons = {\n';
 
@@ -295,17 +309,18 @@ function processCustomFontAwesomeJS(CSSFile, faJS) {
 		});
 
 		exportIcons += '};\n';
+
 		exportIcons += 'exports.icons = icons;\n';
 
-		tssClasses += exportIcons;
+		fontAwesomeContent += exportIcons;
 
 		makeSureFolderExists(destLibFolder);
 
-		fs.writeFileSync(customFontAwesomeJSFile, tssClasses, err => {
+		fs.writeFileSync(customFontAwesomeJSFile, fontAwesomeContent, err => {
 			throw err;
 		});
 
-		logger.file('./purgetss/fontawesome.js');
+		logger.file('./app/lib/fontawesome.js');
 	});
 }
 
@@ -315,19 +330,19 @@ function copyFreeFonts() {
 	fs.copyFile(srcFontsFolder + '/FontAwesome5Free-Regular.ttf', destFontsFolder + '/FontAwesome5Free-Regular.ttf', callback);
 	fs.copyFile(srcFontsFolder + '/FontAwesome5Free-Solid.ttf', destFontsFolder + '/FontAwesome5Free-Solid.ttf', callback);
 
-	logger.info('Font Awesome Free Icons Fonts copied to', chalk.yellow('./app/assets/fonts'));
+	logger.info('Font Awesome Free Icons Fonts copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
 
 function copyProFonts(fontFamilies, webFonts) {
 	_.each(fontFamilies, (dest, src) => {
 		if (copyFile(`${webFonts}/${src}`, dest)) {
-			logger.info(`${dest} Font copied to`, chalk.yellow('./app/assets/fonts'));
+			logger.info(`${dest} Font copied to`, chalk.yellow('./app/assets/fonts'), 'folder');
 		}
 	});
 }
 
 function copyMaterialDesignFonts() {
-	// Material Desing Icons Font
+	// Material Design Icons Font
 	let fontFamilies = [
 		'MaterialIcons-Regular.ttf',
 		'MaterialIconsOutlined-Regular.otf',
@@ -340,13 +355,13 @@ function copyMaterialDesignFonts() {
 		copyFile(`${srcFontsFolder}/${familyName}`, familyName);
 	});
 
-	logger.info('Material Desing Icons Font copied to', chalk.yellow('./app/assets/fonts'));
+	logger.info('Material Design Icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
 
 function copyLineIconsFonts() {
 	// LineIcons Font
 	copyFile(srcFontsFolder + '/LineIcons.ttf', 'LineIcons.ttf');
-	logger.info('LineIcons Font copied to', chalk.yellow('./app/assets/fonts'));
+	logger.info('LineIcons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
 
 function processFontawesomeStyles(data) {
@@ -629,8 +644,8 @@ function buildCustomTailwind() {
 	// Interactivity
 	configFile.theme.interactivity = {};
 
-	let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind-template.tss'), 'utf8');
-	convertedStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/custom-tailwind-template.tss'), 'utf8') + '\n// Custom Styles and Resets\n';
+	let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8');
+	convertedStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8') + '\n// Custom Styles and Resets\n';
 
 	delete configFile.theme.extend;
 	delete configFile.theme.colors;
@@ -698,7 +713,7 @@ function walkSync(currentDirPath, callback) {
 	});
 }
 
-//! Coyp Fonts
+//! Copy Fonts
 function copyFont(vendor) {
 	makeSureFolderExists(destFontsFolder);
 
@@ -723,6 +738,34 @@ function copyFont(vendor) {
 		case 'line':
 		case 'lineicons':
 			copyLineIconsFonts();
+			break;
+	}
+}
+
+//! Copy Font Libraries
+function copyFontLibrary(vendor) {
+	switch (vendor) {
+		case 'fa':
+		case 'font':
+		case 'fontawesome':
+			if (fs.existsSync(srcFontAwesomeBetaCSSFile) || fs.existsSync(srcFontAwesomeProCSSFile)) {
+				buildCustomFontAwesomeJS();
+			} else {
+				fs.copyFileSync(srcLibFA, destLibFolder + '/fontawesome.js');
+				logger.info('FA CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			}
+			break;
+		case 'md':
+		case 'material':
+		case 'materialdesign':
+			fs.copyFileSync(srcLibMD, destLibFolder + '/materialdesignicons.js');
+			logger.info('MD CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			break;
+		case 'li':
+		case 'line':
+		case 'lineicons':
+			fs.copyFileSync(srcLibLI, destLibFolder + '/lineicons.js');
+			logger.info('LI CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 	}
 }
