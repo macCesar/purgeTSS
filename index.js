@@ -53,6 +53,10 @@ const customFontAwesomeJSFile = cwd + '/app/lib/fontawesome.js';
 // PRO
 const srcFontAwesomeProCSSFile = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css';
 const srcFontAwesomeProWebFontsFolder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/';
+// Alternate location
+const srcFontAwesomeProCSSFileAlternate = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/css/all.css';
+const srcFontAwesomeProWebFontsFolderAlternate = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/webfonts/';
+
 const srcFontAwesomeProResetTSS = './lib/templates/fontawesome/pro-reset.tss';
 const srcFontAwesomeProTemplateTSS = './lib/templates/fontawesome/pro-template.tss';
 const srcFontAwesomeProFontFamilies = {
@@ -236,6 +240,8 @@ function buildCustomFontAwesome() {
 		processCustomFontAwesomeTSS(srcFontAwesomeBetaCSSFile, srcFontAwesomeBetaTemplateTSS, srcFontAwesomeBetaResetTSS, srcFontAwesomeBetaFontFamilies, srcFontAwesomeBetaWebFontsFolder);
 	} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
 		processCustomFontAwesomeTSS(srcFontAwesomeProCSSFile, srcFontAwesomeProTemplateTSS, srcFontAwesomeProResetTSS, srcFontAwesomeProFontFamilies, srcFontAwesomeProWebFontsFolder);
+	} else if (fs.existsSync(srcFontAwesomeProCSSFileAlternate)) {
+		processCustomFontAwesomeTSS(srcFontAwesomeProCSSFileAlternate, srcFontAwesomeProTemplateTSS, srcFontAwesomeProResetTSS, srcFontAwesomeProFontFamilies, srcFontAwesomeProWebFontsFolderAlternate);
 	}
 }
 
