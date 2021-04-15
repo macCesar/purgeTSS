@@ -1,6 +1,6 @@
 {
 	"name": "purgetss",
-	"version": "2.2.11",
+	"version": "2.2.12",
 	"description": "An extension for Titanium SDK that generates a set of Tailwind-like classes and values to easily and quickly create beautifully designed mobile apps.",
 	"main": "index.js",
 	"bin": {
@@ -42,7 +42,7 @@
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^5.15.3",
 		"@tailwindcss/ui": "^0.7.2",
-		"arg": "^4.1.3",
+		"arg": "^5.0.0",
 		"autoprefixer": "^10.2.5",
 		"caporal": "^1.4.0",
 		"chalk": "^4.1.0",
@@ -51,7 +51,7 @@
 		"lodash": "^4.17.20",
 		"path": "^0.12.7",
 		"read-css": "^0.3.0",
-		"tailwindcss": "^2.0.4",
+		"tailwindcss": "^2.1.1",
 		"traverse": "^0.6.6",
 		"xml-js": "^1.6.11"
 	}
