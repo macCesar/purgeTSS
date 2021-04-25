@@ -585,6 +585,9 @@ function buildCustomTailwind() {
 	// placeholderColor
 	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor', true);
 
+	// touchFeedbackColor
+	configFile.theme.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor', true);
+
 	// Gradient Color Stops
 	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops', true);
 
@@ -789,6 +792,8 @@ function buildCustomValues(key, value) {
 			return helpers.borderColor(value);
 		case 'placeholderColor':
 			return helpers.placeholderColor(value);
+		case 'touchFeedbackColor':
+			return helpers.touchFeedbackColor(value);
 		case 'backgroundGradient':
 			return helpers.backgroundGradient();
 		case 'gradientColorStops':
