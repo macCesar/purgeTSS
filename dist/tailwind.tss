@@ -3,8 +3,8 @@
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // Custom Styles and Resets
-'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.horizontal': { layout: 'horizontal' }
 '.vertical': { layout: 'vertical' }
 'ImageView[platform=ios]': { hires: true }
