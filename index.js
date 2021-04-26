@@ -621,9 +621,6 @@ function buildCustomTailwind() {
 	configFile.theme.scrollIndicators = {};
 	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor', true);
 
-	// Border Radius
-	// configFile.theme.borderRadius = combineKeys(configFile.theme, { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius', false);
-
 	// Border Radius ( Extra Styles )
 	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
 	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius', true);
@@ -818,8 +815,6 @@ function buildCustomValues(key, value) {
 			return helpers.contentWidth();
 		case 'scrollIndicators':
 			return helpers.scrollIndicators();
-		case 'borderRadius':
-			return helpers.borderRadius(value);
 		case 'borderRadiusExtraStyles':
 			return helpers.borderRadiusExtraStyles(value);
 		case 'borderWidth':
