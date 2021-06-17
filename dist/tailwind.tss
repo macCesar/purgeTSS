@@ -1,4 +1,4 @@
-// Tailwind CSS v2.1.4: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind CSS v2.2.0: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Tailwind UI Plugin v0.7.2 ( https://www.npmjs.com/package/@tailwindcss/ui ).
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
@@ -95,6 +95,16 @@
 '.bg-lightBlue-700': { backgroundColor: '#0369a1' }
 '.bg-lightBlue-800': { backgroundColor: '#075985' }
 '.bg-lightBlue-900': { backgroundColor: '#0c4a6e' }
+'.bg-sky-50': { backgroundColor: '#f0f9ff' }
+'.bg-sky-100': { backgroundColor: '#e0f2fe' }
+'.bg-sky-200': { backgroundColor: '#bae6fd' }
+'.bg-sky-300': { backgroundColor: '#7dd3fc' }
+'.bg-sky-400': { backgroundColor: '#38bdf8' }
+'.bg-sky-500': { backgroundColor: '#0ea5e9' }
+'.bg-sky-600': { backgroundColor: '#0284c7' }
+'.bg-sky-700': { backgroundColor: '#0369a1' }
+'.bg-sky-800': { backgroundColor: '#075985' }
+'.bg-sky-900': { backgroundColor: '#0c4a6e' }
 '.bg-cyan-50': { backgroundColor: '#ecfeff' }
 '.bg-cyan-100': { backgroundColor: '#cffafe' }
 '.bg-cyan-200': { backgroundColor: '#a5f3fc' }
@@ -320,6 +330,16 @@
 '.bg-selected-lightBlue-700': { backgroundSelectedColor: '#0369a1' }
 '.bg-selected-lightBlue-800': { backgroundSelectedColor: '#075985' }
 '.bg-selected-lightBlue-900': { backgroundSelectedColor: '#0c4a6e' }
+'.bg-selected-sky-50': { backgroundSelectedColor: '#f0f9ff' }
+'.bg-selected-sky-100': { backgroundSelectedColor: '#e0f2fe' }
+'.bg-selected-sky-200': { backgroundSelectedColor: '#bae6fd' }
+'.bg-selected-sky-300': { backgroundSelectedColor: '#7dd3fc' }
+'.bg-selected-sky-400': { backgroundSelectedColor: '#38bdf8' }
+'.bg-selected-sky-500': { backgroundSelectedColor: '#0ea5e9' }
+'.bg-selected-sky-600': { backgroundSelectedColor: '#0284c7' }
+'.bg-selected-sky-700': { backgroundSelectedColor: '#0369a1' }
+'.bg-selected-sky-800': { backgroundSelectedColor: '#075985' }
+'.bg-selected-sky-900': { backgroundSelectedColor: '#0c4a6e' }
 '.bg-selected-cyan-50': { backgroundSelectedColor: '#ecfeff' }
 '.bg-selected-cyan-100': { backgroundSelectedColor: '#cffafe' }
 '.bg-selected-cyan-200': { backgroundSelectedColor: '#a5f3fc' }
@@ -556,6 +576,16 @@
 '.border-lightBlue-700': { borderColor: '#0369a1' }
 '.border-lightBlue-800': { borderColor: '#075985' }
 '.border-lightBlue-900': { borderColor: '#0c4a6e' }
+'.border-sky-50': { borderColor: '#f0f9ff' }
+'.border-sky-100': { borderColor: '#e0f2fe' }
+'.border-sky-200': { borderColor: '#bae6fd' }
+'.border-sky-300': { borderColor: '#7dd3fc' }
+'.border-sky-400': { borderColor: '#38bdf8' }
+'.border-sky-500': { borderColor: '#0ea5e9' }
+'.border-sky-600': { borderColor: '#0284c7' }
+'.border-sky-700': { borderColor: '#0369a1' }
+'.border-sky-800': { borderColor: '#075985' }
+'.border-sky-900': { borderColor: '#0c4a6e' }
 '.border-cyan-50': { borderColor: '#ecfeff' }
 '.border-cyan-100': { borderColor: '#cffafe' }
 '.border-cyan-200': { borderColor: '#a5f3fc' }
@@ -870,6 +900,16 @@
 '.from-lightBlue-700': { backgroundGradient: { colors: [ '#000369a1', '#0369a1' ] } }
 '.from-lightBlue-800': { backgroundGradient: { colors: [ '#00075985', '#075985' ] } }
 '.from-lightBlue-900': { backgroundGradient: { colors: [ '#000c4a6e', '#0c4a6e' ] } }
+'.from-sky-50': { backgroundGradient: { colors: [ '#00f0f9ff', '#f0f9ff' ] } }
+'.from-sky-100': { backgroundGradient: { colors: [ '#00e0f2fe', '#e0f2fe' ] } }
+'.from-sky-200': { backgroundGradient: { colors: [ '#00bae6fd', '#bae6fd' ] } }
+'.from-sky-300': { backgroundGradient: { colors: [ '#007dd3fc', '#7dd3fc' ] } }
+'.from-sky-400': { backgroundGradient: { colors: [ '#0038bdf8', '#38bdf8' ] } }
+'.from-sky-500': { backgroundGradient: { colors: [ '#000ea5e9', '#0ea5e9' ] } }
+'.from-sky-600': { backgroundGradient: { colors: [ '#000284c7', '#0284c7' ] } }
+'.from-sky-700': { backgroundGradient: { colors: [ '#000369a1', '#0369a1' ] } }
+'.from-sky-800': { backgroundGradient: { colors: [ '#00075985', '#075985' ] } }
+'.from-sky-900': { backgroundGradient: { colors: [ '#000c4a6e', '#0c4a6e' ] } }
 '.from-cyan-50': { backgroundGradient: { colors: [ '#00ecfeff', '#ecfeff' ] } }
 '.from-cyan-100': { backgroundGradient: { colors: [ '#00cffafe', '#cffafe' ] } }
 '.from-cyan-200': { backgroundGradient: { colors: [ '#00a5f3fc', '#a5f3fc' ] } }
@@ -1095,6 +1135,16 @@
 '.to-lightBlue-700': { backgroundGradient: { colors: [ '#0369a1' ] } }
 '.to-lightBlue-800': { backgroundGradient: { colors: [ '#075985' ] } }
 '.to-lightBlue-900': { backgroundGradient: { colors: [ '#0c4a6e' ] } }
+'.to-sky-50': { backgroundGradient: { colors: [ '#f0f9ff' ] } }
+'.to-sky-100': { backgroundGradient: { colors: [ '#e0f2fe' ] } }
+'.to-sky-200': { backgroundGradient: { colors: [ '#bae6fd' ] } }
+'.to-sky-300': { backgroundGradient: { colors: [ '#7dd3fc' ] } }
+'.to-sky-400': { backgroundGradient: { colors: [ '#38bdf8' ] } }
+'.to-sky-500': { backgroundGradient: { colors: [ '#0ea5e9' ] } }
+'.to-sky-600': { backgroundGradient: { colors: [ '#0284c7' ] } }
+'.to-sky-700': { backgroundGradient: { colors: [ '#0369a1' ] } }
+'.to-sky-800': { backgroundGradient: { colors: [ '#075985' ] } }
+'.to-sky-900': { backgroundGradient: { colors: [ '#0c4a6e' ] } }
 '.to-cyan-50': { backgroundGradient: { colors: [ '#ecfeff' ] } }
 '.to-cyan-100': { backgroundGradient: { colors: [ '#cffafe' ] } }
 '.to-cyan-200': { backgroundGradient: { colors: [ '#a5f3fc' ] } }
@@ -2757,6 +2807,16 @@
 '.placeholder-lightBlue-700': { hintTextColor: '#0369a1' }
 '.placeholder-lightBlue-800': { hintTextColor: '#075985' }
 '.placeholder-lightBlue-900': { hintTextColor: '#0c4a6e' }
+'.placeholder-sky-50': { hintTextColor: '#f0f9ff' }
+'.placeholder-sky-100': { hintTextColor: '#e0f2fe' }
+'.placeholder-sky-200': { hintTextColor: '#bae6fd' }
+'.placeholder-sky-300': { hintTextColor: '#7dd3fc' }
+'.placeholder-sky-400': { hintTextColor: '#38bdf8' }
+'.placeholder-sky-500': { hintTextColor: '#0ea5e9' }
+'.placeholder-sky-600': { hintTextColor: '#0284c7' }
+'.placeholder-sky-700': { hintTextColor: '#0369a1' }
+'.placeholder-sky-800': { hintTextColor: '#075985' }
+'.placeholder-sky-900': { hintTextColor: '#0c4a6e' }
 '.placeholder-cyan-50': { hintTextColor: '#ecfeff' }
 '.placeholder-cyan-100': { hintTextColor: '#cffafe' }
 '.placeholder-cyan-200': { hintTextColor: '#a5f3fc' }
@@ -2982,6 +3042,16 @@
 '.feedback-lightBlue-700': { touchFeedback: true, touchFeedbackColor: '#0369a1' }
 '.feedback-lightBlue-800': { touchFeedback: true, touchFeedbackColor: '#075985' }
 '.feedback-lightBlue-900': { touchFeedback: true, touchFeedbackColor: '#0c4a6e' }
+'.feedback-sky-50': { touchFeedback: true, touchFeedbackColor: '#f0f9ff' }
+'.feedback-sky-100': { touchFeedback: true, touchFeedbackColor: '#e0f2fe' }
+'.feedback-sky-200': { touchFeedback: true, touchFeedbackColor: '#bae6fd' }
+'.feedback-sky-300': { touchFeedback: true, touchFeedbackColor: '#7dd3fc' }
+'.feedback-sky-400': { touchFeedback: true, touchFeedbackColor: '#38bdf8' }
+'.feedback-sky-500': { touchFeedback: true, touchFeedbackColor: '#0ea5e9' }
+'.feedback-sky-600': { touchFeedback: true, touchFeedbackColor: '#0284c7' }
+'.feedback-sky-700': { touchFeedback: true, touchFeedbackColor: '#0369a1' }
+'.feedback-sky-800': { touchFeedback: true, touchFeedbackColor: '#075985' }
+'.feedback-sky-900': { touchFeedback: true, touchFeedbackColor: '#0c4a6e' }
 '.feedback-cyan-50': { touchFeedback: true, touchFeedbackColor: '#ecfeff' }
 '.feedback-cyan-100': { touchFeedback: true, touchFeedbackColor: '#cffafe' }
 '.feedback-cyan-200': { touchFeedback: true, touchFeedbackColor: '#a5f3fc' }
@@ -3257,6 +3327,16 @@
 '.text-lightBlue-700': { color: '#0369a1' }
 '.text-lightBlue-800': { color: '#075985' }
 '.text-lightBlue-900': { color: '#0c4a6e' }
+'.text-sky-50': { color: '#f0f9ff' }
+'.text-sky-100': { color: '#e0f2fe' }
+'.text-sky-200': { color: '#bae6fd' }
+'.text-sky-300': { color: '#7dd3fc' }
+'.text-sky-400': { color: '#38bdf8' }
+'.text-sky-500': { color: '#0ea5e9' }
+'.text-sky-600': { color: '#0284c7' }
+'.text-sky-700': { color: '#0369a1' }
+'.text-sky-800': { color: '#075985' }
+'.text-sky-900': { color: '#0c4a6e' }
 '.text-cyan-50': { color: '#ecfeff' }
 '.text-cyan-100': { color: '#cffafe' }
 '.text-cyan-200': { color: '#a5f3fc' }
