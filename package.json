@@ -51,7 +51,7 @@
 		"lodash": "^4.17.20",
 		"path": "^0.12.7",
 		"read-css": "^0.3.0",
-		"tailwindcss": "^2.2.0",
+		"tailwindcss": "^2.2.4",
 		"traverse": "^0.6.6",
 		"xml-js": "^1.6.11"
 	}
