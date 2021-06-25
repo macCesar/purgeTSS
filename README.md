@@ -95,7 +95,7 @@ You can customize the following keys:
 - borderWidth
 - opacity
 - visible
-- *Your own class names and any Ti Element with any number of attributes or conditional statements*
+- ***Your own class names and any Ti Element with any number of attributes or conditional statements***
 
 ### build
 After customizing your `config.js` file, you'll need to generate a new `./purgetss/tailwind.tss` file by running:

@@ -972,9 +972,9 @@ Whether you want to style a Ti Element (also known as a markup element), a custo
     // Any default properties
     // even custom properties to use in your Controllers
   },
-  // Optional: platform specific properties
-  'ios-android-[conditional-block]': {
-    // platform specific properties
+  // Optional: platform, device or conditional-block properties
+  'ios-android-tablet-handheld-[conditional-block]': {
+    // platform, device or conditional-block properties
   }
 };
 ```
@@ -994,7 +994,6 @@ module.exports = {
     },
     '.gallery': {
       'DEFAULT': {
-        'width': 'Ti.UI.FILL',
         'height': 'Ti.UI.SIZE'
       },
       'ios': {
@@ -1002,6 +1001,12 @@ module.exports = {
       },
       'android': {
         'hiddenBehavior': 'Ti.UI.HIDDEN_BEHAVIOR_GONE'
+      },
+      'handheld': {
+        'width': '250px'
+      },
+      'tablet': {
+        'width': '500px'
       }
     },
     'TextField': {
@@ -1028,9 +1033,11 @@ module.exports = {
 '#mainBanner': { width: '300px', height: '80px' }
 '#mainBanner[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 
-'.gallery': { width: Ti.UI.FILL, height: Ti.UI.SIZE }
+'.gallery': { height: Ti.UI.SIZE }
 '.gallery[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.gallery[platform=android]': { hiddenBehavior: Ti.UI.HIDDEN_BEHAVIOR_GONE }
+'.gallery[formFactor=handheld]': { width: '250px' }
+'.gallery[formFactor=tablet]': { width: '500px' }
 
 'TextField': { top: 10, left: 20, right: 20, bottom: 0 }
 'TextField[if=Alloy.Globals.iPhoneX]': { bottom: Alloy.CFG.iPhoneXNotchSize }
