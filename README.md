@@ -414,7 +414,6 @@ You can specify different classes to any element using `Platform` and `Device` u
 - `handheld:`
 - `tablet:`
 
-
 `index.xml`
 ```xml
 <Alloy>
