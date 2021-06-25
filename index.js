@@ -523,7 +523,7 @@ function getUniqueClasses() {
 
 	// Clean even more unnecessary names
 	_.each(_.uniq(_.flattenDeep(allClasses)).sort(), uniqueClass => {
-		if (!uniqueClass.startsWith('{') && !uniqueClass.startsWith('[') && !uniqueClass.startsWith('--') && !uniqueClass.startsWith('!--') && !uniqueClass.startsWith('#') && !uniqueClass.startsWith('/')) {
+		if (isNaN(uniqueClass.charAt(0)) && !uniqueClass.includes('=') && !uniqueClass.includes('/') && !uniqueClass.includes('L(') && !uniqueClass.includes(')') && !uniqueClass.startsWith('Ti.') && !uniqueClass.startsWith('{') && !uniqueClass.startsWith('[') && !uniqueClass.startsWith('--') && !uniqueClass.startsWith('!--') && !uniqueClass.startsWith('#')) {
 			uniqueClasses.push(uniqueClass.replace(',', ''));
 		}
 	});
@@ -981,10 +981,39 @@ function purgeTailwind(uniqueClasses) {
 	let soc = sourceTSS.toString(); // soc = String of Classes
 
 	_.each(uniqueClasses, className => {
-		if (soc.includes(`'.${className}'`) || soc.includes(`'.${className}[`) || soc.includes(`'#${className}'`) || soc.includes(`'#${className}[`) || soc.includes(`'${className}'`) || soc.includes(`'${className}[`)) {
+		cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '');
+
+		if (soc.includes(`'.${cleanClassName}'`) || soc.includes(`'.${cleanClassName}[`) || soc.includes(`'#${cleanClassName}'`) || soc.includes(`'#${cleanClassName}[`) || soc.includes(`'${cleanClassName}'`) || soc.includes(`'${cleanClassName}[`)) {
 			_.each(sourceTSS, line => {
-				if (line.startsWith(`'.${className}'`) || line.startsWith(`'.${className}[`) || line.startsWith(`'#${className}'`) || line.startsWith(`'#${className}[`) || line.startsWith(`'${className}'`) || line.startsWith(`'${className}[`)) {
-					purgedClasses += `${line}\n`;
+				if (line.startsWith(`'.${cleanClassName}'`) || line.startsWith(`'.${cleanClassName}[`) || line.startsWith(`'#${cleanClassName}'`) || line.startsWith(`'#${cleanClassName}[`) || line.startsWith(`'${cleanClassName}'`) || line.startsWith(`'${cleanClassName}[`)) {
+					// https://regex101.com/r/YXLWYt/1
+					if (className.includes('ios:')) {
+						if (line.includes('platform=ios')) {
+							purgedClasses += `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`;
+						} else {
+							purgedClasses += `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
+						}
+					} else if (className.includes('android:')) {
+						if (line.includes('platform=android')) {
+							purgedClasses += `${line.replace(/[^'.]+|1/, `android:$&`)}\n`;
+						} else {
+							purgedClasses += `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
+						}
+					} else if (className.includes('handheld:')) {
+						if (line.includes('formFactor=handheld')) {
+							purgedClasses += `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`;
+						} else {
+							purgedClasses += `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
+						}
+					} else if (className.includes('tablet:')) {
+						if (line.includes('formFactor=tablet')) {
+							purgedClasses += `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`;
+						} else {
+							purgedClasses += `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
+						}
+					} else {
+						purgedClasses += `${line}\n`;
+					}
 				}
 			});
 		}
