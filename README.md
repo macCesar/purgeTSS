@@ -351,6 +351,7 @@ After running `purgetss` you will have a new file `app.tss` with only the classe
 
 **Every time you run `purgetss` it will copy everything from `_app.tss` to `app.tss`.**
 
+`app.tss`
 ```css
 // purgeTSS
 // Created by César Estrada
@@ -361,7 +362,7 @@ After running `purgetss` you will have a new file `app.tss` with only the classe
   backgroundColor: '#002359'
 }
 
-// Default Tailwind Styles
+// Custom Tailwind Styles
 'ImageView[platform=ios]': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
@@ -404,6 +405,50 @@ After running `purgetss` you will have a new file `app.tss` with only the classe
 
 ## More examples in the accompanying app
 [Tailwind TSS Sample App](https://github.com/macCesar/tailwind.tss-sample-app)
+
+## Platform and Device Variants *(Experimental)*
+You can specify different classes to any element using `Platform` and `Device` utility variants:
+
+- `ios:`
+- `android:`
+- `handheld:`
+- `tablet:`
+
+
+`index.xml`
+```xml
+<Alloy>
+  <Window class="tablet:bg-green-500 handheld:bg-blue-500">
+    <View class="h-32 tablet:bg-green-100 handheld:bg-blue-100">
+      <Label class="w-screen h-auto text-center ios:text-blue-800 ios:text-xl android:text-green-800 android:text-2xl">This is a Test</Label>
+    </View>
+  </Window>
+</Alloy>
+
+```
+
+`app.tss`
+```css
+// purgeTSS
+// Created by César Estrada
+// https://github.com/macCesar/purgeTSS
+
+// Custom Tailwind Styles
+'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+'Window': { backgroundColor: '#ffffff' }
+'.android:text-2xl[platform=android]': { font: { fontSize: 24 } }
+'.android:text-green-800[platform=android]': { color: '#166534' }
+'.h-32': { height: 128 }
+'.h-auto': { height: Ti.UI.SIZE }
+'.handheld:bg-blue-100[formFactor=handheld]': { backgroundColor: '#dbeafe' }
+'.handheld:bg-blue-500[formFactor=handheld]': { backgroundColor: '#3b82f6' }
+'.ios:text-blue-800[platform=ios]': { color: '#1e40af' }
+'.ios:text-xl[platform=ios]': { font: { fontSize: 20 } }
+'.tablet:bg-green-100[formFactor=tablet]': { backgroundColor: '#dcfce7' }
+'.tablet:bg-green-500[formFactor=tablet]': { backgroundColor: '#22c55e' }
+'.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
+'.w-screen': { width: Ti.UI.FILL }
+```
 
 ## Contributing
 If you have any suggestions or improvements, please make a PR.
