@@ -523,14 +523,30 @@ function getUniqueClasses() {
 
 	// Clean even more unnecessary names
 	_.each(_.uniq(_.flattenDeep(allClasses)).sort(), uniqueClass => {
-		if (isNaN(uniqueClass.charAt(0)) && !uniqueClass.includes('=') && !uniqueClass.includes('L(') && !uniqueClass.includes(')') && !uniqueClass.startsWith('Ti.') && !uniqueClass.startsWith('{') && !uniqueClass.startsWith('[') && !uniqueClass.startsWith('--') && !uniqueClass.startsWith('!--') && !uniqueClass.startsWith('#')) {
-			uniqueClasses.push(uniqueClass.replace(',', ''));
+		if (filterCharacters(uniqueClass)) {
+			uniqueClasses.push(uniqueClass);
 		}
 	});
 
-	uniqueClasses = _.uniq(uniqueClasses);
-
 	return uniqueClasses;
+}
+
+function filterCharacters(uniqueClass) {
+	return isNaN(uniqueClass.charAt(0)) &&
+		!uniqueClass.startsWith('--') &&
+		!uniqueClass.startsWith('!') &&
+		!uniqueClass.startsWith('[') &&
+		!uniqueClass.startsWith('{') &&
+		!uniqueClass.startsWith('/') &&
+		!uniqueClass.startsWith('\\') &&
+		!uniqueClass.startsWith('#') &&
+		!uniqueClass.startsWith('$') &&
+		!uniqueClass.startsWith('Ti.') &&
+		!uniqueClass.includes(',') &&
+		!uniqueClass.includes(')') &&
+		!uniqueClass.includes('=') &&
+		!uniqueClass.includes('L(') &&
+		!uniqueClass.endsWith('/');
 }
 
 //! Build Custom Tailwind ( Main )
