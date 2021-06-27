@@ -423,7 +423,6 @@ You can specify different classes to any element using `Platform` and `Device` u
     </View>
   </Window>
 </Alloy>
-
 ```
 
 `app.tss`

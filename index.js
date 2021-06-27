@@ -523,7 +523,7 @@ function getUniqueClasses() {
 
 	// Clean even more unnecessary names
 	_.each(_.uniq(_.flattenDeep(allClasses)).sort(), uniqueClass => {
-		if (isNaN(uniqueClass.charAt(0)) && !uniqueClass.includes('=') && !uniqueClass.includes('/') && !uniqueClass.includes('L(') && !uniqueClass.includes(')') && !uniqueClass.startsWith('Ti.') && !uniqueClass.startsWith('{') && !uniqueClass.startsWith('[') && !uniqueClass.startsWith('--') && !uniqueClass.startsWith('!--') && !uniqueClass.startsWith('#')) {
+		if (isNaN(uniqueClass.charAt(0)) && !uniqueClass.includes('=') && !uniqueClass.includes('L(') && !uniqueClass.includes(')') && !uniqueClass.startsWith('Ti.') && !uniqueClass.startsWith('{') && !uniqueClass.startsWith('[') && !uniqueClass.startsWith('--') && !uniqueClass.startsWith('!--') && !uniqueClass.startsWith('#')) {
 			uniqueClasses.push(uniqueClass.replace(',', ''));
 		}
 	});
