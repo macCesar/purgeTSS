@@ -17,10 +17,10 @@ An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile)
 It is an all-round package for all Titanium Developers who want to easily and quickly create beautifully designed mobile apps to satisfy their customers.
 
 List of available libraries:
-- [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss)
-- [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss)
-- [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialdesignicons.tss)
-- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss)
+- [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
+- [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/fontawesome.tss)
+- [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/materialdesignicons.tss)
+- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/lineicons.tss)
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 **ALL your classes from your original ʻapp.tss` file will be copied without purging.**
