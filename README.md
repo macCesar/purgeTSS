@@ -26,7 +26,7 @@ List of available libraries:
 **ALL your classes from your original ʻapp.tss` file will be copied without purging.**
 
 ## Installation
-**Install it globally on your machine via [NPM](http://npmjs.org/).**
+**Install it globally on your machine via [NPM](https://www.npmjs.com/package/purgetss/).**
 ```bash
 > [sudo] npm i -g purgetss
 ```
