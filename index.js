@@ -997,7 +997,7 @@ function purgeTailwind(uniqueClasses) {
 	let soc = sourceTSS.toString(); // soc = String of Classes
 
 	_.each(uniqueClasses, className => {
-		cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '');
+		let cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '');
 
 		if (soc.includes(`'.${cleanClassName}'`) || soc.includes(`'.${cleanClassName}[`) || soc.includes(`'#${cleanClassName}'`) || soc.includes(`'#${cleanClassName}[`) || soc.includes(`'${cleanClassName}'`) || soc.includes(`'${cleanClassName}[`)) {
 			_.each(sourceTSS, line => {
