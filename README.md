@@ -2,10 +2,10 @@
 An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that provides a set of Tailwind-like classes, for example `bg-green-500` or `text-blue-900`.
 
 **List of available classes:**
-- [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/tailwind.tss)
-- [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/fontawesome.tss)
-- [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/materialdesignicons.tss)
-- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/tss/lineicons.tss)
+- [tailwind.tss](./dist/tailwind.tss)
+- [fontawesome.tss](./dist/fontawesome.tss)
+- [materialdesignicons.tss](./dist/materialdesignicons.tss)
+- [lineicons.tss](./dist/lineicons.tss)
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 It is an all-round package for all Titanium Developers who want to easily and quickly create beautifully designed mobile apps.
