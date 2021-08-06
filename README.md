@@ -60,16 +60,8 @@ Use this markup to test `purgeTSS`.
 </Alloy>
 ```
 
-
-`app.tss`
-
-```css
-'.bg-primary': {
-  backgroundColor: '#002359'
-}
-```
-
-Make sure to copy FontAwesome Fonts with
+## Installation
+**Install it globally on your machine via [NPM](https://www.npmjs.com/package/purgetss/).**
 ```bash
 > purgetss fonts --vendor="fontawesome"
 ```
