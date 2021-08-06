@@ -60,12 +60,6 @@ Use this markup to test `purgeTSS`.
 </Alloy>
 ```
 
-## Installation
-**Install it globally on your machine via [NPM](https://www.npmjs.com/package/purgetss/).**
-```bash
-> purgetss fonts --vendor="fontawesome"
-```
-
 ## Parse your XML files
 Run `purgetss`
 ```bash
