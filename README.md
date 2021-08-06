@@ -234,7 +234,7 @@ This is very useful in combination with `LiveView` because it will purge all of 
 > purgetss f
 ```
 
-Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/free/) fonts into your `app/assets/fonts` folder. With their names fixed to work with your application, either for iOS or Android.
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/icons/?type=free) fonts into your `app/assets/fonts` folder. With their names fixed to work with your application, either for iOS or Android.
 
 > FontAwesome5Brands-Regular.ttf
 >
