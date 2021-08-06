@@ -1170,7 +1170,7 @@ You can use any of the supported units depending of the property you are generat
 
 <img src="../assets/images/arbitrary-values.png" width="375" alt="iOS Screen - Example">
 
-**Example 2**
+**iPad Example**
 ```xml
 <Alloy>
   <Window class="bg-white">
