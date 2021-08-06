@@ -1104,8 +1104,8 @@ Or you need a very specific value that is not part of the default values in `tai
 - feedback - `touchFeedback`
 - placeholder - `hintTextColor`
 - from & to - `backgroundGradient`
-- border - `borderColor` or `borderWidth`
 - top, right, bottom, left - `position`
+- border - `borderColor` or `borderWidth`
 - p ( including pb, pl, pr, pt, px, py ) - `padding`
 - m ( including mb, ml, mr, mt, mx, my ) - `position`
 
