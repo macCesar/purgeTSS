@@ -1156,7 +1156,7 @@ You can use any of the supported units depending of the property you are generat
 </Alloy>
 ```
 
-`app.tss` *Showing only the generated styles*
+`app.tss`
 ```css
 // purgeTSS
 // Created by César Estrada
