@@ -1327,7 +1327,6 @@ const icons = {
 	'trashRestoreAlt': '\uf82a',
 	'tree': '\uf1bb',
 	'trello': '\uf181',
-	'tripadvisor': '\uf262',
 	'trophy': '\uf091',
 	'truck': '\uf0d1',
 	'truckLoading': '\uf4de',

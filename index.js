@@ -89,30 +89,6 @@ const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialde
 //
 
 //! Interfase
-//! Command: dev-mode
-function devMode(options) {
-	if (alloyProject()) {
-
-		backupOriginalAppTss();
-
-		let tempPurged = copyResetTemplateAnd_appTSS();
-
-		if (options.files && typeof options.files === 'string') {
-			let selected = _.uniq(options.files.replace(/ /g, '').split(','));
-			tempPurged += (selected.length === 4) ? copyAllLibraries() : copySelectedLibraries(selected);
-		} else {
-			tempPurged += copyAllLibraries();
-		}
-
-		removeHook();
-
-		saveFile(destAppTSSFile, tempPurged);
-
-		logger.file('app.tss');
-	}
-}
-module.exports.devMode = devMode;
-
 //! Command: watch
 function watchMode(options) {
 	if (alloyProject()) {
@@ -202,7 +178,7 @@ function purgeClasses(options) {
 
 			logger.file('app.tss');
 
-			logger.info(finish());
+			finish();
 		}
 	}
 }
@@ -267,6 +243,7 @@ function processCustomFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilie
 		copyProFonts(fontFamilies, webFonts);
 	});
 }
+
 function prettifyFontName(str) {
 	str = str.replace('fa-', '');
 	var temp = str.split('-'), i, pretty;
@@ -542,10 +519,13 @@ function filterCharacters(uniqueClass) {
 		!uniqueClass.startsWith('#') &&
 		!uniqueClass.startsWith('$') &&
 		!uniqueClass.startsWith('Ti.') &&
-		!uniqueClass.includes(',') &&
-		!uniqueClass.includes(')') &&
+		!uniqueClass.startsWith(',') &&
+		!uniqueClass.includes('http') &&
+		!uniqueClass.includes('www') &&
+		// !uniqueClass.includes(')') &&
 		!uniqueClass.includes('=') &&
 		!uniqueClass.includes('L(') &&
+		!uniqueClass.endsWith(',') &&
 		!uniqueClass.endsWith('/');
 }
 
@@ -689,109 +669,6 @@ function buildCustomTailwind() {
 	logger.file('./purgetss/tailwind.tss');
 }
 
-function combineKeys(values, base, key, extras = false) {
-	let _extras = (extras) ? base : {};
-
-	return (values[key]) ? { ..._extras, ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] };
-}
-
-function extractClasses(currentText, currentFile) {
-	try {
-		let jsontext = convert.xml2json(encodeHTML(currentText), { compact: true });
-
-		return traverse(JSON.parse(jsontext)).reduce(function(acc, value) {
-			if (this.key === 'class' || this.key === 'id') acc.push(value.split(' '));
-			return acc;
-		}, []);
-	} catch (error) {
-		throw chalk.red(`::purgeTSS:: Error processing: “${currentFile}”`);
-	}
-}
-
-function encodeHTML(str) {
-	const code = {
-		'&': '&amp;',
-	};
-	return str.replace(/[&]/gm, i => code[i]);
-}
-
-function callback(err) {
-	if (err) throw err;
-}
-
-function walkSync(currentDirPath, callback) {
-	let files = fs.readdirSync(currentDirPath);
-
-	files.filter(junk.not).forEach(name => {
-		let filePath = path.join(currentDirPath, name);
-
-		let stat = fs.statSync(filePath);
-
-		if (stat.isFile()) {
-			callback(filePath, stat);
-		} else if (stat.isDirectory()) {
-			walkSync(filePath, callback);
-		}
-	});
-}
-
-//! Copy Fonts
-function copyFont(vendor) {
-	makeSureFolderExists(destFontsFolder);
-
-	switch (vendor) {
-		case 'fa':
-		case 'font':
-		case 'fontawesome':
-			if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
-				copyProFonts(srcFontAwesomeBetaFontFamilies, srcFontAwesomeBetaWebFontsFolder);
-			} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
-				copyProFonts(srcFontAwesomeProFontFamilies, srcFontAwesomeProWebFontsFolder);
-			} else {
-				copyFreeFonts();
-			}
-			break;
-		case 'md':
-		case 'material':
-		case 'materialdesign':
-			copyMaterialDesignFonts();
-			break;
-		case 'li':
-		case 'line':
-		case 'lineicons':
-			copyLineIconsFonts();
-			break;
-	}
-}
-
-//! Copy Font Libraries
-function copyFontLibrary(vendor) {
-	switch (vendor) {
-		case 'fa':
-		case 'font':
-		case 'fontawesome':
-			if (fs.existsSync(srcFontAwesomeBetaCSSFile) || fs.existsSync(srcFontAwesomeProCSSFile)) {
-				buildCustomFontAwesomeJS();
-			} else {
-				fs.copyFileSync(srcLibFA, destLibFolder + '/fontawesome.js');
-				logger.info('FA CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
-			}
-			break;
-		case 'md':
-		case 'material':
-		case 'materialdesign':
-			fs.copyFileSync(srcLibMD, destLibFolder + '/materialdesignicons.js');
-			logger.info('MD CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
-			break;
-		case 'li':
-		case 'line':
-		case 'lineicons':
-			fs.copyFileSync(srcLibLI, destLibFolder + '/lineicons.js');
-			logger.info('LI CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
-			break;
-	}
-}
-
 //! Build tailwind's custom values
 function buildCustomValues(key, value) {
 	switch (key) {
@@ -855,6 +732,111 @@ function buildCustomValues(key, value) {
 			return helpers.interactivity(value);
 		default:
 			return helpers.customRules(value, key);
+	}
+}
+
+function combineKeys(values, base, key, extras = false) {
+	let _extras = (extras) ? base : {};
+
+	return (values[key]) ? { ..._extras, ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] };
+}
+
+function extractClasses(currentText, currentFile) {
+	try {
+		let jsontext = convert.xml2json(encodeHTML(currentText), { compact: true });
+
+		return traverse(JSON.parse(jsontext)).reduce(function(acc, value) {
+			if (this.key === 'class' || this.key === 'id') acc.push(value.split(' '));
+			return acc;
+		}, []);
+	} catch (error) {
+		throw chalk.red(`::purgeTSS:: Error processing: “${currentFile}”`);
+	}
+}
+
+function encodeHTML(str) {
+	const code = {
+		'&': '&amp;',
+	};
+	return str.replace(/[&]/gm, i => code[i]);
+}
+
+function callback(err) {
+	if (err) throw err;
+}
+
+function walkSync(currentDirPath, callback) {
+	let files = fs.readdirSync(currentDirPath);
+
+	files.filter(junk.not).forEach(name => {
+		let filePath = path.join(currentDirPath, name);
+
+		let stat = fs.statSync(filePath);
+
+		if (stat.isFile()) {
+			if (name.includes('xml')) {
+				callback(filePath, stat);
+			}
+		} else if (stat.isDirectory()) {
+			walkSync(filePath, callback);
+		}
+	});
+}
+
+//! Copy Fonts
+function copyFont(vendor) {
+	makeSureFolderExists(destFontsFolder);
+
+	switch (vendor) {
+		case 'fa':
+		case 'font':
+		case 'fontawesome':
+			if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
+				copyProFonts(srcFontAwesomeBetaFontFamilies, srcFontAwesomeBetaWebFontsFolder);
+			} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
+				copyProFonts(srcFontAwesomeProFontFamilies, srcFontAwesomeProWebFontsFolder);
+			} else {
+				copyFreeFonts();
+			}
+			break;
+		case 'md':
+		case 'material':
+		case 'materialdesign':
+			copyMaterialDesignFonts();
+			break;
+		case 'li':
+		case 'line':
+		case 'lineicons':
+			copyLineIconsFonts();
+			break;
+	}
+}
+
+//! Copy Font Libraries
+function copyFontLibrary(vendor) {
+	switch (vendor) {
+		case 'fa':
+		case 'font':
+		case 'fontawesome':
+			if (fs.existsSync(srcFontAwesomeBetaCSSFile) || fs.existsSync(srcFontAwesomeProCSSFile)) {
+				buildCustomFontAwesomeJS();
+			} else {
+				fs.copyFileSync(srcLibFA, destLibFolder + '/fontawesome.js');
+				logger.info('FA CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			}
+			break;
+		case 'md':
+		case 'material':
+		case 'materialdesign':
+			fs.copyFileSync(srcLibMD, destLibFolder + '/materialdesignicons.js');
+			logger.info('MD CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			break;
+		case 'li':
+		case 'line':
+		case 'lineicons':
+			fs.copyFileSync(srcLibLI, destLibFolder + '/lineicons.js');
+			logger.info('LI CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			break;
 	}
 }
 
@@ -974,7 +956,7 @@ function start() {
 
 function finish() {
 	let endTime = new Date(new Date() - startTime);
-	return 'Finished purging in ' + chalk.green(`${endTime.getSeconds()}s ${endTime.getMilliseconds()}ms`);
+	logger.info('Finished purging in ' + chalk.green(`${endTime.getSeconds()}s ${endTime.getMilliseconds()}ms`));
 }
 
 //! Purge Functions
@@ -1004,38 +986,121 @@ function purgeTailwind(uniqueClasses) {
 				if (line.startsWith(`'.${cleanClassName}'`) || line.startsWith(`'.${cleanClassName}[`) || line.startsWith(`'#${cleanClassName}'`) || line.startsWith(`'#${cleanClassName}[`) || line.startsWith(`'${cleanClassName}'`) || line.startsWith(`'${cleanClassName}[`)) {
 					// https://regex101.com/r/YXLWYt/1
 					if (className.includes('ios:')) {
-						if (line.includes('platform=ios')) {
-							purgedClasses += `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`;
-						} else {
-							purgedClasses += `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
-						}
+						purgedClasses += (line.includes('platform=ios'))
+							? `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`
+							: `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
 					} else if (className.includes('android:')) {
-						if (line.includes('platform=android')) {
-							purgedClasses += `${line.replace(/[^'.]+|1/, `android:$&`)}\n`;
-						} else {
-							purgedClasses += `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
-						}
+						purgedClasses += (line.includes('platform=android'))
+							? `${line.replace(/[^'.]+|1/, `android:$&`)}\n`
+							: `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
 					} else if (className.includes('handheld:')) {
-						if (line.includes('formFactor=handheld')) {
-							purgedClasses += `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`;
-						} else {
-							purgedClasses += `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
-						}
+						purgedClasses += (line.includes('formFactor=handheld'))
+							? `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`
+							: `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
 					} else if (className.includes('tablet:')) {
-						if (line.includes('formFactor=tablet')) {
-							purgedClasses += `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`;
-						} else {
-							purgedClasses += `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
-						}
+						purgedClasses += (line.includes('formFactor=tablet'))
+							? `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`
+							: `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
 					} else {
 						purgedClasses += `${line}\n`;
 					}
 				}
 			});
+		} else if (cleanClassName.includes('(')) {
+			let newArbitraryClass = formatArbitraryValues(cleanClassName);
+
+			if (newArbitraryClass) {
+				if (className.includes('ios:')) {
+					purgedClasses += (className.includes('platform=ios'))
+					? `${newArbitraryClass.replace(/[^'.]+|1/, `ios:$&`)}\n`
+					: `${newArbitraryClass.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
+				} else if (className.includes('android:')) {
+					purgedClasses += (className.includes('platform=android'))
+					? `${newArbitraryClass.replace(/[^'.]+|1/, `android:$&`)}\n`
+					: `${newArbitraryClass.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
+				} else if (className.includes('handheld:')) {
+					purgedClasses += (className.includes('formFactor=handheld'))
+					? `${newArbitraryClass.replace(/[^'.]+|1/, `handheld:$&`)}\n`
+					: `${newArbitraryClass.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
+				} else if (className.includes('tablet:')) {
+					purgedClasses += (className.includes('formFactor=tablet'))
+					? `${newArbitraryClass.replace(/[^'.]+|1/, `tablet:$&`)}\n`
+					: `${newArbitraryClass.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
+				} else {
+					purgedClasses += newArbitraryClass + '\n';
+				}
+			}
 		}
 	});
 
 	return purgedClasses;
+}
+
+const arbitraryValuesTable = {
+	'bg': '{ backgroundColor: {value} }',
+	'border-color': '{ borderColor: {value} }',
+	'border-width': '{ borderWidth: {value} }',
+	'bottom': '{ bottom: {value} }',
+	'feedback': '{ touchFeedback: true, touchFeedbackColor: {value} }',
+	'from': '{ backgroundGradient: { colors: [ {value1}, {value} ] } }',
+	'h': '{ height: {value}}',
+	'left': '{ left: {value} }',
+	'm': '{ top: {value}, right: {value}, bottom: {value}, left: {value} }',
+	'mb': '{ bottom: {value} }',
+	'ml': '{ left: {value} }',
+	'mr': '{ right: {value} }',
+	'mt': '{ top: {value} }',
+	'mx': '{ right: {value}, left: {value} }',
+	'my': '{ top: {value}, bottom: {value} }',
+	'opacity': '{ opacity: {value} }',
+	'p': '{ padding: { top: {value}, right: {value}, bottom: {value}, left: {value} } }',
+	'pb': '{ padding: { bottom: {value} } }',
+	'pl': '{ padding: { left: {value} } }',
+	'placeholder': '{ hintTextColor: {value} }',
+	'pr': '{ padding: { right: {value} } }',
+	'pt': '{ padding: { top: {value} } }',
+	'px': '{ padding: { right: {value}, left: {value} } }',
+	'py': '{ padding: { top: {value}, bottom: {value} } }',
+	'right': '{ right: {value} }',
+	'rounded': '{ borderRadius: {value} }',
+	'text-color': '{ color: {value} }',
+	'text-size': '{ font: { fontSize: {value} } }',
+	'tint': '{ tintColor: {value} }',
+	'to': '{ backgroundGradient: { colors: [ {value} ] } }',
+	'top': '{ top: {value} }',
+	'w': '{ width: {value} }'
+};
+
+function formatArbitraryValues(arbitraryValue) {
+	let sign = (arbitraryValue.startsWith('-')) ? '-' : '';
+
+	let splitedContent = (arbitraryValue.startsWith('-')) ? arbitraryValue.substring(1).split('-') : arbitraryValue.split('-');
+
+	if (splitedContent.length === 2) {
+		let rule = splitedContent[0];
+
+		let value = splitedContent[1].match(/(?<=\().*(?=\))/).pop();
+
+		if (rule === 'text') {
+			rule = (value.includes('#')) ? 'text-color' : 'text-size';
+		}
+
+		if (rule === 'border') {
+			rule = (value.includes('#')) ? 'border-color' : 'border-width';
+		}
+
+		let properties = arbitraryValuesTable[rule];
+
+		if (rule === 'from') {
+			properties = _.replace(properties, new RegExp("{value1}", "g"), helpers.addTransparencyToHex(helpers.parseValue(value, sign)));
+		}
+
+		if (!properties) {
+			return `// Unsupported property: ${arbitraryValue}`;
+		}
+
+		return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));
+	}
 }
 
 //! FontAwesome

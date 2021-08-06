@@ -40,6 +40,9 @@
     - [Border Width](#border-width)
     - [Opacity](#opacity)
 - [**Adding your own properties**](#adding-your-own-properties)
+  - [Global properties](#global-properties)
+  - [Arbitrary values](#arbitrary-values)
+  - [Result](#result)
 
 ## Customization
 By default, `purgetss` will look for an optional `./purgetss/config.js` file where you can define any customization.
@@ -496,7 +499,8 @@ module.exports = {
 - `purge.mode.options.safelist` List of classes and Ti Elements that you want to keep regardless of the purge mode or whether or not they are included in your XML files.
 
 ### Large safelist?
-If you need to keep a very large list, you can create a CommonJS module with an array of all the styles and require it in `config.js` like this:
+If you need to keep a very large list of classes and elements, you can create a CommonJS module with an array of all the styles and require it in `config.js` like this:
+
 ```javascript
 // ./purgetss/config.js
 module.exports = {
@@ -1044,3 +1048,88 @@ module.exports = {
 'TextField[platform=android]': { touchFeedback: true }
 ...
 ```
+
+## Global properties
+All of the properties and values added in `config.js` are available globally in your app.
+
+## Arbitrary values
+There are times when you just want a custom class that your are going to use once in your project and don't want to set it in the `config.js` file.
+
+Or you need a very specific value that is not part of the default values in `tailwind.tss` file.
+
+**With the release of `v2.3.0` you can generate arbitrary styles and values directly in you `xml` files with any of the following attributes:**
+
+- w - `width`
+- h - `height`
+- tint - `tintColor`
+- opacity - `opacity`
+- bg - `backgroundColor`
+- rounded - `borderRadius`
+- text - `color` or `fontSize`
+- feedback - `touchFeedback`
+- placeholder - `hintTextColor`
+- from & to - `backgroundGradient`
+- border - `borderColor` or `borderWidth`
+- top, right, bottom, left - `position`
+- p ( including pb, pl, pr, pt, px, py ) - `padding`
+- m ( including mb, ml, mr, mt, mx, my ) - `position`
+
+To generate an arbitrary style use **parenthesis notation**, *unfortunally you can't use square bracket notation like in Tailwind, because of the way Titanium handles platform and conditional statements in `.tss` files*.
+
+You can use any of the supported units depending of the property you are generating, you can use `hex` or `rgba` values in any `color` property, or you can use `rem` or `px` in any position or sizing property.
+
+```xml
+<Alloy>
+  <Window class="bg-(#53606b)">
+    <View class="w-(2in) h-(3.5in) bg-(#4C61E4) rounded-(20)">
+      <View class="m-(50px) w-screen h-screen">
+        <View class="mt-0 ml-0 horizontal">
+          <View class="w-(3rem) h-(3rem) rounded-(1.5rem) bg-white opacity-(0.35)" />
+          <View class="-ml-(20) w-(3rem) h-(3rem) rounded-(1.5rem) bg-white opacity-(0.25)" />
+          <Label class="font-bold text-white ml-2.5">Mastercard</Label>
+        </View>
+      </View>
+
+      <View class="bottom-(0) bg-(#6D80FB) w-full h-16">
+        <View class="horizontal">
+          <Label class="text-2xl text-white fab fa-apple" />
+          <Label class="ml-2 text-2xl font-bold text-white" text="Pay"/>
+        </View>
+      </View>
+    </View>
+  </Window>
+</Alloy>
+```
+
+`app.tss` *Showing only the generated styles*
+```css
+// purgeTSS
+// Created by César Estrada
+// https://github.com/macCesar/purgeTSS
+
+// Custom Tailwind Styles
+'.-ml-(20)': { left: -20 }
+// ...
+'.bg-(#4C61E4)': { backgroundColor: '#4C61E4' }
+'.bg-(#53606b)': { backgroundColor: '#53606b' }
+'.bg-(#6D80FB)': { backgroundColor: '#6D80FB' }
+// ...
+'.bottom-(0)': { bottom: 0 }
+// ...
+'.h-(3.5in)': { height: '3.5in'}
+'.h-(3rem)': { height: 48}
+// ...
+'.m-(50px)': { top: '50px', right: '50px', bottom: '50px', left: '50px' }
+// ...
+'.opacity-(0.25)': { opacity: 0.25 }
+'.opacity-(0.35)': { opacity: 0.35 }
+'.rounded-(1.5rem)': { borderRadius: 24 }
+'.rounded-(20)': { borderRadius: 20 }
+// ...
+'.w-(2in)': { width: '2in' }
+'.w-(3rem)': { width: 48 }
+// ...
+```
+
+## Result
+<img src="../assets/images/arbitrary-values.png" width="375" alt="iOS Screen - Example">

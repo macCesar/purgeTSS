@@ -1326,7 +1326,6 @@
 '.fa-trash-restore-alt': { text: '\uf82a', title: '\uf82a' }
 '.fa-tree': { text: '\uf1bb', title: '\uf1bb' }
 '.fa-trello': { text: '\uf181', title: '\uf181' }
-'.fa-tripadvisor': { text: '\uf262', title: '\uf262' }
 '.fa-trophy': { text: '\uf091', title: '\uf091' }
 '.fa-truck': { text: '\uf0d1', title: '\uf0d1' }
 '.fa-truck-loading': { text: '\uf4de', title: '\uf4de' }

@@ -246,6 +246,17 @@
 '.bg-blueGray-800': { backgroundColor: '#1e293b' }
 '.bg-blueGray-900': { backgroundColor: '#0f172a' }
 
+// backgroundGradient Property
+'.bg-none': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-t': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backFillStart: true } }
+'.bg-gradient-to-tr': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backFillStart: true } }
+'.bg-gradient-to-r': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-br': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '0%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-b': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-bl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backFillStart: true } }
+'.bg-gradient-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backFillStart: true } }
+
 // backgroundSelectedColor Property
 '.bg-selected-transparent': { backgroundSelectedColor: 'transparent' }
 '.bg-selected-black': { backgroundSelectedColor: '#000000' }
@@ -480,17 +491,6 @@
 '.bg-selected-blueGray-700': { backgroundSelectedColor: '#334155' }
 '.bg-selected-blueGray-800': { backgroundSelectedColor: '#1e293b' }
 '.bg-selected-blueGray-900': { backgroundSelectedColor: '#0f172a' }
-
-// backgroundGradient Property
-'.bg-none': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, backFillStart: true } }
-'.bg-gradient-to-t': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backFillStart: true } }
-'.bg-gradient-to-tr': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backFillStart: true } }
-'.bg-gradient-to-r': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, backFillStart: true } }
-'.bg-gradient-to-br': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '0%', y: '0%' }, backFillStart: true } }
-'.bg-gradient-to-b': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backFillStart: true } }
-'.bg-gradient-to-bl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backFillStart: true } }
-'.bg-gradient-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backFillStart: true } }
-'.bg-gradient-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backFillStart: true } }
 
 // borderColor Property
 '.border-transparent': { borderColor: 'transparent' }
@@ -727,7 +727,7 @@
 '.border-blueGray-800': { borderColor: '#1e293b' }
 '.border-blueGray-900': { borderColor: '#0f172a' }
 
-// borderRadius Property - ( With Extra Styles )
+// borderRadius - ( With Extra Styles ) Property
 '.rounded-0': { borderRadius: 0 }
 '.rounded-1': { borderRadius: 2 }
 '.rounded-2': { borderRadius: 4 }
@@ -1358,7 +1358,7 @@
 '.pointer-events-none': { touchEnabled: false }
 '.pointer-events-auto': { touchEnabled: true }
 
-// Margin
+// Margin Property
 '.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.m-1': { top: 4, right: 4, bottom: 4, left: 4 }
 '.m-2': { top: 8, right: 8, bottom: 8, left: 8 }
@@ -1423,70 +1423,7 @@
 '.m-10/12': { top: '83.333333%', right: '83.333333%', bottom: '83.333333%', left: '83.333333%' }
 '.m-11/12': { top: '91.666667%', right: '91.666667%', bottom: '91.666667%', left: '91.666667%' }
 '.m-full': { top: '100%', right: '100%', bottom: '100%', left: '100%' }
-'.m-auto': { top: null, right: null, bottom: null, left: null }
-'.-m-1': { top: -4, right: -4, bottom: -4, left: -4 }
-'.-m-2': { top: -8, right: -8, bottom: -8, left: -8 }
-'.-m-3': { top: -12, right: -12, bottom: -12, left: -12 }
-'.-m-4': { top: -16, right: -16, bottom: -16, left: -16 }
-'.-m-5': { top: -20, right: -20, bottom: -20, left: -20 }
-'.-m-6': { top: -24, right: -24, bottom: -24, left: -24 }
-'.-m-7': { top: -28, right: -28, bottom: -28, left: -28 }
-'.-m-8': { top: -32, right: -32, bottom: -32, left: -32 }
-'.-m-9': { top: -36, right: -36, bottom: -36, left: -36 }
-'.-m-10': { top: -40, right: -40, bottom: -40, left: -40 }
-'.-m-11': { top: -44, right: -44, bottom: -44, left: -44 }
-'.-m-12': { top: -48, right: -48, bottom: -48, left: -48 }
-'.-m-13': { top: -52, right: -52, bottom: -52, left: -52 }
-'.-m-14': { top: -56, right: -56, bottom: -56, left: -56 }
-'.-m-15': { top: -60, right: -60, bottom: -60, left: -60 }
-'.-m-16': { top: -64, right: -64, bottom: -64, left: -64 }
-'.-m-20': { top: -80, right: -80, bottom: -80, left: -80 }
-'.-m-24': { top: -96, right: -96, bottom: -96, left: -96 }
-'.-m-28': { top: -112, right: -112, bottom: -112, left: -112 }
-'.-m-32': { top: -128, right: -128, bottom: -128, left: -128 }
-'.-m-36': { top: -144, right: -144, bottom: -144, left: -144 }
-'.-m-40': { top: -160, right: -160, bottom: -160, left: -160 }
-'.-m-44': { top: -176, right: -176, bottom: -176, left: -176 }
-'.-m-48': { top: -192, right: -192, bottom: -192, left: -192 }
-'.-m-52': { top: -208, right: -208, bottom: -208, left: -208 }
-'.-m-56': { top: -224, right: -224, bottom: -224, left: -224 }
-'.-m-60': { top: -240, right: -240, bottom: -240, left: -240 }
-'.-m-64': { top: -256, right: -256, bottom: -256, left: -256 }
-'.-m-72': { top: -288, right: -288, bottom: -288, left: -288 }
-'.-m-80': { top: -320, right: -320, bottom: -320, left: -320 }
-'.-m-96': { top: -384, right: -384, bottom: -384, left: -384 }
-'.-m-px': { top: '-1px', right: '-1px', bottom: '-1px', left: '-1px' }
-'.-m-0.5': { top: -2, right: -2, bottom: -2, left: -2 }
-'.-m-1.5': { top: -6, right: -6, bottom: -6, left: -6 }
-'.-m-2.5': { top: -10, right: -10, bottom: -10, left: -10 }
-'.-m-3.5': { top: -14, right: -14, bottom: -14, left: -14 }
-'.-m-1/2': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
-'.-m-1/3': { top: '-33.333333%', right: '-33.333333%', bottom: '-33.333333%', left: '-33.333333%' }
-'.-m-2/3': { top: '-66.666667%', right: '-66.666667%', bottom: '-66.666667%', left: '-66.666667%' }
-'.-m-1/4': { top: '-25%', right: '-25%', bottom: '-25%', left: '-25%' }
-'.-m-2/4': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
-'.-m-3/4': { top: '-75%', right: '-75%', bottom: '-75%', left: '-75%' }
-'.-m-1/5': { top: '-20%', right: '-20%', bottom: '-20%', left: '-20%' }
-'.-m-2/5': { top: '-40%', right: '-40%', bottom: '-40%', left: '-40%' }
-'.-m-3/5': { top: '-60%', right: '-60%', bottom: '-60%', left: '-60%' }
-'.-m-4/5': { top: '-80%', right: '-80%', bottom: '-80%', left: '-80%' }
-'.-m-1/6': { top: '-16.666667%', right: '-16.666667%', bottom: '-16.666667%', left: '-16.666667%' }
-'.-m-2/6': { top: '-33.333333%', right: '-33.333333%', bottom: '-33.333333%', left: '-33.333333%' }
-'.-m-3/6': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
-'.-m-4/6': { top: '-66.666667%', right: '-66.666667%', bottom: '-66.666667%', left: '-66.666667%' }
-'.-m-5/6': { top: '-83.333333%', right: '-83.333333%', bottom: '-83.333333%', left: '-83.333333%' }
-'.-m-1/12': { top: '-8.333333%', right: '-8.333333%', bottom: '-8.333333%', left: '-8.333333%' }
-'.-m-2/12': { top: '-16.666667%', right: '-16.666667%', bottom: '-16.666667%', left: '-16.666667%' }
-'.-m-3/12': { top: '-25%', right: '-25%', bottom: '-25%', left: '-25%' }
-'.-m-4/12': { top: '-33.333333%', right: '-33.333333%', bottom: '-33.333333%', left: '-33.333333%' }
-'.-m-5/12': { top: '-41.666667%', right: '-41.666667%', bottom: '-41.666667%', left: '-41.666667%' }
-'.-m-6/12': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
-'.-m-7/12': { top: '-58.333333%', right: '-58.333333%', bottom: '-58.333333%', left: '-58.333333%' }
-'.-m-8/12': { top: '-66.666667%', right: '-66.666667%', bottom: '-66.666667%', left: '-66.666667%' }
-'.-m-9/12': { top: '-75%', right: '-75%', bottom: '-75%', left: '-75%' }
-'.-m-10/12': { top: '-83.333333%', right: '-83.333333%', bottom: '-83.333333%', left: '-83.333333%' }
-'.-m-11/12': { top: '-91.666667%', right: '-91.666667%', bottom: '-91.666667%', left: '-91.666667%' }
-'.-m-full': { top: '-100%', right: '-100%', bottom: '-100%', left: '-100%' }
+'.m-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
 '.my-0': { top: 0, bottom: 0 }
 '.my-1': { top: 4, bottom: 4 }
 '.my-2': { top: 8, bottom: 8 }
@@ -1551,70 +1488,7 @@
 '.my-10/12': { top: '83.333333%', bottom: '83.333333%' }
 '.my-11/12': { top: '91.666667%', bottom: '91.666667%' }
 '.my-full': { top: '100%', bottom: '100%' }
-'.my-auto': { top: null, bottom: null }
-'.-my-1': { top: -4, bottom: -4 }
-'.-my-2': { top: -8, bottom: -8 }
-'.-my-3': { top: -12, bottom: -12 }
-'.-my-4': { top: -16, bottom: -16 }
-'.-my-5': { top: -20, bottom: -20 }
-'.-my-6': { top: -24, bottom: -24 }
-'.-my-7': { top: -28, bottom: -28 }
-'.-my-8': { top: -32, bottom: -32 }
-'.-my-9': { top: -36, bottom: -36 }
-'.-my-10': { top: -40, bottom: -40 }
-'.-my-11': { top: -44, bottom: -44 }
-'.-my-12': { top: -48, bottom: -48 }
-'.-my-13': { top: -52, bottom: -52 }
-'.-my-14': { top: -56, bottom: -56 }
-'.-my-15': { top: -60, bottom: -60 }
-'.-my-16': { top: -64, bottom: -64 }
-'.-my-20': { top: -80, bottom: -80 }
-'.-my-24': { top: -96, bottom: -96 }
-'.-my-28': { top: -112, bottom: -112 }
-'.-my-32': { top: -128, bottom: -128 }
-'.-my-36': { top: -144, bottom: -144 }
-'.-my-40': { top: -160, bottom: -160 }
-'.-my-44': { top: -176, bottom: -176 }
-'.-my-48': { top: -192, bottom: -192 }
-'.-my-52': { top: -208, bottom: -208 }
-'.-my-56': { top: -224, bottom: -224 }
-'.-my-60': { top: -240, bottom: -240 }
-'.-my-64': { top: -256, bottom: -256 }
-'.-my-72': { top: -288, bottom: -288 }
-'.-my-80': { top: -320, bottom: -320 }
-'.-my-96': { top: -384, bottom: -384 }
-'.-my-px': { top: '-1px', bottom: '-1px' }
-'.-my-0.5': { top: -2, bottom: -2 }
-'.-my-1.5': { top: -6, bottom: -6 }
-'.-my-2.5': { top: -10, bottom: -10 }
-'.-my-3.5': { top: -14, bottom: -14 }
-'.-my-1/2': { top: '-50%', bottom: '-50%' }
-'.-my-1/3': { top: '-33.333333%', bottom: '-33.333333%' }
-'.-my-2/3': { top: '-66.666667%', bottom: '-66.666667%' }
-'.-my-1/4': { top: '-25%', bottom: '-25%' }
-'.-my-2/4': { top: '-50%', bottom: '-50%' }
-'.-my-3/4': { top: '-75%', bottom: '-75%' }
-'.-my-1/5': { top: '-20%', bottom: '-20%' }
-'.-my-2/5': { top: '-40%', bottom: '-40%' }
-'.-my-3/5': { top: '-60%', bottom: '-60%' }
-'.-my-4/5': { top: '-80%', bottom: '-80%' }
-'.-my-1/6': { top: '-16.666667%', bottom: '-16.666667%' }
-'.-my-2/6': { top: '-33.333333%', bottom: '-33.333333%' }
-'.-my-3/6': { top: '-50%', bottom: '-50%' }
-'.-my-4/6': { top: '-66.666667%', bottom: '-66.666667%' }
-'.-my-5/6': { top: '-83.333333%', bottom: '-83.333333%' }
-'.-my-1/12': { top: '-8.333333%', bottom: '-8.333333%' }
-'.-my-2/12': { top: '-16.666667%', bottom: '-16.666667%' }
-'.-my-3/12': { top: '-25%', bottom: '-25%' }
-'.-my-4/12': { top: '-33.333333%', bottom: '-33.333333%' }
-'.-my-5/12': { top: '-41.666667%', bottom: '-41.666667%' }
-'.-my-6/12': { top: '-50%', bottom: '-50%' }
-'.-my-7/12': { top: '-58.333333%', bottom: '-58.333333%' }
-'.-my-8/12': { top: '-66.666667%', bottom: '-66.666667%' }
-'.-my-9/12': { top: '-75%', bottom: '-75%' }
-'.-my-10/12': { top: '-83.333333%', bottom: '-83.333333%' }
-'.-my-11/12': { top: '-91.666667%', bottom: '-91.666667%' }
-'.-my-full': { top: '-100%', bottom: '-100%' }
+'.my-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
 '.mx-0': { right: 0, left: 0 }
 '.mx-1': { right: 4, left: 4 }
 '.mx-2': { right: 8, left: 8 }
@@ -1679,70 +1553,7 @@
 '.mx-10/12': { right: '83.333333%', left: '83.333333%' }
 '.mx-11/12': { right: '91.666667%', left: '91.666667%' }
 '.mx-full': { right: '100%', left: '100%' }
-'.mx-auto': { right: null, left: null }
-'.-mx-1': { right: -4, left: -4 }
-'.-mx-2': { right: -8, left: -8 }
-'.-mx-3': { right: -12, left: -12 }
-'.-mx-4': { right: -16, left: -16 }
-'.-mx-5': { right: -20, left: -20 }
-'.-mx-6': { right: -24, left: -24 }
-'.-mx-7': { right: -28, left: -28 }
-'.-mx-8': { right: -32, left: -32 }
-'.-mx-9': { right: -36, left: -36 }
-'.-mx-10': { right: -40, left: -40 }
-'.-mx-11': { right: -44, left: -44 }
-'.-mx-12': { right: -48, left: -48 }
-'.-mx-13': { right: -52, left: -52 }
-'.-mx-14': { right: -56, left: -56 }
-'.-mx-15': { right: -60, left: -60 }
-'.-mx-16': { right: -64, left: -64 }
-'.-mx-20': { right: -80, left: -80 }
-'.-mx-24': { right: -96, left: -96 }
-'.-mx-28': { right: -112, left: -112 }
-'.-mx-32': { right: -128, left: -128 }
-'.-mx-36': { right: -144, left: -144 }
-'.-mx-40': { right: -160, left: -160 }
-'.-mx-44': { right: -176, left: -176 }
-'.-mx-48': { right: -192, left: -192 }
-'.-mx-52': { right: -208, left: -208 }
-'.-mx-56': { right: -224, left: -224 }
-'.-mx-60': { right: -240, left: -240 }
-'.-mx-64': { right: -256, left: -256 }
-'.-mx-72': { right: -288, left: -288 }
-'.-mx-80': { right: -320, left: -320 }
-'.-mx-96': { right: -384, left: -384 }
-'.-mx-px': { right: '-1px', left: '-1px' }
-'.-mx-0.5': { right: -2, left: -2 }
-'.-mx-1.5': { right: -6, left: -6 }
-'.-mx-2.5': { right: -10, left: -10 }
-'.-mx-3.5': { right: -14, left: -14 }
-'.-mx-1/2': { right: '-50%', left: '-50%' }
-'.-mx-1/3': { right: '-33.333333%', left: '-33.333333%' }
-'.-mx-2/3': { right: '-66.666667%', left: '-66.666667%' }
-'.-mx-1/4': { right: '-25%', left: '-25%' }
-'.-mx-2/4': { right: '-50%', left: '-50%' }
-'.-mx-3/4': { right: '-75%', left: '-75%' }
-'.-mx-1/5': { right: '-20%', left: '-20%' }
-'.-mx-2/5': { right: '-40%', left: '-40%' }
-'.-mx-3/5': { right: '-60%', left: '-60%' }
-'.-mx-4/5': { right: '-80%', left: '-80%' }
-'.-mx-1/6': { right: '-16.666667%', left: '-16.666667%' }
-'.-mx-2/6': { right: '-33.333333%', left: '-33.333333%' }
-'.-mx-3/6': { right: '-50%', left: '-50%' }
-'.-mx-4/6': { right: '-66.666667%', left: '-66.666667%' }
-'.-mx-5/6': { right: '-83.333333%', left: '-83.333333%' }
-'.-mx-1/12': { right: '-8.333333%', left: '-8.333333%' }
-'.-mx-2/12': { right: '-16.666667%', left: '-16.666667%' }
-'.-mx-3/12': { right: '-25%', left: '-25%' }
-'.-mx-4/12': { right: '-33.333333%', left: '-33.333333%' }
-'.-mx-5/12': { right: '-41.666667%', left: '-41.666667%' }
-'.-mx-6/12': { right: '-50%', left: '-50%' }
-'.-mx-7/12': { right: '-58.333333%', left: '-58.333333%' }
-'.-mx-8/12': { right: '-66.666667%', left: '-66.666667%' }
-'.-mx-9/12': { right: '-75%', left: '-75%' }
-'.-mx-10/12': { right: '-83.333333%', left: '-83.333333%' }
-'.-mx-11/12': { right: '-91.666667%', left: '-91.666667%' }
-'.-mx-full': { right: '-100%', left: '-100%' }
+'.mx-auto': { right: Ti.UI.SIZE, left: Ti.UI.SIZE }
 '.mt-0': { top: 0 }
 '.mt-1': { top: 4 }
 '.mt-2': { top: 8 }
@@ -1807,70 +1618,7 @@
 '.mt-10/12': { top: '83.333333%' }
 '.mt-11/12': { top: '91.666667%' }
 '.mt-full': { top: '100%' }
-'.mt-auto': { top: null }
-'.-mt-1': { top: -4 }
-'.-mt-2': { top: -8 }
-'.-mt-3': { top: -12 }
-'.-mt-4': { top: -16 }
-'.-mt-5': { top: -20 }
-'.-mt-6': { top: -24 }
-'.-mt-7': { top: -28 }
-'.-mt-8': { top: -32 }
-'.-mt-9': { top: -36 }
-'.-mt-10': { top: -40 }
-'.-mt-11': { top: -44 }
-'.-mt-12': { top: -48 }
-'.-mt-13': { top: -52 }
-'.-mt-14': { top: -56 }
-'.-mt-15': { top: -60 }
-'.-mt-16': { top: -64 }
-'.-mt-20': { top: -80 }
-'.-mt-24': { top: -96 }
-'.-mt-28': { top: -112 }
-'.-mt-32': { top: -128 }
-'.-mt-36': { top: -144 }
-'.-mt-40': { top: -160 }
-'.-mt-44': { top: -176 }
-'.-mt-48': { top: -192 }
-'.-mt-52': { top: -208 }
-'.-mt-56': { top: -224 }
-'.-mt-60': { top: -240 }
-'.-mt-64': { top: -256 }
-'.-mt-72': { top: -288 }
-'.-mt-80': { top: -320 }
-'.-mt-96': { top: -384 }
-'.-mt-px': { top: '-1px' }
-'.-mt-0.5': { top: -2 }
-'.-mt-1.5': { top: -6 }
-'.-mt-2.5': { top: -10 }
-'.-mt-3.5': { top: -14 }
-'.-mt-1/2': { top: '-50%' }
-'.-mt-1/3': { top: '-33.333333%' }
-'.-mt-2/3': { top: '-66.666667%' }
-'.-mt-1/4': { top: '-25%' }
-'.-mt-2/4': { top: '-50%' }
-'.-mt-3/4': { top: '-75%' }
-'.-mt-1/5': { top: '-20%' }
-'.-mt-2/5': { top: '-40%' }
-'.-mt-3/5': { top: '-60%' }
-'.-mt-4/5': { top: '-80%' }
-'.-mt-1/6': { top: '-16.666667%' }
-'.-mt-2/6': { top: '-33.333333%' }
-'.-mt-3/6': { top: '-50%' }
-'.-mt-4/6': { top: '-66.666667%' }
-'.-mt-5/6': { top: '-83.333333%' }
-'.-mt-1/12': { top: '-8.333333%' }
-'.-mt-2/12': { top: '-16.666667%' }
-'.-mt-3/12': { top: '-25%' }
-'.-mt-4/12': { top: '-33.333333%' }
-'.-mt-5/12': { top: '-41.666667%' }
-'.-mt-6/12': { top: '-50%' }
-'.-mt-7/12': { top: '-58.333333%' }
-'.-mt-8/12': { top: '-66.666667%' }
-'.-mt-9/12': { top: '-75%' }
-'.-mt-10/12': { top: '-83.333333%' }
-'.-mt-11/12': { top: '-91.666667%' }
-'.-mt-full': { top: '-100%' }
+'.mt-auto': { top: Ti.UI.SIZE }
 '.mr-0': { right: 0 }
 '.mr-1': { right: 4 }
 '.mr-2': { right: 8 }
@@ -1935,70 +1683,7 @@
 '.mr-10/12': { right: '83.333333%' }
 '.mr-11/12': { right: '91.666667%' }
 '.mr-full': { right: '100%' }
-'.mr-auto': { right: null }
-'.-mr-1': { right: -4 }
-'.-mr-2': { right: -8 }
-'.-mr-3': { right: -12 }
-'.-mr-4': { right: -16 }
-'.-mr-5': { right: -20 }
-'.-mr-6': { right: -24 }
-'.-mr-7': { right: -28 }
-'.-mr-8': { right: -32 }
-'.-mr-9': { right: -36 }
-'.-mr-10': { right: -40 }
-'.-mr-11': { right: -44 }
-'.-mr-12': { right: -48 }
-'.-mr-13': { right: -52 }
-'.-mr-14': { right: -56 }
-'.-mr-15': { right: -60 }
-'.-mr-16': { right: -64 }
-'.-mr-20': { right: -80 }
-'.-mr-24': { right: -96 }
-'.-mr-28': { right: -112 }
-'.-mr-32': { right: -128 }
-'.-mr-36': { right: -144 }
-'.-mr-40': { right: -160 }
-'.-mr-44': { right: -176 }
-'.-mr-48': { right: -192 }
-'.-mr-52': { right: -208 }
-'.-mr-56': { right: -224 }
-'.-mr-60': { right: -240 }
-'.-mr-64': { right: -256 }
-'.-mr-72': { right: -288 }
-'.-mr-80': { right: -320 }
-'.-mr-96': { right: -384 }
-'.-mr-px': { right: '-1px' }
-'.-mr-0.5': { right: -2 }
-'.-mr-1.5': { right: -6 }
-'.-mr-2.5': { right: -10 }
-'.-mr-3.5': { right: -14 }
-'.-mr-1/2': { right: '-50%' }
-'.-mr-1/3': { right: '-33.333333%' }
-'.-mr-2/3': { right: '-66.666667%' }
-'.-mr-1/4': { right: '-25%' }
-'.-mr-2/4': { right: '-50%' }
-'.-mr-3/4': { right: '-75%' }
-'.-mr-1/5': { right: '-20%' }
-'.-mr-2/5': { right: '-40%' }
-'.-mr-3/5': { right: '-60%' }
-'.-mr-4/5': { right: '-80%' }
-'.-mr-1/6': { right: '-16.666667%' }
-'.-mr-2/6': { right: '-33.333333%' }
-'.-mr-3/6': { right: '-50%' }
-'.-mr-4/6': { right: '-66.666667%' }
-'.-mr-5/6': { right: '-83.333333%' }
-'.-mr-1/12': { right: '-8.333333%' }
-'.-mr-2/12': { right: '-16.666667%' }
-'.-mr-3/12': { right: '-25%' }
-'.-mr-4/12': { right: '-33.333333%' }
-'.-mr-5/12': { right: '-41.666667%' }
-'.-mr-6/12': { right: '-50%' }
-'.-mr-7/12': { right: '-58.333333%' }
-'.-mr-8/12': { right: '-66.666667%' }
-'.-mr-9/12': { right: '-75%' }
-'.-mr-10/12': { right: '-83.333333%' }
-'.-mr-11/12': { right: '-91.666667%' }
-'.-mr-full': { right: '-100%' }
+'.mr-auto': { right: Ti.UI.SIZE }
 '.mb-0': { bottom: 0 }
 '.mb-1': { bottom: 4 }
 '.mb-2': { bottom: 8 }
@@ -2063,70 +1748,7 @@
 '.mb-10/12': { bottom: '83.333333%' }
 '.mb-11/12': { bottom: '91.666667%' }
 '.mb-full': { bottom: '100%' }
-'.mb-auto': { bottom: null }
-'.-mb-1': { bottom: -4 }
-'.-mb-2': { bottom: -8 }
-'.-mb-3': { bottom: -12 }
-'.-mb-4': { bottom: -16 }
-'.-mb-5': { bottom: -20 }
-'.-mb-6': { bottom: -24 }
-'.-mb-7': { bottom: -28 }
-'.-mb-8': { bottom: -32 }
-'.-mb-9': { bottom: -36 }
-'.-mb-10': { bottom: -40 }
-'.-mb-11': { bottom: -44 }
-'.-mb-12': { bottom: -48 }
-'.-mb-13': { bottom: -52 }
-'.-mb-14': { bottom: -56 }
-'.-mb-15': { bottom: -60 }
-'.-mb-16': { bottom: -64 }
-'.-mb-20': { bottom: -80 }
-'.-mb-24': { bottom: -96 }
-'.-mb-28': { bottom: -112 }
-'.-mb-32': { bottom: -128 }
-'.-mb-36': { bottom: -144 }
-'.-mb-40': { bottom: -160 }
-'.-mb-44': { bottom: -176 }
-'.-mb-48': { bottom: -192 }
-'.-mb-52': { bottom: -208 }
-'.-mb-56': { bottom: -224 }
-'.-mb-60': { bottom: -240 }
-'.-mb-64': { bottom: -256 }
-'.-mb-72': { bottom: -288 }
-'.-mb-80': { bottom: -320 }
-'.-mb-96': { bottom: -384 }
-'.-mb-px': { bottom: '-1px' }
-'.-mb-0.5': { bottom: -2 }
-'.-mb-1.5': { bottom: -6 }
-'.-mb-2.5': { bottom: -10 }
-'.-mb-3.5': { bottom: -14 }
-'.-mb-1/2': { bottom: '-50%' }
-'.-mb-1/3': { bottom: '-33.333333%' }
-'.-mb-2/3': { bottom: '-66.666667%' }
-'.-mb-1/4': { bottom: '-25%' }
-'.-mb-2/4': { bottom: '-50%' }
-'.-mb-3/4': { bottom: '-75%' }
-'.-mb-1/5': { bottom: '-20%' }
-'.-mb-2/5': { bottom: '-40%' }
-'.-mb-3/5': { bottom: '-60%' }
-'.-mb-4/5': { bottom: '-80%' }
-'.-mb-1/6': { bottom: '-16.666667%' }
-'.-mb-2/6': { bottom: '-33.333333%' }
-'.-mb-3/6': { bottom: '-50%' }
-'.-mb-4/6': { bottom: '-66.666667%' }
-'.-mb-5/6': { bottom: '-83.333333%' }
-'.-mb-1/12': { bottom: '-8.333333%' }
-'.-mb-2/12': { bottom: '-16.666667%' }
-'.-mb-3/12': { bottom: '-25%' }
-'.-mb-4/12': { bottom: '-33.333333%' }
-'.-mb-5/12': { bottom: '-41.666667%' }
-'.-mb-6/12': { bottom: '-50%' }
-'.-mb-7/12': { bottom: '-58.333333%' }
-'.-mb-8/12': { bottom: '-66.666667%' }
-'.-mb-9/12': { bottom: '-75%' }
-'.-mb-10/12': { bottom: '-83.333333%' }
-'.-mb-11/12': { bottom: '-91.666667%' }
-'.-mb-full': { bottom: '-100%' }
+'.mb-auto': { bottom: Ti.UI.SIZE }
 '.ml-0': { left: 0 }
 '.ml-1': { left: 4 }
 '.ml-2': { left: 8 }
@@ -2191,7 +1813,387 @@
 '.ml-10/12': { left: '83.333333%' }
 '.ml-11/12': { left: '91.666667%' }
 '.ml-full': { left: '100%' }
-'.ml-auto': { left: null }
+'.ml-auto': { left: Ti.UI.SIZE }
+
+// Negative Margins Property
+'.-m-1': { top: -4, right: -4, bottom: -4, left: -4 }
+'.-m-2': { top: -8, right: -8, bottom: -8, left: -8 }
+'.-m-3': { top: -12, right: -12, bottom: -12, left: -12 }
+'.-m-4': { top: -16, right: -16, bottom: -16, left: -16 }
+'.-m-5': { top: -20, right: -20, bottom: -20, left: -20 }
+'.-m-6': { top: -24, right: -24, bottom: -24, left: -24 }
+'.-m-7': { top: -28, right: -28, bottom: -28, left: -28 }
+'.-m-8': { top: -32, right: -32, bottom: -32, left: -32 }
+'.-m-9': { top: -36, right: -36, bottom: -36, left: -36 }
+'.-m-10': { top: -40, right: -40, bottom: -40, left: -40 }
+'.-m-11': { top: -44, right: -44, bottom: -44, left: -44 }
+'.-m-12': { top: -48, right: -48, bottom: -48, left: -48 }
+'.-m-13': { top: -52, right: -52, bottom: -52, left: -52 }
+'.-m-14': { top: -56, right: -56, bottom: -56, left: -56 }
+'.-m-15': { top: -60, right: -60, bottom: -60, left: -60 }
+'.-m-16': { top: -64, right: -64, bottom: -64, left: -64 }
+'.-m-20': { top: -80, right: -80, bottom: -80, left: -80 }
+'.-m-24': { top: -96, right: -96, bottom: -96, left: -96 }
+'.-m-28': { top: -112, right: -112, bottom: -112, left: -112 }
+'.-m-32': { top: -128, right: -128, bottom: -128, left: -128 }
+'.-m-36': { top: -144, right: -144, bottom: -144, left: -144 }
+'.-m-40': { top: -160, right: -160, bottom: -160, left: -160 }
+'.-m-44': { top: -176, right: -176, bottom: -176, left: -176 }
+'.-m-48': { top: -192, right: -192, bottom: -192, left: -192 }
+'.-m-52': { top: -208, right: -208, bottom: -208, left: -208 }
+'.-m-56': { top: -224, right: -224, bottom: -224, left: -224 }
+'.-m-60': { top: -240, right: -240, bottom: -240, left: -240 }
+'.-m-64': { top: -256, right: -256, bottom: -256, left: -256 }
+'.-m-72': { top: -288, right: -288, bottom: -288, left: -288 }
+'.-m-80': { top: -320, right: -320, bottom: -320, left: -320 }
+'.-m-96': { top: -384, right: -384, bottom: -384, left: -384 }
+'.-m-px': { top: '-1px', right: '-1px', bottom: '-1px', left: '-1px' }
+'.-m-0.5': { top: -2, right: -2, bottom: -2, left: -2 }
+'.-m-1.5': { top: -6, right: -6, bottom: -6, left: -6 }
+'.-m-2.5': { top: -10, right: -10, bottom: -10, left: -10 }
+'.-m-3.5': { top: -14, right: -14, bottom: -14, left: -14 }
+'.-m-1/2': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
+'.-m-1/3': { top: '-33.333333%', right: '-33.333333%', bottom: '-33.333333%', left: '-33.333333%' }
+'.-m-2/3': { top: '-66.666667%', right: '-66.666667%', bottom: '-66.666667%', left: '-66.666667%' }
+'.-m-1/4': { top: '-25%', right: '-25%', bottom: '-25%', left: '-25%' }
+'.-m-2/4': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
+'.-m-3/4': { top: '-75%', right: '-75%', bottom: '-75%', left: '-75%' }
+'.-m-1/5': { top: '-20%', right: '-20%', bottom: '-20%', left: '-20%' }
+'.-m-2/5': { top: '-40%', right: '-40%', bottom: '-40%', left: '-40%' }
+'.-m-3/5': { top: '-60%', right: '-60%', bottom: '-60%', left: '-60%' }
+'.-m-4/5': { top: '-80%', right: '-80%', bottom: '-80%', left: '-80%' }
+'.-m-1/6': { top: '-16.666667%', right: '-16.666667%', bottom: '-16.666667%', left: '-16.666667%' }
+'.-m-2/6': { top: '-33.333333%', right: '-33.333333%', bottom: '-33.333333%', left: '-33.333333%' }
+'.-m-3/6': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
+'.-m-4/6': { top: '-66.666667%', right: '-66.666667%', bottom: '-66.666667%', left: '-66.666667%' }
+'.-m-5/6': { top: '-83.333333%', right: '-83.333333%', bottom: '-83.333333%', left: '-83.333333%' }
+'.-m-1/12': { top: '-8.333333%', right: '-8.333333%', bottom: '-8.333333%', left: '-8.333333%' }
+'.-m-2/12': { top: '-16.666667%', right: '-16.666667%', bottom: '-16.666667%', left: '-16.666667%' }
+'.-m-3/12': { top: '-25%', right: '-25%', bottom: '-25%', left: '-25%' }
+'.-m-4/12': { top: '-33.333333%', right: '-33.333333%', bottom: '-33.333333%', left: '-33.333333%' }
+'.-m-5/12': { top: '-41.666667%', right: '-41.666667%', bottom: '-41.666667%', left: '-41.666667%' }
+'.-m-6/12': { top: '-50%', right: '-50%', bottom: '-50%', left: '-50%' }
+'.-m-7/12': { top: '-58.333333%', right: '-58.333333%', bottom: '-58.333333%', left: '-58.333333%' }
+'.-m-8/12': { top: '-66.666667%', right: '-66.666667%', bottom: '-66.666667%', left: '-66.666667%' }
+'.-m-9/12': { top: '-75%', right: '-75%', bottom: '-75%', left: '-75%' }
+'.-m-10/12': { top: '-83.333333%', right: '-83.333333%', bottom: '-83.333333%', left: '-83.333333%' }
+'.-m-11/12': { top: '-91.666667%', right: '-91.666667%', bottom: '-91.666667%', left: '-91.666667%' }
+'.-m-full': { top: '-100%', right: '-100%', bottom: '-100%', left: '-100%' }
+'.-my-1': { top: -4, bottom: -4 }
+'.-my-2': { top: -8, bottom: -8 }
+'.-my-3': { top: -12, bottom: -12 }
+'.-my-4': { top: -16, bottom: -16 }
+'.-my-5': { top: -20, bottom: -20 }
+'.-my-6': { top: -24, bottom: -24 }
+'.-my-7': { top: -28, bottom: -28 }
+'.-my-8': { top: -32, bottom: -32 }
+'.-my-9': { top: -36, bottom: -36 }
+'.-my-10': { top: -40, bottom: -40 }
+'.-my-11': { top: -44, bottom: -44 }
+'.-my-12': { top: -48, bottom: -48 }
+'.-my-13': { top: -52, bottom: -52 }
+'.-my-14': { top: -56, bottom: -56 }
+'.-my-15': { top: -60, bottom: -60 }
+'.-my-16': { top: -64, bottom: -64 }
+'.-my-20': { top: -80, bottom: -80 }
+'.-my-24': { top: -96, bottom: -96 }
+'.-my-28': { top: -112, bottom: -112 }
+'.-my-32': { top: -128, bottom: -128 }
+'.-my-36': { top: -144, bottom: -144 }
+'.-my-40': { top: -160, bottom: -160 }
+'.-my-44': { top: -176, bottom: -176 }
+'.-my-48': { top: -192, bottom: -192 }
+'.-my-52': { top: -208, bottom: -208 }
+'.-my-56': { top: -224, bottom: -224 }
+'.-my-60': { top: -240, bottom: -240 }
+'.-my-64': { top: -256, bottom: -256 }
+'.-my-72': { top: -288, bottom: -288 }
+'.-my-80': { top: -320, bottom: -320 }
+'.-my-96': { top: -384, bottom: -384 }
+'.-my-px': { top: '-1px', bottom: '-1px' }
+'.-my-0.5': { top: -2, bottom: -2 }
+'.-my-1.5': { top: -6, bottom: -6 }
+'.-my-2.5': { top: -10, bottom: -10 }
+'.-my-3.5': { top: -14, bottom: -14 }
+'.-my-1/2': { top: '-50%', bottom: '-50%' }
+'.-my-1/3': { top: '-33.333333%', bottom: '-33.333333%' }
+'.-my-2/3': { top: '-66.666667%', bottom: '-66.666667%' }
+'.-my-1/4': { top: '-25%', bottom: '-25%' }
+'.-my-2/4': { top: '-50%', bottom: '-50%' }
+'.-my-3/4': { top: '-75%', bottom: '-75%' }
+'.-my-1/5': { top: '-20%', bottom: '-20%' }
+'.-my-2/5': { top: '-40%', bottom: '-40%' }
+'.-my-3/5': { top: '-60%', bottom: '-60%' }
+'.-my-4/5': { top: '-80%', bottom: '-80%' }
+'.-my-1/6': { top: '-16.666667%', bottom: '-16.666667%' }
+'.-my-2/6': { top: '-33.333333%', bottom: '-33.333333%' }
+'.-my-3/6': { top: '-50%', bottom: '-50%' }
+'.-my-4/6': { top: '-66.666667%', bottom: '-66.666667%' }
+'.-my-5/6': { top: '-83.333333%', bottom: '-83.333333%' }
+'.-my-1/12': { top: '-8.333333%', bottom: '-8.333333%' }
+'.-my-2/12': { top: '-16.666667%', bottom: '-16.666667%' }
+'.-my-3/12': { top: '-25%', bottom: '-25%' }
+'.-my-4/12': { top: '-33.333333%', bottom: '-33.333333%' }
+'.-my-5/12': { top: '-41.666667%', bottom: '-41.666667%' }
+'.-my-6/12': { top: '-50%', bottom: '-50%' }
+'.-my-7/12': { top: '-58.333333%', bottom: '-58.333333%' }
+'.-my-8/12': { top: '-66.666667%', bottom: '-66.666667%' }
+'.-my-9/12': { top: '-75%', bottom: '-75%' }
+'.-my-10/12': { top: '-83.333333%', bottom: '-83.333333%' }
+'.-my-11/12': { top: '-91.666667%', bottom: '-91.666667%' }
+'.-my-full': { top: '-100%', bottom: '-100%' }
+'.-mx-1': { right: -4, left: -4 }
+'.-mx-2': { right: -8, left: -8 }
+'.-mx-3': { right: -12, left: -12 }
+'.-mx-4': { right: -16, left: -16 }
+'.-mx-5': { right: -20, left: -20 }
+'.-mx-6': { right: -24, left: -24 }
+'.-mx-7': { right: -28, left: -28 }
+'.-mx-8': { right: -32, left: -32 }
+'.-mx-9': { right: -36, left: -36 }
+'.-mx-10': { right: -40, left: -40 }
+'.-mx-11': { right: -44, left: -44 }
+'.-mx-12': { right: -48, left: -48 }
+'.-mx-13': { right: -52, left: -52 }
+'.-mx-14': { right: -56, left: -56 }
+'.-mx-15': { right: -60, left: -60 }
+'.-mx-16': { right: -64, left: -64 }
+'.-mx-20': { right: -80, left: -80 }
+'.-mx-24': { right: -96, left: -96 }
+'.-mx-28': { right: -112, left: -112 }
+'.-mx-32': { right: -128, left: -128 }
+'.-mx-36': { right: -144, left: -144 }
+'.-mx-40': { right: -160, left: -160 }
+'.-mx-44': { right: -176, left: -176 }
+'.-mx-48': { right: -192, left: -192 }
+'.-mx-52': { right: -208, left: -208 }
+'.-mx-56': { right: -224, left: -224 }
+'.-mx-60': { right: -240, left: -240 }
+'.-mx-64': { right: -256, left: -256 }
+'.-mx-72': { right: -288, left: -288 }
+'.-mx-80': { right: -320, left: -320 }
+'.-mx-96': { right: -384, left: -384 }
+'.-mx-px': { right: '-1px', left: '-1px' }
+'.-mx-0.5': { right: -2, left: -2 }
+'.-mx-1.5': { right: -6, left: -6 }
+'.-mx-2.5': { right: -10, left: -10 }
+'.-mx-3.5': { right: -14, left: -14 }
+'.-mx-1/2': { right: '-50%', left: '-50%' }
+'.-mx-1/3': { right: '-33.333333%', left: '-33.333333%' }
+'.-mx-2/3': { right: '-66.666667%', left: '-66.666667%' }
+'.-mx-1/4': { right: '-25%', left: '-25%' }
+'.-mx-2/4': { right: '-50%', left: '-50%' }
+'.-mx-3/4': { right: '-75%', left: '-75%' }
+'.-mx-1/5': { right: '-20%', left: '-20%' }
+'.-mx-2/5': { right: '-40%', left: '-40%' }
+'.-mx-3/5': { right: '-60%', left: '-60%' }
+'.-mx-4/5': { right: '-80%', left: '-80%' }
+'.-mx-1/6': { right: '-16.666667%', left: '-16.666667%' }
+'.-mx-2/6': { right: '-33.333333%', left: '-33.333333%' }
+'.-mx-3/6': { right: '-50%', left: '-50%' }
+'.-mx-4/6': { right: '-66.666667%', left: '-66.666667%' }
+'.-mx-5/6': { right: '-83.333333%', left: '-83.333333%' }
+'.-mx-1/12': { right: '-8.333333%', left: '-8.333333%' }
+'.-mx-2/12': { right: '-16.666667%', left: '-16.666667%' }
+'.-mx-3/12': { right: '-25%', left: '-25%' }
+'.-mx-4/12': { right: '-33.333333%', left: '-33.333333%' }
+'.-mx-5/12': { right: '-41.666667%', left: '-41.666667%' }
+'.-mx-6/12': { right: '-50%', left: '-50%' }
+'.-mx-7/12': { right: '-58.333333%', left: '-58.333333%' }
+'.-mx-8/12': { right: '-66.666667%', left: '-66.666667%' }
+'.-mx-9/12': { right: '-75%', left: '-75%' }
+'.-mx-10/12': { right: '-83.333333%', left: '-83.333333%' }
+'.-mx-11/12': { right: '-91.666667%', left: '-91.666667%' }
+'.-mx-full': { right: '-100%', left: '-100%' }
+'.-mt-1': { top: -4 }
+'.-mt-2': { top: -8 }
+'.-mt-3': { top: -12 }
+'.-mt-4': { top: -16 }
+'.-mt-5': { top: -20 }
+'.-mt-6': { top: -24 }
+'.-mt-7': { top: -28 }
+'.-mt-8': { top: -32 }
+'.-mt-9': { top: -36 }
+'.-mt-10': { top: -40 }
+'.-mt-11': { top: -44 }
+'.-mt-12': { top: -48 }
+'.-mt-13': { top: -52 }
+'.-mt-14': { top: -56 }
+'.-mt-15': { top: -60 }
+'.-mt-16': { top: -64 }
+'.-mt-20': { top: -80 }
+'.-mt-24': { top: -96 }
+'.-mt-28': { top: -112 }
+'.-mt-32': { top: -128 }
+'.-mt-36': { top: -144 }
+'.-mt-40': { top: -160 }
+'.-mt-44': { top: -176 }
+'.-mt-48': { top: -192 }
+'.-mt-52': { top: -208 }
+'.-mt-56': { top: -224 }
+'.-mt-60': { top: -240 }
+'.-mt-64': { top: -256 }
+'.-mt-72': { top: -288 }
+'.-mt-80': { top: -320 }
+'.-mt-96': { top: -384 }
+'.-mt-px': { top: '-1px' }
+'.-mt-0.5': { top: -2 }
+'.-mt-1.5': { top: -6 }
+'.-mt-2.5': { top: -10 }
+'.-mt-3.5': { top: -14 }
+'.-mt-1/2': { top: '-50%' }
+'.-mt-1/3': { top: '-33.333333%' }
+'.-mt-2/3': { top: '-66.666667%' }
+'.-mt-1/4': { top: '-25%' }
+'.-mt-2/4': { top: '-50%' }
+'.-mt-3/4': { top: '-75%' }
+'.-mt-1/5': { top: '-20%' }
+'.-mt-2/5': { top: '-40%' }
+'.-mt-3/5': { top: '-60%' }
+'.-mt-4/5': { top: '-80%' }
+'.-mt-1/6': { top: '-16.666667%' }
+'.-mt-2/6': { top: '-33.333333%' }
+'.-mt-3/6': { top: '-50%' }
+'.-mt-4/6': { top: '-66.666667%' }
+'.-mt-5/6': { top: '-83.333333%' }
+'.-mt-1/12': { top: '-8.333333%' }
+'.-mt-2/12': { top: '-16.666667%' }
+'.-mt-3/12': { top: '-25%' }
+'.-mt-4/12': { top: '-33.333333%' }
+'.-mt-5/12': { top: '-41.666667%' }
+'.-mt-6/12': { top: '-50%' }
+'.-mt-7/12': { top: '-58.333333%' }
+'.-mt-8/12': { top: '-66.666667%' }
+'.-mt-9/12': { top: '-75%' }
+'.-mt-10/12': { top: '-83.333333%' }
+'.-mt-11/12': { top: '-91.666667%' }
+'.-mt-full': { top: '-100%' }
+'.-mr-1': { right: -4 }
+'.-mr-2': { right: -8 }
+'.-mr-3': { right: -12 }
+'.-mr-4': { right: -16 }
+'.-mr-5': { right: -20 }
+'.-mr-6': { right: -24 }
+'.-mr-7': { right: -28 }
+'.-mr-8': { right: -32 }
+'.-mr-9': { right: -36 }
+'.-mr-10': { right: -40 }
+'.-mr-11': { right: -44 }
+'.-mr-12': { right: -48 }
+'.-mr-13': { right: -52 }
+'.-mr-14': { right: -56 }
+'.-mr-15': { right: -60 }
+'.-mr-16': { right: -64 }
+'.-mr-20': { right: -80 }
+'.-mr-24': { right: -96 }
+'.-mr-28': { right: -112 }
+'.-mr-32': { right: -128 }
+'.-mr-36': { right: -144 }
+'.-mr-40': { right: -160 }
+'.-mr-44': { right: -176 }
+'.-mr-48': { right: -192 }
+'.-mr-52': { right: -208 }
+'.-mr-56': { right: -224 }
+'.-mr-60': { right: -240 }
+'.-mr-64': { right: -256 }
+'.-mr-72': { right: -288 }
+'.-mr-80': { right: -320 }
+'.-mr-96': { right: -384 }
+'.-mr-px': { right: '-1px' }
+'.-mr-0.5': { right: -2 }
+'.-mr-1.5': { right: -6 }
+'.-mr-2.5': { right: -10 }
+'.-mr-3.5': { right: -14 }
+'.-mr-1/2': { right: '-50%' }
+'.-mr-1/3': { right: '-33.333333%' }
+'.-mr-2/3': { right: '-66.666667%' }
+'.-mr-1/4': { right: '-25%' }
+'.-mr-2/4': { right: '-50%' }
+'.-mr-3/4': { right: '-75%' }
+'.-mr-1/5': { right: '-20%' }
+'.-mr-2/5': { right: '-40%' }
+'.-mr-3/5': { right: '-60%' }
+'.-mr-4/5': { right: '-80%' }
+'.-mr-1/6': { right: '-16.666667%' }
+'.-mr-2/6': { right: '-33.333333%' }
+'.-mr-3/6': { right: '-50%' }
+'.-mr-4/6': { right: '-66.666667%' }
+'.-mr-5/6': { right: '-83.333333%' }
+'.-mr-1/12': { right: '-8.333333%' }
+'.-mr-2/12': { right: '-16.666667%' }
+'.-mr-3/12': { right: '-25%' }
+'.-mr-4/12': { right: '-33.333333%' }
+'.-mr-5/12': { right: '-41.666667%' }
+'.-mr-6/12': { right: '-50%' }
+'.-mr-7/12': { right: '-58.333333%' }
+'.-mr-8/12': { right: '-66.666667%' }
+'.-mr-9/12': { right: '-75%' }
+'.-mr-10/12': { right: '-83.333333%' }
+'.-mr-11/12': { right: '-91.666667%' }
+'.-mr-full': { right: '-100%' }
+'.-mb-1': { bottom: -4 }
+'.-mb-2': { bottom: -8 }
+'.-mb-3': { bottom: -12 }
+'.-mb-4': { bottom: -16 }
+'.-mb-5': { bottom: -20 }
+'.-mb-6': { bottom: -24 }
+'.-mb-7': { bottom: -28 }
+'.-mb-8': { bottom: -32 }
+'.-mb-9': { bottom: -36 }
+'.-mb-10': { bottom: -40 }
+'.-mb-11': { bottom: -44 }
+'.-mb-12': { bottom: -48 }
+'.-mb-13': { bottom: -52 }
+'.-mb-14': { bottom: -56 }
+'.-mb-15': { bottom: -60 }
+'.-mb-16': { bottom: -64 }
+'.-mb-20': { bottom: -80 }
+'.-mb-24': { bottom: -96 }
+'.-mb-28': { bottom: -112 }
+'.-mb-32': { bottom: -128 }
+'.-mb-36': { bottom: -144 }
+'.-mb-40': { bottom: -160 }
+'.-mb-44': { bottom: -176 }
+'.-mb-48': { bottom: -192 }
+'.-mb-52': { bottom: -208 }
+'.-mb-56': { bottom: -224 }
+'.-mb-60': { bottom: -240 }
+'.-mb-64': { bottom: -256 }
+'.-mb-72': { bottom: -288 }
+'.-mb-80': { bottom: -320 }
+'.-mb-96': { bottom: -384 }
+'.-mb-px': { bottom: '-1px' }
+'.-mb-0.5': { bottom: -2 }
+'.-mb-1.5': { bottom: -6 }
+'.-mb-2.5': { bottom: -10 }
+'.-mb-3.5': { bottom: -14 }
+'.-mb-1/2': { bottom: '-50%' }
+'.-mb-1/3': { bottom: '-33.333333%' }
+'.-mb-2/3': { bottom: '-66.666667%' }
+'.-mb-1/4': { bottom: '-25%' }
+'.-mb-2/4': { bottom: '-50%' }
+'.-mb-3/4': { bottom: '-75%' }
+'.-mb-1/5': { bottom: '-20%' }
+'.-mb-2/5': { bottom: '-40%' }
+'.-mb-3/5': { bottom: '-60%' }
+'.-mb-4/5': { bottom: '-80%' }
+'.-mb-1/6': { bottom: '-16.666667%' }
+'.-mb-2/6': { bottom: '-33.333333%' }
+'.-mb-3/6': { bottom: '-50%' }
+'.-mb-4/6': { bottom: '-66.666667%' }
+'.-mb-5/6': { bottom: '-83.333333%' }
+'.-mb-1/12': { bottom: '-8.333333%' }
+'.-mb-2/12': { bottom: '-16.666667%' }
+'.-mb-3/12': { bottom: '-25%' }
+'.-mb-4/12': { bottom: '-33.333333%' }
+'.-mb-5/12': { bottom: '-41.666667%' }
+'.-mb-6/12': { bottom: '-50%' }
+'.-mb-7/12': { bottom: '-58.333333%' }
+'.-mb-8/12': { bottom: '-66.666667%' }
+'.-mb-9/12': { bottom: '-75%' }
+'.-mb-10/12': { bottom: '-83.333333%' }
+'.-mb-11/12': { bottom: '-91.666667%' }
+'.-mb-full': { bottom: '-100%' }
 '.-ml-1': { left: -4 }
 '.-ml-2': { left: -8 }
 '.-ml-3': { left: -12 }
@@ -2958,256 +2960,21 @@
 '.placeholder-blueGray-800': { hintTextColor: '#1e293b' }
 '.placeholder-blueGray-900': { hintTextColor: '#0f172a' }
 
-// touchFeedbackColor Property
-'.feedback-transparent': { touchFeedback: true, touchFeedbackColor: 'transparent' }
-'.feedback-black': { touchFeedback: true, touchFeedbackColor: '#000000' }
-'.feedback-white': { touchFeedback: true, touchFeedbackColor: '#ffffff' }
-'.feedback-rose-50': { touchFeedback: true, touchFeedbackColor: '#fff1f2' }
-'.feedback-rose-100': { touchFeedback: true, touchFeedbackColor: '#ffe4e6' }
-'.feedback-rose-200': { touchFeedback: true, touchFeedbackColor: '#fecdd3' }
-'.feedback-rose-300': { touchFeedback: true, touchFeedbackColor: '#fda4af' }
-'.feedback-rose-400': { touchFeedback: true, touchFeedbackColor: '#fb7185' }
-'.feedback-rose-500': { touchFeedback: true, touchFeedbackColor: '#f43f5e' }
-'.feedback-rose-600': { touchFeedback: true, touchFeedbackColor: '#e11d48' }
-'.feedback-rose-700': { touchFeedback: true, touchFeedbackColor: '#be123c' }
-'.feedback-rose-800': { touchFeedback: true, touchFeedbackColor: '#9f1239' }
-'.feedback-rose-900': { touchFeedback: true, touchFeedbackColor: '#881337' }
-'.feedback-pink-50': { touchFeedback: true, touchFeedbackColor: '#fdf2f8' }
-'.feedback-pink-100': { touchFeedback: true, touchFeedbackColor: '#fce7f3' }
-'.feedback-pink-200': { touchFeedback: true, touchFeedbackColor: '#fbcfe8' }
-'.feedback-pink-300': { touchFeedback: true, touchFeedbackColor: '#f9a8d4' }
-'.feedback-pink-400': { touchFeedback: true, touchFeedbackColor: '#f472b6' }
-'.feedback-pink-500': { touchFeedback: true, touchFeedbackColor: '#ec4899' }
-'.feedback-pink-600': { touchFeedback: true, touchFeedbackColor: '#db2777' }
-'.feedback-pink-700': { touchFeedback: true, touchFeedbackColor: '#be185d' }
-'.feedback-pink-800': { touchFeedback: true, touchFeedbackColor: '#9d174d' }
-'.feedback-pink-900': { touchFeedback: true, touchFeedbackColor: '#831843' }
-'.feedback-fuchsia-50': { touchFeedback: true, touchFeedbackColor: '#fdf4ff' }
-'.feedback-fuchsia-100': { touchFeedback: true, touchFeedbackColor: '#fae8ff' }
-'.feedback-fuchsia-200': { touchFeedback: true, touchFeedbackColor: '#f5d0fe' }
-'.feedback-fuchsia-300': { touchFeedback: true, touchFeedbackColor: '#f0abfc' }
-'.feedback-fuchsia-400': { touchFeedback: true, touchFeedbackColor: '#e879f9' }
-'.feedback-fuchsia-500': { touchFeedback: true, touchFeedbackColor: '#d946ef' }
-'.feedback-fuchsia-600': { touchFeedback: true, touchFeedbackColor: '#c026d3' }
-'.feedback-fuchsia-700': { touchFeedback: true, touchFeedbackColor: '#a21caf' }
-'.feedback-fuchsia-800': { touchFeedback: true, touchFeedbackColor: '#86198f' }
-'.feedback-fuchsia-900': { touchFeedback: true, touchFeedbackColor: '#701a75' }
-'.feedback-purple-50': { touchFeedback: true, touchFeedbackColor: '#faf5ff' }
-'.feedback-purple-100': { touchFeedback: true, touchFeedbackColor: '#f3e8ff' }
-'.feedback-purple-200': { touchFeedback: true, touchFeedbackColor: '#e9d5ff' }
-'.feedback-purple-300': { touchFeedback: true, touchFeedbackColor: '#d8b4fe' }
-'.feedback-purple-400': { touchFeedback: true, touchFeedbackColor: '#c084fc' }
-'.feedback-purple-500': { touchFeedback: true, touchFeedbackColor: '#a855f7' }
-'.feedback-purple-600': { touchFeedback: true, touchFeedbackColor: '#9333ea' }
-'.feedback-purple-700': { touchFeedback: true, touchFeedbackColor: '#7e22ce' }
-'.feedback-purple-800': { touchFeedback: true, touchFeedbackColor: '#6b21a8' }
-'.feedback-purple-900': { touchFeedback: true, touchFeedbackColor: '#581c87' }
-'.feedback-violet-50': { touchFeedback: true, touchFeedbackColor: '#f5f3ff' }
-'.feedback-violet-100': { touchFeedback: true, touchFeedbackColor: '#ede9fe' }
-'.feedback-violet-200': { touchFeedback: true, touchFeedbackColor: '#ddd6fe' }
-'.feedback-violet-300': { touchFeedback: true, touchFeedbackColor: '#c4b5fd' }
-'.feedback-violet-400': { touchFeedback: true, touchFeedbackColor: '#a78bfa' }
-'.feedback-violet-500': { touchFeedback: true, touchFeedbackColor: '#8b5cf6' }
-'.feedback-violet-600': { touchFeedback: true, touchFeedbackColor: '#7c3aed' }
-'.feedback-violet-700': { touchFeedback: true, touchFeedbackColor: '#6d28d9' }
-'.feedback-violet-800': { touchFeedback: true, touchFeedbackColor: '#5b21b6' }
-'.feedback-violet-900': { touchFeedback: true, touchFeedbackColor: '#4c1d95' }
-'.feedback-indigo-50': { touchFeedback: true, touchFeedbackColor: '#eef2ff' }
-'.feedback-indigo-100': { touchFeedback: true, touchFeedbackColor: '#e0e7ff' }
-'.feedback-indigo-200': { touchFeedback: true, touchFeedbackColor: '#c7d2fe' }
-'.feedback-indigo-300': { touchFeedback: true, touchFeedbackColor: '#a5b4fc' }
-'.feedback-indigo-400': { touchFeedback: true, touchFeedbackColor: '#818cf8' }
-'.feedback-indigo-500': { touchFeedback: true, touchFeedbackColor: '#6366f1' }
-'.feedback-indigo-600': { touchFeedback: true, touchFeedbackColor: '#4f46e5' }
-'.feedback-indigo-700': { touchFeedback: true, touchFeedbackColor: '#4338ca' }
-'.feedback-indigo-800': { touchFeedback: true, touchFeedbackColor: '#3730a3' }
-'.feedback-indigo-900': { touchFeedback: true, touchFeedbackColor: '#312e81' }
-'.feedback-blue-50': { touchFeedback: true, touchFeedbackColor: '#eff6ff' }
-'.feedback-blue-100': { touchFeedback: true, touchFeedbackColor: '#dbeafe' }
-'.feedback-blue-200': { touchFeedback: true, touchFeedbackColor: '#bfdbfe' }
-'.feedback-blue-300': { touchFeedback: true, touchFeedbackColor: '#93c5fd' }
-'.feedback-blue-400': { touchFeedback: true, touchFeedbackColor: '#60a5fa' }
-'.feedback-blue-500': { touchFeedback: true, touchFeedbackColor: '#3b82f6' }
-'.feedback-blue-600': { touchFeedback: true, touchFeedbackColor: '#2563eb' }
-'.feedback-blue-700': { touchFeedback: true, touchFeedbackColor: '#1d4ed8' }
-'.feedback-blue-800': { touchFeedback: true, touchFeedbackColor: '#1e40af' }
-'.feedback-blue-900': { touchFeedback: true, touchFeedbackColor: '#1e3a8a' }
-'.feedback-lightBlue-50': { touchFeedback: true, touchFeedbackColor: '#f0f9ff' }
-'.feedback-lightBlue-100': { touchFeedback: true, touchFeedbackColor: '#e0f2fe' }
-'.feedback-lightBlue-200': { touchFeedback: true, touchFeedbackColor: '#bae6fd' }
-'.feedback-lightBlue-300': { touchFeedback: true, touchFeedbackColor: '#7dd3fc' }
-'.feedback-lightBlue-400': { touchFeedback: true, touchFeedbackColor: '#38bdf8' }
-'.feedback-lightBlue-500': { touchFeedback: true, touchFeedbackColor: '#0ea5e9' }
-'.feedback-lightBlue-600': { touchFeedback: true, touchFeedbackColor: '#0284c7' }
-'.feedback-lightBlue-700': { touchFeedback: true, touchFeedbackColor: '#0369a1' }
-'.feedback-lightBlue-800': { touchFeedback: true, touchFeedbackColor: '#075985' }
-'.feedback-lightBlue-900': { touchFeedback: true, touchFeedbackColor: '#0c4a6e' }
-'.feedback-sky-50': { touchFeedback: true, touchFeedbackColor: '#f0f9ff' }
-'.feedback-sky-100': { touchFeedback: true, touchFeedbackColor: '#e0f2fe' }
-'.feedback-sky-200': { touchFeedback: true, touchFeedbackColor: '#bae6fd' }
-'.feedback-sky-300': { touchFeedback: true, touchFeedbackColor: '#7dd3fc' }
-'.feedback-sky-400': { touchFeedback: true, touchFeedbackColor: '#38bdf8' }
-'.feedback-sky-500': { touchFeedback: true, touchFeedbackColor: '#0ea5e9' }
-'.feedback-sky-600': { touchFeedback: true, touchFeedbackColor: '#0284c7' }
-'.feedback-sky-700': { touchFeedback: true, touchFeedbackColor: '#0369a1' }
-'.feedback-sky-800': { touchFeedback: true, touchFeedbackColor: '#075985' }
-'.feedback-sky-900': { touchFeedback: true, touchFeedbackColor: '#0c4a6e' }
-'.feedback-cyan-50': { touchFeedback: true, touchFeedbackColor: '#ecfeff' }
-'.feedback-cyan-100': { touchFeedback: true, touchFeedbackColor: '#cffafe' }
-'.feedback-cyan-200': { touchFeedback: true, touchFeedbackColor: '#a5f3fc' }
-'.feedback-cyan-300': { touchFeedback: true, touchFeedbackColor: '#67e8f9' }
-'.feedback-cyan-400': { touchFeedback: true, touchFeedbackColor: '#22d3ee' }
-'.feedback-cyan-500': { touchFeedback: true, touchFeedbackColor: '#06b6d4' }
-'.feedback-cyan-600': { touchFeedback: true, touchFeedbackColor: '#0891b2' }
-'.feedback-cyan-700': { touchFeedback: true, touchFeedbackColor: '#0e7490' }
-'.feedback-cyan-800': { touchFeedback: true, touchFeedbackColor: '#155e75' }
-'.feedback-cyan-900': { touchFeedback: true, touchFeedbackColor: '#164e63' }
-'.feedback-teal-50': { touchFeedback: true, touchFeedbackColor: '#f0fdfa' }
-'.feedback-teal-100': { touchFeedback: true, touchFeedbackColor: '#ccfbf1' }
-'.feedback-teal-200': { touchFeedback: true, touchFeedbackColor: '#99f6e4' }
-'.feedback-teal-300': { touchFeedback: true, touchFeedbackColor: '#5eead4' }
-'.feedback-teal-400': { touchFeedback: true, touchFeedbackColor: '#2dd4bf' }
-'.feedback-teal-500': { touchFeedback: true, touchFeedbackColor: '#14b8a6' }
-'.feedback-teal-600': { touchFeedback: true, touchFeedbackColor: '#0d9488' }
-'.feedback-teal-700': { touchFeedback: true, touchFeedbackColor: '#0f766e' }
-'.feedback-teal-800': { touchFeedback: true, touchFeedbackColor: '#115e59' }
-'.feedback-teal-900': { touchFeedback: true, touchFeedbackColor: '#134e4a' }
-'.feedback-emerald-50': { touchFeedback: true, touchFeedbackColor: '#ecfdf5' }
-'.feedback-emerald-100': { touchFeedback: true, touchFeedbackColor: '#d1fae5' }
-'.feedback-emerald-200': { touchFeedback: true, touchFeedbackColor: '#a7f3d0' }
-'.feedback-emerald-300': { touchFeedback: true, touchFeedbackColor: '#6ee7b7' }
-'.feedback-emerald-400': { touchFeedback: true, touchFeedbackColor: '#34d399' }
-'.feedback-emerald-500': { touchFeedback: true, touchFeedbackColor: '#10b981' }
-'.feedback-emerald-600': { touchFeedback: true, touchFeedbackColor: '#059669' }
-'.feedback-emerald-700': { touchFeedback: true, touchFeedbackColor: '#047857' }
-'.feedback-emerald-800': { touchFeedback: true, touchFeedbackColor: '#065f46' }
-'.feedback-emerald-900': { touchFeedback: true, touchFeedbackColor: '#064e3b' }
-'.feedback-green-50': { touchFeedback: true, touchFeedbackColor: '#f0fdf4' }
-'.feedback-green-100': { touchFeedback: true, touchFeedbackColor: '#dcfce7' }
-'.feedback-green-200': { touchFeedback: true, touchFeedbackColor: '#bbf7d0' }
-'.feedback-green-300': { touchFeedback: true, touchFeedbackColor: '#86efac' }
-'.feedback-green-400': { touchFeedback: true, touchFeedbackColor: '#4ade80' }
-'.feedback-green-500': { touchFeedback: true, touchFeedbackColor: '#22c55e' }
-'.feedback-green-600': { touchFeedback: true, touchFeedbackColor: '#16a34a' }
-'.feedback-green-700': { touchFeedback: true, touchFeedbackColor: '#15803d' }
-'.feedback-green-800': { touchFeedback: true, touchFeedbackColor: '#166534' }
-'.feedback-green-900': { touchFeedback: true, touchFeedbackColor: '#14532d' }
-'.feedback-lime-50': { touchFeedback: true, touchFeedbackColor: '#f7fee7' }
-'.feedback-lime-100': { touchFeedback: true, touchFeedbackColor: '#ecfccb' }
-'.feedback-lime-200': { touchFeedback: true, touchFeedbackColor: '#d9f99d' }
-'.feedback-lime-300': { touchFeedback: true, touchFeedbackColor: '#bef264' }
-'.feedback-lime-400': { touchFeedback: true, touchFeedbackColor: '#a3e635' }
-'.feedback-lime-500': { touchFeedback: true, touchFeedbackColor: '#84cc16' }
-'.feedback-lime-600': { touchFeedback: true, touchFeedbackColor: '#65a30d' }
-'.feedback-lime-700': { touchFeedback: true, touchFeedbackColor: '#4d7c0f' }
-'.feedback-lime-800': { touchFeedback: true, touchFeedbackColor: '#3f6212' }
-'.feedback-lime-900': { touchFeedback: true, touchFeedbackColor: '#365314' }
-'.feedback-yellow-50': { touchFeedback: true, touchFeedbackColor: '#fefce8' }
-'.feedback-yellow-100': { touchFeedback: true, touchFeedbackColor: '#fef9c3' }
-'.feedback-yellow-200': { touchFeedback: true, touchFeedbackColor: '#fef08a' }
-'.feedback-yellow-300': { touchFeedback: true, touchFeedbackColor: '#fde047' }
-'.feedback-yellow-400': { touchFeedback: true, touchFeedbackColor: '#facc15' }
-'.feedback-yellow-500': { touchFeedback: true, touchFeedbackColor: '#eab308' }
-'.feedback-yellow-600': { touchFeedback: true, touchFeedbackColor: '#ca8a04' }
-'.feedback-yellow-700': { touchFeedback: true, touchFeedbackColor: '#a16207' }
-'.feedback-yellow-800': { touchFeedback: true, touchFeedbackColor: '#854d0e' }
-'.feedback-yellow-900': { touchFeedback: true, touchFeedbackColor: '#713f12' }
-'.feedback-amber-50': { touchFeedback: true, touchFeedbackColor: '#fffbeb' }
-'.feedback-amber-100': { touchFeedback: true, touchFeedbackColor: '#fef3c7' }
-'.feedback-amber-200': { touchFeedback: true, touchFeedbackColor: '#fde68a' }
-'.feedback-amber-300': { touchFeedback: true, touchFeedbackColor: '#fcd34d' }
-'.feedback-amber-400': { touchFeedback: true, touchFeedbackColor: '#fbbf24' }
-'.feedback-amber-500': { touchFeedback: true, touchFeedbackColor: '#f59e0b' }
-'.feedback-amber-600': { touchFeedback: true, touchFeedbackColor: '#d97706' }
-'.feedback-amber-700': { touchFeedback: true, touchFeedbackColor: '#b45309' }
-'.feedback-amber-800': { touchFeedback: true, touchFeedbackColor: '#92400e' }
-'.feedback-amber-900': { touchFeedback: true, touchFeedbackColor: '#78350f' }
-'.feedback-orange-50': { touchFeedback: true, touchFeedbackColor: '#fff7ed' }
-'.feedback-orange-100': { touchFeedback: true, touchFeedbackColor: '#ffedd5' }
-'.feedback-orange-200': { touchFeedback: true, touchFeedbackColor: '#fed7aa' }
-'.feedback-orange-300': { touchFeedback: true, touchFeedbackColor: '#fdba74' }
-'.feedback-orange-400': { touchFeedback: true, touchFeedbackColor: '#fb923c' }
-'.feedback-orange-500': { touchFeedback: true, touchFeedbackColor: '#f97316' }
-'.feedback-orange-600': { touchFeedback: true, touchFeedbackColor: '#ea580c' }
-'.feedback-orange-700': { touchFeedback: true, touchFeedbackColor: '#c2410c' }
-'.feedback-orange-800': { touchFeedback: true, touchFeedbackColor: '#9a3412' }
-'.feedback-orange-900': { touchFeedback: true, touchFeedbackColor: '#7c2d12' }
-'.feedback-red-50': { touchFeedback: true, touchFeedbackColor: '#fef2f2' }
-'.feedback-red-100': { touchFeedback: true, touchFeedbackColor: '#fee2e2' }
-'.feedback-red-200': { touchFeedback: true, touchFeedbackColor: '#fecaca' }
-'.feedback-red-300': { touchFeedback: true, touchFeedbackColor: '#fca5a5' }
-'.feedback-red-400': { touchFeedback: true, touchFeedbackColor: '#f87171' }
-'.feedback-red-500': { touchFeedback: true, touchFeedbackColor: '#ef4444' }
-'.feedback-red-600': { touchFeedback: true, touchFeedbackColor: '#dc2626' }
-'.feedback-red-700': { touchFeedback: true, touchFeedbackColor: '#b91c1c' }
-'.feedback-red-800': { touchFeedback: true, touchFeedbackColor: '#991b1b' }
-'.feedback-red-900': { touchFeedback: true, touchFeedbackColor: '#7f1d1d' }
-'.feedback-warmGray-50': { touchFeedback: true, touchFeedbackColor: '#fafaf9' }
-'.feedback-warmGray-100': { touchFeedback: true, touchFeedbackColor: '#f5f5f4' }
-'.feedback-warmGray-200': { touchFeedback: true, touchFeedbackColor: '#e7e5e4' }
-'.feedback-warmGray-300': { touchFeedback: true, touchFeedbackColor: '#d6d3d1' }
-'.feedback-warmGray-400': { touchFeedback: true, touchFeedbackColor: '#a8a29e' }
-'.feedback-warmGray-500': { touchFeedback: true, touchFeedbackColor: '#78716c' }
-'.feedback-warmGray-600': { touchFeedback: true, touchFeedbackColor: '#57534e' }
-'.feedback-warmGray-700': { touchFeedback: true, touchFeedbackColor: '#44403c' }
-'.feedback-warmGray-800': { touchFeedback: true, touchFeedbackColor: '#292524' }
-'.feedback-warmGray-900': { touchFeedback: true, touchFeedbackColor: '#1c1917' }
-'.feedback-trueGray-50': { touchFeedback: true, touchFeedbackColor: '#fafafa' }
-'.feedback-trueGray-100': { touchFeedback: true, touchFeedbackColor: '#f5f5f5' }
-'.feedback-trueGray-200': { touchFeedback: true, touchFeedbackColor: '#e5e5e5' }
-'.feedback-trueGray-300': { touchFeedback: true, touchFeedbackColor: '#d4d4d4' }
-'.feedback-trueGray-400': { touchFeedback: true, touchFeedbackColor: '#a3a3a3' }
-'.feedback-trueGray-500': { touchFeedback: true, touchFeedbackColor: '#737373' }
-'.feedback-trueGray-600': { touchFeedback: true, touchFeedbackColor: '#525252' }
-'.feedback-trueGray-700': { touchFeedback: true, touchFeedbackColor: '#404040' }
-'.feedback-trueGray-800': { touchFeedback: true, touchFeedbackColor: '#262626' }
-'.feedback-trueGray-900': { touchFeedback: true, touchFeedbackColor: '#171717' }
-'.feedback-gray-50': { touchFeedback: true, touchFeedbackColor: '#fafafa' }
-'.feedback-gray-100': { touchFeedback: true, touchFeedbackColor: '#f4f4f5' }
-'.feedback-gray-200': { touchFeedback: true, touchFeedbackColor: '#e4e4e7' }
-'.feedback-gray-300': { touchFeedback: true, touchFeedbackColor: '#d4d4d8' }
-'.feedback-gray-400': { touchFeedback: true, touchFeedbackColor: '#a1a1aa' }
-'.feedback-gray-500': { touchFeedback: true, touchFeedbackColor: '#71717a' }
-'.feedback-gray-600': { touchFeedback: true, touchFeedbackColor: '#52525b' }
-'.feedback-gray-700': { touchFeedback: true, touchFeedbackColor: '#3f3f46' }
-'.feedback-gray-800': { touchFeedback: true, touchFeedbackColor: '#27272a' }
-'.feedback-gray-900': { touchFeedback: true, touchFeedbackColor: '#18181b' }
-'.feedback-coolGray-50': { touchFeedback: true, touchFeedbackColor: '#f9fafb' }
-'.feedback-coolGray-100': { touchFeedback: true, touchFeedbackColor: '#f3f4f6' }
-'.feedback-coolGray-200': { touchFeedback: true, touchFeedbackColor: '#e5e7eb' }
-'.feedback-coolGray-300': { touchFeedback: true, touchFeedbackColor: '#d1d5db' }
-'.feedback-coolGray-400': { touchFeedback: true, touchFeedbackColor: '#9ca3af' }
-'.feedback-coolGray-500': { touchFeedback: true, touchFeedbackColor: '#6b7280' }
-'.feedback-coolGray-600': { touchFeedback: true, touchFeedbackColor: '#4b5563' }
-'.feedback-coolGray-700': { touchFeedback: true, touchFeedbackColor: '#374151' }
-'.feedback-coolGray-800': { touchFeedback: true, touchFeedbackColor: '#1f2937' }
-'.feedback-coolGray-900': { touchFeedback: true, touchFeedbackColor: '#111827' }
-'.feedback-blueGray-50': { touchFeedback: true, touchFeedbackColor: '#f8fafc' }
-'.feedback-blueGray-100': { touchFeedback: true, touchFeedbackColor: '#f1f5f9' }
-'.feedback-blueGray-200': { touchFeedback: true, touchFeedbackColor: '#e2e8f0' }
-'.feedback-blueGray-300': { touchFeedback: true, touchFeedbackColor: '#cbd5e1' }
-'.feedback-blueGray-400': { touchFeedback: true, touchFeedbackColor: '#94a3b8' }
-'.feedback-blueGray-500': { touchFeedback: true, touchFeedbackColor: '#64748b' }
-'.feedback-blueGray-600': { touchFeedback: true, touchFeedbackColor: '#475569' }
-'.feedback-blueGray-700': { touchFeedback: true, touchFeedbackColor: '#334155' }
-'.feedback-blueGray-800': { touchFeedback: true, touchFeedbackColor: '#1e293b' }
-'.feedback-blueGray-900': { touchFeedback: true, touchFeedbackColor: '#0f172a' }
-
 // Top / Right / Bottom / Left
 '.top-0': { top: 0 }
 '.left-0': { left: 0 }
 '.right-0': { right: 0 }
 '.bottom-0': { bottom: 0 }
-'.top-auto': { top: null }
-'.left-auto': { left: null }
-'.right-auto': { right: null }
-'.bottom-auto': { bottom: null }
+'.top-auto': { top: Ti.UI.SIZE }
+'.left-auto': { left: Ti.UI.SIZE }
+'.right-auto': { right: Ti.UI.SIZE }
+'.bottom-auto': { bottom: Ti.UI.SIZE }
 '.inset-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.inset-y-0': { top: 0, bottom: 0 }
 '.inset-x-0': { right: 0, left: 0 }
-'.inset-auto': { top: null, right: null, bottom: null, left: null }
-'.inset-y-auto': { top: null, bottom: null }
-'.inset-x-auto': { right: null, left: null }
+'.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
+'.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
+'.inset-x-auto': { right: Ti.UI.SIZE, left: Ti.UI.SIZE }
 
 // Scroll Indicators ( for ScrollViews )
 '.overflow-scroll': { showHorizontalScrollIndicator: true, showVerticalScrollIndicator: true }
@@ -3477,6 +3244,476 @@
 '.text-blueGray-700': { color: '#334155' }
 '.text-blueGray-800': { color: '#1e293b' }
 '.text-blueGray-900': { color: '#0f172a' }
+
+// tintColor Property
+'.tint-transparent': { tintColor: 'transparent' }
+'.tint-black': { tintColor: '#000000' }
+'.tint-white': { tintColor: '#ffffff' }
+'.tint-rose-50': { tintColor: '#fff1f2' }
+'.tint-rose-100': { tintColor: '#ffe4e6' }
+'.tint-rose-200': { tintColor: '#fecdd3' }
+'.tint-rose-300': { tintColor: '#fda4af' }
+'.tint-rose-400': { tintColor: '#fb7185' }
+'.tint-rose-500': { tintColor: '#f43f5e' }
+'.tint-rose-600': { tintColor: '#e11d48' }
+'.tint-rose-700': { tintColor: '#be123c' }
+'.tint-rose-800': { tintColor: '#9f1239' }
+'.tint-rose-900': { tintColor: '#881337' }
+'.tint-pink-50': { tintColor: '#fdf2f8' }
+'.tint-pink-100': { tintColor: '#fce7f3' }
+'.tint-pink-200': { tintColor: '#fbcfe8' }
+'.tint-pink-300': { tintColor: '#f9a8d4' }
+'.tint-pink-400': { tintColor: '#f472b6' }
+'.tint-pink-500': { tintColor: '#ec4899' }
+'.tint-pink-600': { tintColor: '#db2777' }
+'.tint-pink-700': { tintColor: '#be185d' }
+'.tint-pink-800': { tintColor: '#9d174d' }
+'.tint-pink-900': { tintColor: '#831843' }
+'.tint-fuchsia-50': { tintColor: '#fdf4ff' }
+'.tint-fuchsia-100': { tintColor: '#fae8ff' }
+'.tint-fuchsia-200': { tintColor: '#f5d0fe' }
+'.tint-fuchsia-300': { tintColor: '#f0abfc' }
+'.tint-fuchsia-400': { tintColor: '#e879f9' }
+'.tint-fuchsia-500': { tintColor: '#d946ef' }
+'.tint-fuchsia-600': { tintColor: '#c026d3' }
+'.tint-fuchsia-700': { tintColor: '#a21caf' }
+'.tint-fuchsia-800': { tintColor: '#86198f' }
+'.tint-fuchsia-900': { tintColor: '#701a75' }
+'.tint-purple-50': { tintColor: '#faf5ff' }
+'.tint-purple-100': { tintColor: '#f3e8ff' }
+'.tint-purple-200': { tintColor: '#e9d5ff' }
+'.tint-purple-300': { tintColor: '#d8b4fe' }
+'.tint-purple-400': { tintColor: '#c084fc' }
+'.tint-purple-500': { tintColor: '#a855f7' }
+'.tint-purple-600': { tintColor: '#9333ea' }
+'.tint-purple-700': { tintColor: '#7e22ce' }
+'.tint-purple-800': { tintColor: '#6b21a8' }
+'.tint-purple-900': { tintColor: '#581c87' }
+'.tint-violet-50': { tintColor: '#f5f3ff' }
+'.tint-violet-100': { tintColor: '#ede9fe' }
+'.tint-violet-200': { tintColor: '#ddd6fe' }
+'.tint-violet-300': { tintColor: '#c4b5fd' }
+'.tint-violet-400': { tintColor: '#a78bfa' }
+'.tint-violet-500': { tintColor: '#8b5cf6' }
+'.tint-violet-600': { tintColor: '#7c3aed' }
+'.tint-violet-700': { tintColor: '#6d28d9' }
+'.tint-violet-800': { tintColor: '#5b21b6' }
+'.tint-violet-900': { tintColor: '#4c1d95' }
+'.tint-indigo-50': { tintColor: '#eef2ff' }
+'.tint-indigo-100': { tintColor: '#e0e7ff' }
+'.tint-indigo-200': { tintColor: '#c7d2fe' }
+'.tint-indigo-300': { tintColor: '#a5b4fc' }
+'.tint-indigo-400': { tintColor: '#818cf8' }
+'.tint-indigo-500': { tintColor: '#6366f1' }
+'.tint-indigo-600': { tintColor: '#4f46e5' }
+'.tint-indigo-700': { tintColor: '#4338ca' }
+'.tint-indigo-800': { tintColor: '#3730a3' }
+'.tint-indigo-900': { tintColor: '#312e81' }
+'.tint-blue-50': { tintColor: '#eff6ff' }
+'.tint-blue-100': { tintColor: '#dbeafe' }
+'.tint-blue-200': { tintColor: '#bfdbfe' }
+'.tint-blue-300': { tintColor: '#93c5fd' }
+'.tint-blue-400': { tintColor: '#60a5fa' }
+'.tint-blue-500': { tintColor: '#3b82f6' }
+'.tint-blue-600': { tintColor: '#2563eb' }
+'.tint-blue-700': { tintColor: '#1d4ed8' }
+'.tint-blue-800': { tintColor: '#1e40af' }
+'.tint-blue-900': { tintColor: '#1e3a8a' }
+'.tint-lightBlue-50': { tintColor: '#f0f9ff' }
+'.tint-lightBlue-100': { tintColor: '#e0f2fe' }
+'.tint-lightBlue-200': { tintColor: '#bae6fd' }
+'.tint-lightBlue-300': { tintColor: '#7dd3fc' }
+'.tint-lightBlue-400': { tintColor: '#38bdf8' }
+'.tint-lightBlue-500': { tintColor: '#0ea5e9' }
+'.tint-lightBlue-600': { tintColor: '#0284c7' }
+'.tint-lightBlue-700': { tintColor: '#0369a1' }
+'.tint-lightBlue-800': { tintColor: '#075985' }
+'.tint-lightBlue-900': { tintColor: '#0c4a6e' }
+'.tint-sky-50': { tintColor: '#f0f9ff' }
+'.tint-sky-100': { tintColor: '#e0f2fe' }
+'.tint-sky-200': { tintColor: '#bae6fd' }
+'.tint-sky-300': { tintColor: '#7dd3fc' }
+'.tint-sky-400': { tintColor: '#38bdf8' }
+'.tint-sky-500': { tintColor: '#0ea5e9' }
+'.tint-sky-600': { tintColor: '#0284c7' }
+'.tint-sky-700': { tintColor: '#0369a1' }
+'.tint-sky-800': { tintColor: '#075985' }
+'.tint-sky-900': { tintColor: '#0c4a6e' }
+'.tint-cyan-50': { tintColor: '#ecfeff' }
+'.tint-cyan-100': { tintColor: '#cffafe' }
+'.tint-cyan-200': { tintColor: '#a5f3fc' }
+'.tint-cyan-300': { tintColor: '#67e8f9' }
+'.tint-cyan-400': { tintColor: '#22d3ee' }
+'.tint-cyan-500': { tintColor: '#06b6d4' }
+'.tint-cyan-600': { tintColor: '#0891b2' }
+'.tint-cyan-700': { tintColor: '#0e7490' }
+'.tint-cyan-800': { tintColor: '#155e75' }
+'.tint-cyan-900': { tintColor: '#164e63' }
+'.tint-teal-50': { tintColor: '#f0fdfa' }
+'.tint-teal-100': { tintColor: '#ccfbf1' }
+'.tint-teal-200': { tintColor: '#99f6e4' }
+'.tint-teal-300': { tintColor: '#5eead4' }
+'.tint-teal-400': { tintColor: '#2dd4bf' }
+'.tint-teal-500': { tintColor: '#14b8a6' }
+'.tint-teal-600': { tintColor: '#0d9488' }
+'.tint-teal-700': { tintColor: '#0f766e' }
+'.tint-teal-800': { tintColor: '#115e59' }
+'.tint-teal-900': { tintColor: '#134e4a' }
+'.tint-emerald-50': { tintColor: '#ecfdf5' }
+'.tint-emerald-100': { tintColor: '#d1fae5' }
+'.tint-emerald-200': { tintColor: '#a7f3d0' }
+'.tint-emerald-300': { tintColor: '#6ee7b7' }
+'.tint-emerald-400': { tintColor: '#34d399' }
+'.tint-emerald-500': { tintColor: '#10b981' }
+'.tint-emerald-600': { tintColor: '#059669' }
+'.tint-emerald-700': { tintColor: '#047857' }
+'.tint-emerald-800': { tintColor: '#065f46' }
+'.tint-emerald-900': { tintColor: '#064e3b' }
+'.tint-green-50': { tintColor: '#f0fdf4' }
+'.tint-green-100': { tintColor: '#dcfce7' }
+'.tint-green-200': { tintColor: '#bbf7d0' }
+'.tint-green-300': { tintColor: '#86efac' }
+'.tint-green-400': { tintColor: '#4ade80' }
+'.tint-green-500': { tintColor: '#22c55e' }
+'.tint-green-600': { tintColor: '#16a34a' }
+'.tint-green-700': { tintColor: '#15803d' }
+'.tint-green-800': { tintColor: '#166534' }
+'.tint-green-900': { tintColor: '#14532d' }
+'.tint-lime-50': { tintColor: '#f7fee7' }
+'.tint-lime-100': { tintColor: '#ecfccb' }
+'.tint-lime-200': { tintColor: '#d9f99d' }
+'.tint-lime-300': { tintColor: '#bef264' }
+'.tint-lime-400': { tintColor: '#a3e635' }
+'.tint-lime-500': { tintColor: '#84cc16' }
+'.tint-lime-600': { tintColor: '#65a30d' }
+'.tint-lime-700': { tintColor: '#4d7c0f' }
+'.tint-lime-800': { tintColor: '#3f6212' }
+'.tint-lime-900': { tintColor: '#365314' }
+'.tint-yellow-50': { tintColor: '#fefce8' }
+'.tint-yellow-100': { tintColor: '#fef9c3' }
+'.tint-yellow-200': { tintColor: '#fef08a' }
+'.tint-yellow-300': { tintColor: '#fde047' }
+'.tint-yellow-400': { tintColor: '#facc15' }
+'.tint-yellow-500': { tintColor: '#eab308' }
+'.tint-yellow-600': { tintColor: '#ca8a04' }
+'.tint-yellow-700': { tintColor: '#a16207' }
+'.tint-yellow-800': { tintColor: '#854d0e' }
+'.tint-yellow-900': { tintColor: '#713f12' }
+'.tint-amber-50': { tintColor: '#fffbeb' }
+'.tint-amber-100': { tintColor: '#fef3c7' }
+'.tint-amber-200': { tintColor: '#fde68a' }
+'.tint-amber-300': { tintColor: '#fcd34d' }
+'.tint-amber-400': { tintColor: '#fbbf24' }
+'.tint-amber-500': { tintColor: '#f59e0b' }
+'.tint-amber-600': { tintColor: '#d97706' }
+'.tint-amber-700': { tintColor: '#b45309' }
+'.tint-amber-800': { tintColor: '#92400e' }
+'.tint-amber-900': { tintColor: '#78350f' }
+'.tint-orange-50': { tintColor: '#fff7ed' }
+'.tint-orange-100': { tintColor: '#ffedd5' }
+'.tint-orange-200': { tintColor: '#fed7aa' }
+'.tint-orange-300': { tintColor: '#fdba74' }
+'.tint-orange-400': { tintColor: '#fb923c' }
+'.tint-orange-500': { tintColor: '#f97316' }
+'.tint-orange-600': { tintColor: '#ea580c' }
+'.tint-orange-700': { tintColor: '#c2410c' }
+'.tint-orange-800': { tintColor: '#9a3412' }
+'.tint-orange-900': { tintColor: '#7c2d12' }
+'.tint-red-50': { tintColor: '#fef2f2' }
+'.tint-red-100': { tintColor: '#fee2e2' }
+'.tint-red-200': { tintColor: '#fecaca' }
+'.tint-red-300': { tintColor: '#fca5a5' }
+'.tint-red-400': { tintColor: '#f87171' }
+'.tint-red-500': { tintColor: '#ef4444' }
+'.tint-red-600': { tintColor: '#dc2626' }
+'.tint-red-700': { tintColor: '#b91c1c' }
+'.tint-red-800': { tintColor: '#991b1b' }
+'.tint-red-900': { tintColor: '#7f1d1d' }
+'.tint-warmGray-50': { tintColor: '#fafaf9' }
+'.tint-warmGray-100': { tintColor: '#f5f5f4' }
+'.tint-warmGray-200': { tintColor: '#e7e5e4' }
+'.tint-warmGray-300': { tintColor: '#d6d3d1' }
+'.tint-warmGray-400': { tintColor: '#a8a29e' }
+'.tint-warmGray-500': { tintColor: '#78716c' }
+'.tint-warmGray-600': { tintColor: '#57534e' }
+'.tint-warmGray-700': { tintColor: '#44403c' }
+'.tint-warmGray-800': { tintColor: '#292524' }
+'.tint-warmGray-900': { tintColor: '#1c1917' }
+'.tint-trueGray-50': { tintColor: '#fafafa' }
+'.tint-trueGray-100': { tintColor: '#f5f5f5' }
+'.tint-trueGray-200': { tintColor: '#e5e5e5' }
+'.tint-trueGray-300': { tintColor: '#d4d4d4' }
+'.tint-trueGray-400': { tintColor: '#a3a3a3' }
+'.tint-trueGray-500': { tintColor: '#737373' }
+'.tint-trueGray-600': { tintColor: '#525252' }
+'.tint-trueGray-700': { tintColor: '#404040' }
+'.tint-trueGray-800': { tintColor: '#262626' }
+'.tint-trueGray-900': { tintColor: '#171717' }
+'.tint-gray-50': { tintColor: '#fafafa' }
+'.tint-gray-100': { tintColor: '#f4f4f5' }
+'.tint-gray-200': { tintColor: '#e4e4e7' }
+'.tint-gray-300': { tintColor: '#d4d4d8' }
+'.tint-gray-400': { tintColor: '#a1a1aa' }
+'.tint-gray-500': { tintColor: '#71717a' }
+'.tint-gray-600': { tintColor: '#52525b' }
+'.tint-gray-700': { tintColor: '#3f3f46' }
+'.tint-gray-800': { tintColor: '#27272a' }
+'.tint-gray-900': { tintColor: '#18181b' }
+'.tint-coolGray-50': { tintColor: '#f9fafb' }
+'.tint-coolGray-100': { tintColor: '#f3f4f6' }
+'.tint-coolGray-200': { tintColor: '#e5e7eb' }
+'.tint-coolGray-300': { tintColor: '#d1d5db' }
+'.tint-coolGray-400': { tintColor: '#9ca3af' }
+'.tint-coolGray-500': { tintColor: '#6b7280' }
+'.tint-coolGray-600': { tintColor: '#4b5563' }
+'.tint-coolGray-700': { tintColor: '#374151' }
+'.tint-coolGray-800': { tintColor: '#1f2937' }
+'.tint-coolGray-900': { tintColor: '#111827' }
+'.tint-blueGray-50': { tintColor: '#f8fafc' }
+'.tint-blueGray-100': { tintColor: '#f1f5f9' }
+'.tint-blueGray-200': { tintColor: '#e2e8f0' }
+'.tint-blueGray-300': { tintColor: '#cbd5e1' }
+'.tint-blueGray-400': { tintColor: '#94a3b8' }
+'.tint-blueGray-500': { tintColor: '#64748b' }
+'.tint-blueGray-600': { tintColor: '#475569' }
+'.tint-blueGray-700': { tintColor: '#334155' }
+'.tint-blueGray-800': { tintColor: '#1e293b' }
+'.tint-blueGray-900': { tintColor: '#0f172a' }
+
+// touchFeedbackColor Property
+'.feedback-transparent': { touchFeedback: true, touchFeedbackColor: 'transparent' }
+'.feedback-black': { touchFeedback: true, touchFeedbackColor: '#000000' }
+'.feedback-white': { touchFeedback: true, touchFeedbackColor: '#ffffff' }
+'.feedback-rose-50': { touchFeedback: true, touchFeedbackColor: '#fff1f2' }
+'.feedback-rose-100': { touchFeedback: true, touchFeedbackColor: '#ffe4e6' }
+'.feedback-rose-200': { touchFeedback: true, touchFeedbackColor: '#fecdd3' }
+'.feedback-rose-300': { touchFeedback: true, touchFeedbackColor: '#fda4af' }
+'.feedback-rose-400': { touchFeedback: true, touchFeedbackColor: '#fb7185' }
+'.feedback-rose-500': { touchFeedback: true, touchFeedbackColor: '#f43f5e' }
+'.feedback-rose-600': { touchFeedback: true, touchFeedbackColor: '#e11d48' }
+'.feedback-rose-700': { touchFeedback: true, touchFeedbackColor: '#be123c' }
+'.feedback-rose-800': { touchFeedback: true, touchFeedbackColor: '#9f1239' }
+'.feedback-rose-900': { touchFeedback: true, touchFeedbackColor: '#881337' }
+'.feedback-pink-50': { touchFeedback: true, touchFeedbackColor: '#fdf2f8' }
+'.feedback-pink-100': { touchFeedback: true, touchFeedbackColor: '#fce7f3' }
+'.feedback-pink-200': { touchFeedback: true, touchFeedbackColor: '#fbcfe8' }
+'.feedback-pink-300': { touchFeedback: true, touchFeedbackColor: '#f9a8d4' }
+'.feedback-pink-400': { touchFeedback: true, touchFeedbackColor: '#f472b6' }
+'.feedback-pink-500': { touchFeedback: true, touchFeedbackColor: '#ec4899' }
+'.feedback-pink-600': { touchFeedback: true, touchFeedbackColor: '#db2777' }
+'.feedback-pink-700': { touchFeedback: true, touchFeedbackColor: '#be185d' }
+'.feedback-pink-800': { touchFeedback: true, touchFeedbackColor: '#9d174d' }
+'.feedback-pink-900': { touchFeedback: true, touchFeedbackColor: '#831843' }
+'.feedback-fuchsia-50': { touchFeedback: true, touchFeedbackColor: '#fdf4ff' }
+'.feedback-fuchsia-100': { touchFeedback: true, touchFeedbackColor: '#fae8ff' }
+'.feedback-fuchsia-200': { touchFeedback: true, touchFeedbackColor: '#f5d0fe' }
+'.feedback-fuchsia-300': { touchFeedback: true, touchFeedbackColor: '#f0abfc' }
+'.feedback-fuchsia-400': { touchFeedback: true, touchFeedbackColor: '#e879f9' }
+'.feedback-fuchsia-500': { touchFeedback: true, touchFeedbackColor: '#d946ef' }
+'.feedback-fuchsia-600': { touchFeedback: true, touchFeedbackColor: '#c026d3' }
+'.feedback-fuchsia-700': { touchFeedback: true, touchFeedbackColor: '#a21caf' }
+'.feedback-fuchsia-800': { touchFeedback: true, touchFeedbackColor: '#86198f' }
+'.feedback-fuchsia-900': { touchFeedback: true, touchFeedbackColor: '#701a75' }
+'.feedback-purple-50': { touchFeedback: true, touchFeedbackColor: '#faf5ff' }
+'.feedback-purple-100': { touchFeedback: true, touchFeedbackColor: '#f3e8ff' }
+'.feedback-purple-200': { touchFeedback: true, touchFeedbackColor: '#e9d5ff' }
+'.feedback-purple-300': { touchFeedback: true, touchFeedbackColor: '#d8b4fe' }
+'.feedback-purple-400': { touchFeedback: true, touchFeedbackColor: '#c084fc' }
+'.feedback-purple-500': { touchFeedback: true, touchFeedbackColor: '#a855f7' }
+'.feedback-purple-600': { touchFeedback: true, touchFeedbackColor: '#9333ea' }
+'.feedback-purple-700': { touchFeedback: true, touchFeedbackColor: '#7e22ce' }
+'.feedback-purple-800': { touchFeedback: true, touchFeedbackColor: '#6b21a8' }
+'.feedback-purple-900': { touchFeedback: true, touchFeedbackColor: '#581c87' }
+'.feedback-violet-50': { touchFeedback: true, touchFeedbackColor: '#f5f3ff' }
+'.feedback-violet-100': { touchFeedback: true, touchFeedbackColor: '#ede9fe' }
+'.feedback-violet-200': { touchFeedback: true, touchFeedbackColor: '#ddd6fe' }
+'.feedback-violet-300': { touchFeedback: true, touchFeedbackColor: '#c4b5fd' }
+'.feedback-violet-400': { touchFeedback: true, touchFeedbackColor: '#a78bfa' }
+'.feedback-violet-500': { touchFeedback: true, touchFeedbackColor: '#8b5cf6' }
+'.feedback-violet-600': { touchFeedback: true, touchFeedbackColor: '#7c3aed' }
+'.feedback-violet-700': { touchFeedback: true, touchFeedbackColor: '#6d28d9' }
+'.feedback-violet-800': { touchFeedback: true, touchFeedbackColor: '#5b21b6' }
+'.feedback-violet-900': { touchFeedback: true, touchFeedbackColor: '#4c1d95' }
+'.feedback-indigo-50': { touchFeedback: true, touchFeedbackColor: '#eef2ff' }
+'.feedback-indigo-100': { touchFeedback: true, touchFeedbackColor: '#e0e7ff' }
+'.feedback-indigo-200': { touchFeedback: true, touchFeedbackColor: '#c7d2fe' }
+'.feedback-indigo-300': { touchFeedback: true, touchFeedbackColor: '#a5b4fc' }
+'.feedback-indigo-400': { touchFeedback: true, touchFeedbackColor: '#818cf8' }
+'.feedback-indigo-500': { touchFeedback: true, touchFeedbackColor: '#6366f1' }
+'.feedback-indigo-600': { touchFeedback: true, touchFeedbackColor: '#4f46e5' }
+'.feedback-indigo-700': { touchFeedback: true, touchFeedbackColor: '#4338ca' }
+'.feedback-indigo-800': { touchFeedback: true, touchFeedbackColor: '#3730a3' }
+'.feedback-indigo-900': { touchFeedback: true, touchFeedbackColor: '#312e81' }
+'.feedback-blue-50': { touchFeedback: true, touchFeedbackColor: '#eff6ff' }
+'.feedback-blue-100': { touchFeedback: true, touchFeedbackColor: '#dbeafe' }
+'.feedback-blue-200': { touchFeedback: true, touchFeedbackColor: '#bfdbfe' }
+'.feedback-blue-300': { touchFeedback: true, touchFeedbackColor: '#93c5fd' }
+'.feedback-blue-400': { touchFeedback: true, touchFeedbackColor: '#60a5fa' }
+'.feedback-blue-500': { touchFeedback: true, touchFeedbackColor: '#3b82f6' }
+'.feedback-blue-600': { touchFeedback: true, touchFeedbackColor: '#2563eb' }
+'.feedback-blue-700': { touchFeedback: true, touchFeedbackColor: '#1d4ed8' }
+'.feedback-blue-800': { touchFeedback: true, touchFeedbackColor: '#1e40af' }
+'.feedback-blue-900': { touchFeedback: true, touchFeedbackColor: '#1e3a8a' }
+'.feedback-lightBlue-50': { touchFeedback: true, touchFeedbackColor: '#f0f9ff' }
+'.feedback-lightBlue-100': { touchFeedback: true, touchFeedbackColor: '#e0f2fe' }
+'.feedback-lightBlue-200': { touchFeedback: true, touchFeedbackColor: '#bae6fd' }
+'.feedback-lightBlue-300': { touchFeedback: true, touchFeedbackColor: '#7dd3fc' }
+'.feedback-lightBlue-400': { touchFeedback: true, touchFeedbackColor: '#38bdf8' }
+'.feedback-lightBlue-500': { touchFeedback: true, touchFeedbackColor: '#0ea5e9' }
+'.feedback-lightBlue-600': { touchFeedback: true, touchFeedbackColor: '#0284c7' }
+'.feedback-lightBlue-700': { touchFeedback: true, touchFeedbackColor: '#0369a1' }
+'.feedback-lightBlue-800': { touchFeedback: true, touchFeedbackColor: '#075985' }
+'.feedback-lightBlue-900': { touchFeedback: true, touchFeedbackColor: '#0c4a6e' }
+'.feedback-sky-50': { touchFeedback: true, touchFeedbackColor: '#f0f9ff' }
+'.feedback-sky-100': { touchFeedback: true, touchFeedbackColor: '#e0f2fe' }
+'.feedback-sky-200': { touchFeedback: true, touchFeedbackColor: '#bae6fd' }
+'.feedback-sky-300': { touchFeedback: true, touchFeedbackColor: '#7dd3fc' }
+'.feedback-sky-400': { touchFeedback: true, touchFeedbackColor: '#38bdf8' }
+'.feedback-sky-500': { touchFeedback: true, touchFeedbackColor: '#0ea5e9' }
+'.feedback-sky-600': { touchFeedback: true, touchFeedbackColor: '#0284c7' }
+'.feedback-sky-700': { touchFeedback: true, touchFeedbackColor: '#0369a1' }
+'.feedback-sky-800': { touchFeedback: true, touchFeedbackColor: '#075985' }
+'.feedback-sky-900': { touchFeedback: true, touchFeedbackColor: '#0c4a6e' }
+'.feedback-cyan-50': { touchFeedback: true, touchFeedbackColor: '#ecfeff' }
+'.feedback-cyan-100': { touchFeedback: true, touchFeedbackColor: '#cffafe' }
+'.feedback-cyan-200': { touchFeedback: true, touchFeedbackColor: '#a5f3fc' }
+'.feedback-cyan-300': { touchFeedback: true, touchFeedbackColor: '#67e8f9' }
+'.feedback-cyan-400': { touchFeedback: true, touchFeedbackColor: '#22d3ee' }
+'.feedback-cyan-500': { touchFeedback: true, touchFeedbackColor: '#06b6d4' }
+'.feedback-cyan-600': { touchFeedback: true, touchFeedbackColor: '#0891b2' }
+'.feedback-cyan-700': { touchFeedback: true, touchFeedbackColor: '#0e7490' }
+'.feedback-cyan-800': { touchFeedback: true, touchFeedbackColor: '#155e75' }
+'.feedback-cyan-900': { touchFeedback: true, touchFeedbackColor: '#164e63' }
+'.feedback-teal-50': { touchFeedback: true, touchFeedbackColor: '#f0fdfa' }
+'.feedback-teal-100': { touchFeedback: true, touchFeedbackColor: '#ccfbf1' }
+'.feedback-teal-200': { touchFeedback: true, touchFeedbackColor: '#99f6e4' }
+'.feedback-teal-300': { touchFeedback: true, touchFeedbackColor: '#5eead4' }
+'.feedback-teal-400': { touchFeedback: true, touchFeedbackColor: '#2dd4bf' }
+'.feedback-teal-500': { touchFeedback: true, touchFeedbackColor: '#14b8a6' }
+'.feedback-teal-600': { touchFeedback: true, touchFeedbackColor: '#0d9488' }
+'.feedback-teal-700': { touchFeedback: true, touchFeedbackColor: '#0f766e' }
+'.feedback-teal-800': { touchFeedback: true, touchFeedbackColor: '#115e59' }
+'.feedback-teal-900': { touchFeedback: true, touchFeedbackColor: '#134e4a' }
+'.feedback-emerald-50': { touchFeedback: true, touchFeedbackColor: '#ecfdf5' }
+'.feedback-emerald-100': { touchFeedback: true, touchFeedbackColor: '#d1fae5' }
+'.feedback-emerald-200': { touchFeedback: true, touchFeedbackColor: '#a7f3d0' }
+'.feedback-emerald-300': { touchFeedback: true, touchFeedbackColor: '#6ee7b7' }
+'.feedback-emerald-400': { touchFeedback: true, touchFeedbackColor: '#34d399' }
+'.feedback-emerald-500': { touchFeedback: true, touchFeedbackColor: '#10b981' }
+'.feedback-emerald-600': { touchFeedback: true, touchFeedbackColor: '#059669' }
+'.feedback-emerald-700': { touchFeedback: true, touchFeedbackColor: '#047857' }
+'.feedback-emerald-800': { touchFeedback: true, touchFeedbackColor: '#065f46' }
+'.feedback-emerald-900': { touchFeedback: true, touchFeedbackColor: '#064e3b' }
+'.feedback-green-50': { touchFeedback: true, touchFeedbackColor: '#f0fdf4' }
+'.feedback-green-100': { touchFeedback: true, touchFeedbackColor: '#dcfce7' }
+'.feedback-green-200': { touchFeedback: true, touchFeedbackColor: '#bbf7d0' }
+'.feedback-green-300': { touchFeedback: true, touchFeedbackColor: '#86efac' }
+'.feedback-green-400': { touchFeedback: true, touchFeedbackColor: '#4ade80' }
+'.feedback-green-500': { touchFeedback: true, touchFeedbackColor: '#22c55e' }
+'.feedback-green-600': { touchFeedback: true, touchFeedbackColor: '#16a34a' }
+'.feedback-green-700': { touchFeedback: true, touchFeedbackColor: '#15803d' }
+'.feedback-green-800': { touchFeedback: true, touchFeedbackColor: '#166534' }
+'.feedback-green-900': { touchFeedback: true, touchFeedbackColor: '#14532d' }
+'.feedback-lime-50': { touchFeedback: true, touchFeedbackColor: '#f7fee7' }
+'.feedback-lime-100': { touchFeedback: true, touchFeedbackColor: '#ecfccb' }
+'.feedback-lime-200': { touchFeedback: true, touchFeedbackColor: '#d9f99d' }
+'.feedback-lime-300': { touchFeedback: true, touchFeedbackColor: '#bef264' }
+'.feedback-lime-400': { touchFeedback: true, touchFeedbackColor: '#a3e635' }
+'.feedback-lime-500': { touchFeedback: true, touchFeedbackColor: '#84cc16' }
+'.feedback-lime-600': { touchFeedback: true, touchFeedbackColor: '#65a30d' }
+'.feedback-lime-700': { touchFeedback: true, touchFeedbackColor: '#4d7c0f' }
+'.feedback-lime-800': { touchFeedback: true, touchFeedbackColor: '#3f6212' }
+'.feedback-lime-900': { touchFeedback: true, touchFeedbackColor: '#365314' }
+'.feedback-yellow-50': { touchFeedback: true, touchFeedbackColor: '#fefce8' }
+'.feedback-yellow-100': { touchFeedback: true, touchFeedbackColor: '#fef9c3' }
+'.feedback-yellow-200': { touchFeedback: true, touchFeedbackColor: '#fef08a' }
+'.feedback-yellow-300': { touchFeedback: true, touchFeedbackColor: '#fde047' }
+'.feedback-yellow-400': { touchFeedback: true, touchFeedbackColor: '#facc15' }
+'.feedback-yellow-500': { touchFeedback: true, touchFeedbackColor: '#eab308' }
+'.feedback-yellow-600': { touchFeedback: true, touchFeedbackColor: '#ca8a04' }
+'.feedback-yellow-700': { touchFeedback: true, touchFeedbackColor: '#a16207' }
+'.feedback-yellow-800': { touchFeedback: true, touchFeedbackColor: '#854d0e' }
+'.feedback-yellow-900': { touchFeedback: true, touchFeedbackColor: '#713f12' }
+'.feedback-amber-50': { touchFeedback: true, touchFeedbackColor: '#fffbeb' }
+'.feedback-amber-100': { touchFeedback: true, touchFeedbackColor: '#fef3c7' }
+'.feedback-amber-200': { touchFeedback: true, touchFeedbackColor: '#fde68a' }
+'.feedback-amber-300': { touchFeedback: true, touchFeedbackColor: '#fcd34d' }
+'.feedback-amber-400': { touchFeedback: true, touchFeedbackColor: '#fbbf24' }
+'.feedback-amber-500': { touchFeedback: true, touchFeedbackColor: '#f59e0b' }
+'.feedback-amber-600': { touchFeedback: true, touchFeedbackColor: '#d97706' }
+'.feedback-amber-700': { touchFeedback: true, touchFeedbackColor: '#b45309' }
+'.feedback-amber-800': { touchFeedback: true, touchFeedbackColor: '#92400e' }
+'.feedback-amber-900': { touchFeedback: true, touchFeedbackColor: '#78350f' }
+'.feedback-orange-50': { touchFeedback: true, touchFeedbackColor: '#fff7ed' }
+'.feedback-orange-100': { touchFeedback: true, touchFeedbackColor: '#ffedd5' }
+'.feedback-orange-200': { touchFeedback: true, touchFeedbackColor: '#fed7aa' }
+'.feedback-orange-300': { touchFeedback: true, touchFeedbackColor: '#fdba74' }
+'.feedback-orange-400': { touchFeedback: true, touchFeedbackColor: '#fb923c' }
+'.feedback-orange-500': { touchFeedback: true, touchFeedbackColor: '#f97316' }
+'.feedback-orange-600': { touchFeedback: true, touchFeedbackColor: '#ea580c' }
+'.feedback-orange-700': { touchFeedback: true, touchFeedbackColor: '#c2410c' }
+'.feedback-orange-800': { touchFeedback: true, touchFeedbackColor: '#9a3412' }
+'.feedback-orange-900': { touchFeedback: true, touchFeedbackColor: '#7c2d12' }
+'.feedback-red-50': { touchFeedback: true, touchFeedbackColor: '#fef2f2' }
+'.feedback-red-100': { touchFeedback: true, touchFeedbackColor: '#fee2e2' }
+'.feedback-red-200': { touchFeedback: true, touchFeedbackColor: '#fecaca' }
+'.feedback-red-300': { touchFeedback: true, touchFeedbackColor: '#fca5a5' }
+'.feedback-red-400': { touchFeedback: true, touchFeedbackColor: '#f87171' }
+'.feedback-red-500': { touchFeedback: true, touchFeedbackColor: '#ef4444' }
+'.feedback-red-600': { touchFeedback: true, touchFeedbackColor: '#dc2626' }
+'.feedback-red-700': { touchFeedback: true, touchFeedbackColor: '#b91c1c' }
+'.feedback-red-800': { touchFeedback: true, touchFeedbackColor: '#991b1b' }
+'.feedback-red-900': { touchFeedback: true, touchFeedbackColor: '#7f1d1d' }
+'.feedback-warmGray-50': { touchFeedback: true, touchFeedbackColor: '#fafaf9' }
+'.feedback-warmGray-100': { touchFeedback: true, touchFeedbackColor: '#f5f5f4' }
+'.feedback-warmGray-200': { touchFeedback: true, touchFeedbackColor: '#e7e5e4' }
+'.feedback-warmGray-300': { touchFeedback: true, touchFeedbackColor: '#d6d3d1' }
+'.feedback-warmGray-400': { touchFeedback: true, touchFeedbackColor: '#a8a29e' }
+'.feedback-warmGray-500': { touchFeedback: true, touchFeedbackColor: '#78716c' }
+'.feedback-warmGray-600': { touchFeedback: true, touchFeedbackColor: '#57534e' }
+'.feedback-warmGray-700': { touchFeedback: true, touchFeedbackColor: '#44403c' }
+'.feedback-warmGray-800': { touchFeedback: true, touchFeedbackColor: '#292524' }
+'.feedback-warmGray-900': { touchFeedback: true, touchFeedbackColor: '#1c1917' }
+'.feedback-trueGray-50': { touchFeedback: true, touchFeedbackColor: '#fafafa' }
+'.feedback-trueGray-100': { touchFeedback: true, touchFeedbackColor: '#f5f5f5' }
+'.feedback-trueGray-200': { touchFeedback: true, touchFeedbackColor: '#e5e5e5' }
+'.feedback-trueGray-300': { touchFeedback: true, touchFeedbackColor: '#d4d4d4' }
+'.feedback-trueGray-400': { touchFeedback: true, touchFeedbackColor: '#a3a3a3' }
+'.feedback-trueGray-500': { touchFeedback: true, touchFeedbackColor: '#737373' }
+'.feedback-trueGray-600': { touchFeedback: true, touchFeedbackColor: '#525252' }
+'.feedback-trueGray-700': { touchFeedback: true, touchFeedbackColor: '#404040' }
+'.feedback-trueGray-800': { touchFeedback: true, touchFeedbackColor: '#262626' }
+'.feedback-trueGray-900': { touchFeedback: true, touchFeedbackColor: '#171717' }
+'.feedback-gray-50': { touchFeedback: true, touchFeedbackColor: '#fafafa' }
+'.feedback-gray-100': { touchFeedback: true, touchFeedbackColor: '#f4f4f5' }
+'.feedback-gray-200': { touchFeedback: true, touchFeedbackColor: '#e4e4e7' }
+'.feedback-gray-300': { touchFeedback: true, touchFeedbackColor: '#d4d4d8' }
+'.feedback-gray-400': { touchFeedback: true, touchFeedbackColor: '#a1a1aa' }
+'.feedback-gray-500': { touchFeedback: true, touchFeedbackColor: '#71717a' }
+'.feedback-gray-600': { touchFeedback: true, touchFeedbackColor: '#52525b' }
+'.feedback-gray-700': { touchFeedback: true, touchFeedbackColor: '#3f3f46' }
+'.feedback-gray-800': { touchFeedback: true, touchFeedbackColor: '#27272a' }
+'.feedback-gray-900': { touchFeedback: true, touchFeedbackColor: '#18181b' }
+'.feedback-coolGray-50': { touchFeedback: true, touchFeedbackColor: '#f9fafb' }
+'.feedback-coolGray-100': { touchFeedback: true, touchFeedbackColor: '#f3f4f6' }
+'.feedback-coolGray-200': { touchFeedback: true, touchFeedbackColor: '#e5e7eb' }
+'.feedback-coolGray-300': { touchFeedback: true, touchFeedbackColor: '#d1d5db' }
+'.feedback-coolGray-400': { touchFeedback: true, touchFeedbackColor: '#9ca3af' }
+'.feedback-coolGray-500': { touchFeedback: true, touchFeedbackColor: '#6b7280' }
+'.feedback-coolGray-600': { touchFeedback: true, touchFeedbackColor: '#4b5563' }
+'.feedback-coolGray-700': { touchFeedback: true, touchFeedbackColor: '#374151' }
+'.feedback-coolGray-800': { touchFeedback: true, touchFeedbackColor: '#1f2937' }
+'.feedback-coolGray-900': { touchFeedback: true, touchFeedbackColor: '#111827' }
+'.feedback-blueGray-50': { touchFeedback: true, touchFeedbackColor: '#f8fafc' }
+'.feedback-blueGray-100': { touchFeedback: true, touchFeedbackColor: '#f1f5f9' }
+'.feedback-blueGray-200': { touchFeedback: true, touchFeedbackColor: '#e2e8f0' }
+'.feedback-blueGray-300': { touchFeedback: true, touchFeedbackColor: '#cbd5e1' }
+'.feedback-blueGray-400': { touchFeedback: true, touchFeedbackColor: '#94a3b8' }
+'.feedback-blueGray-500': { touchFeedback: true, touchFeedbackColor: '#64748b' }
+'.feedback-blueGray-600': { touchFeedback: true, touchFeedbackColor: '#475569' }
+'.feedback-blueGray-700': { touchFeedback: true, touchFeedbackColor: '#334155' }
+'.feedback-blueGray-800': { touchFeedback: true, touchFeedbackColor: '#1e293b' }
+'.feedback-blueGray-900': { touchFeedback: true, touchFeedbackColor: '#0f172a' }
 
 // verticalAlign Property
 '.align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
