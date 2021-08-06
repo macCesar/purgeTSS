@@ -1,4 +1,4 @@
-// Font Families Pro 5.15.3
+// Font Families Pro 5.15.4
 '.fa':{ font: { fontFamily: 'FontAwesome5Pro-Solid' } }
 '.fas': { font: { fontFamily: 'FontAwesome5Pro-Solid' } }
 '.fal': { font: { fontFamily: 'FontAwesome5Pro-Light' } }
