@@ -71,7 +71,7 @@ Run `purgetss`
 ```bash
 > purgetss
 ```
-After running `purgetss` you will have a new file `app.tss` with only the classes found in your XML files.
+After running `purgetss` you will have a new `app.tss` file with only the classes used in your XML files.
 
 **Your original `app.tss` file is backed up in `_app.tss`. Use this file if you need to add, delete or update any of your original styles.**
 
