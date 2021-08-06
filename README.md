@@ -298,17 +298,15 @@ After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-t
 
 Now, all you have to do is run `purgetss build` and it will generate a new `purgetss/fontawesome.tss` file and if needed, it will automatically copy the Pro fonts files into `app/assets/fonts`.
 
-### Font Awesome 6 Alpha
-You can even generate a custom `fontawesome.tss` file from **Font Awesome 6 Alpha**.
+### Font Awesome 6 Beta1
+You can even generate a custom `fontawesome.tss` file from **Font Awesome 6 Beta**.
 
-Just move `css` and `webfonts` folders from `fontawesome-pro-6.0.0-alpha2/fontawesome6/pro/`:
+Just move `css` and `webfonts` folders from `fontawesome-pro-6.0.0-beta1-web/`:
 
 ```bash
-fontawesome-pro-6.0.0-alpha2
-└─ fontawesome6
-   └─ pro
-      ├─ css
-      └─ webfonts
+fontawesome-pro-6.0.0-beta1-web
+└─ css
+└─ webfonts
 ```
 
 Into `./purgetss/fontawesome-beta`:
