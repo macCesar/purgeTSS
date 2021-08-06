@@ -1057,7 +1057,7 @@ There are times when you just want a custom class that your are going to use onc
 
 Or you need a very specific value that is not part of the default values in `tailwind.tss` file.
 
-**With the release of `v2.3.0` you can generate arbitrary styles and values directly in you `xml` files with any of the following attributes:**
+**With the release of `v2.3.0` you can generate arbitrary styles and values directly in you `xml` files using any of the following attributes:**
 
 - w - `width`
 - h - `height`
