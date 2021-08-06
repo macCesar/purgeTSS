@@ -1163,59 +1163,35 @@ You can use any of the supported units depending of the property you are generat
 // https://github.com/macCesar/purgeTSS
 
 // Custom Tailwind Styles
-'.-ml-(20)': { left: -20 }
 '.-right-(10px)': { right: '-10px' }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
-'.bg-(#4C61E4)': { backgroundColor: '#4C61E4' }
 '.bg-(#53606b)': { backgroundColor: '#53606b' }
 '.bg-(#53A500)': { backgroundColor: '#53A500' }
-'.bg-(#6D80FB)': { backgroundColor: '#6D80FB' }
 '.bg-(#6DB400)': { backgroundColor: '#6DB400' }
 '.bg-(rgba(255,255,0,0.75))': { backgroundColor: 'rgba(255,255,0,0.75)' }
 '.bg-transparent': { backgroundColor: 'transparent' }
-'.bg-white': { backgroundColor: '#ffffff' }
 '.border-(#12681E)': { borderColor: '#12681E' }
 '.border-(5)': { borderWidth: 5 }
-'.bottom-(0)': { bottom: 0 }
 '.bottom-(75px)': { bottom: '75px' }
 '.font-bold': { font: { fontWeight: 'bold' } }
 '.h-(150px)': { height: '150px'}
-'.h-(3.5in)': { height: '3.5in'}
-'.h-(3rem)': { height: 48}
-'.h-16': { height: 64 }
 '.h-screen': { height: Ti.UI.FILL }
 '.horizontal': { layout: 'horizontal' }
 '.m-(1rem)': { top: 16, right: 16, bottom: 16, left: 16 }
-'.m-(50px)': { top: '50px', right: '50px', bottom: '50px', left: '50px' }
-'.ml-0': { left: 0 }
-'.ml-2': { left: 8 }
-'.ml-2.5': { left: 10 }
 '.mt-0': { top: 0 }
 '.mt-1': { top: 4 }
-'.opacity-(0.25)': { opacity: 0.25 }
-'.opacity-(0.35)': { opacity: 0.35 }
-'.rounded-(1.5rem)': { borderRadius: 24 }
-'.rounded-(20)': { borderRadius: 20 }
 '.text-(#12681E)': { color: '#12681E' }
 '.text-(14px)': { font: { fontSize: '14px' } }
 '.text-(16px)': { font: { fontSize: '16px' } }
 '.text-(32px)': { font: { fontSize: '32px' } }
-'.text-2xl': { font: { fontSize: 24 } }
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
-'.text-white': { color: '#ffffff' }
 '.top-(250px)': { top: '250px' }
 '.vertical': { layout: 'vertical' }
-'.w-(2in)': { width: '2in' }
-'.w-(3rem)': { width: 48 }
 '.w-(4.5rem)': { width: 72 }
 '.w-(80%)': { width: '80%' }
 '.w-full': { width: '100%' }
 '.w-screen': { width: Ti.UI.FILL }
-
-// Default Font Awesome styles
-'.fa-apple': { text: '\uf179', title: '\uf179' }
-'.fab': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
 ```
 
 **Result**
