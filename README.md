@@ -27,6 +27,12 @@ It is an all-round package for all Titanium Developers who want to easily and qu
 >
 > Or better yet! Create a `config.js` file to **[configure and customize](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)** purgeTSS.
 
+## Installation
+**Install it globally on your machine via [NPM](http://npmjs.org/).**
+```bash
+> [sudo] npm i -g purgetss
+```
+
 ## Example files
 Use this markup to test `purgeTSS`.
 
@@ -125,12 +131,6 @@ After running `purgetss` you will have a new file `app.tss` with only the classe
 
 ## More examples in the accompanying app
 **[Tailwind TSS Sample App](https://github.com/macCesar/tailwind.tss-sample-app)**
-
-## Installation
-**Install it globally on your machine via [NPM](http://npmjs.org/).**
-```bash
-> [sudo] npm i -g purgetss
-```
 
 ## Available Commands
 
