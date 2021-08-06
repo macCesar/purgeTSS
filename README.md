@@ -285,11 +285,11 @@ Each library contains a CommonJS module exposing the UniCode strings for Font Aw
 
 All prefixes are stripped out from the names, for example:
 
-- Font Awesome: fa-flag becomes flag
-- Line Icons: lni-flag becomes flag
-- Material Design Icons: md-flag becomes flag
+- Font Awesome: `fa-flag` becomes `flag`
+- Line Icons: `lni-flag` becomes `flag`
+- Material Design Icons: `md-flag` becomes `flag`
 
-All Icon names are camelCased, arrow-up becomes arrowUp.
+All Icon names are camelCased, `arrow-up` becomes `arrowUp`.
 
 ### Custom `fontawesome.tss` file for users with a Font Awesome Pro Account
 If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `./purgetss/fontawesome.tss` file with all the extra classes that the Pro version has. ***(except duotone icons, see note below)***
