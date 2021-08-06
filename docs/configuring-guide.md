@@ -26,22 +26,27 @@
 - [**Core Properties**](#core-properties)
     - [Text Colors](#text-colors)
     - [Background Colors](#background-colors)
-    - [Border Colors](#border-colors)
     - [Placeholder Colors](#placeholder-colors)
     - [Gradient Color Stops](#gradient-color-stops)
     - [Tint Color](#tint-color)
+    - [Border Colors](#border-colors)
+    - [Border Width](#border-width)
+    - [Border Radius](#border-radius)
     - [Width scale](#width-scale)
     - [Height scale](#height-scale)
     - [Margin](#margin)
     - [Padding](#padding)
+    - [Display](#display)
     - [Font Family](#font-family)
     - [Font Size](#font-size)
-    - [Border Radius](#border-radius)
-    - [Border Width](#border-width)
+    - [Font Style](#font-style)
+    - [Content Width & Height](#content-width--height)
     - [Opacity](#opacity)
 - [**Adding your own properties**](#adding-your-own-properties)
   - [Global properties](#global-properties)
   - [Arbitrary values](#arbitrary-values)
+- [**Platform and Device Variants**](#platform-and-device-variants)
+- [License](#license)
 
 ## Customization
 By default, `purgetss` will look for an optional `./purgetss/config.js` file where you can define any customization.
@@ -656,27 +661,6 @@ module.exports = {
 '.bg-pacific': { backgroundColor: '#08A4BD' }
 ```
 
-### Border Colors
-Utilities to control the color of the borders of an element.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'borderColor': {
-      'old-burgundy': '#4B3B40',
-      'tea-green': '#D1F5BE'
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// borderColor Property
-'.border-old-burgundy': { borderColor: '#4B3B40' }
-'.border-tea-green': { borderColor: '#D1F5BE' }
-```
-
 ### Placeholder Colors
 Utilities for controlling the color of placeholder text.
 ```javascript
@@ -744,6 +728,73 @@ module.exports = {
 // tintColor Property
 '.tint-corporate': { tintColor: '#3490dc' }
 '.tint-highlight': { tintColor: '#ffff00' }
+```
+
+### Border Colors
+Utilities to control the color of the borders of an element.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'borderColor': {
+      'old-burgundy': '#4B3B40',
+      'tea-green': '#D1F5BE'
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// borderColor Property
+'.border-old-burgundy': { borderColor: '#4B3B40' }
+'.border-tea-green': { borderColor: '#D1F5BE' }
+```
+
+### Border Width
+Utilities for controlling the width of an element's borders.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'borderWidth': {
+      '3': '3',
+      '6': '6',
+      '10': '10',
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// borderWidth Property
+'.border-3': { borderWidth: 3 }
+'.border-6': { borderWidth: 6 }
+'.border-10': { borderWidth: 10 }
+```
+
+### Border Radius
+Utilities for controlling the border radius of an element.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'borderRadius:' {
+      'DEFAULT': '0.25rem',
+      'large': '1.0rem',
+      'extra-large': '2.0rem'
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// borderRadius Property
+'.rounded': { borderRadius: 4 }
+'.rounded-large': { borderRadius: 16 }
+'.rounded-extra-large': { borderRadius: 32 }
 ```
 
 ### Width scale
@@ -851,6 +902,17 @@ module.exports = {
 '.pl-md': { padding: { left: 24 } }
 ```
 
+### Display
+Utilities for controlling an element's visibility.
+
+```css
+// ./purgetss/tailwind.tss
+
+// Display
+'.block': { visible: true }
+'.hidden': { visible: false }
+```
+
 ### Font Family
 Utilities for controlling the font family of an element.
 ```javascript
@@ -886,57 +948,31 @@ module.exports = {
 };
 ```
 
+### Font Style
+Font style. Valid values are "italic" or "normal".
+
+```css
+// fontStyle Property
+'.italic': { font: { fontStyle: 'italic' } }
+'.not-italic': { font: { fontStyle: 'normal' } }
+```
+
+### Content Width & Height
+Width and Height of the scrollable region of a `ScrollView`.
+```css
+'.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
+'.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
+'.content-w-auto': { contentWidth: Ti.UI.SIZE }
+'.content-w-screen': { contentWidth: Ti.UI.FILL }
+'.content-h-auto': { contentHeight: Ti.UI.SIZE }
+'.content-h-screen': { contentHeight: Ti.UI.FILL }
+```
+
 ```css
 // ./purgetss/tailwind.tss
 // fontSize Property
 '.text-10xl': { font: { fontSize: 128 } }
 '.text-small-print': { font: { fontSize: 8 } }
-```
-
-### Border Radius
-Utilities for controlling the border radius of an element.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'borderRadius:' {
-      'DEFAULT': '0.25rem',
-      'large': '1.0rem',
-      'extra-large': '2.0rem'
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// borderRadius Property
-'.rounded': { borderRadius: 4 }
-'.rounded-large': { borderRadius: 16 }
-'.rounded-extra-large': { borderRadius: 32 }
-```
-
-### Border Width
-Utilities for controlling the width of an element's borders.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'borderWidth': {
-      '3': '3',
-      '6': '6',
-      '10': '10',
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// borderWidth Property
-'.border-3': { borderWidth: 3 }
-'.border-6': { borderWidth: 6 }
-'.border-10': { borderWidth: 10 }
 ```
 
 ### Opacity
@@ -1130,7 +1166,6 @@ You can use any of the supported units depending of the property you are generat
 // ...
 ```
 
-
 **Result**
 
 <img src="../assets/images/arbitrary-values.png" width="375" alt="iOS Screen - Example">
@@ -1197,3 +1232,59 @@ You can use any of the supported units depending of the property you are generat
 **Result**
 
 <img src="../assets/images/building-green.png" width="375" alt="iOS Screen - Example">
+
+# **Platform and Device Variants**
+You can specify different classes to any element using `Platform` and `Device` utility variants:
+
+- `ios:`
+- `android:`
+- `handheld:`
+- `tablet:`
+
+Lets say that you want to have different background color and font sizes, depending on the platform and device your app is running. You can target them separately, and you can even combine them with arbitrary values, like: `ios:bg-(#53606b)`, `ios:text-(20px)`, `ios:bg-(#8fb63e)` and `android:text-(24px)`.
+
+`index.xml`
+```xml
+<Alloy>
+  <Window class="tablet:bg-green-500 handheld:bg-blue-500">
+    <View class="h-32 tablet:bg-green-100 handheld:bg-blue-100">
+      <Label class="w-screen h-auto text-center ios:text-blue-800 ios:text-xl android:text-green-800 android:text-2xl">This is a Test</Label>
+    </View>
+  </Window>
+</Alloy>
+```
+
+`app.tss`
+```css
+// purgeTSS
+// Created by César Estrada
+// https://github.com/macCesar/purgeTSS
+
+// Custom Tailwind Styles
+...
+'.android:text-2xl[platform=android]': { font: { fontSize: 24 } }
+'.android:text-green-800[platform=android]': { color: '#166534' }
+...
+'.handheld:bg-blue-100[formFactor=handheld]': { backgroundColor: '#dbeafe' }
+'.handheld:bg-blue-500[formFactor=handheld]': { backgroundColor: '#3b82f6' }
+'.ios:text-blue-800[platform=ios]': { color: '#1e40af' }
+'.ios:text-xl[platform=ios]': { font: { fontSize: 20 } }
+'.tablet:bg-green-100[formFactor=tablet]': { backgroundColor: '#dcfce7' }
+'.tablet:bg-green-500[formFactor=tablet]': { backgroundColor: '#22c55e' }
+...
+```
+
+# License
+<pre>
+Copyright 2020-2021 César Estrada
+
+Licensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
+See the License for the specific language governing permissions and limitations under the License.
+</pre>

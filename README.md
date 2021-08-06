@@ -167,23 +167,22 @@ Every section of the config file is optional, so you only have to specify whatev
 
 You can customize the following properties:
 
-- color
 - width
 - height
 - visible
 - margin
 - opacity
 - padding
-- spacing
 - fontSize
 - tintColor
+- fontStyle
 - textColor
 - fontFamily
 - borderColor
 - borderWidth
 - borderRadius
-- backgroundColor
 - placeholderColor
+- backgroundColor
 - gradientColorStops
 - contentWidth/contentHeight
 - showHorizontalScrollIndicator/showVerticalScrollIndicator
@@ -345,45 +344,6 @@ If you need to use `sudo` to install NPM modules, please use `purgetss sudo-upda
 
 # alias:
 > purgetss su
-```
-
-## Platform and Device Variants
-You can specify different classes to any element using `Platform` and `Device` utility variants:
-
-- `ios:`
-- `android:`
-- `handheld:`
-- `tablet:`
-
-`index.xml`
-```xml
-<Alloy>
-  <Window class="tablet:bg-green-500 handheld:bg-blue-500">
-    <View class="h-32 tablet:bg-green-100 handheld:bg-blue-100">
-      <Label class="w-screen h-auto text-center ios:text-blue-800 ios:text-xl android:text-green-800 android:text-2xl">This is a Test</Label>
-    </View>
-  </Window>
-</Alloy>
-```
-
-`app.tss`
-```css
-// purgeTSS
-// Created by César Estrada
-// https://github.com/macCesar/purgeTSS
-
-// Custom Tailwind Styles
-...
-'.android:text-2xl[platform=android]': { font: { fontSize: 24 } }
-'.android:text-green-800[platform=android]': { color: '#166534' }
-...
-'.handheld:bg-blue-100[formFactor=handheld]': { backgroundColor: '#dbeafe' }
-'.handheld:bg-blue-500[formFactor=handheld]': { backgroundColor: '#3b82f6' }
-'.ios:text-blue-800[platform=ios]': { color: '#1e40af' }
-'.ios:text-xl[platform=ios]': { font: { fontSize: 20 } }
-'.tablet:bg-green-100[formFactor=tablet]': { backgroundColor: '#dcfce7' }
-'.tablet:bg-green-500[formFactor=tablet]': { backgroundColor: '#22c55e' }
-...
 ```
 
 ## Contributing
