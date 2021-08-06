@@ -1170,7 +1170,105 @@ You can use any of the supported units depending of the property you are generat
 
 <img src="../assets/images/arbitrary-values.png" width="375" alt="iOS Screen - Example">
 
-**Another Example**
+**Example 2**
+```xml
+<Alloy>
+  <Window class="bg-white">
+    <View class="bg-(#1B6F3F) mt-0 ml-0 w-(2300px) h-(1600px)">
+      <View class="mt-(100px) h-(200px) left-(150px) horizontal">
+        <Label class="fas fa-cloud text-(48px) text-white" />
+        <Label class="ml-(30px) text-white text-(48px) font-bold h-(200px)">ZULTYS</Label>
+      </View>
+
+      <View class="vertical left-(150px) w-(1300px)">
+        <Label class="text-white font-bold text-(64px) mt-(275px)">Convert your business to remote work at a time that matters most</Label>
+        <Button class="mt-(75px) bg-(#fff) text-(#25A25B) h-(100px) w-(400px) rounded-(20px) left-(0) font-bold">Request Free Demo</Button>
+      </View>
+    </View>
+
+    <View class="mt-(100px) mr-(150px) w-(1800px) h-(200px) bg-(#0B4825)">
+      <Label class="left-(50px) text-white font-normal text-(22px)">We can have your remote teams up and running in 24 hours</Label>
+      <Button class="bg-(#25A25B) text-white h-(100px) w-(350px) rounded-(20px) right-(50px)">Request Free Demo</Button>
+    </View>
+
+    <View class="mt-(450px) right-(250px) rounded-(60px)">
+      <ImageView class="h-(1480px) w-(900px) " image="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=1480&w=900&fit=crop" />
+    </View>
+
+    <View class="left-(150px) top-(1650px) vertical w-(1300px)">
+      <Button class="left-(0) bg-(#83B758) text-white font-bold h-(60px) w-(250px) rounded-(20px)">Fast Setup</Button>
+      <Label class="left-(0) text-(#042F16) font-bold text-(48px)">24 hour activation</Label>
+      <Label class="left-(0) text-(#042F16) font-normal text-(22px)">We offer same day activation. We are here to transition your business communications to the Cloud and get you back in business</Label>
+    </View>
+  </Window>
+</Alloy>
+```
+
+`app.tss`
+```css
+// purgeTSS
+// Created by César Estrada
+// https://github.com/macCesar/purgeTSS
+
+// Custom Tailwind Styles
+'ImageView[platform=ios]': { hires: true }
+'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+'Window': { backgroundColor: '#ffffff' }
+'.bg-(#0B4825)': { backgroundColor: '#0B4825' }
+'.bg-(#1B6F3F)': { backgroundColor: '#1B6F3F' }
+'.bg-(#25A25B)': { backgroundColor: '#25A25B' }
+'.bg-(#83B758)': { backgroundColor: '#83B758' }
+'.bg-(#fff)': { backgroundColor: '#ffffff' }
+'.bg-white': { backgroundColor: '#ffffff' }
+'.font-bold': { font: { fontWeight: 'bold' } }
+'.font-normal': { font: { fontWeight: 'normal' } }
+'.h-(100px)': { height: '100px'}
+'.h-(1480px)': { height: '1480px'}
+'.h-(1600px)': { height: '1600px'}
+'.h-(200px)': { height: '200px'}
+'.h-(60px)': { height: '60px'}
+'.horizontal': { layout: 'horizontal' }
+'.left-(0)': { left: 0 }
+'.left-(150px)': { left: '150px' }
+'.left-(50px)': { left: '50px' }
+'.ml-(30px)': { left: '30px' }
+'.ml-0': { left: 0 }
+'.mr-(150px)': { right: '150px' }
+'.mt-(100px)': { top: '100px' }
+'.mt-(275px)': { top: '275px' }
+'.mt-(450px)': { top: '450px' }
+'.mt-(75px)': { top: '75px' }
+'.mt-0': { top: 0 }
+'.right-(250px)': { right: '250px' }
+'.right-(50px)': { right: '50px' }
+'.rounded-(20px)': { borderRadius: '20px' }
+'.rounded-(60px)': { borderRadius: '60px' }
+'.text-(#042F16)': { color: '#042F16' }
+'.text-(#25A25B)': { color: '#25A25B' }
+'.text-(22px)': { font: { fontSize: '22px' } }
+'.text-(48px)': { font: { fontSize: '48px' } }
+'.text-(64px)': { font: { fontSize: '64px' } }
+'.text-white': { color: '#ffffff' }
+'.top-(1650px)': { top: '1650px' }
+'.vertical': { layout: 'vertical' }
+'.w-(1300px)': { width: '1300px' }
+'.w-(1800px)': { width: '1800px' }
+'.w-(2300px)': { width: '2300px' }
+'.w-(250px)': { width: '250px' }
+'.w-(350px)': { width: '350px' }
+'.w-(400px)': { width: '400px' }
+'.w-(900px)': { width: '900px' }
+
+// Default Font Awesome styles
+'.fa-cloud': { text: '\uf0c2', title: '\uf0c2' }
+'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+```
+
+**Result**
+
+<img src="../assets/images/zultys.png" width="375" alt="iOS Screen - Example">
+
+**Example 3**
 ```xml
 <Alloy>
   <Window class="bg-(#53606b)" backgroundImage="https://i.pinimg.com/originals/ab/70/a1/ab70a19f087cc9ba2b03e3bee71acc3e.jpg">
