@@ -1148,7 +1148,7 @@ You can use any of the supported units depending of the property you are generat
 
     <View class="bg-(rgba(255,255,0,0.75)) -right-(10px) top-(250px) bottom-(75px) h-screen w-(80%) border-(5) border-(#12681E)">
       <View class="m-(1rem) h-screen w-screen vertical">
-        <Label class="text-(32px) font-bold text-(#12681E) " text="Superb idea: Building Green garden in your home" />
+        <Label class="text-(32px) font-bold text-(#12681E)" text="Superb idea: Building Green garden in your home" />
         <TextArea class="bg-transparent mt-1 text-(14px) text-(#12681E)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis provident, est facere quos veniam repellat. Eum, perferendis quae! Tenetur necessitatibus, voluptatem error voluptate culpa minus est voluptates facere quis distinctio minima dignissimos iure in sequi ex amet officia rerum. Ut fugiat non vero nemo at quaerat assumenda ab officia reiciendis.</TextArea>
       </View>
     </View>
