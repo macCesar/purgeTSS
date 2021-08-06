@@ -1339,7 +1339,7 @@ You can specify different classes to any element using `Platform` and `Device` u
 - `handheld:`
 - `tablet:`
 
-Lets say that you want to have different background color and font sizes, depending on the platform and device your app is running. You can target them separately, and you can even combine them with arbitrary values, like: `ios:bg-(#53606b)`, `ios:text-(20px)`, `ios:bg-(#8fb63e)` and `android:text-(24px)`.
+Lets say that you want to have different background color and font sizes, depending on the platform and device your app is running. You can target them separately, and you can even combine them with arbitrary values, like: `ios:bg-(#53606b)`, `ios:text-(20px)`, `android:bg-(#8fb63e)` and `android:text-(24px)`.
 
 `index.xml`
 ```xml
