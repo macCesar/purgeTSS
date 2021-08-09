@@ -639,8 +639,6 @@ theme: {
 // ...
 ```
 
-
-
 ## Purge Section
 You can control how `purgetss` remove unused classes. Or to keep the ones you want.
 
