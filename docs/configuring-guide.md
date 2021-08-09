@@ -612,13 +612,17 @@ theme: {
 ...
 theme: {
   '.btn': {
+    // Default to .btn
     apply: 'w-auto h-auto font-bold border-2 rounded my-0.5',
+    // Specific to ios devices
     ios: {
       apply: 'w-screen mx-4'
     },
+    // Specific to hanheld devices
     handheld: {
       apply: 'h-20'
     },
+    // Specific to iPhoneX ( if Alloy.Global.iPhoneX is set )
     '[if=Alloy.Globals.iPhoneX]': {
       apply: 'mb-12'
     }
