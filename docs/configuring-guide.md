@@ -6,18 +6,24 @@
   - [Generating your custom `tailwind.tss` file](#generating-your-custom-tailwindtss-file)
   - [Configuration file example](#configuration-file-example)
 - [**`config.js` file structure**](#configjs-file-structure)
-  - [Theme Property](#theme-property)
-  - [Colors property](#colors-property)
+  - [Theme Section](#theme-section)
+  - [Colors Section](#colors-section)
     - [Nested object syntax](#nested-object-syntax)
     - [Shared colors](#shared-colors)
     - [Overriding a default color](#overriding-a-default-color)
     - [Extending the default palette](#extending-the-default-palette)
-  - [Spacing property](#spacing-property)
+  - [Spacing Section](#spacing-section)
     - [Shared spacing](#shared-spacing)
     - [Overriding the default spacing scale](#overriding-the-default-spacing-scale)
     - [Extending the default spacing scale](#extending-the-default-spacing-scale)
   - [Individual properties](#individual-properties)
-  - [Purge property](#purge-property)
+  - [The `apply` directive](#the-apply-directive)
+    - [Set it to any id, class or Ti Element](#set-it-to-any-id-class-or-ti-element)
+    - [Use any of the default classes](#use-any-of-the-default-classes)
+    - [Use any newly defined classes in `config.js`](#use-any-newly-defined-classes-in-configjs)
+    - [You can set an array or a string of classes](#you-can-set-an-array-or-a-string-of-classes)
+    - [Combine it with any platform, device or conditional-block properties](#combine-it-with-any-platform-device-or-conditional-block-properties)
+  - [Purge Section](#purge-section)
     - [Large safelist?](#large-safelist)
 - [**Overriding, extending or disabling properties**](#overriding-extending-or-disabling-properties)
   - [Overriding properties](#overriding-properties)
@@ -49,7 +55,7 @@
 - [License](#license)
 
 ## Customization
-By default, `purgetss` will look for an optional `./purgetss/config.js` file where you can define any customization.
+By default, `purgetss` will look for an optional `./purgetss/config.js` file where you can define any customizations.
 
 Every section of the config file is optional, so you only specify what you'd like to change. Any missing sections will fall back to the default configuration.
 
@@ -94,7 +100,7 @@ To generate your custom `./purgetss/tailwind.tss` file use the following command
 
 It will generate a new `tailwind.tss` file with every attribute defined in `./purgetss/config.js`.
 
-**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will parse this file instead of Tailwind's default file.**
+**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `purgeTSS` will use this file instead of Tailwind's default file.**
 
 ## Configuration file example
 - **For the modifier keys, you can use any name or convention you want. For example: '.my-custom-class', or '.anotherCustomClassName'**.
@@ -148,8 +154,8 @@ module.exports = {
 
 # **`config.js` file structure**
 
-## Theme Property
-The `theme` property in `config.js`, is where you define your project's color palette, type scale, font stacks, border radius values, and more.
+## Theme Section
+The `theme` section in `config.js`, is where you define your project's color palette, type scale, font stacks, border radius values, and more.
 
 ```javascript
 // ./purgetss/config.js
@@ -178,8 +184,8 @@ module.exports = {
 }
 ```
 
-## Colors property
-The `colors` property allows you to customize the global color palette values.
+## Colors Section
+The `colors` section allows you to customize the global color palette values.
 
 ```javascript
 // ./purgetss/config.js
@@ -234,9 +240,9 @@ module.exports = {
 ```
 
 ### Shared colors
-All colors defined in the `colors` property are automatically shared with `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor`  properties.
+All colors defined in the `colors` section are automatically shared with `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor`  properties.
 
-> **When you include the `colors` property, `purgeTSS` will automatically generate all color-related preperties and merge them with any other color-related preperties present in the configuration file.**
+> **When you include the `colors` section, `purgeTSS` will automatically generate all color-related preperties and merge them with any other color-related preperties present in the configuration file.**
 
 ```javascript
 // ./purgetss/config.js
@@ -340,8 +346,8 @@ module.exports = {
 
 This will generate classes like bg-regal-blue in addition to all of Tailwind's default colors.
 
-## Spacing property
-The `spacing` property allows you to customize the global spacing and sizing scale values.
+## Spacing Section
+The `spacing` section allows you to customize the global spacing and sizing scale values.
 
 ```javascript
 // ./purgetss/config.js
@@ -358,13 +364,10 @@ module.exports = {
 }
 ```
 
-By default, these values are inherited by the `padding`, `margin`, `width`, and `height` properties.
-
-
 ### Shared spacing
-The `spacing` property is shared by the `margin`, `padding`, `width`, and `height` properties.
+The `spacing` section is shared by the `padding`, `margin`, `width`, and `height` properties.
 
-> **When you include the `spacing` property, `purgeTSS` will automatically generate all spacing-related properties and merge them with any other spacing-related properties present in the configuration file.**
+> **When you include the `spacing` section, `purgeTSS` will automatically generate all spacing-related properties and merge them with any other spacing-related properties present in the configuration file.**
 
 ```javascript
 // ./purgetss/config.js
@@ -449,7 +452,7 @@ module.exports = {
 This will generate classes like p-72, m-84, and h-96 in addition to all of the default spacing/sizing utilities.
 
 ## Individual properties
-The rest of the theme section is used to configure what values are available for each individual property.
+The rest of the theme section is used to configure what values are available for each individual properties.
 
 For example, the `borderRadius` property allows you customize what border radius classes will be generated:
 ```javascript
@@ -480,8 +483,161 @@ You'll notice that using a key of `default` in the theme configuration created t
 
 This is a common convention in `purgeTSS` supported by many (although not all) of the properties.
 
-## Purge property
+## The `apply` directive
+Starting with **`v2.3.5`**, you can `apply` a set of classes to create more complex classes, or when you find a repetitive pattern in your code and you’d like to extract it to a new class component.
 
+- Set it to any id, class or Ti Element
+- Use any of the default classes
+- Use any newly defined classes in `config.js`
+- You can set an array or a string of classes
+- Combine it with any platform, device or conditional-block properties
+
+### Set it to any id, class or Ti Element
+```javascript
+...
+theme: {
+  '#carrousel': {
+    apply: 'w-screen h-auto bg-teal-200 mx-2 my-4 horizontal'
+  },
+  '.my-custom-class': {
+    apply: 'w-auto h-auto font-bold border-2 rounded my-0.5 font-saira-condensed'
+  },
+  'Label': {
+    apply: [
+      'text-base',
+      'font-bold',
+      'text-gray-700',
+    ]
+  },
+}
+...
+```
+
+```css
+'#carrousel': { backgroundColor: '#99f6e4', height: Ti.UI.SIZE, layout: 'horizontal', right: 8, left: 8, top: 16, bottom: 16, width: Ti.UI.FILL }
+'.my-custom-class': { borderRadius: 4, borderWidth: 2, height: Ti.UI.SIZE, top: 2, bottom: 2, width: Ti.UI.SIZE, font: { fontFamily: 'SairaCondensed-Regular', fontWeight: 'bold' } }
+'Label': { color: '#3f3f46', font: { fontSize: 16, fontWeight: 'bold' } }
+```
+
+### Use any of the default classes
+```javascript
+...
+theme: {
+  '.btn': {
+    apply: 'w-auto h-auto font-bold border-2 rounded my-0.5 font-saira-condensed'
+  },
+  '.btn-primary': {
+    apply: [
+      'bg-green-500',
+      'text-green-100',
+      'border-green-200'
+    ]
+  },
+}
+...
+```
+
+```css
+'.btn': { borderRadius: 4, borderWidth: 2, height: Ti.UI.SIZE, top: 2, bottom: 2, width: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
+'.btn-primary': { backgroundColor: '#22c55e', borderColor: '#bbf7d0', color: '#dcfce7' }
+```
+
+### Use any newly defined classes in `config.js`
+```javascript
+...
+theme: {
+  '.btn': {
+    apply: 'w-auto h-auto font-bold border-2 rounded my-0.5'
+  },
+  '.btn-corporate': {
+    // Newly created classes ( see below in extend.colors.corporate )
+    apply: [
+      'bg-corporate-500',
+      'text-corporate-100',
+      'border-corporate-200'
+    ]
+  },
+  extend: {
+    colors: {
+      // New color values that will be used in bg, text and border
+      corporate: {
+        100: '#dddfe1', 200: '#babfc4', 500: '#53606b'
+      }
+    }
+  },
+}
+...
+```
+
+```css
+'.btn': { borderRadius: 4, borderWidth: 2, height: Ti.UI.SIZE, top: 2, bottom: 2, width: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
+'.btn-corporate': { backgroundColor: '#53606b', borderColor: '#babfc4', color: '#dddfe1' }
+// ...
+// color Property
+'.text-corporate-100': { color: '#dddfe1' }
+// backgroundColor Property
+'.bg-corporate-500': { backgroundColor: '#53606b' }
+// borderColor Property
+'.border-corporate-200': { borderColor: '#babfc4' }
+```
+
+### You can set an array or a string of classes
+```javascript
+...
+theme: {
+  '.btn': {
+    // Use a string of classes
+    apply: 'w-auto h-auto font-bold border-2 rounded my-0.5'
+  },
+  '.btn-corporate': {
+    // or an array of classes
+    apply: [
+      'bg-corporate-500',
+      'text-corporate-100',
+      'border-corporate-200'
+    ]
+  }
+}
+...
+```
+
+```css
+'.btn': { borderRadius: 4, borderWidth: 2, height: Ti.UI.SIZE, top: 2, bottom: 2, width: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
+'.btn-corporate': { backgroundColor: '#53606b', borderColor: '#babfc4', color: '#dddfe1' }
+// ...
+```
+
+### Combine it with any platform, device or conditional-block properties
+```javascript
+...
+theme: {
+  '.btn': {
+    apply: 'w-auto h-auto font-bold border-2 rounded my-0.5',
+    ios: {
+      apply: 'w-screen mx-4'
+    },
+    handheld: {
+      apply: 'h-20'
+    },
+    '[if=Alloy.Globals.iPhoneX]': {
+      apply: 'mb-12'
+    }
+  },
+}
+...
+```
+
+```css
+'.btn': { borderRadius: 4, borderWidth: 2, height: Ti.UI.SIZE, top: 2, bottom: 2, width: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
+'.btn[platform=ios]': { right: 16, left: 16, width: Ti.UI.FILL }
+'.btn[formFactor=handheld]': { height: 80 }
+'.btn[if=Alloy.Globals.iPhoneX]': { bottom: 48 }
+// ...
+```
+
+
+
+## Purge Section
 You can control how `purgetss` remove unused classes. Or to keep the ones you want.
 
 ```javascript
@@ -568,7 +724,7 @@ This will completely replace the original default `opacity` values with the new 
 ## Extending properties
 If you want to preserve the default values for a theme option but also add new values, add your extensions under the `theme.extend` key.
 
-For example, if you want to add an extra color but preserve the existing ones, you could extend the `colors` property:
+For example, if you want to add an extra color but preserve the existing ones, you could extend the `colors` section:
 
 ```javascript
 // ./purgetss/config.js

@@ -35,6 +35,7 @@ const destJMKFile = cwd + '/app/alloy.jmk';
 const destPurgeTSSFolder = cwd + '/purgetss';
 const destFontsFolder = cwd + '/app/assets/fonts';
 const destAppTSSFile = cwd + '/app/styles/app.tss';
+const srcAppPTSSFile = cwd + '/app/styles/app.ptss';
 const dest_appTSSFile = cwd + '/app/styles/_app.tss';
 const destConfigJSFile = cwd + '/purgetss/config.js';
 //
@@ -150,36 +151,34 @@ function copyFontLibraries(options) {
 }
 module.exports.copyFontLibraries = copyFontLibraries;
 
+function getFileUpdatedDate (path) {
+	return fs.statSync(path).mtime;
+}
+
 //! Command: purgetss
 function purgeClasses(options) {
-
 	if (alloyProject()) {
-		if (options.dev) {
-			options.files = options.dev;
-			devMode(options);
-		} else {
-			start();
+		start();
 
-			backupOriginalAppTss();
+		backupOriginalAppTss();
 
-			let uniqueClasses = getUniqueClasses();
+		let uniqueClasses = getUniqueClasses();
 
-			let tempPurged = copyResetTemplateAnd_appTSS();
+		let tempPurged = copyResetTemplateAnd_appTSS();
 
-			tempPurged += purgeTailwind(uniqueClasses);
+		tempPurged += purgeTailwind(uniqueClasses);
 
-			tempPurged += purgeFontAwesome(uniqueClasses);
+		tempPurged += purgeFontAwesome(uniqueClasses);
 
-			tempPurged += purgeMaterialDesign(uniqueClasses);
+		tempPurged += purgeMaterialDesign(uniqueClasses);
 
-			tempPurged += purgeLineIcons(uniqueClasses);
+		tempPurged += purgeLineIcons(uniqueClasses);
 
-			saveFile(destAppTSSFile, tempPurged);
+		saveFile(destAppTSSFile, tempPurged);
 
-			logger.file('app.tss');
+		logger.file('app.tss');
 
-			finish();
-		}
+		finish();
 	}
 }
 module.exports.purgeClasses = purgeClasses;
@@ -483,11 +482,7 @@ function getUniqueClasses() {
 	_.each(viewPaths, viewPath => {
 		let file = fs.readFileSync(viewPath, 'utf8');
 
-		if (purgeMode === 'all') {
-			allClasses.push(file.match(/[^<>"'`\s]*[^<>"'`\s:]/g));
-		} else {
-			allClasses.push(extractClasses(file, viewPath));
-		}
+		allClasses.push((purgeMode === 'all') ? file.match(/[^<>"'`\s]*[^<>"'`\s:]/g) : extractClasses(file, viewPath));
 	});
 
 	if (safelist) {
@@ -530,11 +525,13 @@ function filterCharacters(uniqueClass) {
 }
 
 //! Build Custom Tailwind ( Main )
-function buildCustomTailwind() {
+function buildCustomTailwind(message = 'file created!') {
 	let configFile = require(destConfigJSFile);
 	const defaultColors = require('tailwindcss/colors');
 	const defaultTheme = require('tailwindcss/defaultTheme');
 	const tailwindui = require('@tailwindcss/ui/index')({}, {}).config.theme;
+
+	delete defaultColors.lightBlue;
 
 	if (!configFile.theme.extend) {
 		configFile.theme.extend = {};
@@ -646,8 +643,11 @@ function buildCustomTailwind() {
 	// Interactivity
 	configFile.theme.interactivity = {};
 
-	let convertedStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8');
-	convertedStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8') + '\n// Custom Styles and Resets\n';
+	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8');
+
+	tailwindStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8');
+
+	tailwindStyles += `// Updated At: ${getFileUpdatedDate(destConfigJSFile)}\n` + '\n// Custom Styles and Resets\n';
 
 	delete configFile.theme.extend;
 	delete configFile.theme.colors;
@@ -661,16 +661,16 @@ function buildCustomTailwind() {
 	let sorted = Object.entries(configFile.theme).sort().reduce((object, [key, value]) => (object[key] = value, object), {});
 
 	_.each(sorted, (value, key) => {
-		convertedStyles += buildCustomValues(key, value);
+		tailwindStyles += buildCustomTailwindClasses(key, value);
 	});
 
-	fs.writeFileSync(customTailwindFile, convertedStyles);
+	fs.writeFileSync(customTailwindFile, helpers.applyProperties(tailwindStyles));
 
-	logger.file('./purgetss/tailwind.tss');
+	logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
 }
 
 //! Build tailwind's custom values
-function buildCustomValues(key, value) {
+function buildCustomTailwindClasses(key, value) {
 	switch (key) {
 		case 'textColor':
 			return helpers.textColor(value);
@@ -954,9 +954,9 @@ function start() {
 	startTime = new Date();
 };
 
-function finish() {
+function finish(customMessage = 'Finished purging in') {
 	let endTime = new Date(new Date() - startTime);
-	logger.info('Finished purging in ' + chalk.green(`${endTime.getSeconds()}s ${endTime.getMilliseconds()}ms`));
+	logger.info(customMessage, chalk.green(`${endTime.getSeconds()}s ${endTime.getMilliseconds()}ms`));
 }
 
 //! Purge Functions
@@ -968,14 +968,25 @@ function purgeTailwind(uniqueClasses) {
 	if (fs.existsSync(customTailwindFile)) {
 		sourceFolder = customTailwindFile;
 		purgedClasses = '\n// Custom Tailwind Styles\n';
-		logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...');
 	} else {
 		sourceFolder = defaultTailwindFile;
 		purgedClasses = '\n// Default Tailwind Styles\n';
-		logger.info('Purging Default Tailwind styles...');
 	}
 
 	let sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
+
+	if (`// Updated At: ${getFileUpdatedDate(destConfigJSFile)}` !== sourceTSS[7]) {
+		logger.info(chalk.yellow('config.js'), 'file modified, rebuilding tailwind.tss...');
+		buildCustomTailwind('file updated!');
+		sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
+	}
+
+	if (fs.existsSync(customTailwindFile)) {
+		logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...');
+	} else {
+		logger.info('Purging Default Tailwind styles...');
+	}
+
 	let soc = sourceTSS.toString(); // soc = String of Classes
 
 	_.each(uniqueClasses, className => {
@@ -1007,27 +1018,27 @@ function purgeTailwind(uniqueClasses) {
 				}
 			});
 		} else if (cleanClassName.includes('(')) {
-			let newArbitraryClass = formatArbitraryValues(cleanClassName);
+			let line = formatArbitraryValues(cleanClassName);
 
-			if (newArbitraryClass) {
+			if (line) {
 				if (className.includes('ios:')) {
 					purgedClasses += (className.includes('platform=ios'))
-					? `${newArbitraryClass.replace(/[^'.]+|1/, `ios:$&`)}\n`
-					: `${newArbitraryClass.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
+					? `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`
+					: `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
 				} else if (className.includes('android:')) {
 					purgedClasses += (className.includes('platform=android'))
-					? `${newArbitraryClass.replace(/[^'.]+|1/, `android:$&`)}\n`
-					: `${newArbitraryClass.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
+					? `${line.replace(/[^'.]+|1/, `android:$&`)}\n`
+					: `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
 				} else if (className.includes('handheld:')) {
 					purgedClasses += (className.includes('formFactor=handheld'))
-					? `${newArbitraryClass.replace(/[^'.]+|1/, `handheld:$&`)}\n`
-					: `${newArbitraryClass.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
+					? `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`
+					: `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
 				} else if (className.includes('tablet:')) {
 					purgedClasses += (className.includes('formFactor=tablet'))
-					? `${newArbitraryClass.replace(/[^'.]+|1/, `tablet:$&`)}\n`
-					: `${newArbitraryClass.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
+					? `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`
+					: `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
 				} else {
-					purgedClasses += newArbitraryClass + '\n';
+					purgedClasses += line + '\n';
 				}
 			}
 		}
@@ -1037,6 +1048,14 @@ function purgeTailwind(uniqueClasses) {
 }
 
 const arbitraryValuesTable = {
+	// Check if they are really needed
+	'font': '{ fontWeight: {value} }',
+    'content-w': '{ contentWidth: {value} }',
+    'content-h': '{ contentHeight: {value} }',
+    // 'bg-selected': '{ backgroundSelectedColor: {value} }',
+    'content': '{ contentWidth: {value}, contentHeight: {value} }',
+	// 'shadow': '{ viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: {value} }',
+
 	'bg': '{ backgroundColor: {value} }',
 	'border-color': '{ borderColor: {value} }',
 	'border-width': '{ borderWidth: {value} }',
@@ -1096,7 +1115,7 @@ function formatArbitraryValues(arbitraryValue) {
 		}
 
 		if (!properties) {
-			return `// Unsupported property: ${arbitraryValue}`;
+			return `// Property not yet supported: ${arbitraryValue}`;
 		}
 
 		return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));

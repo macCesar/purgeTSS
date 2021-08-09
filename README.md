@@ -21,7 +21,7 @@ It is an all-round package for all Titanium Developers who want to easily and qu
 # IMPORTANT NOTICE!!!
 ### purgeTSS will OVERWRITE your existing app.tss file
 
-> When you run `purgeTSS` for the first time, it will backup your `app.tss` file to `_app.tss`.
+> When you run purgeTSS for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
 > From now on, add, update or remove your custom classes in `_app.tss.`
 >
@@ -34,7 +34,7 @@ It is an all-round package for all Titanium Developers who want to easily and qu
 ```
 
 ## Example files
-Use this markup to test `purgeTSS`.
+Use this markup to test purgeTSS.
 
 `index.xml`
 ```xml
@@ -188,10 +188,39 @@ You can customize the following properties:
 - showHorizontalScrollIndicator/showVerticalScrollIndicator
 - ***Your own class names and any Ti Element with any number of attributes or conditional statements***
 
+## Revisar
+backgroundColor
+backgroundGradient
+backgroundSelectedColor
+borderColor
+borderRadiusExtraStyles
+borderWidth
+displayUtilities
+fontSize
+fontStyle
+fontWeight
+gradientColorStops
+height
+interactivity
+margin
+opacity
+padding
+placeholderColor
+placement
+scrollIndicators
+scrollableRegion
+shadow
+textAlign
+textColor
+tintColor
+touchFeedbackColor
+verticalAlignment
+width
+
 ## See [Customization and Configuration Guide](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md) to learn more
 
 ## build
-When customizing your `config.js` file, you'll need to re-generate `./purgetss/tailwind.tss` file by running:
+When customizing your `config.js` file, you can re-generate `./purgetss/tailwind.tss` file by running:
 
 ```bash
 > purgetss build
@@ -200,7 +229,9 @@ When customizing your `config.js` file, you'll need to re-generate `./purgetss/t
 > purgetss b
 ```
 
-**After generating your new or updated `tailwind.tss` file, `purgeTSS` will use it instead of the default one.**
+Every time you run the `purgetss` command, either manually or automatically (see `purgetss watch` below), **purgeTSS** will check for any change made to `config.js` file and will re-generate `tailwind.tss` if necessary.
+
+**After generating your new or updated `tailwind.tss` file, purgeTSS will use it to parse your `xml` files.**
 
 ## watch
 ```bash
@@ -330,7 +361,7 @@ And as with the Pro Version, just run `purgetss build` to generate your custom `
 > purgetss u
 ```
 
-Use this command to update `purgeTSS` to the latest version.
+Use this command to update **purgeTSS** to the latest version.
 
 We constantly update **purgeTSS** to add new features, to include the latest versions of Tailwind, Tailwind UI, FontAwesome, etc., and for bug fixes.
 

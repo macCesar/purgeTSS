@@ -3,13 +3,13 @@
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // Custom Styles and Resets
-'.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
-'.horizontal': { layout: 'horizontal' }
 '.vertical': { layout: 'vertical' }
+'.horizontal': { layout: 'horizontal' }
+'Window': { backgroundColor: '#ffffff' }
 'ImageView[platform=ios]': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
-'Window': { backgroundColor: '#ffffff' }
+'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
+'.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 
 // backgroundColor Property
 '.bg-transparent': { backgroundColor: 'transparent' }
@@ -2969,28 +2969,28 @@
 '.left-auto': { left: Ti.UI.SIZE }
 '.right-auto': { right: Ti.UI.SIZE }
 '.bottom-auto': { bottom: Ti.UI.SIZE }
-'.inset-0': { top: 0, right: 0, bottom: 0, left: 0 }
-'.inset-y-0': { top: 0, bottom: 0 }
 '.inset-x-0': { right: 0, left: 0 }
-'.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
-'.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
+'.inset-y-0': { top: 0, bottom: 0 }
+'.inset-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.inset-x-auto': { right: Ti.UI.SIZE, left: Ti.UI.SIZE }
+'.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
+'.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
 
 // Scroll Indicators ( for ScrollViews )
+'.overflow-x-scroll': { showHorizontalScrollIndicator: true }
+'.overflow-y-scroll': { showVerticalScrollIndicator: true }
+'.overflow-x-hidden': { showHorizontalScrollIndicator: false }
+'.overflow-y-hidden': { showVerticalScrollIndicator: false }
 '.overflow-scroll': { showHorizontalScrollIndicator: true, showVerticalScrollIndicator: true }
 '.overflow-hidden': { showHorizontalScrollIndicator: false, showVerticalScrollIndicator: false }
-'.overflow-x-scroll': { showHorizontalScrollIndicator: true }
-'.overflow-x-hidden': { showHorizontalScrollIndicator: false }
-'.overflow-y-scroll': { showVerticalScrollIndicator: true }
-'.overflow-y-hidden': { showVerticalScrollIndicator: false }
 
 // Content Width & Height ( for ScrollViews )
-'.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
-'.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
 '.content-w-auto': { contentWidth: Ti.UI.SIZE }
 '.content-w-screen': { contentWidth: Ti.UI.FILL }
 '.content-h-auto': { contentHeight: Ti.UI.SIZE }
 '.content-h-screen': { contentHeight: Ti.UI.FILL }
+'.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
+'.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
 
 // Box Shadow
 '.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
