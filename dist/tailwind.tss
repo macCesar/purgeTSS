@@ -2841,8 +2841,8 @@
 '.origin-top-left': { anchorPoint: { x: 0, y: 0 } }
 
 // overlayEnabled Property
-'.overlay-enabled': { overlayEnabled: true }
-'.overlay-disabled': { overlayEnabled: false }
+'.overlay-enabled[platform=ios]': { overlayEnabled: true }
+'.overlay-disabled[platform=ios]': { overlayEnabled: false }
 
 // padding Property
 '.p-0': { padding: { top: 0, right: 0, bottom: 0, left: 0 } }
@@ -3519,11 +3519,9 @@
 '.page-blueGray-800': { pageIndicatorColor: '#1e293b' }
 '.page-blueGray-900': { pageIndicatorColor: '#0f172a' }
 
-// PagingControl Property
+// showPagingControl Property
 '.show-paging': { showPagingControl: true }
 '.hide-paging': { showPagingControl: false }
-'.paging-on-top': { pagingControlOnTop: true }
-'.paging-on-bottom': { pagingControlOnTop: false }
 
 // pagingControlAlpha Property
 '.paging-alpha-0': { pagingControlAlpha: 0 }
@@ -3805,6 +3803,10 @@
 '.paging-h-1.5': { pagingControlHeight: 6 }
 '.paging-h-2.5': { pagingControlHeight: 10 }
 '.paging-h-3.5': { pagingControlHeight: 14 }
+
+// pagingControlOnTop Property
+'.paging-on-top': { pagingControlOnTop: true }
+'.paging-on-bottom': { pagingControlOnTop: false }
 
 // pagingControlTimeout Property
 '.paging-timeout-0': { pagingControlTimeout: 0 }

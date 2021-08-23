@@ -750,6 +750,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.platform = {};
 	configFile.theme.scrolling = {};
 	configFile.theme.pagingControl = {};
+	configFile.theme.pagingControlOnTop = {};
 	configFile.theme.keepScreenOn = {};
 
 	delete configFile.theme.extend;
@@ -811,6 +812,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'platform': return helpers.platform();
 		case 'scrolling': return helpers.scrolling();
 		case 'pagingControl': return helpers.pagingControl();
+		case 'pagingControlOnTop': return helpers.pagingControlOnTop();
 
 		case 'pagingControlAlpha': return helpers.pagingControlAlpha(value);
 		case 'pagingControlTimeout': return helpers.pagingControlTimeout(value);
