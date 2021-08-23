@@ -235,7 +235,7 @@ Use the new **`purgetss module`** command to install the module library in your 
 > purgetss module
 
 # alias:
-> purgetss l
+> purgetss m
 ```
 
 **Please check out the new `Animation` module [here](./docs/whats-new/v2.5.0.md#animation-module).**
