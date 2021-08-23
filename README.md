@@ -188,35 +188,6 @@ You can customize the following properties:
 - showHorizontalScrollIndicator/showVerticalScrollIndicator
 - ***Your own class names and any Ti Element with any number of attributes or conditional statements***
 
-## Revisar
-backgroundColor
-backgroundGradient
-backgroundSelectedColor
-borderColor
-borderRadiusExtraStyles
-borderWidth
-displayUtilities
-fontSize
-fontStyle
-fontWeight
-gradientColorStops
-height
-interactivity
-margin
-opacity
-padding
-placeholderColor
-placement
-scrollIndicators
-scrollableRegion
-shadow
-textAlign
-textColor
-tintColor
-touchFeedbackColor
-verticalAlignment
-width
-
 ## See [Customization and Configuration Guide](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md) to learn more
 
 ## build
@@ -256,6 +227,53 @@ This is very useful in combination with `LiveView` because it will purge all of 
 # alias:
 > purgetss w -o
 ```
+
+## module
+Use the new **`purgetss module`** command to install the module library in your `lib` folder.
+
+```bash
+> purgetss module
+
+# alias:
+> purgetss l
+```
+
+**Please check out the new `Animation` module [here](./docs/whats-new/v2.5.0.md#animation-module).**
+
+## create (Experimental)
+If you want to create a new Alloy Project with `purgetss` already configured, use the `create` command.
+```bash
+> purgetss create 'Name of the Project'
+
+# alias:
+> purgetss c 'Name of the Project'
+```
+
+You'll have to have `app.idprefix` and `app.idprefix` already configured in `ti config`.
+
+```bash
+# A name in reverse domain name format.
+app.idprefix               = "com.yourdomain"
+# Path to use as the workspace directory for new projects.
+app.workspace              = "/<full-path-to>/<workspace>/<folder>"
+# ...
+```
+
+You can configure them like this:
+```bash
+ti config app.idprefix 'com.yourdomain'
+ti config app.workspace 'the-full-path/to-the-workspace-folder'
+```
+
+When you run `purgetss create 'Name of the Project'` it will execute the following commands:
+
+- **`ti config app.idprefix && ti config app.workspace`** To retreive the related values.
+- **`ti create -t app -p all -n "Name of the Project" --no-prompt --id 'the-prefix-id-and-the-name-of-the-project'`** To create an App project with the specified name and its id set automatically.
+- **`cd app.workspace/"Name of the Project"`** Change to the newly created folder.
+- **`alloy new`** To convert it to an Alloy Project
+- **`purgetss w`** To autorun `purgetss` every time you compile your project.
+- **`purgetss b`** To build a new `./purgetss/tailwind.tss` and `./purgetss/config.js` files.
+- **`code .`**, **`subl .`** or **`open .`** It will use either one of these commands to open `VS Code`, `Sublime Text` or the project’s folder in that order.
 
 ## fonts
 ```bash

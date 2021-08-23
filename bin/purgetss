@@ -23,6 +23,16 @@ program
 	});
 
 program
+	.command('create')
+	.alias('c')
+	.description('Creates a new Alloy Project with `purgetss` already configured.')
+	.help('Creates a new Alloy Project with `purgetss` already configured.')
+	.argument('<name>', 'The name of the project')
+	.action((args) => {
+		purgetss.create(args);
+	});
+
+program
 	.command('build')
 	.alias('b')
 	.description('Build a custom `tailwind.tss` file')
@@ -52,15 +62,14 @@ program
 		purgetss.copyFonts(options);
 	});
 
-// program
-// 	.command('library')
-// 	.alias('l')
-// 	.description('Copy `fontawesome.js`, `lineicons.js` and `materialdesignicons.js` libraries into your project')
-// 	.help('Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Line Icons and Material Design Icons\n')
-// 	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons')
-// 	.action((args, options, logger) => {
-// 		purgetss.copyFontLibraries(options);
-// 	});
+program
+	.command('module')
+	.alias('m')
+	.description('Copy `purgetss.ui.js` module into your project’s `lib` folder.')
+	.help('This file contains the module `Animation` \n')
+	.action((args, options, logger) => {
+		purgetss.copyModulesLibrary();
+	});
 
 program
 	.command('update')

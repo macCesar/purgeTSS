@@ -1,17 +1,88 @@
-// Tailwind CSS v2.2.7: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
-// Tailwind UI Plugin v0.7.2 ( https://www.npmjs.com/package/@tailwindcss/ui ).
-// Created by Adam Wathan ( https://twitter.com/adamwathan ).
+# Properties and class names
+The following is a list of all the properties and their repective class name.
 
-// Custom Styles and Resets
-'ImageView[platform=ios]': { hires: true }
-'Label': { width: Ti.UI.FILL, height: Ti.UI.SIZE }
-'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
-'Window': { backgroundColor: '#ffffff' }
+- [Properties and class names](#properties-and-class-names)
+  - [autoreverse](#autoreverse)
+  - [background Color](#background-color)
+  - [bg-linear ( previously bg-gradient ) and directions](#bg-linear--previously-bg-gradient--and-directions)
+  - [bg-radial and directions ( iOS only )](#bg-radial-and-directions--ios-only-)
+  - [backgroundSelectedColor](#backgroundselectedcolor)
+  - [borderColor](#bordercolor)
+  - [borderRadius](#borderradius)
+  - [borderWidth](#borderwidth)
+  - [disableBounce](#disablebounce)
+  - [clipMode](#clipmode)
+  - [currentPageIndicatorColor](#currentpageindicatorcolor)
+  - [preventDefaultImage](#preventdefaultimage)
+  - [visible](#visible)
+  - [exitOnClose](#exitonclose)
+  - [fontSize](#fontsize)
+  - [fontStyle](#fontstyle)
+  - [fontWeight](#fontweight)
+  - [top, right, bottom and left properties](#top-right-bottom-and-left-properties)
+  - [backgroundGradient ( Form Color )](#backgroundgradient--form-color-)
+  - [backgroundGradient ( To Color )](#backgroundgradient--to-color-)
+  - [height](#height)
+  - [interactivity](#interactivity)
+  - [items](#items)
+  - [keepScreenOn](#keepscreenon)
+  - [layout](#layout)
+  - [margin](#margin)
+  - [opacity](#opacity)
+  - [origin](#origin)
+  - [overlay](#overlay)
+  - [padding](#padding)
+  - [pageIndicatorColor](#pageindicatorcolor)
+  - [pagingControl](#pagingcontrol)
+  - [pagingControlAlpha](#pagingcontrolalpha)
+  - [pagingControlColor](#pagingcontrolcolor)
+  - [pagingControlHeight](#pagingcontrolheight)
+  - [pagingControlTimeout](#pagingcontroltimeout)
+  - [hintTextColor](#hinttextcolor)
+  - [Top / Right / Bottom / Left Placement](#top--right--bottom--left-placement)
+  - [Ti.Platform.displayCaps](#tiplatformdisplaycaps)
+  - [repeat](#repeat)
+  - [rotate](#rotate)
+  - [scale](#scale)
+  - [showHorizontalScrollIndicator](#showhorizontalscrollindicator)
+  - [scrollType](#scrolltype)
+  - [contentWidth & contentHeight](#contentwidth--contentheight)
+  - [scrollingEnabled](#scrollingenabled)
+  - [viewShadowOffset, viewShadowRadius & viewShadowColor](#viewshadowoffset-viewshadowradius--viewshadowcolor)
+  - [textAlign](#textalign)
+  - [color](#color)
+  - [tintColor](#tintcolor)
+  - [touchFeedback & touchFeedbackColor](#touchfeedback--touchfeedbackcolor)
+  - [curve](#curve)
+  - [delay](#delay)
+  - [duration](#duration)
+  - [verticalAlign](#verticalalign)
+  - [width](#width)
+  - [Grid System](#grid-system)
+  - [gridFlow](#gridflow)
+  - [grid](#grid)
 
+## autoreverse
+Specifies if the animation should be replayed in reverse upon completion.
+
+Defaults to `false` or use the `.no-autoreverse` class.
+
+```css
 // autoreverse Property
 '.autoreverse': { autoreverse: true }
 '.no-autoreverse': { autoreverse: false }
+```
 
+## background Color
+Utilities for controlling an element's background color, as a color name, rgb(a) or hex triplet.
+
+Control the background color of an element using the `bg-{color}` utilities
+
+```xml
+<View class="bg-green-500" />
+```
+
+```css
 // backgroundColor Property
 '.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000000' }
@@ -236,7 +307,10 @@
 '.bg-blueGray-700': { backgroundColor: '#334155' }
 '.bg-blueGray-800': { backgroundColor: '#1e293b' }
 '.bg-blueGray-900': { backgroundColor: '#0f172a' }
+```
 
+## bg-linear ( previously bg-gradient ) and directions
+```css
 // Linear backgroundGradient Property
 '.bg-linear': { backgroundGradient: { type: 'linear', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' }, backfillStart: true } }
 '.bg-linear-to-t': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
@@ -247,7 +321,9 @@
 '.bg-linear-to-bl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
 '.bg-linear-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
 '.bg-linear-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backfillStart: true } }
-
+```
+## bg-radial and directions ( iOS only )
+```css
 // Radial backgroundGradient Property [iOS]
 '.bg-radial[platform=ios]': { backgroundGradient: { type: 'radial', startRadius: '125%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 '.bg-radial-to-b[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '50%', y: '0%' }, endPoint: { x: '50%', y: '0%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
@@ -258,7 +334,10 @@
 '.bg-radial-to-tr[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '0%', y: '100%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 '.bg-radial-to-r[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '0%', y: '50%' }, endPoint: { x: '0%', y: '50%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 '.bg-radial-to-br[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
+```
 
+## backgroundSelectedColor
+```css
 // backgroundSelectedColor Property
 '.bg-selected-transparent': { backgroundSelectedColor: 'transparent' }
 '.bg-selected-black': { backgroundSelectedColor: '#000000' }
@@ -483,7 +562,10 @@
 '.bg-selected-blueGray-700': { backgroundSelectedColor: '#334155' }
 '.bg-selected-blueGray-800': { backgroundSelectedColor: '#1e293b' }
 '.bg-selected-blueGray-900': { backgroundSelectedColor: '#0f172a' }
+```
 
+## borderColor
+```css
 // borderColor Property
 '.border-transparent': { borderColor: 'transparent' }
 '.border-black': { borderColor: '#000000' }
@@ -708,7 +790,10 @@
 '.border-blueGray-700': { borderColor: '#334155' }
 '.border-blueGray-800': { borderColor: '#1e293b' }
 '.border-blueGray-900': { borderColor: '#0f172a' }
+```
 
+## borderRadius
+```css
 // borderRadius - ( With Extra Styles ) Property
 '.rounded-0': { borderRadius: 0 }
 '.rounded-1': { borderRadius: 2 }
@@ -755,22 +840,34 @@
 '.rounded-xl': { borderRadius: 12 }
 '.rounded-2xl': { borderRadius: 16 }
 '.rounded-3xl': { borderRadius: 24 }
+```
 
+## borderWidth
+```css
 // borderWidth Property
 '.border-0': { borderWidth: 0 }
 '.border-2': { borderWidth: 2 }
 '.border-4': { borderWidth: 4 }
 '.border-8': { borderWidth: 8 }
 '.border': { borderWidth: 1 }
+```
 
+## disableBounce
+```css
 // disableBounce Property
 '.enable-bounce': { disableBounce: false }
 '.disable-bounce': { disableBounce: true }
+```
 
+## clipMode
+```css
 // clipMode Property
-'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
+```
 
+## currentPageIndicatorColor
+```css
 // currentPageIndicatorColor Property
 '.current-page-transparent': { currentPageIndicatorColor: 'transparent' }
 '.current-page-black': { currentPageIndicatorColor: '#000000' }
@@ -995,19 +1092,31 @@
 '.current-page-blueGray-700': { currentPageIndicatorColor: '#334155' }
 '.current-page-blueGray-800': { currentPageIndicatorColor: '#1e293b' }
 '.current-page-blueGray-900': { currentPageIndicatorColor: '#0f172a' }
+```
 
+## preventDefaultImage
+```css
 // preventDefaultImage Property
 '.prevent-default-image[platform=ios]': { preventDefaultImage: true }
 '.display-default-image[platform=ios]': { preventDefaultImage: false }
+```
 
+## visible
+```css
 // Display
 '.block': { visible: true }
 '.hidden': { visible: false }
+```
 
+## exitOnClose
+```css
 // exitOnClose Property
 '.exit-on-close[platform=android]': { exitOnClose: true }
 '.dont-exit-on-close[platform=android]': { exitOnClose: false }
+```
 
+## fontSize
+```css
 // fontSize Property
 '.text-xs': { font: { fontSize: 12 } }
 '.text-sm': { font: { fontSize: 14 } }
@@ -1022,11 +1131,17 @@
 '.text-7xl': { font: { fontSize: 72 } }
 '.text-8xl': { font: { fontSize: 96 } }
 '.text-9xl': { font: { fontSize: 128 } }
+```
 
+## fontStyle
+```css
 // fontStyle Property
 '.italic': { font: { fontStyle: 'italic' } }
 '.not-italic': { font: { fontStyle: 'normal' } }
+```
 
+## fontWeight
+```css
 // fontWeight Property
 '.font-thin': { font: { fontWeight: 'thin' } }
 '.font-extralight': { font: { fontWeight: 'extralight' } }
@@ -1037,7 +1152,10 @@
 '.font-bold': { font: { fontWeight: 'bold' } }
 '.font-extrabold': { font: { fontWeight: 'bold' } }
 '.font-black': { font: { fontWeight: 'bold' } }
+```
 
+## top, right, bottom and left properties
+```css
 // Gaps Property
 '.gap-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.gap-1': { top: 4, right: 4, bottom: 4, left: 4 }
@@ -1312,7 +1430,10 @@
 '.gap-y-3.5': { top: 14, bottom: 14 }
 '.gap-y-full': { top: '100%', bottom: '100%' }
 '.gap-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
+```
 
+## backgroundGradient ( Form Color )
+```css
 // Gradient Color Stops
 // From Color
 '.from-transparent': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }
@@ -1538,7 +1659,10 @@
 '.from-blueGray-700': { backgroundGradient: { colors: [ '#00334155', '#334155' ] } }
 '.from-blueGray-800': { backgroundGradient: { colors: [ '#001e293b', '#1e293b' ] } }
 '.from-blueGray-900': { backgroundGradient: { colors: [ '#000f172a', '#0f172a' ] } }
-
+```
+## backgroundGradient ( To Color )
+```css
+// Gradient Color Stops
 // To Color
 '.to-transparent': { backgroundGradient: { colors: [ 'transparent' ] } }
 '.to-black': { backgroundGradient: { colors: [ '#000000' ] } }
@@ -1763,68 +1887,10 @@
 '.to-blueGray-700': { backgroundGradient: { colors: [ '#334155' ] } }
 '.to-blueGray-800': { backgroundGradient: { colors: [ '#1e293b' ] } }
 '.to-blueGray-900': { backgroundGradient: { colors: [ '#0f172a' ] } }
+```
 
-// Grid Column Start / End Property
-'.col-span-1': { width: '8.333334%' }
-'.col-span-2': { width: '16.666667%' }
-'.col-span-3': { width: '25%' }
-'.col-span-4': { width: '33.333334%' }
-'.col-span-5': { width: '41.666667%' }
-'.col-span-6': { width: '50%' }
-'.col-span-7': { width: '58.333334%' }
-'.col-span-8': { width: '66.666667%' }
-'.col-span-9': { width: '75%' }
-'.col-span-10': { width: '83.333334%' }
-'.col-span-11': { width: '91.666667%' }
-'.col-span-12': { width: '100%' }
-
-// Grid Row Start / End Property
-'.row-span-1': { height: '8.333334%' }
-'.row-span-2': { height: '16.666667%' }
-'.row-span-3': { height: '25%' }
-'.row-span-4': { height: '33.333334%' }
-'.row-span-5': { height: '41.666667%' }
-'.row-span-6': { height: '50%' }
-'.row-span-7': { height: '58.333334%' }
-'.row-span-8': { height: '66.666667%' }
-'.row-span-9': { height: '75%' }
-'.row-span-10': { height: '83.333334%' }
-'.row-span-11': { height: '91.666667%' }
-'.row-span-12': { height: '100%' }
-
-// grid and gridFlow Property
-'.grid': { layout: 'horizontal' }
-'.grid-flow-col': { layout: 'horizontal' }
-'.grid-flow-row': { layout: 'vertical' }
-
-// Grid Template Columns Property
-'.grid-cols-1': { width: '100%' }
-'.grid-cols-2': { width: '50%' }
-'.grid-cols-3': { width: '33.333334%' }
-'.grid-cols-4': { width: '25%' }
-'.grid-cols-5': { width: '20%' }
-'.grid-cols-6': { width: '16.666667%' }
-'.grid-cols-7': { width: '14.285714%' }
-'.grid-cols-8': { width: '12.5%' }
-'.grid-cols-9': { width: '11.111111%' }
-'.grid-cols-10': { width: '10%' }
-'.grid-cols-11': { width: '9.090909%' }
-'.grid-cols-12': { width: '8.333334%' }
-
-// Grid Template Rows Property
-'.grid-rows-1': { height: '100%' }
-'.grid-rows-2': { height: '50%' }
-'.grid-rows-3': { height: '33.333334%' }
-'.grid-rows-4': { height: '25%' }
-'.grid-rows-5': { height: '20%' }
-'.grid-rows-6': { height: '16.666667%' }
-'.grid-rows-7': { height: '14.285714%' }
-'.grid-rows-8': { height: '12.5%' }
-'.grid-rows-9': { height: '11.111111%' }
-'.grid-rows-10': { height: '10%' }
-'.grid-rows-11': { height: '9.090909%' }
-'.grid-rows-12': { height: '8.333334%' }
-
+## height
+```css
 // height Property
 '.h-0': { height: 0 }
 '.h-1': { height: 4 }
@@ -1892,26 +1958,41 @@
 '.h-full': { height: '100%' }
 '.h-auto': { height: Ti.UI.SIZE }
 '.h-screen': { height: Ti.UI.FILL }
+```
 
+## interactivity
+```css
 // touchEnabled Property
 '.touch-enabled': { touchEnabled: true }
 '.touch-disabled': { touchEnabled: false }
 '.pointer-events-auto': { touchEnabled: true }
 '.pointer-events-none': { touchEnabled: false }
+```
 
+## items
+```css
 // items Property
 '.items-start': { top: 0 }
 '.items-end': { bottom: 0 }
 '.items-center': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+```
 
+## keepScreenOn
+```css
 // keepScreenOn Property
 '.keep-screen-on[platform=android]': { keepScreenOn: true }
 '.keep-screen-off[platform=android]': { keepScreenOn: false }
+```
 
+## layout
+```css
 // layout Property
 '.vertical': { layout: 'vertical' }
 '.horizontal': { layout: 'horizontal' }
+```
 
+## margin
+```css
 // Margin Property
 '.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.m-1': { top: 4, right: 4, bottom: 4, left: 4 }
@@ -2811,7 +2892,10 @@
 '.-ml-10/12': { left: '-83.333334%' }
 '.-ml-11/12': { left: '-91.666667%' }
 '.-ml-full': { left: '-100%' }
+```
 
+## opacity
+```css
 // opacity Property
 '.opacity-0': { opacity: 0 }
 '.opacity-5': { opacity: 0.05 }
@@ -2828,7 +2912,10 @@
 '.opacity-90': { opacity: 0.9 }
 '.opacity-95': { opacity: 0.95 }
 '.opacity-100': { opacity: 1 }
+```
 
+## origin
+```css
 // anchorPoint Properties
 '.origin-center': { anchorPoint: { x: 0.5, y: 0.5 } }
 '.origin-top': { anchorPoint: { x: 0.5, y: 0 } }
@@ -2839,11 +2926,17 @@
 '.origin-bottom-left': { anchorPoint: { x: 0, y: 1 } }
 '.origin-left': { anchorPoint: { x: 0, y: 0.5 } }
 '.origin-top-left': { anchorPoint: { x: 0, y: 0 } }
+```
 
+## overlay
+```css
 // overlayEnabled Property
 '.overlay-enabled': { overlayEnabled: true }
 '.overlay-disabled': { overlayEnabled: false }
+```
 
+## padding
+```css
 // padding Property
 '.p-0': { padding: { top: 0, right: 0, bottom: 0, left: 0 } }
 '.p-1': { padding: { top: 4, right: 4, bottom: 4, left: 4 } }
@@ -3293,7 +3386,10 @@
 '.pl-10/12': { padding: { left: '83.333334%' } }
 '.pl-11/12': { padding: { left: '91.666667%' } }
 '.pl-full': { padding: { left: '100%' } }
+```
 
+## pageIndicatorColor
+```css
 // pageIndicatorColor Property
 '.page-transparent': { pageIndicatorColor: 'transparent' }
 '.page-black': { pageIndicatorColor: '#000000' }
@@ -3518,13 +3614,19 @@
 '.page-blueGray-700': { pageIndicatorColor: '#334155' }
 '.page-blueGray-800': { pageIndicatorColor: '#1e293b' }
 '.page-blueGray-900': { pageIndicatorColor: '#0f172a' }
+```
 
+## pagingControl
+```css
 // PagingControl Property
 '.show-paging': { showPagingControl: true }
 '.hide-paging': { showPagingControl: false }
 '.paging-on-top': { pagingControlOnTop: true }
 '.paging-on-bottom': { pagingControlOnTop: false }
+```
 
+## pagingControlAlpha
+```css
 // pagingControlAlpha Property
 '.paging-alpha-0': { pagingControlAlpha: 0 }
 '.paging-alpha-5': { pagingControlAlpha: 0.05 }
@@ -3541,7 +3643,10 @@
 '.paging-alpha-90': { pagingControlAlpha: 0.9 }
 '.paging-alpha-95': { pagingControlAlpha: 0.95 }
 '.paging-alpha-100': { pagingControlAlpha: 1 }
+```
 
+## pagingControlColor
+```css
 // pagingControlColor Property
 '.paging-transparent': { pagingControlColor: 'transparent' }
 '.paging-black': { pagingControlColor: '#000000' }
@@ -3766,7 +3871,10 @@
 '.paging-blueGray-700': { pagingControlColor: '#334155' }
 '.paging-blueGray-800': { pagingControlColor: '#1e293b' }
 '.paging-blueGray-900': { pagingControlColor: '#0f172a' }
+```
 
+## pagingControlHeight
+```css
 // pagingControlHeight Property
 '.paging-h-0': { pagingControlHeight: 0 }
 '.paging-h-1': { pagingControlHeight: 4 }
@@ -3805,7 +3913,10 @@
 '.paging-h-1.5': { pagingControlHeight: 6 }
 '.paging-h-2.5': { pagingControlHeight: 10 }
 '.paging-h-3.5': { pagingControlHeight: 14 }
+```
 
+## pagingControlTimeout
+```css
 // pagingControlTimeout Property
 '.paging-timeout-0': { pagingControlTimeout: 0 }
 '.paging-timeout-25': { pagingControlTimeout: 25 }
@@ -3822,7 +3933,10 @@
 '.paging-timeout-3000': { pagingControlTimeout: 3000 }
 '.paging-timeout-4000': { pagingControlTimeout: 4000 }
 '.paging-timeout-5000': { pagingControlTimeout: 5000 }
+```
 
+## hintTextColor
+```css
 // hintTextColor Property
 '.placeholder-transparent': { hintTextColor: 'transparent' }
 '.placeholder-black': { hintTextColor: '#000000' }
@@ -4047,7 +4161,10 @@
 '.placeholder-blueGray-700': { hintTextColor: '#334155' }
 '.placeholder-blueGray-800': { hintTextColor: '#1e293b' }
 '.placeholder-blueGray-900': { hintTextColor: '#0f172a' }
+```
 
+## Top / Right / Bottom / Left Placement
+```css
 // Top / Right / Bottom / Left
 '.top-0': { top: 0 }
 '.left-0': { left: 0 }
@@ -4063,15 +4180,19 @@
 '.inset-x-auto': { right: Ti.UI.SIZE, left: Ti.UI.SIZE }
 '.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
 '.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
+```
 
+## Ti.Platform.displayCaps
+```css
 // Ti.Platform Property
 '.platform-w': { width: Ti.Platform.displayCaps.platformWidth }
 '.platform-h': { height: Ti.Platform.displayCaps.platformHeight }
-'.inverted-platform-w': { width: Ti.Platform.displayCaps.platformHeight }
-'.inverted-platform-h': { height: Ti.Platform.displayCaps.platformWidth }
-'.inverted-platform-w[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
-'.inverted-platform-h[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
+'.invert-platform-w': { width: Ti.Platform.displayCaps.platformHeight }
+'.invert-platform-h': { height: Ti.Platform.displayCaps.platformWidth }
+```
 
+## repeat
+```css
 // repeat Property
 '.repeat-1': { repeat: 1 }
 '.repeat-2': { repeat: 2 }
@@ -4083,26 +4204,32 @@
 '.repeat-8': { repeat: 8 }
 '.repeat-9': { repeat: 9 }
 '.repeat-10': { repeat: 10 }
+```
 
+## rotate
+```css
 // rotate Property
-'.rotate-0': { rotate: 0 }
-'.rotate-1': { rotate: 1 }
-'.rotate-2': { rotate: 2 }
-'.rotate-3': { rotate: 3 }
-'.rotate-6': { rotate: 6 }
-'.rotate-12': { rotate: 12 }
-'.rotate-45': { rotate: 45 }
-'.rotate-90': { rotate: 90 }
-'.rotate-180': { rotate: 180 }
-'.-rotate-180': { rotate: -180 }
-'.-rotate-90': { rotate: -90 }
-'.-rotate-45': { rotate: -45 }
-'.-rotate-12': { rotate: -12 }
-'.-rotate-6': { rotate: -6 }
-'.-rotate-3': { rotate: -3 }
-'.-rotate-2': { rotate: -2 }
-'.-rotate-1': { rotate: -1 }
+'.rotate-0': { rotate: '0deg' }
+'.rotate-1': { rotate: '1deg' }
+'.rotate-2': { rotate: '2deg' }
+'.rotate-3': { rotate: '3deg' }
+'.rotate-6': { rotate: '6deg' }
+'.rotate-12': { rotate: '12deg' }
+'.rotate-45': { rotate: '45deg' }
+'.rotate-90': { rotate: '90deg' }
+'.rotate-180': { rotate: '180deg' }
+'.-rotate-180': { rotate: '-180deg' }
+'.-rotate-90': { rotate: '-90deg' }
+'.-rotate-45': { rotate: '-45deg' }
+'.-rotate-12': { rotate: '-12deg' }
+'.-rotate-6': { rotate: '-6deg' }
+'.-rotate-3': { rotate: '-3deg' }
+'.-rotate-2': { rotate: '-2deg' }
+'.-rotate-1': { rotate: '-1deg' }
+```
 
+## scale
+```css
 // scale Property
 '.scale-0': { scale: '0' }
 '.scale-50': { scale: '.5' }
@@ -4114,7 +4241,10 @@
 '.scale-110': { scale: '1.1' }
 '.scale-125': { scale: '1.25' }
 '.scale-150': { scale: '1.5' }
+```
 
+## showHorizontalScrollIndicator
+```css
 // Scroll Indicators ( for ScrollViews )
 '.overflow-x-scroll': { showHorizontalScrollIndicator: true }
 '.overflow-y-scroll': { showVerticalScrollIndicator: true }
@@ -4122,11 +4252,17 @@
 '.overflow-y-hidden': { showVerticalScrollIndicator: false }
 '.overflow-scroll': { showHorizontalScrollIndicator: true, showVerticalScrollIndicator: true }
 '.overflow-hidden': { showHorizontalScrollIndicator: false, showVerticalScrollIndicator: false }
+```
 
+## scrollType
+```css
 // scrollType Property
 '.scroll-horizontal[platform=android]': { scrollType: 'horizontal' }
 '.scroll-vertical[platform=android]': { scrollType: 'vertical' }
+```
 
+## contentWidth & contentHeight
+```css
 // contentWidth & contentHeight ( for ScrollViews )
 '.content-w-auto': { contentWidth: Ti.UI.SIZE }
 '.content-w-screen': { contentWidth: Ti.UI.FILL }
@@ -4134,11 +4270,17 @@
 '.content-h-screen': { contentHeight: Ti.UI.FILL }
 '.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
 '.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
+```
 
+## scrollingEnabled
+```css
 // scrollingEnabled Property
 '.scrolling-enabled': { scrollingEnabled: true }
 '.scrolling-disabled': { scrollingEnabled: false }
+```
 
+## viewShadowOffset, viewShadowRadius & viewShadowColor
+```css
 // Box Shadow
 '.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
 '.shadow-sm': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
@@ -4150,13 +4292,19 @@
 '.shadow-inner': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 '.shadow-outline': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 2, viewShadowColor: '#80000000' }
 '.shadow-none': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+```
 
+## textAlign
+```css
 // textAlign Property
 '.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
 '.text-right': { textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT }
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
-'.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
+'.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }`
+```
 
+## color
+```css
 // color Property
 '.text-transparent': { color: 'transparent' }
 '.text-black': { color: '#000000' }
@@ -4381,7 +4529,10 @@
 '.text-blueGray-700': { color: '#334155' }
 '.text-blueGray-800': { color: '#1e293b' }
 '.text-blueGray-900': { color: '#0f172a' }
+```
 
+## tintColor
+```css
 // tintColor Property
 '.tint-transparent': { tintColor: 'transparent' }
 '.tint-black': { tintColor: '#000000' }
@@ -4606,7 +4757,10 @@
 '.tint-blueGray-700': { tintColor: '#334155' }
 '.tint-blueGray-800': { tintColor: '#1e293b' }
 '.tint-blueGray-900': { tintColor: '#0f172a' }
+```
 
+## touchFeedback & touchFeedbackColor
+```css
 // touchFeedbackColor Property
 '.feedback-transparent': { touchFeedback: true, touchFeedbackColor: 'transparent' }
 '.feedback-black': { touchFeedback: true, touchFeedbackColor: '#000000' }
@@ -4831,17 +4985,19 @@
 '.feedback-blueGray-700': { touchFeedback: true, touchFeedbackColor: '#334155' }
 '.feedback-blueGray-800': { touchFeedback: true, touchFeedbackColor: '#1e293b' }
 '.feedback-blueGray-900': { touchFeedback: true, touchFeedbackColor: '#0f172a' }
+```
 
+## curve
+```css
 // curve Property
 '.ease-in': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN }
 '.ease-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_OUT }
 '.ease-linear': { curve: Ti.UI.ANIMATION_CURVE_LINEAR }
 '.ease-in-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT }
+```
 
-// Debug Mode Property
-'.debug-on': { debug: true }
-'.debug-off': { debug: false }
-
+## delay
+```css
 // delay Property
 '.delay-0': { delay: 0 }
 '.delay-25': { delay: 25 }
@@ -4858,7 +5014,10 @@
 '.delay-3000': { delay: 3000 }
 '.delay-4000': { delay: 4000 }
 '.delay-5000': { delay: 5000 }
+```
 
+## duration
+```css
 // duration Property
 '.duration-0': { duration: 0 }
 '.duration-25': { duration: 25 }
@@ -4872,12 +5031,18 @@
 '.duration-700': { duration: 700 }
 '.duration-1000': { duration: 1000 }
 '.duration': { duration: 150 }
+```
 
+## verticalAlign
+```css
 // verticalAlign Property
 '.align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
 '.align-middle': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
 '.align-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
+```
 
+## width
+```css
 // width Property
 '.w-0': { width: 0 }
 '.w-1': { width: 4 }
@@ -4945,3 +5110,74 @@
 '.w-11/12': { width: '91.666667%' }
 '.w-full': { width: '100%' }
 '.w-screen': { width: Ti.UI.FILL }
+```
+
+## Grid System
+```css
+// Grid Column Start / End Property
+'.col-span-1': { width: '8.333334%' }
+'.col-span-2': { width: '16.666667%' }
+'.col-span-3': { width: '25%' }
+'.col-span-4': { width: '33.333334%' }
+'.col-span-5': { width: '41.666667%' }
+'.col-span-6': { width: '50%' }
+'.col-span-7': { width: '58.333334%' }
+'.col-span-8': { width: '66.666667%' }
+'.col-span-9': { width: '75%' }
+'.col-span-10': { width: '83.333334%' }
+'.col-span-11': { width: '91.666667%' }
+'.col-span-12': { width: '100%' }
+```
+
+## gridFlow
+```css
+// Grid Row Start / End Property
+'.row-span-1': { height: '8.333334%' }
+'.row-span-2': { height: '16.666667%' }
+'.row-span-3': { height: '25%' }
+'.row-span-4': { height: '33.333334%' }
+'.row-span-5': { height: '41.666667%' }
+'.row-span-6': { height: '50%' }
+'.row-span-7': { height: '58.333334%' }
+'.row-span-8': { height: '66.666667%' }
+'.row-span-9': { height: '75%' }
+'.row-span-10': { height: '83.333334%' }
+'.row-span-11': { height: '91.666667%' }
+'.row-span-12': { height: '100%' }
+```
+
+## grid
+```css
+// grid and gridFlow Property
+'.grid': { layout: 'horizontal' }
+'.grid-flow-col': { layout: 'horizontal' }
+'.grid-flow-row': { layout: 'vertical' }
+
+// Grid Template Columns Property
+'.grid-cols-1': { width: '100%' }
+'.grid-cols-2': { width: '50%' }
+'.grid-cols-3': { width: '33.333334%' }
+'.grid-cols-4': { width: '25%' }
+'.grid-cols-5': { width: '20%' }
+'.grid-cols-6': { width: '16.666667%' }
+'.grid-cols-7': { width: '14.285714%' }
+'.grid-cols-8': { width: '12.5%' }
+'.grid-cols-9': { width: '11.111111%' }
+'.grid-cols-10': { width: '10%' }
+'.grid-cols-11': { width: '9.090909%' }
+'.grid-cols-12': { width: '8.333334%' }
+
+// Grid Template Rows Property
+'.grid-rows-1': { height: '100%' }
+'.grid-rows-2': { height: '50%' }
+'.grid-rows-3': { height: '33.333334%' }
+'.grid-rows-4': { height: '25%' }
+'.grid-rows-5': { height: '20%' }
+'.grid-rows-6': { height: '16.666667%' }
+'.grid-rows-7': { height: '14.285714%' }
+'.grid-rows-8': { height: '12.5%' }
+'.grid-rows-9': { height: '11.111111%' }
+'.grid-rows-10': { height: '10%' }
+'.grid-rows-11': { height: '9.090909%' }
+'.grid-rows-12': { height: '8.333334%' }
+```

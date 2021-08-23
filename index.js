@@ -9,6 +9,7 @@ const readCSS = require('read-css');
 const traverse = require('traverse');
 const { config, exit } = require('process');
 const colores = require('./lib/colores').colores;
+const { includes } = require('lodash');
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
 
@@ -40,6 +41,7 @@ const dest_appTSSFile = cwd + '/app/styles/_app.tss';
 const destConfigJSFile = cwd + '/purgetss/config.js';
 //
 const srcLibLI = path.resolve(__dirname, './dist/lineicons.js');
+const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
 const srcLibMD = path.resolve(__dirname, './dist/materialdesignicons.js');
 
@@ -151,7 +153,17 @@ function copyFontLibraries(options) {
 }
 module.exports.copyFontLibraries = copyFontLibraries;
 
-function getFileUpdatedDate (path) {
+function copyModulesLibrary() {
+	if (alloyProject()) {
+		makeSureFolderExists(destLibFolder);
+
+		fs.copyFileSync(srcPurgeTSSLibrary, destLibFolder + '/purgetss.ui.js');
+		logger.info('PurgeTSS modules copied to', chalk.yellow('./app/lib'), 'folder');
+	}
+}
+module.exports.copyModulesLibrary = copyModulesLibrary;
+
+function getFileUpdatedDate(path) {
 	return fs.statSync(path).mtime;
 }
 
@@ -166,7 +178,7 @@ function purgeClasses(options) {
 
 		let tempPurged = copyResetTemplateAnd_appTSS();
 
-		tempPurged += purgeTailwind(uniqueClasses);
+		tempPurged += purgeTailwind2(uniqueClasses);
 
 		tempPurged += purgeFontAwesome(uniqueClasses);
 
@@ -198,6 +210,74 @@ function init() {
 	}
 }
 module.exports.init = init;
+
+//! Command: create
+function create(args) {
+	const { exec } = require("child_process");
+	const commandExistsSync = require('command-exists').sync;
+
+	logger.info('Creating a new Titanium Project with `purgeTSS`...');
+
+	exec(`ti config app.idprefix && ti config app.workspace`, (error, stdout, stderr) => {
+		if (error) {
+			return logger.error(error);
+		}
+
+		if (stderr) {
+			return logger.warn(stderr);
+		}
+
+		let results = stdout.split('\n');
+
+		let idPrefix = results[0];
+		let workspace = results[1];
+
+		if (idPrefix && workspace) {
+			let theIDPrefix = `${idPrefix}.${args.name.replace(/ /g, '').toLowerCase()}`;
+
+			let tiCreateCommand = `ti create -t app -p all -n "${args.name}" --no-prompt --id ${theIDPrefix}`;
+
+			exec(tiCreateCommand, (error, stdout, stderr) => {
+				if (error) {
+					return logger.error(error);
+				}
+
+				if (stderr) {
+					return logger.warn(stderr);
+				}
+
+				logger.info(stdout);
+
+				let theOpenCommand;
+				// returns true/false; doesn't throw
+				if (commandExistsSync('code')) {
+					theOpenCommand = 'code .';
+				} else if (commandExistsSync('subl')) {
+					theOpenCommand = 'subl .';
+				} else {
+					theOpenCommand = 'open .';
+				}
+
+				let cdToProject = `cd ${workspace}/"${args.name}" && alloy new && purgetss w && purgetss b && ${theOpenCommand}`;
+
+				exec(cdToProject, (error, stdout, stderr) => {
+					if (error) {
+						return logger.error(error);
+					}
+
+					if (stderr) {
+						return logger.warn(stderr);
+					}
+
+					logger.info(stdout);
+				});
+			});
+		} else {
+			return logger.error('You need to have `app.idprefix` and `app.workspace` configure in `ti config` to create an App with `purgeTSS`.');
+		}
+	});
+}
+exports.create = create;
 
 //! Command: build-custom
 function buildCustom() {
@@ -453,16 +533,16 @@ function copyFile(src, dest) {
 function getUniqueClasses() {
 	let configFile = (fs.existsSync(destConfigJSFile)) ? require(destConfigJSFile) : false;
 
-	let safelist = false;
 	let widgets = false;
+	let safelist = false;
 	let purgeMode = 'all';
 	let purgeOptions = false;
 
 	if (configFile.purge) {
-		purgeMode = configFile.purge.mode || 'all';
 		purgeOptions = configFile.purge.options || false;
-		safelist = purgeOptions.safelist || false;
 		widgets = purgeOptions.widgets || false;
+		safelist = purgeOptions.safelist || false;
+		purgeMode = configFile.purge.mode || 'all';
 	}
 
 	let viewPaths = [];
@@ -500,7 +580,7 @@ function getUniqueClasses() {
 		}
 	});
 
-	return uniqueClasses;
+	return uniqueClasses.sort();
 }
 
 function filterCharacters(uniqueClass) {
@@ -554,100 +634,123 @@ function buildCustomTailwind(message = 'file created!') {
 		height: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height)
 	}
 
-	// Reset some stiles
-	configFile.theme['.clip-disabled'] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_DISABLED' } }, configFile.theme['.clip-disabled']);
-	configFile.theme['.clip-enabled'] = _.merge({ ios: { clipMode: 'Ti.UI.iOS.CLIP_MODE_ENABLED' } }, configFile.theme['.clip-enabled']);
-	configFile.theme['.horizontal'] = _.merge({ default: { layout: 'horizontal' } }, configFile.theme['.horizontal']);
-	configFile.theme['.vertical'] = _.merge({ default: { layout: 'vertical' } }, configFile.theme['.vertical']);
+	// Have to 'fix' any '.333333%' value to '.333334%' to propertly fit the screen
+	_.each(base.spacing, (value, key) => {
+		if (value.toString().includes('.333333%')) {
+			base.spacing[key] = value.replace('.333333%', '.333334%');
+		}
+	});
+
 	configFile.theme['ImageView'] = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
+	configFile.theme['Label'] = _.merge({ default: { width: 'Ti.UI.FILL', height: 'Ti.UI.SIZE' } }, configFile.theme.Label);
 	configFile.theme['View'] = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
 	configFile.theme['Window'] = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 
-	// color
 	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor', true);
 
-	// backgroundColor
 	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor', true);
 
-	// backgroundSelectedColor
 	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor', true);
 
-	// borderColor
 	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor', true);
 
-	// placeholderColor
+	configFile.theme.pagingControlAlpha = (configFile.theme.opacity) ? _.merge(configFile.theme.opacity, configFile.theme.extend.opacity) : _.merge(defaultTheme.opacity, configFile.theme.extend.opacity);
+
+	configFile.theme.pagingControlTimeout = { ...defaultTheme.transitionDelay, ...configFile.theme.transitionDelay, ...configFile.theme.extend.transitionDelay };
+
+	configFile.theme.pagingControlColor = combineKeys(configFile.theme, base.colors, 'pagingControlColor', true);
+
+	configFile.theme.pageIndicatorColor = combineKeys(configFile.theme, base.colors, 'pageIndicatorColor', true);
+
+	configFile.theme.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor', true);
+
+	// pagingControlHeight
+	delete base.height['max'];
+	delete base.height['min'];
+	delete base.height['min-content'];
+	delete base.height['max-content'];
+
+	configFile.theme.pagingControlHeight = base.height;
+
 	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor', true);
 
-	// touchFeedbackColor
 	configFile.theme.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor', true);
 
-	// Gradient Color Stops
 	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops', true);
 
-	// Background Gradient
-	configFile.theme.backgroundGradient = {};
+	configFile.theme.linearGradient = {};
+	configFile.theme.radialGradient = {};
 
-	// Object Position
 	configFile.theme.placement = {};
 
-	// Font Sizes
 	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize', false);
 
-	// Font Style
 	configFile.theme.fontStyle = {};
 
-	// Font Weight
 	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight', true);
 
-	// Font Family
 	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily', false);
+
 	if (!Object.keys(configFile.theme.fontFamily).length) {
 		delete configFile.theme.fontFamily;
 	}
 
-	// Text Align
+	configFile.theme.gaps = combineKeys(configFile.theme, base.spacing, 'margin', true);
+
+	configFile.theme.gridFlow = {};
+
+	configFile.theme.gridSystem = {};
+
+	configFile.theme.gridColumnsStartEnd = {};
+
 	configFile.theme.textAlign = {};
 
-	// Vertical Alignment
 	configFile.theme.verticalAlignment = {};
 	configFile.theme.scrollableRegion = {};
 	configFile.theme.scrollIndicators = {};
 	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor', true);
 
-	// Border Radius ( Extra Styles )
 	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
 	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius', true);
 
-	// Border Width
 	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth', false);
 
-	// Display
 	configFile.theme.displayUtilities = {};
 
-	// Margin
 	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin', true);
 
-	// Padding
 	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding', true);
 
-	// Sizing
 	configFile.theme.width = base.width;
 	configFile.theme.height = base.height;
 
-	// Box Shadow
 	configFile.theme.shadow = {};
 
-	// Opacity
 	configFile.theme.opacity = (configFile.theme.opacity) ? _.merge(configFile.theme.opacity, configFile.theme.extend.opacity) : _.merge(defaultTheme.opacity, configFile.theme.extend.opacity);
 
-	// Interactivity
 	configFile.theme.interactivity = {};
 
-	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8');
+	configFile.theme.items = {};
+	configFile.theme.layout = {};
+	configFile.theme.clipMode = {};
+	configFile.theme.scrollType = {};
+	configFile.theme.transition = {};
+	configFile.theme.exitOnClose = {};
+	configFile.theme.defaultImage = {};
+	configFile.theme.autoreverse = {};
+	configFile.theme.repeat = { ...configFile.theme.repeat, ...configFile.theme.extend.repeat };
+	configFile.theme.origin = { ...configFile.theme.origin, ...configFile.theme.extend.origin };
+	configFile.theme.scale = { ...defaultTheme.scale, ...configFile.theme.scale, ...configFile.theme.extend.scale };
+	configFile.theme.rotate = { ...defaultTheme.rotate, ...configFile.theme.rotate, ...configFile.theme.extend.rotate };
+	configFile.theme.transitionDelay = { ...defaultTheme.transitionDelay, ...configFile.theme.transitionDelay, ...configFile.theme.extend.transitionDelay };
+	configFile.theme.transitionDuration = { ...defaultTheme.transitionDuration, ...configFile.theme.transitionDuration, ...configFile.theme.extend.transitionDuration };
 
-	tailwindStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8');
-
-	tailwindStyles += `// Updated At: ${getFileUpdatedDate(destConfigJSFile)}\n` + '\n// Custom Styles and Resets\n';
+	configFile.theme.bounce = {};
+	configFile.theme.overlay = {};
+	configFile.theme.platform = {};
+	configFile.theme.scrolling = {};
+	configFile.theme.pagingControl = {};
+	configFile.theme.keepScreenOn = {};
 
 	delete configFile.theme.extend;
 	delete configFile.theme.colors;
@@ -659,6 +762,12 @@ function buildCustomTailwind(message = 'file created!') {
 	});
 
 	let sorted = Object.entries(configFile.theme).sort().reduce((object, [key, value]) => (object[key] = value, object), {});
+
+	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8');
+
+	tailwindStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8');
+
+	tailwindStyles += `// Updated At: ${getFileUpdatedDate(destConfigJSFile)}\n` + '\n// Custom Styles and Resets\n';
 
 	_.each(sorted, (value, key) => {
 		tailwindStyles += buildCustomTailwindClasses(key, value);
@@ -672,66 +781,72 @@ function buildCustomTailwind(message = 'file created!') {
 //! Build tailwind's custom values
 function buildCustomTailwindClasses(key, value) {
 	switch (key) {
-		case 'textColor':
-			return helpers.textColor(value);
-		case 'backgroundColor':
-			return helpers.backgroundColor(value);
-		case 'backgroundSelectedColor':
-			return helpers.backgroundSelectedColor(value);
-		case 'borderColor':
-			return helpers.borderColor(value);
-		case 'placeholderColor':
-			return helpers.placeholderColor(value);
-		case 'touchFeedbackColor':
-			return helpers.touchFeedbackColor(value);
-		case 'backgroundGradient':
-			return helpers.backgroundGradient();
-		case 'gradientColorStops':
-			return helpers.gradientColorStops(value);
-		case 'tintColor':
-			return helpers.tintColor(value);
-		case 'placement':
-			return helpers.placement();
-		case 'fontFamily':
-			return helpers.fontFamily(value);
-		case 'fontSize':
-			return helpers.fontSize(value);
-		case 'fontStyle':
-			return helpers.fontStyle();
-		case 'fontWeight':
-			return helpers.fontWeight(value);
-		case 'textAlign':
-			return helpers.textAlign();
-		case 'verticalAlignment':
-			return helpers.verticalAlignment();
-		case 'contentWidth':
-			return helpers.contentWidth();
-		case 'scrollIndicators':
-			return helpers.scrollIndicators();
-		case 'borderRadiusExtraStyles':
-			return helpers.borderRadiusExtraStyles(value);
-		case 'borderWidth':
-			return helpers.borderWidth(value);
-		case 'displayUtilities':
-			return helpers.displayUtilities();
-		case 'scrollableRegion':
-			return helpers.scrollableRegion();
-		case 'margin':
-			return helpers.margin(value, true);
-		case 'padding':
-			return helpers.padding(value);
-		case 'width':
-			return helpers.width(value);
-		case 'height':
-			return helpers.height(value);
-		case 'shadow':
-			return helpers.shadow();
-		case 'opacity':
-			return helpers.opacity(value);
-		case 'interactivity':
-			return helpers.interactivity(value);
-		default:
-			return helpers.customRules(value, key);
+		case 'autoreverse': return helpers.autoreverse();
+		case 'backgroundColor': return helpers.backgroundColor(value);
+		case 'linearGradient': return helpers.linearGradient();
+		case 'radialGradient': return helpers.radialGradient();
+		case 'keepScreenOn': return helpers.keepScreenOn();
+		case 'backgroundSelectedColor': return helpers.backgroundSelectedColor(value);
+		case 'borderColor': return helpers.borderColor(value);
+		case 'borderRadiusExtraStyles': return helpers.borderRadiusExtraStyles(value);
+		case 'borderWidth': return helpers.borderWidth(value);
+		case 'clipMode': return helpers.clipMode();
+		case 'contentWidth': return helpers.contentWidth();
+		case 'defaultImage': return helpers.defaultImage();
+		case 'displayUtilities': return helpers.displayUtilities();
+		case 'exitOnClose': return helpers.exitOnClose();
+		case 'fontFamily': return helpers.fontFamily(value);
+		case 'fontSize': return helpers.fontSize(value);
+		case 'fontStyle': return helpers.fontStyle();
+		case 'fontWeight': return helpers.fontWeight(value);
+		case 'gaps': return helpers.gaps(value);
+		case 'gradientColorStops': return helpers.gradientColorStops(value);
+		case 'gridColumnsStartEnd': return helpers.gridColumnsStartEnd();
+		case 'gridFlow': return helpers.gridFlow();
+		case 'gridSystem': return helpers.gridSystem();
+		case 'height': return helpers.height(value);
+
+		case 'bounce': return helpers.bounce();
+		case 'overlay': return helpers.overlay();
+		case 'platform': return helpers.platform();
+		case 'scrolling': return helpers.scrolling();
+		case 'pagingControl': return helpers.pagingControl();
+
+		case 'pagingControlAlpha': return helpers.pagingControlAlpha(value);
+		case 'pagingControlTimeout': return helpers.pagingControlTimeout(value);
+		case 'pagingControlColor': return helpers.pagingControlColor(value);
+		case 'pageIndicatorColor': return helpers.pageIndicatorColor(value);
+		case 'currentPageIndicatorColor': return helpers.currentPageIndicatorColor(value);
+		case 'pagingControlHeight': return helpers.pagingControlHeight(value);
+
+		case 'interactivity': return helpers.interactivity(value);
+		case 'items': return helpers.items();
+		case 'layout': return helpers.layout();
+		case 'margin': return helpers.margin(value);
+
+		case 'opacity': return helpers.opacity(value);
+		case 'padding': return helpers.padding(value);
+		case 'placeholderColor': return helpers.placeholderColor(value);
+		case 'placement': return helpers.placement();
+		case 'repeat': return helpers.repeat(value);
+		case 'rotate': return helpers.rotate(value);
+		case 'origin': return helpers.origin(value);
+		case 'scale': return helpers.scale(value);
+		case 'scrollableRegion': return helpers.scrollableRegion();
+		case 'scrollIndicators': return helpers.scrollIndicators();
+		case 'scrollType': return helpers.scrollType();
+		case 'shadow': return helpers.shadow();
+		case 'transition': return helpers.transition(value);
+		case 'transitionDelay': return helpers.transitionDelay(value);
+		case 'transitionDuration': return helpers.transitionDuration(value);
+		case 'textAlign': return helpers.textAlign();
+		case 'textColor': return helpers.textColor(value);
+		case 'tintColor': return helpers.tintColor(value);
+		case 'touchFeedbackColor': return helpers.touchFeedbackColor(value);
+		case 'verticalAlignment': return helpers.verticalAlignment();
+		case 'width': return helpers.width(value);
+
+		default: return helpers.customRules(value, key);
 	}
 }
 
@@ -990,56 +1105,58 @@ function purgeTailwind(uniqueClasses) {
 	let soc = sourceTSS.toString(); // soc = String of Classes
 
 	_.each(uniqueClasses, className => {
-		let cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '');
+		let cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('conplete:', '');
 
-		if (soc.includes(`'.${cleanClassName}'`) || soc.includes(`'.${cleanClassName}[`) || soc.includes(`'#${cleanClassName}'`) || soc.includes(`'#${cleanClassName}[`) || soc.includes(`'${cleanClassName}'`) || soc.includes(`'${cleanClassName}[`)) {
+		if (includesClassName(soc, cleanClassName)) {
 			_.each(sourceTSS, line => {
-				if (line.startsWith(`'.${cleanClassName}'`) || line.startsWith(`'.${cleanClassName}[`) || line.startsWith(`'#${cleanClassName}'`) || line.startsWith(`'#${cleanClassName}[`) || line.startsWith(`'${cleanClassName}'`) || line.startsWith(`'${cleanClassName}[`)) {
+				if (startsWith(line, cleanClassName)) {
+					purgedClasses += helpers.checkPlatformAndDevice(line, className);
 					// https://regex101.com/r/YXLWYt/1
-					if (className.includes('ios:')) {
-						purgedClasses += (line.includes('platform=ios'))
-							? `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`
-							: `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
-					} else if (className.includes('android:')) {
-						purgedClasses += (line.includes('platform=android'))
-							? `${line.replace(/[^'.]+|1/, `android:$&`)}\n`
-							: `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
-					} else if (className.includes('handheld:')) {
-						purgedClasses += (line.includes('formFactor=handheld'))
-							? `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`
-							: `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
-					} else if (className.includes('tablet:')) {
-						purgedClasses += (line.includes('formFactor=tablet'))
-							? `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`
-							: `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
-					} else {
-						purgedClasses += `${line}\n`;
-					}
+					// if (className.includes('ios:')) {
+					// 	purgedClasses += (line.includes('platform=ios'))
+					// 		? `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`
+					// 		: `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
+					// } else if (className.includes('android:')) {
+					// 	purgedClasses += (line.includes('platform=android'))
+					// 		? `${line.replace(/[^'.]+|1/, `android:$&`)}\n`
+					// 		: `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
+					// } else if (className.includes('handheld:')) {
+					// 	purgedClasses += (line.includes('formFactor=handheld'))
+					// 		? `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`
+					// 		: `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
+					// } else if (className.includes('tablet:')) {
+					// 	purgedClasses += (line.includes('formFactor=tablet'))
+					// 		? `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`
+					// 		: `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
+					// } else {
+					// 	purgedClasses += `${line}\n`;
+					// }
 				}
 			});
 		} else if (cleanClassName.includes('(')) {
 			let line = formatArbitraryValues(cleanClassName);
 
 			if (line) {
-				if (className.includes('ios:')) {
-					purgedClasses += (className.includes('platform=ios'))
-					? `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`
-					: `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
-				} else if (className.includes('android:')) {
-					purgedClasses += (className.includes('platform=android'))
-					? `${line.replace(/[^'.]+|1/, `android:$&`)}\n`
-					: `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
-				} else if (className.includes('handheld:')) {
-					purgedClasses += (className.includes('formFactor=handheld'))
-					? `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`
-					: `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
-				} else if (className.includes('tablet:')) {
-					purgedClasses += (className.includes('formFactor=tablet'))
-					? `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`
-					: `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
-				} else {
-					purgedClasses += line + '\n';
-				}
+				purgedClasses += helpers.checkPlatformAndDevice(line, className);
+				// if (className.includes('ios:')) {
+				// 	purgedClasses += (className.includes('platform=ios'))
+				// 	? `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`
+				// 	: `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
+				// } else if (className.includes('android:')) {
+				// 	purgedClasses += (className.includes('platform=android'))
+				// 	? `${line.replace(/[^'.]+|1/, `android:$&`)}\n`
+				// 	: `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
+				// } else if (className.includes('handheld:')) {
+				// 	purgedClasses += (className.includes('formFactor=handheld'))
+				// 	? `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`
+				// 	: `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
+				// } else if (className.includes('tablet:')) {
+				// 	purgedClasses += (className.includes('formFactor=tablet'))
+				// 	? `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`
+				// 	: `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
+				// } else {
+				// 	purgedClasses += line + '\n';
+				// }
 			}
 		}
 	});
@@ -1047,19 +1164,118 @@ function purgeTailwind(uniqueClasses) {
 	return purgedClasses;
 }
 
+function purgeTailwind2(uniqueClasses) {
+	let tailwindFile = '';
+	let purgedClasses = '';
+
+	if (fs.existsSync(customTailwindFile)) {
+		tailwindFile = customTailwindFile;
+		purgedClasses = '\n// Custom Tailwind Styles\n';
+	} else {
+		tailwindFile = defaultTailwindFile;
+		purgedClasses = '\n// Default Tailwind Styles\n';
+	}
+
+	let tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
+
+	if (`// Updated At: ${getFileUpdatedDate(destConfigJSFile)}` !== tailwindClasses[7]) {
+		logger.info(chalk.yellow('config.js'), 'file updated!, rebuilding tailwind.tss...');
+		buildCustomTailwind('file updated!');
+		tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
+	}
+
+	(fs.existsSync(customTailwindFile)) ? logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...') : logger.info('Purging Default Tailwind styles...');
+
+	let cleanUniqueClasses = [];
+	let soc = tailwindClasses.toString();
+	let arbitraryValues = '\n// Classes with arbitrary values\n';
+
+	_.each(uniqueClasses, className => {
+		let cleanClassName = cleanClassNameFn(className);
+
+		if (includesClassName(soc, cleanClassName)) {
+			cleanUniqueClasses.push(className);
+		} else if (cleanClassName.includes('(')) {
+			let line = formatArbitraryValues(cleanClassName);
+			if (line) {
+				arbitraryValues += helpers.checkPlatformAndDevice(line, className);
+			}
+		}
+	});
+
+	_.each(tailwindClasses, tailwindClass => {
+		if (tailwindClass !== '' && !tailwindClass.includes('//')) {
+			let cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '')}`;
+
+			if (cleanUniqueClasses.indexOf(cleanTailwindClass) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]);
+			}
+
+			if (cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`)]);
+			}
+
+			if (cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`)]);
+			}
+
+			if (cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`)]);
+			}
+
+			if (cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]);
+			}
+
+			if (cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]);
+			}
+
+			if (cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]);
+			}
+
+			if (cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]);
+			}
+		}
+	});
+
+	return purgedClasses += (arbitraryValues !== '\n// Classes with arbitrary values\n') ? arbitraryValues : '';
+}
+
+function checkIndexOf(array, line) {
+	return array.indexOf(line) || array.indexOf(`ios:${line}`) ;
+}
+
+function cleanClassNameFn(className) {
+	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '');
+}
+
+function includesClassName(soc, cleanClassName) {
+	return soc.includes(`'.${cleanClassName}'`) || soc.includes(`'.${cleanClassName}[`) || soc.includes(`'#${cleanClassName}'`) || soc.includes(`'#${cleanClassName}[`) || soc.includes(`'${cleanClassName}'`) || soc.includes(`'${cleanClassName}[`);
+}
+
+function startsWith(line, cleanClassName) {
+	return line.startsWith(`'.${cleanClassName}'`) || line.startsWith(`'.${cleanClassName}[`) || line.startsWith(`'#${cleanClassName}'`) || line.startsWith(`'#${cleanClassName}[`) || line.startsWith(`'${cleanClassName}'`) || line.startsWith(`'${cleanClassName}[`);
+}
+
 const arbitraryValuesTable = {
 	// Check if they are really needed
 	'font': '{ fontWeight: {value} }',
-    'content-w': '{ contentWidth: {value} }',
-    'content-h': '{ contentHeight: {value} }',
-    // 'bg-selected': '{ backgroundSelectedColor: {value} }',
-    'content': '{ contentWidth: {value}, contentHeight: {value} }',
+	'content-w': '{ contentWidth: {value} }',
+	'content-h': '{ contentHeight: {value} }',
+	// 'bg-selected': '{ backgroundSelectedColor: {value} }',
+	'content': '{ contentWidth: {value}, contentHeight: {value} }',
 	// 'shadow': '{ viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: {value} }',
 
+	'anchorPoint': '{ anchorPoint: { x: {value}, y: {value1} } }',
 	'bg': '{ backgroundColor: {value} }',
 	'border-color': '{ borderColor: {value} }',
 	'border-width': '{ borderWidth: {value} }',
 	'bottom': '{ bottom: {value} }',
+	'delay': '{ delay: {value} }',
+	'duration': '{ duration: {value} }',
 	'feedback': '{ touchFeedback: true, touchFeedbackColor: {value} }',
 	'from': '{ backgroundGradient: { colors: [ {value1}, {value} ] } }',
 	'h': '{ height: {value}}',
@@ -1072,6 +1288,11 @@ const arbitraryValuesTable = {
 	'mx': '{ right: {value}, left: {value} }',
 	'my': '{ top: {value}, bottom: {value} }',
 	'opacity': '{ opacity: {value} }',
+
+	'page': '{ pageIndicatorColor: {value} }',
+	'paging': '{ pagingControlColor: {value} }',
+
+	'current-page': '{ currentPageIndicatorColor: {value} }',
 	'p': '{ padding: { top: {value}, right: {value}, bottom: {value}, left: {value} } }',
 	'pb': '{ padding: { bottom: {value} } }',
 	'pl': '{ padding: { left: {value} } }',
@@ -1080,11 +1301,15 @@ const arbitraryValuesTable = {
 	'pt': '{ padding: { top: {value} } }',
 	'px': '{ padding: { right: {value}, left: {value} } }',
 	'py': '{ padding: { top: {value}, bottom: {value} } }',
+	'repeat': '{ repeat: {value} }',
 	'right': '{ right: {value} }',
+	'rotate': '{ rotate: {value} }',
 	'rounded': '{ borderRadius: {value} }',
 	'text-color': '{ color: {value} }',
 	'text-size': '{ font: { fontSize: {value} } }',
 	'tint': '{ tintColor: {value} }',
+	'grid-col': '{ width: Alloy.Globals.cols_{value} }',
+	'grid-row': '{ height: Alloy.Globals.rows_{value} }',
 	'to': '{ backgroundGradient: { colors: [ {value} ] } }',
 	'top': '{ top: {value} }',
 	'w': '{ width: {value} }'
@@ -1114,12 +1339,41 @@ function formatArbitraryValues(arbitraryValue) {
 			properties = _.replace(properties, new RegExp("{value1}", "g"), helpers.addTransparencyToHex(helpers.parseValue(value, sign)));
 		}
 
-		if (!properties) {
-			return `// Property not yet supported: ${arbitraryValue}`;
+		if (rule === 'anchorPoint') {
+			// anchorPoint
+			let value1 = (value.includes(',')) ? value.split(',')[1] : value;
+
+			value = value.split(',')[0];
+
+			properties = _.replace(properties, new RegExp("{value1}", "g"), helpers.parseValue(value1, sign));
 		}
 
-		return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));
+		if (properties) {
+			return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));
+		}
+	} else if (splitedContent.length === 3) {
+		let rule = `${splitedContent[0]}-${splitedContent[1]}`;
+
+		let value = splitedContent[2].match(/(?<=\().*(?=\))/).pop();
+
+		let properties = arbitraryValuesTable[rule];
+
+		if (properties) {
+			return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));
+		}
+	} else if (splitedContent.length === 4) {
+		let rule = `${splitedContent[0]}-${splitedContent[1]}-${splitedContent[2]}`;
+
+		let value = splitedContent[3].match(/(?<=\().*(?=\))/).pop();
+
+		let properties = arbitraryValuesTable[rule];
+
+		if (properties) {
+			return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));
+		}
 	}
+
+	return `// Property not yet supported: ${arbitraryValue}`;
 }
 
 //! FontAwesome
