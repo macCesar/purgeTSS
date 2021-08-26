@@ -1902,7 +1902,7 @@
 // items Property
 '.items-start': { top: 0 }
 '.items-end': { bottom: 0 }
-'.items-center': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+'.items-center': { width: Ti.UI.FILL, height: Ti.UI.FILL }
 
 // keepScreenOn Property
 '.keep-screen-on[platform=android]': { keepScreenOn: true }
@@ -4947,3 +4947,11 @@
 '.w-11/12': { width: '91.666667%' }
 '.w-full': { width: '100%' }
 '.w-screen': { width: Ti.UI.FILL }
+
+// zIndex Property
+'.z-0': { zIndex: 0 }
+'.z-10': { zIndex: 10 }
+'.z-20': { zIndex: 20 }
+'.z-30': { zIndex: 30 }
+'.z-40': { zIndex: 40 }
+'.z-50': { zIndex: 50 }

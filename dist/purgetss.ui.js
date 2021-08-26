@@ -1,4 +1,5 @@
 function Animation(args) {
+	console.log('args:', JSON.stringify(args));
 	let state = {
 		open: false,
 		playing: false,
@@ -10,6 +11,20 @@ function Animation(args) {
 
 	if (args.anchorPoint || args.rotate || args.scale) {
 		args.transform = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args);
+	}
+
+	if (args.animation && (args.animation.open.anchorPoint || args.animation.open.rotate || args.animation.open.scale)) {
+		args.transformOpen = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args.animation.open);
+		delete args.animation.open.scale;
+		delete args.animation.open.rotate;
+		delete args.animation.open.anchorPoint;
+	}
+
+	if (args.animation && (args.animation.close.anchorPoint || args.animation.close.rotate || args.animation.close.scale)) {
+		args.transformClose = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args.animation.close);
+		delete args.animation.close.scale;
+		delete args.animation.close.rotate;
+		delete args.animation.close.anchorPoint;
 	}
 
 	delete args.id;
@@ -24,6 +39,13 @@ function Animation(args) {
 			if (args.animation) {
 				state.open = !state.open;
 				args = state.open ? { ...args, ...args.animation.open } : { ...args, ...args.animation.close };
+
+				if (state.open && args.transformOpen) {
+					args.transform = args.transformOpen;
+				} else if (args.transformClose) {
+					args.transform = args.transformClose;
+				}
+
 				state.open = (args.autoreverse) ? !state.open : state.open;
 			}
 			play(views, _cb, 'play');
