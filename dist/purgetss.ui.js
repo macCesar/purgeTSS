@@ -13,6 +13,7 @@ function Animation(args) {
 		args.transform = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args);
 	}
 
+	// !Testing anchorPoint, rotate and scale when opening and closing states
 	if (args.animation && (args.animation.open.anchorPoint || args.animation.open.rotate || args.animation.open.scale)) {
 		args.transformOpen = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args.animation.open);
 		delete args.animation.open.scale;
