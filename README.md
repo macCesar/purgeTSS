@@ -270,9 +270,10 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 - **`ti config app.idprefix && ti config app.workspace`** To retreive the related values.
 - **`ti create -t app -p all -n "Name of the Project" --no-prompt --id 'the-prefix-id-and-the-name-of-the-project'`** To create an App project with the specified name and its id set automatically.
 - **`cd app.workspace/"Name of the Project"`** Change to the newly created folder.
-- **`alloy new`** To convert it to an Alloy Project
+- **`alloy new`** To convert it to an Alloy Project.
 - **`purgetss w`** To autorun `purgetss` every time you compile your project.
 - **`purgetss b`** To build a new `./purgetss/tailwind.tss` and `./purgetss/config.js` files.
+- **`purgetss f -m `** To copy all the available icon Fonts into your project. Including the CommonJS module into `./app/lib/` folder.
 - **`code .`**, **`subl .`** or **`open .`** It will use either one of these commands to open `VS Code`, `Sublime Text` or the project’s folder in that order.
 
 ## fonts
@@ -283,8 +284,10 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 > purgetss f
 ```
 
-Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [LineIcons](https://lineicons.com/icons/?type=free) fonts into your `app/assets/fonts` folder. With their names fixed to work with your application, either for iOS or Android.
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons), [LineIcons](https://lineicons.com/icons/?type=free) and [Boxicons](https://boxicons.com) fonts into your `app/assets/fonts` folder. With their names fixed to work with your application, either for iOS or Android.
 
+> boxicons.ttf
+>
 > FontAwesome5Brands-Regular.ttf
 >
 > FontAwesome5Free-Regular.ttf
@@ -307,36 +310,42 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 Use any of the following arguments to copy specific vendors:
 
 ```bash
-> purgetss fonts --vendor="fontawesome, materialdesign, lineicons"
+> purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons"
 
 # alias:
 > purgetss f -v=fa,md,li
 ```
 
 Available aliases:
+- bx, box, boxicons = BoxIcons
+- li, line, lineicons = LineIcons
 - fa, font, fontawesome = Font Awesome Icons
 - md, material, materialdesign = Material Design Icons
-- li, line, lineicons = LineIcons
 
 ### Copying corresponding CommonJS Modules
 Add the `--modules` flag to also copy the corresponding CommonJS modules into `./app/lib/` folder:
 
 ```bash
 > purgetss fonts --modules
-> purgetss fonts --modules --vendor="fontawesome, materialdesign, lineicons"
+> purgetss fonts --modules --vendor="fontawesome, materialdesign, lineicons, boxicons"
 
 # alias:
 > purgetss f -m
-> purgetss f -m -v=fa,md,li
+> purgetss f -m -v=fa,md,li,bx
 ```
 
-Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Material Design Icons and Line Icons fonts.
+Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Material Design Icons, Line Icons and Boxicons fonts.
 
 All prefixes are stripped out from the names, for example:
 
-- Font Awesome: `fa-flag` becomes `flag`
 - Line Icons: `lni-flag` becomes `flag`
+- Font Awesome: `fa-flag` becomes `flag`
 - Material Design Icons: `md-flag` becomes `flag`
+
+Except for `boxicons`, because there are three sets of icons in the same font file: Logos, Regular and Solid.
+- Regular: `bx-flag` becomes `bxFlag`
+- Solid: `bxs-flag` becomes `bxsFlag`
+- Logos: Almost all the logos have no conflict with other classes, because almost all have unique names, except for one: `bxl-windows` and `bx-windows`. That's why we are also keeping the prefix for all `logos` variants, so they become: `bxlWindows` for example.
 
 All Icon names are camelCased, `arrow-up` becomes `arrowUp`.
 

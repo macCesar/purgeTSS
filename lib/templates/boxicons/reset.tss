@@ -1,0 +1,11 @@
+// Font Families
+'.bx': { font: { fontFamily: 'boxicons' } }
+
+// Font Sizes
+'.bx-xs': { font: { fontSize: 16 } }
+'.bx-sm': { font: { fontSize: 24.8 } }
+'.bx-md': { font: { fontSize: 36 } }
+'.bx-lg': { font: { fontSize: 48 } }
+
+// Font Icons
+// To use boxicons in Buttons AND Labels each class sets 'text' and 'title' properties

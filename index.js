@@ -39,8 +39,10 @@ const destAppTSSFile = cwd + '/app/styles/app.tss';
 const srcAppPTSSFile = cwd + '/app/styles/app.ptss';
 const dest_appTSSFile = cwd + '/app/styles/_app.tss';
 const destConfigJSFile = cwd + '/purgetss/config.js';
-//
+
+// js icon modules
 const srcLibLI = path.resolve(__dirname, './dist/lineicons.js');
+const srcLibBX = path.resolve(__dirname, './dist/boxicons.js');
 const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
 const srcLibMD = path.resolve(__dirname, './dist/materialdesignicons.js');
@@ -87,6 +89,7 @@ const srcResetTSSFile = path.resolve(__dirname, './dist/reset.tss');
 const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
 const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss');
 const srcLineiconsFontTSSFile = path.resolve(__dirname, './dist/lineicons.tss');
+const srcBoxIconsFontTSSFile = path.resolve(__dirname, './dist/boxicons.tss');
 const srcPurgetssConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
 const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialdesignicons.tss');
 //
@@ -125,6 +128,7 @@ function copyFonts(options) {
 			copyFont('fa');
 			copyFont('li');
 			copyFont('md');
+			copyFont('bx');
 		}
 
 		if (options.modules) {
@@ -148,6 +152,7 @@ function copyFontLibraries(options) {
 			copyFontLibrary('fa');
 			copyFontLibrary('li');
 			copyFontLibrary('md');
+			copyFontLibrary('bx');
 		}
 	}
 }
@@ -185,6 +190,8 @@ function purgeClasses(options) {
 		tempPurged += purgeMaterialDesign(uniqueClasses);
 
 		tempPurged += purgeLineIcons(uniqueClasses);
+
+		tempPurged += purgeBoxIcons(uniqueClasses);
 
 		saveFile(destAppTSSFile, tempPurged);
 
@@ -233,7 +240,7 @@ function create(args) {
 		let workspace = results[1];
 
 		if (idPrefix && workspace) {
-			let theIDPrefix = `${idPrefix}.${args.name.replace(/ /g, '').toLowerCase()}`;
+			let theIDPrefix = `${idPrefix}.${args.name.replace(/ /g, '').replace(/_/g, '').toLowerCase()}`;
 
 			let tiCreateCommand = `ti create -t app -p all -n "${args.name}" --no-prompt --id ${theIDPrefix}`;
 
@@ -258,7 +265,7 @@ function create(args) {
 					theOpenCommand = 'open .';
 				}
 
-				let cdToProject = `cd ${workspace}/"${args.name}" && alloy new && purgetss w && purgetss b && ${theOpenCommand}`;
+				let cdToProject = `cd ${workspace}/"${args.name}" && alloy new && purgetss w && purgetss b && purgetss f -m && ${theOpenCommand}`;
 
 				exec(cdToProject, (error, stdout, stderr) => {
 					if (error) {
@@ -424,6 +431,12 @@ function copyLineIconsFonts() {
 	// LineIcons Font
 	copyFile(srcFontsFolder + '/LineIcons.ttf', 'LineIcons.ttf');
 	logger.info('LineIcons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
+}
+
+function copyBoxIconsFonts() {
+	// BoxIcons Font
+	copyFile(srcFontsFolder + '/boxicons.ttf', 'boxicons.ttf');
+	logger.info('Boxicons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
 
 function processFontawesomeStyles(data) {
@@ -752,6 +765,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.pagingControl = {};
 	configFile.theme.pagingControlOnTop = {};
 	configFile.theme.keepScreenOn = {};
+	configFile.theme.zIndex = { ...defaultTheme.zIndex, ...configFile.theme.zIndex, ...configFile.theme.extend.zIndex };
 
 	delete configFile.theme.extend;
 	delete configFile.theme.colors;
@@ -806,6 +820,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'gridFlow': return helpers.gridFlow();
 		case 'gridSystem': return helpers.gridSystem();
 		case 'height': return helpers.height(value);
+		case 'zIndex': return helpers.zIndex(value);
 
 		case 'bounce': return helpers.bounce();
 		case 'overlay': return helpers.overlay();
@@ -926,6 +941,11 @@ function copyFont(vendor) {
 		case 'lineicons':
 			copyLineIconsFonts();
 			break;
+		case 'bx':
+		case 'box':
+		case 'boxicons':
+			copyBoxIconsFonts();
+			break;
 	}
 }
 
@@ -953,6 +973,12 @@ function copyFontLibrary(vendor) {
 		case 'lineicons':
 			fs.copyFileSync(srcLibLI, destLibFolder + '/lineicons.js');
 			logger.info('LI CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			break;
+		case 'bx':
+		case 'box':
+		case 'boxicons':
+			fs.copyFileSync(srcLibBX, destLibFolder + '/boxicons.js');
+			logger.info('BX CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 	}
 }
@@ -1247,7 +1273,7 @@ function purgeTailwind2(uniqueClasses) {
 }
 
 function checkIndexOf(array, line) {
-	return array.indexOf(line) || array.indexOf(`ios:${line}`) ;
+	return array.indexOf(line) || array.indexOf(`ios:${line}`);
 }
 
 function cleanClassNameFn(className) {
@@ -1451,6 +1477,28 @@ function purgeLineIcons(uniqueClasses) {
 	});
 
 	return (purgedClasses === '\n// LineIcons styles\n') ? '' : purgedClasses;
+}
+
+//! BoxIcons
+function purgeBoxIcons(uniqueClasses) {
+	logger.info('Purging BoxIcons styles...');
+
+	let purgedClasses = '\n// BoxIcons styles\n';
+
+	let sourceTSS = fs.readFileSync(srcBoxIconsFontTSSFile, 'utf8').split(/\r?\n/);
+	let soc = sourceTSS.toString(); // soc = String of Classes
+
+	_.each(uniqueClasses, className => {
+		if (soc.includes(`'.${className}'`)) {
+			_.each(sourceTSS, line => {
+				if (line.startsWith(`'.${className}'`)) {
+					purgedClasses += `${line}\n`;
+				}
+			});
+		}
+	});
+
+	return (purgedClasses === '\n// Boxicons styles\n') ? '' : purgedClasses;
 }
 
 function saveFile(file, data) {
