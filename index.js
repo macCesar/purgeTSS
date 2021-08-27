@@ -219,7 +219,7 @@ function init() {
 module.exports.init = init;
 
 //! Command: create
-function create(args) {
+function create(args, options) {
 	const { exec } = require("child_process");
 	const commandExistsSync = require('command-exists').sync;
 
@@ -230,9 +230,9 @@ function create(args) {
 			return logger.error(error);
 		}
 
-		if (stderr) {
-			return logger.warn(stderr);
-		}
+		// if (stderr) {
+		// 	return logger.warn(stderr);
+		// }
 
 		let results = stdout.split('\n');
 
@@ -249,9 +249,9 @@ function create(args) {
 					return logger.error(error);
 				}
 
-				if (stderr) {
-					return logger.warn(stderr);
-				}
+				// if (stderr) {
+				// 	return logger.warn(stderr);
+				// }
 
 				logger.info(stdout);
 
@@ -265,16 +265,17 @@ function create(args) {
 					theOpenCommand = 'open .';
 				}
 
-				let cdToProject = `cd ${workspace}/"${args.name}" && alloy new && purgetss w && purgetss b && purgetss f -m && ${theOpenCommand}`;
+				let fonts = (options.vendor) ? `&& purgetss f -m -v=${options.vendor}` : '';
+				let cdToProject = `cd ${workspace}/"${args.name}" && alloy new && purgetss w && purgetss b ${fonts} && ${theOpenCommand}`;
 
 				exec(cdToProject, (error, stdout, stderr) => {
 					if (error) {
 						return logger.error(error);
 					}
 
-					if (stderr) {
-						return logger.warn(stderr);
-					}
+					// if (stderr) {
+					// 	return logger.warn(stderr);
+					// }
 
 					logger.info(stdout);
 				});

@@ -61,6 +61,7 @@ The following is a list of all the properties and their repective class name.
   - [Grid System](#grid-system)
   - [gridFlow](#gridflow)
   - [grid](#grid)
+  - [zIndex](#zindex)
 
 ## autoreverse
 Specifies if the animation should be replayed in reverse upon completion.
@@ -5180,4 +5181,15 @@ Control the background color of an element using the `bg-{color}` utilities
 '.grid-rows-10': { height: '10%' }
 '.grid-rows-11': { height: '9.090909%' }
 '.grid-rows-12': { height: '8.333334%' }
+```
+
+## zIndex
+```css
+// zIndex Property
+'.z-0': { zIndex: 0 }
+'.z-10': { zIndex: 10 }
+'.z-20': { zIndex: 20 }
+'.z-30': { zIndex: 30 }
+'.z-40': { zIndex: 40 }
+'.z-50': { zIndex: 50 }
 ```

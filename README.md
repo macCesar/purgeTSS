@@ -243,10 +243,10 @@ Use the new **`purgetss module`** command to install the module library in your 
 ## create (Experimental)
 If you want to create a new Alloy Project with `purgetss` already configured, use the `create` command.
 ```bash
-> purgetss create 'Name of the Project'
+> purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons"]
 
 # alias:
-> purgetss c 'Name of the Project'
+> purgetss c 'Name of the Project' [-v=fa,md,li,bx]
 ```
 
 You'll have to have `app.idprefix` and `app.idprefix` already configured in `ti config`.
@@ -273,7 +273,7 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 - **`alloy new`** To convert it to an Alloy Project.
 - **`purgetss w`** To autorun `purgetss` every time you compile your project.
 - **`purgetss b`** To build a new `./purgetss/tailwind.tss` and `./purgetss/config.js` files.
-- **`purgetss f -m `** To copy all the available icon Fonts into your project. Including the CommonJS module into `./app/lib/` folder.
+- **`[-v=fa,md,li,bx]`** To copy the selected fonts with the optional `-v` argument into your project. Including the CommonJS module into `./app/lib/` folder.
 - **`code .`**, **`subl .`** or **`open .`** It will use either one of these commands to open `VS Code`, `Sublime Text` or the project’s folder in that order.
 
 ## fonts
@@ -313,7 +313,7 @@ Use any of the following arguments to copy specific vendors:
 > purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons"
 
 # alias:
-> purgetss f -v=fa,md,li
+> purgetss f -v=fa,md,li,bx
 ```
 
 Available aliases:

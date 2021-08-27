@@ -1,5 +1,4 @@
 function Animation(args) {
-	console.log('args:', JSON.stringify(args));
 	let state = {
 		open: false,
 		playing: false,
@@ -13,15 +12,14 @@ function Animation(args) {
 		args.transform = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args);
 	}
 
-	// !Testing anchorPoint, rotate and scale when opening and closing states
-	if (args.animation && (args.animation.open.anchorPoint || args.animation.open.rotate || args.animation.open.scale)) {
+	if (args.animation && args.animation.open && (args.animation.open.anchorPoint || args.animation.open.rotate || args.animation.open.scale)) {
 		args.transformOpen = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args.animation.open);
 		delete args.animation.open.scale;
 		delete args.animation.open.rotate;
 		delete args.animation.open.anchorPoint;
 	}
 
-	if (args.animation && (args.animation.close.anchorPoint || args.animation.close.rotate || args.animation.close.scale)) {
+	if (args.animation && args.animation.close && (args.animation.close.anchorPoint || args.animation.close.rotate || args.animation.close.scale)) {
 		args.transformClose = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args.animation.close);
 		delete args.animation.close.scale;
 		delete args.animation.close.rotate;

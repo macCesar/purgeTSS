@@ -27,9 +27,10 @@ program
 	.alias('c')
 	.description('Creates a new Alloy Project with `purgetss` already configured.')
 	.help('Creates a new Alloy Project with `purgetss` already configured.')
+	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons')
 	.argument('<name>', 'The name of the project')
-	.action((args) => {
-		purgetss.create(args);
+	.action((args, options, logger) => {
+		purgetss.create(args, options);
 	});
 
 program
