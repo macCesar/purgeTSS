@@ -163,15 +163,18 @@ function Animation(args) {
 
 	function checkDraggable(_view, _action) {
 		logger('   Check Draggable');
+		let draggingType = (_view.draggingType) ? _view.draggingType : args.draggingType;
 		if (_action === 'drag' && _view.draggable && _view.draggable.drag) {
-			(_view.draggingType === 'apply') ? _view.applyProperties(_view.draggable.drag) : _view.animate(Ti.UI.createAnimation(_view.draggable.drag));
+			let theArgs = (args.draggable) ? { ...args.draggable.drag, ..._view.draggable.drag } : _view.draggable.drag;
+			(draggingType === 'apply') ? _view.applyProperties(theArgs) : _view.animate(Ti.UI.createAnimation(theArgs));
 		} else if (_action === 'drop' && _view.draggable && _view.draggable.drop) {
-			(_view.draggingType === 'apply') ? _view.applyProperties(_view.draggable.drop) : _view.animate(Ti.UI.createAnimation(_view.draggable.drop));
+			let theArgs = (args.draggable) ? { ...args.draggable.drop, ..._view.draggable.drop } : _view.draggable.drop;
+			(draggingType === 'apply') ? _view.applyProperties(theArgs) : _view.animate(Ti.UI.createAnimation(theArgs));
 		} else if (args.draggable) {
 			if (_action === 'drag') {
-				(args.draggingType === 'apply') ? _view.applyProperties(args.draggable.drag) : _view.animate(Ti.UI.createAnimation(args.draggable.drag));
+				(draggingType === 'apply') ? _view.applyProperties(args.draggable.drag) : _view.animate(Ti.UI.createAnimation(args.draggable.drag));
 			} else if (_action === 'drop') {
-				(args.draggingType === 'apply') ? _view.applyProperties(args.draggable.drop) : _view.animate(Ti.UI.createAnimation(args.draggable.drop));
+				(draggingType === 'apply') ? _view.applyProperties(args.draggable.drop) : _view.animate(Ti.UI.createAnimation(args.draggable.drop));
 			}
 		}
 	}
