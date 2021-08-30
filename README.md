@@ -34,29 +34,33 @@ It is an all-round package for all Titanium Developers who want to easily and qu
 ```
 
 ## Example files
-Use this markup to test purgeTSS.
+**Steps to use the example files:**
+- Copy the content of `index.xml` and `app.tss` to your project.
+- Install Fontawesome font files with `purgetss fonts --vendor="fontawesome"`
+- Run `purgetss` to process and `purge` the `xml` file.
+- Compile your app
 
 `index.xml`
 ```xml
 <Alloy>
   <Window class="bg-primary">
-    <View class="w-auto h-auto bg-white rounded-lg">
-      <View class="w-10/12 mx-auto my-4 vertical">
+    <View class="w-10/12 h-auto bg-white rounded-lg">
+      <View class="m-4 vertical">
         <ImageView class="w-16 h-16 mx-auto rounded-16" image="https://randomuser.me/api/portraits/men/43.jpg" />
 
         <View class="vertical">
           <Label class="text-lg font-semibold text-center text-gray-900">John W. Doe</Label>
           <Label class="text-sm text-center text-purple-600 mt-0.5">Product Engineer</Label>
 
-          <View class="w-screen">
+          <View class="w-screen mt-6">
             <View class="ml-0 horizontal">
-              <Label class="w-auto mr-1 text-xs text-gray-600 far fa-envelope"></Label>
-              <Label class="w-auto text-xs text-gray-600">john@internet.com</Label>
+              <Label class="mr-1 text-xs text-gray-600 far fa-envelope"></Label>
+              <Label class="text-xs text-gray-600">john@internet.com</Label>
             </View>
 
             <View class="mr-0 horizontal">
-              <Label class="w-auto mr-1 text-xs text-gray-600 fas fa-phone-alt"></Label>
-              <Label class="w-auto text-xs text-gray-600">(555) 765-4321</Label>
+              <Label class="mr-1 text-xs text-gray-600 fas fa-phone-alt"></Label>
+              <Label class="text-xs text-gray-600">(555) 765-4321</Label>
             </View>
           </View>
         </View>
@@ -66,18 +70,13 @@ Use this markup to test purgeTSS.
 </Alloy>
 ```
 
-Put this class in your original `app.tss` file
+`app.tss`
 ```css
 '.bg-primary': {
   backgroundColor: '#002359'
 }
 ```
 
-## Parse your XML files
-Run `purgetss`
-```bash
-> purgetss
-```
 After running `purgetss` you will have a new `app.tss` file with only the classes used in your XML files.
 
 **Your original `app.tss` file is backed up in `_app.tss`. Use this file if you need to add, delete or update any of your original styles.**
@@ -97,7 +96,6 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 
 // Custom Tailwind Styles
 'ImageView[platform=ios]': { hires: true }
-'Label': { width: Ti.UI.FILL, height: Ti.UI.SIZE }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 '.bg-white': { backgroundColor: '#ffffff' }
@@ -111,8 +109,9 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 '.h-auto': { height: Ti.UI.SIZE }
 '.vertical': { layout: 'vertical' }
 '.horizontal': { layout: 'horizontal' }
-'.my-4': { top: 16, bottom: 16 }
+'.m-4': { top: 16, right: 16, bottom: 16, left: 16 }
 '.mx-auto': { right: null, left: null }
+'.mt-6': { top: 24 }
 '.mt-0.5': { top: 2 }
 '.mr-0': { right: 0 }
 '.mr-1': { right: 4 }
@@ -123,11 +122,7 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 '.text-gray-900': { color: '#18181b' }
 '.w-16': { width: 64 }
 '.w-10/12': { width: '83.333334%' }
-'.w-auto': { width: Ti.UI.SIZE }
 '.w-screen': { width: Ti.UI.FILL }
-
-// Classes with arbitrary values
-// Property not yet supported: (555)
 
 // Default Font Awesome styles
 '.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
@@ -137,7 +132,7 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 ```
 
 ## Result
-<img src="assets/images/sample.png" width="375" alt="iOS Screen - Example">
+<img src="assets/images/sample-fixed.png" width="375" alt="iOS Screen - Example">
 
 ## More examples in the accompanying app
 **[Tailwind TSS Sample App](https://github.com/macCesar/tailwind.tss-sample-app)**

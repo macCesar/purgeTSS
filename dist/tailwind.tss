@@ -4,7 +4,6 @@
 
 // Custom Styles and Resets
 'ImageView[platform=ios]': { hires: true }
-'Label': { width: Ti.UI.FILL, height: Ti.UI.SIZE }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 
@@ -1985,7 +1984,7 @@
 '.m-10/12': { top: '83.333334%', right: '83.333334%', bottom: '83.333334%', left: '83.333334%' }
 '.m-11/12': { top: '91.666667%', right: '91.666667%', bottom: '91.666667%', left: '91.666667%' }
 '.m-full': { top: '100%', right: '100%', bottom: '100%', left: '100%' }
-'.m-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
+'.m-auto': { top: null, right: null, bottom: null, left: null }
 '.my-0': { top: 0, bottom: 0 }
 '.my-1': { top: 4, bottom: 4 }
 '.my-2': { top: 8, bottom: 8 }
@@ -2050,7 +2049,7 @@
 '.my-10/12': { top: '83.333334%', bottom: '83.333334%' }
 '.my-11/12': { top: '91.666667%', bottom: '91.666667%' }
 '.my-full': { top: '100%', bottom: '100%' }
-'.my-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
+'.my-auto': { top: null, bottom: null }
 '.mx-0': { right: 0, left: 0 }
 '.mx-1': { right: 4, left: 4 }
 '.mx-2': { right: 8, left: 8 }
@@ -2115,7 +2114,7 @@
 '.mx-10/12': { right: '83.333334%', left: '83.333334%' }
 '.mx-11/12': { right: '91.666667%', left: '91.666667%' }
 '.mx-full': { right: '100%', left: '100%' }
-'.mx-auto': { right: Ti.UI.SIZE, left: Ti.UI.SIZE }
+'.mx-auto': { right: null, left: null }
 '.mt-0': { top: 0 }
 '.mt-1': { top: 4 }
 '.mt-2': { top: 8 }
@@ -2180,7 +2179,7 @@
 '.mt-10/12': { top: '83.333334%' }
 '.mt-11/12': { top: '91.666667%' }
 '.mt-full': { top: '100%' }
-'.mt-auto': { top: Ti.UI.SIZE }
+'.mt-auto': { top: null }
 '.mr-0': { right: 0 }
 '.mr-1': { right: 4 }
 '.mr-2': { right: 8 }
@@ -2245,7 +2244,7 @@
 '.mr-10/12': { right: '83.333334%' }
 '.mr-11/12': { right: '91.666667%' }
 '.mr-full': { right: '100%' }
-'.mr-auto': { right: Ti.UI.SIZE }
+'.mr-auto': { right: null }
 '.mb-0': { bottom: 0 }
 '.mb-1': { bottom: 4 }
 '.mb-2': { bottom: 8 }
@@ -2310,7 +2309,7 @@
 '.mb-10/12': { bottom: '83.333334%' }
 '.mb-11/12': { bottom: '91.666667%' }
 '.mb-full': { bottom: '100%' }
-'.mb-auto': { bottom: Ti.UI.SIZE }
+'.mb-auto': { bottom: null }
 '.ml-0': { left: 0 }
 '.ml-1': { left: 4 }
 '.ml-2': { left: 8 }
@@ -2375,7 +2374,7 @@
 '.ml-10/12': { left: '83.333334%' }
 '.ml-11/12': { left: '91.666667%' }
 '.ml-full': { left: '100%' }
-'.ml-auto': { left: Ti.UI.SIZE }
+'.ml-auto': { left: null }
 
 // Negative Margins Property
 '.-m-1': { top: -4, right: -4, bottom: -4, left: -4 }
@@ -2504,69 +2503,69 @@
 '.-my-10/12': { top: '-83.333334%', bottom: '-83.333334%' }
 '.-my-11/12': { top: '-91.666667%', bottom: '-91.666667%' }
 '.-my-full': { top: '-100%', bottom: '-100%' }
-'.-mx-1': { right: -4, left: -4 }
-'.-mx-2': { right: -8, left: -8 }
-'.-mx-3': { right: -12, left: -12 }
-'.-mx-4': { right: -16, left: -16 }
-'.-mx-5': { right: -20, left: -20 }
-'.-mx-6': { right: -24, left: -24 }
-'.-mx-7': { right: -28, left: -28 }
-'.-mx-8': { right: -32, left: -32 }
-'.-mx-9': { right: -36, left: -36 }
-'.-mx-10': { right: -40, left: -40 }
-'.-mx-11': { right: -44, left: -44 }
-'.-mx-12': { right: -48, left: -48 }
-'.-mx-13': { right: -52, left: -52 }
-'.-mx-14': { right: -56, left: -56 }
-'.-mx-15': { right: -60, left: -60 }
-'.-mx-16': { right: -64, left: -64 }
-'.-mx-20': { right: -80, left: -80 }
-'.-mx-24': { right: -96, left: -96 }
-'.-mx-28': { right: -112, left: -112 }
-'.-mx-32': { right: -128, left: -128 }
-'.-mx-36': { right: -144, left: -144 }
-'.-mx-40': { right: -160, left: -160 }
-'.-mx-44': { right: -176, left: -176 }
-'.-mx-48': { right: -192, left: -192 }
-'.-mx-52': { right: -208, left: -208 }
-'.-mx-56': { right: -224, left: -224 }
-'.-mx-60': { right: -240, left: -240 }
-'.-mx-64': { right: -256, left: -256 }
-'.-mx-72': { right: -288, left: -288 }
-'.-mx-80': { right: -320, left: -320 }
-'.-mx-96': { right: -384, left: -384 }
-'.-mx-px': { right: '-1px', left: '-1px' }
-'.-mx-0.5': { right: -2, left: -2 }
-'.-mx-1.5': { right: -6, left: -6 }
-'.-mx-2.5': { right: -10, left: -10 }
-'.-mx-3.5': { right: -14, left: -14 }
-'.-mx-1/2': { right: '-50%', left: '-50%' }
-'.-mx-1/3': { right: '-33.333334%', left: '-33.333334%' }
-'.-mx-2/3': { right: '-66.666667%', left: '-66.666667%' }
-'.-mx-1/4': { right: '-25%', left: '-25%' }
-'.-mx-2/4': { right: '-50%', left: '-50%' }
-'.-mx-3/4': { right: '-75%', left: '-75%' }
-'.-mx-1/5': { right: '-20%', left: '-20%' }
-'.-mx-2/5': { right: '-40%', left: '-40%' }
-'.-mx-3/5': { right: '-60%', left: '-60%' }
-'.-mx-4/5': { right: '-80%', left: '-80%' }
-'.-mx-1/6': { right: '-16.666667%', left: '-16.666667%' }
-'.-mx-2/6': { right: '-33.333334%', left: '-33.333334%' }
-'.-mx-3/6': { right: '-50%', left: '-50%' }
-'.-mx-4/6': { right: '-66.666667%', left: '-66.666667%' }
-'.-mx-5/6': { right: '-83.333334%', left: '-83.333334%' }
-'.-mx-1/12': { right: '-8.333334%', left: '-8.333334%' }
-'.-mx-2/12': { right: '-16.666667%', left: '-16.666667%' }
-'.-mx-3/12': { right: '-25%', left: '-25%' }
-'.-mx-4/12': { right: '-33.333334%', left: '-33.333334%' }
-'.-mx-5/12': { right: '-41.666667%', left: '-41.666667%' }
-'.-mx-6/12': { right: '-50%', left: '-50%' }
-'.-mx-7/12': { right: '-58.333334%', left: '-58.333334%' }
-'.-mx-8/12': { right: '-66.666667%', left: '-66.666667%' }
-'.-mx-9/12': { right: '-75%', left: '-75%' }
-'.-mx-10/12': { right: '-83.333334%', left: '-83.333334%' }
-'.-mx-11/12': { right: '-91.666667%', left: '-91.666667%' }
-'.-mx-full': { right: '-100%', left: '-100%' }
+'.-mx-1': { left: -4, right: -4 }
+'.-mx-2': { left: -8, right: -8 }
+'.-mx-3': { left: -12, right: -12 }
+'.-mx-4': { left: -16, right: -16 }
+'.-mx-5': { left: -20, right: -20 }
+'.-mx-6': { left: -24, right: -24 }
+'.-mx-7': { left: -28, right: -28 }
+'.-mx-8': { left: -32, right: -32 }
+'.-mx-9': { left: -36, right: -36 }
+'.-mx-10': { left: -40, right: -40 }
+'.-mx-11': { left: -44, right: -44 }
+'.-mx-12': { left: -48, right: -48 }
+'.-mx-13': { left: -52, right: -52 }
+'.-mx-14': { left: -56, right: -56 }
+'.-mx-15': { left: -60, right: -60 }
+'.-mx-16': { left: -64, right: -64 }
+'.-mx-20': { left: -80, right: -80 }
+'.-mx-24': { left: -96, right: -96 }
+'.-mx-28': { left: -112, right: -112 }
+'.-mx-32': { left: -128, right: -128 }
+'.-mx-36': { left: -144, right: -144 }
+'.-mx-40': { left: -160, right: -160 }
+'.-mx-44': { left: -176, right: -176 }
+'.-mx-48': { left: -192, right: -192 }
+'.-mx-52': { left: -208, right: -208 }
+'.-mx-56': { left: -224, right: -224 }
+'.-mx-60': { left: -240, right: -240 }
+'.-mx-64': { left: -256, right: -256 }
+'.-mx-72': { left: -288, right: -288 }
+'.-mx-80': { left: -320, right: -320 }
+'.-mx-96': { left: -384, right: -384 }
+'.-mx-px': { left: '-1px', right: '-1px' }
+'.-mx-0.5': { left: -2, right: -2 }
+'.-mx-1.5': { left: -6, right: -6 }
+'.-mx-2.5': { left: -10, right: -10 }
+'.-mx-3.5': { left: -14, right: -14 }
+'.-mx-1/2': { left: '-50%', right: '-50%' }
+'.-mx-1/3': { left: '-33.333334%', right: '-33.333334%' }
+'.-mx-2/3': { left: '-66.666667%', right: '-66.666667%' }
+'.-mx-1/4': { left: '-25%', right: '-25%' }
+'.-mx-2/4': { left: '-50%', right: '-50%' }
+'.-mx-3/4': { left: '-75%', right: '-75%' }
+'.-mx-1/5': { left: '-20%', right: '-20%' }
+'.-mx-2/5': { left: '-40%', right: '-40%' }
+'.-mx-3/5': { left: '-60%', right: '-60%' }
+'.-mx-4/5': { left: '-80%', right: '-80%' }
+'.-mx-1/6': { left: '-16.666667%', right: '-16.666667%' }
+'.-mx-2/6': { left: '-33.333334%', right: '-33.333334%' }
+'.-mx-3/6': { left: '-50%', right: '-50%' }
+'.-mx-4/6': { left: '-66.666667%', right: '-66.666667%' }
+'.-mx-5/6': { left: '-83.333334%', right: '-83.333334%' }
+'.-mx-1/12': { left: '-8.333334%', right: '-8.333334%' }
+'.-mx-2/12': { left: '-16.666667%', right: '-16.666667%' }
+'.-mx-3/12': { left: '-25%', right: '-25%' }
+'.-mx-4/12': { left: '-33.333334%', right: '-33.333334%' }
+'.-mx-5/12': { left: '-41.666667%', right: '-41.666667%' }
+'.-mx-6/12': { left: '-50%', right: '-50%' }
+'.-mx-7/12': { left: '-58.333334%', right: '-58.333334%' }
+'.-mx-8/12': { left: '-66.666667%', right: '-66.666667%' }
+'.-mx-9/12': { left: '-75%', right: '-75%' }
+'.-mx-10/12': { left: '-83.333334%', right: '-83.333334%' }
+'.-mx-11/12': { left: '-91.666667%', right: '-91.666667%' }
+'.-mx-full': { left: '-100%', right: '-100%' }
 '.-mt-1': { top: -4 }
 '.-mt-2': { top: -8 }
 '.-mt-3': { top: -12 }

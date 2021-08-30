@@ -177,6 +177,10 @@ function purgeClasses(options) {
 	if (alloyProject()) {
 		start();
 
+		if (!fs.existsSync(destConfigJSFile)) {
+			init();
+		}
+
 		backupOriginalAppTss();
 
 		let uniqueClasses = getUniqueClasses();
@@ -656,7 +660,7 @@ function buildCustomTailwind(message = 'file created!') {
 	});
 
 	configFile.theme['ImageView'] = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
-	configFile.theme['Label'] = _.merge({ default: { width: 'Ti.UI.FILL', height: 'Ti.UI.SIZE' } }, configFile.theme.Label);
+	// configFile.theme['Label'] = _.merge({ default: { width: 'Ti.UI.FILL', height: 'Ti.UI.SIZE' } }, configFile.theme.Label);
 	configFile.theme['View'] = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
 	configFile.theme['Window'] = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 
@@ -1361,7 +1365,9 @@ function formatArbitraryValues(arbitraryValue) {
 
 	let splitedContent = (arbitraryValue.startsWith('-')) ? arbitraryValue.substring(1).split('-') : arbitraryValue.split('-');
 
-	if (splitedContent.length === 2) {
+	if (splitedContent.length === 1) {
+		return '';
+	} else if (splitedContent.length === 2) {
 		let rule = splitedContent[0];
 
 		let value = splitedContent[1].match(/(?<=\().*(?=\))/).pop();
@@ -1511,7 +1517,7 @@ function purgeBoxIcons(uniqueClasses) {
 		}
 	});
 
-	return (purgedClasses === '\n// Boxicons styles\n') ? '' : purgedClasses;
+	return (purgedClasses === '\n// BoxIcons styles\n') ? '' : purgedClasses;
 }
 
 function saveFile(file, data) {
