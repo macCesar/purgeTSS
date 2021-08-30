@@ -181,6 +181,14 @@ function purgeClasses(options) {
 			init();
 		}
 
+		if (fs.existsSync(destJMKFile)) {
+			if (!fs.readFileSync(destJMKFile, 'utf8').includes('purgeTSS')) {
+				addHook();
+			}
+		} else {
+			createJMKFile();
+		}
+
 		backupOriginalAppTss();
 
 		let uniqueClasses = getUniqueClasses();
