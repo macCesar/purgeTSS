@@ -747,6 +747,8 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.items = {};
 	configFile.theme.layout = {};
 	configFile.theme.clipMode = {};
+	configFile.theme.draggingConstraints = {};
+	configFile.theme.draggingType = {};
 	configFile.theme.scrollType = {};
 	configFile.theme.transition = {};
 	configFile.theme.exitOnClose = {};
@@ -809,6 +811,8 @@ function buildCustomTailwindClasses(key, value) {
 		case 'clipMode': return helpers.clipMode();
 		case 'contentWidth': return helpers.contentWidth();
 		case 'defaultImage': return helpers.defaultImage();
+		case 'draggingConstraints': return helpers.draggingConstraints();
+		case 'draggingType': return helpers.draggingType();
 		case 'displayUtilities': return helpers.displayUtilities();
 		case 'exitOnClose': return helpers.exitOnClose();
 		case 'fontFamily': return helpers.fontFamily(value);
@@ -1134,7 +1138,7 @@ function purgeTailwind(uniqueClasses) {
 	let soc = sourceTSS.toString(); // soc = String of Classes
 
 	_.each(uniqueClasses, className => {
-		let cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('conplete:', '');
+		let cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '');
 
 		if (includesClassName(soc, cleanClassName)) {
 			_.each(sourceTSS, line => {
@@ -1264,6 +1268,14 @@ function purgeTailwind2(uniqueClasses) {
 				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]);
 			}
 
+			if (cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`)]);
+			}
+
+			if (cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`)]);
+			}
+
 			if (cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`) > -1) {
 				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]);
 			}
@@ -1278,7 +1290,7 @@ function checkIndexOf(array, line) {
 }
 
 function cleanClassNameFn(className) {
-	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '');
+	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '');
 }
 
 function includesClassName(soc, cleanClassName) {
