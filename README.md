@@ -45,18 +45,18 @@ Use this markup to test purgeTSS.
         <ImageView class="w-16 h-16 mx-auto rounded-16" image="https://randomuser.me/api/portraits/men/43.jpg" />
 
         <View class="vertical">
-          <Label class="text-lg font-semibold text-gray-900">John W. Doe</Label>
-          <Label class="text-sm text-purple-600 mt-0.5">Product Engineer</Label>
+          <Label class="text-lg font-semibold text-center text-gray-900">John W. Doe</Label>
+          <Label class="text-sm text-center text-purple-600 mt-0.5">Product Engineer</Label>
 
           <View class="w-screen">
             <View class="ml-0 horizontal">
-              <Label class="mr-1 text-xs text-gray-600 far fa-envelope"></Label>
-              <Label class="text-xs text-gray-600">john@internet.com</Label>
+              <Label class="w-auto mr-1 text-xs text-gray-600 far fa-envelope"></Label>
+              <Label class="w-auto text-xs text-gray-600">john@internet.com</Label>
             </View>
 
             <View class="mr-0 horizontal">
-              <Label class="mr-1 text-xs text-gray-600 fas fa-phone-alt"></Label>
-              <Label class="text-xs text-gray-600">(555) 765-4321</Label>
+              <Label class="w-auto mr-1 text-xs text-gray-600 fas fa-phone-alt"></Label>
+              <Label class="w-auto text-xs text-gray-600">(555) 765-4321</Label>
             </View>
           </View>
         </View>
@@ -64,6 +64,13 @@ Use this markup to test purgeTSS.
     </View>
   </Window>
 </Alloy>
+```
+
+Put this class in your original `app.tss` file
+```css
+'.bg-primary': {
+  backgroundColor: '#002359'
+}
 ```
 
 ## Parse your XML files
@@ -90,34 +97,37 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 
 // Custom Tailwind Styles
 'ImageView[platform=ios]': { hires: true }
+'Label': { width: Ti.UI.FILL, height: Ti.UI.SIZE }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 '.bg-white': { backgroundColor: '#ffffff' }
+'.rounded-16': { borderRadius: 32 }
+'.rounded-lg': { borderRadius: 8 }
+'.text-xs': { font: { fontSize: 12 } }
+'.text-sm': { font: { fontSize: 14 } }
+'.text-lg': { font: { fontSize: 18 } }
 '.font-semibold': { font: { fontWeight: 'semibold' } }
 '.h-16': { height: 64 }
 '.h-auto': { height: Ti.UI.SIZE }
+'.vertical': { layout: 'vertical' }
 '.horizontal': { layout: 'horizontal' }
-'.horizontal[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.ml-0': { left: 0 }
+'.my-4': { top: 16, bottom: 16 }
+'.mx-auto': { right: null, left: null }
+'.mt-0.5': { top: 2 }
 '.mr-0': { right: 0 }
 '.mr-1': { right: 4 }
-'.mt-0.5': { top: 2 }
-'.mx-auto': { right: null, left: null }
-'.my-4': { top: 16, bottom: 16 }
-'.rounded-16': { borderRadius: 32 }
-'.rounded-lg': { borderRadius: 4 }
+'.ml-0': { left: 0 }
+'.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
+'.text-purple-600': { color: '#9333ea' }
 '.text-gray-600': { color: '#52525b' }
 '.text-gray-900': { color: '#18181b' }
-'.text-lg': { font: { fontSize: 18 } }
-'.text-purple-600': { color: '#9333ea' }
-'.text-sm': { font: { fontSize: 14 } }
-'.text-xs': { font: { fontSize: 12 } }
-'.vertical': { layout: 'vertical' }
-'.vertical[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
-'.w-10/12': { width: '83.333333%' }
 '.w-16': { width: 64 }
+'.w-10/12': { width: '83.333334%' }
 '.w-auto': { width: Ti.UI.SIZE }
 '.w-screen': { width: Ti.UI.FILL }
+
+// Classes with arbitrary values
+// Property not yet supported: (555)
 
 // Default Font Awesome styles
 '.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
