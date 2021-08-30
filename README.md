@@ -35,7 +35,7 @@ It is an all-round package for all Titanium Developers who want to easily and qu
 
 ## Example files
 **Steps to use the example files:**
-- Copy the content of `index.xml` and `app.tss` to your project.
+- Copy the content of `index.xml` and `app.tss` into a new Alloy project.
 - Install Fontawesome font files with `purgetss fonts --vendor="fontawesome"`
 - Run `purgetss` to process and `purge` the `xml` file.
 - Compile your app
