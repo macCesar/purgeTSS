@@ -242,7 +242,7 @@ module.exports = {
 ### Shared colors
 All colors defined in the `colors` section are automatically shared with `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor`  properties.
 
-> **When you include the `colors` section, `purgeTSS` will automatically generate all color-related preperties and merge them with any other color-related preperties present in the configuration file.**
+> **When you include the `colors` section, `purgeTSS` will automatically generate all color-related properties and merge them with any other color-related properties present in the configuration file.**
 
 ```javascript
 // ./purgetss/config.js
@@ -430,7 +430,7 @@ module.exports = {
 }
 ```
 
-This will disable the default spacing scale and generate classes like p-sm, m-md, w-lg, and h-xl instead.
+This will disable the default spacing scale and generate classes like `p-sm` for padding, `m-md` for margin, `w-lg` for width, and `h-xl` for height instead.
 
 ### Extending the default spacing scale
 If you want to extend the default spacing scale, you can do so using the `theme.extend.spacing` section of your `config.js` file:
@@ -449,7 +449,7 @@ module.exports = {
 }
 ```
 
-This will generate classes like p-72, m-84, and h-96 in addition to all of the default spacing/sizing utilities.
+This will generate classes like `p-72`, `m-84`, and `h-96` in addition to all of the default spacing/sizing utilities.
 
 ## Individual properties
 The rest of the theme section is used to configure what values are available for each individual properties.
@@ -585,12 +585,14 @@ theme: {
 ```javascript
 ...
 theme: {
+
+  // Use a string of classes
   '.btn': {
-    // Use a string of classes
     apply: 'w-auto h-auto font-bold border-2 rounded my-0.5'
   },
+
+   // or an array of classes
   '.btn-corporate': {
-    // or an array of classes
     apply: [
       'bg-corporate-500',
       'text-corporate-100',
@@ -612,16 +614,19 @@ theme: {
 ...
 theme: {
   '.btn': {
-    // Default to .btn
+    // Default .btn
     apply: 'w-auto h-auto font-bold border-2 rounded my-0.5',
+
     // Specific to ios devices
     ios: {
       apply: 'w-screen mx-4'
     },
+
     // Specific to hanheld devices
     handheld: {
       apply: 'h-20'
     },
+
     // Specific to iPhoneX ( if Alloy.Global.iPhoneX is set )
     '[if=Alloy.Globals.iPhoneX]': {
       apply: 'mb-12'
@@ -656,12 +661,12 @@ module.exports = {
 }
 ```
 
-- `purge.mode.all` By default, `purgeTSS` will look everywhere inside your XML files, like in comments, attributes, classes, ids, Ti Element, and even the actual written content in your markup. **This mode is necessary if you want `purgetss` to parse any Ti Element that you've styled in `config.js`**.
+- `purge.mode.all` by default, `purgeTSS` will look everywhere inside your XML files, like in comments, attributes, classes, ids, Ti Element, and even the actual written content in your markup. **This mode is necessary if you want `purgetss` to parse any Ti Element that you've styled in `config.js`**.
 - `purge.mode.class` Use `class` to search only in `class` and `id` attributes in your XML files.
 - `purge.mode.options.safelist` List of classes and Ti Elements that you want to keep regardless of the purge mode or whether or not they are included in your XML files.
 
 ### Large safelist?
-If you need to keep a very large list of classes and elements, you can create a CommonJS module with an array of all the styles and require it in `config.js` like this:
+If you need a large list of classes and elements, you can create a CommonJS module with an array of all the styles and require it in `config.js` like this:
 
 ```javascript
 // ./purgetss/config.js
@@ -1267,7 +1272,7 @@ Or you need a very specific value that is not part of the default values in `tai
 - p ( including pb, pl, pr, pt, px, py ) - `padding`
 - m ( including mb, ml, mr, mt, mx, my ) - `position`
 
-To generate an arbitrary style use **parenthesis notation**, *unfortunally you can't use square bracket notation like in Tailwind, because of the way Titanium handles platform and conditional statements in `.tss` files*.
+**To generate an arbitrary style use *parenthesis notation*, unfortunally you can't use square bracket notation like in Tailwind, because of the way Titanium handles platform and conditional statements in `.tss` files**.
 
 You can use any of the supported units depending of the property you are generating, you can use `hex` or `rgba` values in any `color` property, or you can use `rem` or `px` in any position or sizing property.
 
@@ -1490,12 +1495,12 @@ You can use any of the supported units depending of the property you are generat
 <img src="../assets/images/building-green.png" width="375" alt="iOS Screen - Example">
 
 # **Platform and Device Variants**
-You can specify different classes to any element using `Platform` and `Device` utility variants:
+You can specify different classes to any element using `Platform` and `Device` prefixes ( also called variants or modifiers ):
 
 - `ios:`
+- `tablet:`
 - `android:`
 - `handheld:`
-- `tablet:`
 
 Lets say that you want to have different background color and font sizes, depending on the platform and device your app is running. You can target them separately, and you can even combine them with arbitrary values, like: `ios:bg-(#53606b)`, `ios:text-(20px)`, `android:bg-(#8fb63e)` and `android:text-(24px)`.
 

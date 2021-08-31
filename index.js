@@ -104,6 +104,8 @@ function watchMode(options) {
 				removeHook();
 			} else if (!fs.readFileSync(destJMKFile, 'utf8').includes('purgeTSS')) {
 				addHook();
+			} else if (fs.readFileSync(destJMKFile, 'utf8').includes("//\trequire('child_process').execSync('purgetss")) {
+				enableHook();
 			} else {
 				logger.warn(chalk.yellow('Auto-Purging hook already present!'));
 			}
@@ -520,8 +522,11 @@ function removeHook() {
 
 	if (purgeCmdPresent) {
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
-			if (!line.includes('purgeTSS')) {
+			if (!line.includes("require('child_process').execSync('purgetss")) {
 				updatedJMKFile.push(line);
+			} else if (!line.includes("//")) {
+				// if not disabled, disable it!!
+				updatedJMKFile.push(`\t//${line}`);
 			}
 		});
 
@@ -529,6 +534,23 @@ function removeHook() {
 
 		saveFile(destJMKFile, updatedJMKFile.join("\n"));
 	}
+}
+
+function enableHook() {
+	let updatedJMKFile = [];
+
+	let originalJMKFile = fs.readFileSync(destJMKFile, 'utf8');
+
+	originalJMKFile.split(/\r?\n/).forEach((line) => {
+		if (line.includes("require('child_process').execSync('purgetss")) {
+			console.log("está deshabilitado!!");
+			line = line.replace(/\/\/\t/g, "");
+		}
+
+		updatedJMKFile.push(line);
+
+		saveFile(destJMKFile, updatedJMKFile.join("\n"));
+	});
 }
 
 function initIfNotConfig() {
@@ -1150,7 +1172,7 @@ function purgeTailwind(uniqueClasses) {
 	let soc = sourceTSS.toString(); // soc = String of Classes
 
 	_.each(uniqueClasses, className => {
-		let cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '');
+		let cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
 
 		if (includesClassName(soc, cleanClassName)) {
 			_.each(sourceTSS, line => {
@@ -1291,6 +1313,10 @@ function purgeTailwind2(uniqueClasses) {
 			if (cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`) > -1) {
 				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]);
 			}
+
+			if (cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`) > -1) {
+				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`)]);
+			}
 		}
 	});
 
@@ -1302,7 +1328,7 @@ function checkIndexOf(array, line) {
 }
 
 function cleanClassNameFn(className) {
-	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '');
+	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('complete:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
 }
 
 function includesClassName(soc, cleanClassName) {

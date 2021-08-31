@@ -9,6 +9,8 @@ function Animation(args) {
 		hasTransformation: (args.scale !== undefined || args.rotate !== undefined),
 	};
 
+	console.log('args:', args);
+
 	logger('Create Animation View:');
 
 	const animationView = Ti.UI.createView({ width: 0, height: 0, touchEnabled: false });
@@ -88,13 +90,31 @@ function Animation(args) {
 
 			let offsetX, offsetY;
 
+			if (args.bounds) {
+				if (_view.bounds) {
+					_view.bounds = { ...args.bounds, ..._view.bounds };
+				} else {
+					_view.bounds = args.bounds;
+				}
+			}
+
 			param.draggables.push(_view);
+
+			Ti.Gesture.addEventListener('orientationchange', (e) => {
+				if (OS_ANDROID) {
+					setTimeout(() => {
+						checkBoundaries(_view);
+					}, 1000);
+				} else {
+					checkBoundaries(_view);
+				}
+			});
 
 			_view.addEventListener('touchstart', function(e) {
 				offsetX = e.x;
 				offsetY = e.y;
 
-				param.draggables.push(param.draggables.splice(e.source.zIndex, 1)[0]);
+				param.draggables.push(param.draggables.splice(realSourceView(e.source).zIndex, 1)[0]);
 
 				param.draggables.forEach((draggable, key) => {
 					draggable.zIndex = key;
@@ -111,11 +131,17 @@ function Animation(args) {
 				if (!e.source.transform && !param.hasTransformation && !_view.transform) {
 					let convertedPoint = _view.convertPointToView({ x: e.x, y: e.y }, _view.parent);
 
-					let moveValues = {
-						duration: 0,
-						top: Math.round(convertedPoint.y - offsetY),
-						left: Math.round(convertedPoint.x - offsetX),
+					let top = Math.round(convertedPoint.y - offsetY);
+					let left = Math.round(convertedPoint.x - offsetX);
+
+					if (_view.bounds) {
+						if (_view.bounds.top !== undefined && top < _view.bounds.top) top = _view.bounds.top;
+						if (_view.bounds.left !== undefined && left < _view.bounds.left) left = _view.bounds.left;
+						if (_view.bounds.right !== undefined && left > _view.parent.rect.width - _view.rect.width - _view.bounds.right) left = _view.parent.rect.width - _view.rect.width - _view.bounds.right;
+						if (_view.bounds.bottom !== undefined && top > _view.parent.rect.height - _view.rect.height - _view.bounds.bottom) top = _view.parent.rect.height - _view.rect.height - _view.bounds.bottom;
 					}
+
+					let moveValues = { top: top, left: left, duration: 0 }
 
 					if (_view.constraint === 'vertical') {
 						delete moveValues.left;
@@ -128,6 +154,21 @@ function Animation(args) {
 			});
 		} else {
 			notFound();
+		}
+	}
+
+	function realSourceView(_source) {
+		if (param.draggables.map(a => a.id).includes(_source.id)) {
+			return _source;
+		} else {
+			return realSourceView(_source.parent);
+		}
+	}
+
+	function checkBoundaries(_view) {
+		if (_view.bounds) {
+			if (_view.bounds.right !== undefined && _view.left > _view.parent.rect.width - _view.rect.width - _view.bounds.right) _view.left = _view.parent.rect.width - _view.rect.width - _view.bounds.right;
+			if (_view.bounds.bottom !== undefined && _view.top > _view.parent.rect.height - _view.rect.height - _view.bounds.bottom) _view.top = _view.parent.rect.height - _view.rect.height - _view.bounds.bottom;
 		}
 	}
 
@@ -161,6 +202,7 @@ function Animation(args) {
 		console.error('The provided target can’t be found!');
 	}
 
+	//! Needs refactor!! It's so ugly right now!!
 	function checkDraggable(_view, _action) {
 		logger('   Check Draggable');
 		let draggingType = (_view.draggingType) ? _view.draggingType : args.draggingType;

@@ -3,27 +3,28 @@ An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile)
 
 **List of available classes:**
 - [tailwind.tss](./dist/tailwind.tss)
+- [lineicons.tss](./dist/lineicons.tss)
+- [boxicons.tss](./dist/boxicons.tss)
 - [fontawesome.tss](./dist/fontawesome.tss)
 - [materialdesignicons.tss](./dist/materialdesignicons.tss)
-- [lineicons.tss](./dist/lineicons.tss)
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 It is an all-round package for all Titanium Developers who want to easily and quickly create beautifully designed mobile apps.
 
-**Some key features:**
+**Some key features of purgeTSS:**
 - You can use any of the available classes in your Alloy App.
-- It creates a clean `app.tss` by parsing all your XML files.
+- Creates a clean `app.tss` by parsing all your XML files.
 - Every default class can be customized through a simple configuration file, or you can create new classes *on-the-fly* with arbitrary values inside the `View` files.
-- You can easily use Font Awesome, Material Design and Line Icons in Labels and Buttons.
+- You can easily use Font Awesome, Material Design, Boxicons and Line Icons in Labels and Buttons.
 
-**ALL your classes from your original ʻapp.tss` file will be copied without purging.**
+**ALL your classes from your original `app.tss` file will be copied without purging.**
 
 # IMPORTANT NOTICE!!!
 ### purgeTSS will OVERWRITE your existing app.tss file
 
 > When you run purgeTSS for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
-> From now on, add, update or remove your custom classes in `_app.tss.`
+> From now on, add, delete or update your custom classes in `_app.tss.`
 >
 > Or better yet! Create a `config.js` file to **[configure and customize](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)** purgeTSS.
 
@@ -81,7 +82,7 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 
 **Your original `app.tss` file is backed up in `_app.tss`. Use this file if you need to add, delete or update any of your original styles.**
 
-**Every time you run `purgetss` it will copy everything from `_app.tss` to `app.tss`.**
+**Every time you run `purgetss` it will copy the content of `_app.tss` to `app.tss`.**
 
 `app.tss` after purging
 ```css
@@ -234,7 +235,7 @@ This is very useful in combination with `LiveView` because it will purge all of 
 ```
 
 ## module
-Use the new **`purgetss module`** command to install the module library in your `lib` folder.
+Use **`purgetss module`** command to install the `Animation`  module library in your `lib` folder.
 
 ```bash
 > purgetss module
@@ -299,6 +300,8 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 >
 > FontAwesome5Free-Solid.ttf
 >
+> LineIcons.ttf
+>
 > MaterialIcons-Regular.ttf
 >
 > MaterialIconsOutlined-Regular.otf
@@ -308,8 +311,6 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 > MaterialIconsSharp-Regular.otf
 >
 > MaterialIconsTwoTone-Regular.otf
->
-> LineIcons.ttf
 
 ### Copying specific fonts
 Use any of the following arguments to copy specific vendors:
@@ -352,7 +353,7 @@ Except for `boxicons`, because there are three sets of icons in the same font fi
 - Solid: `bxs-flag` becomes `bxsFlag`
 - Logos: Almost all the logos have no conflict with other classes, because almost all have unique names, except for one: `bxl-windows` and `bx-windows`. That's why we are also keeping the prefix for all `logos` variants, so they become: `bxlWindows` for example.
 
-All Icon names are camelCased, `arrow-up` becomes `arrowUp`.
+**All Icon names are camelCased, `arrow-up` becomes `arrowUp`.**
 
 ### Custom `fontawesome.tss` file for users with a Font Awesome Pro Account
 If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `./purgetss/fontawesome.tss` file with all the extra classes that the Pro version has. ***(except duotone icons, see note below)***
