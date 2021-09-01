@@ -1015,6 +1015,10 @@
 '.exit-on-close[platform=android]': { exitOnClose: true }
 '.dont-exit-on-close[platform=android]': { exitOnClose: false }
 
+// Flip Property
+'.flip-vertical': { flip: 'vertical'}
+'.flip-horizontal': { flip: 'horizontal'}
+
 // fontSize Property
 '.text-xs': { font: { fontSize: 12 } }
 '.text-sm': { font: { fontSize: 14 } }

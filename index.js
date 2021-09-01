@@ -798,6 +798,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.bounce = {};
 	configFile.theme.overlay = {};
 	configFile.theme.platform = {};
+	configFile.theme.flip = {};
 	configFile.theme.scrolling = {};
 	configFile.theme.pagingControl = {};
 	configFile.theme.pagingControlOnTop = {};
@@ -878,6 +879,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'interactivity': return helpers.interactivity(value);
 		case 'items': return helpers.items();
 		case 'layout': return helpers.layout();
+		case 'flip': return helpers.flip();
 		case 'margin': return helpers.margin(value);
 
 		case 'opacity': return helpers.opacity(value);
