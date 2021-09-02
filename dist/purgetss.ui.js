@@ -9,8 +9,6 @@ function Animation(args) {
 		hasTransformation: (args.scale !== undefined || args.rotate !== undefined),
 	};
 
-	console.log('args:', args);
-
 	logger('Create Animation View:');
 
 	const animationView = Ti.UI.createView({ width: 0, height: 0, touchEnabled: false });
