@@ -191,7 +191,7 @@ You can customize the following properties:
 - backgroundColor
 - gradientColorStops
 - contentWidth/contentHeight
-- showHorizontalScrollIndicator/showVerticalScrollIndicator
+- showHorizontalScrollIndicator / showVerticalScrollIndicator
 - ***Your own class names and any Ti Element with any number of attributes or conditional statements***
 
 ## See [Customization and Configuration Guide](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md) to learn more
