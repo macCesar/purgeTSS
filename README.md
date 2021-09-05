@@ -2,11 +2,11 @@
 An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that provides a set of Tailwind-like classes, for example `bg-green-500` or `text-blue-900`.
 
 **List of available classes:**
-- [tailwind.tss](./dist/tailwind.tss)
-- [lineicons.tss](./dist/lineicons.tss)
-- [boxicons.tss](./dist/boxicons.tss)
-- [fontawesome.tss](./dist/fontawesome.tss)
-- [materialdesignicons.tss](./dist/materialdesignicons.tss)
+- [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
+- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/lineicons.tss)
+- [boxicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/boxicons.tss)
+- [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/fontawesome.tss)
+- [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/materialdesignicons.tss)
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 It is an all-round package for all Titanium Developers who want to easily and quickly create beautifully designed mobile apps.
@@ -133,7 +133,7 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 ```
 
 ## Result
-<img src="assets/images/sample-fixed.png" width="375" alt="iOS Screen - Example">
+<img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/sample-fixed.png" width="375" alt="iOS Screen - Example">
 
 ## More examples in the accompanying app
 **[Tailwind TSS Sample App](https://github.com/macCesar/tailwind.tss-sample-app)**
@@ -244,7 +244,7 @@ Use **`purgetss module`** command to install the `Animation`  module library in 
 > purgetss m
 ```
 
-**Please check out the new `Animation` module [here](./docs/whats-new/v2.5.0.md#animation-module).**
+**Please check out the new `Animation` module [here](https://github.com/macCesar/purgeTSS/blob/master/docs/whats-new/v2.5.0.md#animation-module).**
 
 ## create (Experimental)
 If you want to create a new Alloy Project with `purgetss` already configured, use the `create` command.
@@ -412,16 +412,16 @@ If you need to use `sudo` to install NPM modules, please use `purgetss sudo-upda
 If you have any suggestions or improvements, please make a PR.
 
 ## License
-<pre>
+```
 Copyright 2020-2021 César Estrada
 
 Licensed under the Apache License, Version 2.0 (the “License”); you may not use this file except in compliance with the License.
 
 You may obtain a copy of the License at
 
-   http://www.apache.org/licenses/LICENSE-2.0
+  http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
 See the License for the specific language governing permissions and limitations under the License.
-</pre>
+```
