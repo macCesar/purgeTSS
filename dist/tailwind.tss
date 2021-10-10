@@ -1006,7 +1006,7 @@
 '.scaling-aspect-fit': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 '.scaling-aspect-fill': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
 
-// Background Size ( for compatibilty with Tailwind’s classes )
+// Background Size ( for compatibility with Tailwind’s classes )
 '.bg-auto': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
 '.bg-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
 '.bg-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
