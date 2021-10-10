@@ -17,10 +17,10 @@ It is an all-round package for all [Titanium Developers](https://github.com/appc
 - An `Animation` Module to apply a 2D Matrix animation or transformation to any element or to an array of elements.
 - A simple two-dimensional Grid System to align and layout design elements.
 
-**ALL your classes from your original `app.tss` file will be copied without purging.**
-
 # IMPORTANT NOTICE!!!
 ### purgeTSS will OVERWRITE your existing app.tss file
+
+**ALL your classes from your original `app.tss` file will be copied without purging.**
 
 > When you run purgeTSS for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
