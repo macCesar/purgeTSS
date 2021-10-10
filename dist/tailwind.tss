@@ -999,6 +999,18 @@
 '.prevent-default-image[platform=ios]': { preventDefaultImage: true }
 '.display-default-image[platform=ios]': { preventDefaultImage: false }
 
+// scalingMode Property
+'.scaling-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
+'.scaling-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
+'.scaling-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
+'.scaling-aspect-fit': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
+'.scaling-aspect-fill': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
+
+// Background Size ( for compatibilty with Tailwind’s classes )
+'.bg-auto': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
+'.bg-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
+'.bg-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
+
 // Display
 '.block': { visible: true }
 '.hidden': { visible: false }
