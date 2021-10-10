@@ -1,5 +1,5 @@
 # purgeTSS
-It is an all-round package for all [Titanium Developers](https://github.com/appcelerator/titanium_mobile) who want to easily and quickly create beautifully designed mobile apps by providing a set of [Tailwind-like](https://tailwindcss.com/) classes and build any design, directly in your Alloy Views.
+It is an all-round package for all [Titanium Developers](https://github.com/appcelerator/titanium_mobile) who want to easily and quickly create beautifully designed mobile apps by providing a set of [Tailwind-like](https://tailwindcss.com/) classes to build any design, directly in your Alloy Views.
 
 **List of available classes:**
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
