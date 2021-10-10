@@ -1,5 +1,5 @@
 # purgeTSS
-An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that provides a set of Tailwind-like classes, for example `bg-green-500` or `text-blue-900`.
+An extension for [Titanium SDK](https://github.com/appcelerator/titanium_mobile) that provides a set of [Tailwind-like classes](https://tailwindcss.com/), for example `bg-green-500` or `text-blue-900`.
 
 **List of available classes:**
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
