@@ -14,7 +14,7 @@ It is an all-round package for all [Titanium Developers](https://github.com/appc
 - Creates a clean `app.tss` by parsing all your XML files.
 - Every default class can be customized through a simple configuration file, or you can create new classes *on-the-fly* with arbitrary values inside the `View` files.
 - You can easily use Font Awesome, Material Design, Boxicons and Line Icons in Labels and Buttons..
-- A Module called Animation to apply a 2D Matrix animation or transformation to any element or to an array of elements.
+- An `Animation` Module to apply a 2D Matrix animation or transformation to any element or to an array of elements.
 - A simple two-dimensional Grid System to align and layout design elements.
 
 **ALL your classes from your original `app.tss` file will be copied without purging.**
