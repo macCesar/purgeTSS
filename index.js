@@ -787,6 +787,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.transition = {};
 	configFile.theme.exitOnClose = {};
 	configFile.theme.defaultImage = {};
+	configFile.theme.scalingMode = {};
 	configFile.theme.autoreverse = {};
 	configFile.theme.repeat = { ...configFile.theme.repeat, ...configFile.theme.extend.repeat };
 	configFile.theme.origin = { ...configFile.theme.origin, ...configFile.theme.extend.origin };
@@ -846,6 +847,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'clipMode': return helpers.clipMode();
 		case 'contentWidth': return helpers.contentWidth();
 		case 'defaultImage': return helpers.defaultImage();
+		case 'scalingMode': return helpers.scalingMode();
 		case 'draggingConstraints': return helpers.draggingConstraints();
 		case 'draggingType': return helpers.draggingType();
 		case 'displayUtilities': return helpers.displayUtilities();
