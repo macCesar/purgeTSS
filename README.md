@@ -12,7 +12,7 @@ It is an all-round package for all [Titanium Developers](https://github.com/appc
 **Some key features of purgeTSS:**
 - Provides more than 5000 utility classes ready to use in your projects.
 - It generates an `app.tss` file with only the classes used in your project by parsing all your XML files from the `Views` folder.
-- You can customize any of the default classes through a simple configuration file, or you can create new `just in time` classes with arbitrary values within the `Views`.
+- You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
 - You can easily use Font Awesome, Material Design, Boxicons and LineIcons fonts in `Labels` and `Buttons`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
 - Includes a simple two-dimensional Grid System to align and distribute the elements in your views.
