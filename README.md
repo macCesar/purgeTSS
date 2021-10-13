@@ -10,12 +10,12 @@ It is an all-round package for all [Titanium Developers](https://github.com/appc
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 **Some key features of purgeTSS:**
-- You can use any of the available classes in your Alloy App.
-- Creates a clean `app.tss` by parsing all your XML files.
-- Every default class can be customized through a simple configuration file, or you can create new classes *on-the-fly* with arbitrary values inside the `View` files.
-- You can easily use Font Awesome, Material Design, Boxicons and Line Icons in Labels and Buttons..
-- An `Animation` Module to apply a 2D Matrix animation or transformation to any element or to an array of elements.
-- A simple two-dimensional Grid System to align and layout design elements.
+- Provides more than 5000 utility classes ready to use in your projects.
+- It generates an `app.tss` file with only the classes used in your project by parsing all your XML files from the `Views` folder.
+- You can customize any of the default classes through a simple configuration file, or you can create new `just in time` classes with arbitrary values within the `Views`.
+- You can easily use Font Awesome, Material Design, Boxicons and LineIcons fonts in `Labels` and `Buttons`.
+- Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
+- Includes a simple two-dimensional Grid System to align and distribute the elements in your views.
 
 # IMPORTANT NOTICE!!!
 ### purgeTSS will OVERWRITE your existing app.tss file
