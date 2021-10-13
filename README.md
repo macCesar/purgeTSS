@@ -1,14 +1,6 @@
 # purgeTSS
 It is an all-round package for all [Titanium Developers](https://github.com/appcelerator/titanium_mobile) who want to easily and quickly create beautifully designed mobile apps by providing a set of [Tailwind-like classes](https://tailwindcss.com/) to build any design, directly in your Alloy Views.
 
-**List of available classes:**
-- [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
-- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/lineicons.tss)
-- [boxicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/boxicons.tss)
-- [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/fontawesome.tss)
-- [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/materialdesignicons.tss)
-- [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
-
 **Some key features of purgeTSS:**
 - Provides more than 5000 utility classes ready to use in your projects.
 - It generates an `app.tss` file with only the classes used in your project by parsing all your XML files from the `Views` folder.
@@ -16,6 +8,14 @@ It is an all-round package for all [Titanium Developers](https://github.com/appc
 - You can easily use Font Awesome, Material Design, Boxicons and LineIcons fonts in `Labels` and `Buttons`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
 - Includes a simple two-dimensional Grid System to align and distribute the elements in your views.
+
+**List of available classes:**
+- [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
+- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/lineicons.tss)
+- [boxicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/boxicons.tss)
+- [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/fontawesome.tss)
+- [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/materialdesignicons.tss)
+- [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 # IMPORTANT NOTICE!!!
 ### purgeTSS will OVERWRITE your existing app.tss file
