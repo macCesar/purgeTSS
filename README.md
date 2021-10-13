@@ -26,7 +26,7 @@ It is an all-round package for all [Titanium Developers](https://github.com/appc
 >
 > From now on, add, delete or update your custom classes in `_app.tss.`
 >
-> Or better yet! Create a `config.js` file to **[configure and customize](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)** purgeTSS.
+> Or better yet! Add your custom values in `config.js` to **[configure and customize](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)** purgeTSS.
 
 ## Installation
 **Install it globally on your machine via [NPM](http://npmjs.org/).**
