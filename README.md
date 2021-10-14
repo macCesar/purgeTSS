@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://codigomovil.mx/images/purgetss-logo.svg" height="200" width="200" alt="PurgeCSS logo"/>
+	<img src="https://codigomovil.mx/images/logotipo-purgetss.svg" height="230" width="230" alt="PurgeCSS logo"/>
 </p>
 
 Is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautiful designs, directly in the `Views` of an `Alloy` project, by providing a set of [Tailwind-like utility classes](https://tailwindcss.com/).
