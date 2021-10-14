@@ -1,8 +1,8 @@
 <p align="center">
-	<img src="https://codigomovil.mx/images/logotipo-purgetss.svg" height="230" width="230" alt="PurgeCSS logo"/>
+	<img src="https://codigomovil.mx/images/logotipo-purgetss-curvas.svg" height="230" width="230" alt="PurgeCSS logo"/>
 </p>
 
-**PurgeTSS** is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautiful designs.
+**PurgeTSS** is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautifully designed mobile apps.
 
 <p align="center">
   <a href="https://www.npmjs.com/package/purgetss" target="_blank">
@@ -20,7 +20,7 @@
 
 ## Some key features of PurgeTSS
 - Provides more than 5000 [Tailwind-like utility classes](https://tailwindcss.com/) ready to use in your projects.
-- It generates a clean `app.tss` file with only the classes used in your project by parsing all your XML files.
+- Creates a clean `app.tss` file with only the classes used in your project by parsing all your XML files.
 - You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
 - You can easily use Font Awesome, Material Design, Boxicons and LineIcons fonts in `Labels` and `Buttons`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
@@ -37,8 +37,6 @@
 # IMPORTANT NOTICE!!!
 ### PurgeTSS will OVERWRITE your existing app.tss file
 
-**ALL your classes from your original `app.tss` file will be copied without purging.**
-
 > When you run PurgeTSS for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
 > From now on, add, delete or update your custom classes in `_app.tss.`
@@ -51,7 +49,7 @@
 > [sudo] npm i -g purgetss
 ```
 
-**You'll need to run `purgecss` only once inside your project to automatically set the necesary files, after that, everytime you compile your project, PurgeTSS will `parse` all your XML files and generate a clean `app.tss` file with only the classes used in your project.**
+**You'll need to run `purgecss` only once inside your project to automatically set the necesary files, after that, everytime you compile your app, PurgeTSS will `parse` all your XML files and generate a clean `app.tss` file with only the classes used in your project.**
 
 ## Example files
 **Steps to use the example files:**
@@ -211,9 +209,9 @@ You can customize the following properties:
 - gradientColorStops
 - contentWidth/contentHeight
 - showHorizontalScrollIndicator / showVerticalScrollIndicator
-- ***Your own class names and any Ti Element with any number of attributes or conditional statements***
+- ***Your own classes and ANY Ti Element with ANY number of attributes or conditional statements***
 
-## See [Customization and Configuration Guide](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md) to learn more
+## To learn more see [Customization and Configuration Guide](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 ## build
 When customizing your `config.js` file, you can re-generate `./purgetss/tailwind.tss` file by running:
@@ -254,7 +252,7 @@ This is very useful in combination with `LiveView` because it will purge all of 
 ```
 
 ## module
-Use **`purgetss module`** command to install the `Animation`  module library in your `lib` folder.
+Use **`purgetss module`** command to install the `purgetss.ui.js` module in your `lib` folder.
 
 ```bash
 > purgetss module
@@ -263,10 +261,13 @@ Use **`purgetss module`** command to install the `Animation`  module library in 
 > purgetss m
 ```
 
-**Please check out the new `Animation` module [here](https://github.com/macCesar/purgeTSS/blob/master/docs/whats-new/v2.5.0.md#animation-module).**
+**PurgeTSS module contains:**
+
+- **Animation**: Apply a 2D Matrix animation or transformation to any element or to an array of elements. **Please check out the new `Animation` module [here](https://github.com/macCesar/purgeTSS/blob/master/docs/whats-new/v2.5.0.md#animation-module).**
 
 ## create (Experimental)
-If you want to create a new Alloy Project with `purgetss` already configured, use the `create` command.
+If you want to create a new Alloy Project with `purgetss` ready to go, use the `create` command.
+
 ```bash
 > purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons"]
 
@@ -274,7 +275,7 @@ If you want to create a new Alloy Project with `purgetss` already configured, us
 > purgetss c 'Name of the Project' [-v=fa,md,li,bx]
 ```
 
-You'll have to have `app.idprefix` and `app.idprefix` already configured in `ti config`.
+You need to have `app.idprefix` and `app.idprefix` already configured in `ti config`.
 
 ```bash
 # A name in reverse domain name format.
@@ -309,7 +310,7 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 > purgetss f
 ```
 
-Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons), [LineIcons](https://lineicons.com/icons/?type=free) and [Boxicons](https://boxicons.com) fonts into your `app/assets/fonts` folder. With their names fixed to work with your application, either for iOS or Android.
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons), [LineIcons](https://lineicons.com/icons/?type=free) and [Boxicons](https://boxicons.com) fonts into your `app/assets/fonts` folder. With their names fixed to work in iOS or Android.
 
 > boxicons.ttf
 >
@@ -331,7 +332,7 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 >
 > MaterialIconsTwoTone-Regular.otf
 
-### Copying specific fonts
+### Copying specific font vendors
 Use any of the following arguments to copy specific vendors:
 
 ```bash
@@ -381,13 +382,13 @@ After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-t
 
 Now, all you have to do is run `purgetss build` and it will generate a new `purgetss/fontawesome.tss` file and if needed, it will automatically copy the Pro fonts files into `app/assets/fonts`.
 
-### Font Awesome 6 Beta1
-You can even generate a custom `fontawesome.tss` file from **Font Awesome 6 Beta**.
+### Font Awesome 6 Beta
+You can even generate a custom `fontawesome.tss` file from **[Font Awesome 6 Beta](https://fontawesome.com/download)**.
 
-Just move `css` and `webfonts` folders from `fontawesome-pro-6.0.0-beta1-web/`:
+Just move `css` and `webfonts` folders from `fontawesome-pro-6.0.0-beta2-web/`:
 
 ```bash
-fontawesome-pro-6.0.0-beta1-web
+fontawesome-pro-6.0.0-beta2-web
 └─ css
 └─ webfonts
 ```
