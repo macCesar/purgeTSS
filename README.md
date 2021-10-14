@@ -2,7 +2,7 @@
 	<img src="https://codigomovil.mx/images/logotipo-purgetss.svg" height="230" width="230" alt="PurgeCSS logo"/>
 </p>
 
-**PurgeTSS** is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautiful designs, directly in the `Views` of an `Alloy` project, by providing a set of [Tailwind-like utility classes](https://tailwindcss.com/).
+**PurgeTSS** is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautiful designs, by providing a set of [Tailwind-like utility classes](https://tailwindcss.com/).
 
 <p align="center">
   <a href="https://www.npmjs.com/package/purgetss" target="_blank">
