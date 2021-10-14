@@ -2,7 +2,7 @@
 	<img src="https://codigomovil.mx/images/logotipo-purgetss.svg" height="230" width="230" alt="PurgeCSS logo"/>
 </p>
 
-**PurgeTSS** is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautiful designs, it provides a set of [Tailwind-like utility classes](https://tailwindcss.com/).
+**PurgeTSS** is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautiful designs.
 
 <p align="center">
   <a href="https://www.npmjs.com/package/purgetss" target="_blank">
@@ -19,8 +19,8 @@
 ------
 
 ## Some key features of PurgeTSS
-- Provides more than 5000 utility classes ready to use in your projects.
-- It generates an `app.tss` file with only the classes used in your project by parsing all your XML files from the `Views` folder.
+- Provides more than 5000 [Tailwind-like utility classes](https://tailwindcss.com/) ready to use in your projects.
+- It generates a clean `app.tss` file with only the classes used in your project by parsing all your XML files from the `Views` folder.
 - You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
 - You can easily use Font Awesome, Material Design, Boxicons and LineIcons fonts in `Labels` and `Buttons`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
