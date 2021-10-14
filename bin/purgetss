@@ -8,7 +8,7 @@ const package = require('../package.json');
 program
 	.version(package.version)
 	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for details.')
-	.help('purgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialdesignicons.tss, lineicons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
+	.help('PurgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialdesignicons.tss, lineicons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
 	.action((args, options, logger) => {
 		purgetss.purgeClasses(options);
 	});
@@ -75,10 +75,10 @@ program
 program
 	.command('update')
 	.alias('u')
-	.description('Update purgeTSS to the latest version')
-	.help('Run auto-update regularly!\n\nWe constantly update purgeTSS to add new features, to include the latest versions of Tailwind and for bug fixes.')
+	.description('Update PurgeTSS to the latest version')
+	.help('Run auto-update regularly!\n\nWe constantly update PurgeTSS to add new features, to include the latest versions of Tailwind and for bug fixes.')
 	.action((args, options, logger) => {
-		logger.info(`${purgetss.colores.purgeLabel} Updating purgeTSS to the latest version...`);
+		logger.info(`${purgetss.colores.purgeLabel} Updating PurgeTSS to the latest version...`);
 
 		const { exec } = require("child_process");
 
@@ -100,10 +100,10 @@ program
 program
 	.command('sudo-update')
 	.alias('su')
-	.description('Update purgeTSS to the latest version using sudo')
-	.help('Run auto-update regularly!\n\nWe constantly update purgeTSS to add new features, to include the latest versions of Tailwind and for bug fixes.')
+	.description('Update PurgeTSS to the latest version using sudo')
+	.help('Run auto-update regularly!\n\nWe constantly update PurgeTSS to add new features, to include the latest versions of Tailwind and for bug fixes.')
 	.action((args, options, logger) => {
-		logger.info(`${purgetss.colores.purgeLabel} Updating purgeTSS to the latest version using sudo...`);
+		logger.info(`${purgetss.colores.purgeLabel} Updating PurgeTSS to the latest version using sudo...`);
 
 		const { exec } = require("child_process");
 

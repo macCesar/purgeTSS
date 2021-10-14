@@ -237,7 +237,7 @@ function create(args, options) {
 	const { exec } = require("child_process");
 	const commandExistsSync = require('command-exists').sync;
 
-	logger.info('Creating a new Titanium Project with `purgeTSS`...');
+	logger.info('Creating a new Titanium Project with `PurgeTSS`...');
 
 	exec(`ti config app.idprefix && ti config app.workspace`, (error, stdout, stderr) => {
 		if (error) {
@@ -295,7 +295,7 @@ function create(args, options) {
 				});
 			});
 		} else {
-			return logger.error('You need to have `app.idprefix` and `app.workspace` configure in `ti config` to create an App with `purgeTSS`.');
+			return logger.error('You need to have `app.idprefix` and `app.workspace` configure in `ti config` to create an App with `PurgeTSS`.');
 		}
 	});
 }
@@ -504,7 +504,7 @@ function addHook() {
 
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
 			if (line.includes('pre:compile')) {
-				line += "\n\trequire('child_process').execSync('purgetss', logger.warn('::purgeTSS:: Auto-Purging ' + event.dir.project));";
+				line += "\n\trequire('child_process').execSync('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));";
 			}
 			updatedJMKFile.push(line);
 		});
@@ -925,7 +925,7 @@ function extractClasses(currentText, currentFile) {
 			return acc;
 		}, []);
 	} catch (error) {
-		throw chalk.red(`::purgeTSS:: Error processing: “${currentFile}”`);
+		throw chalk.red(`::PurgeTSS:: Error processing: “${currentFile}”`);
 	}
 }
 
@@ -1029,7 +1029,7 @@ function copyFontLibrary(vendor) {
 //! Check if running inside an Alloy Project
 function alloyProject() {
 	if (!fs.existsSync(cwd + '/app/views')) {
-		logger.error('Please make sure you’re running purgeTSS inside an Alloy Project.');
+		logger.error('Please make sure you’re running PurgeTSS inside an Alloy Project.');
 
 		return false;
 	}

@@ -1,7 +1,24 @@
-# purgeTSS
+<p align="center">
+	<img src="https://codigomovil.mx/images/purgetss-logo.svg" height="200" width="200" alt="PurgeCSS logo"/>
+</p>
+
 Is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautiful designs, directly in the `Views` of an `Alloy` project, by providing a set of [Tailwind-like utility classes](https://tailwindcss.com/).
 
-**Some key features of purgeTSS:**
+<p align="center">
+  <a href="https://www.npmjs.com/package/purgetss" target="_blank">
+    <img alt="npm" src="https://img.shields.io/npm/dm/purgetss">
+  </a>
+  <a href="https://www.npmjs.com/package/purgetss" target="_blank">
+    <img alt="npm" src="https://img.shields.io/npm/v/purgetss">
+  </a>
+  <a href="https://www.npmjs.com/package/purgetss" target="_blank">
+    <img alt="NPM" src="https://img.shields.io/npm/l/purgetss">
+  </a>
+</p>
+
+------
+
+## Some key features of PurgeTSS
 - Provides more than 5000 utility classes ready to use in your projects.
 - It generates an `app.tss` file with only the classes used in your project by parsing all your XML files from the `Views` folder.
 - You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
@@ -9,7 +26,7 @@ Is a package for all [Titanium SDK developers](https://tidev.io/), who want to e
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
 - Includes a simple two-dimensional Grid System to align and distribute the elements in your views.
 
-**List of available classes:**
+## List of available classes
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
 - [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/lineicons.tss)
 - [boxicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/boxicons.tss)
@@ -18,15 +35,15 @@ Is a package for all [Titanium SDK developers](https://tidev.io/), who want to e
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 # IMPORTANT NOTICE!!!
-### purgeTSS will OVERWRITE your existing app.tss file
+### PurgeTSS will OVERWRITE your existing app.tss file
 
 **ALL your classes from your original `app.tss` file will be copied without purging.**
 
-> When you run purgeTSS for the first time, it will backup your `app.tss` file to `_app.tss`.
+> When you run PurgeTSS for the first time, it will backup your `app.tss` file to `_app.tss`.
 >
 > From now on, add, delete or update your custom classes in `_app.tss.`
 >
-> Or better yet! Add your custom values in `config.js` to **[configure and customize](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)** purgeTSS.
+> Or better yet! Add your custom values in `config.js` to **[configure and customize](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)** PurgeTSS.
 
 ## Installation
 **Install it globally on your machine via [NPM](http://npmjs.org/).**
@@ -86,7 +103,7 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 
 `app.tss` after purging
 ```css
-// purgeTSS
+// PurgeTSS
 // Created by César Estrada
 // https://github.com/macCesar/purgeTSS
 
@@ -156,7 +173,7 @@ module.exports = {
   'purge': {
     'mode': 'all',
 
-    // These options are passed through directly to purgeTSS
+    // These options are passed through directly to PurgeTSS
     'options': {
       'safelist': [],
     }
@@ -206,9 +223,9 @@ When customizing your `config.js` file, you can re-generate `./purgetss/tailwind
 > purgetss b
 ```
 
-Every time you run the `purgetss` command, either manually or automatically (see `purgetss watch` below), **purgeTSS** will check for any change made to `config.js` file and will re-generate `tailwind.tss` if necessary.
+Every time you run the `purgetss` command, either manually or automatically (see `purgetss watch` below), **PurgeTSS** will check for any change made to `config.js` file and will re-generate `tailwind.tss` if necessary.
 
-**After generating your new or updated `tailwind.tss` file, purgeTSS will use it to parse your `xml` files.**
+**After generating your new or updated `tailwind.tss` file, PurgeTSS will use it to parse your `xml` files.**
 
 ## watch
 ```bash
@@ -394,9 +411,9 @@ And as with the Pro Version, just run `purgetss build` to generate your custom `
 > purgetss u
 ```
 
-Use this command to update **purgeTSS** to the latest version.
+Use this command to update **PurgeTSS** to the latest version.
 
-We constantly update **purgeTSS** to add new features, to include the latest versions of Tailwind, Tailwind UI, FontAwesome, etc., and for bug fixes.
+We constantly update **PurgeTSS** to add new features, to include the latest versions of Tailwind, Tailwind UI, FontAwesome, etc., and for bug fixes.
 
 ## sudo-update
 If you need to use `sudo` to install NPM modules, please use `purgetss sudo-update`
