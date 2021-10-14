@@ -20,7 +20,7 @@
 
 ## Some key features of PurgeTSS
 - Provides more than 5000 [Tailwind-like utility classes](https://tailwindcss.com/) ready to use in your projects.
-- It generates a clean `app.tss` file with only the classes used in your project by parsing all your XML files from the `Views` folder.
+- It generates a clean `app.tss` file with only the classes used in your project by parsing all your XML files.
 - You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
 - You can easily use Font Awesome, Material Design, Boxicons and LineIcons fonts in `Labels` and `Buttons`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
@@ -51,12 +51,14 @@
 > [sudo] npm i -g purgetss
 ```
 
+**You'll need to run `purgecss` only once inside your project to automatically set the necesary files, after that, everytime you compile your project, PurgeTSS will `parse` all your XML files and generate a clean `app.tss` file with only the classes used in your project.**
+
 ## Example files
 **Steps to use the example files:**
-- Copy the content of `index.xml` and `app.tss` into a new Alloy project.
+- Copy the content of `index.xml` and `app.tss` into a new Alloy project
 - Install Fontawesome font files with `purgetss fonts --vendor="fontawesome"`
-- Run `purgetss` to process and `purge` the `xml` file.
-- Compile your app
+- Run `purgetss` once to process and purge all your `xml` files
+- Compile your app as usual
 
 `index.xml`
 ```xml
@@ -99,7 +101,7 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 
 **Your original `app.tss` file is backed up in `_app.tss`. Use this file if you need to add, delete or update any of your original styles.**
 
-**Every time you run `purgetss` it will copy the content of `_app.tss` to `app.tss`.**
+**Every time PurgeTSS runs, it will copy the content of `_app.tss` to `app.tss`.**
 
 `app.tss` after purging
 ```css
