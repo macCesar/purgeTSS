@@ -1,6 +1,4 @@
-<p align="center">
-	<img src="https://codigomovil.mx/images/purgetss-logo.svg" height="200" width="200" alt="PurgeCSS logo"/>
-</p>
+# PurgeTSS
 
 Is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautiful designs, directly in the `Views` of an `Alloy` project, by providing a set of [Tailwind-like utility classes](https://tailwindcss.com/).
 
