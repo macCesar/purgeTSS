@@ -102,7 +102,7 @@ function watchMode(options) {
 			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
 			if (options.off) {
 				removeHook();
-			} else if (!fs.readFileSync(destJMKFile, 'utf8').includes('purgeTSS')) {
+			} else if (!fs.readFileSync(destJMKFile, 'utf8').includes('::PurgeTSS::')) {
 				addHook();
 			} else if (fs.readFileSync(destJMKFile, 'utf8').includes("//\trequire('child_process').execSync('purgetss")) {
 				enableHook();
@@ -184,7 +184,7 @@ function purgeClasses(options) {
 		}
 
 		if (fs.existsSync(destJMKFile)) {
-			if (!fs.readFileSync(destJMKFile, 'utf8').includes('purgeTSS')) {
+			if (!fs.readFileSync(destJMKFile, 'utf8').includes('::PurgeTSS::')) {
 				addHook();
 			}
 		} else {
@@ -518,7 +518,7 @@ function addHook() {
 function removeHook() {
 	let updatedJMKFile = [];
 	let originalJMKFile = fs.readFileSync(destJMKFile, 'utf8');
-	let purgeCmdPresent = (originalJMKFile.includes('purgeTSS'));
+	let purgeCmdPresent = (originalJMKFile.includes('::PurgeTSS::'));
 
 	if (purgeCmdPresent) {
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
