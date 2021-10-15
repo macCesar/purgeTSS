@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://codigomovil.mx/images/logotipo-purgetss-verde.svg" height="230" width="230" alt="PurgeCSS logo"/>
+	<img src="https://codigomovil.mx/images/logotipo-purgetss-gris.svg" height="230" width="230" alt="PurgeCSS logo"/>
 </p>
 
 **PurgeTSS** is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautifully designed mobile apps.
