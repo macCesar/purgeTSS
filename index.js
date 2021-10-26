@@ -543,7 +543,7 @@ function enableHook() {
 
 	originalJMKFile.split(/\r?\n/).forEach((line) => {
 		if (line.includes("require('child_process').execSync('purgetss")) {
-			console.log("está deshabilitado!!");
+			logger.warn(chalk.green('Auto-Purging hook enabled!'));
 			line = line.replace(/\/\/\t/g, "");
 		}
 
