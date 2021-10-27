@@ -375,7 +375,7 @@ function processCustomFontAwesomeJS(CSSFile, faJS) {
 			if (rule.type === 'rule' && rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
 				return {
 					'selector': rule.selectors[0].replace(':before', '').replace('.', '').replace(':', ''),
-					'property': rule.declarations[0].value.replace('\"\\', '').replace('\"', '')
+					'property': ('0000' + rule.declarations[0].value.replace('\"\\', '').replace('\"', '')).slice(-4)
 				};
 			}
 		});
@@ -462,7 +462,7 @@ function processFontawesomeStyles(data) {
 		if (rule.type === 'rule' && rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
 			return {
 				'selector': rule.selectors[0].replace(':before', '').replace(':', ''),
-				'property': rule.declarations[0].value.replace('\"\\', '').replace('\"', '')
+				'property': ('0000' + rule.declarations[0].value.replace('\"\\', '').replace('\"', '')).slice(-4)
 			};
 		}
 
