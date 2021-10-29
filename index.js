@@ -1145,7 +1145,7 @@ function finish(customMessage = 'Finished purging in') {
 //! Tailwind
 function purgeTailwind(uniqueClasses) {
 	let sourceFolder = '';
-	let purgedClasses = '\n// Tailwind Styles\n';
+	let purgedClasses = '\n// Tailwind styles\n';
 
 	if (fs.existsSync(customTailwindFile)) {
 		sourceFolder = customTailwindFile;
@@ -1231,7 +1231,7 @@ function purgeTailwind(uniqueClasses) {
 
 function purgeTailwind2(uniqueClasses) {
 	let tailwindFile = '';
-	let purgedClasses = '\n// Tailwind Styles\n';
+	let purgedClasses = '\n// Tailwind styles\n';
 
 	if (fs.existsSync(customTailwindFile)) {
 		tailwindFile = customTailwindFile;

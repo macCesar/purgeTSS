@@ -112,7 +112,7 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
   backgroundColor: '#002359'
 }
 
-// Custom Tailwind Styles
+// Tailwind styles
 'ImageView[platform=ios]': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }

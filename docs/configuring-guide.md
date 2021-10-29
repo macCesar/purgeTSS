@@ -1307,7 +1307,7 @@ You can use any of the supported units depending of the property you are generat
 
 // ...
 
-// Classes with arbitrary values
+// Styles with arbitrary values
 '.-ml-(20)': { left: -20 }
 '.bg-(#4C61E4)': { backgroundColor: '#4C61E4' }
 '.bg-(#53606b)': { backgroundColor: '#53606b' }
@@ -1373,7 +1373,7 @@ You can use any of the supported units depending of the property you are generat
 // Styles from _app.tss
 // Empty _app.tss
 
-// Custom Tailwind Styles
+// Tailwind styles
 'ImageView[platform=ios]': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
@@ -1386,7 +1386,7 @@ You can use any of the supported units depending of the property you are generat
 '.ml-0': { left: 0 }
 '.text-white': { color: '#ffffff' }
 
-// Classes with arbitrary values
+// Styles with arbitrary values
 '.bg-(#0B4825)': { backgroundColor: '#0B4825' }
 '.bg-(#1B6F3F)': { backgroundColor: '#1B6F3F' }
 '.bg-(#25A25B)': { backgroundColor: '#25A25B' }
@@ -1463,7 +1463,7 @@ You can use any of the supported units depending of the property you are generat
 // Styles from _app.tss
 // Empty _app.tss
 
-// Custom Tailwind Styles
+// Tailwind styles
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 '.bg-transparent': { backgroundColor: 'transparent' }
@@ -1477,7 +1477,7 @@ You can use any of the supported units depending of the property you are generat
 '.w-full': { width: '100%' }
 '.w-screen': { width: Ti.UI.FILL }
 
-// Classes with arbitrary values
+// Styles with arbitrary values
 '.-right-(10px)': { right: '-10px' }
 '.bg-(#53606b)': { backgroundColor: '#53606b' }
 '.bg-(#53A500)': { backgroundColor: '#53A500' }
@@ -1531,7 +1531,7 @@ Lets say that you want to have different background color and font sizes, depend
 // Styles from _app.tss
 // Empty _app.tss
 
-// Custom Tailwind Styles
+// Tailwind styles
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 '.handheld:bg-blue-100[formFactor=handheld]': { backgroundColor: '#dbeafe' }
