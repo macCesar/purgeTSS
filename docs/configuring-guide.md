@@ -494,7 +494,7 @@ Starting with **`v2.3.5`**, you can `apply` a set of classes to create more comp
 
 ### Set it to any id, class or Ti Element
 ```javascript
-...
+// ...
 theme: {
   '#carrousel': {
     apply: 'w-screen h-auto bg-teal-200 mx-2 my-4 horizontal'
@@ -510,7 +510,7 @@ theme: {
     ]
   },
 }
-...
+// ...
 ```
 
 ```css
@@ -521,7 +521,7 @@ theme: {
 
 ### Use any of the default classes
 ```javascript
-...
+// ...
 theme: {
   '.btn': {
     apply: 'w-auto h-auto font-bold border-2 rounded my-0.5 font-saira-condensed'
@@ -534,7 +534,7 @@ theme: {
     ]
   },
 }
-...
+// ...
 ```
 
 ```css
@@ -544,7 +544,7 @@ theme: {
 
 ### Use any newly defined classes in `config.js`
 ```javascript
-...
+// ...
 theme: {
   '.btn': {
     apply: 'w-auto h-auto font-bold border-2 rounded my-0.5'
@@ -566,7 +566,7 @@ theme: {
     }
   },
 }
-...
+// ...
 ```
 
 ```css
@@ -583,7 +583,7 @@ theme: {
 
 ### You can set an array or a string of classes
 ```javascript
-...
+// ...
 theme: {
 
   // Use a string of classes
@@ -600,7 +600,7 @@ theme: {
     ]
   }
 }
-...
+// ...
 ```
 
 ```css
@@ -611,7 +611,7 @@ theme: {
 
 ### Combine it with any platform, device or conditional-block properties
 ```javascript
-...
+// ...
 theme: {
   '.btn': {
     // Default .btn
@@ -633,7 +633,7 @@ theme: {
     }
   },
 }
-...
+// ...
 ```
 
 ```css
@@ -1299,33 +1299,30 @@ You can use any of the supported units depending of the property you are generat
 </Alloy>
 ```
 
-`app.tss` *Showing only the generated styles*
+`app.tss` *Showing only the arbitraty values styles*
 ```css
 // PurgeTSS
 // Created by César Estrada
 // https://github.com/macCesar/purgeTSS
 
-// Custom Tailwind Styles
-'.-ml-(20)': { left: -20 }
 // ...
+
+// Classes with arbitrary values
+'.-ml-(20)': { left: -20 }
 '.bg-(#4C61E4)': { backgroundColor: '#4C61E4' }
 '.bg-(#53606b)': { backgroundColor: '#53606b' }
 '.bg-(#6D80FB)': { backgroundColor: '#6D80FB' }
-// ...
 '.bottom-(0)': { bottom: 0 }
-// ...
 '.h-(3.5in)': { height: '3.5in'}
 '.h-(3rem)': { height: 48}
-// ...
 '.m-(50px)': { top: '50px', right: '50px', bottom: '50px', left: '50px' }
-// ...
 '.opacity-(0.25)': { opacity: 0.25 }
 '.opacity-(0.35)': { opacity: 0.35 }
 '.rounded-(1.5rem)': { borderRadius: 24 }
 '.rounded-(20)': { borderRadius: 20 }
-// ...
 '.w-(2in)': { width: '2in' }
 '.w-(3rem)': { width: 48 }
+
 // ...
 ```
 
@@ -1373,35 +1370,42 @@ You can use any of the supported units depending of the property you are generat
 // Created by César Estrada
 // https://github.com/macCesar/purgeTSS
 
+// Styles from _app.tss
+// Empty _app.tss
+
 // Custom Tailwind Styles
 'ImageView[platform=ios]': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
+'.bg-white': { backgroundColor: '#ffffff' }
+'.font-normal': { font: { fontWeight: 'normal' } }
+'.font-bold': { font: { fontWeight: 'bold' } }
+'.vertical': { layout: 'vertical' }
+'.horizontal': { layout: 'horizontal' }
+'.mt-0': { top: 0 }
+'.ml-0': { left: 0 }
+'.text-white': { color: '#ffffff' }
+
+// Classes with arbitrary values
 '.bg-(#0B4825)': { backgroundColor: '#0B4825' }
 '.bg-(#1B6F3F)': { backgroundColor: '#1B6F3F' }
 '.bg-(#25A25B)': { backgroundColor: '#25A25B' }
 '.bg-(#83B758)': { backgroundColor: '#83B758' }
 '.bg-(#fff)': { backgroundColor: '#ffffff' }
-'.bg-white': { backgroundColor: '#ffffff' }
-'.font-bold': { font: { fontWeight: 'bold' } }
-'.font-normal': { font: { fontWeight: 'normal' } }
 '.h-(100px)': { height: '100px'}
 '.h-(1480px)': { height: '1480px'}
 '.h-(1600px)': { height: '1600px'}
 '.h-(200px)': { height: '200px'}
 '.h-(60px)': { height: '60px'}
-'.horizontal': { layout: 'horizontal' }
 '.left-(0)': { left: 0 }
 '.left-(150px)': { left: '150px' }
 '.left-(50px)': { left: '50px' }
 '.ml-(30px)': { left: '30px' }
-'.ml-0': { left: 0 }
 '.mr-(150px)': { right: '150px' }
 '.mt-(100px)': { top: '100px' }
 '.mt-(275px)': { top: '275px' }
 '.mt-(450px)': { top: '450px' }
 '.mt-(75px)': { top: '75px' }
-'.mt-0': { top: 0 }
 '.right-(250px)': { right: '250px' }
 '.right-(50px)': { right: '50px' }
 '.rounded-(20px)': { borderRadius: '20px' }
@@ -1411,9 +1415,7 @@ You can use any of the supported units depending of the property you are generat
 '.text-(22px)': { font: { fontSize: '22px' } }
 '.text-(48px)': { font: { fontSize: '48px' } }
 '.text-(64px)': { font: { fontSize: '64px' } }
-'.text-white': { color: '#ffffff' }
 '.top-(1650px)': { top: '1650px' }
-'.vertical': { layout: 'vertical' }
 '.w-(1300px)': { width: '1300px' }
 '.w-(1800px)': { width: '1800px' }
 '.w-(2300px)': { width: '2300px' }
@@ -1458,36 +1460,41 @@ You can use any of the supported units depending of the property you are generat
 // Created by César Estrada
 // https://github.com/macCesar/purgeTSS
 
+// Styles from _app.tss
+// Empty _app.tss
+
 // Custom Tailwind Styles
-'.-right-(10px)': { right: '-10px' }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
+'.bg-transparent': { backgroundColor: 'transparent' }
+'.font-bold': { font: { fontWeight: 'bold' } }
+'.h-screen': { height: Ti.UI.FILL }
+'.vertical': { layout: 'vertical' }
+'.horizontal': { layout: 'horizontal' }
+'.mt-0': { top: 0 }
+'.mt-1': { top: 4 }
+'.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
+'.w-full': { width: '100%' }
+'.w-screen': { width: Ti.UI.FILL }
+
+// Classes with arbitrary values
+'.-right-(10px)': { right: '-10px' }
 '.bg-(#53606b)': { backgroundColor: '#53606b' }
 '.bg-(#53A500)': { backgroundColor: '#53A500' }
 '.bg-(#6DB400)': { backgroundColor: '#6DB400' }
 '.bg-(rgba(255,255,0,0.75))': { backgroundColor: 'rgba(255,255,0,0.75)' }
-'.bg-transparent': { backgroundColor: 'transparent' }
 '.border-(#12681E)': { borderColor: '#12681E' }
 '.border-(5)': { borderWidth: 5 }
 '.bottom-(75px)': { bottom: '75px' }
-'.font-bold': { font: { fontWeight: 'bold' } }
 '.h-(150px)': { height: '150px'}
-'.h-screen': { height: Ti.UI.FILL }
-'.horizontal': { layout: 'horizontal' }
 '.m-(1rem)': { top: 16, right: 16, bottom: 16, left: 16 }
-'.mt-0': { top: 0 }
-'.mt-1': { top: 4 }
 '.text-(#12681E)': { color: '#12681E' }
 '.text-(14px)': { font: { fontSize: '14px' } }
 '.text-(16px)': { font: { fontSize: '16px' } }
 '.text-(32px)': { font: { fontSize: '32px' } }
-'.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
 '.top-(250px)': { top: '250px' }
-'.vertical': { layout: 'vertical' }
 '.w-(4.5rem)': { width: 72 }
 '.w-(80%)': { width: '80%' }
-'.w-full': { width: '100%' }
-'.w-screen': { width: Ti.UI.FILL }
 ```
 
 **Result**
@@ -1521,18 +1528,24 @@ Lets say that you want to have different background color and font sizes, depend
 // Created by César Estrada
 // https://github.com/macCesar/purgeTSS
 
+// Styles from _app.tss
+// Empty _app.tss
+
 // Custom Tailwind Styles
-...
-'.android:text-2xl[platform=android]': { font: { fontSize: 24 } }
-'.android:text-green-800[platform=android]': { color: '#166534' }
-...
+'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+'Window': { backgroundColor: '#ffffff' }
 '.handheld:bg-blue-100[formFactor=handheld]': { backgroundColor: '#dbeafe' }
 '.handheld:bg-blue-500[formFactor=handheld]': { backgroundColor: '#3b82f6' }
-'.ios:text-blue-800[platform=ios]': { color: '#1e40af' }
-'.ios:text-xl[platform=ios]': { font: { fontSize: 20 } }
 '.tablet:bg-green-100[formFactor=tablet]': { backgroundColor: '#dcfce7' }
 '.tablet:bg-green-500[formFactor=tablet]': { backgroundColor: '#22c55e' }
-...
+'.ios:text-xl[platform=ios]': { font: { fontSize: 20 } }
+'.android:text-2xl[platform=android]': { font: { fontSize: 24 } }
+'.h-32': { height: 128 }
+'.h-auto': { height: Ti.UI.SIZE }
+'.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
+'.ios:text-blue-800[platform=ios]': { color: '#1e40af' }
+'.android:text-green-800[platform=android]': { color: '#166534' }
+'.w-screen': { width: Ti.UI.FILL }
 ```
 
 # License
