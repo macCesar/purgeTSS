@@ -1370,6 +1370,7 @@ const arbitraryValuesTable = {
 
 	'page': '{ pageIndicatorColor: {value} }',
 	'paging': '{ pagingControlColor: {value} }',
+	'cache-size': '{ cacheSize: {value} }',
 
 	'current-page': '{ currentPageIndicatorColor: {value} }',
 	'p': '{ padding: { top: {value}, right: {value}, bottom: {value}, left: {value} } }',
