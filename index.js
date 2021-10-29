@@ -1145,14 +1145,12 @@ function finish(customMessage = 'Finished purging in') {
 //! Tailwind
 function purgeTailwind(uniqueClasses) {
 	let sourceFolder = '';
-	let purgedClasses = '';
+	let purgedClasses = '\n// Tailwind Styles\n';
 
 	if (fs.existsSync(customTailwindFile)) {
 		sourceFolder = customTailwindFile;
-		purgedClasses = '\n// Custom Tailwind Styles\n';
 	} else {
 		sourceFolder = defaultTailwindFile;
-		purgedClasses = '\n// Default Tailwind Styles\n';
 	}
 
 	let sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
@@ -1233,14 +1231,12 @@ function purgeTailwind(uniqueClasses) {
 
 function purgeTailwind2(uniqueClasses) {
 	let tailwindFile = '';
-	let purgedClasses = '';
+	let purgedClasses = '\n// Tailwind Styles\n';
 
 	if (fs.existsSync(customTailwindFile)) {
 		tailwindFile = customTailwindFile;
-		purgedClasses = '\n// Custom Tailwind Styles\n';
 	} else {
 		tailwindFile = defaultTailwindFile;
-		purgedClasses = '\n// Default Tailwind Styles\n';
 	}
 
 	let tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
@@ -1255,7 +1251,7 @@ function purgeTailwind2(uniqueClasses) {
 
 	let cleanUniqueClasses = [];
 	let soc = tailwindClasses.toString();
-	let arbitraryValues = '\n// Classes with arbitrary values\n';
+	let arbitraryValues = '\n// Styles with arbitrary values\n';
 
 	_.each(uniqueClasses, className => {
 		let cleanClassName = cleanClassNameFn(className);
@@ -1320,7 +1316,7 @@ function purgeTailwind2(uniqueClasses) {
 		}
 	});
 
-	return purgedClasses += (arbitraryValues !== '\n// Classes with arbitrary values\n') ? arbitraryValues : '';
+	return purgedClasses += (arbitraryValues !== '\n// Styles with arbitrary values\n') ? arbitraryValues : '';
 }
 
 function checkIndexOf(array, line) {
