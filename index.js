@@ -102,7 +102,7 @@ function watchMode(options) {
 			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
 			if (options.off) {
 				removeHook();
-			} else if (!fs.readFileSync(destJMKFile, 'utf8').includes('::PurgeTSS::')) {
+			} else if (!fs.readFileSync(destJMKFile, 'utf8').includes('purgetss')) {
 				addHook();
 			} else if (fs.readFileSync(destJMKFile, 'utf8').includes("//\trequire('child_process').execSync('purgetss")) {
 				enableHook();
@@ -566,16 +566,12 @@ function makeSureFolderExists(folder) {
 }
 
 function copyFile(src, dest) {
-	let copied = false;
-
 	if (fs.existsSync(src)) {
-		if (!fs.existsSync(`${destFontsFolder}/${dest}`)) {
-			fs.copyFile(src, `${destFontsFolder}/${dest}`, callback);
-			copied = true;
-		}
+		// if (!fs.existsSync(`${destFontsFolder}/${dest}`)) {
+		fs.copyFile(src, `${destFontsFolder}/${dest}`, callback);
+		return true;
+		// }
 	}
-
-	return copied;
 }
 
 function getUniqueClasses() {
