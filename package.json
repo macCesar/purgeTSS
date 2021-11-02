@@ -45,7 +45,7 @@
 		"@fortawesome/fontawesome-free": "^5.15.4",
 		"@tailwindcss/ui": "^0.7.2",
 		"arg": "^5.0.1",
-		"autoprefixer": "^10.3.7",
+		"autoprefixer": "^10.4.0",
 		"boxicons": "^2.0.9",
 		"caporal": "^1.4.0",
 		"chalk": "^4.1.2",
@@ -56,7 +56,7 @@
 		"path": "^0.12.7",
 		"prompts": "^2.4.2",
 		"read-css": "^0.3.0",
-		"tailwindcss": "^2.2.17",
+		"tailwindcss": "^2.2.19",
 		"traverse": "^0.6.6",
 		"xml-js": "^1.6.11"
 	}
