@@ -487,8 +487,9 @@ This is a common convention in `PurgeTSS` supported by many (although not all) o
 ## The `apply` directive
 Starting with **`v2.3.5`**, you can `apply` a set of classes to create more complex classes, or when you find a repetitive pattern in your code and you’d like to extract it to a new class component.
 
-- Set it to any id, class or Ti Element
+- Set any id, class or Ti Element
 - Use any of the default classes
+- Use arbitrary values
 - Use any newly defined classes in `config.js`
 - You can set an array or a string of classes
 - Combine it with any platform, device or conditional-block properties
