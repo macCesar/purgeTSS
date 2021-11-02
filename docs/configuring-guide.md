@@ -18,8 +18,9 @@
     - [Extending the default spacing scale](#extending-the-default-spacing-scale)
   - [Individual properties](#individual-properties)
   - [The `apply` directive](#the-apply-directive)
-    - [Set it to any id, class or Ti Element](#set-it-to-any-id-class-or-ti-element)
+    - [Set any id, class or Ti Element](#set-any-id-class-or-ti-element)
     - [Use any of the default classes](#use-any-of-the-default-classes)
+    - [Use arbitrary values](#use-arbitrary-values)
     - [Use any newly defined classes in `config.js`](#use-any-newly-defined-classes-in-configjs)
     - [You can set an array or a string of classes](#you-can-set-an-array-or-a-string-of-classes)
     - [Combine it with any platform, device or conditional-block properties](#combine-it-with-any-platform-device-or-conditional-block-properties)
@@ -492,7 +493,7 @@ Starting with **`v2.3.5`**, you can `apply` a set of classes to create more comp
 - You can set an array or a string of classes
 - Combine it with any platform, device or conditional-block properties
 
-### Set it to any id, class or Ti Element
+### Set any id, class or Ti Element
 ```javascript
 // ...
 theme: {
@@ -540,6 +541,32 @@ theme: {
 ```css
 '.btn': { borderRadius: 4, borderWidth: 2, height: Ti.UI.SIZE, top: 2, bottom: 2, width: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
 '.btn-primary': { backgroundColor: '#22c55e', borderColor: '#bbf7d0', color: '#dcfce7' }
+```
+
+### Use arbitrary values
+Starting with **`v2.5.16`**, you can use [arbitrary values](#arbitrary-values) to define your custom classes.
+
+
+```javascript
+// ...
+theme: {
+  extend: {},
+  '.progress': {
+    apply: [
+      'h-(1rem)',
+      'horizontal',
+      'bg-(#e9ecef)',
+      'text-(.75rem)',
+      'rounded-(.25rem)',
+    ]
+  }
+}
+// ...
+```
+
+```css
+// Custom Styles and Resets
+'.progress': { backgroundColor: '#e9ecef', borderRadius: 4, height: 16, layout: 'horizontal', font: { fontSize: 12 } }
 ```
 
 ### Use any newly defined classes in `config.js`
@@ -1255,20 +1282,31 @@ There are times when you just want a custom class that your are going to use onc
 
 Or you need a very specific value that is not part of the default values in `tailwind.tss` file.
 
-**With the release of `v2.3.0` you can generate arbitrary styles and values directly in you `xml` files using any of the following attributes:**
+**With the release of `v2.3.0` you can generate classes with arbitrary values directly in you `xml` files using any of the following attributes:**
 
 - w - `width`
 - h - `height`
+- delay - `delay`
+- repeat - `repeat`
+- rotate - `rotate`
 - tint - `tintColor`
 - opacity - `opacity`
+- font - `fontWeight`
+- duration - `duration`
 - bg - `backgroundColor`
 - rounded - `borderRadius`
-- text - `color` or `fontSize`
+- cache-size - `cacheSize`
 - feedback - `touchFeedback`
+- page - `pageIndicatorColor`
+- anchorPoint - `anchorPoint`
+- text - `color` or `fontSize`
+- paging - `pagingControlColor`
 - placeholder - `hintTextColor`
 - from & to - `backgroundGradient`
 - top, right, bottom, left - `position`
 - border - `borderColor` or `borderWidth`
+- current-page - `currentPageIndicatorColor`
+- content, content-w and content-h - `contentWidth`
 - p ( including pb, pl, pr, pt, px, py ) - `padding`
 - m ( including mb, ml, mr, mt, mx, my ) - `position`
 
