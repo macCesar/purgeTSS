@@ -1176,26 +1176,6 @@ function purgeTailwind(uniqueClasses) {
 			_.each(sourceTSS, line => {
 				if (startsWith(line, cleanClassName)) {
 					purgedClasses += helpers.checkPlatformAndDevice(line, className);
-					// https://regex101.com/r/YXLWYt/1
-					// if (className.includes('ios:')) {
-					// 	purgedClasses += (line.includes('platform=ios'))
-					// 		? `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`
-					// 		: `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
-					// } else if (className.includes('android:')) {
-					// 	purgedClasses += (line.includes('platform=android'))
-					// 		? `${line.replace(/[^'.]+|1/, `android:$&`)}\n`
-					// 		: `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
-					// } else if (className.includes('handheld:')) {
-					// 	purgedClasses += (line.includes('formFactor=handheld'))
-					// 		? `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`
-					// 		: `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
-					// } else if (className.includes('tablet:')) {
-					// 	purgedClasses += (line.includes('formFactor=tablet'))
-					// 		? `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`
-					// 		: `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
-					// } else {
-					// 	purgedClasses += `${line}\n`;
-					// }
 				}
 			});
 		} else if (cleanClassName.includes('(')) {
@@ -1203,25 +1183,6 @@ function purgeTailwind(uniqueClasses) {
 
 			if (line) {
 				purgedClasses += helpers.checkPlatformAndDevice(line, className);
-				// if (className.includes('ios:')) {
-				// 	purgedClasses += (className.includes('platform=ios'))
-				// 	? `${line.replace(/[^'.]+|1/, `ios:$&`)}\n`
-				// 	: `${line.replace(/[^'.]+|1/, `ios:$&[platform=ios]`)}\n`;
-				// } else if (className.includes('android:')) {
-				// 	purgedClasses += (className.includes('platform=android'))
-				// 	? `${line.replace(/[^'.]+|1/, `android:$&`)}\n`
-				// 	: `${line.replace(/[^'.]+|1/, `android:$&[platform=android]`)}\n`;
-				// } else if (className.includes('handheld:')) {
-				// 	purgedClasses += (className.includes('formFactor=handheld'))
-				// 	? `${line.replace(/[^'.]+|1/, `handheld:$&`)}\n`
-				// 	: `${line.replace(/[^'.]+|1/, `handheld:$&[formFactor=handheld]`)}\n`;
-				// } else if (className.includes('tablet:')) {
-				// 	purgedClasses += (className.includes('formFactor=tablet'))
-				// 	? `${line.replace(/[^'.]+|1/, `tablet:$&`)}\n`
-				// 	: `${line.replace(/[^'.]+|1/, `tablet:$&[formFactor=tablet]`)}\n`;
-				// } else {
-				// 	purgedClasses += line + '\n';
-				// }
 			}
 		}
 	});
