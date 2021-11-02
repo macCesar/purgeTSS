@@ -568,6 +568,7 @@ theme: {
 ```css
 // Custom Styles and Resets
 '.progress': { backgroundColor: '#e9ecef', borderRadius: 4, height: 16, layout: 'horizontal', font: { fontSize: 12 } }
+// ...
 ```
 
 ### Use any newly defined classes in `config.js`
