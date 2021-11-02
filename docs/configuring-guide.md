@@ -575,6 +575,14 @@ theme: {
 ```javascript
 // ...
 theme: {
+  extend: {
+    colors: {
+      // New color values that will be used in bg, text and border
+      corporate: {
+        100: '#dddfe1', 200: '#babfc4', 500: '#53606b'
+      }
+    }
+  },
   '.btn': {
     apply: 'w-auto h-auto font-bold border-2 rounded my-0.5'
   },
@@ -585,14 +593,6 @@ theme: {
       'text-corporate-100',
       'border-corporate-200'
     ]
-  },
-  extend: {
-    colors: {
-      // New color values that will be used in bg, text and border
-      corporate: {
-        100: '#dddfe1', 200: '#babfc4', 500: '#53606b'
-      }
-    }
   },
 }
 // ...
