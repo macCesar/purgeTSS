@@ -1299,6 +1299,8 @@ function startsWith(line, cleanClassName) {
 const arbitraryValuesTable = {
 	// Check if they are really needed
 	'font': '{ fontWeight: {value} }',
+	'max-scale': '{ maxZoomScale: {value} }',
+	'min-scale': '{ minZoomScale: {value} }',
 	'content-w': '{ contentWidth: {value} }',
 	'content-h': '{ contentHeight: {value} }',
 	// 'bg-selected': '{ backgroundSelectedColor: {value} }',
