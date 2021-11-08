@@ -31,23 +31,22 @@
   - [Extending properties](#extending-properties)
   - [Disabling properties](#disabling-properties)
 - [**Core Properties**](#core-properties)
-    - [Text Colors](#text-colors)
     - [Background Colors](#background-colors)
-    - [Placeholder Colors](#placeholder-colors)
-    - [Gradient Color Stops](#gradient-color-stops)
-    - [Tint Color](#tint-color)
     - [Border Colors](#border-colors)
-    - [Border Width](#border-width)
     - [Border Radius](#border-radius)
-    - [Width scale](#width-scale)
-    - [Height scale](#height-scale)
-    - [Margin](#margin)
-    - [Padding](#padding)
+    - [Border Width](#border-width)
+    - [Content Width & Height](#content-width--height)
     - [Display](#display)
     - [Font Family](#font-family)
     - [Font Size](#font-size)
-    - [Font Style](#font-style)
-    - [Content Width & Height](#content-width--height)
+    - [Gradient Color Stops](#gradient-color-stops)
+    - [Height scale](#height-scale)
+    - [Text Colors](#text-colors)
+    - [Placeholder Colors](#placeholder-colors)
+    - [Tint Color](#tint-color)
+    - [Width scale](#width-scale)
+    - [Margin](#margin)
+    - [Padding](#padding)
     - [Opacity](#opacity)
 - [**Adding your own properties**](#adding-your-own-properties)
   - [Global properties](#global-properties)
@@ -811,27 +810,6 @@ module.exports = {
 
 # **Core Properties**
 
-### Text Colors
-Utilities for controlling the text/title color of an element.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'textColor': {
-      'orange-peel': '#FF9F1C',
-      'ultramarine': '#446DF6'
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// color Property
-'.text-orange-peel': { color: '#FF9F1C' }
-'.text-ultramarine': { color: '#446DF6' }
-```
-
 ### Background Colors
 Utilities for controlling an element's background color.
 ```javascript
@@ -853,15 +831,15 @@ module.exports = {
 '.bg-pacific': { backgroundColor: '#08A4BD' }
 ```
 
-### Placeholder Colors
-Utilities for controlling the color of placeholder text.
+### Border Colors
+Utilities to control the color of the borders of an element.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
   'theme': {
-    'placeholderColor': {
-      'flame': '#EC4E20',
-      'spanish-blue': '#016FB9'
+    'borderColor': {
+      'old-burgundy': '#4B3B40',
+      'tea-green': '#D1F5BE'
     }
   }
 };
@@ -869,9 +847,119 @@ module.exports = {
 
 ```css
 // ./purgetss/tailwind.tss
-// hintTextColor Property
-'.placeholder-flame': { hintTextColor: '#EC4E20' }
-'.placeholder-spanish-blue': { hintTextColor: '#016FB9' }
+// borderColor Property
+'.border-old-burgundy': { borderColor: '#4B3B40' }
+'.border-tea-green': { borderColor: '#D1F5BE' }
+```
+
+### Border Radius
+Utilities for controlling the border radius of an element.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'borderRadius:' {
+      'DEFAULT': '0.25rem',
+      'large': '1.0rem',
+      'extra-large': '2.0rem'
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// borderRadius Property
+'.rounded': { borderRadius: 4 }
+'.rounded-large': { borderRadius: 16 }
+'.rounded-extra-large': { borderRadius: 32 }
+```
+
+### Border Width
+Utilities for controlling the width of an element's borders.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'borderWidth': {
+      '3': '3',
+      '6': '6',
+      '10': '10',
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// borderWidth Property
+'.border-3': { borderWidth: 3 }
+'.border-6': { borderWidth: 6 }
+'.border-10': { borderWidth: 10 }
+```
+
+### Content Width & Height
+Width and Height of the scrollable region of a `ScrollView`.
+```css
+'.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
+'.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
+'.content-w-auto': { contentWidth: Ti.UI.SIZE }
+'.content-w-screen': { contentWidth: Ti.UI.FILL }
+'.content-h-auto': { contentHeight: Ti.UI.SIZE }
+'.content-h-screen': { contentHeight: Ti.UI.FILL }
+```
+
+### Display
+Utilities for controlling an element's visibility.
+
+```css
+// ./purgetss/tailwind.tss
+
+// Display
+'.block': { visible: true }
+'.hidden': { visible: false }
+```
+
+### Font Family
+Utilities for controlling the font family of an element.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'fontFamily': {
+      'display': 'AlfaSlabOne-Regular',
+      'body': 'BarlowSemiCondensed-Regular',
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// fontFamily Property
+'.font-display': { font: { fontFamily: 'AlfaSlabOne-Regular' } }
+'.font-body': { font: { fontFamily: 'BarlowSemiCondensed-Regular' } }
+```
+
+### Font Size
+Utilities for controlling the font size of an element.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'fontSize:' {
+      '10xl': '8rem',
+      'small-print': '.5rem',
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// fontSize Property
+'.text-10xl': { font: { fontSize: 128 } }
+'.text-small-print': { font: { fontSize: 8 } }
 ```
 
 ### Gradient Color Stops
@@ -900,6 +988,74 @@ module.exports = {
 '.to-danger': { backgroundGradient: { colors: [ '#e3342f' ] } }
 ```
 
+### Height scale
+Utilities for setting the height of an element
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'height': {
+      'xl': '3rem',
+      '1/3': '33.333333%'
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// height Property
+'.h-xl': { height: 48 }
+'.h-1/3': { height: '33.333333%' }
+```
+
+
+
+
+
+
+### Text Colors
+Utilities for controlling the text/title color of an element.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'textColor': {
+      'orange-peel': '#FF9F1C',
+      'ultramarine': '#446DF6'
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// color Property
+'.text-orange-peel': { color: '#FF9F1C' }
+'.text-ultramarine': { color: '#446DF6' }
+```
+
+### Placeholder Colors
+Utilities for controlling the color of placeholder text.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'placeholderColor': {
+      'flame': '#EC4E20',
+      'spanish-blue': '#016FB9'
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// hintTextColor Property
+'.placeholder-flame': { hintTextColor: '#EC4E20' }
+'.placeholder-spanish-blue': { hintTextColor: '#016FB9' }
+```
+
 ### Tint Color
 Utilities for controlling an element's tint color.
 ```javascript
@@ -922,73 +1078,6 @@ module.exports = {
 '.tint-highlight': { tintColor: '#ffff00' }
 ```
 
-### Border Colors
-Utilities to control the color of the borders of an element.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'borderColor': {
-      'old-burgundy': '#4B3B40',
-      'tea-green': '#D1F5BE'
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// borderColor Property
-'.border-old-burgundy': { borderColor: '#4B3B40' }
-'.border-tea-green': { borderColor: '#D1F5BE' }
-```
-
-### Border Width
-Utilities for controlling the width of an element's borders.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'borderWidth': {
-      '3': '3',
-      '6': '6',
-      '10': '10',
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// borderWidth Property
-'.border-3': { borderWidth: 3 }
-'.border-6': { borderWidth: 6 }
-'.border-10': { borderWidth: 10 }
-```
-
-### Border Radius
-Utilities for controlling the border radius of an element.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'borderRadius:' {
-      'DEFAULT': '0.25rem',
-      'large': '1.0rem',
-      'extra-large': '2.0rem'
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// borderRadius Property
-'.rounded': { borderRadius: 4 }
-'.rounded-large': { borderRadius: 16 }
-'.rounded-extra-large': { borderRadius: 32 }
-```
-
 ### Width scale
 Utilities for setting the width of an element
 ```javascript
@@ -1006,27 +1095,6 @@ module.exports = {
 // ./purgetss/tailwind.tss
 // width Property
 '.w-banner': { width: 80 }
-```
-
-### Height scale
-Utilities for setting the height of an element
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'height': {
-      'xl': '3rem',
-      '1/3': '33.333333%'
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// height Property
-'.h-xl': { height: 48 }
-'.h-1/3': { height: '33.333333%' }
 ```
 
 ### Margin
@@ -1092,79 +1160,6 @@ module.exports = {
 '.pb-md': { padding: { bottom: 24 } }
 '.pl-sm': { padding: { left: 16 } }
 '.pl-md': { padding: { left: 24 } }
-```
-
-### Display
-Utilities for controlling an element's visibility.
-
-```css
-// ./purgetss/tailwind.tss
-
-// Display
-'.block': { visible: true }
-'.hidden': { visible: false }
-```
-
-### Font Family
-Utilities for controlling the font family of an element.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'fontFamily': {
-      'display': 'AlfaSlabOne-Regular',
-      'body': 'BarlowSemiCondensed-Regular',
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// fontFamily Property
-'.font-display': { font: { fontFamily: 'AlfaSlabOne-Regular' } }
-'.font-body': { font: { fontFamily: 'BarlowSemiCondensed-Regular' } }
-```
-
-### Font Size
-Utilities for controlling the font size of an element.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'fontSize:' {
-      '10xl': '8rem',
-      'small-print': '.5rem',
-    }
-  }
-};
-```
-
-### Font Style
-Font style. Valid values are "italic" or "normal".
-
-```css
-// fontStyle Property
-'.italic': { font: { fontStyle: 'italic' } }
-'.not-italic': { font: { fontStyle: 'normal' } }
-```
-
-### Content Width & Height
-Width and Height of the scrollable region of a `ScrollView`.
-```css
-'.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
-'.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
-'.content-w-auto': { contentWidth: Ti.UI.SIZE }
-'.content-w-screen': { contentWidth: Ti.UI.FILL }
-'.content-h-auto': { contentHeight: Ti.UI.SIZE }
-'.content-h-screen': { contentHeight: Ti.UI.FILL }
-```
-
-```css
-// ./purgetss/tailwind.tss
-// fontSize Property
-'.text-10xl': { font: { fontSize: 128 } }
-'.text-small-print': { font: { fontSize: 8 } }
 ```
 
 ### Opacity
