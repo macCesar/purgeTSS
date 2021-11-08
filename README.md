@@ -22,7 +22,7 @@
 - Provides more than 5000 [Tailwind-like utility classes](https://tailwindcss.com/) ready to use in your projects.
 - Creates a clean `app.tss` file with only the classes used in your project by parsing all your XML files.
 - You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
-- You can easily use Font Awesome, Material Design, Boxicons and LineIcons fonts in `Labels` and `Buttons`.
+- You can easily use Font Awesome, Material Design, Lineicons, Boxicons and Framework7-Icons fonts in `Buttons` and `Labels`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
 - Includes a simple two-dimensional Grid System to align and distribute the elements in your views.
 
@@ -31,6 +31,7 @@
 - [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/lineicons.tss)
 - [boxicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/boxicons.tss)
 - [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/fontawesome.tss)
+- [framework7icons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/framework7icons.tss)
 - [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/materialdesignicons.tss)
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
@@ -56,7 +57,7 @@
 - Copy the content of `index.xml` and `app.tss` into a new Alloy project
 - Install Fontawesome font files with `purgetss fonts --vendor="fontawesome"`
 - Run `purgetss` once to process and purge all your `xml` files
-- Compile your app as usual
+- Compile your app as usual. **We recommend that you use `liveview` to speed up testing and development time.**.
 
 `index.xml`
 ```xml
@@ -190,25 +191,23 @@ Every section of the config file is optional, so you only have to specify whatev
 
 You can customize the following properties:
 
-- width
-- height
-- visible
-- margin
-- opacity
-- padding
-- fontSize
-- tintColor
-- fontStyle
-- textColor
-- fontFamily
-- borderColor
-- borderWidth
-- borderRadius
-- placeholderColor
-- backgroundColor
-- gradientColorStops
-- contentWidth/contentHeight
-- showHorizontalScrollIndicator / showVerticalScrollIndicator
+- Background Colors
+- Border Colors
+- Border Radius
+- Border Width
+- Content Width & Height
+- Display
+- Font Family
+- Font Size
+- Gradient Color Stops
+- Height scale
+- Margin
+- Opacity
+- Padding
+- Placeholder Colors
+- Text Colors
+- Tint Color
+- Width scale
 - ***Your own classes and ANY Ti Element with ANY number of attributes or conditional statements***
 
 ## To learn more see [Customization and Configuration Guide](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
@@ -269,10 +268,10 @@ Use **`purgetss module`** command to install the `purgetss.ui.js` module in your
 If you want to create a new Alloy Project with `purgetss` ready to go, use the `create` command.
 
 ```bash
-> purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons"]
+> purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons, framework7"]
 
 # alias:
-> purgetss c 'Name of the Project' [-v=fa,md,li,bx]
+> purgetss c 'Name of the Project' [-v=fa,md,li,bx,f7]
 ```
 
 You need to have `app.idprefix` and `app.idprefix` already configured in `ti config`.
@@ -299,7 +298,7 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 - **`alloy new`** To convert it to an Alloy Project.
 - **`purgetss w`** To autorun `purgetss` every time you compile your project.
 - **`purgetss b`** To build a new `./purgetss/tailwind.tss` and `./purgetss/config.js` files.
-- **`[-v=fa,md,li,bx]`** To copy the selected fonts with the optional `-v` argument into your project. Including the CommonJS module into `./app/lib/` folder.
+- **`[-v=fa,md,li,bx,f7]`** Set the `--vendor` argument to copy the selected fonts into your project. Including the CommonJS module into `./app/lib/` folder.
 - **`code .`**, **`subl .`** or **`open .`** It will use either one of these commands to open `VS Code`, `Sublime Text` or the project’s folder in that order.
 
 ## fonts
@@ -310,7 +309,7 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 > purgetss f
 ```
 
-Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons), [LineIcons](https://lineicons.com/icons/?type=free) and [Boxicons](https://boxicons.com) fonts into your `app/assets/fonts` folder. With their names fixed to work in iOS or Android.
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons), [LineIcons](https://lineicons.com/icons/?type=free), [Boxicons](https://boxicons.com) and [Framework7 Icons](https://framework7.io/icons/) fonts into your `app/assets/fonts` folder. With their names fixed to work in iOS or Android.
 
 > boxicons.ttf
 >
@@ -319,6 +318,8 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 > FontAwesome5Free-Regular.ttf
 >
 > FontAwesome5Free-Solid.ttf
+>
+> Framework7-Icons.ttf
 >
 > LineIcons.ttf
 >
@@ -336,10 +337,10 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 Use any of the following arguments to copy specific vendors:
 
 ```bash
-> purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons"
+> purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7"
 
 # alias:
-> purgetss f -v=fa,md,li,bx
+> purgetss f -v=fa,md,li,bx,f7
 ```
 
 Available aliases:
@@ -347,33 +348,36 @@ Available aliases:
 - li, line, lineicons = LineIcons
 - fa, font, fontawesome = Font Awesome Icons
 - md, material, materialdesign = Material Design Icons
+- f7, framework, framework7 = Framework7 Icons
 
 ### Copying corresponding CommonJS Modules
-Add the `--modules` flag to also copy the corresponding CommonJS modules into `./app/lib/` folder:
+You can use the `--modules` flag to copy the corresponding CommonJS modules into `./app/lib/` folder.
 
 ```bash
 > purgetss fonts --modules
-> purgetss fonts --modules --vendor="fontawesome, materialdesign, lineicons, boxicons"
+> purgetss fonts --modules --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7"
 
 # alias:
 > purgetss f -m
-> purgetss f -m -v=fa,md,li,bx
+> purgetss f -m -v=fa,md,li,bx,f7
 ```
 
-Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Material Design Icons, Line Icons and Boxicons fonts.
+Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Material Design Icons, Line Icons Boxicons and Framework7-Icons fonts.
 
-All prefixes are stripped out from the names, for example:
+All prefixes are stripped out from their class names and are camelCased, for example:
 
-- Line Icons: `lni-flag` becomes `flag`
-- Font Awesome: `fa-flag` becomes `flag`
-- Material Design Icons: `md-flag` becomes `flag`
+- **Line Icons**: `lni-flag` becomes `flag`
+- **Font Awesome**: `fa-flag` becomes `flag`
+- **Material Design Icons**: `md-flag` becomes `flag`
+- **Framework7 Icons** don't use a prefix in their names, but they do use underscores, so names like `alarm_fill` becomes `alarmFill` or `clock_fill` becomes `clockFill`.
+- **boxicons** have three sets of icons in the same font file: Regular, Solid and Logos, so we need to keep their prefixes:
 
-Except for `boxicons`, because there are three sets of icons in the same font file: Logos, Regular and Solid.
-- Regular: `bx-flag` becomes `bxFlag`
-- Solid: `bxs-flag` becomes `bxsFlag`
-- Logos: Almost all the logos have no conflict with other classes, because almost all have unique names, except for one: `bxl-windows` and `bx-windows`. That's why we are also keeping the prefix for all `logos` variants, so they become: `bxlWindows` for example.
+  - Regular: `bx-flag` becomes `bxFlag`
+  - Solid: `bxs-flag` becomes `bxsFlag`
+  - Logos: Almost none of the `Logos` classes have conflict with other classes, because almost all have unique names, except `bxl-windows` and `bx-windows`. That's why we are also keeping the prefixes for all `Logos` variants, so they become: `bxlWindows` for example.
 
-**All Icon names are camelCased, `arrow-up` becomes `arrowUp`.**
+#### Using commondJS Modules
+To use the CommonJS modules, you need to add the following to your `app.js` file:
 
 ### Custom `fontawesome.tss` file for users with a Font Awesome Pro Account
 If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `./purgetss/fontawesome.tss` file with all the extra classes that the Pro version has. ***(except duotone icons, see note below)***
