@@ -24,7 +24,7 @@
 - You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
 - You can easily use Font Awesome, Material Design, Lineicons, Boxicons and Framework7-Icons fonts in `Buttons` and `Labels`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
-- Includes a simple two-dimensional Grid System to align and distribute the elements in your views.
+- Includes a simple two-dimensional Grid System to align and distribute elements in your views.
 
 ## List of available classes
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
