@@ -10,6 +10,7 @@
 '.mdr': { font: { fontFamily: 'MaterialIconsRound-Regular' } }
 '.mds': { font: { fontFamily: 'MaterialIconsSharp-Regular' } }
 '.mdt': { font: { fontFamily: 'MaterialIconsTwoTone-Regular' } }
+'.material-icons': { font: { fontFamily: 'MaterialIcons-Regular' } }
 
 // Font Sizes
 '.md-18': { font: { fontSize: 18 } }
