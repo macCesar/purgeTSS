@@ -41,13 +41,13 @@
     - [Font Size](#font-size)
     - [Gradient Color Stops](#gradient-color-stops)
     - [Height scale](#height-scale)
-    - [Text Colors](#text-colors)
+    - [Margin](#margin)
+    - [Opacity](#opacity)
+    - [Padding](#padding)
     - [Placeholder Colors](#placeholder-colors)
+    - [Text Colors](#text-colors)
     - [Tint Color](#tint-color)
     - [Width scale](#width-scale)
-    - [Margin](#margin)
-    - [Padding](#padding)
-    - [Opacity](#opacity)
 - [**Adding your own properties**](#adding-your-own-properties)
   - [Global properties](#global-properties)
   - [Arbitrary values](#arbitrary-values)
@@ -1009,20 +1009,14 @@ module.exports = {
 '.h-1/3': { height: '33.333333%' }
 ```
 
-
-
-
-
-
-### Text Colors
-Utilities for controlling the text/title color of an element.
+### Margin
+Utilities for controlling an element's margin.
 ```javascript
 // ./purgetss/config.js
 module.exports = {
   'theme': {
-    'textColor': {
-      'orange-peel': '#FF9F1C',
-      'ultramarine': '#446DF6'
+    'margin': {
+      'tiny': '.125rem',
     }
   }
 };
@@ -1030,9 +1024,79 @@ module.exports = {
 
 ```css
 // ./purgetss/tailwind.tss
-// color Property
-'.text-orange-peel': { color: '#FF9F1C' }
-'.text-ultramarine': { color: '#446DF6' }
+// Margin
+'.m-tiny': { top: 2, right: 2, bottom: 2, left: 2 }
+'.-m-tiny': { top: -2, right: -2, bottom: -2, left: -2 }
+'.my-tiny': { top: 2, bottom: 2 }
+'.-my-tiny': { top: -2, bottom: -2 }
+'.mx-tiny': { right: 2, left: 2 }
+'.-mx-tiny': { right: -2, left: -2 }
+'.mt-tiny': { top: 2 }
+'.-mt-tiny': { top: -2 }
+'.mr-tiny': { right: 2 }
+'.-mr-tiny': { right: -2 }
+'.mb-tiny': { bottom: 2 }
+'.-mb-tiny': { bottom: -2 }
+'.ml-tiny': { left: 2 }
+'.-ml-tiny': { left: -2 }
+```
+
+### Opacity
+Utilities for controlling the opacity of an element.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'opacity': {
+      '15': '0.15',
+      '35': '0.35',
+      '65': '0.65',
+      '85': '0.85'
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// opacity Property
+'.opacity-15': { opacity: 0.15 }
+'.opacity-35': { opacity: 0.35 }
+'.opacity-65': { opacity: 0.65 }
+'.opacity-85': { opacity: 0.85 }
+```
+
+### Padding
+Utilities for controlling an element's padding.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'padding': {
+      'sm': '1rem',
+      'md': '1.5rem',
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// padding Property
+'.p-sm': { padding: { top: 16, right: 16, bottom: 16, left: 16 } }
+'.p-md': { padding: { top: 24, right: 24, bottom: 24, left: 24 } }
+'.py-sm': { padding: { top: 16, bottom: 16 } }
+'.py-md': { padding: { top: 24, bottom: 24 } }
+'.px-sm': { padding: { right: 16, left: 16 } }
+'.px-md': { padding: { right: 24, left: 24 } }
+'.pt-sm': { padding: { top: 16 } }
+'.pt-md': { padding: { top: 24 } }
+'.pr-sm': { padding: { right: 16 } }
+'.pr-md': { padding: { right: 24 } }
+'.pb-sm': { padding: { bottom: 16 } }
+'.pb-md': { padding: { bottom: 24 } }
+'.pl-sm': { padding: { left: 16 } }
+'.pl-md': { padding: { left: 24 } }
 ```
 
 ### Placeholder Colors
@@ -1054,6 +1118,27 @@ module.exports = {
 // hintTextColor Property
 '.placeholder-flame': { hintTextColor: '#EC4E20' }
 '.placeholder-spanish-blue': { hintTextColor: '#016FB9' }
+```
+
+### Text Colors
+Utilities for controlling the text/title color of an element.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'theme': {
+    'textColor': {
+      'orange-peel': '#FF9F1C',
+      'ultramarine': '#446DF6'
+    }
+  }
+};
+```
+
+```css
+// ./purgetss/tailwind.tss
+// color Property
+'.text-orange-peel': { color: '#FF9F1C' }
+'.text-ultramarine': { color: '#446DF6' }
 ```
 
 ### Tint Color
@@ -1095,96 +1180,6 @@ module.exports = {
 // ./purgetss/tailwind.tss
 // width Property
 '.w-banner': { width: 80 }
-```
-
-### Margin
-Utilities for controlling an element's margin.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'margin': {
-      'tiny': '.125rem',
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// Margin
-'.m-tiny': { top: 2, right: 2, bottom: 2, left: 2 }
-'.-m-tiny': { top: -2, right: -2, bottom: -2, left: -2 }
-'.my-tiny': { top: 2, bottom: 2 }
-'.-my-tiny': { top: -2, bottom: -2 }
-'.mx-tiny': { right: 2, left: 2 }
-'.-mx-tiny': { right: -2, left: -2 }
-'.mt-tiny': { top: 2 }
-'.-mt-tiny': { top: -2 }
-'.mr-tiny': { right: 2 }
-'.-mr-tiny': { right: -2 }
-'.mb-tiny': { bottom: 2 }
-'.-mb-tiny': { bottom: -2 }
-'.ml-tiny': { left: 2 }
-'.-ml-tiny': { left: -2 }
-```
-
-### Padding
-Utilities for controlling an element's padding.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'padding': {
-      'sm': '1rem',
-      'md': '1.5rem',
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// padding Property
-'.p-sm': { padding: { top: 16, right: 16, bottom: 16, left: 16 } }
-'.p-md': { padding: { top: 24, right: 24, bottom: 24, left: 24 } }
-'.py-sm': { padding: { top: 16, bottom: 16 } }
-'.py-md': { padding: { top: 24, bottom: 24 } }
-'.px-sm': { padding: { right: 16, left: 16 } }
-'.px-md': { padding: { right: 24, left: 24 } }
-'.pt-sm': { padding: { top: 16 } }
-'.pt-md': { padding: { top: 24 } }
-'.pr-sm': { padding: { right: 16 } }
-'.pr-md': { padding: { right: 24 } }
-'.pb-sm': { padding: { bottom: 16 } }
-'.pb-md': { padding: { bottom: 24 } }
-'.pl-sm': { padding: { left: 16 } }
-'.pl-md': { padding: { left: 24 } }
-```
-
-### Opacity
-Utilities for controlling the opacity of an element.
-```javascript
-// ./purgetss/config.js
-module.exports = {
-  'theme': {
-    'opacity': {
-      '15': '0.15',
-      '35': '0.35',
-      '65': '0.65',
-      '85': '0.85'
-    }
-  }
-};
-```
-
-```css
-// ./purgetss/tailwind.tss
-// opacity Property
-'.opacity-15': { opacity: 0.15 }
-'.opacity-35': { opacity: 0.35 }
-'.opacity-65': { opacity: 0.65 }
-'.opacity-85': { opacity: 0.85 }
 ```
 
 # **Adding your own properties**
