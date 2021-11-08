@@ -8,7 +8,7 @@ const package = require('../package.json');
 program
 	.version(package.version)
 	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for details.')
-	.help('PurgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialdesignicons.tss, lineicons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
+	.help('PurgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialdesignicons.tss, lineicons.tss, boxicons.tss, framework7icons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
 	.action((args, options, logger) => {
 		purgetss.purgeClasses(options);
 	});
@@ -27,7 +27,7 @@ program
 	.alias('c')
 	.description('Creates a new Alloy Project with `purgetss` already configured.')
 	.help('Creates a new Alloy Project with `purgetss` already configured.')
-	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons')
+	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons\n   f7 = Framework7 Icons')
 	.argument('<name>', 'The name of the project')
 	.action((args, options, logger) => {
 		purgetss.create(args, options);
@@ -55,9 +55,9 @@ program
 program
 	.command('fonts')
 	.alias('f')
-	.description('Copy Font Awesome icons, Material Design Icons, LineIcons and Boxicons Fonts into your project')
-	.help('Command to copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • Material Design Icons\n   • LineIcons\n   • Boxicons\n\nInto your projects’s app/assets/fonts/ folder.\n\nWith their names fixed to work with your app whether it is for iOS or for Android.')
-	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons')
+	.description('Copy Font Awesome icons, Material Design Icons, LineIcons, Boxicons and Framework7-Icons Font files into your project')
+	.help('Command to copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • Material Design Icons\n   • LineIcons\n   • Boxicons\n   • Framework7 Icons\n\nInto your projects’s app/assets/fonts/ folder.\n\nWith their names fixed to work with your app whether it is for iOS or for Android.')
+	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons\n   f7 = Framework7 Icons')
 	.option('-m, --modules', 'Use the `--modules` option to also copy the corresponding CommonJS module into `./app/lib/` folder.')
 	.action((args, options, logger) => {
 		purgetss.copyFonts(options);
