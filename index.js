@@ -43,6 +43,7 @@ const destConfigJSFile = cwd + '/purgetss/config.js';
 // js icon modules
 const srcLibLI = path.resolve(__dirname, './dist/lineicons.js');
 const srcLibBX = path.resolve(__dirname, './dist/boxicons.js');
+const srcLibF7 = path.resolve(__dirname, './dist/framework7icons.js');
 const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
 const srcLibMD = path.resolve(__dirname, './dist/materialdesignicons.js');
@@ -90,6 +91,7 @@ const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
 const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss');
 const srcLineiconsFontTSSFile = path.resolve(__dirname, './dist/lineicons.tss');
 const srcBoxIconsFontTSSFile = path.resolve(__dirname, './dist/boxicons.tss');
+const srcFramework7FontTSSFile = path.resolve(__dirname, './dist/framework7icons.tss');
 const srcPurgetssConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
 const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialdesignicons.tss');
 //
@@ -131,6 +133,7 @@ function copyFonts(options) {
 			copyFont('li');
 			copyFont('md');
 			copyFont('bx');
+			copyFont('f7');
 		}
 
 		if (options.modules) {
@@ -155,6 +158,7 @@ function copyFontLibraries(options) {
 			copyFontLibrary('li');
 			copyFontLibrary('md');
 			copyFontLibrary('bx');
+			copyFontLibrary('f7');
 		}
 	}
 }
@@ -197,7 +201,7 @@ function purgeClasses(options) {
 
 		let tempPurged = copyResetTemplateAnd_appTSS();
 
-		tempPurged += purgeTailwind2(uniqueClasses);
+		tempPurged += purgeTailwind(uniqueClasses);
 
 		tempPurged += purgeFontAwesome(uniqueClasses);
 
@@ -206,6 +210,8 @@ function purgeClasses(options) {
 		tempPurged += purgeLineIcons(uniqueClasses);
 
 		tempPurged += purgeBoxIcons(uniqueClasses);
+
+		tempPurged += purgeFramework7(uniqueClasses);
 
 		saveFile(destAppTSSFile, tempPurged);
 
@@ -452,6 +458,12 @@ function copyBoxIconsFonts() {
 	// BoxIcons Font
 	copyFile(srcFontsFolder + '/boxicons.ttf', 'boxicons.ttf');
 	logger.info('Boxicons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
+}
+
+function copyFramework7IconsFonts() {
+	// BoxIcons Font
+	copyFile(srcFontsFolder + '/Framework7-Icons.ttf', 'Framework7-Icons.ttf');
+	logger.info('Framework7-Icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
 
 function processFontawesomeStyles(data) {
@@ -985,6 +997,11 @@ function copyFont(vendor) {
 		case 'boxicons':
 			copyBoxIconsFonts();
 			break;
+		case 'f7':
+		case 'framework':
+		case 'framework7':
+			copyFramework7IconsFonts();
+			break;
 	}
 }
 
@@ -998,26 +1015,32 @@ function copyFontLibrary(vendor) {
 				buildCustomFontAwesomeJS();
 			} else {
 				fs.copyFileSync(srcLibFA, destLibFolder + '/fontawesome.js');
-				logger.info('FA CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+				logger.info('FontAwesome CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			}
 			break;
 		case 'md':
 		case 'material':
 		case 'materialdesign':
 			fs.copyFileSync(srcLibMD, destLibFolder + '/materialdesignicons.js');
-			logger.info('MD CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			logger.info('Material Design CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 		case 'li':
 		case 'line':
 		case 'lineicons':
 			fs.copyFileSync(srcLibLI, destLibFolder + '/lineicons.js');
-			logger.info('LI CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			logger.info('LineIcons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 		case 'bx':
 		case 'box':
 		case 'boxicons':
 			fs.copyFileSync(srcLibBX, destLibFolder + '/boxicons.js');
-			logger.info('BX CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			logger.info('BoxIcons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			break;
+		case 'f7':
+		case 'framework':
+		case 'framework7':
+			fs.copyFileSync(srcLibF7, destLibFolder + '/framework7icons.js');
+			logger.info('Framework7-Icons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 	}
 }
@@ -1061,75 +1084,6 @@ function copyResetTemplateAnd_appTSS() {
 	return tempPurged;
 }
 
-//! Copy ALL Libraries
-function copyAllLibraries() {
-	let tempPurged = '';
-
-	logger.error('DEV MODE: Copying Everything... This will slow down compilation time!');
-
-	// Tailwind
-	if (fs.existsSync(customTailwindFile)) {
-		tempPurged += '\n' + fs.readFileSync(customTailwindFile, 'utf8');
-	} else {
-		tempPurged += '\n' + fs.readFileSync(defaultTailwindFile, 'utf8');
-	}
-
-	// Fontawesome
-	if (fs.existsSync(customFontAwesomeFile)) {
-		tempPurged += '\n' + fs.readFileSync(customFontAwesomeFile, 'utf8');
-	} else {
-		tempPurged += '\n' + fs.readFileSync(srcFontAwesomeTSSFile, 'utf8');
-	}
-
-	// Material Design
-	tempPurged += '\n' + fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8');
-
-	// Lineicons
-	tempPurged += '\n' + fs.readFileSync(srcLineiconsFontTSSFile, 'utf8');
-
-	return tempPurged;
-}
-
-//! Copy Selected Libraries
-function copySelectedLibraries(selected) {
-	let tempPurged = '';
-	_.each(selected, option => {
-		switch (option) {
-			case 'tw':
-			case 'tail':
-			case 'tailwind':
-				if (fs.existsSync(customTailwindFile)) {
-					logger.warn('DEV MODE: Copying Custom Tailwind styles...');
-					tempPurged += '\n' + fs.readFileSync(customTailwindFile, 'utf8');
-				} else {
-					logger.warn('DEV MODE: Copying Default Tailwind styles...');
-					tempPurged += '\n' + fs.readFileSync(defaultTailwindFile, 'utf8');
-				}
-				break;
-			case 'fa':
-			case 'font':
-			case 'fontawesome':
-				logger.warn('DEV MODE: Copying Font Awesome styles...');
-				tempPurged += '\n' + fs.readFileSync(srcFontAwesomeTSSFile, 'utf8');
-				break;
-			case 'md':
-			case 'material':
-			case 'materialdesign':
-				logger.warn('DEV MODE: Copying Material Design Icons styles...');
-				tempPurged += '\n' + fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8');
-				break;
-			case 'li':
-			case 'line':
-			case 'lineicons':
-				logger.warn('DEV MODE: Copying LineIcons styles...');
-				tempPurged += '\n' + fs.readFileSync(srcLineiconsFontTSSFile, 'utf8');
-				break;
-		}
-	});
-
-	return tempPurged;
-}
-
 let startTime;
 
 function start() {
@@ -1144,53 +1098,6 @@ function finish(customMessage = 'Finished purging in') {
 //! Purge Functions
 //! Tailwind
 function purgeTailwind(uniqueClasses) {
-	let sourceFolder = '';
-	let purgedClasses = '\n// Tailwind styles\n';
-
-	if (fs.existsSync(customTailwindFile)) {
-		sourceFolder = customTailwindFile;
-	} else {
-		sourceFolder = defaultTailwindFile;
-	}
-
-	let sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
-
-	if (`// Updated At: ${getFileUpdatedDate(destConfigJSFile)}` !== sourceTSS[7]) {
-		logger.info(chalk.yellow('config.js'), 'file modified, rebuilding tailwind.tss...');
-		buildCustomTailwind('file updated!');
-		sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
-	}
-
-	if (fs.existsSync(customTailwindFile)) {
-		logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...');
-	} else {
-		logger.info('Purging Default Tailwind styles...');
-	}
-
-	let soc = sourceTSS.toString(); // soc = String of Classes
-
-	_.each(uniqueClasses, className => {
-		let cleanClassName = className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
-
-		if (includesClassName(soc, cleanClassName)) {
-			_.each(sourceTSS, line => {
-				if (startsWith(line, cleanClassName)) {
-					purgedClasses += helpers.checkPlatformAndDevice(line, className);
-				}
-			});
-		} else if (cleanClassName.includes('(')) {
-			let line = formatArbitraryValues(cleanClassName);
-
-			if (line) {
-				purgedClasses += helpers.checkPlatformAndDevice(line, className);
-			}
-		}
-	});
-
-	return purgedClasses;
-}
-
-function purgeTailwind2(uniqueClasses) {
 	let tailwindFile = '';
 	let purgedClasses = '\n// Tailwind styles\n';
 
@@ -1490,6 +1397,28 @@ function purgeLineIcons(uniqueClasses) {
 	});
 
 	return (purgedClasses === '\n// LineIcons styles\n') ? '' : purgedClasses;
+}
+
+//! Framework7
+function purgeFramework7(uniqueClasses) {
+	logger.info('Purging Framework7 Icons styles...');
+
+	let purgedClasses = '\n// Framework7 styles\n';
+
+	let sourceTSS = fs.readFileSync(srcFramework7FontTSSFile, 'utf8').split(/\r?\n/);
+	let soc = sourceTSS.toString(); // soc = String of Classes
+
+	_.each(uniqueClasses, className => {
+		if (soc.includes(`'.${className}'`)) {
+			_.each(sourceTSS, line => {
+				if (line.startsWith(`'.${className}'`)) {
+					purgedClasses += `${line}\n`;
+				}
+			});
+		}
+	});
+
+	return (purgedClasses === '\n// Framework7 styles\n') ? '' : purgedClasses;
 }
 
 //! BoxIcons
