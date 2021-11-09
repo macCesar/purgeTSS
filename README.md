@@ -333,6 +333,96 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 >
 > MaterialIconsTwoTone-Regular.otf
 
+After copying the desired fonts, you can use them in Buttons and Labels, just set the Font Family like `fa` and the desired icon like `fa-home`.
+
+**FontAwesome example**:
+```xml
+<View class="vertical">
+  <!-- FontAwesome -->
+  <Label class="fa fa-home" />
+  <Button class="fa fa-home" />
+</View>
+```
+
+```xml
+<Alloy>
+  <Window>
+    <View class="vertical">
+      <!-- FontAwesome -->
+      <Label class="mt-2 text-gray-700" text="FontAwesome" />
+      <Label class="text-xl text-blue-500 fa fa-home" />
+      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded fa fa-home" />
+
+      <!-- Material Design -->
+      <Label class="mt-2 text-gray-700" text="Material Design" />
+      <Label class="text-xl text-blue-500 md md-home" />
+      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded md md-home" />
+
+      <!-- LineIcons -->
+      <Label class="mt-2 text-gray-700" text="LineIcons" />
+
+      <Label class="text-xl text-blue-500 lni lni-delivery" />
+      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded lni lni-delivery" />
+
+      <!-- Boxicons -->
+      <Label class="mt-2 text-gray-700" text="Boxicons" />
+      <Label class="text-xl text-blue-500 bx bx-home" />
+      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded bx bx-home" />
+
+      <!-- Framework7-Icons -->
+      <Label class="mt-2 text-gray-700" text="Framework7-Icons" />
+      <Label class="text-xl text-blue-500 f7 f7_house" />
+      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded f7 f7_house" />
+    </View>
+  </Window>
+</Alloy>
+```
+
+```css
+// PurgeTSS
+// Created by César Estrada
+// https://github.com/macCesar/purgeTSS
+
+// Tailwind styles
+'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+'Window': { backgroundColor: '#ffffff' }
+'.bg-blue-500': { backgroundColor: '#3b82f6' }
+'.rounded': { borderRadius: 4 }
+'.text-xl': { font: { fontSize: 20 } }
+'.h-10': { height: 40 }
+'.keep-screen-on[platform=android]': { keepScreenOn: true }
+'.vertical': { layout: 'vertical' }
+'.my-1': { top: 4, bottom: 4 }
+'.mt-2': { top: 8 }
+'.text-white': { color: '#ffffff' }
+'.text-blue-500': { color: '#3b82f6' }
+'.text-gray-700': { color: '#3f3f46' }
+'.w-10': { width: 40 }
+
+// Default Font Awesome styles
+'.fa':{ font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fa-home': { text: '\uf015', title: '\uf015' }
+
+// Material Design Icons styles
+'.md': { font: { fontFamily: 'MaterialIcons-Regular' } }
+'.md-home': { text: '\ue88a', title: '\ue88a' }
+
+// LineIcons styles
+'.lni': { font: { fontFamily: 'LineIcons' } }
+'.lni-delivery': { text: '\uea90', title: '\uea90' }
+
+// BoxIcons styles
+'.bx': { font: { fontFamily: 'boxicons' } }
+'.bx-home': { text: '\ued75', title: '\ued75' }
+
+// Framework7 styles
+'.f7': { font: { fontFamily: 'Framework7-Icons' } }
+'.f7_house': { text: 'house', title: 'house' }
+```
+
+## Result
+<img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/icon-fonts.png" width="375" alt="iOS Screen - Icon Fonts">
+
 ### Copying specific font vendors
 Use any of the following arguments to copy specific vendors:
 
@@ -369,15 +459,12 @@ All prefixes are stripped out from their class names and are camelCased, for exa
 - **Line Icons**: `lni-flag` becomes `flag`
 - **Font Awesome**: `fa-flag` becomes `flag`
 - **Material Design Icons**: `md-flag` becomes `flag`
-- **Framework7 Icons** don't use a prefix in their names, but they do use underscores, so names like `alarm_fill` becomes `alarmFill` or `clock_fill` becomes `clockFill`.
+- **Framework7 Icons** `f7_alarm_fill` becomes `alarmFill` or `f7_clock_fill` becomes `clockFill`.
 - **boxicons** have three sets of icons in the same font file: Regular, Solid and Logos, so we need to keep their prefixes:
 
-  - Regular: `bx-flag` becomes `bxFlag`
-  - Solid: `bxs-flag` becomes `bxsFlag`
-  - Logos: Almost none of the `Logos` classes have conflict with other classes, because almost all have unique names, except `bxl-windows` and `bx-windows`. That's why we are also keeping the prefixes for all `Logos` variants, so they become: `bxlWindows` for example.
-
-#### Using commondJS Modules
-To use the CommonJS modules, you need to add the following to your `app.js` file:
+  - **Regular**: `bx-flag` becomes `bxFlag`
+  - **Solid**: `bxs-flag` becomes `bxsFlag`
+  - **Logos**: Almost none of the `Logos` classes have conflict with other classes, because almost all have unique names, except `bxl-windows` and `bx-windows`. That's why we are also keeping the prefixes for all `Logos` variants, so they become: `bxlWindows` for example.
 
 ### Custom `fontawesome.tss` file for users with a Font Awesome Pro Account
 If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `./purgetss/fontawesome.tss` file with all the extra classes that the Pro version has. ***(except duotone icons, see note below)***
