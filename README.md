@@ -371,8 +371,8 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 
       <!-- Framework7-Icons -->
       <Label class="mt-2 text-gray-700" text="Framework7-Icons" />
-      <Label class="text-xl text-blue-500 f7 f7_house" />
-      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded f7 f7_house" />
+      <Label class="text-xl text-blue-500 f7 f7-house" />
+      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded f7 f7-house" />
     </View>
   </Window>
 </Alloy>
@@ -417,7 +417,7 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 
 // Framework7 styles
 '.f7': { font: { fontFamily: 'Framework7-Icons' } }
-'.f7_house': { text: 'house', title: 'house' }
+'.f7-house': { text: 'house', title: 'house' }
 ```
 
 ## Result
@@ -459,7 +459,7 @@ All prefixes are stripped out from their class names and are camelCased, for exa
 - **Line Icons**: `lni-flag` becomes `flag`
 - **Font Awesome**: `fa-flag` becomes `flag`
 - **Material Design Icons**: `md-flag` becomes `flag`
-- **Framework7 Icons** `f7_alarm_fill` becomes `alarmFill` or `f7_clock_fill` becomes `clockFill`.
+- **Framework7 Icons** `f7-alarm_fill` becomes `alarmFill` or `f7-clock_fill` becomes `clockFill`.
 - **boxicons** have three sets of icons in the same font file: Regular, Solid and Logos, so we need to keep their prefixes:
 
   - **Regular**: `bx-flag` becomes `bxFlag`
