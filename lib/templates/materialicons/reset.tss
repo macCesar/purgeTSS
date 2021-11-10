@@ -1,10 +1,15 @@
 // Font Families
 '.md': { font: { fontFamily: 'MaterialIcons-Regular' } }
-'.mdo': { font: { fontFamily: 'MaterialIconsOutlined-Regular' } }
 '.mdr': { font: { fontFamily: 'MaterialIconsRound-Regular' } }
 '.mds': { font: { fontFamily: 'MaterialIconsSharp-Regular' } }
 '.mdt': { font: { fontFamily: 'MaterialIconsTwoTone-Regular' } }
-'.material-icons': { font: { fontFamily: 'MaterialIcons-Regular' } }
+'.mdo': { font: { fontFamily: 'MaterialIconsOutlined-Regular' } }
+
+'.materialdesign': { font: { fontFamily: 'MaterialIcons-Regular' } }
+'.materialdesign-round': { font: { fontFamily: 'MaterialIconsRound-Regular' } }
+'.materialdesign-sharp': { font: { fontFamily: 'MaterialIconsSharp-Regular' } }
+'.materialdesign-two-tone': { font: { fontFamily: 'MaterialIconsTwoTone-Regular' } }
+'.materialdesign-outlined': { font: { fontFamily: 'MaterialIconsOutlined-Regular' } }
 
 // Font Sizes
 '.md-18': { font: { fontSize: 18 } }

@@ -1,5 +1,6 @@
 // Font Families
 '.bx': { font: { fontFamily: 'boxicons' } }
+'.boxicons': { font: { fontFamily: 'boxicons' } }
 
 // Font Sizes
 '.bx-xs': { font: { fontSize: 16 } }

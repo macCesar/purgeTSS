@@ -1,10 +1,17 @@
 // Font Families Beta 6
 '.fa':{ font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fat': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
 '.fas': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
 '.fal': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
 '.far': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
 '.fab': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
-'.fat': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
+
+'.fontawesome':{ font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fontawesome-thin': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
+'.fontawesome-solid': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fontawesome-light': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
+'.fontawesome-regular': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
+'.fontawesome-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
 
 // Font Sizes
 '.fa-1x': { font: { fontSize: 16 } }

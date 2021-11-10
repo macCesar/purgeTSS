@@ -3,6 +3,7 @@
 
 // Font Families
 '.lni': { font: { fontFamily: 'LineIcons' } }
+'.lineicons': { font: { fontFamily: 'LineIcons' } }
 
 // Font Sizes
 '.lni-sm': { font: { fontSize: 12.8 } }

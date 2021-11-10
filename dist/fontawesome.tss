@@ -9,6 +9,11 @@
 '.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
 '.fab': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
 
+'.fontawesome': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fontawesome-solid': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fontawesome-regular': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
+'.fontawesome-brands': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
+
 // Font Sizes
 '.fa-lg': { font: { fontSize: 21 } }
 '.fa-xs': { font: { fontSize: 12 } }
