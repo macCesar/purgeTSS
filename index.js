@@ -708,6 +708,8 @@ function buildCustomTailwind(message = 'file created!') {
 
 	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor', true);
 
+	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor', true);
+
 	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor', true);
 
 	configFile.theme.pagingControlAlpha = (configFile.theme.opacity) ? _.merge(configFile.theme.opacity, configFile.theme.extend.opacity) : _.merge(defaultTheme.opacity, configFile.theme.extend.opacity);
@@ -760,6 +762,10 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.gridColumnsStartEnd = {};
 
 	configFile.theme.textAlign = {};
+	configFile.theme.autocapitalization = {};
+	configFile.theme.keyboardAppearance = {};
+	configFile.theme.keyboardType = {};
+	configFile.theme.showCancel = {};
 
 	configFile.theme.verticalAlignment = {};
 	configFile.theme.scrollableRegion = {};
@@ -795,7 +801,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.transition = {};
 	configFile.theme.exitOnClose = {};
 	configFile.theme.defaultImage = {};
-	configFile.theme.scalingMode = {};
+	configFile.theme.tiMedia = {};
 	configFile.theme.autoreverse = {};
 	configFile.theme.repeat = { ...configFile.theme.repeat, ...configFile.theme.extend.repeat };
 	configFile.theme.origin = { ...configFile.theme.origin, ...configFile.theme.extend.origin };
@@ -845,6 +851,7 @@ function buildCustomTailwindClasses(key, value) {
 	switch (key) {
 		case 'autoreverse': return helpers.autoreverse();
 		case 'backgroundColor': return helpers.backgroundColor(value);
+		case 'barColor': return helpers.barColor(value);
 		case 'linearGradient': return helpers.linearGradient();
 		case 'radialGradient': return helpers.radialGradient();
 		case 'keepScreenOn': return helpers.keepScreenOn();
@@ -855,7 +862,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'clipMode': return helpers.clipMode();
 		case 'contentWidth': return helpers.contentWidth();
 		case 'defaultImage': return helpers.defaultImage();
-		case 'scalingMode': return helpers.scalingMode();
+		case 'tiMedia': return helpers.tiMedia();
 		case 'draggingConstraints': return helpers.draggingConstraints();
 		case 'draggingType': return helpers.draggingType();
 		case 'displayUtilities': return helpers.displayUtilities();
@@ -908,6 +915,10 @@ function buildCustomTailwindClasses(key, value) {
 		case 'transitionDelay': return helpers.transitionDelay(value);
 		case 'transitionDuration': return helpers.transitionDuration(value);
 		case 'textAlign': return helpers.textAlign();
+		case 'autocapitalization': return helpers.autocapitalization();
+		case 'keyboardAppearance': return helpers.keyboardAppearance();
+		case 'keyboardType': return helpers.keyboardType();
+		case 'showCancel': return helpers.showCancel();
 		case 'textColor': return helpers.textColor(value);
 		case 'tintColor': return helpers.tintColor(value);
 		case 'touchFeedbackColor': return helpers.touchFeedbackColor(value);
