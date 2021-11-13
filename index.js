@@ -698,20 +698,26 @@ function buildCustomTailwind(message = 'file created!') {
 	});
 
 	if (configFile.theme.ImageView && configFile.theme.ImageView.apply) {
-		configFile.theme['ImageView'] = _.merge({ ios: { hires: true } }, configFile.theme.ImageView, { apply: configFile.theme.ImageView.apply });
+		let theApply = configFile.theme.ImageView.apply;
+		delete configFile.theme.ImageView.apply;
+		configFile.theme['ImageView'] = _.merge({ apply: theApply }, { ios: { hires: true } }, configFile.theme.ImageView);
 	} else {
 		configFile.theme['ImageView'] = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
 	}
 
 	// configFile.theme['Label'] = _.merge({ default: { width: 'Ti.UI.FILL', height: 'Ti.UI.SIZE' } }, configFile.theme.Label);
 	if (configFile.theme.View && configFile.theme.View.apply) {
-		configFile.theme['View'] = { apply: 'w-auto h-auto ' + configFile.theme.View.apply };
+		let theApply = configFile.theme.View.apply;
+		delete configFile.theme.View.apply;
+		configFile.theme['View'] = _.merge({ apply: theApply }, configFile.theme.View);
 	} else {
 		configFile.theme['View'] = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
 	}
 
 	if (configFile.theme.Window && configFile.theme.Window.apply) {
-		configFile.theme['Window'] = { apply: 'bg-white ' + configFile.theme.Window.apply };
+		let theApply = configFile.theme.Window.apply;
+		delete configFile.theme.Window.apply;
+		configFile.theme['Window'] = _.merge({ apply: theApply }, configFile.theme.Window);
 	} else {
 		configFile.theme['Window'] = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 	}
