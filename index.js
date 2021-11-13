@@ -804,7 +804,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.scrollType = {};
 	configFile.theme.transition = {};
 	configFile.theme.exitOnClose = {};
-	configFile.theme.defaultImage = {};
+	configFile.theme.preventDefaultImage = {};
 	configFile.theme.tiMedia = {};
 	configFile.theme.autoreverse = {};
 	configFile.theme.repeat = { ...configFile.theme.repeat, ...configFile.theme.extend.repeat };
@@ -816,7 +816,7 @@ function buildCustomTailwind(message = 'file created!') {
 
 	configFile.theme.bounce = {};
 	configFile.theme.overlay = {};
-	configFile.theme.platform = {};
+	configFile.theme.displayCaps = {};
 	configFile.theme.flip = {};
 	configFile.theme.scrolling = {};
 	configFile.theme.pagingControl = {};
@@ -870,7 +870,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'borderWidth': return helpers.borderWidth(value);
 		case 'clipMode': return helpers.clipMode();
 		case 'contentWidth': return helpers.contentWidth();
-		case 'defaultImage': return helpers.defaultImage();
+		case 'preventDefaultImage': return helpers.preventDefaultImage();
 		case 'tiMedia': return helpers.tiMedia();
 		case 'draggingConstraints': return helpers.draggingConstraints();
 		case 'draggingType': return helpers.draggingType();
@@ -890,7 +890,7 @@ function buildCustomTailwindClasses(key, value) {
 
 		case 'bounce': return helpers.bounce();
 		case 'overlay': return helpers.overlay();
-		case 'platform': return helpers.platform();
+		case 'displayCaps': return helpers.displayCaps();
 		case 'scrolling': return helpers.scrolling();
 		case 'pagingControl': return helpers.pagingControl();
 		case 'pagingControlOnTop': return helpers.pagingControlOnTop();

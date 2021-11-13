@@ -2157,6 +2157,14 @@
 '.video-scaling-contain': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT }
 '.video-scaling-cover': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT_FILL }
 
+// displayCaps Property
+'.platform-w': { width: Ti.Platform.displayCaps.platformWidth }
+'.platform-h': { height: Ti.Platform.displayCaps.platformHeight }
+'.inverted-platform-w': { width: Ti.Platform.displayCaps.platformHeight }
+'.inverted-platform-h': { height: Ti.Platform.displayCaps.platformWidth }
+'.inverted-platform-w[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
+'.inverted-platform-h[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
+
 // Display
 '.block': { visible: true }
 '.hidden': { visible: false }
@@ -5234,14 +5242,6 @@
 '.inset-x-auto': { right: Ti.UI.SIZE, left: Ti.UI.SIZE }
 '.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
 '.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
-
-// Ti.Platform Property
-'.platform-w': { width: Ti.Platform.displayCaps.platformWidth }
-'.platform-h': { height: Ti.Platform.displayCaps.platformHeight }
-'.inverted-platform-w': { width: Ti.Platform.displayCaps.platformHeight }
-'.inverted-platform-h': { height: Ti.Platform.displayCaps.platformWidth }
-'.inverted-platform-w[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
-'.inverted-platform-h[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
 
 // repeat Property
 '.repeat-1': { repeat: 1 }
