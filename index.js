@@ -1138,19 +1138,16 @@ function purgeTailwind(uniqueClasses) {
 	(fs.existsSync(customTailwindFile)) ? logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...') : logger.info('Purging Default Tailwind styles...');
 
 	let cleanUniqueClasses = [];
-	let soc = tailwindClasses.toString();
 	let arbitraryValues = '\n// Styles with arbitrary values\n';
 
 	_.each(uniqueClasses, className => {
 		let cleanClassName = cleanClassNameFn(className);
 
-		if (includesClassName(soc, cleanClassName)) {
-			cleanUniqueClasses.push(className);
-		} else if (cleanClassName.includes('(')) {
+		if (cleanClassName.includes('(')) {
 			let line = formatArbitraryValues(cleanClassName);
-			if (line) {
-				arbitraryValues += helpers.checkPlatformAndDevice(line, className);
-			}
+			if (line) arbitraryValues += helpers.checkPlatformAndDevice(line, className);
+		} else {
+			cleanUniqueClasses.push(className);
 		}
 	});
 
