@@ -60,6 +60,7 @@ The following is a list of all the properties and their repective class name.
   - [hintTextColor Property](#hinttextcolor-property)
   - [Top / Right / Bottom / Left](#top--right--bottom--left)
   - [repeat Property](#repeat-property)
+  - [returnKeyType Property](#returnkeytype-property)
   - [rotate Property](#rotate-property)
   - [scale Property](#scale-property)
   - [Scroll Indicators ( for ScrollViews )](#scroll-indicators--for-scrollviews-)
@@ -4539,6 +4540,23 @@ The following is a list of all the properties and their repective class name.
 '.repeat-8': { repeat: 8 }
 '.repeat-9': { repeat: 9 }
 '.repeat-10': { repeat: 10 }
+```
+
+## returnKeyType Property
+```css
+// returnKeyType Property
+'.returnkey-continue': { returnKeyType: Ti.UI.RETURNKEY_CONTINUE }
+'.returnkey-default': { returnKeyType: Ti.UI.RETURNKEY_DEFAULT }
+'.returnkey-done': { returnKeyType: Ti.UI.RETURNKEY_DONE }
+'.returnkey-emergency-call': { returnKeyType: Ti.UI.RETURNKEY_EMERGENCY_CALL }
+'.returnkey-go': { returnKeyType: Ti.UI.RETURNKEY_GO }
+'.returnkey-google': { returnKeyType: Ti.UI.RETURNKEY_GOOGLE }
+'.returnkey-join': { returnKeyType: Ti.UI.RETURNKEY_JOIN }
+'.returnkey-next': { returnKeyType: Ti.UI.RETURNKEY_NEXT }
+'.returnkey-route': { returnKeyType: Ti.UI.RETURNKEY_ROUTE }
+'.returnkey-search': { returnKeyType: Ti.UI.RETURNKEY_SEARCH }
+'.returnkey-send': { returnKeyType: Ti.UI.RETURNKEY_SEND }
+'.returnkey-yahoo': { returnKeyType: Ti.UI.RETURNKEY_YAHOO }
 ```
 
 ## rotate Property

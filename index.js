@@ -789,6 +789,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.autocapitalization = {};
 	configFile.theme.keyboardAppearance = {};
 	configFile.theme.keyboardType = {};
+	configFile.theme.returnKeyType = {};
 	configFile.theme.showCancel = {};
 
 	configFile.theme.verticalAlignment = {};
@@ -951,6 +952,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'autocapitalization': return helpers.autocapitalization();
 		case 'keyboardAppearance': return helpers.keyboardAppearance();
 		case 'keyboardType': return helpers.keyboardType();
+		case 'returnKeyType': return helpers.returnKeyType();
 		case 'showCancel': return helpers.showCancel();
 		case 'textColor': return helpers.textColor(value);
 		case 'tintColor': return helpers.tintColor(value);
