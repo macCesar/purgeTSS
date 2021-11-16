@@ -1461,6 +1461,14 @@
 '.rounded-2xl': { borderRadius: 16 }
 '.rounded-3xl': { borderRadius: 24 }
 
+// borderStyle Property
+'.input-borderstyle-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
+'.input-borderstyle-none': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE }
+'.input-borderstyle-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
+'.input-borderstyle-filled': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
+'.input-borderstyle-rounded': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED }
+'.input-borderstyle-underlined': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_UNDERLINED }
+
 // borderWidth Property
 '.border-0': { borderWidth: 0 }
 '.border-2': { borderWidth: 2 }
