@@ -795,6 +795,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.ellipsize = {};
 	configFile.theme.enableCopy = {};
 	configFile.theme.enableReturnKey = {};
+	configFile.theme.extendBackground = {};
 	configFile.theme.returnKeyType = {};
 	configFile.theme.autocorrect = {};
 	configFile.theme.autofillType = {};
@@ -964,6 +965,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'ellipsize': return helpers.ellipsize();
 		case 'enableCopy': return helpers.enableCopy();
 		case 'enableReturnKey': return helpers.enableReturnKey();
+		case 'extendBackground': return helpers.extendBackground();
 		case 'keyboardAppearance': return helpers.keyboardAppearance();
 		case 'keyboardType': return helpers.keyboardType();
 		case 'returnKeyType': return helpers.returnKeyType();

@@ -1462,12 +1462,12 @@
 '.rounded-3xl': { borderRadius: 24 }
 
 // borderStyle Property
-'.input-borderstyle-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
-'.input-borderstyle-none': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE }
-'.input-borderstyle-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
-'.input-borderstyle-filled': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
-'.input-borderstyle-rounded': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED }
-'.input-borderstyle-underlined': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_UNDERLINED }
+'.input-borderstyle-line[plarform=android]': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
+'.input-borderstyle-none[plarform=android]': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE }
+'.input-borderstyle-bezel[plarform=android]': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
+'.input-borderstyle-filled[plarform=android]': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
+'.input-borderstyle-rounded[plarform=android]': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED }
+'.input-borderstyle-underlined[plarform=android]': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_UNDERLINED }
 
 // borderWidth Property
 '.border-0': { borderWidth: 0 }
@@ -1754,6 +1754,10 @@
 // enableReturnKey Property
 '.enable-return-key': { enableReturnKey: true }
 '.disable-return-key': { enableReturnKey: false }
+
+// extendBackground Property
+'.extend-background': { extendBackground: true }
+'.no-extend-background': { extendBackground: false }
 
 // exitOnClose Property
 '.exit-on-close[platform=android]': { exitOnClose: true }

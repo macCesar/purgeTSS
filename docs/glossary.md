@@ -22,10 +22,11 @@ The following is a list of all the properties and their repective class name.
   - [draggingType Property](#draggingtype-property)
   - [editable Property](#editable-property)
   - [ellipsize Property](#ellipsize-property)
-  - [ellipsize Property](#ellipsize-property-1)
+  - [ellipsize Property ( for Labels )](#ellipsize-property--for-labels-)
   - [enableCopy Property](#enablecopy-property)
   - [enableReturnKey Property](#enablereturnkey-property)
   - [exitOnClose Property](#exitonclose-property)
+  - [extendBackground Property](#extendbackground-property)
   - [Flip Property](#flip-property)
   - [Font Properties](#font-properties)
     - [fontSize Property](#fontsize-property)
@@ -109,7 +110,6 @@ The following is a list of all the properties and their repective class name.
 
 ## autofillType Property
 ```css
-// autofillType Property
 '.autofill-type-url': { autofillType: Ti.UI.AUTOFILL_TYPE_URL }
 '.autofill-type-name': { autofillType: Ti.UI.AUTOFILL_TYPE_NAME }
 '.autofill-type-phone': { autofillType: Ti.UI.AUTOFILL_TYPE_PHONE }
@@ -1109,7 +1109,6 @@ The following is a list of all the properties and their repective class name.
 
 ## borderStyle Property
 ```css
-// borderStyle Property
 '.input-borderstyle-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
 '.input-borderstyle-none': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE }
 '.input-borderstyle-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
@@ -1402,21 +1401,18 @@ The following is a list of all the properties and their repective class name.
 
 ## editable Property
 ```css
-// editable Property
 '.editable': { editable: true }
 '.none-editable': { editable: false }
 ```
 
 ## ellipsize Property
 ```css
-// ellipsize Property
 '.ellipsize': { ellipsize: true }
 '.no-ellipsize': { ellipsize: false }
 ```
 
-## ellipsize Property
+## ellipsize Property ( for Labels )
 ```css
-// ellipsize Property ( for Labels )
 '.ellipsize-end': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_END }
 '.ellipsize-clip': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CLIP }
 '.ellipsize-none': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_NONE }
@@ -1429,14 +1425,12 @@ The following is a list of all the properties and their repective class name.
 
 ## enableCopy Property
 ```css
-// enableCopy Property
 '.enable-copy': { enableCopy: true }
 '.disable-copy': { enableCopy: false }
 ```
 
 ## enableReturnKey Property
 ```css
-// enableReturnKey Property
 '.enable-return-key': { enableReturnKey: true }
 '.disable-return-key': { enableReturnKey: false }
 ```
@@ -1445,6 +1439,12 @@ The following is a list of all the properties and their repective class name.
 ```css
 '.exit-on-close[platform=android]': { exitOnClose: true }
 '.dont-exit-on-close[platform=android]': { exitOnClose: false }
+```
+
+## extendBackground Property
+```css
+'.extend-background': { extendBackground: true }
+'.no-extend-background': { extendBackground: false }
 ```
 
 ## Flip Property
@@ -4640,7 +4640,6 @@ The following is a list of all the properties and their repective class name.
 
 ## returnKeyType Property
 ```css
-// returnKeyType Property
 '.returnkey-continue': { returnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 '.returnkey-default': { returnKeyType: Ti.UI.RETURNKEY_DEFAULT }
 '.returnkey-done': { returnKeyType: Ti.UI.RETURNKEY_DONE }
