@@ -3,12 +3,14 @@ The following is a list of all the properties and their repective class name.
 
 - [Properties and class names](#properties-and-class-names)
   - [autocapitalization Property](#autocapitalization-property)
+  - [autofillType Property](#autofilltype-property)
   - [autoreverse Property](#autoreverse-property)
   - [backgroundColor Property](#backgroundcolor-property)
   - [backgroundSelectedColor Property](#backgroundselectedcolor-property)
   - [barColor Property](#barcolor-property)
   - [borderColor Property](#bordercolor-property)
   - [borderRadius - ( With Extra Styles ) Property](#borderradius----with-extra-styles--property)
+  - [borderStyle Property](#borderstyle-property)
   - [borderWidth Property](#borderwidth-property)
   - [disableBounce Property](#disablebounce-property)
   - [displayCaps Property](#displaycaps-property)
@@ -98,6 +100,43 @@ The following is a list of all the properties and their repective class name.
 '.normal-case': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE }
 '.capitalize': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS }
 '.sentences': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_SENTENCES }
+```
+
+## autofillType Property
+```css
+// autofillType Property
+'.autofill-type-url': { autofillType: Ti.UI.AUTOFILL_TYPE_URL }
+'.autofill-type-name': { autofillType: Ti.UI.AUTOFILL_TYPE_NAME }
+'.autofill-type-phone': { autofillType: Ti.UI.AUTOFILL_TYPE_PHONE }
+'.autofill-type-email': { autofillType: Ti.UI.AUTOFILL_TYPE_EMAIL }
+'.autofill-type-address': { autofillType: Ti.UI.AUTOFILL_TYPE_ADDRESS }
+'.autofill-type-username': { autofillType: Ti.UI.AUTOFILL_TYPE_USERNAME }
+'.autofill-type-password': { autofillType: Ti.UI.AUTOFILL_TYPE_PASSWORD }
+'.autofill-type-nickname': { autofillType: Ti.UI.AUTOFILL_TYPE_NICKNAME }
+'.autofill-type-location': { autofillType: Ti.UI.AUTOFILL_TYPE_LOCATION }
+'.autofill-type-job-title': { autofillType: Ti.UI.AUTOFILL_TYPE_JOB_TITLE }
+'.autofill-type-given-name': { autofillType: Ti.UI.AUTOFILL_TYPE_GIVEN_NAME }
+'.autofill-type-name-prefix': { autofillType: Ti.UI.AUTOFILL_TYPE_NAME_PREFIX }
+'.autofill-type-middle-name': { autofillType: Ti.UI.AUTOFILL_TYPE_MIDDLE_NAME }
+'.autofill-type-family-name': { autofillType: Ti.UI.AUTOFILL_TYPE_FAMILY_NAME }
+'.autofill-type-name-suffix': { autofillType: Ti.UI.AUTOFILL_TYPE_NAME_SUFFIX }
+'.autofill-type-sublocality': { autofillType: Ti.UI.AUTOFILL_TYPE_SUBLOCALITY }
+'.autofill-type-postal-code': { autofillType: Ti.UI.AUTOFILL_TYPE_POSTAL_CODE }
+'.autofill-type-card-number': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_NUMBER }
+'.autofill-type-address-city': { autofillType: Ti.UI.AUTOFILL_TYPE_ADDRESS_CITY }
+'.autofill-type-country-name': { autofillType: Ti.UI.AUTOFILL_TYPE_COUNTRY_NAME }
+'.autofill-type-new-password': { autofillType: Ti.UI.AUTOFILL_TYPE_NEW_PASSWORD }
+'.autofill-type-address-line1': { autofillType: Ti.UI.AUTOFILL_TYPE_ADDRESS_LINE1 }
+'.autofill-type-address-line2': { autofillType: Ti.UI.AUTOFILL_TYPE_ADDRESS_LINE2 }
+'.autofill-type-address-state': { autofillType: Ti.UI.AUTOFILL_TYPE_ADDRESS_STATE }
+'.autofill-type-one-time-code': { autofillType: Ti.UI.AUTOFILL_TYPE_ONE_TIME_CODE }
+'.autofill-type-organization-name': { autofillType: Ti.UI.AUTOFILL_TYPE_ORGANIZATION_NAME }
+'.autofill-type-address-city-state': { autofillType: Ti.UI.AUTOFILL_TYPE_ADDRESS_CITY_STATE }
+'.autofill-type-card-security-code': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_SECURITY_CODE }
+'.autofill-type-card-expiration-day': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_DAY }
+'.autofill-type-card-expiration-date': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_DATE }
+'.autofill-type-card-expiration-year': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_YEAR }
+'.autofill-type-card-expiration-month': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_MONTH }
 ```
 
 ## autoreverse Property
@@ -1061,6 +1100,17 @@ The following is a list of all the properties and their repective class name.
 '.rounded-1.5': { borderRadius: 3 }
 '.rounded-2.5': { borderRadius: 5 }
 '.rounded-3.5': { borderRadius: 7 }
+```
+
+## borderStyle Property
+```css
+// borderStyle Property
+'.input-borderstyle-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
+'.input-borderstyle-none': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE }
+'.input-borderstyle-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
+'.input-borderstyle-filled': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
+'.input-borderstyle-rounded': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED }
+'.input-borderstyle-underlined': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_UNDERLINED }
 ```
 
 ## borderWidth Property
