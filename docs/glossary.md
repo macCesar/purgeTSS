@@ -20,6 +20,11 @@ The following is a list of all the properties and their repective class name.
   - [Display](#display)
   - [Constraint Property](#constraint-property)
   - [draggingType Property](#draggingtype-property)
+  - [editable Property](#editable-property)
+  - [ellipsize Property](#ellipsize-property)
+  - [ellipsize Property](#ellipsize-property-1)
+  - [enableCopy Property](#enablecopy-property)
+  - [enableReturnKey Property](#enablereturnkey-property)
   - [exitOnClose Property](#exitonclose-property)
   - [Flip Property](#flip-property)
   - [Font Properties](#font-properties)
@@ -1393,6 +1398,47 @@ The following is a list of all the properties and their repective class name.
 ```css
 '.drag-apply': { draggingType: 'apply' }
 '.drag-animate': { draggingType: 'animate' }
+```
+
+## editable Property
+```css
+// editable Property
+'.editable': { editable: true }
+'.none-editable': { editable: false }
+```
+
+## ellipsize Property
+```css
+// ellipsize Property
+'.ellipsize': { ellipsize: true }
+'.no-ellipsize': { ellipsize: false }
+```
+
+## ellipsize Property
+```css
+// ellipsize Property ( for Labels )
+'.ellipsize-end': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_END }
+'.ellipsize-clip': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CLIP }
+'.ellipsize-none': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_NONE }
+'.ellipsize-start': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_START }
+'.ellipsize-middle': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_MIDDLE }
+'.ellipsize-marquee': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_MARQUEE }
+'.ellipsize-char-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CHAR_WRAP }
+'.ellipsize-word-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_WORD_WRAP }
+```
+
+## enableCopy Property
+```css
+// enableCopy Property
+'.enable-copy': { enableCopy: true }
+'.disable-copy': { enableCopy: false }
+```
+
+## enableReturnKey Property
+```css
+// enableReturnKey Property
+'.enable-return-key': { enableReturnKey: true }
+'.disable-return-key': { enableReturnKey: false }
 ```
 
 ## exitOnClose Property

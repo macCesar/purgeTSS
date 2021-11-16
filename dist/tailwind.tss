@@ -1729,6 +1729,32 @@
 '.drag-apply': { draggingType: 'apply' }
 '.drag-animate': { draggingType: 'animate' }
 
+// editable Property
+'.editable': { editable: true }
+'.none-editable': { editable: false }
+
+// ellipsize Property
+'.ellipsize': { ellipsize: true }
+'.no-ellipsize': { ellipsize: false }
+
+// ellipsize Property ( for Labels )
+'.ellipsize-end': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_END }
+'.ellipsize-clip': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CLIP }
+'.ellipsize-none': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_NONE }
+'.ellipsize-start': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_START }
+'.ellipsize-middle': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_MIDDLE }
+'.ellipsize-marquee': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_MARQUEE }
+'.ellipsize-char-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CHAR_WRAP }
+'.ellipsize-word-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_WORD_WRAP }
+
+// enableCopy Property
+'.enable-copy': { enableCopy: true }
+'.disable-copy': { enableCopy: false }
+
+// enableReturnKey Property
+'.enable-return-key': { enableReturnKey: true }
+'.disable-return-key': { enableReturnKey: false }
+
 // exitOnClose Property
 '.exit-on-close[platform=android]': { exitOnClose: true }
 '.dont-exit-on-close[platform=android]': { exitOnClose: false }
