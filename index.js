@@ -729,6 +729,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor', true);
 
 	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor', true);
+	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor', true);
 	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor', true);
 	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor', true);
 	configFile.theme.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor', true);
@@ -894,6 +895,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'activeTintColor': return helpers.activeTintColor(value);
 		case 'activeTitleColor': return helpers.activeTitleColor(value);
 		case 'tabsBackgroundColor': return helpers.tabsBackgroundColor(value);
+		case 'navTintColor': return helpers.navTintColor(value);
 		case 'tabsBackgroundSelectedColor': return helpers.tabsBackgroundSelectedColor(value);
 		case 'linearGradient': return helpers.linearGradient();
 		case 'radialGradient': return helpers.radialGradient();
