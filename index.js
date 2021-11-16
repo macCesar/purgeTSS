@@ -790,6 +790,8 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.keyboardAppearance = {};
 	configFile.theme.keyboardType = {};
 	configFile.theme.returnKeyType = {};
+	configFile.theme.autocorrect = {};
+	configFile.theme.autofillType = {};
 	configFile.theme.showCancel = {};
 
 	configFile.theme.verticalAlignment = {};
@@ -953,6 +955,8 @@ function buildCustomTailwindClasses(key, value) {
 		case 'keyboardAppearance': return helpers.keyboardAppearance();
 		case 'keyboardType': return helpers.keyboardType();
 		case 'returnKeyType': return helpers.returnKeyType();
+		case 'autocorrect': return helpers.autocorrect();
+		case 'autofillType': return helpers.autofillType();
 		case 'showCancel': return helpers.showCancel();
 		case 'textColor': return helpers.textColor(value);
 		case 'tintColor': return helpers.tintColor(value);
