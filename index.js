@@ -7,9 +7,9 @@ const chalk = require('chalk');
 const convert = require('xml-js');
 const readCSS = require('read-css');
 const traverse = require('traverse');
-const { config, exit } = require('process');
+// const { config, exit } = require('process');
 const colores = require('./lib/colores').colores;
-const { includes } = require('lodash');
+// const { includes } = require('lodash');
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
 
@@ -1251,20 +1251,8 @@ function purgeTailwind(uniqueClasses) {
 	return purgedClasses += (arbitraryValues !== '\n// Styles with arbitrary values\n') ? arbitraryValues : '';
 }
 
-function checkIndexOf(array, line) {
-	return array.indexOf(line) || array.indexOf(`ios:${line}`);
-}
-
 function cleanClassNameFn(className) {
 	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('complete:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
-}
-
-function includesClassName(soc, cleanClassName) {
-	return soc.includes(`'.${cleanClassName}'`) || soc.includes(`'.${cleanClassName}[`) || soc.includes(`'#${cleanClassName}'`) || soc.includes(`'#${cleanClassName}[`) || soc.includes(`'${cleanClassName}'`) || soc.includes(`'${cleanClassName}[`);
-}
-
-function startsWith(line, cleanClassName) {
-	return line.startsWith(`'.${cleanClassName}'`) || line.startsWith(`'.${cleanClassName}[`) || line.startsWith(`'#${cleanClassName}'`) || line.startsWith(`'#${cleanClassName}[`) || line.startsWith(`'${cleanClassName}'`) || line.startsWith(`'${cleanClassName}[`);
 }
 
 const arbitraryValuesTable = {
@@ -1518,3 +1506,16 @@ function createJMKFile() {
 	fs.copyFileSync(srcJMKFile, destJMKFile);
 	logger.file('./app/alloy.jmk');
 }
+
+//! Soon to be deleted
+// function checkIndexOf(array, line) {
+// 	return array.indexOf(line) || array.indexOf(`ios:${line}`);
+// }
+
+// function includesClassName(soc, cleanClassName) {
+// 	return soc.includes(`'.${cleanClassName}'`) || soc.includes(`'.${cleanClassName}[`) || soc.includes(`'#${cleanClassName}'`) || soc.includes(`'#${cleanClassName}[`) || soc.includes(`'${cleanClassName}'`) || soc.includes(`'${cleanClassName}[`);
+// }
+
+// function startsWith(line, cleanClassName) {
+// 	return line.startsWith(`'.${cleanClassName}'`) || line.startsWith(`'.${cleanClassName}[`) || line.startsWith(`'#${cleanClassName}'`) || line.startsWith(`'#${cleanClassName}[`) || line.startsWith(`'${cleanClassName}'`) || line.startsWith(`'${cleanClassName}[`);
+// }
