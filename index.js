@@ -871,7 +871,7 @@ function buildCustomTailwind(message = 'file created!') {
 
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8');
 
-	tailwindStyles += `// Updated At: ${getFileUpdatedDate(destConfigJSFile)}\n` + '\n// Custom Styles and Resets\n';
+	tailwindStyles += `// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}\n` + '\n// Custom Styles and Resets\n';
 
 	// console.log(JSON.stringify(sorted));
 
@@ -1176,7 +1176,7 @@ function purgeTailwind(uniqueClasses) {
 
 	let tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
 
-	if (`// Updated At: ${getFileUpdatedDate(destConfigJSFile)}` !== tailwindClasses[7]) {
+	if (`// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}` !== tailwindClasses[7]) {
 		logger.info(chalk.yellow('config.js'), 'file updated!, rebuilding tailwind.tss...');
 		buildCustomTailwind('file updated!');
 		tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
