@@ -537,12 +537,13 @@ function removeHook() {
 			if (!line.includes("require('child_process').execSync('purgetss")) {
 				updatedJMKFile.push(line);
 			} else if (!line.includes("//")) {
-				// if not disabled, disable it!!
 				updatedJMKFile.push(`\t//${line}`);
+				logger.warn(chalk.yellow('Auto-Purging hook disabled!'));
+			} else {
+				logger.warn(chalk.red('Auto-Purging hook removed!'));
+				logger.warn(chalk.red('It will be added the next time `PurgeTSS` runs!'));
 			}
 		});
-
-		logger.warn(chalk.red('Auto-Purging hook removed!'));
 
 		saveFile(destJMKFile, updatedJMKFile.join("\n"));
 	}
