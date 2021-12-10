@@ -666,20 +666,26 @@ function buildCustomTailwind(message = 'file created!') {
 	let configFile = require(destConfigJSFile);
 	const defaultColors = require('tailwindcss/colors');
 	const defaultTheme = require('tailwindcss/defaultTheme');
-	const tailwindui = require('@tailwindcss/ui/index')({}, {}).config.theme;
 
+	// Remove deprecated colors
+	delete defaultColors.blueGray;
+	delete defaultColors.coolGray;
+	delete defaultColors.current;
+	delete defaultColors.inherit;
 	delete defaultColors.lightBlue;
+	delete defaultColors.trueGray;
+	delete defaultColors.warmGray;
 
 	if (!configFile.theme.extend) {
 		configFile.theme.extend = {};
 	}
 
-	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...tailwindui.width(theme => (tailwindui.spacing)), ...defaultTheme.width(theme => (defaultTheme.spacing)) };
-	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.height(theme => (defaultTheme.spacing));
+	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...defaultTheme.width({ theme: () => (defaultTheme.spacing) }) };
+	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.height({ theme: () => (defaultTheme.spacing) });
 
 	let overwritten = {
 		colors: (configFile.theme.colors) ? configFile.theme.colors : { transparent: 'transparent', ...defaultColors },
-		spacing: (configFile.theme.spacing) ? configFile.theme.spacing : { ...tailwindui.spacing, ...defaultTheme.spacing },
+		spacing: (configFile.theme.spacing) ? configFile.theme.spacing : { ...defaultTheme.spacing },
 		width: (configFile.theme.width) ? configFile.theme.width : allWidthsCombined,
 		height: (configFile.theme.height) ? configFile.theme.height : allHeightsCombined
 	}
@@ -749,6 +755,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor', true);
 
 	// pagingControlHeight
+	delete base.height['fit'];
 	delete base.height['max'];
 	delete base.height['min'];
 	delete base.height['min-content'];
@@ -1176,7 +1183,7 @@ function purgeTailwind(uniqueClasses) {
 
 	let tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
 
-	if (`// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}` !== tailwindClasses[7]) {
+	if (`// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}` !== tailwindClasses[6]) {
 		logger.info(chalk.yellow('config.js'), 'file updated!, rebuilding tailwind.tss...');
 		buildCustomTailwind('file updated!');
 		tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
