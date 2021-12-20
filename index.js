@@ -9,6 +9,7 @@ const readCSS = require('read-css');
 const traverse = require('traverse');
 // const { config, exit } = require('process');
 const colores = require('./lib/colores').colores;
+const { opacity } = require('tailwindcss/defaultTheme');
 // const { includes } = require('lodash');
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
@@ -830,6 +831,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.height = base.height;
 
 	configFile.theme.shadow = {};
+	configFile.theme.shadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor', true);
 
 	configFile.theme.opacity = (configFile.theme.opacity) ? _.merge(configFile.theme.opacity, configFile.theme.extend.opacity) : _.merge(defaultTheme.opacity, configFile.theme.extend.opacity);
 
@@ -964,6 +966,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'scrollIndicators': return helpers.scrollIndicators();
 		case 'scrollType': return helpers.scrollType();
 		case 'shadow': return helpers.shadow();
+		case 'shadowColor': return helpers.shadowColor(value);
 		case 'transition': return helpers.transition(value);
 		case 'transitionDelay': return helpers.transitionDelay(value);
 		case 'transitionDuration': return helpers.transitionDuration(value);
@@ -1172,15 +1175,8 @@ function finish(customMessage = 'Finished purging in') {
 //! Purge Functions
 //! Tailwind
 function purgeTailwind(uniqueClasses) {
-	let tailwindFile = '';
 	let purgedClasses = '\n// Tailwind styles\n';
-
-	if (fs.existsSync(customTailwindFile)) {
-		tailwindFile = customTailwindFile;
-	} else {
-		tailwindFile = defaultTailwindFile;
-	}
-
+	let tailwindFile = (fs.existsSync(customTailwindFile)) ? customTailwindFile : defaultTailwindFile;
 	let tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
 
 	if (`// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}` !== tailwindClasses[6]) {
@@ -1191,21 +1187,32 @@ function purgeTailwind(uniqueClasses) {
 
 	(fs.existsSync(customTailwindFile)) ? logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...') : logger.info('Purging Default Tailwind styles...');
 
+	let opacityValues = [];
 	let cleanUniqueClasses = [];
 	let arbitraryValues = '\n// Styles with arbitrary values\n';
 
-	_.each(uniqueClasses, className => {
+	uniqueClasses.forEach((className, index) => {
 		let cleanClassName = cleanClassNameFn(className);
 
 		if (cleanClassName.includes('(')) {
 			let line = formatArbitraryValues(cleanClassName);
 			if (line) arbitraryValues += helpers.checkPlatformAndDevice(line, className);
+		} else if (cleanClassName.includes('shadow-') && cleanClassName.includes('/')) {
+			let decimalValue = cleanClassName.split('/')[1];
+			let transparency = Math.round(decimalValue * 255 / 100).toString(16);
+			if (transparency.length === 1) transparency = '0' + transparency;
+			opacityValues.push({
+				class: cleanClassName.substring(0, cleanClassName.lastIndexOf('/')),
+				originalClass: uniqueClasses[index],
+				decimalValue: decimalValue,
+				transparency: transparency
+			});
 		} else {
 			cleanUniqueClasses.push(className);
 		}
 	});
 
-	_.each(tailwindClasses, tailwindClass => {
+	tailwindClasses.forEach(tailwindClass => {
 		if (tailwindClass !== '' && !tailwindClass.includes('//')) {
 			let cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '')}`;
 
@@ -1255,7 +1262,26 @@ function purgeTailwind(uniqueClasses) {
 		}
 	});
 
-	return purgedClasses += (arbitraryValues !== '\n// Styles with arbitrary values\n') ? arbitraryValues : '';
+	// add opacity values
+	opacityValues.forEach(opacityValue => {
+		let opacityIndex = _.findIndex(tailwindClasses, line => {
+			return line.includes(opacityValue.class);
+		});
+
+		if (opacityIndex > -1) {
+			let defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/i)[0];
+			let classWithoutDecimalOpacity = `${tailwindClasses[opacityIndex].replace(defaultHexValue, `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
+			let defaultTextValue = tailwindClasses[opacityIndex].match(/'[^']*'/i)[0];
+			defaultTextValue = defaultTextValue.substring(1, defaultTextValue.length);
+			let finalClassName = `${classWithoutDecimalOpacity.replace(defaultTextValue, `.${defaultTextValue.substring(1, defaultTextValue.length - 1)}/${opacityValue.decimalValue}'`)}`;
+			purgedClasses += helpers.checkPlatformAndDevice(finalClassName, opacityValue.originalClass);
+		}
+	});
+
+	// Add arbitrary values
+	purgedClasses += (arbitraryValues !== '\n// Styles with arbitrary values\n') ? arbitraryValues : '';
+
+	return purgedClasses;
 }
 
 function cleanClassNameFn(className) {
@@ -1310,6 +1336,7 @@ const arbitraryValuesTable = {
 	'right': '{ right: {value} }',
 	'rotate': '{ rotate: {value} }',
 	'rounded': '{ borderRadius: {value} }',
+	'shadow': '{ viewShadowColor: {value} }',
 	'text-color': '{ color: {value} }',
 	'text-size': '{ font: { fontSize: {value} } }',
 	'tint': '{ tintColor: {value} }',
