@@ -28,11 +28,12 @@
 
 ## List of available classes
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
-- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/lineicons.tss)
 - [boxicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/boxicons.tss)
 - [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/fontawesome.tss)
 - [framework7icons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/framework7icons.tss)
+- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/lineicons.tss)
 - [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/materialdesignicons.tss)
+- [tablericons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tablericons.tss)
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 # IMPORTANT NOTICE!!!
@@ -268,7 +269,7 @@ Use **`purgetss module`** command to install the `purgetss.ui.js` module in your
 If you want to create a new Alloy Project with `purgetss` ready to go, use the `create` command.
 
 ```bash
-> purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons, framework7"]
+> purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons"]
 
 # alias:
 > purgetss c 'Name of the Project' [-v=fa,md,li,bx,f7]
@@ -309,7 +310,7 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 > purgetss f
 ```
 
-Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons), [LineIcons](https://lineicons.com/icons/?type=free), [Boxicons](https://boxicons.com) and [Framework7 Icons](https://framework7.io/icons/) fonts into your `app/assets/fonts` folder. With their names fixed to work in iOS or Android.
+Use this command to copy the free versions of [Boxicons](https://boxicons.com), [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Framework7 Icons](https://framework7.io/icons/), [LineIcons](https://lineicons.com/icons/?type=free), [Material Design Icons](https://github.com/google/material-design-icons) and [Tabler Icons](https://tabler-icons.io) Fonts into your `app/assets/fonts` folder. With their names fixed to work in iOS or Android.
 
 > boxicons.ttf
 >
@@ -322,6 +323,8 @@ Use this command to copy the free versions of [Font Awesome](https://github.com/
 > Framework7-Icons.ttf
 >
 > LineIcons.ttf
+>
+> tablericons.ttf
 >
 > MaterialIcons-Regular.ttf
 >
@@ -373,6 +376,11 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
       <Label class="mt-2 text-gray-700" text="Framework7-Icons" />
       <Label class="text-xl text-blue-500 f7 f7-house" />
       <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded f7 f7-house" />
+
+      <!-- Tabler-Icons -->
+      <Label class="mt-2 text-gray-700" text="Tabler-Icons" />
+      <Label class="text-xl text-blue-500 ti ti-home" />
+      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded ti ti-home" />
     </View>
   </Window>
 </Alloy>
@@ -418,6 +426,10 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 // Framework7 styles
 '.f7': { font: { fontFamily: 'Framework7-Icons' } }
 '.f7-house': { text: 'house', title: 'house' }
+
+// Tabler Icons styles
+'.ti': { font: { fontFamily: 'tabler-icons' } }
+'.ti-home': { text: '\ueac1', title: '\ueac1' }
 ```
 
 ## Result
