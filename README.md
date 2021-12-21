@@ -206,6 +206,7 @@ You can customize the following properties:
 - Opacity
 - Padding
 - Placeholder Colors
+- Shadow Colors
 - Text Colors
 - Tint Color
 - Width scale
