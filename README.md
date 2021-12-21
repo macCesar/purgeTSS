@@ -433,7 +433,7 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 ```
 
 ## Result
-<img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/icon-fonts.png" width="375" alt="iOS Screen - Icon Fonts">
+<img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/icon-fonts-tabler.png" width="375" alt="iOS Screen - Icon Fonts">
 
 ### Copying specific font vendors
 Use any of the following arguments to copy specific vendors:
