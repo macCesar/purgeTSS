@@ -442,7 +442,7 @@ Use any of the following arguments to copy specific vendors:
 > purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons"
 
 # alias:
-> purgetss f -v=fa,md,li,bx,f7
+> purgetss f -v=fa,md,li,bx,f7,ti
 ```
 
 Available aliases:
@@ -461,7 +461,7 @@ You can use the `--modules` flag to copy the corresponding CommonJS modules into
 
 # alias:
 > purgetss f -m
-> purgetss f -m -v=fa,md,li,bx,f7
+> purgetss f -m -v=fa,md,li,bx,f7,ti
 ```
 
 Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Material Design Icons, Line Icons Boxicons and Framework7-Icons fonts.
