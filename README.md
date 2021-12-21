@@ -439,7 +439,7 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 Use any of the following arguments to copy specific vendors:
 
 ```bash
-> purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7"
+> purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons"
 
 # alias:
 > purgetss f -v=fa,md,li,bx,f7
@@ -457,7 +457,7 @@ You can use the `--modules` flag to copy the corresponding CommonJS modules into
 
 ```bash
 > purgetss fonts --modules
-> purgetss fonts --modules --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7"
+> purgetss fonts --modules --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons"
 
 # alias:
 > purgetss f -m
