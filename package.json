@@ -1,6 +1,6 @@
 {
 	"name": "purgetss",
-	"version": "3.0.2",
+	"version": "3.0.3",
 	"description": "An extension for Titanium SDK that generates a set of Tailwind-like classes and values to easily and quickly create beautifully designed mobile apps.",
 	"main": "index.js",
 	"bin": {
@@ -21,9 +21,11 @@
 		"build:framework7-js": "node ./lib/build-framework7-icons-js",
 		"build:boxicons": "node ./lib/build-boxicons-tss",
 		"build:boxicons-js": "node ./lib/build-boxicons-js",
+		"build:tablericons": "node ./lib/build-tablericons-tss",
+		"build:tablericons-js": "node ./lib/build-tablericons-js",
 		"build:material": "node ./lib/build-material-icons-tss",
 		"build:material-js": "node ./lib/build-material-icons-js",
-		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:lineicons && npm run build:lineicons-js && npm run build:material && npm run build:material-js && npm run build:boxicons && npm run build:boxicons-js && npm run build:framework7 && npm run build:framework7-js && npm run build:fonts"
+		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:lineicons && npm run build:lineicons-js && npm run build:material && npm run build:material-js && npm run build:boxicons && npm run build:boxicons-js && npm run build:framework7 && npm run build:framework7-js && npm run build:tablericons && npm run build:tablericons-js && npm run build:fonts"
 	},
 	"repository": {
 		"type": "git",
@@ -44,6 +46,7 @@
 	"homepage": "https://github.com/macCesar/purgeTSS#readme",
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^5.15.4",
+		"@tabler/icons": "^1.48.0",
 		"arg": "^5.0.1",
 		"autoprefixer": "^10.4.0",
 		"boxicons": "^2.1.1",

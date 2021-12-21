@@ -1,6 +1,6 @@
 // Font Families
 '.f7': { font: { fontFamily: 'Framework7-Icons' } }
-'.f7-icons': { font: { fontFamily: 'Framework7-Icons' } }
+'.f7i': { font: { fontFamily: 'Framework7-Icons' } }
 '.framework7': { font: { fontFamily: 'Framework7-Icons' } }
 
 // Font Sizes

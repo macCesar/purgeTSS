@@ -1,0 +1,7 @@
+// Font Families
+'.ti': { font: { fontFamily: 'tabler-icons' } }
+'.tabler': { font: { fontFamily: 'tabler-icons' } }
+'.tablericons': { font: { fontFamily: 'tabler-icons' } }
+
+// Font Icons
+// To use tabler-icons in Buttons AND Labels each class sets 'text' and 'title' properties

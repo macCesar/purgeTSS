@@ -45,6 +45,7 @@ const destConfigJSFile = cwd + '/purgetss/config.js';
 const srcLibLI = path.resolve(__dirname, './dist/lineicons.js');
 const srcLibBX = path.resolve(__dirname, './dist/boxicons.js');
 const srcLibF7 = path.resolve(__dirname, './dist/framework7icons.js');
+const srcLibTi = path.resolve(__dirname, './dist/tablericons.js');
 const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
 const srcLibMD = path.resolve(__dirname, './dist/materialdesignicons.js');
@@ -93,6 +94,7 @@ const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss');
 const srcLineiconsFontTSSFile = path.resolve(__dirname, './dist/lineicons.tss');
 const srcBoxIconsFontTSSFile = path.resolve(__dirname, './dist/boxicons.tss');
 const srcFramework7FontTSSFile = path.resolve(__dirname, './dist/framework7icons.tss');
+const srcTablerIconsFontTSSFile = path.resolve(__dirname, './dist/tablericons.tss');
 const srcPurgetssConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
 const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialdesignicons.tss');
 //
@@ -135,6 +137,7 @@ function copyFonts(options) {
 			copyFont('md');
 			copyFont('bx');
 			copyFont('f7');
+			copyFont('ti');
 		}
 
 		if (options.modules) {
@@ -160,6 +163,7 @@ function copyFontLibraries(options) {
 			copyFontLibrary('md');
 			copyFontLibrary('bx');
 			copyFontLibrary('f7');
+			copyFontLibrary('ti');
 		}
 	}
 }
@@ -204,15 +208,19 @@ function purgeClasses(options) {
 
 		tempPurged += purgeTailwind(uniqueClasses);
 
-		tempPurged += purgeFontAwesome(uniqueClasses);
+		let cleanUniqueClasses = cleanClasses(uniqueClasses);
 
-		tempPurged += purgeMaterialDesign(uniqueClasses);
+		tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses);
 
-		tempPurged += purgeLineIcons(uniqueClasses);
+		tempPurged += purgeMaterialDesign(uniqueClasses, cleanUniqueClasses);
 
-		tempPurged += purgeBoxIcons(uniqueClasses);
+		tempPurged += purgeLineIcons(uniqueClasses, cleanUniqueClasses);
 
-		tempPurged += purgeFramework7(uniqueClasses);
+		tempPurged += purgeBoxIcons(uniqueClasses, cleanUniqueClasses);
+
+		tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses);
+
+		tempPurged += purgeTablerIcons(uniqueClasses, cleanUniqueClasses);
 
 		saveFile(destAppTSSFile, tempPurged);
 
@@ -222,6 +230,16 @@ function purgeClasses(options) {
 	}
 }
 module.exports.purgeClasses = purgeClasses;
+
+function cleanClasses(uniqueClasses) {
+	let cleanClassNames = [];
+
+	uniqueClasses.forEach(classeName => {
+		cleanClassNames.push(cleanClassNameFn(classeName));
+	});
+
+	return cleanClassNames;
+}
 
 //! Command: init
 function init() {
@@ -462,9 +480,15 @@ function copyBoxIconsFonts() {
 }
 
 function copyFramework7IconsFonts() {
-	// BoxIcons Font
+	// Framework7 Font
 	copyFile(srcFontsFolder + '/Framework7-Icons.ttf', 'Framework7-Icons.ttf');
 	logger.info('Framework7-Icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
+}
+
+function copyTablerIconsFonts() {
+	// Tabler Icons Font
+	copyFile(srcFontsFolder + '/tabler-icons.ttf', 'tabler-icons.ttf');
+	logger.info('tabler-icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
 
 function processFontawesomeStyles(data) {
@@ -1079,6 +1103,11 @@ function copyFont(vendor) {
 		case 'framework7':
 			copyFramework7IconsFonts();
 			break;
+		case 'ti':
+		case 'tabler':
+		case 'tablericons':
+			copyTablerIconsFonts();
+			break;
 	}
 }
 
@@ -1118,6 +1147,12 @@ function copyFontLibrary(vendor) {
 		case 'framework7':
 			fs.copyFileSync(srcLibF7, destLibFolder + '/framework7icons.js');
 			logger.info('Framework7-Icons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			break;
+		case 'ti':
+		case 'tabler':
+		case 'tablericons':
+			fs.copyFileSync(srcLibTi, destLibFolder + '/tablericons.js');
+			logger.info('Tabler Icons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 	}
 }
@@ -1201,12 +1236,9 @@ function purgeTailwind(uniqueClasses) {
 			let decimalValue = cleanClassName.split('/')[1];
 			let transparency = Math.round(decimalValue * 255 / 100).toString(16);
 			if (transparency.length === 1) transparency = '0' + transparency;
-			opacityValues.push({
-				class: cleanClassName.substring(0, cleanClassName.lastIndexOf('/')),
-				originalClass: uniqueClasses[index],
-				decimalValue: decimalValue,
-				transparency: transparency
-			});
+			let originalClass = uniqueClasses[index];
+			let className = cleanClassName.substring(0, cleanClassName.lastIndexOf('/'));
+			opacityValues.push({ decimalValue, transparency, originalClass, className });
 		} else {
 			cleanUniqueClasses.push(className);
 		}
@@ -1263,20 +1295,21 @@ function purgeTailwind(uniqueClasses) {
 	});
 
 	// add opacity values
-	opacityValues.forEach(opacityValue => {
-		let opacityIndex = _.findIndex(tailwindClasses, line => {
-			return line.includes(opacityValue.class);
-		});
+	if (opacityValues.length > 0) {
+		purgedClasses += '\n// Shadow Colors with opacity values\n';
+		opacityValues.forEach(opacityValue => {
+			let opacityIndex = _.findIndex(tailwindClasses, line => line.includes(opacityValue.className));
 
-		if (opacityIndex > -1) {
-			let defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/i)[0];
-			let classWithoutDecimalOpacity = `${tailwindClasses[opacityIndex].replace(defaultHexValue, `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
-			let defaultTextValue = tailwindClasses[opacityIndex].match(/'[^']*'/i)[0];
-			defaultTextValue = defaultTextValue.substring(1, defaultTextValue.length);
-			let finalClassName = `${classWithoutDecimalOpacity.replace(defaultTextValue, `.${defaultTextValue.substring(1, defaultTextValue.length - 1)}/${opacityValue.decimalValue}'`)}`;
-			purgedClasses += helpers.checkPlatformAndDevice(finalClassName, opacityValue.originalClass);
-		}
-	});
+			if (opacityIndex > -1) {
+				let defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/i)[0];
+				let classWithoutDecimalOpacity = `${tailwindClasses[opacityIndex].replace(defaultHexValue, `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
+				let defaultTextValue = tailwindClasses[opacityIndex].match(/'[^']*'/i)[0];
+				defaultTextValue = defaultTextValue.substring(1, defaultTextValue.length);
+				let finalClassName = `${classWithoutDecimalOpacity.replace(defaultTextValue, `.${defaultTextValue.substring(1, defaultTextValue.length - 1)}/${opacityValue.decimalValue}'`)}`;
+				purgedClasses += helpers.checkPlatformAndDevice(finalClassName, opacityValue.originalClass);
+			}
+		});
+	}
 
 	// Add arbitrary values
 	purgedClasses += (arbitraryValues !== '\n// Styles with arbitrary values\n') ? arbitraryValues : '';
@@ -1411,122 +1444,102 @@ function formatArbitraryValues(arbitraryValue) {
 }
 
 //! FontAwesome
-function purgeFontAwesome(uniqueClasses) {
+function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 	let sourceFolder = '';
 	let purgedClasses = '';
+	let purgingMessage = '';
 
 	if (fs.existsSync(customFontAwesomeFile)) {
 		sourceFolder = customFontAwesomeFile;
 		purgedClasses = '\n// Custom Font Awesome styles\n';
-		logger.info('Purging', chalk.yellow('Custom Font Awesome'), 'styles...');
+		purgingMessage = `Purging ${chalk.yellow('Custom Font Awesome')} styles...')`;
 	} else {
 		sourceFolder = srcFontAwesomeTSSFile;
 		purgedClasses = '\n// Default Font Awesome styles\n';
-		logger.info('Purging Default Font Awesome styles...');
+		purgingMessage = `Purging Default Font Awesome styles...`;
 	}
 
 	let sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
-	let soc = sourceTSS.toString(); // soc = String of Classes
 
-	_.each(uniqueClasses, className => {
-		if (soc.includes(`'.${className}'`)) {
-			_.each(sourceTSS, line => {
-				if (line.startsWith(`'.${className}'`)) {
-					purgedClasses += `${line}\n`;
-				}
-			});
-		}
-	});
+	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fab', 'fal', 'far', 'fas', 'fat', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands']);
 
 	return (purgedClasses === '\n// Custom Font Awesome styles\n' || purgedClasses === '\n// Default Font Awesome styles\n') ? '' : purgedClasses;
 }
 
 //! Material Design Icons
-function purgeMaterialDesign(uniqueClasses) {
-	logger.info('Purging Material Design Icons styles...');
-
+function purgeMaterialDesign(uniqueClasses, cleanUniqueClasses) {
 	let purgedClasses = '\n// Material Design Icons styles\n';
 
 	let sourceTSS = fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8').split(/\r?\n/);
-	let soc = sourceTSS.toString(); // soc = String of Classes
 
-	_.each(uniqueClasses, className => {
-		if (soc.includes(`'.${className}'`)) {
-			_.each(sourceTSS, line => {
-				if (line.startsWith(`'.${className}'`)) {
-					purgedClasses += `${line}\n`;
-				}
-			});
-		}
-	});
+	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging Material Design Icons styles...', cleanUniqueClasses, ['md', 'mdo', 'mdr', 'mds', 'mdt', '.materialdesign', '.materialdesign-round', '.materialdesign-sharp', '.materialdesign-two-tone', '.materialdesign-outlined', '.material-icons', '.material-icons-round', '.material-icons-sharp', '.material-icons-two-tone', '.material-icons-outlined']);
 
 	return (purgedClasses === '\n// Material Design Icons styles\n') ? '' : purgedClasses;
 }
 
 //! LineIcons
-function purgeLineIcons(uniqueClasses) {
-	logger.info('Purging LineIcons styles...');
-
+function purgeLineIcons(uniqueClasses, cleanUniqueClasses) {
 	let purgedClasses = '\n// LineIcons styles\n';
 
 	let sourceTSS = fs.readFileSync(srcLineiconsFontTSSFile, 'utf8').split(/\r?\n/);
-	let soc = sourceTSS.toString(); // soc = String of Classes
 
-	_.each(uniqueClasses, className => {
-		if (soc.includes(`'.${className}'`)) {
-			_.each(sourceTSS, line => {
-				if (line.startsWith(`'.${className}'`)) {
-					purgedClasses += `${line}\n`;
-				}
-			});
-		}
-	});
+	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging LineIcons styles...', cleanUniqueClasses, ['li', 'lni', 'lineicons']);
 
 	return (purgedClasses === '\n// LineIcons styles\n') ? '' : purgedClasses;
 }
 
 //! Framework7
-function purgeFramework7(uniqueClasses) {
-	logger.info('Purging Framework7 Icons styles...');
-
+function purgeFramework7(uniqueClasses, cleanUniqueClasses) {
 	let purgedClasses = '\n// Framework7 styles\n';
 
 	let sourceTSS = fs.readFileSync(srcFramework7FontTSSFile, 'utf8').split(/\r?\n/);
-	let soc = sourceTSS.toString(); // soc = String of Classes
 
-	_.each(uniqueClasses, className => {
-		if (soc.includes(`'.${className}'`)) {
-			_.each(sourceTSS, line => {
-				if (line.startsWith(`'.${className}'`)) {
-					purgedClasses += `${line}\n`;
-				}
-			});
-		}
-	});
+	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging Framework7 Icons styles...', cleanUniqueClasses, ['f7', 'f7i', 'framework7']);
 
 	return (purgedClasses === '\n// Framework7 styles\n') ? '' : purgedClasses;
 }
 
 //! BoxIcons
-function purgeBoxIcons(uniqueClasses) {
-	logger.info('Purging BoxIcons styles...');
-
+function purgeBoxIcons(uniqueClasses, cleanUniqueClasses) {
 	let purgedClasses = '\n// BoxIcons styles\n';
 
 	let sourceTSS = fs.readFileSync(srcBoxIconsFontTSSFile, 'utf8').split(/\r?\n/);
-	let soc = sourceTSS.toString(); // soc = String of Classes
 
-	_.each(uniqueClasses, className => {
-		if (soc.includes(`'.${className}'`)) {
-			_.each(sourceTSS, line => {
-				if (line.startsWith(`'.${className}'`)) {
-					purgedClasses += `${line}\n`;
-				}
-			});
-		}
-	});
+	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging BoxIcons styles...', cleanUniqueClasses, ['bx', 'bxi', 'boxicons']);
 
 	return (purgedClasses === '\n// BoxIcons styles\n') ? '' : purgedClasses;
+}
+
+//! TablerIcons
+function purgeTablerIcons(uniqueClasses, cleanUniqueClasses) {
+	let purgedClasses = '\n// Tabler Icons styles\n';
+
+	let sourceTSS = fs.readFileSync(srcTablerIconsFontTSSFile, 'utf8').split(/\r?\n/);
+
+	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging Tabler Icons styles...', cleanUniqueClasses, ['ti', 'tablericons', 'tabler']);
+
+	return (purgedClasses === '\n// Tabler Icons styles\n') ? '' : purgedClasses;
+}
+
+function processFontIcons(sourceTSS, uniqueClasses, message, cleanUniqueClasses, fontFamily) {
+	let purgedClasses = '';
+	let soc = sourceTSS.toString();
+
+	if (cleanUniqueClasses.some(element => fontFamily.includes(element))) {
+		logger.info(message);
+		uniqueClasses.forEach(className => {
+			let cleanClassName = cleanClassNameFn(className);
+			if (soc.includes(`'.${cleanClassName}'`)) {
+				sourceTSS.forEach(line => {
+					if (line.startsWith(`'.${cleanClassName}'`)) {
+						purgedClasses += helpers.checkPlatformAndDevice(line, uniqueClasses[uniqueClasses.indexOf(className)]);
+					}
+				});
+			}
+		});
+	}
+
+	return purgedClasses;
 }
 
 function saveFile(file, data) {

@@ -1,4 +1,5 @@
 // Font Families
+'.li': { font: { fontFamily: 'LineIcons' } }
 '.lni': { font: { fontFamily: 'LineIcons' } }
 '.lineicons': { font: { fontFamily: 'LineIcons' } }
 
