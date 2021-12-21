@@ -22,7 +22,7 @@
 - Provides more than 6000 [Tailwind-like utility classes](https://tailwindcss.com/) ready to use in your projects.
 - Creates a clean `app.tss` file with only the classes used in your project by parsing all your XML files.
 - You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
-- You can easily use Font Awesome, Material Design, Lineicons, Boxicons and Framework7-Icons fonts in `Buttons` and `Labels`.
+- You can easily use Font Awesome, Material Design, Lineicons, Boxicons, Tabler Icons and Framework7-Icons fonts in `Buttons` and `Labels`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
 - Includes a simple two-dimensional Grid System to align and distribute elements in your views.
 
@@ -451,6 +451,7 @@ Available aliases:
 - fa, font, fontawesome = Font Awesome Icons
 - md, material, materialdesign = Material Design Icons
 - f7, framework, framework7 = Framework7 Icons
+- ti, tablericons, tabler = Tabler Icons
 
 ### Copying corresponding CommonJS Modules
 You can use the `--modules` flag to copy the corresponding CommonJS modules into `./app/lib/` folder.
@@ -471,6 +472,7 @@ All prefixes are stripped out from their class names and are camelCased, for exa
 - **Line Icons**: `lni-flag` becomes `flag`
 - **Font Awesome**: `fa-flag` becomes `flag`
 - **Material Design Icons**: `md-flag` becomes `flag`
+- **Tabler Icons** `ti-flag` becomes `flag` or `ti-cloud-download` becomes `cloudDownload`.
 - **Framework7 Icons** `f7-alarm_fill` becomes `alarmFill` or `f7-clock_fill` becomes `clockFill`.
 - **boxicons** have three sets of icons in the same font file: Regular, Solid and Logos, so we need to keep their prefixes:
 
