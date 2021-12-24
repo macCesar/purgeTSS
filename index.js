@@ -779,6 +779,8 @@ function buildCustomTailwind(message = 'file created!') {
 
 	configFile.theme.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor', true);
 
+	configFile.theme.cacheSize = {};
+
 	// pagingControlHeight
 	delete base.height['fit'];
 	delete base.height['max'];
@@ -998,6 +1000,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'autocapitalization': return helpers.autocapitalization();
 		case 'autoLink': return helpers.autoLink();
 		case 'borderStyle': return helpers.borderStyle();
+		case 'cacheSize': return helpers.cacheSize();
 		case 'editable': return helpers.editable();
 		case 'ellipsize': return helpers.ellipsize();
 		case 'enableCopy': return helpers.enableCopy();
@@ -1222,8 +1225,8 @@ function purgeTailwind(uniqueClasses) {
 
 	(fs.existsSync(customTailwindFile)) ? logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...') : logger.info('Purging Default Tailwind styles...');
 
-	let opacityValues = [];
 	let cleanUniqueClasses = [];
+	let classesWithOpacityValues = [];
 	let arbitraryValues = '\n// Styles with arbitrary values\n';
 
 	uniqueClasses.forEach((className, index) => {
@@ -1232,13 +1235,14 @@ function purgeTailwind(uniqueClasses) {
 		if (cleanClassName.includes('(')) {
 			let line = formatArbitraryValues(cleanClassName);
 			if (line) arbitraryValues += helpers.checkPlatformAndDevice(line, className);
-		} else if (cleanClassName.includes('shadow-') && cleanClassName.includes('/')) {
+		} else if (helpers.checkColorClasses(cleanClassName)) {
+			// Set opacity to color properties
 			let decimalValue = cleanClassName.split('/')[1];
 			let transparency = Math.round(decimalValue * 255 / 100).toString(16);
 			if (transparency.length === 1) transparency = '0' + transparency;
-			let originalClass = uniqueClasses[index];
+			let classNameWithTransparency = uniqueClasses[index];
 			let className = cleanClassName.substring(0, cleanClassName.lastIndexOf('/'));
-			opacityValues.push({ decimalValue, transparency, originalClass, className });
+			classesWithOpacityValues.push({ decimalValue, transparency, className, classNameWithTransparency });
 		} else {
 			cleanUniqueClasses.push(className);
 		}
@@ -1294,19 +1298,25 @@ function purgeTailwind(uniqueClasses) {
 		}
 	});
 
-	// add opacity values
-	if (opacityValues.length > 0) {
-		purgedClasses += '\n// Shadow Colors with opacity values\n';
-		opacityValues.forEach(opacityValue => {
-			let opacityIndex = _.findIndex(tailwindClasses, line => line.includes(opacityValue.className));
+	// Styles with color opacity modifiers
+	if (classesWithOpacityValues.length > 0) {
+		purgedClasses += '\n// Styles with color opacity modifiers\n';
+		classesWithOpacityValues.forEach(opacityValue => {
+			let opacityIndex = _.findIndex(tailwindClasses, line => line.startsWith(`'.${opacityValue.className}`));
 
 			if (opacityIndex > -1) {
-				let defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/i)[0];
+				let defaultHexValue;
+				if (tailwindClasses[opacityIndex].includes('from')) {
+					defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/g)[1];
+				} else {
+					defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/i)[0];
+				}
+
 				let classWithoutDecimalOpacity = `${tailwindClasses[opacityIndex].replace(defaultHexValue, `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
 				let defaultTextValue = tailwindClasses[opacityIndex].match(/'[^']*'/i)[0];
 				defaultTextValue = defaultTextValue.substring(1, defaultTextValue.length);
 				let finalClassName = `${classWithoutDecimalOpacity.replace(defaultTextValue, `.${defaultTextValue.substring(1, defaultTextValue.length - 1)}/${opacityValue.decimalValue}'`)}`;
-				purgedClasses += helpers.checkPlatformAndDevice(finalClassName, opacityValue.originalClass);
+				purgedClasses += helpers.checkPlatformAndDevice(finalClassName, opacityValue.classNameWithTransparency);
 			}
 		});
 	}
@@ -1323,41 +1333,44 @@ function cleanClassNameFn(className) {
 
 const arbitraryValuesTable = {
 	// Check if they are really needed
-	'font': '{ fontWeight: {value} }',
-	'max-scale': '{ maxZoomScale: {value} }',
-	'min-scale': '{ minZoomScale: {value} }',
-	'content-w': '{ contentWidth: {value} }',
-	'content-h': '{ contentHeight: {value} }',
-	// 'bg-selected': '{ backgroundSelectedColor: {value} }',
-	'content': '{ contentWidth: {value}, contentHeight: {value} }',
-	// 'shadow': '{ viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: {value} }',
-
-	'anchorPoint': '{ anchorPoint: { x: {value}, y: {value1} } }',
+	'active-tint': '{ activeTintColor: {value} }',
+	'active-title': '{ activeTitleColor: {value} }',
+	'bar': '{ barColor: {value} }',
+	'bg-selected': '{ backgroundSelectedColor: {value} }',
 	'bg': '{ backgroundColor: {value} }',
 	'border-color': '{ borderColor: {value} }',
 	'border-width': '{ borderWidth: {value} }',
 	'bottom': '{ bottom: {value} }',
+	'cache-size': '{ cacheSize: {value} }',
+	'content-h': '{ contentHeight: {value} }',
+	'content-w': '{ contentWidth: {value} }',
+	'content': '{ contentWidth: {value}, contentHeight: {value} }',
+	'current-page': '{ currentPageIndicatorColor: {value} }',
 	'delay': '{ delay: {value} }',
 	'duration': '{ duration: {value} }',
 	'feedback': '{ touchFeedback: true, touchFeedbackColor: {value} }',
+	'font': '{ fontWeight: {value} }',
 	'from': '{ backgroundGradient: { colors: [ {value1}, {value} ] } }',
+	'grid-cols': '{ width: Alloy.Globals.cols_{value} }',
+	'grid-rows': '{ height: Alloy.Globals.rows_{value} }',
 	'h': '{ height: {value}}',
 	'left': '{ left: {value} }',
 	'm': '{ top: {value}, right: {value}, bottom: {value}, left: {value} }',
+	'max-scale': '{ maxZoomScale: {value} }',
 	'mb': '{ bottom: {value} }',
+	'min-scale': '{ minZoomScale: {value} }',
 	'ml': '{ left: {value} }',
 	'mr': '{ right: {value} }',
 	'mt': '{ top: {value} }',
 	'mx': '{ right: {value}, left: {value} }',
 	'my': '{ top: {value}, bottom: {value} }',
+	'nav-tint': '{ navTintColor: {value} }',
 	'opacity': '{ opacity: {value} }',
-
-	'page': '{ pageIndicatorColor: {value} }',
-	'paging': '{ pagingControlColor: {value} }',
-	'cache-size': '{ cacheSize: {value} }',
-
-	'current-page': '{ currentPageIndicatorColor: {value} }',
+	'origin': '{ anchorPoint: { x: {value}, y: {value1} } }',
 	'p': '{ padding: { top: {value}, right: {value}, bottom: {value}, left: {value} } }',
+	'page': '{ pageIndicatorColor: {value} }',
+	'paging-alpha': '{ pagingControlAlpha: {value} }',
+	'paging-color': '{ pagingControlColor: {value} }',
 	'pb': '{ padding: { bottom: {value} } }',
 	'pl': '{ padding: { left: {value} } }',
 	'placeholder': '{ hintTextColor: {value} }',
@@ -1370,11 +1383,11 @@ const arbitraryValuesTable = {
 	'rotate': '{ rotate: {value} }',
 	'rounded': '{ borderRadius: {value} }',
 	'shadow': '{ viewShadowColor: {value} }',
+	'tabs-bg': '{ tabsBackgroundColor: {value} }',
 	'text-color': '{ color: {value} }',
 	'text-size': '{ font: { fontSize: {value} } }',
 	'tint': '{ tintColor: {value} }',
-	'grid-col': '{ width: Alloy.Globals.cols_{value} }',
-	'grid-row': '{ height: Alloy.Globals.rows_{value} }',
+	'title': '{ titleColor: {value} }',
 	'to': '{ backgroundGradient: { colors: [ {value} ] } }',
 	'top': '{ top: {value} }',
 	'w': '{ width: {value} }'
@@ -1393,20 +1406,24 @@ function formatArbitraryValues(arbitraryValue) {
 		let value = splitedContent[1].match(/(?<=\().*(?=\))/).pop();
 
 		if (rule === 'text') {
-			rule = (value.includes('#')) ? 'text-color' : 'text-size';
+			rule = (value.includes('#') || value.includes('rgb')) ? 'text-color' : 'text-size';
 		}
 
 		if (rule === 'border') {
-			rule = (value.includes('#')) ? 'border-color' : 'border-width';
+			rule = (value.includes('#') || value.includes('rgb')) ? 'border-color' : 'border-width';
+		}
+
+		if (rule === 'paging') {
+			rule = (value.includes('#') || value.includes('rgb')) ? 'paging-color' : 'paging-alpha';
 		}
 
 		let properties = arbitraryValuesTable[rule];
 
 		if (rule === 'from') {
-			properties = _.replace(properties, new RegExp("{value1}", "g"), helpers.addTransparencyToHex(helpers.parseValue(value, sign)));
+			properties = _.replace(properties, new RegExp("{value1}", "g"), helpers.addTransparencyToHex(helpers.parseValue(value)));
 		}
 
-		if (rule === 'anchorPoint') {
+		if (rule === 'origin') {
 			// anchorPoint
 			let value1 = (value.includes(',')) ? value.split(',')[1] : value;
 

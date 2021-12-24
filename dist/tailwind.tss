@@ -1,4 +1,4 @@
-// Tailwind CSS v3.0.0: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind CSS v3.0.7: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // Custom Styles and Resets
@@ -1477,6 +1477,18 @@
 '.enable-bounce': { disableBounce: false }
 '.disable-bounce': { disableBounce: true }
 
+// cacheSize Property
+'.cache-size-1': { cacheSize: 1 }
+'.cache-size-2': { cacheSize: 2 }
+'.cache-size-3': { cacheSize: 3 }
+'.cache-size-4': { cacheSize: 4 }
+'.cache-size-5': { cacheSize: 5 }
+'.cache-size-6': { cacheSize: 6 }
+'.cache-size-7': { cacheSize: 7 }
+'.cache-size-8': { cacheSize: 8 }
+'.cache-size-9': { cacheSize: 9 }
+'.cache-size-10': { cacheSize: 10 }
+
 // clipMode Property
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
@@ -2662,6 +2674,16 @@
 '.bg-linear-to-bl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
 '.bg-linear-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
 '.bg-linear-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backfillStart: true } }
+
+'.bg-gradient': { backgroundGradient: { type: 'linear', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' }, backfillStart: true } }
+'.bg-gradient-to-t': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
+'.bg-gradient-to-tr': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
+'.bg-gradient-to-r': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, backfillStart: true } }
+'.bg-gradient-to-br': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '0%', y: '0%' }, backfillStart: true } }
+'.bg-gradient-to-b': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
+'.bg-gradient-to-bl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
+'.bg-gradient-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
+'.bg-gradient-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backfillStart: true } }
 
 // Margin Property
 '.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
