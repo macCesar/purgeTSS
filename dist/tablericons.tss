@@ -150,6 +150,8 @@
 '.ti-backhoe': { text: '\ued86', title: '\ued86' }
 '.ti-backpack': { text: '\uef47', title: '\uef47' }
 '.ti-backspace': { text: '\uea2d', title: '\uea2d' }
+'.ti-badge': { text: '\uefc2', title: '\uefc2' }
+'.ti-badges': { text: '\uefc3', title: '\uefc3' }
 '.ti-ball-american-football': { text: '\uee04', title: '\uee04' }
 '.ti-ball-baseball': { text: '\uefa0', title: '\uefa0' }
 '.ti-ball-basketball': { text: '\uec28', title: '\uec28' }
@@ -184,6 +186,7 @@
 '.ti-bell-ringing': { text: '\ued07', title: '\ued07' }
 '.ti-bell-ringing-2': { text: '\uede4', title: '\uede4' }
 '.ti-bell-x': { text: '\uede5', title: '\uede5' }
+'.ti-bible': { text: '\uefc4', title: '\uefc4' }
 '.ti-bike': { text: '\uea36', title: '\uea36' }
 '.ti-binary': { text: '\uee08', title: '\uee08' }
 '.ti-biohazard': { text: '\uecb8', title: '\uecb8' }
@@ -197,6 +200,7 @@
 '.ti-bolt-off': { text: '\uecec', title: '\uecec' }
 '.ti-bone': { text: '\uedb8', title: '\uedb8' }
 '.ti-book': { text: '\uea39', title: '\uea39' }
+'.ti-book-2': { text: '\uefc5', title: '\uefc5' }
 '.ti-bookmark': { text: '\uea3a', title: '\uea3a' }
 '.ti-bookmark-off': { text: '\ueced', title: '\ueced' }
 '.ti-bookmarks': { text: '\ued08', title: '\ued08' }
@@ -285,6 +289,7 @@
 '.ti-brand-mastercard': { text: '\uef49', title: '\uef49' }
 '.ti-brand-medium': { text: '\uec70', title: '\uec70' }
 '.ti-brand-messenger': { text: '\uec71', title: '\uec71' }
+'.ti-brand-meta': { text: '\uefb0', title: '\uefb0' }
 '.ti-brand-netbeans': { text: '\uef71', title: '\uef71' }
 '.ti-brand-netflix': { text: '\uedcf', title: '\uedcf' }
 '.ti-brand-notion': { text: '\uef7b', title: '\uef7b' }
@@ -385,6 +390,7 @@
 '.ti-camera-plus': { text: '\uec3b', title: '\uec3b' }
 '.ti-camera-rotate': { text: '\uee22', title: '\uee22' }
 '.ti-camera-selfie': { text: '\uee23', title: '\uee23' }
+'.ti-candle': { text: '\uefc6', title: '\uefc6' }
 '.ti-candy': { text: '\uef0d', title: '\uef0d' }
 '.ti-capture': { text: '\uec3c', title: '\uec3c' }
 '.ti-car': { text: '\uebbb', title: '\uebbb' }
@@ -460,6 +466,7 @@
 '.ti-circle-9': { text: '\uee3d', title: '\uee3d' }
 '.ti-circle-check': { text: '\uea67', title: '\uea67' }
 '.ti-circle-dashed': { text: '\ued27', title: '\ued27' }
+'.ti-circle-dot': { text: '\uefb1', title: '\uefb1' }
 '.ti-circle-dotted': { text: '\ued28', title: '\ued28' }
 '.ti-circle-half': { text: '\uee3f', title: '\uee3f' }
 '.ti-circle-half-vertical': { text: '\uee3e', title: '\uee3e' }
@@ -475,6 +482,7 @@
 '.ti-clipboard': { text: '\uea6f', title: '\uea6f' }
 '.ti-clipboard-check': { text: '\uea6c', title: '\uea6c' }
 '.ti-clipboard-list': { text: '\uea6d', title: '\uea6d' }
+'.ti-clipboard-plus': { text: '\uefb2', title: '\uefb2' }
 '.ti-clipboard-x': { text: '\uea6e', title: '\uea6e' }
 '.ti-clock': { text: '\uea70', title: '\uea70' }
 '.ti-cloud': { text: '\uea76', title: '\uea76' }
@@ -502,6 +510,7 @@
 '.ti-confetti': { text: '\uee46', title: '\uee46' }
 '.ti-container': { text: '\uee47', title: '\uee47' }
 '.ti-contrast': { text: '\uec4e', title: '\uec4e' }
+'.ti-contrast-2': { text: '\uefc7', title: '\uefc7' }
 '.ti-cookie': { text: '\uef0f', title: '\uef0f' }
 '.ti-copy': { text: '\uea7a', title: '\uea7a' }
 '.ti-copyleft': { text: '\uec3d', title: '\uec3d' }
@@ -524,6 +533,7 @@
 '.ti-corner-up-right-double': { text: '\uee4f', title: '\uee4f' }
 '.ti-cpu': { text: '\uef8e', title: '\uef8e' }
 '.ti-crane': { text: '\uef27', title: '\uef27' }
+'.ti-creative-commons': { text: '\uefb3', title: '\uefb3' }
 '.ti-credit-card': { text: '\uea84', title: '\uea84' }
 '.ti-credit-card-off': { text: '\ued11', title: '\ued11' }
 '.ti-crop': { text: '\uea85', title: '\uea85' }
@@ -533,6 +543,7 @@
 '.ti-crown-off': { text: '\uee50', title: '\uee50' }
 '.ti-crutches': { text: '\uef5b', title: '\uef5b' }
 '.ti-cup': { text: '\uef28', title: '\uef28' }
+'.ti-curling': { text: '\uefc8', title: '\uefc8' }
 '.ti-curly-loop': { text: '\uecda', title: '\uecda' }
 '.ti-currency': { text: '\uefa6', title: '\uefa6' }
 '.ti-currency-bahraini': { text: '\uee51', title: '\uee51' }
@@ -649,6 +660,7 @@
 '.ti-equal-not': { text: '\uee86', title: '\uee86' }
 '.ti-eraser': { text: '\ueb8b', title: '\ueb8b' }
 '.ti-exchange': { text: '\uebe7', title: '\uebe7' }
+'.ti-exclamation-mark': { text: '\uefb4', title: '\uefb4' }
 '.ti-exposure': { text: '\ueb8c', title: '\ueb8c' }
 '.ti-external-link': { text: '\uea99', title: '\uea99' }
 '.ti-eye': { text: '\uea9a', title: '\uea9a' }
@@ -659,6 +671,7 @@
 '.ti-eyeglass-2': { text: '\uee89', title: '\uee89' }
 '.ti-face-id': { text: '\uea9b', title: '\uea9b' }
 '.ti-face-id-error': { text: '\uefa7', title: '\uefa7' }
+'.ti-face-mask': { text: '\uefb5', title: '\uefb5' }
 '.ti-fall': { text: '\uecb9', title: '\uecb9' }
 '.ti-feather': { text: '\uee8b', title: '\uee8b' }
 '.ti-fence': { text: '\uef2a', title: '\uef2a' }
@@ -729,6 +742,7 @@
 '.ti-forklift': { text: '\uebe9', title: '\uebe9' }
 '.ti-forms': { text: '\uee8f', title: '\uee8f' }
 '.ti-frame': { text: '\ueaaf', title: '\ueaaf' }
+'.ti-free-rights': { text: '\uefb6', title: '\uefb6' }
 '.ti-friends': { text: '\ueab0', title: '\ueab0' }
 '.ti-gas-station': { text: '\uec7d', title: '\uec7d' }
 '.ti-gauge': { text: '\ueab1', title: '\ueab1' }
@@ -743,6 +757,7 @@
 '.ti-git-merge': { text: '\ueab5', title: '\ueab5' }
 '.ti-git-pull-request': { text: '\ueab6', title: '\ueab6' }
 '.ti-git-pull-request-closed': { text: '\uef7f', title: '\uef7f' }
+'.ti-git-pull-request-draft': { text: '\uefb7', title: '\uefb7' }
 '.ti-glass': { text: '\ueab8', title: '\ueab8' }
 '.ti-glass-full': { text: '\ueab7', title: '\ueab7' }
 '.ti-glass-off': { text: '\uee91', title: '\uee91' }
@@ -751,6 +766,7 @@
 '.ti-gps': { text: '\ued7a', title: '\ued7a' }
 '.ti-grain': { text: '\uee92', title: '\uee92' }
 '.ti-grid-dots': { text: '\ueaba', title: '\ueaba' }
+'.ti-grid-pattern': { text: '\uefc9', title: '\uefc9' }
 '.ti-grill': { text: '\uefa9', title: '\uefa9' }
 '.ti-grip-horizontal': { text: '\uec00', title: '\uec00' }
 '.ti-grip-vertical': { text: '\uec01', title: '\uec01' }
@@ -786,6 +802,7 @@
 '.ti-heartbeat': { text: '\uef92', title: '\uef92' }
 '.ti-helicopter': { text: '\ued8e', title: '\ued8e' }
 '.ti-helicopter-landing': { text: '\ued8d', title: '\ued8d' }
+'.ti-helmet': { text: '\uefca', title: '\uefca' }
 '.ti-help': { text: '\ueabf', title: '\ueabf' }
 '.ti-hexagon': { text: '\uec02', title: '\uec02' }
 '.ti-hexagon-off': { text: '\uee9c', title: '\uee9c' }
@@ -799,6 +816,7 @@
 '.ti-hourglass': { text: '\uef93', title: '\uef93' }
 '.ti-ice-cream': { text: '\ueac2', title: '\ueac2' }
 '.ti-ice-cream-2': { text: '\uee9f', title: '\uee9f' }
+'.ti-ice-skating': { text: '\uefcb', title: '\uefcb' }
 '.ti-id': { text: '\ueac3', title: '\ueac3' }
 '.ti-inbox': { text: '\ueac4', title: '\ueac4' }
 '.ti-indent-decrease': { text: '\ueb91', title: '\ueb91' }
@@ -809,6 +827,7 @@
 '.ti-italic': { text: '\ueb93', title: '\ueb93' }
 '.ti-jump-rope': { text: '\ued8f', title: '\ued8f' }
 '.ti-karate': { text: '\ued32', title: '\ued32' }
+'.ti-kering': { text: '\uefb8', title: '\uefb8' }
 '.ti-key': { text: '\ueac7', title: '\ueac7' }
 '.ti-keyboard': { text: '\uebd6', title: '\uebd6' }
 '.ti-keyboard-hide': { text: '\uec7e', title: '\uec7e' }
@@ -907,6 +926,7 @@
 '.ti-lock-square': { text: '\uef51', title: '\uef51' }
 '.ti-login': { text: '\ueba7', title: '\ueba7' }
 '.ti-logout': { text: '\ueba8', title: '\ueba8' }
+'.ti-lollipop': { text: '\uefcc', title: '\uefcc' }
 '.ti-luggage': { text: '\uefad', title: '\uefad' }
 '.ti-lungs': { text: '\uef62', title: '\uef62' }
 '.ti-macro': { text: '\ueeab', title: '\ueeab' }
@@ -936,6 +956,7 @@
 '.ti-maximize': { text: '\ueaea', title: '\ueaea' }
 '.ti-meat': { text: '\uef12', title: '\uef12' }
 '.ti-medal': { text: '\uec78', title: '\uec78' }
+'.ti-medal-2': { text: '\uefcd', title: '\uefcd' }
 '.ti-medical-cross': { text: '\uec2f', title: '\uec2f' }
 '.ti-medicine-syrup': { text: '\uef63', title: '\uef63' }
 '.ti-menu': { text: '\ueaeb', title: '\ueaeb' }
@@ -956,6 +977,8 @@
 '.ti-microphone-2': { text: '\uef2c', title: '\uef2c' }
 '.ti-microphone-off': { text: '\ued16', title: '\ued16' }
 '.ti-microscope': { text: '\uef64', title: '\uef64' }
+'.ti-miliraty-award': { text: '\uefce', title: '\uefce' }
+'.ti-military-rank': { text: '\uefcf', title: '\uefcf' }
 '.ti-milk': { text: '\uef13', title: '\uef13' }
 '.ti-minimize': { text: '\ueaf1', title: '\ueaf1' }
 '.ti-minus': { text: '\ueaf2', title: '\ueaf2' }
@@ -992,6 +1015,9 @@
 '.ti-new-section': { text: '\uebc1', title: '\uebc1' }
 '.ti-news': { text: '\ueafd', title: '\ueafd' }
 '.ti-nfc': { text: '\ueeb7', title: '\ueeb7' }
+'.ti-no-copyright': { text: '\uefb9', title: '\uefb9' }
+'.ti-no-creative-commons': { text: '\uefba', title: '\uefba' }
+'.ti-no-derivatives': { text: '\uefbb', title: '\uefbb' }
 '.ti-note': { text: '\ueb6d', title: '\ueb6d' }
 '.ti-notebook': { text: '\ueb96', title: '\ueb96' }
 '.ti-notes': { text: '\ueb6e', title: '\ueb6e' }
@@ -1062,6 +1088,7 @@
 '.ti-plant': { text: '\ued50', title: '\ued50' }
 '.ti-plant-2': { text: '\ued7e', title: '\ued7e' }
 '.ti-play-card': { text: '\ueebf', title: '\ueebf' }
+'.ti-player-eject': { text: '\uefbc', title: '\uefbc' }
 '.ti-player-pause': { text: '\ued45', title: '\ued45' }
 '.ti-player-play': { text: '\ued46', title: '\ued46' }
 '.ti-player-record': { text: '\ued47', title: '\ued47' }
@@ -1076,9 +1103,11 @@
 '.ti-point': { text: '\ueb0c', title: '\ueb0c' }
 '.ti-pokeball': { text: '\ueec1', title: '\ueec1' }
 '.ti-polaroid': { text: '\ueec2', title: '\ueec2' }
+'.ti-polygon': { text: '\uefd0', title: '\uefd0' }
 '.ti-pool': { text: '\ued91', title: '\ued91' }
 '.ti-power': { text: '\ueb0d', title: '\ueb0d' }
 '.ti-pray': { text: '\uecbf', title: '\uecbf' }
+'.ti-premium-rights': { text: '\uefbd', title: '\uefbd' }
 '.ti-prescription': { text: '\uef99', title: '\uef99' }
 '.ti-presentation': { text: '\ueb70', title: '\ueb70' }
 '.ti-presentation-analytics': { text: '\ueec3', title: '\ueec3' }
@@ -1091,6 +1120,7 @@
 '.ti-pyramid': { text: '\ueec5', title: '\ueec5' }
 '.ti-qrcode': { text: '\ueb11', title: '\ueb11' }
 '.ti-question-mark': { text: '\uec9d', title: '\uec9d' }
+'.ti-quote': { text: '\uefbe', title: '\uefbe' }
 '.ti-radio': { text: '\uef2d', title: '\uef2d' }
 '.ti-radioactive': { text: '\uecc0', title: '\uecc0' }
 '.ti-radius-bottom-left': { text: '\ueec6', title: '\ueec6' }
@@ -1110,6 +1140,7 @@
 '.ti-recycle': { text: '\ueb9b', title: '\ueb9b' }
 '.ti-refresh': { text: '\ueb13', title: '\ueb13' }
 '.ti-refresh-alert': { text: '\ued57', title: '\ued57' }
+'.ti-refresh-dot': { text: '\uefbf', title: '\uefbf' }
 '.ti-registered': { text: '\ueb14', title: '\ueb14' }
 '.ti-relation-many-to-many': { text: '\ued7f', title: '\ued7f' }
 '.ti-relation-one-to-many': { text: '\ued80', title: '\ued80' }
@@ -1126,6 +1157,7 @@
 '.ti-ripple': { text: '\ued82', title: '\ued82' }
 '.ti-road-sign': { text: '\uecdd', title: '\uecdd' }
 '.ti-rocket': { text: '\uec45', title: '\uec45' }
+'.ti-roller-skating': { text: '\uefd1', title: '\uefd1' }
 '.ti-rotate': { text: '\ueb16', title: '\ueb16' }
 '.ti-rotate-2': { text: '\uebb4', title: '\uebb4' }
 '.ti-rotate-360': { text: '\uef85', title: '\uef85' }
@@ -1182,6 +1214,7 @@
 '.ti-shield-x': { text: '\ueb23', title: '\ueb23' }
 '.ti-ship': { text: '\uec84', title: '\uec84' }
 '.ti-shirt': { text: '\uec0a', title: '\uec0a' }
+'.ti-shoe': { text: '\uefd2', title: '\uefd2' }
 '.ti-shopping-cart': { text: '\ueb25', title: '\ueb25' }
 '.ti-shopping-cart-discount': { text: '\ueedb', title: '\ueedb' }
 '.ti-shopping-cart-off': { text: '\ueedc', title: '\ueedc' }
@@ -1280,7 +1313,9 @@
 '.ti-table-import': { text: '\ueef9', title: '\ueef9' }
 '.ti-table-off': { text: '\ueefa', title: '\ueefa' }
 '.ti-tag': { text: '\ueb34', title: '\ueb34' }
+'.ti-tag-off': { text: '\uefc0', title: '\uefc0' }
 '.ti-tags': { text: '\uef86', title: '\uef86' }
+'.ti-tags-off': { text: '\uefc1', title: '\uefc1' }
 '.ti-tallymark-1': { text: '\uec46', title: '\uec46' }
 '.ti-tallymark-2': { text: '\uec47', title: '\uec47' }
 '.ti-tallymark-3': { text: '\uec48', title: '\uec48' }
@@ -1311,6 +1346,7 @@
 '.ti-tir': { text: '\uebf0', title: '\uebf0' }
 '.ti-toggle-left': { text: '\ueb3e', title: '\ueb3e' }
 '.ti-toggle-right': { text: '\ueb3f', title: '\ueb3f' }
+'.ti-toilet-paper': { text: '\uefd3', title: '\uefd3' }
 '.ti-tool': { text: '\ueb40', title: '\ueb40' }
 '.ti-tools': { text: '\uebca', title: '\uebca' }
 '.ti-tools-kitchen': { text: '\ued64', title: '\ued64' }

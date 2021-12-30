@@ -754,13 +754,24 @@ function buildCustomTailwind(message = 'file created!') {
 		configFile.theme['Window'] = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 	}
 
+	// Add methods to generate classes
 	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor', true);
 
 	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor', true);
 
 	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor', true);
 
+	configFile.theme.backgroundBlendMode = {};
+	configFile.theme.tabGroupStyle = {};
+	configFile.theme.shiftMode = {};
+	configFile.theme.iconIsMask = {};
+	configFile.theme.activeIconIsMask = {};
+	configFile.theme.keepSectionsInSearch = {};
+	configFile.theme.smoothScrollOnTabClick = {};
+	configFile.theme.statusBar = {};
+
 	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor', true);
+	configFile.theme.barTitle = combineKeys(configFile.theme, base.colors, 'barColor', true);
 	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor', true);
 	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor', true);
 	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor', true);
@@ -796,8 +807,11 @@ function buildCustomTailwind(message = 'file created!') {
 
 	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops', true);
 
-	configFile.theme.linearGradient = {};
-	configFile.theme.radialGradient = {};
+	configFile.theme.indicatorColor = combineKeys(configFile.theme, base.colors, 'indicatorColor', true);
+	configFile.theme.indicatorStyle = {};
+
+	configFile.theme.backgroundLinearGradient = {};
+	configFile.theme.backgroundRadialGradient = {};
 
 	configFile.theme.placement = {};
 
@@ -823,8 +837,9 @@ function buildCustomTailwind(message = 'file created!') {
 
 	configFile.theme.textAlign = {};
 	configFile.theme.autocapitalization = {};
-	configFile.theme.keyboardAppearance = {};
 	configFile.theme.keyboardType = {};
+	configFile.theme.loginKeyboardType = {};
+	configFile.theme.keyboardAppearance = {};
 	configFile.theme.autoLink = {};
 	configFile.theme.borderStyle = {};
 	configFile.theme.editable = {};
@@ -836,6 +851,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.autocorrect = {};
 	configFile.theme.autofillType = {};
 	configFile.theme.showCancel = {};
+	configFile.theme.showAsAction = {};
 
 	configFile.theme.verticalAlignment = {};
 	configFile.theme.scrollableRegion = {};
@@ -852,6 +868,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin', true);
 
 	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding', true);
+	configFile.theme.bottomNavigation = combineKeys(configFile.theme, base.spacing, 'bottomNavigation', false);
 
 	configFile.theme.width = base.width;
 	configFile.theme.height = base.height;
@@ -886,9 +903,11 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.displayCaps = {};
 	configFile.theme.flip = {};
 	configFile.theme.scrolling = {};
+	configFile.theme.lazyLoadingEnabled = {};
 	configFile.theme.pagingControl = {};
 	configFile.theme.pagingControlOnTop = {};
 	configFile.theme.keepScreenOn = {};
+	configFile.theme.keyboardDismissMode = {};
 	configFile.theme.zIndex = { ...defaultTheme.zIndex, ...configFile.theme.zIndex, ...configFile.theme.extend.zIndex };
 
 	delete configFile.theme.extend;
@@ -908,8 +927,6 @@ function buildCustomTailwind(message = 'file created!') {
 
 	tailwindStyles += `// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}\n` + '\n// Custom Styles and Resets\n';
 
-	// console.log(JSON.stringify(sorted));
-
 	_.each(sorted, (value, key) => {
 		tailwindStyles += buildCustomTailwindClasses(key, value);
 	});
@@ -924,30 +941,42 @@ function buildCustomTailwind(message = 'file created!') {
 //! Build tailwind's custom values
 function buildCustomTailwindClasses(key, value) {
 	switch (key) {
-		case 'autoreverse': return helpers.autoreverse();
-		case 'backgroundColor': return helpers.backgroundColor(value);
-		case 'barColor': return helpers.barColor(value);
-		case 'titleColor': return helpers.titleColor(value);
+		case 'activeIconIsMask': return helpers.activeIconIsMask();
 		case 'activeTintColor': return helpers.activeTintColor(value);
 		case 'activeTitleColor': return helpers.activeTitleColor(value);
-		case 'tabsBackgroundColor': return helpers.tabsBackgroundColor(value);
-		case 'navTintColor': return helpers.navTintColor(value);
-		case 'tabsBackgroundSelectedColor': return helpers.tabsBackgroundSelectedColor(value);
-		case 'linearGradient': return helpers.linearGradient();
-		case 'radialGradient': return helpers.radialGradient();
-		case 'keepScreenOn': return helpers.keepScreenOn();
+		case 'autocapitalization': return helpers.autocapitalization();
+		case 'autocorrect': return helpers.autocorrect();
+		case 'autofillType': return helpers.autofillType();
+		case 'autoLink': return helpers.autoLink();
+		case 'autoreverse': return helpers.autoreverse();
+		case 'backgroundBlendMode': return helpers.backgroundBlendMode();
+		case 'backgroundColor': return helpers.backgroundColor(value);
+		case 'backgroundLinearGradient': return helpers.linearGradient();
+		case 'backgroundRadialGradient': return helpers.radialGradient();
 		case 'backgroundSelectedColor': return helpers.backgroundSelectedColor(value);
+		case 'barColor': return helpers.barColor(value);
+		case 'barTitle': return helpers.barTitle(value);
 		case 'borderColor': return helpers.borderColor(value);
 		case 'borderRadiusExtraStyles': return helpers.borderRadiusExtraStyles(value);
+		case 'borderStyle': return helpers.borderStyle();
 		case 'borderWidth': return helpers.borderWidth(value);
+		case 'bottomNavigation': return helpers.bottomNavigation(value);
+		case 'bounce': return helpers.bounce();
+		case 'cacheSize': return helpers.cacheSize();
 		case 'clipMode': return helpers.clipMode();
 		case 'contentWidth': return helpers.contentWidth();
-		case 'preventDefaultImage': return helpers.preventDefaultImage();
-		case 'tiMedia': return helpers.tiMedia();
+		case 'currentPageIndicatorColor': return helpers.currentPageIndicatorColor(value);
+		case 'displayCaps': return helpers.displayCaps();
+		case 'displayUtilities': return helpers.displayUtilities();
 		case 'draggingConstraints': return helpers.draggingConstraints();
 		case 'draggingType': return helpers.draggingType();
-		case 'displayUtilities': return helpers.displayUtilities();
+		case 'editable': return helpers.editable();
+		case 'ellipsize': return helpers.ellipsize();
+		case 'enableCopy': return helpers.enableCopy();
+		case 'enableReturnKey': return helpers.enableReturnKey();
 		case 'exitOnClose': return helpers.exitOnClose();
+		case 'extendBackground': return helpers.extendBackground();
+		case 'flip': return helpers.flip();
 		case 'fontFamily': return helpers.fontFamily(value);
 		case 'fontSize': return helpers.fontSize(value);
 		case 'fontStyle': return helpers.fontStyle();
@@ -958,65 +987,65 @@ function buildCustomTailwindClasses(key, value) {
 		case 'gridFlow': return helpers.gridFlow();
 		case 'gridSystem': return helpers.gridSystem();
 		case 'height': return helpers.height(value);
-		case 'zIndex': return helpers.zIndex(value);
-
-		case 'bounce': return helpers.bounce();
-		case 'overlay': return helpers.overlay();
-		case 'displayCaps': return helpers.displayCaps();
-		case 'scrolling': return helpers.scrolling();
-		case 'pagingControl': return helpers.pagingControl();
-		case 'pagingControlOnTop': return helpers.pagingControlOnTop();
-
-		case 'pagingControlAlpha': return helpers.pagingControlAlpha(value);
-		case 'pagingControlTimeout': return helpers.pagingControlTimeout(value);
-		case 'pagingControlColor': return helpers.pagingControlColor(value);
-		case 'pageIndicatorColor': return helpers.pageIndicatorColor(value);
-		case 'currentPageIndicatorColor': return helpers.currentPageIndicatorColor(value);
-		case 'pagingControlHeight': return helpers.pagingControlHeight(value);
-
+		case 'iconIsMask': return helpers.iconIsMask();
+		case 'indicatorColor': return helpers.indicatorColor(value);
+		case 'indicatorStyle': return helpers.indicatorStyle();
 		case 'interactivity': return helpers.interactivity(value);
 		case 'items': return helpers.items();
+		case 'keepScreenOn': return helpers.keepScreenOn();
+		case 'keepSectionsInSearch': return helpers.keepSectionsInSearch();
+		case 'keyboardAppearance': return helpers.keyboardAppearance();
+		case 'keyboardDismissMode': return helpers.keyboardDismissMode();
+		case 'keyboardType': return helpers.keyboardType();
 		case 'layout': return helpers.layout();
-		case 'flip': return helpers.flip();
+		case 'lazyLoadingEnabled': return helpers.lazyLoadingEnabled();
+		case 'loginKeyboardType': return helpers.loginKeyboardType();
 		case 'margin': return helpers.margin(value);
-
+		case 'navTintColor': return helpers.navTintColor(value);
 		case 'opacity': return helpers.opacity(value);
+		case 'origin': return helpers.origin(value);
+		case 'overlay': return helpers.overlay();
 		case 'padding': return helpers.padding(value);
+		case 'pageIndicatorColor': return helpers.pageIndicatorColor(value);
+		case 'pagingControl': return helpers.pagingControl();
+		case 'pagingControlAlpha': return helpers.pagingControlAlpha(value);
+		case 'pagingControlColor': return helpers.pagingControlColor(value);
+		case 'pagingControlHeight': return helpers.pagingControlHeight(value);
+		case 'pagingControlOnTop': return helpers.pagingControlOnTop();
+		case 'pagingControlTimeout': return helpers.pagingControlTimeout(value);
 		case 'placeholderColor': return helpers.placeholderColor(value);
 		case 'placement': return helpers.placement();
+		case 'preventDefaultImage': return helpers.preventDefaultImage();
 		case 'repeat': return helpers.repeat(value);
+		case 'returnKeyType': return helpers.returnKeyType();
 		case 'rotate': return helpers.rotate(value);
-		case 'origin': return helpers.origin(value);
 		case 'scale': return helpers.scale(value);
 		case 'scrollableRegion': return helpers.scrollableRegion();
 		case 'scrollIndicators': return helpers.scrollIndicators();
+		case 'scrolling': return helpers.scrolling();
 		case 'scrollType': return helpers.scrollType();
 		case 'shadow': return helpers.shadow();
 		case 'shadowColor': return helpers.shadowColor(value);
+		case 'shiftMode': return helpers.shiftMode();
+		case 'showAsAction': return helpers.showAsAction();
+		case 'showCancel': return helpers.showCancel();
+		case 'smoothScrollOnTabClick': return helpers.smoothScrollOnTabClick();
+		case 'statusBar': return helpers.statusBar();
+		case 'tabGroupStyle': return helpers.tabGroupStyle();
+		case 'tabsBackgroundColor': return helpers.tabsBackgroundColor(value);
+		case 'tabsBackgroundSelectedColor': return helpers.tabsBackgroundSelectedColor(value);
+		case 'textAlign': return helpers.textAlign();
+		case 'textColor': return helpers.textColor(value);
+		case 'tiMedia': return helpers.tiMedia();
+		case 'tintColor': return helpers.tintColor(value);
+		case 'titleColor': return helpers.titleColor(value);
+		case 'touchFeedbackColor': return helpers.touchFeedbackColor(value);
 		case 'transition': return helpers.transition(value);
 		case 'transitionDelay': return helpers.transitionDelay(value);
 		case 'transitionDuration': return helpers.transitionDuration(value);
-		case 'textAlign': return helpers.textAlign();
-		case 'autocapitalization': return helpers.autocapitalization();
-		case 'autoLink': return helpers.autoLink();
-		case 'borderStyle': return helpers.borderStyle();
-		case 'cacheSize': return helpers.cacheSize();
-		case 'editable': return helpers.editable();
-		case 'ellipsize': return helpers.ellipsize();
-		case 'enableCopy': return helpers.enableCopy();
-		case 'enableReturnKey': return helpers.enableReturnKey();
-		case 'extendBackground': return helpers.extendBackground();
-		case 'keyboardAppearance': return helpers.keyboardAppearance();
-		case 'keyboardType': return helpers.keyboardType();
-		case 'returnKeyType': return helpers.returnKeyType();
-		case 'autocorrect': return helpers.autocorrect();
-		case 'autofillType': return helpers.autofillType();
-		case 'showCancel': return helpers.showCancel();
-		case 'textColor': return helpers.textColor(value);
-		case 'tintColor': return helpers.tintColor(value);
-		case 'touchFeedbackColor': return helpers.touchFeedbackColor(value);
 		case 'verticalAlignment': return helpers.verticalAlignment();
 		case 'width': return helpers.width(value);
+		case 'zIndex': return helpers.zIndex(value);
 
 		default: return helpers.customRules(value, key);
 	}
@@ -1213,7 +1242,7 @@ function finish(customMessage = 'Finished purging in') {
 //! Purge Functions
 //! Tailwind
 function purgeTailwind(uniqueClasses) {
-	let purgedClasses = '\n// Tailwind styles\n';
+	let purgedClasses = '\n// Main styles\n';
 	let tailwindFile = (fs.existsSync(customTailwindFile)) ? customTailwindFile : defaultTailwindFile;
 	let tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
 
@@ -1248,55 +1277,69 @@ function purgeTailwind(uniqueClasses) {
 		}
 	});
 
+	let comoArreglo = [];
 	tailwindClasses.forEach(tailwindClass => {
 		if (tailwindClass !== '' && !tailwindClass.includes('//')) {
 			let cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '')}`;
 
 			if (cleanUniqueClasses.indexOf(cleanTailwindClass) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`) > -1) {
-				purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`)]);
+				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`)]);
+				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`)]));
 			}
 		}
 	});
+
+	purgedClasses += comoArreglo.sort().join('');
 
 	// Styles with color opacity modifiers
 	if (classesWithOpacityValues.length > 0) {
@@ -1336,6 +1379,7 @@ const arbitraryValuesTable = {
 	'active-tint': '{ activeTintColor: {value} }',
 	'active-title': '{ activeTitleColor: {value} }',
 	'bar': '{ barColor: {value} }',
+	'bar-title': '{ titleAttributes : { color : {value} } }',
 	'bg-selected': '{ backgroundSelectedColor: {value} }',
 	'bg': '{ backgroundColor: {value} }',
 	'border-color': '{ borderColor: {value} }',
@@ -1354,6 +1398,7 @@ const arbitraryValuesTable = {
 	'grid-cols': '{ width: Alloy.Globals.cols_{value} }',
 	'grid-rows': '{ height: Alloy.Globals.rows_{value} }',
 	'h': '{ height: {value}}',
+	'indicator': '{ indicatorColor: {value} }',
 	'left': '{ left: {value} }',
 	'm': '{ top: {value}, right: {value}, bottom: {value}, left: {value} }',
 	'max-scale': '{ maxZoomScale: {value} }',
@@ -1367,6 +1412,9 @@ const arbitraryValuesTable = {
 	'nav-tint': '{ navTintColor: {value} }',
 	'opacity': '{ opacity: {value} }',
 	'origin': '{ anchorPoint: { x: {value}, y: {value1} } }',
+	'padding-left': '{ paddingLeft: {value} }',
+	'padding-right': '{ paddingRight: {value} }',
+	'padding-bottom': '{ paddingBottom: {value} }',
 	'p': '{ padding: { top: {value}, right: {value}, bottom: {value}, left: {value} } }',
 	'page': '{ pageIndicatorColor: {value} }',
 	'paging-alpha': '{ pagingControlAlpha: {value} }',
@@ -1384,9 +1432,9 @@ const arbitraryValuesTable = {
 	'rounded': '{ borderRadius: {value} }',
 	'shadow': '{ viewShadowColor: {value} }',
 	'tabs-bg': '{ tabsBackgroundColor: {value} }',
-	'text-color': '{ color: {value} }',
+	'text-color': '{ color: {value} } }',
 	'text-size': '{ font: { fontSize: {value} } }',
-	'tint': '{ tintColor: {value} }',
+	'tint': '{ tint: {value}, tintColor: {value} }',
 	'title': '{ titleColor: {value} }',
 	'to': '{ backgroundGradient: { colors: [ {value} ] } }',
 	'top': '{ top: {value} }',

@@ -4584,8 +4584,8 @@ The following is a list of all the properties and their repective class name.
 
 ### pagingControlOnTop Property
 ```css
-'.paging-on-top': { pagingControlOnTop: true }
-'.paging-on-bottom': { pagingControlOnTop: false }
+'.paging-control-on-top': { pagingControlOnTop: true }
+'.paging-control-on-bottom': { pagingControlOnTop: false }
 ```
 
 ### pagingControlTimeout Property
