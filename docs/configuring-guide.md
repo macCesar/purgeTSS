@@ -29,8 +29,8 @@
 - [**Overriding, extending or disabling properties**](#overriding-extending-or-disabling-properties)
   - [Overriding properties](#overriding-properties)
   - [Extending properties](#extending-properties)
-  - [Disabling properties](#disabling-properties)
-- [**Core Properties**](#core-properties)
+  - [Disabling an entire core plugin](#disabling-an-entire-core-plugin)
+- [**Core Plugins**](#core-plugins)
     - [Background Colors](#background-colors)
     - [Border Colors](#border-colors)
     - [Border Radius](#border-radius)
@@ -796,19 +796,32 @@ module.exports = {
 }
 ```
 
-## Disabling properties
-If you don't want to generate any classes for a certain property, set that plugin to false in `corePlugins` configuration.
+## Disabling an entire core plugin
+If you don’t want to generate any classes for a certain core plugin, it’s better to set that plugin to false or add them to an array in your `corePlugins` configuration than to provide an empty object for that key in your `theme` configuration.
 
+Setting false to a set of objects to disable a core plugin:
 ```javascript
 // ./purgetss/config.js
 module.exports = {
   'corePlugins': {
     'opacity': false,
+    'borderRadius': false
   }
 }
 ```
 
-# **Core Properties**
+Using and array to disable a core plugin:
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  'corePlugins': [
+    'opacity',
+    'borderRadius'
+  ]
+}
+```
+
+# **Core Plugins**
 
 ### Background Colors
 Utilities for controlling an element's background color.

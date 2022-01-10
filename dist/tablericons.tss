@@ -140,6 +140,8 @@
 '.ti-arrows-vertical': { text: '\ueb5b', title: '\ueb5b' }
 '.ti-artboard': { text: '\uea2a', title: '\uea2a' }
 '.ti-aspect-ratio': { text: '\ued30', title: '\ued30' }
+'.ti-asterisk': { text: '\uefd5', title: '\uefd5' }
+'.ti-asterisk-simple': { text: '\uefd4', title: '\uefd4' }
 '.ti-at': { text: '\uea2b', title: '\uea2b' }
 '.ti-atom': { text: '\ueb79', title: '\ueb79' }
 '.ti-atom-2': { text: '\uebdf', title: '\uebdf' }
@@ -349,6 +351,9 @@
 '.ti-brightness-half': { text: '\uee1a', title: '\uee1a' }
 '.ti-brightness-up': { text: '\ueb7e', title: '\ueb7e' }
 '.ti-browser': { text: '\uebb7', title: '\uebb7' }
+'.ti-browser-check': { text: '\uefd6', title: '\uefd6' }
+'.ti-browser-plus': { text: '\uefd7', title: '\uefd7' }
+'.ti-browser-x': { text: '\uefd8', title: '\uefd8' }
 '.ti-brush': { text: '\uebb8', title: '\uebb8' }
 '.ti-bucket': { text: '\uea47', title: '\uea47' }
 '.ti-bug': { text: '\uea48', title: '\uea48' }
@@ -376,6 +381,7 @@
 '.ti-bulldozer': { text: '\uee1d', title: '\uee1d' }
 '.ti-bus': { text: '\uebe4', title: '\uebe4' }
 '.ti-businessplan': { text: '\uee1e', title: '\uee1e' }
+'.ti-butterfly': { text: '\uefd9', title: '\uefd9' }
 '.ti-calculator': { text: '\ueb80', title: '\ueb80' }
 '.ti-calendar': { text: '\uea53', title: '\uea53' }
 '.ti-calendar-event': { text: '\uea52', title: '\uea52' }
@@ -488,6 +494,8 @@
 '.ti-cloud': { text: '\uea76', title: '\uea76' }
 '.ti-cloud-download': { text: '\uea71', title: '\uea71' }
 '.ti-cloud-fog': { text: '\uecd9', title: '\uecd9' }
+'.ti-cloud-lock': { text: '\uefdb', title: '\uefdb' }
+'.ti-cloud-lock-open': { text: '\uefda', title: '\uefda' }
 '.ti-cloud-off': { text: '\ued3e', title: '\ued3e' }
 '.ti-cloud-rain': { text: '\uea72', title: '\uea72' }
 '.ti-cloud-snow': { text: '\uea73', title: '\uea73' }
@@ -507,6 +515,8 @@
 '.ti-command': { text: '\uea78', title: '\uea78' }
 '.ti-compass': { text: '\uea79', title: '\uea79' }
 '.ti-components': { text: '\uefa5', title: '\uefa5' }
+'.ti-cone': { text: '\uefdd', title: '\uefdd' }
+'.ti-cone-2': { text: '\uefdc', title: '\uefdc' }
 '.ti-confetti': { text: '\uee46', title: '\uee46' }
 '.ti-container': { text: '\uee47', title: '\uee47' }
 '.ti-contrast': { text: '\uec4e', title: '\uec4e' }
@@ -642,6 +652,7 @@
 '.ti-drag-drop-2': { text: '\ueb88', title: '\ueb88' }
 '.ti-drone': { text: '\ued79', title: '\ued79' }
 '.ti-drone-off': { text: '\uee7e', title: '\uee7e' }
+'.ti-drop-circle': { text: '\uefde', title: '\uefde' }
 '.ti-droplet': { text: '\uea97', title: '\uea97' }
 '.ti-droplet-filled': { text: '\uee80', title: '\uee80' }
 '.ti-droplet-filled-2': { text: '\uee7f', title: '\uee7f' }
@@ -653,6 +664,7 @@
 '.ti-edit': { text: '\uea98', title: '\uea98' }
 '.ti-edit-circle': { text: '\uee85', title: '\uee85' }
 '.ti-egg': { text: '\ueb8a', title: '\ueb8a' }
+'.ti-elevator': { text: '\uefdf', title: '\uefdf' }
 '.ti-emergency-bed': { text: '\uef5d', title: '\uef5d' }
 '.ti-emphasis': { text: '\uebcf', title: '\uebcf' }
 '.ti-engine': { text: '\uef7e', title: '\uef7e' }
@@ -685,7 +697,9 @@
 '.ti-file-diff': { text: '\uecf1', title: '\uecf1' }
 '.ti-file-digit': { text: '\uefa8', title: '\uefa8' }
 '.ti-file-dislike': { text: '\ued2a', title: '\ued2a' }
+'.ti-file-dollar': { text: '\uefe0', title: '\uefe0' }
 '.ti-file-download': { text: '\uea9d', title: '\uea9d' }
+'.ti-file-euro': { text: '\uefe1', title: '\uefe1' }
 '.ti-file-export': { text: '\uede9', title: '\uede9' }
 '.ti-file-horizontal': { text: '\uebb0', title: '\uebb0' }
 '.ti-file-import': { text: '\uedea', title: '\uedea' }
@@ -833,6 +847,7 @@
 '.ti-keyboard-hide': { text: '\uec7e', title: '\uec7e' }
 '.ti-keyboard-off': { text: '\ueea0', title: '\ueea0' }
 '.ti-keyboard-show': { text: '\uec7f', title: '\uec7f' }
+'.ti-ladder': { text: '\uefe2', title: '\uefe2' }
 '.ti-lamp': { text: '\uefab', title: '\uefab' }
 '.ti-language': { text: '\uebbe', title: '\uebbe' }
 '.ti-language-hiragana': { text: '\uef77', title: '\uef77' }
@@ -1054,6 +1069,7 @@
 '.ti-peace': { text: '\uecbe', title: '\uecbe' }
 '.ti-pencil': { text: '\ueb04', title: '\ueb04' }
 '.ti-pennant': { text: '\ued7d', title: '\ued7d' }
+'.ti-pentagon': { text: '\uefe3', title: '\uefe3' }
 '.ti-pepper': { text: '\uef15', title: '\uef15' }
 '.ti-percentage': { text: '\uecf4', title: '\uecf4' }
 '.ti-perspective': { text: '\ueebd', title: '\ueebd' }
@@ -1073,6 +1089,7 @@
 '.ti-picture-in-picture': { text: '\ued35', title: '\ued35' }
 '.ti-picture-in-picture-off': { text: '\ued43', title: '\ued43' }
 '.ti-picture-in-picture-on': { text: '\ued44', title: '\ued44' }
+'.ti-picture-in-picture-top': { text: '\uefe4', title: '\uefe4' }
 '.ti-pig': { text: '\uef52', title: '\uef52' }
 '.ti-pill': { text: '\uec44', title: '\uec44' }
 '.ti-pills': { text: '\uef66', title: '\uef66' }
@@ -1163,6 +1180,7 @@
 '.ti-rotate-360': { text: '\uef85', title: '\uef85' }
 '.ti-rotate-clockwise': { text: '\ueb15', title: '\ueb15' }
 '.ti-rotate-clockwise-2': { text: '\uebb5', title: '\uebb5' }
+'.ti-rotate-dot': { text: '\uefe5', title: '\uefe5' }
 '.ti-rotate-rectangle': { text: '\uec15', title: '\uec15' }
 '.ti-route': { text: '\ueb17', title: '\ueb17' }
 '.ti-router': { text: '\ueb18', title: '\ueb18' }

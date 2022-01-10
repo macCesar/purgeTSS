@@ -6851,8 +6851,7 @@ The following is a list of all the properties and their repective class name.
 
 ## Debug Mode Property
 ```css
-'.debug-on': { debug: true }
-'.debug-off': { debug: false }
+'.debug': { debug: true }
 ```
 
 ## delay Property

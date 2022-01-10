@@ -701,18 +701,17 @@ function buildCustomTailwind(message = 'file created!') {
 	delete defaultColors.trueGray;
 	delete defaultColors.warmGray;
 
-	if (!configFile.theme.extend) {
-		configFile.theme.extend = {};
-	}
+	// !Prepare values
+	configFile.theme.extend = configFile.theme.extend ?? {};
 
 	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...defaultTheme.width({ theme: () => (defaultTheme.spacing) }) };
 	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.height({ theme: () => (defaultTheme.spacing) });
 
 	let overwritten = {
-		colors: (configFile.theme.colors) ? configFile.theme.colors : { transparent: 'transparent', ...defaultColors },
-		spacing: (configFile.theme.spacing) ? configFile.theme.spacing : { ...defaultTheme.spacing },
-		width: (configFile.theme.width) ? configFile.theme.width : allWidthsCombined,
-		height: (configFile.theme.height) ? configFile.theme.height : allHeightsCombined
+		width: configFile.theme.width ?? allWidthsCombined,
+		height: configFile.theme.height ?? allHeightsCombined,
+		spacing: configFile.theme.spacing ?? { ...defaultTheme.spacing },
+		colors: configFile.theme.colors ?? { transparent: 'transparent', ...defaultColors },
 	}
 
 	let base = {
@@ -754,44 +753,9 @@ function buildCustomTailwind(message = 'file created!') {
 		configFile.theme['Window'] = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 	}
 
-	// Add methods to generate classes
-	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor', true);
+	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
 
-	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor', true);
-
-	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor', true);
-
-	configFile.theme.backgroundBlendMode = {};
-	configFile.theme.tabGroupStyle = {};
-	configFile.theme.shiftMode = {};
-	configFile.theme.iconIsMask = {};
-	configFile.theme.activeIconIsMask = {};
-	configFile.theme.keepSectionsInSearch = {};
-	configFile.theme.smoothScrollOnTabClick = {};
-	configFile.theme.statusBar = {};
-
-	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor', true);
-	configFile.theme.barTitle = combineKeys(configFile.theme, base.colors, 'barColor', true);
-	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor', true);
-	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor', true);
-	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor', true);
-	configFile.theme.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor', true);
-	configFile.theme.activeTitleColor = combineKeys(configFile.theme, base.colors, 'activeTitleColor', true);
-
-	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor', true);
-
-	configFile.theme.pagingControlAlpha = (configFile.theme.opacity) ? _.merge(configFile.theme.opacity, configFile.theme.extend.opacity) : _.merge(defaultTheme.opacity, configFile.theme.extend.opacity);
-
-	configFile.theme.pagingControlTimeout = { ...defaultTheme.transitionDelay, ...configFile.theme.transitionDelay, ...configFile.theme.extend.transitionDelay };
-
-	configFile.theme.pagingControlColor = combineKeys(configFile.theme, base.colors, 'pagingControlColor', true);
-
-	configFile.theme.pageIndicatorColor = combineKeys(configFile.theme, base.colors, 'pageIndicatorColor', true);
-
-	configFile.theme.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor', true);
-
-	configFile.theme.cacheSize = {};
-
+	// Some clean up
 	// pagingControlHeight
 	delete base.height['fit'];
 	delete base.height['max'];
@@ -799,124 +763,155 @@ function buildCustomTailwind(message = 'file created!') {
 	delete base.height['min-content'];
 	delete base.height['max-content'];
 
-	configFile.theme.pagingControlHeight = base.height;
+	// !Core Properties
 
-	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor', true);
+	// !Combine `key` values from configFile.theme with base.values or with default.values to generate classes
 
-	configFile.theme.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor', true);
+	// Android Specific
+	// configFile.theme.activityEnterTransition = {};
+	// configFile.theme.activityExitTransition = {};
+	// configFile.theme.activityReenterTransition = {};
+	// configFile.theme.windowSoftInputMode = {};
 
-	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops', true);
-
-	configFile.theme.indicatorColor = combineKeys(configFile.theme, base.colors, 'indicatorColor', true);
-	configFile.theme.indicatorStyle = {};
-
+	configFile.theme.activeIconIsMask = {};
+	configFile.theme.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor');
+	configFile.theme.activeTitleColor = combineKeys(configFile.theme, base.colors, 'activeTitleColor');
+	configFile.theme.activityIndicatorStyle = {};
+	configFile.theme.autoAdjustScrollViewInsets = {};
+	configFile.theme.autocapitalization = {};
+	configFile.theme.autocorrect = {};
+	configFile.theme.autofillType = {};
+	configFile.theme.autoLink = {};
+	configFile.theme.autoreverse = {};
+	configFile.theme.backgroundBlendMode = {};
+	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor');
 	configFile.theme.backgroundLinearGradient = {};
 	configFile.theme.backgroundRadialGradient = {};
-
-	configFile.theme.placement = {};
-
-	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize', false);
-
-	configFile.theme.fontStyle = {};
-
-	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight', true);
-
-	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily', false);
-
-	if (!Object.keys(configFile.theme.fontFamily).length) {
-		delete configFile.theme.fontFamily;
-	}
-
-	configFile.theme.gaps = combineKeys(configFile.theme, base.spacing, 'margin', true);
-
-	configFile.theme.gridFlow = {};
-
-	configFile.theme.gridSystem = {};
-
-	configFile.theme.gridColumnsStartEnd = {};
-
-	configFile.theme.textAlign = {};
-	configFile.theme.autocapitalization = {};
-	configFile.theme.keyboardType = {};
-	configFile.theme.loginKeyboardType = {};
-	configFile.theme.keyboardAppearance = {};
-	configFile.theme.autoLink = {};
+	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor');
+	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor');
+	configFile.theme.barTitleColor = combineKeys(configFile.theme, base.colors, 'barTitleColor');
+	configFile.theme.barTitleShadow = {};
+	configFile.theme.barTitleShadowColor = combineKeys(configFile.theme, base.colors, 'barTitleShadowColor');;
+	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor');
+	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius');
 	configFile.theme.borderStyle = {};
+	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth');
+	configFile.theme.bottomNavigation = combineKeys(configFile.theme, base.spacing, 'bottomNavigation');
+	configFile.theme.bubbleParent = {};
+	configFile.theme.cacheSize = {};
+	configFile.theme.clipMode = {};
+	configFile.theme.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor');
+	configFile.theme.disableBounce = {};
+	configFile.theme.displayCaps = {};
+	configFile.theme.displayUtilities = {};
+	configFile.theme.draggingConstraints = {};
+	configFile.theme.draggingType = {};
+	configFile.theme.dropShadow = {};
+	configFile.theme.dropShadowColor = combineKeys(configFile.theme, base.colors, 'dropShadowColor');
 	configFile.theme.editable = {};
 	configFile.theme.ellipsize = {};
 	configFile.theme.enableCopy = {};
 	configFile.theme.enableReturnKey = {};
+	configFile.theme.exitOnClose = {};
 	configFile.theme.extendBackground = {};
+	configFile.theme.extendEdges = {};
+	configFile.theme.flip = {};
+	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily');
+	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize');
+	configFile.theme.fontStyle = {};
+	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight');
+	configFile.theme.fullscreen = {};
+	configFile.theme.gap = combineKeys(configFile.theme, base.spacing, 'margin');
+	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops');
+	configFile.theme.gridColumnsStartEnd = {};
+	configFile.theme.gridFlow = {};
+	configFile.theme.gridSystem = {};
+	configFile.theme.height = base.height;
+	configFile.theme.hidesBackButton = {};
+	configFile.theme.hidesBarsOnSwipe = {};
+	configFile.theme.hidesBarsOnTap = {};
+	configFile.theme.iconIsMask = {};
+	configFile.theme.includeOpaqueBars = {};
+	configFile.theme.indicatorColor = combineKeys(configFile.theme, base.colors, 'indicatorColor');
+	configFile.theme.interactivity = {};
+	configFile.theme.items = {};
+	configFile.theme.keepScreenOn = {};
+	configFile.theme.keepSectionsInSearch = {};
+	configFile.theme.keyboardAppearance = {};
+	configFile.theme.keyboardDismissMode = {};
+	configFile.theme.keyboardType = {};
+	configFile.theme.largeTitleDisplayMode = {};
+	configFile.theme.largeTitleEnabled = {};
+	configFile.theme.layout = {};
+	configFile.theme.lazyLoadingEnabled = {};
+	configFile.theme.loginKeyboardType = {};
+	configFile.theme.loginReturnKeyType = {};
+	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin');
+	configFile.theme.navBarHidden = {};
+	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor');
+	configFile.theme.opacity = combineKeys(configFile.theme, defaultTheme.opacity, 'opacity');
+	configFile.theme.orientationModes = {};
+	configFile.theme.origin = {};
+	configFile.theme.overlay = {};
+	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding');
+	configFile.theme.pageIndicatorColor = combineKeys(configFile.theme, base.colors, 'pageIndicatorColor');
+	configFile.theme.pagingControl = {};
+	configFile.theme.pagingControlAlpha = combineKeys(configFile.theme, defaultTheme.opacity, 'opacity');
+	configFile.theme.pagingControlColor = combineKeys(configFile.theme, base.colors, 'pagingControlColor');
+	configFile.theme.pagingControlHeight = base.height;
+	configFile.theme.pagingControlOnTop = {};
+	configFile.theme.pagingControlTimeout = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'pagingControlTimeout');
+	configFile.theme.passwordKeyboardType = {};
+	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor');
+	configFile.theme.placement = {};
+	configFile.theme.preventDefaultImage = {};
+	configFile.theme.repeat = {};
 	configFile.theme.returnKeyType = {};
-	configFile.theme.autocorrect = {};
-	configFile.theme.autofillType = {};
-	configFile.theme.showCancel = {};
-	configFile.theme.showAsAction = {};
-
-	configFile.theme.verticalAlignment = {};
+	configFile.theme.rotate = combineKeys(configFile.theme, defaultTheme.rotate, 'rotate');
+	configFile.theme.scale = combineKeys(configFile.theme, { ...{ 5: '.05', 10: '.10', 25: '.25' }, ...defaultTheme.scale }, 'scale');
 	configFile.theme.scrollableRegion = {};
 	configFile.theme.scrollIndicators = {};
-	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor', true);
-
-	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
-	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius', true);
-
-	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth', false);
-
-	configFile.theme.displayUtilities = {};
-
-	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin', true);
-
-	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding', true);
-	configFile.theme.bottomNavigation = combineKeys(configFile.theme, base.spacing, 'bottomNavigation', false);
-
-	configFile.theme.width = base.width;
-	configFile.theme.height = base.height;
-
-	configFile.theme.shadow = {};
-	configFile.theme.shadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor', true);
-
-	configFile.theme.opacity = (configFile.theme.opacity) ? _.merge(configFile.theme.opacity, configFile.theme.extend.opacity) : _.merge(defaultTheme.opacity, configFile.theme.extend.opacity);
-
-	configFile.theme.interactivity = {};
-
-	configFile.theme.items = {};
-	configFile.theme.layout = {};
-	configFile.theme.clipMode = {};
-	configFile.theme.draggingConstraints = {};
-	configFile.theme.draggingType = {};
+	configFile.theme.scrollingEnabled = {};
 	configFile.theme.scrollType = {};
-	configFile.theme.transition = {};
-	configFile.theme.exitOnClose = {};
-	configFile.theme.preventDefaultImage = {};
+	configFile.theme.shadow = {};
+	configFile.theme.shadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
+	configFile.theme.shiftMode = {};
+	configFile.theme.showAsAction = {};
+	configFile.theme.showCancel = {};
+	configFile.theme.smoothScrollOnTabClick = {};
+	configFile.theme.statusBar = {};
+	configFile.theme.tabBarHidden = {};
+	configFile.theme.tabGroupStyle = {};
+	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
+	configFile.theme.textAlign = {};
+	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
 	configFile.theme.tiMedia = {};
-	configFile.theme.autoreverse = {};
-	configFile.theme.repeat = { ...configFile.theme.repeat, ...configFile.theme.extend.repeat };
-	configFile.theme.origin = { ...configFile.theme.origin, ...configFile.theme.extend.origin };
-	configFile.theme.scale = { ...defaultTheme.scale, ...configFile.theme.scale, ...configFile.theme.extend.scale };
-	configFile.theme.rotate = { ...defaultTheme.rotate, ...configFile.theme.rotate, ...configFile.theme.extend.rotate };
-	configFile.theme.transitionDelay = { ...defaultTheme.transitionDelay, ...configFile.theme.transitionDelay, ...configFile.theme.extend.transitionDelay };
-	configFile.theme.transitionDuration = { ...defaultTheme.transitionDuration, ...configFile.theme.transitionDuration, ...configFile.theme.extend.transitionDuration };
+	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor');
+	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor');
+	configFile.theme.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor');
+	configFile.theme.transition = {};
+	configFile.theme.transitionDelay = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'transitionDelay');
+	configFile.theme.transitionDuration = combineKeys(configFile.theme, { ...{ 0: '0ms', 25: '25ms', 50: '50ms' }, ...defaultTheme.transitionDuration }, 'transitionDuration');
+	configFile.theme.translucent = {};
+	configFile.theme.verticalAlignment = {};
+	configFile.theme.width = base.width;
+	configFile.theme.zIndex = combineKeys(configFile.theme, defaultTheme.zIndex, 'zIndex');
 
-	configFile.theme.bounce = {};
-	configFile.theme.overlay = {};
-	configFile.theme.displayCaps = {};
-	configFile.theme.flip = {};
-	configFile.theme.scrolling = {};
-	configFile.theme.lazyLoadingEnabled = {};
-	configFile.theme.pagingControl = {};
-	configFile.theme.pagingControlOnTop = {};
-	configFile.theme.keepScreenOn = {};
-	configFile.theme.keyboardDismissMode = {};
-	configFile.theme.zIndex = { ...defaultTheme.zIndex, ...configFile.theme.zIndex, ...configFile.theme.extend.zIndex };
-
+	// !Some final cleanup
 	delete configFile.theme.extend;
 	delete configFile.theme.colors;
 	delete configFile.theme.spacing;
 	delete configFile.theme.borderRadius;
 
-	_.each(configFile.corePlugins, (value, key) => {
-		delete configFile.theme[key];
+	if (!Object.keys(configFile.theme.fontFamily).length) {
+		delete configFile.theme.fontFamily;
+	}
+
+	// !Delete corePlugins specified in the config file
+	let corePlugins = Array.isArray(configFile.corePlugins) ? configFile.corePlugins : Object.keys(configFile.corePlugins).map(key => key);
+	// convert Object to Array
+	_.each(corePlugins, value => {
+		delete configFile.theme[value];
 	});
 
 	let sorted = Object.entries(configFile.theme).sort().reduce((object, [key, value]) => (object[key] = value, object), {});
@@ -928,10 +923,8 @@ function buildCustomTailwind(message = 'file created!') {
 	tailwindStyles += `// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}\n` + '\n// Custom Styles and Resets\n';
 
 	_.each(sorted, (value, key) => {
-		tailwindStyles += buildCustomTailwindClasses(key, value);
+		tailwindStyles += helpersToBuildCustomTailwindClasses(key, value);
 	});
-
-	// console.log(JSON.stringify(tailwindStyles));
 
 	fs.writeFileSync(customTailwindFile, helpers.applyProperties(tailwindStyles));
 
@@ -939,11 +932,17 @@ function buildCustomTailwind(message = 'file created!') {
 }
 
 //! Build tailwind's custom values
-function buildCustomTailwindClasses(key, value) {
+function helpersToBuildCustomTailwindClasses(key, value) {
 	switch (key) {
+		// case 'activityEnterTransition': return helpers.activityEnterTransition();
+		// case 'activityExitTransition': return helpers.activityExitTransition();
+		// case 'activityReenterTransition': return helpers.activityReenterTransition();
+		// case 'windowSoftInputMode': return helpers.windowSoftInputMode();
 		case 'activeIconIsMask': return helpers.activeIconIsMask();
 		case 'activeTintColor': return helpers.activeTintColor(value);
 		case 'activeTitleColor': return helpers.activeTitleColor(value);
+		case 'activityIndicatorStyle': return helpers.activityIndicatorStyle();
+		case 'autoAdjustScrollViewInsets': return helpers.autoAdjustScrollViewInsets();
 		case 'autocapitalization': return helpers.autocapitalization();
 		case 'autocorrect': return helpers.autocorrect();
 		case 'autofillType': return helpers.autofillType();
@@ -955,41 +954,50 @@ function buildCustomTailwindClasses(key, value) {
 		case 'backgroundRadialGradient': return helpers.radialGradient();
 		case 'backgroundSelectedColor': return helpers.backgroundSelectedColor(value);
 		case 'barColor': return helpers.barColor(value);
-		case 'barTitle': return helpers.barTitle(value);
+		case 'barTitleColor': return helpers.barTitleColor(value);
+		case 'barTitleShadow': return helpers.barTitleShadow();
+		case 'barTitleShadowColor': return helpers.barTitleShadowColor(value);
 		case 'borderColor': return helpers.borderColor(value);
 		case 'borderRadiusExtraStyles': return helpers.borderRadiusExtraStyles(value);
 		case 'borderStyle': return helpers.borderStyle();
 		case 'borderWidth': return helpers.borderWidth(value);
 		case 'bottomNavigation': return helpers.bottomNavigation(value);
-		case 'bounce': return helpers.bounce();
+		case 'bubbleParent': return helpers.bubbleParent();
 		case 'cacheSize': return helpers.cacheSize();
 		case 'clipMode': return helpers.clipMode();
-		case 'contentWidth': return helpers.contentWidth();
 		case 'currentPageIndicatorColor': return helpers.currentPageIndicatorColor(value);
+		case 'disableBounce': return helpers.disableBounce();
 		case 'displayCaps': return helpers.displayCaps();
 		case 'displayUtilities': return helpers.displayUtilities();
 		case 'draggingConstraints': return helpers.draggingConstraints();
 		case 'draggingType': return helpers.draggingType();
+		case 'dropShadow': return helpers.dropShadow();
+		case 'dropShadowColor': return helpers.dropShadowColor(value);
 		case 'editable': return helpers.editable();
 		case 'ellipsize': return helpers.ellipsize();
 		case 'enableCopy': return helpers.enableCopy();
 		case 'enableReturnKey': return helpers.enableReturnKey();
 		case 'exitOnClose': return helpers.exitOnClose();
 		case 'extendBackground': return helpers.extendBackground();
+		case 'extendEdges': return helpers.extendEdges();
 		case 'flip': return helpers.flip();
 		case 'fontFamily': return helpers.fontFamily(value);
 		case 'fontSize': return helpers.fontSize(value);
 		case 'fontStyle': return helpers.fontStyle();
 		case 'fontWeight': return helpers.fontWeight(value);
-		case 'gaps': return helpers.gaps(value);
+		case 'fullscreen': return helpers.fullscreen();
+		case 'gap': return helpers.gap(value);
 		case 'gradientColorStops': return helpers.gradientColorStops(value);
 		case 'gridColumnsStartEnd': return helpers.gridColumnsStartEnd();
 		case 'gridFlow': return helpers.gridFlow();
 		case 'gridSystem': return helpers.gridSystem();
 		case 'height': return helpers.height(value);
+		case 'hidesBackButton': return helpers.hidesBackButton();
+		case 'hidesBarsOnSwipe': return helpers.hidesBarsOnSwipe();
+		case 'hidesBarsOnTap': return helpers.hidesBarsOnTap();
 		case 'iconIsMask': return helpers.iconIsMask();
+		case 'includeOpaqueBars': return helpers.includeOpaqueBars();
 		case 'indicatorColor': return helpers.indicatorColor(value);
-		case 'indicatorStyle': return helpers.indicatorStyle();
 		case 'interactivity': return helpers.interactivity(value);
 		case 'items': return helpers.items();
 		case 'keepScreenOn': return helpers.keepScreenOn();
@@ -997,13 +1005,18 @@ function buildCustomTailwindClasses(key, value) {
 		case 'keyboardAppearance': return helpers.keyboardAppearance();
 		case 'keyboardDismissMode': return helpers.keyboardDismissMode();
 		case 'keyboardType': return helpers.keyboardType();
+		case 'largeTitleDisplayMode': return helpers.largeTitleDisplayMode();
+		case 'largeTitleEnabled': return helpers.largeTitleEnabled();
 		case 'layout': return helpers.layout();
 		case 'lazyLoadingEnabled': return helpers.lazyLoadingEnabled();
 		case 'loginKeyboardType': return helpers.loginKeyboardType();
+		case 'loginReturnKeyType': return helpers.loginReturnKeyType();
 		case 'margin': return helpers.margin(value);
+		case 'navBarHidden': return helpers.navBarHidden();
 		case 'navTintColor': return helpers.navTintColor(value);
 		case 'opacity': return helpers.opacity(value);
-		case 'origin': return helpers.origin(value);
+		case 'orientationModes': return helpers.orientationModes();
+		case 'origin': return helpers.origin();
 		case 'overlay': return helpers.overlay();
 		case 'padding': return helpers.padding(value);
 		case 'pageIndicatorColor': return helpers.pageIndicatorColor(value);
@@ -1013,16 +1026,17 @@ function buildCustomTailwindClasses(key, value) {
 		case 'pagingControlHeight': return helpers.pagingControlHeight(value);
 		case 'pagingControlOnTop': return helpers.pagingControlOnTop();
 		case 'pagingControlTimeout': return helpers.pagingControlTimeout(value);
+		case 'passwordKeyboardType': return helpers.passwordKeyboardType();
 		case 'placeholderColor': return helpers.placeholderColor(value);
 		case 'placement': return helpers.placement();
 		case 'preventDefaultImage': return helpers.preventDefaultImage();
-		case 'repeat': return helpers.repeat(value);
+		case 'repeat': return helpers.repeat();
 		case 'returnKeyType': return helpers.returnKeyType();
 		case 'rotate': return helpers.rotate(value);
 		case 'scale': return helpers.scale(value);
 		case 'scrollableRegion': return helpers.scrollableRegion();
 		case 'scrollIndicators': return helpers.scrollIndicators();
-		case 'scrolling': return helpers.scrolling();
+		case 'scrollingEnabled': return helpers.scrollingEnabled();
 		case 'scrollType': return helpers.scrollType();
 		case 'shadow': return helpers.shadow();
 		case 'shadowColor': return helpers.shadowColor(value);
@@ -1031,6 +1045,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'showCancel': return helpers.showCancel();
 		case 'smoothScrollOnTabClick': return helpers.smoothScrollOnTabClick();
 		case 'statusBar': return helpers.statusBar();
+		case 'tabBarHidden': return helpers.tabBarHidden();
 		case 'tabGroupStyle': return helpers.tabGroupStyle();
 		case 'tabsBackgroundColor': return helpers.tabsBackgroundColor(value);
 		case 'tabsBackgroundSelectedColor': return helpers.tabsBackgroundSelectedColor(value);
@@ -1043,6 +1058,7 @@ function buildCustomTailwindClasses(key, value) {
 		case 'transition': return helpers.transition(value);
 		case 'transitionDelay': return helpers.transitionDelay(value);
 		case 'transitionDuration': return helpers.transitionDuration(value);
+		case 'translucent': return helpers.translucent();
 		case 'verticalAlignment': return helpers.verticalAlignment();
 		case 'width': return helpers.width(value);
 		case 'zIndex': return helpers.zIndex(value);
@@ -1051,10 +1067,8 @@ function buildCustomTailwindClasses(key, value) {
 	}
 }
 
-function combineKeys(values, base, key, extras = false) {
-	let _extras = (extras) ? base : {};
-
-	return (values[key]) ? { ..._extras, ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] };
+function combineKeys(values, base, key) {
+	return (values[key]) ? { ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] };
 }
 
 function extractClasses(currentText, currentFile) {
@@ -1339,7 +1353,7 @@ function purgeTailwind(uniqueClasses) {
 		}
 	});
 
-	purgedClasses += comoArreglo.sort().join('');
+	purgedClasses += comoArreglo.join('');
 
 	// Styles with color opacity modifiers
 	if (classesWithOpacityValues.length > 0) {
@@ -1375,11 +1389,11 @@ function cleanClassNameFn(className) {
 }
 
 const arbitraryValuesTable = {
-	// Check if they are really needed
 	'active-tint': '{ activeTintColor: {value} }',
 	'active-title': '{ activeTitleColor: {value} }',
-	'bar': '{ barColor: {value} }',
 	'bar-title': '{ titleAttributes : { color : {value} } }',
+	'bar-title-shadow': '{ titleAttributes: { shadow: { color: {value} } } }',
+	'bar': '{ barColor: {value} }',
 	'bg-selected': '{ backgroundSelectedColor: {value} }',
 	'bg': '{ backgroundColor: {value} }',
 	'border-color': '{ borderColor: {value} }',
@@ -1391,6 +1405,7 @@ const arbitraryValuesTable = {
 	'content': '{ contentWidth: {value}, contentHeight: {value} }',
 	'current-page': '{ currentPageIndicatorColor: {value} }',
 	'delay': '{ delay: {value} }',
+	'drop-shadow': '{ shadowColor: {value} } }',
 	'duration': '{ duration: {value} }',
 	'feedback': '{ touchFeedback: true, touchFeedbackColor: {value} }',
 	'font': '{ fontWeight: {value} }',
@@ -1412,10 +1427,10 @@ const arbitraryValuesTable = {
 	'nav-tint': '{ navTintColor: {value} }',
 	'opacity': '{ opacity: {value} }',
 	'origin': '{ anchorPoint: { x: {value}, y: {value1} } }',
+	'p': '{ padding: { top: {value}, right: {value}, bottom: {value}, left: {value} } }',
+	'padding-bottom': '{ paddingBottom: {value} }',
 	'padding-left': '{ paddingLeft: {value} }',
 	'padding-right': '{ paddingRight: {value} }',
-	'padding-bottom': '{ paddingBottom: {value} }',
-	'p': '{ padding: { top: {value}, right: {value}, bottom: {value}, left: {value} } }',
 	'page': '{ pageIndicatorColor: {value} }',
 	'paging-alpha': '{ pagingControlAlpha: {value} }',
 	'paging-color': '{ pagingControlColor: {value} }',
@@ -1432,13 +1447,13 @@ const arbitraryValuesTable = {
 	'rounded': '{ borderRadius: {value} }',
 	'shadow': '{ viewShadowColor: {value} }',
 	'tabs-bg': '{ tabsBackgroundColor: {value} }',
-	'text-color': '{ color: {value} } }',
+	'text-color': '{ color: {value} }',
 	'text-size': '{ font: { fontSize: {value} } }',
 	'tint': '{ tint: {value}, tintColor: {value} }',
 	'title': '{ titleColor: {value} }',
 	'to': '{ backgroundGradient: { colors: [ {value} ] } }',
 	'top': '{ top: {value} }',
-	'w': '{ width: {value} }'
+	'w': '{ width: {value} }',
 };
 
 function formatArbitraryValues(arbitraryValue) {
@@ -1484,6 +1499,7 @@ function formatArbitraryValues(arbitraryValue) {
 			return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));
 		}
 	} else if (splitedContent.length === 3) {
+
 		let rule = `${splitedContent[0]}-${splitedContent[1]}`;
 
 		let value = splitedContent[2].match(/(?<=\().*(?=\))/).pop();
