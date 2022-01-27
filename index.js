@@ -886,7 +886,6 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.scrollIndicators = {};
 	configFile.theme.scrollingEnabled = {};
 	configFile.theme.scrollType = {};
-	configFile.theme.selectionIndicator = {};
 	configFile.theme.shadow = {};
 	configFile.theme.shadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
 	configFile.theme.shiftMode = {};
@@ -1054,7 +1053,6 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'scrollIndicators': return helpers.scrollIndicators();
 		case 'scrollingEnabled': return helpers.scrollingEnabled();
 		case 'scrollType': return helpers.scrollType();
-		case 'selectionIndicator': return helpers.selectionIndicator(value);
 		case 'shadow': return helpers.shadow();
 		case 'shadowColor': return helpers.shadowColor(value);
 		case 'shiftMode': return helpers.shiftMode();

@@ -6,13 +6,13 @@
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 
-// Property(ies): activeIconIsMask - iOS Only
 // Component(s): Ti.UI.Tab
+// Property(ies): activeIconIsMask - iOS Only
 '.active-icon-is-mask[platform=ios]': { activeIconIsMask: true }
 '.active-icon-is-not-mask[platform=ios]': { activeIconIsMask: false }
 
-// Property(ies): activeTintColor
 // Component(s): Ti.UI.Tab, Ti.UI.TabGroup
+// Property(ies): activeTintColor
 '.active-tint-transparent': { activeTintColor: 'transparent' }
 '.active-tint-black': { activeTintColor: '#000000' }
 '.active-tint-white': { activeTintColor: '#ffffff' }
@@ -237,8 +237,8 @@
 '.active-tint-rose-800': { activeTintColor: '#9f1239' }
 '.active-tint-rose-900': { activeTintColor: '#881337' }
 
-// Property(ies): activeTitleColor
 // Component(s): Ti.UI.Tab, Ti.UI.TabGroup
+// Property(ies): activeTitleColor
 '.active-title-transparent': { activeTitleColor: 'transparent' }
 '.active-title-black': { activeTitleColor: '#000000' }
 '.active-title-white': { activeTitleColor: '#ffffff' }
@@ -463,31 +463,31 @@
 '.active-title-rose-800': { activeTitleColor: '#9f1239' }
 '.active-title-rose-900': { activeTitleColor: '#881337' }
 
-// Property(ies): style
 // Component(s): Ti.UI.ActivityIndicator
+// Property(ies): style
 '.activity-indicator-style-big': { style: Ti.UI.ActivityIndicatorStyle.BIG }
 '.activity-indicator-style-dark': { style: Ti.UI.ActivityIndicatorStyle.DARK }
 '.activity-indicator-style-big-dark': { style: Ti.UI.ActivityIndicatorStyle.BIG_DARK }
 '.activity-indicator-style-plain': { style: Ti.UI.ActivityIndicatorStyle.PLAIN }
 
-// Property(ies): autoAdjustScrollViewInsets
 // Component(s): Ti.UI.Window
+// Property(ies): autoAdjustScrollViewInsets - iOS Only
 '.auto-adjust-scroll-view-inset[platform=ios]': { autoAdjustScrollViewInsets: true }
 
-// Property(ies): autocapitalization
 // Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): autocapitalization
 '.uppercase': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_ALL }
 '.normal-case': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE }
 '.capitalize': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS }
 '.sentences': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_SENTENCES }
 
-// Property(ies): autocorrect
 // Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): autocorrect
 '.autocorrect': { autocorrect: true }
 '.no-autocorrect': { autocorrect: false }
 
-// Property(ies): autofillType
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): autofillType
 '.autofill-type-url': { autofillType: Ti.UI.AUTOFILL_TYPE_URL }
 '.autofill-type-name': { autofillType: Ti.UI.AUTOFILL_TYPE_NAME }
 '.autofill-type-phone': { autofillType: Ti.UI.AUTOFILL_TYPE_PHONE }
@@ -521,8 +521,8 @@
 '.autofill-type-card-expiration-year': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_YEAR }
 '.autofill-type-card-expiration-month': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_MONTH }
 
-// Property(ies): autoLink
 // Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): autoLink
 '.auto-link-all': { autoLink: Ti.UI.AUTOLINK_ALL }
 '.auto-link-email-addresses': { autoLink: Ti.UI.AUTOLINK_EMAIL_ADDRESSES }
 '.auto-link-map-addresses': { autoLink: Ti.UI.AUTOLINK_MAP_ADDRESSES }
@@ -531,12 +531,12 @@
 '.auto-link-urls': { autoLink: Ti.UI.AUTOLINK_URLS }
 '.auto-link-calendar[platform=ios]': { autoLink: Ti.UI.AUTOLINK_CALENDAR }
 
-// Property(ies): autoreverse
 // Component(s): Ti.UI.Animation
+// Property(ies): autoreverse
 '.autoreverse': { autoreverse: true }
 
-// Property(ies): mode ( Background Blend Mode )
 // Component(s): Ti.UI.MaskedImage
+// Property(ies): mode ( Background Blend Mode )
 '.bg-blend-clear': { mode: Ti.UI.BLEND_MODE_CLEAR }
 '.bg-blend-copy': { mode: Ti.UI.BLEND_MODE_COPY }
 '.bg-blend-darken': { mode: Ti.UI.BLEND_MODE_DARKEN }
@@ -566,8 +566,8 @@
 '.bg-blend-saturation[platform=ios]': { mode: Ti.UI.BLEND_MODE_SATURATION }
 '.bg-blend-soft-light[platform=ios]': { mode: Ti.UI.BLEND_MODE_SOFT_LIGHT }
 
-// Property(ies): backgroundColor
 // Component(s): Ti.UI, Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.Tab, Ti.UI.TableView, Ti.UI.View, Ti.UI.Window
+// Property(ies): backgroundColor
 '.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000000' }
 '.bg-white': { backgroundColor: '#ffffff' }
@@ -792,8 +792,8 @@
 '.bg-rose-800': { backgroundColor: '#9f1239' }
 '.bg-rose-900': { backgroundColor: '#881337' }
 
-// Property(ies): backgroundSelectedColor
 // Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow, Ti.UI.View
+// Property(ies): backgroundSelectedColor
 '.bg-selected-transparent': { backgroundSelectedColor: 'transparent' }
 '.bg-selected-black': { backgroundSelectedColor: '#000000' }
 '.bg-selected-white': { backgroundSelectedColor: '#ffffff' }
@@ -1018,8 +1018,8 @@
 '.bg-selected-rose-800': { backgroundSelectedColor: '#9f1239' }
 '.bg-selected-rose-900': { backgroundSelectedColor: '#881337' }
 
-// Property(ies): barColor
 // Component(s): Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
+// Property(ies): barColor
 '.bar-transparent': { barColor: 'transparent' }
 '.bar-black': { barColor: '#000000' }
 '.bar-white': { barColor: '#ffffff' }
@@ -1244,234 +1244,234 @@
 '.bar-rose-800': { barColor: '#9f1239' }
 '.bar-rose-900': { barColor: '#881337' }
 
-// Property(ies): titleAttributes
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
+// Property(ies): titleAttributes
 '.bar-title-transparent[platform=ios]': { titleAttributes: { color: 'transparent' } }
 '.bar-title-black[platform=ios]': { titleAttributes: { color: '#000000' } }
 '.bar-title-white[platform=ios]': { titleAttributes: { color: '#ffffff' } }
-'.bar-title-slate-50[platform=ios]': { titleAttributes: { color: '#f8fafc' } }
-'.bar-title-slate-100[platform=ios]': { titleAttributes: { color: '#f1f5f9' } }
-'.bar-title-slate-200[platform=ios]': { titleAttributes: { color: '#e2e8f0' } }
-'.bar-title-slate-300[platform=ios]': { titleAttributes: { color: '#cbd5e1' } }
-'.bar-title-slate-400[platform=ios]': { titleAttributes: { color: '#94a3b8' } }
-'.bar-title-slate-500[platform=ios]': { titleAttributes: { color: '#64748b' } }
-'.bar-title-slate-600[platform=ios]': { titleAttributes: { color: '#475569' } }
-'.bar-title-slate-700[platform=ios]': { titleAttributes: { color: '#334155' } }
-'.bar-title-slate-800[platform=ios]': { titleAttributes: { color: '#1e293b' } }
-'.bar-title-slate-900[platform=ios]': { titleAttributes: { color: '#0f172a' } }
-'.bar-title-gray-50[platform=ios]': { titleAttributes: { color: '#f9fafb' } }
-'.bar-title-gray-100[platform=ios]': { titleAttributes: { color: '#f3f4f6' } }
-'.bar-title-gray-200[platform=ios]': { titleAttributes: { color: '#e5e7eb' } }
-'.bar-title-gray-300[platform=ios]': { titleAttributes: { color: '#d1d5db' } }
-'.bar-title-gray-400[platform=ios]': { titleAttributes: { color: '#9ca3af' } }
-'.bar-title-gray-500[platform=ios]': { titleAttributes: { color: '#6b7280' } }
-'.bar-title-gray-600[platform=ios]': { titleAttributes: { color: '#4b5563' } }
-'.bar-title-gray-700[platform=ios]': { titleAttributes: { color: '#374151' } }
-'.bar-title-gray-800[platform=ios]': { titleAttributes: { color: '#1f2937' } }
-'.bar-title-gray-900[platform=ios]': { titleAttributes: { color: '#111827' } }
-'.bar-title-zinc-50[platform=ios]': { titleAttributes: { color: '#fafafa' } }
-'.bar-title-zinc-100[platform=ios]': { titleAttributes: { color: '#f4f4f5' } }
-'.bar-title-zinc-200[platform=ios]': { titleAttributes: { color: '#e4e4e7' } }
-'.bar-title-zinc-300[platform=ios]': { titleAttributes: { color: '#d4d4d8' } }
-'.bar-title-zinc-400[platform=ios]': { titleAttributes: { color: '#a1a1aa' } }
-'.bar-title-zinc-500[platform=ios]': { titleAttributes: { color: '#71717a' } }
-'.bar-title-zinc-600[platform=ios]': { titleAttributes: { color: '#52525b' } }
-'.bar-title-zinc-700[platform=ios]': { titleAttributes: { color: '#3f3f46' } }
-'.bar-title-zinc-800[platform=ios]': { titleAttributes: { color: '#27272a' } }
-'.bar-title-zinc-900[platform=ios]': { titleAttributes: { color: '#18181b' } }
-'.bar-title-neutral-50[platform=ios]': { titleAttributes: { color: '#fafafa' } }
-'.bar-title-neutral-100[platform=ios]': { titleAttributes: { color: '#f5f5f5' } }
-'.bar-title-neutral-200[platform=ios]': { titleAttributes: { color: '#e5e5e5' } }
-'.bar-title-neutral-300[platform=ios]': { titleAttributes: { color: '#d4d4d4' } }
-'.bar-title-neutral-400[platform=ios]': { titleAttributes: { color: '#a3a3a3' } }
-'.bar-title-neutral-500[platform=ios]': { titleAttributes: { color: '#737373' } }
-'.bar-title-neutral-600[platform=ios]': { titleAttributes: { color: '#525252' } }
-'.bar-title-neutral-700[platform=ios]': { titleAttributes: { color: '#404040' } }
-'.bar-title-neutral-800[platform=ios]': { titleAttributes: { color: '#262626' } }
-'.bar-title-neutral-900[platform=ios]': { titleAttributes: { color: '#171717' } }
-'.bar-title-stone-50[platform=ios]': { titleAttributes: { color: '#fafaf9' } }
-'.bar-title-stone-100[platform=ios]': { titleAttributes: { color: '#f5f5f4' } }
-'.bar-title-stone-200[platform=ios]': { titleAttributes: { color: '#e7e5e4' } }
-'.bar-title-stone-300[platform=ios]': { titleAttributes: { color: '#d6d3d1' } }
-'.bar-title-stone-400[platform=ios]': { titleAttributes: { color: '#a8a29e' } }
-'.bar-title-stone-500[platform=ios]': { titleAttributes: { color: '#78716c' } }
-'.bar-title-stone-600[platform=ios]': { titleAttributes: { color: '#57534e' } }
-'.bar-title-stone-700[platform=ios]': { titleAttributes: { color: '#44403c' } }
-'.bar-title-stone-800[platform=ios]': { titleAttributes: { color: '#292524' } }
-'.bar-title-stone-900[platform=ios]': { titleAttributes: { color: '#1c1917' } }
-'.bar-title-red-50[platform=ios]': { titleAttributes: { color: '#fef2f2' } }
-'.bar-title-red-100[platform=ios]': { titleAttributes: { color: '#fee2e2' } }
-'.bar-title-red-200[platform=ios]': { titleAttributes: { color: '#fecaca' } }
-'.bar-title-red-300[platform=ios]': { titleAttributes: { color: '#fca5a5' } }
-'.bar-title-red-400[platform=ios]': { titleAttributes: { color: '#f87171' } }
-'.bar-title-red-500[platform=ios]': { titleAttributes: { color: '#ef4444' } }
-'.bar-title-red-600[platform=ios]': { titleAttributes: { color: '#dc2626' } }
-'.bar-title-red-700[platform=ios]': { titleAttributes: { color: '#b91c1c' } }
-'.bar-title-red-800[platform=ios]': { titleAttributes: { color: '#991b1b' } }
-'.bar-title-red-900[platform=ios]': { titleAttributes: { color: '#7f1d1d' } }
-'.bar-title-orange-50[platform=ios]': { titleAttributes: { color: '#fff7ed' } }
-'.bar-title-orange-100[platform=ios]': { titleAttributes: { color: '#ffedd5' } }
-'.bar-title-orange-200[platform=ios]': { titleAttributes: { color: '#fed7aa' } }
-'.bar-title-orange-300[platform=ios]': { titleAttributes: { color: '#fdba74' } }
-'.bar-title-orange-400[platform=ios]': { titleAttributes: { color: '#fb923c' } }
-'.bar-title-orange-500[platform=ios]': { titleAttributes: { color: '#f97316' } }
-'.bar-title-orange-600[platform=ios]': { titleAttributes: { color: '#ea580c' } }
-'.bar-title-orange-700[platform=ios]': { titleAttributes: { color: '#c2410c' } }
-'.bar-title-orange-800[platform=ios]': { titleAttributes: { color: '#9a3412' } }
-'.bar-title-orange-900[platform=ios]': { titleAttributes: { color: '#7c2d12' } }
-'.bar-title-amber-50[platform=ios]': { titleAttributes: { color: '#fffbeb' } }
-'.bar-title-amber-100[platform=ios]': { titleAttributes: { color: '#fef3c7' } }
-'.bar-title-amber-200[platform=ios]': { titleAttributes: { color: '#fde68a' } }
-'.bar-title-amber-300[platform=ios]': { titleAttributes: { color: '#fcd34d' } }
-'.bar-title-amber-400[platform=ios]': { titleAttributes: { color: '#fbbf24' } }
-'.bar-title-amber-500[platform=ios]': { titleAttributes: { color: '#f59e0b' } }
-'.bar-title-amber-600[platform=ios]': { titleAttributes: { color: '#d97706' } }
-'.bar-title-amber-700[platform=ios]': { titleAttributes: { color: '#b45309' } }
-'.bar-title-amber-800[platform=ios]': { titleAttributes: { color: '#92400e' } }
-'.bar-title-amber-900[platform=ios]': { titleAttributes: { color: '#78350f' } }
-'.bar-title-yellow-50[platform=ios]': { titleAttributes: { color: '#fefce8' } }
-'.bar-title-yellow-100[platform=ios]': { titleAttributes: { color: '#fef9c3' } }
-'.bar-title-yellow-200[platform=ios]': { titleAttributes: { color: '#fef08a' } }
-'.bar-title-yellow-300[platform=ios]': { titleAttributes: { color: '#fde047' } }
-'.bar-title-yellow-400[platform=ios]': { titleAttributes: { color: '#facc15' } }
-'.bar-title-yellow-500[platform=ios]': { titleAttributes: { color: '#eab308' } }
-'.bar-title-yellow-600[platform=ios]': { titleAttributes: { color: '#ca8a04' } }
-'.bar-title-yellow-700[platform=ios]': { titleAttributes: { color: '#a16207' } }
-'.bar-title-yellow-800[platform=ios]': { titleAttributes: { color: '#854d0e' } }
-'.bar-title-yellow-900[platform=ios]': { titleAttributes: { color: '#713f12' } }
-'.bar-title-lime-50[platform=ios]': { titleAttributes: { color: '#f7fee7' } }
-'.bar-title-lime-100[platform=ios]': { titleAttributes: { color: '#ecfccb' } }
-'.bar-title-lime-200[platform=ios]': { titleAttributes: { color: '#d9f99d' } }
-'.bar-title-lime-300[platform=ios]': { titleAttributes: { color: '#bef264' } }
-'.bar-title-lime-400[platform=ios]': { titleAttributes: { color: '#a3e635' } }
-'.bar-title-lime-500[platform=ios]': { titleAttributes: { color: '#84cc16' } }
-'.bar-title-lime-600[platform=ios]': { titleAttributes: { color: '#65a30d' } }
-'.bar-title-lime-700[platform=ios]': { titleAttributes: { color: '#4d7c0f' } }
-'.bar-title-lime-800[platform=ios]': { titleAttributes: { color: '#3f6212' } }
-'.bar-title-lime-900[platform=ios]': { titleAttributes: { color: '#365314' } }
-'.bar-title-green-50[platform=ios]': { titleAttributes: { color: '#f0fdf4' } }
-'.bar-title-green-100[platform=ios]': { titleAttributes: { color: '#dcfce7' } }
-'.bar-title-green-200[platform=ios]': { titleAttributes: { color: '#bbf7d0' } }
-'.bar-title-green-300[platform=ios]': { titleAttributes: { color: '#86efac' } }
-'.bar-title-green-400[platform=ios]': { titleAttributes: { color: '#4ade80' } }
-'.bar-title-green-500[platform=ios]': { titleAttributes: { color: '#22c55e' } }
-'.bar-title-green-600[platform=ios]': { titleAttributes: { color: '#16a34a' } }
-'.bar-title-green-700[platform=ios]': { titleAttributes: { color: '#15803d' } }
-'.bar-title-green-800[platform=ios]': { titleAttributes: { color: '#166534' } }
-'.bar-title-green-900[platform=ios]': { titleAttributes: { color: '#14532d' } }
-'.bar-title-emerald-50[platform=ios]': { titleAttributes: { color: '#ecfdf5' } }
-'.bar-title-emerald-100[platform=ios]': { titleAttributes: { color: '#d1fae5' } }
-'.bar-title-emerald-200[platform=ios]': { titleAttributes: { color: '#a7f3d0' } }
-'.bar-title-emerald-300[platform=ios]': { titleAttributes: { color: '#6ee7b7' } }
-'.bar-title-emerald-400[platform=ios]': { titleAttributes: { color: '#34d399' } }
-'.bar-title-emerald-500[platform=ios]': { titleAttributes: { color: '#10b981' } }
-'.bar-title-emerald-600[platform=ios]': { titleAttributes: { color: '#059669' } }
-'.bar-title-emerald-700[platform=ios]': { titleAttributes: { color: '#047857' } }
-'.bar-title-emerald-800[platform=ios]': { titleAttributes: { color: '#065f46' } }
-'.bar-title-emerald-900[platform=ios]': { titleAttributes: { color: '#064e3b' } }
-'.bar-title-teal-50[platform=ios]': { titleAttributes: { color: '#f0fdfa' } }
-'.bar-title-teal-100[platform=ios]': { titleAttributes: { color: '#ccfbf1' } }
-'.bar-title-teal-200[platform=ios]': { titleAttributes: { color: '#99f6e4' } }
-'.bar-title-teal-300[platform=ios]': { titleAttributes: { color: '#5eead4' } }
-'.bar-title-teal-400[platform=ios]': { titleAttributes: { color: '#2dd4bf' } }
-'.bar-title-teal-500[platform=ios]': { titleAttributes: { color: '#14b8a6' } }
-'.bar-title-teal-600[platform=ios]': { titleAttributes: { color: '#0d9488' } }
-'.bar-title-teal-700[platform=ios]': { titleAttributes: { color: '#0f766e' } }
-'.bar-title-teal-800[platform=ios]': { titleAttributes: { color: '#115e59' } }
-'.bar-title-teal-900[platform=ios]': { titleAttributes: { color: '#134e4a' } }
-'.bar-title-cyan-50[platform=ios]': { titleAttributes: { color: '#ecfeff' } }
-'.bar-title-cyan-100[platform=ios]': { titleAttributes: { color: '#cffafe' } }
-'.bar-title-cyan-200[platform=ios]': { titleAttributes: { color: '#a5f3fc' } }
-'.bar-title-cyan-300[platform=ios]': { titleAttributes: { color: '#67e8f9' } }
-'.bar-title-cyan-400[platform=ios]': { titleAttributes: { color: '#22d3ee' } }
-'.bar-title-cyan-500[platform=ios]': { titleAttributes: { color: '#06b6d4' } }
-'.bar-title-cyan-600[platform=ios]': { titleAttributes: { color: '#0891b2' } }
-'.bar-title-cyan-700[platform=ios]': { titleAttributes: { color: '#0e7490' } }
-'.bar-title-cyan-800[platform=ios]': { titleAttributes: { color: '#155e75' } }
-'.bar-title-cyan-900[platform=ios]': { titleAttributes: { color: '#164e63' } }
-'.bar-title-sky-50[platform=ios]': { titleAttributes: { color: '#f0f9ff' } }
-'.bar-title-sky-100[platform=ios]': { titleAttributes: { color: '#e0f2fe' } }
-'.bar-title-sky-200[platform=ios]': { titleAttributes: { color: '#bae6fd' } }
-'.bar-title-sky-300[platform=ios]': { titleAttributes: { color: '#7dd3fc' } }
-'.bar-title-sky-400[platform=ios]': { titleAttributes: { color: '#38bdf8' } }
-'.bar-title-sky-500[platform=ios]': { titleAttributes: { color: '#0ea5e9' } }
-'.bar-title-sky-600[platform=ios]': { titleAttributes: { color: '#0284c7' } }
-'.bar-title-sky-700[platform=ios]': { titleAttributes: { color: '#0369a1' } }
-'.bar-title-sky-800[platform=ios]': { titleAttributes: { color: '#075985' } }
-'.bar-title-sky-900[platform=ios]': { titleAttributes: { color: '#0c4a6e' } }
-'.bar-title-blue-50[platform=ios]': { titleAttributes: { color: '#eff6ff' } }
-'.bar-title-blue-100[platform=ios]': { titleAttributes: { color: '#dbeafe' } }
-'.bar-title-blue-200[platform=ios]': { titleAttributes: { color: '#bfdbfe' } }
-'.bar-title-blue-300[platform=ios]': { titleAttributes: { color: '#93c5fd' } }
-'.bar-title-blue-400[platform=ios]': { titleAttributes: { color: '#60a5fa' } }
-'.bar-title-blue-500[platform=ios]': { titleAttributes: { color: '#3b82f6' } }
-'.bar-title-blue-600[platform=ios]': { titleAttributes: { color: '#2563eb' } }
-'.bar-title-blue-700[platform=ios]': { titleAttributes: { color: '#1d4ed8' } }
-'.bar-title-blue-800[platform=ios]': { titleAttributes: { color: '#1e40af' } }
-'.bar-title-blue-900[platform=ios]': { titleAttributes: { color: '#1e3a8a' } }
-'.bar-title-indigo-50[platform=ios]': { titleAttributes: { color: '#eef2ff' } }
-'.bar-title-indigo-100[platform=ios]': { titleAttributes: { color: '#e0e7ff' } }
-'.bar-title-indigo-200[platform=ios]': { titleAttributes: { color: '#c7d2fe' } }
-'.bar-title-indigo-300[platform=ios]': { titleAttributes: { color: '#a5b4fc' } }
-'.bar-title-indigo-400[platform=ios]': { titleAttributes: { color: '#818cf8' } }
-'.bar-title-indigo-500[platform=ios]': { titleAttributes: { color: '#6366f1' } }
-'.bar-title-indigo-600[platform=ios]': { titleAttributes: { color: '#4f46e5' } }
-'.bar-title-indigo-700[platform=ios]': { titleAttributes: { color: '#4338ca' } }
-'.bar-title-indigo-800[platform=ios]': { titleAttributes: { color: '#3730a3' } }
-'.bar-title-indigo-900[platform=ios]': { titleAttributes: { color: '#312e81' } }
-'.bar-title-violet-50[platform=ios]': { titleAttributes: { color: '#f5f3ff' } }
-'.bar-title-violet-100[platform=ios]': { titleAttributes: { color: '#ede9fe' } }
-'.bar-title-violet-200[platform=ios]': { titleAttributes: { color: '#ddd6fe' } }
-'.bar-title-violet-300[platform=ios]': { titleAttributes: { color: '#c4b5fd' } }
-'.bar-title-violet-400[platform=ios]': { titleAttributes: { color: '#a78bfa' } }
-'.bar-title-violet-500[platform=ios]': { titleAttributes: { color: '#8b5cf6' } }
-'.bar-title-violet-600[platform=ios]': { titleAttributes: { color: '#7c3aed' } }
-'.bar-title-violet-700[platform=ios]': { titleAttributes: { color: '#6d28d9' } }
-'.bar-title-violet-800[platform=ios]': { titleAttributes: { color: '#5b21b6' } }
-'.bar-title-violet-900[platform=ios]': { titleAttributes: { color: '#4c1d95' } }
-'.bar-title-purple-50[platform=ios]': { titleAttributes: { color: '#faf5ff' } }
-'.bar-title-purple-100[platform=ios]': { titleAttributes: { color: '#f3e8ff' } }
-'.bar-title-purple-200[platform=ios]': { titleAttributes: { color: '#e9d5ff' } }
-'.bar-title-purple-300[platform=ios]': { titleAttributes: { color: '#d8b4fe' } }
-'.bar-title-purple-400[platform=ios]': { titleAttributes: { color: '#c084fc' } }
-'.bar-title-purple-500[platform=ios]': { titleAttributes: { color: '#a855f7' } }
-'.bar-title-purple-600[platform=ios]': { titleAttributes: { color: '#9333ea' } }
-'.bar-title-purple-700[platform=ios]': { titleAttributes: { color: '#7e22ce' } }
-'.bar-title-purple-800[platform=ios]': { titleAttributes: { color: '#6b21a8' } }
-'.bar-title-purple-900[platform=ios]': { titleAttributes: { color: '#581c87' } }
-'.bar-title-fuchsia-50[platform=ios]': { titleAttributes: { color: '#fdf4ff' } }
-'.bar-title-fuchsia-100[platform=ios]': { titleAttributes: { color: '#fae8ff' } }
-'.bar-title-fuchsia-200[platform=ios]': { titleAttributes: { color: '#f5d0fe' } }
-'.bar-title-fuchsia-300[platform=ios]': { titleAttributes: { color: '#f0abfc' } }
-'.bar-title-fuchsia-400[platform=ios]': { titleAttributes: { color: '#e879f9' } }
-'.bar-title-fuchsia-500[platform=ios]': { titleAttributes: { color: '#d946ef' } }
-'.bar-title-fuchsia-600[platform=ios]': { titleAttributes: { color: '#c026d3' } }
-'.bar-title-fuchsia-700[platform=ios]': { titleAttributes: { color: '#a21caf' } }
-'.bar-title-fuchsia-800[platform=ios]': { titleAttributes: { color: '#86198f' } }
-'.bar-title-fuchsia-900[platform=ios]': { titleAttributes: { color: '#701a75' } }
-'.bar-title-pink-50[platform=ios]': { titleAttributes: { color: '#fdf2f8' } }
-'.bar-title-pink-100[platform=ios]': { titleAttributes: { color: '#fce7f3' } }
-'.bar-title-pink-200[platform=ios]': { titleAttributes: { color: '#fbcfe8' } }
-'.bar-title-pink-300[platform=ios]': { titleAttributes: { color: '#f9a8d4' } }
-'.bar-title-pink-400[platform=ios]': { titleAttributes: { color: '#f472b6' } }
-'.bar-title-pink-500[platform=ios]': { titleAttributes: { color: '#ec4899' } }
-'.bar-title-pink-600[platform=ios]': { titleAttributes: { color: '#db2777' } }
-'.bar-title-pink-700[platform=ios]': { titleAttributes: { color: '#be185d' } }
-'.bar-title-pink-800[platform=ios]': { titleAttributes: { color: '#9d174d' } }
-'.bar-title-pink-900[platform=ios]': { titleAttributes: { color: '#831843' } }
-'.bar-title-rose-50[platform=ios]': { titleAttributes: { color: '#fff1f2' } }
-'.bar-title-rose-100[platform=ios]': { titleAttributes: { color: '#ffe4e6' } }
-'.bar-title-rose-200[platform=ios]': { titleAttributes: { color: '#fecdd3' } }
-'.bar-title-rose-300[platform=ios]': { titleAttributes: { color: '#fda4af' } }
-'.bar-title-rose-400[platform=ios]': { titleAttributes: { color: '#fb7185' } }
-'.bar-title-rose-500[platform=ios]': { titleAttributes: { color: '#f43f5e' } }
-'.bar-title-rose-600[platform=ios]': { titleAttributes: { color: '#e11d48' } }
-'.bar-title-rose-700[platform=ios]': { titleAttributes: { color: '#be123c' } }
-'.bar-title-rose-800[platform=ios]': { titleAttributes: { color: '#9f1239' } }
-'.bar-title-rose-900[platform=ios]': { titleAttributes: { color: '#881337' } }
+'.bar-title-slate-50[platform=ios]': { titleAttributes: { color: '#f8fafc' } } 
+'.bar-title-slate-100[platform=ios]': { titleAttributes: { color: '#f1f5f9' } } 
+'.bar-title-slate-200[platform=ios]': { titleAttributes: { color: '#e2e8f0' } } 
+'.bar-title-slate-300[platform=ios]': { titleAttributes: { color: '#cbd5e1' } } 
+'.bar-title-slate-400[platform=ios]': { titleAttributes: { color: '#94a3b8' } } 
+'.bar-title-slate-500[platform=ios]': { titleAttributes: { color: '#64748b' } } 
+'.bar-title-slate-600[platform=ios]': { titleAttributes: { color: '#475569' } } 
+'.bar-title-slate-700[platform=ios]': { titleAttributes: { color: '#334155' } } 
+'.bar-title-slate-800[platform=ios]': { titleAttributes: { color: '#1e293b' } } 
+'.bar-title-slate-900[platform=ios]': { titleAttributes: { color: '#0f172a' } } 
+'.bar-title-gray-50[platform=ios]': { titleAttributes: { color: '#f9fafb' } } 
+'.bar-title-gray-100[platform=ios]': { titleAttributes: { color: '#f3f4f6' } } 
+'.bar-title-gray-200[platform=ios]': { titleAttributes: { color: '#e5e7eb' } } 
+'.bar-title-gray-300[platform=ios]': { titleAttributes: { color: '#d1d5db' } } 
+'.bar-title-gray-400[platform=ios]': { titleAttributes: { color: '#9ca3af' } } 
+'.bar-title-gray-500[platform=ios]': { titleAttributes: { color: '#6b7280' } } 
+'.bar-title-gray-600[platform=ios]': { titleAttributes: { color: '#4b5563' } } 
+'.bar-title-gray-700[platform=ios]': { titleAttributes: { color: '#374151' } } 
+'.bar-title-gray-800[platform=ios]': { titleAttributes: { color: '#1f2937' } } 
+'.bar-title-gray-900[platform=ios]': { titleAttributes: { color: '#111827' } } 
+'.bar-title-zinc-50[platform=ios]': { titleAttributes: { color: '#fafafa' } } 
+'.bar-title-zinc-100[platform=ios]': { titleAttributes: { color: '#f4f4f5' } } 
+'.bar-title-zinc-200[platform=ios]': { titleAttributes: { color: '#e4e4e7' } } 
+'.bar-title-zinc-300[platform=ios]': { titleAttributes: { color: '#d4d4d8' } } 
+'.bar-title-zinc-400[platform=ios]': { titleAttributes: { color: '#a1a1aa' } } 
+'.bar-title-zinc-500[platform=ios]': { titleAttributes: { color: '#71717a' } } 
+'.bar-title-zinc-600[platform=ios]': { titleAttributes: { color: '#52525b' } } 
+'.bar-title-zinc-700[platform=ios]': { titleAttributes: { color: '#3f3f46' } } 
+'.bar-title-zinc-800[platform=ios]': { titleAttributes: { color: '#27272a' } } 
+'.bar-title-zinc-900[platform=ios]': { titleAttributes: { color: '#18181b' } } 
+'.bar-title-neutral-50[platform=ios]': { titleAttributes: { color: '#fafafa' } } 
+'.bar-title-neutral-100[platform=ios]': { titleAttributes: { color: '#f5f5f5' } } 
+'.bar-title-neutral-200[platform=ios]': { titleAttributes: { color: '#e5e5e5' } } 
+'.bar-title-neutral-300[platform=ios]': { titleAttributes: { color: '#d4d4d4' } } 
+'.bar-title-neutral-400[platform=ios]': { titleAttributes: { color: '#a3a3a3' } } 
+'.bar-title-neutral-500[platform=ios]': { titleAttributes: { color: '#737373' } } 
+'.bar-title-neutral-600[platform=ios]': { titleAttributes: { color: '#525252' } } 
+'.bar-title-neutral-700[platform=ios]': { titleAttributes: { color: '#404040' } } 
+'.bar-title-neutral-800[platform=ios]': { titleAttributes: { color: '#262626' } } 
+'.bar-title-neutral-900[platform=ios]': { titleAttributes: { color: '#171717' } } 
+'.bar-title-stone-50[platform=ios]': { titleAttributes: { color: '#fafaf9' } } 
+'.bar-title-stone-100[platform=ios]': { titleAttributes: { color: '#f5f5f4' } } 
+'.bar-title-stone-200[platform=ios]': { titleAttributes: { color: '#e7e5e4' } } 
+'.bar-title-stone-300[platform=ios]': { titleAttributes: { color: '#d6d3d1' } } 
+'.bar-title-stone-400[platform=ios]': { titleAttributes: { color: '#a8a29e' } } 
+'.bar-title-stone-500[platform=ios]': { titleAttributes: { color: '#78716c' } } 
+'.bar-title-stone-600[platform=ios]': { titleAttributes: { color: '#57534e' } } 
+'.bar-title-stone-700[platform=ios]': { titleAttributes: { color: '#44403c' } } 
+'.bar-title-stone-800[platform=ios]': { titleAttributes: { color: '#292524' } } 
+'.bar-title-stone-900[platform=ios]': { titleAttributes: { color: '#1c1917' } } 
+'.bar-title-red-50[platform=ios]': { titleAttributes: { color: '#fef2f2' } } 
+'.bar-title-red-100[platform=ios]': { titleAttributes: { color: '#fee2e2' } } 
+'.bar-title-red-200[platform=ios]': { titleAttributes: { color: '#fecaca' } } 
+'.bar-title-red-300[platform=ios]': { titleAttributes: { color: '#fca5a5' } } 
+'.bar-title-red-400[platform=ios]': { titleAttributes: { color: '#f87171' } } 
+'.bar-title-red-500[platform=ios]': { titleAttributes: { color: '#ef4444' } } 
+'.bar-title-red-600[platform=ios]': { titleAttributes: { color: '#dc2626' } } 
+'.bar-title-red-700[platform=ios]': { titleAttributes: { color: '#b91c1c' } } 
+'.bar-title-red-800[platform=ios]': { titleAttributes: { color: '#991b1b' } } 
+'.bar-title-red-900[platform=ios]': { titleAttributes: { color: '#7f1d1d' } } 
+'.bar-title-orange-50[platform=ios]': { titleAttributes: { color: '#fff7ed' } } 
+'.bar-title-orange-100[platform=ios]': { titleAttributes: { color: '#ffedd5' } } 
+'.bar-title-orange-200[platform=ios]': { titleAttributes: { color: '#fed7aa' } } 
+'.bar-title-orange-300[platform=ios]': { titleAttributes: { color: '#fdba74' } } 
+'.bar-title-orange-400[platform=ios]': { titleAttributes: { color: '#fb923c' } } 
+'.bar-title-orange-500[platform=ios]': { titleAttributes: { color: '#f97316' } } 
+'.bar-title-orange-600[platform=ios]': { titleAttributes: { color: '#ea580c' } } 
+'.bar-title-orange-700[platform=ios]': { titleAttributes: { color: '#c2410c' } } 
+'.bar-title-orange-800[platform=ios]': { titleAttributes: { color: '#9a3412' } } 
+'.bar-title-orange-900[platform=ios]': { titleAttributes: { color: '#7c2d12' } } 
+'.bar-title-amber-50[platform=ios]': { titleAttributes: { color: '#fffbeb' } } 
+'.bar-title-amber-100[platform=ios]': { titleAttributes: { color: '#fef3c7' } } 
+'.bar-title-amber-200[platform=ios]': { titleAttributes: { color: '#fde68a' } } 
+'.bar-title-amber-300[platform=ios]': { titleAttributes: { color: '#fcd34d' } } 
+'.bar-title-amber-400[platform=ios]': { titleAttributes: { color: '#fbbf24' } } 
+'.bar-title-amber-500[platform=ios]': { titleAttributes: { color: '#f59e0b' } } 
+'.bar-title-amber-600[platform=ios]': { titleAttributes: { color: '#d97706' } } 
+'.bar-title-amber-700[platform=ios]': { titleAttributes: { color: '#b45309' } } 
+'.bar-title-amber-800[platform=ios]': { titleAttributes: { color: '#92400e' } } 
+'.bar-title-amber-900[platform=ios]': { titleAttributes: { color: '#78350f' } } 
+'.bar-title-yellow-50[platform=ios]': { titleAttributes: { color: '#fefce8' } } 
+'.bar-title-yellow-100[platform=ios]': { titleAttributes: { color: '#fef9c3' } } 
+'.bar-title-yellow-200[platform=ios]': { titleAttributes: { color: '#fef08a' } } 
+'.bar-title-yellow-300[platform=ios]': { titleAttributes: { color: '#fde047' } } 
+'.bar-title-yellow-400[platform=ios]': { titleAttributes: { color: '#facc15' } } 
+'.bar-title-yellow-500[platform=ios]': { titleAttributes: { color: '#eab308' } } 
+'.bar-title-yellow-600[platform=ios]': { titleAttributes: { color: '#ca8a04' } } 
+'.bar-title-yellow-700[platform=ios]': { titleAttributes: { color: '#a16207' } } 
+'.bar-title-yellow-800[platform=ios]': { titleAttributes: { color: '#854d0e' } } 
+'.bar-title-yellow-900[platform=ios]': { titleAttributes: { color: '#713f12' } } 
+'.bar-title-lime-50[platform=ios]': { titleAttributes: { color: '#f7fee7' } } 
+'.bar-title-lime-100[platform=ios]': { titleAttributes: { color: '#ecfccb' } } 
+'.bar-title-lime-200[platform=ios]': { titleAttributes: { color: '#d9f99d' } } 
+'.bar-title-lime-300[platform=ios]': { titleAttributes: { color: '#bef264' } } 
+'.bar-title-lime-400[platform=ios]': { titleAttributes: { color: '#a3e635' } } 
+'.bar-title-lime-500[platform=ios]': { titleAttributes: { color: '#84cc16' } } 
+'.bar-title-lime-600[platform=ios]': { titleAttributes: { color: '#65a30d' } } 
+'.bar-title-lime-700[platform=ios]': { titleAttributes: { color: '#4d7c0f' } } 
+'.bar-title-lime-800[platform=ios]': { titleAttributes: { color: '#3f6212' } } 
+'.bar-title-lime-900[platform=ios]': { titleAttributes: { color: '#365314' } } 
+'.bar-title-green-50[platform=ios]': { titleAttributes: { color: '#f0fdf4' } } 
+'.bar-title-green-100[platform=ios]': { titleAttributes: { color: '#dcfce7' } } 
+'.bar-title-green-200[platform=ios]': { titleAttributes: { color: '#bbf7d0' } } 
+'.bar-title-green-300[platform=ios]': { titleAttributes: { color: '#86efac' } } 
+'.bar-title-green-400[platform=ios]': { titleAttributes: { color: '#4ade80' } } 
+'.bar-title-green-500[platform=ios]': { titleAttributes: { color: '#22c55e' } } 
+'.bar-title-green-600[platform=ios]': { titleAttributes: { color: '#16a34a' } } 
+'.bar-title-green-700[platform=ios]': { titleAttributes: { color: '#15803d' } } 
+'.bar-title-green-800[platform=ios]': { titleAttributes: { color: '#166534' } } 
+'.bar-title-green-900[platform=ios]': { titleAttributes: { color: '#14532d' } } 
+'.bar-title-emerald-50[platform=ios]': { titleAttributes: { color: '#ecfdf5' } } 
+'.bar-title-emerald-100[platform=ios]': { titleAttributes: { color: '#d1fae5' } } 
+'.bar-title-emerald-200[platform=ios]': { titleAttributes: { color: '#a7f3d0' } } 
+'.bar-title-emerald-300[platform=ios]': { titleAttributes: { color: '#6ee7b7' } } 
+'.bar-title-emerald-400[platform=ios]': { titleAttributes: { color: '#34d399' } } 
+'.bar-title-emerald-500[platform=ios]': { titleAttributes: { color: '#10b981' } } 
+'.bar-title-emerald-600[platform=ios]': { titleAttributes: { color: '#059669' } } 
+'.bar-title-emerald-700[platform=ios]': { titleAttributes: { color: '#047857' } } 
+'.bar-title-emerald-800[platform=ios]': { titleAttributes: { color: '#065f46' } } 
+'.bar-title-emerald-900[platform=ios]': { titleAttributes: { color: '#064e3b' } } 
+'.bar-title-teal-50[platform=ios]': { titleAttributes: { color: '#f0fdfa' } } 
+'.bar-title-teal-100[platform=ios]': { titleAttributes: { color: '#ccfbf1' } } 
+'.bar-title-teal-200[platform=ios]': { titleAttributes: { color: '#99f6e4' } } 
+'.bar-title-teal-300[platform=ios]': { titleAttributes: { color: '#5eead4' } } 
+'.bar-title-teal-400[platform=ios]': { titleAttributes: { color: '#2dd4bf' } } 
+'.bar-title-teal-500[platform=ios]': { titleAttributes: { color: '#14b8a6' } } 
+'.bar-title-teal-600[platform=ios]': { titleAttributes: { color: '#0d9488' } } 
+'.bar-title-teal-700[platform=ios]': { titleAttributes: { color: '#0f766e' } } 
+'.bar-title-teal-800[platform=ios]': { titleAttributes: { color: '#115e59' } } 
+'.bar-title-teal-900[platform=ios]': { titleAttributes: { color: '#134e4a' } } 
+'.bar-title-cyan-50[platform=ios]': { titleAttributes: { color: '#ecfeff' } } 
+'.bar-title-cyan-100[platform=ios]': { titleAttributes: { color: '#cffafe' } } 
+'.bar-title-cyan-200[platform=ios]': { titleAttributes: { color: '#a5f3fc' } } 
+'.bar-title-cyan-300[platform=ios]': { titleAttributes: { color: '#67e8f9' } } 
+'.bar-title-cyan-400[platform=ios]': { titleAttributes: { color: '#22d3ee' } } 
+'.bar-title-cyan-500[platform=ios]': { titleAttributes: { color: '#06b6d4' } } 
+'.bar-title-cyan-600[platform=ios]': { titleAttributes: { color: '#0891b2' } } 
+'.bar-title-cyan-700[platform=ios]': { titleAttributes: { color: '#0e7490' } } 
+'.bar-title-cyan-800[platform=ios]': { titleAttributes: { color: '#155e75' } } 
+'.bar-title-cyan-900[platform=ios]': { titleAttributes: { color: '#164e63' } } 
+'.bar-title-sky-50[platform=ios]': { titleAttributes: { color: '#f0f9ff' } } 
+'.bar-title-sky-100[platform=ios]': { titleAttributes: { color: '#e0f2fe' } } 
+'.bar-title-sky-200[platform=ios]': { titleAttributes: { color: '#bae6fd' } } 
+'.bar-title-sky-300[platform=ios]': { titleAttributes: { color: '#7dd3fc' } } 
+'.bar-title-sky-400[platform=ios]': { titleAttributes: { color: '#38bdf8' } } 
+'.bar-title-sky-500[platform=ios]': { titleAttributes: { color: '#0ea5e9' } } 
+'.bar-title-sky-600[platform=ios]': { titleAttributes: { color: '#0284c7' } } 
+'.bar-title-sky-700[platform=ios]': { titleAttributes: { color: '#0369a1' } } 
+'.bar-title-sky-800[platform=ios]': { titleAttributes: { color: '#075985' } } 
+'.bar-title-sky-900[platform=ios]': { titleAttributes: { color: '#0c4a6e' } } 
+'.bar-title-blue-50[platform=ios]': { titleAttributes: { color: '#eff6ff' } } 
+'.bar-title-blue-100[platform=ios]': { titleAttributes: { color: '#dbeafe' } } 
+'.bar-title-blue-200[platform=ios]': { titleAttributes: { color: '#bfdbfe' } } 
+'.bar-title-blue-300[platform=ios]': { titleAttributes: { color: '#93c5fd' } } 
+'.bar-title-blue-400[platform=ios]': { titleAttributes: { color: '#60a5fa' } } 
+'.bar-title-blue-500[platform=ios]': { titleAttributes: { color: '#3b82f6' } } 
+'.bar-title-blue-600[platform=ios]': { titleAttributes: { color: '#2563eb' } } 
+'.bar-title-blue-700[platform=ios]': { titleAttributes: { color: '#1d4ed8' } } 
+'.bar-title-blue-800[platform=ios]': { titleAttributes: { color: '#1e40af' } } 
+'.bar-title-blue-900[platform=ios]': { titleAttributes: { color: '#1e3a8a' } } 
+'.bar-title-indigo-50[platform=ios]': { titleAttributes: { color: '#eef2ff' } } 
+'.bar-title-indigo-100[platform=ios]': { titleAttributes: { color: '#e0e7ff' } } 
+'.bar-title-indigo-200[platform=ios]': { titleAttributes: { color: '#c7d2fe' } } 
+'.bar-title-indigo-300[platform=ios]': { titleAttributes: { color: '#a5b4fc' } } 
+'.bar-title-indigo-400[platform=ios]': { titleAttributes: { color: '#818cf8' } } 
+'.bar-title-indigo-500[platform=ios]': { titleAttributes: { color: '#6366f1' } } 
+'.bar-title-indigo-600[platform=ios]': { titleAttributes: { color: '#4f46e5' } } 
+'.bar-title-indigo-700[platform=ios]': { titleAttributes: { color: '#4338ca' } } 
+'.bar-title-indigo-800[platform=ios]': { titleAttributes: { color: '#3730a3' } } 
+'.bar-title-indigo-900[platform=ios]': { titleAttributes: { color: '#312e81' } } 
+'.bar-title-violet-50[platform=ios]': { titleAttributes: { color: '#f5f3ff' } } 
+'.bar-title-violet-100[platform=ios]': { titleAttributes: { color: '#ede9fe' } } 
+'.bar-title-violet-200[platform=ios]': { titleAttributes: { color: '#ddd6fe' } } 
+'.bar-title-violet-300[platform=ios]': { titleAttributes: { color: '#c4b5fd' } } 
+'.bar-title-violet-400[platform=ios]': { titleAttributes: { color: '#a78bfa' } } 
+'.bar-title-violet-500[platform=ios]': { titleAttributes: { color: '#8b5cf6' } } 
+'.bar-title-violet-600[platform=ios]': { titleAttributes: { color: '#7c3aed' } } 
+'.bar-title-violet-700[platform=ios]': { titleAttributes: { color: '#6d28d9' } } 
+'.bar-title-violet-800[platform=ios]': { titleAttributes: { color: '#5b21b6' } } 
+'.bar-title-violet-900[platform=ios]': { titleAttributes: { color: '#4c1d95' } } 
+'.bar-title-purple-50[platform=ios]': { titleAttributes: { color: '#faf5ff' } } 
+'.bar-title-purple-100[platform=ios]': { titleAttributes: { color: '#f3e8ff' } } 
+'.bar-title-purple-200[platform=ios]': { titleAttributes: { color: '#e9d5ff' } } 
+'.bar-title-purple-300[platform=ios]': { titleAttributes: { color: '#d8b4fe' } } 
+'.bar-title-purple-400[platform=ios]': { titleAttributes: { color: '#c084fc' } } 
+'.bar-title-purple-500[platform=ios]': { titleAttributes: { color: '#a855f7' } } 
+'.bar-title-purple-600[platform=ios]': { titleAttributes: { color: '#9333ea' } } 
+'.bar-title-purple-700[platform=ios]': { titleAttributes: { color: '#7e22ce' } } 
+'.bar-title-purple-800[platform=ios]': { titleAttributes: { color: '#6b21a8' } } 
+'.bar-title-purple-900[platform=ios]': { titleAttributes: { color: '#581c87' } } 
+'.bar-title-fuchsia-50[platform=ios]': { titleAttributes: { color: '#fdf4ff' } } 
+'.bar-title-fuchsia-100[platform=ios]': { titleAttributes: { color: '#fae8ff' } } 
+'.bar-title-fuchsia-200[platform=ios]': { titleAttributes: { color: '#f5d0fe' } } 
+'.bar-title-fuchsia-300[platform=ios]': { titleAttributes: { color: '#f0abfc' } } 
+'.bar-title-fuchsia-400[platform=ios]': { titleAttributes: { color: '#e879f9' } } 
+'.bar-title-fuchsia-500[platform=ios]': { titleAttributes: { color: '#d946ef' } } 
+'.bar-title-fuchsia-600[platform=ios]': { titleAttributes: { color: '#c026d3' } } 
+'.bar-title-fuchsia-700[platform=ios]': { titleAttributes: { color: '#a21caf' } } 
+'.bar-title-fuchsia-800[platform=ios]': { titleAttributes: { color: '#86198f' } } 
+'.bar-title-fuchsia-900[platform=ios]': { titleAttributes: { color: '#701a75' } } 
+'.bar-title-pink-50[platform=ios]': { titleAttributes: { color: '#fdf2f8' } } 
+'.bar-title-pink-100[platform=ios]': { titleAttributes: { color: '#fce7f3' } } 
+'.bar-title-pink-200[platform=ios]': { titleAttributes: { color: '#fbcfe8' } } 
+'.bar-title-pink-300[platform=ios]': { titleAttributes: { color: '#f9a8d4' } } 
+'.bar-title-pink-400[platform=ios]': { titleAttributes: { color: '#f472b6' } } 
+'.bar-title-pink-500[platform=ios]': { titleAttributes: { color: '#ec4899' } } 
+'.bar-title-pink-600[platform=ios]': { titleAttributes: { color: '#db2777' } } 
+'.bar-title-pink-700[platform=ios]': { titleAttributes: { color: '#be185d' } } 
+'.bar-title-pink-800[platform=ios]': { titleAttributes: { color: '#9d174d' } } 
+'.bar-title-pink-900[platform=ios]': { titleAttributes: { color: '#831843' } } 
+'.bar-title-rose-50[platform=ios]': { titleAttributes: { color: '#fff1f2' } } 
+'.bar-title-rose-100[platform=ios]': { titleAttributes: { color: '#ffe4e6' } } 
+'.bar-title-rose-200[platform=ios]': { titleAttributes: { color: '#fecdd3' } } 
+'.bar-title-rose-300[platform=ios]': { titleAttributes: { color: '#fda4af' } } 
+'.bar-title-rose-400[platform=ios]': { titleAttributes: { color: '#fb7185' } } 
+'.bar-title-rose-500[platform=ios]': { titleAttributes: { color: '#f43f5e' } } 
+'.bar-title-rose-600[platform=ios]': { titleAttributes: { color: '#e11d48' } } 
+'.bar-title-rose-700[platform=ios]': { titleAttributes: { color: '#be123c' } } 
+'.bar-title-rose-800[platform=ios]': { titleAttributes: { color: '#9f1239' } } 
+'.bar-title-rose-900[platform=ios]': { titleAttributes: { color: '#881337' } } 
 
-// Property(ies): titleAttributes: shadow, offset, blurRadius - Bar Title Shadow
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
+// Property(ies): titleAttributes: shadow, offset, blurRadius - Bar Title Shadow
 '.bar-shadow-xs': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 0 }, blurRadius: 1 } } }
 '.bar-shadow-sm': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 1 }, blurRadius: 1 } } }
 '.bar-shadow': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 2 }, blurRadius: 2 } } }
@@ -1481,234 +1481,234 @@
 '.bar-shadow-2xl': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 8 }, blurRadius: 8 } } }
 '.bar-shadow-none': { titleAttributes: { shadow: { color: null, offset: { width: 0, height: 0 }, blurRadius: null } } }
 
-// Property(ies): titleAttributes: shadow - Bar Title Shadow
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
+// Property(ies): titleAttributes: shadow - Bar Title Shadow
 '.bar-shadow-transparent[platform=ios]': { titleAttributes: { shadow: { color: 'transparent' } } }
 '.bar-shadow-black[platform=ios]': { titleAttributes: { shadow: { color: '#000000' } } }
 '.bar-shadow-white[platform=ios]': { titleAttributes: { shadow: { color: '#ffffff' } } }
-'.bar-shadow-slate-50[platform=ios]': { titleAttributes: { shadow: { color: '#f8fafc' } } }
-'.bar-shadow-slate-100[platform=ios]': { titleAttributes: { shadow: { color: '#f1f5f9' } } }
-'.bar-shadow-slate-200[platform=ios]': { titleAttributes: { shadow: { color: '#e2e8f0' } } }
-'.bar-shadow-slate-300[platform=ios]': { titleAttributes: { shadow: { color: '#cbd5e1' } } }
-'.bar-shadow-slate-400[platform=ios]': { titleAttributes: { shadow: { color: '#94a3b8' } } }
-'.bar-shadow-slate-500[platform=ios]': { titleAttributes: { shadow: { color: '#64748b' } } }
-'.bar-shadow-slate-600[platform=ios]': { titleAttributes: { shadow: { color: '#475569' } } }
-'.bar-shadow-slate-700[platform=ios]': { titleAttributes: { shadow: { color: '#334155' } } }
-'.bar-shadow-slate-800[platform=ios]': { titleAttributes: { shadow: { color: '#1e293b' } } }
-'.bar-shadow-slate-900[platform=ios]': { titleAttributes: { shadow: { color: '#0f172a' } } }
-'.bar-shadow-gray-50[platform=ios]': { titleAttributes: { shadow: { color: '#f9fafb' } } }
-'.bar-shadow-gray-100[platform=ios]': { titleAttributes: { shadow: { color: '#f3f4f6' } } }
-'.bar-shadow-gray-200[platform=ios]': { titleAttributes: { shadow: { color: '#e5e7eb' } } }
-'.bar-shadow-gray-300[platform=ios]': { titleAttributes: { shadow: { color: '#d1d5db' } } }
-'.bar-shadow-gray-400[platform=ios]': { titleAttributes: { shadow: { color: '#9ca3af' } } }
-'.bar-shadow-gray-500[platform=ios]': { titleAttributes: { shadow: { color: '#6b7280' } } }
-'.bar-shadow-gray-600[platform=ios]': { titleAttributes: { shadow: { color: '#4b5563' } } }
-'.bar-shadow-gray-700[platform=ios]': { titleAttributes: { shadow: { color: '#374151' } } }
-'.bar-shadow-gray-800[platform=ios]': { titleAttributes: { shadow: { color: '#1f2937' } } }
-'.bar-shadow-gray-900[platform=ios]': { titleAttributes: { shadow: { color: '#111827' } } }
-'.bar-shadow-zinc-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafafa' } } }
-'.bar-shadow-zinc-100[platform=ios]': { titleAttributes: { shadow: { color: '#f4f4f5' } } }
-'.bar-shadow-zinc-200[platform=ios]': { titleAttributes: { shadow: { color: '#e4e4e7' } } }
-'.bar-shadow-zinc-300[platform=ios]': { titleAttributes: { shadow: { color: '#d4d4d8' } } }
-'.bar-shadow-zinc-400[platform=ios]': { titleAttributes: { shadow: { color: '#a1a1aa' } } }
-'.bar-shadow-zinc-500[platform=ios]': { titleAttributes: { shadow: { color: '#71717a' } } }
-'.bar-shadow-zinc-600[platform=ios]': { titleAttributes: { shadow: { color: '#52525b' } } }
-'.bar-shadow-zinc-700[platform=ios]': { titleAttributes: { shadow: { color: '#3f3f46' } } }
-'.bar-shadow-zinc-800[platform=ios]': { titleAttributes: { shadow: { color: '#27272a' } } }
-'.bar-shadow-zinc-900[platform=ios]': { titleAttributes: { shadow: { color: '#18181b' } } }
-'.bar-shadow-neutral-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafafa' } } }
-'.bar-shadow-neutral-100[platform=ios]': { titleAttributes: { shadow: { color: '#f5f5f5' } } }
-'.bar-shadow-neutral-200[platform=ios]': { titleAttributes: { shadow: { color: '#e5e5e5' } } }
-'.bar-shadow-neutral-300[platform=ios]': { titleAttributes: { shadow: { color: '#d4d4d4' } } }
-'.bar-shadow-neutral-400[platform=ios]': { titleAttributes: { shadow: { color: '#a3a3a3' } } }
-'.bar-shadow-neutral-500[platform=ios]': { titleAttributes: { shadow: { color: '#737373' } } }
-'.bar-shadow-neutral-600[platform=ios]': { titleAttributes: { shadow: { color: '#525252' } } }
-'.bar-shadow-neutral-700[platform=ios]': { titleAttributes: { shadow: { color: '#404040' } } }
-'.bar-shadow-neutral-800[platform=ios]': { titleAttributes: { shadow: { color: '#262626' } } }
-'.bar-shadow-neutral-900[platform=ios]': { titleAttributes: { shadow: { color: '#171717' } } }
-'.bar-shadow-stone-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafaf9' } } }
-'.bar-shadow-stone-100[platform=ios]': { titleAttributes: { shadow: { color: '#f5f5f4' } } }
-'.bar-shadow-stone-200[platform=ios]': { titleAttributes: { shadow: { color: '#e7e5e4' } } }
-'.bar-shadow-stone-300[platform=ios]': { titleAttributes: { shadow: { color: '#d6d3d1' } } }
-'.bar-shadow-stone-400[platform=ios]': { titleAttributes: { shadow: { color: '#a8a29e' } } }
-'.bar-shadow-stone-500[platform=ios]': { titleAttributes: { shadow: { color: '#78716c' } } }
-'.bar-shadow-stone-600[platform=ios]': { titleAttributes: { shadow: { color: '#57534e' } } }
-'.bar-shadow-stone-700[platform=ios]': { titleAttributes: { shadow: { color: '#44403c' } } }
-'.bar-shadow-stone-800[platform=ios]': { titleAttributes: { shadow: { color: '#292524' } } }
-'.bar-shadow-stone-900[platform=ios]': { titleAttributes: { shadow: { color: '#1c1917' } } }
-'.bar-shadow-red-50[platform=ios]': { titleAttributes: { shadow: { color: '#fef2f2' } } }
-'.bar-shadow-red-100[platform=ios]': { titleAttributes: { shadow: { color: '#fee2e2' } } }
-'.bar-shadow-red-200[platform=ios]': { titleAttributes: { shadow: { color: '#fecaca' } } }
-'.bar-shadow-red-300[platform=ios]': { titleAttributes: { shadow: { color: '#fca5a5' } } }
-'.bar-shadow-red-400[platform=ios]': { titleAttributes: { shadow: { color: '#f87171' } } }
-'.bar-shadow-red-500[platform=ios]': { titleAttributes: { shadow: { color: '#ef4444' } } }
-'.bar-shadow-red-600[platform=ios]': { titleAttributes: { shadow: { color: '#dc2626' } } }
-'.bar-shadow-red-700[platform=ios]': { titleAttributes: { shadow: { color: '#b91c1c' } } }
-'.bar-shadow-red-800[platform=ios]': { titleAttributes: { shadow: { color: '#991b1b' } } }
-'.bar-shadow-red-900[platform=ios]': { titleAttributes: { shadow: { color: '#7f1d1d' } } }
-'.bar-shadow-orange-50[platform=ios]': { titleAttributes: { shadow: { color: '#fff7ed' } } }
-'.bar-shadow-orange-100[platform=ios]': { titleAttributes: { shadow: { color: '#ffedd5' } } }
-'.bar-shadow-orange-200[platform=ios]': { titleAttributes: { shadow: { color: '#fed7aa' } } }
-'.bar-shadow-orange-300[platform=ios]': { titleAttributes: { shadow: { color: '#fdba74' } } }
-'.bar-shadow-orange-400[platform=ios]': { titleAttributes: { shadow: { color: '#fb923c' } } }
-'.bar-shadow-orange-500[platform=ios]': { titleAttributes: { shadow: { color: '#f97316' } } }
-'.bar-shadow-orange-600[platform=ios]': { titleAttributes: { shadow: { color: '#ea580c' } } }
-'.bar-shadow-orange-700[platform=ios]': { titleAttributes: { shadow: { color: '#c2410c' } } }
-'.bar-shadow-orange-800[platform=ios]': { titleAttributes: { shadow: { color: '#9a3412' } } }
-'.bar-shadow-orange-900[platform=ios]': { titleAttributes: { shadow: { color: '#7c2d12' } } }
-'.bar-shadow-amber-50[platform=ios]': { titleAttributes: { shadow: { color: '#fffbeb' } } }
-'.bar-shadow-amber-100[platform=ios]': { titleAttributes: { shadow: { color: '#fef3c7' } } }
-'.bar-shadow-amber-200[platform=ios]': { titleAttributes: { shadow: { color: '#fde68a' } } }
-'.bar-shadow-amber-300[platform=ios]': { titleAttributes: { shadow: { color: '#fcd34d' } } }
-'.bar-shadow-amber-400[platform=ios]': { titleAttributes: { shadow: { color: '#fbbf24' } } }
-'.bar-shadow-amber-500[platform=ios]': { titleAttributes: { shadow: { color: '#f59e0b' } } }
-'.bar-shadow-amber-600[platform=ios]': { titleAttributes: { shadow: { color: '#d97706' } } }
-'.bar-shadow-amber-700[platform=ios]': { titleAttributes: { shadow: { color: '#b45309' } } }
-'.bar-shadow-amber-800[platform=ios]': { titleAttributes: { shadow: { color: '#92400e' } } }
-'.bar-shadow-amber-900[platform=ios]': { titleAttributes: { shadow: { color: '#78350f' } } }
-'.bar-shadow-yellow-50[platform=ios]': { titleAttributes: { shadow: { color: '#fefce8' } } }
-'.bar-shadow-yellow-100[platform=ios]': { titleAttributes: { shadow: { color: '#fef9c3' } } }
-'.bar-shadow-yellow-200[platform=ios]': { titleAttributes: { shadow: { color: '#fef08a' } } }
-'.bar-shadow-yellow-300[platform=ios]': { titleAttributes: { shadow: { color: '#fde047' } } }
-'.bar-shadow-yellow-400[platform=ios]': { titleAttributes: { shadow: { color: '#facc15' } } }
-'.bar-shadow-yellow-500[platform=ios]': { titleAttributes: { shadow: { color: '#eab308' } } }
-'.bar-shadow-yellow-600[platform=ios]': { titleAttributes: { shadow: { color: '#ca8a04' } } }
-'.bar-shadow-yellow-700[platform=ios]': { titleAttributes: { shadow: { color: '#a16207' } } }
-'.bar-shadow-yellow-800[platform=ios]': { titleAttributes: { shadow: { color: '#854d0e' } } }
-'.bar-shadow-yellow-900[platform=ios]': { titleAttributes: { shadow: { color: '#713f12' } } }
-'.bar-shadow-lime-50[platform=ios]': { titleAttributes: { shadow: { color: '#f7fee7' } } }
-'.bar-shadow-lime-100[platform=ios]': { titleAttributes: { shadow: { color: '#ecfccb' } } }
-'.bar-shadow-lime-200[platform=ios]': { titleAttributes: { shadow: { color: '#d9f99d' } } }
-'.bar-shadow-lime-300[platform=ios]': { titleAttributes: { shadow: { color: '#bef264' } } }
-'.bar-shadow-lime-400[platform=ios]': { titleAttributes: { shadow: { color: '#a3e635' } } }
-'.bar-shadow-lime-500[platform=ios]': { titleAttributes: { shadow: { color: '#84cc16' } } }
-'.bar-shadow-lime-600[platform=ios]': { titleAttributes: { shadow: { color: '#65a30d' } } }
-'.bar-shadow-lime-700[platform=ios]': { titleAttributes: { shadow: { color: '#4d7c0f' } } }
-'.bar-shadow-lime-800[platform=ios]': { titleAttributes: { shadow: { color: '#3f6212' } } }
-'.bar-shadow-lime-900[platform=ios]': { titleAttributes: { shadow: { color: '#365314' } } }
-'.bar-shadow-green-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0fdf4' } } }
-'.bar-shadow-green-100[platform=ios]': { titleAttributes: { shadow: { color: '#dcfce7' } } }
-'.bar-shadow-green-200[platform=ios]': { titleAttributes: { shadow: { color: '#bbf7d0' } } }
-'.bar-shadow-green-300[platform=ios]': { titleAttributes: { shadow: { color: '#86efac' } } }
-'.bar-shadow-green-400[platform=ios]': { titleAttributes: { shadow: { color: '#4ade80' } } }
-'.bar-shadow-green-500[platform=ios]': { titleAttributes: { shadow: { color: '#22c55e' } } }
-'.bar-shadow-green-600[platform=ios]': { titleAttributes: { shadow: { color: '#16a34a' } } }
-'.bar-shadow-green-700[platform=ios]': { titleAttributes: { shadow: { color: '#15803d' } } }
-'.bar-shadow-green-800[platform=ios]': { titleAttributes: { shadow: { color: '#166534' } } }
-'.bar-shadow-green-900[platform=ios]': { titleAttributes: { shadow: { color: '#14532d' } } }
-'.bar-shadow-emerald-50[platform=ios]': { titleAttributes: { shadow: { color: '#ecfdf5' } } }
-'.bar-shadow-emerald-100[platform=ios]': { titleAttributes: { shadow: { color: '#d1fae5' } } }
-'.bar-shadow-emerald-200[platform=ios]': { titleAttributes: { shadow: { color: '#a7f3d0' } } }
-'.bar-shadow-emerald-300[platform=ios]': { titleAttributes: { shadow: { color: '#6ee7b7' } } }
-'.bar-shadow-emerald-400[platform=ios]': { titleAttributes: { shadow: { color: '#34d399' } } }
-'.bar-shadow-emerald-500[platform=ios]': { titleAttributes: { shadow: { color: '#10b981' } } }
-'.bar-shadow-emerald-600[platform=ios]': { titleAttributes: { shadow: { color: '#059669' } } }
-'.bar-shadow-emerald-700[platform=ios]': { titleAttributes: { shadow: { color: '#047857' } } }
-'.bar-shadow-emerald-800[platform=ios]': { titleAttributes: { shadow: { color: '#065f46' } } }
-'.bar-shadow-emerald-900[platform=ios]': { titleAttributes: { shadow: { color: '#064e3b' } } }
-'.bar-shadow-teal-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0fdfa' } } }
-'.bar-shadow-teal-100[platform=ios]': { titleAttributes: { shadow: { color: '#ccfbf1' } } }
-'.bar-shadow-teal-200[platform=ios]': { titleAttributes: { shadow: { color: '#99f6e4' } } }
-'.bar-shadow-teal-300[platform=ios]': { titleAttributes: { shadow: { color: '#5eead4' } } }
-'.bar-shadow-teal-400[platform=ios]': { titleAttributes: { shadow: { color: '#2dd4bf' } } }
-'.bar-shadow-teal-500[platform=ios]': { titleAttributes: { shadow: { color: '#14b8a6' } } }
-'.bar-shadow-teal-600[platform=ios]': { titleAttributes: { shadow: { color: '#0d9488' } } }
-'.bar-shadow-teal-700[platform=ios]': { titleAttributes: { shadow: { color: '#0f766e' } } }
-'.bar-shadow-teal-800[platform=ios]': { titleAttributes: { shadow: { color: '#115e59' } } }
-'.bar-shadow-teal-900[platform=ios]': { titleAttributes: { shadow: { color: '#134e4a' } } }
-'.bar-shadow-cyan-50[platform=ios]': { titleAttributes: { shadow: { color: '#ecfeff' } } }
-'.bar-shadow-cyan-100[platform=ios]': { titleAttributes: { shadow: { color: '#cffafe' } } }
-'.bar-shadow-cyan-200[platform=ios]': { titleAttributes: { shadow: { color: '#a5f3fc' } } }
-'.bar-shadow-cyan-300[platform=ios]': { titleAttributes: { shadow: { color: '#67e8f9' } } }
-'.bar-shadow-cyan-400[platform=ios]': { titleAttributes: { shadow: { color: '#22d3ee' } } }
-'.bar-shadow-cyan-500[platform=ios]': { titleAttributes: { shadow: { color: '#06b6d4' } } }
-'.bar-shadow-cyan-600[platform=ios]': { titleAttributes: { shadow: { color: '#0891b2' } } }
-'.bar-shadow-cyan-700[platform=ios]': { titleAttributes: { shadow: { color: '#0e7490' } } }
-'.bar-shadow-cyan-800[platform=ios]': { titleAttributes: { shadow: { color: '#155e75' } } }
-'.bar-shadow-cyan-900[platform=ios]': { titleAttributes: { shadow: { color: '#164e63' } } }
-'.bar-shadow-sky-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0f9ff' } } }
-'.bar-shadow-sky-100[platform=ios]': { titleAttributes: { shadow: { color: '#e0f2fe' } } }
-'.bar-shadow-sky-200[platform=ios]': { titleAttributes: { shadow: { color: '#bae6fd' } } }
-'.bar-shadow-sky-300[platform=ios]': { titleAttributes: { shadow: { color: '#7dd3fc' } } }
-'.bar-shadow-sky-400[platform=ios]': { titleAttributes: { shadow: { color: '#38bdf8' } } }
-'.bar-shadow-sky-500[platform=ios]': { titleAttributes: { shadow: { color: '#0ea5e9' } } }
-'.bar-shadow-sky-600[platform=ios]': { titleAttributes: { shadow: { color: '#0284c7' } } }
-'.bar-shadow-sky-700[platform=ios]': { titleAttributes: { shadow: { color: '#0369a1' } } }
-'.bar-shadow-sky-800[platform=ios]': { titleAttributes: { shadow: { color: '#075985' } } }
-'.bar-shadow-sky-900[platform=ios]': { titleAttributes: { shadow: { color: '#0c4a6e' } } }
-'.bar-shadow-blue-50[platform=ios]': { titleAttributes: { shadow: { color: '#eff6ff' } } }
-'.bar-shadow-blue-100[platform=ios]': { titleAttributes: { shadow: { color: '#dbeafe' } } }
-'.bar-shadow-blue-200[platform=ios]': { titleAttributes: { shadow: { color: '#bfdbfe' } } }
-'.bar-shadow-blue-300[platform=ios]': { titleAttributes: { shadow: { color: '#93c5fd' } } }
-'.bar-shadow-blue-400[platform=ios]': { titleAttributes: { shadow: { color: '#60a5fa' } } }
-'.bar-shadow-blue-500[platform=ios]': { titleAttributes: { shadow: { color: '#3b82f6' } } }
-'.bar-shadow-blue-600[platform=ios]': { titleAttributes: { shadow: { color: '#2563eb' } } }
-'.bar-shadow-blue-700[platform=ios]': { titleAttributes: { shadow: { color: '#1d4ed8' } } }
-'.bar-shadow-blue-800[platform=ios]': { titleAttributes: { shadow: { color: '#1e40af' } } }
-'.bar-shadow-blue-900[platform=ios]': { titleAttributes: { shadow: { color: '#1e3a8a' } } }
-'.bar-shadow-indigo-50[platform=ios]': { titleAttributes: { shadow: { color: '#eef2ff' } } }
-'.bar-shadow-indigo-100[platform=ios]': { titleAttributes: { shadow: { color: '#e0e7ff' } } }
-'.bar-shadow-indigo-200[platform=ios]': { titleAttributes: { shadow: { color: '#c7d2fe' } } }
-'.bar-shadow-indigo-300[platform=ios]': { titleAttributes: { shadow: { color: '#a5b4fc' } } }
-'.bar-shadow-indigo-400[platform=ios]': { titleAttributes: { shadow: { color: '#818cf8' } } }
-'.bar-shadow-indigo-500[platform=ios]': { titleAttributes: { shadow: { color: '#6366f1' } } }
-'.bar-shadow-indigo-600[platform=ios]': { titleAttributes: { shadow: { color: '#4f46e5' } } }
-'.bar-shadow-indigo-700[platform=ios]': { titleAttributes: { shadow: { color: '#4338ca' } } }
-'.bar-shadow-indigo-800[platform=ios]': { titleAttributes: { shadow: { color: '#3730a3' } } }
-'.bar-shadow-indigo-900[platform=ios]': { titleAttributes: { shadow: { color: '#312e81' } } }
-'.bar-shadow-violet-50[platform=ios]': { titleAttributes: { shadow: { color: '#f5f3ff' } } }
-'.bar-shadow-violet-100[platform=ios]': { titleAttributes: { shadow: { color: '#ede9fe' } } }
-'.bar-shadow-violet-200[platform=ios]': { titleAttributes: { shadow: { color: '#ddd6fe' } } }
-'.bar-shadow-violet-300[platform=ios]': { titleAttributes: { shadow: { color: '#c4b5fd' } } }
-'.bar-shadow-violet-400[platform=ios]': { titleAttributes: { shadow: { color: '#a78bfa' } } }
-'.bar-shadow-violet-500[platform=ios]': { titleAttributes: { shadow: { color: '#8b5cf6' } } }
-'.bar-shadow-violet-600[platform=ios]': { titleAttributes: { shadow: { color: '#7c3aed' } } }
-'.bar-shadow-violet-700[platform=ios]': { titleAttributes: { shadow: { color: '#6d28d9' } } }
-'.bar-shadow-violet-800[platform=ios]': { titleAttributes: { shadow: { color: '#5b21b6' } } }
-'.bar-shadow-violet-900[platform=ios]': { titleAttributes: { shadow: { color: '#4c1d95' } } }
-'.bar-shadow-purple-50[platform=ios]': { titleAttributes: { shadow: { color: '#faf5ff' } } }
-'.bar-shadow-purple-100[platform=ios]': { titleAttributes: { shadow: { color: '#f3e8ff' } } }
-'.bar-shadow-purple-200[platform=ios]': { titleAttributes: { shadow: { color: '#e9d5ff' } } }
-'.bar-shadow-purple-300[platform=ios]': { titleAttributes: { shadow: { color: '#d8b4fe' } } }
-'.bar-shadow-purple-400[platform=ios]': { titleAttributes: { shadow: { color: '#c084fc' } } }
-'.bar-shadow-purple-500[platform=ios]': { titleAttributes: { shadow: { color: '#a855f7' } } }
-'.bar-shadow-purple-600[platform=ios]': { titleAttributes: { shadow: { color: '#9333ea' } } }
-'.bar-shadow-purple-700[platform=ios]': { titleAttributes: { shadow: { color: '#7e22ce' } } }
-'.bar-shadow-purple-800[platform=ios]': { titleAttributes: { shadow: { color: '#6b21a8' } } }
-'.bar-shadow-purple-900[platform=ios]': { titleAttributes: { shadow: { color: '#581c87' } } }
-'.bar-shadow-fuchsia-50[platform=ios]': { titleAttributes: { shadow: { color: '#fdf4ff' } } }
-'.bar-shadow-fuchsia-100[platform=ios]': { titleAttributes: { shadow: { color: '#fae8ff' } } }
-'.bar-shadow-fuchsia-200[platform=ios]': { titleAttributes: { shadow: { color: '#f5d0fe' } } }
-'.bar-shadow-fuchsia-300[platform=ios]': { titleAttributes: { shadow: { color: '#f0abfc' } } }
-'.bar-shadow-fuchsia-400[platform=ios]': { titleAttributes: { shadow: { color: '#e879f9' } } }
-'.bar-shadow-fuchsia-500[platform=ios]': { titleAttributes: { shadow: { color: '#d946ef' } } }
-'.bar-shadow-fuchsia-600[platform=ios]': { titleAttributes: { shadow: { color: '#c026d3' } } }
-'.bar-shadow-fuchsia-700[platform=ios]': { titleAttributes: { shadow: { color: '#a21caf' } } }
-'.bar-shadow-fuchsia-800[platform=ios]': { titleAttributes: { shadow: { color: '#86198f' } } }
-'.bar-shadow-fuchsia-900[platform=ios]': { titleAttributes: { shadow: { color: '#701a75' } } }
-'.bar-shadow-pink-50[platform=ios]': { titleAttributes: { shadow: { color: '#fdf2f8' } } }
-'.bar-shadow-pink-100[platform=ios]': { titleAttributes: { shadow: { color: '#fce7f3' } } }
-'.bar-shadow-pink-200[platform=ios]': { titleAttributes: { shadow: { color: '#fbcfe8' } } }
-'.bar-shadow-pink-300[platform=ios]': { titleAttributes: { shadow: { color: '#f9a8d4' } } }
-'.bar-shadow-pink-400[platform=ios]': { titleAttributes: { shadow: { color: '#f472b6' } } }
-'.bar-shadow-pink-500[platform=ios]': { titleAttributes: { shadow: { color: '#ec4899' } } }
-'.bar-shadow-pink-600[platform=ios]': { titleAttributes: { shadow: { color: '#db2777' } } }
-'.bar-shadow-pink-700[platform=ios]': { titleAttributes: { shadow: { color: '#be185d' } } }
-'.bar-shadow-pink-800[platform=ios]': { titleAttributes: { shadow: { color: '#9d174d' } } }
-'.bar-shadow-pink-900[platform=ios]': { titleAttributes: { shadow: { color: '#831843' } } }
-'.bar-shadow-rose-50[platform=ios]': { titleAttributes: { shadow: { color: '#fff1f2' } } }
-'.bar-shadow-rose-100[platform=ios]': { titleAttributes: { shadow: { color: '#ffe4e6' } } }
-'.bar-shadow-rose-200[platform=ios]': { titleAttributes: { shadow: { color: '#fecdd3' } } }
-'.bar-shadow-rose-300[platform=ios]': { titleAttributes: { shadow: { color: '#fda4af' } } }
-'.bar-shadow-rose-400[platform=ios]': { titleAttributes: { shadow: { color: '#fb7185' } } }
-'.bar-shadow-rose-500[platform=ios]': { titleAttributes: { shadow: { color: '#f43f5e' } } }
-'.bar-shadow-rose-600[platform=ios]': { titleAttributes: { shadow: { color: '#e11d48' } } }
-'.bar-shadow-rose-700[platform=ios]': { titleAttributes: { shadow: { color: '#be123c' } } }
-'.bar-shadow-rose-800[platform=ios]': { titleAttributes: { shadow: { color: '#9f1239' } } }
-'.bar-shadow-rose-900[platform=ios]': { titleAttributes: { shadow: { color: '#881337' } } }
+'.bar-shadow-slate-50[platform=ios]': { titleAttributes: { shadow: { color: '#f8fafc' } } } 
+'.bar-shadow-slate-100[platform=ios]': { titleAttributes: { shadow: { color: '#f1f5f9' } } } 
+'.bar-shadow-slate-200[platform=ios]': { titleAttributes: { shadow: { color: '#e2e8f0' } } } 
+'.bar-shadow-slate-300[platform=ios]': { titleAttributes: { shadow: { color: '#cbd5e1' } } } 
+'.bar-shadow-slate-400[platform=ios]': { titleAttributes: { shadow: { color: '#94a3b8' } } } 
+'.bar-shadow-slate-500[platform=ios]': { titleAttributes: { shadow: { color: '#64748b' } } } 
+'.bar-shadow-slate-600[platform=ios]': { titleAttributes: { shadow: { color: '#475569' } } } 
+'.bar-shadow-slate-700[platform=ios]': { titleAttributes: { shadow: { color: '#334155' } } } 
+'.bar-shadow-slate-800[platform=ios]': { titleAttributes: { shadow: { color: '#1e293b' } } } 
+'.bar-shadow-slate-900[platform=ios]': { titleAttributes: { shadow: { color: '#0f172a' } } } 
+'.bar-shadow-gray-50[platform=ios]': { titleAttributes: { shadow: { color: '#f9fafb' } } } 
+'.bar-shadow-gray-100[platform=ios]': { titleAttributes: { shadow: { color: '#f3f4f6' } } } 
+'.bar-shadow-gray-200[platform=ios]': { titleAttributes: { shadow: { color: '#e5e7eb' } } } 
+'.bar-shadow-gray-300[platform=ios]': { titleAttributes: { shadow: { color: '#d1d5db' } } } 
+'.bar-shadow-gray-400[platform=ios]': { titleAttributes: { shadow: { color: '#9ca3af' } } } 
+'.bar-shadow-gray-500[platform=ios]': { titleAttributes: { shadow: { color: '#6b7280' } } } 
+'.bar-shadow-gray-600[platform=ios]': { titleAttributes: { shadow: { color: '#4b5563' } } } 
+'.bar-shadow-gray-700[platform=ios]': { titleAttributes: { shadow: { color: '#374151' } } } 
+'.bar-shadow-gray-800[platform=ios]': { titleAttributes: { shadow: { color: '#1f2937' } } } 
+'.bar-shadow-gray-900[platform=ios]': { titleAttributes: { shadow: { color: '#111827' } } } 
+'.bar-shadow-zinc-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafafa' } } } 
+'.bar-shadow-zinc-100[platform=ios]': { titleAttributes: { shadow: { color: '#f4f4f5' } } } 
+'.bar-shadow-zinc-200[platform=ios]': { titleAttributes: { shadow: { color: '#e4e4e7' } } } 
+'.bar-shadow-zinc-300[platform=ios]': { titleAttributes: { shadow: { color: '#d4d4d8' } } } 
+'.bar-shadow-zinc-400[platform=ios]': { titleAttributes: { shadow: { color: '#a1a1aa' } } } 
+'.bar-shadow-zinc-500[platform=ios]': { titleAttributes: { shadow: { color: '#71717a' } } } 
+'.bar-shadow-zinc-600[platform=ios]': { titleAttributes: { shadow: { color: '#52525b' } } } 
+'.bar-shadow-zinc-700[platform=ios]': { titleAttributes: { shadow: { color: '#3f3f46' } } } 
+'.bar-shadow-zinc-800[platform=ios]': { titleAttributes: { shadow: { color: '#27272a' } } } 
+'.bar-shadow-zinc-900[platform=ios]': { titleAttributes: { shadow: { color: '#18181b' } } } 
+'.bar-shadow-neutral-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafafa' } } } 
+'.bar-shadow-neutral-100[platform=ios]': { titleAttributes: { shadow: { color: '#f5f5f5' } } } 
+'.bar-shadow-neutral-200[platform=ios]': { titleAttributes: { shadow: { color: '#e5e5e5' } } } 
+'.bar-shadow-neutral-300[platform=ios]': { titleAttributes: { shadow: { color: '#d4d4d4' } } } 
+'.bar-shadow-neutral-400[platform=ios]': { titleAttributes: { shadow: { color: '#a3a3a3' } } } 
+'.bar-shadow-neutral-500[platform=ios]': { titleAttributes: { shadow: { color: '#737373' } } } 
+'.bar-shadow-neutral-600[platform=ios]': { titleAttributes: { shadow: { color: '#525252' } } } 
+'.bar-shadow-neutral-700[platform=ios]': { titleAttributes: { shadow: { color: '#404040' } } } 
+'.bar-shadow-neutral-800[platform=ios]': { titleAttributes: { shadow: { color: '#262626' } } } 
+'.bar-shadow-neutral-900[platform=ios]': { titleAttributes: { shadow: { color: '#171717' } } } 
+'.bar-shadow-stone-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafaf9' } } } 
+'.bar-shadow-stone-100[platform=ios]': { titleAttributes: { shadow: { color: '#f5f5f4' } } } 
+'.bar-shadow-stone-200[platform=ios]': { titleAttributes: { shadow: { color: '#e7e5e4' } } } 
+'.bar-shadow-stone-300[platform=ios]': { titleAttributes: { shadow: { color: '#d6d3d1' } } } 
+'.bar-shadow-stone-400[platform=ios]': { titleAttributes: { shadow: { color: '#a8a29e' } } } 
+'.bar-shadow-stone-500[platform=ios]': { titleAttributes: { shadow: { color: '#78716c' } } } 
+'.bar-shadow-stone-600[platform=ios]': { titleAttributes: { shadow: { color: '#57534e' } } } 
+'.bar-shadow-stone-700[platform=ios]': { titleAttributes: { shadow: { color: '#44403c' } } } 
+'.bar-shadow-stone-800[platform=ios]': { titleAttributes: { shadow: { color: '#292524' } } } 
+'.bar-shadow-stone-900[platform=ios]': { titleAttributes: { shadow: { color: '#1c1917' } } } 
+'.bar-shadow-red-50[platform=ios]': { titleAttributes: { shadow: { color: '#fef2f2' } } } 
+'.bar-shadow-red-100[platform=ios]': { titleAttributes: { shadow: { color: '#fee2e2' } } } 
+'.bar-shadow-red-200[platform=ios]': { titleAttributes: { shadow: { color: '#fecaca' } } } 
+'.bar-shadow-red-300[platform=ios]': { titleAttributes: { shadow: { color: '#fca5a5' } } } 
+'.bar-shadow-red-400[platform=ios]': { titleAttributes: { shadow: { color: '#f87171' } } } 
+'.bar-shadow-red-500[platform=ios]': { titleAttributes: { shadow: { color: '#ef4444' } } } 
+'.bar-shadow-red-600[platform=ios]': { titleAttributes: { shadow: { color: '#dc2626' } } } 
+'.bar-shadow-red-700[platform=ios]': { titleAttributes: { shadow: { color: '#b91c1c' } } } 
+'.bar-shadow-red-800[platform=ios]': { titleAttributes: { shadow: { color: '#991b1b' } } } 
+'.bar-shadow-red-900[platform=ios]': { titleAttributes: { shadow: { color: '#7f1d1d' } } } 
+'.bar-shadow-orange-50[platform=ios]': { titleAttributes: { shadow: { color: '#fff7ed' } } } 
+'.bar-shadow-orange-100[platform=ios]': { titleAttributes: { shadow: { color: '#ffedd5' } } } 
+'.bar-shadow-orange-200[platform=ios]': { titleAttributes: { shadow: { color: '#fed7aa' } } } 
+'.bar-shadow-orange-300[platform=ios]': { titleAttributes: { shadow: { color: '#fdba74' } } } 
+'.bar-shadow-orange-400[platform=ios]': { titleAttributes: { shadow: { color: '#fb923c' } } } 
+'.bar-shadow-orange-500[platform=ios]': { titleAttributes: { shadow: { color: '#f97316' } } } 
+'.bar-shadow-orange-600[platform=ios]': { titleAttributes: { shadow: { color: '#ea580c' } } } 
+'.bar-shadow-orange-700[platform=ios]': { titleAttributes: { shadow: { color: '#c2410c' } } } 
+'.bar-shadow-orange-800[platform=ios]': { titleAttributes: { shadow: { color: '#9a3412' } } } 
+'.bar-shadow-orange-900[platform=ios]': { titleAttributes: { shadow: { color: '#7c2d12' } } } 
+'.bar-shadow-amber-50[platform=ios]': { titleAttributes: { shadow: { color: '#fffbeb' } } } 
+'.bar-shadow-amber-100[platform=ios]': { titleAttributes: { shadow: { color: '#fef3c7' } } } 
+'.bar-shadow-amber-200[platform=ios]': { titleAttributes: { shadow: { color: '#fde68a' } } } 
+'.bar-shadow-amber-300[platform=ios]': { titleAttributes: { shadow: { color: '#fcd34d' } } } 
+'.bar-shadow-amber-400[platform=ios]': { titleAttributes: { shadow: { color: '#fbbf24' } } } 
+'.bar-shadow-amber-500[platform=ios]': { titleAttributes: { shadow: { color: '#f59e0b' } } } 
+'.bar-shadow-amber-600[platform=ios]': { titleAttributes: { shadow: { color: '#d97706' } } } 
+'.bar-shadow-amber-700[platform=ios]': { titleAttributes: { shadow: { color: '#b45309' } } } 
+'.bar-shadow-amber-800[platform=ios]': { titleAttributes: { shadow: { color: '#92400e' } } } 
+'.bar-shadow-amber-900[platform=ios]': { titleAttributes: { shadow: { color: '#78350f' } } } 
+'.bar-shadow-yellow-50[platform=ios]': { titleAttributes: { shadow: { color: '#fefce8' } } } 
+'.bar-shadow-yellow-100[platform=ios]': { titleAttributes: { shadow: { color: '#fef9c3' } } } 
+'.bar-shadow-yellow-200[platform=ios]': { titleAttributes: { shadow: { color: '#fef08a' } } } 
+'.bar-shadow-yellow-300[platform=ios]': { titleAttributes: { shadow: { color: '#fde047' } } } 
+'.bar-shadow-yellow-400[platform=ios]': { titleAttributes: { shadow: { color: '#facc15' } } } 
+'.bar-shadow-yellow-500[platform=ios]': { titleAttributes: { shadow: { color: '#eab308' } } } 
+'.bar-shadow-yellow-600[platform=ios]': { titleAttributes: { shadow: { color: '#ca8a04' } } } 
+'.bar-shadow-yellow-700[platform=ios]': { titleAttributes: { shadow: { color: '#a16207' } } } 
+'.bar-shadow-yellow-800[platform=ios]': { titleAttributes: { shadow: { color: '#854d0e' } } } 
+'.bar-shadow-yellow-900[platform=ios]': { titleAttributes: { shadow: { color: '#713f12' } } } 
+'.bar-shadow-lime-50[platform=ios]': { titleAttributes: { shadow: { color: '#f7fee7' } } } 
+'.bar-shadow-lime-100[platform=ios]': { titleAttributes: { shadow: { color: '#ecfccb' } } } 
+'.bar-shadow-lime-200[platform=ios]': { titleAttributes: { shadow: { color: '#d9f99d' } } } 
+'.bar-shadow-lime-300[platform=ios]': { titleAttributes: { shadow: { color: '#bef264' } } } 
+'.bar-shadow-lime-400[platform=ios]': { titleAttributes: { shadow: { color: '#a3e635' } } } 
+'.bar-shadow-lime-500[platform=ios]': { titleAttributes: { shadow: { color: '#84cc16' } } } 
+'.bar-shadow-lime-600[platform=ios]': { titleAttributes: { shadow: { color: '#65a30d' } } } 
+'.bar-shadow-lime-700[platform=ios]': { titleAttributes: { shadow: { color: '#4d7c0f' } } } 
+'.bar-shadow-lime-800[platform=ios]': { titleAttributes: { shadow: { color: '#3f6212' } } } 
+'.bar-shadow-lime-900[platform=ios]': { titleAttributes: { shadow: { color: '#365314' } } } 
+'.bar-shadow-green-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0fdf4' } } } 
+'.bar-shadow-green-100[platform=ios]': { titleAttributes: { shadow: { color: '#dcfce7' } } } 
+'.bar-shadow-green-200[platform=ios]': { titleAttributes: { shadow: { color: '#bbf7d0' } } } 
+'.bar-shadow-green-300[platform=ios]': { titleAttributes: { shadow: { color: '#86efac' } } } 
+'.bar-shadow-green-400[platform=ios]': { titleAttributes: { shadow: { color: '#4ade80' } } } 
+'.bar-shadow-green-500[platform=ios]': { titleAttributes: { shadow: { color: '#22c55e' } } } 
+'.bar-shadow-green-600[platform=ios]': { titleAttributes: { shadow: { color: '#16a34a' } } } 
+'.bar-shadow-green-700[platform=ios]': { titleAttributes: { shadow: { color: '#15803d' } } } 
+'.bar-shadow-green-800[platform=ios]': { titleAttributes: { shadow: { color: '#166534' } } } 
+'.bar-shadow-green-900[platform=ios]': { titleAttributes: { shadow: { color: '#14532d' } } } 
+'.bar-shadow-emerald-50[platform=ios]': { titleAttributes: { shadow: { color: '#ecfdf5' } } } 
+'.bar-shadow-emerald-100[platform=ios]': { titleAttributes: { shadow: { color: '#d1fae5' } } } 
+'.bar-shadow-emerald-200[platform=ios]': { titleAttributes: { shadow: { color: '#a7f3d0' } } } 
+'.bar-shadow-emerald-300[platform=ios]': { titleAttributes: { shadow: { color: '#6ee7b7' } } } 
+'.bar-shadow-emerald-400[platform=ios]': { titleAttributes: { shadow: { color: '#34d399' } } } 
+'.bar-shadow-emerald-500[platform=ios]': { titleAttributes: { shadow: { color: '#10b981' } } } 
+'.bar-shadow-emerald-600[platform=ios]': { titleAttributes: { shadow: { color: '#059669' } } } 
+'.bar-shadow-emerald-700[platform=ios]': { titleAttributes: { shadow: { color: '#047857' } } } 
+'.bar-shadow-emerald-800[platform=ios]': { titleAttributes: { shadow: { color: '#065f46' } } } 
+'.bar-shadow-emerald-900[platform=ios]': { titleAttributes: { shadow: { color: '#064e3b' } } } 
+'.bar-shadow-teal-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0fdfa' } } } 
+'.bar-shadow-teal-100[platform=ios]': { titleAttributes: { shadow: { color: '#ccfbf1' } } } 
+'.bar-shadow-teal-200[platform=ios]': { titleAttributes: { shadow: { color: '#99f6e4' } } } 
+'.bar-shadow-teal-300[platform=ios]': { titleAttributes: { shadow: { color: '#5eead4' } } } 
+'.bar-shadow-teal-400[platform=ios]': { titleAttributes: { shadow: { color: '#2dd4bf' } } } 
+'.bar-shadow-teal-500[platform=ios]': { titleAttributes: { shadow: { color: '#14b8a6' } } } 
+'.bar-shadow-teal-600[platform=ios]': { titleAttributes: { shadow: { color: '#0d9488' } } } 
+'.bar-shadow-teal-700[platform=ios]': { titleAttributes: { shadow: { color: '#0f766e' } } } 
+'.bar-shadow-teal-800[platform=ios]': { titleAttributes: { shadow: { color: '#115e59' } } } 
+'.bar-shadow-teal-900[platform=ios]': { titleAttributes: { shadow: { color: '#134e4a' } } } 
+'.bar-shadow-cyan-50[platform=ios]': { titleAttributes: { shadow: { color: '#ecfeff' } } } 
+'.bar-shadow-cyan-100[platform=ios]': { titleAttributes: { shadow: { color: '#cffafe' } } } 
+'.bar-shadow-cyan-200[platform=ios]': { titleAttributes: { shadow: { color: '#a5f3fc' } } } 
+'.bar-shadow-cyan-300[platform=ios]': { titleAttributes: { shadow: { color: '#67e8f9' } } } 
+'.bar-shadow-cyan-400[platform=ios]': { titleAttributes: { shadow: { color: '#22d3ee' } } } 
+'.bar-shadow-cyan-500[platform=ios]': { titleAttributes: { shadow: { color: '#06b6d4' } } } 
+'.bar-shadow-cyan-600[platform=ios]': { titleAttributes: { shadow: { color: '#0891b2' } } } 
+'.bar-shadow-cyan-700[platform=ios]': { titleAttributes: { shadow: { color: '#0e7490' } } } 
+'.bar-shadow-cyan-800[platform=ios]': { titleAttributes: { shadow: { color: '#155e75' } } } 
+'.bar-shadow-cyan-900[platform=ios]': { titleAttributes: { shadow: { color: '#164e63' } } } 
+'.bar-shadow-sky-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0f9ff' } } } 
+'.bar-shadow-sky-100[platform=ios]': { titleAttributes: { shadow: { color: '#e0f2fe' } } } 
+'.bar-shadow-sky-200[platform=ios]': { titleAttributes: { shadow: { color: '#bae6fd' } } } 
+'.bar-shadow-sky-300[platform=ios]': { titleAttributes: { shadow: { color: '#7dd3fc' } } } 
+'.bar-shadow-sky-400[platform=ios]': { titleAttributes: { shadow: { color: '#38bdf8' } } } 
+'.bar-shadow-sky-500[platform=ios]': { titleAttributes: { shadow: { color: '#0ea5e9' } } } 
+'.bar-shadow-sky-600[platform=ios]': { titleAttributes: { shadow: { color: '#0284c7' } } } 
+'.bar-shadow-sky-700[platform=ios]': { titleAttributes: { shadow: { color: '#0369a1' } } } 
+'.bar-shadow-sky-800[platform=ios]': { titleAttributes: { shadow: { color: '#075985' } } } 
+'.bar-shadow-sky-900[platform=ios]': { titleAttributes: { shadow: { color: '#0c4a6e' } } } 
+'.bar-shadow-blue-50[platform=ios]': { titleAttributes: { shadow: { color: '#eff6ff' } } } 
+'.bar-shadow-blue-100[platform=ios]': { titleAttributes: { shadow: { color: '#dbeafe' } } } 
+'.bar-shadow-blue-200[platform=ios]': { titleAttributes: { shadow: { color: '#bfdbfe' } } } 
+'.bar-shadow-blue-300[platform=ios]': { titleAttributes: { shadow: { color: '#93c5fd' } } } 
+'.bar-shadow-blue-400[platform=ios]': { titleAttributes: { shadow: { color: '#60a5fa' } } } 
+'.bar-shadow-blue-500[platform=ios]': { titleAttributes: { shadow: { color: '#3b82f6' } } } 
+'.bar-shadow-blue-600[platform=ios]': { titleAttributes: { shadow: { color: '#2563eb' } } } 
+'.bar-shadow-blue-700[platform=ios]': { titleAttributes: { shadow: { color: '#1d4ed8' } } } 
+'.bar-shadow-blue-800[platform=ios]': { titleAttributes: { shadow: { color: '#1e40af' } } } 
+'.bar-shadow-blue-900[platform=ios]': { titleAttributes: { shadow: { color: '#1e3a8a' } } } 
+'.bar-shadow-indigo-50[platform=ios]': { titleAttributes: { shadow: { color: '#eef2ff' } } } 
+'.bar-shadow-indigo-100[platform=ios]': { titleAttributes: { shadow: { color: '#e0e7ff' } } } 
+'.bar-shadow-indigo-200[platform=ios]': { titleAttributes: { shadow: { color: '#c7d2fe' } } } 
+'.bar-shadow-indigo-300[platform=ios]': { titleAttributes: { shadow: { color: '#a5b4fc' } } } 
+'.bar-shadow-indigo-400[platform=ios]': { titleAttributes: { shadow: { color: '#818cf8' } } } 
+'.bar-shadow-indigo-500[platform=ios]': { titleAttributes: { shadow: { color: '#6366f1' } } } 
+'.bar-shadow-indigo-600[platform=ios]': { titleAttributes: { shadow: { color: '#4f46e5' } } } 
+'.bar-shadow-indigo-700[platform=ios]': { titleAttributes: { shadow: { color: '#4338ca' } } } 
+'.bar-shadow-indigo-800[platform=ios]': { titleAttributes: { shadow: { color: '#3730a3' } } } 
+'.bar-shadow-indigo-900[platform=ios]': { titleAttributes: { shadow: { color: '#312e81' } } } 
+'.bar-shadow-violet-50[platform=ios]': { titleAttributes: { shadow: { color: '#f5f3ff' } } } 
+'.bar-shadow-violet-100[platform=ios]': { titleAttributes: { shadow: { color: '#ede9fe' } } } 
+'.bar-shadow-violet-200[platform=ios]': { titleAttributes: { shadow: { color: '#ddd6fe' } } } 
+'.bar-shadow-violet-300[platform=ios]': { titleAttributes: { shadow: { color: '#c4b5fd' } } } 
+'.bar-shadow-violet-400[platform=ios]': { titleAttributes: { shadow: { color: '#a78bfa' } } } 
+'.bar-shadow-violet-500[platform=ios]': { titleAttributes: { shadow: { color: '#8b5cf6' } } } 
+'.bar-shadow-violet-600[platform=ios]': { titleAttributes: { shadow: { color: '#7c3aed' } } } 
+'.bar-shadow-violet-700[platform=ios]': { titleAttributes: { shadow: { color: '#6d28d9' } } } 
+'.bar-shadow-violet-800[platform=ios]': { titleAttributes: { shadow: { color: '#5b21b6' } } } 
+'.bar-shadow-violet-900[platform=ios]': { titleAttributes: { shadow: { color: '#4c1d95' } } } 
+'.bar-shadow-purple-50[platform=ios]': { titleAttributes: { shadow: { color: '#faf5ff' } } } 
+'.bar-shadow-purple-100[platform=ios]': { titleAttributes: { shadow: { color: '#f3e8ff' } } } 
+'.bar-shadow-purple-200[platform=ios]': { titleAttributes: { shadow: { color: '#e9d5ff' } } } 
+'.bar-shadow-purple-300[platform=ios]': { titleAttributes: { shadow: { color: '#d8b4fe' } } } 
+'.bar-shadow-purple-400[platform=ios]': { titleAttributes: { shadow: { color: '#c084fc' } } } 
+'.bar-shadow-purple-500[platform=ios]': { titleAttributes: { shadow: { color: '#a855f7' } } } 
+'.bar-shadow-purple-600[platform=ios]': { titleAttributes: { shadow: { color: '#9333ea' } } } 
+'.bar-shadow-purple-700[platform=ios]': { titleAttributes: { shadow: { color: '#7e22ce' } } } 
+'.bar-shadow-purple-800[platform=ios]': { titleAttributes: { shadow: { color: '#6b21a8' } } } 
+'.bar-shadow-purple-900[platform=ios]': { titleAttributes: { shadow: { color: '#581c87' } } } 
+'.bar-shadow-fuchsia-50[platform=ios]': { titleAttributes: { shadow: { color: '#fdf4ff' } } } 
+'.bar-shadow-fuchsia-100[platform=ios]': { titleAttributes: { shadow: { color: '#fae8ff' } } } 
+'.bar-shadow-fuchsia-200[platform=ios]': { titleAttributes: { shadow: { color: '#f5d0fe' } } } 
+'.bar-shadow-fuchsia-300[platform=ios]': { titleAttributes: { shadow: { color: '#f0abfc' } } } 
+'.bar-shadow-fuchsia-400[platform=ios]': { titleAttributes: { shadow: { color: '#e879f9' } } } 
+'.bar-shadow-fuchsia-500[platform=ios]': { titleAttributes: { shadow: { color: '#d946ef' } } } 
+'.bar-shadow-fuchsia-600[platform=ios]': { titleAttributes: { shadow: { color: '#c026d3' } } } 
+'.bar-shadow-fuchsia-700[platform=ios]': { titleAttributes: { shadow: { color: '#a21caf' } } } 
+'.bar-shadow-fuchsia-800[platform=ios]': { titleAttributes: { shadow: { color: '#86198f' } } } 
+'.bar-shadow-fuchsia-900[platform=ios]': { titleAttributes: { shadow: { color: '#701a75' } } } 
+'.bar-shadow-pink-50[platform=ios]': { titleAttributes: { shadow: { color: '#fdf2f8' } } } 
+'.bar-shadow-pink-100[platform=ios]': { titleAttributes: { shadow: { color: '#fce7f3' } } } 
+'.bar-shadow-pink-200[platform=ios]': { titleAttributes: { shadow: { color: '#fbcfe8' } } } 
+'.bar-shadow-pink-300[platform=ios]': { titleAttributes: { shadow: { color: '#f9a8d4' } } } 
+'.bar-shadow-pink-400[platform=ios]': { titleAttributes: { shadow: { color: '#f472b6' } } } 
+'.bar-shadow-pink-500[platform=ios]': { titleAttributes: { shadow: { color: '#ec4899' } } } 
+'.bar-shadow-pink-600[platform=ios]': { titleAttributes: { shadow: { color: '#db2777' } } } 
+'.bar-shadow-pink-700[platform=ios]': { titleAttributes: { shadow: { color: '#be185d' } } } 
+'.bar-shadow-pink-800[platform=ios]': { titleAttributes: { shadow: { color: '#9d174d' } } } 
+'.bar-shadow-pink-900[platform=ios]': { titleAttributes: { shadow: { color: '#831843' } } } 
+'.bar-shadow-rose-50[platform=ios]': { titleAttributes: { shadow: { color: '#fff1f2' } } } 
+'.bar-shadow-rose-100[platform=ios]': { titleAttributes: { shadow: { color: '#ffe4e6' } } } 
+'.bar-shadow-rose-200[platform=ios]': { titleAttributes: { shadow: { color: '#fecdd3' } } } 
+'.bar-shadow-rose-300[platform=ios]': { titleAttributes: { shadow: { color: '#fda4af' } } } 
+'.bar-shadow-rose-400[platform=ios]': { titleAttributes: { shadow: { color: '#fb7185' } } } 
+'.bar-shadow-rose-500[platform=ios]': { titleAttributes: { shadow: { color: '#f43f5e' } } } 
+'.bar-shadow-rose-600[platform=ios]': { titleAttributes: { shadow: { color: '#e11d48' } } } 
+'.bar-shadow-rose-700[platform=ios]': { titleAttributes: { shadow: { color: '#be123c' } } } 
+'.bar-shadow-rose-800[platform=ios]': { titleAttributes: { shadow: { color: '#9f1239' } } } 
+'.bar-shadow-rose-900[platform=ios]': { titleAttributes: { shadow: { color: '#881337' } } } 
 
-// Property(ies): borderColor
 // Component(s): Ti.UI.View
+// Property(ies): borderColor
 '.border-transparent': { borderColor: 'transparent' }
 '.border-black': { borderColor: '#000000' }
 '.border-white': { borderColor: '#ffffff' }
@@ -1933,8 +1933,8 @@
 '.border-rose-800': { borderColor: '#9f1239' }
 '.border-rose-900': { borderColor: '#881337' }
 
-// Property(ies): borderRadius ( with Extra Styles )
 // Component(s): Ti.UI.Android.CardView, Ti.UI.View
+// Property(ies): borderRadius ( with Extra Styles )
 '.rounded-1': { borderRadius: 2 }
 '.rounded-2': { borderRadius: 4 }
 '.rounded-3': { borderRadius: 6 }
@@ -2314,8 +2314,8 @@
 '.rounded-bl-2xl': { borderRadius: [0, 0, 0, 16] }
 '.rounded-bl-3xl': { borderRadius: [0, 0, 0, 24] }
 
-// Property(ies): borderStyle
 // Component(s): Ti.UI.Picker[android], Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): borderStyle
 '.border-style-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
 '.border-style-filled': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
 '.border-style-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
@@ -2323,16 +2323,16 @@
 '.border-style-rounded': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED }
 '.border-style-underlined': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_UNDERLINED }
 
-// Property(ies): borderWidth
 // Component(s): Ti.UI.View
+// Property(ies): borderWidth
 '.border-0': { borderWidth: 0 }
 '.border-2': { borderWidth: 2 }
 '.border-4': { borderWidth: 4 }
 '.border-8': { borderWidth: 8 }
 '.border': { borderWidth: 1 }
 
-// Property(ies): padding, paddingTop, paddingLeft, paddingRight, paddingBottom
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
+// Property(ies): padding, paddingTop, paddingLeft, paddingRight, paddingBottom
 '.padding-0': { padding: 0 }
 '.padding-1': { padding: 4 }
 '.padding-2': { padding: 8 }
@@ -2579,13 +2579,13 @@
 '.padding-b-2.5': { paddingBottom: 10 }
 '.padding-b-3.5': { paddingBottom: 14 }
 
-// Property(ies): bubbleParent
 // Component(s): Ti.Proxy
+// Property(ies): bubbleParent
 '.bubble-parent': { bubbleParent: true }
 '.dont-bubble-parent': { bubbleParent: false }
 
-// Property(ies): cacheSize
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): cacheSize
 '.cache-size-1': { cacheSize: 1 }
 '.cache-size-2': { cacheSize: 2 }
 '.cache-size-3': { cacheSize: 3 }
@@ -2597,13 +2597,13 @@
 '.cache-size-9': { cacheSize: 9 }
 '.cache-size-10': { cacheSize: 10 }
 
-// Property(ies): clipMode - iOS Only
 // Component(s): Ti.UI.View
+// Property(ies): clipMode - iOS Only
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 
-// Property(ies): currentPageIndicatorColor
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): currentPageIndicatorColor
 '.current-page-transparent': { currentPageIndicatorColor: 'transparent' }
 '.current-page-black': { currentPageIndicatorColor: '#000000' }
 '.current-page-white': { currentPageIndicatorColor: '#ffffff' }
@@ -2828,8 +2828,8 @@
 '.current-page-rose-800': { currentPageIndicatorColor: '#9f1239' }
 '.current-page-rose-900': { currentPageIndicatorColor: '#881337' }
 
-// Property(ies): disableBounce
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollableView, Ti.UI.ScrollView, Ti.UI.WebView
+// Property(ies): disableBounce
 '.disable-bounce': { disableBounce: true }
 '.enable-bounce': { disableBounce: false }
 
@@ -2843,23 +2843,23 @@
 '.inverted-platform-w[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
 '.inverted-platform-h[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
 
-// Property(ies): visible
 // Component(s): Ti.Android.MenuItem, Ti.UI.Animation, Ti.UI.Picker, Ti.UI.ScrollableView, Ti.UI.ShortcutItem, Ti.UI.View
+// Property(ies): visible
 '.block': { visible: true }
 '.hidden': { visible: false }
 
-// Property(ies): A custom property to use it with the Animation module
 // Component(s): Ti.UI.Animation
+// Property(ies): A custom property to use it with the Animation module
 '.horizontal-constraint': { constraint: 'horizontal' }
 '.vertical-constraint': { constraint: 'vertical' }
 
-// Property(ies): draggingType
 // Component(s): For the Animation Component
+// Property(ies): draggingType
 '.drag-apply': { draggingType: 'apply' }
 '.drag-animate': { draggingType: 'animate' }
 
-// Property(ies): shadowOffset, shadowRadius, shadowColor - Drop Shadow in Tailwind
 // Component(s): Ti.UI.Button, Ti.UI.Label
+// Property(ies): shadowOffset, shadowRadius, shadowColor - Drop Shadow in Tailwind
 '.drop-shadow-xs': { shadowOffset: { x: 0, y: 0 }, shadowRadius: 1, shadowColor: '#59000000' }
 '.drop-shadow-sm': { shadowOffset: { x: 0, y: 1 }, shadowRadius: 1, shadowColor: '#59000000' }
 '.drop-shadow': { shadowOffset: { x: 0, y: 2 }, shadowRadius: 2, shadowColor: '#59000000' }
@@ -2869,8 +2869,8 @@
 '.drop-shadow-2xl': { shadowOffset: { x: 0, y: 8 }, shadowRadius: 8, shadowColor: '#59000000' }
 '.drop-shadow-none': { shadowOffset: { x: 0, y: 0 }, shadowRadius: null, shadowColor: null }
 
-// Property(ies): shadowColor - Drop Shadow in Tailwind
 // Component(s): Ti.UI.Button, Ti.UI.Label
+// Property(ies): shadowColor - Drop Shadow in Tailwind
 '.drop-shadow-transparent': { shadowColor: 'transparent' }
 '.drop-shadow-black': { shadowColor: '#000000' }
 '.drop-shadow-white': { shadowColor: '#ffffff' }
@@ -3095,13 +3095,13 @@
 '.drop-shadow-rose-800': { shadowColor: '#9f1239' }
 '.drop-shadow-rose-900': { shadowColor: '#881337' }
 
-// Property(ies): editable
 // Component(s): Ti.UI.DashboardView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): editable
 '.editable': { editable: true }
 '.none-editable': { editable: false }
 
-// Property(ies): ellipsize
 // Component(s): Ti.UI.Label
+// Property(ies): ellipsize
 '.ellipsize-end': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_END }
 '.ellipsize-clip': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CLIP }
 '.ellipsize-none': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_NONE }
@@ -3111,33 +3111,33 @@
 '.ellipsize-char-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CHAR_WRAP }
 '.ellipsize-word-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_WORD_WRAP }
 
-// Property(ies): ellipsize
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): ellipsize
 '.ellipsize': { ellipsize: true }
 '.no-ellipsize': { ellipsize: false }
 
-// Property(ies): enableCopy
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): enableCopy
 '.enable-copy': { enableCopy: true }
 '.disable-copy': { enableCopy: false }
 
-// Property(ies): enableReturnKey - iOS Only
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): enableReturnKey - iOS Only
 '.enable-returnkey[platform=ios]': { enableReturnKey: true }
 '.disable-returnkey[platform=ios]': { enableReturnKey: false }
 
-// Property(ies): exitOnClose
 // Component(s): Ti.UI.TabGroup[android], Ti.UI.Window[android]
+// Property(ies): exitOnClose
 '.exit-on-close[platform=android]': { exitOnClose: true }
 '.dont-exit-on-close[platform=android]': { exitOnClose: false }
 
-// Property(ies): extendBackground
 // Component(s): Ti.UI.Toolbar
+// Property(ies): extendBackground
 '.extend-background': { extendBackground: true }
 '.dont-extend-background': { extendBackground: false }
 
-// Property(ies): extendEdges
 // Component(s): Ti.UI.Window
+// Property(ies): extendEdges - iOS Only
 '.extend-edges-all[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_ALL ] }
 '.extend-edges-bottom[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_BOTTOM ] }
 '.extend-edges-left[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_LEFT ] }
@@ -3145,13 +3145,13 @@
 '.extend-edges-right[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_RIGHT ] }
 '.extend-edges-top[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_TOP ] }
 
-// Property(ies): flip
 // Component(s): For the Animation Component
+// Property(ies): flip
 '.flip-horizontal': { flip: 'horizontal' }
 '.flip-vertical': { flip: 'vertical' }
 
-// Property(ies): fontSize
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): fontSize
 '.text-xs': { font: { fontSize: 12 } }
 '.text-sm': { font: { fontSize: 14 } }
 '.text-base': { font: { fontSize: 16 } }
@@ -3166,13 +3166,13 @@
 '.text-8xl': { font: { fontSize: 96 } }
 '.text-9xl': { font: { fontSize: 128 } }
 
-// Property(ies): fontStyle
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): fontStyle
 '.italic': { font: { fontStyle: 'italic' } }
 '.not-italic': { font: { fontStyle: 'normal' } }
 
-// Property(ies): fontWeight
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): fontWeight
 '.font-thin': { font: { fontWeight: 'thin' } }
 '.font-extralight': { font: { fontWeight: 'extralight' } }
 '.font-light': { font: { fontWeight: 'light' } }
@@ -3183,13 +3183,13 @@
 '.font-extrabold': { font: { fontWeight: 'bold' } }
 '.font-black': { font: { fontWeight: 'bold' } }
 
-// Property(ies): fullscreen
 // Component(s): Ti.Media.VideoPlayer[android], Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Window
+// Property(ies): fullscreen
 '.fullscreen': { fullscreen: true }
 '.fullscreen-disabled': { fullscreen: false }
 
-// Property(ies): top, right, bottom, left - Gap for Grid System
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
+// Property(ies): top, right, bottom, left - Gap for Grid System
 '.gap-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.gap-1': { top: 4, right: 4, bottom: 4, left: 4 }
 '.gap-2': { top: 8, right: 8, bottom: 8, left: 8 }
@@ -3450,8 +3450,8 @@
 '.gap-y-3.5': { top: 14, bottom: 14 }
 '.gap-y-full': { top: '100%', bottom: '100%' }
 
-// Property(ies): backgroundGradient: colors - From Color
 // Component(s): Ti.UI.ListItem, Ti.UI.View
+// Property(ies): backgroundGradient: colors - From Color
 '.from-transparent': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }
 '.from-black': { backgroundGradient: { colors: [ '#00000000', '#000000' ] } }
 '.from-white': { backgroundGradient: { colors: [ '#00ffffff', '#ffffff' ] } }
@@ -3676,8 +3676,8 @@
 '.from-rose-800': { backgroundGradient: { colors: [ '#009f1239', '#9f1239' ] } }
 '.from-rose-900': { backgroundGradient: { colors: [ '#00881337', '#881337' ] } }
 
-// Property(ies): backgroundGradient: colors - To Color
 // Component(s): Ti.UI.ListItem, Ti.UI.View
+// Property(ies): backgroundGradient: colors - To Color
 '.to-transparent': { backgroundGradient: { colors: [ 'transparent' ] } }
 '.to-black': { backgroundGradient: { colors: [ '#000000' ] } }
 '.to-white': { backgroundGradient: { colors: [ '#ffffff' ] } }
@@ -3902,8 +3902,8 @@
 '.to-rose-800': { backgroundGradient: { colors: [ '#9f1239' ] } }
 '.to-rose-900': { backgroundGradient: { colors: [ '#881337' ] } }
 
-// Property(ies): width - For Grid Column Start/End
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
+// Property(ies): width - For Grid Column Start/End
 '.col-span-1': { width: '8.333334%' }
 '.col-span-2': { width: '16.666667%' }
 '.col-span-3': { width: '25%' }
@@ -3917,8 +3917,8 @@
 '.col-span-11': { width: '91.666667%' }
 '.col-span-12': { width: '100%' }
 
-// Property(ies): height - For Grid Row Start/End
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
+// Property(ies): height - For Grid Row Start/End
 '.row-span-1': { height: '8.333334%' }
 '.row-span-2': { height: '16.666667%' }
 '.row-span-3': { height: '25%' }
@@ -3932,15 +3932,15 @@
 '.row-span-11': { height: '91.666667%' }
 '.row-span-12': { height: '100%' }
 
-// Property(ies): layout
 // Component(s): Ti.UI.View
+// Property(ies): layout
 // Description: Grid Flow - layout
 '.grid': { layout: 'horizontal' }
 '.grid-flow-col': { layout: 'horizontal' }
 '.grid-flow-row': { layout: 'vertical' }
 
-// Property(ies): width - For Grid Template Columns
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
+// Property(ies): width - For Grid Template Columns
 '.grid-cols-1': { width: '100%' }
 '.grid-cols-2': { width: '50%' }
 '.grid-cols-3': { width: '33.333334%' }
@@ -3954,8 +3954,8 @@
 '.grid-cols-11': { width: '9.090909%' }
 '.grid-cols-12': { width: '8.333334%' }
 
-// Property(ies): height - For Grid Template Rows
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
+// Property(ies): height - For Grid Template Rows
 '.grid-rows-1': { height: '100%' }
 '.grid-rows-2': { height: '50%' }
 '.grid-rows-3': { height: '33.333334%' }
@@ -3969,8 +3969,8 @@
 '.grid-rows-11': { height: '9.090909%' }
 '.grid-rows-12': { height: '8.333334%' }
 
-// Property(ies): height
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
+// Property(ies): height
 '.h-0': { height: 0 }
 '.h-1': { height: 4 }
 '.h-2': { height: 8 }
@@ -4036,29 +4036,29 @@
 '.h-full': { height: '100%' }
 '.h-screen': { height: Ti.UI.FILL }
 
-// Property(ies): hidesBackButton
 // Component(s): Ti.UI.Window
+// Property(ies): hidesBackButton
 '.hides-back-button': { hidesBackButton: true }
 
-// Property(ies): hidesBarsOnSwipe - iOS Only
 // Component(s): Ti.UI.Window
+// Property(ies): hidesBarsOnSwipe - iOS Only
 '.hides-bars-on-swipe[platform=ios]': { hidesBarsOnSwipe: true }
 
-// Property(ies): hidesBarsOnTap - iOS Only
 // Component(s): Ti.UI.Window
+// Property(ies): hidesBarsOnTap - iOS Only
 '.hides-bars-on-tap[platform=ios]': { hidesBarsOnTap: true }
 
-// Property(ies): iconIsMask - iOS Only
 // Component(s): Ti.UI.Tab
+// Property(ies): iconIsMask - iOS Only
 '.icon-is-mask[platform=ios]': { iconIsMask: true }
 '.icon-is-not-mask[platform=ios]': { iconIsMask: false }
 
-// Property(ies): includeOpaqueBars
 // Component(s): Ti.UI.Window
+// Property(ies): includeOpaqueBars - iOS Only
 '.include-opaque-bars[platform=ios]': { includeOpaqueBars: true }
 
-// Property(ies): indicatorColor
 // Component(s): Ti.UI.ActivityIndicator
+// Property(ies): indicatorColor
 '.indicator-transparent': { indicatorColor: 'transparent' }
 '.indicator-black': { indicatorColor: '#000000' }
 '.indicator-white': { indicatorColor: '#ffffff' }
@@ -4283,43 +4283,43 @@
 '.indicator-rose-800': { indicatorColor: '#9f1239' }
 '.indicator-rose-900': { indicatorColor: '#881337' }
 
-// Property(ies): touchEnabled
 // Component(s): Ti.UI.View
+// Property(ies): touchEnabled
 '.touch-enabled': { touchEnabled: true }
 '.touch-disabled': { touchEnabled: false }
 '.pointer-events-auto': { touchEnabled: true }
 '.pointer-events-none': { touchEnabled: false }
 
-// Property(ies): top, bottom, width(FILL), height(FILL)
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animaiton, Ti.UI.View, Ti.UI.Window
+// Property(ies): top, bottom, width(FILL), height(FILL)
 // Description: top, bottom, width, height properties for aligning items in a Grid System
 '.items-start': { top: 0 }
 '.items-end': { bottom: 0 }
 '.items-center': { width: Ti.UI.FILL, height: Ti.UI.FILL }
 
-// Property(ies): keepScreenOn - Android Only
 // Component(s): Ti.UI.View
+// Property(ies): keepScreenOn - Android Only
 '.keep-screen-on[platform=android]': { keepScreenOn: true }
 
-// Property(ies): keepSectionsInSearch
 // Component(s): Ti.UI.ListView
+// Property(ies): keepSectionsInSearch - iOS Only
 '.keep-sections-in-search[platform=ios]': { keepSectionsInSearch: true }
 '.dont-keep-sections-in-search[platform=ios]': { keepSectionsInSearch: false }
 
-// Property(ies): keyboardAppearance - iOS Only
 // Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): keyboardAppearance - iOS Only
 '.keyboard-appearance[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
 '.keyboard-appearance-dark[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DARK }
 '.keyboard-appearance-light[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
 
-// Property(ies): keyboardDismissMode - iOS Only
 // Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): keyboardDismissMode - iOS Only
 '.keyboard-dismiss-interactive[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_INTERACTIVE }
 '.keyboard-dismiss-none[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }
 '.keyboard-dismiss-on-drag[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG }
 
-// Property(ies): keyboardType
 // Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): keyboardType
 '.keyboard-type': { keyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.keyboard-type-ascii': { keyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.keyboard-type-decimal-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
@@ -4335,28 +4335,28 @@
 '.keyboard-type-twitter[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
 '.keyboard-type-websearch[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 
-// Property(ies): largeTitleDisplayMode - iOS Only
 // Component(s): Ti.UI.Window
+// Property(ies): largeTitleDisplayMode - iOS Only
 '.large-title-display-always[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_ALWAYS }
 '.large-title-display-automatic[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_AUTOMATIC }
 '.large-title-display-never[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_NEVER }
 
-// Property(ies): largeTitleEnabled
 // Component(s): Ti.UI.Window
+// Property(ies): largeTitleEnabled - iOS Only
 '.large-title-enabled[platform=ios]': { largeTitleEnabled: true }
 
-// Property(ies): layout
 // Component(s): Ti.UI.OptionBar, Ti.UI.View
+// Property(ies): layout
 '.horizontal': { layout: 'horizontal' }
 '.vertical': { layout: 'vertical' }
 
-// Property(ies): lazyLoadingEnabled - iOS Only
 // Component(s): Ti.UI.ListView
+// Property(ies): lazyLoadingEnabled - iOS Only
 '.lazy-loading-enabled[platform=ios]': { lazyLoadingEnabled: true }
 '.lazy-loading-disabled[platform=ios]': { lazyLoadingEnabled: false }
 
-// Property(ies): backgroundGradient - Linear
 // Component(s): Ti.UI.MaskedImage
+// Property(ies): backgroundGradient - Linear
 '.bg-linear': { backgroundGradient: { type: 'linear', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' }, backfillStart: true } }
 '.bg-linear-to-t': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
 '.bg-linear-to-tr': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
@@ -4367,8 +4367,8 @@
 '.bg-linear-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
 '.bg-linear-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backfillStart: true } }
 
-// Property(ies): backgroundGradient - Gradient
 // Component(s): Ti.UI.MaskedImage
+// Property(ies): backgroundGradient - Gradient
 '.bg-gradient': { backgroundGradient: { type: 'linear', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' }, backfillStart: true } }
 '.bg-gradient-to-t': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
 '.bg-gradient-to-tr': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
@@ -4379,8 +4379,8 @@
 '.bg-gradient-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
 '.bg-gradient-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backfillStart: true } }
 
-// Property(ies): loginKeyboardType
 // Component(s): Ti.UI.AlertDialog
+// Property(ies): loginKeyboardType
 '.login-keyboard': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.login-keyboard-appearance': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
 '.login-keyboard-appearance-dark': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
@@ -4396,8 +4396,8 @@
 '.login-keyboard-url': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_URL }
 '.login-keyboard-websearch': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 
-// Property(ies): loginReturnKeyType
 // Component(s): Ti.UI.AlertDialog
+// Property(ies): loginReturnKeyType
 '.login-returnkey': { loginReturnKeyType: Ti.UI.RETURNKEY_DEFAULT }
 '.login-returnkey-go': { loginReturnKeyType: Ti.UI.RETURNKEY_GO }
 '.login-returnkey-done': { loginReturnKeyType: Ti.UI.RETURNKEY_DONE }
@@ -4411,8 +4411,8 @@
 '.login-returnkey-emergency-call': { loginReturnKeyType: Ti.UI.RETURNKEY_EMERGENCY_CALL }
 '.login-returnkey-continue[platform=ios]': { loginReturnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 
-// Property(ies): top, right, bottom, left ( Margin )
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
+// Property(ies): top, right, bottom, left ( Margin )
 '.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.m-1': { top: 4, right: 4, bottom: 4, left: 4 }
 '.m-2': { top: 8, right: 8, bottom: 8, left: 8 }
@@ -4855,8 +4855,8 @@
 '.ml-11/12': { left: '91.666667%' }
 '.ml-full': { left: '100%' }
 
-// Property(ies): top, right, bottom, left ( Negative Margin )
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
+// Property(ies): top, right, bottom, left ( Negative Margin )
 '.-m-1': { top: -4, right: -4, bottom: -4, left: -4 }
 '.-m-2': { top: -8, right: -8, bottom: -8, left: -8 }
 '.-m-3': { top: -12, right: -12, bottom: -12, left: -12 }
@@ -5285,13 +5285,13 @@
 '.-ml-11/12': { left: '-91.666667%' }
 '.-ml-full': { left: '-100%' }
 
-// Property(ies): navBarHidden
 // Component(s): Ti.UI.Window
+// Property(ies): navBarHidden
 '.nav-bar-hidden': { navBarHidden: true }
 '.nav-bar-visible': { navBarHidden: false }
 
-// Property(ies): navTintColor
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
+// Property(ies): navTintColor
 '.nav-tint-transparent': { navTintColor: 'transparent' }
 '.nav-tint-black': { navTintColor: '#000000' }
 '.nav-tint-white': { navTintColor: '#ffffff' }
@@ -5516,8 +5516,8 @@
 '.nav-tint-rose-800': { navTintColor: '#9f1239' }
 '.nav-tint-rose-900': { navTintColor: '#881337' }
 
-// Property(ies): opacity
 // Component(s): Ti.UI.Animation, Ti.UI.TableViewRow, Ti.UI.View, Ti.UI.Window
+// Property(ies): opacity
 '.opacity-0': { opacity: 0 }
 '.opacity-5': { opacity: 0.05 }
 '.opacity-10': { opacity: 0.1 }
@@ -5534,24 +5534,24 @@
 '.opacity-95': { opacity: 0.95 }
 '.opacity-100': { opacity: 1 }
 
-// Property(ies): orientationModes
 // Component(s): Ti.UI.Window
+// Property(ies): orientationModes
 '.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 '.orientation-portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.orientation-upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.orientation-landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
-// Property(ies): orientationModes (Alternative)
 // Component(s): Ti.UI.Window
+// Property(ies): orientationModes (Alternative)
 '.portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 '.landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
-// Property(ies): anchorPoint
 // Component(s): Ti.UI.Animation, Ti.UI.View
+// Property(ies): anchorPoint
 '.origin-center': { anchorPoint: { x: 0.5, y: 0.5 } }
 '.origin-top': { anchorPoint: { x: 0.5, y: 0 } }
 '.origin-top-right': { anchorPoint: { x: 1, y: 0 } }
@@ -5562,12 +5562,12 @@
 '.origin-left': { anchorPoint: { x: 0, y: 0.5 } }
 '.origin-top-left': { anchorPoint: { x: 0, y: 0 } }
 
-// Property(ies): overlayEnabled
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): overlayEnabled
 '.overlay-enabled[platform=ios]': { overlayEnabled: true }
 
-// Property(ies): padding
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): padding
 '.p-0': { padding: { top: 0, right: 0, bottom: 0, left: 0 } }
 '.p-1': { padding: { top: 4, right: 4, bottom: 4, left: 4 } }
 '.p-2': { padding: { top: 8, right: 8, bottom: 8, left: 8 } }
@@ -6003,8 +6003,8 @@
 '.pl-11/12': { padding: { left: '91.666667%' } }
 '.pl-full': { padding: { left: '100%' } }
 
-// Property(ies): pageIndicatorColor
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): pageIndicatorColor
 '.page-transparent': { pageIndicatorColor: 'transparent' }
 '.page-black': { pageIndicatorColor: '#000000' }
 '.page-white': { pageIndicatorColor: '#ffffff' }
@@ -6229,12 +6229,12 @@
 '.page-rose-800': { pageIndicatorColor: '#9f1239' }
 '.page-rose-900': { pageIndicatorColor: '#881337' }
 
-// Property(ies): showPagingControl
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): showPagingControl
 '.show-paging-control': { showPagingControl: true }
 
-// Property(ies): pagingControlAlpha
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): pagingControlAlpha
 '.paging-alpha-0': { pagingControlAlpha: 0 }
 '.paging-alpha-5': { pagingControlAlpha: 0.05 }
 '.paging-alpha-10': { pagingControlAlpha: 0.1 }
@@ -6251,8 +6251,8 @@
 '.paging-alpha-95': { pagingControlAlpha: 0.95 }
 '.paging-alpha-100': { pagingControlAlpha: 1 }
 
-// Property(ies): pagingControlColor
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): pagingControlColor
 '.paging-transparent': { pagingControlColor: 'transparent' }
 '.paging-black': { pagingControlColor: '#000000' }
 '.paging-white': { pagingControlColor: '#ffffff' }
@@ -6477,8 +6477,8 @@
 '.paging-rose-800': { pagingControlColor: '#9f1239' }
 '.paging-rose-900': { pagingControlColor: '#881337' }
 
-// Property(ies): pagingControlHeight
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): pagingControlHeight
 '.paging-h-0': { pagingControlHeight: 0 }
 '.paging-h-1': { pagingControlHeight: 4 }
 '.paging-h-2': { pagingControlHeight: 8 }
@@ -6515,13 +6515,13 @@
 '.paging-h-2.5': { pagingControlHeight: 10 }
 '.paging-h-3.5': { pagingControlHeight: 14 }
 
-// Property(ies): pagingControlOnTop
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): pagingControlOnTop
 '.paging-control-on-top': { pagingControlOnTop: true }
 '.paging-control-on-bottom': { pagingControlOnTop: false }
 
-// Property(ies): pagingControlTimeout
 // Component(s): Ti.UI.ScrollableView
+// Property(ies): pagingControlTimeout
 '.paging-timeout-0': { pagingControlTimeout: 0 }
 '.paging-timeout-25': { pagingControlTimeout: 25 }
 '.paging-timeout-50': { pagingControlTimeout: 50 }
@@ -6538,8 +6538,8 @@
 '.paging-timeout-4000': { pagingControlTimeout: 4000 }
 '.paging-timeout-5000': { pagingControlTimeout: 5000 }
 
-// Property(ies): passwordKeyboardType
 // Component(s): Ti.UI.AlertDialog
+// Property(ies): passwordKeyboardType
 '.password-keyboard': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.password-keyboard-ascii': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.password-keyboard-decimal-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
@@ -6555,16 +6555,16 @@
 '.password-keyboard-twitter[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
 '.password-keyboard-websearch[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 
-// Property(ies): type (Picker Type)
 // Component(s): Ti.UI.Picker
+// Property(ies): type (Picker Type)
 '.picker-type-count-down-timer': { type: Ti.UI.PICKER_TYPE_COUNT_DOWN_TIMER }
 '.picker-type-date': { type: Ti.UI.PICKER_TYPE_DATE }
 '.picker-type-date-and-time': { type: Ti.UI.PICKER_TYPE_DATE_AND_TIME }
 '.picker-type-plain': { type: Ti.UI.PICKER_TYPE_PLAIN }
 '.picker-type-time': { type: Ti.UI.PICKER_TYPE_TIME }
 
-// Property(ies): hintTextColor
 // Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): hintTextColor
 '.placeholder-transparent': { hintTextColor: 'transparent' }
 '.placeholder-black': { hintTextColor: '#000000' }
 '.placeholder-white': { hintTextColor: '#ffffff' }
@@ -6789,8 +6789,8 @@
 '.placeholder-rose-800': { hintTextColor: '#9f1239' }
 '.placeholder-rose-900': { hintTextColor: '#881337' }
 
-// Property(ies): top, right, bottom, left
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
+// Property(ies): top, right, bottom, left
 '.top-0': { top: 0 }
 '.left-0': { left: 0 }
 '.right-0': { right: 0 }
@@ -6806,13 +6806,13 @@
 '.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
 '.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
 
-// Property(ies): preventDefaultImage - iOS Only
 // Component(s): Ti.UI.ImageView
+// Property(ies): preventDefaultImage - iOS Only
 '.prevent-default-image[platform=ios]': { preventDefaultImage: true }
 '.display-default-image[platform=ios]': { preventDefaultImage: false }
 
-// Property(ies): backgroundGradient: type, startRadius, endRadius, backfillStart, backfillEnd
 // Component(s): Ti.UI.ListItem, Ti.UI.View
+// Property(ies): backgroundGradient: type, startRadius, endRadius, backfillStart, backfillEnd
 '.bg-radial[platform=ios]': { backgroundGradient: { type: 'radial', startRadius: '125%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 '.bg-radial-to-b[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '50%', y: '0%' }, endPoint: { x: '50%', y: '0%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 '.bg-radial-to-bl[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
@@ -6823,8 +6823,8 @@
 '.bg-radial-to-r[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '0%', y: '50%' }, endPoint: { x: '0%', y: '50%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 '.bg-radial-to-br[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 
-// Property(ies): repeat
 // Component(s): Ti.UI.Animation
+// Property(ies): repeat
 '.repeat-1': { repeat: 1 }
 '.repeat-2': { repeat: 2 }
 '.repeat-3': { repeat: 3 }
@@ -6836,8 +6836,8 @@
 '.repeat-9': { repeat: 9 }
 '.repeat-10': { repeat: 10 }
 
-// Property(ies): returnKeyType
 // Component(s): Ti.UI.AlertDialog, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): returnKeyType
 '.returnkey': { returnKeyType: Ti.UI.RETURNKEY_DEFAULT }
 '.returnkey-go': { returnKeyType: Ti.UI.RETURNKEY_GO }
 '.returnkey-done': { returnKeyType: Ti.UI.RETURNKEY_DONE }
@@ -6851,8 +6851,8 @@
 '.returnkey-emergency-call': { returnKeyType: Ti.UI.RETURNKEY_EMERGENCY_CALL }
 '.returnkey-continue[platform=ios]': { returnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 
-// Property(ies): rotate
 // Component(s): For the Animation Component
+// Property(ies): rotate
 '.rotate-0': { rotate: 0 }
 '.rotate-1': { rotate: 1 }
 '.rotate-2': { rotate: 2 }
@@ -6863,8 +6863,8 @@
 '.rotate-90': { rotate: 90 }
 '.rotate-180': { rotate: 180 }
 
-// Property(ies): scale
 // Component(s): Ti.UI.ScrollView
+// Property(ies): scale
 '.scale-0': { scale: '0' }
 '.scale-5': { scale: '.05' }
 '.scale-10': { scale: '.10' }
@@ -6879,8 +6879,8 @@
 '.scale-125': { scale: '1.25' }
 '.scale-150': { scale: '1.5' }
 
-// Property(ies): contentWidth, contentHeight
 // Component(s): Ti.UI.ScrollView
+// Property(ies): contentWidth, contentHeight
 '.content-w-auto': { contentWidth: Ti.UI.SIZE }
 '.content-w-screen': { contentWidth: Ti.UI.FILL }
 '.content-h-auto': { contentHeight: Ti.UI.SIZE }
@@ -6888,8 +6888,8 @@
 '.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
 '.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
 
-// Property(ies): showHorizontalScrollIndicator, showVerticalScrollIndicator
 // Component(s): Ti.UI.ScrollView
+// Property(ies): showHorizontalScrollIndicator, showVerticalScrollIndicator
 '.overflow-x-scroll': { showHorizontalScrollIndicator: true }
 '.overflow-y-scroll': { showVerticalScrollIndicator: true }
 '.overflow-x-hidden': { showHorizontalScrollIndicator: false }
@@ -6897,23 +6897,18 @@
 '.overflow-scroll': { showHorizontalScrollIndicator: true, showVerticalScrollIndicator: true }
 '.overflow-hidden': { showHorizontalScrollIndicator: false, showVerticalScrollIndicator: false }
 
-// Property(ies): scrollingEnabled
 // Component(s): Ti.UI.ScrollableView, Ti.UI.ScrollView
+// Property(ies): scrollingEnabled
 '.scrolling-enabled': { scrollingEnabled: true }
 '.scrolling-disabled': { scrollingEnabled: false }
 
-// Property(ies): scrollType
 // Component(s): Ti.UI.ScrollView
+// Property(ies): scrollType
 '.scroll-horizontal[platform=android]': { scrollType: 'horizontal' }
 '.scroll-vertical[platform=android]': { scrollType: 'vertical' }
 
-// Property(ies): selectionIndicator
-// Component(s): Ti.UI.Picker
-'.show-selection-indicator': { selectionIndicator: true }
-'.hide-selection-indicator': { selectionIndicator: false }
-
-// Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow in Tailwind
 // Component(s): Ti.UI.View
+// Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow in Tailwind
 '.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#59000000' }
 '.shadow-sm': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 1, viewShadowColor: '#59000000' }
 '.shadow': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 2, viewShadowColor: '#59000000' }
@@ -6925,8 +6920,8 @@
 '.shadow-outline': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 2, viewShadowColor: '#59000000' }
 '.shadow-none': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 
-// Property(ies): viewShadowColor - Box Shadow in Tailwind
 // Component(s): Ti.UI.View
+// Property(ies): viewShadowColor - Box Shadow in Tailwind
 '.shadow-transparent': { viewShadowColor: 'transparent' }
 '.shadow-black': { viewShadowColor: '#000000' }
 '.shadow-white': { viewShadowColor: '#ffffff' }
@@ -7151,45 +7146,45 @@
 '.shadow-rose-800': { viewShadowColor: '#9f1239' }
 '.shadow-rose-900': { viewShadowColor: '#881337' }
 
-// Property(ies): shiftMode
 // Component(s): Ti.UI.TabGroup
+// Property(ies): shiftMode - Android Only
 '.shift-mode[platform=android]': { shiftMode: true }
 '.shift-mode-disabled[platform=android]': { shiftMode: false }
 
-// Property(ies): showAsAction - Android Only
 // Component(s): Ti.Android.MenuItem
+// Property(ies): showAsAction - Android Only
 '.show-as-action-always[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS }
 '.show-as-action-collapse[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW }
 '.show-as-action-if-room[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM }
 '.show-as-action-never[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER }
 '.show-as-action-with-text[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_WITH_TEXT }
 
-// Property(ies): showCancel
 // Component(s): Ti.UI.SearchBar
+// Property(ies): showCancel
 '.show-cancel': { showCancel: true }
 
-// Property(ies): smoothScrollOnTabClick
 // Component(s): Ti.UI.TabGroup
+// Property(ies): smoothScrollOnTabClick
 '.smooth-scroll[platform=android]': { smoothScrollOnTabClick: true }
 '.smooth-scroll-disabled[platform=android]': { smoothScrollOnTabClick: false }
 
-// Property(ies): statusBarStyle
 // Component(s): Ti.UI.Window
+// Property(ies): statusBarStyle - iOS Only
 '.status-bar[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }
 '.status-bar-dark[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DARK_CONTENT }
 '.status-bar-light[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT }
 
-// Property(ies): tabBarHidden
-// Component(s): Ti.UI.Window[iOS]
+// Component(s): Ti.UI.Window
+// Property(ies): tabBarHidden - iOS Only
 '.tab-bar-hidden[platform=ios]': { tabBarHidden: true }
 
-// Property(ies): style - Android Only
 // Component(s): Ti.UI.TabGroup
+// Property(ies): style - Android Only
 '.tabs-style[platform=android]': { style: Ti.UI.Android.TABS_STYLE_DEFAULT }
 '.tabs-style-bottom[platform=android]': { style: Ti.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION }
 
-// Property(ies): tabsBackgroundColor
 // Component(s): Ti.UI.TabGroup
+// Property(ies): tabsBackgroundColor
 '.tabs-bg-transparent': { tabsBackgroundColor: 'transparent' }
 '.tabs-bg-black': { tabsBackgroundColor: '#000000' }
 '.tabs-bg-white': { tabsBackgroundColor: '#ffffff' }
@@ -7414,15 +7409,15 @@
 '.tabs-bg-rose-800': { tabsBackgroundColor: '#9f1239' }
 '.tabs-bg-rose-900': { tabsBackgroundColor: '#881337' }
 
-// Property(ies): textAlign
 // Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): textAlign
 '.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
 '.text-right': { textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT }
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
 '.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
 
-// Property(ies): color
 // Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.PickerRow, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.ListItem, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextField, Ti.UI.Android.SearchView
+// Property(ies): color
 '.text-transparent': { color: 'transparent' }
 '.text-black': { color: '#000000' }
 '.text-white': { color: '#ffffff' }
@@ -7648,16 +7643,16 @@
 '.text-rose-900': { color: '#881337' }
 
 // Ti.Media
-// Property(ies): audioSessionCategory - iOS Only
 // Component(s): Ti.Media
+// Property(ies): audioSessionCategory - iOS Only
 '.audio-sesion-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_RECORD }
 '.audio-sesion-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_AMBIENT }
 '.audio-sesion-playback[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAYBACK }
 '.audio-sesion-solo-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
 '.audio-sesion-play-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD }
 
-// Property(ies): audioType
 // Component(s): Ti.Media.AudioPlayer[android], Ti.Media.Sound[android]
+// Property(ies): audioType
 '.audio-type-ring[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_RING }
 '.audio-type-alarm[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_ALARM }
 '.audio-type-media[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_MEDIA }
@@ -7665,29 +7660,29 @@
 '.audio-type-signalling[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_SIGNALLING }
 '.audio-type-notification[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_NOTIFICATION }
 
-// Property(ies): repeatMode - iOS Only
 // Component(s): Ti.Media.MusicPlayer
+// Property(ies): repeatMode - iOS Only
 '.music-repeat-all[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_ALL }
 '.music-repeat[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_DEFAULT }
 '.music-repeat-none[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_NONE }
 '.music-repeat-one[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_ONE }
 
-// Property(ies): shuffleMode - iOS Only
 // Component(s): Ti.Media.MusicPlayer
+// Property(ies): shuffleMode - iOS Only
 '.music-shuffle-albums[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_ALBUMS }
 '.music-shuffle[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_DEFAULT }
 '.music-shuffle-none[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_NONE }
 '.music-shuffle-songs[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_SONGS }
 
-// Property(ies): scalingMode
 // Component(s): Ti.UI.ImageView
+// Property(ies): scalingMode
 // Description: Background Size for compatibility with Tailwind classes
 '.bg-auto': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
 '.bg-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
 '.bg-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
-// Property(ies): scalingMode
 // Component(s): Ti.UI.ImageView
+// Property(ies): scalingMode
 // Description: Image Scaling Mode
 '.image-scaling-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
 '.image-scaling-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
@@ -7695,21 +7690,21 @@
 '.image-scaling-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
 '.image-scaling-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
-// Property(ies): scalingMode
 // Component(s): Ti.Media.VideoPlayer
+// Property(ies): scalingMode
 // Description: Video Scaling Mode
 '.video-scaling-resize': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE }
 '.video-scaling-contain': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT }
 '.video-scaling-cover': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT_FILL }
 
-// Property(ies): repeatMode
 // Component(s): Ti.Media.VideoPlayer
+// Property(ies): repeatMode
 // Description: Determines how the movie player repeats when reaching the end of playback.
 '.video-repeat-one': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_ONE }
 '.video-repeat-none': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_NONE }
 
-// Property(ies): tint and tintColor
 // Component(s): Ti.UI, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ImageView, Ti.UI.iOS.Stepper, Ti.UI.ProgressBar, Ti.UI.RefreshControll, Ti.UI.Slider, Ti.UI.Switch, and `tint` for Ti.UI.MaskedImage
+// Property(ies): tint and tintColor
 '.tint-transparent': { tint: 'transparent', tintColor: 'transparent' }
 '.tint-black': { tint: '#000000', tintColor: '#000000' }
 '.tint-white': { tint: '#ffffff', tintColor: '#ffffff' }
@@ -7934,8 +7929,8 @@
 '.tint-rose-800': { tint: '#9f1239', tintColor: '#9f1239' }
 '.tint-rose-900': { tint: '#881337', tintColor: '#881337' }
 
-// Property(ies): titleColor
 // Component(s): Ti.UI.Tab, Ti.UI.TabGroup
+// Property(ies): titleColor
 '.title-transparent': { titleColor: 'transparent' }
 '.title-black': { titleColor: '#000000' }
 '.title-white': { titleColor: '#ffffff' }
@@ -8160,8 +8155,8 @@
 '.title-rose-800': { titleColor: '#9f1239' }
 '.title-rose-900': { titleColor: '#881337' }
 
-// Property(ies): touchFeedbackColor
 // Component(s): Ti.UI.View
+// Property(ies): touchFeedbackColor
 '.feedback-transparent': { touchFeedback: true, touchFeedbackColor: 'transparent' }
 '.feedback-black': { touchFeedback: true, touchFeedbackColor: '#000000' }
 '.feedback-white': { touchFeedback: true, touchFeedbackColor: '#ffffff' }
@@ -8386,8 +8381,8 @@
 '.feedback-rose-800': { touchFeedback: true, touchFeedbackColor: '#9f1239' }
 '.feedback-rose-900': { touchFeedback: true, touchFeedbackColor: '#881337' }
 
-// Property(ies): curve
 // Component(s): Ti.UI.Animation
+// Property(ies): curve
 '.ease-in': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN }
 '.ease-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_OUT }
 '.ease-linear': { curve: Ti.UI.ANIMATION_CURVE_LINEAR }
@@ -8396,8 +8391,8 @@
 // debug
 '.debug': { debug: true }
 
-// Property(ies): delay
 // Component(s): Ti.UI.Animation
+// Property(ies): delay
 '.delay-0': { delay: 0 }
 '.delay-25': { delay: 25 }
 '.delay-50': { delay: 50 }
@@ -8414,8 +8409,8 @@
 '.delay-4000': { delay: 4000 }
 '.delay-5000': { delay: 5000 }
 
-// Property(ies): duration
 // Component(s): Ti.UI.Animation
+// Property(ies): duration
 '.duration-0': { duration: 0 }
 '.duration-25': { duration: 25 }
 '.duration-50': { duration: 50 }
@@ -8429,24 +8424,24 @@
 '.duration-1000': { duration: 1000 }
 '.duration': { duration: 150 }
 
-// Property(ies): translucent
 // Component(s): Ti.UI.iOS.Toolbar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
+// Property(ies): translucent - iOS Only
 '.translucent[platform=ios]': { translucent: true }
 '.translucent-disabled[platform=ios]': { translucent: false }
 
-// Property(ies): useSpinner
 // Component(s): Ti.UI.Picker
+// Property(ies): useSpinner
 '.use-spinner': { useSpinner: true }
 '.dont-use-spinner': { useSpinner: false }
 
-// Property(ies): verticalAlign
 // Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): verticalAlign
 '.align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
 '.align-middle': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
 '.align-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
 
-// Property(ies): width
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
+// Property(ies): width
 '.w-0': { width: 0 }
 '.w-1': { width: 4 }
 '.w-2': { width: 8 }
@@ -8512,8 +8507,8 @@
 '.w-full': { width: '100%' }
 '.w-screen': { width: Ti.UI.FILL }
 
-// Property(ies): zIndex
 // Component(s): Ti.UI.Animation, Ti.UI.View
+// Property(ies): zIndex
 '.z-0': { zIndex: 0 }
 '.z-10': { zIndex: 10 }
 '.z-20': { zIndex: 20 }
