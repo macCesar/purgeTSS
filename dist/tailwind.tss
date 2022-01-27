@@ -1,4 +1,4 @@
-// Tailwind CSS v3.0.12: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind CSS v3.0.17: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // Custom Styles and Resets
@@ -6,11 +6,13 @@
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 
-// activeIconIsMask Property
+// Property(ies): activeIconIsMask - iOS Only
+// Component(s): Ti.UI.Tab
 '.active-icon-is-mask[platform=ios]': { activeIconIsMask: true }
 '.active-icon-is-not-mask[platform=ios]': { activeIconIsMask: false }
 
-// activeTintColor Property
+// Property(ies): activeTintColor
+// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.active-tint-transparent': { activeTintColor: 'transparent' }
 '.active-tint-black': { activeTintColor: '#000000' }
 '.active-tint-white': { activeTintColor: '#ffffff' }
@@ -235,7 +237,8 @@
 '.active-tint-rose-800': { activeTintColor: '#9f1239' }
 '.active-tint-rose-900': { activeTintColor: '#881337' }
 
-// activeTitleColor Property
+// Property(ies): activeTitleColor
+// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.active-title-transparent': { activeTitleColor: 'transparent' }
 '.active-title-black': { activeTitleColor: '#000000' }
 '.active-title-white': { activeTitleColor: '#ffffff' }
@@ -460,26 +463,31 @@
 '.active-title-rose-800': { activeTitleColor: '#9f1239' }
 '.active-title-rose-900': { activeTitleColor: '#881337' }
 
-// ActivityIndicatorStyle Property
+// Property(ies): style
+// Component(s): Ti.UI.ActivityIndicator
 '.activity-indicator-style-big': { style: Ti.UI.ActivityIndicatorStyle.BIG }
 '.activity-indicator-style-dark': { style: Ti.UI.ActivityIndicatorStyle.DARK }
 '.activity-indicator-style-big-dark': { style: Ti.UI.ActivityIndicatorStyle.BIG_DARK }
 '.activity-indicator-style-plain': { style: Ti.UI.ActivityIndicatorStyle.PLAIN }
 
-// autoAdjustScrollViewInsets Property
+// Property(ies): autoAdjustScrollViewInsets
+// Component(s): Ti.UI.Window
 '.auto-adjust-scroll-view-inset[platform=ios]': { autoAdjustScrollViewInsets: true }
 
-// autocapitalization Property
+// Property(ies): autocapitalization
+// Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.uppercase': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_ALL }
 '.normal-case': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE }
 '.capitalize': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS }
 '.sentences': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_SENTENCES }
 
-// autocorrect Property
+// Property(ies): autocorrect
+// Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.autocorrect': { autocorrect: true }
 '.no-autocorrect': { autocorrect: false }
 
-// autofillType Property
+// Property(ies): autofillType
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.autofill-type-url': { autofillType: Ti.UI.AUTOFILL_TYPE_URL }
 '.autofill-type-name': { autofillType: Ti.UI.AUTOFILL_TYPE_NAME }
 '.autofill-type-phone': { autofillType: Ti.UI.AUTOFILL_TYPE_PHONE }
@@ -513,7 +521,8 @@
 '.autofill-type-card-expiration-year': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_YEAR }
 '.autofill-type-card-expiration-month': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_MONTH }
 
-// autoLink Property
+// Property(ies): autoLink
+// Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
 '.auto-link-all': { autoLink: Ti.UI.AUTOLINK_ALL }
 '.auto-link-email-addresses': { autoLink: Ti.UI.AUTOLINK_EMAIL_ADDRESSES }
 '.auto-link-map-addresses': { autoLink: Ti.UI.AUTOLINK_MAP_ADDRESSES }
@@ -522,10 +531,12 @@
 '.auto-link-urls': { autoLink: Ti.UI.AUTOLINK_URLS }
 '.auto-link-calendar[platform=ios]': { autoLink: Ti.UI.AUTOLINK_CALENDAR }
 
-// autoreverse Property
+// Property(ies): autoreverse
+// Component(s): Ti.UI.Animation
 '.autoreverse': { autoreverse: true }
 
-// blend mode Property ( Background Blend Mode ) Property
+// Property(ies): mode ( Background Blend Mode )
+// Component(s): Ti.UI.MaskedImage
 '.bg-blend-clear': { mode: Ti.UI.BLEND_MODE_CLEAR }
 '.bg-blend-copy': { mode: Ti.UI.BLEND_MODE_COPY }
 '.bg-blend-darken': { mode: Ti.UI.BLEND_MODE_DARKEN }
@@ -555,7 +566,8 @@
 '.bg-blend-saturation[platform=ios]': { mode: Ti.UI.BLEND_MODE_SATURATION }
 '.bg-blend-soft-light[platform=ios]': { mode: Ti.UI.BLEND_MODE_SOFT_LIGHT }
 
-// backgroundColor Property
+// Property(ies): backgroundColor
+// Component(s): Ti.UI, Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.Tab, Ti.UI.TableView, Ti.UI.View, Ti.UI.Window
 '.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000000' }
 '.bg-white': { backgroundColor: '#ffffff' }
@@ -780,7 +792,8 @@
 '.bg-rose-800': { backgroundColor: '#9f1239' }
 '.bg-rose-900': { backgroundColor: '#881337' }
 
-// backgroundSelectedColor Property
+// Property(ies): backgroundSelectedColor
+// Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow, Ti.UI.View
 '.bg-selected-transparent': { backgroundSelectedColor: 'transparent' }
 '.bg-selected-black': { backgroundSelectedColor: '#000000' }
 '.bg-selected-white': { backgroundSelectedColor: '#ffffff' }
@@ -1005,7 +1018,8 @@
 '.bg-selected-rose-800': { backgroundSelectedColor: '#9f1239' }
 '.bg-selected-rose-900': { backgroundSelectedColor: '#881337' }
 
-// barColor Property
+// Property(ies): barColor
+// Component(s): Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
 '.bar-transparent': { barColor: 'transparent' }
 '.bar-black': { barColor: '#000000' }
 '.bar-white': { barColor: '#ffffff' }
@@ -1230,7 +1244,8 @@
 '.bar-rose-800': { barColor: '#9f1239' }
 '.bar-rose-900': { barColor: '#881337' }
 
-// barTitleColor Property
+// Property(ies): titleAttributes
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.bar-title-transparent[platform=ios]': { titleAttributes: { color: 'transparent' } }
 '.bar-title-black[platform=ios]': { titleAttributes: { color: '#000000' } }
 '.bar-title-white[platform=ios]': { titleAttributes: { color: '#ffffff' } }
@@ -1455,7 +1470,8 @@
 '.bar-title-rose-800[platform=ios]': { titleAttributes: { color: '#9f1239' } } 
 '.bar-title-rose-900[platform=ios]': { titleAttributes: { color: '#881337' } } 
 
-// Bar Title Shadow - titleAttributes: shadow.color, offset.width/height, blurRadius Properties
+// Property(ies): titleAttributes: shadow, offset, blurRadius - Bar Title Shadow
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.bar-shadow-xs': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 0 }, blurRadius: 1 } } }
 '.bar-shadow-sm': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 1 }, blurRadius: 1 } } }
 '.bar-shadow': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 2 }, blurRadius: 2 } } }
@@ -1465,7 +1481,8 @@
 '.bar-shadow-2xl': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 8 }, blurRadius: 8 } } }
 '.bar-shadow-none': { titleAttributes: { shadow: { color: null, offset: { width: 0, height: 0 }, blurRadius: null } } }
 
-// Bar Title Shadow - titleAttributes: shadow.color (TabGroup, Window) Property Property
+// Property(ies): titleAttributes: shadow - Bar Title Shadow
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.bar-shadow-transparent[platform=ios]': { titleAttributes: { shadow: { color: 'transparent' } } }
 '.bar-shadow-black[platform=ios]': { titleAttributes: { shadow: { color: '#000000' } } }
 '.bar-shadow-white[platform=ios]': { titleAttributes: { shadow: { color: '#ffffff' } } }
@@ -1690,7 +1707,8 @@
 '.bar-shadow-rose-800[platform=ios]': { titleAttributes: { shadow: { color: '#9f1239' } } } 
 '.bar-shadow-rose-900[platform=ios]': { titleAttributes: { shadow: { color: '#881337' } } } 
 
-// borderColor Property
+// Property(ies): borderColor
+// Component(s): Ti.UI.View
 '.border-transparent': { borderColor: 'transparent' }
 '.border-black': { borderColor: '#000000' }
 '.border-white': { borderColor: '#ffffff' }
@@ -1915,8 +1933,8 @@
 '.border-rose-800': { borderColor: '#9f1239' }
 '.border-rose-900': { borderColor: '#881337' }
 
-// Border Radius With Extra Styles - borderRadius Property
-'.rounded-0': { borderRadius: 0 }
+// Property(ies): borderRadius ( with Extra Styles )
+// Component(s): Ti.UI.Android.CardView, Ti.UI.View
 '.rounded-1': { borderRadius: 2 }
 '.rounded-2': { borderRadius: 4 }
 '.rounded-3': { borderRadius: 6 }
@@ -1959,7 +1977,6 @@
 '.rounded-xl': { borderRadius: 12 }
 '.rounded-2xl': { borderRadius: 16 }
 '.rounded-3xl': { borderRadius: 24 }
-'.rounded-t-0': { borderRadius: [0, 0, 0, 0] }
 '.rounded-t-1': { borderRadius: [2, 2, 0, 0] }
 '.rounded-t-2': { borderRadius: [4, 4, 0, 0] }
 '.rounded-t-3': { borderRadius: [6, 6, 0, 0] }
@@ -2002,7 +2019,6 @@
 '.rounded-t-xl': { borderRadius: [12, 12, 0, 0] }
 '.rounded-t-2xl': { borderRadius: [16, 16, 0, 0] }
 '.rounded-t-3xl': { borderRadius: [24, 24, 0, 0] }
-'.rounded-r-0': { borderRadius: [0, 0, 0, 0] }
 '.rounded-r-1': { borderRadius: [0, 2, 2, 0] }
 '.rounded-r-2': { borderRadius: [0, 4, 4, 0] }
 '.rounded-r-3': { borderRadius: [0, 6, 6, 0] }
@@ -2045,7 +2061,6 @@
 '.rounded-r-xl': { borderRadius: [0, 12, 12, 0] }
 '.rounded-r-2xl': { borderRadius: [0, 16, 16, 0] }
 '.rounded-r-3xl': { borderRadius: [0, 24, 24, 0] }
-'.rounded-b-0': { borderRadius: [0, 0, 0, 0] }
 '.rounded-b-1': { borderRadius: [0, 0, 2, 2] }
 '.rounded-b-2': { borderRadius: [0, 0, 4, 4] }
 '.rounded-b-3': { borderRadius: [0, 0, 6, 6] }
@@ -2088,7 +2103,6 @@
 '.rounded-b-xl': { borderRadius: [0, 0, 12, 12] }
 '.rounded-b-2xl': { borderRadius: [0, 0, 16, 16] }
 '.rounded-b-3xl': { borderRadius: [0, 0, 24, 24] }
-'.rounded-l-0': { borderRadius: [0, 0, 0, 0] }
 '.rounded-l-1': { borderRadius: [2, 0, 0, 2] }
 '.rounded-l-2': { borderRadius: [4, 0, 0, 4] }
 '.rounded-l-3': { borderRadius: [6, 0, 0, 6] }
@@ -2131,7 +2145,6 @@
 '.rounded-l-xl': { borderRadius: [12, 0, 0, 12] }
 '.rounded-l-2xl': { borderRadius: [16, 0, 0, 16] }
 '.rounded-l-3xl': { borderRadius: [24, 0, 0, 24] }
-'.rounded-tl-0': { borderRadius: [0, 0, 0, 0] }
 '.rounded-tl-1': { borderRadius: [2, 0, 0, 0] }
 '.rounded-tl-2': { borderRadius: [4, 0, 0, 0] }
 '.rounded-tl-3': { borderRadius: [6, 0, 0, 0] }
@@ -2174,7 +2187,6 @@
 '.rounded-tl-xl': { borderRadius: [12, 0, 0, 0] }
 '.rounded-tl-2xl': { borderRadius: [16, 0, 0, 0] }
 '.rounded-tl-3xl': { borderRadius: [24, 0, 0, 0] }
-'.rounded-tr-0': { borderRadius: [0, 0, 0, 0] }
 '.rounded-tr-1': { borderRadius: [0, 2, 0, 0] }
 '.rounded-tr-2': { borderRadius: [0, 4, 0, 0] }
 '.rounded-tr-3': { borderRadius: [0, 6, 0, 0] }
@@ -2217,7 +2229,6 @@
 '.rounded-tr-xl': { borderRadius: [0, 12, 0, 0] }
 '.rounded-tr-2xl': { borderRadius: [0, 16, 0, 0] }
 '.rounded-tr-3xl': { borderRadius: [0, 24, 0, 0] }
-'.rounded-br-0': { borderRadius: [0, 0, 0, 0] }
 '.rounded-br-1': { borderRadius: [0, 0, 2, 0] }
 '.rounded-br-2': { borderRadius: [0, 0, 4, 0] }
 '.rounded-br-3': { borderRadius: [0, 0, 6, 0] }
@@ -2260,7 +2271,6 @@
 '.rounded-br-xl': { borderRadius: [0, 0, 12, 0] }
 '.rounded-br-2xl': { borderRadius: [0, 0, 16, 0] }
 '.rounded-br-3xl': { borderRadius: [0, 0, 24, 0] }
-'.rounded-bl-0': { borderRadius: [0, 0, 0, 0] }
 '.rounded-bl-1': { borderRadius: [0, 0, 0, 2] }
 '.rounded-bl-2': { borderRadius: [0, 0, 0, 4] }
 '.rounded-bl-3': { borderRadius: [0, 0, 0, 6] }
@@ -2304,7 +2314,8 @@
 '.rounded-bl-2xl': { borderRadius: [0, 0, 0, 16] }
 '.rounded-bl-3xl': { borderRadius: [0, 0, 0, 24] }
 
-// borderStyle Property
+// Property(ies): borderStyle
+// Component(s): Ti.UI.Picker[android], Ti.UI.TextArea, Ti.UI.TextField
 '.border-style-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
 '.border-style-filled': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
 '.border-style-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
@@ -2312,15 +2323,16 @@
 '.border-style-rounded': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED }
 '.border-style-underlined': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_UNDERLINED }
 
-// borderWidth Property
+// Property(ies): borderWidth
+// Component(s): Ti.UI.View
 '.border-0': { borderWidth: 0 }
 '.border-2': { borderWidth: 2 }
 '.border-4': { borderWidth: 4 }
 '.border-8': { borderWidth: 8 }
 '.border': { borderWidth: 1 }
 
-// padding, paddingTop, paddingLeft, paddingRight, paddingBottom properties for CardView
-// And paddingLeft, paddingRight, paddingBottom for  bottomNavigation Property
+// Property(ies): padding, paddingTop, paddingLeft, paddingRight, paddingBottom
+// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
 '.padding-0': { padding: 0 }
 '.padding-1': { padding: 4 }
 '.padding-2': { padding: 8 }
@@ -2567,11 +2579,13 @@
 '.padding-b-2.5': { paddingBottom: 10 }
 '.padding-b-3.5': { paddingBottom: 14 }
 
-// bubbleParent Property
+// Property(ies): bubbleParent
+// Component(s): Ti.Proxy
 '.bubble-parent': { bubbleParent: true }
 '.dont-bubble-parent': { bubbleParent: false }
 
-// cacheSize Property
+// Property(ies): cacheSize
+// Component(s): Ti.UI.ScrollableView
 '.cache-size-1': { cacheSize: 1 }
 '.cache-size-2': { cacheSize: 2 }
 '.cache-size-3': { cacheSize: 3 }
@@ -2583,11 +2597,13 @@
 '.cache-size-9': { cacheSize: 9 }
 '.cache-size-10': { cacheSize: 10 }
 
-// clipMode Property
+// Property(ies): clipMode - iOS Only
+// Component(s): Ti.UI.View
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 
-// currentPageIndicatorColor Property
+// Property(ies): currentPageIndicatorColor
+// Component(s): Ti.UI.ScrollableView
 '.current-page-transparent': { currentPageIndicatorColor: 'transparent' }
 '.current-page-black': { currentPageIndicatorColor: '#000000' }
 '.current-page-white': { currentPageIndicatorColor: '#ffffff' }
@@ -2812,10 +2828,14 @@
 '.current-page-rose-800': { currentPageIndicatorColor: '#9f1239' }
 '.current-page-rose-900': { currentPageIndicatorColor: '#881337' }
 
-// disableBounce Property
+// Property(ies): disableBounce
+// Component(s): Ti.UI.ListView, Ti.UI.ScrollableView, Ti.UI.ScrollView, Ti.UI.WebView
 '.disable-bounce': { disableBounce: true }
+'.enable-bounce': { disableBounce: false }
 
-// width and height Properties using Ti.Platform.displayCaps width and height
+// Property(ies): width, height
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View
+// Description: width and height properties using Ti.Platform.displayCaps platformWidth and platformHeight values
 '.platform-w': { width: Ti.Platform.displayCaps.platformWidth }
 '.platform-h': { height: Ti.Platform.displayCaps.platformHeight }
 '.inverted-platform-w': { width: Ti.Platform.displayCaps.platformHeight }
@@ -2823,19 +2843,23 @@
 '.inverted-platform-w[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
 '.inverted-platform-h[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
 
-// visible Property
+// Property(ies): visible
+// Component(s): Ti.Android.MenuItem, Ti.UI.Animation, Ti.UI.Picker, Ti.UI.ScrollableView, Ti.UI.ShortcutItem, Ti.UI.View
 '.block': { visible: true }
 '.hidden': { visible: false }
 
-// constraint Property
+// Property(ies): A custom property to use it with the Animation module
+// Component(s): Ti.UI.Animation
 '.horizontal-constraint': { constraint: 'horizontal' }
 '.vertical-constraint': { constraint: 'vertical' }
 
-// draggingType Property
+// Property(ies): draggingType
+// Component(s): For the Animation Component
 '.drag-apply': { draggingType: 'apply' }
 '.drag-animate': { draggingType: 'animate' }
 
-// Shadow for Labels and Buttons ( Drop Shadow in Tailwind ) - shadowOffset, shadowRadius and shadowColor Properties
+// Property(ies): shadowOffset, shadowRadius, shadowColor - Drop Shadow in Tailwind
+// Component(s): Ti.UI.Button, Ti.UI.Label
 '.drop-shadow-xs': { shadowOffset: { x: 0, y: 0 }, shadowRadius: 1, shadowColor: '#59000000' }
 '.drop-shadow-sm': { shadowOffset: { x: 0, y: 1 }, shadowRadius: 1, shadowColor: '#59000000' }
 '.drop-shadow': { shadowOffset: { x: 0, y: 2 }, shadowRadius: 2, shadowColor: '#59000000' }
@@ -2845,7 +2869,8 @@
 '.drop-shadow-2xl': { shadowOffset: { x: 0, y: 8 }, shadowRadius: 8, shadowColor: '#59000000' }
 '.drop-shadow-none': { shadowOffset: { x: 0, y: 0 }, shadowRadius: null, shadowColor: null }
 
-// Shadow Colors for Labels and Buttons - shadowColor Property Property
+// Property(ies): shadowColor - Drop Shadow in Tailwind
+// Component(s): Ti.UI.Button, Ti.UI.Label
 '.drop-shadow-transparent': { shadowColor: 'transparent' }
 '.drop-shadow-black': { shadowColor: '#000000' }
 '.drop-shadow-white': { shadowColor: '#ffffff' }
@@ -3070,11 +3095,13 @@
 '.drop-shadow-rose-800': { shadowColor: '#9f1239' }
 '.drop-shadow-rose-900': { shadowColor: '#881337' }
 
-// editable Property
+// Property(ies): editable
+// Component(s): Ti.UI.DashboardView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.editable': { editable: true }
 '.none-editable': { editable: false }
 
-// ellipsize ( for Labels ) Property
+// Property(ies): ellipsize
+// Component(s): Ti.UI.Label
 '.ellipsize-end': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_END }
 '.ellipsize-clip': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CLIP }
 '.ellipsize-none': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_NONE }
@@ -3084,27 +3111,33 @@
 '.ellipsize-char-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CHAR_WRAP }
 '.ellipsize-word-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_WORD_WRAP }
 
-// ellipsize Property ( for TextField and TextArea )
+// Property(ies): ellipsize
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.ellipsize': { ellipsize: true }
 '.no-ellipsize': { ellipsize: false }
 
-// enableCopy Property
+// Property(ies): enableCopy
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.enable-copy': { enableCopy: true }
 '.disable-copy': { enableCopy: false }
 
-// enableReturnKey Property
+// Property(ies): enableReturnKey - iOS Only
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.enable-returnkey[platform=ios]': { enableReturnKey: true }
 '.disable-returnkey[platform=ios]': { enableReturnKey: false }
 
-// exitOnClose Property
+// Property(ies): exitOnClose
+// Component(s): Ti.UI.TabGroup[android], Ti.UI.Window[android]
 '.exit-on-close[platform=android]': { exitOnClose: true }
 '.dont-exit-on-close[platform=android]': { exitOnClose: false }
 
-// extendBackground Property
+// Property(ies): extendBackground
+// Component(s): Ti.UI.Toolbar
 '.extend-background': { extendBackground: true }
 '.dont-extend-background': { extendBackground: false }
 
-// extendEdges Property
+// Property(ies): extendEdges
+// Component(s): Ti.UI.Window
 '.extend-edges-all[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_ALL ] }
 '.extend-edges-bottom[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_BOTTOM ] }
 '.extend-edges-left[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_LEFT ] }
@@ -3112,11 +3145,13 @@
 '.extend-edges-right[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_RIGHT ] }
 '.extend-edges-top[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_TOP ] }
 
-// flip Property
+// Property(ies): flip
+// Component(s): For the Animation Component
 '.flip-horizontal': { flip: 'horizontal' }
 '.flip-vertical': { flip: 'vertical' }
 
-// fontSize Property
+// Property(ies): fontSize
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 '.text-xs': { font: { fontSize: 12 } }
 '.text-sm': { font: { fontSize: 14 } }
 '.text-base': { font: { fontSize: 16 } }
@@ -3131,11 +3166,13 @@
 '.text-8xl': { font: { fontSize: 96 } }
 '.text-9xl': { font: { fontSize: 128 } }
 
-// fontStyle Property
+// Property(ies): fontStyle
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 '.italic': { font: { fontStyle: 'italic' } }
 '.not-italic': { font: { fontStyle: 'normal' } }
 
-// fontWeight Property
+// Property(ies): fontWeight
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 '.font-thin': { font: { fontWeight: 'thin' } }
 '.font-extralight': { font: { fontWeight: 'extralight' } }
 '.font-light': { font: { fontWeight: 'light' } }
@@ -3146,11 +3183,13 @@
 '.font-extrabold': { font: { fontWeight: 'bold' } }
 '.font-black': { font: { fontWeight: 'bold' } }
 
-// fullscreen Property
+// Property(ies): fullscreen
+// Component(s): Ti.Media.VideoPlayer[android], Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Window
 '.fullscreen': { fullscreen: true }
 '.fullscreen-disabled': { fullscreen: false }
 
-// Gap for Grid System - top, right, bottom, left Property
+// Property(ies): top, right, bottom, left - Gap for Grid System
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.gap-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.gap-1': { top: 4, right: 4, bottom: 4, left: 4 }
 '.gap-2': { top: 8, right: 8, bottom: 8, left: 8 }
@@ -3411,7 +3450,8 @@
 '.gap-y-3.5': { top: 14, bottom: 14 }
 '.gap-y-full': { top: '100%', bottom: '100%' }
 
-// Gradient Color Stops: From Color - backgroundGradient Property
+// Property(ies): backgroundGradient: colors - From Color
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.from-transparent': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }
 '.from-black': { backgroundGradient: { colors: [ '#00000000', '#000000' ] } }
 '.from-white': { backgroundGradient: { colors: [ '#00ffffff', '#ffffff' ] } }
@@ -3636,7 +3676,8 @@
 '.from-rose-800': { backgroundGradient: { colors: [ '#009f1239', '#9f1239' ] } }
 '.from-rose-900': { backgroundGradient: { colors: [ '#00881337', '#881337' ] } }
 
-// Gradient Color Stops: To Color - backgroundGradient Property
+// Property(ies): backgroundGradient: colors - To Color
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.to-transparent': { backgroundGradient: { colors: [ 'transparent' ] } }
 '.to-black': { backgroundGradient: { colors: [ '#000000' ] } }
 '.to-white': { backgroundGradient: { colors: [ '#ffffff' ] } }
@@ -3861,7 +3902,8 @@
 '.to-rose-800': { backgroundGradient: { colors: [ '#9f1239' ] } }
 '.to-rose-900': { backgroundGradient: { colors: [ '#881337' ] } }
 
-// Grid Column Start/End - width Property
+// Property(ies): width - For Grid Column Start/End
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.col-span-1': { width: '8.333334%' }
 '.col-span-2': { width: '16.666667%' }
 '.col-span-3': { width: '25%' }
@@ -3875,7 +3917,8 @@
 '.col-span-11': { width: '91.666667%' }
 '.col-span-12': { width: '100%' }
 
-// Grid Row Start/End - height Property
+// Property(ies): height - For Grid Row Start/End
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.row-span-1': { height: '8.333334%' }
 '.row-span-2': { height: '16.666667%' }
 '.row-span-3': { height: '25%' }
@@ -3889,12 +3932,15 @@
 '.row-span-11': { height: '91.666667%' }
 '.row-span-12': { height: '100%' }
 
-// Grid Flow - layout Property
+// Property(ies): layout
+// Component(s): Ti.UI.View
+// Description: Grid Flow - layout
 '.grid': { layout: 'horizontal' }
 '.grid-flow-col': { layout: 'horizontal' }
 '.grid-flow-row': { layout: 'vertical' }
 
-// Grid Template Columns - width Property
+// Property(ies): width - For Grid Template Columns
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.grid-cols-1': { width: '100%' }
 '.grid-cols-2': { width: '50%' }
 '.grid-cols-3': { width: '33.333334%' }
@@ -3908,7 +3954,8 @@
 '.grid-cols-11': { width: '9.090909%' }
 '.grid-cols-12': { width: '8.333334%' }
 
-// Grid Template Rows - height Property
+// Property(ies): height - For Grid Template Rows
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.grid-rows-1': { height: '100%' }
 '.grid-rows-2': { height: '50%' }
 '.grid-rows-3': { height: '33.333334%' }
@@ -3922,7 +3969,8 @@
 '.grid-rows-11': { height: '9.090909%' }
 '.grid-rows-12': { height: '8.333334%' }
 
-// height Property
+// Property(ies): height
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
 '.h-0': { height: 0 }
 '.h-1': { height: 4 }
 '.h-2': { height: 8 }
@@ -3988,23 +4036,29 @@
 '.h-full': { height: '100%' }
 '.h-screen': { height: Ti.UI.FILL }
 
-// hidesBackButton Property
+// Property(ies): hidesBackButton
+// Component(s): Ti.UI.Window
 '.hides-back-button': { hidesBackButton: true }
 
-// hidesBarsOnSwipe Property
+// Property(ies): hidesBarsOnSwipe - iOS Only
+// Component(s): Ti.UI.Window
 '.hides-bars-on-swipe[platform=ios]': { hidesBarsOnSwipe: true }
 
-// hidesBarsOnTap Property
+// Property(ies): hidesBarsOnTap - iOS Only
+// Component(s): Ti.UI.Window
 '.hides-bars-on-tap[platform=ios]': { hidesBarsOnTap: true }
 
-// iconIsMask Property
+// Property(ies): iconIsMask - iOS Only
+// Component(s): Ti.UI.Tab
 '.icon-is-mask[platform=ios]': { iconIsMask: true }
 '.icon-is-not-mask[platform=ios]': { iconIsMask: false }
 
-// includeOpaqueBars Property
+// Property(ies): includeOpaqueBars
+// Component(s): Ti.UI.Window
 '.include-opaque-bars[platform=ios]': { includeOpaqueBars: true }
 
-// indicatorColor Property
+// Property(ies): indicatorColor
+// Component(s): Ti.UI.ActivityIndicator
 '.indicator-transparent': { indicatorColor: 'transparent' }
 '.indicator-black': { indicatorColor: '#000000' }
 '.indicator-white': { indicatorColor: '#ffffff' }
@@ -4229,35 +4283,43 @@
 '.indicator-rose-800': { indicatorColor: '#9f1239' }
 '.indicator-rose-900': { indicatorColor: '#881337' }
 
-// touchEnabled Property
+// Property(ies): touchEnabled
+// Component(s): Ti.UI.View
 '.touch-enabled': { touchEnabled: true }
 '.touch-disabled': { touchEnabled: false }
 '.pointer-events-auto': { touchEnabled: true }
 '.pointer-events-none': { touchEnabled: false }
 
-// top, bottom, width, height Properties - Align Items
+// Property(ies): top, bottom, width(FILL), height(FILL)
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animaiton, Ti.UI.View, Ti.UI.Window
+// Description: top, bottom, width, height properties for aligning items in a Grid System
 '.items-start': { top: 0 }
 '.items-end': { bottom: 0 }
 '.items-center': { width: Ti.UI.FILL, height: Ti.UI.FILL }
 
-// keepScreenOn Property
+// Property(ies): keepScreenOn - Android Only
+// Component(s): Ti.UI.View
 '.keep-screen-on[platform=android]': { keepScreenOn: true }
 
-// keepSectionsInSearch Property
+// Property(ies): keepSectionsInSearch
+// Component(s): Ti.UI.ListView
 '.keep-sections-in-search[platform=ios]': { keepSectionsInSearch: true }
 '.dont-keep-sections-in-search[platform=ios]': { keepSectionsInSearch: false }
 
-// keyboardAppearance Property
+// Property(ies): keyboardAppearance - iOS Only
+// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-appearance[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
 '.keyboard-appearance-dark[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DARK }
 '.keyboard-appearance-light[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
 
-// keyboardDismissMode Property
+// Property(ies): keyboardDismissMode - iOS Only
+// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-dismiss-interactive[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_INTERACTIVE }
 '.keyboard-dismiss-none[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }
 '.keyboard-dismiss-on-drag[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG }
 
-// keyboardType Property
+// Property(ies): keyboardType
+// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-type': { keyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.keyboard-type-ascii': { keyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.keyboard-type-decimal-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
@@ -4273,23 +4335,28 @@
 '.keyboard-type-twitter[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
 '.keyboard-type-websearch[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 
-// largeTitleDisplayMode Property
+// Property(ies): largeTitleDisplayMode - iOS Only
+// Component(s): Ti.UI.Window
 '.large-title-display-always[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_ALWAYS }
 '.large-title-display-automatic[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_AUTOMATIC }
 '.large-title-display-never[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_NEVER }
 
-// largeTitleEnabled Property
+// Property(ies): largeTitleEnabled
+// Component(s): Ti.UI.Window
 '.large-title-enabled[platform=ios]': { largeTitleEnabled: true }
 
-// layout Property
+// Property(ies): layout
+// Component(s): Ti.UI.OptionBar, Ti.UI.View
 '.horizontal': { layout: 'horizontal' }
 '.vertical': { layout: 'vertical' }
 
-// lazyLoadingEnabled Property
+// Property(ies): lazyLoadingEnabled - iOS Only
+// Component(s): Ti.UI.ListView
 '.lazy-loading-enabled[platform=ios]': { lazyLoadingEnabled: true }
 '.lazy-loading-disabled[platform=ios]': { lazyLoadingEnabled: false }
 
-// backgroundGradient Property ( Linear )
+// Property(ies): backgroundGradient - Linear
+// Component(s): Ti.UI.MaskedImage
 '.bg-linear': { backgroundGradient: { type: 'linear', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' }, backfillStart: true } }
 '.bg-linear-to-t': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
 '.bg-linear-to-tr': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
@@ -4300,7 +4367,8 @@
 '.bg-linear-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
 '.bg-linear-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backfillStart: true } }
 
-// backgroundGradient Property ( Gradient )
+// Property(ies): backgroundGradient - Gradient
+// Component(s): Ti.UI.MaskedImage
 '.bg-gradient': { backgroundGradient: { type: 'linear', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' }, backfillStart: true } }
 '.bg-gradient-to-t': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
 '.bg-gradient-to-tr': { backgroundGradient: { type: 'linear', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' }, backfillStart: true } }
@@ -4311,7 +4379,8 @@
 '.bg-gradient-to-l': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, backfillStart: true } }
 '.bg-gradient-to-tl': { backgroundGradient: { type: 'linear', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' }, backfillStart: true } }
 
-// loginKeyboardType Property
+// Property(ies): loginKeyboardType
+// Component(s): Ti.UI.AlertDialog
 '.login-keyboard': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.login-keyboard-appearance': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
 '.login-keyboard-appearance-dark': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
@@ -4327,7 +4396,8 @@
 '.login-keyboard-url': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_URL }
 '.login-keyboard-websearch': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 
-// loginReturnKeyType Property
+// Property(ies): loginReturnKeyType
+// Component(s): Ti.UI.AlertDialog
 '.login-returnkey': { loginReturnKeyType: Ti.UI.RETURNKEY_DEFAULT }
 '.login-returnkey-go': { loginReturnKeyType: Ti.UI.RETURNKEY_GO }
 '.login-returnkey-done': { loginReturnKeyType: Ti.UI.RETURNKEY_DONE }
@@ -4341,7 +4411,8 @@
 '.login-returnkey-emergency-call': { loginReturnKeyType: Ti.UI.RETURNKEY_EMERGENCY_CALL }
 '.login-returnkey-continue[platform=ios]': { loginReturnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 
-// top, right, bottom, left ( Margin ) Property
+// Property(ies): top, right, bottom, left ( Margin )
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.m-1': { top: 4, right: 4, bottom: 4, left: 4 }
 '.m-2': { top: 8, right: 8, bottom: 8, left: 8 }
@@ -4784,7 +4855,8 @@
 '.ml-11/12': { left: '91.666667%' }
 '.ml-full': { left: '100%' }
 
-// top, right, bottom, left ( Negative Margin ) Property
+// Property(ies): top, right, bottom, left ( Negative Margin )
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.-m-1': { top: -4, right: -4, bottom: -4, left: -4 }
 '.-m-2': { top: -8, right: -8, bottom: -8, left: -8 }
 '.-m-3': { top: -12, right: -12, bottom: -12, left: -12 }
@@ -5213,11 +5285,13 @@
 '.-ml-11/12': { left: '-91.666667%' }
 '.-ml-full': { left: '-100%' }
 
-// navBarHidden Property
+// Property(ies): navBarHidden
+// Component(s): Ti.UI.Window
 '.nav-bar-hidden': { navBarHidden: true }
 '.nav-bar-visible': { navBarHidden: false }
 
-// navTintColor Property
+// Property(ies): navTintColor
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.nav-tint-transparent': { navTintColor: 'transparent' }
 '.nav-tint-black': { navTintColor: '#000000' }
 '.nav-tint-white': { navTintColor: '#ffffff' }
@@ -5442,7 +5516,8 @@
 '.nav-tint-rose-800': { navTintColor: '#9f1239' }
 '.nav-tint-rose-900': { navTintColor: '#881337' }
 
-// opacity Property
+// Property(ies): opacity
+// Component(s): Ti.UI.Animation, Ti.UI.TableViewRow, Ti.UI.View, Ti.UI.Window
 '.opacity-0': { opacity: 0 }
 '.opacity-5': { opacity: 0.05 }
 '.opacity-10': { opacity: 0.1 }
@@ -5459,21 +5534,24 @@
 '.opacity-95': { opacity: 0.95 }
 '.opacity-100': { opacity: 1 }
 
-// orientationModes Property
+// Property(ies): orientationModes
+// Component(s): Ti.UI.Window
 '.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 '.orientation-portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.orientation-upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.orientation-landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
-// orientationModes (Alternative) Property
+// Property(ies): orientationModes (Alternative)
+// Component(s): Ti.UI.Window
 '.portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 '.landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
-// anchorPoint Properties
+// Property(ies): anchorPoint
+// Component(s): Ti.UI.Animation, Ti.UI.View
 '.origin-center': { anchorPoint: { x: 0.5, y: 0.5 } }
 '.origin-top': { anchorPoint: { x: 0.5, y: 0 } }
 '.origin-top-right': { anchorPoint: { x: 1, y: 0 } }
@@ -5484,10 +5562,12 @@
 '.origin-left': { anchorPoint: { x: 0, y: 0.5 } }
 '.origin-top-left': { anchorPoint: { x: 0, y: 0 } }
 
-// overlayEnabled Property
+// Property(ies): overlayEnabled
+// Component(s): Ti.UI.ScrollableView
 '.overlay-enabled[platform=ios]': { overlayEnabled: true }
 
-// padding Property
+// Property(ies): padding
+// Component(s): Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField
 '.p-0': { padding: { top: 0, right: 0, bottom: 0, left: 0 } }
 '.p-1': { padding: { top: 4, right: 4, bottom: 4, left: 4 } }
 '.p-2': { padding: { top: 8, right: 8, bottom: 8, left: 8 } }
@@ -5923,7 +6003,8 @@
 '.pl-11/12': { padding: { left: '91.666667%' } }
 '.pl-full': { padding: { left: '100%' } }
 
-// pageIndicatorColor Property
+// Property(ies): pageIndicatorColor
+// Component(s): Ti.UI.ScrollableView
 '.page-transparent': { pageIndicatorColor: 'transparent' }
 '.page-black': { pageIndicatorColor: '#000000' }
 '.page-white': { pageIndicatorColor: '#ffffff' }
@@ -6148,10 +6229,12 @@
 '.page-rose-800': { pageIndicatorColor: '#9f1239' }
 '.page-rose-900': { pageIndicatorColor: '#881337' }
 
-// showPagingControl Property
+// Property(ies): showPagingControl
+// Component(s): Ti.UI.ScrollableView
 '.show-paging-control': { showPagingControl: true }
 
-// pagingControlAlpha Property
+// Property(ies): pagingControlAlpha
+// Component(s): Ti.UI.ScrollableView
 '.paging-alpha-0': { pagingControlAlpha: 0 }
 '.paging-alpha-5': { pagingControlAlpha: 0.05 }
 '.paging-alpha-10': { pagingControlAlpha: 0.1 }
@@ -6168,7 +6251,8 @@
 '.paging-alpha-95': { pagingControlAlpha: 0.95 }
 '.paging-alpha-100': { pagingControlAlpha: 1 }
 
-// pagingControlColor Property
+// Property(ies): pagingControlColor
+// Component(s): Ti.UI.ScrollableView
 '.paging-transparent': { pagingControlColor: 'transparent' }
 '.paging-black': { pagingControlColor: '#000000' }
 '.paging-white': { pagingControlColor: '#ffffff' }
@@ -6393,7 +6477,8 @@
 '.paging-rose-800': { pagingControlColor: '#9f1239' }
 '.paging-rose-900': { pagingControlColor: '#881337' }
 
-// pagingControlHeight Property
+// Property(ies): pagingControlHeight
+// Component(s): Ti.UI.ScrollableView
 '.paging-h-0': { pagingControlHeight: 0 }
 '.paging-h-1': { pagingControlHeight: 4 }
 '.paging-h-2': { pagingControlHeight: 8 }
@@ -6430,11 +6515,13 @@
 '.paging-h-2.5': { pagingControlHeight: 10 }
 '.paging-h-3.5': { pagingControlHeight: 14 }
 
-// pagingControlOnTop Property
+// Property(ies): pagingControlOnTop
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-on-top': { pagingControlOnTop: true }
 '.paging-control-on-bottom': { pagingControlOnTop: false }
 
-// pagingControlTimeout Property
+// Property(ies): pagingControlTimeout
+// Component(s): Ti.UI.ScrollableView
 '.paging-timeout-0': { pagingControlTimeout: 0 }
 '.paging-timeout-25': { pagingControlTimeout: 25 }
 '.paging-timeout-50': { pagingControlTimeout: 50 }
@@ -6451,7 +6538,8 @@
 '.paging-timeout-4000': { pagingControlTimeout: 4000 }
 '.paging-timeout-5000': { pagingControlTimeout: 5000 }
 
-// passwordKeyboardType Property
+// Property(ies): passwordKeyboardType
+// Component(s): Ti.UI.AlertDialog
 '.password-keyboard': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.password-keyboard-ascii': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.password-keyboard-decimal-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
@@ -6467,7 +6555,16 @@
 '.password-keyboard-twitter[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
 '.password-keyboard-websearch[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 
-// hintTextColor Property
+// Property(ies): type (Picker Type)
+// Component(s): Ti.UI.Picker
+'.picker-type-count-down-timer': { type: Ti.UI.PICKER_TYPE_COUNT_DOWN_TIMER }
+'.picker-type-date': { type: Ti.UI.PICKER_TYPE_DATE }
+'.picker-type-date-and-time': { type: Ti.UI.PICKER_TYPE_DATE_AND_TIME }
+'.picker-type-plain': { type: Ti.UI.PICKER_TYPE_PLAIN }
+'.picker-type-time': { type: Ti.UI.PICKER_TYPE_TIME }
+
+// Property(ies): hintTextColor
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.placeholder-transparent': { hintTextColor: 'transparent' }
 '.placeholder-black': { hintTextColor: '#000000' }
 '.placeholder-white': { hintTextColor: '#ffffff' }
@@ -6692,7 +6789,8 @@
 '.placeholder-rose-800': { hintTextColor: '#9f1239' }
 '.placeholder-rose-900': { hintTextColor: '#881337' }
 
-// top, right, bottom, left Properties
+// Property(ies): top, right, bottom, left
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.top-0': { top: 0 }
 '.left-0': { left: 0 }
 '.right-0': { right: 0 }
@@ -6708,11 +6806,13 @@
 '.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
 '.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
 
-// preventDefaultImage Property
+// Property(ies): preventDefaultImage - iOS Only
+// Component(s): Ti.UI.ImageView
 '.prevent-default-image[platform=ios]': { preventDefaultImage: true }
 '.display-default-image[platform=ios]': { preventDefaultImage: false }
 
-// backgroundGradient Property ( Radial, iOS Only )
+// Property(ies): backgroundGradient: type, startRadius, endRadius, backfillStart, backfillEnd
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.bg-radial[platform=ios]': { backgroundGradient: { type: 'radial', startRadius: '125%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 '.bg-radial-to-b[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '50%', y: '0%' }, endPoint: { x: '50%', y: '0%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 '.bg-radial-to-bl[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '100%', y: '0%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
@@ -6723,7 +6823,8 @@
 '.bg-radial-to-r[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '0%', y: '50%' }, endPoint: { x: '0%', y: '50%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 '.bg-radial-to-br[platform=ios]': { backgroundGradient: { type: 'radial', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' }, startRadius: '150%', endRadius: '0%', backfillStart: true, backfillEnd: true } }
 
-// repeat Property
+// Property(ies): repeat
+// Component(s): Ti.UI.Animation
 '.repeat-1': { repeat: 1 }
 '.repeat-2': { repeat: 2 }
 '.repeat-3': { repeat: 3 }
@@ -6735,7 +6836,8 @@
 '.repeat-9': { repeat: 9 }
 '.repeat-10': { repeat: 10 }
 
-// returnKeyType Property
+// Property(ies): returnKeyType
+// Component(s): Ti.UI.AlertDialog, Ti.UI.TextArea, Ti.UI.TextField
 '.returnkey': { returnKeyType: Ti.UI.RETURNKEY_DEFAULT }
 '.returnkey-go': { returnKeyType: Ti.UI.RETURNKEY_GO }
 '.returnkey-done': { returnKeyType: Ti.UI.RETURNKEY_DONE }
@@ -6749,7 +6851,8 @@
 '.returnkey-emergency-call': { returnKeyType: Ti.UI.RETURNKEY_EMERGENCY_CALL }
 '.returnkey-continue[platform=ios]': { returnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 
-// rotate Property
+// Property(ies): rotate
+// Component(s): For the Animation Component
 '.rotate-0': { rotate: 0 }
 '.rotate-1': { rotate: 1 }
 '.rotate-2': { rotate: 2 }
@@ -6760,7 +6863,8 @@
 '.rotate-90': { rotate: 90 }
 '.rotate-180': { rotate: 180 }
 
-// scale Property
+// Property(ies): scale
+// Component(s): Ti.UI.ScrollView
 '.scale-0': { scale: '0' }
 '.scale-5': { scale: '.05' }
 '.scale-10': { scale: '.10' }
@@ -6775,7 +6879,8 @@
 '.scale-125': { scale: '1.25' }
 '.scale-150': { scale: '1.5' }
 
-// ScrollViews: content - contentWidth & contentHeight Properties
+// Property(ies): contentWidth, contentHeight
+// Component(s): Ti.UI.ScrollView
 '.content-w-auto': { contentWidth: Ti.UI.SIZE }
 '.content-w-screen': { contentWidth: Ti.UI.FILL }
 '.content-h-auto': { contentHeight: Ti.UI.SIZE }
@@ -6783,7 +6888,8 @@
 '.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
 '.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
 
-// ScrollViews: overflow - showHorizontalScrollIndicator & showVerticalScrollIndicator Properties
+// Property(ies): showHorizontalScrollIndicator, showVerticalScrollIndicator
+// Component(s): Ti.UI.ScrollView
 '.overflow-x-scroll': { showHorizontalScrollIndicator: true }
 '.overflow-y-scroll': { showVerticalScrollIndicator: true }
 '.overflow-x-hidden': { showHorizontalScrollIndicator: false }
@@ -6791,15 +6897,23 @@
 '.overflow-scroll': { showHorizontalScrollIndicator: true, showVerticalScrollIndicator: true }
 '.overflow-hidden': { showHorizontalScrollIndicator: false, showVerticalScrollIndicator: false }
 
-// scrollingEnabled Property
+// Property(ies): scrollingEnabled
+// Component(s): Ti.UI.ScrollableView, Ti.UI.ScrollView
 '.scrolling-enabled': { scrollingEnabled: true }
 '.scrolling-disabled': { scrollingEnabled: false }
 
-// scrollType Property
+// Property(ies): scrollType
+// Component(s): Ti.UI.ScrollView
 '.scroll-horizontal[platform=android]': { scrollType: 'horizontal' }
 '.scroll-vertical[platform=android]': { scrollType: 'vertical' }
 
-// View Shadow ( Box Shadow in Tailwind ) - viewShadowOffset, viewShadowRadius and viewShadowColor Properties
+// Property(ies): selectionIndicator
+// Component(s): Ti.UI.Picker
+'.show-selection-indicator': { selectionIndicator: true }
+'.hide-selection-indicator': { selectionIndicator: false }
+
+// Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow in Tailwind
+// Component(s): Ti.UI.View
 '.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#59000000' }
 '.shadow-sm': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 1, viewShadowColor: '#59000000' }
 '.shadow': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 2, viewShadowColor: '#59000000' }
@@ -6811,7 +6925,8 @@
 '.shadow-outline': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 2, viewShadowColor: '#59000000' }
 '.shadow-none': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 
-// View Shadow Colors ( Box Shadow in Tailwind ) - viewShadowColor (View) Property Property
+// Property(ies): viewShadowColor - Box Shadow in Tailwind
+// Component(s): Ti.UI.View
 '.shadow-transparent': { viewShadowColor: 'transparent' }
 '.shadow-black': { viewShadowColor: '#000000' }
 '.shadow-white': { viewShadowColor: '#ffffff' }
@@ -7036,37 +7151,44 @@
 '.shadow-rose-800': { viewShadowColor: '#9f1239' }
 '.shadow-rose-900': { viewShadowColor: '#881337' }
 
-// shiftMode Property
+// Property(ies): shiftMode
+// Component(s): Ti.UI.TabGroup
 '.shift-mode[platform=android]': { shiftMode: true }
 '.shift-mode-disabled[platform=android]': { shiftMode: false }
 
-// showAsAction Property
+// Property(ies): showAsAction - Android Only
+// Component(s): Ti.Android.MenuItem
 '.show-as-action-always[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS }
 '.show-as-action-collapse[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW }
 '.show-as-action-if-room[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM }
 '.show-as-action-never[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER }
 '.show-as-action-with-text[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_WITH_TEXT }
 
-// showCancel Property
+// Property(ies): showCancel
+// Component(s): Ti.UI.SearchBar
 '.show-cancel': { showCancel: true }
 
-// smoothScrollOnTabClick Property
+// Property(ies): smoothScrollOnTabClick
+// Component(s): Ti.UI.TabGroup
 '.smooth-scroll[platform=android]': { smoothScrollOnTabClick: true }
 '.smooth-scroll-disabled[platform=android]': { smoothScrollOnTabClick: false }
 
-// statusBarStyle Property
+// statusBarStyle
 '.status-bar[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }
 '.status-bar-dark[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DARK_CONTENT }
 '.status-bar-light[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT }
 
-// tabBarHidden Style Property
+// Property(ies): tabBarHidden
+// Component(s): Ti.UI.Window[iOS]
 '.tab-bar-hidden[platform=ios]': { tabBarHidden: true }
 
-// TabGroup Style Property
+// Property(ies): style - Android Only
+// Component(s): Ti.UI.TabGroup
 '.tabs-style[platform=android]': { style: Ti.UI.Android.TABS_STYLE_DEFAULT }
 '.tabs-style-bottom[platform=android]': { style: Ti.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION }
 
-// tabsBackgroundColor Property
+// Property(ies): tabsBackgroundColor
+// Component(s): Ti.UI.TabGroup
 '.tabs-bg-transparent': { tabsBackgroundColor: 'transparent' }
 '.tabs-bg-black': { tabsBackgroundColor: '#000000' }
 '.tabs-bg-white': { tabsBackgroundColor: '#ffffff' }
@@ -7291,13 +7413,15 @@
 '.tabs-bg-rose-800': { tabsBackgroundColor: '#9f1239' }
 '.tabs-bg-rose-900': { tabsBackgroundColor: '#881337' }
 
-// textAlign Property
+// Property(ies): textAlign
+// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
 '.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
 '.text-right': { textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT }
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
 '.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
 
-// color Property
+// Property(ies): color
+// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.PickerRow, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.ListItem, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextField, Ti.UI.Android.SearchView
 '.text-transparent': { color: 'transparent' }
 '.text-black': { color: '#000000' }
 '.text-white': { color: '#ffffff' }
@@ -7523,55 +7647,68 @@
 '.text-rose-900': { color: '#881337' }
 
 // Ti.Media
-// audioSessionCategory Property
-'.audio-session-record': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_RECORD }
-'.audio-session-ambient': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_AMBIENT }
-'.audio-session-playback': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAYBACK }
-'.audio-session-solo-ambient': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
-'.audio-session-play-record': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD }
+// Property(ies): audioSessionCategory - iOS Only
+// Component(s): Ti.Media
+'.audio-sesion-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_RECORD }
+'.audio-sesion-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_AMBIENT }
+'.audio-sesion-playback[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAYBACK }
+'.audio-sesion-solo-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
+'.audio-sesion-play-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD }
 
-// audioType Property
-'.audio-type-ring': { audioType: Ti.Media.Sound.AUDIO_TYPE_RING }
-'.audio-type-alarm': { audioType: Ti.Media.Sound.AUDIO_TYPE_ALARM }
-'.audio-type-media': { audioType: Ti.Media.Sound.AUDIO_TYPE_MEDIA }
-'.audio-type-voice': { audioType: Ti.Media.Sound.AUDIO_TYPE_VOICE }
-'.audio-type-signalling': { audioType: Ti.Media.Sound.AUDIO_TYPE_SIGNALLING }
-'.audio-type-notification': { audioType: Ti.Media.Sound.AUDIO_TYPE_NOTIFICATION }
+// Property(ies): audioType
+// Component(s): Ti.Media.AudioPlayer[android], Ti.Media.Sound[android]
+'.audio-type-ring[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_RING }
+'.audio-type-alarm[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_ALARM }
+'.audio-type-media[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_MEDIA }
+'.audio-type-voice[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_VOICE }
+'.audio-type-signalling[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_SIGNALLING }
+'.audio-type-notification[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_NOTIFICATION }
 
-// Music Player - repeatMode Property
+// Property(ies): repeatMode - iOS Only
+// Component(s): Ti.Media.MusicPlayer
 '.music-repeat-all[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_ALL }
 '.music-repeat[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_DEFAULT }
 '.music-repeat-none[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_NONE }
 '.music-repeat-one[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_ONE }
 
-// Music Player - shuffleMode Property
+// Property(ies): shuffleMode - iOS Only
+// Component(s): Ti.Media.MusicPlayer
 '.music-shuffle-albums[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_ALBUMS }
 '.music-shuffle[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_DEFAULT }
 '.music-shuffle-none[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_NONE }
 '.music-shuffle-songs[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_SONGS }
 
-// Background Size for compatibility with Tailwind’s classes - scalingMode Property
+// Property(ies): scalingMode
+// Component(s): Ti.UI.ImageView
+// Description: Background Size for compatibility with Tailwind classes
 '.bg-auto': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
 '.bg-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
 '.bg-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
-// Image Scaling Mode - scalingMode Property
+// Property(ies): scalingMode
+// Component(s): Ti.UI.ImageView
+// Description: Image Scaling Mode
 '.image-scaling-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
 '.image-scaling-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
 '.image-scaling-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
 '.image-scaling-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
 '.image-scaling-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
-// Video Scaling Mode - scalingMode Property
+// Property(ies): scalingMode
+// Component(s): Ti.Media.VideoPlayer
+// Description: Video Scaling Mode
 '.video-scaling-resize': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE }
 '.video-scaling-contain': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT }
 '.video-scaling-cover': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT_FILL }
 
-// Video repeatMode Property
-'.video-repeat-none': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_NONE }
+// Property(ies): repeatMode
+// Component(s): Ti.Media.VideoPlayer
+// Description: Determines how the movie player repeats when reaching the end of playback.
 '.video-repeat-one': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_ONE }
+'.video-repeat-none': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_NONE }
 
-// tint and tintColor Property
+// Property(ies): tint and tintColor
+// Component(s): Ti.UI, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ImageView, Ti.UI.iOS.Stepper, Ti.UI.ProgressBar, Ti.UI.RefreshControll, Ti.UI.Slider, Ti.UI.Switch, and `tint` for Ti.UI.MaskedImage
 '.tint-transparent': { tint: 'transparent', tintColor: 'transparent' }
 '.tint-black': { tint: '#000000', tintColor: '#000000' }
 '.tint-white': { tint: '#ffffff', tintColor: '#ffffff' }
@@ -7796,7 +7933,8 @@
 '.tint-rose-800': { tint: '#9f1239', tintColor: '#9f1239' }
 '.tint-rose-900': { tint: '#881337', tintColor: '#881337' }
 
-// titleColor Property
+// Property(ies): titleColor
+// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.title-transparent': { titleColor: 'transparent' }
 '.title-black': { titleColor: '#000000' }
 '.title-white': { titleColor: '#ffffff' }
@@ -8021,7 +8159,8 @@
 '.title-rose-800': { titleColor: '#9f1239' }
 '.title-rose-900': { titleColor: '#881337' }
 
-// touchFeedbackColor Property
+// Property(ies): touchFeedbackColor
+// Component(s): Ti.UI.View
 '.feedback-transparent': { touchFeedback: true, touchFeedbackColor: 'transparent' }
 '.feedback-black': { touchFeedback: true, touchFeedbackColor: '#000000' }
 '.feedback-white': { touchFeedback: true, touchFeedbackColor: '#ffffff' }
@@ -8246,16 +8385,18 @@
 '.feedback-rose-800': { touchFeedback: true, touchFeedbackColor: '#9f1239' }
 '.feedback-rose-900': { touchFeedback: true, touchFeedbackColor: '#881337' }
 
-// curve Property
+// Property(ies): curve
+// Component(s): Ti.UI.Animation
 '.ease-in': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN }
 '.ease-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_OUT }
 '.ease-linear': { curve: Ti.UI.ANIMATION_CURVE_LINEAR }
 '.ease-in-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT }
 
-// debug Property
+// debug
 '.debug': { debug: true }
 
-// delay Property
+// Property(ies): delay
+// Component(s): Ti.UI.Animation
 '.delay-0': { delay: 0 }
 '.delay-25': { delay: 25 }
 '.delay-50': { delay: 50 }
@@ -8272,7 +8413,8 @@
 '.delay-4000': { delay: 4000 }
 '.delay-5000': { delay: 5000 }
 
-// duration Property
+// Property(ies): duration
+// Component(s): Ti.UI.Animation
 '.duration-0': { duration: 0 }
 '.duration-25': { duration: 25 }
 '.duration-50': { duration: 50 }
@@ -8286,16 +8428,24 @@
 '.duration-1000': { duration: 1000 }
 '.duration': { duration: 150 }
 
-// translucent Property
+// Property(ies): translucent
+// Component(s): Ti.UI.iOS.Toolbar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
 '.translucent[platform=ios]': { translucent: true }
 '.translucent-disabled[platform=ios]': { translucent: false }
 
-// verticalAlign Property
+// Property(ies): useSpinner
+// Component(s): Ti.UI.Picker
+'.use-spinner': { useSpinner: true }
+'.dont-use-spinner': { useSpinner: false }
+
+// Property(ies): verticalAlign
+// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
 '.align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
 '.align-middle': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
 '.align-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
 
-// width Property
+// Property(ies): width
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
 '.w-0': { width: 0 }
 '.w-1': { width: 4 }
 '.w-2': { width: 8 }
@@ -8361,7 +8511,8 @@
 '.w-full': { width: '100%' }
 '.w-screen': { width: Ti.UI.FILL }
 
-// zIndex Property
+// Property(ies): zIndex
+// Component(s): Ti.UI.Animation, Ti.UI.View
 '.z-0': { zIndex: 0 }
 '.z-10': { zIndex: 10 }
 '.z-20': { zIndex: 20 }

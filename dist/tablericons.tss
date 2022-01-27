@@ -40,10 +40,14 @@
 '.ti-antenna-bars-4': { text: '\uecca', title: '\uecca' }
 '.ti-antenna-bars-5': { text: '\ueccb', title: '\ueccb' }
 '.ti-aperture': { text: '\ueb58', title: '\ueb58' }
+'.ti-api': { text: '\ueffd', title: '\ueffd' }
+'.ti-api-app': { text: '\ueffc', title: '\ueffc' }
+'.ti-app-window': { text: '\uefe6', title: '\uefe6' }
 '.ti-apple': { text: '\uef21', title: '\uef21' }
 '.ti-apps': { text: '\uebb6', title: '\uebb6' }
 '.ti-archive': { text: '\uea0b', title: '\uea0b' }
 '.ti-armchair': { text: '\uef9e', title: '\uef9e' }
+'.ti-armchair-2': { text: '\uefe7', title: '\uefe7' }
 '.ti-arrow-autofit-content': { text: '\uef31', title: '\uef31' }
 '.ti-arrow-autofit-down': { text: '\uef32', title: '\uef32' }
 '.ti-arrow-autofit-height': { text: '\uef33', title: '\uef33' }
@@ -62,9 +66,17 @@
 '.ti-arrow-bar-to-up': { text: '\uec8b', title: '\uec8b' }
 '.ti-arrow-bar-up': { text: '\uea10', title: '\uea10' }
 '.ti-arrow-big-down': { text: '\uedda', title: '\uedda' }
+'.ti-arrow-big-down-line': { text: '\uefe8', title: '\uefe8' }
+'.ti-arrow-big-down-lines': { text: '\uefe9', title: '\uefe9' }
 '.ti-arrow-big-left': { text: '\ueddb', title: '\ueddb' }
+'.ti-arrow-big-left-line': { text: '\uefea', title: '\uefea' }
+'.ti-arrow-big-left-lines': { text: '\uefeb', title: '\uefeb' }
 '.ti-arrow-big-right': { text: '\ueddc', title: '\ueddc' }
+'.ti-arrow-big-right-line': { text: '\uefec', title: '\uefec' }
+'.ti-arrow-big-right-lines': { text: '\uefed', title: '\uefed' }
 '.ti-arrow-big-top': { text: '\ueddd', title: '\ueddd' }
+'.ti-arrow-big-up-line': { text: '\uefee', title: '\uefee' }
+'.ti-arrow-big-up-lines': { text: '\uefef', title: '\uefef' }
 '.ti-arrow-bottom-bar': { text: '\ued98', title: '\ued98' }
 '.ti-arrow-bottom-circle': { text: '\ued99', title: '\ued99' }
 '.ti-arrow-bottom-square': { text: '\ued9a', title: '\ued9a' }
@@ -109,6 +121,7 @@
 '.ti-arrow-wave-left-up': { text: '\ueda9', title: '\ueda9' }
 '.ti-arrow-wave-right-down': { text: '\uedaa', title: '\uedaa' }
 '.ti-arrow-wave-right-up': { text: '\uedab', title: '\uedab' }
+'.ti-arrows-cross': { text: '\ueffe', title: '\ueffe' }
 '.ti-arrows-diagonal': { text: '\uea27', title: '\uea27' }
 '.ti-arrows-diagonal-2': { text: '\uea26', title: '\uea26' }
 '.ti-arrows-diagonal-minimize': { text: '\uef39', title: '\uef39' }
@@ -130,6 +143,8 @@
 '.ti-arrows-right': { text: '\uedb3', title: '\uedb3' }
 '.ti-arrows-right-down': { text: '\uee01', title: '\uee01' }
 '.ti-arrows-right-left': { text: '\uedb2', title: '\uedb2' }
+'.ti-arrows-shuffle': { text: '\uf000', title: '\uf000' }
+'.ti-arrows-shuffle-2': { text: '\uefff', title: '\uefff' }
 '.ti-arrows-sort': { text: '\ueb5a', title: '\ueb5a' }
 '.ti-arrows-split': { text: '\uedb5', title: '\uedb5' }
 '.ti-arrows-split-2': { text: '\uedb4', title: '\uedb4' }
@@ -165,6 +180,7 @@
 '.ti-ballon': { text: '\uef3a', title: '\uef3a' }
 '.ti-ban': { text: '\uea2e', title: '\uea2e' }
 '.ti-bandage': { text: '\ueb7a', title: '\ueb7a' }
+'.ti-barbell': { text: '\ueff0', title: '\ueff0' }
 '.ti-barcode': { text: '\uebc6', title: '\uebc6' }
 '.ti-basket': { text: '\uebe1', title: '\uebe1' }
 '.ti-bath': { text: '\uef48', title: '\uef48' }
@@ -188,6 +204,7 @@
 '.ti-bell-ringing': { text: '\ued07', title: '\ued07' }
 '.ti-bell-ringing-2': { text: '\uede4', title: '\uede4' }
 '.ti-bell-x': { text: '\uede5', title: '\uede5' }
+'.ti-bell-z': { text: '\ueff1', title: '\ueff1' }
 '.ti-bible': { text: '\uefc4', title: '\uefc4' }
 '.ti-bike': { text: '\uea36', title: '\uea36' }
 '.ti-binary': { text: '\uee08', title: '\uee08' }
@@ -206,6 +223,7 @@
 '.ti-bookmark': { text: '\uea3a', title: '\uea3a' }
 '.ti-bookmark-off': { text: '\ueced', title: '\ueced' }
 '.ti-bookmarks': { text: '\ued08', title: '\ued08' }
+'.ti-books': { text: '\ueff2', title: '\ueff2' }
 '.ti-border-all': { text: '\uea3b', title: '\uea3b' }
 '.ti-border-bottom': { text: '\uea3c', title: '\uea3c' }
 '.ti-border-horizontal': { text: '\uea3d', title: '\uea3d' }
@@ -286,6 +304,7 @@
 '.ti-brand-javascript': { text: '\uef0c', title: '\uef0c' }
 '.ti-brand-kickstarter': { text: '\uedce', title: '\uedce' }
 '.ti-brand-kotlin': { text: '\ued6d', title: '\ued6d' }
+'.ti-brand-lastfm': { text: '\uf001', title: '\uf001' }
 '.ti-brand-linkedin': { text: '\uec8c', title: '\uec8c' }
 '.ti-brand-loom': { text: '\uef70', title: '\uef70' }
 '.ti-brand-mastercard': { text: '\uef49', title: '\uef49' }
@@ -328,6 +347,7 @@
 '.ti-brand-tidal': { text: '\ued70', title: '\ued70' }
 '.ti-brand-tiktok': { text: '\uec73', title: '\uec73' }
 '.ti-brand-tinder': { text: '\ued71', title: '\ued71' }
+'.ti-brand-tripadvisor': { text: '\uf002', title: '\uf002' }
 '.ti-brand-tumblr': { text: '\ued04', title: '\ued04' }
 '.ti-brand-twitch': { text: '\ued05', title: '\ued05' }
 '.ti-brand-twitter': { text: '\uec27', title: '\uec27' }
@@ -382,6 +402,7 @@
 '.ti-bus': { text: '\uebe4', title: '\uebe4' }
 '.ti-businessplan': { text: '\uee1e', title: '\uee1e' }
 '.ti-butterfly': { text: '\uefd9', title: '\uefd9' }
+'.ti-c-sharp': { text: '\uf003', title: '\uf003' }
 '.ti-calculator': { text: '\ueb80', title: '\ueb80' }
 '.ti-calendar': { text: '\uea53', title: '\uea53' }
 '.ti-calendar-event': { text: '\uea52', title: '\uea52' }
@@ -475,6 +496,7 @@
 '.ti-circle-dot': { text: '\uefb1', title: '\uefb1' }
 '.ti-circle-dotted': { text: '\ued28', title: '\ued28' }
 '.ti-circle-half': { text: '\uee3f', title: '\uee3f' }
+'.ti-circle-half-2': { text: '\ueff3', title: '\ueff3' }
 '.ti-circle-half-vertical': { text: '\uee3e', title: '\uee3e' }
 '.ti-circle-minus': { text: '\uea68', title: '\uea68' }
 '.ti-circle-off': { text: '\uee40', title: '\uee40' }
@@ -501,6 +523,7 @@
 '.ti-cloud-snow': { text: '\uea73', title: '\uea73' }
 '.ti-cloud-storm': { text: '\uea74', title: '\uea74' }
 '.ti-cloud-upload': { text: '\uea75', title: '\uea75' }
+'.ti-clubs': { text: '\ueff4', title: '\ueff4' }
 '.ti-code': { text: '\uea77', title: '\uea77' }
 '.ti-code-minus': { text: '\uee42', title: '\uee42' }
 '.ti-code-plus': { text: '\uee43', title: '\uee43' }
@@ -625,6 +648,7 @@
 '.ti-devices-2': { text: '\ued29', title: '\ued29' }
 '.ti-devices-pc': { text: '\uee7a', title: '\uee7a' }
 '.ti-diamond': { text: '\ueb65', title: '\ueb65' }
+'.ti-diamonds': { text: '\ueff5', title: '\ueff5' }
 '.ti-dice': { text: '\ueb66', title: '\ueb66' }
 '.ti-dimensions': { text: '\uee7b', title: '\uee7b' }
 '.ti-direction': { text: '\uebfb', title: '\uebfb' }
@@ -740,6 +764,7 @@
 '.ti-float-left': { text: '\uebb2', title: '\uebb2' }
 '.ti-float-none': { text: '\ued13', title: '\ued13' }
 '.ti-float-right': { text: '\uebb3', title: '\uebb3' }
+'.ti-flower': { text: '\ueff6', title: '\ueff6' }
 '.ti-focus': { text: '\ueb8d', title: '\ueb8d' }
 '.ti-focus-2': { text: '\uebd3', title: '\uebd3' }
 '.ti-fold': { text: '\ued56', title: '\ued56' }
@@ -832,6 +857,7 @@
 '.ti-ice-cream-2': { text: '\uee9f', title: '\uee9f' }
 '.ti-ice-skating': { text: '\uefcb', title: '\uefcb' }
 '.ti-id': { text: '\ueac3', title: '\ueac3' }
+'.ti-id-badge': { text: '\ueff7', title: '\ueff7' }
 '.ti-inbox': { text: '\ueac4', title: '\ueac4' }
 '.ti-indent-decrease': { text: '\ueb91', title: '\ueb91' }
 '.ti-indent-increase': { text: '\ueb92', title: '\ueb92' }
@@ -855,6 +881,7 @@
 '.ti-lasso': { text: '\uefac', title: '\uefac' }
 '.ti-layers-difference': { text: '\ueac8', title: '\ueac8' }
 '.ti-layers-intersect': { text: '\ueac9', title: '\ueac9' }
+'.ti-layers-intersect-2': { text: '\ueff8', title: '\ueff8' }
 '.ti-layers-linked': { text: '\ueea1', title: '\ueea1' }
 '.ti-layers-subtract': { text: '\ueaca', title: '\ueaca' }
 '.ti-layers-union': { text: '\ueacb', title: '\ueacb' }
@@ -880,7 +907,11 @@
 '.ti-layout-navbar': { text: '\uead7', title: '\uead7' }
 '.ti-layout-rows': { text: '\uead8', title: '\uead8' }
 '.ti-layout-sidebar': { text: '\ueada', title: '\ueada' }
+'.ti-layout-sidebar-left-collapse': { text: '\uf004', title: '\uf004' }
+'.ti-layout-sidebar-left-expand': { text: '\uf005', title: '\uf005' }
 '.ti-layout-sidebar-right': { text: '\uead9', title: '\uead9' }
+'.ti-layout-sidebar-right-collapse': { text: '\uf006', title: '\uf006' }
+'.ti-layout-sidebar-right-expand': { text: '\uf007', title: '\uf007' }
 '.ti-leaf': { text: '\ued4f', title: '\ued4f' }
 '.ti-lego': { text: '\ueadc', title: '\ueadc' }
 '.ti-lemon': { text: '\uef10', title: '\uef10' }
@@ -1066,6 +1097,7 @@
 '.ti-parachute': { text: '\ued7c', title: '\ued7c' }
 '.ti-parentheses': { text: '\uebd8', title: '\uebd8' }
 '.ti-parking': { text: '\ueb03', title: '\ueb03' }
+'.ti-paw': { text: '\ueff9', title: '\ueff9' }
 '.ti-peace': { text: '\uecbe', title: '\uecbe' }
 '.ti-pencil': { text: '\ueb04', title: '\ueb04' }
 '.ti-pennant': { text: '\ued7d', title: '\ued7d' }
@@ -1115,7 +1147,10 @@
 '.ti-player-track-next': { text: '\ued4b', title: '\ued4b' }
 '.ti-player-track-prev': { text: '\ued4c', title: '\ued4c' }
 '.ti-playlist': { text: '\ueec0', title: '\ueec0' }
+'.ti-playlist-add': { text: '\uf008', title: '\uf008' }
+'.ti-playlist-x': { text: '\uf009', title: '\uf009' }
 '.ti-plug': { text: '\uebd9', title: '\uebd9' }
+'.ti-plug-connected': { text: '\uf00a', title: '\uf00a' }
 '.ti-plus': { text: '\ueb0b', title: '\ueb0b' }
 '.ti-point': { text: '\ueb0c', title: '\ueb0c' }
 '.ti-pokeball': { text: '\ueec1', title: '\ueec1' }
@@ -1173,6 +1208,7 @@
 '.ti-resize': { text: '\ueecf', title: '\ueecf' }
 '.ti-ripple': { text: '\ued82', title: '\ued82' }
 '.ti-road-sign': { text: '\uecdd', title: '\uecdd' }
+'.ti-robot': { text: '\uf00b', title: '\uf00b' }
 '.ti-rocket': { text: '\uec45', title: '\uec45' }
 '.ti-roller-skating': { text: '\uefd1', title: '\uefd1' }
 '.ti-rotate': { text: '\ueb16', title: '\ueb16' }
@@ -1265,6 +1301,7 @@
 '.ti-space': { text: '\uec0c', title: '\uec0c' }
 '.ti-spacing-horizontal': { text: '\uef54', title: '\uef54' }
 '.ti-spacing-vertical': { text: '\uef55', title: '\uef55' }
+'.ti-spade': { text: '\ueffa', title: '\ueffa' }
 '.ti-speakerphone': { text: '\ued61', title: '\ued61' }
 '.ti-speedboat': { text: '\ued93', title: '\ued93' }
 '.ti-sport-billard': { text: '\ueee4', title: '\ueee4' }
@@ -1283,6 +1320,7 @@
 '.ti-square-dot': { text: '\ued59', title: '\ued59' }
 '.ti-square-forbid': { text: '\ued5b', title: '\ued5b' }
 '.ti-square-forbid-2': { text: '\ued5a', title: '\ued5a' }
+'.ti-square-half': { text: '\ueffb', title: '\ueffb' }
 '.ti-square-minus': { text: '\ueb29', title: '\ueb29' }
 '.ti-square-off': { text: '\ueeef', title: '\ueeef' }
 '.ti-square-plus': { text: '\ueb2a', title: '\ueb2a' }
@@ -1405,6 +1443,7 @@
 '.ti-unlink': { text: '\ueb46', title: '\ueb46' }
 '.ti-upload': { text: '\ueb47', title: '\ueb47' }
 '.ti-urgent': { text: '\ueb48', title: '\ueb48' }
+'.ti-usb': { text: '\uf00c', title: '\uf00c' }
 '.ti-user': { text: '\ueb4d', title: '\ueb4d' }
 '.ti-user-check': { text: '\ueb49', title: '\ueb49' }
 '.ti-user-circle': { text: '\uef68', title: '\uef68' }
@@ -1432,6 +1471,7 @@
 '.ti-viewfinder': { text: '\ueb4e', title: '\ueb4e' }
 '.ti-viewport-narrow': { text: '\uebf3', title: '\uebf3' }
 '.ti-viewport-wide': { text: '\uebf4', title: '\uebf4' }
+'.ti-vinyl': { text: '\uf00d', title: '\uf00d' }
 '.ti-virus': { text: '\ueb74', title: '\ueb74' }
 '.ti-virus-off': { text: '\ued66', title: '\ued66' }
 '.ti-virus-search': { text: '\ued67', title: '\ued67' }

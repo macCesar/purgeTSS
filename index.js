@@ -259,68 +259,80 @@ module.exports.init = init;
 
 //! Command: create
 function create(args, options) {
+	start();
 	const { exec } = require("child_process");
 	const commandExistsSync = require('command-exists').sync;
 
-	logger.info('Creating a new Titanium Project with `PurgeTSS`...');
-
-	exec(`ti config app.idprefix && ti config app.workspace`, (error, stdout, stderr) => {
-		if (error) {
-			return logger.error(error);
-		}
-
-		// if (stderr) {
-		// 	return logger.warn(stderr);
-		// }
+	exec(`ti config app.idprefix && ti config app.workspace`, (error, stdout) => {
 
 		let results = stdout.split('\n');
-
 		let idPrefix = results[0];
 		let workspace = results[1];
 
-		if (idPrefix && workspace) {
-			let theIDPrefix = `${idPrefix}.${args.name.replace(/ /g, '').replace(/_/g, '').toLowerCase()}`;
+		// if (error) return logger.error(error);
+
+		if (idPrefix !== 'app.idprefix not found' && workspace !== '') {
+			console.log('');
+			logger.info('Creating a new Titanium project');
+
+			let theIDPrefix = `${idPrefix}.${args.name.replace(/ /g, '').replace(/-/g, '').replace(/_/g, '').toLowerCase()}`;
 
 			let tiCreateCommand = `ti create -t app -p all -n "${args.name}" --no-prompt --id ${theIDPrefix}`;
 
-			exec(tiCreateCommand, (error, stdout, stderr) => {
-				if (error) {
-					return logger.error(error);
-				}
-
-				// if (stderr) {
-				// 	return logger.warn(stderr);
-				// }
-
-				logger.info(stdout);
-
-				let theOpenCommand;
-				// returns true/false; doesn't throw
-				if (commandExistsSync('code')) {
-					theOpenCommand = 'code .';
-				} else if (commandExistsSync('subl')) {
-					theOpenCommand = 'subl .';
-				} else {
-					theOpenCommand = 'open .';
-				}
+			exec(tiCreateCommand, (error) => {
+				if (error) return logger.error(error);
 
 				let fonts = (options.vendor) ? `&& purgetss f -m -v=${options.vendor}` : '';
-				let cdToProject = `cd ${workspace}/"${args.name}" && alloy new && purgetss w && purgetss b ${fonts} && ${theOpenCommand}`;
 
-				exec(cdToProject, (error, stdout, stderr) => {
-					if (error) {
-						return logger.error(error);
+				if (options.vendor) {
+					logger.info('Installing requested fonts');
+				}
+
+				let cdToProject = `cd ${workspace}/"${args.name}" && alloy new && purgetss w && purgetss b ${fonts}`;
+
+				exec(cdToProject, (error) => {
+					if (error) return logger.error(error);
+
+					let theOpenCommand;
+					if (commandExistsSync('code')) {
+						theOpenCommand = `cd ${workspace}/"${args.name}" && code .`;
+					} else if (commandExistsSync('subl')) {
+						theOpenCommand = `cd ${workspace}/"${args.name}" && subl .`;
+					} else {
+						theOpenCommand = `cd ${workspace}/"${args.name}" && open .`;
 					}
 
-					// if (stderr) {
-					// 	return logger.warn(stderr);
-					// }
+					if (options.tailwind) {
+						logger.info('Installing Tailwind CSS');
 
-					logger.info(stdout);
+						let installTailwind = `cd ${workspace}/"${args.name}" && npm init -y && npm i tailwindcss -D && npx tailwindcss init`;
+
+						exec(installTailwind, (error) => {
+							if (error) return logger.error(error);
+
+							finish(chalk.yellow(`‘${args.name}’`) + ' project created successfully in');
+
+							exec(theOpenCommand, (error) => {
+								if (error) return logger.error(error);
+							});
+						});
+					} else {
+						finish(chalk.yellow(`‘${args.name}’`) + ' project created successfully in');
+
+						exec(theOpenCommand, (error) => {
+							if (error) return logger.error(error);
+						});
+					}
 				});
 			});
 		} else {
-			return logger.error('You need to have `app.idprefix` and `app.workspace` configure in `ti config` to create an App with `PurgeTSS`.');
+			console.log('');
+			logger.error('::Can’t create a Titanium project::');
+			logger.info('You need to have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a Project with', chalk.green('`PurgeTSS`'));
+			console.log('');
+			logger.info('Please, set them like this:');
+			logger.info(chalk.green('ti config app.idprefix'), chalk.yellow("'com.your.reverse.domain'"));
+			logger.info(chalk.green('ti config app.workspace'), chalk.yellow("'path/to/your/workspace/directory'"));
 		}
 	});
 }
@@ -862,6 +874,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.pagingControlOnTop = {};
 	configFile.theme.pagingControlTimeout = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'pagingControlTimeout');
 	configFile.theme.passwordKeyboardType = {};
+	configFile.theme.pickerType = {};
 	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor');
 	configFile.theme.placement = {};
 	configFile.theme.preventDefaultImage = {};
@@ -873,6 +886,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.scrollIndicators = {};
 	configFile.theme.scrollingEnabled = {};
 	configFile.theme.scrollType = {};
+	configFile.theme.selectionIndicator = {};
 	configFile.theme.shadow = {};
 	configFile.theme.shadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
 	configFile.theme.shiftMode = {};
@@ -893,6 +907,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.transitionDelay = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'transitionDelay');
 	configFile.theme.transitionDuration = combineKeys(configFile.theme, { ...{ 0: '0ms', 25: '25ms', 50: '50ms' }, ...defaultTheme.transitionDuration }, 'transitionDuration');
 	configFile.theme.translucent = {};
+	configFile.theme.useSpinner = {};
 	configFile.theme.verticalAlignment = {};
 	configFile.theme.width = base.width;
 	configFile.theme.zIndex = combineKeys(configFile.theme, defaultTheme.zIndex, 'zIndex');
@@ -1027,6 +1042,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'pagingControlOnTop': return helpers.pagingControlOnTop();
 		case 'pagingControlTimeout': return helpers.pagingControlTimeout(value);
 		case 'passwordKeyboardType': return helpers.passwordKeyboardType();
+		case 'pickerType': return helpers.pickerType();
 		case 'placeholderColor': return helpers.placeholderColor(value);
 		case 'placement': return helpers.placement();
 		case 'preventDefaultImage': return helpers.preventDefaultImage();
@@ -1038,6 +1054,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'scrollIndicators': return helpers.scrollIndicators();
 		case 'scrollingEnabled': return helpers.scrollingEnabled();
 		case 'scrollType': return helpers.scrollType();
+		case 'selectionIndicator': return helpers.selectionIndicator(value);
 		case 'shadow': return helpers.shadow();
 		case 'shadowColor': return helpers.shadowColor(value);
 		case 'shiftMode': return helpers.shiftMode();
@@ -1059,6 +1076,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'transitionDelay': return helpers.transitionDelay(value);
 		case 'transitionDuration': return helpers.transitionDuration(value);
 		case 'translucent': return helpers.translucent();
+		case 'useSpinner': return helpers.useSpinner(value);
 		case 'verticalAlignment': return helpers.verticalAlignment();
 		case 'width': return helpers.width(value);
 		case 'zIndex': return helpers.zIndex(value);

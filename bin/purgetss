@@ -24,7 +24,7 @@ program
 program
 	.command('init')
 	.alias('i')
-	.description('Create a `config.js` file for your project')
+	.description('Create a `config.js` file for your project.')
 	.help('Creates a minimal `./purgetss/config.js` file at the root of your project.')
 	.action((args, options, logger) => {
 		purgetss.init();
@@ -35,6 +35,7 @@ program
 	.alias('c')
 	.description('Creates a new Alloy Project with `purgetss` already configured.')
 	.help('Creates a new Alloy Project with `purgetss` already configured.')
+	.option('-t, --tailwind', 'To install Tailwind CSS in your project to work with `Tailwind CSS Intellisense`.')
 	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons\n   f7 = Framework7 Icons\n   ti = Tabler Icons')
 	.argument('<name>', 'The name of the project')
 	.action((args, options, logger) => {
@@ -44,7 +45,7 @@ program
 program
 	.command('build')
 	.alias('b')
-	.description('Build a custom `tailwind.tss` file')
+	.description('Build a custom `tailwind.tss` file.')
 	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.')
 	.action((args, options, logger) => {
 		purgetss.buildCustom();
@@ -53,7 +54,7 @@ program
 program
 	.command('watch')
 	.alias('w')
-	.description('Autorun `purgetss` every time you compile your project')
+	.description('Autorun `purgetss` every time you compile your project.')
 	.help('Use this command if you want `purgetss` to autorun every time you compile your project. This is very useful in combination with `LiveView` because it will purge all your files every time you make a change, for example when adding or deleting styles in your Views.')
 	.option('-o, --off', 'To turn off watch mode.')
 	.action((args, options, logger) => {
@@ -63,7 +64,7 @@ program
 program
 	.command('fonts')
 	.alias('f')
-	.description('Copy Font Awesome icons, Material Design Icons, LineIcons, Boxicons and Framework7-Icons Font files into your project')
+	.description('Copy Font Awesome icons, Material Design Icons, LineIcons, Boxicons and Framework7-Icons Font files into your project.')
 	.help('Command to copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • Material Design Icons\n   • LineIcons\n   • Boxicons\n   • Framework7 Icons\n   • Tabler Icons\n\nInto your projects’s app/assets/fonts/ folder.\n\nWith their names fixed to work with your app whether it is for iOS or for Android.')
 	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons\n   f7 = Framework7 Icons\n   ti = Tabler Icons')
 	.option('-m, --modules', 'Use the `--modules` option to also copy the corresponding CommonJS module into `./app/lib/` folder.')
@@ -83,7 +84,7 @@ program
 program
 	.command('update')
 	.alias('u')
-	.description('Update PurgeTSS to the latest version')
+	.description('Update PurgeTSS to the latest version.')
 	.help('Run auto-update regularly!\n\nWe constantly update PurgeTSS to add new features, to include the latest versions of Tailwind and for bug fixes.')
 	.action((args, options, logger) => {
 		logger.info(`${purgetss.colores.purgeLabel} Updating PurgeTSS to the latest version...`);
