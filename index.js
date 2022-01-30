@@ -780,15 +780,19 @@ function buildCustomTailwind(message = 'file created!') {
 	// !Combine `key` values from configFile.theme with base.values or with default.values to generate classes
 
 	// Android Specific
-	// configFile.theme.activityEnterTransition = {};
-	// configFile.theme.activityExitTransition = {};
-	// configFile.theme.activityReenterTransition = {};
-	// configFile.theme.windowSoftInputMode = {};
-
 	configFile.theme.activeIconIsMask = {};
 	configFile.theme.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor');
 	configFile.theme.activeTitleColor = combineKeys(configFile.theme, base.colors, 'activeTitleColor');
+	configFile.theme.activityEnterTransition = {};
+	configFile.theme.activityExitTransition = {};
 	configFile.theme.activityIndicatorStyle = {};
+	configFile.theme.activityReenterTransition = {};
+	configFile.theme.activityReturnTransition = {};
+	configFile.theme.activitySharedElementEnterTransition = {};
+	configFile.theme.activitySharedElementExitTransition = {};
+	configFile.theme.activitySharedElementReenterTransition = {};
+	configFile.theme.activitySharedElementReturnTransition = {};
+	configFile.theme.allowUserCustomization = {};
 	configFile.theme.autoAdjustScrollViewInsets = {};
 	configFile.theme.autocapitalization = {};
 	configFile.theme.autocorrect = {};
@@ -827,6 +831,8 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.exitOnClose = {};
 	configFile.theme.extendBackground = {};
 	configFile.theme.extendEdges = {};
+	configFile.theme.extendSafeArea = {};
+	configFile.theme.flagSecure = {};
 	configFile.theme.flip = {};
 	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily');
 	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize');
@@ -842,6 +848,10 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.hidesBackButton = {};
 	configFile.theme.hidesBarsOnSwipe = {};
 	configFile.theme.hidesBarsOnTap = {};
+	configFile.theme.hidesBarsWhenKeyboardAppears = {};
+	configFile.theme.hideShadow = {};
+	configFile.theme.hidesSearchBarWhenScrolling = {};
+	configFile.theme.homeIndicatorAutoHidden = {};
 	configFile.theme.iconIsMask = {};
 	configFile.theme.includeOpaqueBars = {};
 	configFile.theme.indicatorColor = combineKeys(configFile.theme, base.colors, 'indicatorColor');
@@ -859,6 +869,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.loginKeyboardType = {};
 	configFile.theme.loginReturnKeyType = {};
 	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin');
+	configFile.theme.modal = {};
 	configFile.theme.navBarHidden = {};
 	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor');
 	configFile.theme.opacity = combineKeys(configFile.theme, defaultTheme.opacity, 'opacity');
@@ -893,9 +904,13 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.showCancel = {};
 	configFile.theme.smoothScrollOnTabClick = {};
 	configFile.theme.statusBar = {};
+	configFile.theme.sustainedPerformanceMode = {};
+	configFile.theme.swipeToClose = {};
 	configFile.theme.tabBarHidden = {};
 	configFile.theme.tabGroupStyle = {};
 	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
+	configFile.theme.tabsBackgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundSelectedColor');
+	configFile.theme.tabsTranslucent = {};
 	configFile.theme.textAlign = {};
 	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
 	configFile.theme.tiMedia = {};
@@ -909,6 +924,8 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.useSpinner = {};
 	configFile.theme.verticalAlignment = {};
 	configFile.theme.width = base.width;
+	configFile.theme.windowPixelFormat = {};
+	configFile.theme.windowSoftInputMode = {};
 	configFile.theme.zIndex = combineKeys(configFile.theme, defaultTheme.zIndex, 'zIndex');
 
 	// !Some final cleanup
@@ -948,14 +965,20 @@ function buildCustomTailwind(message = 'file created!') {
 //! Build tailwind's custom values
 function helpersToBuildCustomTailwindClasses(key, value) {
 	switch (key) {
-		// case 'activityEnterTransition': return helpers.activityEnterTransition();
-		// case 'activityExitTransition': return helpers.activityExitTransition();
-		// case 'activityReenterTransition': return helpers.activityReenterTransition();
-		// case 'windowSoftInputMode': return helpers.windowSoftInputMode();
+
 		case 'activeIconIsMask': return helpers.activeIconIsMask();
 		case 'activeTintColor': return helpers.activeTintColor(value);
 		case 'activeTitleColor': return helpers.activeTitleColor(value);
+		case 'activityEnterTransition': return helpers.activityEnterTransition();
+		case 'activityExitTransition': return helpers.activityExitTransition();
 		case 'activityIndicatorStyle': return helpers.activityIndicatorStyle();
+		case 'activityReenterTransition': return helpers.activityReenterTransition();
+		case 'activityReturnTransition': return helpers.activityReturnTransition();
+		case 'activitySharedElementEnterTransition': return helpers.activitySharedElementEnterTransition();
+		case 'activitySharedElementExitTransition': return helpers.activitySharedElementExitTransition();
+		case 'activitySharedElementReenterTransition': return helpers.activitySharedElementReenterTransition();
+		case 'activitySharedElementReturnTransition': return helpers.activitySharedElementReturnTransition();
+		case 'allowUserCustomization': return helpers.allowUserCustomization();
 		case 'autoAdjustScrollViewInsets': return helpers.autoAdjustScrollViewInsets();
 		case 'autocapitalization': return helpers.autocapitalization();
 		case 'autocorrect': return helpers.autocorrect();
@@ -994,6 +1017,8 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'exitOnClose': return helpers.exitOnClose();
 		case 'extendBackground': return helpers.extendBackground();
 		case 'extendEdges': return helpers.extendEdges();
+		case 'extendSafeArea': return helpers.extendSafeArea();
+		case 'flagSecure': return helpers.flagSecure();
 		case 'flip': return helpers.flip();
 		case 'fontFamily': return helpers.fontFamily(value);
 		case 'fontSize': return helpers.fontSize(value);
@@ -1009,6 +1034,10 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'hidesBackButton': return helpers.hidesBackButton();
 		case 'hidesBarsOnSwipe': return helpers.hidesBarsOnSwipe();
 		case 'hidesBarsOnTap': return helpers.hidesBarsOnTap();
+		case 'hidesBarsWhenKeyboardAppears': return helpers.hidesBarsWhenKeyboardAppears();
+		case 'hideShadow': return helpers.hideShadow();
+		case 'hidesSearchBarWhenScrolling': return helpers.hidesSearchBarWhenScrolling();
+		case 'homeIndicatorAutoHidden': return helpers.homeIndicatorAutoHidden();
 		case 'iconIsMask': return helpers.iconIsMask();
 		case 'includeOpaqueBars': return helpers.includeOpaqueBars();
 		case 'indicatorColor': return helpers.indicatorColor(value);
@@ -1026,6 +1055,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'loginKeyboardType': return helpers.loginKeyboardType();
 		case 'loginReturnKeyType': return helpers.loginReturnKeyType();
 		case 'margin': return helpers.margin(value);
+		case 'modal': return helpers.modal();
 		case 'navBarHidden': return helpers.navBarHidden();
 		case 'navTintColor': return helpers.navTintColor(value);
 		case 'opacity': return helpers.opacity(value);
@@ -1060,10 +1090,13 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'showCancel': return helpers.showCancel();
 		case 'smoothScrollOnTabClick': return helpers.smoothScrollOnTabClick();
 		case 'statusBar': return helpers.statusBar();
+		case 'sustainedPerformanceMode': return helpers.sustainedPerformanceMode();
+		case 'swipeToClose': return helpers.swipeToClose();
 		case 'tabBarHidden': return helpers.tabBarHidden();
 		case 'tabGroupStyle': return helpers.tabGroupStyle();
 		case 'tabsBackgroundColor': return helpers.tabsBackgroundColor(value);
 		case 'tabsBackgroundSelectedColor': return helpers.tabsBackgroundSelectedColor(value);
+		case 'tabsTranslucent': return helpers.tabsTranslucent();
 		case 'textAlign': return helpers.textAlign();
 		case 'textColor': return helpers.textColor(value);
 		case 'tiMedia': return helpers.tiMedia();
@@ -1077,6 +1110,8 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'useSpinner': return helpers.useSpinner(value);
 		case 'verticalAlignment': return helpers.verticalAlignment();
 		case 'width': return helpers.width(value);
+		case 'windowPixelFormat': return helpers.windowPixelFormat();
+		case 'windowSoftInputMode': return helpers.windowSoftInputMode();
 		case 'zIndex': return helpers.zIndex(value);
 
 		default: return helpers.customRules(value, key);
