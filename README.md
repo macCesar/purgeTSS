@@ -22,12 +22,13 @@
 - Provides more than 8400 [Tailwind-like utility classes](https://tailwindcss.com/) ready to use in your projects.
 - Creates a clean `app.tss` file with only the classes used in your project by parsing all your XML files.
 - You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
-- You can easily use Font Awesome, Material Design, Lineicons, Boxicons, Tabler Icons and Framework7-Icons fonts in `Buttons` and `Labels`.
+- You can easily use Font Awesome, Material Design, Lineicons, Boxicons, Tabler Icons, Framework7-Icons and Bootstrap Icons fonts in `Buttons` and `Labels`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
 - Includes a simple two-dimensional Grid System to align and distribute elements in your views.
 
 ## List of available classes
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
+- [bootstrapicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/bootstrapicons.tss)
 - [boxicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/boxicons.tss)
 - [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/fontawesome.tss)
 - [framework7icons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/framework7icons.tss)
@@ -270,10 +271,10 @@ Use **`purgetss module`** command to install the `purgetss.ui.js` module in your
 If you want to create a new Alloy Project with `purgetss` ready to go, use the `create` command.
 
 ```bash
-> purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons"]
+> purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons, bootstrapicons"]
 
 # alias:
-> purgetss c 'Name of the Project' [-v=fa,md,li,bx,f7,ti]
+> purgetss c 'Name of the Project' [-v=fa,md,li,bx,f7,ti,bi]
 ```
 
 You need to have `app.idprefix` and `app.idprefix` already configured in `ti config`.
@@ -311,8 +312,10 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 > purgetss f
 ```
 
-Use this command to copy the free versions of [Boxicons](https://boxicons.com), [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Framework7 Icons](https://framework7.io/icons/), [LineIcons](https://lineicons.com/icons/?type=free), [Material Design Icons](https://github.com/google/material-design-icons) and [Tabler Icons](https://tabler-icons.io) Fonts into your `app/assets/fonts` folder. With their names fixed to work in iOS or Android.
+Use this command to copy the free versions of [Boxicons](https://boxicons.com), [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Framework7 Icons](https://framework7.io/icons/), [LineIcons](https://lineicons.com/icons/?type=free), [Material Design Icons](https://github.com/google/material-design-icons), [Tabler Icons](https://tabler-icons.io) and [Bootstrap Icons](https://icons.getbootstrap.com) Fonts into your `app/assets/fonts` folder. With their names fixed to work in iOS or Android.
 
+> bootstrap-icons.ttf
+>
 > boxicons.ttf
 >
 > FontAwesome5Brands-Regular.ttf
@@ -351,7 +354,7 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 ```xml
 <Alloy>
   <Window>
-    <View class="vertical">
+    <ScrollView class="vertical">
       <!-- FontAwesome -->
       <Label class="mt-2 text-gray-700" text="FontAwesome" />
       <Label class="text-xl text-blue-500 fa fa-home" />
@@ -382,7 +385,12 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
       <Label class="mt-2 text-gray-700" text="Tabler-Icons" />
       <Label class="text-xl text-blue-500 ti ti-home" />
       <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded ti ti-home" />
-    </View>
+
+      <!-- Bootstrap Icons -->
+      <Label class="mt-2 text-gray-700" text="Bootstrap Icons" />
+      <Label class="text-xl text-blue-500 bi bi-house-fill" />
+      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded bi bi-house-fill" />
+    </ScrollView>
   </Window>
 </Alloy>
 ```
@@ -392,20 +400,18 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 // Created by César Estrada
 // https://github.com/macCesar/purgeTSS
 
-// Tailwind styles
-'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+// Main styles
 'Window': { backgroundColor: '#ffffff' }
 '.bg-blue-500': { backgroundColor: '#3b82f6' }
 '.rounded': { borderRadius: 4 }
 '.text-xl': { font: { fontSize: 20 } }
 '.h-10': { height: 40 }
-'.keep-screen-on[platform=android]': { keepScreenOn: true }
 '.vertical': { layout: 'vertical' }
 '.my-1': { top: 4, bottom: 4 }
 '.mt-2': { top: 8 }
 '.text-white': { color: '#ffffff' }
+'.text-gray-700': { color: '#374151' }
 '.text-blue-500': { color: '#3b82f6' }
-'.text-gray-700': { color: '#3f3f46' }
 '.w-10': { width: 40 }
 
 // Default Font Awesome styles
@@ -422,7 +428,7 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 
 // BoxIcons styles
 '.bx': { font: { fontFamily: 'boxicons' } }
-'.bx-home': { text: '\ued75', title: '\ued75' }
+'.bx-home': { text: '\ueb12', title: '\ueb12' }
 
 // Framework7 styles
 '.f7': { font: { fontFamily: 'Framework7-Icons' } }
@@ -431,10 +437,14 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 // Tabler Icons styles
 '.ti': { font: { fontFamily: 'tabler-icons' } }
 '.ti-home': { text: '\ueac1', title: '\ueac1' }
+
+// Bootstrap Icons styles
+'.bi': { font: { fontFamily: 'bootstrap-icons' } }
+'.bi-house-fill': { text: '\uf424', title: '\uf424' }
 ```
 
 ## Result
-<img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/icon-fonts-tabler.png" width="375" alt="iOS Screen - Icon Fonts">
+<img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/icon-fonts-bootstrap.png" width="375" alt="iOS Screen - Icon Fonts">
 
 ### Copying specific font vendors
 Use any of the following arguments to copy specific vendors:
@@ -453,28 +463,30 @@ Available aliases:
 - md, material, materialdesign = Material Design Icons
 - f7, framework, framework7 = Framework7 Icons
 - ti, tablericons, tabler = Tabler Icons
+- bi, bootstrap, bootstrapicons = Bootstrap Icons
 
 ### Copying corresponding CommonJS Modules
 You can use the `--modules` flag to copy the corresponding CommonJS modules into `./app/lib/` folder.
 
 ```bash
 > purgetss fonts --modules
-> purgetss fonts --modules --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons"
+> purgetss fonts --modules --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons, bootstrapicons"
 
 # alias:
 > purgetss f -m
-> purgetss f -m -v=fa,md,li,bx,f7,ti
+> purgetss f -m -v=fa,md,li,bx,f7,ti,bi
 ```
 
-Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Material Design Icons, Line Icons Boxicons and Framework7-Icons fonts.
+Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Material Design Icons, Line Icons Boxicons, Framework7-Icons Bootstrap Icons fonts.
 
 All prefixes are stripped out from their class names and are camelCased, for example:
 
-- **Line Icons**: `lni-flag` becomes `flag`
+- **Bootstrap Icons** `bi-alarm-fill` becomes `alarmFill` or `bi-clock-fill` becomes `clockFill`.
 - **Font Awesome**: `fa-flag` becomes `flag`
+- **Framework7 Icons** `f7-alarm_fill` becomes `alarmFill` or `f7-clock_fill` becomes `clockFill`.
+- **Line Icons**: `lni-flag` becomes `flag`
 - **Material Design Icons**: `md-flag` becomes `flag`
 - **Tabler Icons** `ti-flag` becomes `flag` or `ti-cloud-download` becomes `cloudDownload`.
-- **Framework7 Icons** `f7-alarm_fill` becomes `alarmFill` or `f7-clock_fill` becomes `clockFill`.
 - **boxicons** have three sets of icons in the same font file: Regular, Solid and Logos, so we need to keep their prefixes:
 
   - **Regular**: `bx-flag` becomes `bxFlag`
