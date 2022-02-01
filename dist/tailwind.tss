@@ -7281,6 +7281,7 @@
 // Component(s): Ti.UI.SearchBar
 // Property(ies): showCancel
 '.show-cancel': { showCancel: true }
+'.hide-cancel': { showCancel: false }
 
 // Component(s): Ti.UI.TabGroup
 // Property(ies): smoothScrollOnTabClick
@@ -8005,11 +8006,11 @@
 // Ti.Media
 // Component(s): Ti.Media
 // Property(ies): audioSessionCategory - iOS Only
-'.audio-sesion-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_RECORD }
-'.audio-sesion-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_AMBIENT }
-'.audio-sesion-playback[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAYBACK }
-'.audio-sesion-solo-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
-'.audio-sesion-play-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD }
+'.audio-session-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_RECORD }
+'.audio-session-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_AMBIENT }
+'.audio-session-playback[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAYBACK }
+'.audio-session-solo-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
+'.audio-session-play-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD }
 
 // Component(s): Ti.Media.AudioPlayer[android], Ti.Media.Sound[android]
 // Property(ies): audioType
