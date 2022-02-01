@@ -1,0 +1,6 @@
+// Font Families
+'.bi': { font: { fontFamily: 'bootstrap-icons' } }
+'.bootstrap': { font: { fontFamily: 'bootstrap-icons' } }
+
+// Font Icons
+// To use boxicons in Buttons AND Labels each class sets 'text' and 'title' properties

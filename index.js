@@ -45,10 +45,11 @@ const destConfigJSFile = cwd + '/purgetss/config.js';
 const srcLibLI = path.resolve(__dirname, './dist/lineicons.js');
 const srcLibBX = path.resolve(__dirname, './dist/boxicons.js');
 const srcLibF7 = path.resolve(__dirname, './dist/framework7icons.js');
-const srcLibTi = path.resolve(__dirname, './dist/tablericons.js');
-const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
+const srcLibTI = path.resolve(__dirname, './dist/tablericons.js');
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
 const srcLibMD = path.resolve(__dirname, './dist/materialdesignicons.js');
+const srcLibBI = path.resolve(__dirname, './dist/bootstrapicons.js');
+const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
 
 //
 const customTailwindFile = cwd + '/purgetss/tailwind.tss';
@@ -90,13 +91,16 @@ const srcFontAwesomeBetaFontFamilies = {
 const srcFontsFolder = path.resolve(__dirname, './assets/fonts');
 const srcResetTSSFile = path.resolve(__dirname, './dist/reset.tss');
 const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
+
+const srcBoxIconsFontTSSFile = path.resolve(__dirname, './dist/boxicons.tss');
 const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss');
 const srcLineiconsFontTSSFile = path.resolve(__dirname, './dist/lineicons.tss');
-const srcBoxIconsFontTSSFile = path.resolve(__dirname, './dist/boxicons.tss');
-const srcFramework7FontTSSFile = path.resolve(__dirname, './dist/framework7icons.tss');
 const srcTablerIconsFontTSSFile = path.resolve(__dirname, './dist/tablericons.tss');
-const srcPurgetssConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
+const srcFramework7FontTSSFile = path.resolve(__dirname, './dist/framework7icons.tss');
 const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialdesignicons.tss');
+const srcBootstrapIconsFontTSSFile = path.resolve(__dirname, './dist/bootstrapicons.tss');
+
+const srcPurgetssConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
 //
 
 //! Interfase
@@ -138,6 +142,7 @@ function copyFonts(options) {
 			copyFont('bx');
 			copyFont('f7');
 			copyFont('ti');
+			copyFont('bi');
 		}
 
 		if (options.modules) {
@@ -164,6 +169,7 @@ function copyFontLibraries(options) {
 			copyFontLibrary('bx');
 			copyFontLibrary('f7');
 			copyFontLibrary('ti');
+			copyFontLibrary('bi');
 		}
 	}
 }
@@ -221,6 +227,8 @@ function purgeClasses(options) {
 		tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses);
 
 		tempPurged += purgeTablerIcons(uniqueClasses, cleanUniqueClasses);
+
+		tempPurged += purgeBootstrapIcons(uniqueClasses, cleanUniqueClasses);
 
 		saveFile(destAppTSSFile, tempPurged);
 
@@ -501,6 +509,12 @@ function copyTablerIconsFonts() {
 	// Tabler Icons Font
 	copyFile(srcFontsFolder + '/tabler-icons.ttf', 'tabler-icons.ttf');
 	logger.info('tabler-icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
+}
+
+function copyBootstrapIconsFonts() {
+	// Bootstrap Icons Font
+	copyFile(srcFontsFolder + '/bootstrap-icons.ttf', 'bootstrap-icons.ttf');
+	logger.info('bootstrap-icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
 
 function processFontawesomeStyles(data) {
@@ -1205,6 +1219,11 @@ function copyFont(vendor) {
 		case 'tablericons':
 			copyTablerIconsFonts();
 			break;
+		case 'bi':
+		case 'bootstrap':
+		case 'bootstrapicons':
+			copyBootstrapIconsFonts();
+			break;
 	}
 }
 
@@ -1248,8 +1267,14 @@ function copyFontLibrary(vendor) {
 		case 'ti':
 		case 'tabler':
 		case 'tablericons':
-			fs.copyFileSync(srcLibTi, destLibFolder + '/tablericons.js');
+			fs.copyFileSync(srcLibTI, destLibFolder + '/tablericons.js');
 			logger.info('Tabler Icons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			break;
+		case 'bi':
+		case 'bootstrap':
+		case 'bootstrapicons':
+			fs.copyFileSync(srcLibBI, destLibFolder + '/bootstrapicons.js');
+			logger.info('Bootstrap Icons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 	}
 }
@@ -1651,6 +1676,17 @@ function purgeTablerIcons(uniqueClasses, cleanUniqueClasses) {
 	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging Tabler Icons styles...', cleanUniqueClasses, ['ti', 'tablericons', 'tabler']);
 
 	return (purgedClasses === '\n// Tabler Icons styles\n') ? '' : purgedClasses;
+}
+
+//! BootstrapIcons
+function purgeBootstrapIcons(uniqueClasses, cleanUniqueClasses) {
+	let purgedClasses = '\n// Bootstrap Icons styles\n';
+
+	let sourceTSS = fs.readFileSync(srcBootstrapIconsFontTSSFile, 'utf8').split(/\r?\n/);
+
+	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging Bootstrap Icons styles...', cleanUniqueClasses, ['bi', 'bootstrap']);
+
+	return (purgedClasses === '\n// Bootstrap Icons styles\n') ? '' : purgedClasses;
 }
 
 function processFontIcons(sourceTSS, uniqueClasses, message, cleanUniqueClasses, fontFamily) {

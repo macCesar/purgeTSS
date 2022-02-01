@@ -1,6 +1,6 @@
 {
 	"name": "purgetss",
-	"version": "3.1.1",
+	"version": "3.1.2",
 	"description": "An extension for Titanium SDK that generates a set of Tailwind-like classes and values to easily and quickly create beautifully designed mobile apps.",
 	"main": "index.js",
 	"bin": {
@@ -26,7 +26,9 @@
 		"build:tablericons-js": "node ./lib/build-tablericons-js",
 		"build:material": "node ./lib/build-material-icons-tss",
 		"build:material-js": "node ./lib/build-material-icons-js",
-		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:lineicons && npm run build:lineicons-js && npm run build:material && npm run build:material-js && npm run build:boxicons && npm run build:boxicons-js && npm run build:framework7 && npm run build:framework7-js && npm run build:tablericons && npm run build:tablericons-js && npm run build:fonts"
+		"build:bootstrap": "node ./lib/build-bootstrap-icons-tss",
+		"build:bootstrap-js": "node ./lib/build-bootstrap-icons-js",
+		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:lineicons && npm run build:lineicons-js && npm run build:material && npm run build:material-js && npm run build:boxicons && npm run build:boxicons-js && npm run build:framework7 && npm run build:framework7-js && npm run build:tablericons && npm run build:tablericons-js && npm run build:bootstrap && npm run build:bootstrap-js && npm run build:fonts"
 	},
 	"repository": {
 		"type": "git",
