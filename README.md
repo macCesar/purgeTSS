@@ -354,42 +354,57 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 ```xml
 <Alloy>
   <Window>
-    <ScrollView class="vertical">
-      <!-- FontAwesome -->
-      <Label class="mt-2 text-gray-700" text="FontAwesome" />
-      <Label class="text-xl text-blue-500 fa fa-home" />
-      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded fa fa-home" />
+    <ScrollView>
+      <View class="grid">
+        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
+          <!-- FontAwesome -->
+          <Label class="mt-2 text-gray-700" text="FontAwesome" />
+          <Label class="text-xl text-blue-500 fa fa-home" />
+          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded fa fa-home" />
+        </View>
 
-      <!-- Material Design -->
-      <Label class="mt-2 text-gray-700" text="Material Design" />
-      <Label class="text-xl text-blue-500 md md-home" />
-      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded md md-home" />
+        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
+          <!-- Material Design -->
+          <Label class="mt-2 text-gray-700" text="Material Design" />
+          <Label class="text-xl text-blue-500 md md-home" />
+          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded md md-home" />
+        </View>
 
-      <!-- LineIcons -->
-      <Label class="mt-2 text-gray-700" text="LineIcons" />
+        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
+          <!-- LineIcons -->
+          <Label class="mt-2 text-gray-700" text="LineIcons" />
+          <Label class="text-xl text-blue-500 lni lni-delivery" />
+          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded lni lni-delivery" />
+        </View>
 
-      <Label class="text-xl text-blue-500 lni lni-delivery" />
-      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded lni lni-delivery" />
+        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
+          <!-- Boxicons -->
+          <Label class="mt-2 text-gray-700" text="Boxicons" />
+          <Label class="text-xl text-blue-500 bx bx-home" />
+          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded bx bx-home" />
+        </View>
 
-      <!-- Boxicons -->
-      <Label class="mt-2 text-gray-700" text="Boxicons" />
-      <Label class="text-xl text-blue-500 bx bx-home" />
-      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded bx bx-home" />
+        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
+          <!-- Framework7-Icons -->
+          <Label class="mt-2 text-gray-700" text="Framework7-Icons" />
+          <Label class="text-xl text-blue-500 f7 f7-house" />
+          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded f7 f7-house" />
+        </View>
 
-      <!-- Framework7-Icons -->
-      <Label class="mt-2 text-gray-700" text="Framework7-Icons" />
-      <Label class="text-xl text-blue-500 f7 f7-house" />
-      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded f7 f7-house" />
+        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
+          <!-- Tabler-Icons -->
+          <Label class="mt-2 text-gray-700" text="Tabler-Icons" />
+          <Label class="text-xl text-blue-500 ti ti-home" />
+          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded ti ti-home" />
+        </View>
 
-      <!-- Tabler-Icons -->
-      <Label class="mt-2 text-gray-700" text="Tabler-Icons" />
-      <Label class="text-xl text-blue-500 ti ti-home" />
-      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded ti ti-home" />
-
-      <!-- Bootstrap Icons -->
-      <Label class="mt-2 text-gray-700" text="Bootstrap Icons" />
-      <Label class="text-xl text-blue-500 bi bi-house-fill" />
-      <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded bi bi-house-fill" />
+        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
+          <!-- Bootstrap Icons -->
+          <Label class="mt-2 text-gray-700" text="Bootstrap Icons" />
+          <Label class="text-xl text-blue-500 bi bi-house-fill" />
+          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded bi bi-house-fill" />
+        </View>
+      </View>
     </ScrollView>
   </Window>
 </Alloy>
@@ -401,13 +416,18 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 // https://github.com/macCesar/purgeTSS
 
 // Main styles
+'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 '.bg-blue-500': { backgroundColor: '#3b82f6' }
 '.rounded': { borderRadius: 4 }
 '.text-xl': { font: { fontSize: 20 } }
+'.gap-y-2': { top: 8, bottom: 8 }
+'.grid': { layout: 'horizontal' }
+'.grid-cols-2': { width: '50%' }
 '.h-10': { height: 40 }
 '.vertical': { layout: 'vertical' }
 '.my-1': { top: 4, bottom: 4 }
+'.mx-auto': { right: null, left: null }
 '.mt-2': { top: 8 }
 '.text-white': { color: '#ffffff' }
 '.text-gray-700': { color: '#374151' }
@@ -444,7 +464,7 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 ```
 
 ## Result
-<img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/icon-fonts-bootstrap.png" width="375" alt="iOS Screen - Icon Fonts">
+<img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/icon-fonts-bootstrap-grid.png" width="375" alt="iOS Screen - Icon Fonts">
 
 ### Copying specific font vendors
 Use any of the following arguments to copy specific vendors:
