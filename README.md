@@ -453,17 +453,17 @@ Use any of the following arguments to copy specific vendors:
 > purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons"
 
 # alias:
-> purgetss f -v=fa,md,li,bx,f7,ti
+> purgetss f -v=fa,md,li,bx,f7,ti,bi
 ```
 
 Available aliases:
-- bx, box, boxicons = BoxIcons
-- li, line, lineicons = LineIcons
-- fa, font, fontawesome = Font Awesome Icons
-- md, material, materialdesign = Material Design Icons
-- f7, framework, framework7 = Framework7 Icons
-- ti, tablericons, tabler = Tabler Icons
 - bi, bootstrap, bootstrapicons = Bootstrap Icons
+- bx, box, boxicons = BoxIcons
+- f7, framework, framework7 = Framework7 Icons
+- fa, font, fontawesome = Font Awesome Icons
+- li, line, lineicons = LineIcons
+- md, material, materialdesign = Material Design Icons
+- ti, tablericons, tabler = Tabler Icons
 
 ### Copying corresponding CommonJS Modules
 You can use the `--modules` flag to copy the corresponding CommonJS modules into `./app/lib/` folder.
