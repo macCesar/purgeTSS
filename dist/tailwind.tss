@@ -4131,22 +4131,22 @@
 // Component(s): Ti.UI.Window
 // Property(ies): hidesBackButton
 '.hides-back-button': { hidesBackButton: true }
-'.shows-back-button': { hidesBackButton: false }
+'.show-back-button': { hidesBackButton: false }
 
 // Component(s): Ti.UI.Window
 // Property(ies): hidesBarsOnSwipe - iOS Only
 '.hides-bars-on-swipe[platform=ios]': { hidesBarsOnSwipe: true }
-'.shows-bars-on-swipe[platform=ios]': { hidesBarsOnSwipe: false }
+'.show-bars-on-swipe[platform=ios]': { hidesBarsOnSwipe: false }
 
 // Component(s): Ti.UI.Window
 // Property(ies): hidesBarsOnTap - iOS Only
 '.hides-bars-on-tap[platform=ios]': { hidesBarsOnTap: true }
-'.shows-bars-on-tap[platform=ios]': { hidesBarsOnTap: false }
+'.show-bars-on-tap[platform=ios]': { hidesBarsOnTap: false }
 
 // Component(s): Ti.UI.Window
 // Property(ies): hidesBarsWhenKeyboardAppears - iOS Only
 '.hides-bars-when-keyboard-appears[platform=ios]': { hidesBarsWhenKeyboardAppears: true }
-'.shows-bars-when-keyboard-appears[platform=ios]': { hidesBarsWhenKeyboardAppears: false }
+'.show-bars-when-keyboard-appears[platform=ios]': { hidesBarsWhenKeyboardAppears: false }
 
 // Component(s): Ti.UI.Window
 // Property(ies): hideShadow - iOS Only
@@ -4156,7 +4156,7 @@
 // Component(s): Ti.UI.Window
 // Property(ies): hidesSearchBarWhenScrolling - iOS Only
 '.hides-search-bar-when-scrolling[platform=ios]': { hidesSearchBarWhenScrolling: true }
-'.shows-search-bar-when-scrolling[platform=ios]': { hidesSearchBarWhenScrolling: false }
+'.show-search-bar-when-scrolling[platform=ios]': { hidesSearchBarWhenScrolling: false }
 
 // Component(s): Ti.UI.Window
 // Property(ies): homeIndicatorAutoHidden - iOS Only
