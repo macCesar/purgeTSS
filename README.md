@@ -477,7 +477,7 @@ You can use the `--modules` flag to copy the corresponding CommonJS modules into
 > purgetss f -m -v=fa,md,li,bx,f7,ti,bi
 ```
 
-Each library contains a CommonJS module exposing the UniCode strings for Font Awesome icons, Material Design Icons, Line Icons Boxicons, Framework7-Icons Bootstrap Icons fonts.
+Each library contains a CommonJS module exposing the UniCode strings for Font Awesome Icons, Material Design Icons, Line Icons, Boxicons, Framework7-Icons and Bootstrap Icons fonts.
 
 All prefixes are stripped out from their class names and are camelCased, for example:
 
