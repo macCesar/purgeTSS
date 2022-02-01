@@ -615,6 +615,7 @@
 // Component(s): Ti.UI.Animation
 // Property(ies): autoreverse
 '.autoreverse': { autoreverse: true }
+'.no-autoreverse': { autoreverse: false }
 
 // Component(s): Ti.UI.MaskedImage
 // Property(ies): mode ( Background Blend Mode )
@@ -5684,6 +5685,7 @@
 // Component(s): Ti.UI.ScrollableView
 // Property(ies): overlayEnabled
 '.overlay-enabled[platform=ios]': { overlayEnabled: true }
+'.overlay-disabled[platform=ios]': { overlayEnabled: false }
 
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): padding
@@ -6351,6 +6353,7 @@
 // Component(s): Ti.UI.ScrollableView
 // Property(ies): showPagingControl
 '.show-paging-control': { showPagingControl: true }
+'.hide-paging-control': { showPagingControl: false }
 
 // Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlAlpha
