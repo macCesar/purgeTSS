@@ -450,7 +450,7 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 Use any of the following arguments to copy specific vendors:
 
 ```bash
-> purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons"
+> purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons, bootstrapicons"
 
 # alias:
 > purgetss f -v=fa,md,li,bx,f7,ti,bi

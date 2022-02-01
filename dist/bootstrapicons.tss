@@ -4,9 +4,10 @@
 // Font Families
 '.bi': { font: { fontFamily: 'bootstrap-icons' } }
 '.bootstrap': { font: { fontFamily: 'bootstrap-icons' } }
+'.bootstrapicons': { font: { fontFamily: 'bootstrap-icons' } }
 
 // Font Icons
-// To use boxicons in Buttons AND Labels each class sets 'text' and 'title' properties
+// To use Bootstrap Icons in Buttons AND Labels each class sets 'text' and 'title' properties
 '.bi-123': { text: '\uf67f', title: '\uf67f' }
 '.bi-alarm-fill': { text: '\uf101', title: '\uf101' }
 '.bi-alarm': { text: '\uf102', title: '\uf102' }
