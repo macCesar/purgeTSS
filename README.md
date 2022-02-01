@@ -301,7 +301,7 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 - **`alloy new`** To convert it to an Alloy Project.
 - **`purgetss w`** To autorun `purgetss` every time you compile your project.
 - **`purgetss b`** To build a new `./purgetss/tailwind.tss` and `./purgetss/config.js` files.
-- **`[-v=fa,md,li,bx,f7,ti]`** Set the `--vendor` argument to copy the selected fonts into your project. Including the CommonJS module into `./app/lib/` folder.
+- **`[-v=fa,md,li,bx,f7,ti,bi]`** Set the `--vendor` argument to copy the selected fonts into your project. Including the CommonJS module into `./app/lib/` folder.
 - **`code .`**, **`subl .`** or **`open .`** It will use either one of these commands to open `VS Code`, `Sublime Text` or the project’s folder in that order.
 
 ## fonts
