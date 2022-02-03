@@ -36,7 +36,7 @@ program
 	.description('Creates a new Alloy Project with `purgetss` already configured.')
 	.help('Creates a new Alloy Project with `purgetss` already configured.')
 	.option('-t, --tailwind', 'To install Tailwind CSS in your project to work with `Tailwind CSS Intellisense`.')
-	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons\n   f7 = Framework7 Icons\n   ti = Tabler Icons')
+	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons\n   f7 = Framework7 Icons\n   ti = Tabler Icons\n   bi = Bootstrap Icons')
 	.argument('<name>', 'The name of the project')
 	.action((args, options, logger) => {
 		purgetss.create(args, options);
@@ -64,9 +64,9 @@ program
 program
 	.command('fonts')
 	.alias('f')
-	.description('Copy Font Awesome icons, Material Design Icons, LineIcons, Boxicons and Framework7-Icons Font files into your project.')
-	.help('Command to copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • Material Design Icons\n   • LineIcons\n   • Boxicons\n   • Framework7 Icons\n   • Tabler Icons\n\nInto your projects’s app/assets/fonts/ folder.\n\nWith their names fixed to work with your app whether it is for iOS or for Android.')
-	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons\n   f7 = Framework7 Icons\n   ti = Tabler Icons')
+	.description('Copy Font Awesome icons, Material Design Icons, LineIcons, Boxicons, Framework7-Icons and Bootstrap Icons Font files into your project.')
+	.help('Command to copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • Material Design Icons\n   • LineIcons\n   • Boxicons\n   • Framework7 Icons\n   • Tabler Icons\n   • Bootstrap Icons\n\nInto your projects’s app/assets/fonts/ folder.\n\nWith their names fixed to work with your app whether it is for iOS or for Android.')
+	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons\n   f7 = Framework7 Icons\n   ti = Tabler Icons\n   bi = Bootstrap Icons')
 	.option('-m, --modules', 'Use the `--modules` option to also copy the corresponding CommonJS module into `./app/lib/` folder.')
 	.action((args, options, logger) => {
 		purgetss.copyFonts(options);

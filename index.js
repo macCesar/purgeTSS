@@ -283,10 +283,10 @@ function create(args, options) {
 			console.log('');
 			logger.info('Creating a new Titanium project');
 
-			let theIDPrefix = `${idPrefix}.${args.name.replace(/ /g, '').replace(/-/g, '').replace(/_/g, '').toLowerCase()}`;
+			let projectName = args.name.replace(/ /g, '\\ ');
+			let projectID = `${idPrefix}.${args.name.replace(/ /g, '').replace(/-/g, '').replace(/_/g, '').toLowerCase()}`;
 
-			let tiCreateCommand = `ti create -t app -p all -n "${args.name}" --no-prompt --id ${theIDPrefix}`;
-
+			let tiCreateCommand = `ti create -t app -p all -n ${projectName} --no-prompt --id ${projectID}`;
 			exec(tiCreateCommand, (error) => {
 				if (error) return logger.error(error);
 
@@ -296,25 +296,25 @@ function create(args, options) {
 					logger.info('Installing requested fonts');
 				}
 
-				let cdToProject = `cd ${workspace}/"${args.name}" && alloy new && purgetss w && purgetss b ${fonts}`;
-
+				let cdToProject = `cd ${workspace}/${projectName} && alloy new && purgetss w && purgetss b ${fonts}`;
 				exec(cdToProject, (error) => {
 					if (error) return logger.error(error);
 
 					let theOpenCommand;
 					if (commandExistsSync('code')) {
-						theOpenCommand = `cd ${workspace}/"${args.name}" && code .`;
+						theOpenCommand = `cd ${workspace}/${projectName} && code .`;
 					} else if (commandExistsSync('subl')) {
-						theOpenCommand = `cd ${workspace}/"${args.name}" && subl .`;
+						theOpenCommand = `cd ${workspace}/${projectName} && subl .`;
 					} else {
-						theOpenCommand = `cd ${workspace}/"${args.name}" && open .`;
+						theOpenCommand = `cd ${workspace}/${projectName} && open .`;
 					}
 
 					if (options.tailwind) {
 						logger.info('Installing Tailwind CSS');
 
-						let installTailwind = `cd ${workspace}/"${args.name}" && npm init -y && npm i tailwindcss -D && npx tailwindcss init`;
+						fs.writeFileSync(`${workspace}/${args.name}/package.json`, JSON.stringify({ "name": `${args.name.replace(/ /g, '-').toLowerCase()}` }));
 
+						let installTailwind = `cd ${workspace}/${projectName} && npm init -y && npm i tailwindcss -D && npm i postcss -D && npx tailwindcss init`;
 						exec(installTailwind, (error) => {
 							if (error) return logger.error(error);
 
