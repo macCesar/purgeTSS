@@ -4,7 +4,8 @@ function Animation(args) {
 		open: false,
 		draggables: [],
 		playing: false,
-		delay: args.delay,
+		delay: args.delay ?? 0,
+		// delay: args.delay ? args.delay : (args.animation && args.animation.open && args.animation.open.delay) ? args.animation.open.delay : 0,
 		debug: args.debug ?? false,
 		hasTransformation: (args.scale !== undefined || args.rotate !== undefined),
 	};
@@ -15,7 +16,7 @@ function Animation(args) {
 
 	if (args.scale || args.rotate || args.anchorPoint) {
 		logger('   Creating transform');
-		args.transform = Ti.UI.createMatrix2D({ scale, rotate, anchorPoint } = args);
+		args.transform = Ti.UI.createMatrix2D(args);
 	}
 
 	delete args.id;
@@ -24,7 +25,7 @@ function Animation(args) {
 
 	if (args.animation && args.animation.open && (args.animation.open.anchorPoint || args.animation.open.rotate || args.animation.open.scale)) {
 		logger('   Creating transformOnOpen');
-		args.transformOnOpen = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args.animation.open);
+		args.transformOnOpen = Ti.UI.createMatrix2D(args.animation.open);
 		delete args.animation.open.scale;
 		delete args.animation.open.rotate;
 		delete args.animation.open.anchorPoint;
@@ -32,7 +33,7 @@ function Animation(args) {
 
 	if (args.animation && args.animation.close && (args.animation.close.anchorPoint || args.animation.close.rotate || args.animation.close.scale)) {
 		logger('   Creating transformOnClose');
-		args.transformOnClose = Ti.UI.createMatrix2D({ anchorPoint, rotate, scale } = args.animation.close);
+		args.transformOnClose = Ti.UI.createMatrix2D(args.animation.close);
 		delete args.animation.close.scale;
 		delete args.animation.close.rotate;
 		delete args.animation.close.anchorPoint;
@@ -224,7 +225,7 @@ function Animation(args) {
 			logger('       check `complete` args');
 			if (action === 'play') {
 				param.playing = true;
-				view.animate(Ti.UI.createAnimation(args.animation.complete), () => {
+				view.animate(Ti.UI.createAnimation({ ...args, ...args.animation.complete, transform: Ti.UI.createMatrix2D(args.animation.complete) }), () => {
 					param.playing = false;
 				});
 			} else {
