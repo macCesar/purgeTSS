@@ -6,6 +6,12 @@
 '.far': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
 '.fab': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
 
+'.fa-thin': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
+'.fa-solid': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fa-light': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
+'.fa-regular': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
+'.fa-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
+
 '.fontawesome': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
 '.fontawesome-thin': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
 '.fontawesome-solid': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }

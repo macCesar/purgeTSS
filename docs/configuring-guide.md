@@ -1469,7 +1469,7 @@ You can use any of the supported units depending of the property you are generat
 
 // Default Font Awesome styles
 '.fa-cloud': { text: '\uf0c2', title: '\uf0c2' }
-'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fas': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
 ```
 
 **Result**

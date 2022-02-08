@@ -148,8 +148,8 @@ After running `purgetss` you will have a new `app.tss` file with only the classe
 // Default Font Awesome styles
 '.fa-envelope': { text: '\uf0e0', title: '\uf0e0' }
 '.fa-phone-alt': { text: '\uf879', title: '\uf879' }
-'.far': { font: { fontFamily: 'FontAwesome5Free-Regular' } }
-'.fas': { font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.far': { font: { fontFamily: 'FontAwesome6Free-Regular' } }
+'.fas': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
 ```
 
 ## Result
@@ -318,11 +318,11 @@ Use this command to copy the free versions of [Boxicons](https://boxicons.com), 
 >
 > boxicons.ttf
 >
-> FontAwesome5Brands-Regular.ttf
+> FontAwesome6Brands-Regular.ttf
 >
-> FontAwesome5Free-Regular.ttf
+> FontAwesome6Free-Regular.ttf
 >
-> FontAwesome5Free-Solid.ttf
+> FontAwesome6Free-Solid.ttf
 >
 > Framework7-Icons.ttf
 >
@@ -435,7 +435,7 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 '.w-10': { width: 40 }
 
 // Default Font Awesome styles
-'.fa':{ font: { fontFamily: 'FontAwesome5Free-Solid' } }
+'.fa':{ font: { fontFamily: 'FontAwesome6Free-Solid' } }
 '.fa-home': { text: '\uf015', title: '\uf015' }
 
 // Material Design Icons styles
