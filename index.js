@@ -69,10 +69,11 @@ const srcFontAwesomeProWebFontsFolderAlternate = cwd + '/app/lib/node_modules/@f
 const srcFontAwesomeProResetTSS = './lib/templates/fontawesome/pro-reset.tss';
 const srcFontAwesomeProTemplateTSS = './lib/templates/fontawesome/pro-template.tss';
 const srcFontAwesomeProFontFamilies = {
-	'fa-light-300.ttf': 'FontAwesome5Pro-Light.ttf',
-	'fa-brands-400.ttf': 'FontAwesome5Brands-Regular.ttf',
-	'fa-regular-400.ttf': 'FontAwesome5Pro-Regular.ttf',
-	'fa-solid-900.ttf': 'FontAwesome5Pro-Solid.ttf'
+	'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
+	'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
+	'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
+	'fa-regular-400.ttf': 'FontAwesome6Pro-Regular.ttf',
+	'fa-solid-900.ttf': 'FontAwesome6Pro-Solid.ttf'
 }
 
 // BETA
@@ -455,9 +456,9 @@ function processCustomFontAwesomeJS(CSSFile, faJS) {
 
 function copyFreeFonts() {
 	// FontAwesome Fonts
-	fs.copyFile(srcFontsFolder + '/FontAwesome5Brands-Regular.ttf', destFontsFolder + '/FontAwesome5Brands-Regular.ttf', callback);
-	fs.copyFile(srcFontsFolder + '/FontAwesome5Free-Regular.ttf', destFontsFolder + '/FontAwesome5Free-Regular.ttf', callback);
-	fs.copyFile(srcFontsFolder + '/FontAwesome5Free-Solid.ttf', destFontsFolder + '/FontAwesome5Free-Solid.ttf', callback);
+	fs.copyFile(srcFontsFolder + '/FontAwesome6Brands-Regular.ttf', destFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback);
+	fs.copyFile(srcFontsFolder + '/FontAwesome6Free-Regular.ttf', destFontsFolder + '/FontAwesome6Free-Regular.ttf', callback);
+	fs.copyFile(srcFontsFolder + '/FontAwesome6Free-Solid.ttf', destFontsFolder + '/FontAwesome6Free-Solid.ttf', callback);
 
 	logger.info('Font Awesome Free Icons Fonts copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
