@@ -6985,9 +6985,10 @@
 '.rotate-90': { rotate: 90 }
 '.rotate-180': { rotate: 180 }
 
-// Component(s): Ti.UI.ScrollView
+// Component(s): Ti.UI.ScrollView, MatrixCreationDict
 // Property(ies): scale
 '.scale-0': { scale: '0' }
+'.scale-1': { scale: '.01' }
 '.scale-5': { scale: '.05' }
 '.scale-10': { scale: '.10' }
 '.scale-25': { scale: '.25' }
@@ -8047,6 +8048,15 @@
 
 // Component(s): Ti.UI.ImageView
 // Property(ies): scalingMode
+// Description: Object Fit for compatibility with Tailwind classes
+'.object-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
+'.object-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
+'.object-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
+'.object-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
+'.object-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
+
+// Component(s): Ti.UI.ImageView
+// Property(ies): scalingMode
 // Description: Image Scaling Mode
 '.image-scaling-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
 '.image-scaling-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
@@ -8764,9 +8774,16 @@
 '.delay-100': { delay: 100 }
 '.delay-150': { delay: 150 }
 '.delay-200': { delay: 200 }
+'.delay-250': { delay: 250 }
 '.delay-300': { delay: 300 }
+'.delay-350': { delay: 350 }
+'.delay-400': { delay: 400 }
+'.delay-450': { delay: 450 }
 '.delay-500': { delay: 500 }
+'.delay-600': { delay: 600 }
 '.delay-700': { delay: 700 }
+'.delay-800': { delay: 800 }
+'.delay-900': { delay: 900 }
 '.delay-1000': { delay: 1000 }
 '.delay-2000': { delay: 2000 }
 '.delay-3000': { delay: 3000 }
@@ -8782,10 +8799,21 @@
 '.duration-100': { duration: 100 }
 '.duration-150': { duration: 150 }
 '.duration-200': { duration: 200 }
+'.duration-250': { duration: 250 }
 '.duration-300': { duration: 300 }
+'.duration-350': { duration: 350 }
+'.duration-400': { duration: 400 }
+'.duration-450': { duration: 450 }
 '.duration-500': { duration: 500 }
+'.duration-600': { duration: 600 }
 '.duration-700': { duration: 700 }
+'.duration-800': { duration: 800 }
+'.duration-900': { duration: 900 }
 '.duration-1000': { duration: 1000 }
+'.duration-2000': { duration: 2000 }
+'.duration-3000': { duration: 3000 }
+'.duration-4000': { duration: 4000 }
+'.duration-5000': { duration: 5000 }
 '.duration': { duration: 150 }
 
 // Component(s): Ti.UI.iOS.Toolbar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
