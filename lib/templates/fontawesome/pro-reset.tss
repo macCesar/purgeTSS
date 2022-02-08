@@ -1,15 +1,23 @@
-// Font Families Pro 5.15.4
-'.fa':{ font: { fontFamily: 'FontAwesome5Pro-Solid' } }
-'.fas': { font: { fontFamily: 'FontAwesome5Pro-Solid' } }
-'.fal': { font: { fontFamily: 'FontAwesome5Pro-Light' } }
-'.far': { font: { fontFamily: 'FontAwesome5Pro-Regular' } }
-'.fab': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
+// Font Families Pro 6.0.0
+'.fa':{ font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fat': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
+'.fas': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fal': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
+'.far': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
+'.fab': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
 
-'.fontawesome': { font: { fontFamily: 'FontAwesome5Pro-Solid' } }
-'.fontawesome-solid': { font: { fontFamily: 'FontAwesome5Pro-Solid' } }
-'.fontawesome-light': { font: { fontFamily: 'FontAwesome5Pro-Light' } }
-'.fontawesome-regular': { font: { fontFamily: 'FontAwesome5Pro-Regular' } }
-'.fontawesome-brands': { font: { fontFamily: 'FontAwesome5Brands-Regular' } }
+'.fa-thin': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
+'.fa-solid': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fa-light': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
+'.fa-regular': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
+'.fa-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
+
+'.fontawesome': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fontawesome-thin': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
+'.fontawesome-solid': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fontawesome-light': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
+'.fontawesome-regular': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
+'.fontawesome-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
 
 // Font Sizes
 '.fa-lg': { font: { fontSize: 21 } }
