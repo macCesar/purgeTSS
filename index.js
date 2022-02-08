@@ -312,7 +312,7 @@ function create(args, options) {
 					if (options.tailwind) {
 						logger.info('Installing Tailwind CSS');
 
-						fs.writeFileSync(`${workspace}/${args.name}/package.json`, JSON.stringify({ "name": `${args.name.replace(/ /g, '-').toLowerCase()}` }));
+						fs.writeFileSync(`${workspace}/${args.name}/package.json`, JSON.stringify({ "name": `${args.name.replace(/ /g, '-').toLowerCase()}`, "private": true }));
 
 						let installTailwind = `cd ${workspace}/${projectName} && npm init -y && npm i tailwindcss -D && npm i postcss -D && npx tailwindcss init`;
 						exec(installTailwind, (error) => {
@@ -932,8 +932,8 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor');
 	configFile.theme.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor');
 	configFile.theme.transition = {};
-	configFile.theme.transitionDelay = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'transitionDelay');
-	configFile.theme.transitionDuration = combineKeys(configFile.theme, { ...{ 0: '0ms', 25: '25ms', 50: '50ms' }, ...defaultTheme.transitionDuration }, 'transitionDuration');
+	configFile.theme.transitionDelay = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'transitionDelay');
+	configFile.theme.transitionDuration = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDuration }, 'transitionDuration');
 	configFile.theme.translucent = {};
 	configFile.theme.useSpinner = {};
 	configFile.theme.verticalAlignment = {};
@@ -1635,7 +1635,7 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 
 	let sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
 
-	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fab', 'fal', 'far', 'fas', 'fat', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands']);
+	purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fab', 'fal', 'far', 'fas', 'fat', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands']);
 
 	return (purgedClasses === '\n// Custom Font Awesome styles\n' || purgedClasses === '\n// Default Font Awesome styles\n') ? '' : purgedClasses;
 }
@@ -1646,7 +1646,7 @@ function purgeMaterialDesign(uniqueClasses, cleanUniqueClasses) {
 
 	let sourceTSS = fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8').split(/\r?\n/);
 
-	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging Material Design Icons styles...', cleanUniqueClasses, ['md', 'mdo', 'mdr', 'mds', 'mdt', '.materialdesign', '.materialdesign-round', '.materialdesign-sharp', '.materialdesign-two-tone', '.materialdesign-outlined', '.material-icons', '.material-icons-round', '.material-icons-sharp', '.material-icons-two-tone', '.material-icons-outlined']);
+	purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, 'Purging Material Design Icons styles...', cleanUniqueClasses, ['md', 'mdo', 'mdr', 'mds', 'mdt', '.materialdesign', '.materialdesign-round', '.materialdesign-sharp', '.materialdesign-two-tone', '.materialdesign-outlined', '.material-icons', '.material-icons-round', '.material-icons-sharp', '.material-icons-two-tone', '.material-icons-outlined']);
 
 	return (purgedClasses === '\n// Material Design Icons styles\n') ? '' : purgedClasses;
 }
@@ -1657,7 +1657,7 @@ function purgeLineIcons(uniqueClasses, cleanUniqueClasses) {
 
 	let sourceTSS = fs.readFileSync(srcLineiconsFontTSSFile, 'utf8').split(/\r?\n/);
 
-	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging LineIcons styles...', cleanUniqueClasses, ['li', 'lni', 'lineicons']);
+	purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, 'Purging LineIcons styles...', cleanUniqueClasses, ['li', 'lni', 'lineicons']);
 
 	return (purgedClasses === '\n// LineIcons styles\n') ? '' : purgedClasses;
 }
@@ -1668,7 +1668,7 @@ function purgeFramework7(uniqueClasses, cleanUniqueClasses) {
 
 	let sourceTSS = fs.readFileSync(srcFramework7FontTSSFile, 'utf8').split(/\r?\n/);
 
-	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging Framework7 Icons styles...', cleanUniqueClasses, ['f7', 'f7i', 'framework7']);
+	purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, 'Purging Framework7 Icons styles...', cleanUniqueClasses, ['f7', 'f7i', 'framework7']);
 
 	return (purgedClasses === '\n// Framework7 styles\n') ? '' : purgedClasses;
 }
@@ -1679,7 +1679,7 @@ function purgeBoxIcons(uniqueClasses, cleanUniqueClasses) {
 
 	let sourceTSS = fs.readFileSync(srcBoxIconsFontTSSFile, 'utf8').split(/\r?\n/);
 
-	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging BoxIcons styles...', cleanUniqueClasses, ['bx', 'bxi', 'boxicons']);
+	purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, 'Purging BoxIcons styles...', cleanUniqueClasses, ['bx', 'bxi', 'boxicons']);
 
 	return (purgedClasses === '\n// BoxIcons styles\n') ? '' : purgedClasses;
 }
@@ -1690,7 +1690,7 @@ function purgeTablerIcons(uniqueClasses, cleanUniqueClasses) {
 
 	let sourceTSS = fs.readFileSync(srcTablerIconsFontTSSFile, 'utf8').split(/\r?\n/);
 
-	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging Tabler Icons styles...', cleanUniqueClasses, ['ti', 'tablericons', 'tabler']);
+	purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, 'Purging Tabler Icons styles...', cleanUniqueClasses, ['ti', 'tablericons', 'tabler']);
 
 	return (purgedClasses === '\n// Tabler Icons styles\n') ? '' : purgedClasses;
 }
@@ -1701,12 +1701,12 @@ function purgeBootstrapIcons(uniqueClasses, cleanUniqueClasses) {
 
 	let sourceTSS = fs.readFileSync(srcBootstrapIconsFontTSSFile, 'utf8').split(/\r?\n/);
 
-	purgedClasses += processFontIcons(sourceTSS, uniqueClasses, 'Purging Bootstrap Icons styles...', cleanUniqueClasses, ['bi', 'bootstrap']);
+	purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, 'Purging Bootstrap Icons styles...', cleanUniqueClasses, ['bi', 'bootstrap']);
 
 	return (purgedClasses === '\n// Bootstrap Icons styles\n') ? '' : purgedClasses;
 }
 
-function processFontIcons(sourceTSS, uniqueClasses, message, cleanUniqueClasses, fontFamily) {
+function purgeFontIcons(sourceTSS, uniqueClasses, message, cleanUniqueClasses, fontFamily) {
 	let purgedClasses = '';
 	let soc = sourceTSS.toString();
 
