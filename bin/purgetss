@@ -35,7 +35,7 @@ program
 	.alias('c')
 	.description('Creates a new Alloy Project with `purgetss` already configured.')
 	.help('Creates a new Alloy Project with `purgetss` already configured.')
-	.option('-t, --tailwind', 'To install Tailwind CSS in your project to work with `Tailwind CSS Intellisense`.')
+	.option('-t, --tailwind', 'To install Tailwind CSS in your project to work with `Tailwind CSS Intellisense` extenstion in VS Code.')
 	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons\n   bx = Boxicons\n   f7 = Framework7 Icons\n   ti = Tabler Icons\n   bi = Bootstrap Icons')
 	.argument('<name>', 'The name of the project')
 	.action((args, options, logger) => {
@@ -70,6 +70,16 @@ program
 	.option('-m, --modules', 'Use the `--modules` option to also copy the corresponding CommonJS module into `./app/lib/` folder.')
 	.action((args, options, logger) => {
 		purgetss.copyFonts(options);
+	});
+
+program
+	.command('build-fonts')
+	.alias('bf')
+	.description('Build a custom `fonts.tss` file.')
+	.help('It will generate a new custom `fonts.tss` file based on the font and css files to the `./purgetss/fonts` folder.')
+	.option('-m, --modules', 'Use the `--modules` option to also generate a CommonJS module into `./app/lib/` folder called `purgetss-fonts.js`.')
+	.action((args, options, logger) => {
+		purgetss.buildCustomFonts(options);
 	});
 
 program

@@ -231,6 +231,8 @@ function purgeClasses(options) {
 
 		tempPurged += purgeBootstrapIcons(uniqueClasses, cleanUniqueClasses);
 
+		tempPurged += purgeCustomFonts(uniqueClasses, cleanUniqueClasses);
+
 		saveFile(destAppTSSFile, tempPurged);
 
 		logger.file('app.tss');
@@ -391,20 +393,6 @@ function processCustomFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilie
 	});
 }
 
-function prettifyFontName(str) {
-	str = str.replace('fa-', '');
-	var temp = str.split('-'), i, pretty;
-
-	for (i = 0; i < temp.length; i++) {
-		temp[i] = temp[i].charAt(0).toUpperCase() + temp[i].slice(1);
-	}
-
-	pretty = temp.join('').replace(':', '');
-	pretty = pretty.replace(/^.{1}/g, pretty[0].toLowerCase());
-
-	return pretty;
-};
-
 function buildCustomFontAwesomeJS() {
 	if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
 		processCustomFontAwesomeJS(srcFontAwesomeBetaCSSFile, './lib/templates/fontawesome/beta-template.js');
@@ -434,7 +422,7 @@ function processCustomFontAwesomeJS(CSSFile, faJS) {
 
 		_.each(rules, rule => {
 			if (rule) {
-				exportIcons += `\t'${prettifyFontName(rule.selector)}': '\\u${rule.property}',\n`;
+				exportIcons += `\t'${prettifyFontName(rule.selector, 'fa-')}': '\\u${rule.property}',\n`;
 			}
 		});
 
@@ -558,6 +546,322 @@ function processFontawesomeStyles(data) {
 	return convertedTSSClasses;
 }
 
+// ! Build fonts.tss
+function getFiles(dir) {
+	return fs.readdirSync(dir).flatMap((item) => {
+		const path = `${dir}/${item}`;
+		if (fs.statSync(path).isDirectory()) {
+			return getFiles(path);
+		}
+
+		return path;
+	});
+}
+
+function buildCustomFonts(options) {
+	if (fs.existsSync(cwd + '/purgetss/fonts/')) {
+		start();
+
+		let files = getFiles(cwd + '/purgetss/fonts').filter(file => {
+			return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css');
+		});
+
+		let fontMeta = '';
+		let customFontsJS = '';
+		const FontName = require('fontname');
+		let tssClasses = `// Fonts TSS file generated with PurgeTSS\n// https://github.com/macCesar/purgeTSS\n`;
+		let prefix, tssPrefix = '';
+
+		_.each(files, file => {
+			if (file.endsWith('.ttf') || file.endsWith('.otf')) {
+				fontMeta = FontName.parse(fs.readFileSync(file))[0];
+
+				tssClasses += processFontMeta(fontMeta);
+
+				tssClasses += `\n'.${fontMeta.postScriptName.replace(/\//g, '').toLowerCase()}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+
+				//! Copy Font File
+				makeSureFolderExists(destFontsFolder);
+				let fontExtension = file.split('.').pop();
+				fs.copyFile(file, `${destFontsFolder}/${fontMeta.postScriptName.replace(/\//g, '')}.${fontExtension}`, err => { });
+			}
+		});
+
+		let oneTimeMessage = `\n// Unicode Characters\n// To use your Icon Fonts in Buttons AND Labels each class sets 'text' and 'title' properties\n`;
+
+		_.each(files, file => {
+			if (file.endsWith('.css')) {
+				let cssFileString = fs.readFileSync(file).toString();
+
+				let syntax = cssFileString.includes('::before') ? '::before' : ':before';
+
+				tssClasses += oneTimeMessage + `\n// ${file.split('/').pop()}\n`;
+				oneTimeMessage = '';
+
+				tssClasses += processCustomFontsCSS(readCSS(file), syntax, prefix, tssPrefix);
+
+				//! JavaScript Module
+				if (options.modules) {
+					customFontsJS += processCustomFontsJS(readCSS(file), syntax, prefix, tssPrefix, `\n	// ${file.split('/').pop()}`);
+				}
+
+				// !Done processing stylesheet
+				logger.info('Processing', `${chalk.yellow(file.split('/').pop())}...`);
+			}
+		});
+
+		fs.writeFileSync(cwd + '/purgetss/fonts.tss', tssClasses, err => {
+			throw err;
+		});
+
+		makeSureFolderExists(destLibFolder);
+
+		if (customFontsJS) {
+			let exportIcons = fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8');
+			exportIcons += '\nconst icons = {';
+			exportIcons += customFontsJS
+			exportIcons += '};\n';
+			exportIcons += 'exports.icons = icons;\n';
+
+			fs.writeFileSync(destLibFolder + '/purgetss-fonts.js', exportIcons, err => {
+				throw err;
+			});
+		} else {
+			if (fs.existsSync(destLibFolder + '/purgetss-fonts.js')) {
+				fs.unlinkSync(destLibFolder + '/purgetss-fonts.js');
+			}
+		}
+
+		console.log();
+		finish(`Finished building ${chalk.yellow('fonts.tss')} in`);
+	} else {
+		logger.info(`Add the font and css files to the ${chalk.yellow('./purgetss/fonts')} folder and run this command again!`);
+	}
+}
+module.exports.buildCustomFonts = buildCustomFonts;
+
+function readFilesAndFolers(currentDirPath, callback) {
+	const getAllFiles = dir =>
+		fs.readdirSync(dir).reduce((files, file) => {
+			const name = path.join(dir, file);
+			const isDirectory = fs.statSync(name).isDirectory();
+			return isDirectory ? [...files, ...getAllFiles(name)] : [...files, name];
+		}, []);
+}
+
+function processCustomFontsCSS(data, syntax, prefix, tssPrefix) {
+	let rules = getRules(data, syntax, prefix, tssPrefix);
+
+	let paraTSS = '';
+
+	_.each(rules, rule => {
+		if (rule) {
+			paraTSS += `'${rule.selector}': { text: '\\u${rule.property}', title: '\\u${rule.property}' }\n`;
+		}
+	});
+
+	return paraTSS;
+}
+
+function processCustomFontsJS(data, syntax, prefix, tssPrefix, fontFamily = '') {
+	let rules = getRules(data, syntax, prefix, tssPrefix);
+
+	let exportIcons = `${fontFamily}\n`;
+
+	_.each(rules, rule => {
+		if (rule) {
+			exportIcons += `\t'${prettifyFontName(rule.selector.replace('.', ''))}': '\\u${rule.property}',\n`;
+		}
+	});
+
+	return exportIcons;
+}
+
+function getRules(data, syntax, prefix, tssPrefix) {
+	let rules = _.map(data.stylesheet.rules, rule => {
+		if (rule.type === 'rule' && rule.declarations[0].property === 'content') {
+			return {
+				'selector': '.' + rule.selectors[0].replace('.', '').replace(prefix, tssPrefix ? tssPrefix : prefix).replace(syntax, ''),
+				'property': ('0000' + rule.declarations[0].value.replace('\"\\', '').replace('\"', '').replace('\'\\', '').replace('\'', '')).slice(-4)
+			};
+		}
+	});
+
+	return rules;
+}
+
+function processFontMeta(fontMeta) {
+	let fontMetaString = `\n/**\n * ${fontMeta.fullName}`;
+
+	fontMetaString += `\n * ${fontMeta.version}`;
+
+	// if (fontMeta.description) {
+	// 	fontMetaString += `\n * description: ${fontMeta.description}`;
+	// }
+
+	if (fontMeta.designer) {
+		fontMetaString += `\n * ${fontMeta.designer}`;
+	}
+
+	if (fontMeta.urlVendor) {
+		fontMetaString += `\n * ${fontMeta.urlVendor}`;
+	}
+
+	// if (fontMeta.urlDesigner) {
+	// 	fontMetaString += `\n * urlDesigner: ${fontMeta.urlDesigner}`;
+	// }
+
+	if (fontMeta.copyright) {
+		fontMetaString += `\n * ${fontMeta.copyright}`;
+	}
+
+	if (fontMeta.trademark) {
+		fontMetaString += `\n * ${fontMeta.trademark}`;
+	}
+
+	if (fontMeta.licence) {
+		fontMetaString += `\n * ${fontMeta.licence.split('\n')[0]}`;
+	}
+
+	if (fontMeta.licenceURL) {
+		fontMetaString += `\n * ${fontMeta.licenceURL}`;
+	}
+
+	fontMetaString += `\n */`;
+
+	return fontMetaString;
+}
+
+//! Purge Custom Fonts
+function purgeCustomFonts(uniqueClasses, cleanUniqueClasses) {
+	if (fs.existsSync(cwd + '/purgetss/fonts.tss')) {
+		let purgedClasses = '\n// Custom Fonts styles\n';
+
+		let sourceTSS = fs.readFileSync(cwd + '/purgetss/fonts.tss', 'utf8').split(/\r?\n/);
+
+		purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, 'Purging Custom Fonts styles...', cleanUniqueClasses, []);
+
+		return (purgedClasses === '\n// Custom Fonts styles\n') ? '' : purgedClasses;
+	}
+
+	return '';
+}
+
+function prettifyFontName(str, prefix) {
+	str = str.replace(/_/g, '-');
+
+	if (prefix) {
+		str = str.replace(prefix, '');
+	}
+
+	str = str.replace(/\s/g, '');
+
+	let temp = str.split('-'), i, pretty;
+
+	for (i = 1; i < temp.length; i++) {
+		temp[i] = temp[i].charAt(0).toUpperCase() + temp[i].slice(1);
+	}
+
+	pretty = temp.join('').replace(':', '');
+
+	pretty = pretty.replace(/^.{1}/g, pretty[0].toLowerCase());
+
+	return pretty;
+};
+
+function buildCustomFontsXXX() {
+	let configFile = require(destConfigJSFile);
+
+	if (configFile.fonts) {
+		start();
+		const FontName = require('fontname');
+		let tssClasses = `// Fonts TSS file generated with PurgeTSS\n// https://github.com/macCesar/purgeTSS\n`;
+		let exportIcons = fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8');
+		let customFontsJS = '';
+
+		_.each(configFile.fonts, customFont => {
+			let { folder, prefix, tssPrefix } = customFont;
+
+			if (!fs.existsSync(cwd + `/purgetss/fonts/${folder}`)) {
+				throw new Error(`The folder '${folder}' does not exist`);
+			}
+
+			// use glob.sync to read .ttf and otf files
+			let fontFiles = glob.sync(cwd + `/purgetss/fonts/${folder}/*.{ttf,otf}`);
+			// let trueType = glob.sync(cwd + `/purgetss/fonts/${folder}/*.ttf`,);
+			// let openType = glob.sync(cwd + `/purgetss/fonts/${folder}/*.otf`);
+
+			if (fontFiles.length === 0) {
+				throw new Error(`The folder '${folder}' does not contain any font file`);
+			}
+
+			// let fontFiles = trueType.length > 0 ? trueType : openType.length > 0 ? openType : '';
+			let fontMeta = '';
+
+			_.each(fontFiles, fontFile => {
+				fontMeta = FontName.parse(fs.readFileSync(fontFile))[0];
+
+				// Add font information and font-family
+				tssClasses += processFontMeta(fontMeta);
+
+				if (fontFiles.length > 0) {
+					tssClasses += `\n'.${fontMeta.postScriptName.replace(/\//g, '').toLowerCase()}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+				} else {
+					tssClasses += `\n'.${tssPrefix ? tssPrefix.replace('-', '') : prefix ? prefix : fontMeta.postScriptName.replace(/\//g, '').toLowerCase()}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+				}
+
+				//! Copy Font File
+				makeSureFolderExists(destFontsFolder);
+				let fontExtension = fontFile.split('.').pop();
+				fs.copyFile(fontFile, `${destFontsFolder}/${fontMeta.postScriptName.replace(/\//g, '')}.${fontExtension}`, err => { });
+			});
+
+			//! Stylesheet
+			let stylesheetFiles = glob.sync(cwd + `/purgetss/fonts/${folder}/*.css`);
+			_.each(stylesheetFiles, stylesheet => {
+				// let stylesheet = stylesheetFiles.length > 0 ? stylesheetFiles[0] : '';
+
+				let cssFileString = fs.readFileSync(stylesheet).toString();
+
+				let syntax = cssFileString.includes('::before') ? '::before' : ':before';
+
+				tssClasses += `\n// Unicode Characters\n// To use your Icon Fonts in Buttons AND Labels each class sets 'text' and 'title' properties\n`;
+
+				tssClasses += processCustomFontsCSS(readCSS(stylesheet), syntax, prefix, tssPrefix);
+
+				// !JavaScript Module
+				customFontsJS += processCustomFontsJS(readCSS(stylesheet), syntax, prefix, tssPrefix, processFontMeta(fontMeta));
+
+				// !Done processing stylesheet
+				logger.info('Processing', `${chalk.yellow(stylesheet.split('/').pop())}...`);
+			});
+		});
+
+		fs.writeFileSync(cwd + '/purgetss/fonts.tss', tssClasses, err => {
+			throw err;
+		});
+
+		makeSureFolderExists(destLibFolder);
+
+		if (customFontsJS) {
+			exportIcons += '\nconst icons = {';
+			exportIcons += customFontsJS
+			exportIcons += '};\n';
+			fs.writeFileSync(destLibFolder + '/purgetss-fonts.js', exportIcons, err => {
+				throw err;
+			});
+		} else {
+			if (fs.existsSync(destLibFolder + '/purgetss-fonts.js')) {
+				fs.unlinkSync(destLibFolder + '/purgetss-fonts.js');
+			}
+		}
+
+		console.log();
+		finish(`Finished building ${chalk.yellow('fonts.tss')} in`);
+	}
+}
+module.exports.buildCustomFontsXXX = buildCustomFontsXXX;
+
 //! Helper Functions
 function addHook() {
 	logger.warn(chalk.green('Adding Auto-Purging hook!'));
@@ -656,7 +960,7 @@ function getUniqueClasses() {
 
 	let viewPaths = [];
 
-	walkSync(cwd + '/app/views', viewPath => {
+	readAllXMLFiles(cwd + '/app/views', viewPath => {
 		viewPaths.push(viewPath);
 	});
 
@@ -1161,7 +1465,7 @@ function callback(err) {
 	if (err) throw err;
 }
 
-function walkSync(currentDirPath, callback) {
+function readAllXMLFiles(currentDirPath, callback) {
 	let files = fs.readdirSync(currentDirPath);
 
 	files.filter(junk.not).forEach(name => {
@@ -1174,7 +1478,7 @@ function walkSync(currentDirPath, callback) {
 				callback(filePath, stat);
 			}
 		} else if (stat.isDirectory()) {
-			walkSync(filePath, callback);
+			readAllXMLFiles(filePath, callback);
 		}
 	});
 }
@@ -1626,8 +1930,8 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 
 	if (fs.existsSync(customFontAwesomeFile)) {
 		sourceFolder = customFontAwesomeFile;
-		purgedClasses = '\n// Custom Font Awesome styles\n';
-		purgingMessage = `Purging ${chalk.yellow('Custom Font Awesome')} styles...')`;
+		purgedClasses = '\n// Pro/Beta Font Awesome styles\n';
+		purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...')`;
 	} else {
 		sourceFolder = srcFontAwesomeTSSFile;
 		purgedClasses = '\n// Default Font Awesome styles\n';
@@ -1636,9 +1940,9 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 
 	let sourceTSS = fs.readFileSync(sourceFolder, 'utf8').split(/\r?\n/);
 
-	purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fab', 'fal', 'far', 'fas', 'fat', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands']);
+	purgedClasses += purgeFontIcons(sourceTSS, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fat', 'fas', 'fal', 'far', 'fab', 'fa-thin', 'fa-solid', 'fa-light', 'fa-regular', 'fa-brands', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands']);
 
-	return (purgedClasses === '\n// Custom Font Awesome styles\n' || purgedClasses === '\n// Default Font Awesome styles\n') ? '' : purgedClasses;
+	return (purgedClasses === '\n// Pro/Beta Font Awesome styles\n' || purgedClasses === '\n// Default Font Awesome styles\n') ? '' : purgedClasses;
 }
 
 //! Material Design Icons
@@ -1707,11 +2011,25 @@ function purgeBootstrapIcons(uniqueClasses, cleanUniqueClasses) {
 	return (purgedClasses === '\n// Bootstrap Icons styles\n') ? '' : purgedClasses;
 }
 
-function purgeFontIcons(sourceTSS, uniqueClasses, message, cleanUniqueClasses, fontFamily) {
+function purgeFontIcons(sourceTSS, uniqueClasses, message, cleanUniqueClasses, prefixes) {
 	let purgedClasses = '';
 	let soc = sourceTSS.toString();
 
-	if (cleanUniqueClasses.some(element => fontFamily.includes(element))) {
+	if (prefixes.length > 0) {
+		if (cleanUniqueClasses.some(element => prefixes.includes(element))) {
+			logger.info(message);
+			uniqueClasses.forEach(className => {
+				let cleanClassName = cleanClassNameFn(className);
+				if (soc.includes(`'.${cleanClassName}'`)) {
+					sourceTSS.forEach(line => {
+						if (line.startsWith(`'.${cleanClassName}'`)) {
+							purgedClasses += helpers.checkPlatformAndDevice(line, uniqueClasses[uniqueClasses.indexOf(className)]);
+						}
+					});
+				}
+			});
+		}
+	} else {
 		logger.info(message);
 		uniqueClasses.forEach(className => {
 			let cleanClassName = cleanClassNameFn(className);

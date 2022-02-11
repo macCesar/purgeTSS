@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="http://codigomovil.mx/images/logotipo-purgetss-gris.svg" height="230" width="230" alt="PurgeCSS logo"/>
+	<img src="https://codigomovil.mx/images/logotipo-purgetss-gris.svg" height="230" width="230" alt="PurgeCSS logo"/>
 </p>
 
 **PurgeTSS** is a package for all [Titanium SDK developers](https://tidev.io/), who want to easily and quickly create beautifully designed mobile apps.
@@ -47,7 +47,7 @@
 > Or better yet! Add your custom values in `config.js` to **[configure and customize](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)** PurgeTSS.
 
 ## Installation
-**Install it globally on your machine via [NPM](http://npmjs.org/).**
+**Install it globally on your machine via [NPM](https://www.npmjs.com/).**
 ```bash
 > [sudo] npm i -g purgetss
 ```
@@ -277,6 +277,17 @@ If you want to create a new Alloy Project with `purgetss` ready to go, use the `
 > purgetss c 'Name of the Project' [-v=fa,md,li,bx,f7,ti,bi]
 ```
 
+#### Installing Tailwind CSS
+You can also include the `--tailwind` option to install `Tailwind CSS` in your project to work with [Tailwind CSS Intellisense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extenstion in VS Code with features such as autocomplete, syntax highlighting, and linting.
+
+```bash
+> purgetss create 'Name of the Project' [--tailwind]
+
+# alias:
+> purgetss c 'Name of the Project' [-t]
+```
+
+#### Requirments
 You need to have `app.idprefix` and `app.idprefix` already configured in `ti config`.
 
 ```bash
@@ -293,6 +304,7 @@ ti config app.idprefix 'com.yourdomain'
 ti config app.workspace 'the-full-path/to-the-workspace-folder'
 ```
 
+#### List of Commands used
 When you run `purgetss create 'Name of the Project'` it will execute the following commands:
 
 - **`ti config app.idprefix && ti config app.workspace`** To retreive the related values.
@@ -302,6 +314,8 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 - **`purgetss w`** To autorun `purgetss` every time you compile your project.
 - **`purgetss b`** To build a new `./purgetss/tailwind.tss` and `./purgetss/config.js` files.
 - **`[-v=fa,md,li,bx,f7,ti,bi]`** Set the `--vendor` argument to copy the selected fonts into your project. Including the CommonJS module into `./app/lib/` folder.
+- **`--tailwind`** When using this option, it will execute the following commands
+  - **`npm init -y && npm i tailwindcss -D && npm i postcss -D && npx tailwindcss init`** to install `Tailwind CSS` and its dependancies.
 - **`code .`**, **`subl .`** or **`open .`** It will use either one of these commands to open `VS Code`, `Sublime Text` or the project’s folder in that order.
 
 ## fonts
@@ -516,17 +530,17 @@ All prefixes are stripped out from their class names and are camelCased, for exa
 ### Custom `fontawesome.tss` file for users with a Font Awesome Pro Account
 If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `./purgetss/fontawesome.tss` file with all the extra classes that the Pro version has. ***(except duotone icons, see note below)***
 
-After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro)** with your token, you can install them in your project's root folder with `npm init` and `npm install --save-dev @fortawesome/fontawesome-pro` (current version 5.15.4)
+After setting the **[@fortawesome scope](https://fontawesome.com/how-to-use/on-the-web/setup/using-package-managers#installing-pro)** with your token, you can install them in your project's root folder with `npm init` and `npm install --save-dev @fortawesome/fontawesome-pro` (current version 6.0.0)
 
 Now, all you have to do is run `purgetss build` and it will generate a new `purgetss/fontawesome.tss` file and if needed, it will automatically copy the Pro fonts files into `app/assets/fonts`.
 
 ### Font Awesome 6 Beta
 You can even generate a custom `fontawesome.tss` file from **[Font Awesome 6 Beta](https://fontawesome.com/download)**.
 
-Just move `css` and `webfonts` folders from `fontawesome-pro-6.0.0-beta2-web/`:
+Just move `css` and `webfonts` folders from `fontawesome-pro-6.0.0-beta3-web/`:
 
 ```bash
-fontawesome-pro-6.0.0-beta2-web
+fontawesome-pro-6.0.0-beta3-web
 └─ css
 └─ webfonts
 ```
