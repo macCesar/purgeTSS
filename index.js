@@ -623,12 +623,14 @@ function buildCustomFonts(options) {
 			exportIcons += '};\n';
 			exportIcons += 'exports.icons = icons;\n';
 
-			fs.writeFileSync(destLibFolder + '/purgetss-fonts.js', exportIcons, err => {
+			fs.writeFileSync(destLibFolder + '/purgetss.fonts.js', exportIcons, err => {
 				throw err;
 			});
+
+			logger.info(`${chalk.yellow('./app/lib/purgetss.fonts.js')} file created!`);
 		} else {
-			if (fs.existsSync(destLibFolder + '/purgetss-fonts.js')) {
-				fs.unlinkSync(destLibFolder + '/purgetss-fonts.js');
+			if (fs.existsSync(destLibFolder + '/purgetss.fonts.js')) {
+				fs.unlinkSync(destLibFolder + '/purgetss.fonts.js');
 			}
 		}
 
@@ -847,12 +849,12 @@ function buildCustomFontsXXX() {
 			exportIcons += '\nconst icons = {';
 			exportIcons += customFontsJS
 			exportIcons += '};\n';
-			fs.writeFileSync(destLibFolder + '/purgetss-fonts.js', exportIcons, err => {
+			fs.writeFileSync(destLibFolder + '/purgetss.fonts.js', exportIcons, err => {
 				throw err;
 			});
 		} else {
-			if (fs.existsSync(destLibFolder + '/purgetss-fonts.js')) {
-				fs.unlinkSync(destLibFolder + '/purgetss-fonts.js');
+			if (fs.existsSync(destLibFolder + '/purgetss.fonts.js')) {
+				fs.unlinkSync(destLibFolder + '/purgetss.fonts.js');
 			}
 		}
 
