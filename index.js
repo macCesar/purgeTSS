@@ -286,7 +286,7 @@ function create(args, options) {
 			console.log('');
 			logger.info('Creating a new Titanium project');
 
-			let projectName = args.name.replace(/ /g, '\\ ');
+			let projectName = `"${args.name}"`;
 			let projectID = `${idPrefix}.${args.name.replace(/ /g, '').replace(/-/g, '').replace(/_/g, '').toLowerCase()}`;
 
 			let tiCreateCommand = `ti create -t app -p all -n ${projectName} --no-prompt --id ${projectID}`;
@@ -584,6 +584,7 @@ function buildCustomFonts(options) {
 				makeSureFolderExists(destFontsFolder);
 				let fontExtension = file.split('.').pop();
 				fs.copyFile(file, `${destFontsFolder}/${fontMeta.postScriptName.replace(/\//g, '')}.${fontExtension}`, err => { });
+				logger.info('Copying font', `${chalk.yellow(file.split('/').pop())}...`);
 			}
 		});
 
