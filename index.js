@@ -635,10 +635,15 @@ function buildCustomFonts(options) {
 			}
 		}
 
-		console.log();
-		finish(`Finished building ${chalk.yellow('fonts.tss')} in`);
+		if (files.length > 0) {
+			console.log();
+
+			finish(`Finished building ${chalk.yellow('fonts.tss')} in`);
+		} else {
+			logger.info('No fonts found in', chalk.yellow('./purgetss/fonts'), 'folder!');
+		}
 	} else {
-		logger.info(`Add the font and css files to the ${chalk.yellow('./purgetss/fonts')} folder and run this command again!`);
+		logger.info(`Add fonts and css files to ${chalk.yellow('./purgetss/fonts')} and run this command again!`);
 	}
 }
 module.exports.buildCustomFonts = buildCustomFonts;
