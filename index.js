@@ -563,7 +563,7 @@ function buildCustomFonts(options) {
 		start();
 
 		let files = getFiles(cwd + '/purgetss/fonts').filter(file => {
-			return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css');
+			return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css') || file.endsWith('.TTF') || file.endsWith('.OTF') || file.endsWith('.CSS');
 		});
 
 		let fontMeta = '';
@@ -573,7 +573,7 @@ function buildCustomFonts(options) {
 		let prefix, tssPrefix = '';
 
 		_.each(files, file => {
-			if (file.endsWith('.ttf') || file.endsWith('.otf')) {
+			if (file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.TTF') || file.endsWith('.OTF')) {
 				fontMeta = FontName.parse(fs.readFileSync(file))[0];
 
 				tssClasses += processFontMeta(fontMeta);
@@ -591,7 +591,7 @@ function buildCustomFonts(options) {
 		let oneTimeMessage = `\n// Unicode Characters\n// To use your Icon Fonts in Buttons AND Labels each class sets 'text' and 'title' properties\n`;
 
 		_.each(files, file => {
-			if (file.endsWith('.css')) {
+			if (file.endsWith('.css') || file.endsWith('.CSS')) {
 				let cssFileString = fs.readFileSync(file).toString();
 
 				let syntax = cssFileString.includes('::before') ? '::before' : ':before';
