@@ -317,7 +317,7 @@ function create(args, options) {
 
 						fs.writeFileSync(`${workspace}/${args.name}/package.json`, JSON.stringify({ "name": `${args.name.replace(/ /g, '-').toLowerCase()}`, "private": true }));
 
-						let installTailwind = `cd ${workspace}/${projectName} && npm init -y && npm i tailwindcss -D && npm i postcss -D && npx tailwindcss init`;
+						let installTailwind = `cd ${workspace}/${projectName} && npm init -y && npm i tailwindcss -D && npx tailwindcss init`;
 						exec(installTailwind, (error) => {
 							if (error) return logger.error(error);
 
