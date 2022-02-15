@@ -1152,6 +1152,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.dropShadow = {};
 	configFile.theme.dropShadowColor = combineKeys(configFile.theme, base.colors, 'dropShadowColor');
 	configFile.theme.editable = {};
+	configFile.theme.elevation = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'elevation');
 	configFile.theme.ellipsize = {};
 	configFile.theme.enableCopy = {};
 	configFile.theme.enableReturnKey = {};
@@ -1338,6 +1339,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'dropShadow': return helpers.dropShadow();
 		case 'dropShadowColor': return helpers.dropShadowColor(value);
 		case 'editable': return helpers.editable();
+		case 'elevation': return helpers.elevation(value);
 		case 'ellipsize': return helpers.ellipsize();
 		case 'enableCopy': return helpers.enableCopy();
 		case 'enableReturnKey': return helpers.enableReturnKey();
@@ -1796,6 +1798,7 @@ const arbitraryValuesTable = {
 	'delay': '{ delay: {value} }',
 	'drop-shadow': '{ shadowColor: {value} } }',
 	'duration': '{ duration: {value} }',
+	'elevation': '{ elevation: {value} }',
 	'feedback': '{ touchFeedback: true, touchFeedbackColor: {value} }',
 	'font': '{ fontWeight: {value} }',
 	'from': '{ backgroundGradient: { colors: [ {value1}, {value} ] } }',
