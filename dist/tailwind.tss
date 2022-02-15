@@ -1554,13 +1554,13 @@
 
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): titleAttributes: shadow, offset, blurRadius - Bar Title Shadow
-'.bar-shadow-xs': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 0 }, blurRadius: 1 } } }
-'.bar-shadow-sm': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 1 }, blurRadius: 1 } } }
-'.bar-shadow': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 2 }, blurRadius: 2 } } }
-'.bar-shadow-md': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 3 }, blurRadius: 3 } } }
-'.bar-shadow-lg': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 4 }, blurRadius: 4 } } }
-'.bar-shadow-xl': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 6 }, blurRadius: 6 } } }
-'.bar-shadow-2xl': { titleAttributes: { shadow: { color: '#59000000', offset: { width: 0, height: 8 }, blurRadius: 8 } } }
+'.bar-shadow-xs': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 0 }, blurRadius: 1 } } }
+'.bar-shadow-sm': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 1 }, blurRadius: 2 } } }
+'.bar-shadow': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 2 }, blurRadius: 4 } } }
+'.bar-shadow-md': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 3 }, blurRadius: 6 } } }
+'.bar-shadow-lg': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 4 }, blurRadius: 8 } } }
+'.bar-shadow-xl': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 6 }, blurRadius: 12 } } }
+'.bar-shadow-2xl': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 8 }, blurRadius: 14 } } }
 '.bar-shadow-none': { titleAttributes: { shadow: { color: null, offset: { width: 0, height: 0 }, blurRadius: null } } }
 
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
@@ -2942,13 +2942,13 @@
 
 // Component(s): Ti.UI.Button, Ti.UI.Label
 // Property(ies): shadowOffset, shadowRadius, shadowColor - Drop Shadow in Tailwind
-'.drop-shadow-xs': { shadowOffset: { x: 0, y: 0 }, shadowRadius: 1, shadowColor: '#59000000' }
-'.drop-shadow-sm': { shadowOffset: { x: 0, y: 1 }, shadowRadius: 1, shadowColor: '#59000000' }
-'.drop-shadow': { shadowOffset: { x: 0, y: 2 }, shadowRadius: 2, shadowColor: '#59000000' }
-'.drop-shadow-md': { shadowOffset: { x: 0, y: 3 }, shadowRadius: 3, shadowColor: '#59000000' }
-'.drop-shadow-lg': { shadowOffset: { x: 0, y: 4 }, shadowRadius: 4, shadowColor: '#59000000' }
-'.drop-shadow-xl': { shadowOffset: { x: 0, y: 6 }, shadowRadius: 6, shadowColor: '#59000000' }
-'.drop-shadow-2xl': { shadowOffset: { x: 0, y: 8 }, shadowRadius: 8, shadowColor: '#59000000' }
+'.drop-shadow-xs': { shadowOffset: { x: 0, y: 0 }, shadowRadius: 1, shadowColor: '#80000000' }
+'.drop-shadow-sm': { shadowOffset: { x: 0, y: 1 }, shadowRadius: 2, shadowColor: '#80000000' }
+'.drop-shadow': { shadowOffset: { x: 0, y: 2 }, shadowRadius: 4, shadowColor: '#80000000' }
+'.drop-shadow-md': { shadowOffset: { x: 0, y: 3 }, shadowRadius: 6, shadowColor: '#80000000' }
+'.drop-shadow-lg': { shadowOffset: { x: 0, y: 4 }, shadowRadius: 8, shadowColor: '#80000000' }
+'.drop-shadow-xl': { shadowOffset: { x: 0, y: 6 }, shadowRadius: 12, shadowColor: '#80000000' }
+'.drop-shadow-2xl': { shadowOffset: { x: 0, y: 8 }, shadowRadius: 14, shadowColor: '#80000000' }
 '.drop-shadow-none': { shadowOffset: { x: 0, y: 0 }, shadowRadius: null, shadowColor: null }
 
 // Component(s): Ti.UI.Button, Ti.UI.Label
@@ -7032,16 +7032,16 @@
 
 // Component(s): Ti.UI.View
 // Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow in Tailwind
-'.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#59000000' }
-'.shadow-sm': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 1, viewShadowColor: '#59000000' }
-'.shadow': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 2, viewShadowColor: '#59000000' }
-'.shadow-md': { viewShadowOffset: { x: 0, y: 3 }, viewShadowRadius: 3, viewShadowColor: '#59000000' }
-'.shadow-lg': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 4, viewShadowColor: '#59000000' }
-'.shadow-xl': { viewShadowOffset: { x: 0, y: 6 }, viewShadowRadius: 6, viewShadowColor: '#59000000' }
-'.shadow-2xl': { viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 8, viewShadowColor: '#59000000' }
-'.shadow-inner': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
-'.shadow-outline': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 2, viewShadowColor: '#59000000' }
-'.shadow-none': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+'.shadow-xs': { elevation: 4, viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
+'.shadow-sm': { elevation: 8, viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000' }
+'.shadow': { elevation: 16, viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
+'.shadow-md': { elevation: 24, viewShadowOffset: { x: 0, y: 3 }, viewShadowRadius: 6, viewShadowColor: '#80000000' }
+'.shadow-lg': { elevation: 26, viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 8, viewShadowColor: '#80000000' }
+'.shadow-xl': { elevation: 34, viewShadowOffset: { x: 0, y: 6 }, viewShadowRadius: 12, viewShadowColor: '#80000000' }
+'.shadow-2xl': { elevation: 38, viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 14, viewShadowColor: '#80000000' }
+'.shadow-inner': { elevation: 0, viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+'.shadow-outline': { elevation: 16, viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
+'.shadow-none': { elevation: 0, viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 
 // Component(s): Ti.UI.View
 // Property(ies): viewShadowColor - Box Shadow in Tailwind
