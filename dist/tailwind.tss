@@ -7094,7 +7094,7 @@
 '.shadow-none[platform=android]': { elevation: 0 }
 
 // Component(s): Ti.UI.View
-// Property(ies): viewShadowColor - Box Shadow in Tailwind
+// Property(ies): viewShadowColor - Box Shadow in Tailwind - iOS Only
 '.shadow-transparent[platform=ios]': { viewShadowColor: 'transparent' }
 '.shadow-black[platform=ios]': { viewShadowColor: '#000000' }
 '.shadow-white[platform=ios]': { viewShadowColor: '#ffffff' }
