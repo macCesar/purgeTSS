@@ -7110,7 +7110,7 @@
 '.scroll-vertical[platform=android]': { scrollType: 'vertical' }
 
 // Component(s): Ti.UI.View
-// Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow in Tailwind
+// Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow in Tailwind - iOS Only
 '.shadow-xs[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
 '.shadow-sm[platform=ios]': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000' }
 '.shadow[platform=ios]': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
