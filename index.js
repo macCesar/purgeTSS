@@ -1197,6 +1197,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.loginKeyboardType = {};
 	configFile.theme.loginReturnKeyType = {};
 	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin');
+	configFile.theme.maxElevation = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'maxElevation');
 	configFile.theme.modal = {};
 	configFile.theme.navBarHidden = {};
 	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor');
@@ -1216,6 +1217,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.pickerType = {};
 	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor');
 	configFile.theme.placement = {};
+	configFile.theme.preventCornerOverlap = {};
 	configFile.theme.preventDefaultImage = {};
 	configFile.theme.repeat = {};
 	configFile.theme.returnKeyType = {};
@@ -1234,6 +1236,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.statusBar = {};
 	configFile.theme.sustainedPerformanceMode = {};
 	configFile.theme.swipeToClose = {};
+	configFile.theme.useCompatPadding = {};
 	configFile.theme.tabBarHidden = {};
 	configFile.theme.tabGroupStyle = {};
 	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
@@ -1384,6 +1387,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'loginKeyboardType': return helpers.loginKeyboardType();
 		case 'loginReturnKeyType': return helpers.loginReturnKeyType();
 		case 'margin': return helpers.margin(value);
+		case 'maxElevation': return helpers.maxElevation(value);
 		case 'modal': return helpers.modal();
 		case 'navBarHidden': return helpers.navBarHidden();
 		case 'navTintColor': return helpers.navTintColor(value);
@@ -1403,6 +1407,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'pickerType': return helpers.pickerType();
 		case 'placeholderColor': return helpers.placeholderColor(value);
 		case 'placement': return helpers.placement();
+		case 'preventCornerOverlap': return helpers.preventCornerOverlap();
 		case 'preventDefaultImage': return helpers.preventDefaultImage();
 		case 'repeat': return helpers.repeat();
 		case 'returnKeyType': return helpers.returnKeyType();
@@ -1421,6 +1426,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'statusBar': return helpers.statusBar();
 		case 'sustainedPerformanceMode': return helpers.sustainedPerformanceMode();
 		case 'swipeToClose': return helpers.swipeToClose();
+		case 'useCompatPadding': return helpers.useCompatPadding();
 		case 'tabBarHidden': return helpers.tabBarHidden();
 		case 'tabGroupStyle': return helpers.tabGroupStyle();
 		case 'tabsBackgroundColor': return helpers.tabsBackgroundColor(value);
@@ -1808,6 +1814,7 @@ const arbitraryValuesTable = {
 	'indicator': '{ indicatorColor: {value} }',
 	'left': '{ left: {value} }',
 	'm': '{ top: {value}, right: {value}, bottom: {value}, left: {value} }',
+	'max-elevation': '{ maxElevation: {value} }',
 	'max-scale': '{ maxZoomScale: {value} }',
 	'mb': '{ bottom: {value} }',
 	'min-scale': '{ minZoomScale: {value} }',
