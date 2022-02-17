@@ -1244,6 +1244,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.tabsTranslucent = {};
 	configFile.theme.textAlign = {};
 	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
+	configFile.theme.theme = {};
 	configFile.theme.tiMedia = {};
 	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor');
 	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor');
@@ -1434,6 +1435,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'tabsTranslucent': return helpers.tabsTranslucent();
 		case 'textAlign': return helpers.textAlign();
 		case 'textColor': return helpers.textColor(value);
+		case 'theme': return helpers.theme();
 		case 'tiMedia': return helpers.tiMedia();
 		case 'tintColor': return helpers.tintColor(value);
 		case 'titleColor': return helpers.titleColor(value);
@@ -1694,57 +1696,46 @@ function purgeTailwind(uniqueClasses) {
 			let cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '')}`;
 
 			if (cleanUniqueClasses.indexOf(cleanTailwindClass) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`) > -1) {
-				// purgedClasses += helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`)]);
 				comoArreglo.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`)]));
 			}
 		}
@@ -1770,7 +1761,19 @@ function purgeTailwind(uniqueClasses) {
 				let defaultTextValue = tailwindClasses[opacityIndex].match(/'[^']*'/i)[0];
 				defaultTextValue = defaultTextValue.substring(1, defaultTextValue.length);
 				let finalClassName = `${classWithoutDecimalOpacity.replace(defaultTextValue, `.${defaultTextValue.substring(1, defaultTextValue.length - 1)}/${opacityValue.decimalValue}'`)}`;
-				purgedClasses += helpers.checkPlatformAndDevice(finalClassName, opacityValue.classNameWithTransparency);
+				let withPlatformDeviceStyle = helpers.checkPlatformAndDevice(finalClassName, opacityValue.classNameWithTransparency);
+
+				// !Move platform specific styles to the end of the class name
+				let platformIndex = withPlatformDeviceStyle.search(/\[platform=ios\]|\[platform=android\]/i);
+				if (platformIndex > -1) {
+					if (withPlatformDeviceStyle.includes('[platform=ios]')) {
+						withPlatformDeviceStyle = withPlatformDeviceStyle.replace('[platform=ios]', '').replace(/[^'.][^']+|1/, `$&[platform=ios]`);
+					} else {
+						withPlatformDeviceStyle = withPlatformDeviceStyle.replace('[platform=android]', '').replace(/[^'.][^']+|1/, `$&[platform=android]`);
+					}
+				}
+
+				purgedClasses += withPlatformDeviceStyle;
 			}
 		});
 	}
@@ -2088,3 +2091,8 @@ function createJMKFile() {
 // function startsWith(line, cleanClassName) {
 // 	return line.startsWith(`'.${cleanClassName}'`) || line.startsWith(`'.${cleanClassName}[`) || line.startsWith(`'#${cleanClassName}'`) || line.startsWith(`'#${cleanClassName}[`) || line.startsWith(`'${cleanClassName}'`) || line.startsWith(`'${cleanClassName}[`);
 // }
+
+function reviewThis(className) {
+	let twStylesWithoyPlatformSpecificStyles = className.replace(/\[platform=ios\]/g, '').replace(/\[platform=android\]/g, '').split(/\r?\n/);
+	twStylesArray[indexOfClass].replace('[platform=android]', '').replace('[platform=ios]', '')
+}
