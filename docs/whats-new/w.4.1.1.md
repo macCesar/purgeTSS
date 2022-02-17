@@ -1,0 +1,204 @@
+# What's new in v4.1.1
+
+- [What's new in v4.1.1](#whats-new-in-v411)
+  - [Major Version (v4.x.x) - Breaking changes](#major-version-v4xx---breaking-changes)
+    - [`bar-shadow-{color}` now becomes `bar-title-shadow-{color}`](#bar-shadow-color-now-becomes-bar-title-shadow-color)
+    - [`bar-shadow-{size}` now becomes `bar-title-shadow-{size}`](#bar-shadow-size-now-becomes-bar-title-shadow-size)
+    - [`feedback-{color}` now becomes `touch-feedback-{color}`](#feedback-color-now-becomes-touch-feedback-color)
+    - [Classes with platform specific styles](#classes-with-platform-specific-styles)
+  - [Minor Version (v4.1.x) - New funcionalities](#minor-version-v41x---new-funcionalities)
+    - [New `theme` classes for Android](#new-theme-classes-for-android)
+  - [Patch Version - (v.4.1.1) - Bug fixes](#patch-version---v411---bug-fixes)
+    - [The `apply` directive](#the-apply-directive)
+
+Now that we adopted [Semantic Versioning](https://semver.org), here are the changes made in this release:
+
+## Major Version (v4.x.x) - Breaking changes
+With this release we are introducing a few **breaking changes**.
+
+Mainly we change some class names to be more specific about what properties are set.
+
+### `bar-shadow-{color}` now becomes `bar-title-shadow-{color}`
+```css
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
+// Property(ies): titleAttributes: shadow - Bar Title Shadow
+'.bar-title-shadow-transparent': { titleAttributes: { shadow: { color: 'transparent' } } }
+'.bar-title-shadow-black': { titleAttributes: { shadow: { color: '#000000' } } }
+'.bar-title-shadow-white': { titleAttributes: { shadow: { color: '#ffffff' } } }
+'.bar-title-shadow-slate-50': { titleAttributes: { shadow: { color: '#f8fafc' } } }
+'.bar-title-shadow-slate-100': { titleAttributes: { shadow: { color: '#f1f5f9' } } }
+'.bar-title-shadow-slate-200': { titleAttributes: { shadow: { color: '#e2e8f0' } } }
+'.bar-title-shadow-slate-300': { titleAttributes: { shadow: { color: '#cbd5e1' } } }
+'.bar-title-shadow-slate-400': { titleAttributes: { shadow: { color: '#94a3b8' } } }
+'.bar-title-shadow-slate-500': { titleAttributes: { shadow: { color: '#64748b' } } }
+// ...
+```
+
+### `bar-shadow-{size}` now becomes `bar-title-shadow-{size}`
+```css
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
+// Property(ies): titleAttributes: shadow, offset, blurRadius - Bar Title Shadow
+'.bar-title-shadow-xs': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 0 }, blurRadius: 1 } } }
+'.bar-title-shadow-sm': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 1 }, blurRadius: 2 } } }
+'.bar-title-shadow': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 2 }, blurRadius: 4 } } }
+'.bar-title-shadow-md': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 3 }, blurRadius: 6 } } }
+'.bar-title-shadow-lg': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 4 }, blurRadius: 8 } } }
+'.bar-title-shadow-xl': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 6 }, blurRadius: 12 } } }
+'.bar-title-shadow-2xl': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 8 }, blurRadius: 14 } } }
+'.bar-title-shadow-none': { titleAttributes: { shadow: { color: null, offset: { width: 0, height: 0 }, blurRadius: null } } }
+```
+### `feedback-{color}` now becomes `touch-feedback-{color}`
+```css
+// Component(s): Ti.UI.View
+// Property(ies): touchFeedbackColor - Android Only
+'.touch-feedback-transparent[platform=android]': { touchFeedback: true, touchFeedbackColor: 'transparent' }
+'.touch-feedback-black[platform=android]': { touchFeedback: true, touchFeedbackColor: '#000000' }
+'.touch-feedback-white[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ffffff' }
+'.touch-feedback-slate-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f8fafc' }
+'.touch-feedback-slate-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f1f5f9' }
+'.touch-feedback-slate-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e2e8f0' }
+'.touch-feedback-slate-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#cbd5e1' }
+'.touch-feedback-slate-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#94a3b8' }
+'.touch-feedback-slate-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#64748b' }
+// ...
+```
+### Classes with platform specific styles
+**The following classes have the same name but with different properties for each platform**, so in order to differentiate them, we've added the platform specific styles.
+
+```css
+// Component(s): Ti.UI.View
+// Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow Effect in Tailwind - iOS Only
+'.shadow-xs[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
+'.shadow-sm[platform=ios]': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000' }
+'.shadow[platform=ios]': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
+'.shadow-md[platform=ios]': { viewShadowOffset: { x: 0, y: 3 }, viewShadowRadius: 6, viewShadowColor: '#80000000' }
+'.shadow-lg[platform=ios]': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 8, viewShadowColor: '#80000000' }
+'.shadow-xl[platform=ios]': { viewShadowOffset: { x: 0, y: 6 }, viewShadowRadius: 12, viewShadowColor: '#80000000' }
+'.shadow-2xl[platform=ios]': { viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 14, viewShadowColor: '#80000000' }
+'.shadow-inner[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+'.shadow-outline[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
+'.shadow-none[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+
+// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
+// Property(ies): elevation - Box Shadow Effect in Tailwind - Android Only
+'.shadow-xs[platform=android]': { elevation: 4 }
+'.shadow-sm[platform=android]': { elevation: 8 }
+'.shadow[platform=android]': { elevation: 16 }
+'.shadow-md[platform=android]': { elevation: 24 }
+'.shadow-lg[platform=android]': { elevation: 26 }
+'.shadow-xl[platform=android]': { elevation: 34 }
+'.shadow-2xl[platform=android]': { elevation: 38 }
+'.shadow-inner[platform=android]': { elevation: 0 }
+'.shadow-outline[platform=android]': { elevation: 16 }
+'.shadow-none[platform=android]': { elevation: 0 }
+```
+
+```css
+'.inverted-platform-w[platform=ios]': { width: Ti.Platform.displayCaps.platformHeight }
+'.inverted-platform-h[platform=ios]': { height: Ti.Platform.displayCaps.platformWidth }
+'.inverted-platform-w[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
+'.inverted-platform-h[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
+```
+
+**You don't need to target a specific platform using in them in your `.xml` files.**
+```xml
+<View class="w-32 h-32 shadow-lg bg-green"></View>
+```
+
+The resulting `.tss` file will contain both classes.
+```css
+'.h-32': { height: 128 }
+'.shadow-lg[platform=ios]': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 8, viewShadowColor: '#80000000' }
+'.shadow-lg[platform=android]': { elevation: 26 }
+'.w-32': { width: 128 }
+```
+
+## Minor Version (v4.1.x) - New funcionalities
+
+### New `theme` classes for Android
+From the docs:
+
+> Android allows you to set the appearance of your application using themes. A theme specifies default colors, fonts, and images, for an Android activity or an entire application.
+>
+> As of Titanium 10.0.0, all of the below are material based themes which support displaying Google's native material widgets/views. You can apply these themes to your application or individual activities instead of creating your own custom theme.
+
+```css
+// Component(s): Ti.UI.Window
+// Property(ies): theme - Android Only
+'.theme-titanium[platform=android]': { theme: "Theme.Titanium" }
+'.theme-titanium-day-night[platform=android]': { theme: "Theme.Titanium.DayNight" }
+'.theme-titanium-day-night-no-title-bar[platform=android]': { theme: "Theme.Titanium.DayNight.NoTitleBar" }
+'.theme-titanium-day-night-fullscreen[platform=android]': { theme: "Theme.Titanium.DayNight.Fullscreen" }
+'.theme-titanium-day-night-solid[platform=android]': { theme: "Theme.Titanium.DayNight.Solid" }
+'.theme-titanium-day-night-solid-no-title-bar[platform=android]': { theme: "Theme.Titanium.DayNight.Solid.NoTitleBar" }
+'.theme-titanium-day-night-solid-fullscreen[platform=android]': { theme: "Theme.Titanium.DayNight.Solid.Fullscreen" }
+'.theme-titanium-dark[platform=android]': { theme: "Theme.Titanium.Dark" }
+'.theme-titanium-dark-no-title-bar[platform=android]': { theme: "Theme.Titanium.Dark.NoTitleBar" }
+'.theme-titanium-dark-fullscreen[platform=android]': { theme: "Theme.Titanium.Dark.Fullscreen" }
+'.theme-titanium-dark-solid[platform=android]': { theme: "Theme.Titanium.Dark.Solid" }
+'.theme-titanium-dark-solid-no-title-bar[platform=android]': { theme: "Theme.Titanium.Dark.Solid.NoTitleBar" }
+'.theme-titanium-dark-solid-fullscreen[platform=android]': { theme: "Theme.Titanium.Dark.Solid.Fullscreen" }
+'.theme-titanium-light[platform=android]': { theme: "Theme.Titanium.Light" }
+'.theme-titanium-light-no-title-bar[platform=android]': { theme: "Theme.Titanium.Light.NoTitleBar" }
+'.theme-titanium-light-fullscreen[platform=android]': { theme: "Theme.Titanium.Light.Fullscreen" }
+'.theme-titanium-light-solid[platform=android]': { theme: "Theme.Titanium.Light.Solid" }
+'.theme-titanium-light-solid-no-title-bar[platform=android]': { theme: "Theme.Titanium.Light.Solid.NoTitleBar" }
+'.theme-titanium-light-solid-fullscreen[platform=android]': { theme: "Theme.Titanium.Light.Solid.Fullscreen" }
+'.theme-app-derived-no-title-bar[platform=android]': { theme: "'Theme.AppDerived.NoTitleBar'" }
+'.theme-app-derived-fullscreen[platform=android]': { theme: "'Theme.AppDerived.Fullscreen'" }
+'.theme-app-derived-translucent[platform=android]': { theme: "'Theme.AppDerived.Translucent'" }
+'.theme-app-derived-translucent-no-title-bar[platform=android]': { theme: "'Theme.AppDerived.Translucent.NoTitleBar'" }
+'.theme-app-derived-translucent-fullscreen[platform=android]': { theme: "'Theme.AppDerived.Translucent.Fullscreen'" }
+```
+
+## Patch Version - (v.4.1.1) - Bug fixes
+Several classes are platform specific to prevent polluting objects with properties that are not specific to a particular platform.
+
+So we've fixed a bug when generating custom styles using the `apply` directive in `config.js`.
+
+### The `apply` directive
+To properly apply these platform styles when creating custom classes, you must specify the platform variant in the `apply` directive.
+
+**Even if you are not targeting a specific platform, you must specify the platform variant.**
+
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  theme: {
+    '.my-button': {
+      // Targeting Android and iOS
+      'android': { 'apply': 'w-32 h-32 android:shadow-lg bg-green-500' },
+      'ios': { 'apply': 'w-32 h-32 ios:shadow-lg bg-green-500' }
+    },
+    '.my-view': {
+      // Even if you are not targeting a specific platform, you must specify the platform variant.
+      'apply': 'w-32 h-32 android:shadow-lg bg-green-500'
+    }
+  },
+};
+```
+
+```css
+'.my-button[platform=android]': { backgroundColor: '#22c55e', elevation: 26, height: 128, width: 128 }
+'.my-button[platform=ios]': { backgroundColor: '#22c55e', height: 128, viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 8, viewShadowColor: '#80000000', width: 128 }
+'.my-view': { backgroundColor: '#22c55e', elevation: 26, height: 128, width: 128 }
+```
+
+If you omit the platform variant, **PurgeTSS** won't be able to determine which platform you are targeting, and the custom class will not have the corresponding property.
+```javascript
+// ./purgetss/config.js
+module.exports = {
+  theme: {
+    '.my-view': {
+      // Missing platform variant in shadow-lg
+      'apply': 'w-32 h-32 shadow-lg bg-green-500'
+    }
+  },
+};
+```
+
+```css
+// Ommiting the platform variant in `config.js` will not generate the corresponding property.
+// Missing shadow property.
+'.my-view': { backgroundColor: '#22c55e', height: 128, width: 128 }
+```
