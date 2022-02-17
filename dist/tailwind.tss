@@ -1,4 +1,4 @@
-// Tailwind CSS v3.0.22: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Tailwind CSS v3.0.23: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // Custom Styles and Resets
@@ -1327,7 +1327,7 @@
 '.bar-rose-900': { barColor: '#881337' }
 
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
-// Property(ies): titleAttributes
+// Property(ies): titleAttributes - iOS Only
 '.bar-title-transparent[platform=ios]': { titleAttributes: { color: 'transparent' } }
 '.bar-title-black[platform=ios]': { titleAttributes: { color: '#000000' } }
 '.bar-title-white[platform=ios]': { titleAttributes: { color: '#ffffff' } }
@@ -1554,17 +1554,17 @@
 
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): titleAttributes: shadow, offset, blurRadius - Bar Title Shadow
-'.bar-shadow-xs': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 0 }, blurRadius: 1 } } }
-'.bar-shadow-sm': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 1 }, blurRadius: 2 } } }
-'.bar-shadow': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 2 }, blurRadius: 4 } } }
-'.bar-shadow-md': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 3 }, blurRadius: 6 } } }
-'.bar-shadow-lg': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 4 }, blurRadius: 8 } } }
-'.bar-shadow-xl': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 6 }, blurRadius: 12 } } }
-'.bar-shadow-2xl': { titleAttributes: { shadow: { color: '#80000000', offset: { width: 0, height: 8 }, blurRadius: 14 } } }
-'.bar-shadow-none': { titleAttributes: { shadow: { color: null, offset: { width: 0, height: 0 }, blurRadius: null } } }
+'.bar-title-shadow-xs[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 1, offset: { width: 0, height: 0 } } } }
+'.bar-title-shadow-sm[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 2, offset: { width: 0, height: 1 } } } }
+'.bar-title-shadow[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 4, offset: { width: 0, height: 2 } } } }
+'.bar-title-shadow-md[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 6, offset: { width: 0, height: 3 } } } }
+'.bar-title-shadow-lg[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 8, offset: { width: 0, height: 4 } } } }
+'.bar-title-shadow-xl[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 12, offset: { width: 0, height: 6 } } } }
+'.bar-title-shadow-2xl[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 14, offset: { width: 0, height: 8 } } } }
+'.bar-title-shadow-none[platform=ios]': { titleAttributes: { shadow: { color: null, blurRadius: null, offset: { width: 0, height: 0 } } } }
 
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
-// Property(ies): titleAttributes: shadow - Bar Title Shadow
+// Property(ies): titleAttributes: shadow - Bar Title Shadow - iOS Only
 '.bar-shadow-transparent[platform=ios]': { titleAttributes: { shadow: { color: 'transparent' } } }
 '.bar-shadow-black[platform=ios]': { titleAttributes: { shadow: { color: '#000000' } } }
 '.bar-shadow-white[platform=ios]': { titleAttributes: { shadow: { color: '#ffffff' } } }
@@ -2920,8 +2920,8 @@
 // Description: width and height properties using Ti.Platform.displayCaps platformWidth and platformHeight values
 '.platform-w': { width: Ti.Platform.displayCaps.platformWidth }
 '.platform-h': { height: Ti.Platform.displayCaps.platformHeight }
-'.inverted-platform-w': { width: Ti.Platform.displayCaps.platformHeight }
-'.inverted-platform-h': { height: Ti.Platform.displayCaps.platformWidth }
+'.inverted-platform-w[platform=ios]': { width: Ti.Platform.displayCaps.platformHeight }
+'.inverted-platform-h[platform=ios]': { height: Ti.Platform.displayCaps.platformWidth }
 '.inverted-platform-w[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
 '.inverted-platform-h[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
 
@@ -3245,8 +3245,8 @@
 '.enable-return-key[platform=ios]': { enableReturnKey: true }
 '.disable-return-key[platform=ios]': { enableReturnKey: false }
 
-// Component(s): Ti.UI.TabGroup[android], Ti.UI.Window[android]
-// Property(ies): exitOnClose
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
+// Property(ies): exitOnClose - Android Only
 '.exit-on-close[platform=android]': { exitOnClose: true }
 '.dont-exit-on-close[platform=android]': { exitOnClose: false }
 
@@ -3270,7 +3270,7 @@
 '.dont-extend-safe-area': { extendSafeArea: false }
 
 // Component(s): Ti.UI.Window
-// Property(ies): flagSecure
+// Property(ies): flagSecure - Android Only
 '.flag-secure[platform=android]': { flagSecure: true }
 '.flag-not-secure[platform=android]': { flagSecure: false }
 
@@ -4496,6 +4496,7 @@
 // Component(s): Ti.UI.Window
 // Property(ies): largeTitleEnabled - iOS Only
 '.large-title-enabled[platform=ios]': { largeTitleEnabled: true }
+'.large-title-disabled[platform=ios]': { largeTitleEnabled: false }
 
 // Component(s): Ti.UI.OptionBar, Ti.UI.View
 // Property(ies): layout
@@ -5757,7 +5758,7 @@
 '.origin-top-left': { anchorPoint: { x: 0, y: 0 } }
 
 // Component(s): Ti.UI.ScrollableView
-// Property(ies): overlayEnabled
+// Property(ies): overlayEnabled - iOS Only
 '.overlay-enabled[platform=ios]': { overlayEnabled: true }
 '.overlay-disabled[platform=ios]': { overlayEnabled: false }
 
@@ -7105,22 +7106,9 @@
 '.scrolling-disabled': { scrollingEnabled: false }
 
 // Component(s): Ti.UI.ScrollView
-// Property(ies): scrollType
+// Property(ies): scrollType - Android Only
 '.scroll-horizontal[platform=android]': { scrollType: 'horizontal' }
 '.scroll-vertical[platform=android]': { scrollType: 'vertical' }
-
-// Component(s): Ti.UI.View
-// Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow Effect in Tailwind - iOS Only
-'.shadow-xs[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
-'.shadow-sm[platform=ios]': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000' }
-'.shadow[platform=ios]': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
-'.shadow-md[platform=ios]': { viewShadowOffset: { x: 0, y: 3 }, viewShadowRadius: 6, viewShadowColor: '#80000000' }
-'.shadow-lg[platform=ios]': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 8, viewShadowColor: '#80000000' }
-'.shadow-xl[platform=ios]': { viewShadowOffset: { x: 0, y: 6 }, viewShadowRadius: 12, viewShadowColor: '#80000000' }
-'.shadow-2xl[platform=ios]': { viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 14, viewShadowColor: '#80000000' }
-'.shadow-inner[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
-'.shadow-outline[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
-'.shadow-none[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 
 // Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): elevation - Box Shadow Effect in Tailwind - Android Only
@@ -7134,6 +7122,19 @@
 '.shadow-inner[platform=android]': { elevation: 0 }
 '.shadow-outline[platform=android]': { elevation: 16 }
 '.shadow-none[platform=android]': { elevation: 0 }
+
+// Component(s): Ti.UI.View
+// Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow Effect in Tailwind - iOS Only
+'.shadow-xs[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
+'.shadow-sm[platform=ios]': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000' }
+'.shadow[platform=ios]': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
+'.shadow-md[platform=ios]': { viewShadowOffset: { x: 0, y: 3 }, viewShadowRadius: 6, viewShadowColor: '#80000000' }
+'.shadow-lg[platform=ios]': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 8, viewShadowColor: '#80000000' }
+'.shadow-xl[platform=ios]': { viewShadowOffset: { x: 0, y: 6 }, viewShadowRadius: 12, viewShadowColor: '#80000000' }
+'.shadow-2xl[platform=ios]': { viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 14, viewShadowColor: '#80000000' }
+'.shadow-inner[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+'.shadow-outline[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
+'.shadow-none[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 
 // Component(s): Ti.UI.View
 // Property(ies): viewShadowColor - Box Shadow Color in Tailwind - iOS Only
@@ -7380,7 +7381,7 @@
 '.hide-cancel': { showCancel: false }
 
 // Component(s): Ti.UI.TabGroup
-// Property(ies): smoothScrollOnTabClick
+// Property(ies): smoothScrollOnTabClick - Android Only
 '.smooth-scroll[platform=android]': { smoothScrollOnTabClick: true }
 '.smooth-scroll-disabled[platform=android]': { smoothScrollOnTabClick: false }
 
@@ -7395,7 +7396,7 @@
 '.sustained-performance-mode[platform=android]': { sustainedPerformanceMode: true }
 
 // Component(s): Ti.UI.Window
-// Property(ies): swipeToClose
+// Property(ies): swipeToClose - iOS Only
 '.swipe-to-close[platform=ios]': { swipeToClose: true }
 '.dont-swipe-to-close[platform=ios]': { swipeToClose: false }
 
@@ -8118,13 +8119,13 @@
 '.theme-titanium-light-no-title-bar[platform=android]': { theme: "Theme.Titanium.Light.NoTitleBar" }
 '.theme-titanium-light-fullscreen[platform=android]': { theme: "Theme.Titanium.Light.Fullscreen" }
 '.theme-titanium-light-solid[platform=android]': { theme: "Theme.Titanium.Light.Solid" }
-'.theme-titanium-light-solid.no-title-bar[platform=android]': { theme: "Theme.Titanium.Light.Solid.NoTitleBar" }
-'.theme-titanium-light-solid.fullscreen[platform=android]': { theme: "Theme.Titanium.Light.Solid.Fullscreen" }
+'.theme-titanium-light-solid-no-title-bar[platform=android]': { theme: "Theme.Titanium.Light.Solid.NoTitleBar" }
+'.theme-titanium-light-solid-fullscreen[platform=android]': { theme: "Theme.Titanium.Light.Solid.Fullscreen" }
 '.theme-app-derived-no-title-bar[platform=android]': { theme: "'Theme.AppDerived.NoTitleBar'" }
 '.theme-app-derived-fullscreen[platform=android]': { theme: "'Theme.AppDerived.Fullscreen'" }
 '.theme-app-derived-translucent[platform=android]': { theme: "'Theme.AppDerived.Translucent'" }
-'.theme-app-derived-translucent.no-title-bar[platform=android]': { theme: "'Theme.AppDerived.Translucent.NoTitleBar'" }
-'.theme-app-derived-translucent.fullscreen[platform=android]': { theme: "'Theme.AppDerived.Translucent.Fullscreen'" }
+'.theme-app-derived-translucent-no-title-bar[platform=android]': { theme: "'Theme.AppDerived.Translucent.NoTitleBar'" }
+'.theme-app-derived-translucent-fullscreen[platform=android]': { theme: "'Theme.AppDerived.Translucent.Fullscreen'" }
 
 // Ti.Media
 // Component(s): Ti.Media
@@ -8135,8 +8136,8 @@
 '.audio-session-solo-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
 '.audio-session-play-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD }
 
-// Component(s): Ti.Media.AudioPlayer[android], Ti.Media.Sound[android]
-// Property(ies): audioType
+// Component(s): Ti.Media.AudioPlayer, Ti.Media.Sound
+// Property(ies): audioType - Android Only
 '.audio-type-ring[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_RING }
 '.audio-type-alarm[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_ALARM }
 '.audio-type-media[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_MEDIA }
@@ -8649,230 +8650,230 @@
 '.title-rose-900': { titleColor: '#881337' }
 
 // Component(s): Ti.UI.View
-// Property(ies): touchFeedbackColor
-'.feedback-transparent': { touchFeedback: true, touchFeedbackColor: 'transparent' }
-'.feedback-black': { touchFeedback: true, touchFeedbackColor: '#000000' }
-'.feedback-white': { touchFeedback: true, touchFeedbackColor: '#ffffff' }
-'.feedback-slate-50': { touchFeedback: true, touchFeedbackColor: '#f8fafc' }
-'.feedback-slate-100': { touchFeedback: true, touchFeedbackColor: '#f1f5f9' }
-'.feedback-slate-200': { touchFeedback: true, touchFeedbackColor: '#e2e8f0' }
-'.feedback-slate-300': { touchFeedback: true, touchFeedbackColor: '#cbd5e1' }
-'.feedback-slate-400': { touchFeedback: true, touchFeedbackColor: '#94a3b8' }
-'.feedback-slate-500': { touchFeedback: true, touchFeedbackColor: '#64748b' }
-'.feedback-slate-600': { touchFeedback: true, touchFeedbackColor: '#475569' }
-'.feedback-slate-700': { touchFeedback: true, touchFeedbackColor: '#334155' }
-'.feedback-slate-800': { touchFeedback: true, touchFeedbackColor: '#1e293b' }
-'.feedback-slate-900': { touchFeedback: true, touchFeedbackColor: '#0f172a' }
-'.feedback-gray-50': { touchFeedback: true, touchFeedbackColor: '#f9fafb' }
-'.feedback-gray-100': { touchFeedback: true, touchFeedbackColor: '#f3f4f6' }
-'.feedback-gray-200': { touchFeedback: true, touchFeedbackColor: '#e5e7eb' }
-'.feedback-gray-300': { touchFeedback: true, touchFeedbackColor: '#d1d5db' }
-'.feedback-gray-400': { touchFeedback: true, touchFeedbackColor: '#9ca3af' }
-'.feedback-gray-500': { touchFeedback: true, touchFeedbackColor: '#6b7280' }
-'.feedback-gray-600': { touchFeedback: true, touchFeedbackColor: '#4b5563' }
-'.feedback-gray-700': { touchFeedback: true, touchFeedbackColor: '#374151' }
-'.feedback-gray-800': { touchFeedback: true, touchFeedbackColor: '#1f2937' }
-'.feedback-gray-900': { touchFeedback: true, touchFeedbackColor: '#111827' }
-'.feedback-zinc-50': { touchFeedback: true, touchFeedbackColor: '#fafafa' }
-'.feedback-zinc-100': { touchFeedback: true, touchFeedbackColor: '#f4f4f5' }
-'.feedback-zinc-200': { touchFeedback: true, touchFeedbackColor: '#e4e4e7' }
-'.feedback-zinc-300': { touchFeedback: true, touchFeedbackColor: '#d4d4d8' }
-'.feedback-zinc-400': { touchFeedback: true, touchFeedbackColor: '#a1a1aa' }
-'.feedback-zinc-500': { touchFeedback: true, touchFeedbackColor: '#71717a' }
-'.feedback-zinc-600': { touchFeedback: true, touchFeedbackColor: '#52525b' }
-'.feedback-zinc-700': { touchFeedback: true, touchFeedbackColor: '#3f3f46' }
-'.feedback-zinc-800': { touchFeedback: true, touchFeedbackColor: '#27272a' }
-'.feedback-zinc-900': { touchFeedback: true, touchFeedbackColor: '#18181b' }
-'.feedback-neutral-50': { touchFeedback: true, touchFeedbackColor: '#fafafa' }
-'.feedback-neutral-100': { touchFeedback: true, touchFeedbackColor: '#f5f5f5' }
-'.feedback-neutral-200': { touchFeedback: true, touchFeedbackColor: '#e5e5e5' }
-'.feedback-neutral-300': { touchFeedback: true, touchFeedbackColor: '#d4d4d4' }
-'.feedback-neutral-400': { touchFeedback: true, touchFeedbackColor: '#a3a3a3' }
-'.feedback-neutral-500': { touchFeedback: true, touchFeedbackColor: '#737373' }
-'.feedback-neutral-600': { touchFeedback: true, touchFeedbackColor: '#525252' }
-'.feedback-neutral-700': { touchFeedback: true, touchFeedbackColor: '#404040' }
-'.feedback-neutral-800': { touchFeedback: true, touchFeedbackColor: '#262626' }
-'.feedback-neutral-900': { touchFeedback: true, touchFeedbackColor: '#171717' }
-'.feedback-stone-50': { touchFeedback: true, touchFeedbackColor: '#fafaf9' }
-'.feedback-stone-100': { touchFeedback: true, touchFeedbackColor: '#f5f5f4' }
-'.feedback-stone-200': { touchFeedback: true, touchFeedbackColor: '#e7e5e4' }
-'.feedback-stone-300': { touchFeedback: true, touchFeedbackColor: '#d6d3d1' }
-'.feedback-stone-400': { touchFeedback: true, touchFeedbackColor: '#a8a29e' }
-'.feedback-stone-500': { touchFeedback: true, touchFeedbackColor: '#78716c' }
-'.feedback-stone-600': { touchFeedback: true, touchFeedbackColor: '#57534e' }
-'.feedback-stone-700': { touchFeedback: true, touchFeedbackColor: '#44403c' }
-'.feedback-stone-800': { touchFeedback: true, touchFeedbackColor: '#292524' }
-'.feedback-stone-900': { touchFeedback: true, touchFeedbackColor: '#1c1917' }
-'.feedback-red-50': { touchFeedback: true, touchFeedbackColor: '#fef2f2' }
-'.feedback-red-100': { touchFeedback: true, touchFeedbackColor: '#fee2e2' }
-'.feedback-red-200': { touchFeedback: true, touchFeedbackColor: '#fecaca' }
-'.feedback-red-300': { touchFeedback: true, touchFeedbackColor: '#fca5a5' }
-'.feedback-red-400': { touchFeedback: true, touchFeedbackColor: '#f87171' }
-'.feedback-red-500': { touchFeedback: true, touchFeedbackColor: '#ef4444' }
-'.feedback-red-600': { touchFeedback: true, touchFeedbackColor: '#dc2626' }
-'.feedback-red-700': { touchFeedback: true, touchFeedbackColor: '#b91c1c' }
-'.feedback-red-800': { touchFeedback: true, touchFeedbackColor: '#991b1b' }
-'.feedback-red-900': { touchFeedback: true, touchFeedbackColor: '#7f1d1d' }
-'.feedback-orange-50': { touchFeedback: true, touchFeedbackColor: '#fff7ed' }
-'.feedback-orange-100': { touchFeedback: true, touchFeedbackColor: '#ffedd5' }
-'.feedback-orange-200': { touchFeedback: true, touchFeedbackColor: '#fed7aa' }
-'.feedback-orange-300': { touchFeedback: true, touchFeedbackColor: '#fdba74' }
-'.feedback-orange-400': { touchFeedback: true, touchFeedbackColor: '#fb923c' }
-'.feedback-orange-500': { touchFeedback: true, touchFeedbackColor: '#f97316' }
-'.feedback-orange-600': { touchFeedback: true, touchFeedbackColor: '#ea580c' }
-'.feedback-orange-700': { touchFeedback: true, touchFeedbackColor: '#c2410c' }
-'.feedback-orange-800': { touchFeedback: true, touchFeedbackColor: '#9a3412' }
-'.feedback-orange-900': { touchFeedback: true, touchFeedbackColor: '#7c2d12' }
-'.feedback-amber-50': { touchFeedback: true, touchFeedbackColor: '#fffbeb' }
-'.feedback-amber-100': { touchFeedback: true, touchFeedbackColor: '#fef3c7' }
-'.feedback-amber-200': { touchFeedback: true, touchFeedbackColor: '#fde68a' }
-'.feedback-amber-300': { touchFeedback: true, touchFeedbackColor: '#fcd34d' }
-'.feedback-amber-400': { touchFeedback: true, touchFeedbackColor: '#fbbf24' }
-'.feedback-amber-500': { touchFeedback: true, touchFeedbackColor: '#f59e0b' }
-'.feedback-amber-600': { touchFeedback: true, touchFeedbackColor: '#d97706' }
-'.feedback-amber-700': { touchFeedback: true, touchFeedbackColor: '#b45309' }
-'.feedback-amber-800': { touchFeedback: true, touchFeedbackColor: '#92400e' }
-'.feedback-amber-900': { touchFeedback: true, touchFeedbackColor: '#78350f' }
-'.feedback-yellow-50': { touchFeedback: true, touchFeedbackColor: '#fefce8' }
-'.feedback-yellow-100': { touchFeedback: true, touchFeedbackColor: '#fef9c3' }
-'.feedback-yellow-200': { touchFeedback: true, touchFeedbackColor: '#fef08a' }
-'.feedback-yellow-300': { touchFeedback: true, touchFeedbackColor: '#fde047' }
-'.feedback-yellow-400': { touchFeedback: true, touchFeedbackColor: '#facc15' }
-'.feedback-yellow-500': { touchFeedback: true, touchFeedbackColor: '#eab308' }
-'.feedback-yellow-600': { touchFeedback: true, touchFeedbackColor: '#ca8a04' }
-'.feedback-yellow-700': { touchFeedback: true, touchFeedbackColor: '#a16207' }
-'.feedback-yellow-800': { touchFeedback: true, touchFeedbackColor: '#854d0e' }
-'.feedback-yellow-900': { touchFeedback: true, touchFeedbackColor: '#713f12' }
-'.feedback-lime-50': { touchFeedback: true, touchFeedbackColor: '#f7fee7' }
-'.feedback-lime-100': { touchFeedback: true, touchFeedbackColor: '#ecfccb' }
-'.feedback-lime-200': { touchFeedback: true, touchFeedbackColor: '#d9f99d' }
-'.feedback-lime-300': { touchFeedback: true, touchFeedbackColor: '#bef264' }
-'.feedback-lime-400': { touchFeedback: true, touchFeedbackColor: '#a3e635' }
-'.feedback-lime-500': { touchFeedback: true, touchFeedbackColor: '#84cc16' }
-'.feedback-lime-600': { touchFeedback: true, touchFeedbackColor: '#65a30d' }
-'.feedback-lime-700': { touchFeedback: true, touchFeedbackColor: '#4d7c0f' }
-'.feedback-lime-800': { touchFeedback: true, touchFeedbackColor: '#3f6212' }
-'.feedback-lime-900': { touchFeedback: true, touchFeedbackColor: '#365314' }
-'.feedback-green-50': { touchFeedback: true, touchFeedbackColor: '#f0fdf4' }
-'.feedback-green-100': { touchFeedback: true, touchFeedbackColor: '#dcfce7' }
-'.feedback-green-200': { touchFeedback: true, touchFeedbackColor: '#bbf7d0' }
-'.feedback-green-300': { touchFeedback: true, touchFeedbackColor: '#86efac' }
-'.feedback-green-400': { touchFeedback: true, touchFeedbackColor: '#4ade80' }
-'.feedback-green-500': { touchFeedback: true, touchFeedbackColor: '#22c55e' }
-'.feedback-green-600': { touchFeedback: true, touchFeedbackColor: '#16a34a' }
-'.feedback-green-700': { touchFeedback: true, touchFeedbackColor: '#15803d' }
-'.feedback-green-800': { touchFeedback: true, touchFeedbackColor: '#166534' }
-'.feedback-green-900': { touchFeedback: true, touchFeedbackColor: '#14532d' }
-'.feedback-emerald-50': { touchFeedback: true, touchFeedbackColor: '#ecfdf5' }
-'.feedback-emerald-100': { touchFeedback: true, touchFeedbackColor: '#d1fae5' }
-'.feedback-emerald-200': { touchFeedback: true, touchFeedbackColor: '#a7f3d0' }
-'.feedback-emerald-300': { touchFeedback: true, touchFeedbackColor: '#6ee7b7' }
-'.feedback-emerald-400': { touchFeedback: true, touchFeedbackColor: '#34d399' }
-'.feedback-emerald-500': { touchFeedback: true, touchFeedbackColor: '#10b981' }
-'.feedback-emerald-600': { touchFeedback: true, touchFeedbackColor: '#059669' }
-'.feedback-emerald-700': { touchFeedback: true, touchFeedbackColor: '#047857' }
-'.feedback-emerald-800': { touchFeedback: true, touchFeedbackColor: '#065f46' }
-'.feedback-emerald-900': { touchFeedback: true, touchFeedbackColor: '#064e3b' }
-'.feedback-teal-50': { touchFeedback: true, touchFeedbackColor: '#f0fdfa' }
-'.feedback-teal-100': { touchFeedback: true, touchFeedbackColor: '#ccfbf1' }
-'.feedback-teal-200': { touchFeedback: true, touchFeedbackColor: '#99f6e4' }
-'.feedback-teal-300': { touchFeedback: true, touchFeedbackColor: '#5eead4' }
-'.feedback-teal-400': { touchFeedback: true, touchFeedbackColor: '#2dd4bf' }
-'.feedback-teal-500': { touchFeedback: true, touchFeedbackColor: '#14b8a6' }
-'.feedback-teal-600': { touchFeedback: true, touchFeedbackColor: '#0d9488' }
-'.feedback-teal-700': { touchFeedback: true, touchFeedbackColor: '#0f766e' }
-'.feedback-teal-800': { touchFeedback: true, touchFeedbackColor: '#115e59' }
-'.feedback-teal-900': { touchFeedback: true, touchFeedbackColor: '#134e4a' }
-'.feedback-cyan-50': { touchFeedback: true, touchFeedbackColor: '#ecfeff' }
-'.feedback-cyan-100': { touchFeedback: true, touchFeedbackColor: '#cffafe' }
-'.feedback-cyan-200': { touchFeedback: true, touchFeedbackColor: '#a5f3fc' }
-'.feedback-cyan-300': { touchFeedback: true, touchFeedbackColor: '#67e8f9' }
-'.feedback-cyan-400': { touchFeedback: true, touchFeedbackColor: '#22d3ee' }
-'.feedback-cyan-500': { touchFeedback: true, touchFeedbackColor: '#06b6d4' }
-'.feedback-cyan-600': { touchFeedback: true, touchFeedbackColor: '#0891b2' }
-'.feedback-cyan-700': { touchFeedback: true, touchFeedbackColor: '#0e7490' }
-'.feedback-cyan-800': { touchFeedback: true, touchFeedbackColor: '#155e75' }
-'.feedback-cyan-900': { touchFeedback: true, touchFeedbackColor: '#164e63' }
-'.feedback-sky-50': { touchFeedback: true, touchFeedbackColor: '#f0f9ff' }
-'.feedback-sky-100': { touchFeedback: true, touchFeedbackColor: '#e0f2fe' }
-'.feedback-sky-200': { touchFeedback: true, touchFeedbackColor: '#bae6fd' }
-'.feedback-sky-300': { touchFeedback: true, touchFeedbackColor: '#7dd3fc' }
-'.feedback-sky-400': { touchFeedback: true, touchFeedbackColor: '#38bdf8' }
-'.feedback-sky-500': { touchFeedback: true, touchFeedbackColor: '#0ea5e9' }
-'.feedback-sky-600': { touchFeedback: true, touchFeedbackColor: '#0284c7' }
-'.feedback-sky-700': { touchFeedback: true, touchFeedbackColor: '#0369a1' }
-'.feedback-sky-800': { touchFeedback: true, touchFeedbackColor: '#075985' }
-'.feedback-sky-900': { touchFeedback: true, touchFeedbackColor: '#0c4a6e' }
-'.feedback-blue-50': { touchFeedback: true, touchFeedbackColor: '#eff6ff' }
-'.feedback-blue-100': { touchFeedback: true, touchFeedbackColor: '#dbeafe' }
-'.feedback-blue-200': { touchFeedback: true, touchFeedbackColor: '#bfdbfe' }
-'.feedback-blue-300': { touchFeedback: true, touchFeedbackColor: '#93c5fd' }
-'.feedback-blue-400': { touchFeedback: true, touchFeedbackColor: '#60a5fa' }
-'.feedback-blue-500': { touchFeedback: true, touchFeedbackColor: '#3b82f6' }
-'.feedback-blue-600': { touchFeedback: true, touchFeedbackColor: '#2563eb' }
-'.feedback-blue-700': { touchFeedback: true, touchFeedbackColor: '#1d4ed8' }
-'.feedback-blue-800': { touchFeedback: true, touchFeedbackColor: '#1e40af' }
-'.feedback-blue-900': { touchFeedback: true, touchFeedbackColor: '#1e3a8a' }
-'.feedback-indigo-50': { touchFeedback: true, touchFeedbackColor: '#eef2ff' }
-'.feedback-indigo-100': { touchFeedback: true, touchFeedbackColor: '#e0e7ff' }
-'.feedback-indigo-200': { touchFeedback: true, touchFeedbackColor: '#c7d2fe' }
-'.feedback-indigo-300': { touchFeedback: true, touchFeedbackColor: '#a5b4fc' }
-'.feedback-indigo-400': { touchFeedback: true, touchFeedbackColor: '#818cf8' }
-'.feedback-indigo-500': { touchFeedback: true, touchFeedbackColor: '#6366f1' }
-'.feedback-indigo-600': { touchFeedback: true, touchFeedbackColor: '#4f46e5' }
-'.feedback-indigo-700': { touchFeedback: true, touchFeedbackColor: '#4338ca' }
-'.feedback-indigo-800': { touchFeedback: true, touchFeedbackColor: '#3730a3' }
-'.feedback-indigo-900': { touchFeedback: true, touchFeedbackColor: '#312e81' }
-'.feedback-violet-50': { touchFeedback: true, touchFeedbackColor: '#f5f3ff' }
-'.feedback-violet-100': { touchFeedback: true, touchFeedbackColor: '#ede9fe' }
-'.feedback-violet-200': { touchFeedback: true, touchFeedbackColor: '#ddd6fe' }
-'.feedback-violet-300': { touchFeedback: true, touchFeedbackColor: '#c4b5fd' }
-'.feedback-violet-400': { touchFeedback: true, touchFeedbackColor: '#a78bfa' }
-'.feedback-violet-500': { touchFeedback: true, touchFeedbackColor: '#8b5cf6' }
-'.feedback-violet-600': { touchFeedback: true, touchFeedbackColor: '#7c3aed' }
-'.feedback-violet-700': { touchFeedback: true, touchFeedbackColor: '#6d28d9' }
-'.feedback-violet-800': { touchFeedback: true, touchFeedbackColor: '#5b21b6' }
-'.feedback-violet-900': { touchFeedback: true, touchFeedbackColor: '#4c1d95' }
-'.feedback-purple-50': { touchFeedback: true, touchFeedbackColor: '#faf5ff' }
-'.feedback-purple-100': { touchFeedback: true, touchFeedbackColor: '#f3e8ff' }
-'.feedback-purple-200': { touchFeedback: true, touchFeedbackColor: '#e9d5ff' }
-'.feedback-purple-300': { touchFeedback: true, touchFeedbackColor: '#d8b4fe' }
-'.feedback-purple-400': { touchFeedback: true, touchFeedbackColor: '#c084fc' }
-'.feedback-purple-500': { touchFeedback: true, touchFeedbackColor: '#a855f7' }
-'.feedback-purple-600': { touchFeedback: true, touchFeedbackColor: '#9333ea' }
-'.feedback-purple-700': { touchFeedback: true, touchFeedbackColor: '#7e22ce' }
-'.feedback-purple-800': { touchFeedback: true, touchFeedbackColor: '#6b21a8' }
-'.feedback-purple-900': { touchFeedback: true, touchFeedbackColor: '#581c87' }
-'.feedback-fuchsia-50': { touchFeedback: true, touchFeedbackColor: '#fdf4ff' }
-'.feedback-fuchsia-100': { touchFeedback: true, touchFeedbackColor: '#fae8ff' }
-'.feedback-fuchsia-200': { touchFeedback: true, touchFeedbackColor: '#f5d0fe' }
-'.feedback-fuchsia-300': { touchFeedback: true, touchFeedbackColor: '#f0abfc' }
-'.feedback-fuchsia-400': { touchFeedback: true, touchFeedbackColor: '#e879f9' }
-'.feedback-fuchsia-500': { touchFeedback: true, touchFeedbackColor: '#d946ef' }
-'.feedback-fuchsia-600': { touchFeedback: true, touchFeedbackColor: '#c026d3' }
-'.feedback-fuchsia-700': { touchFeedback: true, touchFeedbackColor: '#a21caf' }
-'.feedback-fuchsia-800': { touchFeedback: true, touchFeedbackColor: '#86198f' }
-'.feedback-fuchsia-900': { touchFeedback: true, touchFeedbackColor: '#701a75' }
-'.feedback-pink-50': { touchFeedback: true, touchFeedbackColor: '#fdf2f8' }
-'.feedback-pink-100': { touchFeedback: true, touchFeedbackColor: '#fce7f3' }
-'.feedback-pink-200': { touchFeedback: true, touchFeedbackColor: '#fbcfe8' }
-'.feedback-pink-300': { touchFeedback: true, touchFeedbackColor: '#f9a8d4' }
-'.feedback-pink-400': { touchFeedback: true, touchFeedbackColor: '#f472b6' }
-'.feedback-pink-500': { touchFeedback: true, touchFeedbackColor: '#ec4899' }
-'.feedback-pink-600': { touchFeedback: true, touchFeedbackColor: '#db2777' }
-'.feedback-pink-700': { touchFeedback: true, touchFeedbackColor: '#be185d' }
-'.feedback-pink-800': { touchFeedback: true, touchFeedbackColor: '#9d174d' }
-'.feedback-pink-900': { touchFeedback: true, touchFeedbackColor: '#831843' }
-'.feedback-rose-50': { touchFeedback: true, touchFeedbackColor: '#fff1f2' }
-'.feedback-rose-100': { touchFeedback: true, touchFeedbackColor: '#ffe4e6' }
-'.feedback-rose-200': { touchFeedback: true, touchFeedbackColor: '#fecdd3' }
-'.feedback-rose-300': { touchFeedback: true, touchFeedbackColor: '#fda4af' }
-'.feedback-rose-400': { touchFeedback: true, touchFeedbackColor: '#fb7185' }
-'.feedback-rose-500': { touchFeedback: true, touchFeedbackColor: '#f43f5e' }
-'.feedback-rose-600': { touchFeedback: true, touchFeedbackColor: '#e11d48' }
-'.feedback-rose-700': { touchFeedback: true, touchFeedbackColor: '#be123c' }
-'.feedback-rose-800': { touchFeedback: true, touchFeedbackColor: '#9f1239' }
-'.feedback-rose-900': { touchFeedback: true, touchFeedbackColor: '#881337' }
+// Property(ies): touchFeedbackColor - Android Only
+'.touch-feedback-transparent[platform=android]': { touchFeedback: true, touchFeedbackColor: 'transparent' }
+'.touch-feedback-black[platform=android]': { touchFeedback: true, touchFeedbackColor: '#000000' }
+'.touch-feedback-white[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ffffff' }
+'.touch-feedback-slate-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f8fafc' }
+'.touch-feedback-slate-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f1f5f9' }
+'.touch-feedback-slate-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e2e8f0' }
+'.touch-feedback-slate-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#cbd5e1' }
+'.touch-feedback-slate-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#94a3b8' }
+'.touch-feedback-slate-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#64748b' }
+'.touch-feedback-slate-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#475569' }
+'.touch-feedback-slate-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#334155' }
+'.touch-feedback-slate-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#1e293b' }
+'.touch-feedback-slate-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#0f172a' }
+'.touch-feedback-gray-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f9fafb' }
+'.touch-feedback-gray-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f3f4f6' }
+'.touch-feedback-gray-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e5e7eb' }
+'.touch-feedback-gray-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#d1d5db' }
+'.touch-feedback-gray-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#9ca3af' }
+'.touch-feedback-gray-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#6b7280' }
+'.touch-feedback-gray-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#4b5563' }
+'.touch-feedback-gray-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#374151' }
+'.touch-feedback-gray-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#1f2937' }
+'.touch-feedback-gray-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#111827' }
+'.touch-feedback-zinc-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fafafa' }
+'.touch-feedback-zinc-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f4f4f5' }
+'.touch-feedback-zinc-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e4e4e7' }
+'.touch-feedback-zinc-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#d4d4d8' }
+'.touch-feedback-zinc-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a1a1aa' }
+'.touch-feedback-zinc-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#71717a' }
+'.touch-feedback-zinc-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#52525b' }
+'.touch-feedback-zinc-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#3f3f46' }
+'.touch-feedback-zinc-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#27272a' }
+'.touch-feedback-zinc-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#18181b' }
+'.touch-feedback-neutral-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fafafa' }
+'.touch-feedback-neutral-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f5f5f5' }
+'.touch-feedback-neutral-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e5e5e5' }
+'.touch-feedback-neutral-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#d4d4d4' }
+'.touch-feedback-neutral-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a3a3a3' }
+'.touch-feedback-neutral-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#737373' }
+'.touch-feedback-neutral-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#525252' }
+'.touch-feedback-neutral-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#404040' }
+'.touch-feedback-neutral-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#262626' }
+'.touch-feedback-neutral-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#171717' }
+'.touch-feedback-stone-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fafaf9' }
+'.touch-feedback-stone-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f5f5f4' }
+'.touch-feedback-stone-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e7e5e4' }
+'.touch-feedback-stone-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#d6d3d1' }
+'.touch-feedback-stone-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a8a29e' }
+'.touch-feedback-stone-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#78716c' }
+'.touch-feedback-stone-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#57534e' }
+'.touch-feedback-stone-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#44403c' }
+'.touch-feedback-stone-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#292524' }
+'.touch-feedback-stone-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#1c1917' }
+'.touch-feedback-red-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fef2f2' }
+'.touch-feedback-red-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fee2e2' }
+'.touch-feedback-red-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fecaca' }
+'.touch-feedback-red-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fca5a5' }
+'.touch-feedback-red-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f87171' }
+'.touch-feedback-red-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ef4444' }
+'.touch-feedback-red-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#dc2626' }
+'.touch-feedback-red-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#b91c1c' }
+'.touch-feedback-red-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#991b1b' }
+'.touch-feedback-red-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#7f1d1d' }
+'.touch-feedback-orange-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fff7ed' }
+'.touch-feedback-orange-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ffedd5' }
+'.touch-feedback-orange-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fed7aa' }
+'.touch-feedback-orange-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fdba74' }
+'.touch-feedback-orange-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fb923c' }
+'.touch-feedback-orange-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f97316' }
+'.touch-feedback-orange-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ea580c' }
+'.touch-feedback-orange-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#c2410c' }
+'.touch-feedback-orange-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#9a3412' }
+'.touch-feedback-orange-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#7c2d12' }
+'.touch-feedback-amber-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fffbeb' }
+'.touch-feedback-amber-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fef3c7' }
+'.touch-feedback-amber-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fde68a' }
+'.touch-feedback-amber-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fcd34d' }
+'.touch-feedback-amber-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fbbf24' }
+'.touch-feedback-amber-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f59e0b' }
+'.touch-feedback-amber-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#d97706' }
+'.touch-feedback-amber-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#b45309' }
+'.touch-feedback-amber-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#92400e' }
+'.touch-feedback-amber-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#78350f' }
+'.touch-feedback-yellow-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fefce8' }
+'.touch-feedback-yellow-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fef9c3' }
+'.touch-feedback-yellow-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fef08a' }
+'.touch-feedback-yellow-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fde047' }
+'.touch-feedback-yellow-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#facc15' }
+'.touch-feedback-yellow-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#eab308' }
+'.touch-feedback-yellow-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ca8a04' }
+'.touch-feedback-yellow-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a16207' }
+'.touch-feedback-yellow-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#854d0e' }
+'.touch-feedback-yellow-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#713f12' }
+'.touch-feedback-lime-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f7fee7' }
+'.touch-feedback-lime-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ecfccb' }
+'.touch-feedback-lime-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#d9f99d' }
+'.touch-feedback-lime-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#bef264' }
+'.touch-feedback-lime-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a3e635' }
+'.touch-feedback-lime-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#84cc16' }
+'.touch-feedback-lime-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#65a30d' }
+'.touch-feedback-lime-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#4d7c0f' }
+'.touch-feedback-lime-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#3f6212' }
+'.touch-feedback-lime-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#365314' }
+'.touch-feedback-green-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f0fdf4' }
+'.touch-feedback-green-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#dcfce7' }
+'.touch-feedback-green-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#bbf7d0' }
+'.touch-feedback-green-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#86efac' }
+'.touch-feedback-green-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#4ade80' }
+'.touch-feedback-green-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#22c55e' }
+'.touch-feedback-green-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#16a34a' }
+'.touch-feedback-green-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#15803d' }
+'.touch-feedback-green-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#166534' }
+'.touch-feedback-green-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#14532d' }
+'.touch-feedback-emerald-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ecfdf5' }
+'.touch-feedback-emerald-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#d1fae5' }
+'.touch-feedback-emerald-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a7f3d0' }
+'.touch-feedback-emerald-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#6ee7b7' }
+'.touch-feedback-emerald-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#34d399' }
+'.touch-feedback-emerald-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#10b981' }
+'.touch-feedback-emerald-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#059669' }
+'.touch-feedback-emerald-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#047857' }
+'.touch-feedback-emerald-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#065f46' }
+'.touch-feedback-emerald-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#064e3b' }
+'.touch-feedback-teal-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f0fdfa' }
+'.touch-feedback-teal-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ccfbf1' }
+'.touch-feedback-teal-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#99f6e4' }
+'.touch-feedback-teal-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#5eead4' }
+'.touch-feedback-teal-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#2dd4bf' }
+'.touch-feedback-teal-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#14b8a6' }
+'.touch-feedback-teal-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#0d9488' }
+'.touch-feedback-teal-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#0f766e' }
+'.touch-feedback-teal-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#115e59' }
+'.touch-feedback-teal-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#134e4a' }
+'.touch-feedback-cyan-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ecfeff' }
+'.touch-feedback-cyan-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#cffafe' }
+'.touch-feedback-cyan-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a5f3fc' }
+'.touch-feedback-cyan-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#67e8f9' }
+'.touch-feedback-cyan-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#22d3ee' }
+'.touch-feedback-cyan-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#06b6d4' }
+'.touch-feedback-cyan-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#0891b2' }
+'.touch-feedback-cyan-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#0e7490' }
+'.touch-feedback-cyan-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#155e75' }
+'.touch-feedback-cyan-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#164e63' }
+'.touch-feedback-sky-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f0f9ff' }
+'.touch-feedback-sky-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e0f2fe' }
+'.touch-feedback-sky-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#bae6fd' }
+'.touch-feedback-sky-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#7dd3fc' }
+'.touch-feedback-sky-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#38bdf8' }
+'.touch-feedback-sky-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#0ea5e9' }
+'.touch-feedback-sky-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#0284c7' }
+'.touch-feedback-sky-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#0369a1' }
+'.touch-feedback-sky-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#075985' }
+'.touch-feedback-sky-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#0c4a6e' }
+'.touch-feedback-blue-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#eff6ff' }
+'.touch-feedback-blue-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#dbeafe' }
+'.touch-feedback-blue-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#bfdbfe' }
+'.touch-feedback-blue-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#93c5fd' }
+'.touch-feedback-blue-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#60a5fa' }
+'.touch-feedback-blue-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#3b82f6' }
+'.touch-feedback-blue-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#2563eb' }
+'.touch-feedback-blue-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#1d4ed8' }
+'.touch-feedback-blue-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#1e40af' }
+'.touch-feedback-blue-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#1e3a8a' }
+'.touch-feedback-indigo-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#eef2ff' }
+'.touch-feedback-indigo-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e0e7ff' }
+'.touch-feedback-indigo-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#c7d2fe' }
+'.touch-feedback-indigo-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a5b4fc' }
+'.touch-feedback-indigo-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#818cf8' }
+'.touch-feedback-indigo-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#6366f1' }
+'.touch-feedback-indigo-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#4f46e5' }
+'.touch-feedback-indigo-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#4338ca' }
+'.touch-feedback-indigo-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#3730a3' }
+'.touch-feedback-indigo-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#312e81' }
+'.touch-feedback-violet-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f5f3ff' }
+'.touch-feedback-violet-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ede9fe' }
+'.touch-feedback-violet-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ddd6fe' }
+'.touch-feedback-violet-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#c4b5fd' }
+'.touch-feedback-violet-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a78bfa' }
+'.touch-feedback-violet-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#8b5cf6' }
+'.touch-feedback-violet-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#7c3aed' }
+'.touch-feedback-violet-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#6d28d9' }
+'.touch-feedback-violet-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#5b21b6' }
+'.touch-feedback-violet-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#4c1d95' }
+'.touch-feedback-purple-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#faf5ff' }
+'.touch-feedback-purple-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f3e8ff' }
+'.touch-feedback-purple-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e9d5ff' }
+'.touch-feedback-purple-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#d8b4fe' }
+'.touch-feedback-purple-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#c084fc' }
+'.touch-feedback-purple-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a855f7' }
+'.touch-feedback-purple-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#9333ea' }
+'.touch-feedback-purple-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#7e22ce' }
+'.touch-feedback-purple-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#6b21a8' }
+'.touch-feedback-purple-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#581c87' }
+'.touch-feedback-fuchsia-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fdf4ff' }
+'.touch-feedback-fuchsia-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fae8ff' }
+'.touch-feedback-fuchsia-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f5d0fe' }
+'.touch-feedback-fuchsia-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f0abfc' }
+'.touch-feedback-fuchsia-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e879f9' }
+'.touch-feedback-fuchsia-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#d946ef' }
+'.touch-feedback-fuchsia-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#c026d3' }
+'.touch-feedback-fuchsia-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#a21caf' }
+'.touch-feedback-fuchsia-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#86198f' }
+'.touch-feedback-fuchsia-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#701a75' }
+'.touch-feedback-pink-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fdf2f8' }
+'.touch-feedback-pink-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fce7f3' }
+'.touch-feedback-pink-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fbcfe8' }
+'.touch-feedback-pink-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f9a8d4' }
+'.touch-feedback-pink-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f472b6' }
+'.touch-feedback-pink-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ec4899' }
+'.touch-feedback-pink-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#db2777' }
+'.touch-feedback-pink-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#be185d' }
+'.touch-feedback-pink-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#9d174d' }
+'.touch-feedback-pink-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#831843' }
+'.touch-feedback-rose-50[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fff1f2' }
+'.touch-feedback-rose-100[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ffe4e6' }
+'.touch-feedback-rose-200[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fecdd3' }
+'.touch-feedback-rose-300[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fda4af' }
+'.touch-feedback-rose-400[platform=android]': { touchFeedback: true, touchFeedbackColor: '#fb7185' }
+'.touch-feedback-rose-500[platform=android]': { touchFeedback: true, touchFeedbackColor: '#f43f5e' }
+'.touch-feedback-rose-600[platform=android]': { touchFeedback: true, touchFeedbackColor: '#e11d48' }
+'.touch-feedback-rose-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#be123c' }
+'.touch-feedback-rose-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#9f1239' }
+'.touch-feedback-rose-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#881337' }
 
 // Component(s): Ti.UI.Animation
 // Property(ies): curve

@@ -1791,7 +1791,7 @@ function cleanClassNameFn(className) {
 const arbitraryValuesTable = {
 	'active-tint': '{ activeTintColor: {value} }',
 	'active-title': '{ activeTitleColor: {value} }',
-	'bar-title': '{ titleAttributes : { color : {value} } }',
+	'bar-title': '{ titleAttributes: { color: {value} } }',
 	'bar-title-shadow': '{ titleAttributes: { shadow: { color: {value} } } }',
 	'bar': '{ barColor: {value} }',
 	'bg-selected': '{ backgroundSelectedColor: {value} }',
