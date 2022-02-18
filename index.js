@@ -1133,9 +1133,6 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.backgroundRadialGradient = {};
 	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor');
 	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor');
-	configFile.theme.barTitleColor = combineKeys(configFile.theme, base.colors, 'barTitleColor');
-	configFile.theme.barTitleShadow = {};
-	configFile.theme.barTitleShadowColor = combineKeys(configFile.theme, base.colors, 'barTitleShadowColor');
 	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor');
 	configFile.theme.borderRadius = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius');
 	configFile.theme.borderStyle = {};
@@ -1245,6 +1242,9 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.theme = {};
 	configFile.theme.tiMedia = {};
 	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor');
+	configFile.theme.titleAttributesColor = combineKeys(configFile.theme, base.colors, 'titleAttributesColor');
+	configFile.theme.titleAttributesShadow = {};
+	configFile.theme.titleAttributesShadowColor = combineKeys(configFile.theme, base.colors, 'titleAttributesShadowColor');
 	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor');
 	configFile.theme.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor');
 	configFile.theme.transition = {};
@@ -1322,9 +1322,9 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'backgroundRadialGradient': return helpers.radialGradient();
 		case 'backgroundSelectedColor': return helpers.backgroundSelectedColor(value);
 		case 'barColor': return helpers.barColor(value);
-		case 'barTitleColor': return helpers.barTitleColor(value);
-		case 'barTitleShadow': return helpers.barTitleShadow();
-		case 'barTitleShadowColor': return helpers.barTitleShadowColor(value);
+		case 'titleAttributesColor': return helpers.titleAttributesColor(value);
+		case 'titleAttributesShadow': return helpers.titleAttributesShadow();
+		case 'titleAttributesShadowColor': return helpers.titleAttributesShadowColor(value);
 		case 'borderColor': return helpers.borderColor(value);
 		case 'borderRadius': return helpers.borderRadius(value);
 		case 'borderStyle': return helpers.borderStyle();
@@ -1790,8 +1790,8 @@ function cleanClassNameFn(className) {
 const arbitraryValuesTable = {
 	'active-tint': '{ activeTintColor: {value} }',
 	'active-title': '{ activeTitleColor: {value} }',
-	'bar-title': '{ titleAttributes: { color: {value} } }',
-	'bar-title-shadow': '{ titleAttributes: { shadow: { color: {value} } } }',
+	'title-attributes': '{ titleAttributes: { color: {value} } }',
+	'title-attributes-shadow': '{ titleAttributes: { shadow: { color: {value} } } }',
 	'bar': '{ barColor: {value} }',
 	'bg-selected': '{ backgroundSelectedColor: {value} }',
 	'bg': '{ backgroundColor: {value} }',
