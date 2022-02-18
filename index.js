@@ -1328,6 +1328,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'borderStyle': return helpers.borderStyle();
 		case 'borderWidth': return helpers.borderWidth(value);
 		case 'bottomNavigation': return helpers.bottomNavigation(value);
+		case 'boxShadow': return helpers.boxShadow();
 		case 'bubbleParent': return helpers.bubbleParent();
 		case 'cacheSize': return helpers.cacheSize();
 		case 'clipMode': return helpers.clipMode();
