@@ -1106,7 +1106,6 @@ function buildCustomTailwind(message = 'file created!') {
 
 	// !Combine `key` values from configFile.theme with base.values or with default.values to generate classes
 
-	// Android Specific
 	configFile.theme.activeIconIsMask = {};
 	configFile.theme.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor');
 	configFile.theme.activeTitleColor = combineKeys(configFile.theme, base.colors, 'activeTitleColor');
@@ -1319,8 +1318,8 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'backgroundBlendMode': return helpers.backgroundBlendMode();
 		case 'backgroundColor': return helpers.backgroundColor(value);
 		case 'backgroundGradient': return helpers.backgroundGradient(value);
-		case 'backgroundLinearGradient': return helpers.linearGradient();
-		case 'backgroundRadialGradient': return helpers.radialGradient();
+		case 'backgroundLinearGradient': return helpers.backgroundLinearGradient();
+		case 'backgroundRadialGradient': return helpers.backgroundRadialGradient();
 		case 'backgroundSelectedColor': return helpers.backgroundSelectedColor(value);
 		case 'barColor': return helpers.barColor(value);
 		case 'borderColor': return helpers.borderColor(value);
