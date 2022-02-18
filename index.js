@@ -1318,13 +1318,11 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'autoreverse': return helpers.autoreverse();
 		case 'backgroundBlendMode': return helpers.backgroundBlendMode();
 		case 'backgroundColor': return helpers.backgroundColor(value);
+		case 'backgroundGradient': return helpers.backgroundGradient(value);
 		case 'backgroundLinearGradient': return helpers.linearGradient();
 		case 'backgroundRadialGradient': return helpers.radialGradient();
 		case 'backgroundSelectedColor': return helpers.backgroundSelectedColor(value);
 		case 'barColor': return helpers.barColor(value);
-		case 'titleAttributesColor': return helpers.titleAttributesColor(value);
-		case 'titleAttributesShadow': return helpers.titleAttributesShadow();
-		case 'titleAttributesShadowColor': return helpers.titleAttributesShadowColor(value);
 		case 'borderColor': return helpers.borderColor(value);
 		case 'borderRadius': return helpers.borderRadius(value);
 		case 'borderStyle': return helpers.borderStyle();
@@ -1340,7 +1338,6 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'draggingConstraints': return helpers.draggingConstraints();
 		case 'draggingType': return helpers.draggingType();
 		case 'dropShadow': return helpers.dropShadow();
-		case 'shadowColor': return helpers.shadowColor(value);
 		case 'editable': return helpers.editable();
 		case 'elevation': return helpers.elevation(value);
 		case 'ellipsize': return helpers.ellipsize();
@@ -1358,7 +1355,6 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'fontWeight': return helpers.fontWeight(value);
 		case 'fullscreen': return helpers.fullscreen();
 		case 'gap': return helpers.gap(value);
-		case 'backgroundGradient': return helpers.backgroundGradient(value);
 		case 'gridColumnsStartEnd': return helpers.gridColumnsStartEnd();
 		case 'gridFlow': return helpers.gridFlow();
 		case 'gridSystem': return helpers.gridSystem();
@@ -1369,6 +1365,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'hidesBarsWhenKeyboardAppears': return helpers.hidesBarsWhenKeyboardAppears();
 		case 'hideShadow': return helpers.hideShadow();
 		case 'hidesSearchBarWhenScrolling': return helpers.hidesSearchBarWhenScrolling();
+		case 'hintTextColor': return helpers.hintTextColor(value);
 		case 'homeIndicatorAutoHidden': return helpers.homeIndicatorAutoHidden();
 		case 'iconIsMask': return helpers.iconIsMask();
 		case 'includeOpaqueBars': return helpers.includeOpaqueBars();
@@ -1405,7 +1402,6 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'pagingControlTimeout': return helpers.pagingControlTimeout(value);
 		case 'passwordKeyboardType': return helpers.passwordKeyboardType();
 		case 'pickerType': return helpers.pickerType();
-		case 'hintTextColor': return helpers.hintTextColor(value);
 		case 'placement': return helpers.placement();
 		case 'preventCornerOverlap': return helpers.preventCornerOverlap();
 		case 'preventDefaultImage': return helpers.preventDefaultImage();
@@ -1426,7 +1422,6 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'statusBar': return helpers.statusBar();
 		case 'sustainedPerformanceMode': return helpers.sustainedPerformanceMode();
 		case 'swipeToClose': return helpers.swipeToClose();
-		case 'useCompatPadding': return helpers.useCompatPadding();
 		case 'tabBarHidden': return helpers.tabBarHidden();
 		case 'tabGroupStyle': return helpers.tabGroupStyle();
 		case 'tabsBackgroundColor': return helpers.tabsBackgroundColor(value);
@@ -1437,14 +1432,19 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'theme': return helpers.theme();
 		case 'tiMedia': return helpers.tiMedia();
 		case 'tintColor': return helpers.tintColor(value);
+		case 'titleAttributesColor': return helpers.titleAttributesColor(value);
+		case 'titleAttributesShadow': return helpers.titleAttributesShadow();
+		case 'titleAttributesShadowColor': return helpers.titleAttributesShadowColor(value);
 		case 'titleColor': return helpers.titleColor(value);
 		case 'touchFeedbackColor': return helpers.touchFeedbackColor(value);
 		case 'transition': return helpers.transition(value);
 		case 'transitionDelay': return helpers.transitionDelay(value);
 		case 'transitionDuration': return helpers.transitionDuration(value);
 		case 'translucent': return helpers.translucent();
+		case 'useCompatPadding': return helpers.useCompatPadding();
 		case 'useSpinner': return helpers.useSpinner(value);
 		case 'verticalAlignment': return helpers.verticalAlignment();
+		case 'viewShadowColor': return helpers.viewShadowColor(value);
 		case 'width': return helpers.width(value);
 		case 'windowPixelFormat': return helpers.windowPixelFormat();
 		case 'windowSoftInputMode': return helpers.windowSoftInputMode();
