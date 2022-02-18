@@ -1128,18 +1128,20 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.autoreverse = {};
 	configFile.theme.backgroundBlendMode = {};
 	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor');
+	configFile.theme.backgroundGradient = combineKeys(configFile.theme, base.colors, 'backgroundGradient');
 	configFile.theme.backgroundLinearGradient = {};
 	configFile.theme.backgroundRadialGradient = {};
 	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor');
 	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor');
 	configFile.theme.barTitleColor = combineKeys(configFile.theme, base.colors, 'barTitleColor');
 	configFile.theme.barTitleShadow = {};
-	configFile.theme.barTitleShadowColor = combineKeys(configFile.theme, base.colors, 'barTitleShadowColor');;
+	configFile.theme.barTitleShadowColor = combineKeys(configFile.theme, base.colors, 'barTitleShadowColor');
 	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor');
-	configFile.theme.borderRadiusExtraStyles = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius');
+	configFile.theme.borderRadius = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius');
 	configFile.theme.borderStyle = {};
 	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth');
 	configFile.theme.bottomNavigation = combineKeys(configFile.theme, base.spacing, 'bottomNavigation');
+	configFile.theme.boxShadow = {};
 	configFile.theme.bubbleParent = {};
 	configFile.theme.cacheSize = {};
 	configFile.theme.clipMode = {};
@@ -1150,7 +1152,6 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.draggingConstraints = {};
 	configFile.theme.draggingType = {};
 	configFile.theme.dropShadow = {};
-	configFile.theme.dropShadowColor = combineKeys(configFile.theme, base.colors, 'dropShadowColor');
 	configFile.theme.editable = {};
 	configFile.theme.elevation = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'elevation');
 	configFile.theme.ellipsize = {};
@@ -1168,7 +1169,6 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight');
 	configFile.theme.fullscreen = {};
 	configFile.theme.gap = combineKeys(configFile.theme, base.spacing, 'margin');
-	configFile.theme.gradientColorStops = combineKeys(configFile.theme, base.colors, 'gradientColorStops');
 	configFile.theme.gridColumnsStartEnd = {};
 	configFile.theme.gridFlow = {};
 	configFile.theme.gridSystem = {};
@@ -1179,6 +1179,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.hidesBarsWhenKeyboardAppears = {};
 	configFile.theme.hideShadow = {};
 	configFile.theme.hidesSearchBarWhenScrolling = {};
+	configFile.theme.hintTextColor = combineKeys(configFile.theme, base.colors, 'hintTextColor');
 	configFile.theme.homeIndicatorAutoHidden = {};
 	configFile.theme.iconIsMask = {};
 	configFile.theme.includeOpaqueBars = {};
@@ -1208,14 +1209,13 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding');
 	configFile.theme.pageIndicatorColor = combineKeys(configFile.theme, base.colors, 'pageIndicatorColor');
 	configFile.theme.pagingControl = {};
-	configFile.theme.pagingControlAlpha = combineKeys(configFile.theme, defaultTheme.opacity, 'opacity');
+	configFile.theme.pagingControlAlpha = combineKeys(configFile.theme, defaultTheme.opacity, 'pagingControlAlpha');
 	configFile.theme.pagingControlColor = combineKeys(configFile.theme, base.colors, 'pagingControlColor');
 	configFile.theme.pagingControlHeight = base.height;
 	configFile.theme.pagingControlOnTop = {};
 	configFile.theme.pagingControlTimeout = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'pagingControlTimeout');
 	configFile.theme.passwordKeyboardType = {};
 	configFile.theme.pickerType = {};
-	configFile.theme.placeholderColor = combineKeys(configFile.theme, base.colors, 'placeholderColor');
 	configFile.theme.placement = {};
 	configFile.theme.preventCornerOverlap = {};
 	configFile.theme.preventDefaultImage = {};
@@ -1227,7 +1227,6 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.scrollIndicators = {};
 	configFile.theme.scrollingEnabled = {};
 	configFile.theme.scrollType = {};
-	configFile.theme.shadow = {};
 	configFile.theme.shadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
 	configFile.theme.shiftMode = {};
 	configFile.theme.showAsAction = {};
@@ -1236,7 +1235,6 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.statusBar = {};
 	configFile.theme.sustainedPerformanceMode = {};
 	configFile.theme.swipeToClose = {};
-	configFile.theme.useCompatPadding = {};
 	configFile.theme.tabBarHidden = {};
 	configFile.theme.tabGroupStyle = {};
 	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
@@ -1253,8 +1251,10 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.transitionDelay = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'transitionDelay');
 	configFile.theme.transitionDuration = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDuration }, 'transitionDuration');
 	configFile.theme.translucent = {};
+	configFile.theme.useCompatPadding = {};
 	configFile.theme.useSpinner = {};
 	configFile.theme.verticalAlignment = {};
+	configFile.theme.viewShadowColor = combineKeys(configFile.theme, base.colors, 'viewShadowColor');
 	configFile.theme.width = base.width;
 	configFile.theme.windowPixelFormat = {};
 	configFile.theme.windowSoftInputMode = {};
@@ -1264,7 +1264,6 @@ function buildCustomTailwind(message = 'file created!') {
 	delete configFile.theme.extend;
 	delete configFile.theme.colors;
 	delete configFile.theme.spacing;
-	delete configFile.theme.borderRadius;
 
 	if (!Object.keys(configFile.theme.fontFamily).length) {
 		delete configFile.theme.fontFamily;
@@ -1327,7 +1326,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'barTitleShadow': return helpers.barTitleShadow();
 		case 'barTitleShadowColor': return helpers.barTitleShadowColor(value);
 		case 'borderColor': return helpers.borderColor(value);
-		case 'borderRadiusExtraStyles': return helpers.borderRadiusExtraStyles(value);
+		case 'borderRadius': return helpers.borderRadius(value);
 		case 'borderStyle': return helpers.borderStyle();
 		case 'borderWidth': return helpers.borderWidth(value);
 		case 'bottomNavigation': return helpers.bottomNavigation(value);
@@ -1341,7 +1340,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'draggingConstraints': return helpers.draggingConstraints();
 		case 'draggingType': return helpers.draggingType();
 		case 'dropShadow': return helpers.dropShadow();
-		case 'dropShadowColor': return helpers.dropShadowColor(value);
+		case 'shadowColor': return helpers.shadowColor(value);
 		case 'editable': return helpers.editable();
 		case 'elevation': return helpers.elevation(value);
 		case 'ellipsize': return helpers.ellipsize();
@@ -1359,7 +1358,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'fontWeight': return helpers.fontWeight(value);
 		case 'fullscreen': return helpers.fullscreen();
 		case 'gap': return helpers.gap(value);
-		case 'gradientColorStops': return helpers.gradientColorStops(value);
+		case 'backgroundGradient': return helpers.backgroundGradient(value);
 		case 'gridColumnsStartEnd': return helpers.gridColumnsStartEnd();
 		case 'gridFlow': return helpers.gridFlow();
 		case 'gridSystem': return helpers.gridSystem();
@@ -1406,7 +1405,7 @@ function helpersToBuildCustomTailwindClasses(key, value) {
 		case 'pagingControlTimeout': return helpers.pagingControlTimeout(value);
 		case 'passwordKeyboardType': return helpers.passwordKeyboardType();
 		case 'pickerType': return helpers.pickerType();
-		case 'placeholderColor': return helpers.placeholderColor(value);
+		case 'hintTextColor': return helpers.hintTextColor(value);
 		case 'placement': return helpers.placement();
 		case 'preventCornerOverlap': return helpers.preventCornerOverlap();
 		case 'preventDefaultImage': return helpers.preventDefaultImage();
