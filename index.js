@@ -37,7 +37,6 @@ const destJMKFile = cwd + '/app/alloy.jmk';
 const destPurgeTSSFolder = cwd + '/purgetss';
 const destFontsFolder = cwd + '/app/assets/fonts';
 const destAppTSSFile = cwd + '/app/styles/app.tss';
-const srcAppPTSSFile = cwd + '/app/styles/app.ptss';
 const dest_appTSSFile = cwd + '/app/styles/_app.tss';
 const destConfigJSFile = cwd + '/purgetss/config.js';
 
@@ -52,10 +51,10 @@ const srcLibBI = path.resolve(__dirname, './dist/bootstrapicons.js');
 const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
 
 //
-const customTailwindFile = cwd + '/purgetss/tailwind.tss';
-const defaultTailwindFile = path.resolve(__dirname, './dist/tailwind.tss');
+const destTailwindTSS = cwd + '/purgetss/tailwind.tss';
+const distributionTailwindTSS = path.resolve(__dirname, './dist/tailwind.tss');
 //
-const customFontAwesomeFile = cwd + '/purgetss/fontawesome.tss';
+const customFontAwesomeTSS = cwd + '/purgetss/fontawesome.tss';
 const destLibFolder = cwd + '/app/lib';
 const customFontAwesomeJSFile = cwd + '/app/lib/fontawesome.js';
 
@@ -356,6 +355,7 @@ function buildCustom() {
 		buildCustomTailwind();
 		buildCustomFontAwesome();
 		buildCustomFontAwesomeJS();
+		createDefinitionsFile();
 	}
 }
 module.exports.buildCustom = buildCustom;
@@ -380,7 +380,7 @@ function processCustomFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilie
 
 		tssClasses += processFontawesomeStyles(data);
 
-		fs.writeFileSync(customFontAwesomeFile, tssClasses, err => {
+		fs.writeFileSync(customFontAwesomeTSS, tssClasses, err => {
 			throw err;
 		});
 
@@ -611,12 +611,12 @@ function buildCustomFonts(options) {
 			}
 		});
 
+		makeSureFolderExists(destPurgeTSSFolder);
 		fs.writeFileSync(cwd + '/purgetss/fonts.tss', tssClasses, err => {
 			throw err;
 		});
 
 		makeSureFolderExists(destLibFolder);
-
 		if (customFontsJS) {
 			let exportIcons = fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8');
 			exportIcons += '\nconst icons = {';
@@ -639,6 +639,8 @@ function buildCustomFonts(options) {
 			console.log();
 
 			finish(`Finished building ${chalk.yellow('fonts.tss')} in`);
+
+			createDefinitionsFile();
 		} else {
 			logger.info('No fonts found in', chalk.yellow('./purgetss/fonts'), 'folder!');
 		}
@@ -1027,7 +1029,8 @@ function filterCharacters(uniqueClass) {
 
 //! Build Custom Tailwind ( Main )
 function buildCustomTailwind(message = 'file created!') {
-	let configFile = require(destConfigJSFile);
+	let imInProjectFolder = fs.existsSync(destConfigJSFile);
+	let configFile = (imInProjectFolder) ? require(destConfigJSFile) : require(srcPurgetssConfigFile);
 	const defaultColors = require('tailwindcss/colors');
 	const defaultTheme = require('tailwindcss/defaultTheme');
 
@@ -1067,6 +1070,15 @@ function buildCustomTailwind(message = 'file created!') {
 		}
 	});
 
+	//! Process custom Window, View and ImageView
+	if (configFile.theme.Window && configFile.theme.Window.apply) {
+		let theApply = configFile.theme.Window.apply;
+		delete configFile.theme.Window.apply;
+		configFile.theme['Window'] = _.merge({ apply: theApply }, configFile.theme.Window);
+	} else {
+		configFile.theme['Window'] = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
+	}
+
 	if (configFile.theme.ImageView && configFile.theme.ImageView.apply) {
 		let theApply = configFile.theme.ImageView.apply;
 		delete configFile.theme.ImageView.apply;
@@ -1084,14 +1096,6 @@ function buildCustomTailwind(message = 'file created!') {
 		configFile.theme['View'] = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
 	}
 
-	if (configFile.theme.Window && configFile.theme.Window.apply) {
-		let theApply = configFile.theme.Window.apply;
-		delete configFile.theme.Window.apply;
-		configFile.theme['Window'] = _.merge({ apply: theApply }, configFile.theme.Window);
-	} else {
-		configFile.theme['Window'] = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
-	}
-
 	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
 
 	// Some clean up
@@ -1102,13 +1106,14 @@ function buildCustomTailwind(message = 'file created!') {
 	delete base.height['min-content'];
 	delete base.height['max-content'];
 
-	// !Core Properties
+	//! Width, height and margin properties
+	configFile.theme.height = base.height;
+	configFile.theme.width = base.width;
+	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin');
 
-	// !Combine `key` values from configFile.theme with base.values or with default.values to generate classes
-
+	//! Properties with constant values
+	configFile.theme.accessibilityHidden = {};
 	configFile.theme.activeIconIsMask = {};
-	configFile.theme.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor');
-	configFile.theme.activeTitleColor = combineKeys(configFile.theme, base.colors, 'activeTitleColor');
 	configFile.theme.activityEnterTransition = {};
 	configFile.theme.activityExitTransition = {};
 	configFile.theme.activityIndicatorStyle = {};
@@ -1118,7 +1123,9 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.activitySharedElementExitTransition = {};
 	configFile.theme.activitySharedElementReenterTransition = {};
 	configFile.theme.activitySharedElementReturnTransition = {};
+	configFile.theme.alertDialogStyle = {};
 	configFile.theme.allowUserCustomization = {};
+	configFile.theme.animationStyle = {};
 	configFile.theme.autoAdjustScrollViewInsets = {};
 	configFile.theme.autocapitalization = {};
 	configFile.theme.autocorrect = {};
@@ -1126,32 +1133,26 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.autoLink = {};
 	configFile.theme.autoreverse = {};
 	configFile.theme.backgroundBlendMode = {};
-	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor');
-	configFile.theme.backgroundGradient = combineKeys(configFile.theme, base.colors, 'backgroundGradient');
 	configFile.theme.backgroundLinearGradient = {};
 	configFile.theme.backgroundRadialGradient = {};
-	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor');
-	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor');
-	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor');
-	configFile.theme.borderRadius = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius');
 	configFile.theme.borderStyle = {};
-	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth');
-	configFile.theme.bottomNavigation = combineKeys(configFile.theme, base.spacing, 'bottomNavigation');
-	configFile.theme.boxShadow = {};
 	configFile.theme.bubbleParent = {};
+	configFile.theme.buttonStyle = {};
 	configFile.theme.cacheSize = {};
 	configFile.theme.clipMode = {};
-	configFile.theme.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor');
 	configFile.theme.disableBounce = {};
 	configFile.theme.displayCaps = {};
+	configFile.theme.displayHomeAsUp = {};
 	configFile.theme.displayUtilities = {};
 	configFile.theme.draggingConstraints = {};
 	configFile.theme.draggingType = {};
+	configFile.theme.drawerIndicatorEnabled = {};
+	configFile.theme.drawerLockMode = {};
 	configFile.theme.dropShadow = {};
 	configFile.theme.editable = {};
-	configFile.theme.elevation = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'elevation');
 	configFile.theme.ellipsize = {};
 	configFile.theme.enableCopy = {};
+	configFile.theme.enabled = {};
 	configFile.theme.enableReturnKey = {};
 	configFile.theme.exitOnClose = {};
 	configFile.theme.extendBackground = {};
@@ -1159,28 +1160,22 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.extendSafeArea = {};
 	configFile.theme.flagSecure = {};
 	configFile.theme.flip = {};
-	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily');
-	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize');
 	configFile.theme.fontStyle = {};
-	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight');
 	configFile.theme.fullscreen = {};
-	configFile.theme.gap = combineKeys(configFile.theme, base.spacing, 'margin');
 	configFile.theme.gridColumnsStartEnd = {};
 	configFile.theme.gridFlow = {};
 	configFile.theme.gridSystem = {};
-	configFile.theme.height = base.height;
 	configFile.theme.hidesBackButton = {};
 	configFile.theme.hidesBarsOnSwipe = {};
 	configFile.theme.hidesBarsOnTap = {};
 	configFile.theme.hidesBarsWhenKeyboardAppears = {};
 	configFile.theme.hideShadow = {};
 	configFile.theme.hidesSearchBarWhenScrolling = {};
-	configFile.theme.hintTextColor = combineKeys(configFile.theme, base.colors, 'hintTextColor');
+	configFile.theme.homeButtonEnabled = {};
 	configFile.theme.homeIndicatorAutoHidden = {};
+	configFile.theme.iconified = {};
 	configFile.theme.iconIsMask = {};
 	configFile.theme.includeOpaqueBars = {};
-	configFile.theme.indicatorColor = combineKeys(configFile.theme, base.colors, 'indicatorColor');
-	configFile.theme.interactivity = {};
 	configFile.theme.items = {};
 	configFile.theme.keepScreenOn = {};
 	configFile.theme.keepSectionsInSearch = {};
@@ -1191,73 +1186,124 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.largeTitleEnabled = {};
 	configFile.theme.layout = {};
 	configFile.theme.lazyLoadingEnabled = {};
+	configFile.theme.leftDrawerLockMode = {};
+	configFile.theme.listViewStyle = {};
 	configFile.theme.loginKeyboardType = {};
 	configFile.theme.loginReturnKeyType = {};
-	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin');
-	configFile.theme.maxElevation = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'maxElevation');
 	configFile.theme.modal = {};
 	configFile.theme.navBarHidden = {};
-	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor');
-	configFile.theme.opacity = combineKeys(configFile.theme, defaultTheme.opacity, 'opacity');
 	configFile.theme.orientationModes = {};
 	configFile.theme.origin = {};
-	configFile.theme.overlay = {};
-	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding');
-	configFile.theme.pageIndicatorColor = combineKeys(configFile.theme, base.colors, 'pageIndicatorColor');
+	configFile.theme.overlayEnabled = {};
 	configFile.theme.pagingControl = {};
-	configFile.theme.pagingControlAlpha = combineKeys(configFile.theme, defaultTheme.opacity, 'pagingControlAlpha');
-	configFile.theme.pagingControlColor = combineKeys(configFile.theme, base.colors, 'pagingControlColor');
-	configFile.theme.pagingControlHeight = base.height;
 	configFile.theme.pagingControlOnTop = {};
-	configFile.theme.pagingControlTimeout = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'pagingControlTimeout');
 	configFile.theme.passwordKeyboardType = {};
 	configFile.theme.pickerType = {};
 	configFile.theme.placement = {};
 	configFile.theme.preventCornerOverlap = {};
 	configFile.theme.preventDefaultImage = {};
+	configFile.theme.previewActionStyle = {};
+	configFile.theme.progressBarStyle = {};
+	configFile.theme.progressIndicatorCancelable = {};
+	configFile.theme.progressIndicatorCancelOnTouchOutside = {};
+	configFile.theme.progressIndicatorLocation = {};
+	configFile.theme.progressIndicatorType = {};
 	configFile.theme.repeat = {};
+	configFile.theme.requestOrientation = {};
 	configFile.theme.returnKeyType = {};
-	configFile.theme.rotate = combineKeys(configFile.theme, defaultTheme.rotate, 'rotate');
-	configFile.theme.scale = combineKeys(configFile.theme, { ...{ 5: '.05', 10: '.10', 25: '.25' }, ...defaultTheme.scale }, 'scale');
+	configFile.theme.rightDrawerLockMode = {};
+	configFile.theme.rowAndColumnCount = {};
 	configFile.theme.scrollableRegion = {};
 	configFile.theme.scrollIndicators = {};
+	configFile.theme.scrollIndicatorStyle = {};
 	configFile.theme.scrollingEnabled = {};
+	configFile.theme.scrollsToTop = {};
 	configFile.theme.scrollType = {};
-	configFile.theme.shadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
+	configFile.theme.searchBarStyle = {};
+	configFile.theme.selectionStyle = {};
+	configFile.theme.separatorStyle = {};
 	configFile.theme.shiftMode = {};
 	configFile.theme.showAsAction = {};
 	configFile.theme.showCancel = {};
 	configFile.theme.smoothScrollOnTabClick = {};
-	configFile.theme.statusBar = {};
+	configFile.theme.statusBarStyle = {};
+	configFile.theme.submitEnabled = {};
 	configFile.theme.sustainedPerformanceMode = {};
 	configFile.theme.swipeToClose = {};
+	configFile.theme.switchStyle = {};
 	configFile.theme.tabBarHidden = {};
+	configFile.theme.tabbedBarStyle = {};
 	configFile.theme.tabGroupStyle = {};
-	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
-	configFile.theme.tabsBackgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundSelectedColor');
+	configFile.theme.tableViewStyle = {};
 	configFile.theme.tabsTranslucent = {};
 	configFile.theme.textAlign = {};
-	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
 	configFile.theme.theme = {};
 	configFile.theme.tiMedia = {};
-	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor');
-	configFile.theme.titleAttributesColor = combineKeys(configFile.theme, base.colors, 'titleAttributesColor');
 	configFile.theme.titleAttributesShadow = {};
-	configFile.theme.titleAttributesShadowColor = combineKeys(configFile.theme, base.colors, 'titleAttributesShadowColor');
-	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor');
-	configFile.theme.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor');
+	configFile.theme.toolbarEnabled = {};
+	configFile.theme.touchEnabled = {};
+	configFile.theme.touchFeedback = {};
 	configFile.theme.transition = {};
-	configFile.theme.transitionDelay = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'transitionDelay');
-	configFile.theme.transitionDuration = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDuration }, 'transitionDuration');
 	configFile.theme.translucent = {};
 	configFile.theme.useCompatPadding = {};
 	configFile.theme.useSpinner = {};
-	configFile.theme.verticalAlignment = {};
-	configFile.theme.viewShadowColor = combineKeys(configFile.theme, base.colors, 'viewShadowColor');
-	configFile.theme.width = base.width;
+	configFile.theme.verticalAlign = {};
+	configFile.theme.viewShadow = {};
 	configFile.theme.windowPixelFormat = {};
 	configFile.theme.windowSoftInputMode = {};
+
+	//! Configurable properties
+	configFile.theme.borderRadius = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius');
+	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth');
+	configFile.theme.bottomNavigation = combineKeys(configFile.theme, base.spacing, 'bottomNavigation');
+	configFile.theme.elevation = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'elevation');
+	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily');
+	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize');
+	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight');
+	configFile.theme.gap = combineKeys(configFile.theme, base.spacing, 'margin');
+	configFile.theme.leftWidth = combineKeys(configFile.theme, base.width, 'leftWidth');
+	configFile.theme.maxElevation = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'maxElevation');
+	configFile.theme.opacity = combineKeys(configFile.theme, defaultTheme.opacity, 'opacity');
+	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding');
+	configFile.theme.pagingControlAlpha = combineKeys(configFile.theme, defaultTheme.opacity, 'pagingControlAlpha');
+	configFile.theme.pagingControlHeight = combineKeys(configFile.theme, base.height, 'pagingControlHeight');
+	configFile.theme.pagingControlTimeout = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'pagingControlTimeout');
+	configFile.theme.rightWidth = combineKeys(configFile.theme, base.width, 'rightWidth');
+	configFile.theme.rotate = combineKeys(configFile.theme, defaultTheme.rotate, 'rotate');
+	configFile.theme.scale = combineKeys(configFile.theme, { ...{ 5: '.05', 10: '.10', 25: '.25' }, ...defaultTheme.scale }, 'scale');
+	configFile.theme.shadowRadius = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'shadowRadius');
+	configFile.theme.transitionDelay = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'transitionDelay');
+	configFile.theme.transitionDuration = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDuration }, 'transitionDuration');
 	configFile.theme.zIndex = combineKeys(configFile.theme, defaultTheme.zIndex, 'zIndex');
+
+	//! Color related properties
+	configFile.theme.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor');
+	configFile.theme.activeTitleColor = combineKeys(configFile.theme, base.colors, 'activeTitleColor');
+	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor');
+	configFile.theme.backgroundGradient = combineKeys(configFile.theme, base.colors, 'backgroundGradient');
+	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor');
+	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor');
+	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor');
+	configFile.theme.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor');
+	configFile.theme.disabledColor = combineKeys(configFile.theme, base.colors, 'disabledColor');
+	configFile.theme.dropShadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
+	configFile.theme.hintTextColor = combineKeys(configFile.theme, base.colors, 'hintTextColor');
+	configFile.theme.indicatorColor = combineKeys(configFile.theme, base.colors, 'indicatorColor');
+	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor');
+	configFile.theme.pageIndicatorColor = combineKeys(configFile.theme, base.colors, 'pageIndicatorColor');
+	configFile.theme.pagingControlColor = combineKeys(configFile.theme, base.colors, 'pagingControlColor');
+	configFile.theme.selectedButtonColor = combineKeys(configFile.theme, base.colors, 'selectedButtonColor');
+	configFile.theme.selectedColor = combineKeys(configFile.theme, base.colors, 'selectedColor');
+	configFile.theme.selectedTextColor = combineKeys(configFile.theme, base.colors, 'selectedTextColor');
+	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
+	configFile.theme.tabsBackgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundSelectedColor');
+	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
+	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor');
+	configFile.theme.titleAttributesColor = combineKeys(configFile.theme, base.colors, 'titleAttributesColor');
+	configFile.theme.titleAttributesShadowColor = combineKeys(configFile.theme, base.colors, 'titleAttributesShadowColor');
+	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor');
+	configFile.theme.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor');
+	configFile.theme.viewShadowColor = combineKeys(configFile.theme, base.colors, 'viewShadowColor');
 
 	// !Some final cleanup
 	delete configFile.theme.extend;
@@ -1268,187 +1314,260 @@ function buildCustomTailwind(message = 'file created!') {
 		delete configFile.theme.fontFamily;
 	}
 
-	// !Delete corePlugins specified in the config file
-	let corePlugins = Array.isArray(configFile.corePlugins) ? configFile.corePlugins : Object.keys(configFile.corePlugins).map(key => key);
 	// convert Object to Array
+	let corePlugins = Array.isArray(configFile.corePlugins) ? configFile.corePlugins : Object.keys(configFile.corePlugins).map(key => key);
+	// !Delete corePlugins specified in the config file
 	_.each(corePlugins, value => {
 		delete configFile.theme[value];
 	});
 
-	let sorted = Object.entries(configFile.theme).sort().reduce((object, [key, value]) => (object[key] = value, object), {});
-
+	// let sorted = Object.entries(configFile.theme).sort().reduce((object, [key, value]) => (object[key] = value, object), {});
 	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8');
-
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8');
+	tailwindStyles += (imInProjectFolder) ? `// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}\n` : `// default config.js file\n`;
+	tailwindStyles += '\n// Custom Styles and Resets\n';
 
-	tailwindStyles += `// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}\n` + '\n// Custom Styles and Resets\n';
-
-	_.each(sorted, (value, key) => {
+	_.each(configFile.theme, (value, key) => {
 		tailwindStyles += helpersToBuildCustomTailwindClasses(key, value);
 	});
 
-	fs.writeFileSync(customTailwindFile, helpers.applyProperties(tailwindStyles));
+	let finalTailwindStyles = helpers.applyProperties(tailwindStyles);
 
-	logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
+	if (imInProjectFolder) {
+		fs.writeFileSync(destTailwindTSS, finalTailwindStyles);
+		logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
+	} else {
+		fs.writeFileSync(distributionTailwindTSS, finalTailwindStyles);
+		logger.info(chalk.yellow('./dist/tailwind.tss'), message);
+	}
 }
+module.exports.buildCustomTailwind = buildCustomTailwind;
 
+function createDefinitionsFile() {
+	let classDefinitions = '';
+
+	if (fs.existsSync(destTailwindTSS)) {
+		classDefinitions += fs.readFileSync(destTailwindTSS, 'utf8');
+	}
+
+	if (fs.existsSync(cwd + '/purgetss/fonts.tss')) {
+		classDefinitions += fs.readFileSync(cwd + '/purgetss/fonts.tss', 'utf8').replace(/\n\/\*\*\n([\s\S]*?)\*\/\n/g, '');
+	}
+
+	if (fs.existsSync(customFontAwesomeTSS)) {
+		classDefinitions += fs.readFileSync(customFontAwesomeTSS, 'utf8');
+	}
+
+	classDefinitions = classDefinitions
+		.replace(`'ImageView[platform=ios]': { hires: true }\n`, '')
+		.replace(`'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }\n`, '')
+		.replace(`'Window': { backgroundColor: '#ffffff' }\n\n`, '')
+		.replace(/'.(.*)': /g, '.$1')
+		.replace(/{(.*)}/g, '{}')
+		.replace(/\[(.*)\]/g, '')
+		.replace(/\/\/(.*)\n/g, '')
+		.replace(/\n\n/g, '\n');
+
+	fs.writeFileSync(cwd + '/purgetss/definitions.css', `/* Class definitions */${classDefinitions}`);
+
+	logger.file('./purgetss/definitions.css');
+}
 //! Build tailwind's custom values
 function helpersToBuildCustomTailwindClasses(key, value) {
 	switch (key) {
-
-		case 'activeIconIsMask': return helpers.activeIconIsMask();
-		case 'activeTintColor': return helpers.activeTintColor(value);
-		case 'activeTitleColor': return helpers.activeTitleColor(value);
-		case 'activityEnterTransition': return helpers.activityEnterTransition();
-		case 'activityExitTransition': return helpers.activityExitTransition();
-		case 'activityIndicatorStyle': return helpers.activityIndicatorStyle();
-		case 'activityReenterTransition': return helpers.activityReenterTransition();
-		case 'activityReturnTransition': return helpers.activityReturnTransition();
-		case 'activitySharedElementEnterTransition': return helpers.activitySharedElementEnterTransition();
-		case 'activitySharedElementExitTransition': return helpers.activitySharedElementExitTransition();
-		case 'activitySharedElementReenterTransition': return helpers.activitySharedElementReenterTransition();
-		case 'activitySharedElementReturnTransition': return helpers.activitySharedElementReturnTransition();
-		case 'allowUserCustomization': return helpers.allowUserCustomization();
-		case 'autoAdjustScrollViewInsets': return helpers.autoAdjustScrollViewInsets();
-		case 'autocapitalization': return helpers.autocapitalization();
-		case 'autocorrect': return helpers.autocorrect();
-		case 'autofillType': return helpers.autofillType();
-		case 'autoLink': return helpers.autoLink();
-		case 'autoreverse': return helpers.autoreverse();
-		case 'backgroundBlendMode': return helpers.backgroundBlendMode();
-		case 'backgroundColor': return helpers.backgroundColor(value);
-		case 'backgroundGradient': return helpers.backgroundGradient(value);
-		case 'backgroundLinearGradient': return helpers.backgroundLinearGradient();
-		case 'backgroundRadialGradient': return helpers.backgroundRadialGradient();
-		case 'backgroundSelectedColor': return helpers.backgroundSelectedColor(value);
-		case 'barColor': return helpers.barColor(value);
-		case 'borderColor': return helpers.borderColor(value);
-		case 'borderRadius': return helpers.borderRadius(value);
-		case 'borderStyle': return helpers.borderStyle();
-		case 'borderWidth': return helpers.borderWidth(value);
-		case 'bottomNavigation': return helpers.bottomNavigation(value);
-		case 'boxShadow': return helpers.boxShadow();
-		case 'bubbleParent': return helpers.bubbleParent();
-		case 'cacheSize': return helpers.cacheSize();
-		case 'clipMode': return helpers.clipMode();
-		case 'currentPageIndicatorColor': return helpers.currentPageIndicatorColor(value);
-		case 'disableBounce': return helpers.disableBounce();
-		case 'displayCaps': return helpers.displayCaps();
-		case 'displayUtilities': return helpers.displayUtilities();
-		case 'draggingConstraints': return helpers.draggingConstraints();
-		case 'draggingType': return helpers.draggingType();
-		case 'dropShadow': return helpers.dropShadow();
-		case 'editable': return helpers.editable();
-		case 'elevation': return helpers.elevation(value);
-		case 'ellipsize': return helpers.ellipsize();
-		case 'enableCopy': return helpers.enableCopy();
-		case 'enableReturnKey': return helpers.enableReturnKey();
-		case 'exitOnClose': return helpers.exitOnClose();
-		case 'extendBackground': return helpers.extendBackground();
-		case 'extendEdges': return helpers.extendEdges();
-		case 'extendSafeArea': return helpers.extendSafeArea();
-		case 'flagSecure': return helpers.flagSecure();
-		case 'flip': return helpers.flip();
-		case 'fontFamily': return helpers.fontFamily(value);
-		case 'fontSize': return helpers.fontSize(value);
-		case 'fontStyle': return helpers.fontStyle();
-		case 'fontWeight': return helpers.fontWeight(value);
-		case 'fullscreen': return helpers.fullscreen();
-		case 'gap': return helpers.gap(value);
-		case 'gridColumnsStartEnd': return helpers.gridColumnsStartEnd();
-		case 'gridFlow': return helpers.gridFlow();
-		case 'gridSystem': return helpers.gridSystem();
-		case 'height': return helpers.height(value);
-		case 'hidesBackButton': return helpers.hidesBackButton();
-		case 'hidesBarsOnSwipe': return helpers.hidesBarsOnSwipe();
-		case 'hidesBarsOnTap': return helpers.hidesBarsOnTap();
-		case 'hidesBarsWhenKeyboardAppears': return helpers.hidesBarsWhenKeyboardAppears();
-		case 'hideShadow': return helpers.hideShadow();
-		case 'hidesSearchBarWhenScrolling': return helpers.hidesSearchBarWhenScrolling();
-		case 'hintTextColor': return helpers.hintTextColor(value);
-		case 'homeIndicatorAutoHidden': return helpers.homeIndicatorAutoHidden();
-		case 'iconIsMask': return helpers.iconIsMask();
-		case 'includeOpaqueBars': return helpers.includeOpaqueBars();
-		case 'indicatorColor': return helpers.indicatorColor(value);
-		case 'interactivity': return helpers.interactivity(value);
-		case 'items': return helpers.items();
-		case 'keepScreenOn': return helpers.keepScreenOn();
-		case 'keepSectionsInSearch': return helpers.keepSectionsInSearch();
-		case 'keyboardAppearance': return helpers.keyboardAppearance();
-		case 'keyboardDismissMode': return helpers.keyboardDismissMode();
-		case 'keyboardType': return helpers.keyboardType();
-		case 'largeTitleDisplayMode': return helpers.largeTitleDisplayMode();
-		case 'largeTitleEnabled': return helpers.largeTitleEnabled();
-		case 'layout': return helpers.layout();
-		case 'lazyLoadingEnabled': return helpers.lazyLoadingEnabled();
-		case 'loginKeyboardType': return helpers.loginKeyboardType();
-		case 'loginReturnKeyType': return helpers.loginReturnKeyType();
-		case 'margin': return helpers.margin(value);
-		case 'maxElevation': return helpers.maxElevation(value);
-		case 'modal': return helpers.modal();
-		case 'navBarHidden': return helpers.navBarHidden();
-		case 'navTintColor': return helpers.navTintColor(value);
-		case 'opacity': return helpers.opacity(value);
-		case 'orientationModes': return helpers.orientationModes();
-		case 'origin': return helpers.origin();
-		case 'overlay': return helpers.overlay();
-		case 'padding': return helpers.padding(value);
-		case 'pageIndicatorColor': return helpers.pageIndicatorColor(value);
-		case 'pagingControl': return helpers.pagingControl();
-		case 'pagingControlAlpha': return helpers.pagingControlAlpha(value);
-		case 'pagingControlColor': return helpers.pagingControlColor(value);
-		case 'pagingControlHeight': return helpers.pagingControlHeight(value);
-		case 'pagingControlOnTop': return helpers.pagingControlOnTop();
-		case 'pagingControlTimeout': return helpers.pagingControlTimeout(value);
-		case 'passwordKeyboardType': return helpers.passwordKeyboardType();
-		case 'pickerType': return helpers.pickerType();
-		case 'placement': return helpers.placement();
-		case 'preventCornerOverlap': return helpers.preventCornerOverlap();
-		case 'preventDefaultImage': return helpers.preventDefaultImage();
-		case 'repeat': return helpers.repeat();
-		case 'returnKeyType': return helpers.returnKeyType();
-		case 'rotate': return helpers.rotate(value);
-		case 'scale': return helpers.scale(value);
-		case 'scrollableRegion': return helpers.scrollableRegion();
-		case 'scrollIndicators': return helpers.scrollIndicators();
-		case 'scrollingEnabled': return helpers.scrollingEnabled();
-		case 'scrollType': return helpers.scrollType();
-		case 'shadow': return helpers.shadow();
-		case 'shadowColor': return helpers.shadowColor(value);
-		case 'shiftMode': return helpers.shiftMode();
-		case 'showAsAction': return helpers.showAsAction();
-		case 'showCancel': return helpers.showCancel();
-		case 'smoothScrollOnTabClick': return helpers.smoothScrollOnTabClick();
-		case 'statusBar': return helpers.statusBar();
-		case 'sustainedPerformanceMode': return helpers.sustainedPerformanceMode();
-		case 'swipeToClose': return helpers.swipeToClose();
-		case 'tabBarHidden': return helpers.tabBarHidden();
-		case 'tabGroupStyle': return helpers.tabGroupStyle();
-		case 'tabsBackgroundColor': return helpers.tabsBackgroundColor(value);
-		case 'tabsBackgroundSelectedColor': return helpers.tabsBackgroundSelectedColor(value);
-		case 'tabsTranslucent': return helpers.tabsTranslucent();
-		case 'textAlign': return helpers.textAlign();
-		case 'textColor': return helpers.textColor(value);
-		case 'theme': return helpers.theme();
-		case 'tiMedia': return helpers.tiMedia();
-		case 'tintColor': return helpers.tintColor(value);
-		case 'titleAttributesColor': return helpers.titleAttributesColor(value);
-		case 'titleAttributesShadow': return helpers.titleAttributesShadow();
-		case 'titleAttributesShadowColor': return helpers.titleAttributesShadowColor(value);
-		case 'titleColor': return helpers.titleColor(value);
-		case 'touchFeedbackColor': return helpers.touchFeedbackColor(value);
-		case 'transition': return helpers.transition(value);
-		case 'transitionDelay': return helpers.transitionDelay(value);
-		case 'transitionDuration': return helpers.transitionDuration(value);
-		case 'translucent': return helpers.translucent();
-		case 'useCompatPadding': return helpers.useCompatPadding();
-		case 'useSpinner': return helpers.useSpinner(value);
-		case 'verticalAlignment': return helpers.verticalAlignment();
-		case 'viewShadowColor': return helpers.viewShadowColor(value);
-		case 'width': return helpers.width(value);
-		case 'windowPixelFormat': return helpers.windowPixelFormat();
-		case 'windowSoftInputMode': return helpers.windowSoftInputMode();
-		case 'zIndex': return helpers.zIndex(value);
+		case 'accessibilityHidden':
+		case 'activeIconIsMask':
+		case 'activeTintColor':
+		case 'activeTitleColor':
+		case 'activityEnterTransition':
+		case 'activityExitTransition':
+		case 'activityIndicatorStyle':
+		case 'activityReenterTransition':
+		case 'activityReturnTransition':
+		case 'activitySharedElementEnterTransition':
+		case 'activitySharedElementExitTransition':
+		case 'activitySharedElementReenterTransition':
+		case 'activitySharedElementReturnTransition':
+		case 'alertDialogStyle':
+		case 'allowUserCustomization':
+		case 'animationStyle':
+		case 'autoAdjustScrollViewInsets':
+		case 'autocapitalization':
+		case 'autocorrect':
+		case 'autofillType':
+		case 'autoLink':
+		case 'autoreverse':
+		case 'backgroundBlendMode':
+		case 'backgroundColor':
+		case 'backgroundGradient':
+		case 'backgroundLinearGradient':
+		case 'backgroundRadialGradient':
+		case 'backgroundSelectedColor':
+		case 'barColor':
+		case 'borderColor':
+		case 'borderRadius':
+		case 'borderStyle':
+		case 'borderWidth':
+		case 'bottomNavigation':
+		case 'bubbleParent':
+		case 'buttonStyle':
+		case 'cacheSize':
+		case 'clipMode':
+		case 'currentPageIndicatorColor':
+		case 'disableBounce':
+		case 'disabledColor':
+		case 'displayCaps':
+		case 'displayHomeAsUp':
+		case 'displayUtilities':
+		case 'draggingConstraints':
+		case 'draggingType':
+		case 'drawerIndicatorEnabled':
+		case 'drawerLockMode':
+		case 'dropShadow':
+		case 'dropShadowColor':
+		case 'editable':
+		case 'elevation':
+		case 'ellipsize':
+		case 'enableCopy':
+		case 'enabled':
+		case 'enableReturnKey':
+		case 'exitOnClose':
+		case 'extendBackground':
+		case 'extendEdges':
+		case 'extendSafeArea':
+		case 'flagSecure':
+		case 'flip':
+		case 'fontFamily':
+		case 'fontSize':
+		case 'fontStyle':
+		case 'fontWeight':
+		case 'fullscreen':
+		case 'gap':
+		case 'gridColumnsStartEnd':
+		case 'gridFlow':
+		case 'gridSystem':
+		case 'height':
+		case 'hidesBackButton':
+		case 'hidesBarsOnSwipe':
+		case 'hidesBarsOnTap':
+		case 'hidesBarsWhenKeyboardAppears':
+		case 'hideShadow':
+		case 'hidesSearchBarWhenScrolling':
+		case 'hintTextColor':
+		case 'homeButtonEnabled':
+		case 'homeIndicatorAutoHidden':
+		case 'iconified':
+		case 'iconIsMask':
+		case 'includeOpaqueBars':
+		case 'indicatorColor':
+		case 'items':
+		case 'keepScreenOn':
+		case 'keepSectionsInSearch':
+		case 'keyboardAppearance':
+		case 'keyboardDismissMode':
+		case 'keyboardType':
+		case 'largeTitleDisplayMode':
+		case 'largeTitleEnabled':
+		case 'layout':
+		case 'lazyLoadingEnabled':
+		case 'leftDrawerLockMode':
+		case 'leftWidth':
+		case 'listViewStyle':
+		case 'loginKeyboardType':
+		case 'loginReturnKeyType':
+		case 'margin':
+		case 'maxElevation':
+		case 'modal':
+		case 'navBarHidden':
+		case 'navTintColor':
+		case 'opacity':
+		case 'orientationModes':
+		case 'origin':
+		case 'overlayEnabled':
+		case 'padding':
+		case 'pageIndicatorColor':
+		case 'pagingControl':
+		case 'pagingControlAlpha':
+		case 'pagingControlColor':
+		case 'pagingControlHeight':
+		case 'pagingControlOnTop':
+		case 'pagingControlTimeout':
+		case 'passwordKeyboardType':
+		case 'pickerType':
+		case 'placement':
+		case 'preventCornerOverlap':
+		case 'preventDefaultImage':
+		case 'previewActionStyle':
+		case 'progressBarStyle':
+		case 'progressIndicatorCancelable':
+		case 'progressIndicatorCancelOnTouchOutside':
+		case 'progressIndicatorLocation':
+		case 'progressIndicatorType':
+		case 'repeat':
+		case 'requestOrientation':
+		case 'returnKeyType':
+		case 'rightDrawerLockMode':
+		case 'rightWidth':
+		case 'rotate':
+		case 'rowAndColumnCount':
+		case 'scale':
+		case 'scrollableRegion':
+		case 'scrollIndicators':
+		case 'scrollIndicatorStyle':
+		case 'scrollingEnabled':
+		case 'scrollsToTop':
+		case 'scrollType':
+		case 'searchBarStyle':
+		case 'selectedButtonColor':
+		case 'selectedColor':
+		case 'selectedTextColor':
+		case 'selectionStyle':
+		case 'separatorStyle':
+		case 'shadow':
+		case 'shadowRadius':
+		case 'shiftMode':
+		case 'showAsAction':
+		case 'showCancel':
+		case 'smoothScrollOnTabClick':
+		case 'statusBarStyle':
+		case 'submitEnabled':
+		case 'sustainedPerformanceMode':
+		case 'swipeToClose':
+		case 'switchStyle':
+		case 'tabBarHidden':
+		case 'tabbedBarStyle':
+		case 'tabGroupStyle':
+		case 'tableViewStyle':
+		case 'tabsBackgroundColor':
+		case 'tabsBackgroundSelectedColor':
+		case 'tabsTranslucent':
+		case 'textAlign':
+		case 'textColor':
+		case 'theme':
+		case 'tiMedia':
+		case 'tintColor':
+		case 'titleAttributesColor':
+		case 'titleAttributesShadow':
+		case 'titleAttributesShadowColor':
+		case 'titleColor':
+		case 'toolbarEnabled':
+		case 'touchEnabled':
+		case 'touchFeedback':
+		case 'touchFeedbackColor':
+		case 'transition':
+		case 'transitionDelay':
+		case 'transitionDuration':
+		case 'translucent':
+		case 'useCompatPadding':
+		case 'useSpinner':
+		case 'verticalAlign':
+		case 'viewShadow':
+		case 'viewShadowColor':
+		case 'width':
+		case 'windowPixelFormat':
+		case 'windowSoftInputMode':
+		case 'zIndex':
+			return helpers[key](value);
 
 		default: return helpers.customRules(value, key);
 	}
@@ -1655,7 +1774,7 @@ function finish(customMessage = 'Finished purging in') {
 //! Tailwind
 function purgeTailwind(uniqueClasses) {
 	let purgedClasses = '\n// Main styles\n';
-	let tailwindFile = (fs.existsSync(customTailwindFile)) ? customTailwindFile : defaultTailwindFile;
+	let tailwindFile = (fs.existsSync(destTailwindTSS)) ? destTailwindTSS : distributionTailwindTSS;
 	let tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
 
 	if (`// config.js file updated on: ${getFileUpdatedDate(destConfigJSFile)}` !== tailwindClasses[6]) {
@@ -1664,7 +1783,7 @@ function purgeTailwind(uniqueClasses) {
 		tailwindClasses = fs.readFileSync(tailwindFile, 'utf8').split(/\r?\n/);
 	}
 
-	(fs.existsSync(customTailwindFile)) ? logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...') : logger.info('Purging Default Tailwind styles...');
+	(fs.existsSync(destTailwindTSS)) ? logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...') : logger.info('Purging Default Tailwind styles...');
 
 	let cleanUniqueClasses = [];
 	let classesWithOpacityValues = [];
@@ -1674,7 +1793,7 @@ function purgeTailwind(uniqueClasses) {
 		let cleanClassName = cleanClassNameFn(className);
 
 		if (cleanClassName.includes('(')) {
-			let line = formatArbitraryValues(cleanClassName);
+			let line = helpers.formatArbitraryValues(cleanClassName, fromXMLs = true);
 			if (line) arbitraryValues += helpers.checkPlatformAndDevice(line, className);
 		} else if (helpers.checkColorClasses(cleanClassName)) {
 			// Set opacity to color properties
@@ -1756,7 +1875,7 @@ function purgeTailwind(uniqueClasses) {
 					defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/i)[0];
 				}
 
-				let classWithoutDecimalOpacity = `${tailwindClasses[opacityIndex].replace(defaultHexValue, `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
+				let classWithoutDecimalOpacity = `${tailwindClasses[opacityIndex].replace(new RegExp(defaultHexValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
 				let defaultTextValue = tailwindClasses[opacityIndex].match(/'[^']*'/i)[0];
 				defaultTextValue = defaultTextValue.substring(1, defaultTextValue.length);
 				let finalClassName = `${classWithoutDecimalOpacity.replace(defaultTextValue, `.${defaultTextValue.substring(1, defaultTextValue.length - 1)}/${opacityValue.decimalValue}'`)}`;
@@ -1787,103 +1906,14 @@ function cleanClassNameFn(className) {
 	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('complete:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
 }
 
-const arbitraryValuesTable = {
-	'active-tint': '{ activeTintColor: {value} }',
-	'active-title': '{ activeTitleColor: {value} }',
-	'title-attributes': '{ titleAttributes: { color: {value} } }',
-	'title-attributes-shadow': '{ titleAttributes: { shadow: { color: {value} } } }',
-	'bar': '{ barColor: {value} }',
-	'bg-selected': '{ backgroundSelectedColor: {value} }',
-	'bg': '{ backgroundColor: {value} }',
-	'border-color': '{ borderColor: {value} }',
-	'border-width': '{ borderWidth: {value} }',
-	'bottom': '{ bottom: {value} }',
-	'cache-size': '{ cacheSize: {value} }',
-	'content-h': '{ contentHeight: {value} }',
-	'content-w': '{ contentWidth: {value} }',
-	'content': '{ contentWidth: {value}, contentHeight: {value} }',
-	'current-page': '{ currentPageIndicatorColor: {value} }',
-	'delay': '{ delay: {value} }',
-	'drop-shadow': '{ shadowColor: {value} } }',
-	'duration': '{ duration: {value} }',
-	'elevation': '{ elevation: {value} }',
-	'feedback': '{ touchFeedback: true, touchFeedbackColor: {value} }',
-	'font': '{ fontWeight: {value} }',
-	'from': '{ backgroundGradient: { colors: [ {value1}, {value} ] } }',
-	'grid-cols': '{ width: Alloy.Globals.cols_{value} }',
-	'grid-rows': '{ height: Alloy.Globals.rows_{value} }',
-	'h': '{ height: {value}}',
-	'indicator': '{ indicatorColor: {value} }',
-	'left': '{ left: {value} }',
-	'm': '{ top: {value}, right: {value}, bottom: {value}, left: {value} }',
-	'max-elevation': '{ maxElevation: {value} }',
-	'max-scale': '{ maxZoomScale: {value} }',
-	'mb': '{ bottom: {value} }',
-	'min-scale': '{ minZoomScale: {value} }',
-	'ml': '{ left: {value} }',
-	'mr': '{ right: {value} }',
-	'mt': '{ top: {value} }',
-	'mx': '{ right: {value}, left: {value} }',
-	'my': '{ top: {value}, bottom: {value} }',
-	'nav-tint': '{ navTintColor: {value} }',
-	'opacity': '{ opacity: {value} }',
-	'origin': '{ anchorPoint: { x: {value}, y: {value1} } }',
-	'p': '{ padding: { top: {value}, right: {value}, bottom: {value}, left: {value} } }',
-	'padding': '{ paddingTop: {value}, paddingBottom: {value}, paddingLeft: {value}, paddingRight: {value} }',
-	'padding-b': '{ paddingBottom: {value} }',
-	'padding-bottom': '{ paddingBottom: {value} }',
-	'padding-l': '{ paddingLeft: {value} }',
-	'padding-left': '{ paddingLeft: {value} }',
-	'padding-r': '{ paddingRight: {value} }',
-	'padding-right': '{ paddingRight: {value} }',
-	'padding-t': '{ paddingTop: {value} }',
-	'padding-top': '{ paddingTop: {value} }',
-	'padding-x': '{ paddingLeft: {value}, paddingRight: {value} }',
-	'padding-y': '{ paddingTop: {value}, paddingBottom: {value} }',
-	'page': '{ pageIndicatorColor: {value} }',
-	'paging-alpha': '{ pagingControlAlpha: {value} }',
-	'paging-color': '{ pagingControlColor: {value} }',
-	'pb': '{ padding: { bottom: {value} } }',
-	'pl': '{ padding: { left: {value} } }',
-	'placeholder': '{ hintTextColor: {value} }',
-	'pr': '{ padding: { right: {value} } }',
-	'pt': '{ padding: { top: {value} } }',
-	'px': '{ padding: { left: {value}, right: {value} } }',
-	'py': '{ padding: { top: {value}, bottom: {value} } }',
-	'repeat': '{ repeat: {value} }',
-	'right': '{ right: {value} }',
-	'rotate': '{ rotate: {value} }',
-	'rounded-b': '{ borderRadius: [0, 0, {value}, {value}] }',
-	'rounded-bl': '{ borderRadius: [0, 0, 0, {value}] }',
-	'rounded-br': '{ borderRadius: [0, 0, {value}, 0] }',
-	'rounded-l': '{ borderRadius: [{value}, 0, 0, {value}] }',
-	'rounded-r': '{ borderRadius: [0, {value}, {value}, 0] }',
-	'rounded-t': '{ borderRadius: [{value}, {value}, 0, 0] }',
-	'rounded-tl': '{ borderRadius: [{value}, 0, 0, 0] }',
-	'rounded-tr': '{ borderRadius: [0, {value}, 0, 0] }',
-	'rounded': '{ borderRadius: {value} }',
-	'shadow': '{ viewShadowColor: {value} }',
-	'tabs-bg': '{ tabsBackgroundColor: {value} }',
-	'tabs-bg-selected': '{ tabsBackgroundSelectedColor: {value} }',
-	'text-color': '{ color: {value} }',
-	'text-size': '{ font: { fontSize: {value} } }',
-	'tint': '{ tint: {value}, tintColor: {value} }',
-	'title': '{ titleColor: {value} }',
-	'to': '{ backgroundGradient: { colors: [ {value} ] } }',
-	'top': '{ top: {value} }',
-	'w': '{ width: {value} }',
-};
-
 function formatArbitraryValues(arbitraryValue) {
 	let sign = (arbitraryValue.startsWith('-')) ? '-' : '';
-
 	let splitedContent = (arbitraryValue.startsWith('-')) ? arbitraryValue.substring(1).split('-') : arbitraryValue.split('-');
 
 	if (splitedContent.length === 1) {
 		return '';
 	} else if (splitedContent.length === 2) {
 		let rule = splitedContent[0];
-
 		let value = splitedContent[1].match(/(?<=\().*(?=\))/).pop();
 
 		if (rule === 'text') {
@@ -1898,44 +1928,36 @@ function formatArbitraryValues(arbitraryValue) {
 			rule = (value.includes('#') || value.includes('rgb')) ? 'paging-color' : 'paging-alpha';
 		}
 
-		let properties = arbitraryValuesTable[rule];
+		let properties = helpers.arbitraryValuesTable[rule];
 
 		if (rule === 'from') {
 			properties = _.replace(properties, new RegExp("{value1}", "g"), helpers.addTransparencyToHex(helpers.parseValue(value)));
 		}
 
 		if (rule === 'origin') {
-			// anchorPoint
 			let value1 = (value.includes(',')) ? value.split(',')[1] : value;
-
 			value = value.split(',')[0];
-
 			properties = _.replace(properties, new RegExp("{value1}", "g"), helpers.parseValue(value1, sign));
 		}
 
 		if (properties) {
-			return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));
+			return `'.${arbitraryValue}': { ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign)) + ' }';
 		}
 	} else if (splitedContent.length === 3) {
-
 		let rule = `${splitedContent[0]}-${splitedContent[1]}`;
-
 		let value = splitedContent[2].match(/(?<=\().*(?=\))/).pop();
-
-		let properties = arbitraryValuesTable[rule];
+		let properties = helpers.arbitraryValuesTable[rule];
 
 		if (properties) {
-			return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));
+			return `'.${arbitraryValue}': { ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign)) + ' }';
 		}
 	} else if (splitedContent.length === 4) {
 		let rule = `${splitedContent[0]}-${splitedContent[1]}-${splitedContent[2]}`;
-
 		let value = splitedContent[3].match(/(?<=\().*(?=\))/).pop();
-
-		let properties = arbitraryValuesTable[rule];
+		let properties = helpers.arbitraryValuesTable[rule];
 
 		if (properties) {
-			return `'.${arbitraryValue}': ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign));
+			return `'.${arbitraryValue}': { ` + _.replace(properties, new RegExp("{value}", "g"), helpers.parseValue(value, sign)) + ' }';
 		}
 	}
 
@@ -1948,8 +1970,8 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 	let purgedClasses = '';
 	let purgingMessage = '';
 
-	if (fs.existsSync(customFontAwesomeFile)) {
-		sourceFolder = customFontAwesomeFile;
+	if (fs.existsSync(customFontAwesomeTSS)) {
+		sourceFolder = customFontAwesomeTSS;
 		purgedClasses = '\n// Pro/Beta Font Awesome styles\n';
 		purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...')`;
 	} else {

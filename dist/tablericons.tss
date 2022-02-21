@@ -1,4 +1,4 @@
-// Boxicons v 1.48.0 - https://tabler-icons.io
+// Tabler Icons v 1.54.0 - https://tabler-icons.io
 // License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
 
 // Font Families
@@ -182,6 +182,7 @@
 '.ti-bandage': { text: '\ueb7a', title: '\ueb7a' }
 '.ti-barbell': { text: '\ueff0', title: '\ueff0' }
 '.ti-barcode': { text: '\uebc6', title: '\uebc6' }
+'.ti-barrier-block': { text: '\uf00e', title: '\uf00e' }
 '.ti-basket': { text: '\uebe1', title: '\uebe1' }
 '.ti-bath': { text: '\uef48', title: '\uef48' }
 '.ti-battery': { text: '\uea34', title: '\uea34' }
@@ -403,6 +404,7 @@
 '.ti-businessplan': { text: '\uee1e', title: '\uee1e' }
 '.ti-butterfly': { text: '\uefd9', title: '\uefd9' }
 '.ti-c-sharp': { text: '\uf003', title: '\uf003' }
+'.ti-cake': { text: '\uf00f', title: '\uf00f' }
 '.ti-calculator': { text: '\ueb80', title: '\ueb80' }
 '.ti-calendar': { text: '\uea53', title: '\uea53' }
 '.ti-calendar-event': { text: '\uea52', title: '\uea52' }
@@ -501,7 +503,9 @@
 '.ti-circle-minus': { text: '\uea68', title: '\uea68' }
 '.ti-circle-off': { text: '\uee40', title: '\uee40' }
 '.ti-circle-plus': { text: '\uea69', title: '\uea69' }
+'.ti-circle-rectangle': { text: '\uf010', title: '\uf010' }
 '.ti-circle-square': { text: '\uece4', title: '\uece4' }
+'.ti-circle-triangle': { text: '\uf011', title: '\uf011' }
 '.ti-circle-x': { text: '\uea6a', title: '\uea6a' }
 '.ti-circles': { text: '\uece5', title: '\uece5' }
 '.ti-clear-all': { text: '\uee41', title: '\uee41' }
@@ -1009,9 +1013,11 @@
 '.ti-menu-2': { text: '\uec42', title: '\uec42' }
 '.ti-message': { text: '\ueaef', title: '\ueaef' }
 '.ti-message-2': { text: '\ueaec', title: '\ueaec' }
+'.ti-message-2-code': { text: '\uf012', title: '\uf012' }
 '.ti-message-circle': { text: '\ueaed', title: '\ueaed' }
 '.ti-message-circle-2': { text: '\ued3f', title: '\ued3f' }
 '.ti-message-circle-off': { text: '\ued40', title: '\ued40' }
+'.ti-message-code': { text: '\uf013', title: '\uf013' }
 '.ti-message-dots': { text: '\ueaee', title: '\ueaee' }
 '.ti-message-language': { text: '\uefae', title: '\uefae' }
 '.ti-message-off': { text: '\ued41', title: '\ued41' }
@@ -1064,6 +1070,7 @@
 '.ti-no-copyright': { text: '\uefb9', title: '\uefb9' }
 '.ti-no-creative-commons': { text: '\uefba', title: '\uefba' }
 '.ti-no-derivatives': { text: '\uefbb', title: '\uefbb' }
+'.ti-north-star': { text: '\uf014', title: '\uf014' }
 '.ti-note': { text: '\ueb6d', title: '\ueb6d' }
 '.ti-notebook': { text: '\ueb96', title: '\ueb96' }
 '.ti-notes': { text: '\ueb6e', title: '\ueb6e' }
@@ -1078,6 +1085,7 @@
 '.ti-number-7': { text: '\uedf7', title: '\uedf7' }
 '.ti-number-8': { text: '\uedf8', title: '\uedf8' }
 '.ti-number-9': { text: '\uedf9', title: '\uedf9' }
+'.ti-numbers': { text: '\uf015', title: '\uf015' }
 '.ti-nurse': { text: '\uef65', title: '\uef65' }
 '.ti-octagon': { text: '\uecbd', title: '\uecbd' }
 '.ti-octagon-off': { text: '\ueeb8', title: '\ueeb8' }
@@ -1173,6 +1181,8 @@
 '.ti-qrcode': { text: '\ueb11', title: '\ueb11' }
 '.ti-question-mark': { text: '\uec9d', title: '\uec9d' }
 '.ti-quote': { text: '\uefbe', title: '\uefbe' }
+'.ti-radar': { text: '\uf017', title: '\uf017' }
+'.ti-radar-2': { text: '\uf016', title: '\uf016' }
 '.ti-radio': { text: '\uef2d', title: '\uef2d' }
 '.ti-radioactive': { text: '\uecc0', title: '\uecc0' }
 '.ti-radius-bottom-left': { text: '\ueec6', title: '\ueec6' }
@@ -1207,6 +1217,7 @@
 '.ti-report-search': { text: '\uef84', title: '\uef84' }
 '.ti-resize': { text: '\ueecf', title: '\ueecf' }
 '.ti-ripple': { text: '\ued82', title: '\ued82' }
+'.ti-road': { text: '\uf018', title: '\uf018' }
 '.ti-road-sign': { text: '\uecdd', title: '\uecdd' }
 '.ti-robot': { text: '\uf00b', title: '\uf00b' }
 '.ti-rocket': { text: '\uec45', title: '\uec45' }
@@ -1242,6 +1253,7 @@
 '.ti-scuba-mask': { text: '\ueed4', title: '\ueed4' }
 '.ti-search': { text: '\ueb1c', title: '\ueb1c' }
 '.ti-section': { text: '\ueed5', title: '\ueed5' }
+'.ti-section-sign': { text: '\uf019', title: '\uf019' }
 '.ti-seeding': { text: '\ued51', title: '\ued51' }
 '.ti-select': { text: '\uec9e', title: '\uec9e' }
 '.ti-selector': { text: '\ueb1d', title: '\ueb1d' }
@@ -1316,6 +1328,7 @@
 '.ti-square-7': { text: '\ueeec', title: '\ueeec' }
 '.ti-square-8': { text: '\ueeed', title: '\ueeed' }
 '.ti-square-9': { text: '\ueeee', title: '\ueeee' }
+'.ti-square-asterisk': { text: '\uf01a', title: '\uf01a' }
 '.ti-square-check': { text: '\ueb28', title: '\ueb28' }
 '.ti-square-dot': { text: '\ued59', title: '\ued59' }
 '.ti-square-forbid': { text: '\ued5b', title: '\ued5b' }
@@ -1327,6 +1340,8 @@
 '.ti-square-root': { text: '\ueef1', title: '\ueef1' }
 '.ti-square-root-2': { text: '\ueef0', title: '\ueef0' }
 '.ti-square-rotated': { text: '\uecdf', title: '\uecdf' }
+'.ti-square-rotated-forbid': { text: '\uf01c', title: '\uf01c' }
+'.ti-square-rotated-forbid-2': { text: '\uf01b', title: '\uf01b' }
 '.ti-square-rotated-off': { text: '\ueef2', title: '\ueef2' }
 '.ti-square-toggle': { text: '\ueef4', title: '\ueef4' }
 '.ti-square-toggle-horizontal': { text: '\ueef3', title: '\ueef3' }
@@ -1429,6 +1444,7 @@
 '.ti-trending-up-2': { text: '\uedc3', title: '\uedc3' }
 '.ti-trending-up-3': { text: '\uedc4', title: '\uedc4' }
 '.ti-triangle': { text: '\ueb44', title: '\ueb44' }
+'.ti-triangle-inverted': { text: '\uf01d', title: '\uf01d' }
 '.ti-triangle-off': { text: '\uef02', title: '\uef02' }
 '.ti-triangle-square-circle': { text: '\uece8', title: '\uece8' }
 '.ti-trident': { text: '\uecc5', title: '\uecc5' }
@@ -1487,6 +1503,7 @@
 '.ti-wave-saw-tool': { text: '\uecd3', title: '\uecd3' }
 '.ti-wave-sine': { text: '\uecd4', title: '\uecd4' }
 '.ti-wave-square': { text: '\uecd5', title: '\uecd5' }
+'.ti-webhook': { text: '\uf01e', title: '\uf01e' }
 '.ti-wifi': { text: '\ueb52', title: '\ueb52' }
 '.ti-wifi-0': { text: '\ueba3', title: '\ueba3' }
 '.ti-wifi-1': { text: '\ueba4', title: '\ueba4' }
@@ -1508,6 +1525,7 @@
 '.ti-writing-sign': { text: '\uef07', title: '\uef07' }
 '.ti-x': { text: '\ueb55', title: '\ueb55' }
 '.ti-yin-yang': { text: '\uec35', title: '\uec35' }
+'.ti-yoga': { text: '\uf01f', title: '\uf01f' }
 '.ti-zodiac-aquarius': { text: '\uecac', title: '\uecac' }
 '.ti-zodiac-aries': { text: '\uecad', title: '\uecad' }
 '.ti-zodiac-cancer': { text: '\uecae', title: '\uecae' }
