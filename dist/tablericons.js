@@ -1,21 +1,21 @@
 /**
- * Boxicons v 1.53.0 - https://tabler-icons.io
+ * Tabler Icons v 1.54.0 - https://tabler-icons.io
  * License - https://github.com/tabler/tabler-icons/blob/master/LICENSE
 */
 
 exports.getIcon = function getIcon(selector) {
 	if (selector === undefined) throw new Error('Selector missing!');
-	return (icons[selector] !== undefined) ? icons[selector] : fontawesome[selector];
+	return (icons[selector] !== undefined) ? icons[selector] : 'N/A';
 };
 
 exports.setTitle = function setTitle(selector, object) {
 	if (selector === undefined || object === undefined) throw new Error('Selector or target Object missing!');
-	object.title = (icons[selector] !== undefined) ? icons[selector] : fontawesome[selector];
+	object.title = (icons[selector] !== undefined) ? icons[selector] : 'N/A';
 };
 
 exports.setText = function setText(selector, object) {
 	if (selector === undefined || object === undefined) throw new Error('Selector or target Object missing!');
-	object.text = (icons[selector] !== undefined) ? icons[selector] : fontawesome[selector];
+	object.text = (icons[selector] !== undefined) ? icons[selector] : 'N/A';
 };
 
 exports.getRandomKey = function getRandomKey() {
@@ -201,6 +201,7 @@ const icons = {
 	'bandage': '\ueb7a',
 	'barbell': '\ueff0',
 	'barcode': '\uebc6',
+	'barrierBlock': '\uf00e',
 	'basket': '\uebe1',
 	'bath': '\uef48',
 	'battery': '\uea34',
@@ -422,6 +423,7 @@ const icons = {
 	'businessplan': '\uee1e',
 	'butterfly': '\uefd9',
 	'cSharp': '\uf003',
+	'cake': '\uf00f',
 	'calculator': '\ueb80',
 	'calendar': '\uea53',
 	'calendarEvent': '\uea52',
@@ -520,7 +522,9 @@ const icons = {
 	'circleMinus': '\uea68',
 	'circleOff': '\uee40',
 	'circlePlus': '\uea69',
+	'circleRectangle': '\uf010',
 	'circleSquare': '\uece4',
+	'circleTriangle': '\uf011',
 	'circleX': '\uea6a',
 	'circles': '\uece5',
 	'clearAll': '\uee41',
@@ -1028,9 +1032,11 @@ const icons = {
 	'menu2': '\uec42',
 	'message': '\ueaef',
 	'message2': '\ueaec',
+	'message2Code': '\uf012',
 	'messageCircle': '\ueaed',
 	'messageCircle2': '\ued3f',
 	'messageCircleOff': '\ued40',
+	'messageCode': '\uf013',
 	'messageDots': '\ueaee',
 	'messageLanguage': '\uefae',
 	'messageOff': '\ued41',
@@ -1083,6 +1089,7 @@ const icons = {
 	'noCopyright': '\uefb9',
 	'noCreativeCommons': '\uefba',
 	'noDerivatives': '\uefbb',
+	'northStar': '\uf014',
 	'note': '\ueb6d',
 	'notebook': '\ueb96',
 	'notes': '\ueb6e',
@@ -1097,6 +1104,7 @@ const icons = {
 	'number7': '\uedf7',
 	'number8': '\uedf8',
 	'number9': '\uedf9',
+	'numbers': '\uf015',
 	'nurse': '\uef65',
 	'octagon': '\uecbd',
 	'octagonOff': '\ueeb8',
@@ -1192,6 +1200,8 @@ const icons = {
 	'qrcode': '\ueb11',
 	'questionMark': '\uec9d',
 	'quote': '\uefbe',
+	'radar': '\uf017',
+	'radar2': '\uf016',
 	'radio': '\uef2d',
 	'radioactive': '\uecc0',
 	'radiusBottomLeft': '\ueec6',
@@ -1226,6 +1236,7 @@ const icons = {
 	'reportSearch': '\uef84',
 	'resize': '\ueecf',
 	'ripple': '\ued82',
+	'road': '\uf018',
 	'roadSign': '\uecdd',
 	'robot': '\uf00b',
 	'rocket': '\uec45',
@@ -1261,6 +1272,7 @@ const icons = {
 	'scubaMask': '\ueed4',
 	'search': '\ueb1c',
 	'section': '\ueed5',
+	'sectionSign': '\uf019',
 	'seeding': '\ued51',
 	'select': '\uec9e',
 	'selector': '\ueb1d',
@@ -1335,6 +1347,7 @@ const icons = {
 	'square7': '\ueeec',
 	'square8': '\ueeed',
 	'square9': '\ueeee',
+	'squareAsterisk': '\uf01a',
 	'squareCheck': '\ueb28',
 	'squareDot': '\ued59',
 	'squareForbid': '\ued5b',
@@ -1346,6 +1359,8 @@ const icons = {
 	'squareRoot': '\ueef1',
 	'squareRoot2': '\ueef0',
 	'squareRotated': '\uecdf',
+	'squareRotatedForbid': '\uf01c',
+	'squareRotatedForbid2': '\uf01b',
 	'squareRotatedOff': '\ueef2',
 	'squareToggle': '\ueef4',
 	'squareToggleHorizontal': '\ueef3',
@@ -1448,6 +1463,7 @@ const icons = {
 	'trendingUp2': '\uedc3',
 	'trendingUp3': '\uedc4',
 	'triangle': '\ueb44',
+	'triangleInverted': '\uf01d',
 	'triangleOff': '\uef02',
 	'triangleSquareCircle': '\uece8',
 	'trident': '\uecc5',
@@ -1506,6 +1522,7 @@ const icons = {
 	'waveSawTool': '\uecd3',
 	'waveSine': '\uecd4',
 	'waveSquare': '\uecd5',
+	'webhook': '\uf01e',
 	'wifi': '\ueb52',
 	'wifi0': '\ueba3',
 	'wifi1': '\ueba4',
@@ -1527,6 +1544,7 @@ const icons = {
 	'writingSign': '\uef07',
 	'x': '\ueb55',
 	'yinYang': '\uec35',
+	'yoga': '\uf01f',
 	'zodiacAquarius': '\uecac',
 	'zodiacAries': '\uecad',
 	'zodiacCancer': '\uecae',
