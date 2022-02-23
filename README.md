@@ -22,7 +22,7 @@
 - Provides more than 8700 [Tailwind-like utility classes](https://tailwindcss.com/) ready to use in your projects.
 - Creates a clean `app.tss` file with only the classes used in your project by parsing all your XML files.
 - You can customize any of the default classes through a simple configuration file, or you can create new *just-in-time* classes with arbitrary values within the `Views`.
-- You can easily use Font Awesome, Material Design, Lineicons, Boxicons, Tabler Icons, Framework7-Icons and Bootstrap Icons fonts in `Buttons` and `Labels`.
+- You can easily use Font Awesome, Material Design and Framework7-Icons fonts in `Buttons` and `Labels`.
 - Includes an Animation module to apply a 2D Matrix animation or transformation to any element or to an `Array` of elements.
 - Includes a simple two-dimensional Grid System to align and distribute elements in your views.
 
