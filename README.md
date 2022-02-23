@@ -49,7 +49,7 @@
 > [sudo] npm i -g purgetss
 ```
 
-**You'll need to run `purgecss` only once inside your project to automatically set the necesary files, after that, everytime you compile your app, PurgeTSS will `parse` all your XML files and generate a clean `app.tss` file with only the classes used in your project.**
+**You'll need to run `purgetss` only once inside your project to automatically set the necesary files, after that, everytime you compile your app, PurgeTSS will `parse` all your XML files and generate a clean `app.tss` file with only the classes used in your project.**
 
 ## Example files
 **Steps to use the example files:**
