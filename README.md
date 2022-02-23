@@ -28,13 +28,10 @@
 
 ## List of available classes
 - [tailwind.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tailwind.tss)
-- [bootstrapicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/bootstrapicons.tss)
-- [boxicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/boxicons.tss)
 - [fontawesome.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/fontawesome.tss)
 - [framework7icons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/framework7icons.tss)
-- [lineicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/lineicons.tss)
 - [materialdesignicons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/materialdesignicons.tss)
-- [tablericons.tss](https://github.com/macCesar/purgeTSS/blob/master/dist/tablericons.tss)
+- [Your own custom font classes](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 - [Your own custom styles](https://github.com/macCesar/purgeTSS/blob/master/docs/configuring-guide.md)
 
 # IMPORTANT NOTICE!!!
@@ -274,7 +271,7 @@ If you want to create a new Alloy Project with `purgetss` ready to go, use the `
 > purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons, bootstrapicons"]
 
 # alias:
-> purgetss c 'Name of the Project' [-v=fa,md,li,bx,f7,ti,bi]
+> purgetss c 'Name of the Project' [-v=fa,md,f7]
 ```
 
 #### Installing Tailwind CSS
@@ -313,7 +310,7 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 - **`alloy new`** To convert it to an Alloy Project.
 - **`purgetss w`** To autorun `purgetss` every time you compile your project.
 - **`purgetss b`** To build a new `./purgetss/tailwind.tss` and `./purgetss/config.js` files.
-- **`[-v=fa,md,li,bx,f7,ti,bi]`** Set the `--vendor` argument to copy the selected fonts into your project. Including the CommonJS module into `./app/lib/` folder.
+- **`[-v=fa,md,f7]`** Set the `--vendor` argument to copy the selected fonts into your project. Including the CommonJS module into `./app/lib/` folder.
 - **`--tailwind`** When using this option, it will execute the following commands
   - **`npm init -y && npm i tailwindcss -D && npm i postcss -D && npx tailwindcss init`** to install `Tailwind CSS` and its dependancies.
 - **`code .`**, **`subl .`** or **`open .`** It will use either one of these commands to open `VS Code`, `Sublime Text` or the project’s folder in that order.
@@ -326,23 +323,13 @@ When you run `purgetss create 'Name of the Project'` it will execute the followi
 > purgetss f
 ```
 
-Use this command to copy the free versions of [Boxicons](https://boxicons.com), [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Framework7 Icons](https://framework7.io/icons/), [LineIcons](https://lineicons.com/icons/?type=free), [Material Design Icons](https://github.com/google/material-design-icons), [Tabler Icons](https://tabler-icons.io) and [Bootstrap Icons](https://icons.getbootstrap.com) Fonts into your `app/assets/fonts` folder. With their names fixed to work in iOS or Android.
+Use this command to copy the free versions of [Font Awesome](https://github.com/FortAwesome/Font-Awesome/tree/master/js-packages/%40fortawesome/fontawesome-free/webfonts), [Material Design Icons](https://github.com/google/material-design-icons) and [Framework7 Icons](https://framework7.io/icons/),  Fonts into your `app/assets/fonts` folder. With their names fixed to work in iOS or Android.
 
-> bootstrap-icons.ttf
->
-> boxicons.ttf
->
 > FontAwesome6Brands-Regular.ttf
 >
 > FontAwesome6Free-Regular.ttf
 >
 > FontAwesome6Free-Solid.ttf
->
-> Framework7-Icons.ttf
->
-> LineIcons.ttf
->
-> tablericons.ttf
 >
 > MaterialIcons-Regular.ttf
 >
@@ -353,6 +340,8 @@ Use this command to copy the free versions of [Boxicons](https://boxicons.com), 
 > MaterialIconsSharp-Regular.otf
 >
 > MaterialIconsTwoTone-Regular.otf
+>
+> Framework7-Icons.ttf
 
 After copying the desired fonts, you can use them in Buttons and Labels, just set the Font Family like `fa` and the desired icon like `fa-home`.
 
@@ -385,38 +374,10 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
         </View>
 
         <View class="grid-cols-2 mx-auto gap-y-2 vertical">
-          <!-- LineIcons -->
-          <Label class="mt-2 text-gray-700" text="LineIcons" />
-          <Label class="text-xl text-blue-500 lni lni-delivery" />
-          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded lni lni-delivery" />
-        </View>
-
-        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
-          <!-- Boxicons -->
-          <Label class="mt-2 text-gray-700" text="Boxicons" />
-          <Label class="text-xl text-blue-500 bx bx-home" />
-          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded bx bx-home" />
-        </View>
-
-        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
           <!-- Framework7-Icons -->
           <Label class="mt-2 text-gray-700" text="Framework7-Icons" />
           <Label class="text-xl text-blue-500 f7 f7-house" />
           <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded f7 f7-house" />
-        </View>
-
-        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
-          <!-- Tabler-Icons -->
-          <Label class="mt-2 text-gray-700" text="Tabler-Icons" />
-          <Label class="text-xl text-blue-500 ti ti-home" />
-          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded ti ti-home" />
-        </View>
-
-        <View class="grid-cols-2 mx-auto gap-y-2 vertical">
-          <!-- Bootstrap Icons -->
-          <Label class="mt-2 text-gray-700" text="Bootstrap Icons" />
-          <Label class="text-xl text-blue-500 bi bi-house-fill" />
-          <Button class="w-10 h-10 my-1 text-xl text-white bg-blue-500 rounded bi bi-house-fill" />
         </View>
       </View>
     </ScrollView>
@@ -456,25 +417,9 @@ After copying the desired fonts, you can use them in Buttons and Labels, just se
 '.md': { font: { fontFamily: 'MaterialIcons-Regular' } }
 '.md-home': { text: '\ue88a', title: '\ue88a' }
 
-// LineIcons styles
-'.lni': { font: { fontFamily: 'LineIcons' } }
-'.lni-delivery': { text: '\uea90', title: '\uea90' }
-
-// BoxIcons styles
-'.bx': { font: { fontFamily: 'boxicons' } }
-'.bx-home': { text: '\ueb12', title: '\ueb12' }
-
 // Framework7 styles
 '.f7': { font: { fontFamily: 'Framework7-Icons' } }
 '.f7-house': { text: 'house', title: 'house' }
-
-// Tabler Icons styles
-'.ti': { font: { fontFamily: 'tabler-icons' } }
-'.ti-home': { text: '\ueac1', title: '\ueac1' }
-
-// Bootstrap Icons styles
-'.bi': { font: { fontFamily: 'bootstrap-icons' } }
-'.bi-house-fill': { text: '\uf424', title: '\uf424' }
 ```
 
 ## Result
@@ -487,17 +432,13 @@ Use any of the following arguments to copy specific vendors:
 > purgetss fonts --vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons, bootstrapicons"
 
 # alias:
-> purgetss f -v=fa,md,li,bx,f7,ti,bi
+> purgetss f -v=fa,md,f7
 ```
 
 Available aliases:
-- bi, bootstrap, bootstrapicons = Bootstrap Icons
-- bx, box, boxicons = BoxIcons
-- f7, framework, framework7 = Framework7 Icons
 - fa, font, fontawesome = Font Awesome Icons
-- li, line, lineicons = LineIcons
 - md, material, materialdesign = Material Design Icons
-- ti, tablericons, tabler = Tabler Icons
+- f7, framework, framework7 = Framework7 Icons
 
 ### Copying corresponding CommonJS Modules
 You can use the `--modules` flag to copy the corresponding CommonJS modules into `./app/lib/` folder.
@@ -508,24 +449,16 @@ You can use the `--modules` flag to copy the corresponding CommonJS modules into
 
 # alias:
 > purgetss f -m
-> purgetss f -m -v=fa,md,li,bx,f7,ti,bi
+> purgetss f -m -v=fa,md,f7
 ```
 
-Each library contains a CommonJS module exposing the UniCode strings for Font Awesome Icons, Material Design Icons, Line Icons, Boxicons, Framework7-Icons and Bootstrap Icons fonts.
+Each library contains a CommonJS module exposing the UniCode strings for Font Awesome Icons, Material Design Icons and Framework7-Icons fonts.
 
 All prefixes are stripped out from their class names and are camelCased, for example:
 
-- **Bootstrap Icons** `bi-alarm-fill` becomes `alarmFill` or `bi-clock-fill` becomes `clockFill`.
 - **Font Awesome**: `fa-flag` becomes `flag`
-- **Framework7 Icons** `f7-alarm_fill` becomes `alarmFill` or `f7-clock_fill` becomes `clockFill`.
-- **Line Icons**: `lni-flag` becomes `flag`
 - **Material Design Icons**: `md-flag` becomes `flag`
-- **Tabler Icons** `ti-flag` becomes `flag` or `ti-cloud-download` becomes `cloudDownload`.
-- **boxicons** have three sets of icons in the same font file: Regular, Solid and Logos, so we need to keep their prefixes:
-
-  - **Regular**: `bx-flag` becomes `bxFlag`
-  - **Solid**: `bxs-flag` becomes `bxsFlag`
-  - **Logos**: Almost none of the `Logos` classes have conflict with other classes, because almost all have unique names, except `bxl-windows` and `bx-windows`. That's why we are also keeping the prefixes for all `Logos` variants, so they become: `bxlWindows` for example.
+- **Framework7 Icons** `f7-alarm_fill` becomes `alarmFill` or `f7-clock_fill` becomes `clockFill`.
 
 ### Custom `fontawesome.tss` file for users with a Font Awesome Pro Account
 If you have a **[Font Awesome Pro Account](https://fontawesome.com/pro)** you can generate a custom `./purgetss/fontawesome.tss` file with all the extra classes that the Pro version has. ***(except duotone icons, see note below)***
