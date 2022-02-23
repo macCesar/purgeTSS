@@ -1,7 +1,7 @@
 {
 	"name": "purgetss",
 	"version": "4.1.5",
-	"description": "An extension for Titanium SDK that generates a set of Tailwind-like classes and values to easily and quickly create beautifully designed mobile apps.",
+	"description": "An extension for Titanium SDK that contains a set of Tailwind-like classes to easily and quickly create beautifully designed mobile apps.",
 	"main": "index.js",
 	"bin": {
 		"purgetss": "bin/purgetss"
@@ -16,19 +16,11 @@
 		"build:fonts": "node ./lib/build-fonts-folder",
 		"build:fa": "node ./lib/build-fontawesome-free-tss",
 		"build:fa-js": "node ./lib/build-fontawesome-free-js",
-		"build:lineicons": "node ./lib/build-lineicons-tss",
-		"build:lineicons-js": "node ./lib/build-lineicons-js",
-		"build:framework7": "node ./lib/build-framework7-icons-tss",
-		"build:framework7-js": "node ./lib/build-framework7-icons-js",
-		"build:boxicons": "node ./lib/build-boxicons-tss",
-		"build:boxicons-js": "node ./lib/build-boxicons-js",
-		"build:tablericons": "node ./lib/build-tablericons-tss",
-		"build:tablericons-js": "node ./lib/build-tablericons-js",
 		"build:material": "node ./lib/build-material-icons-tss",
 		"build:material-js": "node ./lib/build-material-icons-js",
-		"build:bootstrap": "node ./lib/build-bootstrap-icons-tss",
-		"build:bootstrap-js": "node ./lib/build-bootstrap-icons-js",
-		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:lineicons && npm run build:lineicons-js && npm run build:material && npm run build:material-js && npm run build:boxicons && npm run build:boxicons-js && npm run build:framework7 && npm run build:framework7-js && npm run build:tablericons && npm run build:tablericons-js && npm run build:bootstrap && npm run build:bootstrap-js && npm run build:fonts"
+		"build:framework7": "node ./lib/build-framework7-icons-tss",
+		"build:framework7-js": "node ./lib/build-framework7-icons-js",
+		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:material && npm run build:material-js && npm run build:framework7 && npm run build:framework7-js && npm run build:fonts"
 	},
 	"repository": {
 		"type": "git",
@@ -49,8 +41,6 @@
 	"homepage": "https://github.com/macCesar/purgeTSS#readme",
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^6.0.0",
-		"@tabler/icons": "^1.54.0",
-		"boxicons": "^2.1.1",
 		"caporal": "^1.4.0",
 		"chalk": "^4.1.2",
 		"command-exists": "^1.2.9",
