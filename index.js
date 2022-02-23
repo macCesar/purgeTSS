@@ -10,6 +10,7 @@ const readCSS = require('read-css');
 const traverse = require('traverse');
 const colores = require('./lib/colores').colores;
 const { opacity } = require('tailwindcss/defaultTheme');
+const isInstalledGlobally = require('is-installed-globally');
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
 const helpers = require(path.resolve(__dirname, './lib/helpers'));
@@ -101,12 +102,20 @@ function purgeClasses(options) {
 			init();
 		}
 
-		if (fs.existsSync(projectAlloyJMKFile)) {
-			if (!fs.readFileSync(projectAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
-				addHook();
+		if (!fs.existsSync(projectTailwindTSS)) {
+			buildCustomTailwind('file created!');
+		}
+
+		if (isInstalledGlobally) {
+			if (fs.existsSync(projectAlloyJMKFile)) {
+				if (!fs.readFileSync(projectAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
+					addHook();
+				}
+			} else {
+				createJMKFile();
 			}
 		} else {
-			createJMKFile();
+			logger.error('Please install PurgeTSS globally!');
 		}
 
 		backupOriginalAppTss();
@@ -149,7 +158,7 @@ module.exports.purgeClasses = purgeClasses;
 
 //! Command: watch
 function watchMode(options) {
-	if (alloyProject()) {
+	if (alloyProject() && isInstalledGlobally) {
 		if (fs.existsSync(projectAlloyJMKFile)) {
 			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
 			if (options.off) {

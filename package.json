@@ -47,6 +47,7 @@
 		"fontname": "^1.0.0",
 		"framework7-icons": "^5.0.5",
 		"glob": "^7.2.0",
+		"is-installed-globally": "^0.4.0",
 		"junk": "3.1.0",
 		"lodash": "^4.17.21",
 		"path": "^0.12.7",
