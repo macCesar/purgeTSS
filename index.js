@@ -9,7 +9,6 @@ const convert = require('xml-js');
 const readCSS = require('read-css');
 const traverse = require('traverse');
 const colores = require('./lib/colores').colores;
-const { opacity } = require('tailwindcss/defaultTheme');
 const isInstalledGlobally = require('is-installed-globally');
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
@@ -30,12 +29,18 @@ const logger = {
 	}
 }
 
-const projectAlloyJMKFile = cwd + '/app/alloy.jmk';
-const projectPurgeTSSFolder = cwd + '/purgetss';
-const projectFontsFolder = cwd + '/app/assets/fonts';
+const projectLibFolder = cwd + '/app/lib';
 const projectAppTSS = cwd + '/app/styles/app.tss';
 const project_AppTSS = cwd + '/app/styles/_app.tss';
+const projectAlloyJMKFile = cwd + '/app/alloy.jmk';
+const projectFontsFolder = cwd + '/app/assets/fonts';
+const projectFontAwesomeJS = cwd + '/app/lib/fontawesome.js';
+
+const projectPurgeTSSFolder = cwd + '/purgetss';
 const projectConfigJS = cwd + '/purgetss/config.js';
+const projectTailwindTSS = cwd + '/purgetss/tailwind.tss';
+const projectPurgeTSSFontsFolder = cwd + '/purgetss/fonts';
+const projecrFontAwesomeTSS = cwd + '/purgetss/fontawesome.tss';
 
 // js icon modules
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
@@ -44,12 +49,8 @@ const srcLibMD = path.resolve(__dirname, './dist/materialdesignicons.js');
 const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
 
 //
-const projectTailwindTSS = cwd + '/purgetss/tailwind.tss';
 const srcTailwindTSS = path.resolve(__dirname, './dist/tailwind.tss');
 //
-const projecrFontAwesomeTSS = cwd + '/purgetss/fontawesome.tss';
-const projectLibFolder = cwd + '/app/lib';
-const projectFontAwesomeJS = cwd + '/app/lib/fontawesome.js';
 
 // PRO
 const srcFontAwesomeProCSSFile = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css';
@@ -189,12 +190,8 @@ function copyFonts(options) {
 			});
 		} else {
 			copyFont('fa');
-			copyFont('li');
 			copyFont('md');
-			copyFont('bx');
 			copyFont('f7');
-			copyFont('ti');
-			copyFont('bi');
 		}
 
 		if (options.modules) {
@@ -216,12 +213,8 @@ function copyFontLibraries(options) {
 			});
 		} else {
 			copyFontLibrary('fa');
-			copyFontLibrary('li');
 			copyFontLibrary('md');
-			copyFontLibrary('bx');
 			copyFontLibrary('f7');
-			copyFontLibrary('ti');
-			copyFontLibrary('bi');
 		}
 	}
 }
@@ -254,13 +247,12 @@ function cleanClasses(uniqueClasses) {
 //! Command: init
 function init() {
 	if (alloyProject()) {
+		makeSureFolderExists(projectPurgeTSSFolder);
+		makeSureFolderExists(projectPurgeTSSFontsFolder);
 		if (fs.existsSync(projectConfigJS)) {
 			logger.warn('./purgetss/config.js', chalk.red('file already exists!'));
 		} else {
-			makeSureFolderExists(projectPurgeTSSFolder);
-
 			fs.copyFileSync(srcConfigFile, projectConfigJS);
-
 			logger.file('./purgetss/config.js');
 		}
 	}
@@ -362,10 +354,10 @@ module.exports.buildCustom = buildCustom;
 
 //! Command: Build fonts.tss
 function buildCustomFonts(options) {
-	if (fs.existsSync(cwd + '/purgetss/fonts/')) {
+	if (fs.existsSync(projectPurgeTSSFontsFolder)) {
 		start();
 
-		let files = getFiles(cwd + '/purgetss/fonts').filter(file => {
+		let files = getFiles(projectPurgeTSSFontsFolder).filter(file => {
 			return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css') || file.endsWith('.TTF') || file.endsWith('.OTF') || file.endsWith('.CSS');
 		});
 
@@ -409,13 +401,15 @@ function buildCustomFonts(options) {
 			}
 		});
 
-		makeSureFolderExists(projectPurgeTSSFolder);
+		if (files.length > 0) {
+			makeSureFolderExists(projectPurgeTSSFolder);
 
-		fs.writeFileSync(cwd + '/purgetss/fonts.tss', tssClasses, err => {
-			throw err;
-		});
+			fs.writeFileSync(cwd + '/purgetss/fonts.tss', tssClasses, err => {
+				throw err;
+			});
 
-		makeSureFolderExists(projectLibFolder);
+			makeSureFolderExists(projectLibFolder);
+		}
 
 		if (customFontsJS) {
 			let exportIcons = fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8');
@@ -1260,7 +1254,7 @@ function buildCustomTailwind(message = 'file created!') {
 	tailwindStyles += '\n// Custom Styles and Resets\n';
 
 	_.each(configFile.theme, (value, key) => {
-		tailwindStyles += helpersToBuildCustomTailwindClasses(key, value);
+		tailwindStyles += helperToBuildCustomTailwindClasses(key, value);
 	});
 
 	let finalTailwindStyles = helpers.applyProperties(tailwindStyles);
@@ -1306,7 +1300,7 @@ function createDefinitionsFile() {
 }
 
 //! Build tailwind's custom values
-function helpersToBuildCustomTailwindClasses(key, value) {
+function helperToBuildCustomTailwindClasses(key, value) {
 	switch (key) {
 		case 'accessibilityHidden':
 		case 'activeIconIsMask':
