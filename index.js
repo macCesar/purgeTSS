@@ -1041,6 +1041,10 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.activitySharedElementReenterTransition = {};
 	configFile.theme.activitySharedElementReturnTransition = {};
 	configFile.theme.alertDialogStyle = {};
+	configFile.theme.allowsMultipleSelectionDuringEditing = {};
+	configFile.theme.allowsMultipleSelectionInteraction = {};
+	configFile.theme.allowsSelection = {};
+	configFile.theme.allowsSelectionDuringEditing = {};
 	configFile.theme.allowUserCustomization = {};
 	configFile.theme.animationStyle = {};
 	configFile.theme.autoAdjustScrollViewInsets = {};
@@ -1058,7 +1062,11 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.buttonStyle = {};
 	configFile.theme.cacheSize = {};
 	configFile.theme.canDelete = {};
+	configFile.theme.canScroll = {};
+	configFile.theme.caseInsensitiveSearch = {};
 	configFile.theme.clipMode = {};
+	configFile.theme.defaultItemTemplate = {};
+	configFile.theme.dimBackgroundForSearch = {};
 	configFile.theme.disableBounce = {};
 	configFile.theme.displayCaps = {};
 	configFile.theme.displayHomeAsUp = {};
@@ -1069,6 +1077,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.drawerLockMode = {};
 	configFile.theme.dropShadow = {};
 	configFile.theme.editable = {};
+	configFile.theme.editing = {};
 	configFile.theme.ellipsize = {};
 	configFile.theme.enableCopy = {};
 	configFile.theme.enabled = {};
@@ -1078,17 +1087,24 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.extendBackground = {};
 	configFile.theme.extendEdges = {};
 	configFile.theme.extendSafeArea = {};
+	configFile.theme.fastScroll = {};
+	configFile.theme.filterAnchored = {};
+	configFile.theme.filterAttribute = {};
+	configFile.theme.filterCaseInsensitive = {};
 	configFile.theme.flagSecure = {};
 	configFile.theme.flip = {};
 	configFile.theme.fontStyle = {};
+	configFile.theme.footerDividersEnabled = {};
 	configFile.theme.fullscreen = {};
 	configFile.theme.gridColumnsStartEnd = {};
 	configFile.theme.gridFlow = {};
 	configFile.theme.gridSystem = {};
+	configFile.theme.headerDividersEnabled = {};
 	configFile.theme.hidesBackButton = {};
 	configFile.theme.hidesBarsOnSwipe = {};
 	configFile.theme.hidesBarsOnTap = {};
 	configFile.theme.hidesBarsWhenKeyboardAppears = {};
+	configFile.theme.hideSearchOnSelection = {};
 	configFile.theme.hideShadow = {};
 	configFile.theme.hidesSearchBarWhenScrolling = {};
 	configFile.theme.hires = {};
@@ -1114,10 +1130,13 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.loginKeyboardType = {};
 	configFile.theme.loginReturnKeyType = {};
 	configFile.theme.modal = {};
+	configFile.theme.moveable = {};
+	configFile.theme.moving = {};
 	configFile.theme.navBarHidden = {};
 	configFile.theme.orientationModes = {};
 	configFile.theme.origin = {};
 	configFile.theme.overlayEnabled = {};
+	configFile.theme.overScrollMode = {};
 	configFile.theme.pagingControl = {};
 	configFile.theme.pagingControlOnTop = {};
 	configFile.theme.passwordKeyboardType = {};
@@ -1131,18 +1150,24 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.progressIndicatorCancelOnTouchOutside = {};
 	configFile.theme.progressIndicatorLocation = {};
 	configFile.theme.progressIndicatorType = {};
+	configFile.theme.pruneSectionsOnEdit = {};
 	configFile.theme.repeat = {};
 	configFile.theme.requestOrientation = {};
+	configFile.theme.resultsSeparatorStyle = {};
 	configFile.theme.returnKeyType = {};
 	configFile.theme.rightDrawerLockMode = {};
 	configFile.theme.rowAndColumnCount = {};
+	configFile.theme.scrollable = {};
 	configFile.theme.scrollableRegion = {};
 	configFile.theme.scrollIndicators = {};
 	configFile.theme.scrollIndicatorStyle = {};
 	configFile.theme.scrollingEnabled = {};
 	configFile.theme.scrollsToTop = {};
 	configFile.theme.scrollType = {};
+	configFile.theme.searchAsChild = {};
 	configFile.theme.searchBarStyle = {};
+	configFile.theme.searchHidden = {};
+	configFile.theme.sectionHeaderTopPadding = {};
 	configFile.theme.selectionStyle = {};
 	configFile.theme.separatorStyle = {};
 	configFile.theme.shiftMode = {};
@@ -1150,6 +1175,8 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.showBookmark = {};
 	configFile.theme.showCancel = {};
 	configFile.theme.showSearchBarInNavBar = {};
+	configFile.theme.showSelectionCheck = {};
+	configFile.theme.showVerticalScrollIndicator = {};
 	configFile.theme.smoothScrollOnTabClick = {};
 	configFile.theme.statusBarStyle = {};
 	configFile.theme.submitEnabled = {};
@@ -1175,6 +1202,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.useSpinner = {};
 	configFile.theme.verticalAlign = {};
 	configFile.theme.viewShadow = {};
+	configFile.theme.willScrollOnStatusTap = {};
 	configFile.theme.windowPixelFormat = {};
 	configFile.theme.windowSoftInputMode = {};
 	configFile.theme.wobble = {};
@@ -1194,6 +1222,10 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding');
 	configFile.theme.pagingControlAlpha = combineKeys(configFile.theme, defaultTheme.opacity, 'pagingControlAlpha');
 	configFile.theme.pagingControlHeight = combineKeys(configFile.theme, base.height, 'pagingControlHeight');
+	configFile.theme.separatorHeight = combineKeys(configFile.theme, base.height, 'separatorHeight');
+	configFile.theme.rowHeight = combineKeys(configFile.theme, base.height, 'rowHeight');
+	configFile.theme.minRowHeight = combineKeys(configFile.theme, base.height, 'minRowHeight');
+	configFile.theme.maxRowHeight = combineKeys(configFile.theme, base.height, 'maxRowHeight');
 	configFile.theme.pagingControlTimeout = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'pagingControlTimeout');
 	configFile.theme.rightWidth = combineKeys(configFile.theme, base.width, 'rightWidth');
 	configFile.theme.rotate = combineKeys(configFile.theme, defaultTheme.rotate, 'rotate');
@@ -1219,9 +1251,12 @@ function buildCustomTailwind(message = 'file created!') {
 	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor');
 	configFile.theme.pageIndicatorColor = combineKeys(configFile.theme, base.colors, 'pageIndicatorColor');
 	configFile.theme.pagingControlColor = combineKeys(configFile.theme, base.colors, 'pagingControlColor');
+	configFile.theme.resultsBackgroundColor = combineKeys(configFile.theme, base.colors, 'resultsBackgroundColor');
+	configFile.theme.resultsSeparatorColor = combineKeys(configFile.theme, base.colors, 'resultsSeparatorColor');
 	configFile.theme.selectedButtonColor = combineKeys(configFile.theme, base.colors, 'selectedButtonColor');
 	configFile.theme.selectedColor = combineKeys(configFile.theme, base.colors, 'selectedColor');
 	configFile.theme.selectedTextColor = combineKeys(configFile.theme, base.colors, 'selectedTextColor');
+	configFile.theme.separatorColor = combineKeys(configFile.theme, base.colors, 'separatorColor');
 	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
 	configFile.theme.tabsBackgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundSelectedColor');
 	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
@@ -1316,6 +1351,10 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'activitySharedElementReenterTransition':
 		case 'activitySharedElementReturnTransition':
 		case 'alertDialogStyle':
+		case 'allowsMultipleSelectionDuringEditing':
+		case 'allowsMultipleSelectionInteraction':
+		case 'allowsSelection':
+		case 'allowsSelectionDuringEditing':
 		case 'allowUserCustomization':
 		case 'animationStyle':
 		case 'autoAdjustScrollViewInsets':
@@ -1341,8 +1380,12 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'buttonStyle':
 		case 'cacheSize':
 		case 'canDelete':
+		case 'canScroll':
+		case 'caseInsensitiveSearch':
 		case 'clipMode':
 		case 'currentPageIndicatorColor':
+		case 'defaultItemTemplate':
+		case 'dimBackgroundForSearch':
 		case 'disableBounce':
 		case 'disabledColor':
 		case 'displayCaps':
@@ -1355,6 +1398,7 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'dropShadow':
 		case 'dropShadowColor':
 		case 'editable':
+		case 'editing':
 		case 'elevation':
 		case 'ellipsize':
 		case 'enableCopy':
@@ -1365,22 +1409,29 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'extendBackground':
 		case 'extendEdges':
 		case 'extendSafeArea':
+		case 'fastScroll':
+		case 'filterAnchored':
+		case 'filterAttribute':
+		case 'filterCaseInsensitive':
 		case 'flagSecure':
 		case 'flip':
 		case 'fontFamily':
 		case 'fontSize':
 		case 'fontStyle':
 		case 'fontWeight':
+		case 'footerDividersEnabled':
 		case 'fullscreen':
 		case 'gap':
 		case 'gridColumnsStartEnd':
 		case 'gridFlow':
 		case 'gridSystem':
+		case 'headerDividersEnabled':
 		case 'height':
 		case 'hidesBackButton':
 		case 'hidesBarsOnSwipe':
 		case 'hidesBarsOnTap':
 		case 'hidesBarsWhenKeyboardAppears':
+		case 'hideSearchOnSelection':
 		case 'hideShadow':
 		case 'hidesSearchBarWhenScrolling':
 		case 'hintTextColor':
@@ -1410,13 +1461,18 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'loginReturnKeyType':
 		case 'margin':
 		case 'maxElevation':
+		case 'maxRowHeight':
+		case 'minRowHeight':
 		case 'modal':
+		case 'moveable':
+		case 'moving':
 		case 'navBarHidden':
 		case 'navTintColor':
 		case 'opacity':
 		case 'orientationModes':
 		case 'origin':
 		case 'overlayEnabled':
+		case 'overScrollMode':
 		case 'padding':
 		case 'pageIndicatorColor':
 		case 'pagingControl':
@@ -1436,25 +1492,36 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'progressIndicatorCancelOnTouchOutside':
 		case 'progressIndicatorLocation':
 		case 'progressIndicatorType':
+		case 'pruneSectionsOnEdit':
 		case 'repeat':
 		case 'requestOrientation':
+		case 'resultsBackgroundColor':
+		case 'resultsSeparatorColor':
+		case 'resultsSeparatorStyle':
 		case 'returnKeyType':
 		case 'rightDrawerLockMode':
 		case 'rightWidth':
 		case 'rotate':
 		case 'rowAndColumnCount':
+		case 'rowHeight':
 		case 'scale':
+		case 'scrollable':
 		case 'scrollableRegion':
 		case 'scrollIndicators':
 		case 'scrollIndicatorStyle':
 		case 'scrollingEnabled':
 		case 'scrollsToTop':
 		case 'scrollType':
+		case 'searchAsChild':
 		case 'searchBarStyle':
+		case 'searchHidden':
+		case 'sectionHeaderTopPadding':
 		case 'selectedButtonColor':
 		case 'selectedColor':
 		case 'selectedTextColor':
 		case 'selectionStyle':
+		case 'separatorColor':
+		case 'separatorHeight':
 		case 'separatorStyle':
 		case 'shadow':
 		case 'shadowRadius':
@@ -1463,6 +1530,8 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'showBookmark':
 		case 'showCancel':
 		case 'showSearchBarInNavBar':
+		case 'showSelectionCheck':
+		case 'showVerticalScrollIndicator':
 		case 'smoothScrollOnTabClick':
 		case 'statusBarStyle':
 		case 'submitEnabled':
@@ -1500,6 +1569,7 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'viewShadow':
 		case 'viewShadowColor':
 		case 'width':
+		case 'willScrollOnStatusTap':
 		case 'windowPixelFormat':
 		case 'windowSoftInputMode':
 		case 'wobble':
