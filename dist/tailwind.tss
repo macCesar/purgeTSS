@@ -3538,6 +3538,82 @@
 '.max-elevation-2.5[platform=android]': { maxElevation: 10 }
 '.max-elevation-3.5[platform=android]': { maxElevation: 14 }
 
+// Component(s): Ti.UI.TableView
+// Property(ies): maxRowHeight - iOS Only
+'.max-row-h-0[platform=ios]': { maxRowHeight: 0 }
+'.max-row-h-1[platform=ios]': { maxRowHeight: 4 }
+'.max-row-h-2[platform=ios]': { maxRowHeight: 8 }
+'.max-row-h-3[platform=ios]': { maxRowHeight: 12 }
+'.max-row-h-4[platform=ios]': { maxRowHeight: 16 }
+'.max-row-h-5[platform=ios]': { maxRowHeight: 20 }
+'.max-row-h-6[platform=ios]': { maxRowHeight: 24 }
+'.max-row-h-7[platform=ios]': { maxRowHeight: 28 }
+'.max-row-h-8[platform=ios]': { maxRowHeight: 32 }
+'.max-row-h-9[platform=ios]': { maxRowHeight: 36 }
+'.max-row-h-10[platform=ios]': { maxRowHeight: 40 }
+'.max-row-h-11[platform=ios]': { maxRowHeight: 44 }
+'.max-row-h-12[platform=ios]': { maxRowHeight: 48 }
+'.max-row-h-14[platform=ios]': { maxRowHeight: 56 }
+'.max-row-h-16[platform=ios]': { maxRowHeight: 64 }
+'.max-row-h-20[platform=ios]': { maxRowHeight: 80 }
+'.max-row-h-24[platform=ios]': { maxRowHeight: 96 }
+'.max-row-h-28[platform=ios]': { maxRowHeight: 112 }
+'.max-row-h-32[platform=ios]': { maxRowHeight: 128 }
+'.max-row-h-36[platform=ios]': { maxRowHeight: 144 }
+'.max-row-h-40[platform=ios]': { maxRowHeight: 160 }
+'.max-row-h-44[platform=ios]': { maxRowHeight: 176 }
+'.max-row-h-48[platform=ios]': { maxRowHeight: 192 }
+'.max-row-h-52[platform=ios]': { maxRowHeight: 208 }
+'.max-row-h-56[platform=ios]': { maxRowHeight: 224 }
+'.max-row-h-60[platform=ios]': { maxRowHeight: 240 }
+'.max-row-h-64[platform=ios]': { maxRowHeight: 256 }
+'.max-row-h-72[platform=ios]': { maxRowHeight: 288 }
+'.max-row-h-80[platform=ios]': { maxRowHeight: 320 }
+'.max-row-h-96[platform=ios]': { maxRowHeight: 384 }
+'.max-row-h-px[platform=ios]': { maxRowHeight: '1px' }
+'.max-row-h-0.5[platform=ios]': { maxRowHeight: 2 }
+'.max-row-h-1.5[platform=ios]': { maxRowHeight: 6 }
+'.max-row-h-2.5[platform=ios]': { maxRowHeight: 10 }
+'.max-row-h-3.5[platform=ios]': { maxRowHeight: 14 }
+
+// Component(s): Ti.UI.TableView
+// Property(ies): minRowHeight - iOS Only
+'.min-row-h-0[platform=ios]': { minRowHeight: 0 }
+'.min-row-h-1[platform=ios]': { minRowHeight: 4 }
+'.min-row-h-2[platform=ios]': { minRowHeight: 8 }
+'.min-row-h-3[platform=ios]': { minRowHeight: 12 }
+'.min-row-h-4[platform=ios]': { minRowHeight: 16 }
+'.min-row-h-5[platform=ios]': { minRowHeight: 20 }
+'.min-row-h-6[platform=ios]': { minRowHeight: 24 }
+'.min-row-h-7[platform=ios]': { minRowHeight: 28 }
+'.min-row-h-8[platform=ios]': { minRowHeight: 32 }
+'.min-row-h-9[platform=ios]': { minRowHeight: 36 }
+'.min-row-h-10[platform=ios]': { minRowHeight: 40 }
+'.min-row-h-11[platform=ios]': { minRowHeight: 44 }
+'.min-row-h-12[platform=ios]': { minRowHeight: 48 }
+'.min-row-h-14[platform=ios]': { minRowHeight: 56 }
+'.min-row-h-16[platform=ios]': { minRowHeight: 64 }
+'.min-row-h-20[platform=ios]': { minRowHeight: 80 }
+'.min-row-h-24[platform=ios]': { minRowHeight: 96 }
+'.min-row-h-28[platform=ios]': { minRowHeight: 112 }
+'.min-row-h-32[platform=ios]': { minRowHeight: 128 }
+'.min-row-h-36[platform=ios]': { minRowHeight: 144 }
+'.min-row-h-40[platform=ios]': { minRowHeight: 160 }
+'.min-row-h-44[platform=ios]': { minRowHeight: 176 }
+'.min-row-h-48[platform=ios]': { minRowHeight: 192 }
+'.min-row-h-52[platform=ios]': { minRowHeight: 208 }
+'.min-row-h-56[platform=ios]': { minRowHeight: 224 }
+'.min-row-h-60[platform=ios]': { minRowHeight: 240 }
+'.min-row-h-64[platform=ios]': { minRowHeight: 256 }
+'.min-row-h-72[platform=ios]': { minRowHeight: 288 }
+'.min-row-h-80[platform=ios]': { minRowHeight: 320 }
+'.min-row-h-96[platform=ios]': { minRowHeight: 384 }
+'.min-row-h-px[platform=ios]': { minRowHeight: '1px' }
+'.min-row-h-0.5[platform=ios]': { minRowHeight: 2 }
+'.min-row-h-1.5[platform=ios]': { minRowHeight: 6 }
+'.min-row-h-2.5[platform=ios]': { minRowHeight: 10 }
+'.min-row-h-3.5[platform=ios]': { minRowHeight: 14 }
+
 // Component(s): Ti.UI.Animation, Ti.UI.TableViewRow, Ti.UI.View, Ti.UI.Window
 // Property(ies): opacity
 '.opacity-0': { opacity: 0 }
@@ -4049,187 +4125,6 @@
 '.paging-h-2.5': { pagingControlHeight: 10 }
 '.paging-h-3.5': { pagingControlHeight: 14 }
 
-// Component(s): Ti.UI.ListView
-// Property(ies): separatorHeight - Android Only { PENDING }
-'.separator-h-0[platform=android]': { separatorHeight: 0 }
-'.separator-h-1[platform=android]': { separatorHeight: 4 }
-'.separator-h-2[platform=android]': { separatorHeight: 8 }
-'.separator-h-3[platform=android]': { separatorHeight: 12 }
-'.separator-h-4[platform=android]': { separatorHeight: 16 }
-'.separator-h-5[platform=android]': { separatorHeight: 20 }
-'.separator-h-6[platform=android]': { separatorHeight: 24 }
-'.separator-h-7[platform=android]': { separatorHeight: 28 }
-'.separator-h-8[platform=android]': { separatorHeight: 32 }
-'.separator-h-9[platform=android]': { separatorHeight: 36 }
-'.separator-h-10[platform=android]': { separatorHeight: 40 }
-'.separator-h-11[platform=android]': { separatorHeight: 44 }
-'.separator-h-12[platform=android]': { separatorHeight: 48 }
-'.separator-h-14[platform=android]': { separatorHeight: 56 }
-'.separator-h-16[platform=android]': { separatorHeight: 64 }
-'.separator-h-20[platform=android]': { separatorHeight: 80 }
-'.separator-h-24[platform=android]': { separatorHeight: 96 }
-'.separator-h-28[platform=android]': { separatorHeight: 112 }
-'.separator-h-32[platform=android]': { separatorHeight: 128 }
-'.separator-h-36[platform=android]': { separatorHeight: 144 }
-'.separator-h-40[platform=android]': { separatorHeight: 160 }
-'.separator-h-44[platform=android]': { separatorHeight: 176 }
-'.separator-h-48[platform=android]': { separatorHeight: 192 }
-'.separator-h-52[platform=android]': { separatorHeight: 208 }
-'.separator-h-56[platform=android]': { separatorHeight: 224 }
-'.separator-h-60[platform=android]': { separatorHeight: 240 }
-'.separator-h-64[platform=android]': { separatorHeight: 256 }
-'.separator-h-72[platform=android]': { separatorHeight: 288 }
-'.separator-h-80[platform=android]': { separatorHeight: 320 }
-'.separator-h-96[platform=android]': { separatorHeight: 384 }
-'.separator-h-px[platform=android]': { separatorHeight: '1px' }
-'.separator-h-0.5[platform=android]': { separatorHeight: 2 }
-'.separator-h-1.5[platform=android]': { separatorHeight: 6 }
-'.separator-h-2.5[platform=android]': { separatorHeight: 10 }
-'.separator-h-3.5[platform=android]': { separatorHeight: 14 }
-'.separator-h-auto[platform=android]': { separatorHeight: Ti.UI.SIZE }
-'.separator-h-1/2[platform=android]': { separatorHeight: '50%' }
-'.separator-h-1/3[platform=android]': { separatorHeight: '33.333334%' }
-'.separator-h-2/3[platform=android]': { separatorHeight: '66.666667%' }
-'.separator-h-1/4[platform=android]': { separatorHeight: '25%' }
-'.separator-h-2/4[platform=android]': { separatorHeight: '50%' }
-'.separator-h-3/4[platform=android]': { separatorHeight: '75%' }
-'.separator-h-1/5[platform=android]': { separatorHeight: '20%' }
-'.separator-h-2/5[platform=android]': { separatorHeight: '40%' }
-'.separator-h-3/5[platform=android]': { separatorHeight: '60%' }
-'.separator-h-4/5[platform=android]': { separatorHeight: '80%' }
-'.separator-h-1/6[platform=android]': { separatorHeight: '16.666667%' }
-'.separator-h-2/6[platform=android]': { separatorHeight: '33.333334%' }
-'.separator-h-3/6[platform=android]': { separatorHeight: '50%' }
-'.separator-h-4/6[platform=android]': { separatorHeight: '66.666667%' }
-'.separator-h-5/6[platform=android]': { separatorHeight: '83.333334%' }
-'.separator-h-1/12[platform=android]': { separatorHeight: '8.333334%' }
-'.separator-h-2/12[platform=android]': { separatorHeight: '16.666667%' }
-'.separator-h-3/12[platform=android]': { separatorHeight: '25%' }
-'.separator-h-4/12[platform=android]': { separatorHeight: '33.333334%' }
-'.separator-h-5/12[platform=android]': { separatorHeight: '41.666667%' }
-'.separator-h-6/12[platform=android]': { separatorHeight: '50%' }
-'.separator-h-7/12[platform=android]': { separatorHeight: '58.333334%' }
-'.separator-h-8/12[platform=android]': { separatorHeight: '66.666667%' }
-'.separator-h-9/12[platform=android]': { separatorHeight: '75%' }
-'.separator-h-10/12[platform=android]': { separatorHeight: '83.333334%' }
-'.separator-h-11/12[platform=android]': { separatorHeight: '91.666667%' }
-'.separator-h-full[platform=android]': { separatorHeight: '100%' }
-'.separator-h-screen[platform=android]': { separatorHeight: Ti.UI.FILL }
-
-// Component(s): Ti.UI.TableView
-// Property(ies): rowHeight
-'.row-h-0': { rowHeight: 0 }
-'.row-h-1': { rowHeight: 4 }
-'.row-h-2': { rowHeight: 8 }
-'.row-h-3': { rowHeight: 12 }
-'.row-h-4': { rowHeight: 16 }
-'.row-h-5': { rowHeight: 20 }
-'.row-h-6': { rowHeight: 24 }
-'.row-h-7': { rowHeight: 28 }
-'.row-h-8': { rowHeight: 32 }
-'.row-h-9': { rowHeight: 36 }
-'.row-h-10': { rowHeight: 40 }
-'.row-h-11': { rowHeight: 44 }
-'.row-h-12': { rowHeight: 48 }
-'.row-h-14': { rowHeight: 56 }
-'.row-h-16': { rowHeight: 64 }
-'.row-h-20': { rowHeight: 80 }
-'.row-h-24': { rowHeight: 96 }
-'.row-h-28': { rowHeight: 112 }
-'.row-h-32': { rowHeight: 128 }
-'.row-h-36': { rowHeight: 144 }
-'.row-h-40': { rowHeight: 160 }
-'.row-h-44': { rowHeight: 176 }
-'.row-h-48': { rowHeight: 192 }
-'.row-h-52': { rowHeight: 208 }
-'.row-h-56': { rowHeight: 224 }
-'.row-h-60': { rowHeight: 240 }
-'.row-h-64': { rowHeight: 256 }
-'.row-h-72': { rowHeight: 288 }
-'.row-h-80': { rowHeight: 320 }
-'.row-h-96': { rowHeight: 384 }
-'.row-h-px': { rowHeight: '1px' }
-'.row-h-0.5': { rowHeight: 2 }
-'.row-h-1.5': { rowHeight: 6 }
-'.row-h-2.5': { rowHeight: 10 }
-'.row-h-3.5': { rowHeight: 14 }
-
-// Component(s): Ti.UI.TableView
-// Property(ies): minRowHeight - iOS Only
-'.min-row-h-0[platform=ios]': { minRowHeight: 0 }
-'.min-row-h-1[platform=ios]': { minRowHeight: 4 }
-'.min-row-h-2[platform=ios]': { minRowHeight: 8 }
-'.min-row-h-3[platform=ios]': { minRowHeight: 12 }
-'.min-row-h-4[platform=ios]': { minRowHeight: 16 }
-'.min-row-h-5[platform=ios]': { minRowHeight: 20 }
-'.min-row-h-6[platform=ios]': { minRowHeight: 24 }
-'.min-row-h-7[platform=ios]': { minRowHeight: 28 }
-'.min-row-h-8[platform=ios]': { minRowHeight: 32 }
-'.min-row-h-9[platform=ios]': { minRowHeight: 36 }
-'.min-row-h-10[platform=ios]': { minRowHeight: 40 }
-'.min-row-h-11[platform=ios]': { minRowHeight: 44 }
-'.min-row-h-12[platform=ios]': { minRowHeight: 48 }
-'.min-row-h-14[platform=ios]': { minRowHeight: 56 }
-'.min-row-h-16[platform=ios]': { minRowHeight: 64 }
-'.min-row-h-20[platform=ios]': { minRowHeight: 80 }
-'.min-row-h-24[platform=ios]': { minRowHeight: 96 }
-'.min-row-h-28[platform=ios]': { minRowHeight: 112 }
-'.min-row-h-32[platform=ios]': { minRowHeight: 128 }
-'.min-row-h-36[platform=ios]': { minRowHeight: 144 }
-'.min-row-h-40[platform=ios]': { minRowHeight: 160 }
-'.min-row-h-44[platform=ios]': { minRowHeight: 176 }
-'.min-row-h-48[platform=ios]': { minRowHeight: 192 }
-'.min-row-h-52[platform=ios]': { minRowHeight: 208 }
-'.min-row-h-56[platform=ios]': { minRowHeight: 224 }
-'.min-row-h-60[platform=ios]': { minRowHeight: 240 }
-'.min-row-h-64[platform=ios]': { minRowHeight: 256 }
-'.min-row-h-72[platform=ios]': { minRowHeight: 288 }
-'.min-row-h-80[platform=ios]': { minRowHeight: 320 }
-'.min-row-h-96[platform=ios]': { minRowHeight: 384 }
-'.min-row-h-px[platform=ios]': { minRowHeight: '1px' }
-'.min-row-h-0.5[platform=ios]': { minRowHeight: 2 }
-'.min-row-h-1.5[platform=ios]': { minRowHeight: 6 }
-'.min-row-h-2.5[platform=ios]': { minRowHeight: 10 }
-'.min-row-h-3.5[platform=ios]': { minRowHeight: 14 }
-
-// Component(s): Ti.UI.TableView
-// Property(ies): maxRowHeight - iOS Only
-'.max-row-h-0[platform=ios]': { maxRowHeight: 0 }
-'.max-row-h-1[platform=ios]': { maxRowHeight: 4 }
-'.max-row-h-2[platform=ios]': { maxRowHeight: 8 }
-'.max-row-h-3[platform=ios]': { maxRowHeight: 12 }
-'.max-row-h-4[platform=ios]': { maxRowHeight: 16 }
-'.max-row-h-5[platform=ios]': { maxRowHeight: 20 }
-'.max-row-h-6[platform=ios]': { maxRowHeight: 24 }
-'.max-row-h-7[platform=ios]': { maxRowHeight: 28 }
-'.max-row-h-8[platform=ios]': { maxRowHeight: 32 }
-'.max-row-h-9[platform=ios]': { maxRowHeight: 36 }
-'.max-row-h-10[platform=ios]': { maxRowHeight: 40 }
-'.max-row-h-11[platform=ios]': { maxRowHeight: 44 }
-'.max-row-h-12[platform=ios]': { maxRowHeight: 48 }
-'.max-row-h-14[platform=ios]': { maxRowHeight: 56 }
-'.max-row-h-16[platform=ios]': { maxRowHeight: 64 }
-'.max-row-h-20[platform=ios]': { maxRowHeight: 80 }
-'.max-row-h-24[platform=ios]': { maxRowHeight: 96 }
-'.max-row-h-28[platform=ios]': { maxRowHeight: 112 }
-'.max-row-h-32[platform=ios]': { maxRowHeight: 128 }
-'.max-row-h-36[platform=ios]': { maxRowHeight: 144 }
-'.max-row-h-40[platform=ios]': { maxRowHeight: 160 }
-'.max-row-h-44[platform=ios]': { maxRowHeight: 176 }
-'.max-row-h-48[platform=ios]': { maxRowHeight: 192 }
-'.max-row-h-52[platform=ios]': { maxRowHeight: 208 }
-'.max-row-h-56[platform=ios]': { maxRowHeight: 224 }
-'.max-row-h-60[platform=ios]': { maxRowHeight: 240 }
-'.max-row-h-64[platform=ios]': { maxRowHeight: 256 }
-'.max-row-h-72[platform=ios]': { maxRowHeight: 288 }
-'.max-row-h-80[platform=ios]': { maxRowHeight: 320 }
-'.max-row-h-96[platform=ios]': { maxRowHeight: 384 }
-'.max-row-h-px[platform=ios]': { maxRowHeight: '1px' }
-'.max-row-h-0.5[platform=ios]': { maxRowHeight: 2 }
-'.max-row-h-1.5[platform=ios]': { maxRowHeight: 6 }
-'.max-row-h-2.5[platform=ios]': { maxRowHeight: 10 }
-'.max-row-h-3.5[platform=ios]': { maxRowHeight: 14 }
-
 // Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlTimeout - Android Only
 '.paging-timeout-0': { pagingControlTimeout: 0 }
@@ -4327,6 +4222,44 @@
 '.rotate-90': { rotate: 90 }
 '.rotate-180': { rotate: 180 }
 
+// Component(s): Ti.UI.TableView
+// Property(ies): rowHeight
+'.row-h-0': { rowHeight: 0 }
+'.row-h-1': { rowHeight: 4 }
+'.row-h-2': { rowHeight: 8 }
+'.row-h-3': { rowHeight: 12 }
+'.row-h-4': { rowHeight: 16 }
+'.row-h-5': { rowHeight: 20 }
+'.row-h-6': { rowHeight: 24 }
+'.row-h-7': { rowHeight: 28 }
+'.row-h-8': { rowHeight: 32 }
+'.row-h-9': { rowHeight: 36 }
+'.row-h-10': { rowHeight: 40 }
+'.row-h-11': { rowHeight: 44 }
+'.row-h-12': { rowHeight: 48 }
+'.row-h-14': { rowHeight: 56 }
+'.row-h-16': { rowHeight: 64 }
+'.row-h-20': { rowHeight: 80 }
+'.row-h-24': { rowHeight: 96 }
+'.row-h-28': { rowHeight: 112 }
+'.row-h-32': { rowHeight: 128 }
+'.row-h-36': { rowHeight: 144 }
+'.row-h-40': { rowHeight: 160 }
+'.row-h-44': { rowHeight: 176 }
+'.row-h-48': { rowHeight: 192 }
+'.row-h-52': { rowHeight: 208 }
+'.row-h-56': { rowHeight: 224 }
+'.row-h-60': { rowHeight: 240 }
+'.row-h-64': { rowHeight: 256 }
+'.row-h-72': { rowHeight: 288 }
+'.row-h-80': { rowHeight: 320 }
+'.row-h-96': { rowHeight: 384 }
+'.row-h-px': { rowHeight: '1px' }
+'.row-h-0.5': { rowHeight: 2 }
+'.row-h-1.5': { rowHeight: 6 }
+'.row-h-2.5': { rowHeight: 10 }
+'.row-h-3.5': { rowHeight: 14 }
+
 // Component(s): Ti.UI.ScrollView, MatrixCreationDict
 // Property(ies): scale
 '.scale-0': { scale: '0' }
@@ -4343,6 +4276,73 @@
 '.scale-110': { scale: '1.1' }
 '.scale-125': { scale: '1.25' }
 '.scale-150': { scale: '1.5' }
+
+// Component(s): Ti.UI.ListView
+// Property(ies): separatorHeight - Android Only { PENDING }
+'.separator-h-0[platform=android]': { separatorHeight: 0 }
+'.separator-h-1[platform=android]': { separatorHeight: 4 }
+'.separator-h-2[platform=android]': { separatorHeight: 8 }
+'.separator-h-3[platform=android]': { separatorHeight: 12 }
+'.separator-h-4[platform=android]': { separatorHeight: 16 }
+'.separator-h-5[platform=android]': { separatorHeight: 20 }
+'.separator-h-6[platform=android]': { separatorHeight: 24 }
+'.separator-h-7[platform=android]': { separatorHeight: 28 }
+'.separator-h-8[platform=android]': { separatorHeight: 32 }
+'.separator-h-9[platform=android]': { separatorHeight: 36 }
+'.separator-h-10[platform=android]': { separatorHeight: 40 }
+'.separator-h-11[platform=android]': { separatorHeight: 44 }
+'.separator-h-12[platform=android]': { separatorHeight: 48 }
+'.separator-h-14[platform=android]': { separatorHeight: 56 }
+'.separator-h-16[platform=android]': { separatorHeight: 64 }
+'.separator-h-20[platform=android]': { separatorHeight: 80 }
+'.separator-h-24[platform=android]': { separatorHeight: 96 }
+'.separator-h-28[platform=android]': { separatorHeight: 112 }
+'.separator-h-32[platform=android]': { separatorHeight: 128 }
+'.separator-h-36[platform=android]': { separatorHeight: 144 }
+'.separator-h-40[platform=android]': { separatorHeight: 160 }
+'.separator-h-44[platform=android]': { separatorHeight: 176 }
+'.separator-h-48[platform=android]': { separatorHeight: 192 }
+'.separator-h-52[platform=android]': { separatorHeight: 208 }
+'.separator-h-56[platform=android]': { separatorHeight: 224 }
+'.separator-h-60[platform=android]': { separatorHeight: 240 }
+'.separator-h-64[platform=android]': { separatorHeight: 256 }
+'.separator-h-72[platform=android]': { separatorHeight: 288 }
+'.separator-h-80[platform=android]': { separatorHeight: 320 }
+'.separator-h-96[platform=android]': { separatorHeight: 384 }
+'.separator-h-px[platform=android]': { separatorHeight: '1px' }
+'.separator-h-0.5[platform=android]': { separatorHeight: 2 }
+'.separator-h-1.5[platform=android]': { separatorHeight: 6 }
+'.separator-h-2.5[platform=android]': { separatorHeight: 10 }
+'.separator-h-3.5[platform=android]': { separatorHeight: 14 }
+'.separator-h-auto[platform=android]': { separatorHeight: Ti.UI.SIZE }
+'.separator-h-1/2[platform=android]': { separatorHeight: '50%' }
+'.separator-h-1/3[platform=android]': { separatorHeight: '33.333334%' }
+'.separator-h-2/3[platform=android]': { separatorHeight: '66.666667%' }
+'.separator-h-1/4[platform=android]': { separatorHeight: '25%' }
+'.separator-h-2/4[platform=android]': { separatorHeight: '50%' }
+'.separator-h-3/4[platform=android]': { separatorHeight: '75%' }
+'.separator-h-1/5[platform=android]': { separatorHeight: '20%' }
+'.separator-h-2/5[platform=android]': { separatorHeight: '40%' }
+'.separator-h-3/5[platform=android]': { separatorHeight: '60%' }
+'.separator-h-4/5[platform=android]': { separatorHeight: '80%' }
+'.separator-h-1/6[platform=android]': { separatorHeight: '16.666667%' }
+'.separator-h-2/6[platform=android]': { separatorHeight: '33.333334%' }
+'.separator-h-3/6[platform=android]': { separatorHeight: '50%' }
+'.separator-h-4/6[platform=android]': { separatorHeight: '66.666667%' }
+'.separator-h-5/6[platform=android]': { separatorHeight: '83.333334%' }
+'.separator-h-1/12[platform=android]': { separatorHeight: '8.333334%' }
+'.separator-h-2/12[platform=android]': { separatorHeight: '16.666667%' }
+'.separator-h-3/12[platform=android]': { separatorHeight: '25%' }
+'.separator-h-4/12[platform=android]': { separatorHeight: '33.333334%' }
+'.separator-h-5/12[platform=android]': { separatorHeight: '41.666667%' }
+'.separator-h-6/12[platform=android]': { separatorHeight: '50%' }
+'.separator-h-7/12[platform=android]': { separatorHeight: '58.333334%' }
+'.separator-h-8/12[platform=android]': { separatorHeight: '66.666667%' }
+'.separator-h-9/12[platform=android]': { separatorHeight: '75%' }
+'.separator-h-10/12[platform=android]': { separatorHeight: '83.333334%' }
+'.separator-h-11/12[platform=android]': { separatorHeight: '91.666667%' }
+'.separator-h-full[platform=android]': { separatorHeight: '100%' }
+'.separator-h-screen[platform=android]': { separatorHeight: Ti.UI.FILL }
 
 // Component(s): Ti.UI.Button, Ti.UI.Label - Android Only
 // Property(ies): shadowRadius ( with Extra Styles )
