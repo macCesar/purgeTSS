@@ -6,7 +6,7 @@
 // https://github.com/macCesar/purgeTSS
 // default config.js file
 
-// Custom Styles and Resets
+// Resets
 'Window': { backgroundColor: '#ffffff' }
 'ImageView[platform=ios]': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
