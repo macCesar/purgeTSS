@@ -953,12 +953,19 @@ function buildCustomTailwind(message = 'file created!') {
 	const defaultTheme = require('tailwindcss/defaultTheme');
 
 	// Remove deprecated colors
-	removeDeprecatedColors(defaultColors);
+	delete defaultColors.blueGray;
+	delete defaultColors.coolGray;
+	delete defaultColors.current;
+	delete defaultColors.inherit;
+	delete defaultColors.lightBlue;
+	delete defaultColors.trueGray;
+	delete defaultColors.warmGray;
 
 	// !Prepare values
 	configFile.theme.extend = configFile.theme.extend ?? {};
+
 	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...defaultTheme.width({ theme: () => (defaultTheme.spacing) }) };
-	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...defaultTheme.width({ theme: () => (defaultTheme.spacing) }), ...defaultTheme.height({ theme: () => (defaultTheme.spacing) }) };
+	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : defaultTheme.height({ theme: () => (defaultTheme.spacing) });
 
 	let overwritten = {
 		width: configFile.theme.width ?? allWidthsCombined,
@@ -967,308 +974,305 @@ function buildCustomTailwind(message = 'file created!') {
 		colors: configFile.theme.colors ?? { transparent: 'transparent', ...defaultColors },
 	}
 
-	//! Remove unnecessary values
-	removeFitMaxMin(overwritten);
+	let base = {
+		colors: _.merge(overwritten.colors, configFile.theme.extend.colors),
+		spacing: _.merge(overwritten.spacing, configFile.theme.extend.spacing),
+		width: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width),
+		height: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height)
+	}
 
-	let base = { colors: {}, spacing: {}, width: {}, height: {} };
-
-	_.merge(base.colors, overwritten.colors, configFile.theme.extend.colors);
-	_.merge(base.spacing, overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, overwritten.height);
-	_.merge(base.width, overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width);
-	_.merge(base.height, overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height);
-
-	// let base = {
-	// 	colors: _.merge(overwritten.colors, configFile.theme.extend.colors),
-	// 	spacing: _.merge(overwritten.spacing, configFile.theme.extend.spacing),
-	// 	width: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width),
-	// 	height: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height)
-	// }
-
-	// Fix any '.333333%' value to '.333334%' to propertly fit the screen
-	fixPercentages(base.width);
-	fixPercentages(base.height);
-	fixPercentages(base.spacing);
-
-	let configThemeFile = {};
+	// Have to 'fix' any '.333333%' value to '.333334%' to propertly fit the screen
+	_.each(base.spacing, (value, key) => {
+		if (value.toString().includes('.333333%')) {
+			base.spacing[key] = value.replace('.333333%', '.333334%');
+		}
+	});
 
 	//! Process custom Window, View and ImageView
 	if (configFile.theme.Window && configFile.theme.Window.apply) {
 		let theApply = configFile.theme.Window.apply;
 		delete configFile.theme.Window.apply;
-		configThemeFile.Window = _.merge({ apply: theApply }, configFile.theme.Window);
+		configFile.theme['Window'] = _.merge({ apply: theApply }, configFile.theme.Window);
 	} else {
-		configThemeFile.Window = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
+		configFile.theme['Window'] = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 	}
 
 	if (configFile.theme.ImageView && configFile.theme.ImageView.apply) {
 		let theApply = configFile.theme.ImageView.apply;
 		delete configFile.theme.ImageView.apply;
-		configThemeFile.ImageView = _.merge({ apply: theApply }, { ios: { hires: true } }, configFile.theme.ImageView);
+		configFile.theme['ImageView'] = _.merge({ apply: theApply }, { ios: { hires: true } }, configFile.theme.ImageView);
 	} else {
-		configThemeFile.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
+		configFile.theme['ImageView'] = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
 	}
 
 	if (configFile.theme.View && configFile.theme.View.apply) {
 		let theApply = configFile.theme.View.apply;
 		delete configFile.theme.View.apply;
-		configThemeFile.View = _.merge({ apply: theApply }, configFile.theme.View);
+		configFile.theme['View'] = _.merge({ apply: theApply }, configFile.theme.View);
 	} else {
-		configThemeFile.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
+		configFile.theme['View'] = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
 	}
 
 	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
 
+	// Some clean up
+	// pagingControlHeight
+	delete base.height['fit'];
+	delete base.height['max'];
+	delete base.height['min'];
+	delete base.height['min-content'];
+	delete base.height['max-content'];
+
 	//! Width, height and margin properties
-	configThemeFile.height = base.height;
-	configThemeFile.width = base.width;
-	configThemeFile.margin = combineKeys(configFile.theme, base.spacing, 'margin');
+	configFile.theme.height = base.height;
+	configFile.theme.width = base.width;
+	configFile.theme.margin = combineKeys(configFile.theme, base.spacing, 'margin');
 
 	//! Properties with constant values
-	configThemeFile.accessibilityHidden = {};
-	configThemeFile.activeIconIsMask = {};
-	configThemeFile.activityEnterTransition = {};
-	configThemeFile.activityExitTransition = {};
-	configThemeFile.activityIndicatorStyle = {};
-	configThemeFile.activityReenterTransition = {};
-	configThemeFile.activityReturnTransition = {};
-	configThemeFile.activitySharedElementEnterTransition = {};
-	configThemeFile.activitySharedElementExitTransition = {};
-	configThemeFile.activitySharedElementReenterTransition = {};
-	configThemeFile.activitySharedElementReturnTransition = {};
-	configThemeFile.alertDialogStyle = {};
-	configThemeFile.allowsMultipleSelectionDuringEditing = {};
-	configThemeFile.allowsMultipleSelectionInteraction = {};
-	configThemeFile.allowsSelection = {};
-	configThemeFile.allowsSelectionDuringEditing = {};
-	configThemeFile.allowUserCustomization = {};
-	configThemeFile.animationStyle = {};
-	configThemeFile.autoAdjustScrollViewInsets = {};
-	configThemeFile.autocapitalization = {};
-	configThemeFile.autocorrect = {};
-	configThemeFile.autofillType = {};
-	configThemeFile.autoLink = {};
-	configThemeFile.autoreverse = {};
-	configThemeFile.backgroundBlendMode = {};
-	configThemeFile.backgroundLinearGradient = {};
-	configThemeFile.backgroundRadialGradient = {};
-	configThemeFile.backgroundRepeat = {};
-	configThemeFile.borderStyle = {};
-	configThemeFile.bubbleParent = {};
-	configThemeFile.buttonStyle = {};
-	configThemeFile.cacheSize = {};
-	configThemeFile.canDelete = {};
-	configThemeFile.canScroll = {};
-	configThemeFile.caseInsensitiveSearch = {};
-	configThemeFile.clipMode = {};
-	configThemeFile.defaultItemTemplate = {};
-	configThemeFile.dimBackgroundForSearch = {};
-	configThemeFile.disableBounce = {};
-	configThemeFile.displayCaps = {};
-	configThemeFile.displayHomeAsUp = {};
-	configThemeFile.displayUtilities = {};
-	configThemeFile.draggingConstraints = {};
-	configThemeFile.draggingType = {};
-	configThemeFile.drawerIndicatorEnabled = {};
-	configThemeFile.drawerLockMode = {};
-	configThemeFile.dropShadow = {};
-	configThemeFile.editable = {};
-	configThemeFile.editing = {};
-	configThemeFile.ellipsize = {};
-	configThemeFile.enableCopy = {};
-	configThemeFile.enabled = {};
-	configThemeFile.enableReturnKey = {};
-	configThemeFile.enableZoomControls = {};
-	configThemeFile.exitOnClose = {};
-	configThemeFile.extendBackground = {};
-	configThemeFile.extendEdges = {};
-	configThemeFile.extendSafeArea = {};
-	configThemeFile.fastScroll = {};
-	configThemeFile.filterAnchored = {};
-	configThemeFile.filterAttribute = {};
-	configThemeFile.filterCaseInsensitive = {};
-	configThemeFile.flagSecure = {};
-	configThemeFile.flip = {};
-	configThemeFile.fontStyle = {};
-	configThemeFile.footerDividersEnabled = {};
-	configThemeFile.fullscreen = {};
-	configThemeFile.gridColumnsStartEnd = {};
-	configThemeFile.gridFlow = {};
-	configThemeFile.gridSystem = {};
-	configThemeFile.headerDividersEnabled = {};
-	configThemeFile.hidesBackButton = {};
-	configThemeFile.hidesBarsOnSwipe = {};
-	configThemeFile.hidesBarsOnTap = {};
-	configThemeFile.hidesBarsWhenKeyboardAppears = {};
-	configThemeFile.hideSearchOnSelection = {};
-	configThemeFile.hideShadow = {};
-	configThemeFile.hidesSearchBarWhenScrolling = {};
-	configThemeFile.hires = {};
-	configThemeFile.homeButtonEnabled = {};
-	configThemeFile.homeIndicatorAutoHidden = {};
-	configThemeFile.html = {};
-	configThemeFile.iconified = {};
-	configThemeFile.iconifiedByDefault = {};
-	configThemeFile.iconIsMask = {};
-	configThemeFile.includeOpaqueBars = {};
-	configThemeFile.items = {};
-	configThemeFile.keepScreenOn = {};
-	configThemeFile.keepSectionsInSearch = {};
-	configThemeFile.keyboardAppearance = {};
-	configThemeFile.keyboardDismissMode = {};
-	configThemeFile.keyboardType = {};
-	configThemeFile.largeTitleDisplayMode = {};
-	configThemeFile.largeTitleEnabled = {};
-	configThemeFile.layout = {};
-	configThemeFile.lazyLoadingEnabled = {};
-	configThemeFile.leftDrawerLockMode = {};
-	configThemeFile.listViewStyle = {};
-	configThemeFile.loginKeyboardType = {};
-	configThemeFile.loginReturnKeyType = {};
-	configThemeFile.modal = {};
-	configThemeFile.moveable = {};
-	configThemeFile.moving = {};
-	configThemeFile.navBarHidden = {};
-	configThemeFile.orientationModes = {};
-	configThemeFile.origin = {};
-	configThemeFile.overlayEnabled = {};
-	configThemeFile.overScrollMode = {};
-	configThemeFile.pagingControl = {};
-	configThemeFile.pagingControlOnTop = {};
-	configThemeFile.passwordKeyboardType = {};
-	configThemeFile.pickerType = {};
-	configThemeFile.placement = {};
-	configThemeFile.preventCornerOverlap = {};
-	configThemeFile.preventDefaultImage = {};
-	configThemeFile.previewActionStyle = {};
-	configThemeFile.progressBarStyle = {};
-	configThemeFile.progressIndicatorCancelable = {};
-	configThemeFile.progressIndicatorCancelOnTouchOutside = {};
-	configThemeFile.progressIndicatorLocation = {};
-	configThemeFile.progressIndicatorType = {};
-	configThemeFile.pruneSectionsOnEdit = {};
-	configThemeFile.repeat = {};
-	configThemeFile.requestOrientation = {};
-	configThemeFile.resultsSeparatorStyle = {};
-	configThemeFile.returnKeyType = {};
-	configThemeFile.rightDrawerLockMode = {};
-	configThemeFile.rowAndColumnCount = {};
-	configThemeFile.scrollable = {};
-	configThemeFile.scrollableRegion = {};
-	configThemeFile.scrollIndicators = {};
-	configThemeFile.scrollIndicatorStyle = {};
-	configThemeFile.scrollingEnabled = {};
-	configThemeFile.scrollsToTop = {};
-	configThemeFile.scrollType = {};
-	configThemeFile.searchAsChild = {};
-	configThemeFile.searchBarStyle = {};
-	configThemeFile.searchHidden = {};
-	configThemeFile.sectionHeaderTopPadding = {};
-	configThemeFile.selectionStyle = {};
-	configThemeFile.separatorStyle = {};
-	configThemeFile.shiftMode = {};
-	configThemeFile.showAsAction = {};
-	configThemeFile.showBookmark = {};
-	configThemeFile.showCancel = {};
-	configThemeFile.showSearchBarInNavBar = {};
-	configThemeFile.showSelectionCheck = {};
-	configThemeFile.showVerticalScrollIndicator = {};
-	configThemeFile.smoothScrollOnTabClick = {};
-	configThemeFile.statusBarStyle = {};
-	configThemeFile.submitEnabled = {};
-	configThemeFile.sustainedPerformanceMode = {};
-	configThemeFile.swipeToClose = {};
-	configThemeFile.switchStyle = {};
-	configThemeFile.systemButton = {};
-	configThemeFile.tabBarHidden = {};
-	configThemeFile.tabbedBarStyle = {};
-	configThemeFile.tabGroupStyle = {};
-	configThemeFile.tableViewStyle = {};
-	configThemeFile.tabsTranslucent = {};
-	configThemeFile.textAlign = {};
-	configThemeFile.theme = {};
-	configThemeFile.tiMedia = {};
-	configThemeFile.titleAttributesShadow = {};
-	configThemeFile.toolbarEnabled = {};
-	configThemeFile.touchEnabled = {};
-	configThemeFile.touchFeedback = {};
-	configThemeFile.transition = {};
-	configThemeFile.translucent = {};
-	configThemeFile.useCompatPadding = {};
-	configThemeFile.useSpinner = {};
-	configThemeFile.verticalAlign = {};
-	configThemeFile.viewShadow = {};
-	configThemeFile.willScrollOnStatusTap = {};
-	configThemeFile.windowPixelFormat = {};
-	configThemeFile.windowSoftInputMode = {};
-	configThemeFile.wobble = {};
+	configFile.theme.accessibilityHidden = {};
+	configFile.theme.activeIconIsMask = {};
+	configFile.theme.activityEnterTransition = {};
+	configFile.theme.activityExitTransition = {};
+	configFile.theme.activityIndicatorStyle = {};
+	configFile.theme.activityReenterTransition = {};
+	configFile.theme.activityReturnTransition = {};
+	configFile.theme.activitySharedElementEnterTransition = {};
+	configFile.theme.activitySharedElementExitTransition = {};
+	configFile.theme.activitySharedElementReenterTransition = {};
+	configFile.theme.activitySharedElementReturnTransition = {};
+	configFile.theme.alertDialogStyle = {};
+	configFile.theme.allowsMultipleSelectionDuringEditing = {};
+	configFile.theme.allowsMultipleSelectionInteraction = {};
+	configFile.theme.allowsSelection = {};
+	configFile.theme.allowsSelectionDuringEditing = {};
+	configFile.theme.allowUserCustomization = {};
+	configFile.theme.animationStyle = {};
+	configFile.theme.autoAdjustScrollViewInsets = {};
+	configFile.theme.autocapitalization = {};
+	configFile.theme.autocorrect = {};
+	configFile.theme.autofillType = {};
+	configFile.theme.autoLink = {};
+	configFile.theme.autoreverse = {};
+	configFile.theme.backgroundBlendMode = {};
+	configFile.theme.backgroundLinearGradient = {};
+	configFile.theme.backgroundRadialGradient = {};
+	configFile.theme.backgroundRepeat = {};
+	configFile.theme.borderStyle = {};
+	configFile.theme.bubbleParent = {};
+	configFile.theme.buttonStyle = {};
+	configFile.theme.cacheSize = {};
+	configFile.theme.canDelete = {};
+	configFile.theme.canScroll = {};
+	configFile.theme.caseInsensitiveSearch = {};
+	configFile.theme.clipMode = {};
+	configFile.theme.defaultItemTemplate = {};
+	configFile.theme.dimBackgroundForSearch = {};
+	configFile.theme.disableBounce = {};
+	configFile.theme.displayCaps = {};
+	configFile.theme.displayHomeAsUp = {};
+	configFile.theme.displayUtilities = {};
+	configFile.theme.draggingConstraints = {};
+	configFile.theme.draggingType = {};
+	configFile.theme.drawerIndicatorEnabled = {};
+	configFile.theme.drawerLockMode = {};
+	configFile.theme.dropShadow = {};
+	configFile.theme.editable = {};
+	configFile.theme.editing = {};
+	configFile.theme.ellipsize = {};
+	configFile.theme.enableCopy = {};
+	configFile.theme.enabled = {};
+	configFile.theme.enableReturnKey = {};
+	configFile.theme.enableZoomControls = {};
+	configFile.theme.exitOnClose = {};
+	configFile.theme.extendBackground = {};
+	configFile.theme.extendEdges = {};
+	configFile.theme.extendSafeArea = {};
+	configFile.theme.fastScroll = {};
+	configFile.theme.filterAnchored = {};
+	configFile.theme.filterAttribute = {};
+	configFile.theme.filterCaseInsensitive = {};
+	configFile.theme.flagSecure = {};
+	configFile.theme.flip = {};
+	configFile.theme.fontStyle = {};
+	configFile.theme.footerDividersEnabled = {};
+	configFile.theme.fullscreen = {};
+	configFile.theme.gridColumnsStartEnd = {};
+	configFile.theme.gridFlow = {};
+	configFile.theme.gridSystem = {};
+	configFile.theme.headerDividersEnabled = {};
+	configFile.theme.hidesBackButton = {};
+	configFile.theme.hidesBarsOnSwipe = {};
+	configFile.theme.hidesBarsOnTap = {};
+	configFile.theme.hidesBarsWhenKeyboardAppears = {};
+	configFile.theme.hideSearchOnSelection = {};
+	configFile.theme.hideShadow = {};
+	configFile.theme.hidesSearchBarWhenScrolling = {};
+	configFile.theme.hires = {};
+	configFile.theme.homeButtonEnabled = {};
+	configFile.theme.homeIndicatorAutoHidden = {};
+	configFile.theme.html = {};
+	configFile.theme.iconified = {};
+	configFile.theme.iconifiedByDefault = {};
+	configFile.theme.iconIsMask = {};
+	configFile.theme.includeOpaqueBars = {};
+	configFile.theme.items = {};
+	configFile.theme.keepScreenOn = {};
+	configFile.theme.keepSectionsInSearch = {};
+	configFile.theme.keyboardAppearance = {};
+	configFile.theme.keyboardDismissMode = {};
+	configFile.theme.keyboardType = {};
+	configFile.theme.largeTitleDisplayMode = {};
+	configFile.theme.largeTitleEnabled = {};
+	configFile.theme.layout = {};
+	configFile.theme.lazyLoadingEnabled = {};
+	configFile.theme.leftDrawerLockMode = {};
+	configFile.theme.listViewStyle = {};
+	configFile.theme.loginKeyboardType = {};
+	configFile.theme.loginReturnKeyType = {};
+	configFile.theme.modal = {};
+	configFile.theme.moveable = {};
+	configFile.theme.moving = {};
+	configFile.theme.navBarHidden = {};
+	configFile.theme.orientationModes = {};
+	configFile.theme.origin = {};
+	configFile.theme.overlayEnabled = {};
+	configFile.theme.overScrollMode = {};
+	configFile.theme.pagingControl = {};
+	configFile.theme.pagingControlOnTop = {};
+	configFile.theme.passwordKeyboardType = {};
+	configFile.theme.pickerType = {};
+	configFile.theme.placement = {};
+	configFile.theme.preventCornerOverlap = {};
+	configFile.theme.preventDefaultImage = {};
+	configFile.theme.previewActionStyle = {};
+	configFile.theme.progressBarStyle = {};
+	configFile.theme.progressIndicatorCancelable = {};
+	configFile.theme.progressIndicatorCancelOnTouchOutside = {};
+	configFile.theme.progressIndicatorLocation = {};
+	configFile.theme.progressIndicatorType = {};
+	configFile.theme.pruneSectionsOnEdit = {};
+	configFile.theme.repeat = {};
+	configFile.theme.requestOrientation = {};
+	configFile.theme.resultsSeparatorStyle = {};
+	configFile.theme.returnKeyType = {};
+	configFile.theme.rightDrawerLockMode = {};
+	configFile.theme.rowAndColumnCount = {};
+	configFile.theme.scrollable = {};
+	configFile.theme.scrollableRegion = {};
+	configFile.theme.scrollIndicators = {};
+	configFile.theme.scrollIndicatorStyle = {};
+	configFile.theme.scrollingEnabled = {};
+	configFile.theme.scrollsToTop = {};
+	configFile.theme.scrollType = {};
+	configFile.theme.searchAsChild = {};
+	configFile.theme.searchBarStyle = {};
+	configFile.theme.searchHidden = {};
+	configFile.theme.sectionHeaderTopPadding = {};
+	configFile.theme.selectionStyle = {};
+	configFile.theme.separatorStyle = {};
+	configFile.theme.shiftMode = {};
+	configFile.theme.showAsAction = {};
+	configFile.theme.showBookmark = {};
+	configFile.theme.showCancel = {};
+	configFile.theme.showSearchBarInNavBar = {};
+	configFile.theme.showSelectionCheck = {};
+	configFile.theme.showVerticalScrollIndicator = {};
+	configFile.theme.smoothScrollOnTabClick = {};
+	configFile.theme.statusBarStyle = {};
+	configFile.theme.submitEnabled = {};
+	configFile.theme.sustainedPerformanceMode = {};
+	configFile.theme.swipeToClose = {};
+	configFile.theme.switchStyle = {};
+	configFile.theme.systemButton = {};
+	configFile.theme.tabBarHidden = {};
+	configFile.theme.tabbedBarStyle = {};
+	configFile.theme.tabGroupStyle = {};
+	configFile.theme.tableViewStyle = {};
+	configFile.theme.tabsTranslucent = {};
+	configFile.theme.textAlign = {};
+	configFile.theme.theme = {};
+	configFile.theme.tiMedia = {};
+	configFile.theme.titleAttributesShadow = {};
+	configFile.theme.toolbarEnabled = {};
+	configFile.theme.touchEnabled = {};
+	configFile.theme.touchFeedback = {};
+	configFile.theme.transition = {};
+	configFile.theme.translucent = {};
+	configFile.theme.useCompatPadding = {};
+	configFile.theme.useSpinner = {};
+	configFile.theme.verticalAlign = {};
+	configFile.theme.viewShadow = {};
+	configFile.theme.willScrollOnStatusTap = {};
+	configFile.theme.windowPixelFormat = {};
+	configFile.theme.windowSoftInputMode = {};
+	configFile.theme.wobble = {};
 
 	//! Configurable properties
-	configThemeFile.borderRadius = combineKeys(configFile.theme, defaultBorderRadius, 'borderRadius');
-	configThemeFile.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth');
-	configThemeFile.bottomNavigation = combineKeys(configFile.theme, base.spacing, 'bottomNavigation');
-	configThemeFile.elevation = combineKeys(configFile.theme, base.spacing, 'elevation');
-	configThemeFile.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily');
-	configThemeFile.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize');
-	configThemeFile.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight');
-	configThemeFile.gap = combineKeys(configFile.theme, base.spacing, 'margin');
-	configThemeFile.leftWidth = combineKeys(configFile.theme, base.width, 'leftWidth');
-	configThemeFile.maxElevation = combineKeys(configFile.theme, base.spacing, 'maxElevation');
-	configThemeFile.maxRowHeight = combineKeys(configFile.theme, base.height, 'maxRowHeight');
-	configThemeFile.minRowHeight = combineKeys(configFile.theme, base.height, 'minRowHeight');
-	configThemeFile.opacity = combineKeys(configFile.theme, defaultTheme.opacity, 'opacity');
-	configThemeFile.padding = combineKeys(configFile.theme, base.spacing, 'padding');
-	configThemeFile.pagingControlAlpha = combineKeys(configFile.theme, defaultTheme.opacity, 'pagingControlAlpha');
-	configThemeFile.pagingControlHeight = combineKeys(configFile.theme, base.height, 'pagingControlHeight');
-	configThemeFile.pagingControlTimeout = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'pagingControlTimeout');
-	configThemeFile.rightWidth = combineKeys(configFile.theme, base.width, 'rightWidth');
-	configThemeFile.rotate = combineKeys(configFile.theme, defaultTheme.rotate, 'rotate');
-	configThemeFile.rowHeight = combineKeys(configFile.theme, base.height, 'rowHeight');
-	configThemeFile.scale = combineKeys(configFile.theme, { ...{ 5: '.05', 10: '.10', 25: '.25' }, ...defaultTheme.scale }, 'scale');
-	configThemeFile.separatorHeight = combineKeys(configFile.theme, base.height, 'separatorHeight');
-	configThemeFile.shadowRadius = combineKeys(configFile.theme, base.spacing, 'shadowRadius');
-	configThemeFile.transitionDelay = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'transitionDelay');
-	configThemeFile.transitionDuration = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDuration }, 'transitionDuration');
-	configThemeFile.zIndex = combineKeys(configFile.theme, defaultTheme.zIndex, 'zIndex');
+	configFile.theme.borderRadius = combineKeys(configFile.theme, _.merge(defaultBorderRadius, configFile.theme.spacing, configFile.theme.extend.spacing), 'borderRadius');
+	configFile.theme.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth');
+	configFile.theme.bottomNavigation = combineKeys(configFile.theme, base.spacing, 'bottomNavigation');
+	configFile.theme.elevation = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'elevation');
+	configFile.theme.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily');
+	configFile.theme.fontSize = combineKeys(configFile.theme, defaultTheme.fontSize, 'fontSize');
+	configFile.theme.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight');
+	configFile.theme.gap = combineKeys(configFile.theme, base.spacing, 'margin');
+	configFile.theme.leftWidth = combineKeys(configFile.theme, base.width, 'leftWidth');
+	configFile.theme.maxElevation = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'maxElevation');
+	configFile.theme.maxRowHeight = combineKeys(configFile.theme, base.height, 'maxRowHeight');
+	configFile.theme.minRowHeight = combineKeys(configFile.theme, base.height, 'minRowHeight');
+	configFile.theme.opacity = combineKeys(configFile.theme, defaultTheme.opacity, 'opacity');
+	configFile.theme.padding = combineKeys(configFile.theme, base.spacing, 'padding');
+	configFile.theme.pagingControlAlpha = combineKeys(configFile.theme, defaultTheme.opacity, 'pagingControlAlpha');
+	configFile.theme.pagingControlHeight = combineKeys(configFile.theme, base.height, 'pagingControlHeight');
+	configFile.theme.pagingControlTimeout = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'pagingControlTimeout');
+	configFile.theme.rightWidth = combineKeys(configFile.theme, base.width, 'rightWidth');
+	configFile.theme.rotate = combineKeys(configFile.theme, defaultTheme.rotate, 'rotate');
+	configFile.theme.rowHeight = combineKeys(configFile.theme, base.height, 'rowHeight');
+	configFile.theme.scale = combineKeys(configFile.theme, { ...{ 5: '.05', 10: '.10', 25: '.25' }, ...defaultTheme.scale }, 'scale');
+	configFile.theme.separatorHeight = combineKeys(configFile.theme, base.height, 'separatorHeight');
+	configFile.theme.shadowRadius = combineKeys(configFile.theme, _.merge(base.spacing, configFile.theme.spacing, configFile.theme.extend.spacing), 'shadowRadius');
+	configFile.theme.transitionDelay = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDelay }, 'transitionDelay');
+	configFile.theme.transitionDuration = combineKeys(configFile.theme, { ...{ '0': '0ms', '25': '25ms', '50': '50ms', '250': '250ms', '350': '350ms', '400': '400ms', '450': '450ms', '600': '600ms', '800': '800ms', '900': '900ms', '2000': '2000ms', '3000': '3000ms', '4000': '4000ms', '5000': '5000ms' }, ...defaultTheme.transitionDuration }, 'transitionDuration');
+	configFile.theme.zIndex = combineKeys(configFile.theme, defaultTheme.zIndex, 'zIndex');
 
 	//! Color related properties
-	configThemeFile.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor');
-	configThemeFile.activeTitleColor = combineKeys(configFile.theme, base.colors, 'activeTitleColor');
-	configThemeFile.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor');
-	configThemeFile.backgroundGradient = combineKeys(configFile.theme, base.colors, 'backgroundGradient');
-	configThemeFile.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor');
-	configThemeFile.barColor = combineKeys(configFile.theme, base.colors, 'barColor');
-	configThemeFile.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor');
-	configThemeFile.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor');
-	configThemeFile.disabledColor = combineKeys(configFile.theme, base.colors, 'disabledColor');
-	configThemeFile.dropShadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
-	configThemeFile.hintTextColor = combineKeys(configFile.theme, base.colors, 'hintTextColor');
-	configThemeFile.indicatorColor = combineKeys(configFile.theme, base.colors, 'indicatorColor');
-	configThemeFile.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor');
-	configThemeFile.pageIndicatorColor = combineKeys(configFile.theme, base.colors, 'pageIndicatorColor');
-	configThemeFile.pagingControlColor = combineKeys(configFile.theme, base.colors, 'pagingControlColor');
-	configThemeFile.resultsBackgroundColor = combineKeys(configFile.theme, base.colors, 'resultsBackgroundColor');
-	configThemeFile.resultsSeparatorColor = combineKeys(configFile.theme, base.colors, 'resultsSeparatorColor');
-	configThemeFile.selectedButtonColor = combineKeys(configFile.theme, base.colors, 'selectedButtonColor');
-	configThemeFile.selectedColor = combineKeys(configFile.theme, base.colors, 'selectedColor');
-	configThemeFile.selectedTextColor = combineKeys(configFile.theme, base.colors, 'selectedTextColor');
-	configThemeFile.separatorColor = combineKeys(configFile.theme, base.colors, 'separatorColor');
-	configThemeFile.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
-	configThemeFile.tabsBackgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundSelectedColor');
-	configThemeFile.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
-	configThemeFile.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor');
-	configThemeFile.titleAttributesColor = combineKeys(configFile.theme, base.colors, 'titleAttributesColor');
-	configThemeFile.titleAttributesShadowColor = combineKeys(configFile.theme, base.colors, 'titleAttributesShadowColor');
-	configThemeFile.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor');
-	configThemeFile.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor');
-	configThemeFile.viewShadowColor = combineKeys(configFile.theme, base.colors, 'viewShadowColor');
+	configFile.theme.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor');
+	configFile.theme.activeTitleColor = combineKeys(configFile.theme, base.colors, 'activeTitleColor');
+	configFile.theme.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor');
+	configFile.theme.backgroundGradient = combineKeys(configFile.theme, base.colors, 'backgroundGradient');
+	configFile.theme.backgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'backgroundSelectedColor');
+	configFile.theme.barColor = combineKeys(configFile.theme, base.colors, 'barColor');
+	configFile.theme.borderColor = combineKeys(configFile.theme, base.colors, 'borderColor');
+	configFile.theme.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor');
+	configFile.theme.disabledColor = combineKeys(configFile.theme, base.colors, 'disabledColor');
+	configFile.theme.dropShadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
+	configFile.theme.hintTextColor = combineKeys(configFile.theme, base.colors, 'hintTextColor');
+	configFile.theme.indicatorColor = combineKeys(configFile.theme, base.colors, 'indicatorColor');
+	configFile.theme.navTintColor = combineKeys(configFile.theme, base.colors, 'navTintColor');
+	configFile.theme.pageIndicatorColor = combineKeys(configFile.theme, base.colors, 'pageIndicatorColor');
+	configFile.theme.pagingControlColor = combineKeys(configFile.theme, base.colors, 'pagingControlColor');
+	configFile.theme.resultsBackgroundColor = combineKeys(configFile.theme, base.colors, 'resultsBackgroundColor');
+	configFile.theme.resultsSeparatorColor = combineKeys(configFile.theme, base.colors, 'resultsSeparatorColor');
+	configFile.theme.selectedButtonColor = combineKeys(configFile.theme, base.colors, 'selectedButtonColor');
+	configFile.theme.selectedColor = combineKeys(configFile.theme, base.colors, 'selectedColor');
+	configFile.theme.selectedTextColor = combineKeys(configFile.theme, base.colors, 'selectedTextColor');
+	configFile.theme.separatorColor = combineKeys(configFile.theme, base.colors, 'separatorColor');
+	configFile.theme.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
+	configFile.theme.tabsBackgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundSelectedColor');
+	configFile.theme.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
+	configFile.theme.tintColor = combineKeys(configFile.theme, base.colors, 'tintColor');
+	configFile.theme.titleAttributesColor = combineKeys(configFile.theme, base.colors, 'titleAttributesColor');
+	configFile.theme.titleAttributesShadowColor = combineKeys(configFile.theme, base.colors, 'titleAttributesShadowColor');
+	configFile.theme.titleColor = combineKeys(configFile.theme, base.colors, 'titleColor');
+	configFile.theme.touchFeedbackColor = combineKeys(configFile.theme, base.colors, 'touchFeedbackColor');
+	configFile.theme.viewShadowColor = combineKeys(configFile.theme, base.colors, 'viewShadowColor');
 
 	// !Some final cleanup
 	delete configFile.theme.extend;
 	delete configFile.theme.colors;
 	delete configFile.theme.spacing;
 
-	if (!Object.keys(configThemeFile.fontFamily).length) {
-		delete configThemeFile.fontFamily;
+	if (!Object.keys(configFile.theme.fontFamily).length) {
 		delete configFile.theme.fontFamily;
 	}
 
@@ -1276,27 +1280,15 @@ function buildCustomTailwind(message = 'file created!') {
 	let corePlugins = Array.isArray(configFile.corePlugins) ? configFile.corePlugins : Object.keys(configFile.corePlugins).map(key => key);
 	// !Delete corePlugins specified in the config file
 	_.each(corePlugins, value => {
-		delete configThemeFile[value];
 		delete configFile.theme[value];
 	});
 
 	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8');
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8');
 	tailwindStyles += (iAmInProjectFolder) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : `// default config.js file\n`;
+	tailwindStyles += '\n// Custom Styles and Resets\n';
 
-	_.each(configThemeFile, (value, key) => {
-		delete configFile.theme[key];
-	});
-
-	if (Object.keys(configFile.theme).length) {
-		tailwindStyles += '\n// Custom Styles\n';
-		_.each(configFile.theme, (value, key) => {
-			tailwindStyles += helperToBuildCustomTailwindClasses(key, value);
-		});
-	}
-
-	tailwindStyles += '\n// Resets\n';
-	_.each(configThemeFile, (value, key) => {
+	_.each(configFile.theme, (value, key) => {
 		tailwindStyles += helperToBuildCustomTailwindClasses(key, value);
 	});
 
@@ -1311,32 +1303,6 @@ function buildCustomTailwind(message = 'file created!') {
 	}
 }
 module.exports.buildCustomTailwind = buildCustomTailwind;
-
-function removeFitMaxMin(theObject) {
-	delete theObject.width['fit'];
-	delete theObject.width['max'];
-	delete theObject.width['min'];
-	delete theObject.height['fit'];
-	delete theObject.height['max'];
-	delete theObject.height['min'];
-}
-function fixPercentages(theObject) {
-	_.each(theObject, (value, key) => {
-		if (value.toString().includes('.333333%')) {
-			theObject[key] = value.replace('.333333%', '.333334%');
-		}
-	});
-}
-
-function removeDeprecatedColors(theObject) {
-	delete theObject.blueGray;
-	delete theObject.coolGray;
-	delete theObject.current;
-	delete theObject.inherit;
-	delete theObject.lightBlue;
-	delete theObject.trueGray;
-	delete theObject.warmGray;
-}
 
 function createDefinitionsFile() {
 	let classDefinitions = '';
