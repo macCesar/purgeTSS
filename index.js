@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs');
 const cwd = process.cwd();
 const _ = require('lodash');
@@ -84,13 +86,16 @@ const srcFontAwesomeBetaFontFamilies = {
 //
 const srcFontsFolder = path.resolve(__dirname, './assets/fonts');
 const srcResetTSSFile = path.resolve(__dirname, './dist/reset.tss');
-const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
 
 const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss');
 const srcFramework7FontTSSFile = path.resolve(__dirname, './dist/framework7icons.tss');
 const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialdesignicons.tss');
 
 const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
+
+const configFile = (fs.existsSync(projectConfigJS)) ? require(projectConfigJS) : require(srcConfigFile);
+const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : false;
+const srcJMKFile = (isInstalledGlobally) ? path.resolve(__dirname, './lib/templates/alloy.jmk') : path.resolve(__dirname, './lib/templates/alloy-local.jmk');
 
 //! Interfase
 
@@ -99,25 +104,7 @@ function purgeClasses(options) {
 	if (alloyProject()) {
 		start();
 
-		if (!fs.existsSync(projectConfigJS)) {
-			init();
-		}
-
-		if (!fs.existsSync(projectTailwindTSS)) {
-			buildCustomTailwind('file created!');
-		}
-
-		if (isInstalledGlobally) {
-			if (fs.existsSync(projectAlloyJMKFile)) {
-				if (!fs.readFileSync(projectAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
-					addHook();
-				}
-			} else {
-				createJMKFile();
-			}
-		} else {
-			logger.error('Please install PurgeTSS globally!');
-		}
+		init();
 
 		backupOriginalAppTss();
 
@@ -137,36 +124,77 @@ function purgeClasses(options) {
 
 		tempPurged += purgeCustomFonts(uniqueClasses, cleanUniqueClasses);
 
-		let missingClasses = getMissingClasses(tempPurged);
-
-		if (missingClasses.length > 0) {
-			tempPurged += '\n';
-			tempPurged += '// Unused or unsupported classes\n';
-
-			_.each(missingClasses, (missingClass) => {
-				tempPurged += `'.${missingClass}': { }\n`;
-			});
-		}
+		tempPurged += processMissingClasses(tempPurged);
 
 		saveFile(projectAppTSS, tempPurged);
 
 		logger.file('app.tss');
 
 		finish();
+
+		if (!isInstalledGlobally) {
+			logger.error('Please install PurgeTSS globally!');
+		}
 	}
 }
 module.exports.purgeClasses = purgeClasses;
 
+function init() {
+	// config file
+	if (!fs.existsSync(projectConfigJS)) {
+		createConfigFile();
+	}
+
+	// tailwind.tss
+	if (!fs.existsSync(projectTailwindTSS)) {
+		buildCustomTailwind('file created!');
+	}
+
+	// definitios file
+	if (!fs.existsSync(cwd + '/purgetss/definitions.css')) {
+		createDefinitionsFile();
+	}
+
+	// auto purge hook
+	if (fs.existsSync(projectAlloyJMKFile)) {
+		if (!fs.readFileSync(projectAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
+			addHook();
+		}
+	} else {
+		createJMKFile();
+	}
+}
+module.exports.init = init;
+
+function processMissingClasses(tempPurged) {
+	let unusedOrMissingClasses = '';
+
+	if (configOptions.missing) {
+		let missingClasses = findMissingClasses(tempPurged);
+
+		if (missingClasses.length > 0) {
+			unusedOrMissingClasses += '\n';
+			unusedOrMissingClasses += '// Unused or unsupported classes\n';
+
+			_.each(missingClasses, (missingClass) => {
+				unusedOrMissingClasses += `// '.${missingClass}': { }\n`;
+			});
+		}
+	}
+
+	return unusedOrMissingClasses;
+}
+
 //! Command: watch
 function watchMode(options) {
-	if (alloyProject() && isInstalledGlobally) {
+	if (alloyProject()) {
 		if (fs.existsSync(projectAlloyJMKFile)) {
 			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
 			if (options.off) {
 				removeHook();
-			} else if (!fs.readFileSync(projectAlloyJMKFile, 'utf8').includes('purgetss')) {
+			} else if (!fs.readFileSync(projectAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
 				addHook();
-			} else if (fs.readFileSync(projectAlloyJMKFile, 'utf8').includes("//\trequire('child_process').execSync('purgetss")) {
+			} else if (fs.readFileSync(projectAlloyJMKFile, 'utf8').includes("//\trequire('child_process').execSync('")) {
 				enableHook();
 			} else {
 				logger.warn(chalk.yellow('Auto-Purging hook already present!'));
@@ -174,6 +202,8 @@ function watchMode(options) {
 		} else if (!options.off) {
 			createJMKFile();
 		}
+	} else {
+		logger.warn(chalk.yellow('You can’t autorun purgetss !'));
 	}
 }
 module.exports.watchMode = watchMode;
@@ -245,10 +275,12 @@ function cleanClasses(uniqueClasses) {
 }
 
 //! Command: init
-function init() {
+function createConfigFile() {
 	if (alloyProject()) {
 		makeSureFolderExists(projectPurgeTSSFolder);
+
 		makeSureFolderExists(projectPurgeTSSFontsFolder);
+
 		if (fs.existsSync(projectConfigJS)) {
 			logger.warn('./purgetss/config.js', chalk.red('file already exists!'));
 		} else {
@@ -257,7 +289,6 @@ function init() {
 		}
 	}
 }
-module.exports.init = init;
 
 //! Command: create
 function create(args, options) {
@@ -760,12 +791,34 @@ function prettifyFontName(str, prefix) {
 };
 
 //! Helper Functions
-function getMissingClasses(tempPurged) {
-	_.each(getFiles(cwd + '/app/styles').filter(file => file.endsWith('.tss') && !file.endsWith('app.tss')), file => {
+function findMissingClasses(tempPurged) {
+
+	//! Get Views from App - Minus `app.tss`
+	_.each(getFiles(cwd + '/app/styles').filter(file => file.endsWith('.tss') && !file.endsWith('app.tss') && !file.endsWith('_app.tss')), file => {
 		tempPurged += '\n' + fs.readFileSync(file, 'utf8');
 	});
 
-	return getOnlyClassesFromXMLFiles().filter(item => !tempPurged.includes(item));
+	//! Get Views from Widgets  ( Experimental )
+	if (configOptions.widgets) {
+		_.each(getFiles(cwd + '/app/widgets').filter(file => file.endsWith('.tss')), file => {
+			tempPurged += '\n' + fs.readFileSync(file, 'utf8');
+		});
+	}
+
+	//! Get Views from Themes  ( Experimental )
+	if (fs.existsSync(cwd + '/app/themes/')) {
+		_.each(getFiles(cwd + '/app/themes').filter(file => file.endsWith('.tss')), file => {
+			tempPurged += '\n' + fs.readFileSync(file, 'utf8');
+		});
+	}
+
+	if (configOptions.safelist) {
+		_.each(configOptions.safelist, safe => {
+			tempPurged += safe + '\n';
+		})
+	}
+
+	return getClassesOnlyFromXMLFiles().filter(item => !tempPurged.includes(item));
 }
 
 function addHook() {
@@ -777,7 +830,8 @@ function addHook() {
 
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
 			if (line.includes('pre:compile')) {
-				line += "\n\trequire('child_process').execSync('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));";
+				let execCommand = (isInstalledGlobally) ? 'purgetss' : 'node node_modules/purgetss/bin/purgetss';
+				line += `\n\trequire('child_process').execSync('${execCommand}', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
 			}
 			updatedJMKFile.push(line);
 		});
@@ -795,14 +849,14 @@ function removeHook() {
 
 	if (purgeCmdPresent) {
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
-			if (!line.includes("require('child_process').execSync('purgetss")) {
+			if (!line.includes("::PurgeTSS::")) {
 				updatedJMKFile.push(line);
 			} else if (!line.includes("//")) {
 				updatedJMKFile.push(`\t//${line}`);
 				logger.warn(chalk.yellow('Auto-Purging hook disabled!'));
 			} else {
 				logger.warn(chalk.red('Auto-Purging hook removed!'));
-				logger.warn(chalk.red('It will be added the next time `PurgeTSS` runs!'));
+				// logger.warn(chalk.red('It will be added the next time `PurgeTSS` runs!'));
 			}
 		});
 
@@ -816,7 +870,7 @@ function enableHook() {
 	let originalJMKFile = fs.readFileSync(projectAlloyJMKFile, 'utf8');
 
 	originalJMKFile.split(/\r?\n/).forEach((line) => {
-		if (line.includes("require('child_process').execSync('purgetss")) {
+		if (line.includes("::PurgeTSS::")) {
 			logger.warn(chalk.green('Auto-Purging hook enabled!'));
 			line = line.replace(/\/\/\t/g, "");
 		}
@@ -829,7 +883,7 @@ function enableHook() {
 
 function initIfNotConfig() {
 	if (!fs.existsSync(projectConfigJS)) {
-		init();
+		createConfigFile();
 	}
 }
 
@@ -848,12 +902,27 @@ function copyFile(src, dest) {
 	}
 }
 
-function getOnlyClassesFromXMLFiles() {
+function getViewPaths() {
 	let viewPaths = [];
 
-	readAllXMLFiles(cwd + '/app/views', viewPath => {
-		viewPaths.push(viewPath);
-	});
+	//! Parse Views from App
+	viewPaths.push(...glob.sync(cwd + '/app/views/**/*.xml'));
+
+	//! Parse Views from Widgets  ( Experimental )
+	if (configOptions.widgets) {
+		viewPaths.push(...glob.sync(cwd + '/app/widgets/**/views/*.xml'));
+	}
+
+	//! Parse Views from Themes  ( Experimental )
+	if (fs.existsSync(cwd + '/app/themes/')) {
+		viewPaths.push(...glob.sync(cwd + '/app/themes/**/views/*.xml'));
+	}
+
+	return viewPaths;
+}
+
+function getClassesOnlyFromXMLFiles() {
+	let viewPaths = getViewPaths();
 
 	let allClasses = [];
 	_.each(viewPaths, viewPath => {
@@ -871,42 +940,18 @@ function getOnlyClassesFromXMLFiles() {
 }
 
 function getUniqueClasses() {
-	let configFile = (fs.existsSync(projectConfigJS)) ? require(projectConfigJS) : false;
-
-	let widgets = false;
-	let safelist = false;
-	let purgeMode = 'all';
-	let purgeOptions = false;
-
-	if (configFile.purge) {
-		purgeOptions = configFile.purge.options || false;
-		widgets = purgeOptions.widgets || false;
-		safelist = purgeOptions.safelist || false;
-		purgeMode = configFile.purge.mode || 'all';
-	}
-
-	let viewPaths = [];
-
-	readAllXMLFiles(cwd + '/app/views', viewPath => {
-		viewPaths.push(viewPath);
-	});
-
-	if (widgets) {
-		//! Parse Widgets' Views ( Experimental )
-		viewPaths.push(...glob.sync(cwd + '/app/widgets/**/views/*.xml'));
-	}
+	let viewPaths = getViewPaths();
 
 	let allClasses = [];
-
-	// read all XML files
 	_.each(viewPaths, viewPath => {
 		let file = fs.readFileSync(viewPath, 'utf8');
-
-		allClasses.push((purgeMode === 'all') ? file.match(/[^<>"'`\s]*[^<>"'`\s:]/g) : extractClasses(file, viewPath));
+		if (file) {
+			allClasses.push((configFile.purge.mode === 'all') ? file.match(/[^<>"'`\s]*[^<>"'`\s:]/g) : extractClasses(file, viewPath));
+		}
 	});
 
-	if (safelist) {
-		_.each(safelist, safe => {
+	if (configOptions.safelist) {
+		_.each(configOptions.safelist, safe => {
 			allClasses.push(safe);
 		})
 	}
@@ -946,24 +991,28 @@ function filterCharacters(uniqueClass) {
 
 //! Build Custom Tailwind ( Main )
 function buildCustomTailwind(message = 'file created!') {
-	let iAmInProjectFolder = fs.existsSync(projectConfigJS);
-	let configFile = (iAmInProjectFolder) ? require(projectConfigJS) : require(srcConfigFile);
-
 	const defaultColors = require('tailwindcss/colors');
 	const defaultTheme = require('tailwindcss/defaultTheme');
 
-	// Remove deprecated colors
 	removeDeprecatedColors(defaultColors);
 
 	// !Prepare values
 	configFile.theme.extend = configFile.theme.extend ?? {};
-	let allWidthsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...defaultTheme.width({ theme: () => (defaultTheme.spacing) }) };
-	let allHeightsCombined = (configFile.theme.spacing) ? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing } : { ...defaultTheme.width({ theme: () => (defaultTheme.spacing) }), ...defaultTheme.height({ theme: () => (defaultTheme.spacing) }) };
+
+	let allWidthsCombined = (configFile.theme.spacing)
+		? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing }
+		: { ...defaultTheme.width({ theme: () => (defaultTheme.spacing) }) };
+	let allHeightsCombined = (configFile.theme.spacing)
+		? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing }
+		: { ...defaultTheme.width({ theme: () => (defaultTheme.spacing) }), ...defaultTheme.height({ theme: () => (defaultTheme.spacing) }) };
+	let allSpacingCombined = (configFile.theme.spacing)
+		? { ...{ full: '100%', auto: '', screen: '' }, ...configFile.theme.spacing }
+		: { ...defaultTheme.spacing, ...defaultTheme.width({ theme: () => (defaultTheme.spacing) }), ...defaultTheme.height({ theme: () => (defaultTheme.spacing) }) };
 
 	let overwritten = {
 		width: configFile.theme.width ?? allWidthsCombined,
 		height: configFile.theme.height ?? allHeightsCombined,
-		spacing: configFile.theme.spacing ?? { ...defaultTheme.spacing },
+		spacing: configFile.theme.spacing ?? allSpacingCombined,
 		colors: configFile.theme.colors ?? { transparent: 'transparent', ...defaultColors },
 	}
 
@@ -973,16 +1022,9 @@ function buildCustomTailwind(message = 'file created!') {
 	let base = { colors: {}, spacing: {}, width: {}, height: {} };
 
 	_.merge(base.colors, overwritten.colors, configFile.theme.extend.colors);
-	_.merge(base.spacing, overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, overwritten.height);
+	_.merge(base.spacing, overwritten.spacing, configFile.theme.extend.spacing);
 	_.merge(base.width, overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width);
 	_.merge(base.height, overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height);
-
-	// let base = {
-	// 	colors: _.merge(overwritten.colors, configFile.theme.extend.colors),
-	// 	spacing: _.merge(overwritten.spacing, configFile.theme.extend.spacing),
-	// 	width: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width),
-	// 	height: _.merge(overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height)
-	// }
 
 	// Fix any '.333333%' value to '.333334%' to propertly fit the screen
 	fixPercentages(base.width);
@@ -992,29 +1034,17 @@ function buildCustomTailwind(message = 'file created!') {
 	let configThemeFile = {};
 
 	//! Process custom Window, View and ImageView
-	if (configFile.theme.Window && configFile.theme.Window.apply) {
-		let theApply = configFile.theme.Window.apply;
-		delete configFile.theme.Window.apply;
-		configThemeFile.Window = _.merge({ apply: theApply }, configFile.theme.Window);
-	} else {
-		configThemeFile.Window = _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
-	}
+	configThemeFile.Window = (configFile.theme.Window && configFile.theme.Window.apply)
+		? _.merge({ apply: configFile.theme.Window.apply }, configFile.theme.Window)
+		: _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
 
-	if (configFile.theme.ImageView && configFile.theme.ImageView.apply) {
-		let theApply = configFile.theme.ImageView.apply;
-		delete configFile.theme.ImageView.apply;
-		configThemeFile.ImageView = _.merge({ apply: theApply }, { ios: { hires: true } }, configFile.theme.ImageView);
-	} else {
-		configThemeFile.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
-	}
+	configThemeFile.ImageView = (configFile.theme.ImageView && configFile.theme.ImageView.apply)
+		? _.merge({ apply: configFile.theme.ImageView.apply }, { ios: { hires: true } }, configFile.theme.ImageView)
+		: _.merge({ ios: { hires: true } }, configFile.theme.ImageView);
 
-	if (configFile.theme.View && configFile.theme.View.apply) {
-		let theApply = configFile.theme.View.apply;
-		delete configFile.theme.View.apply;
-		configThemeFile.View = _.merge({ apply: theApply }, configFile.theme.View);
-	} else {
-		configThemeFile.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
-	}
+	configThemeFile.View = (configFile.theme.View && configFile.theme.View.apply)
+		? _.merge({ apply: configFile.theme.View.apply }, configFile.theme.View)
+		: _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
 
 	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
 
@@ -1282,7 +1312,7 @@ function buildCustomTailwind(message = 'file created!') {
 
 	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8');
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8');
-	tailwindStyles += (iAmInProjectFolder) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : `// default config.js file\n`;
+	tailwindStyles += (fs.existsSync(projectConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : `// default config.js file\n`;
 
 	_.each(configThemeFile, (value, key) => {
 		delete configFile.theme[key];
@@ -1302,7 +1332,7 @@ function buildCustomTailwind(message = 'file created!') {
 
 	let finalTailwindStyles = helpers.applyProperties(tailwindStyles);
 
-	if (iAmInProjectFolder) {
+	if (fs.existsSync(projectConfigJS)) {
 		fs.writeFileSync(projectTailwindTSS, finalTailwindStyles);
 		logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
 	} else {
@@ -1319,7 +1349,11 @@ function removeFitMaxMin(theObject) {
 	delete theObject.height['fit'];
 	delete theObject.height['max'];
 	delete theObject.height['min'];
+	delete theObject.spacing['fit'];
+	delete theObject.spacing['max'];
+	delete theObject.spacing['min'];
 }
+
 function fixPercentages(theObject) {
 	_.each(theObject, (value, key) => {
 		if (value.toString().includes('.333333%')) {
@@ -1803,7 +1837,7 @@ function purgeTailwind(uniqueClasses) {
 		let cleanClassName = cleanClassNameFn(className);
 
 		if (cleanClassName.includes('(')) {
-			let line = helpers.formatArbitraryValues(cleanClassName, fromXMLs = true);
+			let line = helpers.formatArbitraryValues(cleanClassName, true);
 			if (line) arbitraryValues += helpers.checkPlatformAndDevice(line, className);
 		} else if (helpers.checkColorClasses(cleanClassName)) {
 			let decimalValue = cleanClassName.split('/')[1];
