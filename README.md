@@ -517,7 +517,7 @@ If you need to use `sudo` to install NPM modules, please use `purgetss sudo-upda
 
 <img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/class-completion-2.gif" alt="Class Completion using IntelliSense for CSS class names in HTML">
 
-If you use **[Visual Studio Code](https://code.visualstudio.com)**, we recommend you to install the **[IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)** extension.
+If you're using **[Visual Studio Code](https://code.visualstudio.com)**, we recommend that you install **[IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)** extension.
 
 It provides class name completion for the `XML` class attribute based on the new `definitions.css` file.
 
