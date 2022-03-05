@@ -680,34 +680,36 @@ The following is a list of all the properties and their repective class name.
 
 ## blend mode Property ( Background Blend Mode ) Property
 ```css
-'.bg-blend-clear': { mode: Ti.UI.BLEND_MODE_CLEAR }
-'.bg-blend-copy': { mode: Ti.UI.BLEND_MODE_COPY }
-'.bg-blend-darken': { mode: Ti.UI.BLEND_MODE_DARKEN }
-'.bg-blend-destination-atop': { mode: Ti.UI.BLEND_MODE_DESTINATION_ATOP }
-'.bg-blend-destination-in': { mode: Ti.UI.BLEND_MODE_DESTINATION_IN }
-'.bg-blend-destination-out': { mode: Ti.UI.BLEND_MODE_DESTINATION_OUT }
-'.bg-blend-destination-over': { mode: Ti.UI.BLEND_MODE_DESTINATION_OVER }
-'.bg-blend-lighten': { mode: Ti.UI.BLEND_MODE_LIGHTEN }
-'.bg-blend-multiply': { mode: Ti.UI.BLEND_MODE_MULTIPLY }
-'.bg-blend-normal': { mode: Ti.UI.BLEND_MODE_NORMAL }
-'.bg-blend-overlay': { mode: Ti.UI.BLEND_MODE_OVERLAY }
-'.bg-blend-plus-lighter': { mode: Ti.UI.BLEND_MODE_PLUS_LIGHTER }
-'.bg-blend-screen': { mode: Ti.UI.BLEND_MODE_SCREEN }
-'.bg-blend-source-atop': { mode: Ti.UI.BLEND_MODE_SOURCE_ATOP }
-'.bg-blend-source-in': { mode: Ti.UI.BLEND_MODE_SOURCE_IN }
-'.bg-blend-source-out': { mode: Ti.UI.BLEND_MODE_SOURCE_OUT }
-'.bg-blend-xor': { mode: Ti.UI.BLEND_MODE_XOR }
-'.bg-blend-color[platform=ios]': { mode: Ti.UI.BLEND_MODE_COLOR }
-'.bg-blend-color-burn[platform=ios]': { mode: Ti.UI.BLEND_MODE_COLOR_BURN }
-'.bg-blend-color-dodge[platform=ios]': { mode: Ti.UI.BLEND_MODE_COLOR_DODGE }
-'.bg-blend-diference[platform=ios]': { mode: Ti.UI.BLEND_MODE_DIFFERENCE }
-'.bg-blend-exclusion[platform=ios]': { mode: Ti.UI.BLEND_MODE_EXCLUSION }
-'.bg-blend-hard-light[platform=ios]': { mode: Ti.UI.BLEND_MODE_HARD_LIGHT }
-'.bg-blend-hue[platform=ios]': { mode: Ti.UI.BLEND_MODE_HUE }
-'.bg-blend-luminosity[platform=ios]': { mode: Ti.UI.BLEND_MODE_LUMINOSITY }
-'.bg-blend-plus-darker[platform=ios]': { mode: Ti.UI.BLEND_MODE_PLUS_DARKER }
-'.bg-blend-saturation[platform=ios]': { mode: Ti.UI.BLEND_MODE_SATURATION }
-'.bg-blend-soft-light[platform=ios]': { mode: Ti.UI.BLEND_MODE_SOFT_LIGHT }
+// Component(s): Ti.UI.MaskedImage
+// Property(ies): mode ( Background Blend Mode )
+'.bg-blend-mode-clear': { mode: Ti.UI.BLEND_MODE_CLEAR }
+'.bg-blend-mode-copy': { mode: Ti.UI.BLEND_MODE_COPY }
+'.bg-blend-mode-darken': { mode: Ti.UI.BLEND_MODE_DARKEN }
+'.bg-blend-mode-destination-atop': { mode: Ti.UI.BLEND_MODE_DESTINATION_ATOP }
+'.bg-blend-mode-destination-in': { mode: Ti.UI.BLEND_MODE_DESTINATION_IN }
+'.bg-blend-mode-destination-out': { mode: Ti.UI.BLEND_MODE_DESTINATION_OUT }
+'.bg-blend-mode-destination-over': { mode: Ti.UI.BLEND_MODE_DESTINATION_OVER }
+'.bg-blend-mode-lighten': { mode: Ti.UI.BLEND_MODE_LIGHTEN }
+'.bg-blend-mode-multiply': { mode: Ti.UI.BLEND_MODE_MULTIPLY }
+'.bg-blend-mode-normal': { mode: Ti.UI.BLEND_MODE_NORMAL }
+'.bg-blend-mode-overlay': { mode: Ti.UI.BLEND_MODE_OVERLAY }
+'.bg-blend-mode-plus-lighter': { mode: Ti.UI.BLEND_MODE_PLUS_LIGHTER }
+'.bg-blend-mode-screen': { mode: Ti.UI.BLEND_MODE_SCREEN }
+'.bg-blend-mode-source-atop': { mode: Ti.UI.BLEND_MODE_SOURCE_ATOP }
+'.bg-blend-mode-source-in': { mode: Ti.UI.BLEND_MODE_SOURCE_IN }
+'.bg-blend-mode-source-out': { mode: Ti.UI.BLEND_MODE_SOURCE_OUT }
+'.bg-blend-mode-xor': { mode: Ti.UI.BLEND_MODE_XOR }
+'.bg-blend-mode-color[platform=ios]': { mode: Ti.UI.BLEND_MODE_COLOR }
+'.bg-blend-mode-color-burn[platform=ios]': { mode: Ti.UI.BLEND_MODE_COLOR_BURN }
+'.bg-blend-mode-color-dodge[platform=ios]': { mode: Ti.UI.BLEND_MODE_COLOR_DODGE }
+'.bg-blend-mode-diference[platform=ios]': { mode: Ti.UI.BLEND_MODE_DIFFERENCE }
+'.bg-blend-mode-exclusion[platform=ios]': { mode: Ti.UI.BLEND_MODE_EXCLUSION }
+'.bg-blend-mode-hard-light[platform=ios]': { mode: Ti.UI.BLEND_MODE_HARD_LIGHT }
+'.bg-blend-mode-hue[platform=ios]': { mode: Ti.UI.BLEND_MODE_HUE }
+'.bg-blend-mode-luminosity[platform=ios]': { mode: Ti.UI.BLEND_MODE_LUMINOSITY }
+'.bg-blend-mode-plus-darker[platform=ios]': { mode: Ti.UI.BLEND_MODE_PLUS_DARKER }
+'.bg-blend-mode-saturation[platform=ios]': { mode: Ti.UI.BLEND_MODE_SATURATION }
+'.bg-blend-mode-soft-light[platform=ios]': { mode: Ti.UI.BLEND_MODE_SOFT_LIGHT }
 ```
 
 ## backgroundColor Property
