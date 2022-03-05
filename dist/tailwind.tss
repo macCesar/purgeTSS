@@ -5850,7 +5850,6 @@
 '.paging-control-timeout-3000[platform=android]': { pagingControlTimeout: 3000 }
 '.paging-control-timeout-4000[platform=android]': { pagingControlTimeout: 4000 }
 '.paging-control-timeout-5000[platform=android]': { pagingControlTimeout: 5000 }
-'.paging-control-timeout-[platform=android]': { pagingControlTimeout: 150 }
 
 // Component(s): Ti.UI.Animation
 // Property(ies): repeat
