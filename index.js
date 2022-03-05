@@ -1008,7 +1008,7 @@ function buildCustomTailwind(message = 'file created!') {
 	// !Prepare values
 	configFile.theme.extend = configFile.theme.extend ?? {};
 
-	let tiResets = { full: '100%', auto: '', screen: '' };
+	let tiResets = { full: '100%' };
 
 	let allWidthsCombined = (configFile.theme.spacing)
 		? { ...configFile.theme.spacing, ...tiResets }
@@ -1018,9 +1018,8 @@ function buildCustomTailwind(message = 'file created!') {
 		: { ...defaultThemeHeight };
 	let allSpacingCombined = (configFile.theme.spacing)
 		? { ...configFile.theme.spacing, ...tiResets }
-		: { ...defaultTheme.spacing, ...defaultThemeWidth, ...defaultThemeHeight };
+		: { ...defaultThemeWidth, ...defaultThemeHeight };
 
-	console.log('allWidthsCombined:', allWidthsCombined);
 	let overwritten = {
 		width: configFile.theme.width ?? allWidthsCombined,
 		height: configFile.theme.height ?? allHeightsCombined,
@@ -1032,26 +1031,19 @@ function buildCustomTailwind(message = 'file created!') {
 	removeFitMaxMin(overwritten);
 
 	let base = {
-		colors: {},
-		spacing: {},
-		width: {},
-		height: {},
+		colors: { ...overwritten.colors, ...configFile.theme.extend.colors },
+		spacing: { ...overwritten.spacing, ...configFile.theme.extend.spacing },
 		columns: { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12 },
+		width: { ...overwritten.spacing, ...configFile.theme.extend.spacing, ...overwritten.width, ...configFile.theme.extend.width },
+		height: { ...overwritten.spacing, ...configFile.theme.extend.spacing, ...overwritten.height, ...configFile.theme.extend.height },
 		delay: { 0: '0ms', 25: '25ms', 50: '50ms', 250: '250ms', 350: '350ms', 400: '400ms', 450: '450ms', 600: '600ms', 800: '800ms', 900: '900ms', 2000: '2000ms', 3000: '3000ms', 4000: '4000ms', 5000: '5000ms' }
 	};
 
-	_.merge(base.colors, overwritten.colors, configFile.theme.extend.colors);
-	_.merge(base.spacing, overwritten.spacing, configFile.theme.extend.spacing);
-	_.merge(base.width, overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width);
-	_.merge(base.height, overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height);
-
-	// Fix any '.333333%' value to '.333334%' to propertly fit the screen
 	fixPercentages(base.width);
 	fixPercentages(base.height);
 	fixPercentages(base.spacing);
 
 	let configThemeFile = {};
-
 	//! Process custom Window, View and ImageView
 	configThemeFile.Window = (configFile.theme.Window && configFile.theme.Window.apply)
 		? _.merge({ apply: configFile.theme.Window.apply }, configFile.theme.Window)
