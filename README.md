@@ -513,5 +513,41 @@ If you need to use `sudo` to install NPM modules, please use `purgetss sudo-upda
 > purgetss su
 ```
 
+## “IntelliSense for CSS class names in HTML” VSCode extension
+
+<img src="https://raw.githubusercontent.com/macCesar/purgeTSS/master/assets/images/class-completion-2.gif" alt="Class Completion using IntelliSense for CSS class names in HTML">
+
+If you use **[Visual Studio Code](https://code.visualstudio.com)**, we recommend you to install the **[IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)** extension.
+
+It provides class name completion for the `XML` class attribute based on the new `definitions.css` file.
+
+After installing the extension, add the following lines to your `.vscode/settings.json` file:
+
+Mainly, you'll need to add the `xml` language to the `"HTMLLanguages"` setting and exclude any `css/html` files from the caching process by pointing `"excludeGlobPattern"` to the `./purgetss/fonts/` folder.
+
+VS Code `settings.json`:
+
+```json
+
+{
+  "html-css-class-completion.HTMLLanguages": [
+      "html",
+      "vue",
+      "razor",
+      "blade",
+      "handlebars",
+      "twig",
+      "django-html",
+      "php",
+      "markdown",
+      "erb",
+      "ejs",
+      "svelte",
+      "xml",
+  ],
+  "html-css-class-completion.excludeGlobPattern": "purgetss/fonts/**/*.{css,html}",
+}
+```
+
 ## Contributing
 If you have any suggestions or improvements, please make a PR.
