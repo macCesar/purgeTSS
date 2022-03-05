@@ -4521,14 +4521,22 @@
 '.count-down-100[platform=android]': { countDownDuration: 100 }
 '.count-down-150[platform=android]': { countDownDuration: 150 }
 '.count-down-200[platform=android]': { countDownDuration: 200 }
+'.count-down-250[platform=android]': { countDownDuration: 250 }
 '.count-down-300[platform=android]': { countDownDuration: 300 }
+'.count-down-350[platform=android]': { countDownDuration: 350 }
+'.count-down-400[platform=android]': { countDownDuration: 400 }
+'.count-down-450[platform=android]': { countDownDuration: 450 }
 '.count-down-500[platform=android]': { countDownDuration: 500 }
+'.count-down-600[platform=android]': { countDownDuration: 600 }
 '.count-down-700[platform=android]': { countDownDuration: 700 }
+'.count-down-800[platform=android]': { countDownDuration: 800 }
+'.count-down-900[platform=android]': { countDownDuration: 900 }
 '.count-down-1000[platform=android]': { countDownDuration: 1000 }
 '.count-down-2000[platform=android]': { countDownDuration: 2000 }
 '.count-down-3000[platform=android]': { countDownDuration: 3000 }
 '.count-down-4000[platform=android]': { countDownDuration: 4000 }
 '.count-down-5000[platform=android]': { countDownDuration: 5000 }
+'.count-down-[platform=android]': { countDownDuration: 150 }
 
 // Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): elevation - Android Only
@@ -5827,14 +5835,22 @@
 '.paging-control-timeout-100[platform=android]': { pagingControlTimeout: 100 }
 '.paging-control-timeout-150[platform=android]': { pagingControlTimeout: 150 }
 '.paging-control-timeout-200[platform=android]': { pagingControlTimeout: 200 }
+'.paging-control-timeout-250[platform=android]': { pagingControlTimeout: 250 }
 '.paging-control-timeout-300[platform=android]': { pagingControlTimeout: 300 }
+'.paging-control-timeout-350[platform=android]': { pagingControlTimeout: 350 }
+'.paging-control-timeout-400[platform=android]': { pagingControlTimeout: 400 }
+'.paging-control-timeout-450[platform=android]': { pagingControlTimeout: 450 }
 '.paging-control-timeout-500[platform=android]': { pagingControlTimeout: 500 }
+'.paging-control-timeout-600[platform=android]': { pagingControlTimeout: 600 }
 '.paging-control-timeout-700[platform=android]': { pagingControlTimeout: 700 }
+'.paging-control-timeout-800[platform=android]': { pagingControlTimeout: 800 }
+'.paging-control-timeout-900[platform=android]': { pagingControlTimeout: 900 }
 '.paging-control-timeout-1000[platform=android]': { pagingControlTimeout: 1000 }
 '.paging-control-timeout-2000[platform=android]': { pagingControlTimeout: 2000 }
 '.paging-control-timeout-3000[platform=android]': { pagingControlTimeout: 3000 }
 '.paging-control-timeout-4000[platform=android]': { pagingControlTimeout: 4000 }
 '.paging-control-timeout-5000[platform=android]': { pagingControlTimeout: 5000 }
+'.paging-control-timeout-[platform=android]': { pagingControlTimeout: 150 }
 
 // Component(s): Ti.UI.Animation
 // Property(ies): repeat
@@ -6173,9 +6189,16 @@
 '.timeout-100[platform=ios]': { timeout: 100 }
 '.timeout-150[platform=ios]': { timeout: 150 }
 '.timeout-200[platform=ios]': { timeout: 200 }
+'.timeout-250[platform=ios]': { timeout: 250 }
 '.timeout-300[platform=ios]': { timeout: 300 }
+'.timeout-350[platform=ios]': { timeout: 350 }
+'.timeout-400[platform=ios]': { timeout: 400 }
+'.timeout-450[platform=ios]': { timeout: 450 }
 '.timeout-500[platform=ios]': { timeout: 500 }
+'.timeout-600[platform=ios]': { timeout: 600 }
 '.timeout-700[platform=ios]': { timeout: 700 }
+'.timeout-800[platform=ios]': { timeout: 800 }
+'.timeout-900[platform=ios]': { timeout: 900 }
 '.timeout-1000[platform=ios]': { timeout: 1000 }
 '.timeout-2000[platform=ios]': { timeout: 2000 }
 '.timeout-3000[platform=ios]': { timeout: 3000 }
