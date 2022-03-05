@@ -2614,18 +2614,6 @@
 '.navigation-mode-standard[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_STANDARD }
 '.navigation-mode-tabs[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_TABS }
 
-// Component(s): Ti.UI.Notification
-// Property(ies): horizontalMargin - Android Only
-'.horizontal-center[platform=android]': { horizontalMargin: '0' }
-'.horizontal-left[platform=android]': { horizontalMargin: '-0.5' }
-'.horizontal-right[platform=android]': { horizontalMargin: '0.5' }
-
-// Component(s): Ti.UI.Notification
-// Property(ies): verticalMargin - Android Only
-'.vertical-center[platform=android]': { verticalMargin: '0' }
-'.vertical-top[platform=android]': { verticalMargin: '-0.5' }
-'.vertical-bottom[platform=android]': { verticalMargin: '0.5' }
-
 // Component(s): Ti.UI.Window
 // Property(ies): orientationModes
 '.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
@@ -3398,6 +3386,18 @@
 '.vertical-bounce[platform=ios]': { verticalBounce: true }
 '.no-vertical-bounce[platform=ios]': { verticalBounce: false }
 
+// Component(s): Ti.UI.Notification
+// Property(ies): horizontalMargin - Android Only
+'.horizontal-center[platform=android]': { horizontalMargin: '0' }
+'.horizontal-left[platform=android]': { horizontalMargin: '-0.5' }
+'.horizontal-right[platform=android]': { horizontalMargin: '0.5' }
+
+// Component(s): Ti.UI.Notification
+// Property(ies): verticalMargin - Android Only
+'.vertical-center[platform=android]': { verticalMargin: '0' }
+'.vertical-top[platform=android]': { verticalMargin: '-0.5' }
+'.vertical-bottom[platform=android]': { verticalMargin: '0.5' }
+
 // Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): elevation - Box Shadow Effect in Tailwind - Android Only
 '.shadow-xs[platform=android]': { elevation: 4 }
@@ -3484,41 +3484,41 @@
 
 // Component(s): Ti.UI.Label
 // Property(ies): backgroundLeftCap - iOS Only
-'.bg-l-cap0[platform=ios]': { backgroundLeftCap: 0 }
-'.bg-l-cap1[platform=ios]': { backgroundLeftCap: 4 }
-'.bg-l-cap2[platform=ios]': { backgroundLeftCap: 8 }
-'.bg-l-cap3[platform=ios]': { backgroundLeftCap: 12 }
-'.bg-l-cap4[platform=ios]': { backgroundLeftCap: 16 }
-'.bg-l-cap5[platform=ios]': { backgroundLeftCap: 20 }
-'.bg-l-cap6[platform=ios]': { backgroundLeftCap: 24 }
-'.bg-l-cap7[platform=ios]': { backgroundLeftCap: 28 }
-'.bg-l-cap8[platform=ios]': { backgroundLeftCap: 32 }
-'.bg-l-cap9[platform=ios]': { backgroundLeftCap: 36 }
-'.bg-l-cap10[platform=ios]': { backgroundLeftCap: 40 }
-'.bg-l-cap11[platform=ios]': { backgroundLeftCap: 44 }
-'.bg-l-cap12[platform=ios]': { backgroundLeftCap: 48 }
-'.bg-l-cap14[platform=ios]': { backgroundLeftCap: 56 }
-'.bg-l-cap16[platform=ios]': { backgroundLeftCap: 64 }
-'.bg-l-cap20[platform=ios]': { backgroundLeftCap: 80 }
-'.bg-l-cap24[platform=ios]': { backgroundLeftCap: 96 }
-'.bg-l-cap28[platform=ios]': { backgroundLeftCap: 112 }
-'.bg-l-cap32[platform=ios]': { backgroundLeftCap: 128 }
-'.bg-l-cap36[platform=ios]': { backgroundLeftCap: 144 }
-'.bg-l-cap40[platform=ios]': { backgroundLeftCap: 160 }
-'.bg-l-cap44[platform=ios]': { backgroundLeftCap: 176 }
-'.bg-l-cap48[platform=ios]': { backgroundLeftCap: 192 }
-'.bg-l-cap52[platform=ios]': { backgroundLeftCap: 208 }
-'.bg-l-cap56[platform=ios]': { backgroundLeftCap: 224 }
-'.bg-l-cap60[platform=ios]': { backgroundLeftCap: 240 }
-'.bg-l-cap64[platform=ios]': { backgroundLeftCap: 256 }
-'.bg-l-cap72[platform=ios]': { backgroundLeftCap: 288 }
-'.bg-l-cap80[platform=ios]': { backgroundLeftCap: 320 }
-'.bg-l-cap96[platform=ios]': { backgroundLeftCap: 384 }
-'.bg-l-cappx[platform=ios]': { backgroundLeftCap: '1px' }
-'.bg-l-cap0.5[platform=ios]': { backgroundLeftCap: 2 }
-'.bg-l-cap1.5[platform=ios]': { backgroundLeftCap: 6 }
-'.bg-l-cap2.5[platform=ios]': { backgroundLeftCap: 10 }
-'.bg-l-cap3.5[platform=ios]': { backgroundLeftCap: 14 }
+'.bg-l-cap-0[platform=ios]': { backgroundLeftCap: 0 }
+'.bg-l-cap-1[platform=ios]': { backgroundLeftCap: 4 }
+'.bg-l-cap-2[platform=ios]': { backgroundLeftCap: 8 }
+'.bg-l-cap-3[platform=ios]': { backgroundLeftCap: 12 }
+'.bg-l-cap-4[platform=ios]': { backgroundLeftCap: 16 }
+'.bg-l-cap-5[platform=ios]': { backgroundLeftCap: 20 }
+'.bg-l-cap-6[platform=ios]': { backgroundLeftCap: 24 }
+'.bg-l-cap-7[platform=ios]': { backgroundLeftCap: 28 }
+'.bg-l-cap-8[platform=ios]': { backgroundLeftCap: 32 }
+'.bg-l-cap-9[platform=ios]': { backgroundLeftCap: 36 }
+'.bg-l-cap-10[platform=ios]': { backgroundLeftCap: 40 }
+'.bg-l-cap-11[platform=ios]': { backgroundLeftCap: 44 }
+'.bg-l-cap-12[platform=ios]': { backgroundLeftCap: 48 }
+'.bg-l-cap-14[platform=ios]': { backgroundLeftCap: 56 }
+'.bg-l-cap-16[platform=ios]': { backgroundLeftCap: 64 }
+'.bg-l-cap-20[platform=ios]': { backgroundLeftCap: 80 }
+'.bg-l-cap-24[platform=ios]': { backgroundLeftCap: 96 }
+'.bg-l-cap-28[platform=ios]': { backgroundLeftCap: 112 }
+'.bg-l-cap-32[platform=ios]': { backgroundLeftCap: 128 }
+'.bg-l-cap-36[platform=ios]': { backgroundLeftCap: 144 }
+'.bg-l-cap-40[platform=ios]': { backgroundLeftCap: 160 }
+'.bg-l-cap-44[platform=ios]': { backgroundLeftCap: 176 }
+'.bg-l-cap-48[platform=ios]': { backgroundLeftCap: 192 }
+'.bg-l-cap-52[platform=ios]': { backgroundLeftCap: 208 }
+'.bg-l-cap-56[platform=ios]': { backgroundLeftCap: 224 }
+'.bg-l-cap-60[platform=ios]': { backgroundLeftCap: 240 }
+'.bg-l-cap-64[platform=ios]': { backgroundLeftCap: 256 }
+'.bg-l-cap-72[platform=ios]': { backgroundLeftCap: 288 }
+'.bg-l-cap-80[platform=ios]': { backgroundLeftCap: 320 }
+'.bg-l-cap-96[platform=ios]': { backgroundLeftCap: 384 }
+'.bg-l-cap-px[platform=ios]': { backgroundLeftCap: '1px' }
+'.bg-l-cap-0.5[platform=ios]': { backgroundLeftCap: 2 }
+'.bg-l-cap-1.5[platform=ios]': { backgroundLeftCap: 6 }
+'.bg-l-cap-2.5[platform=ios]': { backgroundLeftCap: 10 }
+'.bg-l-cap-3.5[platform=ios]': { backgroundLeftCap: 14 }
 
 // Component(s): Ti.UI.Label
 // Property(ies): backgroundPaddingBottom - iOS Only
@@ -4514,29 +4514,29 @@
 
 // Component(s): Ti.UI.Picker
 // Property(ies): countDownDuration - Android Only
-'.count-down-0[platform=android]': { countDownDuration: 0 }
-'.count-down-25[platform=android]': { countDownDuration: 25 }
-'.count-down-50[platform=android]': { countDownDuration: 50 }
-'.count-down-75[platform=android]': { countDownDuration: 75 }
-'.count-down-100[platform=android]': { countDownDuration: 100 }
-'.count-down-150[platform=android]': { countDownDuration: 150 }
-'.count-down-200[platform=android]': { countDownDuration: 200 }
-'.count-down-250[platform=android]': { countDownDuration: 250 }
-'.count-down-300[platform=android]': { countDownDuration: 300 }
-'.count-down-350[platform=android]': { countDownDuration: 350 }
-'.count-down-400[platform=android]': { countDownDuration: 400 }
-'.count-down-450[platform=android]': { countDownDuration: 450 }
-'.count-down-500[platform=android]': { countDownDuration: 500 }
-'.count-down-600[platform=android]': { countDownDuration: 600 }
-'.count-down-700[platform=android]': { countDownDuration: 700 }
-'.count-down-800[platform=android]': { countDownDuration: 800 }
-'.count-down-900[platform=android]': { countDownDuration: 900 }
-'.count-down-1000[platform=android]': { countDownDuration: 1000 }
-'.count-down-2000[platform=android]': { countDownDuration: 2000 }
-'.count-down-3000[platform=android]': { countDownDuration: 3000 }
-'.count-down-4000[platform=android]': { countDownDuration: 4000 }
-'.count-down-5000[platform=android]': { countDownDuration: 5000 }
-'.count-down-[platform=android]': { countDownDuration: 150 }
+'.count-down-duration-0[platform=android]': { countDownDuration: 0 }
+'.count-down-duration-25[platform=android]': { countDownDuration: 25 }
+'.count-down-duration-50[platform=android]': { countDownDuration: 50 }
+'.count-down-duration-75[platform=android]': { countDownDuration: 75 }
+'.count-down-duration-100[platform=android]': { countDownDuration: 100 }
+'.count-down-duration-150[platform=android]': { countDownDuration: 150 }
+'.count-down-duration-200[platform=android]': { countDownDuration: 200 }
+'.count-down-duration-250[platform=android]': { countDownDuration: 250 }
+'.count-down-duration-300[platform=android]': { countDownDuration: 300 }
+'.count-down-duration-350[platform=android]': { countDownDuration: 350 }
+'.count-down-duration-400[platform=android]': { countDownDuration: 400 }
+'.count-down-duration-450[platform=android]': { countDownDuration: 450 }
+'.count-down-duration-500[platform=android]': { countDownDuration: 500 }
+'.count-down-duration-600[platform=android]': { countDownDuration: 600 }
+'.count-down-duration-700[platform=android]': { countDownDuration: 700 }
+'.count-down-duration-800[platform=android]': { countDownDuration: 800 }
+'.count-down-duration-900[platform=android]': { countDownDuration: 900 }
+'.count-down-duration-1000[platform=android]': { countDownDuration: 1000 }
+'.count-down-duration-2000[platform=android]': { countDownDuration: 2000 }
+'.count-down-duration-3000[platform=android]': { countDownDuration: 3000 }
+'.count-down-duration-4000[platform=android]': { countDownDuration: 4000 }
+'.count-down-duration-5000[platform=android]': { countDownDuration: 5000 }
+'.count-down-duration[platform=android]': { countDownDuration: 150 }
 
 // Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): elevation - Android Only

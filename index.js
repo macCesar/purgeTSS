@@ -1213,7 +1213,6 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.nativeSpinner = {};
 	configThemeFile.navBarHidden = {};
 	configThemeFile.navigationMode = {};
-	configThemeFile.notificationMargins = {};
 	configThemeFile.orientationModes = {};
 	configThemeFile.origin = {};
 	configThemeFile.overlayEnabled = {};
@@ -1291,6 +1290,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.useSpinner = {};
 	configThemeFile.verticalAlign = {};
 	configThemeFile.verticalBounce = {};
+	configThemeFile.verticalMargin = {};
 	configThemeFile.viewShadow = {};
 	configThemeFile.willHandleTouches = {};
 	configThemeFile.willScrollOnStatusTap = {};
@@ -1724,7 +1724,6 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'navBarHidden':
 		case 'navigationMode':
 		case 'navTintColor':
-		case 'notificationMargins':
 		case 'offsets':
 		case 'onTintColor':
 		case 'opacity':
@@ -1847,6 +1846,7 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'useSpinner':
 		case 'verticalAlign':
 		case 'verticalBounce':
+		case 'verticalMargin':
 		case 'viewShadow':
 		case 'viewShadowColor':
 		case 'width':
