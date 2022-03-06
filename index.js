@@ -407,7 +407,7 @@ function buildCustomFonts(options) {
 
 				tssClasses += processFontMeta(fontMeta);
 
-				tssClasses += `\n'.${getFileName(file).toLowerCase()}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+				tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
 
 				//! Copy Font File
 				makeSureFolderExists(projectFontsFolder);
@@ -709,7 +709,7 @@ function getFiles(dir) {
 }
 
 function getFileName(file) {
-	return file.split('/').pop().split('.').shift();
+	return file.split('/').pop().split('.').shift().replace(/ /g, '-').toLowerCase();
 }
 
 function getRules(data) {
