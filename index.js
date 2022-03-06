@@ -108,7 +108,7 @@ function purgeClasses(options) {
 	if (alloyProject()) {
 		start();
 
-		init();
+		init(options);
 
 		backupOriginalAppTss();
 
@@ -143,19 +143,19 @@ function purgeClasses(options) {
 }
 module.exports.purgeClasses = purgeClasses;
 
-function init() {
+function init(options) {
 	// config file
 	if (!fs.existsSync(projectConfigJS)) {
 		createConfigFile();
 	}
 
 	// tailwind.tss
-	if (!fs.existsSync(projectTailwindTSS)) {
+	if (!fs.existsSync(projectTailwindTSS) || options.all) {
 		buildCustomTailwind('file created!');
 	}
 
 	// definitios file
-	if (!fs.existsSync(cwd + '/purgetss/definitions.css')) {
+	if (!fs.existsSync(cwd + '/purgetss/definitions.css') || options.all) {
 		createDefinitionsFile();
 	}
 
@@ -465,11 +465,11 @@ function buildCustomFonts(options) {
 		}
 
 		if (files.length > 0) {
-			console.log();
-
-			finish(`Finished building ${chalk.yellow('fonts.tss')} in`);
 
 			createDefinitionsFile();
+
+			console.log();
+			finish(`Finished building ${chalk.yellow('fonts.tss')} in`);
 		} else {
 			logger.info('No fonts found in', chalk.yellow('./purgetss/fonts'), 'folder!');
 		}
@@ -1031,13 +1031,18 @@ function buildCustomTailwind(message = 'file created!') {
 	removeFitMaxMin(overwritten);
 
 	let base = {
-		colors: { ...overwritten.colors, ...configFile.theme.extend.colors },
-		spacing: { ...overwritten.spacing, ...configFile.theme.extend.spacing },
+		colors: {},
+		spacing: {},
+		width: {},
+		height: {},
 		columns: { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12 },
-		width: { ...overwritten.spacing, ...configFile.theme.extend.spacing, ...overwritten.width, ...configFile.theme.extend.width },
-		height: { ...overwritten.spacing, ...configFile.theme.extend.spacing, ...overwritten.height, ...configFile.theme.extend.height },
 		delay: { 0: '0ms', 25: '25ms', 50: '50ms', 250: '250ms', 350: '350ms', 400: '400ms', 450: '450ms', 600: '600ms', 800: '800ms', 900: '900ms', 2000: '2000ms', 3000: '3000ms', 4000: '4000ms', 5000: '5000ms' }
 	};
+
+	_.merge(base.colors, overwritten.colors, configFile.theme.extend.colors);
+	_.merge(base.spacing, overwritten.spacing, configFile.theme.extend.spacing);
+	_.merge(base.width, overwritten.spacing, configFile.theme.extend.spacing, overwritten.width, configFile.theme.extend.width);
+	_.merge(base.height, overwritten.spacing, configFile.theme.extend.spacing, overwritten.height, configFile.theme.extend.height);
 
 	fixPercentages(base.width);
 	fixPercentages(base.height);
