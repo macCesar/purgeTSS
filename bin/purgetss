@@ -2,13 +2,23 @@
 
 const chalk = require('chalk');
 const program = require('caporal');
+const pkg = require('../package.json');
 const purgetss = require('../index.js');
 const package = require('../package.json');
+const updateNotifier = require('update-notifier');
+
+// check if a new version of PurgeTSS is available and print an update notification
+const notifier = updateNotifier({ pkg });
+if (notifier.update && notifier.update.latest !== pkg.version) {
+	notifier.notify({ defer: false, isGlobal: true })
+}
 
 program
 	.version(package.version)
 	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for details.')
-	.help('purgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialicons.tss, lineicons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
+	.help('PurgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialdesignicons.tss, framework7icons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
+	.option('-d, --debug', 'Show time taken to execute each process.')
+	.option('-a, --all', 'Run all processes. purgetss build-fonts, purgetss build and purgetss')
 	.action((args, options, logger) => {
 		purgetss.purgeClasses(options);
 	});
@@ -16,17 +26,29 @@ program
 program
 	.command('init')
 	.alias('i')
-	.description('Create a `config.js` file for your project')
-	.help('It will create a minimal `config.js` file inside your project’s fonts folder.')
+	.description('Create a `config.js` file for your project.')
+	.help('Creates a minimal `./purgetss/config.js` file at the root of your project.')
 	.action((args, options, logger) => {
-		purgetss.init();
+		purgetss.init(options);
+	});
+
+program
+	.command('create')
+	.alias('c')
+	.description('Creates a new Alloy Project with `purgetss` already configured.')
+	.help('Creates a new Alloy Project with `purgetss` already configured.')
+	.option('-t, --tailwind', 'To install Tailwind CSS in your project to work with `Tailwind CSS Intellisense` extenstion in VS Code.')
+	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   f7 = Framework7 Icons')
+	.argument('<name>', 'The name of the project')
+	.action((args, options, logger) => {
+		purgetss.create(args, options);
 	});
 
 program
 	.command('build')
 	.alias('b')
-	.description('Build a custom `tailwind.tss` file')
-	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.')
+	.description('Build a custom `tailwind.tss` file.')
+	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.\n\nIt will also generate a custom `fontawesome.tss` file if you installed the proper dependencies, like FontAwesome Beta or FontAwesome Pro.')
 	.action((args, options, logger) => {
 		purgetss.buildCustom();
 	});
@@ -34,40 +56,50 @@ program
 program
 	.command('watch')
 	.alias('w')
-	.description('Autorun `purgetss` every time you compile your project')
-	.help('Use this command if you want `purgetss` to autorun every time you compile your project. This is very useful in combination with `LiveView` because it will purge all your files every time you make a change, for example when adding or deleting styles in your Views.')
+	.description('Autorun `purgetss` every time you compile your project.')
+	.help('Use this command if you want `purgetss` to autorun every time you compile your project.\n\nThis is very useful in combination with `LiveView` by purging your files every time you make a change.')
 	.option('-o, --off', 'To turn off watch mode.')
 	.action((args, options, logger) => {
 		purgetss.watchMode(options);
 	});
 
 program
-	.command('dev')
-	.alias('d')
-	.description('Copy all available classes into `app.tss`')
-	.help('Use this command if you want to copy all available styles from tailwind.tss ( or from a custom tailwind.tss when available ), fontawesome.tss, materialicons.tss, lineicons.tss files into app.tss while prototyping your App.')
-	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from an specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom tailwind.tss styles')
-	.action((args, options, logger) => {
-		purgetss.devMode(options);
-	});
-
-program
 	.command('fonts')
 	.alias('f')
-	.description('Copy Font Awesome icons, Material Design Icons and LineIcons Fonts into your project')
-	.help('Command to copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • Material Design Icons\n   • LineIcons\n\nInto your projects’s app/assets/fonts/ folder.\n\nWith their names fixed to work with your app whether it is for iOS or for Android.')
-	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons')
+	.description('Copy Font Awesome icons, Material Design Icons and Framework7-Icons Font files into your project.')
+	.help('Command to copy the Free versions of:\n\n   • Font Awesome Icons ( Brands, Regular, Solid )\n   • Material Design Icons\n\nInto your projects’s app/assets/fonts/ folder.\n\nWith their names fixed to work with your app whether it is for iOS or for Android.')
+	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   f7 = Framework7 Icons')
+	.option('-m, --modules', 'Use the `--modules` option to also copy the corresponding CommonJS module into `./app/lib/` folder.')
 	.action((args, options, logger) => {
 		purgetss.copyFonts(options);
 	});
 
 program
+	.command('build-fonts')
+	.alias('bf')
+	.description('Build a custom `fonts.tss` file.')
+	.help('It will generate a new custom `fonts.tss` file based on the fonts and css files located in `./purgetss/fonts` folder.')
+	.option('-m, --modules', 'Use the `--modules` option to also generate a CommonJS module into `./app/lib/` folder called `purgetss-fonts.js`.')
+	.action((args, options, logger) => {
+		purgetss.buildCustomFonts(options);
+	});
+
+program
+	.command('module')
+	.alias('m')
+	.description('Copy `purgetss.ui.js` module into your project’s `lib` folder.')
+	.help('This file contains the module `Animation` \n')
+	.action((args, options, logger) => {
+		purgetss.copyModulesLibrary();
+	});
+
+program
 	.command('update')
 	.alias('u')
-	.description('Update purgeTSS to the latest version')
-	.help('Run auto-update regularly!\n\nWe constantly update purgeTSS to add new features, to include the latest versions of Tailwind and for bug fixes.')
+	.description('Update PurgeTSS to the latest version.')
+	.help('Please run update regularly!\n\nWe constantly update PurgeTSS to add new features, to include the latest versions of Tailwind and for bug fixes.')
 	.action((args, options, logger) => {
-		logger.info(`${purgetss.colores.purgeLabel} Updating purgeTSS to the latest version...`);
+		logger.info(`${purgetss.colores.purgeLabel} Updating PurgeTSS to the latest version...`);
 
 		const { exec } = require("child_process");
 
@@ -89,10 +121,10 @@ program
 program
 	.command('sudo-update')
 	.alias('su')
-	.description('Update purgeTSS to the latest version using sudo')
-	.help('Run auto-update regularly!\n\nWe constantly update purgeTSS to add new features, to include the latest versions of Tailwind and for bug fixes.')
+	.description('Update PurgeTSS to the latest version using the `sudo` command.')
+	.help('Please run sudo-update regularly!\n\nWe constantly update PurgeTSS to add new features, to include the latest versions of Tailwind and for bug fixes.')
 	.action((args, options, logger) => {
-		logger.info(`${purgetss.colores.purgeLabel} Updating purgeTSS to the latest version using sudo...`);
+		logger.info(`${purgetss.colores.purgeLabel} Updating PurgeTSS to the latest version using sudo...`);
 
 		const { exec } = require("child_process");
 
@@ -109,53 +141,6 @@ program
 
 			logger.info(`${purgetss.colores.purgeLabel} Done!`);
 		});
-	});
-
-// Deprecated commands and will be removed in v3
-program
-	.command('auto-update')
-	.description(chalk.yellow('Deprecated command and will be removed in v3') + ', use `purgetss update` instead')
-	.action((args, options, logger) => {
-		logger.info(`${purgetss.colores.purgeLabel} Updating purgeTSS to the latest version...`);
-
-		const { exec } = require("child_process");
-
-		exec("npm update -g purgetss", (error, stdout, stderr) => {
-			if (error) {
-				logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`);
-				return;
-			}
-
-			if (stderr) {
-				logger.info(`${purgetss.colores.purgeLabel} stderr: ${stderr}`);
-				return;
-			}
-
-			logger.info(`${purgetss.colores.purgeLabel} Done!`);
-		});
-	});
-
-program
-	.command('build-custom')
-	.description(chalk.yellow('Deprecated command and will be removed in v3') + ', use `purgetss build` instead')
-	.action((args, options, logger) => {
-		purgetss.buildCustom();
-	});
-
-program
-	.command('copy-fonts')
-	.description(chalk.yellow('Deprecated command and will be removed in v3') + ', use `purgetss fonts` instead')
-	.option('-f, --files <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   li = LineIcons')
-	.action((args, options, logger) => {
-		purgetss.copyFonts(options);
-	});
-
-program
-	.command('dev-mode')
-	.description(chalk.yellow('Deprecated command and will be removed in v3') + ', use `purgetss dev` instead')
-	.option('-f, --files <arguments>', 'Use any of the following arguments to copy styles from an specific provider:\n   tw = Tailwind styles\n   fa = Font Awesome styles\n   md = Material Design styles\n   li = LineIcons styles\n   custom = custom tailwind.tss styles')
-	.action((args, options, logger) => {
-		purgetss.devMode(options);
 	});
 
 program

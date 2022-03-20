@@ -1,0 +1,16 @@
+// Font Families
+'.f7': { font: { fontFamily: 'Framework7-Icons' } }
+'.f7i': { font: { fontFamily: 'Framework7-Icons' } }
+'.framework7': { font: { fontFamily: 'Framework7-Icons' } }
+
+// Font Sizes
+'.size-14': { font: { fontSize: 14 } }
+'.size-20': { font: { fontSize: 20 } }
+'.size-24': { font: { fontSize: 24 } }
+'.size-28': { font: { fontSize: 28 } }
+'.size-32': { font: { fontSize: 32 } }
+'.size-56': { font: { fontSize: 56 } }
+'.size-112': { font: { fontSize: 112 } }
+
+// Font Icons
+// To use Framework7-Icons in Buttons AND Labels each class sets 'text' and 'title' properties

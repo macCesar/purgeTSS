@@ -1,0 +1,32 @@
+// Font Families
+'.fa':{ font: { fontFamily: 'FontAwesome6Free-Solid' } }
+'.fas': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
+'.far': { font: { fontFamily: 'FontAwesome6Free-Regular' } }
+'.fab': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
+
+'.fa-solid': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
+'.fa-regular': { font: { fontFamily: 'FontAwesome6Free-Regular' } }
+'.fa-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
+
+'.fontawesome': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
+'.fontawesome-solid': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
+'.fontawesome-regular': { font: { fontFamily: 'FontAwesome6Free-Regular' } }
+'.fontawesome-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
+
+// Font Sizes
+'.fa-lg': { font: { fontSize: 21 } }
+'.fa-xs': { font: { fontSize: 12 } }
+'.fa-sm': { font: { fontSize: 14 } }
+'.fa-1x': { font: { fontSize: 16 } }
+'.fa-2x': { font: { fontSize: 32 } }
+'.fa-3x': { font: { fontSize: 48 } }
+'.fa-4x': { font: { fontSize: 64 } }
+'.fa-5x': { font: { fontSize: 80 } }
+'.fa-6x': { font: { fontSize: 96 } }
+'.fa-7x': { font: { fontSize: 112 } }
+'.fa-8x': { font: { fontSize: 128 } }
+'.fa-9x': { font: { fontSize: 144 } }
+'.fa-10x': { font: { fontSize: 160 } }
+
+// Font Icons
+// To use FontAwesome in Buttons AND Labels each class sets 'text' and 'title' properties.

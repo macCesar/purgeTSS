@@ -1,0 +1,3 @@
+task('pre:compile', function(event, logger) {
+	require('child_process').execSync('node node_modules/purgetss/bin/purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));
+});

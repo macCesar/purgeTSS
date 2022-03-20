@@ -1,0 +1,41 @@
+// Font Families Beta 6
+'.fa': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fat': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
+'.fas': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fal': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
+'.far': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
+'.fab': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
+
+'.fa-thin': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
+'.fa-solid': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fa-light': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
+'.fa-regular': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
+'.fa-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
+
+'.fontawesome': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fontawesome-thin': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
+'.fontawesome-solid': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
+'.fontawesome-light': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
+'.fontawesome-regular': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
+'.fontawesome-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
+
+// Font Sizes
+'.fa-1x': { font: { fontSize: 16 } }
+'.fa-2x': { font: { fontSize: 32 } }
+'.fa-3x': { font: { fontSize: 48 } }
+'.fa-4x': { font: { fontSize: 64 } }
+'.fa-5x': { font: { fontSize: 80 } }
+'.fa-6x': { font: { fontSize: 96 } }
+'.fa-7x': { font: { fontSize: 112 } }
+'.fa-8x': { font: { fontSize: 128 } }
+'.fa-9x': { font: { fontSize: 144 } }
+'.fa-10x': { font: { fontSize: 160 } }
+'.fa-2xs': { font: { fontSize: 10 } }
+'.fa-xs': { font: { fontSize: 12 } }
+'.fa-sm': { font: { fontSize: 14 } }
+'.fa-lg': { font: { fontSize: 20 } }
+'.fa-xl': { font: { fontSize: 24 } }
+'.fa-2xl': { font: { fontSize: 32 } }
+
+// Font Icons
+// To use FontAwesome in Buttons AND Labels each class sets 'text' and 'title' properties.

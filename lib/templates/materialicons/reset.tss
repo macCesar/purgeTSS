@@ -1,0 +1,35 @@
+// Font Families
+'.md': { font: { fontFamily: 'MaterialIcons-Regular' } }
+'.mdr': { font: { fontFamily: 'MaterialIconsRound-Regular' } }
+'.mds': { font: { fontFamily: 'MaterialIconsSharp-Regular' } }
+'.mdt': { font: { fontFamily: 'MaterialIconsTwoTone-Regular' } }
+'.mdo': { font: { fontFamily: 'MaterialIconsOutlined-Regular' } }
+
+'.materialdesign': { font: { fontFamily: 'MaterialIcons-Regular' } }
+'.materialdesign-round': { font: { fontFamily: 'MaterialIconsRound-Regular' } }
+'.materialdesign-sharp': { font: { fontFamily: 'MaterialIconsSharp-Regular' } }
+'.materialdesign-two-tone': { font: { fontFamily: 'MaterialIconsTwoTone-Regular' } }
+'.materialdesign-outlined': { font: { fontFamily: 'MaterialIconsOutlined-Regular' } }
+
+'.material-icons': { font: { fontFamily: 'MaterialIcons-Regular' } }
+'.material-icons-round': { font: { fontFamily: 'MaterialIconsRound-Regular' } }
+'.material-icons-sharp': { font: { fontFamily: 'MaterialIconsSharp-Regular' } }
+'.material-icons-two-tone': { font: { fontFamily: 'MaterialIconsTwoTone-Regular' } }
+'.material-icons-outlined': { font: { fontFamily: 'MaterialIconsOutlined-Regular' } }
+
+// Font Sizes
+'.md-18': { font: { fontSize: 18 } }
+'.md-24': { font: { fontSize: 24 } }
+'.md-36': { font: { fontSize: 36 } }
+'.md-48': { font: { fontSize: 48 } }
+
+// Rules for using icons as black on a light background.
+'.md-dark': { color: 'rgba(0, 0, 0, 0.54)' }
+'.md-dark-inactive': { color: 'rgba(0, 0, 0, 0.26)' }
+
+// Rules for using icons as white on a dark background.
+'.md-light': { color: 'rgba(255, 255, 255, 1)' }
+'.md-light-inactive': { color: 'rgba(255, 255, 255, 0.3)' }
+
+// Font Icons
+// To use Material Icons in Buttons AND Labels each class sets 'text' and 'title' properties
