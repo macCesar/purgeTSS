@@ -97,6 +97,7 @@ const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.j
 
 const configFile = (fs.existsSync(projectConfigJS)) ? require(projectConfigJS) : require(srcConfigFile);
 if (!configFile.purge) configFile.purge = { mode: 'all' };
+if (!configFile.fonts) configFile.fonts = { mode: 'fileName' };
 const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : false;
 const srcJMKFile = (isInstalledGlobally) ? path.resolve(__dirname, './lib/templates/alloy.jmk') : path.resolve(__dirname, './lib/templates/alloy-local.jmk');
 
@@ -407,7 +408,11 @@ function buildCustomFonts(options) {
 
 				tssClasses += processFontMeta(fontMeta);
 
-				tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+				if (configFile.fonts.mode.toLowerCase() === 'postscriptname' || configFile.fonts.mode.toLowerCase() === 'postscript' || configFile.fonts.mode.toLowerCase() === 'ps') {
+					tssClasses += `\n'.${fontMeta.postScriptName.replace(/\//g, '')}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+				} else {
+					tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+				}
 
 				//! Copy Font File
 				makeSureFolderExists(projectFontsFolder);
@@ -2148,6 +2153,8 @@ function purgeTailwind(uniqueClasses) {
 			let opacityIndex = _.findIndex(tailwindClasses, line => line.startsWith(`'.${opacityValue.className}`));
 
 			if (opacityIndex > -1) {
+				//! TODO: Check if color value is a hex value!! (if not, they are using rbg, rgba or semantic colors)
+				//! In other words, we need to validate the color value, before we can alter its opacity.
 				let defaultHexValue;
 				if (tailwindClasses[opacityIndex].includes('from')) {
 					defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/g)[1];
