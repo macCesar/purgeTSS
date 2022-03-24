@@ -10,7 +10,7 @@ const updateNotifier = require('update-notifier');
 // check if a new version of PurgeTSS is available and print an update notification
 const notifier = updateNotifier({ pkg });
 if (notifier.update && notifier.update.latest !== pkg.version) {
-	notifier.notify({ defer: false, isGlobal: true })
+	notifier.notify({ defer: false, isGlobal: true });
 }
 
 program
@@ -101,9 +101,9 @@ program
 	.action((args, options, logger) => {
 		logger.info(`${purgetss.colores.purgeLabel} Updating PurgeTSS to the latest version...`);
 
-		const { exec } = require("child_process");
+		const { exec } = require('child_process');
 
-		exec("npm update -g purgetss", (error, stdout, stderr) => {
+		exec('npm update -g purgetss', (error, stdout, stderr) => {
 			if (error) {
 				logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`);
 				return;
@@ -126,9 +126,9 @@ program
 	.action((args, options, logger) => {
 		logger.info(`${purgetss.colores.purgeLabel} Updating PurgeTSS to the latest version using sudo...`);
 
-		const { exec } = require("child_process");
+		const { exec } = require('child_process');
 
-		exec("sudo npm update -g purgetss", (error, stdout, stderr) => {
+		exec('sudo npm update -g purgetss', (error, stdout, stderr) => {
 			if (error) {
 				logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`);
 				return;

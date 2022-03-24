@@ -260,7 +260,7 @@ function copyModulesLibrary() {
 		makeSureFolderExists(projectLibFolder);
 
 		fs.copyFileSync(srcPurgeTSSLibrary, projectLibFolder + '/purgetss.ui.js');
-		logger.info('PurgeTSS modules copied to', chalk.yellow('./app/lib'), 'folder');
+		logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./app/lib'), 'folder');
 	}
 }
 module.exports.copyModulesLibrary = copyModulesLibrary;
@@ -837,7 +837,16 @@ function addHook() {
 
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
 			if (line.includes('pre:compile')) {
-				let execCommand = (isInstalledGlobally) ? 'purgetss' : 'node node_modules/purgetss/bin/purgetss';
+				let execCommand = "";
+
+				if (__dirname.includes('alloy')) {
+					execCommand = 'alloy purgetss';
+				} else if (isInstalledGlobally) {
+					execCommand = 'purgetss';
+				} else {
+					execCommand = 'node node_modules/purgetss/bin/purgetss';
+				};
+
 				line += `\n\trequire('child_process').execSync('${execCommand}', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
 			}
 			updatedJMKFile.push(line);
@@ -2270,9 +2279,9 @@ function saveFile(file, data) {
 }
 
 function createJMKFile() {
-	logger.warn(chalk.green('Adding Auto-Purging hook!'));
 	fs.copyFileSync(srcJMKFile, projectAlloyJMKFile);
 	logger.file('./app/alloy.jmk');
+	addHook();
 }
 
 //! Soon to be deleted
