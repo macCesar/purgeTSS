@@ -1,5 +1,5 @@
 /**
- * Font Awesome Free 6.1.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 */
 
@@ -416,6 +416,8 @@ const icons = {
 	'chevronRight': '\uf054',
 	'chevronUp': '\uf077',
 	'child': '\uf1ae',
+	'childDress': '\ue59c',
+	'childReaching': '\ue59d',
 	'childRifle': '\ue4e0',
 	'children': '\ue4e1',
 	'church': '\uf51d',

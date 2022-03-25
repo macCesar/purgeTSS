@@ -1,4 +1,4 @@
-// Font Awesome Free 6.1.0 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -424,6 +424,8 @@
 '.fa-chevron-right': { text: '\uf054', title: '\uf054' }
 '.fa-chevron-up': { text: '\uf077', title: '\uf077' }
 '.fa-child': { text: '\uf1ae', title: '\uf1ae' }
+'.fa-child-dress': { text: '\ue59c', title: '\ue59c' }
+'.fa-child-reaching': { text: '\ue59d', title: '\ue59d' }
 '.fa-child-rifle': { text: '\ue4e0', title: '\ue4e0' }
 '.fa-children': { text: '\ue4e1', title: '\ue4e1' }
 '.fa-church': { text: '\uf51d', title: '\uf51d' }
