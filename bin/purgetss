@@ -10,13 +10,13 @@ const updateNotifier = require('update-notifier');
 // check if a new version of PurgeTSS is available and print an update notification
 const notifier = updateNotifier({ pkg });
 if (notifier.update && notifier.update.latest !== pkg.version) {
-	notifier.notify({ defer: false, isGlobal: true })
+	notifier.notify({ defer: false, isGlobal: true });
 }
 
 program
 	.version(package.version)
 	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for details.')
-	.help('PurgeTSS will create a clean app.tss file by copying only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialdesignicons.tss, framework7icons.tss.\n\nALL your classes from your original app.tss file will be copied over without purging.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
+	.help('PurgeTSS will create a clean app.tss file with only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialdesignicons.tss, framework7icons.tss.\n\nYour original classes will be backed up in _app.tss.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
 	.option('-d, --debug', 'Show time taken to execute each process.')
 	.option('-a, --all', 'Run all processes. purgetss build-fonts, purgetss build and purgetss')
 	.action((args, options, logger) => {
@@ -101,9 +101,9 @@ program
 	.action((args, options, logger) => {
 		logger.info(`${purgetss.colores.purgeLabel} Updating PurgeTSS to the latest version...`);
 
-		const { exec } = require("child_process");
+		const { exec } = require('child_process');
 
-		exec("npm update -g purgetss", (error, stdout, stderr) => {
+		exec('npm update -g purgetss', (error, stdout, stderr) => {
 			if (error) {
 				logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`);
 				return;
@@ -126,9 +126,9 @@ program
 	.action((args, options, logger) => {
 		logger.info(`${purgetss.colores.purgeLabel} Updating PurgeTSS to the latest version using sudo...`);
 
-		const { exec } = require("child_process");
+		const { exec } = require('child_process');
 
-		exec("sudo npm update -g purgetss", (error, stdout, stderr) => {
+		exec('sudo npm update -g purgetss', (error, stdout, stderr) => {
 			if (error) {
 				logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`);
 				return;

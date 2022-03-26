@@ -97,6 +97,7 @@ const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.j
 
 const configFile = (fs.existsSync(projectConfigJS)) ? require(projectConfigJS) : require(srcConfigFile);
 if (!configFile.purge) configFile.purge = { mode: 'all' };
+if (!configFile.fonts) configFile.fonts = { mode: 'fileName' };
 const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : false;
 const srcJMKFile = (isInstalledGlobally) ? path.resolve(__dirname, './lib/templates/alloy.jmk') : path.resolve(__dirname, './lib/templates/alloy-local.jmk');
 
@@ -259,7 +260,7 @@ function copyModulesLibrary() {
 		makeSureFolderExists(projectLibFolder);
 
 		fs.copyFileSync(srcPurgeTSSLibrary, projectLibFolder + '/purgetss.ui.js');
-		logger.info('PurgeTSS modules copied to', chalk.yellow('./app/lib'), 'folder');
+		logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./app/lib'), 'folder');
 	}
 }
 module.exports.copyModulesLibrary = copyModulesLibrary;
@@ -407,7 +408,11 @@ function buildCustomFonts(options) {
 
 				tssClasses += processFontMeta(fontMeta);
 
-				tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+				if (configFile.fonts.mode.toLowerCase() === 'postscriptname' || configFile.fonts.mode.toLowerCase() === 'postscript' || configFile.fonts.mode.toLowerCase() === 'ps') {
+					tssClasses += `\n'.${fontMeta.postScriptName.replace(/\//g, '')}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+				} else {
+					tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+				}
 
 				//! Copy Font File
 				makeSureFolderExists(projectFontsFolder);
@@ -832,7 +837,16 @@ function addHook() {
 
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
 			if (line.includes('pre:compile')) {
-				let execCommand = (isInstalledGlobally) ? 'purgetss' : 'node node_modules/purgetss/bin/purgetss';
+				let execCommand = "";
+
+				if (__dirname.includes('alloy')) {
+					execCommand = 'alloy purgetss';
+				} else if (isInstalledGlobally) {
+					execCommand = 'purgetss';
+				} else {
+					execCommand = 'node node_modules/purgetss/bin/purgetss';
+				};
+
 				line += `\n\trequire('child_process').execSync('${execCommand}', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
 			}
 			updatedJMKFile.push(line);
@@ -2148,6 +2162,8 @@ function purgeTailwind(uniqueClasses) {
 			let opacityIndex = _.findIndex(tailwindClasses, line => line.startsWith(`'.${opacityValue.className}`));
 
 			if (opacityIndex > -1) {
+				//! TODO: Check if color value is a hex value!! (if not, they are using rbg, rgba or semantic colors)
+				//! In other words, we need to validate the color value, before we can alter its opacity.
 				let defaultHexValue;
 				if (tailwindClasses[opacityIndex].includes('from')) {
 					defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/g)[1];
@@ -2263,9 +2279,9 @@ function saveFile(file, data) {
 }
 
 function createJMKFile() {
-	logger.warn(chalk.green('Adding Auto-Purging hook!'));
 	fs.copyFileSync(srcJMKFile, projectAlloyJMKFile);
 	logger.file('./app/alloy.jmk');
+	addHook();
 }
 
 //! Soon to be deleted
