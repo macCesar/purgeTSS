@@ -268,7 +268,7 @@ Use **`purgetss module`** command to install the `purgetss.ui.js` module in your
 If you want to create a new Alloy Project with `purgetss` ready to go, use the `create` command.
 
 ```bash
-> purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, lineicons, boxicons, framework7, tablericons, bootstrapicons"]
+> purgetss create 'Name of the Project' [--vendor="fontawesome, materialdesign, framework7"]
 
 # alias:
 > purgetss c 'Name of the Project' [-v=fa,md,f7]
