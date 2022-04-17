@@ -2,7 +2,7 @@
 	<img src="https://codigomovil.mx/images/logotipo-purgetss-gris.svg" height="230" width="230" alt="PurgeCSS logo"/>
 </p>
 
-**PurgeTSS** is a package with tailwind-like classes for **[Titanium developers](https://tidev.io/)**, who want to easily and quickly create beautifully designed mobile apps.
+**PurgeTSS** is a package with tailwind-like utility classes for **[Titanium developers](https://tidev.io/)** who want to easily and quickly create beautifully designed mobile apps.
 
 <p align="center">
   <a href="https://www.npmjs.com/package/purgetss" target="_blank">
