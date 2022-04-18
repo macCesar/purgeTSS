@@ -12,20 +12,22 @@
 
 **PurgeTSS** is a package with tailwind-like utility classes for **[Titanium developers](https://tidev.io/)** who want to easily and quickly create beautifully designed mobile apps.
 
-------
+---
 
 # Key features of PurgeTSS
+
 - Provides almost 11,000 **[Tailwind-like utility classes](https://tailwindcss.com/)** ready to use in your projects.
 - It creates a clean **`app.tss`** file with only the classes used in your project by parsing all your XML files.
-- You can customize any of the default classes through a simple configuration file, or you can create *just-in-time* classes with **arbitrary values** within the `Views`.
+- You can customize any of the default classes through a simple configuration file, or you can create _just-in-time_ classes with **arbitrary values** within the `Views`.
 - You can easily use **Font Awesome**, **Material Design** and **Framework7-Icons** fonts in `Buttons` and `Labels`.
 - You can create a **`fonts.tss`** file with all the class definitions and fontFamily selectors from any Icon, Serif, Sans-Serif, Cursive, Fantasy or Monospace font families.
 - Includes an **Animation module** to apply basic 2D Matrix animations or transformations to any element or to an `Array` of elements.
 - Includes a simple two-dimensional **Grid System** to align and distribute elements in your views.
 
-### Visit the oficial documentation site at [purgetss.com](https://purgetss.com) to learn more about PurgeTSS
+### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more about PurgeTSS
 
 ## Table of Content
+
 - [Installation](https://purgetss.com/docs/installation)
 - [Commands](https://purgetss.com/docs/commands)
 - Customization
