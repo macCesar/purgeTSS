@@ -98,7 +98,10 @@ const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.j
 const configFile = (fs.existsSync(projectConfigJS)) ? require(projectConfigJS) : require(srcConfigFile);
 if (!configFile.purge) configFile.purge = { mode: 'all' };
 if (!configFile.fonts) configFile.fonts = { mode: 'fileName' };
+configFile.corePlugins = configFile.corePlugins ?? {};
 const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : false;
+configOptions.widgets = configOptions.widgets ?? false;
+configOptions.missing = configOptions.missing ?? false;
 const srcJMKFile = (isInstalledGlobally) ? path.resolve(__dirname, './lib/templates/alloy.jmk') : path.resolve(__dirname, './lib/templates/alloy-local.jmk');
 
 //! Interfase
