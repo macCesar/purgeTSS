@@ -1021,6 +1021,132 @@
 
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left
+'.top-0': { top: 0 }
+'.top-1': { top: 4 }
+'.top-2': { top: 8 }
+'.top-3': { top: 12 }
+'.top-4': { top: 16 }
+'.top-5': { top: 20 }
+'.top-6': { top: 24 }
+'.top-7': { top: 28 }
+'.top-8': { top: 32 }
+'.top-9': { top: 36 }
+'.top-10': { top: 40 }
+'.top-11': { top: 44 }
+'.top-12': { top: 48 }
+'.top-14': { top: 56 }
+'.top-16': { top: 64 }
+'.top-20': { top: 80 }
+'.top-24': { top: 96 }
+'.top-28': { top: 112 }
+'.top-32': { top: 128 }
+'.top-36': { top: 144 }
+'.top-40': { top: 160 }
+'.top-44': { top: 176 }
+'.top-48': { top: 192 }
+'.top-52': { top: 208 }
+'.top-56': { top: 224 }
+'.top-60': { top: 240 }
+'.top-64': { top: 256 }
+'.top-72': { top: 288 }
+'.top-80': { top: 320 }
+'.top-96': { top: 384 }
+'.top-auto': { top: null }
+'.top-px': { top: '1px' }
+'.top-0.5': { top: 2 }
+'.top-1.5': { top: 6 }
+'.top-2.5': { top: 10 }
+'.top-3.5': { top: 14 }
+'.top-1/2': { top: '50%' }
+'.top-1/3': { top: '33.333334%' }
+'.top-2/3': { top: '66.666667%' }
+'.top-1/4': { top: '25%' }
+'.top-2/4': { top: '50%' }
+'.top-3/4': { top: '75%' }
+'.top-1/5': { top: '20%' }
+'.top-2/5': { top: '40%' }
+'.top-3/5': { top: '60%' }
+'.top-4/5': { top: '80%' }
+'.top-1/6': { top: '16.666667%' }
+'.top-2/6': { top: '33.333334%' }
+'.top-3/6': { top: '50%' }
+'.top-4/6': { top: '66.666667%' }
+'.top-5/6': { top: '83.333334%' }
+'.top-1/12': { top: '8.333334%' }
+'.top-2/12': { top: '16.666667%' }
+'.top-3/12': { top: '25%' }
+'.top-4/12': { top: '33.333334%' }
+'.top-5/12': { top: '41.666667%' }
+'.top-6/12': { top: '50%' }
+'.top-7/12': { top: '58.333334%' }
+'.top-8/12': { top: '66.666667%' }
+'.top-9/12': { top: '75%' }
+'.top-10/12': { top: '83.333334%' }
+'.top-11/12': { top: '91.666667%' }
+'.top-full': { top: '100%' }
+'.right-0': { right: 0 }
+'.right-1': { right: 4 }
+'.right-2': { right: 8 }
+'.right-3': { right: 12 }
+'.right-4': { right: 16 }
+'.right-5': { right: 20 }
+'.right-6': { right: 24 }
+'.right-7': { right: 28 }
+'.right-8': { right: 32 }
+'.right-9': { right: 36 }
+'.right-10': { right: 40 }
+'.right-11': { right: 44 }
+'.right-12': { right: 48 }
+'.right-14': { right: 56 }
+'.right-16': { right: 64 }
+'.right-20': { right: 80 }
+'.right-24': { right: 96 }
+'.right-28': { right: 112 }
+'.right-32': { right: 128 }
+'.right-36': { right: 144 }
+'.right-40': { right: 160 }
+'.right-44': { right: 176 }
+'.right-48': { right: 192 }
+'.right-52': { right: 208 }
+'.right-56': { right: 224 }
+'.right-60': { right: 240 }
+'.right-64': { right: 256 }
+'.right-72': { right: 288 }
+'.right-80': { right: 320 }
+'.right-96': { right: 384 }
+'.right-auto': { right: null }
+'.right-px': { right: '1px' }
+'.right-0.5': { right: 2 }
+'.right-1.5': { right: 6 }
+'.right-2.5': { right: 10 }
+'.right-3.5': { right: 14 }
+'.right-1/2': { right: '50%' }
+'.right-1/3': { right: '33.333334%' }
+'.right-2/3': { right: '66.666667%' }
+'.right-1/4': { right: '25%' }
+'.right-2/4': { right: '50%' }
+'.right-3/4': { right: '75%' }
+'.right-1/5': { right: '20%' }
+'.right-2/5': { right: '40%' }
+'.right-3/5': { right: '60%' }
+'.right-4/5': { right: '80%' }
+'.right-1/6': { right: '16.666667%' }
+'.right-2/6': { right: '33.333334%' }
+'.right-3/6': { right: '50%' }
+'.right-4/6': { right: '66.666667%' }
+'.right-5/6': { right: '83.333334%' }
+'.right-1/12': { right: '8.333334%' }
+'.right-2/12': { right: '16.666667%' }
+'.right-3/12': { right: '25%' }
+'.right-4/12': { right: '33.333334%' }
+'.right-5/12': { right: '41.666667%' }
+'.right-6/12': { right: '50%' }
+'.right-7/12': { right: '58.333334%' }
+'.right-8/12': { right: '66.666667%' }
+'.right-9/12': { right: '75%' }
+'.right-10/12': { right: '83.333334%' }
+'.right-11/12': { right: '91.666667%' }
+'.right-full': { right: '100%' }
 '.bottom-0': { bottom: 0 }
 '.bottom-1': { bottom: 4 }
 '.bottom-2': { bottom: 8 }
@@ -1147,132 +1273,6 @@
 '.left-10/12': { left: '83.333334%' }
 '.left-11/12': { left: '91.666667%' }
 '.left-full': { left: '100%' }
-'.right-0': { right: 0 }
-'.right-1': { right: 4 }
-'.right-2': { right: 8 }
-'.right-3': { right: 12 }
-'.right-4': { right: 16 }
-'.right-5': { right: 20 }
-'.right-6': { right: 24 }
-'.right-7': { right: 28 }
-'.right-8': { right: 32 }
-'.right-9': { right: 36 }
-'.right-10': { right: 40 }
-'.right-11': { right: 44 }
-'.right-12': { right: 48 }
-'.right-14': { right: 56 }
-'.right-16': { right: 64 }
-'.right-20': { right: 80 }
-'.right-24': { right: 96 }
-'.right-28': { right: 112 }
-'.right-32': { right: 128 }
-'.right-36': { right: 144 }
-'.right-40': { right: 160 }
-'.right-44': { right: 176 }
-'.right-48': { right: 192 }
-'.right-52': { right: 208 }
-'.right-56': { right: 224 }
-'.right-60': { right: 240 }
-'.right-64': { right: 256 }
-'.right-72': { right: 288 }
-'.right-80': { right: 320 }
-'.right-96': { right: 384 }
-'.right-auto': { right: null }
-'.right-px': { right: '1px' }
-'.right-0.5': { right: 2 }
-'.right-1.5': { right: 6 }
-'.right-2.5': { right: 10 }
-'.right-3.5': { right: 14 }
-'.right-1/2': { right: '50%' }
-'.right-1/3': { right: '33.333334%' }
-'.right-2/3': { right: '66.666667%' }
-'.right-1/4': { right: '25%' }
-'.right-2/4': { right: '50%' }
-'.right-3/4': { right: '75%' }
-'.right-1/5': { right: '20%' }
-'.right-2/5': { right: '40%' }
-'.right-3/5': { right: '60%' }
-'.right-4/5': { right: '80%' }
-'.right-1/6': { right: '16.666667%' }
-'.right-2/6': { right: '33.333334%' }
-'.right-3/6': { right: '50%' }
-'.right-4/6': { right: '66.666667%' }
-'.right-5/6': { right: '83.333334%' }
-'.right-1/12': { right: '8.333334%' }
-'.right-2/12': { right: '16.666667%' }
-'.right-3/12': { right: '25%' }
-'.right-4/12': { right: '33.333334%' }
-'.right-5/12': { right: '41.666667%' }
-'.right-6/12': { right: '50%' }
-'.right-7/12': { right: '58.333334%' }
-'.right-8/12': { right: '66.666667%' }
-'.right-9/12': { right: '75%' }
-'.right-10/12': { right: '83.333334%' }
-'.right-11/12': { right: '91.666667%' }
-'.right-full': { right: '100%' }
-'.top-0': { top: 0 }
-'.top-1': { top: 4 }
-'.top-2': { top: 8 }
-'.top-3': { top: 12 }
-'.top-4': { top: 16 }
-'.top-5': { top: 20 }
-'.top-6': { top: 24 }
-'.top-7': { top: 28 }
-'.top-8': { top: 32 }
-'.top-9': { top: 36 }
-'.top-10': { top: 40 }
-'.top-11': { top: 44 }
-'.top-12': { top: 48 }
-'.top-14': { top: 56 }
-'.top-16': { top: 64 }
-'.top-20': { top: 80 }
-'.top-24': { top: 96 }
-'.top-28': { top: 112 }
-'.top-32': { top: 128 }
-'.top-36': { top: 144 }
-'.top-40': { top: 160 }
-'.top-44': { top: 176 }
-'.top-48': { top: 192 }
-'.top-52': { top: 208 }
-'.top-56': { top: 224 }
-'.top-60': { top: 240 }
-'.top-64': { top: 256 }
-'.top-72': { top: 288 }
-'.top-80': { top: 320 }
-'.top-96': { top: 384 }
-'.top-auto': { top: null }
-'.top-px': { top: '1px' }
-'.top-0.5': { top: 2 }
-'.top-1.5': { top: 6 }
-'.top-2.5': { top: 10 }
-'.top-3.5': { top: 14 }
-'.top-1/2': { top: '50%' }
-'.top-1/3': { top: '33.333334%' }
-'.top-2/3': { top: '66.666667%' }
-'.top-1/4': { top: '25%' }
-'.top-2/4': { top: '50%' }
-'.top-3/4': { top: '75%' }
-'.top-1/5': { top: '20%' }
-'.top-2/5': { top: '40%' }
-'.top-3/5': { top: '60%' }
-'.top-4/5': { top: '80%' }
-'.top-1/6': { top: '16.666667%' }
-'.top-2/6': { top: '33.333334%' }
-'.top-3/6': { top: '50%' }
-'.top-4/6': { top: '66.666667%' }
-'.top-5/6': { top: '83.333334%' }
-'.top-1/12': { top: '8.333334%' }
-'.top-2/12': { top: '16.666667%' }
-'.top-3/12': { top: '25%' }
-'.top-4/12': { top: '33.333334%' }
-'.top-5/12': { top: '41.666667%' }
-'.top-6/12': { top: '50%' }
-'.top-7/12': { top: '58.333334%' }
-'.top-8/12': { top: '66.666667%' }
-'.top-9/12': { top: '75%' }
-'.top-10/12': { top: '83.333334%' }
-'.top-11/12': { top: '91.666667%' }
-'.top-full': { top: '100%' }
 
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left ( Negative )
@@ -1663,16 +1663,28 @@
 '.allow-user-customization[platform=ios]': { allowUserCustomization: true }
 '.dont-allow-user-customization[platform=ios]': { allowUserCustomization: false }
 
-// Component(s): Ti.UI.Animation
-// Property(ies): transition - iOS Only
-'.animation-style-curl-down[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
-'.animation-style-curl-up[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_UP }
-'.animation-style-flip-from-left[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }
-'.animation-style-flip-from-right[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT }
-'.animation-style-flip-from-top[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP }
-'.animation-style-flip-from-bottom[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM }
-'.animation-style-cross-dissolve[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
-'.animation-style-none[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.NONE }
+// Component(s): Ti.UI.Animation, Ti.UI.View
+// Property(ies): anchorPoint
+'.origin-center': { anchorPoint: { x: 0.5, y: 0.5 } }
+'.origin-top': { anchorPoint: { x: 0.5, y: 0 } }
+'.origin-top-right': { anchorPoint: { x: 1, y: 0 } }
+'.origin-right': { anchorPoint: { x: 0.5, y: 1 } }
+'.origin-bottom-right': { anchorPoint: { x: 1, y: 1 } }
+'.origin-bottom': { anchorPoint: { x: 0.5, y: 1 } }
+'.origin-bottom-left': { anchorPoint: { x: 0, y: 1 } }
+'.origin-left': { anchorPoint: { x: 0, y: 0.5 } }
+'.origin-top-left': { anchorPoint: { x: 0, y: 0 } }
+
+// anchor-point-{position} variant
+'.anchor-point-center': { anchorPoint: { x: 0.5, y: 0.5 } }
+'.anchor-point-top': { anchorPoint: { x: 0.5, y: 0 } }
+'.anchor-point-top-right': { anchorPoint: { x: 1, y: 0 } }
+'.anchor-point-right': { anchorPoint: { x: 0.5, y: 1 } }
+'.anchor-point-bottom-right': { anchorPoint: { x: 1, y: 1 } }
+'.anchor-point-bottom': { anchorPoint: { x: 0.5, y: 1 } }
+'.anchor-point-bottom-left': { anchorPoint: { x: 0, y: 1 } }
+'.anchor-point-left': { anchorPoint: { x: 0, y: 0.5 } }
+'.anchor-point-top-left': { anchorPoint: { x: 0, y: 0 } }
 
 // Component(s): Ti.UI.Window
 // Property(ies): autoAdjustScrollViewInsets - iOS Only
@@ -1872,6 +1884,14 @@
 '.can-cancel-events': { canCancelEvents: true }
 '.cant-cancel-events': { canCancelEvents: false }
 
+// Component(s): Ti.UI.Android.ProgressIndicator
+// Property(ies): cancelable - Android Only
+'.cancelable[platform=android]': { cancelable: true }
+
+// Component(s): Ti.UI.Android.ProgressIndicator
+// Property(ies): canceledOnTouchOutside - Android Only
+'.canceled-on-touch-outside[platform=android]': { canceledOnTouchOutside: true }
+
 // Component(s): Ti.UI.DashboardItem
 // Property(ies): canDelete - iOS Only
 '.can-delete[platform=ios]': { canDelete: true }
@@ -1924,10 +1944,25 @@
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 
+// Component(s): Ti.UI.Animation
+// Property(ies): A custom property to use it with the Animation module
+'.horizontal-constraint': { constraint: 'horizontal' }
+'.vertical-constraint': { constraint: 'vertical' }
+
 // Component(s): Ti.UI.ScrollView
 // Property(ies): contentWidth, contentHeight
 '.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
 '.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
+
+// Component(s): Ti.UI.Animation
+// Property(ies): curve
+'.ease-in': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN }
+'.ease-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_OUT }
+'.ease-linear': { curve: Ti.UI.ANIMATION_CURVE_LINEAR }
+'.ease-in-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT }
+
+// debug
+'.debug': { debug: true }
 
 // Component(s): Ti.UI.Picker
 // Property(ies): datePickerStyle
@@ -1972,18 +2007,6 @@
 // Property(ies): displayHomeAsUp - Android Only
 '.display-home-as-up[platform=android]': { displayHomeAsUp: true }
 '.dont-display-home-as-up[platform=android]': { displayHomeAsUp: false }
-
-// Component(s): Ti.Android.MenuItem, Ti.UI.Animation, Ti.UI.Picker, Ti.UI.ScrollableView, Ti.UI.ShortcutItem, Ti.UI.View
-// Property(ies): visible
-'.block': { visible: true }
-'.hidden': { visible: false }
-'.visible': { visible: true }
-'.invisible': { visible: false }
-
-// Component(s): Ti.UI.Animation
-// Property(ies): A custom property to use it with the Animation module
-'.horizontal-constraint': { constraint: 'horizontal' }
-'.vertical-constraint': { constraint: 'vertical' }
 
 // Component(s): For the Animation Component
 // Property(ies): draggingType
@@ -2372,6 +2395,12 @@
 '.home-indicator-auto-hidden[platform=ios]': { homeIndicatorAutoHidden: true }
 '.home-indicator-always-visible[platform=ios]': { homeIndicatorAutoHidden: false }
 
+// Component(s): Ti.UI.Notification
+// Property(ies): horizontalMargin - Android Only
+'.horizontal-center[platform=android]': { horizontalMargin: '0' }
+'.horizontal-left[platform=android]': { horizontalMargin: '-0.5' }
+'.horizontal-right[platform=android]': { horizontalMargin: '0.5' }
+
 // Component(s): Ti.UI.View
 // Property(ies): horizontalWrap - Android Only
 '.horizontal-wrap[platform=android]': { horizontalWrap: true }
@@ -2412,366 +2441,6 @@
 '.shortcut-icon-type-task[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_TASK' }
 '.shortcut-icon-type-time[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_TIME' }
 '.shortcut-icon-type-update[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_UPDATE' }
-
-// Component(s): Ti.UI.Android.SearchView, Ti.UI.Android.SearchBar
-// Property(ies): iconified
-'.iconified': { iconified: true }
-
-// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar
-// Property(ies): iconifiedByDefault
-'.iconified-by-default': { iconifiedByDefault: true }
-
-// Component(s): Ti.UI.Tab
-// Property(ies): iconIsMask - iOS Only
-'.icon-is-mask[platform=ios]': { iconIsMask: true }
-'.icon-is-not-mask[platform=ios]': { iconIsMask: false }
-
-// Component(s): Ti.UI.WebView
-// Property(ies): ignoreSslError
-'.ignore-ssl-error': { ignoreSslError: true }
-'.dont-ignore-ssl-error': { ignoreSslError: false }
-
-// Component(s): Ti.UI.ImageView
-// Property(ies): imageTouchFeedback - Android Only
-'.image-touch-feedback[platform=android]': { imageTouchFeedback: true }
-'.no-image-touch-feedback[platform=android]': { imageTouchFeedback: false }
-
-// Component(s): Ti.UI.Label
-// Property(ies): includeFontPadding - Android Only
-'.include-font-padding[platform=android]': { includeFontPadding: true }
-'.dont-include-font-padding[platform=android]': { includeFontPadding: false }
-
-// Component(s): Ti.UI.Window
-// Property(ies): includeOpaqueBars - iOS Only
-'.include-opaque-bars[platform=ios]': { includeOpaqueBars: true }
-'.exclude-opaque-bars[platform=ios]': { includeOpaqueBars: false }
-
-// Component(s): Ti.UI.TextField
-// Property(ies): inputType - Android Only
-'.input-type-class-number[platform=android]': { inputType: Ti.UI.INPUT_TYPE_CLASS_NUMBER }
-'.input-type-class-text[platform=android]': { inputType: Ti.UI.INPUT_TYPE_CLASS_TEXT }
-
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animaiton, Ti.UI.View, Ti.UI.Window
-// Property(ies): top, bottom, width(FILL), height(FILL)
-// Description: top, bottom, width, height properties for aligning items in a Grid System
-'.items-start': { top: 0 }
-'.items-end': { bottom: 0 }
-'.items-center': { width: Ti.UI.FILL, height: Ti.UI.FILL }
-
-// Component(s): Ti.UI.View
-// Property(ies): keepScreenOn - Android Only
-'.keep-screen-on[platform=android]': { keepScreenOn: true }
-'.dont-keep-screen-on[platform=android]': { keepScreenOn: false }
-
-// Component(s): Ti.UI.ListView
-// Property(ies): keepSectionsInSearch - iOS Only
-'.keep-sections-in-search[platform=ios]': { keepSectionsInSearch: true }
-'.dont-keep-sections-in-search[platform=ios]': { keepSectionsInSearch: false }
-
-// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
-// Property(ies): keyboardAppearance - iOS Only
-'.keyboard-appearance[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
-'.keyboard-appearance-dark[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DARK }
-'.keyboard-appearance-light[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
-
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
-// Property(ies): keyboardDismissMode - iOS Only
-'.keyboard-dismiss-mode-none[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }
-'.keyboard-dismiss-mode-on-drag[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG }
-'.keyboard-dismiss-mode-interactive[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_INTERACTIVE }
-
-// Component(s): Ti.UI.WebView
-// Property(ies): keyboardDisplayRequiresUserAction - iOS Only
-'.keyboard-display-requires-user-action[platform=ios]': { keyboardDisplayRequiresUserAction: true }
-'.keyboard-display-dont-require-user-action[platform=ios]': { keyboardDisplayRequiresUserAction: false }
-
-// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
-// Property(ies): keyboardType
-'.keyboard-type': { keyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
-'.keyboard-type-ascii': { keyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
-'.keyboard-type-decimal-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
-'.keyboard-type-email': { keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL }
-'.keyboard-type-namephone-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_NAMEPHONE_PAD }
-'.keyboard-type-number-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD }
-'.keyboard-type-numbers-punctuation': { keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION }
-'.keyboard-type-phone-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_PHONE_PAD }
-'.keyboard-type-url': { keyboardType: Ti.UI.KEYBOARD_TYPE_URL }
-'.keyboard-type-appearance[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
-'.keyboard-type-appearance-dark[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
-'.keyboard-type-appearance-light[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
-'.keyboard-type-twitter[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
-'.keyboard-type-websearch[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
-
-// Component(s): Ti.UI.Window
-// Property(ies): largeTitleDisplayMode - iOS Only
-'.large-title-display-always[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_ALWAYS }
-'.large-title-display-automatic[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_AUTOMATIC }
-'.large-title-display-never[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_NEVER }
-
-// Component(s): Ti.UI.Window
-// Property(ies): largeTitleEnabled - iOS Only
-'.large-title-enabled[platform=ios]': { largeTitleEnabled: true }
-'.large-title-disabled[platform=ios]': { largeTitleEnabled: false }
-
-// Component(s): Ti.UI.OptionBar, Ti.UI.View
-// Property(ies): layout
-'.composite': { layout: 'composite' }
-'.horizontal': { layout: 'horizontal' }
-'.vertical': { layout: 'vertical' }
-
-// Component(s): Ti.UI.ListView
-// Property(ies): lazyLoadingEnabled - iOS Only
-'.lazy-loading-enabled[platform=ios]': { lazyLoadingEnabled: true }
-'.lazy-loading-disabled[platform=ios]': { lazyLoadingEnabled: false }
-
-// Component(s): Ti.UI.TextField
-// Property(ies): leftButtonMode - iOS Only
-'.left-button-mode-always[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
-'.left-button-mode-never[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
-'.left-button-mode-on-blur[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
-'.left-button-mode-on-focus[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
-
-// Component(s): Ti.UI.Android.DrawerLayout
-// Property(ies): leftDrawerLockMode - Android Only
-'.left-drawer-lock-mode-locked-closed[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
-'.left-drawer-lock-mode-locked-open[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
-'.left-drawer-lock-mode-undefined[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
-'.left-drawer-lock-mode-unlocked[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
-
-// Component(s): Ti.UI.WebView
-// Property(ies): lightTouchEnabled - Android Only
-'.light-touch-enabled[platform=android]': { lightTouchEnabled: true }
-'.light-touch-disabled[platform=android]': { lightTouchEnabled: false }
-
-// Component(s): Ti.UI.ListView
-// Property(ies): style - iOS Only
-'.list-view-style-plain[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.PLAIN }
-'.list-view-style-group[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.GROUPED }
-'.list-view-style-inset-grouped[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.INSET_GROUPED }
-
-// Component(s): Ti.UI.AlertDialog
-// Property(ies): loginKeyboardType
-'.login-keyboard-type-ascii': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
-'.login-keyboard-type-decimal-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
-'.login-keyboard-type': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
-'.login-keyboard-type-email': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL }
-'.login-keyboard-type-namephone-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_NAMEPHONE_PAD }
-'.login-keyboard-type-number-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD }
-'.login-keyboard-type-numbers-punctuation': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION }
-'.login-keyboard-type-phone-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_PHONE_PAD }
-'.login-keyboard-type-url': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_URL }
-'.login-keyboard-type-appearance-dark[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
-'.login-keyboard-type-appearance-light[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
-'.login-keyboard-type-appearance[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
-'.login-keyboard-type-twitter[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
-'.login-keyboard-type-websearch[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
-
-// Component(s): Ti.UI.AlertDialog
-// Property(ies): loginReturnKeyType
-'.login-return-key-type': { loginReturnKeyType: Ti.UI.RETURNKEY_DEFAULT }
-'.login-return-key-type-go': { loginReturnKeyType: Ti.UI.RETURNKEY_GO }
-'.login-return-key-type-done': { loginReturnKeyType: Ti.UI.RETURNKEY_DONE }
-'.login-return-key-type-join': { loginReturnKeyType: Ti.UI.RETURNKEY_JOIN }
-'.login-return-key-type-next': { loginReturnKeyType: Ti.UI.RETURNKEY_NEXT }
-'.login-return-key-type-send': { loginReturnKeyType: Ti.UI.RETURNKEY_SEND }
-'.login-return-key-type-route': { loginReturnKeyType: Ti.UI.RETURNKEY_ROUTE }
-'.login-return-key-type-yahoo': { loginReturnKeyType: Ti.UI.RETURNKEY_YAHOO }
-'.login-return-key-type-google': { loginReturnKeyType: Ti.UI.RETURNKEY_GOOGLE }
-'.login-return-key-type-search': { loginReturnKeyType: Ti.UI.RETURNKEY_SEARCH }
-'.login-return-key-type-emergency-call': { loginReturnKeyType: Ti.UI.RETURNKEY_EMERGENCY_CALL }
-'.login-return-key-type-continue[platform=ios]': { loginReturnKeyType: Ti.UI.RETURNKEY_CONTINUE }
-
-// Component(s): Ti.UI.WebView
-// Property(ies): mixedContentMode - Android Only
-'.mixed-content-mode[platform=android]': { mixedContentMode: true }
-'.unmixed-content-mode[platform=android]': { mixedContentMode: false }
-
-// Component(s): Ti.UI.Window
-// Property(ies): modal
-'.modal': { modal: true }
-'.regular': { modal: false }
-
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
-// Property(ies): moveable
-'.moveable': { moveable: true }
-'.unmovable': { moveable: false }
-
-// Component(s): Ti.UI.TableView
-// Property(ies): moving
-'.moving': { moving: true }
-
-// Component(s): Ti.UI.Picker
-// Property(ies): nativeSpinner - Android Only
-'.native-spinner[platform=android]': { nativeSpinner: true }
-
-// Component(s): Ti.UI.Window
-// Property(ies): navBarHidden
-'.nav-bar-hidden': { navBarHidden: true }
-'.nav-bar-visible': { navBarHidden: false }
-
-// Component(s): Ti.Android.ActionBar
-// Property(ies): navigationMode
-'.navigation-mode-standard[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_STANDARD }
-'.navigation-mode-tabs[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_TABS }
-
-// Component(s): Ti.UI.Window
-// Property(ies): orientationModes
-'.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
-'.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
-'.orientation-portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
-'.orientation-upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
-'.orientation-landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
-
-// Component(s): Ti.UI.Window
-// Property(ies): orientationModes (Alternative)
-'.portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
-'.upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
-'.landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
-'.landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
-'.landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
-
-// Component(s): Ti.UI.Animation, Ti.UI.View
-// Property(ies): anchorPoint
-'.origin-center': { anchorPoint: { x: 0.5, y: 0.5 } }
-'.origin-top': { anchorPoint: { x: 0.5, y: 0 } }
-'.origin-top-right': { anchorPoint: { x: 1, y: 0 } }
-'.origin-right': { anchorPoint: { x: 0.5, y: 1 } }
-'.origin-bottom-right': { anchorPoint: { x: 1, y: 1 } }
-'.origin-bottom': { anchorPoint: { x: 0.5, y: 1 } }
-'.origin-bottom-left': { anchorPoint: { x: 0, y: 1 } }
-'.origin-left': { anchorPoint: { x: 0, y: 0.5 } }
-'.origin-top-left': { anchorPoint: { x: 0, y: 0 } }
-
-// anchor-point-{position} variant
-'.anchor-point-center': { anchorPoint: { x: 0.5, y: 0.5 } }
-'.anchor-point-top': { anchorPoint: { x: 0.5, y: 0 } }
-'.anchor-point-top-right': { anchorPoint: { x: 1, y: 0 } }
-'.anchor-point-right': { anchorPoint: { x: 0.5, y: 1 } }
-'.anchor-point-bottom-right': { anchorPoint: { x: 1, y: 1 } }
-'.anchor-point-bottom': { anchorPoint: { x: 0.5, y: 1 } }
-'.anchor-point-bottom-left': { anchorPoint: { x: 0, y: 1 } }
-'.anchor-point-left': { anchorPoint: { x: 0, y: 0.5 } }
-'.anchor-point-top-left': { anchorPoint: { x: 0, y: 0 } }
-
-// Component(s): Ti.UI.ScrollableView
-// Property(ies): overlayEnabled - iOS Only
-'.overlay-enabled[platform=ios]': { overlayEnabled: true }
-'.overlay-disabled[platform=ios]': { overlayEnabled: false }
-
-// Component(s): Ti.UI.View
-// Property(ies): overrideCurrentAnimation - Android Only
-'.override-current-animation[platform=android]': { overrideCurrentAnimation: true }
-'.dont-override-current-animation[platform=android]': { overrideCurrentAnimation: false }
-
-// Component(s): Ti.UI.ScrollableView, Ti.UI.ScrollView, Ti.UI.TableView, Ti.UI.WebView
-// Property(ies): overScrollMode - Android Only
-'.over-scroll-always[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_ALWAYS }
-'.over-scroll-if-content-scrolls[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS }
-'.over-scroll-never[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_NEVER }
-
-// Component(s): Ti.UI.ScrollableView
-// Property(ies): showPagingControl
-'.show-paging-control': { showPagingControl: true }
-'.hide-paging-control': { showPagingControl: false }
-
-// Component(s): Ti.UI.ScrollableView
-// Property(ies): pagingControlOnTop - iOS Only
-'.paging-control-on-top': { pagingControlOnTop: true }
-'.paging-control-on-bottom': { pagingControlOnTop: false }
-
-// Component(s): Ti.UI.AlertDialog
-// Property(ies): passwordKeyboardType
-'.password-keyboard-type': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
-'.password-keyboard-type-ascii': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
-'.password-keyboard-type-decimal-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
-'.password-keyboard-type-email': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL }
-'.password-keyboard-type-namephone-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_NAMEPHONE_PAD }
-'.password-keyboard-type-number-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD }
-'.password-keyboard-type-numbers-punctuation': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION }
-'.password-keyboard-type-phone-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_PHONE_PAD }
-'.password-keyboard-type-url': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_URL }
-'.password-keyboard-type-appearance-dark[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
-'.password-keyboard-type-appearance-light[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
-'.password-keyboard-type-appearance[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
-'.password-keyboard-type-twitter[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
-'.password-keyboard-type-websearch[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
-
-// Component(s): Ti.UI.TableView
-// Property(ies): passwordMask
-'.password-mask': { passwordMask: true }
-'.password-unmask': { passwordMask: false }
-
-// Component(s): Ti.UI.Picker
-// Property(ies): type (Picker Type)
-'.picker-type-count-down-timer': { type: Ti.UI.PICKER_TYPE_COUNT_DOWN_TIMER }
-'.picker-type-date': { type: Ti.UI.PICKER_TYPE_DATE }
-'.picker-type-date-and-time': { type: Ti.UI.PICKER_TYPE_DATE_AND_TIME }
-'.picker-type-plain': { type: Ti.UI.PICKER_TYPE_PLAIN }
-'.picker-type-time': { type: Ti.UI.PICKER_TYPE_TIME }
-
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
-// Property(ies): top, right, bottom, left
-'.top-auto': { top: Ti.UI.SIZE }
-'.left-auto': { left: Ti.UI.SIZE }
-'.right-auto': { right: Ti.UI.SIZE }
-'.bottom-auto': { bottom: Ti.UI.SIZE }
-'.inset-x-0': { right: 0, left: 0 }
-'.inset-y-0': { top: 0, bottom: 0 }
-'.inset-0': { top: 0, right: 0, bottom: 0, left: 0 }
-'.inset-x-auto': { right: Ti.UI.SIZE, left: Ti.UI.SIZE }
-'.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
-'.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
-
-// Component(s): Ti.UI.WebView
-// Property(ies): pluginState - Android Only
-'.webview-plugins-off[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_OFF }
-'.webview-plugins-on[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON }
-'.webview-plugins-on-demand[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON_DEMAND }
-
-// Component(s): Ti.UI.Android.CardView
-// Property(ies): preventCornerOverlap - Android Only
-'.prevent-corner-overlap[platform=android]': { preventCornerOverlap: true }
-'.dont-prevent-corner-overlap[platform=android]': { preventCornerOverlap: false }
-
-// Component(s): Ti.UI.ImageView
-// Property(ies): preventDefaultImage - iOS Only
-'.prevent-default-image[platform=ios]': { preventDefaultImage: true }
-'.display-default-image[platform=ios]': { preventDefaultImage: false }
-
-// Component(s): Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
-// Property(ies): style - iOS Only
-'.preview-action-style[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DEFAULT }
-'.preview-action-style-selected[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_SELECTED }
-'.preview-action-style-destrutive[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DESTRUCTIVE }
-
-// Component(s): Ti.UI.ProgressBar
-// Property(ies): style - iOS Only
-'.progress-bar-style-bar[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.BAR }
-'.progress-bar-style[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.DEFAULT }
-'.progress-bar-style-plain[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.PLAIN }
-
-// Component(s): Ti.UI.Android.ProgressIndicator
-// Property(ies): cancelable - Android Only
-'.cancelable[platform=android]': { cancelable: true }
-
-// Component(s): Ti.UI.Android.ProgressIndicator
-// Property(ies): canceledOnTouchOutside - Android Only
-'.canceled-on-touch-outside[platform=android]': { canceledOnTouchOutside: true }
-
-// Component(s): Ti.UI.Android.ProgressIndicator
-// Property(ies): location - Android Only
-'.location-dialog[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_DIALOG }
-'.location-statur-bar[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR }
-
-// Component(s): Ti.UI.Android.ProgressIndicator
-// Property(ies): type - Android Only
-'.type-determinant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT }
-'.type-indeterminant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_INDETERMINANT }
-
-// Component(s): Ti.UI.ListView
-// Property(ies): pruneSectionsOnEdit - iOS Only
-'.prune-sections-on-edit[platform=ios]': { pruneSectionsOnEdit: true }
-'.dont-prune-sections-on-edit[platform=ios]': { pruneSectionsOnEdit: false }
 
 // Component(s): Ti.Android.R
 // Property(ies): icon - Android Only
@@ -2945,6 +2614,330 @@
 '.r-drawable-toast-frame[platform=android]': { icon: Ti.Android.R.drawable.toast_frame }
 '.r-drawable-zoom-plate[platform=android]': { icon: Ti.Android.R.drawable.zoom_plate }
 
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.Android.SearchBar
+// Property(ies): iconified
+'.iconified': { iconified: true }
+
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar
+// Property(ies): iconifiedByDefault
+'.iconified-by-default': { iconifiedByDefault: true }
+
+// Component(s): Ti.UI.Tab
+// Property(ies): iconIsMask - iOS Only
+'.icon-is-mask[platform=ios]': { iconIsMask: true }
+'.icon-is-not-mask[platform=ios]': { iconIsMask: false }
+
+// Component(s): Ti.UI.WebView
+// Property(ies): ignoreSslError
+'.ignore-ssl-error': { ignoreSslError: true }
+'.dont-ignore-ssl-error': { ignoreSslError: false }
+
+// Component(s): Ti.UI.ImageView
+// Property(ies): imageTouchFeedback - Android Only
+'.image-touch-feedback[platform=android]': { imageTouchFeedback: true }
+'.no-image-touch-feedback[platform=android]': { imageTouchFeedback: false }
+
+// Component(s): Ti.UI.Label
+// Property(ies): includeFontPadding - Android Only
+'.include-font-padding[platform=android]': { includeFontPadding: true }
+'.dont-include-font-padding[platform=android]': { includeFontPadding: false }
+
+// Component(s): Ti.UI.Window
+// Property(ies): includeOpaqueBars - iOS Only
+'.include-opaque-bars[platform=ios]': { includeOpaqueBars: true }
+'.exclude-opaque-bars[platform=ios]': { includeOpaqueBars: false }
+
+// Component(s): Ti.UI.TextField
+// Property(ies): inputType - Android Only
+'.input-type-class-number[platform=android]': { inputType: Ti.UI.INPUT_TYPE_CLASS_NUMBER }
+'.input-type-class-text[platform=android]': { inputType: Ti.UI.INPUT_TYPE_CLASS_TEXT }
+
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animaiton, Ti.UI.View, Ti.UI.Window
+// Property(ies): top, bottom, width(FILL), height(FILL)
+// Description: top, bottom, width, height properties for aligning items in a Grid System
+'.items-start': { top: 0 }
+'.items-end': { bottom: 0 }
+'.items-center': { width: Ti.UI.FILL, height: Ti.UI.FILL }
+
+// Component(s): Ti.UI.View
+// Property(ies): keepScreenOn - Android Only
+'.keep-screen-on[platform=android]': { keepScreenOn: true }
+'.dont-keep-screen-on[platform=android]': { keepScreenOn: false }
+
+// Component(s): Ti.UI.ListView
+// Property(ies): keepSectionsInSearch - iOS Only
+'.keep-sections-in-search[platform=ios]': { keepSectionsInSearch: true }
+'.dont-keep-sections-in-search[platform=ios]': { keepSectionsInSearch: false }
+
+// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): keyboardAppearance - iOS Only
+'.keyboard-appearance[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
+'.keyboard-appearance-dark[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DARK }
+'.keyboard-appearance-light[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
+
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
+// Property(ies): keyboardDismissMode - iOS Only
+'.keyboard-dismiss-mode-none[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }
+'.keyboard-dismiss-mode-on-drag[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG }
+'.keyboard-dismiss-mode-interactive[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_INTERACTIVE }
+
+// Component(s): Ti.UI.WebView
+// Property(ies): keyboardDisplayRequiresUserAction - iOS Only
+'.keyboard-display-requires-user-action[platform=ios]': { keyboardDisplayRequiresUserAction: true }
+'.keyboard-display-dont-require-user-action[platform=ios]': { keyboardDisplayRequiresUserAction: false }
+
+// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): keyboardType
+'.keyboard-type': { keyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
+'.keyboard-type-ascii': { keyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
+'.keyboard-type-decimal-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
+'.keyboard-type-email': { keyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL }
+'.keyboard-type-namephone-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_NAMEPHONE_PAD }
+'.keyboard-type-number-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD }
+'.keyboard-type-numbers-punctuation': { keyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION }
+'.keyboard-type-phone-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_PHONE_PAD }
+'.keyboard-type-url': { keyboardType: Ti.UI.KEYBOARD_TYPE_URL }
+'.keyboard-type-appearance[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
+'.keyboard-type-appearance-dark[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
+'.keyboard-type-appearance-light[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
+'.keyboard-type-twitter[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
+'.keyboard-type-websearch[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
+
+// Component(s): Ti.UI.Window
+// Property(ies): largeTitleDisplayMode - iOS Only
+'.large-title-display-always[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_ALWAYS }
+'.large-title-display-automatic[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_AUTOMATIC }
+'.large-title-display-never[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_NEVER }
+
+// Component(s): Ti.UI.Window
+// Property(ies): largeTitleEnabled - iOS Only
+'.large-title-enabled[platform=ios]': { largeTitleEnabled: true }
+'.large-title-disabled[platform=ios]': { largeTitleEnabled: false }
+
+// Component(s): Ti.UI.OptionBar, Ti.UI.View
+// Property(ies): layout
+'.composite': { layout: 'composite' }
+'.horizontal': { layout: 'horizontal' }
+'.vertical': { layout: 'vertical' }
+
+// Component(s): Ti.UI.ListView
+// Property(ies): lazyLoadingEnabled - iOS Only
+'.lazy-loading-enabled[platform=ios]': { lazyLoadingEnabled: true }
+'.lazy-loading-disabled[platform=ios]': { lazyLoadingEnabled: false }
+
+// Component(s): Ti.UI.TextField
+// Property(ies): leftButtonMode - iOS Only
+'.left-button-mode-always[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
+'.left-button-mode-never[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
+'.left-button-mode-on-blur[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
+'.left-button-mode-on-focus[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
+
+// Component(s): Ti.UI.Android.DrawerLayout
+// Property(ies): leftDrawerLockMode - Android Only
+'.left-drawer-lock-mode-locked-closed[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
+'.left-drawer-lock-mode-locked-open[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
+'.left-drawer-lock-mode-undefined[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
+'.left-drawer-lock-mode-unlocked[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
+
+// Component(s): Ti.UI.WebView
+// Property(ies): lightTouchEnabled - Android Only
+'.light-touch-enabled[platform=android]': { lightTouchEnabled: true }
+'.light-touch-disabled[platform=android]': { lightTouchEnabled: false }
+
+// Component(s): Ti.UI.ListView
+// Property(ies): style - iOS Only
+'.list-view-style-plain[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.PLAIN }
+'.list-view-style-group[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.GROUPED }
+'.list-view-style-inset-grouped[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.INSET_GROUPED }
+
+// Component(s): Ti.UI.Android.ProgressIndicator
+// Property(ies): location - Android Only
+'.location-dialog[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_DIALOG }
+'.location-statur-bar[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR }
+
+// Component(s): Ti.UI.AlertDialog
+// Property(ies): loginKeyboardType
+'.login-keyboard-type-ascii': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
+'.login-keyboard-type-decimal-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
+'.login-keyboard-type': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
+'.login-keyboard-type-email': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL }
+'.login-keyboard-type-namephone-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_NAMEPHONE_PAD }
+'.login-keyboard-type-number-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD }
+'.login-keyboard-type-numbers-punctuation': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION }
+'.login-keyboard-type-phone-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_PHONE_PAD }
+'.login-keyboard-type-url': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_URL }
+'.login-keyboard-type-appearance-dark[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
+'.login-keyboard-type-appearance-light[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
+'.login-keyboard-type-appearance[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
+'.login-keyboard-type-twitter[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
+'.login-keyboard-type-websearch[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
+
+// Component(s): Ti.UI.AlertDialog
+// Property(ies): loginReturnKeyType
+'.login-return-key-type': { loginReturnKeyType: Ti.UI.RETURNKEY_DEFAULT }
+'.login-return-key-type-go': { loginReturnKeyType: Ti.UI.RETURNKEY_GO }
+'.login-return-key-type-done': { loginReturnKeyType: Ti.UI.RETURNKEY_DONE }
+'.login-return-key-type-join': { loginReturnKeyType: Ti.UI.RETURNKEY_JOIN }
+'.login-return-key-type-next': { loginReturnKeyType: Ti.UI.RETURNKEY_NEXT }
+'.login-return-key-type-send': { loginReturnKeyType: Ti.UI.RETURNKEY_SEND }
+'.login-return-key-type-route': { loginReturnKeyType: Ti.UI.RETURNKEY_ROUTE }
+'.login-return-key-type-yahoo': { loginReturnKeyType: Ti.UI.RETURNKEY_YAHOO }
+'.login-return-key-type-google': { loginReturnKeyType: Ti.UI.RETURNKEY_GOOGLE }
+'.login-return-key-type-search': { loginReturnKeyType: Ti.UI.RETURNKEY_SEARCH }
+'.login-return-key-type-emergency-call': { loginReturnKeyType: Ti.UI.RETURNKEY_EMERGENCY_CALL }
+'.login-return-key-type-continue[platform=ios]': { loginReturnKeyType: Ti.UI.RETURNKEY_CONTINUE }
+
+// Component(s): Ti.UI.WebView
+// Property(ies): mixedContentMode - Android Only
+'.mixed-content-mode[platform=android]': { mixedContentMode: true }
+'.unmixed-content-mode[platform=android]': { mixedContentMode: false }
+
+// Component(s): Ti.UI.Window
+// Property(ies): modal
+'.modal': { modal: true }
+'.regular': { modal: false }
+
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
+// Property(ies): moveable
+'.moveable': { moveable: true }
+'.unmovable': { moveable: false }
+
+// Component(s): Ti.UI.TableView
+// Property(ies): moving
+'.moving': { moving: true }
+
+// Component(s): Ti.UI.Picker
+// Property(ies): nativeSpinner - Android Only
+'.native-spinner[platform=android]': { nativeSpinner: true }
+
+// Component(s): Ti.UI.Window
+// Property(ies): navBarHidden
+'.nav-bar-hidden': { navBarHidden: true }
+'.nav-bar-visible': { navBarHidden: false }
+
+// Component(s): Ti.Android.ActionBar
+// Property(ies): navigationMode
+'.navigation-mode-standard[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_STANDARD }
+'.navigation-mode-tabs[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_TABS }
+
+// Component(s): Ti.UI.Window
+// Property(ies): orientationModes
+'.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
+'.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
+'.orientation-portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
+'.orientation-upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
+'.orientation-landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
+
+// Component(s): Ti.UI.Window
+// Property(ies): orientationModes (Alternative)
+'.portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
+'.upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
+'.landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
+'.landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
+'.landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
+
+// Component(s): Ti.UI.ScrollableView
+// Property(ies): overlayEnabled - iOS Only
+'.overlay-enabled[platform=ios]': { overlayEnabled: true }
+'.overlay-disabled[platform=ios]': { overlayEnabled: false }
+
+// Component(s): Ti.UI.View
+// Property(ies): overrideCurrentAnimation - Android Only
+'.override-current-animation[platform=android]': { overrideCurrentAnimation: true }
+'.dont-override-current-animation[platform=android]': { overrideCurrentAnimation: false }
+
+// Component(s): Ti.UI.ScrollableView, Ti.UI.ScrollView, Ti.UI.TableView, Ti.UI.WebView
+// Property(ies): overScrollMode - Android Only
+'.over-scroll-always[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_ALWAYS }
+'.over-scroll-if-content-scrolls[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS }
+'.over-scroll-never[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_NEVER }
+
+// Component(s): Ti.UI.ScrollableView
+// Property(ies): pagingControlOnTop - iOS Only
+'.paging-control-on-top': { pagingControlOnTop: true }
+'.paging-control-on-bottom': { pagingControlOnTop: false }
+
+// Component(s): Ti.UI.AlertDialog
+// Property(ies): passwordKeyboardType
+'.password-keyboard-type': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
+'.password-keyboard-type-ascii': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
+'.password-keyboard-type-decimal-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
+'.password-keyboard-type-email': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_EMAIL }
+'.password-keyboard-type-namephone-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_NAMEPHONE_PAD }
+'.password-keyboard-type-number-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_NUMBER_PAD }
+'.password-keyboard-type-numbers-punctuation': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION }
+'.password-keyboard-type-phone-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_PHONE_PAD }
+'.password-keyboard-type-url': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_URL }
+'.password-keyboard-type-appearance-dark[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
+'.password-keyboard-type-appearance-light[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
+'.password-keyboard-type-appearance[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
+'.password-keyboard-type-twitter[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
+'.password-keyboard-type-websearch[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
+
+// Component(s): Ti.UI.TableView
+// Property(ies): passwordMask
+'.password-mask': { passwordMask: true }
+'.password-unmask': { passwordMask: false }
+
+// Component(s): Ti.UI.Picker
+// Property(ies): type (Picker Type)
+'.picker-type-count-down-timer': { type: Ti.UI.PICKER_TYPE_COUNT_DOWN_TIMER }
+'.picker-type-date': { type: Ti.UI.PICKER_TYPE_DATE }
+'.picker-type-date-and-time': { type: Ti.UI.PICKER_TYPE_DATE_AND_TIME }
+'.picker-type-plain': { type: Ti.UI.PICKER_TYPE_PLAIN }
+'.picker-type-time': { type: Ti.UI.PICKER_TYPE_TIME }
+
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
+// Property(ies): top, right, bottom, left
+'.top-auto': { top: Ti.UI.SIZE }
+'.left-auto': { left: Ti.UI.SIZE }
+'.right-auto': { right: Ti.UI.SIZE }
+'.bottom-auto': { bottom: Ti.UI.SIZE }
+'.inset-x-0': { right: 0, left: 0 }
+'.inset-y-0': { top: 0, bottom: 0 }
+'.inset-0': { top: 0, right: 0, bottom: 0, left: 0 }
+'.inset-x-auto': { right: Ti.UI.SIZE, left: Ti.UI.SIZE }
+'.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
+'.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
+
+// Component(s): Ti.UI.WebView
+// Property(ies): pluginState - Android Only
+'.webview-plugins-off[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_OFF }
+'.webview-plugins-on[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON }
+'.webview-plugins-on-demand[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON_DEMAND }
+
+// Component(s): Ti.UI.Android.CardView
+// Property(ies): preventCornerOverlap - Android Only
+'.prevent-corner-overlap[platform=android]': { preventCornerOverlap: true }
+'.dont-prevent-corner-overlap[platform=android]': { preventCornerOverlap: false }
+
+// Component(s): Ti.UI.ImageView
+// Property(ies): preventDefaultImage - iOS Only
+'.prevent-default-image[platform=ios]': { preventDefaultImage: true }
+'.display-default-image[platform=ios]': { preventDefaultImage: false }
+
+// Component(s): Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
+// Property(ies): style - iOS Only
+'.preview-action-style[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DEFAULT }
+'.preview-action-style-selected[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_SELECTED }
+'.preview-action-style-destrutive[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DESTRUCTIVE }
+
+// Component(s): Ti.UI.ProgressBar
+// Property(ies): style - iOS Only
+'.progress-bar-style-bar[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.BAR }
+'.progress-bar-style[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.DEFAULT }
+'.progress-bar-style-plain[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.PLAIN }
+
+// Component(s): Ti.UI.Android.ProgressIndicator
+// Property(ies): type - Android Only
+'.type-determinant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT }
+'.type-indeterminant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_INDETERMINANT }
+
+// Component(s): Ti.UI.ListView
+// Property(ies): pruneSectionsOnEdit - iOS Only
+'.prune-sections-on-edit[platform=ios]': { pruneSectionsOnEdit: true }
+'.dont-prune-sections-on-edit[platform=ios]': { pruneSectionsOnEdit: false }
+
 // Component(s): Ti.Android.Activity
 // Property(ies): requestedOrientation - Android Only
 '.requested-orientation-behind[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_BEHIND }
@@ -3096,6 +3089,11 @@
 // Property(ies): showHorizontalScrollIndicator
 '.show-horizontal-scrolling-indicator': { showHorizontalScrollIndicator: true }
 '.hide-horizontal-scrolling-indicator': { showHorizontalScrollIndicator: false }
+
+// Component(s): Ti.UI.ScrollableView
+// Property(ies): showPagingControl
+'.show-paging-control': { showPagingControl: true }
+'.hide-paging-control': { showPagingControl: false }
 
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): showSearchBarInNavBar - iOS Only
@@ -3351,14 +3349,15 @@
 '.dont-touch-feedback[platform=android]': { touchFeedback: false }
 
 // Component(s): Ti.UI.Animation
-// Property(ies): curve
-'.ease-in': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN }
-'.ease-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_OUT }
-'.ease-linear': { curve: Ti.UI.ANIMATION_CURVE_LINEAR }
-'.ease-in-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN_OUT }
-
-// debug
-'.debug': { debug: true }
+// Property(ies): transition - iOS Only
+'.animation-style-curl-down[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
+'.animation-style-curl-up[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_UP }
+'.animation-style-flip-from-left[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }
+'.animation-style-flip-from-right[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT }
+'.animation-style-flip-from-top[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP }
+'.animation-style-flip-from-bottom[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM }
+'.animation-style-cross-dissolve[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
+'.animation-style-none[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.NONE }
 
 // Component(s): Ti.UI.iOS.Toolbar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
 // Property(ies): translucent - iOS Only
@@ -3385,12 +3384,6 @@
 // Property(ies): verticalBounce - iOS Only
 '.vertical-bounce[platform=ios]': { verticalBounce: true }
 '.no-vertical-bounce[platform=ios]': { verticalBounce: false }
-
-// Component(s): Ti.UI.Notification
-// Property(ies): horizontalMargin - Android Only
-'.horizontal-center[platform=android]': { horizontalMargin: '0' }
-'.horizontal-left[platform=android]': { horizontalMargin: '-0.5' }
-'.horizontal-right[platform=android]': { horizontalMargin: '0.5' }
 
 // Component(s): Ti.UI.Notification
 // Property(ies): verticalMargin - Android Only
@@ -3423,6 +3416,13 @@
 '.shadow-inner[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 '.shadow-outline[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
 '.shadow-none[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+
+// Component(s): Ti.Android.MenuItem, Ti.UI.Animation, Ti.UI.Picker, Ti.UI.ScrollableView, Ti.UI.ShortcutItem, Ti.UI.View
+// Property(ies): visible
+'.block': { visible: true }
+'.hidden': { visible: false }
+'.visible': { visible: true }
+'.invisible': { visible: false }
 
 // Component(s): Ti.UI.WebView
 // Property(ies): willHandleTouches - iOS Only
@@ -9998,232 +9998,6 @@
 '.disabled-rose-800[platform=ios]': { disabledColor: '#9f1239' }
 '.disabled-rose-900[platform=ios]': { disabledColor: '#881337' }
 
-// Component(s): Ti.UI.Button, Ti.UI.Label
-// Property(ies): shadowColor - Drop Shadow in Tailwind
-'.drop-shadow-transparent': { shadowColor: 'transparent' }
-'.drop-shadow-black': { shadowColor: '#000000' }
-'.drop-shadow-white': { shadowColor: '#ffffff' }
-'.drop-shadow-slate-50': { shadowColor: '#f8fafc' }
-'.drop-shadow-slate-100': { shadowColor: '#f1f5f9' }
-'.drop-shadow-slate-200': { shadowColor: '#e2e8f0' }
-'.drop-shadow-slate-300': { shadowColor: '#cbd5e1' }
-'.drop-shadow-slate-400': { shadowColor: '#94a3b8' }
-'.drop-shadow-slate-500': { shadowColor: '#64748b' }
-'.drop-shadow-slate-600': { shadowColor: '#475569' }
-'.drop-shadow-slate-700': { shadowColor: '#334155' }
-'.drop-shadow-slate-800': { shadowColor: '#1e293b' }
-'.drop-shadow-slate-900': { shadowColor: '#0f172a' }
-'.drop-shadow-gray-50': { shadowColor: '#f9fafb' }
-'.drop-shadow-gray-100': { shadowColor: '#f3f4f6' }
-'.drop-shadow-gray-200': { shadowColor: '#e5e7eb' }
-'.drop-shadow-gray-300': { shadowColor: '#d1d5db' }
-'.drop-shadow-gray-400': { shadowColor: '#9ca3af' }
-'.drop-shadow-gray-500': { shadowColor: '#6b7280' }
-'.drop-shadow-gray-600': { shadowColor: '#4b5563' }
-'.drop-shadow-gray-700': { shadowColor: '#374151' }
-'.drop-shadow-gray-800': { shadowColor: '#1f2937' }
-'.drop-shadow-gray-900': { shadowColor: '#111827' }
-'.drop-shadow-zinc-50': { shadowColor: '#fafafa' }
-'.drop-shadow-zinc-100': { shadowColor: '#f4f4f5' }
-'.drop-shadow-zinc-200': { shadowColor: '#e4e4e7' }
-'.drop-shadow-zinc-300': { shadowColor: '#d4d4d8' }
-'.drop-shadow-zinc-400': { shadowColor: '#a1a1aa' }
-'.drop-shadow-zinc-500': { shadowColor: '#71717a' }
-'.drop-shadow-zinc-600': { shadowColor: '#52525b' }
-'.drop-shadow-zinc-700': { shadowColor: '#3f3f46' }
-'.drop-shadow-zinc-800': { shadowColor: '#27272a' }
-'.drop-shadow-zinc-900': { shadowColor: '#18181b' }
-'.drop-shadow-neutral-50': { shadowColor: '#fafafa' }
-'.drop-shadow-neutral-100': { shadowColor: '#f5f5f5' }
-'.drop-shadow-neutral-200': { shadowColor: '#e5e5e5' }
-'.drop-shadow-neutral-300': { shadowColor: '#d4d4d4' }
-'.drop-shadow-neutral-400': { shadowColor: '#a3a3a3' }
-'.drop-shadow-neutral-500': { shadowColor: '#737373' }
-'.drop-shadow-neutral-600': { shadowColor: '#525252' }
-'.drop-shadow-neutral-700': { shadowColor: '#404040' }
-'.drop-shadow-neutral-800': { shadowColor: '#262626' }
-'.drop-shadow-neutral-900': { shadowColor: '#171717' }
-'.drop-shadow-stone-50': { shadowColor: '#fafaf9' }
-'.drop-shadow-stone-100': { shadowColor: '#f5f5f4' }
-'.drop-shadow-stone-200': { shadowColor: '#e7e5e4' }
-'.drop-shadow-stone-300': { shadowColor: '#d6d3d1' }
-'.drop-shadow-stone-400': { shadowColor: '#a8a29e' }
-'.drop-shadow-stone-500': { shadowColor: '#78716c' }
-'.drop-shadow-stone-600': { shadowColor: '#57534e' }
-'.drop-shadow-stone-700': { shadowColor: '#44403c' }
-'.drop-shadow-stone-800': { shadowColor: '#292524' }
-'.drop-shadow-stone-900': { shadowColor: '#1c1917' }
-'.drop-shadow-red-50': { shadowColor: '#fef2f2' }
-'.drop-shadow-red-100': { shadowColor: '#fee2e2' }
-'.drop-shadow-red-200': { shadowColor: '#fecaca' }
-'.drop-shadow-red-300': { shadowColor: '#fca5a5' }
-'.drop-shadow-red-400': { shadowColor: '#f87171' }
-'.drop-shadow-red-500': { shadowColor: '#ef4444' }
-'.drop-shadow-red-600': { shadowColor: '#dc2626' }
-'.drop-shadow-red-700': { shadowColor: '#b91c1c' }
-'.drop-shadow-red-800': { shadowColor: '#991b1b' }
-'.drop-shadow-red-900': { shadowColor: '#7f1d1d' }
-'.drop-shadow-orange-50': { shadowColor: '#fff7ed' }
-'.drop-shadow-orange-100': { shadowColor: '#ffedd5' }
-'.drop-shadow-orange-200': { shadowColor: '#fed7aa' }
-'.drop-shadow-orange-300': { shadowColor: '#fdba74' }
-'.drop-shadow-orange-400': { shadowColor: '#fb923c' }
-'.drop-shadow-orange-500': { shadowColor: '#f97316' }
-'.drop-shadow-orange-600': { shadowColor: '#ea580c' }
-'.drop-shadow-orange-700': { shadowColor: '#c2410c' }
-'.drop-shadow-orange-800': { shadowColor: '#9a3412' }
-'.drop-shadow-orange-900': { shadowColor: '#7c2d12' }
-'.drop-shadow-amber-50': { shadowColor: '#fffbeb' }
-'.drop-shadow-amber-100': { shadowColor: '#fef3c7' }
-'.drop-shadow-amber-200': { shadowColor: '#fde68a' }
-'.drop-shadow-amber-300': { shadowColor: '#fcd34d' }
-'.drop-shadow-amber-400': { shadowColor: '#fbbf24' }
-'.drop-shadow-amber-500': { shadowColor: '#f59e0b' }
-'.drop-shadow-amber-600': { shadowColor: '#d97706' }
-'.drop-shadow-amber-700': { shadowColor: '#b45309' }
-'.drop-shadow-amber-800': { shadowColor: '#92400e' }
-'.drop-shadow-amber-900': { shadowColor: '#78350f' }
-'.drop-shadow-yellow-50': { shadowColor: '#fefce8' }
-'.drop-shadow-yellow-100': { shadowColor: '#fef9c3' }
-'.drop-shadow-yellow-200': { shadowColor: '#fef08a' }
-'.drop-shadow-yellow-300': { shadowColor: '#fde047' }
-'.drop-shadow-yellow-400': { shadowColor: '#facc15' }
-'.drop-shadow-yellow-500': { shadowColor: '#eab308' }
-'.drop-shadow-yellow-600': { shadowColor: '#ca8a04' }
-'.drop-shadow-yellow-700': { shadowColor: '#a16207' }
-'.drop-shadow-yellow-800': { shadowColor: '#854d0e' }
-'.drop-shadow-yellow-900': { shadowColor: '#713f12' }
-'.drop-shadow-lime-50': { shadowColor: '#f7fee7' }
-'.drop-shadow-lime-100': { shadowColor: '#ecfccb' }
-'.drop-shadow-lime-200': { shadowColor: '#d9f99d' }
-'.drop-shadow-lime-300': { shadowColor: '#bef264' }
-'.drop-shadow-lime-400': { shadowColor: '#a3e635' }
-'.drop-shadow-lime-500': { shadowColor: '#84cc16' }
-'.drop-shadow-lime-600': { shadowColor: '#65a30d' }
-'.drop-shadow-lime-700': { shadowColor: '#4d7c0f' }
-'.drop-shadow-lime-800': { shadowColor: '#3f6212' }
-'.drop-shadow-lime-900': { shadowColor: '#365314' }
-'.drop-shadow-green-50': { shadowColor: '#f0fdf4' }
-'.drop-shadow-green-100': { shadowColor: '#dcfce7' }
-'.drop-shadow-green-200': { shadowColor: '#bbf7d0' }
-'.drop-shadow-green-300': { shadowColor: '#86efac' }
-'.drop-shadow-green-400': { shadowColor: '#4ade80' }
-'.drop-shadow-green-500': { shadowColor: '#22c55e' }
-'.drop-shadow-green-600': { shadowColor: '#16a34a' }
-'.drop-shadow-green-700': { shadowColor: '#15803d' }
-'.drop-shadow-green-800': { shadowColor: '#166534' }
-'.drop-shadow-green-900': { shadowColor: '#14532d' }
-'.drop-shadow-emerald-50': { shadowColor: '#ecfdf5' }
-'.drop-shadow-emerald-100': { shadowColor: '#d1fae5' }
-'.drop-shadow-emerald-200': { shadowColor: '#a7f3d0' }
-'.drop-shadow-emerald-300': { shadowColor: '#6ee7b7' }
-'.drop-shadow-emerald-400': { shadowColor: '#34d399' }
-'.drop-shadow-emerald-500': { shadowColor: '#10b981' }
-'.drop-shadow-emerald-600': { shadowColor: '#059669' }
-'.drop-shadow-emerald-700': { shadowColor: '#047857' }
-'.drop-shadow-emerald-800': { shadowColor: '#065f46' }
-'.drop-shadow-emerald-900': { shadowColor: '#064e3b' }
-'.drop-shadow-teal-50': { shadowColor: '#f0fdfa' }
-'.drop-shadow-teal-100': { shadowColor: '#ccfbf1' }
-'.drop-shadow-teal-200': { shadowColor: '#99f6e4' }
-'.drop-shadow-teal-300': { shadowColor: '#5eead4' }
-'.drop-shadow-teal-400': { shadowColor: '#2dd4bf' }
-'.drop-shadow-teal-500': { shadowColor: '#14b8a6' }
-'.drop-shadow-teal-600': { shadowColor: '#0d9488' }
-'.drop-shadow-teal-700': { shadowColor: '#0f766e' }
-'.drop-shadow-teal-800': { shadowColor: '#115e59' }
-'.drop-shadow-teal-900': { shadowColor: '#134e4a' }
-'.drop-shadow-cyan-50': { shadowColor: '#ecfeff' }
-'.drop-shadow-cyan-100': { shadowColor: '#cffafe' }
-'.drop-shadow-cyan-200': { shadowColor: '#a5f3fc' }
-'.drop-shadow-cyan-300': { shadowColor: '#67e8f9' }
-'.drop-shadow-cyan-400': { shadowColor: '#22d3ee' }
-'.drop-shadow-cyan-500': { shadowColor: '#06b6d4' }
-'.drop-shadow-cyan-600': { shadowColor: '#0891b2' }
-'.drop-shadow-cyan-700': { shadowColor: '#0e7490' }
-'.drop-shadow-cyan-800': { shadowColor: '#155e75' }
-'.drop-shadow-cyan-900': { shadowColor: '#164e63' }
-'.drop-shadow-sky-50': { shadowColor: '#f0f9ff' }
-'.drop-shadow-sky-100': { shadowColor: '#e0f2fe' }
-'.drop-shadow-sky-200': { shadowColor: '#bae6fd' }
-'.drop-shadow-sky-300': { shadowColor: '#7dd3fc' }
-'.drop-shadow-sky-400': { shadowColor: '#38bdf8' }
-'.drop-shadow-sky-500': { shadowColor: '#0ea5e9' }
-'.drop-shadow-sky-600': { shadowColor: '#0284c7' }
-'.drop-shadow-sky-700': { shadowColor: '#0369a1' }
-'.drop-shadow-sky-800': { shadowColor: '#075985' }
-'.drop-shadow-sky-900': { shadowColor: '#0c4a6e' }
-'.drop-shadow-blue-50': { shadowColor: '#eff6ff' }
-'.drop-shadow-blue-100': { shadowColor: '#dbeafe' }
-'.drop-shadow-blue-200': { shadowColor: '#bfdbfe' }
-'.drop-shadow-blue-300': { shadowColor: '#93c5fd' }
-'.drop-shadow-blue-400': { shadowColor: '#60a5fa' }
-'.drop-shadow-blue-500': { shadowColor: '#3b82f6' }
-'.drop-shadow-blue-600': { shadowColor: '#2563eb' }
-'.drop-shadow-blue-700': { shadowColor: '#1d4ed8' }
-'.drop-shadow-blue-800': { shadowColor: '#1e40af' }
-'.drop-shadow-blue-900': { shadowColor: '#1e3a8a' }
-'.drop-shadow-indigo-50': { shadowColor: '#eef2ff' }
-'.drop-shadow-indigo-100': { shadowColor: '#e0e7ff' }
-'.drop-shadow-indigo-200': { shadowColor: '#c7d2fe' }
-'.drop-shadow-indigo-300': { shadowColor: '#a5b4fc' }
-'.drop-shadow-indigo-400': { shadowColor: '#818cf8' }
-'.drop-shadow-indigo-500': { shadowColor: '#6366f1' }
-'.drop-shadow-indigo-600': { shadowColor: '#4f46e5' }
-'.drop-shadow-indigo-700': { shadowColor: '#4338ca' }
-'.drop-shadow-indigo-800': { shadowColor: '#3730a3' }
-'.drop-shadow-indigo-900': { shadowColor: '#312e81' }
-'.drop-shadow-violet-50': { shadowColor: '#f5f3ff' }
-'.drop-shadow-violet-100': { shadowColor: '#ede9fe' }
-'.drop-shadow-violet-200': { shadowColor: '#ddd6fe' }
-'.drop-shadow-violet-300': { shadowColor: '#c4b5fd' }
-'.drop-shadow-violet-400': { shadowColor: '#a78bfa' }
-'.drop-shadow-violet-500': { shadowColor: '#8b5cf6' }
-'.drop-shadow-violet-600': { shadowColor: '#7c3aed' }
-'.drop-shadow-violet-700': { shadowColor: '#6d28d9' }
-'.drop-shadow-violet-800': { shadowColor: '#5b21b6' }
-'.drop-shadow-violet-900': { shadowColor: '#4c1d95' }
-'.drop-shadow-purple-50': { shadowColor: '#faf5ff' }
-'.drop-shadow-purple-100': { shadowColor: '#f3e8ff' }
-'.drop-shadow-purple-200': { shadowColor: '#e9d5ff' }
-'.drop-shadow-purple-300': { shadowColor: '#d8b4fe' }
-'.drop-shadow-purple-400': { shadowColor: '#c084fc' }
-'.drop-shadow-purple-500': { shadowColor: '#a855f7' }
-'.drop-shadow-purple-600': { shadowColor: '#9333ea' }
-'.drop-shadow-purple-700': { shadowColor: '#7e22ce' }
-'.drop-shadow-purple-800': { shadowColor: '#6b21a8' }
-'.drop-shadow-purple-900': { shadowColor: '#581c87' }
-'.drop-shadow-fuchsia-50': { shadowColor: '#fdf4ff' }
-'.drop-shadow-fuchsia-100': { shadowColor: '#fae8ff' }
-'.drop-shadow-fuchsia-200': { shadowColor: '#f5d0fe' }
-'.drop-shadow-fuchsia-300': { shadowColor: '#f0abfc' }
-'.drop-shadow-fuchsia-400': { shadowColor: '#e879f9' }
-'.drop-shadow-fuchsia-500': { shadowColor: '#d946ef' }
-'.drop-shadow-fuchsia-600': { shadowColor: '#c026d3' }
-'.drop-shadow-fuchsia-700': { shadowColor: '#a21caf' }
-'.drop-shadow-fuchsia-800': { shadowColor: '#86198f' }
-'.drop-shadow-fuchsia-900': { shadowColor: '#701a75' }
-'.drop-shadow-pink-50': { shadowColor: '#fdf2f8' }
-'.drop-shadow-pink-100': { shadowColor: '#fce7f3' }
-'.drop-shadow-pink-200': { shadowColor: '#fbcfe8' }
-'.drop-shadow-pink-300': { shadowColor: '#f9a8d4' }
-'.drop-shadow-pink-400': { shadowColor: '#f472b6' }
-'.drop-shadow-pink-500': { shadowColor: '#ec4899' }
-'.drop-shadow-pink-600': { shadowColor: '#db2777' }
-'.drop-shadow-pink-700': { shadowColor: '#be185d' }
-'.drop-shadow-pink-800': { shadowColor: '#9d174d' }
-'.drop-shadow-pink-900': { shadowColor: '#831843' }
-'.drop-shadow-rose-50': { shadowColor: '#fff1f2' }
-'.drop-shadow-rose-100': { shadowColor: '#ffe4e6' }
-'.drop-shadow-rose-200': { shadowColor: '#fecdd3' }
-'.drop-shadow-rose-300': { shadowColor: '#fda4af' }
-'.drop-shadow-rose-400': { shadowColor: '#fb7185' }
-'.drop-shadow-rose-500': { shadowColor: '#f43f5e' }
-'.drop-shadow-rose-600': { shadowColor: '#e11d48' }
-'.drop-shadow-rose-700': { shadowColor: '#be123c' }
-'.drop-shadow-rose-800': { shadowColor: '#9f1239' }
-'.drop-shadow-rose-900': { shadowColor: '#881337' }
-
 // Component(s): Ti.UI.Label
 // Property(ies): highlightedColor
 '.highlighted-transparent': { highlightedColor: 'transparent' }
@@ -12259,7 +12033,7 @@
 '.paging-control-rose-900[platform=ios]': { pagingControlColor: '#881337' }
 
 // Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
-// Property(ies): hintTextColor
+// Property(ies): hintTextColor ( Alternative )
 '.placeholder-transparent': { hintTextColor: 'transparent' }
 '.placeholder-black': { hintTextColor: '#000000' }
 '.placeholder-white': { hintTextColor: '#ffffff' }
@@ -14291,6 +14065,232 @@
 '.separator-rose-700': { separatorColor: '#be123c' }
 '.separator-rose-800': { separatorColor: '#9f1239' }
 '.separator-rose-900': { separatorColor: '#881337' }
+
+// Component(s): Ti.UI.Button, Ti.UI.Label
+// Property(ies): shadowColor - Drop Shadow in Tailwind
+'.drop-shadow-transparent': { shadowColor: 'transparent' }
+'.drop-shadow-black': { shadowColor: '#000000' }
+'.drop-shadow-white': { shadowColor: '#ffffff' }
+'.drop-shadow-slate-50': { shadowColor: '#f8fafc' }
+'.drop-shadow-slate-100': { shadowColor: '#f1f5f9' }
+'.drop-shadow-slate-200': { shadowColor: '#e2e8f0' }
+'.drop-shadow-slate-300': { shadowColor: '#cbd5e1' }
+'.drop-shadow-slate-400': { shadowColor: '#94a3b8' }
+'.drop-shadow-slate-500': { shadowColor: '#64748b' }
+'.drop-shadow-slate-600': { shadowColor: '#475569' }
+'.drop-shadow-slate-700': { shadowColor: '#334155' }
+'.drop-shadow-slate-800': { shadowColor: '#1e293b' }
+'.drop-shadow-slate-900': { shadowColor: '#0f172a' }
+'.drop-shadow-gray-50': { shadowColor: '#f9fafb' }
+'.drop-shadow-gray-100': { shadowColor: '#f3f4f6' }
+'.drop-shadow-gray-200': { shadowColor: '#e5e7eb' }
+'.drop-shadow-gray-300': { shadowColor: '#d1d5db' }
+'.drop-shadow-gray-400': { shadowColor: '#9ca3af' }
+'.drop-shadow-gray-500': { shadowColor: '#6b7280' }
+'.drop-shadow-gray-600': { shadowColor: '#4b5563' }
+'.drop-shadow-gray-700': { shadowColor: '#374151' }
+'.drop-shadow-gray-800': { shadowColor: '#1f2937' }
+'.drop-shadow-gray-900': { shadowColor: '#111827' }
+'.drop-shadow-zinc-50': { shadowColor: '#fafafa' }
+'.drop-shadow-zinc-100': { shadowColor: '#f4f4f5' }
+'.drop-shadow-zinc-200': { shadowColor: '#e4e4e7' }
+'.drop-shadow-zinc-300': { shadowColor: '#d4d4d8' }
+'.drop-shadow-zinc-400': { shadowColor: '#a1a1aa' }
+'.drop-shadow-zinc-500': { shadowColor: '#71717a' }
+'.drop-shadow-zinc-600': { shadowColor: '#52525b' }
+'.drop-shadow-zinc-700': { shadowColor: '#3f3f46' }
+'.drop-shadow-zinc-800': { shadowColor: '#27272a' }
+'.drop-shadow-zinc-900': { shadowColor: '#18181b' }
+'.drop-shadow-neutral-50': { shadowColor: '#fafafa' }
+'.drop-shadow-neutral-100': { shadowColor: '#f5f5f5' }
+'.drop-shadow-neutral-200': { shadowColor: '#e5e5e5' }
+'.drop-shadow-neutral-300': { shadowColor: '#d4d4d4' }
+'.drop-shadow-neutral-400': { shadowColor: '#a3a3a3' }
+'.drop-shadow-neutral-500': { shadowColor: '#737373' }
+'.drop-shadow-neutral-600': { shadowColor: '#525252' }
+'.drop-shadow-neutral-700': { shadowColor: '#404040' }
+'.drop-shadow-neutral-800': { shadowColor: '#262626' }
+'.drop-shadow-neutral-900': { shadowColor: '#171717' }
+'.drop-shadow-stone-50': { shadowColor: '#fafaf9' }
+'.drop-shadow-stone-100': { shadowColor: '#f5f5f4' }
+'.drop-shadow-stone-200': { shadowColor: '#e7e5e4' }
+'.drop-shadow-stone-300': { shadowColor: '#d6d3d1' }
+'.drop-shadow-stone-400': { shadowColor: '#a8a29e' }
+'.drop-shadow-stone-500': { shadowColor: '#78716c' }
+'.drop-shadow-stone-600': { shadowColor: '#57534e' }
+'.drop-shadow-stone-700': { shadowColor: '#44403c' }
+'.drop-shadow-stone-800': { shadowColor: '#292524' }
+'.drop-shadow-stone-900': { shadowColor: '#1c1917' }
+'.drop-shadow-red-50': { shadowColor: '#fef2f2' }
+'.drop-shadow-red-100': { shadowColor: '#fee2e2' }
+'.drop-shadow-red-200': { shadowColor: '#fecaca' }
+'.drop-shadow-red-300': { shadowColor: '#fca5a5' }
+'.drop-shadow-red-400': { shadowColor: '#f87171' }
+'.drop-shadow-red-500': { shadowColor: '#ef4444' }
+'.drop-shadow-red-600': { shadowColor: '#dc2626' }
+'.drop-shadow-red-700': { shadowColor: '#b91c1c' }
+'.drop-shadow-red-800': { shadowColor: '#991b1b' }
+'.drop-shadow-red-900': { shadowColor: '#7f1d1d' }
+'.drop-shadow-orange-50': { shadowColor: '#fff7ed' }
+'.drop-shadow-orange-100': { shadowColor: '#ffedd5' }
+'.drop-shadow-orange-200': { shadowColor: '#fed7aa' }
+'.drop-shadow-orange-300': { shadowColor: '#fdba74' }
+'.drop-shadow-orange-400': { shadowColor: '#fb923c' }
+'.drop-shadow-orange-500': { shadowColor: '#f97316' }
+'.drop-shadow-orange-600': { shadowColor: '#ea580c' }
+'.drop-shadow-orange-700': { shadowColor: '#c2410c' }
+'.drop-shadow-orange-800': { shadowColor: '#9a3412' }
+'.drop-shadow-orange-900': { shadowColor: '#7c2d12' }
+'.drop-shadow-amber-50': { shadowColor: '#fffbeb' }
+'.drop-shadow-amber-100': { shadowColor: '#fef3c7' }
+'.drop-shadow-amber-200': { shadowColor: '#fde68a' }
+'.drop-shadow-amber-300': { shadowColor: '#fcd34d' }
+'.drop-shadow-amber-400': { shadowColor: '#fbbf24' }
+'.drop-shadow-amber-500': { shadowColor: '#f59e0b' }
+'.drop-shadow-amber-600': { shadowColor: '#d97706' }
+'.drop-shadow-amber-700': { shadowColor: '#b45309' }
+'.drop-shadow-amber-800': { shadowColor: '#92400e' }
+'.drop-shadow-amber-900': { shadowColor: '#78350f' }
+'.drop-shadow-yellow-50': { shadowColor: '#fefce8' }
+'.drop-shadow-yellow-100': { shadowColor: '#fef9c3' }
+'.drop-shadow-yellow-200': { shadowColor: '#fef08a' }
+'.drop-shadow-yellow-300': { shadowColor: '#fde047' }
+'.drop-shadow-yellow-400': { shadowColor: '#facc15' }
+'.drop-shadow-yellow-500': { shadowColor: '#eab308' }
+'.drop-shadow-yellow-600': { shadowColor: '#ca8a04' }
+'.drop-shadow-yellow-700': { shadowColor: '#a16207' }
+'.drop-shadow-yellow-800': { shadowColor: '#854d0e' }
+'.drop-shadow-yellow-900': { shadowColor: '#713f12' }
+'.drop-shadow-lime-50': { shadowColor: '#f7fee7' }
+'.drop-shadow-lime-100': { shadowColor: '#ecfccb' }
+'.drop-shadow-lime-200': { shadowColor: '#d9f99d' }
+'.drop-shadow-lime-300': { shadowColor: '#bef264' }
+'.drop-shadow-lime-400': { shadowColor: '#a3e635' }
+'.drop-shadow-lime-500': { shadowColor: '#84cc16' }
+'.drop-shadow-lime-600': { shadowColor: '#65a30d' }
+'.drop-shadow-lime-700': { shadowColor: '#4d7c0f' }
+'.drop-shadow-lime-800': { shadowColor: '#3f6212' }
+'.drop-shadow-lime-900': { shadowColor: '#365314' }
+'.drop-shadow-green-50': { shadowColor: '#f0fdf4' }
+'.drop-shadow-green-100': { shadowColor: '#dcfce7' }
+'.drop-shadow-green-200': { shadowColor: '#bbf7d0' }
+'.drop-shadow-green-300': { shadowColor: '#86efac' }
+'.drop-shadow-green-400': { shadowColor: '#4ade80' }
+'.drop-shadow-green-500': { shadowColor: '#22c55e' }
+'.drop-shadow-green-600': { shadowColor: '#16a34a' }
+'.drop-shadow-green-700': { shadowColor: '#15803d' }
+'.drop-shadow-green-800': { shadowColor: '#166534' }
+'.drop-shadow-green-900': { shadowColor: '#14532d' }
+'.drop-shadow-emerald-50': { shadowColor: '#ecfdf5' }
+'.drop-shadow-emerald-100': { shadowColor: '#d1fae5' }
+'.drop-shadow-emerald-200': { shadowColor: '#a7f3d0' }
+'.drop-shadow-emerald-300': { shadowColor: '#6ee7b7' }
+'.drop-shadow-emerald-400': { shadowColor: '#34d399' }
+'.drop-shadow-emerald-500': { shadowColor: '#10b981' }
+'.drop-shadow-emerald-600': { shadowColor: '#059669' }
+'.drop-shadow-emerald-700': { shadowColor: '#047857' }
+'.drop-shadow-emerald-800': { shadowColor: '#065f46' }
+'.drop-shadow-emerald-900': { shadowColor: '#064e3b' }
+'.drop-shadow-teal-50': { shadowColor: '#f0fdfa' }
+'.drop-shadow-teal-100': { shadowColor: '#ccfbf1' }
+'.drop-shadow-teal-200': { shadowColor: '#99f6e4' }
+'.drop-shadow-teal-300': { shadowColor: '#5eead4' }
+'.drop-shadow-teal-400': { shadowColor: '#2dd4bf' }
+'.drop-shadow-teal-500': { shadowColor: '#14b8a6' }
+'.drop-shadow-teal-600': { shadowColor: '#0d9488' }
+'.drop-shadow-teal-700': { shadowColor: '#0f766e' }
+'.drop-shadow-teal-800': { shadowColor: '#115e59' }
+'.drop-shadow-teal-900': { shadowColor: '#134e4a' }
+'.drop-shadow-cyan-50': { shadowColor: '#ecfeff' }
+'.drop-shadow-cyan-100': { shadowColor: '#cffafe' }
+'.drop-shadow-cyan-200': { shadowColor: '#a5f3fc' }
+'.drop-shadow-cyan-300': { shadowColor: '#67e8f9' }
+'.drop-shadow-cyan-400': { shadowColor: '#22d3ee' }
+'.drop-shadow-cyan-500': { shadowColor: '#06b6d4' }
+'.drop-shadow-cyan-600': { shadowColor: '#0891b2' }
+'.drop-shadow-cyan-700': { shadowColor: '#0e7490' }
+'.drop-shadow-cyan-800': { shadowColor: '#155e75' }
+'.drop-shadow-cyan-900': { shadowColor: '#164e63' }
+'.drop-shadow-sky-50': { shadowColor: '#f0f9ff' }
+'.drop-shadow-sky-100': { shadowColor: '#e0f2fe' }
+'.drop-shadow-sky-200': { shadowColor: '#bae6fd' }
+'.drop-shadow-sky-300': { shadowColor: '#7dd3fc' }
+'.drop-shadow-sky-400': { shadowColor: '#38bdf8' }
+'.drop-shadow-sky-500': { shadowColor: '#0ea5e9' }
+'.drop-shadow-sky-600': { shadowColor: '#0284c7' }
+'.drop-shadow-sky-700': { shadowColor: '#0369a1' }
+'.drop-shadow-sky-800': { shadowColor: '#075985' }
+'.drop-shadow-sky-900': { shadowColor: '#0c4a6e' }
+'.drop-shadow-blue-50': { shadowColor: '#eff6ff' }
+'.drop-shadow-blue-100': { shadowColor: '#dbeafe' }
+'.drop-shadow-blue-200': { shadowColor: '#bfdbfe' }
+'.drop-shadow-blue-300': { shadowColor: '#93c5fd' }
+'.drop-shadow-blue-400': { shadowColor: '#60a5fa' }
+'.drop-shadow-blue-500': { shadowColor: '#3b82f6' }
+'.drop-shadow-blue-600': { shadowColor: '#2563eb' }
+'.drop-shadow-blue-700': { shadowColor: '#1d4ed8' }
+'.drop-shadow-blue-800': { shadowColor: '#1e40af' }
+'.drop-shadow-blue-900': { shadowColor: '#1e3a8a' }
+'.drop-shadow-indigo-50': { shadowColor: '#eef2ff' }
+'.drop-shadow-indigo-100': { shadowColor: '#e0e7ff' }
+'.drop-shadow-indigo-200': { shadowColor: '#c7d2fe' }
+'.drop-shadow-indigo-300': { shadowColor: '#a5b4fc' }
+'.drop-shadow-indigo-400': { shadowColor: '#818cf8' }
+'.drop-shadow-indigo-500': { shadowColor: '#6366f1' }
+'.drop-shadow-indigo-600': { shadowColor: '#4f46e5' }
+'.drop-shadow-indigo-700': { shadowColor: '#4338ca' }
+'.drop-shadow-indigo-800': { shadowColor: '#3730a3' }
+'.drop-shadow-indigo-900': { shadowColor: '#312e81' }
+'.drop-shadow-violet-50': { shadowColor: '#f5f3ff' }
+'.drop-shadow-violet-100': { shadowColor: '#ede9fe' }
+'.drop-shadow-violet-200': { shadowColor: '#ddd6fe' }
+'.drop-shadow-violet-300': { shadowColor: '#c4b5fd' }
+'.drop-shadow-violet-400': { shadowColor: '#a78bfa' }
+'.drop-shadow-violet-500': { shadowColor: '#8b5cf6' }
+'.drop-shadow-violet-600': { shadowColor: '#7c3aed' }
+'.drop-shadow-violet-700': { shadowColor: '#6d28d9' }
+'.drop-shadow-violet-800': { shadowColor: '#5b21b6' }
+'.drop-shadow-violet-900': { shadowColor: '#4c1d95' }
+'.drop-shadow-purple-50': { shadowColor: '#faf5ff' }
+'.drop-shadow-purple-100': { shadowColor: '#f3e8ff' }
+'.drop-shadow-purple-200': { shadowColor: '#e9d5ff' }
+'.drop-shadow-purple-300': { shadowColor: '#d8b4fe' }
+'.drop-shadow-purple-400': { shadowColor: '#c084fc' }
+'.drop-shadow-purple-500': { shadowColor: '#a855f7' }
+'.drop-shadow-purple-600': { shadowColor: '#9333ea' }
+'.drop-shadow-purple-700': { shadowColor: '#7e22ce' }
+'.drop-shadow-purple-800': { shadowColor: '#6b21a8' }
+'.drop-shadow-purple-900': { shadowColor: '#581c87' }
+'.drop-shadow-fuchsia-50': { shadowColor: '#fdf4ff' }
+'.drop-shadow-fuchsia-100': { shadowColor: '#fae8ff' }
+'.drop-shadow-fuchsia-200': { shadowColor: '#f5d0fe' }
+'.drop-shadow-fuchsia-300': { shadowColor: '#f0abfc' }
+'.drop-shadow-fuchsia-400': { shadowColor: '#e879f9' }
+'.drop-shadow-fuchsia-500': { shadowColor: '#d946ef' }
+'.drop-shadow-fuchsia-600': { shadowColor: '#c026d3' }
+'.drop-shadow-fuchsia-700': { shadowColor: '#a21caf' }
+'.drop-shadow-fuchsia-800': { shadowColor: '#86198f' }
+'.drop-shadow-fuchsia-900': { shadowColor: '#701a75' }
+'.drop-shadow-pink-50': { shadowColor: '#fdf2f8' }
+'.drop-shadow-pink-100': { shadowColor: '#fce7f3' }
+'.drop-shadow-pink-200': { shadowColor: '#fbcfe8' }
+'.drop-shadow-pink-300': { shadowColor: '#f9a8d4' }
+'.drop-shadow-pink-400': { shadowColor: '#f472b6' }
+'.drop-shadow-pink-500': { shadowColor: '#ec4899' }
+'.drop-shadow-pink-600': { shadowColor: '#db2777' }
+'.drop-shadow-pink-700': { shadowColor: '#be185d' }
+'.drop-shadow-pink-800': { shadowColor: '#9d174d' }
+'.drop-shadow-pink-900': { shadowColor: '#831843' }
+'.drop-shadow-rose-50': { shadowColor: '#fff1f2' }
+'.drop-shadow-rose-100': { shadowColor: '#ffe4e6' }
+'.drop-shadow-rose-200': { shadowColor: '#fecdd3' }
+'.drop-shadow-rose-300': { shadowColor: '#fda4af' }
+'.drop-shadow-rose-400': { shadowColor: '#fb7185' }
+'.drop-shadow-rose-500': { shadowColor: '#f43f5e' }
+'.drop-shadow-rose-600': { shadowColor: '#e11d48' }
+'.drop-shadow-rose-700': { shadowColor: '#be123c' }
+'.drop-shadow-rose-800': { shadowColor: '#9f1239' }
+'.drop-shadow-rose-900': { shadowColor: '#881337' }
 
 // Component(s): Ti.UI.ListItem
 // Property(ies): subtitleColor - iOS Only

@@ -1082,12 +1082,14 @@ function buildCustomTailwind(message = 'file created!') {
 	let defaultBorderRadius = (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing };
 
 	//! Width, height and margin properties
+	configThemeFile.sizingProperties = {};
 	configThemeFile.height = base.height;
 	configThemeFile.width = base.width;
 	configThemeFile.margin = combineKeys(configFile.theme, base.spacing, 'margin');
-	configThemeFile.margin2 = combineKeys(configFile.theme, base.spacing, 'margin');
+	configThemeFile.marginAlternate = combineKeys(configFile.theme, base.spacing, 'margin');
 
 	//! Properties with constant values
+	configThemeFile.constantProperties = {};
 	// configThemeFile.audioStreamType = {};
 	// configThemeFile.category = {};
 	configThemeFile.accessibilityHidden = {};
@@ -1110,7 +1112,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.allowsSelection = {};
 	configThemeFile.allowsSelectionDuringEditing = {};
 	configThemeFile.allowUserCustomization = {};
-	configThemeFile.animationStyle = {};
+	configThemeFile.anchorPoint = {};
 	configThemeFile.autoAdjustScrollViewInsets = {};
 	configThemeFile.autocapitalization = {};
 	configThemeFile.autocorrect = {};
@@ -1129,6 +1131,8 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.cachePolicy = {};
 	configThemeFile.calendarViewShown = {};
 	configThemeFile.canCancelEvents = {};
+	configThemeFile.cancelable = {};
+	configThemeFile.canceledOnTouchOutside = {};
 	configThemeFile.canDelete = {};
 	configThemeFile.canEdit = {};
 	configThemeFile.canInsert = {};
@@ -1139,7 +1143,9 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.clearButtonMode = {};
 	configThemeFile.clearOnEdit = {};
 	configThemeFile.clipMode = {};
+	configThemeFile.constraint = {};
 	configThemeFile.contentHeightAndWidth = {};
+	configThemeFile.curve = {};
 	configThemeFile.datePickerStyle = {};
 	configThemeFile.defaultItemTemplate = {};
 	configThemeFile.dimBackgroundForSearch = {};
@@ -1147,8 +1153,6 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.disableContextMenu = {};
 	configThemeFile.displayCaps = {};
 	configThemeFile.displayHomeAsUp = {};
-	configThemeFile.displayUtilities = {};
-	configThemeFile.draggingConstraints = {};
 	configThemeFile.draggingType = {};
 	configThemeFile.drawerIndicatorEnabled = {};
 	configThemeFile.drawerLockMode = {};
@@ -1180,7 +1184,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.format24 = {};
 	configThemeFile.fullscreen = {};
 	configThemeFile.gravity = {};
-	configThemeFile.gridColumnsStartEnd = {};
+	configThemeFile.gridColumnsRowsStartEnd = {};
 	configThemeFile.gridFlow = {};
 	configThemeFile.gridSystem = {};
 	configThemeFile.hasCheck = {};
@@ -1200,6 +1204,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.hires = {};
 	configThemeFile.homeButtonEnabled = {};
 	configThemeFile.homeIndicatorAutoHidden = {};
+	configThemeFile.horizontalMargin = {};
 	configThemeFile.horizontalWrap = {};
 	configThemeFile.html = {};
 	configThemeFile.icon = {};
@@ -1226,6 +1231,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.leftDrawerLockMode = {};
 	configThemeFile.lightTouchEnabled = {};
 	configThemeFile.listViewStyle = {};
+	configThemeFile.location = {};
 	configThemeFile.loginKeyboardType = {};
 	configThemeFile.loginReturnKeyType = {};
 	configThemeFile.mixedContentMode = {};
@@ -1236,11 +1242,9 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.navBarHidden = {};
 	configThemeFile.navigationMode = {};
 	configThemeFile.orientationModes = {};
-	configThemeFile.origin = {};
 	configThemeFile.overlayEnabled = {};
 	configThemeFile.overrideCurrentAnimation = {};
 	configThemeFile.overScrollMode = {};
-	configThemeFile.pagingControl = {};
 	configThemeFile.pagingControlOnTop = {};
 	configThemeFile.passwordKeyboardType = {};
 	configThemeFile.passwordMask = {};
@@ -1251,12 +1255,8 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.preventDefaultImage = {};
 	configThemeFile.previewActionStyle = {};
 	configThemeFile.progressBarStyle = {};
-	configThemeFile.progressIndicatorCancelable = {};
-	configThemeFile.progressIndicatorCancelOnTouchOutside = {};
-	configThemeFile.progressIndicatorLocation = {};
 	configThemeFile.progressIndicatorType = {};
 	configThemeFile.pruneSectionsOnEdit = {};
-	configThemeFile.rDrawable = {};
 	configThemeFile.requestedOrientation = {};
 	configThemeFile.resultsSeparatorStyle = {};
 	configThemeFile.returnKeyType = {};
@@ -1282,6 +1282,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.showBookmark = {};
 	configThemeFile.showCancel = {};
 	configThemeFile.showHorizontalScrollIndicator = {};
+	configThemeFile.showPagingControl = {};
 	configThemeFile.showSearchBarInNavBar = {};
 	configThemeFile.showSelectionCheck = {};
 	configThemeFile.showUndoRedoActions = {};
@@ -1314,6 +1315,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.verticalBounce = {};
 	configThemeFile.verticalMargin = {};
 	configThemeFile.viewShadow = {};
+	configThemeFile.visible = {};
 	configThemeFile.willHandleTouches = {};
 	configThemeFile.willScrollOnStatusTap = {};
 	configThemeFile.windowPixelFormat = {};
@@ -1321,6 +1323,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.wobble = {};
 
 	//! Configurable properties
+	configThemeFile.configurableProperties = {};
 	configThemeFile.activeTab = combineKeys(configFile.theme, base.columns, 'activeTab');
 	configThemeFile.backgroundLeftCap = combineKeys(configFile.theme, base.spacing, 'backgroundLeftCap');
 	configThemeFile.backgroundPaddingBottom = combineKeys(configFile.theme, base.height, 'backgroundPaddingBottom');
@@ -1377,6 +1380,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.zoomScale = combineKeys(configFile.theme, { ...{ 5: '.05', 10: '.10', 25: '.25' }, ...defaultTheme.scale }, 'zoomScale');
 
 	//! Color related properties
+	configThemeFile.colorProperties = {};
 	configThemeFile.activeTintColor = combineKeys(configFile.theme, base.colors, 'activeTintColor');
 	configThemeFile.activeTitleColor = combineKeys(configFile.theme, base.colors, 'activeTitleColor');
 	configThemeFile.backgroundColor = combineKeys(configFile.theme, base.colors, 'backgroundColor');
@@ -1391,7 +1395,6 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.currentPageIndicatorColor = combineKeys(configFile.theme, base.colors, 'currentPageIndicatorColor');
 	configThemeFile.dateTimeColor = combineKeys(configFile.theme, base.colors, 'dateTimeColor');
 	configThemeFile.disabledColor = combineKeys(configFile.theme, base.colors, 'disabledColor');
-	configThemeFile.dropShadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
 	configThemeFile.highlightedColor = combineKeys(configFile.theme, base.colors, 'highlightedColor');
 	configThemeFile.hintTextColor = combineKeys(configFile.theme, base.colors, 'hintTextColor');
 	configThemeFile.imageTouchFeedbackColor = combineKeys(configFile.theme, base.colors, 'imageTouchFeedbackColor');
@@ -1410,6 +1413,7 @@ function buildCustomTailwind(message = 'file created!') {
 	configThemeFile.selectedSubtitleColor = combineKeys(configFile.theme, base.colors, 'selectedSubtitleColor');
 	configThemeFile.selectedTextColor = combineKeys(configFile.theme, base.colors, 'selectedTextColor');
 	configThemeFile.separatorColor = combineKeys(configFile.theme, base.colors, 'separatorColor');
+	configThemeFile.shadowColor = combineKeys(configFile.theme, base.colors, 'shadowColor');
 	configThemeFile.subtitleColor = combineKeys(configFile.theme, base.colors, 'subtitleColor');
 	configThemeFile.tabsBackgroundColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundColor');
 	configThemeFile.tabsBackgroundSelectedColor = combineKeys(configFile.theme, base.colors, 'tabsBackgroundSelectedColor');
@@ -1458,8 +1462,30 @@ function buildCustomTailwind(message = 'file created!') {
 	}
 
 	tailwindStyles += '\n// Resets\n';
+
+	let distributionFolder = !fs.existsSync(projectConfigJS);
+
+	if (distributionFolder) {
+		var destinationFolder = path.resolve(__dirname, './dist/glossary/');
+		makeSureFolderExists(destinationFolder);
+	}
+
+	let menuPosition = 1;
 	_.each(configThemeFile, (value, key) => {
-		tailwindStyles += helperToBuildCustomTailwindClasses(key, value);
+		if (key.includes('Properties') && distributionFolder) {
+			destinationFolder = path.resolve(__dirname, './dist/glossary/' + key);
+			makeSureFolderExists(destinationFolder);
+			fs.writeFileSync(destinationFolder + '/_category_.json', `{ "label": "${key}", "position": ${menuPosition} }`);
+			menuPosition++;
+		} else {
+			let theClasses = helperToBuildCustomTailwindClasses(key, value);
+
+			if (distributionFolder) {
+				fs.writeFileSync(`${destinationFolder}/${key}.md`, '```scss' + theClasses + '```');
+			}
+
+			tailwindStyles += theClasses;
+		}
 	});
 
 	let finalTailwindStyles = helpers.applyProperties(tailwindStyles);
@@ -1568,7 +1594,7 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'allowsSelection':
 		case 'allowsSelectionDuringEditing':
 		case 'allowUserCustomization':
-		case 'animationStyle':
+		case 'anchorPoint':
 		case 'autoAdjustScrollViewInsets':
 		case 'autocapitalization':
 		case 'autocorrect':
@@ -1606,6 +1632,8 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'cacheSize':
 		case 'calendarViewShown':
 		case 'canCancelEvents':
+		case 'cancelable':
+		case 'canceledOnTouchOutside':
 		case 'canDelete':
 		case 'canEdit':
 		case 'canInsert':
@@ -1617,11 +1645,13 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'clearOnEdit':
 		case 'clipMode':
 		case 'columnCount':
+		case 'constraint':
 		case 'contentHeight':
 		case 'contentHeightAndWidth':
 		case 'contentWidth':
 		case 'countDownDuration':
 		case 'currentPageIndicatorColor':
+		case 'curve':
 		case 'datePickerStyle':
 		case 'dateTimeColor':
 		case 'defaultItemTemplate':
@@ -1631,13 +1661,10 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'disabledColor':
 		case 'displayCaps':
 		case 'displayHomeAsUp':
-		case 'displayUtilities':
-		case 'draggingConstraints':
 		case 'draggingType':
 		case 'drawerIndicatorEnabled':
 		case 'drawerLockMode':
 		case 'dropShadow':
-		case 'dropShadowColor':
 		case 'duration':
 		case 'editable':
 		case 'editing':
@@ -1670,7 +1697,7 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'fullscreen':
 		case 'gap':
 		case 'gravity':
-		case 'gridColumnsStartEnd':
+		case 'gridColumnsRowsStartEnd':
 		case 'gridFlow':
 		case 'gridSystem':
 		case 'hasCheck':
@@ -1693,6 +1720,7 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'hires':
 		case 'homeButtonEnabled':
 		case 'homeIndicatorAutoHidden':
+		case 'horizontalMargin':
 		case 'horizontalWrap':
 		case 'html':
 		case 'icon':
@@ -1727,10 +1755,11 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'lightTouchEnabled':
 		case 'lines':
 		case 'listViewStyle':
+		case 'location':
 		case 'loginKeyboardType':
 		case 'loginReturnKeyType':
 		case 'margin':
-		case 'margin2':
+		case 'marginAlternate':
 		case 'maxElevation':
 		case 'maxLines':
 		case 'maxRowHeight':
@@ -1750,13 +1779,11 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'onTintColor':
 		case 'opacity':
 		case 'orientationModes':
-		case 'origin':
 		case 'overlayEnabled':
 		case 'overrideCurrentAnimation':
 		case 'overScrollMode':
 		case 'padding':
 		case 'pageIndicatorColor':
-		case 'pagingControl':
 		case 'pagingControlAlpha':
 		case 'pagingControlColor':
 		case 'pagingControlHeight':
@@ -1772,13 +1799,9 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'preventDefaultImage':
 		case 'previewActionStyle':
 		case 'progressBarStyle':
-		case 'progressIndicatorCancelable':
-		case 'progressIndicatorCancelOnTouchOutside':
-		case 'progressIndicatorLocation':
 		case 'progressIndicatorType':
 		case 'pruneSectionsOnEdit':
 		case 'pullBackgroundColor':
-		case 'rDrawable':
 		case 'repeat':
 		case 'repeatCount':
 		case 'requestedOrientation':
@@ -1817,12 +1840,14 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'separatorHeight':
 		case 'separatorStyle':
 		case 'shadow':
+		case 'shadowColor':
 		case 'shadowRadius':
 		case 'shiftMode':
 		case 'showAsAction':
 		case 'showBookmark':
 		case 'showCancel':
 		case 'showHorizontalScrollIndicator':
+		case 'showPagingControl':
 		case 'showSearchBarInNavBar':
 		case 'showSelectionCheck':
 		case 'showUndoRedoActions':
@@ -1871,6 +1896,7 @@ function helperToBuildCustomTailwindClasses(key, value) {
 		case 'verticalMargin':
 		case 'viewShadow':
 		case 'viewShadowColor':
+		case 'visible':
 		case 'width':
 		case 'willHandleTouches':
 		case 'willScrollOnStatusTap':
@@ -2211,23 +2237,35 @@ function cleanClassNameFn(className) {
 
 //! FontAwesome
 function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
-	let sourceFolder = '';
-	let purgedClasses = '';
-	let purgingMessage = '';
+	// check if fonts.tss includes Font Awesome
+	let fontAwesome = false;
 
-	if (fs.existsSync(projectFontAwesomeTSS)) {
-		sourceFolder = projectFontAwesomeTSS;
-		purgedClasses = '\n// Pro/Beta Font Awesome styles\n';
-		purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...')`;
-	} else {
-		sourceFolder = srcFontAwesomeTSSFile;
-		purgedClasses = '\n// Default Font Awesome styles\n';
-		purgingMessage = `Purging Default Font Awesome styles...`;
+	if (fs.existsSync(cwd + '/purgetss/fonts.tss')) {
+		let fontsTSS = fs.readFileSync(cwd + '/purgetss/fonts.tss', 'utf8');
+		fontAwesome = fontsTSS.includes('Font Awesome');
 	}
 
-	purgedClasses += purgeFontIcons(sourceFolder, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fat', 'fas', 'fal', 'far', 'fab', 'fa-thin', 'fa-solid', 'fa-light', 'fa-regular', 'fa-brands', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands']);
+	if (!fontAwesome) {
+		let sourceFolder = '';
+		let purgedClasses = '';
+		let purgingMessage = '';
 
-	return (purgedClasses === '\n// Pro/Beta Font Awesome styles\n' || purgedClasses === '\n// Default Font Awesome styles\n') ? '' : purgedClasses;
+		if (fs.existsSync(projectFontAwesomeTSS)) {
+			sourceFolder = projectFontAwesomeTSS;
+			purgedClasses = '\n// Pro/Beta Font Awesome styles\n';
+			purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...')`;
+		} else {
+			sourceFolder = srcFontAwesomeTSSFile;
+			purgedClasses = '\n// Default Font Awesome styles\n';
+			purgingMessage = `Purging Default Font Awesome styles...`;
+		}
+
+		purgedClasses += purgeFontIcons(sourceFolder, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fat', 'fas', 'fal', 'far', 'fab', 'fa-thin', 'fa-solid', 'fa-light', 'fa-regular', 'fa-brands', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands']);
+
+		return (purgedClasses === '\n// Pro/Beta Font Awesome styles\n' || purgedClasses === '\n// Default Font Awesome styles\n') ? '' : purgedClasses;
+	}
+
+	return '';
 }
 
 //! Material Design Icons

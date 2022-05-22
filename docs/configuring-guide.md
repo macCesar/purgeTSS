@@ -1416,7 +1416,7 @@ You can use any of the supported units depending of the property you are generat
 // Styles from _app.tss
 // Empty _app.tss
 
-// Tailwind styles
+// PurgeTSS styles
 'ImageView[platform=ios]': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
@@ -1506,7 +1506,7 @@ You can use any of the supported units depending of the property you are generat
 // Styles from _app.tss
 // Empty _app.tss
 
-// Tailwind styles
+// PurgeTSS styles
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 '.bg-transparent': { backgroundColor: 'transparent' }
