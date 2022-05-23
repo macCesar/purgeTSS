@@ -2237,9 +2237,9 @@ function cleanClassNameFn(className) {
 
 //! FontAwesome
 function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
-	// check if fonts.tss includes Font Awesome
 	let fontAwesome = false;
 
+	// check if fonts.tss exists and if it includes Font Awesome
 	if (fs.existsSync(cwd + '/purgetss/fonts.tss')) {
 		let fontsTSS = fs.readFileSync(cwd + '/purgetss/fonts.tss', 'utf8');
 		fontAwesome = fontsTSS.includes('Font Awesome');
