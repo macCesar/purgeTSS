@@ -4,7 +4,6 @@ const chalk = require('chalk');
 const program = require('caporal');
 const pkg = require('../package.json');
 const purgetss = require('../index.js');
-const package = require('../package.json');
 const updateNotifier = require('update-notifier');
 
 // check if a new version of PurgeTSS is available and print an update notification
@@ -14,8 +13,8 @@ if (notifier.update && notifier.update.latest !== pkg.version) {
 }
 
 program
-	.version(package.version)
-	.description(package.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for details.')
+	.version(pkg.version)
+	.description(pkg.description + '\n\nPlease visit ' + chalk.yellow('https://github.com/macCesar/purgeTSS') + ' for details.')
 	.help('PurgeTSS will create a clean app.tss file with only the classes used in your XML Files.\n\nIt works with tailwind.tss, fontawesome.tss, materialdesignicons.tss, framework7icons.tss.\n\nYour original classes will be backed up in _app.tss.\n\nYou can create your own custom classes and values by running `purgetss init` and `purgetss build`.')
 	.option('-d, --debug', 'Show time taken to execute each process.')
 	.option('-a, --all', 'Run all processes. purgetss build-fonts, purgetss build and purgetss')
@@ -58,9 +57,7 @@ program
 	.description('Build a custom `tailwind.tss` file.')
 	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.\n\nIt will also generate a custom `fontawesome.tss` file if you installed the proper dependencies, like FontAwesome Beta or FontAwesome Pro.')
 	.action((args, options, logger) => {
-		let completions = require('../testing-scripts/completions');
-		// completions;
-		// completions.motherGooseClassGeneration();
+		require('../testing-scripts/completions');
 	});
 
 program
