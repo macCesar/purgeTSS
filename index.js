@@ -1501,7 +1501,7 @@ function buildCustomTailwind(message = 'file created!') {
 	});
 
 	//! Compile @apply properties
-	let finalTailwindStyles = helpers.compileApplyProperties(tailwindStyles);
+	let finalTailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
 
 	if (fs.existsSync(projectConfigJS)) {
 		fs.writeFileSync(projectTailwindTSS, finalTailwindStyles);
@@ -1554,11 +1554,7 @@ function createDefinitionsFile() {
 		classDefinitions += fs.readFileSync(cwd + '/purgetss/fonts.tss', 'utf8').replace(/\n\/\*\*\n([\s\S]*?)\*\/\n/g, '');
 	}
 
-	if (fs.existsSync(projectFontAwesomeTSS)) {
-		classDefinitions += fs.readFileSync(projectFontAwesomeTSS, 'utf8');
-	} else {
-		classDefinitions += fs.readFileSync(srcFontAwesomeTSSFile, 'utf8');
-	}
+	classDefinitions += (fs.existsSync(projectFontAwesomeTSS)) ? fs.readFileSync(projectFontAwesomeTSS, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8');
 
 	classDefinitions += fs.readFileSync(srcFramework7FontTSSFile, 'utf8');
 
