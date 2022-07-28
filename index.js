@@ -10,11 +10,10 @@ const chalk = require('chalk');
 const convert = require('xml-js');
 const readCSS = require('read-css');
 const traverse = require('traverse');
+const helpers = require('./lib/helpers');
 const colores = require('./lib/colores').colores;
-const isInstalledGlobally = require('is-installed-globally');
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
-const helpers = require(path.resolve(__dirname, './lib/helpers'));
 
 let purgingDebug = false;
 
@@ -107,7 +106,7 @@ if (configOptions) {
 	configOptions.missing = configOptions.missing ?? false;
 }
 
-const srcJMKFile = (isInstalledGlobally) ? path.resolve(__dirname, './lib/templates/alloy.jmk') : path.resolve(__dirname, './lib/templates/alloy-local.jmk');
+const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
 
 //! Interfase
 
@@ -144,10 +143,6 @@ function purgeClasses(options) {
 		logger.file('app.tss');
 
 		finish();
-
-		if (!isInstalledGlobally) {
-			logger.error('Please install PurgeTSS globally!');
-		}
 	}
 }
 module.exports.purgeClasses = purgeClasses;
@@ -160,7 +155,7 @@ function init(options) {
 
 	// tailwind.tss
 	if (!fs.existsSync(projectTailwindTSS) || options.all) {
-		buildCustomTailwind('file created!');
+		buildCustomTailwind();
 	}
 
 	// definitios file
@@ -273,8 +268,8 @@ function copyModulesLibrary() {
 }
 module.exports.copyModulesLibrary = copyModulesLibrary;
 
-function getFileUpdatedDate(path) {
-	return fs.statSync(path).mtime;
+function getFileUpdatedDate(thePath) {
+	return fs.statSync(thePath).mtime;
 }
 
 function cleanClasses(uniqueClasses) {
@@ -314,8 +309,6 @@ function create(args, options) {
 		let results = stdout.split('\n');
 		let idPrefix = results[0];
 		let workspace = results[1];
-
-		// if (error) return logger.error(error);
 
 		if (idPrefix !== 'app.idprefix not found' && workspace !== '') {
 			console.log('');
@@ -407,46 +400,64 @@ function buildCustomFonts(options) {
 
 		let fontMeta = '';
 		let customFontsJS = '';
+		let customFontFamiliesJS = '';
 		const FontName = require('fontname');
 		let tssClasses = `// Fonts TSS file generated with PurgeTSS\n// https://github.com/macCesar/purgeTSS\n`;
 
+		//! Process font files
 		_.each(files, file => {
 			if (file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.TTF') || file.endsWith('.OTF')) {
 				fontMeta = FontName.parse(fs.readFileSync(file))[0];
 
 				tssClasses += processFontMeta(fontMeta);
 
+				let fontFamilyName = fontMeta.postScriptName.replace(/\//g, '');
 				//! Maybe this is deprecated
 				if (configFile.fonts.mode.toLowerCase() === 'postscriptname' || configFile.fonts.mode.toLowerCase() === 'postscript' || configFile.fonts.mode.toLowerCase() === 'ps') {
-					tssClasses += `\n'.${fontMeta.postScriptName.replace(/\//g, '')}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+					tssClasses += `\n'.${fontFamilyName}': { font: { fontFamily: '${fontFamilyName}' } }\n`;
 				} else {
-					tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontMeta.postScriptName.replace(/\//g, '')}' } }\n`;
+					tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontFamilyName}' } }\n`;
 				}
 
 				//! Copy Font File
 				makeSureFolderExists(projectFontsFolder);
 				let fontExtension = file.split('.').pop();
-				fs.copyFile(file, `${projectFontsFolder}/${fontMeta.postScriptName.replace(/\//g, '')}.${fontExtension}`, err => { });
+				fs.copyFile(file, `${projectFontsFolder}/${fontFamilyName}.${fontExtension}`, err => {
+					if (err) {
+						throw err;
+					}
+				});
 				logger.info('Copying font', `${chalk.yellow(file.split('/').pop())}...`);
 			}
 		});
 
 		let oneTimeMessage = `\n// Unicode Characters\n// To use your Icon Fonts in Buttons AND Labels each class sets 'text' and 'title' properties\n`;
 
+		//! Process styles files
 		_.each(files, file => {
 			if (file.endsWith('.css') || file.endsWith('.CSS')) {
-				tssClasses += oneTimeMessage + `\n// ${file.split('/').pop()}\n`;
+				let theFile = file.split('/');
+				let theCSSFile = theFile.pop();
+				let theFolder = theFile.pop() + '/';
+				if (theFolder === 'fonts/') {
+					theFolder = '';
+				}
+
+				let theCSSFileName = theFolder + theCSSFile;
+
+				tssClasses += oneTimeMessage + `\n// ${theCSSFileName}\n`;
 				oneTimeMessage = '';
 
 				tssClasses += processCustomFontsCSS(readCSS(file));
 
 				//! JavaScript Module
 				if (options.modules) {
-					customFontsJS += processCustomFontsJS(readCSS(file), `\n\t// ${getFileName(file)}`);
+					customFontsJS += processCustomFontsJS(readCSS(file), `\n\t// ${theCSSFileName}`);
+					customFontFamiliesJS += processCustomFontFamilyNamesJS(readCSS(file), `\n\t// ${theCSSFileName}`);
 				}
 
 				// !Done processing stylesheet
-				logger.info('Processing', `${chalk.yellow(file.split('/').pop())}...`);
+				logger.info('Processing', `${chalk.yellow(theCSSFileName)}...`);
 			}
 		});
 
@@ -461,11 +472,17 @@ function buildCustomFonts(options) {
 		}
 
 		if (customFontsJS) {
-			let exportIcons = fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8');
-			exportIcons += '\nconst icons = {';
+			let exportIcons = 'const icons = {';
 			exportIcons += customFontsJS.slice(0, -1);
 			exportIcons += '\n};\n';
 			exportIcons += 'exports.icons = icons;\n';
+
+			exportIcons += '\nconst families = {';
+			exportIcons += customFontFamiliesJS.slice(0, -1);
+			exportIcons += '\n};\n';
+			exportIcons += 'exports.families = families;\n';
+
+			exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8');
 
 			fs.writeFileSync(projectLibFolder + '/purgetss.fonts.js', exportIcons, err => {
 				throw err;
@@ -513,8 +530,8 @@ function processCustomFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilie
 
 		tssClasses += processFontawesomeStyles(data);
 
-		fs.writeFileSync(projectFontAwesomeTSS, tssClasses, err => {
-			throw err;
+		fs.writeFileSync(projectFontAwesomeTSS, tssClasses, err2 => {
+			throw err2;
 		});
 
 		logger.file('./purgetss/fontawesome.tss');
@@ -588,8 +605,8 @@ function processCustomFontAwesomeJS(CSSFile, faJS) {
 
 		makeSureFolderExists(projectLibFolder);
 
-		fs.writeFileSync(projectFontAwesomeJS, fontAwesomeContent, err => {
-			throw err;
+		fs.writeFileSync(projectFontAwesomeJS, fontAwesomeContent, err2 => {
+			throw err2;
 		});
 
 		logger.file('./app/lib/fontawesome.js');
@@ -669,26 +686,37 @@ function processCustomFontsJS(data, fontFamily = '') {
 	return `${fontFamily}\n\t'${_.camelCase(thePrefix)}': {${exportIcons}\t},`;
 }
 
+function processCustomFontFamilyNamesJS(data, fontFamily = '') {
+	let rules = getRules(data);
+
+	let thePrefix = findPrefix(rules);
+
+	if (thePrefix === undefined) {
+		thePrefix = fontFamily;
+	}
+
+	return `${fontFamily}\n\t'${_.camelCase(thePrefix)}': '${getFontFamily(data)}',`;
+}
+
 function processFontMeta(fontMeta) {
 	let fontMetaString = `\n/**\n * ${fontMeta.fullName}`;
 
 	fontMetaString += `\n * ${fontMeta.version}`;
 
-	// if (fontMeta.description) {
-	// 	fontMetaString += `\n * description: ${fontMeta.description}`;
-	// }
-
-	if (fontMeta.designer) {
-		fontMetaString += `\n * ${fontMeta.designer}`;
-	}
-
 	if (fontMeta.urlVendor) {
 		fontMetaString += `\n * ${fontMeta.urlVendor}`;
 	}
 
-	// if (fontMeta.urlDesigner) {
-	// 	fontMetaString += `\n * urlDesigner: ${fontMeta.urlDesigner}`;
+	// if (fontMeta.description) {
+	// 	fontMetaString += `\n * Description: ${fontMeta.description}`;
 	// }
+
+	if (fontMeta.designer) {
+		fontMetaString += `\n * ${fontMeta.designer}`;
+		if (fontMeta.urlDesigner) {
+			fontMetaString += ` - ${fontMeta.urlDesigner}`;
+		}
+	}
 
 	if (fontMeta.copyright) {
 		fontMetaString += `\n * ${fontMeta.copyright}`;
@@ -700,10 +728,9 @@ function processFontMeta(fontMeta) {
 
 	if (fontMeta.licence) {
 		fontMetaString += `\n * ${fontMeta.licence.split('\n')[0]}`;
-	}
-
-	if (fontMeta.licenceURL) {
-		fontMetaString += `\n * ${fontMeta.licenceURL}`;
+		if (fontMeta.licenceURL) {
+			fontMetaString += ` - ${fontMeta.licenceURL}`;
+		}
 	}
 
 	fontMetaString += `\n */`;
@@ -713,12 +740,12 @@ function processFontMeta(fontMeta) {
 
 function getFiles(dir) {
 	return fs.readdirSync(dir).flatMap((item) => {
-		const path = `${dir}/${item}`;
-		if (fs.statSync(path).isDirectory()) {
-			return getFiles(path);
+		const thePath = `${dir}/${item}`;
+		if (fs.statSync(thePath).isDirectory()) {
+			return getFiles(thePath);
 		}
 
-		return path;
+		return thePath;
 	});
 }
 
@@ -727,7 +754,7 @@ function getFileName(file) {
 }
 
 function getRules(data) {
-	let rules = _.map(data.stylesheet.rules, rule => {
+	return _.map(data.stylesheet.rules, rule => {
 		if (rule.type === 'rule' && rule.declarations[0].property === 'content' && rule.selectors[0].includes('before')) {
 			return {
 				'selector': '.' + rule.selectors[0].replace('.', '').replace('::before', '').replace(':before', ''),
@@ -735,8 +762,16 @@ function getRules(data) {
 			};
 		}
 	}).filter(rule => rule);
+}
 
-	return rules;
+function getFontFamily(data) {
+	return _.map(data.stylesheet.rules, rule => {
+		if (rule.type === 'font-face') {
+			let something = rule.declarations.filter(declaration => declaration.property === 'font-family').map(declaration => declaration.value)[0];
+			something = something.replace(/'(.*?)'/g, (_match, p1) => p1);
+			return something;
+		}
+	}).filter(rule => rule);
 }
 
 function findPrefix(rules) {
@@ -846,17 +881,7 @@ function addHook() {
 
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
 			if (line.includes('pre:compile')) {
-				let execCommand = "";
-
-				if (__dirname.includes('alloy')) {
-					execCommand = 'alloy purgetss';
-				} else if (isInstalledGlobally) {
-					execCommand = 'purgetss';
-				} else {
-					execCommand = 'node node_modules/purgetss/bin/purgetss';
-				};
-
-				line += `\n\trequire('child_process').execSync('${execCommand}', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
+				line += `\n\trequire('child_process').execSync('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
 			}
 			updatedJMKFile.push(line);
 		});
@@ -880,8 +905,8 @@ function removeHook() {
 				updatedJMKFile.push(`\t//${line}`);
 				logger.warn(chalk.yellow('Auto-Purging hook disabled!'));
 			} else {
-				logger.warn(chalk.red('Auto-Purging hook removed!'));
-				// logger.warn(chalk.red('It will be added the next time `PurgeTSS` runs!'));
+				updatedJMKFile.push(line);
+				logger.warn(chalk.red('Auto-Purging hook already disabled!'));
 			}
 		});
 
@@ -951,7 +976,7 @@ function getClassesOnlyFromXMLFiles() {
 
 	let allClasses = [];
 	_.each(viewPaths, viewPath => {
-		allClasses.push(extractOnlyClasses(fs.readFileSync(viewPath, 'utf8'), viewPath));
+		allClasses.push(extractClassesOnly(fs.readFileSync(viewPath, 'utf8'), viewPath));
 	});
 
 	let uniqueClasses = [];
@@ -1937,7 +1962,7 @@ function extractClasses(currentText, currentFile) {
 	}
 }
 
-function extractOnlyClasses(currentText, currentFile) {
+function extractClassesOnly(currentText, currentFile) {
 	try {
 		let jsontext = convert.xml2json(encodeHTML(currentText), { compact: true });
 
@@ -2083,7 +2108,7 @@ let startTime;
 
 function start() {
 	startTime = new Date();
-};
+}
 
 function finish(customMessage = 'Finished purging in') {
 	let endTime = new Date(new Date() - startTime);
@@ -2093,7 +2118,7 @@ function finish(customMessage = 'Finished purging in') {
 let localStartTime;
 function localStart() {
 	localStartTime = new Date();
-};
+}
 
 function localFinish(customMessage = 'Finished purging in') {
 	let localEndTime = new Date(new Date() - localStartTime);
@@ -2110,7 +2135,7 @@ function purgeTailwind(uniqueClasses) {
 
 	if (`// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}` !== tailwindClasses[6]) {
 		logger.info(chalk.yellow('config.js'), 'file updated!, rebuilding tailwind.tss...');
-		buildCustomTailwind('file updated!');
+		buildCustomTailwind();
 		createDefinitionsFile();
 		tailwindClasses = fs.readFileSync(projectTailwindTSS, 'utf8').split(/\r?\n/);
 	}
@@ -2133,8 +2158,8 @@ function purgeTailwind(uniqueClasses) {
 			let transparency = Math.round(decimalValue * 255 / 100).toString(16);
 			if (transparency.length === 1) transparency = '0' + transparency;
 			let classNameWithTransparency = uniqueClasses[index];
-			let className = cleanClassName.substring(0, cleanClassName.lastIndexOf('/'));
-			classesWithOpacityValues.push({ decimalValue, transparency, className, classNameWithTransparency });
+			let theClassName = cleanClassName.substring(0, cleanClassName.lastIndexOf('/'));
+			classesWithOpacityValues.push({ decimalValue, transparency, theClassName, classNameWithTransparency });
 		} else {
 			cleanUniqueClasses.push(className);
 		}
@@ -2295,7 +2320,7 @@ function purgeFramework7(uniqueClasses, cleanUniqueClasses) {
 	return (purgedClasses === '\n// Framework7 styles\n') ? '' : purgedClasses;
 }
 
-function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, prefixes) {
+function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, _prefixes) {
 	localStart();
 
 	let purgedClasses = '';
@@ -2335,7 +2360,3 @@ function createJMKFile() {
 }
 
 //! Soon to be deleted
-function reviewThis(className) {
-	let twStylesWithoyPlatformSpecificStyles = className.replace(/\[platform=ios\]/g, '').replace(/\[platform=android\]/g, '').split(/\r?\n/);
-	twStylesArray[indexOfClass].replace('[platform=android]', '').replace('[platform=ios]', '')
-}
