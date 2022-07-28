@@ -57,7 +57,8 @@ program
 	.description('Build a custom `tailwind.tss` file.')
 	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.\n\nIt will also generate a custom `fontawesome.tss` file if you installed the proper dependencies, like FontAwesome Beta or FontAwesome Pro.')
 	.action((args, options, logger) => {
-		require('../testing-scripts/completions');
+		// require('../testing-scripts/completions').completions();
+		// require('../testing-scripts/completions').completionsRevised();
 	});
 
 program
