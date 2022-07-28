@@ -1595,6 +1595,8 @@ function createDefinitionsFile() {
 		.replace(/\/\/(.*)\n/g, '')
 		.replace(/\n/g, '');
 
+	classDefinitions += '.ios{}.android{}.handheld{}.tablet{}.open{}.close{}.complete{}.drag{}.drop{}.bounds{}';
+
 	fs.writeFileSync(cwd + '/purgetss/definitions.css', `/* Class definitions */${classDefinitions}`);
 
 	logger.file('./purgetss/definitions.css');
@@ -2266,7 +2268,7 @@ function purgeTailwind(uniqueClasses) {
 }
 
 function cleanClassNameFn(className) {
-	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('complete:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
+	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
 }
 
 //! FontAwesome
