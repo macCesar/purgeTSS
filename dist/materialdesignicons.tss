@@ -2,7 +2,7 @@
 // Are delightful, beautifully crafted symbols for common actions and items. https://material.io/resources/icons/?style=baseline
 // Material design icons is the official icon set from Google. https://material.io/design/iconography/system-icons.html
 // Material design guidelines: https://material.io/guidelines/.
-// Update material icons [1/7/22]
+// Update material icons [7/7/22]
 
 // Font Families
 '.md': { font: { fontFamily: 'MaterialIcons-Regular' } }
@@ -49,6 +49,7 @@
 '.md-15mp': { text: '\ue957', title: '\ue957' }
 '.md-16mp': { text: '\ue958', title: '\ue958' }
 '.md-17mp': { text: '\ue959', title: '\ue959' }
+'.md-18_up_rating': { text: '\uf8fd', title: '\uf8fd' }
 '.md-18mp': { text: '\ue95a', title: '\ue95a' }
 '.md-19mp': { text: '\ue95b', title: '\ue95b' }
 '.md-1k': { text: '\ue95c', title: '\ue95c' }
@@ -124,6 +125,8 @@
 '.md-add_circle': { text: '\ue147', title: '\ue147' }
 '.md-add_circle_outline': { text: '\ue148', title: '\ue148' }
 '.md-add_comment': { text: '\ue266', title: '\ue266' }
+'.md-add_home': { text: '\uf8eb', title: '\uf8eb' }
+'.md-add_home_work': { text: '\uf8ed', title: '\uf8ed' }
 '.md-add_ic_call': { text: '\ue97c', title: '\ue97c' }
 '.md-add_link': { text: '\ue178', title: '\ue178' }
 '.md-add_location': { text: '\ue567', title: '\ue567' }
@@ -213,6 +216,7 @@
 '.md-arrow_forward': { text: '\ue5c8', title: '\ue5c8' }
 '.md-arrow_forward_ios': { text: '\ue5e1', title: '\ue5e1' }
 '.md-arrow_left': { text: '\ue5de', title: '\ue5de' }
+'.md-arrow_outward': { text: '\uf8ce', title: '\uf8ce' }
 '.md-arrow_right': { text: '\ue5df', title: '\ue5df' }
 '.md-arrow_right_alt': { text: '\ue941', title: '\ue941' }
 '.md-arrow_upward': { text: '\ue5d8', title: '\ue5d8' }
@@ -226,6 +230,7 @@
 '.md-assignment_return': { text: '\ue860', title: '\ue860' }
 '.md-assignment_returned': { text: '\ue861', title: '\ue861' }
 '.md-assignment_turned_in': { text: '\ue862', title: '\ue862' }
+'.md-assist_walker': { text: '\uf8d5', title: '\uf8d5' }
 '.md-assistant': { text: '\ue39f', title: '\ue39f' }
 '.md-assistant_direction': { text: '\ue988', title: '\ue988' }
 '.md-assistant_navigation': { text: '\ue989', title: '\ue989' }
@@ -248,6 +253,7 @@
 '.md-auto_fix_normal': { text: '\ue664', title: '\ue664' }
 '.md-auto_fix_off': { text: '\ue665', title: '\ue665' }
 '.md-auto_graph': { text: '\ue4fb', title: '\ue4fb' }
+'.md-auto_mode': { text: '\uec20', title: '\uec20' }
 '.md-auto_stories': { text: '\ue666', title: '\ue666' }
 '.md-autofps_select': { text: '\uefdc', title: '\uefdc' }
 '.md-autorenew': { text: '\ue863', title: '\ue863' }
@@ -304,6 +310,9 @@
 '.md-bike_scooter': { text: '\uef45', title: '\uef45' }
 '.md-biotech': { text: '\uea3a', title: '\uea3a' }
 '.md-blender': { text: '\uefe3', title: '\uefe3' }
+'.md-blind': { text: '\uf8d6', title: '\uf8d6' }
+'.md-blinds': { text: '\ue286', title: '\ue286' }
+'.md-blinds_closed': { text: '\uec1f', title: '\uec1f' }
 '.md-block': { text: '\ue14b', title: '\ue14b' }
 '.md-block_flipped': { text: '\uef46', title: '\uef46' }
 '.md-bloodtype': { text: '\uefe4', title: '\uefe4' }
@@ -353,6 +362,8 @@
 '.md-brightness_high': { text: '\ue1ac', title: '\ue1ac' }
 '.md-brightness_low': { text: '\ue1ad', title: '\ue1ad' }
 '.md-brightness_medium': { text: '\ue1ae', title: '\ue1ae' }
+'.md-broadcast_on_home': { text: '\uf8f8', title: '\uf8f8' }
+'.md-broadcast_on_personal': { text: '\uf8f9', title: '\uf8f9' }
 '.md-broken_image': { text: '\ue3ad', title: '\ue3ad' }
 '.md-browse_gallery': { text: '\uebd1', title: '\uebd1' }
 '.md-browser_not_supported': { text: '\uef47', title: '\uef47' }
@@ -492,6 +503,7 @@
 '.md-connected_tv': { text: '\ue998', title: '\ue998' }
 '.md-connecting_airports': { text: '\ue7c9', title: '\ue7c9' }
 '.md-construction': { text: '\uea3c', title: '\uea3c' }
+'.md-contact_emergency': { text: '\uf8d1', title: '\uf8d1' }
 '.md-contact_mail': { text: '\ue0d0', title: '\ue0d0' }
 '.md-contact_page': { text: '\uf22e', title: '\uf22e' }
 '.md-contact_phone': { text: '\ue0cf', title: '\ue0cf' }
@@ -549,6 +561,8 @@
 '.md-currency_rupee': { text: '\ueaf7', title: '\ueaf7' }
 '.md-currency_yen': { text: '\ueafb', title: '\ueafb' }
 '.md-currency_yuan': { text: '\ueaf9', title: '\ueaf9' }
+'.md-curtains': { text: '\uec1e', title: '\uec1e' }
+'.md-curtains_closed': { text: '\uec1d', title: '\uec1d' }
 '.md-cut': { text: '\uf08b', title: '\uf08b' }
 '.md-cyclone': { text: '\uebd5', title: '\uebd5' }
 '.md-dangerous': { text: '\ue99a', title: '\ue99a' }
@@ -562,6 +576,8 @@
 '.md-data_saver_on': { text: '\ueff3', title: '\ueff3' }
 '.md-data_thresholding': { text: '\ueb9f', title: '\ueb9f' }
 '.md-data_usage': { text: '\ue1af', title: '\ue1af' }
+'.md-dataset': { text: '\uf8ee', title: '\uf8ee' }
+'.md-dataset_linked': { text: '\uf8ef', title: '\uf8ef' }
 '.md-date_range': { text: '\ue916', title: '\ue916' }
 '.md-deblur': { text: '\ueb77', title: '\ueb77' }
 '.md-deck': { text: '\uea42', title: '\uea42' }
@@ -578,6 +594,7 @@
 '.md-description': { text: '\ue873', title: '\ue873' }
 '.md-deselect': { text: '\uebb6', title: '\uebb6' }
 '.md-design_services': { text: '\uf10a', title: '\uf10a' }
+'.md-desk': { text: '\uf8f4', title: '\uf8f4' }
 '.md-desktop_access_disabled': { text: '\ue99d', title: '\ue99d' }
 '.md-desktop_mac': { text: '\ue30b', title: '\ue30b' }
 '.md-desktop_windows': { text: '\ue30c', title: '\ue30c' }
@@ -591,6 +608,7 @@
 '.md-devices': { text: '\ue1b1', title: '\ue1b1' }
 '.md-devices_fold': { text: '\uebde', title: '\uebde' }
 '.md-devices_other': { text: '\ue337', title: '\ue337' }
+'.md-dew_point': { text: '\uf879', title: '\uf879' }
 '.md-dialer_sip': { text: '\ue0bb', title: '\ue0bb' }
 '.md-dialpad': { text: '\ue0bc', title: '\ue0bc' }
 '.md-diamond': { text: '\uead5', title: '\uead5' }
@@ -623,6 +641,9 @@
 '.md-discord': { text: '\uea6c', title: '\uea6c' }
 '.md-discount': { text: '\uebc9', title: '\uebc9' }
 '.md-display_settings': { text: '\ueb97', title: '\ueb97' }
+'.md-diversity_1': { text: '\uf8d7', title: '\uf8d7' }
+'.md-diversity_2': { text: '\uf8d8', title: '\uf8d8' }
+'.md-diversity_3': { text: '\uf8d9', title: '\uf8d9' }
 '.md-dnd_forwardslash': { text: '\ue611', title: '\ue611' }
 '.md-dns': { text: '\ue875', title: '\ue875' }
 '.md-do_disturb': { text: '\uf08c', title: '\uf08c' }
@@ -683,19 +704,23 @@
 '.md-edit': { text: '\ue3c9', title: '\ue3c9' }
 '.md-edit_attributes': { text: '\ue578', title: '\ue578' }
 '.md-edit_calendar': { text: '\ue742', title: '\ue742' }
+'.md-edit_document': { text: '\uf88c', title: '\uf88c' }
 '.md-edit_location': { text: '\ue568', title: '\ue568' }
 '.md-edit_location_alt': { text: '\ue1c5', title: '\ue1c5' }
 '.md-edit_note': { text: '\ue745', title: '\ue745' }
 '.md-edit_notifications': { text: '\ue525', title: '\ue525' }
 '.md-edit_off': { text: '\ue950', title: '\ue950' }
 '.md-edit_road': { text: '\uef4d', title: '\uef4d' }
+'.md-edit_square': { text: '\uf88d', title: '\uf88d' }
 '.md-egg': { text: '\ueacc', title: '\ueacc' }
 '.md-egg_alt': { text: '\ueac8', title: '\ueac8' }
 '.md-eject': { text: '\ue8fb', title: '\ue8fb' }
 '.md-elderly': { text: '\uf21a', title: '\uf21a' }
 '.md-elderly_woman': { text: '\ueb69', title: '\ueb69' }
 '.md-electric_bike': { text: '\ueb1b', title: '\ueb1b' }
+'.md-electric_bolt': { text: '\uec1c', title: '\uec1c' }
 '.md-electric_car': { text: '\ueb1c', title: '\ueb1c' }
+'.md-electric_meter': { text: '\uec1b', title: '\uec1b' }
 '.md-electric_moped': { text: '\ueb1d', title: '\ueb1d' }
 '.md-electric_rickshaw': { text: '\ueb1e', title: '\ueb1e' }
 '.md-electric_scooter': { text: '\ueb1f', title: '\ueb1f' }
@@ -714,6 +739,7 @@
 '.md-emoji_people': { text: '\uea1d', title: '\uea1d' }
 '.md-emoji_symbols': { text: '\uea1e', title: '\uea1e' }
 '.md-emoji_transportation': { text: '\uea1f', title: '\uea1f' }
+'.md-energy_savings_leaf': { text: '\uec1a', title: '\uec1a' }
 '.md-engineering': { text: '\uea3d', title: '\uea3d' }
 '.md-enhance_photo_translate': { text: '\ue8fc', title: '\ue8fc' }
 '.md-enhanced_encryption': { text: '\ue63f', title: '\ue63f' }
@@ -750,6 +776,11 @@
 '.md-extension': { text: '\ue87b', title: '\ue87b' }
 '.md-extension_off': { text: '\ue4f5', title: '\ue4f5' }
 '.md-face': { text: '\ue87c', title: '\ue87c' }
+'.md-face_2': { text: '\uf8da', title: '\uf8da' }
+'.md-face_3': { text: '\uf8db', title: '\uf8db' }
+'.md-face_4': { text: '\uf8dc', title: '\uf8dc' }
+'.md-face_5': { text: '\uf8dd', title: '\uf8dd' }
+'.md-face_6': { text: '\uf8de', title: '\uf8de' }
 '.md-face_retouching_natural': { text: '\uef4e', title: '\uef4e' }
 '.md-face_retouching_off': { text: '\uf007', title: '\uf007' }
 '.md-face_unlock': { text: '\uf008', title: '\uf008' }
@@ -783,6 +814,7 @@
 '.md-file_open': { text: '\ueaf3', title: '\ueaf3' }
 '.md-file_present': { text: '\uea0e', title: '\uea0e' }
 '.md-file_upload': { text: '\ue2c6', title: '\ue2c6' }
+'.md-file_upload_off': { text: '\uf886', title: '\uf886' }
 '.md-filter': { text: '\ue3d3', title: '\ue3d3' }
 '.md-filter_1': { text: '\ue3d0', title: '\ue3d0' }
 '.md-filter_2': { text: '\ue3d1', title: '\ue3d1' }
@@ -812,6 +844,8 @@
 '.md-fingerprint': { text: '\ue90d', title: '\ue90d' }
 '.md-fire_extinguisher': { text: '\uf1d8', title: '\uf1d8' }
 '.md-fire_hydrant': { text: '\uf1a3', title: '\uf1a3' }
+'.md-fire_hydrant_alt': { text: '\uf8f1', title: '\uf8f1' }
+'.md-fire_truck': { text: '\uf8f2', title: '\uf8f2' }
 '.md-fireplace': { text: '\uea43', title: '\uea43' }
 '.md-first_page': { text: '\ue5dc', title: '\ue5dc' }
 '.md-fit_screen': { text: '\uea10', title: '\uea10' }
@@ -837,7 +871,10 @@
 '.md-flip_to_back': { text: '\ue882', title: '\ue882' }
 '.md-flip_to_front': { text: '\ue883', title: '\ue883' }
 '.md-flood': { text: '\uebe6', title: '\uebe6' }
+'.md-flourescent': { text: '\uec31', title: '\uec31' }
 '.md-flourescent': { text: '\uf00d', title: '\uf00d' }
+'.md-fluorescent': { text: '\uec31', title: '\uec31' }
+'.md-fluorescent': { text: '\uf00d', title: '\uf00d' }
 '.md-flutter_dash': { text: '\ue00b', title: '\ue00b' }
 '.md-fmd_bad': { text: '\uf00e', title: '\uf00e' }
 '.md-fmd_good': { text: '\uf00f', title: '\uf00f' }
@@ -904,6 +941,7 @@
 '.md-gamepad': { text: '\ue30f', title: '\ue30f' }
 '.md-games': { text: '\ue021', title: '\ue021' }
 '.md-garage': { text: '\uf011', title: '\uf011' }
+'.md-gas_meter': { text: '\uec19', title: '\uec19' }
 '.md-gavel': { text: '\ue90e', title: '\ue90e' }
 '.md-generating_tokens': { text: '\ue749', title: '\ue749' }
 '.md-gesture': { text: '\ue155', title: '\ue155' }
@@ -938,6 +976,8 @@
 '.md-group_remove': { text: '\ue7ad', title: '\ue7ad' }
 '.md-group_work': { text: '\ue886', title: '\ue886' }
 '.md-groups': { text: '\uf233', title: '\uf233' }
+'.md-groups_2': { text: '\uf8df', title: '\uf8df' }
+'.md-groups_3': { text: '\uf8e0', title: '\uf8e0' }
 '.md-h_mobiledata': { text: '\uf018', title: '\uf018' }
 '.md-h_plus_mobiledata': { text: '\uf019', title: '\uf019' }
 '.md-hail': { text: '\ue9b1', title: '\ue9b1' }
@@ -965,6 +1005,7 @@
 '.md-hearing': { text: '\ue023', title: '\ue023' }
 '.md-hearing_disabled': { text: '\uf104', title: '\uf104' }
 '.md-heart_broken': { text: '\ueac2', title: '\ueac2' }
+'.md-heat_pump': { text: '\uec18', title: '\uec18' }
 '.md-height': { text: '\uea16', title: '\uea16' }
 '.md-help': { text: '\ue887', title: '\ue887' }
 '.md-help_center': { text: '\uf1c0', title: '\uf1c0' }
@@ -1119,6 +1160,7 @@
 '.md-light': { text: '\uf02a', title: '\uf02a' }
 '.md-light_mode': { text: '\ue518', title: '\ue518' }
 '.md-lightbulb': { text: '\ue0f0', title: '\ue0f0' }
+'.md-lightbulb_circle': { text: '\uebfe', title: '\uebfe' }
 '.md-lightbulb_outline': { text: '\ue90f', title: '\ue90f' }
 '.md-line_axis': { text: '\uea9a', title: '\uea9a' }
 '.md-line_style': { text: '\ue919', title: '\ue919' }
@@ -1178,6 +1220,7 @@
 '.md-lock_clock': { text: '\uef57', title: '\uef57' }
 '.md-lock_open': { text: '\ue898', title: '\ue898' }
 '.md-lock_outline': { text: '\ue899', title: '\ue899' }
+'.md-lock_person': { text: '\uf8f3', title: '\uf8f3' }
 '.md-lock_reset': { text: '\ueade', title: '\ueade' }
 '.md-login': { text: '\uea77', title: '\uea77' }
 '.md-logo_dev': { text: '\uead6', title: '\uead6' }
@@ -1197,10 +1240,16 @@
 '.md-lte_plus_mobiledata': { text: '\uf02d', title: '\uf02d' }
 '.md-luggage': { text: '\uf235', title: '\uf235' }
 '.md-lunch_dining': { text: '\uea61', title: '\uea61' }
+'.md-lyrics': { text: '\uec0b', title: '\uec0b' }
+'.md-macro_off': { text: '\uf8d2', title: '\uf8d2' }
 '.md-mail': { text: '\ue158', title: '\ue158' }
+'.md-mail_lock': { text: '\uec0a', title: '\uec0a' }
 '.md-mail_outline': { text: '\ue0e1', title: '\ue0e1' }
 '.md-male': { text: '\ue58e', title: '\ue58e' }
 '.md-man': { text: '\ue4eb', title: '\ue4eb' }
+'.md-man_2': { text: '\uf8e1', title: '\uf8e1' }
+'.md-man_3': { text: '\uf8e2', title: '\uf8e2' }
+'.md-man_4': { text: '\uf8e3', title: '\uf8e3' }
 '.md-manage_accounts': { text: '\uf02e', title: '\uf02e' }
 '.md-manage_history': { text: '\uebe7', title: '\uebe7' }
 '.md-manage_search': { text: '\uf02f', title: '\uf02f' }
@@ -1255,6 +1304,7 @@
 '.md-mode_comment': { text: '\ue253', title: '\ue253' }
 '.md-mode_edit': { text: '\ue254', title: '\ue254' }
 '.md-mode_edit_outline': { text: '\uf035', title: '\uf035' }
+'.md-mode_fan_off': { text: '\uec17', title: '\uec17' }
 '.md-mode_night': { text: '\uf036', title: '\uf036' }
 '.md-mode_of_travel': { text: '\ue7ce', title: '\ue7ce' }
 '.md-mode_standby': { text: '\uf037', title: '\uf037' }
@@ -1312,6 +1362,7 @@
 '.md-near_me_disabled': { text: '\uf1ef', title: '\uf1ef' }
 '.md-nearby_error': { text: '\uf03b', title: '\uf03b' }
 '.md-nearby_off': { text: '\uf03c', title: '\uf03c' }
+'.md-nest_cam_wired_stand': { text: '\uec16', title: '\uec16' }
 '.md-network_cell': { text: '\ue1b9', title: '\ue1b9' }
 '.md-network_check': { text: '\ue640', title: '\ue640' }
 '.md-network_locked': { text: '\ue61a', title: '\ue61a' }
@@ -1332,6 +1383,7 @@
 '.md-nightlight_round': { text: '\uef5e', title: '\uef5e' }
 '.md-nights_stay': { text: '\uea46', title: '\uea46' }
 '.md-no_accounts': { text: '\uf03e', title: '\uf03e' }
+'.md-no_adult_content': { text: '\uf8fe', title: '\uf8fe' }
 '.md-no_backpack': { text: '\uf237', title: '\uf237' }
 '.md-no_cell': { text: '\uf1a4', title: '\uf1a4' }
 '.md-no_crash': { text: '\uebf0', title: '\uebf0' }
@@ -1378,6 +1430,8 @@
 '.md-offline_bolt': { text: '\ue932', title: '\ue932' }
 '.md-offline_pin': { text: '\ue90a', title: '\ue90a' }
 '.md-offline_share': { text: '\ue9c5', title: '\ue9c5' }
+'.md-oil_barrel': { text: '\uec15', title: '\uec15' }
+'.md-on_device_training': { text: '\uebfd', title: '\uebfd' }
 '.md-ondemand_video': { text: '\ue63a', title: '\ue63a' }
 '.md-online_prediction': { text: '\uf0eb', title: '\uf0eb' }
 '.md-opacity': { text: '\ue91c', title: '\ue91c' }
@@ -1446,6 +1500,9 @@
 '.md-perm_phone_msg': { text: '\ue8a8', title: '\ue8a8' }
 '.md-perm_scan_wifi': { text: '\ue8a9', title: '\ue8a9' }
 '.md-person': { text: '\ue7fd', title: '\ue7fd' }
+'.md-person_2': { text: '\uf8e4', title: '\uf8e4' }
+'.md-person_3': { text: '\uf8e5', title: '\uf8e5' }
+'.md-person_4': { text: '\uf8e6', title: '\uf8e6' }
 '.md-person_add': { text: '\ue7fe', title: '\ue7fe' }
 '.md-person_add_alt': { text: '\uea4d', title: '\uea4d' }
 '.md-person_add_alt_1': { text: '\uef65', title: '\uef65' }
@@ -1551,7 +1608,10 @@
 '.md-privacy_tip': { text: '\uf0dc', title: '\uf0dc' }
 '.md-private_connectivity': { text: '\ue744', title: '\ue744' }
 '.md-production_quantity_limits': { text: '\ue1d1', title: '\ue1d1' }
+'.md-propane': { text: '\uec14', title: '\uec14' }
+'.md-propane_tank': { text: '\uec13', title: '\uec13' }
 '.md-psychology': { text: '\uea4a', title: '\uea4a' }
+'.md-psychology_alt': { text: '\uf8ea', title: '\uf8ea' }
 '.md-public': { text: '\ue80b', title: '\ue80b' }
 '.md-public_off': { text: '\uf1ca', title: '\uf1ca' }
 '.md-publish': { text: '\ue255', title: '\ue255' }
@@ -1609,8 +1669,10 @@
 '.md-remove_from_queue': { text: '\ue067', title: '\ue067' }
 '.md-remove_moderator': { text: '\ue9d4', title: '\ue9d4' }
 '.md-remove_red_eye': { text: '\ue417', title: '\ue417' }
+'.md-remove_road': { text: '\uebfc', title: '\uebfc' }
 '.md-remove_shopping_cart': { text: '\ue928', title: '\ue928' }
 '.md-reorder': { text: '\ue8fe', title: '\ue8fe' }
+'.md-repartition': { text: '\uf8e8', title: '\uf8e8' }
 '.md-repeat': { text: '\ue040', title: '\ue040' }
 '.md-repeat_on': { text: '\ue9d6', title: '\ue9d6' }
 '.md-repeat_one': { text: '\ue041', title: '\ue041' }
@@ -1640,6 +1702,8 @@
 '.md-ring_volume': { text: '\ue0d1', title: '\ue0d1' }
 '.md-rocket': { text: '\ueba5', title: '\ueba5' }
 '.md-rocket_launch': { text: '\ueb9b', title: '\ueb9b' }
+'.md-roller_shades': { text: '\uec12', title: '\uec12' }
+'.md-roller_shades_closed': { text: '\uec11', title: '\uec11' }
 '.md-roller_skating': { text: '\uebcd', title: '\uebcd' }
 '.md-roofing': { text: '\uf201', title: '\uf201' }
 '.md-room': { text: '\ue8b4', title: '\ue8b4' }
@@ -1692,6 +1756,7 @@
 '.md-screen_search_desktop': { text: '\uef70', title: '\uef70' }
 '.md-screen_share': { text: '\ue0e2', title: '\ue0e2' }
 '.md-screenshot': { text: '\uf056', title: '\uf056' }
+'.md-screenshot_monitor': { text: '\uec08', title: '\uec08' }
 '.md-scuba_diving': { text: '\uebce', title: '\uebce' }
 '.md-sd': { text: '\ue9dd', title: '\ue9dd' }
 '.md-sd_card': { text: '\ue623', title: '\ue623' }
@@ -1712,6 +1777,7 @@
 '.md-send_time_extension': { text: '\ueadb', title: '\ueadb' }
 '.md-send_to_mobile': { text: '\uf05c', title: '\uf05c' }
 '.md-sensor_door': { text: '\uf1b5', title: '\uf1b5' }
+'.md-sensor_occupied': { text: '\uec10', title: '\uec10' }
 '.md-sensor_window': { text: '\uf1b4', title: '\uf1b4' }
 '.md-sensors': { text: '\ue51e', title: '\ue51e' }
 '.md-sensors_off': { text: '\ue51f', title: '\ue51f' }
@@ -1744,6 +1810,7 @@
 '.md-settings_system_daydream': { text: '\ue1c3', title: '\ue1c3' }
 '.md-settings_voice': { text: '\ue8c8', title: '\ue8c8' }
 '.md-severe_cold': { text: '\uebd3', title: '\uebd3' }
+'.md-shape_line': { text: '\uf8d3', title: '\uf8d3' }
 '.md-share': { text: '\ue80d', title: '\ue80d' }
 '.md-share_arrival_time': { text: '\ue524', title: '\ue524' }
 '.md-share_location': { text: '\uf05f', title: '\uf05f' }
@@ -1840,6 +1907,7 @@
 '.md-snowshoeing': { text: '\ue514', title: '\ue514' }
 '.md-soap': { text: '\uf1b2', title: '\uf1b2' }
 '.md-social_distance': { text: '\ue1cb', title: '\ue1cb' }
+'.md-solar_power': { text: '\uec0f', title: '\uec0f' }
 '.md-sort': { text: '\ue164', title: '\ue164' }
 '.md-sort_by_alpha': { text: '\ue053', title: '\ue053' }
 '.md-sos': { text: '\uebf7', title: '\uebf7' }
@@ -2042,6 +2110,7 @@
 '.md-toll': { text: '\ue8e0', title: '\ue8e0' }
 '.md-tonality': { text: '\ue427', title: '\ue427' }
 '.md-topic': { text: '\uf1c8', title: '\uf1c8' }
+'.md-tornado': { text: '\ue199', title: '\ue199' }
 '.md-touch_app': { text: '\ue913', title: '\ue913' }
 '.md-tour': { text: '\uef75', title: '\uef75' }
 '.md-toys': { text: '\ue332', title: '\ue332' }
@@ -2049,6 +2118,7 @@
 '.md-traffic': { text: '\ue565', title: '\ue565' }
 '.md-train': { text: '\ue570', title: '\ue570' }
 '.md-tram': { text: '\ue571', title: '\ue571' }
+'.md-transcribe': { text: '\uf8ec', title: '\uf8ec' }
 '.md-transfer_within_a_station': { text: '\ue572', title: '\ue572' }
 '.md-transform': { text: '\ue428', title: '\ue428' }
 '.md-transgender': { text: '\ue58d', title: '\ue58d' }
@@ -2060,6 +2130,7 @@
 '.md-trending_neutral': { text: '\ue8e4', title: '\ue8e4' }
 '.md-trending_up': { text: '\ue8e5', title: '\ue8e5' }
 '.md-trip_origin': { text: '\ue57b', title: '\ue57b' }
+'.md-troubleshoot': { text: '\ue1d2', title: '\ue1d2' }
 '.md-try': { text: '\uf07c', title: '\uf07c' }
 '.md-tsunami': { text: '\uebd8', title: '\uebd8' }
 '.md-tty': { text: '\uf1aa', title: '\uf1aa' }
@@ -2076,13 +2147,16 @@
 '.md-tv': { text: '\ue333', title: '\ue333' }
 '.md-tv_off': { text: '\ue647', title: '\ue647' }
 '.md-two_wheeler': { text: '\ue9f9', title: '\ue9f9' }
+'.md-type_specimen': { text: '\uf8f0', title: '\uf8f0' }
 '.md-u_turn_left': { text: '\ueba1', title: '\ueba1' }
 '.md-u_turn_right': { text: '\ueba2', title: '\ueba2' }
 '.md-umbrella': { text: '\uf1ad', title: '\uf1ad' }
 '.md-unarchive': { text: '\ue169', title: '\ue169' }
 '.md-undo': { text: '\ue166', title: '\ue166' }
 '.md-unfold_less': { text: '\ue5d6', title: '\ue5d6' }
+'.md-unfold_less_double': { text: '\uf8cf', title: '\uf8cf' }
 '.md-unfold_more': { text: '\ue5d7', title: '\ue5d7' }
+'.md-unfold_more_double': { text: '\uf8d0', title: '\uf8d0' }
 '.md-unpublished': { text: '\uf236', title: '\uf236' }
 '.md-unsubscribe': { text: '\ue0eb', title: '\ue0eb' }
 '.md-upcoming': { text: '\uf07e', title: '\uf07e' }
@@ -2102,11 +2176,14 @@
 '.md-vertical_align_center': { text: '\ue259', title: '\ue259' }
 '.md-vertical_align_top': { text: '\ue25a', title: '\ue25a' }
 '.md-vertical_distribute': { text: '\ue076', title: '\ue076' }
+'.md-vertical_shades': { text: '\uec0e', title: '\uec0e' }
+'.md-vertical_shades_closed': { text: '\uec0d', title: '\uec0d' }
 '.md-vertical_split': { text: '\ue949', title: '\ue949' }
 '.md-vibration': { text: '\ue62d', title: '\ue62d' }
 '.md-video_call': { text: '\ue070', title: '\ue070' }
 '.md-video_camera_back': { text: '\uf07f', title: '\uf07f' }
 '.md-video_camera_front': { text: '\uf080', title: '\uf080' }
+'.md-video_chat': { text: '\uf8a0', title: '\uf8a0' }
 '.md-video_collection': { text: '\ue04a', title: '\ue04a' }
 '.md-video_file': { text: '\ueb87', title: '\ueb87' }
 '.md-video_label': { text: '\ue071', title: '\ue071' }
@@ -2156,6 +2233,7 @@
 '.md-vpn_key_off': { text: '\ueb7a', title: '\ueb7a' }
 '.md-vpn_lock': { text: '\ue62f', title: '\ue62f' }
 '.md-vrpano': { text: '\uf082', title: '\uf082' }
+'.md-wallet': { text: '\uf8ff', title: '\uf8ff' }
 '.md-wallet_giftcard': { text: '\ue8f6', title: '\ue8f6' }
 '.md-wallet_membership': { text: '\ue8f7', title: '\ue8f7' }
 '.md-wallet_travel': { text: '\ue8f8', title: '\ue8f8' }
@@ -2197,6 +2275,9 @@
 '.md-where_to_vote': { text: '\ue177', title: '\ue177' }
 '.md-widgets': { text: '\ue1bd', title: '\ue1bd' }
 '.md-widgets': { text: '\ue75e', title: '\ue75e' }
+'.md-width_full': { text: '\uf8f5', title: '\uf8f5' }
+'.md-width_normal': { text: '\uf8f6', title: '\uf8f6' }
+'.md-width_wide': { text: '\uf8f7', title: '\uf8f7' }
 '.md-wifi': { text: '\ue63e', title: '\ue63e' }
 '.md-wifi_1_bar': { text: '\ue4ca', title: '\ue4ca' }
 '.md-wifi_2_bar': { text: '\ue4d9', title: '\ue4d9' }
@@ -2215,12 +2296,15 @@
 '.md-wifi_tethering_error': { text: '\uf086', title: '\uf086' }
 '.md-wifi_tethering_error_rounded': { text: '\uf086', title: '\uf086' }
 '.md-wifi_tethering_off': { text: '\uf087', title: '\uf087' }
+'.md-wind_power': { text: '\uec0c', title: '\uec0c' }
 '.md-window': { text: '\uf088', title: '\uf088' }
 '.md-wine_bar': { text: '\uf1e8', title: '\uf1e8' }
 '.md-woman': { text: '\ue13e', title: '\ue13e' }
+'.md-woman_2': { text: '\uf8e7', title: '\uf8e7' }
 '.md-woo_commerce': { text: '\uea6d', title: '\uea6d' }
 '.md-wordpress': { text: '\uea9f', title: '\uea9f' }
 '.md-work': { text: '\ue8f9', title: '\ue8f9' }
+'.md-work_history': { text: '\uec09', title: '\uec09' }
 '.md-work_off': { text: '\ue942', title: '\ue942' }
 '.md-work_outline': { text: '\ue943', title: '\ue943' }
 '.md-workspace_premium': { text: '\ue7af', title: '\ue7af' }
