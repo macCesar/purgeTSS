@@ -32,18 +32,18 @@ const logger = {
 	}
 }
 
-const projectLibFolder = cwd + '/app/lib';
-const projectAppTSS = cwd + '/app/styles/app.tss';
-const project_AppTSS = cwd + '/app/styles/_app.tss';
-const projectAlloyJMKFile = cwd + '/app/alloy.jmk';
-const projectFontsFolder = cwd + '/app/assets/fonts';
-const projectFontAwesomeJS = cwd + '/app/lib/fontawesome.js';
+const projectsLibFolder = cwd + '/app/lib';
+const projectsAppTSS = cwd + '/app/styles/app.tss';
+const projects_AppTSS = cwd + '/app/styles/_app.tss';
+const projectsAlloyJMKFile = cwd + '/app/alloy.jmk';
+const projectsFontsFolder = cwd + '/app/assets/fonts';
+const projectsFontAwesomeJS = cwd + '/app/lib/fontawesome.js';
 
-const projectPurgeTSSFolder = cwd + '/purgetss';
-const projectConfigJS = cwd + '/purgetss/config.js';
-const projectTailwindTSS = cwd + '/purgetss/tailwind.tss';
-const projectPurgeTSSFontsFolder = cwd + '/purgetss/fonts';
-const projectFontAwesomeTSS = cwd + '/purgetss/fontawesome.tss';
+const projectsPurgeTSSFolder = cwd + '/purgetss';
+const projectsConfigJS = cwd + '/purgetss/config.js';
+const projectsTailwindTSS = cwd + '/purgetss/tailwind.tss';
+const projectsPurgeTSSFontsFolder = cwd + '/purgetss/fonts';
+const projectsFontAwesomeTSS = cwd + '/purgetss/fontawesome.tss';
 
 // js icon modules
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
@@ -56,15 +56,15 @@ const srcTailwindTSS = path.resolve(__dirname, './dist/tailwind.tss');
 //
 
 // PRO
-const srcFontAwesomeProCSSFile = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css';
-const srcFontAwesomeProWebFontsFolder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/';
+const srcFA_ProCSS = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css';
+const srcFA_ProWebFontsFolder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/';
 // Alternate location
-const srcFontAwesomeProCSSFileAlternate = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/css/all.css';
-const srcFontAwesomeProWebFontsFolderAlternate = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/webfonts/';
+const srcFA_ProCSS_Alt = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/css/all.css';
+const srcFA_ProWebFontsFolder_Alt = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/webfonts/';
 
-const srcFontAwesomeProResetTSS = './lib/templates/fontawesome/pro-reset.tss';
-const srcFontAwesomeProTemplateTSS = './lib/templates/fontawesome/pro-template.tss';
-const srcFontAwesomeProFontFamilies = {
+const srcFA_ProResetTSS = './lib/templates/fontawesome/pro-reset.tss';
+const srcFA_ProTemplateTSS = './lib/templates/fontawesome/pro-template.tss';
+const srcFA_ProFontFamilies = {
 	'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
 	'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
 	'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
@@ -94,7 +94,7 @@ const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialde
 
 const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
 
-const configFile = (fs.existsSync(projectConfigJS)) ? require(projectConfigJS) : require(srcConfigFile);
+const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile);
 configFile.corePlugins = configFile.corePlugins ?? {};
 configFile.purge = configFile.purge ?? { mode: 'all' };
 configFile.theme.extend = configFile.theme.extend ?? {};
@@ -138,7 +138,7 @@ function purgeClasses(options) {
 
 		tempPurged += processMissingClasses(tempPurged);
 
-		saveFile(projectAppTSS, tempPurged);
+		saveFile(projectsAppTSS, tempPurged);
 
 		logger.file('app.tss');
 
@@ -149,12 +149,12 @@ module.exports.purgeClasses = purgeClasses;
 
 function init(options) {
 	// config file
-	if (!fs.existsSync(projectConfigJS)) {
+	if (!fs.existsSync(projectsConfigJS)) {
 		createConfigFile();
 	}
 
 	// tailwind.tss
-	if (!fs.existsSync(projectTailwindTSS) || options.all) {
+	if (!fs.existsSync(projectsTailwindTSS) || options.all) {
 		buildCustomTailwind();
 	}
 
@@ -164,8 +164,8 @@ function init(options) {
 	}
 
 	// auto purge hook
-	if (fs.existsSync(projectAlloyJMKFile)) {
-		if (!fs.readFileSync(projectAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
+	if (fs.existsSync(projectsAlloyJMKFile)) {
+		if (!fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
 			addHook();
 		}
 	} else {
@@ -196,13 +196,13 @@ function processMissingClasses(tempPurged) {
 //! Command: watch
 function watchMode(options) {
 	if (alloyProject()) {
-		if (fs.existsSync(projectAlloyJMKFile)) {
+		if (fs.existsSync(projectsAlloyJMKFile)) {
 			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
 			if (options.off) {
 				removeHook();
-			} else if (!fs.readFileSync(projectAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
+			} else if (!fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
 				addHook();
-			} else if (fs.readFileSync(projectAlloyJMKFile, 'utf8').includes("//\trequire('child_process').execSync('")) {
+			} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes("//\trequire('child_process').execSync('")) {
 				enableHook();
 			} else {
 				logger.warn(chalk.yellow('Auto-Purging hook already present!'));
@@ -219,7 +219,7 @@ module.exports.watchMode = watchMode;
 //! Command: copy-fonts
 function copyFonts(options) {
 	if (alloyProject()) {
-		makeSureFolderExists(projectFontsFolder);
+		makeSureFolderExists(projectsFontsFolder);
 
 		if (options.vendor && typeof options.vendor === 'string') {
 			let selected = _.uniq(options.vendor.replace(/ /g, '').split(','));
@@ -242,7 +242,7 @@ module.exports.copyFonts = copyFonts;
 //! Command: copy-font-liraries
 function copyFontLibraries(options) {
 	if (alloyProject()) {
-		makeSureFolderExists(projectLibFolder);
+		makeSureFolderExists(projectsLibFolder);
 
 		if (options.vendor && typeof options.vendor === 'string') {
 			let selected = _.uniq(options.vendor.replace(/ /g, '').split(','));
@@ -260,9 +260,9 @@ module.exports.copyFontLibraries = copyFontLibraries;
 
 function copyModulesLibrary() {
 	if (alloyProject()) {
-		makeSureFolderExists(projectLibFolder);
+		makeSureFolderExists(projectsLibFolder);
 
-		fs.copyFileSync(srcPurgeTSSLibrary, projectLibFolder + '/purgetss.ui.js');
+		fs.copyFileSync(srcPurgeTSSLibrary, projectsLibFolder + '/purgetss.ui.js');
 		logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./app/lib'), 'folder');
 	}
 }
@@ -285,14 +285,14 @@ function cleanClasses(uniqueClasses) {
 //! Command: init
 function createConfigFile() {
 	if (alloyProject()) {
-		makeSureFolderExists(projectPurgeTSSFolder);
+		makeSureFolderExists(projectsPurgeTSSFolder);
 
-		makeSureFolderExists(projectPurgeTSSFontsFolder);
+		makeSureFolderExists(projectsPurgeTSSFontsFolder);
 
-		if (fs.existsSync(projectConfigJS)) {
+		if (fs.existsSync(projectsConfigJS)) {
 			logger.warn('./purgetss/config.js', chalk.red('file already exists!'));
 		} else {
-			fs.copyFileSync(srcConfigFile, projectConfigJS);
+			fs.copyFileSync(srcConfigFile, projectsConfigJS);
 			logger.file('./purgetss/config.js');
 		}
 	}
@@ -391,10 +391,10 @@ module.exports.buildCustom = buildCustom;
 
 //! Command: Build fonts.tss
 function buildCustomFonts(options) {
-	if (fs.existsSync(projectPurgeTSSFontsFolder)) {
+	if (fs.existsSync(projectsPurgeTSSFontsFolder)) {
 		start();
 
-		let files = getFiles(projectPurgeTSSFontsFolder).filter(file => {
+		let files = getFiles(projectsPurgeTSSFontsFolder).filter(file => {
 			return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css') || file.endsWith('.TTF') || file.endsWith('.OTF') || file.endsWith('.CSS');
 		});
 
@@ -420,9 +420,9 @@ function buildCustomFonts(options) {
 				}
 
 				//! Copy Font File
-				makeSureFolderExists(projectFontsFolder);
+				makeSureFolderExists(projectsFontsFolder);
 				let fontExtension = file.split('.').pop();
-				fs.copyFile(file, `${projectFontsFolder}/${fontFamilyName}.${fontExtension}`, err => {
+				fs.copyFile(file, `${projectsFontsFolder}/${fontFamilyName}.${fontExtension}`, err => {
 					if (err) {
 						throw err;
 					}
@@ -462,13 +462,13 @@ function buildCustomFonts(options) {
 		});
 
 		if (files.length > 0) {
-			makeSureFolderExists(projectPurgeTSSFolder);
+			makeSureFolderExists(projectsPurgeTSSFolder);
 
 			fs.writeFileSync(cwd + '/purgetss/fonts.tss', tssClasses, err => {
 				throw err;
 			});
 
-			makeSureFolderExists(projectLibFolder);
+			makeSureFolderExists(projectsLibFolder);
 		}
 
 		if (customFontsJS) {
@@ -484,14 +484,14 @@ function buildCustomFonts(options) {
 
 			exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8');
 
-			fs.writeFileSync(projectLibFolder + '/purgetss.fonts.js', exportIcons, err => {
+			fs.writeFileSync(projectsLibFolder + '/purgetss.fonts.js', exportIcons, err => {
 				throw err;
 			});
 
 			logger.info(`${chalk.yellow('./app/lib/purgetss.fonts.js')} file created!`);
 		} else {
-			if (fs.existsSync(projectLibFolder + '/purgetss.fonts.js')) {
-				fs.unlinkSync(projectLibFolder + '/purgetss.fonts.js');
+			if (fs.existsSync(projectsLibFolder + '/purgetss.fonts.js')) {
+				fs.unlinkSync(projectsLibFolder + '/purgetss.fonts.js');
 			}
 		}
 
@@ -513,10 +513,10 @@ module.exports.buildCustomFonts = buildCustomFonts;
 function buildCustomFontAwesome() {
 	if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
 		processCustomFontAwesomeTSS(srcFontAwesomeBetaCSSFile, srcFontAwesomeBetaTemplateTSS, srcFontAwesomeBetaResetTSS, srcFontAwesomeBetaFontFamilies, srcFontAwesomeBetaWebFontsFolder);
-	} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
-		processCustomFontAwesomeTSS(srcFontAwesomeProCSSFile, srcFontAwesomeProTemplateTSS, srcFontAwesomeProResetTSS, srcFontAwesomeProFontFamilies, srcFontAwesomeProWebFontsFolder);
-	} else if (fs.existsSync(srcFontAwesomeProCSSFileAlternate)) {
-		processCustomFontAwesomeTSS(srcFontAwesomeProCSSFileAlternate, srcFontAwesomeProTemplateTSS, srcFontAwesomeProResetTSS, srcFontAwesomeProFontFamilies, srcFontAwesomeProWebFontsFolderAlternate);
+	} else if (fs.existsSync(srcFA_ProCSS)) {
+		processCustomFontAwesomeTSS(srcFA_ProCSS, srcFA_ProTemplateTSS, srcFA_ProResetTSS, srcFA_ProFontFamilies, srcFA_ProWebFontsFolder);
+	} else if (fs.existsSync(srcFA_ProCSS_Alt)) {
+		processCustomFontAwesomeTSS(srcFA_ProCSS_Alt, srcFA_ProTemplateTSS, srcFA_ProResetTSS, srcFA_ProFontFamilies, srcFA_ProWebFontsFolder_Alt);
 	}
 }
 
@@ -530,13 +530,13 @@ function processCustomFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilie
 
 		tssClasses += processFontawesomeStyles(data);
 
-		fs.writeFileSync(projectFontAwesomeTSS, tssClasses, err2 => {
+		fs.writeFileSync(projectsFontAwesomeTSS, tssClasses, err2 => {
 			throw err2;
 		});
 
 		logger.file('./purgetss/fontawesome.tss');
 
-		makeSureFolderExists(projectFontsFolder);
+		makeSureFolderExists(projectsFontsFolder);
 
 		copyProFonts(fontFamilies, webFonts);
 	});
@@ -545,8 +545,8 @@ function processCustomFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilie
 function buildCustomFontAwesomeJS() {
 	if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
 		processCustomFontAwesomeJS(srcFontAwesomeBetaCSSFile, './lib/templates/fontawesome/beta-template.js');
-	} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
-		processCustomFontAwesomeJS(srcFontAwesomeProCSSFile, './lib/templates/fontawesome/pro-template.js');
+	} else if (fs.existsSync(srcFA_ProCSS)) {
+		processCustomFontAwesomeJS(srcFA_ProCSS, './lib/templates/fontawesome/pro-template.js');
 	}
 }
 
@@ -603,9 +603,9 @@ function processCustomFontAwesomeJS(CSSFile, faJS) {
 
 		fontAwesomeContent += exportIcons;
 
-		makeSureFolderExists(projectLibFolder);
+		makeSureFolderExists(projectsLibFolder);
 
-		fs.writeFileSync(projectFontAwesomeJS, fontAwesomeContent, err2 => {
+		fs.writeFileSync(projectsFontAwesomeJS, fontAwesomeContent, err2 => {
 			throw err2;
 		});
 
@@ -614,9 +614,9 @@ function processCustomFontAwesomeJS(CSSFile, faJS) {
 }
 
 function copyFreeFonts() {
-	fs.copyFile(srcFontsFolder + '/FontAwesome6Brands-Regular.ttf', projectFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback);
-	fs.copyFile(srcFontsFolder + '/FontAwesome6Free-Regular.ttf', projectFontsFolder + '/FontAwesome6Free-Regular.ttf', callback);
-	fs.copyFile(srcFontsFolder + '/FontAwesome6Free-Solid.ttf', projectFontsFolder + '/FontAwesome6Free-Solid.ttf', callback);
+	fs.copyFile(srcFontsFolder + '/FontAwesome6Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback);
+	fs.copyFile(srcFontsFolder + '/FontAwesome6Free-Regular.ttf', projectsFontsFolder + '/FontAwesome6Free-Regular.ttf', callback);
+	fs.copyFile(srcFontsFolder + '/FontAwesome6Free-Solid.ttf', projectsFontsFolder + '/FontAwesome6Free-Solid.ttf', callback);
 
 	logger.info('Font Awesome Free Icons Fonts copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
@@ -874,7 +874,7 @@ function findMissingClasses(tempPurged) {
 
 function addHook() {
 	logger.warn(chalk.green('Adding Auto-Purging hook!'));
-	let originalJMKFile = fs.readFileSync(projectAlloyJMKFile, 'utf8');
+	let originalJMKFile = fs.readFileSync(projectsAlloyJMKFile, 'utf8');
 
 	if (originalJMKFile.includes('pre:compile')) {
 		let updatedJMKFile = [];
@@ -886,15 +886,15 @@ function addHook() {
 			updatedJMKFile.push(line);
 		});
 
-		saveFile(projectAlloyJMKFile, updatedJMKFile.join("\n"));
+		saveFile(projectsAlloyJMKFile, updatedJMKFile.join("\n"));
 	} else {
-		fs.appendFileSync(projectAlloyJMKFile, '\n' + fs.readFileSync(srcJMKFile, 'utf8'));
+		fs.appendFileSync(projectsAlloyJMKFile, '\n' + fs.readFileSync(srcJMKFile, 'utf8'));
 	}
 }
 
 function removeHook() {
 	let updatedJMKFile = [];
-	let originalJMKFile = fs.readFileSync(projectAlloyJMKFile, 'utf8');
+	let originalJMKFile = fs.readFileSync(projectsAlloyJMKFile, 'utf8');
 	let purgeCmdPresent = (originalJMKFile.includes('::PurgeTSS::'));
 
 	if (purgeCmdPresent) {
@@ -910,14 +910,14 @@ function removeHook() {
 			}
 		});
 
-		saveFile(projectAlloyJMKFile, updatedJMKFile.join("\n"));
+		saveFile(projectsAlloyJMKFile, updatedJMKFile.join("\n"));
 	}
 }
 
 function enableHook() {
 	let updatedJMKFile = [];
 
-	let originalJMKFile = fs.readFileSync(projectAlloyJMKFile, 'utf8');
+	let originalJMKFile = fs.readFileSync(projectsAlloyJMKFile, 'utf8');
 
 	originalJMKFile.split(/\r?\n/).forEach((line) => {
 		if (line.includes("::PurgeTSS::")) {
@@ -927,12 +927,12 @@ function enableHook() {
 
 		updatedJMKFile.push(line);
 
-		saveFile(projectAlloyJMKFile, updatedJMKFile.join("\n"));
+		saveFile(projectsAlloyJMKFile, updatedJMKFile.join("\n"));
 	});
 }
 
 function initIfNotConfig() {
-	if (!fs.existsSync(projectConfigJS)) {
+	if (!fs.existsSync(projectsConfigJS)) {
 		createConfigFile();
 	}
 }
@@ -945,8 +945,8 @@ function makeSureFolderExists(folder) {
 
 function copyFile(src, dest) {
 	if (fs.existsSync(src)) {
-		// if (!fs.existsSync(`${projectFontsFolder}/${dest}`)) {
-		fs.copyFile(src, `${projectFontsFolder}/${dest}`, callback);
+		// if (!fs.existsSync(`${projectsFontsFolder}/${dest}`)) {
+		fs.copyFile(src, `${projectsFontsFolder}/${dest}`, callback);
 		return true;
 		// }
 	}
@@ -1489,7 +1489,7 @@ function buildCustomTailwind(message = 'file created!') {
 
 	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8');
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8');
-	tailwindStyles += (fs.existsSync(projectConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : `// default config.js file\n`;
+	tailwindStyles += (fs.existsSync(projectsConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}\n` : `// default config.js file\n`;
 
 	if (Object.keys(configFile.theme).length) {
 		tailwindStyles += '\n// Custom Styles\n';
@@ -1500,7 +1500,7 @@ function buildCustomTailwind(message = 'file created!') {
 
 	tailwindStyles += '\n// Resets\n';
 
-	let distributionFolder = !fs.existsSync(projectConfigJS);
+	let distributionFolder = !fs.existsSync(projectsConfigJS);
 
 	if (distributionFolder) {
 		var destinationFolder = path.resolve(__dirname, './dist/glossary/');
@@ -1528,8 +1528,8 @@ function buildCustomTailwind(message = 'file created!') {
 	//! Compile @apply properties
 	let finalTailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
 
-	if (fs.existsSync(projectConfigJS)) {
-		fs.writeFileSync(projectTailwindTSS, finalTailwindStyles);
+	if (fs.existsSync(projectsConfigJS)) {
+		fs.writeFileSync(projectsTailwindTSS, finalTailwindStyles);
 		logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
 	} else {
 		fs.writeFileSync(srcTailwindTSS, finalTailwindStyles);
@@ -1571,15 +1571,15 @@ function removeDeprecatedColors(theObject) {
 function createDefinitionsFile() {
 	let classDefinitions = '';
 
-	if (fs.existsSync(projectTailwindTSS)) {
-		classDefinitions += fs.readFileSync(projectTailwindTSS, 'utf8');
+	if (fs.existsSync(projectsTailwindTSS)) {
+		classDefinitions += fs.readFileSync(projectsTailwindTSS, 'utf8');
 	}
 
 	if (fs.existsSync(cwd + '/purgetss/fonts.tss')) {
 		classDefinitions += fs.readFileSync(cwd + '/purgetss/fonts.tss', 'utf8').replace(/\n\/\*\*\n([\s\S]*?)\*\/\n/g, '');
 	}
 
-	classDefinitions += (fs.existsSync(projectFontAwesomeTSS)) ? fs.readFileSync(projectFontAwesomeTSS, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8');
+	classDefinitions += (fs.existsSync(projectsFontAwesomeTSS)) ? fs.readFileSync(projectsFontAwesomeTSS, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8');
 
 	classDefinitions += fs.readFileSync(srcFramework7FontTSSFile, 'utf8');
 
@@ -2008,7 +2008,7 @@ function readAllXMLFiles(currentDirPath, callback) {
 
 //! Copy Fonts
 function copyFont(vendor) {
-	makeSureFolderExists(projectFontsFolder);
+	makeSureFolderExists(projectsFontsFolder);
 
 	switch (vendor) {
 		case 'fa':
@@ -2016,8 +2016,8 @@ function copyFont(vendor) {
 		case 'fontawesome':
 			if (fs.existsSync(srcFontAwesomeBetaCSSFile)) {
 				copyProFonts(srcFontAwesomeBetaFontFamilies, srcFontAwesomeBetaWebFontsFolder);
-			} else if (fs.existsSync(srcFontAwesomeProCSSFile)) {
-				copyProFonts(srcFontAwesomeProFontFamilies, srcFontAwesomeProWebFontsFolder);
+			} else if (fs.existsSync(srcFA_ProCSS)) {
+				copyProFonts(srcFA_ProFontFamilies, srcFA_ProWebFontsFolder);
 			} else {
 				copyFreeFonts();
 			}
@@ -2041,23 +2041,23 @@ function copyFontLibrary(vendor) {
 		case 'fa':
 		case 'font':
 		case 'fontawesome':
-			if (fs.existsSync(srcFontAwesomeBetaCSSFile) || fs.existsSync(srcFontAwesomeProCSSFile)) {
+			if (fs.existsSync(srcFontAwesomeBetaCSSFile) || fs.existsSync(srcFA_ProCSS)) {
 				buildCustomFontAwesomeJS();
 			} else {
-				fs.copyFileSync(srcLibFA, projectLibFolder + '/fontawesome.js');
+				fs.copyFileSync(srcLibFA, projectsLibFolder + '/fontawesome.js');
 				logger.info('FontAwesome CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			}
 			break;
 		case 'md':
 		case 'material':
 		case 'materialdesign':
-			fs.copyFileSync(srcLibMD, projectLibFolder + '/materialdesignicons.js');
+			fs.copyFileSync(srcLibMD, projectsLibFolder + '/materialdesignicons.js');
 			logger.info('Material Design CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 		case 'f7':
 		case 'framework':
 		case 'framework7':
-			fs.copyFileSync(srcLibF7, projectLibFolder + '/framework7icons.js');
+			fs.copyFileSync(srcLibF7, projectsLibFolder + '/framework7icons.js');
 			logger.info('Framework7-Icons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 	}
@@ -2076,11 +2076,11 @@ function alloyProject() {
 
 //! FIRST: Backup original app.tss
 function backupOriginalAppTss() {
-	if (!fs.existsSync(project_AppTSS) && fs.existsSync(projectAppTSS)) {
+	if (!fs.existsSync(projects_AppTSS) && fs.existsSync(projectsAppTSS)) {
 		logger.warn('Backing up app.tss into _app.tss\n             FROM NOW ON, add, update or delete your original classes in _app.tss');
-		fs.copyFileSync(projectAppTSS, project_AppTSS);
-	} else if (!fs.existsSync(project_AppTSS)) {
-		fs.appendFileSync(project_AppTSS, '// Empty _app.tss\n');
+		fs.copyFileSync(projectsAppTSS, projects_AppTSS);
+	} else if (!fs.existsSync(projects_AppTSS)) {
+		fs.appendFileSync(projects_AppTSS, '// Empty _app.tss\n');
 	}
 }
 
@@ -2092,8 +2092,8 @@ function copyResetTemplateAnd_appTSS() {
 
 	let tempPurged = fs.readFileSync(srcResetTSSFile, 'utf8');
 
-	if (fs.existsSync(project_AppTSS)) {
-		let appTSSContent = fs.readFileSync(project_AppTSS, 'utf8');
+	if (fs.existsSync(projects_AppTSS)) {
+		let appTSSContent = fs.readFileSync(projects_AppTSS, 'utf8');
 
 		if (appTSSContent.length) {
 			logger.info('Copying', chalk.yellow('_app.tss'), 'styles...');
@@ -2133,13 +2133,13 @@ function purgeTailwind(uniqueClasses) {
 	localStart();
 
 	let purgedClasses = '\n// Main styles\n';
-	let tailwindClasses = fs.readFileSync(projectTailwindTSS, 'utf8').split(/\r?\n/);
+	let tailwindClasses = fs.readFileSync(projectsTailwindTSS, 'utf8').split(/\r?\n/);
 
-	if (`// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}` !== tailwindClasses[6]) {
+	if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[6]) {
 		logger.info(chalk.yellow('config.js'), 'file updated!, rebuilding tailwind.tss...');
 		buildCustomTailwind();
 		createDefinitionsFile();
-		tailwindClasses = fs.readFileSync(projectTailwindTSS, 'utf8').split(/\r?\n/);
+		tailwindClasses = fs.readFileSync(projectsTailwindTSS, 'utf8').split(/\r?\n/);
 	}
 
 	logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...')
@@ -2286,8 +2286,8 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 		let purgedClasses = '';
 		let purgingMessage = '';
 
-		if (fs.existsSync(projectFontAwesomeTSS)) {
-			sourceFolder = projectFontAwesomeTSS;
+		if (fs.existsSync(projectsFontAwesomeTSS)) {
+			sourceFolder = projectsFontAwesomeTSS;
 			purgedClasses = '\n// Pro/Beta Font Awesome styles\n';
 			purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...')`;
 		} else {
@@ -2356,7 +2356,7 @@ function saveFile(file, data) {
 }
 
 function createJMKFile() {
-	fs.copyFileSync(srcJMKFile, projectAlloyJMKFile);
+	fs.copyFileSync(srcJMKFile, projectsAlloyJMKFile);
 	logger.file('./app/alloy.jmk');
 	addHook();
 }
