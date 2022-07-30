@@ -2,7 +2,11 @@
 // Are delightful, beautifully crafted symbols for common actions and items. https://material.io/resources/icons/?style=baseline
 // Material design icons is the official icon set from Google. https://material.io/design/iconography/system-icons.html
 // Material design guidelines: https://material.io/guidelines/.
+<<<<<<< HEAD
 // Update material icons [08/01/22]
+=======
+// Update material icons [7/7/22]
+>>>>>>> 3d4deab (update Material Design (7/7/2022))
 
 // Font Families
 '.md': { font: { fontFamily: 'MaterialIcons-Regular' } }
