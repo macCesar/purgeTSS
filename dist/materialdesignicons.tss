@@ -270,6 +270,7 @@
 '.md-balcony': { text: '\ue58f', title: '\ue58f' }
 '.md-ballot': { text: '\ue172', title: '\ue172' }
 '.md-bar_chart': { text: '\ue26b', title: '\ue26b' }
+'.md-barcode_reader': { text: '\uf85c', title: '\uf85c' }
 '.md-batch_prediction': { text: '\uf0f5', title: '\uf0f5' }
 '.md-bathroom': { text: '\uefdd', title: '\uefdd' }
 '.md-bathtub': { text: '\uea41', title: '\uea41' }
@@ -523,6 +524,7 @@
 '.md-control_camera': { text: '\ue074', title: '\ue074' }
 '.md-control_point': { text: '\ue3ba', title: '\ue3ba' }
 '.md-control_point_duplicate': { text: '\ue3bb', title: '\ue3bb' }
+'.md-conveyor_belt': { text: '\uf867', title: '\uf867' }
 '.md-cookie': { text: '\ueaac', title: '\ueaac' }
 '.md-copy': { text: '\uf08a', title: '\uf08a' }
 '.md-copy_all': { text: '\ue2ec', title: '\ue2ec' }
@@ -894,6 +896,7 @@
 '.md-forest': { text: '\uea99', title: '\uea99' }
 '.md-fork_left': { text: '\ueba0', title: '\ueba0' }
 '.md-fork_right': { text: '\uebac', title: '\uebac' }
+'.md-forklift': { text: '\uf868', title: '\uf868' }
 '.md-format_align_center': { text: '\ue234', title: '\ue234' }
 '.md-format_align_justify': { text: '\ue235', title: '\ue235' }
 '.md-format_align_left': { text: '\ue236', title: '\ue236' }
@@ -933,6 +936,7 @@
 '.md-free_breakfast': { text: '\ueb44', title: '\ueb44' }
 '.md-free_cancellation': { text: '\ue748', title: '\ue748' }
 '.md-front_hand': { text: '\ue769', title: '\ue769' }
+'.md-front_loader': { text: '\uf869', title: '\uf869' }
 '.md-fullscreen': { text: '\ue5d0', title: '\ue5d0' }
 '.md-fullscreen_exit': { text: '\ue5d1', title: '\ue5d1' }
 '.md-functions': { text: '\ue24a', title: '\ue24a' }
@@ -1454,6 +1458,7 @@
 '.md-pageview': { text: '\ue8a0', title: '\ue8a0' }
 '.md-paid': { text: '\uf041', title: '\uf041' }
 '.md-palette': { text: '\ue40a', title: '\ue40a' }
+'.md-pallet': { text: '\uf86a', title: '\uf86a' }
 '.md-pan_tool': { text: '\ue925', title: '\ue925' }
 '.md-pan_tool_alt': { text: '\uebb9', title: '\uebb9' }
 '.md-panorama': { text: '\ue40b', title: '\ue40b' }
@@ -1814,6 +1819,7 @@
 '.md-share': { text: '\ue80d', title: '\ue80d' }
 '.md-share_arrival_time': { text: '\ue524', title: '\ue524' }
 '.md-share_location': { text: '\uf05f', title: '\uf05f' }
+'.md-shelves': { text: '\uf86e', title: '\uf86e' }
 '.md-shield': { text: '\ue9e0', title: '\ue9e0' }
 '.md-shield_moon': { text: '\ueaa9', title: '\ueaa9' }
 '.md-shop': { text: '\ue8c9', title: '\ue8c9' }
@@ -2130,6 +2136,7 @@
 '.md-trending_neutral': { text: '\ue8e4', title: '\ue8e4' }
 '.md-trending_up': { text: '\ue8e5', title: '\ue8e5' }
 '.md-trip_origin': { text: '\ue57b', title: '\ue57b' }
+'.md-trolley': { text: '\uf86b', title: '\uf86b' }
 '.md-troubleshoot': { text: '\ue1d2', title: '\ue1d2' }
 '.md-try': { text: '\uf07c', title: '\uf07c' }
 '.md-tsunami': { text: '\uebd8', title: '\uebd8' }
