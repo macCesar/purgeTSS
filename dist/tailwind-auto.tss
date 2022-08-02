@@ -2794,75 +2794,6 @@
 '.top-full': { top: '100%' }
 '.top-screen': { top: Ti.UI.FILL }
 
-// Type: Array
-// Property: rights
-// Description: Used to provide a link to information about rights held in and over resource.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-'.rights-0': { rights: 0 }
-'.rights-1': { rights: 4 }
-'.rights-2': { rights: 8 }
-'.rights-3': { rights: 12 }
-'.rights-4': { rights: 16 }
-'.rights-5': { rights: 20 }
-'.rights-6': { rights: 24 }
-'.rights-7': { rights: 28 }
-'.rights-8': { rights: 32 }
-'.rights-9': { rights: 36 }
-'.rights-10': { rights: 40 }
-'.rights-11': { rights: 44 }
-'.rights-12': { rights: 48 }
-'.rights-14': { rights: 56 }
-'.rights-16': { rights: 64 }
-'.rights-20': { rights: 80 }
-'.rights-24': { rights: 96 }
-'.rights-28': { rights: 112 }
-'.rights-32': { rights: 128 }
-'.rights-36': { rights: 144 }
-'.rights-40': { rights: 160 }
-'.rights-44': { rights: 176 }
-'.rights-48': { rights: 192 }
-'.rights-52': { rights: 208 }
-'.rights-56': { rights: 224 }
-'.rights-60': { rights: 240 }
-'.rights-64': { rights: 256 }
-'.rights-72': { rights: 288 }
-'.rights-80': { rights: 320 }
-'.rights-96': { rights: 384 }
-'.rights-auto': { rights: Ti.UI.SIZE }
-'.rights-px': { rights: '1px' }
-'.rights-0.5': { rights: 2 }
-'.rights-1.5': { rights: 6 }
-'.rights-2.5': { rights: 10 }
-'.rights-3.5': { rights: 14 }
-'.rights-1/2': { rights: '50%' }
-'.rights-1/3': { rights: '33.333334%' }
-'.rights-2/3': { rights: '66.666667%' }
-'.rights-1/4': { rights: '25%' }
-'.rights-2/4': { rights: '50%' }
-'.rights-3/4': { rights: '75%' }
-'.rights-1/5': { rights: '20%' }
-'.rights-2/5': { rights: '40%' }
-'.rights-3/5': { rights: '60%' }
-'.rights-4/5': { rights: '80%' }
-'.rights-1/6': { rights: '16.666667%' }
-'.rights-2/6': { rights: '33.333334%' }
-'.rights-3/6': { rights: '50%' }
-'.rights-4/6': { rights: '66.666667%' }
-'.rights-5/6': { rights: '83.333334%' }
-'.rights-1/12': { rights: '8.333334%' }
-'.rights-2/12': { rights: '16.666667%' }
-'.rights-3/12': { rights: '25%' }
-'.rights-4/12': { rights: '33.333334%' }
-'.rights-5/12': { rights: '41.666667%' }
-'.rights-6/12': { rights: '50%' }
-'.rights-7/12': { rights: '58.333334%' }
-'.rights-8/12': { rights: '66.666667%' }
-'.rights-9/12': { rights: '75%' }
-'.rights-10/12': { rights: '83.333334%' }
-'.rights-11/12': { rights: '91.666667%' }
-'.rights-full': { rights: '100%' }
-'.rights-screen': { rights: Ti.UI.FILL }
-
 // Type: Number
 // Property: uprightHeight
 // Description: If the blob references an image, this provides the height in pixels after factoring in EXIF orientation.
@@ -3414,144 +3345,6 @@
 '.right-drawer-lock-mode-11/12': { rightDrawerLockMode: '91.666667%' }
 '.right-drawer-lock-mode-full': { rightDrawerLockMode: '100%' }
 '.right-drawer-lock-mode-screen': { rightDrawerLockMode: Ti.UI.FILL }
-
-// Type: Array
-// Property: leftNavButtons
-// Description: An Array of views to show in the left nav bar area.
-// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.left-nav-buttons-0': { leftNavButtons: 0 }
-'.left-nav-buttons-1': { leftNavButtons: 4 }
-'.left-nav-buttons-2': { leftNavButtons: 8 }
-'.left-nav-buttons-3': { leftNavButtons: 12 }
-'.left-nav-buttons-4': { leftNavButtons: 16 }
-'.left-nav-buttons-5': { leftNavButtons: 20 }
-'.left-nav-buttons-6': { leftNavButtons: 24 }
-'.left-nav-buttons-7': { leftNavButtons: 28 }
-'.left-nav-buttons-8': { leftNavButtons: 32 }
-'.left-nav-buttons-9': { leftNavButtons: 36 }
-'.left-nav-buttons-10': { leftNavButtons: 40 }
-'.left-nav-buttons-11': { leftNavButtons: 44 }
-'.left-nav-buttons-12': { leftNavButtons: 48 }
-'.left-nav-buttons-14': { leftNavButtons: 56 }
-'.left-nav-buttons-16': { leftNavButtons: 64 }
-'.left-nav-buttons-20': { leftNavButtons: 80 }
-'.left-nav-buttons-24': { leftNavButtons: 96 }
-'.left-nav-buttons-28': { leftNavButtons: 112 }
-'.left-nav-buttons-32': { leftNavButtons: 128 }
-'.left-nav-buttons-36': { leftNavButtons: 144 }
-'.left-nav-buttons-40': { leftNavButtons: 160 }
-'.left-nav-buttons-44': { leftNavButtons: 176 }
-'.left-nav-buttons-48': { leftNavButtons: 192 }
-'.left-nav-buttons-52': { leftNavButtons: 208 }
-'.left-nav-buttons-56': { leftNavButtons: 224 }
-'.left-nav-buttons-60': { leftNavButtons: 240 }
-'.left-nav-buttons-64': { leftNavButtons: 256 }
-'.left-nav-buttons-72': { leftNavButtons: 288 }
-'.left-nav-buttons-80': { leftNavButtons: 320 }
-'.left-nav-buttons-96': { leftNavButtons: 384 }
-'.left-nav-buttons-auto': { leftNavButtons: Ti.UI.SIZE }
-'.left-nav-buttons-px': { leftNavButtons: '1px' }
-'.left-nav-buttons-0.5': { leftNavButtons: 2 }
-'.left-nav-buttons-1.5': { leftNavButtons: 6 }
-'.left-nav-buttons-2.5': { leftNavButtons: 10 }
-'.left-nav-buttons-3.5': { leftNavButtons: 14 }
-'.left-nav-buttons-1/2': { leftNavButtons: '50%' }
-'.left-nav-buttons-1/3': { leftNavButtons: '33.333334%' }
-'.left-nav-buttons-2/3': { leftNavButtons: '66.666667%' }
-'.left-nav-buttons-1/4': { leftNavButtons: '25%' }
-'.left-nav-buttons-2/4': { leftNavButtons: '50%' }
-'.left-nav-buttons-3/4': { leftNavButtons: '75%' }
-'.left-nav-buttons-1/5': { leftNavButtons: '20%' }
-'.left-nav-buttons-2/5': { leftNavButtons: '40%' }
-'.left-nav-buttons-3/5': { leftNavButtons: '60%' }
-'.left-nav-buttons-4/5': { leftNavButtons: '80%' }
-'.left-nav-buttons-1/6': { leftNavButtons: '16.666667%' }
-'.left-nav-buttons-2/6': { leftNavButtons: '33.333334%' }
-'.left-nav-buttons-3/6': { leftNavButtons: '50%' }
-'.left-nav-buttons-4/6': { leftNavButtons: '66.666667%' }
-'.left-nav-buttons-5/6': { leftNavButtons: '83.333334%' }
-'.left-nav-buttons-1/12': { leftNavButtons: '8.333334%' }
-'.left-nav-buttons-2/12': { leftNavButtons: '16.666667%' }
-'.left-nav-buttons-3/12': { leftNavButtons: '25%' }
-'.left-nav-buttons-4/12': { leftNavButtons: '33.333334%' }
-'.left-nav-buttons-5/12': { leftNavButtons: '41.666667%' }
-'.left-nav-buttons-6/12': { leftNavButtons: '50%' }
-'.left-nav-buttons-7/12': { leftNavButtons: '58.333334%' }
-'.left-nav-buttons-8/12': { leftNavButtons: '66.666667%' }
-'.left-nav-buttons-9/12': { leftNavButtons: '75%' }
-'.left-nav-buttons-10/12': { leftNavButtons: '83.333334%' }
-'.left-nav-buttons-11/12': { leftNavButtons: '91.666667%' }
-'.left-nav-buttons-full': { leftNavButtons: '100%' }
-'.left-nav-buttons-screen': { leftNavButtons: Ti.UI.FILL }
-
-// Type: Array
-// Property: rightNavButtons
-// Description: An Array of views to show in the right nav bar area.
-// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.right-nav-buttons-0': { rightNavButtons: 0 }
-'.right-nav-buttons-1': { rightNavButtons: 4 }
-'.right-nav-buttons-2': { rightNavButtons: 8 }
-'.right-nav-buttons-3': { rightNavButtons: 12 }
-'.right-nav-buttons-4': { rightNavButtons: 16 }
-'.right-nav-buttons-5': { rightNavButtons: 20 }
-'.right-nav-buttons-6': { rightNavButtons: 24 }
-'.right-nav-buttons-7': { rightNavButtons: 28 }
-'.right-nav-buttons-8': { rightNavButtons: 32 }
-'.right-nav-buttons-9': { rightNavButtons: 36 }
-'.right-nav-buttons-10': { rightNavButtons: 40 }
-'.right-nav-buttons-11': { rightNavButtons: 44 }
-'.right-nav-buttons-12': { rightNavButtons: 48 }
-'.right-nav-buttons-14': { rightNavButtons: 56 }
-'.right-nav-buttons-16': { rightNavButtons: 64 }
-'.right-nav-buttons-20': { rightNavButtons: 80 }
-'.right-nav-buttons-24': { rightNavButtons: 96 }
-'.right-nav-buttons-28': { rightNavButtons: 112 }
-'.right-nav-buttons-32': { rightNavButtons: 128 }
-'.right-nav-buttons-36': { rightNavButtons: 144 }
-'.right-nav-buttons-40': { rightNavButtons: 160 }
-'.right-nav-buttons-44': { rightNavButtons: 176 }
-'.right-nav-buttons-48': { rightNavButtons: 192 }
-'.right-nav-buttons-52': { rightNavButtons: 208 }
-'.right-nav-buttons-56': { rightNavButtons: 224 }
-'.right-nav-buttons-60': { rightNavButtons: 240 }
-'.right-nav-buttons-64': { rightNavButtons: 256 }
-'.right-nav-buttons-72': { rightNavButtons: 288 }
-'.right-nav-buttons-80': { rightNavButtons: 320 }
-'.right-nav-buttons-96': { rightNavButtons: 384 }
-'.right-nav-buttons-auto': { rightNavButtons: Ti.UI.SIZE }
-'.right-nav-buttons-px': { rightNavButtons: '1px' }
-'.right-nav-buttons-0.5': { rightNavButtons: 2 }
-'.right-nav-buttons-1.5': { rightNavButtons: 6 }
-'.right-nav-buttons-2.5': { rightNavButtons: 10 }
-'.right-nav-buttons-3.5': { rightNavButtons: 14 }
-'.right-nav-buttons-1/2': { rightNavButtons: '50%' }
-'.right-nav-buttons-1/3': { rightNavButtons: '33.333334%' }
-'.right-nav-buttons-2/3': { rightNavButtons: '66.666667%' }
-'.right-nav-buttons-1/4': { rightNavButtons: '25%' }
-'.right-nav-buttons-2/4': { rightNavButtons: '50%' }
-'.right-nav-buttons-3/4': { rightNavButtons: '75%' }
-'.right-nav-buttons-1/5': { rightNavButtons: '20%' }
-'.right-nav-buttons-2/5': { rightNavButtons: '40%' }
-'.right-nav-buttons-3/5': { rightNavButtons: '60%' }
-'.right-nav-buttons-4/5': { rightNavButtons: '80%' }
-'.right-nav-buttons-1/6': { rightNavButtons: '16.666667%' }
-'.right-nav-buttons-2/6': { rightNavButtons: '33.333334%' }
-'.right-nav-buttons-3/6': { rightNavButtons: '50%' }
-'.right-nav-buttons-4/6': { rightNavButtons: '66.666667%' }
-'.right-nav-buttons-5/6': { rightNavButtons: '83.333334%' }
-'.right-nav-buttons-1/12': { rightNavButtons: '8.333334%' }
-'.right-nav-buttons-2/12': { rightNavButtons: '16.666667%' }
-'.right-nav-buttons-3/12': { rightNavButtons: '25%' }
-'.right-nav-buttons-4/12': { rightNavButtons: '33.333334%' }
-'.right-nav-buttons-5/12': { rightNavButtons: '41.666667%' }
-'.right-nav-buttons-6/12': { rightNavButtons: '50%' }
-'.right-nav-buttons-7/12': { rightNavButtons: '58.333334%' }
-'.right-nav-buttons-8/12': { rightNavButtons: '66.666667%' }
-'.right-nav-buttons-9/12': { rightNavButtons: '75%' }
-'.right-nav-buttons-10/12': { rightNavButtons: '83.333334%' }
-'.right-nav-buttons-11/12': { rightNavButtons: '91.666667%' }
-'.right-nav-buttons-full': { rightNavButtons: '100%' }
-'.right-nav-buttons-screen': { rightNavButtons: Ti.UI.FILL }
 
 // Type: Number
 // Property: horizontalMargin
@@ -4396,24 +4189,6 @@
 '.right-button-padding-11/12': { rightButtonPadding: '91.666667%' }
 '.right-button-padding-full': { rightButtonPadding: '100%' }
 '.right-button-padding-screen': { rightButtonPadding: Ti.UI.FILL }
-
-// Type: Array
-// Property: columns
-// Description: Columns used for this picker, as an array of <a href="Titanium.UI.PickerColumn">Titanium.UI.PickerColumn</a> objects.
-// Component(s): Ti.UI.Picker
-'.columns-0': { columns: 0 }
-'.columns-1': { columns: 1 }
-'.columns-2': { columns: 2 }
-'.columns-3': { columns: 3 }
-'.columns-4': { columns: 4 }
-'.columns-5': { columns: 5 }
-'.columns-6': { columns: 6 }
-'.columns-7': { columns: 7 }
-'.columns-8': { columns: 8 }
-'.columns-9': { columns: 9 }
-'.columns-10': { columns: 10 }
-'.columns-11': { columns: 11 }
-'.columns-12': { columns: 12 }
 
 // Type: Boolean
 // Property: bubbleParent
@@ -5612,15 +5387,6 @@
 '.state-network-socket-closed': { state: Ti.Network.Socket.CLOSED }
 '.state-network-socket-error': { state: Ti.Network.Socket.ERROR }
 
-// Type: Array
-// Property: options
-// Component(s): showParams, Ti.App.iOS.UserNotificationCategory, UserNotificationAttachment, ClipboardItemsType, Ti.UI.OptionDialog
-'.options-user-notification-category-option-none': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_NONE }
-'.options-user-notification-category-option-custom-dismiss-action': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_CUSTOM_DISMISS_ACTION }
-'.options-user-notification-category-option-allow-in-carplay': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_ALLOW_IN_CARPLAY }
-'.options-user-notification-category-option-hidden-previews-show-title': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_TITLE }
-'.options-user-notification-category-option-hidden-previews-show-subtitle': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_SUBTITLE }
-
 // Type: Boolean
 // Property: animated
 // Component(s): showParams, showContactsParams, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, AnimatedOptions, AnimatedWithDurationOptions, ListViewAnimationProperties, hideParams, Ti.UI.ProgressBar, Ti.UI.Switch, TableViewAnimationProperties, openWindowParams, windowToolbarParam, closeWindowParams, DocumentViewerOptions, MenuPopupShowParams, ShowPopoverParams
@@ -5725,28 +5491,6 @@
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Media.AudioPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, AnimatedWithDurationOptions, Ti.UI.Animation, Ti.UI.ImageView, Ti.UI.Notification, Ti.UI.iOS.TransitionAnimation
 '.duration-notification-long': { duration: Ti.UI.NOTIFICATION_DURATION_LONG }
 '.duration-notification-short': { duration: Ti.UI.NOTIFICATION_DURATION_SHORT }
-
-// Type: Array
-// Property: mediaTypes
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, Ti.Media.VideoPlayer
-'.media-types-music-type-all': { mediaTypes: Ti.Media.MUSIC_MEDIA_TYPE_ALL }
-'.media-types-music-type-any-audio': { mediaTypes: Ti.Media.MUSIC_MEDIA_TYPE_ANY_AUDIO }
-'.media-types-music-type-audiobook': { mediaTypes: Ti.Media.MUSIC_MEDIA_TYPE_AUDIOBOOK }
-'.media-types-music-type': { mediaTypes: Ti.Media.MUSIC_MEDIA_TYPE_MUSIC }
-'.media-types-music-type-podcast': { mediaTypes: Ti.Media.MUSIC_MEDIA_TYPE_PODCAST }
-'.media-types-type-photo': { mediaTypes: Ti.Media.MEDIA_TYPE_PHOTO }
-'.media-types-type-livephoto': { mediaTypes: Ti.Media.MEDIA_TYPE_LIVEPHOTO }
-'.media-types-type-video': { mediaTypes: Ti.Media.MEDIA_TYPE_VIDEO }
-'.media-types-video-type-audio': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_AUDIO }
-'.media-types-video-type-closed-caption': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_CLOSED_CAPTION }
-'.media-types-video-type-depth-data': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_DEPTH_DATA }
-'.media-types-video-type-metadata': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_METADATA }
-'.media-types-video-type-metadata-object': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_METADATA_OBJECT }
-'.media-types-video-type-muxed': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_MUXED }
-'.media-types-video-type-subtitle': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_SUBTITLE }
-'.media-types-video-type-text': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_TEXT }
-'.media-types-video-type-timecode': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_TIMECODE }
-'.media-types-video-type': { mediaTypes: Ti.Media.VIDEO_MEDIA_TYPE_VIDEO }
 
 // Type: String
 // Property: role
@@ -6393,37 +6137,6 @@
 '.audio-session-category-record': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_RECORD }
 '.audio-session-category-solo-ambient': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
 
-// Type: Array
-// Property: availableCameras
-// Description: Array indicating which cameras are available, <code>CAMERA_FRONT</code>, <code>CAMERA_REAR</code> or both.
-// Component(s): Ti.Media
-'.available-cameras-camera-front': { availableCameras: Ti.Media.CAMERA_FRONT }
-'.available-cameras-camera-rear': { availableCameras: Ti.Media.CAMERA_REAR }
-
-// Type: Array
-// Property: availableCameraMediaTypes
-// Description: Array of media type constants supported for the camera.
-// Component(s): Ti.Media
-'.available-camera-media-types-type-photo': { availableCameraMediaTypes: Ti.Media.MEDIA_TYPE_PHOTO }
-'.available-camera-media-types-type-livephoto': { availableCameraMediaTypes: Ti.Media.MEDIA_TYPE_LIVEPHOTO }
-'.available-camera-media-types-type-video': { availableCameraMediaTypes: Ti.Media.MEDIA_TYPE_VIDEO }
-
-// Type: Array
-// Property: availablePhotoGalleryMediaTypes
-// Description: Array of media type constants supported for saving to the device's camera roll or saved images album.
-// Component(s): Ti.Media
-'.available-photo-gallery-media-types-type': { availablePhotoGalleryMediaTypes: Ti.Media.MEDIA_TYPE_PHOTO }
-'.available-photo-gallery-media-types-type-livephoto': { availablePhotoGalleryMediaTypes: Ti.Media.MEDIA_TYPE_LIVEPHOTO }
-'.available-photo-gallery-media-types-type-video': { availablePhotoGalleryMediaTypes: Ti.Media.MEDIA_TYPE_VIDEO }
-
-// Type: Array
-// Property: availablePhotoMediaTypes
-// Description: Array of media type constants supported for the photo library.
-// Component(s): Ti.Media
-'.available-photo-media-types-type': { availablePhotoMediaTypes: Ti.Media.MEDIA_TYPE_PHOTO }
-'.available-photo-media-types-type-livephoto': { availablePhotoMediaTypes: Ti.Media.MEDIA_TYPE_LIVEPHOTO }
-'.available-photo-media-types-type-video': { availablePhotoMediaTypes: Ti.Media.MEDIA_TYPE_VIDEO }
-
 // Type: Number
 // Property: cameraFlashMode
 // Description: Determines how the flash is fired when using the device's camera.
@@ -6558,44 +6271,6 @@
 // Component(s): PhotoGalleryOptionsType
 '.allow-transcoding': { allowTranscoding: true }
 '.allow-transcoding-false': { allowTranscoding: false }
-
-// Type: Array
-// Property: inputs
-// Description: An Array of current input ports for the session. See the <code>AUDIO_SESSION_PORT</code> constants.
-// Component(s): RouteDescription
-'.inputs-audio-session-port-linein': { inputs: Ti.Media.AUDIO_SESSION_PORT_LINEIN }
-'.inputs-audio-session-port-builtinmic': { inputs: Ti.Media.AUDIO_SESSION_PORT_BUILTINMIC }
-'.inputs-audio-session-port-headsetmic': { inputs: Ti.Media.AUDIO_SESSION_PORT_HEADSETMIC }
-'.inputs-audio-session-port-lineout': { inputs: Ti.Media.AUDIO_SESSION_PORT_LINEOUT }
-'.inputs-audio-session-port-headphones': { inputs: Ti.Media.AUDIO_SESSION_PORT_HEADPHONES }
-'.inputs-audio-session-port-bluetootha2dp': { inputs: Ti.Media.AUDIO_SESSION_PORT_BLUETOOTHA2DP }
-'.inputs-audio-session-port-builtinreceiver': { inputs: Ti.Media.AUDIO_SESSION_PORT_BUILTINRECEIVER }
-'.inputs-audio-session-port-builtinspeaker': { inputs: Ti.Media.AUDIO_SESSION_PORT_BUILTINSPEAKER }
-'.inputs-audio-session-port-hdmi': { inputs: Ti.Media.AUDIO_SESSION_PORT_HDMI }
-'.inputs-audio-session-port-airplay': { inputs: Ti.Media.AUDIO_SESSION_PORT_AIRPLAY }
-'.inputs-audio-session-port-bluetoothhfp': { inputs: Ti.Media.AUDIO_SESSION_PORT_BLUETOOTHHFP }
-'.inputs-audio-session-port-usbaudio': { inputs: Ti.Media.AUDIO_SESSION_PORT_USBAUDIO }
-'.inputs-audio-session-port-bluetoothle': { inputs: Ti.Media.AUDIO_SESSION_PORT_BLUETOOTHLE }
-'.inputs-audio-session-port-caraudio': { inputs: Ti.Media.AUDIO_SESSION_PORT_CARAUDIO }
-
-// Type: Array
-// Property: outputs
-// Description: An Array of current output ports for the session. See the <code>AUDIO_SESSION_PORT</code> constants.
-// Component(s): RouteDescription
-'.outputs-audio-session-port-linein': { outputs: Ti.Media.AUDIO_SESSION_PORT_LINEIN }
-'.outputs-audio-session-port-builtinmic': { outputs: Ti.Media.AUDIO_SESSION_PORT_BUILTINMIC }
-'.outputs-audio-session-port-headsetmic': { outputs: Ti.Media.AUDIO_SESSION_PORT_HEADSETMIC }
-'.outputs-audio-session-port-lineout': { outputs: Ti.Media.AUDIO_SESSION_PORT_LINEOUT }
-'.outputs-audio-session-port-headphones': { outputs: Ti.Media.AUDIO_SESSION_PORT_HEADPHONES }
-'.outputs-audio-session-port-bluetootha2dp': { outputs: Ti.Media.AUDIO_SESSION_PORT_BLUETOOTHA2DP }
-'.outputs-audio-session-port-builtinreceiver': { outputs: Ti.Media.AUDIO_SESSION_PORT_BUILTINRECEIVER }
-'.outputs-audio-session-port-builtinspeaker': { outputs: Ti.Media.AUDIO_SESSION_PORT_BUILTINSPEAKER }
-'.outputs-audio-session-port-hdmi': { outputs: Ti.Media.AUDIO_SESSION_PORT_HDMI }
-'.outputs-audio-session-port-airplay': { outputs: Ti.Media.AUDIO_SESSION_PORT_AIRPLAY }
-'.outputs-audio-session-port-bluetoothhfp': { outputs: Ti.Media.AUDIO_SESSION_PORT_BLUETOOTHHFP }
-'.outputs-audio-session-port-usbaudio': { outputs: Ti.Media.AUDIO_SESSION_PORT_USBAUDIO }
-'.outputs-audio-session-port-bluetoothle': { outputs: Ti.Media.AUDIO_SESSION_PORT_BLUETOOTHLE }
-'.outputs-audio-session-port-caraudio': { outputs: Ti.Media.AUDIO_SESSION_PORT_CARAUDIO }
 
 // Type: Number
 // Property: playbackState
@@ -8230,17 +7905,6 @@
 '.exit-on-close': { exitOnClose: true }
 '.exit-on-close-false': { exitOnClose: false }
 
-// Type: Array
-// Property: extendEdges
-// Description: An array of supported values specified using the EXTEND_EDGE constants in <a href="Titanium.UI">Titanium.UI</a>.
-// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.extend-edges-edge-top': { extendEdges: Ti.UI.EXTEND_EDGE_TOP }
-'.extend-edges-edge-bottom': { extendEdges: Ti.UI.EXTEND_EDGE_BOTTOM }
-'.extend-edges-edge-left': { extendEdges: Ti.UI.EXTEND_EDGE_LEFT }
-'.extend-edges-edge-right': { extendEdges: Ti.UI.EXTEND_EDGE_RIGHT }
-'.extend-edges-edge-none': { extendEdges: Ti.UI.EXTEND_EDGE_NONE }
-'.extend-edges-edge-all': { extendEdges: Ti.UI.EXTEND_EDGE_ALL }
-
 // Type: Boolean
 // Property: flagSecure
 // Description: Treat the content of the window as secure, preventing it from appearing in screenshots or from being viewed on non-secure displays.
@@ -8280,15 +7944,6 @@
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, openWindowParams, Ti.UI.iOS.SplitWindow
 '.modal': { modal: true }
 '.modal-false': { modal: false }
-
-// Type: Array
-// Property: orientationModes
-// Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
-// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.orientation-modes-landscape-left': { orientationModes: Ti.UI.LANDSCAPE_LEFT }
-'.orientation-modes-landscape-right': { orientationModes: Ti.UI.LANDSCAPE_RIGHT }
-'.orientation-modes-portrait': { orientationModes: Ti.UI.PORTRAIT }
-'.orientation-modes-upside-portrait': { orientationModes: Ti.UI.UPSIDE_PORTRAIT }
 
 // Type: Boolean
 // Property: splitActionBar
@@ -9110,13 +8765,6 @@
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.suppress-return': { suppressReturn: true }
 '.suppress-return-false': { suppressReturn: false }
-
-// Type: Array
-// Property: inputType
-// Description: Input type to accept in the text field. Also influences the Keyboard type to display.
-// Component(s): Ti.UI.TextField
-'.input-type-class-number': { inputType: Ti.UI.INPUT_TYPE_CLASS_NUMBER }
-'.input-type-class-text': { inputType: Ti.UI.INPUT_TYPE_CLASS_TEXT }
 
 // Type: Boolean
 // Property: passwordMask
@@ -21287,11 +20935,6 @@
 // Description: Returns the operating system CPU architecture for which the binary was compiled. Possible values are return <code>'arm'</code>, <code>'arm64'</code>, <code>'ia32'</code>, <code>'x64'</code>, <code>'mips'</code>, and <code>'unknown'</code>. The return value is equivalent to <a href="os.arch">os.arch</a>. Relates strongly to <a href="Titanium.Platform.architecture">Titanium.Platform.architecture</a>.
 // Component(s): process
 
-// Type: Array
-// Property: argv
-// Description: The <code>process.argv</code> property returns an array containing the command-line arguments passed when the Node.js process was launched. The first element will be <code>process.execPath</code>. See <a href="process.argv0">process.argv0</a> if access to the original value of <code>argv[0]</code> is needed. The second element will be the path to the JavaScript file being executed. The remaining elements will be any additional command-line arguments.
-// Component(s): process
-
 // Type: String
 // Property: argv0
 // Description: The <code>process.argv0</code> property stores a read-only copy of the original value of <code>argv[0]</code> passed when Node.js starts.
@@ -21300,11 +20943,6 @@
 // Type: Number
 // Property: debugPort
 // Description: The port used by the debugger when enabled.
-// Component(s): process
-
-// Type: Array
-// Property: execArgv
-// Description: Always <code>[]</code> in Titanium.
 // Component(s): process
 
 // Type: String
@@ -21435,11 +21073,6 @@
 // Property: description
 // Component(s): Ti.Android.NotificationChannel, Ti.App, Ti.Calendar.Event, Ti.UI.ShortcutItem
 
-// Type: Array
-// Property: vibratePattern
-// Description: The vibration pattern for notifications posted to this channel.
-// Component(s): Ti.Android.NotificationChannel
-
 // Type: Number
 // Property: appVersionCode
 // Description: The version number of the application.
@@ -21483,15 +21116,6 @@
 // Description: UTI Type pedigree for an item.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet
 
-// Type: Array
-// Property: contentTypeTree
-// Description: Array of strings related to the content tree of the item.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: keywords
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity
-
 // Type: String
 // Property: subject
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.UI.EmailDialog
@@ -21499,11 +21123,6 @@
 // Type: String
 // Property: contentDescription
 // Description: An account of the content of the resource.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: audiences
-// Description: A class of entity for whom the resource is intended or useful.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet
 
 // Type: Number
@@ -21524,11 +21143,6 @@
 // Type: String
 // Property: creator
 // Description: Application used to create the document content (e.g. &quot;Word&quot;,&quot;Framemaker&quot;, etc.).
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: encodingApplications
-// Description: Software used to convert the original content into a PDF stream.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet
 
 // Type: Number
@@ -21609,21 +21223,6 @@
 // Description: Used to determine if navigation is supported.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet
 
-// Type: Array
-// Property: editors
-// Description: The list of editor/editors that have worked on this item.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: participants
-// Description: The list of people who are visible in an image or movie or written about in a document.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: projects
-// Description: The list of projects that this item is part of.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
 // Type: String
 // Property: downloadedDate
 // Description: The date that the file was last downloaded / received.
@@ -21649,29 +21248,9 @@
 // Description: The date that the item was moved into the current location.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet
 
-// Type: Array
-// Property: contentSources
-// Description: Used to indicate where the item was obtained from.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
 // Type: String
 // Property: comment
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Network.Cookie
-
-// Type: Array
-// Property: contactKeywords
-// Description: A list of contacts that are somehow associated with this document beyond what is captured as Author.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: codecs
-// Description: The codecs used to encode/decode the media.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: organizations
-// Description: Used to indicate company/Organization that created the document.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
 
 // Type: Number
 // Property: streamable
@@ -21691,26 +21270,6 @@
 // Type: Number
 // Property: deliveryType
 // Description: The delivery type of the item.  Set to <code>0</code> for fast start and <code>1</code> for RTSP.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: languages
-// Description: Used to designate the languages of the intellectual content of the resource.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: publishers
-// Description: Used to designate the entity responsible for making the resource available.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: contributors
-// Description: Used to designate the entity responsible for making contributions to the content of the resource.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-
-// Type: Array
-// Property: coverage
-// Description: Used to designate the extent or scope of the content of the resource.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet
 
 // Type: Number
@@ -21744,11 +21303,6 @@
 // Type: String
 // Property: genre
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Media.Item, MediaQueryType
-
-// Type: Array
-// Property: performers
-// Description: Performers in the movie.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
 
 // Type: String
 // Property: originalFormat
@@ -21789,11 +21343,6 @@
 // Property: postalCode
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, ForwardGeocodeResponse, GeocodedAddress
 
-// Type: Array
-// Property: requiredUserInfoKeys
-// Description: An array of String keys from the userInfo property which represent the minimal information about the user activity that should be stored for later restoration.
-// Component(s): Ti.App.iOS.UserActivity
-
 // Type: String
 // Property: webpageURL
 // Description: When no suitable application is installed on a resuming device and the <code>webpageURL</code> property is set, the user activity will instead be continued in a web browser by loading the specified URL.
@@ -21803,11 +21352,6 @@
 // Property: categorySummaryFormat
 // Description: A format string for the summary description used when the system groups the category's notifications.
 // Component(s): Ti.App.iOS.UserNotificationCategory
-
-// Type: Array
-// Property: notifications
-// Description: An array of identifiers used to create notifications.
-// Component(s): UserNotificationCallbackResponse
 
 // Type: String
 // Property: alertAction
@@ -21825,25 +21369,10 @@
 // Property: timezone
 // Component(s): UserNotificationDictionary, NotificationParams
 
-// Type: Array
-// Property: categories
-// Description: Set of categories of user notification actions required by the applicaiton to use.
-// Component(s): GetUserNotificationSettings, UserNotificationSettings
-
-// Type: Array
-// Property: supportedUserActivityTypes
-// Description: Provides an Array of the NSUserActivityTypes keys defined within your Titanium project.
-// Component(s): Ti.App.iOS
-
 // Type: String
 // Property: applicationOpenSettingsURL
 // Description: Returns a URL to open the app's settings.
 // Component(s): Ti.App.iOS
-
-// Type: Array
-// Property: attachments
-// Description: Notification attachments to display.
-// Component(s): NotificationParams
 
 // Type: String
 // Property: summaryArgument
@@ -21876,84 +21405,14 @@
 // Property: email
 // Component(s): Ti.Calendar.Attendee, Ti.Contacts.Person
 
-// Type: Array
-// Property: allAlerts
-// Description: All alerts in selected calendars.
-// Component(s): Ti.Calendar
-
-// Type: Array
-// Property: allCalendars
-// Description: All calendars known to the native calendar app.
-// Component(s): Ti.Calendar
-
-// Type: Array
-// Property: allEditableCalendars
-// Description: All calendars known to the native calendar app that can add, edit, and delete items in the calendar.
-// Component(s): Ti.Calendar
-
-// Type: Array
-// Property: selectableCalendars
-// Description: All calendars selected within the native calendar app, which may be a subset of <code>allCalendars</code>.
-// Component(s): Ti.Calendar
-
-// Type: Array
-// Property: alerts
-// Description: Alarms associated with the calendar item, as an array of <a href="Titanium.Calendar.Alert">Titanium.Calendar.Alert</a> objects.
-// Component(s): Ti.Calendar.Event
-
 // Type: String
 // Property: notes
 // Description: Notes for this event.
 // Component(s): Ti.Calendar.Event
 
-// Type: Array
-// Property: reminders
-// Description: Existing reminders for this event.
-// Component(s): Ti.Calendar.Event
-
-// Type: Array
-// Property: recurrenceRules
-// Description: The recurrence rules for the calendar item.
-// Component(s): Ti.Calendar.Event
-
-// Type: Array
-// Property: attendees
-// Description: The list of event attendees. This list will be empty if the event has no attendees.
-// Component(s): Ti.Calendar.Event
-
 // Type: Number
 // Property: interval
 // Description: The interval between instances of this recurrence. For example, a weekly recurrence rule with an interval of 2 occurs every other week. Must be greater than 0.
-// Component(s): Ti.Calendar.RecurrenceRule
-
-// Type: Array
-// Property: daysOfTheWeek
-// Description: The days of the week that the event occurs, as an array of objects <code>daysOfWeek</code> and <code>Week</code>.
-// Component(s): Ti.Calendar.RecurrenceRule
-
-// Type: Array
-// Property: daysOfTheMonth
-// Description: The days of the month that the event occurs, as an array of number objects. Values can be from 1 to 31 and from -1 to -31. This parameter is only valid for recurrence rules of type <a href="Titanium.Calendar.RECURRENCEFREQUENCY_MONTHLY">RECURRENCEFREQUENCY_MONTHLY</a>.
-// Component(s): Ti.Calendar.RecurrenceRule
-
-// Type: Array
-// Property: monthsOfTheYear
-// Description: The months of the year that the event occurs, as an array of Number objects. Values can be from 1 to 12. This parameter is only valid for recurrence rules of type <a href="Titanium.Calendar.RECURRENCEFREQUENCY_YEARLY">RECURRENCEFREQUENCY_YEARLY</a>.
-// Component(s): Ti.Calendar.RecurrenceRule
-
-// Type: Array
-// Property: weeksOfTheYear
-// Description: The weeks of the year that the event occurs, as an array of number objects. Values can be from 1 to 53 and from -1 to -53. This parameter is only valid for recurrence rules of type <a href="Titanium.Calendar.RECURRENCEFREQUENCY_YEARLY">RECURRENCEFREQUENCY_YEARLY</a>.
-// Component(s): Ti.Calendar.RecurrenceRule
-
-// Type: Array
-// Property: daysOfTheYear
-// Description: The days of the year that the event occurs, as an array of number objects. Values can be from 1 to 366 and from -1 to -366. This parameter is only valid for recurrence rules of type <a href="Titanium.Calendar.RECURRENCEFREQUENCY_YEARLY">RECURRENCEFREQUENCY_YEARLY</a>.
-// Component(s): Ti.Calendar.RecurrenceRule
-
-// Type: Array
-// Property: setPositions
-// Description: An array of ordinal numbers that filters which recurrences to include in the recurrence rule's frequency. For example, a yearly recurrence rule that has a <a href="Titanium.Calendar.RecurrenceRule.daysOfTheWeek">daysOfTheWeek</a> value that specifies Monday through Friday, and a <code>setPositions</code> array containing 2 and -1, occurs only on the second weekday and last weekday of every year.
 // Component(s): Ti.Calendar.RecurrenceRule
 
 // Type: Number
@@ -21985,11 +21444,6 @@
 // Property: sourceLength
 // Description: Number of characters in <code>source</code> to encode.
 // Component(s): EncodeStringDict
-
-// Type: Array
-// Property: fields
-// Description: Field names to show when selecting properties. By default, shows all available.
-// Component(s): showContactsParams
 
 // Type: String
 // Property: birthday
@@ -22044,11 +21498,6 @@
 // Property: rowsAffected
 // Description: The number of rows affected by the last query.
 // Component(s): Ti.Database.DB
-
-// Type: Array
-// Property: results
-// Description: partial <code>ResultSet</code>s of any successful queries before the failure
-// Component(s): BatchQueryError
 
 // Type: Number
 // Property: fieldCount
@@ -22237,11 +21686,6 @@
 // Description: Power consumption for this provider, either low (1), medium (2), or high (3).
 // Component(s): LocationProviderDict
 
-// Type: Array
-// Property: places
-// Description: An array of reverse-geocoded addresses matching the requested location.
-// Component(s): ReverseGeocodeResponse
-
 // Type: String
 // Property: zipcode
 // Description: Postal code. To be replaced by <code>postalCode</code> <strong>Removed in 9.0.0. Use the <code>postalCode</code> property for parity.</strong>
@@ -22374,11 +21818,6 @@
 // Description: Current microphone level peak power in dB or -1 if microphone monitoring is disabled.
 // Component(s): Ti.Media
 
-// Type: Array
-// Property: livePhotos
-// Description: The list of selected live photo objects.
-// Component(s): CameraMediaMultipleItemsType
-
 // Type: Number
 // Property: currentPlaybackTime
 // Component(s): Ti.Media.MusicPlayer, Ti.Media.VideoPlayer
@@ -22465,16 +21904,6 @@
 // Property: timeoutForResource
 // Description: The maximum amount of time (in milliseconds) that a resource request should be allowed to take.
 // Component(s): Ti.Network.HTTPClient
-
-// Type: Array
-// Property: allHTTPCookies
-// Description: A list of all cookies in the cookie storage.
-// Component(s): Ti.Network
-
-// Type: Array
-// Property: remoteNotificationTypes
-// Description: Array of push notification type constants enabled for the application.
-// Component(s): Ti.Network
 
 // Type: String
 // Property: deviceToken
@@ -22629,11 +22058,6 @@
 // Description: The value of this key is an String containing the bundle ID of the app that made the request. If the request originated from another app belonging to your team, UIKit sets the value of this key to the ID of that app. If the team identifier of the originating app is different than the team identifier of the current app, the value of the key is nil.
 // Component(s): OpenURLOptions
 
-// Type: Array
-// Property: UIApplicationOpenURLOptionsAnnotationKey
-// Description: contains the information passed to a document interaction controller object's annotation property.
-// Component(s): OpenURLOptions
-
 // Type: Number
 // Property: bytesProcessed
 // Component(s): ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs
@@ -22707,11 +22131,6 @@
 // Description: The initial spring velocity.
 // Component(s): Ti.UI.Animation
 
-// Type: Array
-// Property: range
-// Description: Attribute range.
-// Component(s): Attribute
-
 // Type: Number
 // Property: firstLineHeadIndent
 // Description: The indentation of the first line of the receiver.
@@ -22766,21 +22185,6 @@
 // Description: Constant for the <code>SENT</code> status result.
 // Component(s): Ti.UI.EmailDialog
 
-// Type: Array
-// Property: bccRecipients
-// Description: Recipients of the email included via the <code>BCC</code> (Blind Carbon Copy) field.
-// Component(s): Ti.UI.EmailDialog
-
-// Type: Array
-// Property: ccRecipients
-// Description: Recipients of the email included via the <code>CC</code> (Carbon Copy) field.
-// Component(s): Ti.UI.EmailDialog
-
-// Type: Array
-// Property: toRecipients
-// Description: Recipients of the email included via the main <code>TO</code> field.
-// Component(s): Ti.UI.EmailDialog
-
 // Type: Number
 // Property: add
 // Description: The value in pixels that should be added to each line other than the last line. This will be applied after the multiplier
@@ -22791,24 +22195,10 @@
 // Description: The value by which each line height other than the last line will be multiplied by
 // Component(s): LabelLineSpacing
 
-// Type: Array
-// Property: editActions
-// Description: Specifies custom action items to be shown when when a list item is edited.
-// Component(s): Ti.UI.ListItem
-
-// Type: Array
-// Property: childTemplates
-// Description: Contains an array of subview templates to be added (in order) as children to this view.
-// Component(s): ItemTemplate, ViewTemplate
-
 // Type: String
 // Property: template
 // Description: Template ID configured with the <a href="Titanium.UI.ListView.templates">Titanium.UI.ListView.templates</a> property or <a href="Titanium.UI.LIST_ITEM_TEMPLATE_DEFAULT">Titanium.UI.LIST_ITEM_TEMPLATE_DEFAULT</a>.
 // Component(s): ListDataItem
-
-// Type: Array
-// Property: sections
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 
 // Type: Number
 // Property: sectionCount
@@ -22954,10 +22344,6 @@
 // Description: Interval in minutes displayed when one of the Time types of pickers is in use.
 // Component(s): Ti.UI.Picker
 
-// Type: Array
-// Property: rows
-// Component(s): Ti.UI.PickerColumn, Ti.UI.TableViewSection
-
 // Type: Point
 // Property: contentOffset
 // Description: X and Y coordinates to which to reposition the top-left point of the scrollable region.
@@ -22968,19 +22354,9 @@
 // Description: Index of the active page.
 // Component(s): Ti.UI.ScrollableView
 
-// Type: Array
-// Property: views
-// Description: Sets the pages within this Scrollable View.
-// Component(s): Ti.UI.ScrollableView
-
 // Type: String
 // Property: prompt
 // Description: Single line of text displayed at the top of the search bar.
-// Component(s): Ti.UI.SearchBar
-
-// Type: Array
-// Property: tokens
-// Description: The token of a search text field
 // Component(s): Ti.UI.SearchBar
 
 // Type: Number
@@ -22998,11 +22374,6 @@
 // Description: Icon URL for this tab when active.
 // Component(s): Ti.UI.Tab
 
-// Type: Array
-// Property: tabs
-// Description: Tabs managed by the tab group.
-// Component(s): Ti.UI.TabGroup
-
 // Type: String
 // Property: activeTabIconTint
 // Description: Color applied to active tabs icons, as a color name or hex triplet, where the tab's activeIcon was not defined. <strong>Deprecated since 9.0.3. Deprecated in favor of <a href="Titanium.UI.TabGroup.activeTintColor">Titanium.UI.TabGroup.activeTintColor</a> or alternatively <a href="Titanium.UI.Tab.activeTintColor">Titanium.UI.Tab.activeTintColor</a>.</strong>
@@ -23017,11 +22388,6 @@
 // Property: header
 // Description: The header title of the row. <strong>Deprecated since 10.0.0. Use the <a href="Titanium.UI.TableViewRow.headerTitle">Titanium.UI.TableViewRow.headerTitle</a> property instead.</strong>
 // Component(s): Ti.UI.TableViewRow
-
-// Type: Array
-// Property: keyboardToolbar
-// Description: Array of toolbar button objects or a <a href="Titanium.UI.Toolbar">toolbar</a> to be used when the keyboard is displayed.
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 
 // Type: Number
 // Property: maxLength
@@ -23097,21 +22463,6 @@
 // Property: offset
 // Component(s): GradientColorRef, shadowDict, Ti.UI.iOS.AnchorAttachmentBehavior
 
-// Type: Array
-// Property: blacklistedURLs
-// Description: An array of url strings to blacklist. <strong>Deprecated since 9.2.0. Use the <a href="Titanium.UI.WebView.blockedURLs">Titanium.UI.WebView.blockedURLs</a> property instead.</strong>
-// Component(s): Ti.UI.WebView
-
-// Type: Array
-// Property: blockedURLs
-// Description: An array of url strings to be blocked.
-// Component(s): Ti.UI.WebView
-
-// Type: Array
-// Property: allowedURLSchemes
-// Description: List of allowed URL schemes for the web view.
-// Component(s): Ti.UI.WebView
-
 // Type: String
 // Property: assetsDirectory
 // Description: Path of file or directory to allow read access by the WebView.
@@ -23121,16 +22472,6 @@
 // Property: zoomLevel
 // Description: Manage the zoom-level of the current page.
 // Component(s): Ti.UI.WebView
-
-// Type: Array
-// Property: backList
-// Description: The portion of the list preceding the current item.
-// Component(s): BackForwardList
-
-// Type: Array
-// Property: forwardList
-// Description: The portion of the list following the current item.
-// Component(s): BackForwardList
 
 // Type: String
 // Property: initialUrl
@@ -23181,11 +22522,6 @@
 // Type: Number
 // Property: NONE
 // Component(s): Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.ListViewScrollPosition, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.TableViewScrollPosition
-
-// Type: Array
-// Property: behaviors
-// Description: Behaviors associated with this animator.
-// Component(s): Ti.UI.iOS.Animator
 
 // Type: Point
 // Property: point1
@@ -23241,10 +22577,6 @@
 // Type: Number
 // Property: GROUPED
 // Component(s): Ti.UI.iOS.ListViewStyle, Ti.UI.iOS.TableViewStyle
-
-// Type: Array
-// Property: actions
-// Component(s): Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext
 
 // Type: Number
 // Property: BAR
@@ -23464,11 +22796,6 @@
 // Property: weight
 // Description: The symbol weight to use for the SF Symbol. Can be one of <code>ultralight</code>, <code>light</code>, <code>thin</code>, <code>normal</code>, <code>semibold</code>, <code>bold</code>, <code>heavy</code> or <code>black</code>.
 // Component(s): SystemImageParameters
-
-// Type: Array
-// Property: passthroughViews
-// Description: Passthrough views to use when the popover is shown.
-// Component(s): Ti.UI.iPad.Popover
 
 // Type: Number
 // Property: remainingComplicationUserInfoTransfers
