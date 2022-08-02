@@ -1,4 +1,4 @@
-// Based on Tailwind CSS v3.0.23: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Based on Tailwind CSS v3.1.7: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // Tailwind-like styles
@@ -204,292 +204,6 @@
 '.paragraph-spacing-before-1.5': { paragraphSpacingBefore: 6 }
 '.paragraph-spacing-before-2.5': { paragraphSpacingBefore: 10 }
 '.paragraph-spacing-before-3.5': { paragraphSpacingBefore: 14 }
-
-// Type: Number
-// Property: borderWidth
-// Description: Border width of the view.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
-'.border-w-0': { borderWidth: 0 }
-'.border-w-1': { borderWidth: 4 }
-'.border-w-2': { borderWidth: 8 }
-'.border-w-3': { borderWidth: 12 }
-'.border-w-4': { borderWidth: 16 }
-'.border-w-5': { borderWidth: 20 }
-'.border-w-6': { borderWidth: 24 }
-'.border-w-7': { borderWidth: 28 }
-'.border-w-8': { borderWidth: 32 }
-'.border-w-9': { borderWidth: 36 }
-'.border-w-10': { borderWidth: 40 }
-'.border-w-11': { borderWidth: 44 }
-'.border-w-12': { borderWidth: 48 }
-'.border-w-14': { borderWidth: 56 }
-'.border-w-16': { borderWidth: 64 }
-'.border-w-20': { borderWidth: 80 }
-'.border-w-24': { borderWidth: 96 }
-'.border-w-28': { borderWidth: 112 }
-'.border-w-32': { borderWidth: 128 }
-'.border-w-36': { borderWidth: 144 }
-'.border-w-40': { borderWidth: 160 }
-'.border-w-44': { borderWidth: 176 }
-'.border-w-48': { borderWidth: 192 }
-'.border-w-52': { borderWidth: 208 }
-'.border-w-56': { borderWidth: 224 }
-'.border-w-60': { borderWidth: 240 }
-'.border-w-64': { borderWidth: 256 }
-'.border-w-72': { borderWidth: 288 }
-'.border-w-80': { borderWidth: 320 }
-'.border-w-96': { borderWidth: 384 }
-'.border-w-px': { borderWidth: '1px' }
-'.border-w-0.5': { borderWidth: 2 }
-'.border-w-1.5': { borderWidth: 6 }
-'.border-w-2.5': { borderWidth: 10 }
-'.border-w-3.5': { borderWidth: 14 }
-
-// Type: Number
-// Property: width
-// Component(s): Ti.UI.View, Ti.Blob, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, BarItemType, Ti.UI.iPad.Popover
-'.w-0': { width: 0 }
-'.w-1': { width: 4 }
-'.w-2': { width: 8 }
-'.w-3': { width: 12 }
-'.w-4': { width: 16 }
-'.w-5': { width: 20 }
-'.w-6': { width: 24 }
-'.w-7': { width: 28 }
-'.w-8': { width: 32 }
-'.w-9': { width: 36 }
-'.w-10': { width: 40 }
-'.w-11': { width: 44 }
-'.w-12': { width: 48 }
-'.w-14': { width: 56 }
-'.w-16': { width: 64 }
-'.w-20': { width: 80 }
-'.w-24': { width: 96 }
-'.w-28': { width: 112 }
-'.w-32': { width: 128 }
-'.w-36': { width: 144 }
-'.w-40': { width: 160 }
-'.w-44': { width: 176 }
-'.w-48': { width: 192 }
-'.w-52': { width: 208 }
-'.w-56': { width: 224 }
-'.w-60': { width: 240 }
-'.w-64': { width: 256 }
-'.w-72': { width: 288 }
-'.w-80': { width: 320 }
-'.w-96': { width: 384 }
-'.w-auto': { width: Ti.UI.SIZE }
-'.w-px': { width: '1px' }
-'.w-0.5': { width: 2 }
-'.w-1.5': { width: 6 }
-'.w-2.5': { width: 10 }
-'.w-3.5': { width: 14 }
-'.w-1/2': { width: '50%' }
-'.w-1/3': { width: '33.333334%' }
-'.w-2/3': { width: '66.666667%' }
-'.w-1/4': { width: '25%' }
-'.w-2/4': { width: '50%' }
-'.w-3/4': { width: '75%' }
-'.w-1/5': { width: '20%' }
-'.w-2/5': { width: '40%' }
-'.w-3/5': { width: '60%' }
-'.w-4/5': { width: '80%' }
-'.w-1/6': { width: '16.666667%' }
-'.w-2/6': { width: '33.333334%' }
-'.w-3/6': { width: '50%' }
-'.w-4/6': { width: '66.666667%' }
-'.w-5/6': { width: '83.333334%' }
-'.w-1/12': { width: '8.333334%' }
-'.w-2/12': { width: '16.666667%' }
-'.w-3/12': { width: '25%' }
-'.w-4/12': { width: '33.333334%' }
-'.w-5/12': { width: '41.666667%' }
-'.w-6/12': { width: '50%' }
-'.w-7/12': { width: '58.333334%' }
-'.w-8/12': { width: '66.666667%' }
-'.w-9/12': { width: '75%' }
-'.w-10/12': { width: '83.333334%' }
-'.w-11/12': { width: '91.666667%' }
-'.w-full': { width: '100%' }
-'.w-screen': { width: Ti.UI.FILL }
-
-// Type: Number
-// Property: pageWidth
-// Description: Width in points (72 points per inch) of the document page.
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet
-'.page-w-0': { pageWidth: 0 }
-'.page-w-1': { pageWidth: 4 }
-'.page-w-2': { pageWidth: 8 }
-'.page-w-3': { pageWidth: 12 }
-'.page-w-4': { pageWidth: 16 }
-'.page-w-5': { pageWidth: 20 }
-'.page-w-6': { pageWidth: 24 }
-'.page-w-7': { pageWidth: 28 }
-'.page-w-8': { pageWidth: 32 }
-'.page-w-9': { pageWidth: 36 }
-'.page-w-10': { pageWidth: 40 }
-'.page-w-11': { pageWidth: 44 }
-'.page-w-12': { pageWidth: 48 }
-'.page-w-14': { pageWidth: 56 }
-'.page-w-16': { pageWidth: 64 }
-'.page-w-20': { pageWidth: 80 }
-'.page-w-24': { pageWidth: 96 }
-'.page-w-28': { pageWidth: 112 }
-'.page-w-32': { pageWidth: 128 }
-'.page-w-36': { pageWidth: 144 }
-'.page-w-40': { pageWidth: 160 }
-'.page-w-44': { pageWidth: 176 }
-'.page-w-48': { pageWidth: 192 }
-'.page-w-52': { pageWidth: 208 }
-'.page-w-56': { pageWidth: 224 }
-'.page-w-60': { pageWidth: 240 }
-'.page-w-64': { pageWidth: 256 }
-'.page-w-72': { pageWidth: 288 }
-'.page-w-80': { pageWidth: 320 }
-'.page-w-96': { pageWidth: 384 }
-'.page-w-px': { pageWidth: '1px' }
-'.page-w-0.5': { pageWidth: 2 }
-'.page-w-1.5': { pageWidth: 6 }
-'.page-w-2.5': { pageWidth: 10 }
-'.page-w-3.5': { pageWidth: 14 }
-
-// Type: Number
-// Property: platformWidth
-// Description: Absolute width of the display in relation to UI orientation. Measured in platform-specific units; pixels on Android and density-independent pixels (dip) on iOS.
-// Component(s): Ti.Platform.DisplayCaps
-'.platform-w-0': { platformWidth: 0 }
-'.platform-w-1': { platformWidth: 4 }
-'.platform-w-2': { platformWidth: 8 }
-'.platform-w-3': { platformWidth: 12 }
-'.platform-w-4': { platformWidth: 16 }
-'.platform-w-5': { platformWidth: 20 }
-'.platform-w-6': { platformWidth: 24 }
-'.platform-w-7': { platformWidth: 28 }
-'.platform-w-8': { platformWidth: 32 }
-'.platform-w-9': { platformWidth: 36 }
-'.platform-w-10': { platformWidth: 40 }
-'.platform-w-11': { platformWidth: 44 }
-'.platform-w-12': { platformWidth: 48 }
-'.platform-w-14': { platformWidth: 56 }
-'.platform-w-16': { platformWidth: 64 }
-'.platform-w-20': { platformWidth: 80 }
-'.platform-w-24': { platformWidth: 96 }
-'.platform-w-28': { platformWidth: 112 }
-'.platform-w-32': { platformWidth: 128 }
-'.platform-w-36': { platformWidth: 144 }
-'.platform-w-40': { platformWidth: 160 }
-'.platform-w-44': { platformWidth: 176 }
-'.platform-w-48': { platformWidth: 192 }
-'.platform-w-52': { platformWidth: 208 }
-'.platform-w-56': { platformWidth: 224 }
-'.platform-w-60': { platformWidth: 240 }
-'.platform-w-64': { platformWidth: 256 }
-'.platform-w-72': { platformWidth: 288 }
-'.platform-w-80': { platformWidth: 320 }
-'.platform-w-96': { platformWidth: 384 }
-'.platform-w-auto': { platformWidth: Ti.UI.SIZE }
-'.platform-w-px': { platformWidth: '1px' }
-'.platform-w-0.5': { platformWidth: 2 }
-'.platform-w-1.5': { platformWidth: 6 }
-'.platform-w-2.5': { platformWidth: 10 }
-'.platform-w-3.5': { platformWidth: 14 }
-'.platform-w-1/2': { platformWidth: '50%' }
-'.platform-w-1/3': { platformWidth: '33.333334%' }
-'.platform-w-2/3': { platformWidth: '66.666667%' }
-'.platform-w-1/4': { platformWidth: '25%' }
-'.platform-w-2/4': { platformWidth: '50%' }
-'.platform-w-3/4': { platformWidth: '75%' }
-'.platform-w-1/5': { platformWidth: '20%' }
-'.platform-w-2/5': { platformWidth: '40%' }
-'.platform-w-3/5': { platformWidth: '60%' }
-'.platform-w-4/5': { platformWidth: '80%' }
-'.platform-w-1/6': { platformWidth: '16.666667%' }
-'.platform-w-2/6': { platformWidth: '33.333334%' }
-'.platform-w-3/6': { platformWidth: '50%' }
-'.platform-w-4/6': { platformWidth: '66.666667%' }
-'.platform-w-5/6': { platformWidth: '83.333334%' }
-'.platform-w-1/12': { platformWidth: '8.333334%' }
-'.platform-w-2/12': { platformWidth: '16.666667%' }
-'.platform-w-3/12': { platformWidth: '25%' }
-'.platform-w-4/12': { platformWidth: '33.333334%' }
-'.platform-w-5/12': { platformWidth: '41.666667%' }
-'.platform-w-6/12': { platformWidth: '50%' }
-'.platform-w-7/12': { platformWidth: '58.333334%' }
-'.platform-w-8/12': { platformWidth: '66.666667%' }
-'.platform-w-9/12': { platformWidth: '75%' }
-'.platform-w-10/12': { platformWidth: '83.333334%' }
-'.platform-w-11/12': { platformWidth: '91.666667%' }
-'.platform-w-full': { platformWidth: '100%' }
-'.platform-w-screen': { platformWidth: Ti.UI.FILL }
-
-// Type: Number
-// Property: contentWidth
-// Description: Width of the scrollable region.
-// Component(s): Ti.UI.ScrollView
-'.content-w-0': { contentWidth: 0 }
-'.content-w-1': { contentWidth: 4 }
-'.content-w-2': { contentWidth: 8 }
-'.content-w-3': { contentWidth: 12 }
-'.content-w-4': { contentWidth: 16 }
-'.content-w-5': { contentWidth: 20 }
-'.content-w-6': { contentWidth: 24 }
-'.content-w-7': { contentWidth: 28 }
-'.content-w-8': { contentWidth: 32 }
-'.content-w-9': { contentWidth: 36 }
-'.content-w-10': { contentWidth: 40 }
-'.content-w-11': { contentWidth: 44 }
-'.content-w-12': { contentWidth: 48 }
-'.content-w-14': { contentWidth: 56 }
-'.content-w-16': { contentWidth: 64 }
-'.content-w-20': { contentWidth: 80 }
-'.content-w-24': { contentWidth: 96 }
-'.content-w-28': { contentWidth: 112 }
-'.content-w-32': { contentWidth: 128 }
-'.content-w-36': { contentWidth: 144 }
-'.content-w-40': { contentWidth: 160 }
-'.content-w-44': { contentWidth: 176 }
-'.content-w-48': { contentWidth: 192 }
-'.content-w-52': { contentWidth: 208 }
-'.content-w-56': { contentWidth: 224 }
-'.content-w-60': { contentWidth: 240 }
-'.content-w-64': { contentWidth: 256 }
-'.content-w-72': { contentWidth: 288 }
-'.content-w-80': { contentWidth: 320 }
-'.content-w-96': { contentWidth: 384 }
-'.content-w-auto': { contentWidth: Ti.UI.SIZE }
-'.content-w-px': { contentWidth: '1px' }
-'.content-w-0.5': { contentWidth: 2 }
-'.content-w-1.5': { contentWidth: 6 }
-'.content-w-2.5': { contentWidth: 10 }
-'.content-w-3.5': { contentWidth: 14 }
-'.content-w-1/2': { contentWidth: '50%' }
-'.content-w-1/3': { contentWidth: '33.333334%' }
-'.content-w-2/3': { contentWidth: '66.666667%' }
-'.content-w-1/4': { contentWidth: '25%' }
-'.content-w-2/4': { contentWidth: '50%' }
-'.content-w-3/4': { contentWidth: '75%' }
-'.content-w-1/5': { contentWidth: '20%' }
-'.content-w-2/5': { contentWidth: '40%' }
-'.content-w-3/5': { contentWidth: '60%' }
-'.content-w-4/5': { contentWidth: '80%' }
-'.content-w-1/6': { contentWidth: '16.666667%' }
-'.content-w-2/6': { contentWidth: '33.333334%' }
-'.content-w-3/6': { contentWidth: '50%' }
-'.content-w-4/6': { contentWidth: '66.666667%' }
-'.content-w-5/6': { contentWidth: '83.333334%' }
-'.content-w-1/12': { contentWidth: '8.333334%' }
-'.content-w-2/12': { contentWidth: '16.666667%' }
-'.content-w-3/12': { contentWidth: '25%' }
-'.content-w-4/12': { contentWidth: '33.333334%' }
-'.content-w-5/12': { contentWidth: '41.666667%' }
-'.content-w-6/12': { contentWidth: '50%' }
-'.content-w-7/12': { contentWidth: '58.333334%' }
-'.content-w-8/12': { contentWidth: '66.666667%' }
-'.content-w-9/12': { contentWidth: '75%' }
-'.content-w-10/12': { contentWidth: '83.333334%' }
-'.content-w-11/12': { contentWidth: '91.666667%' }
-'.content-w-full': { contentWidth: '100%' }
-'.content-w-screen': { contentWidth: Ti.UI.FILL }
 
 // Type: Number
 // Property: height
@@ -1385,6 +1099,292 @@
 '.keyboard-toolbar-h-11/12': { keyboardToolbarHeight: '91.666667%' }
 '.keyboard-toolbar-h-full': { keyboardToolbarHeight: '100%' }
 '.keyboard-toolbar-h-screen': { keyboardToolbarHeight: Ti.UI.FILL }
+
+// Type: Number
+// Property: borderWidth
+// Description: Border width of the view.
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+'.border-w-0': { borderWidth: 0 }
+'.border-w-1': { borderWidth: 4 }
+'.border-w-2': { borderWidth: 8 }
+'.border-w-3': { borderWidth: 12 }
+'.border-w-4': { borderWidth: 16 }
+'.border-w-5': { borderWidth: 20 }
+'.border-w-6': { borderWidth: 24 }
+'.border-w-7': { borderWidth: 28 }
+'.border-w-8': { borderWidth: 32 }
+'.border-w-9': { borderWidth: 36 }
+'.border-w-10': { borderWidth: 40 }
+'.border-w-11': { borderWidth: 44 }
+'.border-w-12': { borderWidth: 48 }
+'.border-w-14': { borderWidth: 56 }
+'.border-w-16': { borderWidth: 64 }
+'.border-w-20': { borderWidth: 80 }
+'.border-w-24': { borderWidth: 96 }
+'.border-w-28': { borderWidth: 112 }
+'.border-w-32': { borderWidth: 128 }
+'.border-w-36': { borderWidth: 144 }
+'.border-w-40': { borderWidth: 160 }
+'.border-w-44': { borderWidth: 176 }
+'.border-w-48': { borderWidth: 192 }
+'.border-w-52': { borderWidth: 208 }
+'.border-w-56': { borderWidth: 224 }
+'.border-w-60': { borderWidth: 240 }
+'.border-w-64': { borderWidth: 256 }
+'.border-w-72': { borderWidth: 288 }
+'.border-w-80': { borderWidth: 320 }
+'.border-w-96': { borderWidth: 384 }
+'.border-w-px': { borderWidth: '1px' }
+'.border-w-0.5': { borderWidth: 2 }
+'.border-w-1.5': { borderWidth: 6 }
+'.border-w-2.5': { borderWidth: 10 }
+'.border-w-3.5': { borderWidth: 14 }
+
+// Type: Number
+// Property: width
+// Component(s): Ti.UI.View, Ti.Blob, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, BarItemType, Ti.UI.iPad.Popover
+'.w-0': { width: 0 }
+'.w-1': { width: 4 }
+'.w-2': { width: 8 }
+'.w-3': { width: 12 }
+'.w-4': { width: 16 }
+'.w-5': { width: 20 }
+'.w-6': { width: 24 }
+'.w-7': { width: 28 }
+'.w-8': { width: 32 }
+'.w-9': { width: 36 }
+'.w-10': { width: 40 }
+'.w-11': { width: 44 }
+'.w-12': { width: 48 }
+'.w-14': { width: 56 }
+'.w-16': { width: 64 }
+'.w-20': { width: 80 }
+'.w-24': { width: 96 }
+'.w-28': { width: 112 }
+'.w-32': { width: 128 }
+'.w-36': { width: 144 }
+'.w-40': { width: 160 }
+'.w-44': { width: 176 }
+'.w-48': { width: 192 }
+'.w-52': { width: 208 }
+'.w-56': { width: 224 }
+'.w-60': { width: 240 }
+'.w-64': { width: 256 }
+'.w-72': { width: 288 }
+'.w-80': { width: 320 }
+'.w-96': { width: 384 }
+'.w-auto': { width: Ti.UI.SIZE }
+'.w-px': { width: '1px' }
+'.w-0.5': { width: 2 }
+'.w-1.5': { width: 6 }
+'.w-2.5': { width: 10 }
+'.w-3.5': { width: 14 }
+'.w-1/2': { width: '50%' }
+'.w-1/3': { width: '33.333334%' }
+'.w-2/3': { width: '66.666667%' }
+'.w-1/4': { width: '25%' }
+'.w-2/4': { width: '50%' }
+'.w-3/4': { width: '75%' }
+'.w-1/5': { width: '20%' }
+'.w-2/5': { width: '40%' }
+'.w-3/5': { width: '60%' }
+'.w-4/5': { width: '80%' }
+'.w-1/6': { width: '16.666667%' }
+'.w-2/6': { width: '33.333334%' }
+'.w-3/6': { width: '50%' }
+'.w-4/6': { width: '66.666667%' }
+'.w-5/6': { width: '83.333334%' }
+'.w-1/12': { width: '8.333334%' }
+'.w-2/12': { width: '16.666667%' }
+'.w-3/12': { width: '25%' }
+'.w-4/12': { width: '33.333334%' }
+'.w-5/12': { width: '41.666667%' }
+'.w-6/12': { width: '50%' }
+'.w-7/12': { width: '58.333334%' }
+'.w-8/12': { width: '66.666667%' }
+'.w-9/12': { width: '75%' }
+'.w-10/12': { width: '83.333334%' }
+'.w-11/12': { width: '91.666667%' }
+'.w-full': { width: '100%' }
+'.w-screen': { width: Ti.UI.FILL }
+
+// Type: Number
+// Property: pageWidth
+// Description: Width in points (72 points per inch) of the document page.
+// Component(s): Ti.App.iOS.SearchableItemAttributeSet
+'.page-w-0': { pageWidth: 0 }
+'.page-w-1': { pageWidth: 4 }
+'.page-w-2': { pageWidth: 8 }
+'.page-w-3': { pageWidth: 12 }
+'.page-w-4': { pageWidth: 16 }
+'.page-w-5': { pageWidth: 20 }
+'.page-w-6': { pageWidth: 24 }
+'.page-w-7': { pageWidth: 28 }
+'.page-w-8': { pageWidth: 32 }
+'.page-w-9': { pageWidth: 36 }
+'.page-w-10': { pageWidth: 40 }
+'.page-w-11': { pageWidth: 44 }
+'.page-w-12': { pageWidth: 48 }
+'.page-w-14': { pageWidth: 56 }
+'.page-w-16': { pageWidth: 64 }
+'.page-w-20': { pageWidth: 80 }
+'.page-w-24': { pageWidth: 96 }
+'.page-w-28': { pageWidth: 112 }
+'.page-w-32': { pageWidth: 128 }
+'.page-w-36': { pageWidth: 144 }
+'.page-w-40': { pageWidth: 160 }
+'.page-w-44': { pageWidth: 176 }
+'.page-w-48': { pageWidth: 192 }
+'.page-w-52': { pageWidth: 208 }
+'.page-w-56': { pageWidth: 224 }
+'.page-w-60': { pageWidth: 240 }
+'.page-w-64': { pageWidth: 256 }
+'.page-w-72': { pageWidth: 288 }
+'.page-w-80': { pageWidth: 320 }
+'.page-w-96': { pageWidth: 384 }
+'.page-w-px': { pageWidth: '1px' }
+'.page-w-0.5': { pageWidth: 2 }
+'.page-w-1.5': { pageWidth: 6 }
+'.page-w-2.5': { pageWidth: 10 }
+'.page-w-3.5': { pageWidth: 14 }
+
+// Type: Number
+// Property: platformWidth
+// Description: Absolute width of the display in relation to UI orientation. Measured in platform-specific units; pixels on Android and density-independent pixels (dip) on iOS.
+// Component(s): Ti.Platform.DisplayCaps
+'.platform-w-0': { platformWidth: 0 }
+'.platform-w-1': { platformWidth: 4 }
+'.platform-w-2': { platformWidth: 8 }
+'.platform-w-3': { platformWidth: 12 }
+'.platform-w-4': { platformWidth: 16 }
+'.platform-w-5': { platformWidth: 20 }
+'.platform-w-6': { platformWidth: 24 }
+'.platform-w-7': { platformWidth: 28 }
+'.platform-w-8': { platformWidth: 32 }
+'.platform-w-9': { platformWidth: 36 }
+'.platform-w-10': { platformWidth: 40 }
+'.platform-w-11': { platformWidth: 44 }
+'.platform-w-12': { platformWidth: 48 }
+'.platform-w-14': { platformWidth: 56 }
+'.platform-w-16': { platformWidth: 64 }
+'.platform-w-20': { platformWidth: 80 }
+'.platform-w-24': { platformWidth: 96 }
+'.platform-w-28': { platformWidth: 112 }
+'.platform-w-32': { platformWidth: 128 }
+'.platform-w-36': { platformWidth: 144 }
+'.platform-w-40': { platformWidth: 160 }
+'.platform-w-44': { platformWidth: 176 }
+'.platform-w-48': { platformWidth: 192 }
+'.platform-w-52': { platformWidth: 208 }
+'.platform-w-56': { platformWidth: 224 }
+'.platform-w-60': { platformWidth: 240 }
+'.platform-w-64': { platformWidth: 256 }
+'.platform-w-72': { platformWidth: 288 }
+'.platform-w-80': { platformWidth: 320 }
+'.platform-w-96': { platformWidth: 384 }
+'.platform-w-auto': { platformWidth: Ti.UI.SIZE }
+'.platform-w-px': { platformWidth: '1px' }
+'.platform-w-0.5': { platformWidth: 2 }
+'.platform-w-1.5': { platformWidth: 6 }
+'.platform-w-2.5': { platformWidth: 10 }
+'.platform-w-3.5': { platformWidth: 14 }
+'.platform-w-1/2': { platformWidth: '50%' }
+'.platform-w-1/3': { platformWidth: '33.333334%' }
+'.platform-w-2/3': { platformWidth: '66.666667%' }
+'.platform-w-1/4': { platformWidth: '25%' }
+'.platform-w-2/4': { platformWidth: '50%' }
+'.platform-w-3/4': { platformWidth: '75%' }
+'.platform-w-1/5': { platformWidth: '20%' }
+'.platform-w-2/5': { platformWidth: '40%' }
+'.platform-w-3/5': { platformWidth: '60%' }
+'.platform-w-4/5': { platformWidth: '80%' }
+'.platform-w-1/6': { platformWidth: '16.666667%' }
+'.platform-w-2/6': { platformWidth: '33.333334%' }
+'.platform-w-3/6': { platformWidth: '50%' }
+'.platform-w-4/6': { platformWidth: '66.666667%' }
+'.platform-w-5/6': { platformWidth: '83.333334%' }
+'.platform-w-1/12': { platformWidth: '8.333334%' }
+'.platform-w-2/12': { platformWidth: '16.666667%' }
+'.platform-w-3/12': { platformWidth: '25%' }
+'.platform-w-4/12': { platformWidth: '33.333334%' }
+'.platform-w-5/12': { platformWidth: '41.666667%' }
+'.platform-w-6/12': { platformWidth: '50%' }
+'.platform-w-7/12': { platformWidth: '58.333334%' }
+'.platform-w-8/12': { platformWidth: '66.666667%' }
+'.platform-w-9/12': { platformWidth: '75%' }
+'.platform-w-10/12': { platformWidth: '83.333334%' }
+'.platform-w-11/12': { platformWidth: '91.666667%' }
+'.platform-w-full': { platformWidth: '100%' }
+'.platform-w-screen': { platformWidth: Ti.UI.FILL }
+
+// Type: Number
+// Property: contentWidth
+// Description: Width of the scrollable region.
+// Component(s): Ti.UI.ScrollView
+'.content-w-0': { contentWidth: 0 }
+'.content-w-1': { contentWidth: 4 }
+'.content-w-2': { contentWidth: 8 }
+'.content-w-3': { contentWidth: 12 }
+'.content-w-4': { contentWidth: 16 }
+'.content-w-5': { contentWidth: 20 }
+'.content-w-6': { contentWidth: 24 }
+'.content-w-7': { contentWidth: 28 }
+'.content-w-8': { contentWidth: 32 }
+'.content-w-9': { contentWidth: 36 }
+'.content-w-10': { contentWidth: 40 }
+'.content-w-11': { contentWidth: 44 }
+'.content-w-12': { contentWidth: 48 }
+'.content-w-14': { contentWidth: 56 }
+'.content-w-16': { contentWidth: 64 }
+'.content-w-20': { contentWidth: 80 }
+'.content-w-24': { contentWidth: 96 }
+'.content-w-28': { contentWidth: 112 }
+'.content-w-32': { contentWidth: 128 }
+'.content-w-36': { contentWidth: 144 }
+'.content-w-40': { contentWidth: 160 }
+'.content-w-44': { contentWidth: 176 }
+'.content-w-48': { contentWidth: 192 }
+'.content-w-52': { contentWidth: 208 }
+'.content-w-56': { contentWidth: 224 }
+'.content-w-60': { contentWidth: 240 }
+'.content-w-64': { contentWidth: 256 }
+'.content-w-72': { contentWidth: 288 }
+'.content-w-80': { contentWidth: 320 }
+'.content-w-96': { contentWidth: 384 }
+'.content-w-auto': { contentWidth: Ti.UI.SIZE }
+'.content-w-px': { contentWidth: '1px' }
+'.content-w-0.5': { contentWidth: 2 }
+'.content-w-1.5': { contentWidth: 6 }
+'.content-w-2.5': { contentWidth: 10 }
+'.content-w-3.5': { contentWidth: 14 }
+'.content-w-1/2': { contentWidth: '50%' }
+'.content-w-1/3': { contentWidth: '33.333334%' }
+'.content-w-2/3': { contentWidth: '66.666667%' }
+'.content-w-1/4': { contentWidth: '25%' }
+'.content-w-2/4': { contentWidth: '50%' }
+'.content-w-3/4': { contentWidth: '75%' }
+'.content-w-1/5': { contentWidth: '20%' }
+'.content-w-2/5': { contentWidth: '40%' }
+'.content-w-3/5': { contentWidth: '60%' }
+'.content-w-4/5': { contentWidth: '80%' }
+'.content-w-1/6': { contentWidth: '16.666667%' }
+'.content-w-2/6': { contentWidth: '33.333334%' }
+'.content-w-3/6': { contentWidth: '50%' }
+'.content-w-4/6': { contentWidth: '66.666667%' }
+'.content-w-5/6': { contentWidth: '83.333334%' }
+'.content-w-1/12': { contentWidth: '8.333334%' }
+'.content-w-2/12': { contentWidth: '16.666667%' }
+'.content-w-3/12': { contentWidth: '25%' }
+'.content-w-4/12': { contentWidth: '33.333334%' }
+'.content-w-5/12': { contentWidth: '41.666667%' }
+'.content-w-6/12': { contentWidth: '50%' }
+'.content-w-7/12': { contentWidth: '58.333334%' }
+'.content-w-8/12': { contentWidth: '66.666667%' }
+'.content-w-9/12': { contentWidth: '75%' }
+'.content-w-10/12': { contentWidth: '83.333334%' }
+'.content-w-11/12': { contentWidth: '91.666667%' }
+'.content-w-full': { contentWidth: '100%' }
+'.content-w-screen': { contentWidth: Ti.UI.FILL }
 
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left ( Margin )

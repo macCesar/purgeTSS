@@ -1,0 +1,466 @@
+```scss
+// Component(s): Ti.UI.Android.CardView, Ti.UI.View
+// Property(ies): borderRadius ( with Extra Styles )
+'.rounded-1': { borderRadius: 2 }
+'.rounded-2': { borderRadius: 4 }
+'.rounded-3': { borderRadius: 6 }
+'.rounded-4': { borderRadius: 8 }
+'.rounded-5': { borderRadius: 10 }
+'.rounded-6': { borderRadius: 12 }
+'.rounded-7': { borderRadius: 14 }
+'.rounded-8': { borderRadius: 16 }
+'.rounded-9': { borderRadius: 18 }
+'.rounded-10': { borderRadius: 20 }
+'.rounded-11': { borderRadius: 22 }
+'.rounded-12': { borderRadius: 24 }
+'.rounded-14': { borderRadius: 28 }
+'.rounded-16': { borderRadius: 32 }
+'.rounded-20': { borderRadius: 40 }
+'.rounded-24': { borderRadius: 48 }
+'.rounded-28': { borderRadius: 56 }
+'.rounded-32': { borderRadius: 64 }
+'.rounded-36': { borderRadius: 72 }
+'.rounded-40': { borderRadius: 80 }
+'.rounded-44': { borderRadius: 88 }
+'.rounded-48': { borderRadius: 96 }
+'.rounded-52': { borderRadius: 104 }
+'.rounded-56': { borderRadius: 112 }
+'.rounded-60': { borderRadius: 120 }
+'.rounded-64': { borderRadius: 128 }
+'.rounded-72': { borderRadius: 144 }
+'.rounded-80': { borderRadius: 160 }
+'.rounded-96': { borderRadius: 192 }
+'.rounded-none': { borderRadius: 0 }
+'.rounded-sm': { borderRadius: 2 }
+'.rounded': { borderRadius: 4 }
+'.rounded-md': { borderRadius: 6 }
+'.rounded-lg': { borderRadius: 8 }
+'.rounded-xl': { borderRadius: 12 }
+'.rounded-2xl': { borderRadius: 16 }
+'.rounded-3xl': { borderRadius: 24 }
+'.rounded-px': { borderRadius: '1px' }
+'.rounded-0.5': { borderRadius: 1 }
+'.rounded-1.5': { borderRadius: 3 }
+'.rounded-2.5': { borderRadius: 5 }
+'.rounded-3.5': { borderRadius: 7 }
+'.rounded-t-1': { borderRadius: [2, 2, 0, 0] }
+'.rounded-t-2': { borderRadius: [4, 4, 0, 0] }
+'.rounded-t-3': { borderRadius: [6, 6, 0, 0] }
+'.rounded-t-4': { borderRadius: [8, 8, 0, 0] }
+'.rounded-t-5': { borderRadius: [10, 10, 0, 0] }
+'.rounded-t-6': { borderRadius: [12, 12, 0, 0] }
+'.rounded-t-7': { borderRadius: [14, 14, 0, 0] }
+'.rounded-t-8': { borderRadius: [16, 16, 0, 0] }
+'.rounded-t-9': { borderRadius: [18, 18, 0, 0] }
+'.rounded-t-10': { borderRadius: [20, 20, 0, 0] }
+'.rounded-t-11': { borderRadius: [22, 22, 0, 0] }
+'.rounded-t-12': { borderRadius: [24, 24, 0, 0] }
+'.rounded-t-14': { borderRadius: [28, 28, 0, 0] }
+'.rounded-t-16': { borderRadius: [32, 32, 0, 0] }
+'.rounded-t-20': { borderRadius: [40, 40, 0, 0] }
+'.rounded-t-24': { borderRadius: [48, 48, 0, 0] }
+'.rounded-t-28': { borderRadius: [56, 56, 0, 0] }
+'.rounded-t-32': { borderRadius: [64, 64, 0, 0] }
+'.rounded-t-36': { borderRadius: [72, 72, 0, 0] }
+'.rounded-t-40': { borderRadius: [80, 80, 0, 0] }
+'.rounded-t-44': { borderRadius: [88, 88, 0, 0] }
+'.rounded-t-48': { borderRadius: [96, 96, 0, 0] }
+'.rounded-t-52': { borderRadius: [104, 104, 0, 0] }
+'.rounded-t-56': { borderRadius: [112, 112, 0, 0] }
+'.rounded-t-60': { borderRadius: [120, 120, 0, 0] }
+'.rounded-t-64': { borderRadius: [128, 128, 0, 0] }
+'.rounded-t-72': { borderRadius: [144, 144, 0, 0] }
+'.rounded-t-80': { borderRadius: [160, 160, 0, 0] }
+'.rounded-t-96': { borderRadius: [192, 192, 0, 0] }
+'.rounded-t-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-t-sm': { borderRadius: [2, 2, 0, 0] }
+'.rounded-t': { borderRadius: [4, 4, 0, 0] }
+'.rounded-t-md': { borderRadius: [6, 6, 0, 0] }
+'.rounded-t-lg': { borderRadius: [8, 8, 0, 0] }
+'.rounded-t-xl': { borderRadius: [12, 12, 0, 0] }
+'.rounded-t-2xl': { borderRadius: [16, 16, 0, 0] }
+'.rounded-t-3xl': { borderRadius: [24, 24, 0, 0] }
+'.rounded-t-px': { borderRadius: ['1px', '1px', 0, 0] }
+'.rounded-t-0.5': { borderRadius: [1, 1, 0, 0] }
+'.rounded-t-1.5': { borderRadius: [3, 3, 0, 0] }
+'.rounded-t-2.5': { borderRadius: [5, 5, 0, 0] }
+'.rounded-t-3.5': { borderRadius: [7, 7, 0, 0] }
+'.rounded-r-1': { borderRadius: [0, 2, 2, 0] }
+'.rounded-r-2': { borderRadius: [0, 4, 4, 0] }
+'.rounded-r-3': { borderRadius: [0, 6, 6, 0] }
+'.rounded-r-4': { borderRadius: [0, 8, 8, 0] }
+'.rounded-r-5': { borderRadius: [0, 10, 10, 0] }
+'.rounded-r-6': { borderRadius: [0, 12, 12, 0] }
+'.rounded-r-7': { borderRadius: [0, 14, 14, 0] }
+'.rounded-r-8': { borderRadius: [0, 16, 16, 0] }
+'.rounded-r-9': { borderRadius: [0, 18, 18, 0] }
+'.rounded-r-10': { borderRadius: [0, 20, 20, 0] }
+'.rounded-r-11': { borderRadius: [0, 22, 22, 0] }
+'.rounded-r-12': { borderRadius: [0, 24, 24, 0] }
+'.rounded-r-14': { borderRadius: [0, 28, 28, 0] }
+'.rounded-r-16': { borderRadius: [0, 32, 32, 0] }
+'.rounded-r-20': { borderRadius: [0, 40, 40, 0] }
+'.rounded-r-24': { borderRadius: [0, 48, 48, 0] }
+'.rounded-r-28': { borderRadius: [0, 56, 56, 0] }
+'.rounded-r-32': { borderRadius: [0, 64, 64, 0] }
+'.rounded-r-36': { borderRadius: [0, 72, 72, 0] }
+'.rounded-r-40': { borderRadius: [0, 80, 80, 0] }
+'.rounded-r-44': { borderRadius: [0, 88, 88, 0] }
+'.rounded-r-48': { borderRadius: [0, 96, 96, 0] }
+'.rounded-r-52': { borderRadius: [0, 104, 104, 0] }
+'.rounded-r-56': { borderRadius: [0, 112, 112, 0] }
+'.rounded-r-60': { borderRadius: [0, 120, 120, 0] }
+'.rounded-r-64': { borderRadius: [0, 128, 128, 0] }
+'.rounded-r-72': { borderRadius: [0, 144, 144, 0] }
+'.rounded-r-80': { borderRadius: [0, 160, 160, 0] }
+'.rounded-r-96': { borderRadius: [0, 192, 192, 0] }
+'.rounded-r-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-r-sm': { borderRadius: [0, 2, 2, 0] }
+'.rounded-r': { borderRadius: [0, 4, 4, 0] }
+'.rounded-r-md': { borderRadius: [0, 6, 6, 0] }
+'.rounded-r-lg': { borderRadius: [0, 8, 8, 0] }
+'.rounded-r-xl': { borderRadius: [0, 12, 12, 0] }
+'.rounded-r-2xl': { borderRadius: [0, 16, 16, 0] }
+'.rounded-r-3xl': { borderRadius: [0, 24, 24, 0] }
+'.rounded-r-px': { borderRadius: [0, '1px', '1px', 0] }
+'.rounded-r-0.5': { borderRadius: [0, 1, 1, 0] }
+'.rounded-r-1.5': { borderRadius: [0, 3, 3, 0] }
+'.rounded-r-2.5': { borderRadius: [0, 5, 5, 0] }
+'.rounded-r-3.5': { borderRadius: [0, 7, 7, 0] }
+'.rounded-b-1': { borderRadius: [0, 0, 2, 2] }
+'.rounded-b-2': { borderRadius: [0, 0, 4, 4] }
+'.rounded-b-3': { borderRadius: [0, 0, 6, 6] }
+'.rounded-b-4': { borderRadius: [0, 0, 8, 8] }
+'.rounded-b-5': { borderRadius: [0, 0, 10, 10] }
+'.rounded-b-6': { borderRadius: [0, 0, 12, 12] }
+'.rounded-b-7': { borderRadius: [0, 0, 14, 14] }
+'.rounded-b-8': { borderRadius: [0, 0, 16, 16] }
+'.rounded-b-9': { borderRadius: [0, 0, 18, 18] }
+'.rounded-b-10': { borderRadius: [0, 0, 20, 20] }
+'.rounded-b-11': { borderRadius: [0, 0, 22, 22] }
+'.rounded-b-12': { borderRadius: [0, 0, 24, 24] }
+'.rounded-b-14': { borderRadius: [0, 0, 28, 28] }
+'.rounded-b-16': { borderRadius: [0, 0, 32, 32] }
+'.rounded-b-20': { borderRadius: [0, 0, 40, 40] }
+'.rounded-b-24': { borderRadius: [0, 0, 48, 48] }
+'.rounded-b-28': { borderRadius: [0, 0, 56, 56] }
+'.rounded-b-32': { borderRadius: [0, 0, 64, 64] }
+'.rounded-b-36': { borderRadius: [0, 0, 72, 72] }
+'.rounded-b-40': { borderRadius: [0, 0, 80, 80] }
+'.rounded-b-44': { borderRadius: [0, 0, 88, 88] }
+'.rounded-b-48': { borderRadius: [0, 0, 96, 96] }
+'.rounded-b-52': { borderRadius: [0, 0, 104, 104] }
+'.rounded-b-56': { borderRadius: [0, 0, 112, 112] }
+'.rounded-b-60': { borderRadius: [0, 0, 120, 120] }
+'.rounded-b-64': { borderRadius: [0, 0, 128, 128] }
+'.rounded-b-72': { borderRadius: [0, 0, 144, 144] }
+'.rounded-b-80': { borderRadius: [0, 0, 160, 160] }
+'.rounded-b-96': { borderRadius: [0, 0, 192, 192] }
+'.rounded-b-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-b-sm': { borderRadius: [0, 0, 2, 2] }
+'.rounded-b': { borderRadius: [0, 0, 4, 4] }
+'.rounded-b-md': { borderRadius: [0, 0, 6, 6] }
+'.rounded-b-lg': { borderRadius: [0, 0, 8, 8] }
+'.rounded-b-xl': { borderRadius: [0, 0, 12, 12] }
+'.rounded-b-2xl': { borderRadius: [0, 0, 16, 16] }
+'.rounded-b-3xl': { borderRadius: [0, 0, 24, 24] }
+'.rounded-b-px': { borderRadius: [0, 0, '1px', '1px'] }
+'.rounded-b-0.5': { borderRadius: [0, 0, 1, 1] }
+'.rounded-b-1.5': { borderRadius: [0, 0, 3, 3] }
+'.rounded-b-2.5': { borderRadius: [0, 0, 5, 5] }
+'.rounded-b-3.5': { borderRadius: [0, 0, 7, 7] }
+'.rounded-l-1': { borderRadius: [2, 0, 0, 2] }
+'.rounded-l-2': { borderRadius: [4, 0, 0, 4] }
+'.rounded-l-3': { borderRadius: [6, 0, 0, 6] }
+'.rounded-l-4': { borderRadius: [8, 0, 0, 8] }
+'.rounded-l-5': { borderRadius: [10, 0, 0, 10] }
+'.rounded-l-6': { borderRadius: [12, 0, 0, 12] }
+'.rounded-l-7': { borderRadius: [14, 0, 0, 14] }
+'.rounded-l-8': { borderRadius: [16, 0, 0, 16] }
+'.rounded-l-9': { borderRadius: [18, 0, 0, 18] }
+'.rounded-l-10': { borderRadius: [20, 0, 0, 20] }
+'.rounded-l-11': { borderRadius: [22, 0, 0, 22] }
+'.rounded-l-12': { borderRadius: [24, 0, 0, 24] }
+'.rounded-l-14': { borderRadius: [28, 0, 0, 28] }
+'.rounded-l-16': { borderRadius: [32, 0, 0, 32] }
+'.rounded-l-20': { borderRadius: [40, 0, 0, 40] }
+'.rounded-l-24': { borderRadius: [48, 0, 0, 48] }
+'.rounded-l-28': { borderRadius: [56, 0, 0, 56] }
+'.rounded-l-32': { borderRadius: [64, 0, 0, 64] }
+'.rounded-l-36': { borderRadius: [72, 0, 0, 72] }
+'.rounded-l-40': { borderRadius: [80, 0, 0, 80] }
+'.rounded-l-44': { borderRadius: [88, 0, 0, 88] }
+'.rounded-l-48': { borderRadius: [96, 0, 0, 96] }
+'.rounded-l-52': { borderRadius: [104, 0, 0, 104] }
+'.rounded-l-56': { borderRadius: [112, 0, 0, 112] }
+'.rounded-l-60': { borderRadius: [120, 0, 0, 120] }
+'.rounded-l-64': { borderRadius: [128, 0, 0, 128] }
+'.rounded-l-72': { borderRadius: [144, 0, 0, 144] }
+'.rounded-l-80': { borderRadius: [160, 0, 0, 160] }
+'.rounded-l-96': { borderRadius: [192, 0, 0, 192] }
+'.rounded-l-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-l-sm': { borderRadius: [2, 0, 0, 2] }
+'.rounded-l': { borderRadius: [4, 0, 0, 4] }
+'.rounded-l-md': { borderRadius: [6, 0, 0, 6] }
+'.rounded-l-lg': { borderRadius: [8, 0, 0, 8] }
+'.rounded-l-xl': { borderRadius: [12, 0, 0, 12] }
+'.rounded-l-2xl': { borderRadius: [16, 0, 0, 16] }
+'.rounded-l-3xl': { borderRadius: [24, 0, 0, 24] }
+'.rounded-l-px': { borderRadius: ['1px', 0, 0, '1px'] }
+'.rounded-l-0.5': { borderRadius: [1, 0, 0, 1] }
+'.rounded-l-1.5': { borderRadius: [3, 0, 0, 3] }
+'.rounded-l-2.5': { borderRadius: [5, 0, 0, 5] }
+'.rounded-l-3.5': { borderRadius: [7, 0, 0, 7] }
+'.rounded-tl-1': { borderRadius: [2, 0, 0, 0] }
+'.rounded-tl-2': { borderRadius: [4, 0, 0, 0] }
+'.rounded-tl-3': { borderRadius: [6, 0, 0, 0] }
+'.rounded-tl-4': { borderRadius: [8, 0, 0, 0] }
+'.rounded-tl-5': { borderRadius: [10, 0, 0, 0] }
+'.rounded-tl-6': { borderRadius: [12, 0, 0, 0] }
+'.rounded-tl-7': { borderRadius: [14, 0, 0, 0] }
+'.rounded-tl-8': { borderRadius: [16, 0, 0, 0] }
+'.rounded-tl-9': { borderRadius: [18, 0, 0, 0] }
+'.rounded-tl-10': { borderRadius: [20, 0, 0, 0] }
+'.rounded-tl-11': { borderRadius: [22, 0, 0, 0] }
+'.rounded-tl-12': { borderRadius: [24, 0, 0, 0] }
+'.rounded-tl-14': { borderRadius: [28, 0, 0, 0] }
+'.rounded-tl-16': { borderRadius: [32, 0, 0, 0] }
+'.rounded-tl-20': { borderRadius: [40, 0, 0, 0] }
+'.rounded-tl-24': { borderRadius: [48, 0, 0, 0] }
+'.rounded-tl-28': { borderRadius: [56, 0, 0, 0] }
+'.rounded-tl-32': { borderRadius: [64, 0, 0, 0] }
+'.rounded-tl-36': { borderRadius: [72, 0, 0, 0] }
+'.rounded-tl-40': { borderRadius: [80, 0, 0, 0] }
+'.rounded-tl-44': { borderRadius: [88, 0, 0, 0] }
+'.rounded-tl-48': { borderRadius: [96, 0, 0, 0] }
+'.rounded-tl-52': { borderRadius: [104, 0, 0, 0] }
+'.rounded-tl-56': { borderRadius: [112, 0, 0, 0] }
+'.rounded-tl-60': { borderRadius: [120, 0, 0, 0] }
+'.rounded-tl-64': { borderRadius: [128, 0, 0, 0] }
+'.rounded-tl-72': { borderRadius: [144, 0, 0, 0] }
+'.rounded-tl-80': { borderRadius: [160, 0, 0, 0] }
+'.rounded-tl-96': { borderRadius: [192, 0, 0, 0] }
+'.rounded-tl-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-tl-sm': { borderRadius: [2, 0, 0, 0] }
+'.rounded-tl': { borderRadius: [4, 0, 0, 0] }
+'.rounded-tl-md': { borderRadius: [6, 0, 0, 0] }
+'.rounded-tl-lg': { borderRadius: [8, 0, 0, 0] }
+'.rounded-tl-xl': { borderRadius: [12, 0, 0, 0] }
+'.rounded-tl-2xl': { borderRadius: [16, 0, 0, 0] }
+'.rounded-tl-3xl': { borderRadius: [24, 0, 0, 0] }
+'.rounded-tl-px': { borderRadius: ['1px', 0, 0, 0] }
+'.rounded-tl-0.5': { borderRadius: [1, 0, 0, 0] }
+'.rounded-tl-1.5': { borderRadius: [3, 0, 0, 0] }
+'.rounded-tl-2.5': { borderRadius: [5, 0, 0, 0] }
+'.rounded-tl-3.5': { borderRadius: [7, 0, 0, 0] }
+'.rounded-tr-1': { borderRadius: [0, 2, 0, 0] }
+'.rounded-tr-2': { borderRadius: [0, 4, 0, 0] }
+'.rounded-tr-3': { borderRadius: [0, 6, 0, 0] }
+'.rounded-tr-4': { borderRadius: [0, 8, 0, 0] }
+'.rounded-tr-5': { borderRadius: [0, 10, 0, 0] }
+'.rounded-tr-6': { borderRadius: [0, 12, 0, 0] }
+'.rounded-tr-7': { borderRadius: [0, 14, 0, 0] }
+'.rounded-tr-8': { borderRadius: [0, 16, 0, 0] }
+'.rounded-tr-9': { borderRadius: [0, 18, 0, 0] }
+'.rounded-tr-10': { borderRadius: [0, 20, 0, 0] }
+'.rounded-tr-11': { borderRadius: [0, 22, 0, 0] }
+'.rounded-tr-12': { borderRadius: [0, 24, 0, 0] }
+'.rounded-tr-14': { borderRadius: [0, 28, 0, 0] }
+'.rounded-tr-16': { borderRadius: [0, 32, 0, 0] }
+'.rounded-tr-20': { borderRadius: [0, 40, 0, 0] }
+'.rounded-tr-24': { borderRadius: [0, 48, 0, 0] }
+'.rounded-tr-28': { borderRadius: [0, 56, 0, 0] }
+'.rounded-tr-32': { borderRadius: [0, 64, 0, 0] }
+'.rounded-tr-36': { borderRadius: [0, 72, 0, 0] }
+'.rounded-tr-40': { borderRadius: [0, 80, 0, 0] }
+'.rounded-tr-44': { borderRadius: [0, 88, 0, 0] }
+'.rounded-tr-48': { borderRadius: [0, 96, 0, 0] }
+'.rounded-tr-52': { borderRadius: [0, 104, 0, 0] }
+'.rounded-tr-56': { borderRadius: [0, 112, 0, 0] }
+'.rounded-tr-60': { borderRadius: [0, 120, 0, 0] }
+'.rounded-tr-64': { borderRadius: [0, 128, 0, 0] }
+'.rounded-tr-72': { borderRadius: [0, 144, 0, 0] }
+'.rounded-tr-80': { borderRadius: [0, 160, 0, 0] }
+'.rounded-tr-96': { borderRadius: [0, 192, 0, 0] }
+'.rounded-tr-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-tr-sm': { borderRadius: [0, 2, 0, 0] }
+'.rounded-tr': { borderRadius: [0, 4, 0, 0] }
+'.rounded-tr-md': { borderRadius: [0, 6, 0, 0] }
+'.rounded-tr-lg': { borderRadius: [0, 8, 0, 0] }
+'.rounded-tr-xl': { borderRadius: [0, 12, 0, 0] }
+'.rounded-tr-2xl': { borderRadius: [0, 16, 0, 0] }
+'.rounded-tr-3xl': { borderRadius: [0, 24, 0, 0] }
+'.rounded-tr-px': { borderRadius: [0, '1px', 0, 0] }
+'.rounded-tr-0.5': { borderRadius: [0, 1, 0, 0] }
+'.rounded-tr-1.5': { borderRadius: [0, 3, 0, 0] }
+'.rounded-tr-2.5': { borderRadius: [0, 5, 0, 0] }
+'.rounded-tr-3.5': { borderRadius: [0, 7, 0, 0] }
+'.rounded-br-1': { borderRadius: [0, 0, 2, 0] }
+'.rounded-br-2': { borderRadius: [0, 0, 4, 0] }
+'.rounded-br-3': { borderRadius: [0, 0, 6, 0] }
+'.rounded-br-4': { borderRadius: [0, 0, 8, 0] }
+'.rounded-br-5': { borderRadius: [0, 0, 10, 0] }
+'.rounded-br-6': { borderRadius: [0, 0, 12, 0] }
+'.rounded-br-7': { borderRadius: [0, 0, 14, 0] }
+'.rounded-br-8': { borderRadius: [0, 0, 16, 0] }
+'.rounded-br-9': { borderRadius: [0, 0, 18, 0] }
+'.rounded-br-10': { borderRadius: [0, 0, 20, 0] }
+'.rounded-br-11': { borderRadius: [0, 0, 22, 0] }
+'.rounded-br-12': { borderRadius: [0, 0, 24, 0] }
+'.rounded-br-14': { borderRadius: [0, 0, 28, 0] }
+'.rounded-br-16': { borderRadius: [0, 0, 32, 0] }
+'.rounded-br-20': { borderRadius: [0, 0, 40, 0] }
+'.rounded-br-24': { borderRadius: [0, 0, 48, 0] }
+'.rounded-br-28': { borderRadius: [0, 0, 56, 0] }
+'.rounded-br-32': { borderRadius: [0, 0, 64, 0] }
+'.rounded-br-36': { borderRadius: [0, 0, 72, 0] }
+'.rounded-br-40': { borderRadius: [0, 0, 80, 0] }
+'.rounded-br-44': { borderRadius: [0, 0, 88, 0] }
+'.rounded-br-48': { borderRadius: [0, 0, 96, 0] }
+'.rounded-br-52': { borderRadius: [0, 0, 104, 0] }
+'.rounded-br-56': { borderRadius: [0, 0, 112, 0] }
+'.rounded-br-60': { borderRadius: [0, 0, 120, 0] }
+'.rounded-br-64': { borderRadius: [0, 0, 128, 0] }
+'.rounded-br-72': { borderRadius: [0, 0, 144, 0] }
+'.rounded-br-80': { borderRadius: [0, 0, 160, 0] }
+'.rounded-br-96': { borderRadius: [0, 0, 192, 0] }
+'.rounded-br-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-br-sm': { borderRadius: [0, 0, 2, 0] }
+'.rounded-br': { borderRadius: [0, 0, 4, 0] }
+'.rounded-br-md': { borderRadius: [0, 0, 6, 0] }
+'.rounded-br-lg': { borderRadius: [0, 0, 8, 0] }
+'.rounded-br-xl': { borderRadius: [0, 0, 12, 0] }
+'.rounded-br-2xl': { borderRadius: [0, 0, 16, 0] }
+'.rounded-br-3xl': { borderRadius: [0, 0, 24, 0] }
+'.rounded-br-px': { borderRadius: [0, 0, '1px', 0] }
+'.rounded-br-0.5': { borderRadius: [0, 0, 1, 0] }
+'.rounded-br-1.5': { borderRadius: [0, 0, 3, 0] }
+'.rounded-br-2.5': { borderRadius: [0, 0, 5, 0] }
+'.rounded-br-3.5': { borderRadius: [0, 0, 7, 0] }
+'.rounded-bl-1': { borderRadius: [0, 0, 0, 2] }
+'.rounded-bl-2': { borderRadius: [0, 0, 0, 4] }
+'.rounded-bl-3': { borderRadius: [0, 0, 0, 6] }
+'.rounded-bl-4': { borderRadius: [0, 0, 0, 8] }
+'.rounded-bl-5': { borderRadius: [0, 0, 0, 10] }
+'.rounded-bl-6': { borderRadius: [0, 0, 0, 12] }
+'.rounded-bl-7': { borderRadius: [0, 0, 0, 14] }
+'.rounded-bl-8': { borderRadius: [0, 0, 0, 16] }
+'.rounded-bl-9': { borderRadius: [0, 0, 0, 18] }
+'.rounded-bl-10': { borderRadius: [0, 0, 0, 20] }
+'.rounded-bl-11': { borderRadius: [0, 0, 0, 22] }
+'.rounded-bl-12': { borderRadius: [0, 0, 0, 24] }
+'.rounded-bl-14': { borderRadius: [0, 0, 0, 28] }
+'.rounded-bl-16': { borderRadius: [0, 0, 0, 32] }
+'.rounded-bl-20': { borderRadius: [0, 0, 0, 40] }
+'.rounded-bl-24': { borderRadius: [0, 0, 0, 48] }
+'.rounded-bl-28': { borderRadius: [0, 0, 0, 56] }
+'.rounded-bl-32': { borderRadius: [0, 0, 0, 64] }
+'.rounded-bl-36': { borderRadius: [0, 0, 0, 72] }
+'.rounded-bl-40': { borderRadius: [0, 0, 0, 80] }
+'.rounded-bl-44': { borderRadius: [0, 0, 0, 88] }
+'.rounded-bl-48': { borderRadius: [0, 0, 0, 96] }
+'.rounded-bl-52': { borderRadius: [0, 0, 0, 104] }
+'.rounded-bl-56': { borderRadius: [0, 0, 0, 112] }
+'.rounded-bl-60': { borderRadius: [0, 0, 0, 120] }
+'.rounded-bl-64': { borderRadius: [0, 0, 0, 128] }
+'.rounded-bl-72': { borderRadius: [0, 0, 0, 144] }
+'.rounded-bl-80': { borderRadius: [0, 0, 0, 160] }
+'.rounded-bl-96': { borderRadius: [0, 0, 0, 192] }
+'.rounded-bl-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-bl-sm': { borderRadius: [0, 0, 0, 2] }
+'.rounded-bl': { borderRadius: [0, 0, 0, 4] }
+'.rounded-bl-md': { borderRadius: [0, 0, 0, 6] }
+'.rounded-bl-lg': { borderRadius: [0, 0, 0, 8] }
+'.rounded-bl-xl': { borderRadius: [0, 0, 0, 12] }
+'.rounded-bl-2xl': { borderRadius: [0, 0, 0, 16] }
+'.rounded-bl-3xl': { borderRadius: [0, 0, 0, 24] }
+'.rounded-bl-px': { borderRadius: [0, 0, 0, '1px'] }
+'.rounded-bl-0.5': { borderRadius: [0, 0, 0, 1] }
+'.rounded-bl-1.5': { borderRadius: [0, 0, 0, 3] }
+'.rounded-bl-2.5': { borderRadius: [0, 0, 0, 5] }
+'.rounded-bl-3.5': { borderRadius: [0, 0, 0, 7] }
+'.rounded-tl-br-1': { borderRadius: [2, 0, 2, 0] }
+'.rounded-tl-br-2': { borderRadius: [4, 0, 4, 0] }
+'.rounded-tl-br-3': { borderRadius: [6, 0, 6, 0] }
+'.rounded-tl-br-4': { borderRadius: [8, 0, 8, 0] }
+'.rounded-tl-br-5': { borderRadius: [10, 0, 10, 0] }
+'.rounded-tl-br-6': { borderRadius: [12, 0, 12, 0] }
+'.rounded-tl-br-7': { borderRadius: [14, 0, 14, 0] }
+'.rounded-tl-br-8': { borderRadius: [16, 0, 16, 0] }
+'.rounded-tl-br-9': { borderRadius: [18, 0, 18, 0] }
+'.rounded-tl-br-10': { borderRadius: [20, 0, 20, 0] }
+'.rounded-tl-br-11': { borderRadius: [22, 0, 22, 0] }
+'.rounded-tl-br-12': { borderRadius: [24, 0, 24, 0] }
+'.rounded-tl-br-14': { borderRadius: [28, 0, 28, 0] }
+'.rounded-tl-br-16': { borderRadius: [32, 0, 32, 0] }
+'.rounded-tl-br-20': { borderRadius: [40, 0, 40, 0] }
+'.rounded-tl-br-24': { borderRadius: [48, 0, 48, 0] }
+'.rounded-tl-br-28': { borderRadius: [56, 0, 56, 0] }
+'.rounded-tl-br-32': { borderRadius: [64, 0, 64, 0] }
+'.rounded-tl-br-36': { borderRadius: [72, 0, 72, 0] }
+'.rounded-tl-br-40': { borderRadius: [80, 0, 80, 0] }
+'.rounded-tl-br-44': { borderRadius: [88, 0, 88, 0] }
+'.rounded-tl-br-48': { borderRadius: [96, 0, 96, 0] }
+'.rounded-tl-br-52': { borderRadius: [104, 0, 104, 0] }
+'.rounded-tl-br-56': { borderRadius: [112, 0, 112, 0] }
+'.rounded-tl-br-60': { borderRadius: [120, 0, 120, 0] }
+'.rounded-tl-br-64': { borderRadius: [128, 0, 128, 0] }
+'.rounded-tl-br-72': { borderRadius: [144, 0, 144, 0] }
+'.rounded-tl-br-80': { borderRadius: [160, 0, 160, 0] }
+'.rounded-tl-br-96': { borderRadius: [192, 0, 192, 0] }
+'.rounded-tl-br-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-tl-br-sm': { borderRadius: [2, 0, 2, 0] }
+'.rounded-tl-br': { borderRadius: [4, 0, 4, 0] }
+'.rounded-tl-br-md': { borderRadius: [6, 0, 6, 0] }
+'.rounded-tl-br-lg': { borderRadius: [8, 0, 8, 0] }
+'.rounded-tl-br-xl': { borderRadius: [12, 0, 12, 0] }
+'.rounded-tl-br-2xl': { borderRadius: [16, 0, 16, 0] }
+'.rounded-tl-br-3xl': { borderRadius: [24, 0, 24, 0] }
+'.rounded-tl-br-px': { borderRadius: ['1px', 0, '1px', 0] }
+'.rounded-tl-br-0.5': { borderRadius: [1, 0, 1, 0] }
+'.rounded-tl-br-1.5': { borderRadius: [3, 0, 3, 0] }
+'.rounded-tl-br-2.5': { borderRadius: [5, 0, 5, 0] }
+'.rounded-tl-br-3.5': { borderRadius: [7, 0, 7, 0] }
+'.rounded-tr-bl-1': { borderRadius: [0, 2, 0, 2] }
+'.rounded-tr-bl-2': { borderRadius: [0, 4, 0, 4] }
+'.rounded-tr-bl-3': { borderRadius: [0, 6, 0, 6] }
+'.rounded-tr-bl-4': { borderRadius: [0, 8, 0, 8] }
+'.rounded-tr-bl-5': { borderRadius: [0, 10, 0, 10] }
+'.rounded-tr-bl-6': { borderRadius: [0, 12, 0, 12] }
+'.rounded-tr-bl-7': { borderRadius: [0, 14, 0, 14] }
+'.rounded-tr-bl-8': { borderRadius: [0, 16, 0, 16] }
+'.rounded-tr-bl-9': { borderRadius: [0, 18, 0, 18] }
+'.rounded-tr-bl-10': { borderRadius: [0, 20, 0, 20] }
+'.rounded-tr-bl-11': { borderRadius: [0, 22, 0, 22] }
+'.rounded-tr-bl-12': { borderRadius: [0, 24, 0, 24] }
+'.rounded-tr-bl-14': { borderRadius: [0, 28, 0, 28] }
+'.rounded-tr-bl-16': { borderRadius: [0, 32, 0, 32] }
+'.rounded-tr-bl-20': { borderRadius: [0, 40, 0, 40] }
+'.rounded-tr-bl-24': { borderRadius: [0, 48, 0, 48] }
+'.rounded-tr-bl-28': { borderRadius: [0, 56, 0, 56] }
+'.rounded-tr-bl-32': { borderRadius: [0, 64, 0, 64] }
+'.rounded-tr-bl-36': { borderRadius: [0, 72, 0, 72] }
+'.rounded-tr-bl-40': { borderRadius: [0, 80, 0, 80] }
+'.rounded-tr-bl-44': { borderRadius: [0, 88, 0, 88] }
+'.rounded-tr-bl-48': { borderRadius: [0, 96, 0, 96] }
+'.rounded-tr-bl-52': { borderRadius: [0, 104, 0, 104] }
+'.rounded-tr-bl-56': { borderRadius: [0, 112, 0, 112] }
+'.rounded-tr-bl-60': { borderRadius: [0, 120, 0, 120] }
+'.rounded-tr-bl-64': { borderRadius: [0, 128, 0, 128] }
+'.rounded-tr-bl-72': { borderRadius: [0, 144, 0, 144] }
+'.rounded-tr-bl-80': { borderRadius: [0, 160, 0, 160] }
+'.rounded-tr-bl-96': { borderRadius: [0, 192, 0, 192] }
+'.rounded-tr-bl-none': { borderRadius: [0, 0, 0, 0] }
+'.rounded-tr-bl-sm': { borderRadius: [0, 2, 0, 2] }
+'.rounded-tr-bl': { borderRadius: [0, 4, 0, 4] }
+'.rounded-tr-bl-md': { borderRadius: [0, 6, 0, 6] }
+'.rounded-tr-bl-lg': { borderRadius: [0, 8, 0, 8] }
+'.rounded-tr-bl-xl': { borderRadius: [0, 12, 0, 12] }
+'.rounded-tr-bl-2xl': { borderRadius: [0, 16, 0, 16] }
+'.rounded-tr-bl-3xl': { borderRadius: [0, 24, 0, 24] }
+'.rounded-tr-bl-px': { borderRadius: [0, '1px', 0, '1px'] }
+'.rounded-tr-bl-0.5': { borderRadius: [0, 1, 0, 1] }
+'.rounded-tr-bl-1.5': { borderRadius: [0, 3, 0, 3] }
+'.rounded-tr-bl-2.5': { borderRadius: [0, 5, 0, 5] }
+'.rounded-tr-bl-3.5': { borderRadius: [0, 7, 0, 7] }
+```
