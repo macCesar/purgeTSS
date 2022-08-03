@@ -224,4 +224,12 @@
 '.border-rose-700': { borderColor: '#be123c' }
 '.border-rose-800': { borderColor: '#9f1239' }
 '.border-rose-900': { borderColor: '#881337' }
+'.border-highlight': { borderColor: '#ffff00' }
+'.border-primary-dark': { borderColor: '#000030' }
+'.border-primary-solid': { borderColor: '#10284B' }
+'.border-primary-transparent': { borderColor: '#D9002359' }
+'.border-secondary-dark': { borderColor: '#000023' }
+'.border-secondary-solid': { borderColor: '#13294B' }
+'.border-secondary-transparent': { borderColor: '#D913294B' }
+'.border-semantic': { borderColor: 'borderColor' }
 ```

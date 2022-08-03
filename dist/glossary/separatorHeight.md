@@ -14,7 +14,9 @@
 '.separator-h-10[platform=android]': { separatorHeight: 40 }
 '.separator-h-11[platform=android]': { separatorHeight: 44 }
 '.separator-h-12[platform=android]': { separatorHeight: 48 }
+'.separator-h-13[platform=android]': { separatorHeight: 52 }
 '.separator-h-14[platform=android]': { separatorHeight: 56 }
+'.separator-h-15[platform=android]': { separatorHeight: 60 }
 '.separator-h-16[platform=android]': { separatorHeight: 64 }
 '.separator-h-20[platform=android]': { separatorHeight: 80 }
 '.separator-h-24[platform=android]': { separatorHeight: 96 }
@@ -30,6 +32,9 @@
 '.separator-h-64[platform=android]': { separatorHeight: 256 }
 '.separator-h-72[platform=android]': { separatorHeight: 288 }
 '.separator-h-80[platform=android]': { separatorHeight: 320 }
+'.separator-h-84[platform=android]': { separatorHeight: 336 }
+'.separator-h-85[platform=android]': { separatorHeight: 340 }
+'.separator-h-86[platform=android]': { separatorHeight: 344 }
 '.separator-h-96[platform=android]': { separatorHeight: 384 }
 '.separator-h-px[platform=android]': { separatorHeight: '1px' }
 '.separator-h-0.5[platform=android]': { separatorHeight: 2 }

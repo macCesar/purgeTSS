@@ -1507,6 +1507,12 @@ function buildCustomTailwind(message = 'file created!') {
 	}
 
 	let menuPosition = 1;
+
+	if (fs.existsSync(projectsConfigJS)) {
+		makeSureFolderExists(cwd + `/purgetss/tailwind`);
+	} else {
+		//
+	}
 	_.each(allValuesCombined, (value, key) => {
 		if (key.includes('Properties') && distributionFolder) {
 			destinationFolder = path.resolve(__dirname, './dist/glossary/' + key);
@@ -1520,7 +1526,12 @@ function buildCustomTailwind(message = 'file created!') {
 				fs.writeFileSync(`${destinationFolder}/${key}.md`, '```scss' + theClasses + '```');
 			}
 
-			saveFile(cwd + `/purgetss/tailwind/${key}.tss`, theClasses);
+			//
+			if (fs.existsSync(projectsConfigJS)) {
+				saveFile(cwd + `/purgetss/tailwind/${key}.tss`, theClasses);
+			} else {
+				//
+			}
 			tailwindStyles += theClasses;
 		}
 	});

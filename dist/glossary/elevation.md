@@ -13,7 +13,9 @@
 '.elevation-10[platform=android]': { elevation: 40 }
 '.elevation-11[platform=android]': { elevation: 44 }
 '.elevation-12[platform=android]': { elevation: 48 }
+'.elevation-13[platform=android]': { elevation: 52 }
 '.elevation-14[platform=android]': { elevation: 56 }
+'.elevation-15[platform=android]': { elevation: 60 }
 '.elevation-16[platform=android]': { elevation: 64 }
 '.elevation-20[platform=android]': { elevation: 80 }
 '.elevation-24[platform=android]': { elevation: 96 }
@@ -29,6 +31,9 @@
 '.elevation-64[platform=android]': { elevation: 256 }
 '.elevation-72[platform=android]': { elevation: 288 }
 '.elevation-80[platform=android]': { elevation: 320 }
+'.elevation-84[platform=android]': { elevation: 336 }
+'.elevation-85[platform=android]': { elevation: 340 }
+'.elevation-86[platform=android]': { elevation: 344 }
 '.elevation-96[platform=android]': { elevation: 384 }
 '.elevation-px[platform=android]': { elevation: '1px' }
 '.elevation-0.5[platform=android]': { elevation: 2 }

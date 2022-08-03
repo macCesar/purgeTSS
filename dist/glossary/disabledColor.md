@@ -224,4 +224,11 @@
 '.disabled-rose-700[platform=ios]': { disabledColor: '#be123c' }
 '.disabled-rose-800[platform=ios]': { disabledColor: '#9f1239' }
 '.disabled-rose-900[platform=ios]': { disabledColor: '#881337' }
+'.disabled-highlight[platform=ios]': { disabledColor: '#ffff00' }
+'.disabled-primary-dark[platform=ios]': { disabledColor: '#000030' }
+'.disabled-primary-solid[platform=ios]': { disabledColor: '#10284B' }
+'.disabled-primary-transparent[platform=ios]': { disabledColor: '#D9002359' }
+'.disabled-secondary-dark[platform=ios]': { disabledColor: '#000023' }
+'.disabled-secondary-solid[platform=ios]': { disabledColor: '#13294B' }
+'.disabled-secondary-transparent[platform=ios]': { disabledColor: '#D913294B' }
 ```

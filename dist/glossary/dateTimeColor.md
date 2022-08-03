@@ -224,4 +224,11 @@
 '.date-time-rose-700': { dateTimeColor: '#be123c' }
 '.date-time-rose-800': { dateTimeColor: '#9f1239' }
 '.date-time-rose-900': { dateTimeColor: '#881337' }
+'.date-time-highlight': { dateTimeColor: '#ffff00' }
+'.date-time-primary-dark': { dateTimeColor: '#000030' }
+'.date-time-primary-solid': { dateTimeColor: '#10284B' }
+'.date-time-primary-transparent': { dateTimeColor: '#D9002359' }
+'.date-time-secondary-dark': { dateTimeColor: '#000023' }
+'.date-time-secondary-solid': { dateTimeColor: '#13294B' }
+'.date-time-secondary-transparent': { dateTimeColor: '#D913294B' }
 ```

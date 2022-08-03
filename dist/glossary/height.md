@@ -14,7 +14,9 @@
 '.h-10': { height: 40 }
 '.h-11': { height: 44 }
 '.h-12': { height: 48 }
+'.h-13': { height: 52 }
 '.h-14': { height: 56 }
+'.h-15': { height: 60 }
 '.h-16': { height: 64 }
 '.h-20': { height: 80 }
 '.h-24': { height: 96 }
@@ -30,6 +32,9 @@
 '.h-64': { height: 256 }
 '.h-72': { height: 288 }
 '.h-80': { height: 320 }
+'.h-84': { height: 336 }
+'.h-85': { height: 340 }
+'.h-86': { height: 344 }
 '.h-96': { height: 384 }
 '.h-auto': { height: Ti.UI.SIZE }
 '.h-px': { height: '1px' }

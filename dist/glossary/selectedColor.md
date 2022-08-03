@@ -224,4 +224,11 @@
 '.selected-rose-700[platform=ios]': { selectedColor: '#be123c' }
 '.selected-rose-800[platform=ios]': { selectedColor: '#9f1239' }
 '.selected-rose-900[platform=ios]': { selectedColor: '#881337' }
+'.selected-highlight[platform=ios]': { selectedColor: '#ffff00' }
+'.selected-primary-dark[platform=ios]': { selectedColor: '#000030' }
+'.selected-primary-solid[platform=ios]': { selectedColor: '#10284B' }
+'.selected-primary-transparent[platform=ios]': { selectedColor: '#D9002359' }
+'.selected-secondary-dark[platform=ios]': { selectedColor: '#000023' }
+'.selected-secondary-solid[platform=ios]': { selectedColor: '#13294B' }
+'.selected-secondary-transparent[platform=ios]': { selectedColor: '#D913294B' }
 ```

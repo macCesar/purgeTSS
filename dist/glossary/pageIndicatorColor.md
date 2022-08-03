@@ -224,4 +224,11 @@
 '.page-indicator-rose-700': { pageIndicatorColor: '#be123c' }
 '.page-indicator-rose-800': { pageIndicatorColor: '#9f1239' }
 '.page-indicator-rose-900': { pageIndicatorColor: '#881337' }
+'.page-indicator-highlight': { pageIndicatorColor: '#ffff00' }
+'.page-indicator-primary-dark': { pageIndicatorColor: '#000030' }
+'.page-indicator-primary-solid': { pageIndicatorColor: '#10284B' }
+'.page-indicator-primary-transparent': { pageIndicatorColor: '#D9002359' }
+'.page-indicator-secondary-dark': { pageIndicatorColor: '#000023' }
+'.page-indicator-secondary-solid': { pageIndicatorColor: '#13294B' }
+'.page-indicator-secondary-transparent': { pageIndicatorColor: '#D913294B' }
 ```

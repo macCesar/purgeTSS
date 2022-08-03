@@ -224,4 +224,11 @@
 '.current-page-indicator-rose-700': { currentPageIndicatorColor: '#be123c' }
 '.current-page-indicator-rose-800': { currentPageIndicatorColor: '#9f1239' }
 '.current-page-indicator-rose-900': { currentPageIndicatorColor: '#881337' }
+'.current-page-indicator-highlight': { currentPageIndicatorColor: '#ffff00' }
+'.current-page-indicator-primary-dark': { currentPageIndicatorColor: '#000030' }
+'.current-page-indicator-primary-solid': { currentPageIndicatorColor: '#10284B' }
+'.current-page-indicator-primary-transparent': { currentPageIndicatorColor: '#D9002359' }
+'.current-page-indicator-secondary-dark': { currentPageIndicatorColor: '#000023' }
+'.current-page-indicator-secondary-solid': { currentPageIndicatorColor: '#13294B' }
+'.current-page-indicator-secondary-transparent': { currentPageIndicatorColor: '#D913294B' }
 ```

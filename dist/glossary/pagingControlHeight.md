@@ -14,7 +14,9 @@
 '.paging-control-h-10[platform=ios]': { pagingControlHeight: 40 }
 '.paging-control-h-11[platform=ios]': { pagingControlHeight: 44 }
 '.paging-control-h-12[platform=ios]': { pagingControlHeight: 48 }
+'.paging-control-h-13[platform=ios]': { pagingControlHeight: 52 }
 '.paging-control-h-14[platform=ios]': { pagingControlHeight: 56 }
+'.paging-control-h-15[platform=ios]': { pagingControlHeight: 60 }
 '.paging-control-h-16[platform=ios]': { pagingControlHeight: 64 }
 '.paging-control-h-20[platform=ios]': { pagingControlHeight: 80 }
 '.paging-control-h-24[platform=ios]': { pagingControlHeight: 96 }
@@ -30,6 +32,9 @@
 '.paging-control-h-64[platform=ios]': { pagingControlHeight: 256 }
 '.paging-control-h-72[platform=ios]': { pagingControlHeight: 288 }
 '.paging-control-h-80[platform=ios]': { pagingControlHeight: 320 }
+'.paging-control-h-84[platform=ios]': { pagingControlHeight: 336 }
+'.paging-control-h-85[platform=ios]': { pagingControlHeight: 340 }
+'.paging-control-h-86[platform=ios]': { pagingControlHeight: 344 }
 '.paging-control-h-96[platform=ios]': { pagingControlHeight: 384 }
 '.paging-control-h-px[platform=ios]': { pagingControlHeight: '1px' }
 '.paging-control-h-0.5[platform=ios]': { pagingControlHeight: 2 }

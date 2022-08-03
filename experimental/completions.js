@@ -510,7 +510,7 @@ function getProperties(tiCompletionTypesOnly) {
 		});
 	});
 
-	saveFile(cwd + '/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly));
+	// saveFile(cwd + '/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly));
 
 	return propertiesOnly;
 }
@@ -560,7 +560,6 @@ function processProperties(tiCompletionsFileProperties, configThemeFile) {
 		} else if (key.includes('pageWidth') || key.includes('pageHeight')) {
 			widths += generateCombinedClasses(key, data, configThemeFile.spacing);
 		} else if (key.includes('Width') || key.includes('width')) {
-			console.log('key:', key, JSON.stringify(configThemeFile[key]));
 			widths += generateCombinedClasses(key, data, configThemeFile.width);
 		} else if ((key.includes('Padding') || (key.includes('padding')) && data.type !== 'Boolean')) {
 			mixedClasses += generateCombinedClasses(key, data, configThemeFile.spacing);

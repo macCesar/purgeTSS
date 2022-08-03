@@ -1,5 +1,5 @@
 .DS_Store
-/testing-scripts
+tailwind-auto/
 # Dependency directories
 node_modules/
 

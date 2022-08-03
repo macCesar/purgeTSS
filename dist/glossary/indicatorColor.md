@@ -224,4 +224,11 @@
 '.indicator-rose-700': { indicatorColor: '#be123c' }
 '.indicator-rose-800': { indicatorColor: '#9f1239' }
 '.indicator-rose-900': { indicatorColor: '#881337' }
+'.indicator-highlight': { indicatorColor: '#ffff00' }
+'.indicator-primary-dark': { indicatorColor: '#000030' }
+'.indicator-primary-solid': { indicatorColor: '#10284B' }
+'.indicator-primary-transparent': { indicatorColor: '#D9002359' }
+'.indicator-secondary-dark': { indicatorColor: '#000023' }
+'.indicator-secondary-solid': { indicatorColor: '#13294B' }
+'.indicator-secondary-transparent': { indicatorColor: '#D913294B' }
 ```

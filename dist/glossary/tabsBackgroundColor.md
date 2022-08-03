@@ -224,4 +224,11 @@
 '.tabs-bg-rose-700': { tabsBackgroundColor: '#be123c' }
 '.tabs-bg-rose-800': { tabsBackgroundColor: '#9f1239' }
 '.tabs-bg-rose-900': { tabsBackgroundColor: '#881337' }
+'.tabs-bg-highlight': { tabsBackgroundColor: '#ffff00' }
+'.tabs-bg-primary-dark': { tabsBackgroundColor: '#000030' }
+'.tabs-bg-primary-solid': { tabsBackgroundColor: '#10284B' }
+'.tabs-bg-primary-transparent': { tabsBackgroundColor: '#D9002359' }
+'.tabs-bg-secondary-dark': { tabsBackgroundColor: '#000023' }
+'.tabs-bg-secondary-solid': { tabsBackgroundColor: '#13294B' }
+'.tabs-bg-secondary-transparent': { tabsBackgroundColor: '#D913294B' }
 ```

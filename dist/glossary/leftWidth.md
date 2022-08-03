@@ -14,7 +14,9 @@
 '.left-w-10[platform=android]': { leftWidth: 40 }
 '.left-w-11[platform=android]': { leftWidth: 44 }
 '.left-w-12[platform=android]': { leftWidth: 48 }
+'.left-w-13[platform=android]': { leftWidth: 52 }
 '.left-w-14[platform=android]': { leftWidth: 56 }
+'.left-w-15[platform=android]': { leftWidth: 60 }
 '.left-w-16[platform=android]': { leftWidth: 64 }
 '.left-w-20[platform=android]': { leftWidth: 80 }
 '.left-w-24[platform=android]': { leftWidth: 96 }
@@ -30,6 +32,9 @@
 '.left-w-64[platform=android]': { leftWidth: 256 }
 '.left-w-72[platform=android]': { leftWidth: 288 }
 '.left-w-80[platform=android]': { leftWidth: 320 }
+'.left-w-84[platform=android]': { leftWidth: 336 }
+'.left-w-85[platform=android]': { leftWidth: 340 }
+'.left-w-86[platform=android]': { leftWidth: 344 }
 '.left-w-96[platform=android]': { leftWidth: 384 }
 '.left-w-auto[platform=android]': { leftWidth: Ti.UI.SIZE }
 '.left-w-px[platform=android]': { leftWidth: '1px' }
@@ -65,4 +70,9 @@
 '.left-w-11/12[platform=android]': { leftWidth: '91.666667%' }
 '.left-w-full[platform=android]': { leftWidth: '100%' }
 '.left-w-screen[platform=android]': { leftWidth: Ti.UI.FILL }
+'.left-w[platform=ios]250[platform=android]': { leftWidth: '350px' }
+'.left-w[platform=android]250[platform=android]': { leftWidth: '350px' }
+'.left-w[formFactor=tablet]250[platform=android]': { leftWidth: '350px' }
+'.left-w[formFactor=handheld]250[platform=android]': { leftWidth: '350px' }
+'.left-w[if=Alloy.Globals.iPhoneX]250[platform=android]': { leftWidth: '350px' }
 ```

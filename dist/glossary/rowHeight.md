@@ -14,7 +14,9 @@
 '.row-h-10': { rowHeight: 40 }
 '.row-h-11': { rowHeight: 44 }
 '.row-h-12': { rowHeight: 48 }
+'.row-h-13': { rowHeight: 52 }
 '.row-h-14': { rowHeight: 56 }
+'.row-h-15': { rowHeight: 60 }
 '.row-h-16': { rowHeight: 64 }
 '.row-h-20': { rowHeight: 80 }
 '.row-h-24': { rowHeight: 96 }
@@ -30,6 +32,9 @@
 '.row-h-64': { rowHeight: 256 }
 '.row-h-72': { rowHeight: 288 }
 '.row-h-80': { rowHeight: 320 }
+'.row-h-84': { rowHeight: 336 }
+'.row-h-85': { rowHeight: 340 }
+'.row-h-86': { rowHeight: 344 }
 '.row-h-96': { rowHeight: 384 }
 '.row-h-px': { rowHeight: '1px' }
 '.row-h-0.5': { rowHeight: 2 }

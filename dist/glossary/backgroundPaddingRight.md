@@ -14,7 +14,9 @@
 '.bg-padding-r-10[platform=ios]': { backgroundPaddingRight: 40 }
 '.bg-padding-r-11[platform=ios]': { backgroundPaddingRight: 44 }
 '.bg-padding-r-12[platform=ios]': { backgroundPaddingRight: 48 }
+'.bg-padding-r-13[platform=ios]': { backgroundPaddingRight: 52 }
 '.bg-padding-r-14[platform=ios]': { backgroundPaddingRight: 56 }
+'.bg-padding-r-15[platform=ios]': { backgroundPaddingRight: 60 }
 '.bg-padding-r-16[platform=ios]': { backgroundPaddingRight: 64 }
 '.bg-padding-r-20[platform=ios]': { backgroundPaddingRight: 80 }
 '.bg-padding-r-24[platform=ios]': { backgroundPaddingRight: 96 }
@@ -30,6 +32,9 @@
 '.bg-padding-r-64[platform=ios]': { backgroundPaddingRight: 256 }
 '.bg-padding-r-72[platform=ios]': { backgroundPaddingRight: 288 }
 '.bg-padding-r-80[platform=ios]': { backgroundPaddingRight: 320 }
+'.bg-padding-r-84[platform=ios]': { backgroundPaddingRight: 336 }
+'.bg-padding-r-85[platform=ios]': { backgroundPaddingRight: 340 }
+'.bg-padding-r-86[platform=ios]': { backgroundPaddingRight: 344 }
 '.bg-padding-r-96[platform=ios]': { backgroundPaddingRight: 384 }
 '.bg-padding-r-px[platform=ios]': { backgroundPaddingRight: '1px' }
 '.bg-padding-r-0.5[platform=ios]': { backgroundPaddingRight: 2 }

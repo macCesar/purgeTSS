@@ -224,4 +224,11 @@
 '.badge-rose-700': { badgeColor: '#be123c' }
 '.badge-rose-800': { badgeColor: '#9f1239' }
 '.badge-rose-900': { badgeColor: '#881337' }
+'.badge-highlight': { badgeColor: '#ffff00' }
+'.badge-primary-dark': { badgeColor: '#000030' }
+'.badge-primary-solid': { badgeColor: '#10284B' }
+'.badge-primary-transparent': { badgeColor: '#D9002359' }
+'.badge-secondary-dark': { badgeColor: '#000023' }
+'.badge-secondary-solid': { badgeColor: '#13294B' }
+'.badge-secondary-transparent': { badgeColor: '#D913294B' }
 ```

@@ -224,4 +224,11 @@
 '.nav-tint-rose-700': { navTintColor: '#be123c' }
 '.nav-tint-rose-800': { navTintColor: '#9f1239' }
 '.nav-tint-rose-900': { navTintColor: '#881337' }
+'.nav-tint-highlight': { navTintColor: '#ffff00' }
+'.nav-tint-primary-dark': { navTintColor: '#000030' }
+'.nav-tint-primary-solid': { navTintColor: '#10284B' }
+'.nav-tint-primary-transparent': { navTintColor: '#D9002359' }
+'.nav-tint-secondary-dark': { navTintColor: '#000023' }
+'.nav-tint-secondary-solid': { navTintColor: '#13294B' }
+'.nav-tint-secondary-transparent': { navTintColor: '#D913294B' }
 ```

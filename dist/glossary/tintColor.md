@@ -224,4 +224,11 @@
 '.tint-rose-700': { tint: '#be123c', tintColor: '#be123c' }
 '.tint-rose-800': { tint: '#9f1239', tintColor: '#9f1239' }
 '.tint-rose-900': { tint: '#881337', tintColor: '#881337' }
+'.tint-highlight': { tint: '#ffff00', tintColor: '#ffff00' }
+'.tint-primary-dark': { tint: '#000030', tintColor: '#000030' }
+'.tint-primary-solid': { tint: '#10284B', tintColor: '#10284B' }
+'.tint-primary-transparent': { tint: '#D9002359', tintColor: '#D9002359' }
+'.tint-secondary-dark': { tint: '#000023', tintColor: '#000023' }
+'.tint-secondary-solid': { tint: '#13294B', tintColor: '#13294B' }
+'.tint-secondary-transparent': { tint: '#D913294B', tintColor: '#D913294B' }
 ```

@@ -224,4 +224,11 @@
 '.bar-rose-700': { barColor: '#be123c' }
 '.bar-rose-800': { barColor: '#9f1239' }
 '.bar-rose-900': { barColor: '#881337' }
+'.bar-highlight': { barColor: '#ffff00' }
+'.bar-primary-dark': { barColor: '#000030' }
+'.bar-primary-solid': { barColor: '#10284B' }
+'.bar-primary-transparent': { barColor: '#D9002359' }
+'.bar-secondary-dark': { barColor: '#000023' }
+'.bar-secondary-solid': { barColor: '#13294B' }
+'.bar-secondary-transparent': { barColor: '#D913294B' }
 ```

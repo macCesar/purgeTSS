@@ -14,7 +14,9 @@
 '.top-10': { top: 40 }
 '.top-11': { top: 44 }
 '.top-12': { top: 48 }
+'.top-13': { top: 52 }
 '.top-14': { top: 56 }
+'.top-15': { top: 60 }
 '.top-16': { top: 64 }
 '.top-20': { top: 80 }
 '.top-24': { top: 96 }
@@ -30,6 +32,9 @@
 '.top-64': { top: 256 }
 '.top-72': { top: 288 }
 '.top-80': { top: 320 }
+'.top-84': { top: 336 }
+'.top-85': { top: 340 }
+'.top-86': { top: 344 }
 '.top-96': { top: 384 }
 '.top-auto': { top: null }
 '.top-px': { top: '1px' }
@@ -77,7 +82,9 @@
 '.right-10': { right: 40 }
 '.right-11': { right: 44 }
 '.right-12': { right: 48 }
+'.right-13': { right: 52 }
 '.right-14': { right: 56 }
+'.right-15': { right: 60 }
 '.right-16': { right: 64 }
 '.right-20': { right: 80 }
 '.right-24': { right: 96 }
@@ -93,6 +100,9 @@
 '.right-64': { right: 256 }
 '.right-72': { right: 288 }
 '.right-80': { right: 320 }
+'.right-84': { right: 336 }
+'.right-85': { right: 340 }
+'.right-86': { right: 344 }
 '.right-96': { right: 384 }
 '.right-auto': { right: null }
 '.right-px': { right: '1px' }
@@ -140,7 +150,9 @@
 '.bottom-10': { bottom: 40 }
 '.bottom-11': { bottom: 44 }
 '.bottom-12': { bottom: 48 }
+'.bottom-13': { bottom: 52 }
 '.bottom-14': { bottom: 56 }
+'.bottom-15': { bottom: 60 }
 '.bottom-16': { bottom: 64 }
 '.bottom-20': { bottom: 80 }
 '.bottom-24': { bottom: 96 }
@@ -156,6 +168,9 @@
 '.bottom-64': { bottom: 256 }
 '.bottom-72': { bottom: 288 }
 '.bottom-80': { bottom: 320 }
+'.bottom-84': { bottom: 336 }
+'.bottom-85': { bottom: 340 }
+'.bottom-86': { bottom: 344 }
 '.bottom-96': { bottom: 384 }
 '.bottom-auto': { bottom: null }
 '.bottom-px': { bottom: '1px' }
@@ -203,7 +218,9 @@
 '.left-10': { left: 40 }
 '.left-11': { left: 44 }
 '.left-12': { left: 48 }
+'.left-13': { left: 52 }
 '.left-14': { left: 56 }
+'.left-15': { left: 60 }
 '.left-16': { left: 64 }
 '.left-20': { left: 80 }
 '.left-24': { left: 96 }
@@ -219,6 +236,9 @@
 '.left-64': { left: 256 }
 '.left-72': { left: 288 }
 '.left-80': { left: 320 }
+'.left-84': { left: 336 }
+'.left-85': { left: 340 }
+'.left-86': { left: 344 }
 '.left-96': { left: 384 }
 '.left-auto': { left: null }
 '.left-px': { left: '1px' }
@@ -268,7 +288,9 @@
 '.-bottom-10': { bottom: -40 }
 '.-bottom-11': { bottom: -44 }
 '.-bottom-12': { bottom: -48 }
+'.-bottom-13': { bottom: -52 }
 '.-bottom-14': { bottom: -56 }
+'.-bottom-15': { bottom: -60 }
 '.-bottom-16': { bottom: -64 }
 '.-bottom-20': { bottom: -80 }
 '.-bottom-24': { bottom: -96 }
@@ -284,6 +306,9 @@
 '.-bottom-64': { bottom: -256 }
 '.-bottom-72': { bottom: -288 }
 '.-bottom-80': { bottom: -320 }
+'.-bottom-84': { bottom: -336 }
+'.-bottom-85': { bottom: -340 }
+'.-bottom-86': { bottom: -344 }
 '.-bottom-96': { bottom: -384 }
 '.-bottom-px': { bottom: '-1px' }
 '.-bottom-0.5': { bottom: -2 }
@@ -329,7 +354,9 @@
 '.-left-10': { left: -40 }
 '.-left-11': { left: -44 }
 '.-left-12': { left: -48 }
+'.-left-13': { left: -52 }
 '.-left-14': { left: -56 }
+'.-left-15': { left: -60 }
 '.-left-16': { left: -64 }
 '.-left-20': { left: -80 }
 '.-left-24': { left: -96 }
@@ -345,6 +372,9 @@
 '.-left-64': { left: -256 }
 '.-left-72': { left: -288 }
 '.-left-80': { left: -320 }
+'.-left-84': { left: -336 }
+'.-left-85': { left: -340 }
+'.-left-86': { left: -344 }
 '.-left-96': { left: -384 }
 '.-left-px': { left: '-1px' }
 '.-left-0.5': { left: -2 }
@@ -390,7 +420,9 @@
 '.-right-10': { right: -40 }
 '.-right-11': { right: -44 }
 '.-right-12': { right: -48 }
+'.-right-13': { right: -52 }
 '.-right-14': { right: -56 }
+'.-right-15': { right: -60 }
 '.-right-16': { right: -64 }
 '.-right-20': { right: -80 }
 '.-right-24': { right: -96 }
@@ -406,6 +438,9 @@
 '.-right-64': { right: -256 }
 '.-right-72': { right: -288 }
 '.-right-80': { right: -320 }
+'.-right-84': { right: -336 }
+'.-right-85': { right: -340 }
+'.-right-86': { right: -344 }
 '.-right-96': { right: -384 }
 '.-right-px': { right: '-1px' }
 '.-right-0.5': { right: -2 }
@@ -451,7 +486,9 @@
 '.-top-10': { top: -40 }
 '.-top-11': { top: -44 }
 '.-top-12': { top: -48 }
+'.-top-13': { top: -52 }
 '.-top-14': { top: -56 }
+'.-top-15': { top: -60 }
 '.-top-16': { top: -64 }
 '.-top-20': { top: -80 }
 '.-top-24': { top: -96 }
@@ -467,6 +504,9 @@
 '.-top-64': { top: -256 }
 '.-top-72': { top: -288 }
 '.-top-80': { top: -320 }
+'.-top-84': { top: -336 }
+'.-top-85': { top: -340 }
+'.-top-86': { top: -344 }
 '.-top-96': { top: -384 }
 '.-top-px': { top: '-1px' }
 '.-top-0.5': { top: -2 }

@@ -224,4 +224,11 @@
 '.image-touch-feedback-rose-700[platform=android]': { imageTouchFeedbackColor: '#be123c' }
 '.image-touch-feedback-rose-800[platform=android]': { imageTouchFeedbackColor: '#9f1239' }
 '.image-touch-feedback-rose-900[platform=android]': { imageTouchFeedbackColor: '#881337' }
+'.image-touch-feedback-highlight[platform=android]': { imageTouchFeedbackColor: '#ffff00' }
+'.image-touch-feedback-primary-dark[platform=android]': { imageTouchFeedbackColor: '#000030' }
+'.image-touch-feedback-primary-solid[platform=android]': { imageTouchFeedbackColor: '#10284B' }
+'.image-touch-feedback-primary-transparent[platform=android]': { imageTouchFeedbackColor: '#D9002359' }
+'.image-touch-feedback-secondary-dark[platform=android]': { imageTouchFeedbackColor: '#000023' }
+'.image-touch-feedback-secondary-solid[platform=android]': { imageTouchFeedbackColor: '#13294B' }
+'.image-touch-feedback-secondary-transparent[platform=android]': { imageTouchFeedbackColor: '#D913294B' }
 ```

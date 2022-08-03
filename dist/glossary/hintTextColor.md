@@ -224,4 +224,11 @@
 '.hint-text-rose-700': { hintTextColor: '#be123c' }
 '.hint-text-rose-800': { hintTextColor: '#9f1239' }
 '.hint-text-rose-900': { hintTextColor: '#881337' }
+'.hint-text-highlight': { hintTextColor: '#ffff00' }
+'.hint-text-primary-dark': { hintTextColor: '#000030' }
+'.hint-text-primary-solid': { hintTextColor: '#10284B' }
+'.hint-text-primary-transparent': { hintTextColor: '#D9002359' }
+'.hint-text-secondary-dark': { hintTextColor: '#000023' }
+'.hint-text-secondary-solid': { hintTextColor: '#13294B' }
+'.hint-text-secondary-transparent': { hintTextColor: '#D913294B' }
 ```

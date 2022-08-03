@@ -224,4 +224,11 @@
 '.title-rose-700': { titleColor: '#be123c' }
 '.title-rose-800': { titleColor: '#9f1239' }
 '.title-rose-900': { titleColor: '#881337' }
+'.title-highlight': { titleColor: '#ffff00' }
+'.title-primary-dark': { titleColor: '#000030' }
+'.title-primary-solid': { titleColor: '#10284B' }
+'.title-primary-transparent': { titleColor: '#D9002359' }
+'.title-secondary-dark': { titleColor: '#000023' }
+'.title-secondary-solid': { titleColor: '#13294B' }
+'.title-secondary-transparent': { titleColor: '#D913294B' }
 ```
