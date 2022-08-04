@@ -1473,7 +1473,7 @@ function combineAllValues(base, defaultTheme) {
 		delete configFile.theme[value];
 	});
 
-	_.each(allValues, (value, key) => {
+	_.each(allValues, (_value, key) => {
 		delete configFile.theme[key];
 	});
 

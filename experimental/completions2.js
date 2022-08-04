@@ -6,7 +6,6 @@ const _ = require('lodash');
 const path = require('path');
 const chalk = require('chalk');
 const colores = require('../lib/colores').colores;
-const isInstalledGlobally = require('is-installed-globally');
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
 
@@ -44,34 +43,58 @@ if (configOptions) {
 	configOptions.missing = configOptions.missing ?? false;
 }
 
-completions();
-
-function completions(message = 'file created!') {
+function autoBuildTailwindTSS(message = 'file created!') {
 	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/template.tss'), 'utf8');
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8');
 	tailwindStyles += (fs.existsSync(projectConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : `// default config.js file\n`;
 
-	let base = combineDefaultThemeWithConfigFile();
-	let tiCompletionsFileProperties = getProperties();
-	let tiCompletionsWithBaseValues = setBaseValuesToCompletions(tiCompletionsFileProperties, base);
-	saveFile(cwd + '/purgetss/tiCompletionsWithBaseValues.json', JSON.stringify(tiCompletionsWithBaseValues));
+	let baseValues = combineDefaultThemeWithConfigFile();
+	let completionsProrpertiesWithBaseValues = setBaseValuesToProperties(getPropertiesFromTiCompletionsFile(), baseValues);
 
-	tailwindStyles += prrocessCustomRules(processUIElementos(base));
-
-	tailwindStyles += processCompletionsClasses(tiCompletionsWithBaseValues);
+	let titaniumElements = processTitaniumElements(baseValues);
+	tailwindStyles += processCustomRules(titaniumElements);
+	let completionsClasses = processCompletionsClasses(completionsProrpertiesWithBaseValues);
+	tailwindStyles += processCustomClasses();
+	tailwindStyles += completionsClasses;
 
 	if (fs.existsSync(projectConfigJS)) {
 		fs.writeFileSync(cwd + '/purgetss/tailwind-auto.tss', tailwindStyles);
-		fs.writeFileSync(cwd + '/purgetss/tiCompletionsWithBaseValues.json', JSON.stringify(tiCompletionsWithBaseValues));
+		saveFile(cwd + '/purgetss/baseValues.json', JSON.stringify(baseValues, null, 2));
+		saveFile(cwd + '/purgetss/titaniumElements.json', JSON.stringify(titaniumElements, null, 2));
+		fs.writeFileSync(cwd + '/purgetss/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
 		logger.info(chalk.yellow('./purgetss/tailwind-auto.tss'), message);
 	} else {
 		fs.writeFileSync(path.resolve(__dirname, '../dist/tailwind-auto.tss'), tailwindStyles);
 		logger.info(chalk.yellow('./dist/tailwind-auto.tss'), message);
 	}
 }
-exports.completions = completions;
+exports.autoBuildTailwindTSS = autoBuildTailwindTSS;
 
-function prrocessCustomRules(_propertiesOnly) {
+function processCustomClasses() {
+	let tailwindStyles = '';
+	if (Object.keys(configFile.theme).length) {
+		_.each(configFile.theme, (value, key) => {
+			if (key !== 'extend') {
+				tailwindStyles += helpers.customRules(value, key)
+			}
+		});
+	}
+
+
+	return tailwindStyles;
+	// //! Compile @apply properties
+	// let finalTailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
+
+	// if (fs.existsSync(projectsConfigJS)) {
+	// 	fs.writeFileSync(projectsTailwind_TSS, finalTailwindStyles);
+	// 	logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
+	// } else {
+	// 	fs.writeFileSync(srcTailwindTSS, finalTailwindStyles);
+	// 	logger.info(chalk.yellow('./dist/tailwind.tss'), message);
+	// }
+}
+
+function processCustomRules(_propertiesOnly) {
 	let customRules = '\n// Custom Rules\n';
 	_.each(_propertiesOnly, (value, key) => {
 		customRules += helpers.customRules(value.base, key);
@@ -87,13 +110,14 @@ function processCompletionsClasses(_completionsWithBaseValues) {
 		let theClasses = generateCombinedClasses(key, data);
 		if (theClasses) {
 			processedClasses += theClasses;
+			delete configFile.theme[key];
 		}
 	});
 
 	return processedClasses;
 }
 
-function setBaseValuesToCompletions(_allProperties, _base) {
+function setBaseValuesToProperties(_allProperties, _base) {
 	_.each(_allProperties, (data, key) => {
 		let _currentKey = currentKey(key, data);
 		_allProperties[key].base = combineKeys(configFile.theme, _base[_currentKey], key);
@@ -102,24 +126,26 @@ function setBaseValuesToCompletions(_allProperties, _base) {
 	return _allProperties;
 }
 
-function processUIElementos(_base) {
+function processTitaniumElements(_base) {
 	let propertiesOnly = {};
 	_.each(tiCompletionsFile.types, (value, key) => {
 		if (key.includes('Ti.UI.')) {
 			let _key = key.replace('Ti.UI.', '');
 			let combinedKeys = combineKeys(configFile.theme, _base[_key], _key);
 			if (combinedKeys !== {}) {
-				if (!propertiesOnly[_key]) {
+				delete configFile.theme[_key];
+				if (!propertiesOnly[_key] && Object.keys(combinedKeys).length) {
 					propertiesOnly[_key] = {
 						description: value.description,
+						base: combinedKeys
 					};
-					propertiesOnly[_key].base = combinedKeys;
 				}
 			}
 		}
 	});
 
-	saveFile(cwd + '/purgetss/propertiesOnly.json', JSON.stringify(propertiesOnly));
+	saveFile(cwd + '/purgetss/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
+
 	return propertiesOnly;
 }
 
@@ -165,6 +191,7 @@ function combineDefaultThemeWithConfigFile() {
 	}
 
 	removeUnnecesaryValues(themeOrDefaultValues);
+
 	let base = {
 		colors: {},
 		spacing: {},
@@ -250,7 +277,7 @@ function combineKeys(values, base, key) {
 	return (values[key]) ? { ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] };
 }
 
-function getProperties() {
+function getPropertiesFromTiCompletionsFile() {
 	let propertiesOnly = {};
 	_.each(tiCompletionsFile.types, (value, key) => {
 		_.each(value.properties, property => {
@@ -340,12 +367,16 @@ function generateClasses(key, data) {
 
 function processComments(key, data) {
 	let myComments = '';
+
 	if (data.type) {
 		myComments += `\n// Type: ${data.type}`;
 	}
+
 	myComments += `\n// Property: ${key}`;
 
-	if (data.description) myComments += `\n// Description: ${data.description.replace(/\n/g, ' ')}`;
+	if (data.description) {
+		myComments += `\n// Description: ${data.description.replace(/\n/g, ' ')}`;
+	}
 
 	if (data.modules) {
 		myComments += `\n// Component(s): ${data.modules.join(', ')}\n`;
