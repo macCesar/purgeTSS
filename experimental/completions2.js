@@ -49,12 +49,17 @@ function autoBuildTailwindTSS(message = 'file created!') {
 	tailwindStyles += (fs.existsSync(projectConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : `// default config.js file\n`;
 
 	let baseValues = combineDefaultThemeWithConfigFile();
-	let completionsProrpertiesWithBaseValues = setBaseValuesToProperties(getPropertiesFromTiCompletionsFile(), baseValues);
+	let propertiesFromTiCompletionsFile = getPropertiesFromTiCompletionsFile();
+	let completionsProrpertiesWithBaseValues = setBaseValuesToProperties(propertiesFromTiCompletionsFile, baseValues);
 
 	let titaniumElements = processTitaniumElements(baseValues);
-	tailwindStyles += processCustomRules(titaniumElements);
+	let titaniumRules = processTitaniumRules(titaniumElements);
 	let completionsClasses = processCompletionsClasses(completionsProrpertiesWithBaseValues);
-	tailwindStyles += processCustomClasses();
+	let customClasses = processCustomClasses();
+
+	tailwindStyles += titaniumRules;
+	tailwindStyles += customClasses;
+	tailwindStyles += tailwindSpecificClasses();
 	tailwindStyles += completionsClasses;
 
 	if (fs.existsSync(projectConfigJS)) {
@@ -70,8 +75,17 @@ function autoBuildTailwindTSS(message = 'file created!') {
 }
 exports.autoBuildTailwindTSS = autoBuildTailwindTSS;
 
+function tailwindSpecificClasses() {
+	let tailwindStyles = '\n// Tailwind Specific Classes\n';
+	// _.each(configFile.corePlugins, (value, key) => {
+	// 	tailwindStyles += helpers.customRules(value, key);
+	// });
+
+	return tailwindStyles;
+}
+
 function processCustomClasses() {
-	let tailwindStyles = '';
+	let tailwindStyles = '\n// Custom Classes and Extra Ti Elements\n';
 	if (Object.keys(configFile.theme).length) {
 		_.each(configFile.theme, (value, key) => {
 			if (key !== 'extend') {
@@ -94,8 +108,8 @@ function processCustomClasses() {
 	// }
 }
 
-function processCustomRules(_propertiesOnly) {
-	let customRules = '\n// Custom Rules\n';
+function processTitaniumRules(_propertiesOnly) {
+	let customRules = '\n// Titanium Elements\n';
 	_.each(_propertiesOnly, (value, key) => {
 		customRules += helpers.customRules(value.base, key);
 	});
@@ -368,9 +382,9 @@ function generateClasses(key, data) {
 function processComments(key, data) {
 	let myComments = '';
 
-	if (data.type) {
-		myComments += `\n// Type: ${data.type}`;
-	}
+	// if (data.type) {
+	// 	myComments += `\n// Type: ${data.type}`;
+	// }
 
 	myComments += `\n// Property: ${key}`;
 
