@@ -58,7 +58,7 @@ function autoBuildTailwindTSS(message = 'file created!') {
 
 	tailwindStyles += titaniumRules;
 	tailwindStyles += customClasses;
-	tailwindStyles += tailwindSpecificClasses();
+	tailwindStyles += tailwindSpecificClasses(baseValues);
 	tailwindStyles += completionsClasses;
 
 	if (fs.existsSync(projectConfigJS)) {
@@ -73,20 +73,6 @@ function autoBuildTailwindTSS(message = 'file created!') {
 	}
 }
 exports.autoBuildTailwindTSS = autoBuildTailwindTSS;
-
-function tailwindSpecificClasses() {
-	let tailwindStyles = '';
-
-	_.each(configFile.corePlugins, (value, key) => {
-		tailwindStyles += helpers.customRules(value, key);
-	});
-
-	if (tailwindStyles !== '') {
-		return `\n// Tailwind Specific Classes\n${tailwindStyles}`;
-	}
-
-	return '';
-}
 
 function processCustomClasses() {
 	let tailwindStyles = '';
@@ -141,10 +127,14 @@ function processCompletionsClasses(_completionsWithBaseValues) {
 }
 
 function setBaseValuesToProperties(_allProperties, _base) {
+	let allKeys = '';
 	_.each(_allProperties, (data, key) => {
-		_allProperties[key].base = combineKeys(configFile.theme, _base[findBaseKey(key, data)], key);
+		let activeKey = findBaseKey(key, data);
+		allKeys += `${activeKey}, ${key}\n`;
+		_allProperties[key].base = combineKeys(configFile.theme, _base[activeKey], key);
 	});
 
+	saveFile(cwd + '/purgetss/allKeys.txt', allKeys);
 	return _allProperties;
 }
 
@@ -158,8 +148,8 @@ function processTitaniumElements(_base) {
 				delete configFile.theme[_key];
 				if (!propertiesOnly[_key] && Object.keys(combinedKeys).length) {
 					propertiesOnly[_key] = {
+						base: combinedKeys,
 						description: value.description,
-						base: combinedKeys
 					};
 				}
 			}
@@ -171,6 +161,74 @@ function processTitaniumElements(_base) {
 	return propertiesOnly;
 }
 
+function tailwindSpecificClasses({ ..._base }) {
+	let compoundTenplate = require('../lib/templates/tailwind/compoundTenplate.json');
+
+	let compoundClasses = '';
+
+	_.each(compoundTenplate, (value, key) => {
+		compoundClasses += helpers.processProperties(value.description, value.template, value.base ?? { default: _base[key] });
+	});
+
+	compoundClasses += helpers.anchorPoint();
+	compoundClasses += helpers.autocapitalization();
+	compoundClasses += helpers.backgroundLinearGradient();
+	compoundClasses += helpers.backgroundRadialGradient();
+	compoundClasses += helpers.clipMode();
+	compoundClasses += helpers.constraint();
+	compoundClasses += helpers.contentHeightAndWidth();
+	compoundClasses += helpers.debugMode();
+	compoundClasses += helpers.defaultItemTemplate();
+	compoundClasses += helpers.displayCaps();
+	compoundClasses += helpers.draggingType();
+	compoundClasses += helpers.dropShadow();
+	compoundClasses += helpers.editable();
+	compoundClasses += helpers.ellipsize();
+	compoundClasses += helpers.exitOnClose();
+	compoundClasses += helpers.filterAttribute();
+	compoundClasses += helpers.flip();
+	compoundClasses += helpers.fontStyle();
+	compoundClasses += helpers.gridColumnsRowsStartEnd();
+	compoundClasses += helpers.gridFlow();
+	compoundClasses += helpers.gridSystem();
+	compoundClasses += helpers.items();
+	compoundClasses += helpers.navigationMode();
+	compoundClasses += helpers.orientationModes();
+	compoundClasses += helpers.placement();
+	compoundClasses += helpers.preventDefaultImage();
+	compoundClasses += helpers.progressBarStyle();
+	compoundClasses += helpers.scrollIndicators();
+	compoundClasses += helpers.scrollsToTop();
+	compoundClasses += helpers.scrollType();
+	compoundClasses += helpers.selectionStyle();
+	compoundClasses += helpers.showAsAction();
+	compoundClasses += helpers.statusBarStyle();
+	compoundClasses += helpers.theme();
+	compoundClasses += helpers.titleAttributesShadow();
+	compoundClasses += helpers.touchEnabled();
+	compoundClasses += helpers.viewShadow();
+
+	compoundClasses += helpers.borderRadius(_base.borderRadius);
+	compoundClasses += helpers.borderWidth(_base.borderWidth);
+	compoundClasses += helpers.fontFamily(_base.fontFamily);
+	compoundClasses += helpers.fontWeight(_base.fontWeight);
+	compoundClasses += helpers.fontSize(_base.fontSize);
+	compoundClasses += helpers.minimumFontSize(_base.fontSize);
+	compoundClasses += helpers.negativeRotate(_base.rotate);
+	compoundClasses += helpers.gap(_base.margin);
+	compoundClasses += helpers.padding(_base.padding);
+
+	// colors
+	compoundClasses += helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor'));
+	compoundClasses += helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient'));
+	compoundClasses += helpers.backgroundSelectedColor(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedColor'));
+	compoundClasses += helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient'));
+	compoundClasses += helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor'));
+	compoundClasses += helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor'));
+
+	return compoundClasses;
+}
+
 function findBaseKey(_key, _data) {
 	if (_key.includes('color') || _key.includes('Color')) {
 		return 'colors';
@@ -178,13 +236,15 @@ function findBaseKey(_key, _data) {
 		return 'spacing';
 	} else if (_key === 'duration' || _key === 'timeout' || _key.includes('Timeout')) {
 		return 'delay';
+	} else if (_key === 'pagingControlAlpha') {
+		return 'opacity';
 	} else if (_key === 'lines' || _key === 'columnCount' || _key === 'rowCount' || _key === 'repeatCount' || _key === 'maxLines') {
 		return 'count'; // 1-12
-	} else if (_key === 'activeTab' || _key === 'cacheSize' || _key === 'borderWidth') {
+	} else if (_key === 'activeTab' || _key === 'cacheSize') {
 		return 'repeat'; // 0-12
 	} else if ((_key.includes('scale') || (_key.includes('Scale')) && _data.type !== 'Boolean')) {
 		return 'scale';
-	} else if (_key === 'separatorHeight' || _key.includes('RowHeight') || _key === 'rowHeight' || _key === 'elevation' || _key === 'maxElevation' || _key === 'indentionLevel' || _key === 'keyboardToolbarHeight' || _key === 'maximumLineHeight' || _key === 'yOffset' || _key === 'xOffset' || _key === 'pagingControlHeight' || _key === 'pageWidth' || _key === 'pageHeight' || _key === 'uprightWidth' || _key === 'uprightHeight' || _key === 'backgroundLeftCap' || _key === 'backgroundTopCap' || _key === 'contentWidth' || _key === 'contentHeight' || ((_key.includes('Padding') || _key.includes('padding') || _key == 'leftTrackLeftCap' || _key == 'leftTrackTopCap' || _key == 'rightTrackLeftCap' || _key == 'rightTrackTopCap') && _data.type !== 'Boolean')) {
+	} else if (_key === 'shadowRadius' || _key === 'separatorHeight' || _key.includes('RowHeight') || _key === 'rowHeight' || _key === 'elevation' || _key === 'maxElevation' || _key === 'indentionLevel' || _key === 'keyboardToolbarHeight' || _key === 'maximumLineHeight' || _key === 'yOffset' || _key === 'xOffset' || _key === 'pagingControlHeight' || _key === 'pageWidth' || _key === 'pageHeight' || _key === 'uprightWidth' || _key === 'uprightHeight' || _key === 'backgroundLeftCap' || _key === 'backgroundTopCap' || _key === 'contentWidth' || _key === 'contentHeight' || ((_key.includes('Padding') || _key.includes('padding') || _key == 'leftTrackLeftCap' || _key == 'leftTrackTopCap' || _key == 'rightTrackLeftCap' || _key == 'rightTrackTopCap') && _data.type !== 'Boolean')) {
 		return 'noFractions';
 	} else if (_key == 'top' || _key == 'bottom' || _key == 'left' || _key == 'right') {
 		return 'margin';
@@ -215,6 +275,7 @@ function combineDefaultThemeWithConfigFile() {
 		height: configFile.theme.height ?? allHeightsCombined,
 		spacing: configFile.theme.spacing ?? allSpacingCombined,
 		fontSize: configFile.theme.spacing ?? defaultTheme.fontSize,
+		minimumFontSize: configFile.theme.spacing ?? defaultTheme.minimumFontSize,
 		colors: configFile.theme.colors ?? { transparent: 'transparent', ...defaultColors },
 	}
 
@@ -226,12 +287,13 @@ function combineDefaultThemeWithConfigFile() {
 		spacing: {},
 		width: {},
 		height: {},
-		rotate: defaultTheme.rotate,
+		rotate: combineKeys(configFile.theme, defaultTheme.rotate, 'rotate'),
 		zIndex: defaultTheme.zIndex,
 		opacity: defaultTheme.opacity,
-		fontSize: { ...themeOrDefaultValues.fontSize, ...configFile.theme.extend.spacing, ...configFile.theme.extend.fontSize },
 		fontWeight: defaultTheme.fontWeight,
-		borderWidth: defaultTheme.borderWidth,
+		borderWidth: combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth'),
+		fontSize: { ...themeOrDefaultValues.fontSize, ...configFile.theme.extend.spacing, ...configFile.theme.extend.fontSize },
+		minimumFontSize: { ...themeOrDefaultValues.minimumFontSize, ...configFile.theme.extend.spacing, ...configFile.theme.extend.minimumFontSize },
 		verticalMargin: { top: '-0.5', bottom: '0.5', middle: '0' },
 		horizontalMargin: { left: '-0.5', right: '0.5', center: '0' },
 		scale: { ...{ 1: '0.01', 5: '0.05', 10: '0.10', 25: '0.25' }, ...defaultTheme.scale },
@@ -248,15 +310,27 @@ function combineDefaultThemeWithConfigFile() {
 	fixPercentages(base.width);
 	fixPercentages(base.height);
 	fixPercentages(base.spacing);
-	fixfontSize(base.fontSize);
+	// fixfontSize(base.fontSize);
 
 	//! Extras...
 	base.transitionDuration = { ...base.delay, ...defaultTheme.transitionDuration };
-	base.borderRadius = helpers.integersInHalf(helpers.removeFractions((configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, ['full', 'auto', 'screen']));
+	base.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily');
+	base.fontSize = combineKeys(configFile.theme, base.fontSize, 'fontSize');
+	base.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight');
+	base.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
+
 	base.margin = combineKeys(configFile.theme, base.spacing, 'margin');
+	base.padding = combineKeys(configFile.theme, base.spacing, 'padding');
 	base.countDownDuration = { ...base.delay, ...defaultTheme.transitionDuration };
 	base.noFractions = helpers.removeFractions(base.spacing, ['full', 'auto', 'screen']);
+	base.minimumFontSize = combineKeys(configFile.theme, base.fontSize, 'minimumFontSize');
+
+	// combineKeys(configFile.theme, (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius');
+	base.borderRadius = helpers.integersInHalf(helpers.removeFractions((configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, ['full', 'auto', 'screen']));
+
+	delete configFile.theme.fontFamily;
 	delete base.margin.screen;
+	delete base.zIndex.auto;
 
 	//! Process custom Window, View and ImageView
 	base.Window = (configFile.theme.Window && configFile.theme.Window.apply)
@@ -322,11 +396,13 @@ function getPropertiesFromTiCompletionsFile() {
 	_.each(tiCompletionsFile.types, (value, key) => {
 		_.each(value.properties, property => {
 			if (validTypesOnly(property, key)) {
-				if (!propertiesOnly[property]) {
-					propertiesOnly[property] = tiCompletionsFile.properties[property];
-					propertiesOnly[property].modules = [];
+				if (property !== 'textColor' && property !== 'orientationModes' && property !== 'fontFamily' && property !== 'fontSize' && property !== 'fontWeight' && property !== 'minimumFontSize' && property !== 'borderWidth') {
+					if (!propertiesOnly[property]) {
+						propertiesOnly[property] = tiCompletionsFile.properties[property];
+						propertiesOnly[property].modules = [];
+					}
+					propertiesOnly[property].modules.push(key);
 				}
-				propertiesOnly[property].modules.push(key);
 			}
 		});
 	});
