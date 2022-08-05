@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Switch
 // Property(ies): onTintColor - iOS Only
+// Component(s): Ti.UI.Switch
 '.on-tint-transparent[platform=ios]': { onTintColor: 'transparent' }
 '.on-tint-black[platform=ios]': { onTintColor: '#000000' }
 '.on-tint-white[platform=ios]': { onTintColor: '#ffffff' }

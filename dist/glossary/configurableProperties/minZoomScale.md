@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ScrollView
 // Property(ies): minZoomScale
+// Component(s): Ti.UI.ScrollView
 '.min-zoom-scale-0[platform=ios]': { minZoomScale: '0' }
 '.min-zoom-scale-1[platform=ios]': { minZoomScale: '.01' }
 '.min-zoom-scale-5[platform=ios]': { minZoomScale: '.05' }

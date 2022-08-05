@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): elevation - Box Shadow Effect in Tailwind - Android Only
+// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 '.shadow-xs[platform=android]': { elevation: 4 }
 '.shadow-sm[platform=android]': { elevation: 8 }
 '.shadow[platform=android]': { elevation: 16 }
@@ -12,8 +12,8 @@
 '.shadow-outline[platform=android]': { elevation: 16 }
 '.shadow-none[platform=android]': { elevation: 0 }
 
-// Component(s): Ti.UI.View
 // Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow Effect in Tailwind - iOS Only
+// Component(s): Ti.UI.View
 '.shadow-xs[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
 '.shadow-sm[platform=ios]': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000' }
 '.shadow[platform=ios]': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }

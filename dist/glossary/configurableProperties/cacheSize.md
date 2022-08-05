@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): cacheSize
+// Component(s): Ti.UI.ScrollableView
 '.cache-size-0': { cacheSize: 0 }
 '.cache-size-1': { cacheSize: 1 }
 '.cache-size-2': { cacheSize: 2 }

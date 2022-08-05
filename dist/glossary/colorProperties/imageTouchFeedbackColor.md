@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ImageView
 // Property(ies): imageTouchFeedbackColor - Android Only
+// Component(s): Ti.UI.ImageView
 '.image-touch-feedback-transparent[platform=android]': { imageTouchFeedbackColor: 'transparent' }
 '.image-touch-feedback-black[platform=android]': { imageTouchFeedbackColor: '#000000' }
 '.image-touch-feedback-white[platform=android]': { imageTouchFeedbackColor: '#ffffff' }

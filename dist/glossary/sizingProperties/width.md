@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
 // Property(ies): width
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
 '.w-0': { width: 0 }
 '.w-1': { width: 4 }
 '.w-2': { width: 8 }

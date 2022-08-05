@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI, Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.Tab, Ti.UI.TableView, Ti.UI.View, Ti.UI.Window
 // Property(ies): backgroundColor
+// Component(s): Ti.UI, Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.Tab, Ti.UI.TableView, Ti.UI.View, Ti.UI.Window
 '.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000000' }
 '.bg-white': { backgroundColor: '#ffffff' }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): currentPageIndicatorColor - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.current-page-indicator-transparent': { currentPageIndicatorColor: 'transparent' }
 '.current-page-indicator-black': { currentPageIndicatorColor: '#000000' }
 '.current-page-indicator-white': { currentPageIndicatorColor: '#ffffff' }

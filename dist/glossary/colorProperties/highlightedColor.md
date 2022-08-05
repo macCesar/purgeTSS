@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Label
 // Property(ies): highlightedColor
+// Component(s): Ti.UI.Label
 '.highlighted-transparent': { highlightedColor: 'transparent' }
 '.highlighted-black': { highlightedColor: '#000000' }
 '.highlighted-white': { highlightedColor: '#ffffff' }

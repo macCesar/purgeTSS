@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Animation, Ti.UI.ImageView
 // Property(ies): duration
+// Component(s): Ti.UI.Animation, Ti.UI.ImageView
 '.duration-0': { duration: 0 }
 '.duration-25': { duration: 25 }
 '.duration-50': { duration: 50 }

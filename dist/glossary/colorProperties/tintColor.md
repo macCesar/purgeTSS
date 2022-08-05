@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ImageView, Ti.UI.iOS.Stepper, Ti.UI.ProgressBar, Ti.UI.RefreshControll, Ti.UI.Slider, Ti.UI.Switch, and `tint` for Ti.UI.MaskedImage
 // Property(ies): tint and tintColor
+// Component(s): Ti.UI, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ImageView, Ti.UI.iOS.Stepper, Ti.UI.ProgressBar, Ti.UI.RefreshControll, Ti.UI.Slider, Ti.UI.Switch, and `tint` for Ti.UI.MaskedImage
 '.tint-transparent': { tint: 'transparent', tintColor: 'transparent' }
 '.tint-black': { tint: '#000000', tintColor: '#000000' }
 '.tint-white': { tint: '#ffffff', tintColor: '#ffffff' }

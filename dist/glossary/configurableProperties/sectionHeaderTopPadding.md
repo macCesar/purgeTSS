@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): sectionHeaderTopPadding - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.section-header-top-padding-0[platform=ios]': { sectionHeaderTopPadding: 0 }
 '.section-header-top-padding-1[platform=ios]': { sectionHeaderTopPadding: 4 }
 '.section-header-top-padding-2[platform=ios]': { sectionHeaderTopPadding: 8 }

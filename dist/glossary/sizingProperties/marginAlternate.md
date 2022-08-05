@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.top-0': { top: 0 }
 '.top-1': { top: 4 }
 '.top-2': { top: 8 }
@@ -254,8 +254,8 @@
 '.left-11/12': { left: '91.666667%' }
 '.left-full': { left: '100%' }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left ( Negative )
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.-bottom-1': { bottom: -4 }
 '.-bottom-2': { bottom: -8 }
 '.-bottom-3': { bottom: -12 }

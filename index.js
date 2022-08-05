@@ -1523,7 +1523,7 @@ function buildCustomTailwind(message = 'file created!') {
 			let theClasses = helperToBuildCustomTailwindClasses(key, value);
 
 			if (destinationFolder) {
-				fs.writeFileSync(`${destinationFolder}/${key}.md`, '```scss' + theClasses + '```');
+				// fs.writeFileSync(`${destinationFolder}/${key}.md`, '```scss' + theClasses + '```');
 			}
 
 			//

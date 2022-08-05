@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Animation
 // Property(ies): delay
+// Component(s): Ti.UI.Animation
 '.delay-0': { delay: 0 }
 '.delay-25': { delay: 25 }
 '.delay-50': { delay: 50 }

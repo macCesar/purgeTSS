@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Tab, Ti.UI.View
 // Property(ies): backgroundFocusedColor - Android Only
+// Component(s): Ti.UI.Tab, Ti.UI.View
 '.bg-focused-transparent[platform=android]': { backgroundFocusedColor: 'transparent' }
 '.bg-focused-black[platform=android]': { backgroundFocusedColor: '#000000' }
 '.bg-focused-white[platform=android]': { backgroundFocusedColor: '#ffffff' }

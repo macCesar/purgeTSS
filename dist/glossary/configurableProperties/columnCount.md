@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.DashboardView
 // Property(ies): columnCount - iOS Only
+// Component(s): Ti.UI.DashboardView
 '.col-count-1[platform=ios]': { columnCount: 1 }
 '.col-count-2[platform=ios]': { columnCount: 2 }
 '.col-count-3[platform=ios]': { columnCount: 3 }

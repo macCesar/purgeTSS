@@ -1,6 +1,6 @@
 ```scss
-// Component(s): MatrixCreationDict
 // Property(ies): scale
+// Component(s): MatrixCreationDict
 '.scale-0': { scale: '0' }
 '.scale-1': { scale: '.01' }
 '.scale-5': { scale: '.05' }

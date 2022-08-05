@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.View
 // Property(ies): borderWidth
+// Component(s): Ti.UI.View
 '.border-0': { borderWidth: 0 }
 '.border-1': { borderWidth: 1 }
 '.border-2': { borderWidth: 2 }

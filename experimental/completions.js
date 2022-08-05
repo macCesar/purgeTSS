@@ -443,7 +443,7 @@ function mergeWithConfigFile(configThemeFile, base, _configFile, defaultTheme) {
 	configThemeFile.colorProperties = {};
 
 	let tiCompletionsFileProperties = getProperties(tiCompletionsFile.types);
-	_.each(tiCompletionsFileProperties, (data, key) => {
+	_.each(tiCompletionsFileProperties, (_data, key) => {
 		if (key.includes('Color') || key.includes('color')) {
 			configThemeFile[key] = combineKeys(_configFile.theme, base.colors, key);
 			tiCompletionsFileProperties[key].values = combineKeys(_configFile.theme, base.colors, key);
@@ -625,8 +625,8 @@ function processProperties(tiCompletionsFileProperties, configThemeFile) {
 	return generatedClasses;
 }
 
-function getFileUpdatedDate(path) {
-	return fs.statSync(path).mtime;
+function getFileUpdatedDate(_path) {
+	return fs.statSync(_path).mtime;
 }
 
 function saveFile(file, data) {

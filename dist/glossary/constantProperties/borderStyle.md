@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Picker[android], Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): borderStyle
+// Component(s): Ti.UI.Picker[android], Ti.UI.TextArea, Ti.UI.TextField
 '.border-style-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
 '.border-style-filled': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
 '.border-style-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }

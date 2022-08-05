@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.MaskedImage
 // Property(ies): mode ( Background Blend Mode )
+// Component(s): Ti.UI.MaskedImage
 '.bg-blend-clear': { mode: Ti.UI.BLEND_MODE_CLEAR }
 '.bg-blend-copy': { mode: Ti.UI.BLEND_MODE_COPY }
 '.bg-blend-darken': { mode: Ti.UI.BLEND_MODE_DARKEN }

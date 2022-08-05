@@ -28,7 +28,6 @@ const logger = {
 
 const helpers = require('../lib/helpers');
 const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json');
-// const alloyCompletionsFile = require('../lib/completions/alloy/completions-v3.json');
 const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js');
 
 const configFile = (fs.existsSync(projectConfigJS)) ? require(projectConfigJS) : require(srcConfigFile);
@@ -143,8 +142,7 @@ function processCompletionsClasses(_completionsWithBaseValues) {
 
 function setBaseValuesToProperties(_allProperties, _base) {
 	_.each(_allProperties, (data, key) => {
-		let _currentKey = currentKey(key, data);
-		_allProperties[key].base = combineKeys(configFile.theme, _base[_currentKey], key);
+		_allProperties[key].base = combineKeys(configFile.theme, _base[findBaseKey(key, data)], key);
 	});
 
 	return _allProperties;
@@ -173,21 +171,27 @@ function processTitaniumElements(_base) {
 	return propertiesOnly;
 }
 
-function currentKey(_key, _data) {
-	if (_key.includes('Color') || _key.includes('color')) {
+function findBaseKey(_key, _data) {
+	if (_key.includes('color') || _key.includes('Color')) {
 		return 'colors';
-	} else if (_key.includes('Spacing') || _key.includes('spacing') || _key.includes('backgroundLeftCap') || _key.includes('backgroundTopCap') || _key.includes('uprightWidth') || _key.includes('uprightHeight') || _key.includes('pageWidth') || _key.includes('pageHeight') || ((_key.includes('Padding') || _key.includes('padding')) && _data.type !== 'Boolean')) {
+	} else if (_key.includes('spacing') || _key.includes('Spacing')) {
 		return 'spacing';
-	} else if (_key.includes('borderWidth')) {
-		return 'columns';
-	} else if (_key.includes('Height') || _key.includes('height')) {
-		return 'height';
-	} else if (_key.includes('Width') || _key.includes('width')) {
-		return 'width';
-	} else if ((_key.includes('Scale') || (_key.includes('scale')) && _data.type !== 'Boolean')) {
+	} else if (_key === 'duration' || _key === 'timeout' || _key.includes('Timeout')) {
+		return 'delay';
+	} else if (_key === 'lines' || _key === 'columnCount' || _key === 'rowCount' || _key === 'repeatCount' || _key === 'maxLines') {
+		return 'count'; // 1-12
+	} else if (_key === 'activeTab' || _key === 'cacheSize' || _key === 'borderWidth') {
+		return 'repeat'; // 0-12
+	} else if ((_key.includes('scale') || (_key.includes('Scale')) && _data.type !== 'Boolean')) {
 		return 'scale';
-	} else if (_key == 'top' || _key == 'bottom' || _key == 'left' || _key == 'right' || _key == 'leftTrackImage' || _key == 'leftTrackLeftCap' || _key == 'leftTrackTopCap' || _key == 'rightTrackImage' || _key == 'rightTrackLeftCap' || _key == 'rightTrackTopCap') {
+	} else if (_key === 'separatorHeight' || _key.includes('RowHeight') || _key === 'rowHeight' || _key === 'elevation' || _key === 'maxElevation' || _key === 'indentionLevel' || _key === 'keyboardToolbarHeight' || _key === 'maximumLineHeight' || _key === 'yOffset' || _key === 'xOffset' || _key === 'pagingControlHeight' || _key === 'pageWidth' || _key === 'pageHeight' || _key === 'uprightWidth' || _key === 'uprightHeight' || _key === 'backgroundLeftCap' || _key === 'backgroundTopCap' || _key === 'contentWidth' || _key === 'contentHeight' || ((_key.includes('Padding') || _key.includes('padding') || _key == 'leftTrackLeftCap' || _key == 'leftTrackTopCap' || _key == 'rightTrackLeftCap' || _key == 'rightTrackTopCap') && _data.type !== 'Boolean')) {
+		return 'noFractions';
+	} else if (_key == 'top' || _key == 'bottom' || _key == 'left' || _key == 'right') {
 		return 'margin';
+	} else if ((_key.includes('height') || _key.includes('Height')) && _key !== 'platformHeight') {
+		return 'height';
+	} else if ((_key.includes('width') || _key.includes('Width')) && _key !== 'platformWidth') {
+		return 'width';
 	}
 
 	return _key;
@@ -215,6 +219,7 @@ function combineDefaultThemeWithConfigFile() {
 	}
 
 	removeUnnecesaryValues(themeOrDefaultValues);
+	fixDefaultScale(defaultTheme.scale);
 
 	let base = {
 		colors: {},
@@ -229,9 +234,10 @@ function combineDefaultThemeWithConfigFile() {
 		borderWidth: defaultTheme.borderWidth,
 		verticalMargin: { top: '-0.5', bottom: '0.5', middle: '0' },
 		horizontalMargin: { left: '-0.5', right: '0.5', center: '0' },
-		scale: { ...{ 1: '01', 5: '.05', 10: '.10', 25: '.25' }, ...defaultTheme.scale },
-		columns: { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12 },
-		delay: { 0: '0ms', 25: '25ms', 50: '50ms', 250: '250ms', 350: '350ms', 400: '400ms', 450: '450ms', 600: '600ms', 800: '800ms', 900: '900ms', 2000: '2000ms', 3000: '3000ms', 4000: '4000ms', 5000: '5000ms' }
+		scale: { ...{ 1: '0.01', 5: '0.05', 10: '0.10', 25: '0.25' }, ...defaultTheme.scale },
+		repeat: { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12 },
+		count: { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12 },
+		delay: { ...{ 0: '0ms', 25: '25ms', 50: '50ms', 250: '250ms', 350: '350ms', 400: '400ms', 450: '450ms', 600: '600ms', 800: '800ms', 900: '900ms', 2000: '2000ms', 3000: '3000ms', 4000: '4000ms', 5000: '5000ms' }, ...defaultTheme.transitionDelay }
 	};
 
 	_.merge(base.colors, themeOrDefaultValues.colors, configFile.theme.extend.colors);
@@ -242,12 +248,14 @@ function combineDefaultThemeWithConfigFile() {
 	fixPercentages(base.width);
 	fixPercentages(base.height);
 	fixPercentages(base.spacing);
+	fixfontSize(base.fontSize);
 
 	//! Extras...
-	base.transitionDelay = { ...base.delay, ...defaultTheme.transitionDelay };
 	base.transitionDuration = { ...base.delay, ...defaultTheme.transitionDuration };
 	base.borderRadius = helpers.integersInHalf(helpers.removeFractions((configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, ['full', 'auto', 'screen']));
 	base.margin = combineKeys(configFile.theme, base.spacing, 'margin');
+	base.countDownDuration = { ...base.delay, ...defaultTheme.transitionDuration };
+	base.noFractions = helpers.removeFractions(base.spacing, ['full', 'auto', 'screen']);
 	delete base.margin.screen;
 
 	//! Process custom Window, View and ImageView
@@ -297,6 +305,14 @@ function fixPercentages(theObject) {
 	});
 }
 
+function fixfontSize(theObject) {
+	_.each(theObject, value => {
+		if (value.length > 1) {
+			value.pop();
+		}
+	});
+}
+
 function combineKeys(values, base, key) {
 	return (values[key]) ? { ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] };
 }
@@ -337,29 +353,14 @@ function validTypesOnly(property, key) {
 		|| tiCompletionsFile.properties[property].type === 'String';
 }
 
-function validType(data) {
-	return data.type === 'Boolean'
-		|| data.type === 'Point'
-		|| data.type === 'Number'
-		|| data.type === 'Array'
-		|| data.type === 'String';
-}
-
-function generateClasses(key, data) {
-	let myClasses = '';
-	let comments = processComments(key, data);
-
-	_.each(data.values, (value, _key) => {
-		if (!value.includes('deprecated')) {
-			myClasses += formatClass(key, value);
+function fixDefaultScale(values) {
+	_.each(values, (value, key) => {
+		if (value.startsWith('.')) {
+			values[key] = '0' + value;
 		}
 	});
 
-	if (myClasses) {
-		return comments + myClasses;
-	}
-
-	return false;
+	return values;
 }
 
 function processComments(key, data) {
@@ -434,13 +435,13 @@ function formatClassName(property, value) {
 function removeUneededVariables(property) {
 	return Array.from(new Set(property.split('-')))
 		.join('-')
-		.replace('-bottom-', '-b-')
 		.replace('-calendar-', '-')
 		.replace('-default', '')
-		.replace('-left-', '-l-')
+		// .replace('-bottom-', '-b-')
+		// .replace('-right-', '-r-')
+		// .replace('-top-', '-t-')
+		// .replace('-left-', '-l-')
 		.replace('-margin', '')
-		.replace('-right-', '-r-')
-		.replace('-top-', '-t-')
 		.replace('-true', '')
 		.replace('align-alignment-', '')
 		.replace('autolink', '')
@@ -453,6 +454,7 @@ function removeUneededVariables(property) {
 		.replace('font-size', 'text')
 		.replace('height-', 'h-')
 		.replace('layout-', '')
+		.replace('column-', 'col-')
 		.replace('recurrencefrequency', 'recurrence')
 		.replace('returnkey-', '')
 		.replace('style-activity-indicator', 'activity-indicator-style')

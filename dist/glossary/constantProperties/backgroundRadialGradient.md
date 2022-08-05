@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundGradient: type, startRadius, endRadius, backfillStart, backfillEnd - iOS Only
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.bg-radial[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '125%', endRadius: '0%' } }
 '.bg-radial-to-b[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '0%' }, endPoint: { x: '50%', y: '0%' } } }
 '.bg-radial-to-bl[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '100%', y: '0%' } } }

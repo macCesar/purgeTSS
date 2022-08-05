@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): keyboardType
+// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-type': { keyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.keyboard-type-ascii': { keyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.keyboard-type-decimal-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }

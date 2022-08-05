@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Window
 // Property(ies): theme - Android Only
+// Component(s): Ti.UI.Window
 '.theme-titanium[platform=android]': { theme: "Theme.Titanium" }
 '.theme-titanium-day-night[platform=android]': { theme: "Theme.Titanium.DayNight" }
 '.theme-titanium-day-night-no-title-bar[platform=android]': { theme: "Theme.Titanium.DayNight.NoTitleBar" }

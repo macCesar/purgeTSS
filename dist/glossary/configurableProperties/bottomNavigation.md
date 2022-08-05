@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup, Ti.UI.ScrollableView
 // Property(ies): padding, paddingTop, paddingLeft, paddingRight, paddingBottom - Android Only
+// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup, Ti.UI.ScrollableView
 '.padding-0[platform=android]': { padding: 0 }
 '.padding-1[platform=android]': { padding: 4 }
 '.padding-2[platform=android]': { padding: 8 }

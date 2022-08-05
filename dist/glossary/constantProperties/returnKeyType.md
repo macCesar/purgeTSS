@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.AlertDialog, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): returnKeyType
+// Component(s): Ti.UI.AlertDialog, Ti.UI.TextArea, Ti.UI.TextField
 '.return-key-type': { returnKeyType: Ti.UI.RETURNKEY_DEFAULT }
 '.return-key-type-go': { returnKeyType: Ti.UI.RETURNKEY_GO }
 '.return-key-type-done': { returnKeyType: Ti.UI.RETURNKEY_DONE }

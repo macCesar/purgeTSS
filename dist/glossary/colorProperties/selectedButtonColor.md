@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.SearchBar
 // Property(ies): selectedButtonColor - iOS Only
+// Component(s): Ti.UI.SearchBar
 '.selected-button-transparent[platform=ios]': { selectedButtonColor: 'transparent' }
 '.selected-button-black[platform=ios]': { selectedButtonColor: '#000000' }
 '.selected-button-white[platform=ios]': { selectedButtonColor: '#ffffff' }

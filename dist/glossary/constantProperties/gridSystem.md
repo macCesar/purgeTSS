@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 // Property(ies): width - For Grid Template Columns
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.grid-cols-1': { width: '100%' }
 '.grid-cols-2': { width: '50%' }
 '.grid-cols-3': { width: '33.333334%' }
@@ -14,8 +14,8 @@
 '.grid-cols-11': { width: '9.090909%' }
 '.grid-cols-12': { width: '8.333334%' }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 // Property(ies): height - For Grid Template Rows
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.grid-rows-1': { height: '100%' }
 '.grid-rows-2': { height: '50%' }
 '.grid-rows-3': { height: '33.333334%' }

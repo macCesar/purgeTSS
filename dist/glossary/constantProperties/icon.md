@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ShortcutItem
 // Property(ies): icon - iOS Only
+// Component(s): Ti.UI.ShortcutItem
 '.shortcut-icon-type-add[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_ADD' }
 '.shortcut-icon-type-alarm[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_ALARM' }
 '.shortcut-icon-type-audio[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_AUDIO' }
@@ -31,8 +31,8 @@
 '.shortcut-icon-type-time[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_TIME' }
 '.shortcut-icon-type-update[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_UPDATE' }
 
-// Component(s): Ti.Android.R
 // Property(ies): icon - Android Only
+// Component(s): Ti.Android.R
 '.r-drawable-alert-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_dark_frame }
 '.r-drawable-alert-light-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_light_frame }
 '.r-drawable-arrow-down-float[platform=android]': { icon: Ti.Android.R.drawable.arrow_down_float }

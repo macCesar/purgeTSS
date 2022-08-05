@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlHeight - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-h-0[platform=ios]': { pagingControlHeight: 0 }
 '.paging-control-h-1[platform=ios]': { pagingControlHeight: 4 }
 '.paging-control-h-2[platform=ios]': { pagingControlHeight: 8 }

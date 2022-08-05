@@ -1,6 +1,6 @@
 ```scss
-// Component(s): For the Animation Component
 // Property(ies): rotate
+// Component(s): For the Animation Component
 '.rotate-0': { rotate: 0 }
 '.rotate-1': { rotate: 1 }
 '.rotate-2': { rotate: 2 }
@@ -11,8 +11,8 @@
 '.rotate-90': { rotate: 90 }
 '.rotate-180': { rotate: 180 }
 
-// Component(s): For the Animation Component
 // Property(ies): rotate ( Negative values )
+// Component(s): For the Animation Component
 '.-rotate-0': { rotate: 0 }
 '.-rotate-1': { rotate: -1 }
 '.-rotate-2': { rotate: -2 }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ActivityIndicator
 // Property(ies): keyboardToolbarColor - iOS Only
+// Component(s): Ti.UI.ActivityIndicator
 '.keyboard-toolbar-transparent[platform=ios]': { keyboardToolbarColor: 'transparent' }
 '.keyboard-toolbar-black[platform=ios]': { keyboardToolbarColor: '#000000' }
 '.keyboard-toolbar-white[platform=ios]': { keyboardToolbarColor: '#ffffff' }

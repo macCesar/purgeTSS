@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.Android.Intent
 // Property(ies): flags - Android Only
+// Component(s): Ti.Android.Intent
 '.flag-activity-brought-to-front[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
 '.flag-activity-clear-top[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
 '.flag-activity-clear-when-task-reset[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ScrollView
 // Property(ies): contentWidth
+// Component(s): Ti.UI.ScrollView
 '.content-w-0': { contentWidth: 0 }
 '.content-w-1': { contentWidth: 4 }
 '.content-w-2': { contentWidth: 8 }

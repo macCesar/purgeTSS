@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): autofillType
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.autofill-type-url': { autofillType: Ti.UI.AUTOFILL_TYPE_URL }
 '.autofill-type-name': { autofillType: Ti.UI.AUTOFILL_TYPE_NAME }
 '.autofill-type-phone': { autofillType: Ti.UI.AUTOFILL_TYPE_PHONE }

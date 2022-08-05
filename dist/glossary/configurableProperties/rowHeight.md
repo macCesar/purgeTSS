@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TableView
 // Property(ies): rowHeight
+// Component(s): Ti.UI.TableView
 '.row-h-0': { rowHeight: 0 }
 '.row-h-1': { rowHeight: 4 }
 '.row-h-2': { rowHeight: 8 }

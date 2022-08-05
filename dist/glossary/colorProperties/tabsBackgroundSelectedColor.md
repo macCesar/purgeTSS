@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TabGroup
 // Property(ies): tabsBackgroundSelectedColor - Android Only
+// Component(s): Ti.UI.TabGroup
 '.tabs-bg-selected-transparent[platform=android]': { tabsBackgroundSelectedColor: 'transparent' }
 '.tabs-bg-selected-black[platform=android]': { tabsBackgroundSelectedColor: '#000000' }
 '.tabs-bg-selected-white[platform=android]': { tabsBackgroundSelectedColor: '#ffffff' }

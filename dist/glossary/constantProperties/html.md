@@ -1,5 +1,5 @@
 ```scss
-// Component(s): Ti.UI.EmailDialog
 // Property(ies): html
+// Component(s): Ti.UI.EmailDialog
 '.html': { html: true }
 ```

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.View
 // Property(ies): viewShadowColor - Box Shadow Color in Tailwind - iOS Only
+// Component(s): Ti.UI.View
 '.shadow-transparent[platform=ios]': { viewShadowColor: 'transparent' }
 '.shadow-black[platform=ios]': { viewShadowColor: '#000000' }
 '.shadow-white[platform=ios]': { viewShadowColor: '#ffffff' }

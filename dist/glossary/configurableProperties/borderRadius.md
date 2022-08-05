@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Android.CardView, Ti.UI.View
 // Property(ies): borderRadius ( with Extra Styles )
+// Component(s): Ti.UI.Android.CardView, Ti.UI.View
 '.rounded-1': { borderRadius: 2 }
 '.rounded-2': { borderRadius: 4 }
 '.rounded-3': { borderRadius: 6 }

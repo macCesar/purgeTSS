@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ListView
 // Property(ies): resultsBackgroundColor - iOS Only
+// Component(s): Ti.UI.ListView
 '.results-bg-transparent[platform=ios]': { resultsBackgroundColor: 'transparent' }
 '.results-bg-black[platform=ios]': { resultsBackgroundColor: '#000000' }
 '.results-bg-white[platform=ios]': { resultsBackgroundColor: '#ffffff' }

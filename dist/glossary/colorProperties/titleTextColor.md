@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Toolbar
 // Property(ies): titleTextColor - Android Only
+// Component(s): Ti.UI.Toolbar
 '.title-text-transparent[platform=android]': { titleTextColor: 'transparent' }
 '.title-text-black[platform=android]': { titleTextColor: '#000000' }
 '.title-text-white[platform=android]': { titleTextColor: '#ffffff' }

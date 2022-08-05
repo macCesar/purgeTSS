@@ -11,8 +11,8 @@
 'ImageView[platform=ios]': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
 // Property(ies): height
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
 '.h-0': { height: 0 }
 '.h-1': { height: 4 }
 '.h-2': { height: 8 }
@@ -78,8 +78,8 @@
 '.h-full': { height: '100%' }
 '.h-screen': { height: Ti.UI.FILL }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
 // Property(ies): width
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.View
 '.w-0': { width: 0 }
 '.w-1': { width: 4 }
 '.w-2': { width: 8 }
@@ -145,8 +145,8 @@
 '.w-full': { width: '100%' }
 '.w-screen': { width: Ti.UI.FILL }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left ( Margin )
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.m-1': { top: 4, right: 4, bottom: 4, left: 4 }
 '.m-2': { top: 8, right: 8, bottom: 8, left: 8 }
@@ -589,8 +589,8 @@
 '.ml-11/12': { left: '91.666667%' }
 '.ml-full': { left: '100%' }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left ( Negative Margin )
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.-m-1': { top: -4, right: -4, bottom: -4, left: -4 }
 '.-m-2': { top: -8, right: -8, bottom: -8, left: -8 }
 '.-m-3': { top: -12, right: -12, bottom: -12, left: -12 }
@@ -1019,8 +1019,8 @@
 '.-ml-11/12': { left: '-91.666667%' }
 '.-ml-full': { left: '-100%' }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.top-0': { top: 0 }
 '.top-1': { top: 4 }
 '.top-2': { top: 8 }
@@ -1274,8 +1274,8 @@
 '.left-11/12': { left: '91.666667%' }
 '.left-full': { left: '100%' }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left ( Negative )
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.-bottom-1': { bottom: -4 }
 '.-bottom-2': { bottom: -8 }
 '.-bottom-3': { bottom: -12 }
@@ -1521,25 +1521,25 @@
 '.-top-11/12': { top: '-91.666667%' }
 '.-top-full': { top: '-100%' }
 
-// Component(s): Ti.UI.View
 // Property(ies): accessibilityHidden
+// Component(s): Ti.UI.View
 '.accessibility-hidden': { accessibilityHidden: true }
 '.accessibility-not-hidden': { accessibilityHidden: false }
 
-// Component(s): Ti.UI.ListItem
 // Property(ies): accessoryType
+// Component(s): Ti.UI.ListItem
 '.accesory-type-checkmark': { accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_CHECKMARK }
 '.accesory-type-detail': { accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_DETAIL }
 '.accesory-type-disclosure': { accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_DISCLOSURE }
 '.accesory-type-none': { accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_NONE }
 
-// Component(s): Ti.UI.Tab
 // Property(ies): activeIconIsMask - iOS Only
+// Component(s): Ti.UI.Tab
 '.active-icon-is-mask[platform=ios]': { activeIconIsMask: true }
 '.active-icon-is-not-mask[platform=ios]': { activeIconIsMask: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): activityEnterTransition - Android Only
+// Component(s): Ti.UI.Window
 '.activity-enter-transition-explode[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_EXPLODE }
 '.activity-enter-transition-fade-in[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_FADE_IN }
 '.activity-enter-transition-fade-out[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
@@ -1549,8 +1549,8 @@
 '.activity-enter-transition-slide-right[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
 '.activity-enter-transition-slide-top[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
 
-// Component(s): Ti.UI.Window
 // Property(ies): activityExitTransition - Android Only
+// Component(s): Ti.UI.Window
 '.activity-exit-transition-explode[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_EXPLODE }
 '.activity-exit-transition-fade-in[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_FADE_IN }
 '.activity-exit-transition-fade-out[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
@@ -1560,15 +1560,15 @@
 '.activity-exit-transition-slide-right[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
 '.activity-exit-transition-slide-top[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
 
-// Component(s): Ti.UI.ActivityIndicator
 // Property(ies): style
+// Component(s): Ti.UI.ActivityIndicator
 '.activity-indicator-style-big': { style: Ti.UI.ActivityIndicatorStyle.BIG }
 '.activity-indicator-style-dark': { style: Ti.UI.ActivityIndicatorStyle.DARK }
 '.activity-indicator-style-big-dark': { style: Ti.UI.ActivityIndicatorStyle.BIG_DARK }
 '.activity-indicator-style-plain': { style: Ti.UI.ActivityIndicatorStyle.PLAIN }
 
-// Component(s): Ti.UI.Window
 // Property(ies): activityReenterTransition - Android Only
+// Component(s): Ti.UI.Window
 '.activity-reenter-transition-explode[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_EXPLODE }
 '.activity-reenter-transition-fade-in[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_FADE_IN }
 '.activity-reenter-transition-fade-out[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
@@ -1578,8 +1578,8 @@
 '.activity-reenter-transition-slide-right[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
 '.activity-reenter-transition-slide-top[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
 
-// Component(s): Ti.UI.Window
 // Property(ies): activityReturnTransition - Android Only
+// Component(s): Ti.UI.Window
 '.activity-return-transition-explode[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_EXPLODE }
 '.activity-return-transition-fade-in[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_FADE_IN }
 '.activity-return-transition-fade-out[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
@@ -1589,82 +1589,82 @@
 '.activity-return-transition-slide-right[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
 '.activity-return-transition-slide-top[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
 
-// Component(s): Ti.UI.Window
 // Property(ies): activitySharedElementEnterTransition - Android Only
+// Component(s): Ti.UI.Window
 '.activity-shared-element-enter-transition-change-bounds[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
 '.activity-shared-element-enter-transition-change-clip-bounds[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
 '.activity-shared-element-enter-transition-change-transform[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
 '.activity-shared-element-enter-transition-change-image-transform[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
 '.activity-shared-element-enter-transition-none[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_NONE }
 
-// Component(s): Ti.UI.Window
 // Property(ies): activitySharedElementExitTransition - Android Only
+// Component(s): Ti.UI.Window
 '.activity-shared-element-exit-transition-change-bounds[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
 '.activity-shared-element-exit-transition-change-clip-bounds[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
 '.activity-shared-element-exit-transition-change-transform[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
 '.activity-shared-element-exit-transition-change-image-transform[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
 '.activity-shared-element-exit-transition-none[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_NONE }
 
-// Component(s): Ti.UI.Window
 // Property(ies): activitySharedElementReenterTransition - Android Only
+// Component(s): Ti.UI.Window
 '.activity-shared-element-reenter-transition-change-bounds[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
 '.activity-shared-element-reenter-transition-change-clip-bounds[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
 '.activity-shared-element-reenter-transition-change-transform[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
 '.activity-shared-element-reenter-transition-change-image-transform[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
 '.activity-shared-element-reenter-transition-none[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_NONE }
 
-// Component(s): Ti.UI.Window
 // Property(ies): activitySharedElementReturnTransition - Android Only
+// Component(s): Ti.UI.Window
 '.activity-shared-element-return-transition-change-bounds[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
 '.activity-shared-element-return-transition-change-clip-bounds[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
 '.activity-shared-element-return-transition-change-transform[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
 '.activity-shared-element-return-transition-change-image-transform[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
 '.activity-shared-element-return-transition-none[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_NONE }
 
-// Component(s): Ti.UI.AlertDialog
 // Property(ies): style - iOS Only
+// Component(s): Ti.UI.AlertDialog
 '.alert-dialog-style[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.DEFAULT }
 '.alert-dialog-style-login-and-password[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.LOGIN_AND_PASSWORD_INPUT }
 '.alert-dialog-style-plain-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT }
 '.alert-dialog-style-secure-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.SECURE_TEXT_INPUT }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): allowsBackForwardNavigationGestures - iOS Only
+// Component(s): Ti.UI.WebView
 '.allow-back-forward-navigation-gestures[platform=ios]': { allowsBackForwardNavigationGestures: true }
 '.dont-allow-back-forward-navigation-gestures[platform=ios]': { allowsBackForwardNavigationGestures: false }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): allowsLinkPreview - iOS Only
+// Component(s): Ti.UI.WebView
 '.allows-link-preview[platform=ios]': { allowsLinkPreview: true }
 '.dont-allow-link-preview[platform=ios]': { allowsLinkPreview: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): allowsMultipleSelectionDuringEditing
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.allows-multiple-selection-during-editing': { allowsMultipleSelectionDuringEditing: true }
 '.dont-allow-multiple-selection-during-editing': { allowsMultipleSelectionDuringEditing: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): allowsMultipleSelectionInteraction
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.allows-multiple-selection-interaction': { allowsMultipleSelectionInteraction: true }
 '.dont-allow-multiple-selection-interaction': { allowsMultipleSelectionInteraction: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): allowsSelection - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.allows-selection[platform=ios]': { allowsSelection: true }
 '.dont-allow-selection[platform=ios]': { allowsSelection: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): allowsSelectionDuringEditing
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.allows-selection-during-editing': { allowsSelectionDuringEditing: true }
 '.dont-allow-selection-during-editing': { allowsSelectionDuringEditing: false }
 
-// Component(s): Ti.UI.TabGroup
 // Property(ies): allowUserCustomization - iOS Only
+// Component(s): Ti.UI.TabGroup
 '.allow-user-customization[platform=ios]': { allowUserCustomization: true }
 '.dont-allow-user-customization[platform=ios]': { allowUserCustomization: false }
 
-// Component(s): Ti.UI.Animation, Ti.UI.View
 // Property(ies): anchorPoint
+// Component(s): Ti.UI.Animation, Ti.UI.View
 '.origin-center': { anchorPoint: { x: 0.5, y: 0.5 } }
 '.origin-top': { anchorPoint: { x: 0.5, y: 0 } }
 '.origin-top-right': { anchorPoint: { x: 1, y: 0 } }
@@ -1686,26 +1686,26 @@
 '.anchor-point-left': { anchorPoint: { x: 0, y: 0.5 } }
 '.anchor-point-top-left': { anchorPoint: { x: 0, y: 0 } }
 
-// Component(s): Ti.UI.Window
 // Property(ies): autoAdjustScrollViewInsets - iOS Only
+// Component(s): Ti.UI.Window
 '.auto-adjust-scroll-view-inset[platform=ios]': { autoAdjustScrollViewInsets: true }
 '.dont-auto-adjust-scroll-view-inset[platform=ios]': { autoAdjustScrollViewInsets: false }
 
-// Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): autocapitalization
+// Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.uppercase': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_ALL }
 '.normal-case': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE }
 '.capitalize': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS }
 '.sentences': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_SENTENCES }
 
-// Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): autocorrect
+// Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.autocorrect': { autocorrect: true }
 '.no-autocorrect': { autocorrect: false }
 '.dont-autocorrect': { autocorrect: false }
 
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): autofillType
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.autofill-type-url': { autofillType: Ti.UI.AUTOFILL_TYPE_URL }
 '.autofill-type-name': { autofillType: Ti.UI.AUTOFILL_TYPE_NAME }
 '.autofill-type-phone': { autofillType: Ti.UI.AUTOFILL_TYPE_PHONE }
@@ -1739,8 +1739,8 @@
 '.autofill-type-card-expiration-year': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_YEAR }
 '.autofill-type-card-expiration-month': { autofillType: Ti.UI.AUTOFILL_TYPE_CARD_EXPIRATION_MONTH }
 
-// Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): autoLink
+// Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
 '.auto-link-all': { autoLink: Ti.UI.AUTOLINK_ALL }
 '.auto-link-email-addresses': { autoLink: Ti.UI.AUTOLINK_EMAIL_ADDRESSES }
 '.auto-link-map-addresses': { autoLink: Ti.UI.AUTOLINK_MAP_ADDRESSES }
@@ -1749,18 +1749,18 @@
 '.auto-link-urls': { autoLink: Ti.UI.AUTOLINK_URLS }
 '.auto-link-calendar[platform=ios]': { autoLink: Ti.UI.AUTOLINK_CALENDAR }
 
-// Component(s): Ti.UI.Animation
 // Property(ies): autoreverse
+// Component(s): Ti.UI.Animation
 '.autoreverse': { autoreverse: true }
 '.no-autoreverse': { autoreverse: false }
 
-// Component(s): Ti.UI.ImageView
 // Property(ies): autorotate
+// Component(s): Ti.UI.ImageView
 '.autorotate': { autorotate: true }
 '.dont-autorotate': { autorotate: false }
 
-// Component(s): Ti.UI.MaskedImage
 // Property(ies): mode ( Background Blend Mode )
+// Component(s): Ti.UI.MaskedImage
 '.bg-blend-clear': { mode: Ti.UI.BLEND_MODE_CLEAR }
 '.bg-blend-copy': { mode: Ti.UI.BLEND_MODE_COPY }
 '.bg-blend-darken': { mode: Ti.UI.BLEND_MODE_DARKEN }
@@ -1790,8 +1790,8 @@
 '.bg-blend-saturation[platform=ios]': { mode: Ti.UI.BLEND_MODE_SATURATION }
 '.bg-blend-soft-light[platform=ios]': { mode: Ti.UI.BLEND_MODE_SOFT_LIGHT }
 
-// Component(s): Ti.UI.MaskedImage
 // Property(ies): backgroundGradient - Linear
+// Component(s): Ti.UI.MaskedImage
 '.bg-linear': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' } } }
 '.bg-linear-to-t': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' } } }
 '.bg-linear-to-tr': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' } } }
@@ -1802,8 +1802,8 @@
 '.bg-linear-to-l': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' } } }
 '.bg-linear-to-tl': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' } } }
 
-// Component(s): Ti.UI.MaskedImage
 // Property(ies): backgroundGradient - Gradient
+// Component(s): Ti.UI.MaskedImage
 '.bg-gradient': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' } } }
 '.bg-gradient-to-t': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '100%' } } }
 '.bg-gradient-to-tr': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '100%', y: '0%' }, endPoint: { x: '0%', y: '100%' } } }
@@ -1814,8 +1814,8 @@
 '.bg-gradient-to-l': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '0%' } } }
 '.bg-gradient-to-tl': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '0%', y: '0%' }, endPoint: { x: '100%', y: '100%' } } }
 
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundGradient: type, startRadius, endRadius, backfillStart, backfillEnd - iOS Only
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.bg-radial[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '125%', endRadius: '0%' } }
 '.bg-radial-to-b[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '0%' }, endPoint: { x: '50%', y: '0%' } } }
 '.bg-radial-to-bl[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '100%', y: '0%' } } }
@@ -1826,15 +1826,15 @@
 '.bg-radial-to-r[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '50%' }, endPoint: { x: '0%', y: '50%' } } }
 '.bg-radial-to-br[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' } } }
 
-// Component(s): Ti.UI.View
 // Property(ies): backgroundRepeat
+// Component(s): Ti.UI.View
 '.bg-repeat': { backgroundRepeat: true }
 '.bg-dont-repeat': { backgroundRepeat: false }
 '.background-repeat': { backgroundRepeat: true }
 '.background-dont-repeat': { backgroundRepeat: false }
 
-// Component(s): Ti.UI.Picker[android], Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): borderStyle
+// Component(s): Ti.UI.Picker[android], Ti.UI.TextArea, Ti.UI.TextField
 '.border-style-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
 '.border-style-filled': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
 '.border-style-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
@@ -1842,13 +1842,13 @@
 '.border-style-rounded': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED }
 '.border-style-underlined': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_UNDERLINED }
 
-// Component(s): Ti.Proxy
 // Property(ies): bubbleParent
+// Component(s): Ti.Proxy
 '.bubble-parent': { bubbleParent: true }
 '.dont-bubble-parent': { bubbleParent: false }
 
-// Component(s): Ti.UI.Button
 // Property(ies): style
+// Component(s): Ti.UI.Button
 '.button-style-filled': { style: Ti.UI.BUTTON_STYLE_FILLED }
 '.button-style-option-negative': { style: Ti.UI.BUTTON_STYLE_OPTION_NEGATIVE }
 '.button-style-option-neutral': { style: Ti.UI.BUTTON_STYLE_OPTION_NEUTRAL }
@@ -1856,8 +1856,8 @@
 '.button-style-outlined': { style: Ti.UI.BUTTON_STYLE_OUTLINED }
 '.button-style-text': { style: Ti.UI.BUTTON_STYLE_TEXT }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): cacheMode - Android Only
+// Component(s): Ti.UI.WebView
 '.cache-mode[platform=android]': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_DEFAULT }
 '.cache-mode-no-cache[platform=android]': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_NO_CACHE }
 '.cache-mode-cache-only[platform=android]': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_CACHE_ONLY }
@@ -1867,95 +1867,95 @@
 '.webview-load-cache-only[platform=android]': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_CACHE_ONLY }
 '.webview-load-cache-else-network[platform=android]': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_CACHE_ELSE_NETWORK }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): cachePolicy - Android Only
+// Component(s): Ti.UI.WebView
 '.cache-policy-use-protocol-cache-only[platform=ios]': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_USE_PROTOCOL_CACHE_POLICY }
 '.cache-policy-ignoring-local-cache-data[platform=ios]': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_RELOAD_IGNORING_LOCAL_CACHE_DATA }
 '.cache-policy-return-cache-data-else-load[platform=ios]': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_RETURN_CACHE_DATA_ELSE_LOAD }
 '.cache-policy-return-cache-data-dont-load[platform=ios]': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_RETURN_CACHE_DATA_DONT_LOAD }
 
-// Component(s): Ti.UI.Picker
 // Property(ies): calendarViewShown - Android Only
+// Component(s): Ti.UI.Picker
 '.calendar-view-shown[platform=android]': { calendarViewShown: true }
 '.calendar-view-hidden[platform=android]': { calendarViewShown: false }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): canCancelEvents
+// Component(s): Ti.UI.ScrollView
 '.can-cancel-events': { canCancelEvents: true }
 '.cant-cancel-events': { canCancelEvents: false }
 
-// Component(s): Ti.UI.Android.ProgressIndicator
 // Property(ies): cancelable - Android Only
+// Component(s): Ti.UI.Android.ProgressIndicator
 '.cancelable[platform=android]': { cancelable: true }
 
-// Component(s): Ti.UI.Android.ProgressIndicator
 // Property(ies): canceledOnTouchOutside - Android Only
+// Component(s): Ti.UI.Android.ProgressIndicator
 '.canceled-on-touch-outside[platform=android]': { canceledOnTouchOutside: true }
 
-// Component(s): Ti.UI.DashboardItem
 // Property(ies): canDelete - iOS Only
+// Component(s): Ti.UI.DashboardItem
 '.can-delete[platform=ios]': { canDelete: true }
 '.cant-delete[platform=ios]': { canDelete: false }
 
-// Component(s): Ti.UI.ListItem
 // Property(ies): canEdit
+// Component(s): Ti.UI.ListItem
 '.can-edit': { canEdit: true }
 '.cant-edit': { canEdit: false }
 
-// Component(s): Ti.UI.ListItem
 // Property(ies): canInsert
+// Component(s): Ti.UI.ListItem
 '.can-insert': { canInsert: true }
 '.cant-insert': { canInsert: false }
 
-// Component(s): Ti.UI.ListItem
 // Property(ies): canMove
+// Component(s): Ti.UI.ListItem
 '.can-move': { canMove: true }
 '.cant-move': { canMove: false }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): canScroll
+// Component(s): Ti.UI.ListView
 '.can-scroll': { canScroll: true }
 '.cant-scroll': { canScroll: false }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): caseInsensitiveSearch
+// Component(s): Ti.UI.ListView
 '.case-sensitive-search': { caseInsensitiveSearch: false }
 '.case-insensitive-search': { caseInsensitiveSearch: true }
 
-// Component(s): Ti.Android.MenuItem
 // Property(ies): checkable - Android Only
+// Component(s): Ti.Android.MenuItem
 '.checable[platform=android]': { checkable: true }
 '.unchecable[platform=android]': { checkable: false }
 
-// Component(s): Ti.UI.TextField
 // Property(ies): clearButtonMode - iOS Only
+// Component(s): Ti.UI.TextField
 '.clear-button-mode-always[platform=ios]': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
 '.clear-button-mode-never[platform=ios]': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
 '.clear-button-mode-on-blur[platform=ios]': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
 '.clear-button-mode-on-focus[platform=ios]': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
 
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): clearOnEdit - Android Only
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.clear-on-edit[platform=android]': { clearOnEdit: true }
 '.dont-clear-on-edit[platform=android]': { clearOnEdit: false }
 
-// Component(s): Ti.UI.View
 // Property(ies): clipMode - iOS Only
+// Component(s): Ti.UI.View
 '.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
 '.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 
-// Component(s): Ti.UI.Animation
 // Property(ies): A custom property to use it with the Animation module
+// Component(s): Ti.UI.Animation
 '.horizontal-constraint': { constraint: 'horizontal' }
 '.vertical-constraint': { constraint: 'vertical' }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): contentWidth, contentHeight
+// Component(s): Ti.UI.ScrollView
 '.content-auto': { contentWidth: Ti.UI.SIZE, contentHeight: Ti.UI.SIZE }
 '.content-screen': { contentWidth: Ti.UI.FILL, contentHeight: Ti.UI.FILL }
 
-// Component(s): Ti.UI.Animation
 // Property(ies): curve
+// Component(s): Ti.UI.Animation
 '.ease-in': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN }
 '.ease-out': { curve: Ti.UI.ANIMATION_CURVE_EASE_OUT }
 '.ease-linear': { curve: Ti.UI.ANIMATION_CURVE_LINEAR }
@@ -1964,32 +1964,32 @@
 // debug
 '.debug': { debug: true }
 
-// Component(s): Ti.UI.Picker
 // Property(ies): datePickerStyle
+// Component(s): Ti.UI.Picker
 '.date-picker-style-automatic': { datePickerStyle: Ti.UI.DATE_PICKER_STYLE_AUTOMATIC }
 '.date-picker-style-wheels': { datePickerStyle: Ti.UI.DATE_PICKER_STYLE_WHEELS }
 '.date-picker-style-compact': { datePickerStyle: Ti.UI.DATE_PICKER_STYLE_COMPACT }
 '.date-picker-style-inline': { datePickerStyle: Ti.UI.DATE_PICKER_STYLE_INLINE }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): defaultItemTemplate
+// Component(s): Ti.UI.ListView
 '.list-item-template': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_DEFAULT }
 '.list-item-template-contacts[platform=ios]': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_CONTACTS }
 '.list-item-template-settings[platform=ios]': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_SETTINGS }
 '.list-item-template-subtitle[platform=ios]': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_SUBTITLE }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): dimBackgroundForSearch - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.dim-background-for-search[platform=ios]': { dimBackgroundForSearch: true }
 '.dont-dim-background-for-search[platform=ios]': { dimBackgroundForSearch: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.ScrollableView, Ti.UI.ScrollView, Ti.UI.WebView
 // Property(ies): disableBounce - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.ScrollableView, Ti.UI.ScrollView, Ti.UI.WebView
 '.disable-bounce[platform=ios]': { disableBounce: true }
 '.enable-bounce[platform=ios]': { disableBounce: false }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): disableContextMenu - Android Only
+// Component(s): Ti.UI.WebView
 '.disable-context-menu[platform=android]': { disableContextMenu: true }
 '.dont-disable-context-menu[platform=android]': { disableContextMenu: false }
 
@@ -2003,30 +2003,30 @@
 '.inverted-platform-w[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
 '.inverted-platform-h[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
 
-// Component(s): Ti.Android.ActionBar
 // Property(ies): displayHomeAsUp - Android Only
+// Component(s): Ti.Android.ActionBar
 '.display-home-as-up[platform=android]': { displayHomeAsUp: true }
 '.dont-display-home-as-up[platform=android]': { displayHomeAsUp: false }
 
-// Component(s): For the Animation Component
 // Property(ies): draggingType
+// Component(s): For the Animation Component
 '.drag-apply': { draggingType: 'apply' }
 '.drag-animate': { draggingType: 'animate' }
 
-// Component(s): Ti.UI.Android.DrawerLayout
 // Property(ies): drawerIndicatorEnabled - Android Only
+// Component(s): Ti.UI.Android.DrawerLayout
 '.drawer-indicator-enabled[platform=android]': { drawerIndicatorEnabled: true }
 '.drawer-indicator-disabled[platform=android]': { drawerIndicatorEnabled: false }
 
-// Component(s): Ti.UI.Android.DrawerLayout
 // Property(ies): drawerLockMode - Android Only
+// Component(s): Ti.UI.Android.DrawerLayout
 '.drawer-lock-mode-locked-closed[platform=android]': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
 '.drawer-lock-mode-locked-open[platform=android]': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
 '.drawer-lock-mode-undefined[platform=android]': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
 '.drawer-lock-mode-unlocked[platform=android]': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
 
-// Component(s): Ti.UI.Button, Ti.UI.Label
 // Property(ies): shadowOffset, shadowRadius, shadowColor - Drop Shadow in Tailwind
+// Component(s): Ti.UI.Button, Ti.UI.Label
 '.drop-shadow-xs': { shadowOffset: { x: 0, y: 0 }, shadowRadius: 1, shadowColor: '#80000000' }
 '.drop-shadow-sm': { shadowOffset: { x: 0, y: 1 }, shadowRadius: 2, shadowColor: '#80000000' }
 '.drop-shadow': { shadowOffset: { x: 0, y: 2 }, shadowRadius: 4, shadowColor: '#80000000' }
@@ -2036,23 +2036,23 @@
 '.drop-shadow-2xl': { shadowOffset: { x: 0, y: 8 }, shadowRadius: 14, shadowColor: '#80000000' }
 '.drop-shadow-none': { shadowOffset: { x: 0, y: 0 }, shadowRadius: null, shadowColor: null }
 
-// Component(s): Ti.UI.Notification
 // Property(ies): duration - Android Only
+// Component(s): Ti.UI.Notification
 '.notification-duration-long[platform=android]': { duration: Ti.UI.NOTIFICATION_DURATION_LONG }
 '.notification-duration-short[platform=android]': { duration: Ti.UI.NOTIFICATION_DURATION_SHORT }
 
-// Component(s): Ti.UI.DashboardView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): editable
+// Component(s): Ti.UI.DashboardView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.editable': { editable: true }
 '.none-editable': { editable: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): editing - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.editing': { editing: true }
 '.no-editing': { editing: true }
 
-// Component(s): Ti.UI.Label
 // Property(ies): ellipsize
+// Component(s): Ti.UI.Label
 '.ellipsize-end': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_END }
 '.ellipsize-clip': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CLIP }
 '.ellipsize-none': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_NONE }
@@ -2062,50 +2062,50 @@
 '.ellipsize-char-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CHAR_WRAP }
 '.ellipsize-word-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_WORD_WRAP }
 
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): ellipsize
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.ellipsize': { ellipsize: true }
 '.no-ellipsize': { ellipsize: false }
 
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): enableCopy
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.enable-copy': { enableCopy: true }
 '.disable-copy': { enableCopy: false }
 
-// Component(s): Ti.UI.Button, Ti.UI.iOS.Stepper, Ti.Android.MenuItem, Ti.UI.Slider, Ti.UI.Switch
 // Property(ies): enabled
+// Component(s): Ti.UI.Button, Ti.UI.iOS.Stepper, Ti.Android.MenuItem, Ti.UI.Slider, Ti.UI.Switch
 '.enabled': { enabled: true }
 '.disabled': { enabled: false }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): enableJavascriptInterface - Android Only
+// Component(s): Ti.UI.WebView
 '.enable-javascript-interfase[platform=android]': { enableJavascriptInterface: true }
 '.disable-javascript-interfase[platform=android]': { enableJavascriptInterface: false }
 '.enable-js-interfase[platform=android]': { enableJavascriptInterface: true }
 '.disable-js-interfase[platform=android]': { enableJavascriptInterface: false }
 
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): enableReturnKey
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.enable-return-key': { enableReturnKey: true }
 '.disable-return-key': { enableReturnKey: false }
 
-// Component(s): Ti.UI.ImageView. Ti.UI.WebView
 // Property(ies): enableZoomControls - Android Only
+// Component(s): Ti.UI.ImageView. Ti.UI.WebView
 '.enable-zoom-control[platform=android]': { enableZoomControls: true }
 '.disable-zoom-control[platform=android]': { enableZoomControls: false }
 
-// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): exitOnClose - Android Only
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.exit-on-close[platform=android]': { exitOnClose: true }
 '.dont-exit-on-close[platform=android]': { exitOnClose: false }
 
-// Component(s): Ti.UI.Toolbar
 // Property(ies): extendBackground
+// Component(s): Ti.UI.Toolbar
 '.extend-background': { extendBackground: true }
 '.dont-extend-background': { extendBackground: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): extendEdges - iOS Only
+// Component(s): Ti.UI.Window
 '.extend-edges-all[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_ALL ] }
 '.extend-edges-bottom[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_BOTTOM ] }
 '.extend-edges-left[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_LEFT ] }
@@ -2113,38 +2113,38 @@
 '.extend-edges-right[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_RIGHT ] }
 '.extend-edges-top[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_TOP ] }
 
-// Component(s): Ti.UI.Window
 // Property(ies): extendSafeArea
+// Component(s): Ti.UI.Window
 '.extend-safe-area': { extendSafeArea: true }
 '.dont-extend-safe-area': { extendSafeArea: false }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): fastScroll - Android Only
+// Component(s): Ti.UI.ListView
 '.fast-scroll[platform=android]': { fastScroll: true }
 '.slow-scroll[platform=android]': { fastScroll: false }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): filterAnchored
+// Component(s): Ti.UI.TableView
 '.filter-anchored': { filterAnchored: true }
 '.dont-filter-anchored': { filterAnchored: false }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): filterAttribute
+// Component(s): Ti.UI.TableView
 '.filter-attribute': { filterAttribute: true }
 '.dont-filter-attribute': { filterAttribute: false }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): filterCaseInsensitive
+// Component(s): Ti.UI.TableView
 '.filter-case-sensitive': { filterCaseInsensitive: false }
 '.filter-case-insensitive': { filterCaseInsensitive: true }
 
-// Component(s): Ti.UI.View
 // Property(ies): filterTouchesWhenObscured - Android Only
+// Component(s): Ti.UI.View
 '.filter-touches-when-obscured[platform=android]': { filterTouchesWhenObscured: true }
 '.dont-filter-touches-when-obscured[platform=android]': { filterTouchesWhenObscured: false }
 
-// Component(s): Ti.Android.Intent
 // Property(ies): flags - Android Only
+// Component(s): Ti.Android.Intent
 '.flag-activity-brought-to-front[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
 '.flag-activity-clear-top[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
 '.flag-activity-clear-when-task-reset[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET }
@@ -2178,43 +2178,43 @@
 '.flag-show-lights[platform=android]': { flags: Ti.Android.FLAG_SHOW_LIGHTS }
 '.flag-update-current[platform=android]': { flags: Ti.Android.FLAG_UPDATE_CURRENT }
 
-// Component(s): Ti.UI.Window
 // Property(ies): flagSecure - Android Only
+// Component(s): Ti.UI.Window
 '.flag-secure[platform=android]': { flagSecure: true }
 '.flag-not-secure[platform=android]': { flagSecure: false }
 
-// Component(s): For the Animation Component
 // Property(ies): flip
+// Component(s): For the Animation Component
 '.flip-horizontal': { flip: 'horizontal' }
 '.flip-vertical': { flip: 'vertical' }
 
-// Component(s): Ti.UI.View
 // Property(ies): focusable - Android Only
+// Component(s): Ti.UI.View
 '.focusable[platform=android]': { focusable: true }
 '.no-focusable[platform=android]': { focusable: false }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): fontStyle
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 '.italic': { font: { fontStyle: 'italic' } }
 '.not-italic': { font: { fontStyle: 'normal' } }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): footerDividersEnabled - Android Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.footer-dividers-enabled[platform=android]': { footerDividersEnabled: true }
 '.footer-dividers-disabled[platform=android]': { footerDividersEnabled: false }
 
-// Component(s): Ti.UI.Picker
 // Property(ies): format24 - Android Only
+// Component(s): Ti.UI.Picker
 '.format-12[platform=android]': { format24: false }
 '.format-24[platform=android]': { format24: true }
 
-// Component(s): Ti.Media.VideoPlayer[android], Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Window
 // Property(ies): fullscreen
+// Component(s): Ti.Media.VideoPlayer[android], Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Window
 '.fullscreen': { fullscreen: true }
 '.fullscreen-disabled': { fullscreen: false }
 
-// Component(s): Ti.UI.Notification
 // Property(ies): gravity - Android Only
+// Component(s): Ti.UI.Notification
 '.gravity-axis-clip[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_CLIP }
 '.gravity-axis-pull-after[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_PULL_AFTER }
 '.gravity-axis-pull-before[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_PULL_BEFORE }
@@ -2243,8 +2243,8 @@
 '.gravity-top[platform=android]': { gravity: Ti.UI.Android.GRAVITY_TOP }
 '.gravity-vertical-gravity-mask[platform=android]': { gravity: Ti.UI.Android.GRAVITY_VERTICAL_GRAVITY_MASK }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 // Property(ies): width - For Grid Column Start/End
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.col-span-1': { width: '8.333334%' }
 '.col-span-2': { width: '16.666667%' }
 '.col-span-3': { width: '25%' }
@@ -2258,8 +2258,8 @@
 '.col-span-11': { width: '91.666667%' }
 '.col-span-12': { width: '100%' }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 // Property(ies): height - For Grid Row Start/End
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.row-span-1': { height: '8.333334%' }
 '.row-span-2': { height: '16.666667%' }
 '.row-span-3': { height: '25%' }
@@ -2273,15 +2273,15 @@
 '.row-span-11': { height: '91.666667%' }
 '.row-span-12': { height: '100%' }
 
-// Component(s): Ti.UI.View
 // Property(ies): layout
 // Description: Grid Flow - layout
+// Component(s): Ti.UI.View
 '.grid': { layout: 'horizontal' }
 '.grid-flow-col': { layout: 'horizontal' }
 '.grid-flow-row': { layout: 'vertical' }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 // Property(ies): width - For Grid Template Columns
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.grid-cols-1': { width: '100%' }
 '.grid-cols-2': { width: '50%' }
 '.grid-cols-3': { width: '33.333334%' }
@@ -2295,8 +2295,8 @@
 '.grid-cols-11': { width: '9.090909%' }
 '.grid-cols-12': { width: '8.333334%' }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 // Property(ies): height - For Grid Template Rows
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.grid-rows-1': { height: '100%' }
 '.grid-rows-2': { height: '50%' }
 '.grid-rows-3': { height: '33.333334%' }
@@ -2310,108 +2310,108 @@
 '.grid-rows-11': { height: '9.090909%' }
 '.grid-rows-12': { height: '8.333334%' }
 
-// Component(s): Ti.UI.TableViewRow
 // Property(ies): hasCheck
+// Component(s): Ti.UI.TableViewRow
 '.has-check': { hasCheck: true }
 '.dont-have-check': { hasCheck: false }
 
-// Component(s): Ti.UI.TableViewRow
 // Property(ies): hasChild
+// Component(s): Ti.UI.TableViewRow
 '.has-child': { hasChild: true }
 '.dont-have-child': { hasChild: false }
 
-// Component(s): Ti.UI.TableViewRow
 // Property(ies): hasDetail
+// Component(s): Ti.UI.TableViewRow
 '.has-detail': { hasDetail: true }
 '.dont-have-detail': { hasDetail: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): headerDividersEnabled - Android Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.header-dividers-enabled[platform=android]': { headerDividersEnabled: true }
 '.header-dividers-disabled[platform=android]': { headerDividersEnabled: false }
 
-// Component(s): Ti.UI.View
 // Property(ies): hiddenBehavior - Android Only
+// Component(s): Ti.UI.View
 '.hidden-behavior[platform=android]': { hiddenBehavior: true }
 '.no-hidden-behavior[platform=android]': { hiddenBehavior: false }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): hideLoadIndicator - iOS Only
+// Component(s): Ti.UI.WebView
 '.hide-load-indicator[platform=ios]': { hideLoadIndicator: true }
 '.show-load-indicator[platform=ios]': { hideLoadIndicator: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): hidesBackButton
+// Component(s): Ti.UI.Window
 '.hides-back-button': { hidesBackButton: true }
 '.shows-back-button': { hidesBackButton: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): hidesBarsOnSwipe - iOS Only
+// Component(s): Ti.UI.Window
 '.hides-bars-on-swipe[platform=ios]': { hidesBarsOnSwipe: true }
 '.shows-bars-on-swipe[platform=ios]': { hidesBarsOnSwipe: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): hidesBarsOnTap - iOS Only
+// Component(s): Ti.UI.Window
 '.hides-bars-on-tap[platform=ios]': { hidesBarsOnTap: true }
 '.shows-bars-on-tap[platform=ios]': { hidesBarsOnTap: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): hidesBarsWhenKeyboardAppears - iOS Only
+// Component(s): Ti.UI.Window
 '.hides-bars-when-keyboard-appears[platform=ios]': { hidesBarsWhenKeyboardAppears: true }
 '.shows-bars-when-keyboard-appears[platform=ios]': { hidesBarsWhenKeyboardAppears: false }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): hideSearchOnSelection - iOS Only
+// Component(s): Ti.UI.TableView
 '.hide-search-on-selection[platform=ios]': { hideSearchOnSelection: true }
 '.show-search-on-selection[platform=ios]': { hideSearchOnSelection: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): hideShadow - iOS Only
+// Component(s): Ti.UI.Window
 '.hide-shadow[platform=ios]': { hideShadow: true }
 '.show-shadow[platform=ios]': { hideShadow: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): hidesSearchBarWhenScrolling - iOS Only
+// Component(s): Ti.UI.Window
 '.hides-search-bar-when-scrolling[platform=ios]': { hidesSearchBarWhenScrolling: true }
 '.shows-search-bar-when-scrolling[platform=ios]': { hidesSearchBarWhenScrolling: false }
 
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): hintType - Android Only
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.hint-type-static[platform=android]': { hintType: Ti.UI.HINT_TYPE_STATIC }
 '.hint-type-animated[platform=android]': { hintType: Ti.UI.HINT_TYPE_ANIMATED }
 
-// Component(s): Ti.UI.ImageView. Ti.UI.WebView
 // Property(ies): hires - iOS Only
+// Component(s): Ti.UI.ImageView. Ti.UI.WebView
 '.hires[platform=ios]': { hires: true }
 '.lowres[platform=ios]': { hires: false }
 
-// Component(s): Ti.Android.ActionBar
 // Property(ies): homeButtonEnabled - Android Only
+// Component(s): Ti.Android.ActionBar
 '.home-button-enabled[platform=android]': { homeButtonEnabled: true }
 '.home-button-disabled[platform=android]': { homeButtonEnabled: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): homeIndicatorAutoHidden - iOS Only
+// Component(s): Ti.UI.Window
 '.home-indicator-auto-hidden[platform=ios]': { homeIndicatorAutoHidden: true }
 '.home-indicator-always-visible[platform=ios]': { homeIndicatorAutoHidden: false }
 
-// Component(s): Ti.UI.Notification
 // Property(ies): horizontalMargin - Android Only
+// Component(s): Ti.UI.Notification
 '.horizontal-center[platform=android]': { horizontalMargin: '0' }
 '.horizontal-left[platform=android]': { horizontalMargin: '-0.5' }
 '.horizontal-right[platform=android]': { horizontalMargin: '0.5' }
 
-// Component(s): Ti.UI.View
 // Property(ies): horizontalWrap - Android Only
+// Component(s): Ti.UI.View
 '.horizontal-wrap[platform=android]': { horizontalWrap: true }
 '.no-horizontal-wrap[platform=android]': { horizontalWrap: false }
 
-// Component(s): Ti.UI.EmailDialog
 // Property(ies): html
+// Component(s): Ti.UI.EmailDialog
 '.html': { html: true }
 
-// Component(s): Ti.UI.ShortcutItem
 // Property(ies): icon - iOS Only
+// Component(s): Ti.UI.ShortcutItem
 '.shortcut-icon-type-add[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_ADD' }
 '.shortcut-icon-type-alarm[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_ALARM' }
 '.shortcut-icon-type-audio[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_AUDIO' }
@@ -2442,8 +2442,8 @@
 '.shortcut-icon-type-time[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_TIME' }
 '.shortcut-icon-type-update[platform=ios]': { icon: 'Ti.UI.iOS.SHORTCUT_ICON_TYPE_UPDATE' }
 
-// Component(s): Ti.Android.R
 // Property(ies): icon - Android Only
+// Component(s): Ti.Android.R
 '.r-drawable-alert-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_dark_frame }
 '.r-drawable-alert-light-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_light_frame }
 '.r-drawable-arrow-down-float[platform=android]': { icon: Ti.Android.R.drawable.arrow_down_float }
@@ -2614,80 +2614,80 @@
 '.r-drawable-toast-frame[platform=android]': { icon: Ti.Android.R.drawable.toast_frame }
 '.r-drawable-zoom-plate[platform=android]': { icon: Ti.Android.R.drawable.zoom_plate }
 
-// Component(s): Ti.UI.Android.SearchView, Ti.UI.Android.SearchBar
 // Property(ies): iconified
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.Android.SearchBar
 '.iconified': { iconified: true }
 
-// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar
 // Property(ies): iconifiedByDefault
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar
 '.iconified-by-default': { iconifiedByDefault: true }
 
-// Component(s): Ti.UI.Tab
 // Property(ies): iconIsMask - iOS Only
+// Component(s): Ti.UI.Tab
 '.icon-is-mask[platform=ios]': { iconIsMask: true }
 '.icon-is-not-mask[platform=ios]': { iconIsMask: false }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): ignoreSslError
+// Component(s): Ti.UI.WebView
 '.ignore-ssl-error': { ignoreSslError: true }
 '.dont-ignore-ssl-error': { ignoreSslError: false }
 
-// Component(s): Ti.UI.ImageView
 // Property(ies): imageTouchFeedback - Android Only
+// Component(s): Ti.UI.ImageView
 '.image-touch-feedback[platform=android]': { imageTouchFeedback: true }
 '.no-image-touch-feedback[platform=android]': { imageTouchFeedback: false }
 
-// Component(s): Ti.UI.Label
 // Property(ies): includeFontPadding - Android Only
+// Component(s): Ti.UI.Label
 '.include-font-padding[platform=android]': { includeFontPadding: true }
 '.dont-include-font-padding[platform=android]': { includeFontPadding: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): includeOpaqueBars - iOS Only
+// Component(s): Ti.UI.Window
 '.include-opaque-bars[platform=ios]': { includeOpaqueBars: true }
 '.exclude-opaque-bars[platform=ios]': { includeOpaqueBars: false }
 
-// Component(s): Ti.UI.TextField
 // Property(ies): inputType - Android Only
+// Component(s): Ti.UI.TextField
 '.input-type-class-number[platform=android]': { inputType: Ti.UI.INPUT_TYPE_CLASS_NUMBER }
 '.input-type-class-text[platform=android]': { inputType: Ti.UI.INPUT_TYPE_CLASS_TEXT }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animaiton, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, bottom, width(FILL), height(FILL)
 // Description: top, bottom, width, height properties for aligning items in a Grid System
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animaiton, Ti.UI.View, Ti.UI.Window
 '.items-start': { top: 0 }
 '.items-end': { bottom: 0 }
 '.items-center': { width: Ti.UI.FILL, height: Ti.UI.FILL }
 
-// Component(s): Ti.UI.View
 // Property(ies): keepScreenOn - Android Only
+// Component(s): Ti.UI.View
 '.keep-screen-on[platform=android]': { keepScreenOn: true }
 '.dont-keep-screen-on[platform=android]': { keepScreenOn: false }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): keepSectionsInSearch - iOS Only
+// Component(s): Ti.UI.ListView
 '.keep-sections-in-search[platform=ios]': { keepSectionsInSearch: true }
 '.dont-keep-sections-in-search[platform=ios]': { keepSectionsInSearch: false }
 
-// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): keyboardAppearance - iOS Only
+// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-appearance[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
 '.keyboard-appearance-dark[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DARK }
 '.keyboard-appearance-light[platform=ios]': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): keyboardDismissMode - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.keyboard-dismiss-mode-none[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }
 '.keyboard-dismiss-mode-on-drag[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG }
 '.keyboard-dismiss-mode-interactive[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_INTERACTIVE }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): keyboardDisplayRequiresUserAction - iOS Only
+// Component(s): Ti.UI.WebView
 '.keyboard-display-requires-user-action[platform=ios]': { keyboardDisplayRequiresUserAction: true }
 '.keyboard-display-dont-require-user-action[platform=ios]': { keyboardDisplayRequiresUserAction: false }
 
-// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): keyboardType
+// Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-type': { keyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.keyboard-type-ascii': { keyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.keyboard-type-decimal-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
@@ -2703,60 +2703,60 @@
 '.keyboard-type-twitter[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
 '.keyboard-type-websearch[platform=ios]': { keyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 
-// Component(s): Ti.UI.Window
 // Property(ies): largeTitleDisplayMode - iOS Only
+// Component(s): Ti.UI.Window
 '.large-title-display-always[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_ALWAYS }
 '.large-title-display-automatic[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_AUTOMATIC }
 '.large-title-display-never[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_NEVER }
 
-// Component(s): Ti.UI.Window
 // Property(ies): largeTitleEnabled - iOS Only
+// Component(s): Ti.UI.Window
 '.large-title-enabled[platform=ios]': { largeTitleEnabled: true }
 '.large-title-disabled[platform=ios]': { largeTitleEnabled: false }
 
-// Component(s): Ti.UI.OptionBar, Ti.UI.View
 // Property(ies): layout
+// Component(s): Ti.UI.OptionBar, Ti.UI.View
 '.composite': { layout: 'composite' }
 '.horizontal': { layout: 'horizontal' }
 '.vertical': { layout: 'vertical' }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): lazyLoadingEnabled - iOS Only
+// Component(s): Ti.UI.ListView
 '.lazy-loading-enabled[platform=ios]': { lazyLoadingEnabled: true }
 '.lazy-loading-disabled[platform=ios]': { lazyLoadingEnabled: false }
 
-// Component(s): Ti.UI.TextField
 // Property(ies): leftButtonMode - iOS Only
+// Component(s): Ti.UI.TextField
 '.left-button-mode-always[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
 '.left-button-mode-never[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
 '.left-button-mode-on-blur[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
 '.left-button-mode-on-focus[platform=ios]': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
 
-// Component(s): Ti.UI.Android.DrawerLayout
 // Property(ies): leftDrawerLockMode - Android Only
+// Component(s): Ti.UI.Android.DrawerLayout
 '.left-drawer-lock-mode-locked-closed[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
 '.left-drawer-lock-mode-locked-open[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
 '.left-drawer-lock-mode-undefined[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
 '.left-drawer-lock-mode-unlocked[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): lightTouchEnabled - Android Only
+// Component(s): Ti.UI.WebView
 '.light-touch-enabled[platform=android]': { lightTouchEnabled: true }
 '.light-touch-disabled[platform=android]': { lightTouchEnabled: false }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): style - iOS Only
+// Component(s): Ti.UI.ListView
 '.list-view-style-plain[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.PLAIN }
 '.list-view-style-group[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.GROUPED }
 '.list-view-style-inset-grouped[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.INSET_GROUPED }
 
-// Component(s): Ti.UI.Android.ProgressIndicator
 // Property(ies): location - Android Only
+// Component(s): Ti.UI.Android.ProgressIndicator
 '.location-dialog[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_DIALOG }
 '.location-statur-bar[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR }
 
-// Component(s): Ti.UI.AlertDialog
 // Property(ies): loginKeyboardType
+// Component(s): Ti.UI.AlertDialog
 '.login-keyboard-type-ascii': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.login-keyboard-type-decimal-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
 '.login-keyboard-type': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
@@ -2772,8 +2772,8 @@
 '.login-keyboard-type-twitter[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
 '.login-keyboard-type-websearch[platform=ios]': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 
-// Component(s): Ti.UI.AlertDialog
 // Property(ies): loginReturnKeyType
+// Component(s): Ti.UI.AlertDialog
 '.login-return-key-type': { loginReturnKeyType: Ti.UI.RETURNKEY_DEFAULT }
 '.login-return-key-type-go': { loginReturnKeyType: Ti.UI.RETURNKEY_GO }
 '.login-return-key-type-done': { loginReturnKeyType: Ti.UI.RETURNKEY_DONE }
@@ -2787,78 +2787,78 @@
 '.login-return-key-type-emergency-call': { loginReturnKeyType: Ti.UI.RETURNKEY_EMERGENCY_CALL }
 '.login-return-key-type-continue[platform=ios]': { loginReturnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): mixedContentMode - Android Only
+// Component(s): Ti.UI.WebView
 '.mixed-content-mode[platform=android]': { mixedContentMode: true }
 '.unmixed-content-mode[platform=android]': { mixedContentMode: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): modal
+// Component(s): Ti.UI.Window
 '.modal': { modal: true }
 '.regular': { modal: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): moveable
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.moveable': { moveable: true }
 '.unmovable': { moveable: false }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): moving
+// Component(s): Ti.UI.TableView
 '.moving': { moving: true }
 
-// Component(s): Ti.UI.Picker
 // Property(ies): nativeSpinner - Android Only
+// Component(s): Ti.UI.Picker
 '.native-spinner[platform=android]': { nativeSpinner: true }
 
-// Component(s): Ti.UI.Window
 // Property(ies): navBarHidden
+// Component(s): Ti.UI.Window
 '.nav-bar-hidden': { navBarHidden: true }
 '.nav-bar-visible': { navBarHidden: false }
 
-// Component(s): Ti.Android.ActionBar
 // Property(ies): navigationMode
+// Component(s): Ti.Android.ActionBar
 '.navigation-mode-standard[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_STANDARD }
 '.navigation-mode-tabs[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_TABS }
 
-// Component(s): Ti.UI.Window
 // Property(ies): orientationModes
+// Component(s): Ti.UI.Window
 '.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 '.orientation-portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.orientation-upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.orientation-landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
-// Component(s): Ti.UI.Window
 // Property(ies): orientationModes (Alternative)
+// Component(s): Ti.UI.Window
 '.portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 '.landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): overlayEnabled - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.overlay-enabled[platform=ios]': { overlayEnabled: true }
 '.overlay-disabled[platform=ios]': { overlayEnabled: false }
 
-// Component(s): Ti.UI.View
 // Property(ies): overrideCurrentAnimation - Android Only
+// Component(s): Ti.UI.View
 '.override-current-animation[platform=android]': { overrideCurrentAnimation: true }
 '.dont-override-current-animation[platform=android]': { overrideCurrentAnimation: false }
 
-// Component(s): Ti.UI.ScrollableView, Ti.UI.ScrollView, Ti.UI.TableView, Ti.UI.WebView
 // Property(ies): overScrollMode - Android Only
+// Component(s): Ti.UI.ScrollableView, Ti.UI.ScrollView, Ti.UI.TableView, Ti.UI.WebView
 '.over-scroll-always[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_ALWAYS }
 '.over-scroll-if-content-scrolls[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS }
 '.over-scroll-never[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_NEVER }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlOnTop - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-on-top': { pagingControlOnTop: true }
 '.paging-control-on-bottom': { pagingControlOnTop: false }
 
-// Component(s): Ti.UI.AlertDialog
 // Property(ies): passwordKeyboardType
+// Component(s): Ti.UI.AlertDialog
 '.password-keyboard-type': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.password-keyboard-type-ascii': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.password-keyboard-type-decimal-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
@@ -2874,21 +2874,21 @@
 '.password-keyboard-type-twitter[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
 '.password-keyboard-type-websearch[platform=ios]': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): passwordMask
+// Component(s): Ti.UI.TableView
 '.password-mask': { passwordMask: true }
 '.password-unmask': { passwordMask: false }
 
-// Component(s): Ti.UI.Picker
 // Property(ies): type (Picker Type)
+// Component(s): Ti.UI.Picker
 '.picker-type-count-down-timer': { type: Ti.UI.PICKER_TYPE_COUNT_DOWN_TIMER }
 '.picker-type-date': { type: Ti.UI.PICKER_TYPE_DATE }
 '.picker-type-date-and-time': { type: Ti.UI.PICKER_TYPE_DATE_AND_TIME }
 '.picker-type-plain': { type: Ti.UI.PICKER_TYPE_PLAIN }
 '.picker-type-time': { type: Ti.UI.PICKER_TYPE_TIME }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.top-auto': { top: Ti.UI.SIZE }
 '.left-auto': { left: Ti.UI.SIZE }
 '.right-auto': { right: Ti.UI.SIZE }
@@ -2900,46 +2900,46 @@
 '.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
 '.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): pluginState - Android Only
+// Component(s): Ti.UI.WebView
 '.webview-plugins-off[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_OFF }
 '.webview-plugins-on[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON }
 '.webview-plugins-on-demand[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON_DEMAND }
 
-// Component(s): Ti.UI.Android.CardView
 // Property(ies): preventCornerOverlap - Android Only
+// Component(s): Ti.UI.Android.CardView
 '.prevent-corner-overlap[platform=android]': { preventCornerOverlap: true }
 '.dont-prevent-corner-overlap[platform=android]': { preventCornerOverlap: false }
 
-// Component(s): Ti.UI.ImageView
 // Property(ies): preventDefaultImage - iOS Only
+// Component(s): Ti.UI.ImageView
 '.prevent-default-image[platform=ios]': { preventDefaultImage: true }
 '.display-default-image[platform=ios]': { preventDefaultImage: false }
 
-// Component(s): Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
 // Property(ies): style - iOS Only
+// Component(s): Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
 '.preview-action-style[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DEFAULT }
 '.preview-action-style-selected[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_SELECTED }
 '.preview-action-style-destrutive[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DESTRUCTIVE }
 
-// Component(s): Ti.UI.ProgressBar
 // Property(ies): style - iOS Only
+// Component(s): Ti.UI.ProgressBar
 '.progress-bar-style-bar[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.BAR }
 '.progress-bar-style[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.DEFAULT }
 '.progress-bar-style-plain[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.PLAIN }
 
-// Component(s): Ti.UI.Android.ProgressIndicator
 // Property(ies): type - Android Only
+// Component(s): Ti.UI.Android.ProgressIndicator
 '.type-determinant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT }
 '.type-indeterminant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_INDETERMINANT }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): pruneSectionsOnEdit - iOS Only
+// Component(s): Ti.UI.ListView
 '.prune-sections-on-edit[platform=ios]': { pruneSectionsOnEdit: true }
 '.dont-prune-sections-on-edit[platform=ios]': { pruneSectionsOnEdit: false }
 
-// Component(s): Ti.Android.Activity
 // Property(ies): requestedOrientation - Android Only
+// Component(s): Ti.Android.Activity
 '.requested-orientation-behind[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_BEHIND }
 '.requested-orientation-landscape[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_LANDSCAPE }
 '.requested-orientation-nosensor[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_NOSENSOR }
@@ -2948,13 +2948,13 @@
 '.requested-orientation-unspecified[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_UNSPECIFIED }
 '.requested-orientation-user[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_USER }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): resultsSeparatorStyle - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.results-separator-style-none[platform=ios]': { resultsSeparatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE }
 '.results-separator-style-single-line[platform=ios]': { resultsSeparatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_SINGLE_LINE }
 
-// Component(s): Ti.UI.AlertDialog, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): returnKeyType
+// Component(s): Ti.UI.AlertDialog, Ti.UI.TextArea, Ti.UI.TextField
 '.return-key-type': { returnKeyType: Ti.UI.RETURNKEY_DEFAULT }
 '.return-key-type-go': { returnKeyType: Ti.UI.RETURNKEY_GO }
 '.return-key-type-done': { returnKeyType: Ti.UI.RETURNKEY_DONE }
@@ -2968,37 +2968,37 @@
 '.return-key-type-emergency-call': { returnKeyType: Ti.UI.RETURNKEY_EMERGENCY_CALL }
 '.return-key-type-continue[platform=ios]': { returnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 
-// Component(s): Ti.UI.ImageView
 // Property(ies): reverse
+// Component(s): Ti.UI.ImageView
 '.reverse': { reverse: true }
 '.no-reverse': { reverse: false }
 
-// Component(s): Ti.UI.TextField
 // Property(ies): rightButtonMode - iOS Only
+// Component(s): Ti.UI.TextField
 '.right-button-mode-always[platform=ios]': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
 '.right-button-mode-never[platform=ios]': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
 '.right-button-mode-on-blur[platform=ios]': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
 '.right-button-mode-on-focus[platform=ios]': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
 
-// Component(s): Ti.UI.Android.DrawerLayout
 // Property(ies): rightDrawerLockMode - Android Only
+// Component(s): Ti.UI.Android.DrawerLayout
 '.right-drawer-lock-mode-locked-closed[platform=android]': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
 '.right-drawer-lock-mode-locked-open[platform=android]': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
 '.right-drawer-lock-mode-undefined[platform=android]': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
 '.right-drawer-lock-mode-unlocked[platform=android]': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): scalesPageToFit
+// Component(s): Ti.UI.WebView
 '.scales-page-to-fit': { scalesPageToFit: true }
 '.dont-scale-page-to-fit': { scalesPageToFit: false }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): scrollable
+// Component(s): Ti.UI.TableView
 '.scrollable': { scrollable: true }
 '.unscrollable': { scrollable: false }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): showHorizontalScrollIndicator, showVerticalScrollIndicator
+// Component(s): Ti.UI.ScrollView
 '.overflow-x-scroll': { showHorizontalScrollIndicator: true }
 '.overflow-y-scroll': { showVerticalScrollIndicator: true }
 '.overflow-x-hidden': { showHorizontalScrollIndicator: false }
@@ -3006,124 +3006,124 @@
 '.overflow-scroll': { showHorizontalScrollIndicator: true, showVerticalScrollIndicator: true }
 '.overflow-hidden': { showHorizontalScrollIndicator: false, showVerticalScrollIndicator: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
 // Property(ies): scrollIndicatorStyle - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
 '.scrolling-indicator-style-black[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.BLACK }
 '.scrolling-indicator-style[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.DEFAULT }
 '.scrolling-indicator-style-white[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.WHITE }
 
-// Component(s): Ti.UI.ScrollableView, Ti.UI.ScrollView
 // Property(ies): scrollingEnabled
+// Component(s): Ti.UI.ScrollableView, Ti.UI.ScrollView
 '.scrolling-enabled': { scrollingEnabled: true }
 '.scrolling-disabled': { scrollingEnabled: false }
 
-// Component(s): Ti.UI.ScrollView, Ti.UI.TableView, Ti.UI.TextArea, Ti.UI.WebView
 // Property(ies): scrollsToTop - iOS Only
+// Component(s): Ti.UI.ScrollView, Ti.UI.TableView, Ti.UI.TextArea, Ti.UI.WebView
 '.scrolls-to-top[platform=ios]': { scrollsToTop: true }
 '.dont-scrolls-to-top[platform=ios]': { scrollsToTop: false }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): scrollType - Android Only
+// Component(s): Ti.UI.ScrollView
 '.scroll-type-horizontal[platform=android]': { scrollType: 'horizontal' }
 '.scroll-type-vertical[platform=android]': { scrollType: 'vertical' }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): searchAsChild - Android Only
+// Component(s): Ti.UI.TableView
 '.search-as-child[platform=android]': { searchAsChild: true }
 '.dont-search-as-child[platform=android]': { searchAsChild: false }
 
-// Component(s): Ti.UI.SearchBar
 // Property(ies): style - iOS Only
+// Component(s): Ti.UI.SearchBar
 '.search-bar-style-minimal[platform=ios]': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_MINIMAL }
 '.search-bar-style-prominent[platform=ios]': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_PROMINENT }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): searchHidden - iOS Only
+// Component(s): Ti.UI.TableView
 '.search-hidden[platform=ios]': { searchHidden: true }
 '.search-visible[platform=ios]': { searchHidden: false }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): selectionGranularity - iOS Only
+// Component(s): Ti.UI.WebView
 '.selection-granularity-dynamic[platform=ios]': { selectionGranularity: Ti.UI.iOS.SELECTION_GRANULARITY_DYNAMIC }
 '.selection-granularity-character[platform=ios]': { selectionGranularity: Ti.UI.iOS.SELECTION_GRANULARITY_CHARACTER }
 
-// Component(s): Ti.UI.Picker
 // Property(ies): selectionOpens - Android Only
+// Component(s): Ti.UI.Picker
 '.selection-opens[platform=android]': { selectionOpens: true }
 '.selection-dont-open[platform=android]': { selectionOpens: false }
 
-// Component(s): Ti.UI.ListItem, Ti.UI.TableViewRow
 // Property(ies): selectionStyle
+// Component(s): Ti.UI.ListItem, Ti.UI.TableViewRow
 '.selection-style': { selectionStyle: Ti.UI.SELECTION_STYLE_DEFAULT }
 '.selection-style-none': { selectionStyle: Ti.UI.SELECTION_STYLE_NONE }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): separatorStyle
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.separator-style-none': { separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE }
 '.separator-style-single-line': { separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_SINGLE_LINE }
 
-// Component(s): Ti.UI.TabGroup
 // Property(ies): shiftMode - Android Only
+// Component(s): Ti.UI.TabGroup
 '.shift-mode[platform=android]': { shiftMode: true }
 '.shift-mode-disabled[platform=android]': { shiftMode: false }
 
-// Component(s): Ti.Android.MenuItem
 // Property(ies): showAsAction - Android Only
+// Component(s): Ti.Android.MenuItem
 '.show-as-action-always[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS }
 '.show-as-action-collapse[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW }
 '.show-as-action-if-room[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM }
 '.show-as-action-never[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER }
 '.show-as-action-with-text[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_WITH_TEXT }
 
-// Component(s): Ti.UI.SearchBar
 // Property(ies): showBookmark - iOS Only
+// Component(s): Ti.UI.SearchBar
 '.show-bookmark[platform=ios]': { showBookmark: true }
 '.hide-bookmark[platform=ios]': { showBookmark: false }
 
-// Component(s): Ti.UI.SearchBar
 // Property(ies): showCancel
+// Component(s): Ti.UI.SearchBar
 '.show-cancel': { showCancel: true }
 '.hide-cancel': { showCancel: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): showHorizontalScrollIndicator
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.show-horizontal-scrolling-indicator': { showHorizontalScrollIndicator: true }
 '.hide-horizontal-scrolling-indicator': { showHorizontalScrollIndicator: false }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): showPagingControl
+// Component(s): Ti.UI.ScrollableView
 '.show-paging-control': { showPagingControl: true }
 '.hide-paging-control': { showPagingControl: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): showSearchBarInNavBar - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.show-search-in-nav[platform=ios]': { showSearchBarInNavBar: true }
 '.show-search-bar-in-nav-bar[platform=ios]': { showSearchBarInNavBar: true }
 '.hide-search-in-nav[platform=ios]': { showSearchBarInNavBar: false }
 '.hide-search-bar-in-nav-bar[platform=ios]': { showSearchBarInNavBar: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): showSelectionCheck - Android Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.show-selection-check[platform=android]': { showSelectionCheck: true }
 '.hide-selection-check[platform=android]': { showSelectionCheck: false }
 
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): showUndoRedoActions - iOS Only
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.show-undo-redo-actions[platform=ios]': { showUndoRedoActions: true }
 '.hide-undo-redo-actions[platform=ios]': { showUndoRedoActions: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): showVerticalScrollIndicator
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.show-vertical-scrolling-indicator': { showVerticalScrollIndicator: true }
 '.hide-vertical-scrolling-indicator': { showVerticalScrollIndicator: false }
 
-// Component(s): Ti.UI.TabGroup
 // Property(ies): smoothScrollOnTabClick - Android Only
+// Component(s): Ti.UI.TabGroup
 '.smooth-scroll[platform=android]': { smoothScrollOnTabClick: true }
 '.smooth-scroll-disabled[platform=android]': { smoothScrollOnTabClick: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): statusBarStyle - iOS Only
+// Component(s): Ti.UI.Window
 '.status-bar[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }
 '.status-bar-dark[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DARK_CONTENT }
 '.status-bar-light[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT }
@@ -3131,34 +3131,34 @@
 '.status-bar-animation-none[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.ANIMATION_STYLE_NONE }
 '.status-bar-animation-slide[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.ANIMATION_STYLE_SLIDE }
 
-// Component(s): Ti.UI.Android.SearchView
 // Property(ies): submitEnabled - Android Only
+// Component(s): Ti.UI.Android.SearchView
 '.submit-enabled[platform=android]': { submitEnabled: true }
 '.submit-disabled[platform=android]': { submitEnabled: false }
 
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): suppressReturn - iOS Only
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.suppress-return[platform=ios]': { suppressReturn: true }
 '.dont-suppress-return[platform=ios]': { suppressReturn: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): sustainedPerformanceMode - Android Only
+// Component(s): Ti.UI.Window
 '.sustained-performance-mode[platform=android]': { sustainedPerformanceMode: true }
 
-// Component(s): Ti.UI.Window
 // Property(ies): swipeToClose - iOS Only
+// Component(s): Ti.UI.Window
 '.swipe-to-close[platform=ios]': { swipeToClose: true }
 '.dont-swipe-to-close[platform=ios]': { swipeToClose: false }
 
-// Component(s): Ti.UI.Switch
 // Property(ies): style
+// Component(s): Ti.UI.Switch
 '.search-bar-style-checkox': { style: Ti.UI.SWITCH_STYLE_CHECKBOX }
 '.search-bar-style-chip': { style: Ti.UI.SWITCH_STYLE_CHIP }
 '.search-bar-style-slider': { style: Ti.UI.SWITCH_STYLE_SLIDER }
 '.search-bar-style-toggle-button': { style: Ti.UI.SWITCH_STYLE_TOGGLE_BUTTON }
 
-// Component(s): Ti.UI.ImageView. Ti.UI.WebView
 // Property(ies): systemButton - iOS Only
+// Component(s): Ti.UI.ImageView. Ti.UI.WebView
 '.system-button-action[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ACTION }
 '.system-button-activity[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ACTIVITY }
 '.system-button-add[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ADD }
@@ -3186,13 +3186,13 @@
 '.system-button-stop[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.STOP }
 '.system-button-trash[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.TRASH }
 
-// Component(s): Ti.UI.Window
 // Property(ies): tabBarHidden - iOS Only
+// Component(s): Ti.UI.Window
 '.tab-bar-hidden[platform=ios]': { tabBarHidden: true }
 '.tab-bar-visible[platform=ios]': { tabBarHidden: false }
 
-// Component(s): Ti.UI.TabbedBar
 // Property(ies): style
+// Component(s): Ti.UI.TabbedBar
 '.tabbed-bar-style-bar': { style: Ti.UI.BUTTON_STYLE_FILLED }
 '.tabbed-bar-style-bordered': { style: Ti.UI.BUTTON_STYLE_OPTION_NEGATIVE }
 '.tabbed-bar-style-done': { style: Ti.UI.BUTTON_STYLE_OPTION_NEUTRAL }
@@ -3200,31 +3200,31 @@
 '.tabbed-bar-style[platform=android]': { style: Ti.UI.Android.TABS_STYLE_DEFAULT }
 '.tabbed-bar-style-bottom-navigation[platform=android]': { style: Ti.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION }
 
-// Component(s): Ti.UI.TabGroup
 // Property(ies): style - Android Only
+// Component(s): Ti.UI.TabGroup
 '.tabs-style[platform=android]': { style: Ti.UI.Android.TABS_STYLE_DEFAULT }
 '.tabs-style-bottom-navigation[platform=android]': { style: Ti.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): style - iOS Only
+// Component(s): Ti.UI.TableView
 '.table-view-style-grouped[platform=ios]': { style: Ti.UI.iOS.TableViewStyle.GROUPED }
 '.table-view-style-plain[platform=ios]': { style: Ti.UI.iOS.TableViewStyle.PLAIN }
 '.table-view-style-inset-group[platform=ios]': { style: Ti.UI.iOS.TableViewStyle.INSET_GROUPED }
 
-// Component(s): Ti.UI.TabGroup
 // Property(ies): tabsTranslucent - iOS Only
+// Component(s): Ti.UI.TabGroup
 '.tabs-translucent[platform=ios]': { tabsTranslucent: true }
 '.tabs-opaque[platform=ios]': { tabsTranslucent: false }
 
-// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): textAlign
+// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
 '.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
 '.text-right': { textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT }
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
 '.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
 
-// Component(s): Ti.UI.Window
 // Property(ies): theme - Android Only
+// Component(s): Ti.UI.Window
 '.theme-titanium[platform=android]': { theme: "Theme.Titanium" }
 '.theme-titanium-day-night[platform=android]': { theme: "Theme.Titanium.DayNight" }
 '.theme-titanium-day-night-no-title-bar[platform=android]': { theme: "Theme.Titanium.DayNight.NoTitleBar" }
@@ -3251,16 +3251,16 @@
 '.theme-app-derived-translucent-fullscreen[platform=android]': { theme: "'Theme.AppDerived.Translucent.Fullscreen'" }
 
 // Ti.Media
-// Component(s): Ti.Media
 // Property(ies): audioSessionCategory - iOS Only
+// Component(s): Ti.Media
 '.audio-session-category-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_RECORD }
 '.audio-session-category-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_AMBIENT }
 '.audio-session-category-playback[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAYBACK }
 '.audio-session-category-solo-ambient[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
 '.audio-session-category-play-record[platform=ios]': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD }
 
-// Component(s): Ti.Media.AudioPlayer, Ti.Media.Sound
 // Property(ies): audioType - Android Only
+// Component(s): Ti.Media.AudioPlayer, Ti.Media.Sound
 '.audio-type-ring[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_RING }
 '.audio-type-alarm[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_ALARM }
 '.audio-type-media[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_MEDIA }
@@ -3268,60 +3268,60 @@
 '.audio-type-signalling[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_SIGNALLING }
 '.audio-type-notification[platform=android]': { audioType: Ti.Media.Sound.AUDIO_TYPE_NOTIFICATION }
 
-// Component(s): Ti.Media.MusicPlayer
 // Property(ies): repeatMode - iOS Only
+// Component(s): Ti.Media.MusicPlayer
 '.music-repeat-mode-all[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_ALL }
 '.music-repeat-mode[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_DEFAULT }
 '.music-repeat-mode-none[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_NONE }
 '.music-repeat-mode-one[platform=ios]': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_ONE }
 
-// Component(s): Ti.Media.MusicPlayer
 // Property(ies): shuffleMode - iOS Only
+// Component(s): Ti.Media.MusicPlayer
 '.music-shuffle-albums[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_ALBUMS }
 '.music-shuffle[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_DEFAULT }
 '.music-shuffle-none[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_NONE }
 '.music-shuffle-songs[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_SONGS }
 
-// Component(s): Ti.UI.ImageView
 // Property(ies): scalingMode
 // Description: Background Size for compatibility with Tailwind classes
+// Component(s): Ti.UI.ImageView
 '.bg-auto': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
 '.bg-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
 '.bg-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
-// Component(s): Ti.UI.ImageView
 // Property(ies): scalingMode
 // Description: Object Fit for compatibility with Tailwind classes
+// Component(s): Ti.UI.ImageView
 '.object-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
 '.object-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
 '.object-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
 '.object-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
 '.object-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
-// Component(s): Ti.UI.ImageView
 // Property(ies): scalingMode
 // Description: Image Scaling Mode
+// Component(s): Ti.UI.ImageView
 '.image-scaling-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
 '.image-scaling-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
 '.image-scaling-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
 '.image-scaling-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
 '.image-scaling-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
-// Component(s): Ti.Media.VideoPlayer
 // Property(ies): scalingMode
 // Description: Video Scaling Mode
+// Component(s): Ti.Media.VideoPlayer
 '.video-scaling-resize': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE }
 '.video-scaling-contain': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT }
 '.video-scaling-cover': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT_FILL }
 
-// Component(s): Ti.Media.VideoPlayer
 // Property(ies): repeatMode
 // Description: Determines how the movie player repeats when reaching the end of playback.
+// Component(s): Ti.Media.VideoPlayer
 '.video-repeat-mode-one': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_ONE }
 '.video-repeat-mode-none': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_NONE }
 
-// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): titleAttributes: shadow, color, blurRadius, offset - iOS Only
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.title-attributes-shadow-xs[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 1, offset: { width: 0, height: 0 } } } }
 '.title-attributes-shadow-sm[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 2, offset: { width: 0, height: 1 } } } }
 '.title-attributes-shadow[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 4, offset: { width: 0, height: 2 } } } }
@@ -3331,25 +3331,25 @@
 '.title-attributes-shadow-2xl[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 14, offset: { width: 0, height: 8 } } } }
 '.title-attributes-shadow-none[platform=ios]': { titleAttributes: { shadow: { color: null, blurRadius: null, offset: { width: 0, height: 0 } } } }
 
-// Component(s): Ti.UI.Android.DrawerLayout
 // Property(ies): toolbarEnabled - Android Only
+// Component(s): Ti.UI.Android.DrawerLayout
 '.toolbar-enabled[platform=android]': { toolbarEnabled: true }
 '.toolbar-disabled[platform=android]': { toolbarEnabled: false }
 
-// Component(s): Ti.UI.View
 // Property(ies): touchEnabled
+// Component(s): Ti.UI.View
 '.touch-enabled': { touchEnabled: true }
 '.touch-disabled': { touchEnabled: false }
 '.pointer-events-auto': { touchEnabled: true }
 '.pointer-events-none': { touchEnabled: false }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView, Ti.UI.View
 // Property(ies): touchFeedback - Android Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView, Ti.UI.View
 '.touch-feedback[platform=android]': { touchFeedback: true }
 '.dont-touch-feedback[platform=android]': { touchFeedback: false }
 
-// Component(s): Ti.UI.Animation
 // Property(ies): transition - iOS Only
+// Component(s): Ti.UI.Animation
 '.animation-style-curl-down[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
 '.animation-style-curl-up[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_UP }
 '.animation-style-flip-from-left[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }
@@ -3359,40 +3359,40 @@
 '.animation-style-cross-dissolve[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
 '.animation-style-none[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.NONE }
 
-// Component(s): Ti.UI.iOS.Toolbar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
 // Property(ies): translucent - iOS Only
+// Component(s): Ti.UI.iOS.Toolbar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
 '.translucent[platform=ios]': { translucent: true }
 '.translucent-disabled[platform=ios]': { translucent: false }
 
-// Component(s): Ti.UI.Android.CardView
 // Property(ies): useCompatPadding - Android Only
+// Component(s): Ti.UI.Android.CardView
 '.use-compat-padding[platform=android]': { useCompatPadding: true }
 '.dont-use-compat-padding[platform=android]': { useCompatPadding: false }
 
-// Component(s): Ti.UI.Picker
 // Property(ies): useSpinner
+// Component(s): Ti.UI.Picker
 '.use-spinner': { useSpinner: true }
 '.dont-use-spinner': { useSpinner: false }
 
-// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): verticalAlign
+// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
 '.align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
 '.align-middle': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
 '.align-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): verticalBounce - iOS Only
+// Component(s): Ti.UI.ScrollView
 '.vertical-bounce[platform=ios]': { verticalBounce: true }
 '.no-vertical-bounce[platform=ios]': { verticalBounce: false }
 
-// Component(s): Ti.UI.Notification
 // Property(ies): verticalMargin - Android Only
+// Component(s): Ti.UI.Notification
 '.vertical-center[platform=android]': { verticalMargin: '0' }
 '.vertical-top[platform=android]': { verticalMargin: '-0.5' }
 '.vertical-bottom[platform=android]': { verticalMargin: '0.5' }
 
-// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): elevation - Box Shadow Effect in Tailwind - Android Only
+// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 '.shadow-xs[platform=android]': { elevation: 4 }
 '.shadow-sm[platform=android]': { elevation: 8 }
 '.shadow[platform=android]': { elevation: 16 }
@@ -3404,8 +3404,8 @@
 '.shadow-outline[platform=android]': { elevation: 16 }
 '.shadow-none[platform=android]': { elevation: 0 }
 
-// Component(s): Ti.UI.View
 // Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow Effect in Tailwind - iOS Only
+// Component(s): Ti.UI.View
 '.shadow-xs[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
 '.shadow-sm[platform=ios]': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000' }
 '.shadow[platform=ios]': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
@@ -3417,25 +3417,25 @@
 '.shadow-outline[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
 '.shadow-none[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 
-// Component(s): Ti.Android.MenuItem, Ti.UI.Animation, Ti.UI.Picker, Ti.UI.ScrollableView, Ti.UI.ShortcutItem, Ti.UI.View
 // Property(ies): visible
+// Component(s): Ti.Android.MenuItem, Ti.UI.Animation, Ti.UI.Picker, Ti.UI.ScrollableView, Ti.UI.ShortcutItem, Ti.UI.View
 '.block': { visible: true }
 '.hidden': { visible: false }
 '.visible': { visible: true }
 '.invisible': { visible: false }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): willHandleTouches - iOS Only
+// Component(s): Ti.UI.WebView
 '.will-handle-touches[platform=ios]': { willHandleTouches: true }
 '.will-not-handle-touches[platform=ios]': { willHandleTouches: false }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): willScrollOnStatusTap - iOS Only
+// Component(s): Ti.UI.ListView
 '.will-scroll-on-status-tap[platform=ios]': { willScrollOnStatusTap: true }
 '.will-not-scroll-on-status-tap[platform=ios]': { willScrollOnStatusTap: false }
 
-// Component(s): Ti.UI.Window
 // Property(ies): windowPixelFormat - Android Only
+// Component(s): Ti.UI.Window
 '.pixel-format-a-8[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_A_8 }
 '.pixel-format-la-88[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_LA_88 }
 '.pixel-format-l-8[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_L_8 }
@@ -3451,8 +3451,8 @@
 '.pixel-format-transparent[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_TRANSPARENT }
 '.pixel-format-unknown[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_UNKNOWN }
 
-// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): windowSoftInputMode - Android Only
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.window-soft-input-always-hidden[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_HIDDEN }
 '.window-soft-input-always-visible[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_VISIBLE }
 '.window-soft-input-hidden[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN }
@@ -3461,13 +3461,13 @@
 '.window-soft-input-unspecified[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_UNSPECIFIED }
 '.window-soft-input-visible[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_VISIBLE }
 
-// Component(s): Ti.UI.DashboardView
 // Property(ies): wobble - iOS Only
+// Component(s): Ti.UI.DashboardView
 '.wobble[platform=ios]': { wobble: true }
 '.dont-wobble[platform=ios]': { wobble: false }
 
-// Component(s): Ti.UI.TabGroup
 // Property(ies): activeTab
+// Component(s): Ti.UI.TabGroup
 '.active-tab-0': { activeTab: 0 }
 '.active-tab-1': { activeTab: 1 }
 '.active-tab-2': { activeTab: 2 }
@@ -3482,8 +3482,8 @@
 '.active-tab-11': { activeTab: 11 }
 '.active-tab-12': { activeTab: 12 }
 
-// Component(s): Ti.UI.Label
 // Property(ies): backgroundLeftCap - iOS Only
+// Component(s): Ti.UI.Label
 '.bg-l-cap-0[platform=ios]': { backgroundLeftCap: 0 }
 '.bg-l-cap-1[platform=ios]': { backgroundLeftCap: 4 }
 '.bg-l-cap-2[platform=ios]': { backgroundLeftCap: 8 }
@@ -3520,8 +3520,8 @@
 '.bg-l-cap-2.5[platform=ios]': { backgroundLeftCap: 10 }
 '.bg-l-cap-3.5[platform=ios]': { backgroundLeftCap: 14 }
 
-// Component(s): Ti.UI.Label
 // Property(ies): backgroundPaddingBottom - iOS Only
+// Component(s): Ti.UI.Label
 '.bg-padding-b-0[platform=ios]': { backgroundPaddingBottom: 0 }
 '.bg-padding-b-1[platform=ios]': { backgroundPaddingBottom: 4 }
 '.bg-padding-b-2[platform=ios]': { backgroundPaddingBottom: 8 }
@@ -3558,8 +3558,8 @@
 '.bg-padding-b-2.5[platform=ios]': { backgroundPaddingBottom: 10 }
 '.bg-padding-b-3.5[platform=ios]': { backgroundPaddingBottom: 14 }
 
-// Component(s): Ti.UI.Label
 // Property(ies): backgroundPaddingLeft - iOS Only
+// Component(s): Ti.UI.Label
 '.bg-padding-l-0[platform=ios]': { backgroundPaddingLeft: 0 }
 '.bg-padding-l-1[platform=ios]': { backgroundPaddingLeft: 4 }
 '.bg-padding-l-2[platform=ios]': { backgroundPaddingLeft: 8 }
@@ -3596,8 +3596,8 @@
 '.bg-padding-l-2.5[platform=ios]': { backgroundPaddingLeft: 10 }
 '.bg-padding-l-3.5[platform=ios]': { backgroundPaddingLeft: 14 }
 
-// Component(s): Ti.UI.Label
 // Property(ies): backgroundPaddingRight - iOS Only
+// Component(s): Ti.UI.Label
 '.bg-padding-r-0[platform=ios]': { backgroundPaddingRight: 0 }
 '.bg-padding-r-1[platform=ios]': { backgroundPaddingRight: 4 }
 '.bg-padding-r-2[platform=ios]': { backgroundPaddingRight: 8 }
@@ -3634,8 +3634,8 @@
 '.bg-padding-r-2.5[platform=ios]': { backgroundPaddingRight: 10 }
 '.bg-padding-r-3.5[platform=ios]': { backgroundPaddingRight: 14 }
 
-// Component(s): Ti.UI.Label
 // Property(ies): backgroundPaddingTop - iOS Only
+// Component(s): Ti.UI.Label
 '.bg-padding-t-0[platform=ios]': { backgroundPaddingTop: 0 }
 '.bg-padding-t-1[platform=ios]': { backgroundPaddingTop: 4 }
 '.bg-padding-t-2[platform=ios]': { backgroundPaddingTop: 8 }
@@ -3672,8 +3672,8 @@
 '.bg-padding-t-2.5[platform=ios]': { backgroundPaddingTop: 10 }
 '.bg-padding-t-3.5[platform=ios]': { backgroundPaddingTop: 14 }
 
-// Component(s): Ti.UI.Label
 // Property(ies): backgroundTopCap - iOS Only
+// Component(s): Ti.UI.Label
 '.bg-t-cap-0[platform=ios]': { backgroundTopCap: 0 }
 '.bg-t-cap-1[platform=ios]': { backgroundTopCap: 4 }
 '.bg-t-cap-2[platform=ios]': { backgroundTopCap: 8 }
@@ -3710,8 +3710,8 @@
 '.bg-t-cap-2.5[platform=ios]': { backgroundTopCap: 10 }
 '.bg-t-cap-3.5[platform=ios]': { backgroundTopCap: 14 }
 
-// Component(s): Ti.UI.Android.CardView, Ti.UI.View
 // Property(ies): borderRadius ( with Extra Styles )
+// Component(s): Ti.UI.Android.CardView, Ti.UI.View
 '.rounded-1': { borderRadius: 2 }
 '.rounded-2': { borderRadius: 4 }
 '.rounded-3': { borderRadius: 6 }
@@ -4175,8 +4175,8 @@
 '.rounded-tr-bl-2.5': { borderRadius: [0, 5, 0, 5] }
 '.rounded-tr-bl-3.5': { borderRadius: [0, 7, 0, 7] }
 
-// Component(s): Ti.UI.View
 // Property(ies): borderWidth
+// Component(s): Ti.UI.View
 '.border-0': { borderWidth: 0 }
 '.border-1': { borderWidth: 1 }
 '.border-2': { borderWidth: 2 }
@@ -4185,8 +4185,8 @@
 '.border-10': { borderWidth: 10 }
 '.border': { borderWidth: 1 }
 
-// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup, Ti.UI.ScrollableView
 // Property(ies): padding, paddingTop, paddingLeft, paddingRight, paddingBottom - Android Only
+// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup, Ti.UI.ScrollableView
 '.padding-0[platform=android]': { padding: 0 }
 '.padding-1[platform=android]': { padding: 4 }
 '.padding-2[platform=android]': { padding: 8 }
@@ -4433,8 +4433,8 @@
 '.padding-b-2.5[platform=android]': { paddingBottom: 10 }
 '.padding-b-3.5[platform=android]': { paddingBottom: 14 }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): cacheSize
+// Component(s): Ti.UI.ScrollableView
 '.cache-size-0': { cacheSize: 0 }
 '.cache-size-1': { cacheSize: 1 }
 '.cache-size-2': { cacheSize: 2 }
@@ -4449,8 +4449,8 @@
 '.cache-size-11': { cacheSize: 11 }
 '.cache-size-12': { cacheSize: 12 }
 
-// Component(s): Ti.UI.DashboardView
 // Property(ies): columnCount - iOS Only
+// Component(s): Ti.UI.DashboardView
 '.col-count-1[platform=ios]': { columnCount: 1 }
 '.col-count-2[platform=ios]': { columnCount: 2 }
 '.col-count-3[platform=ios]': { columnCount: 3 }
@@ -4464,8 +4464,8 @@
 '.col-count-11[platform=ios]': { columnCount: 11 }
 '.col-count-12[platform=ios]': { columnCount: 12 }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): contentHeight
+// Component(s): Ti.UI.ScrollView
 '.content-h-0': { contentHeight: 0 }
 '.content-h-1': { contentHeight: 4 }
 '.content-h-2': { contentHeight: 8 }
@@ -4531,8 +4531,8 @@
 '.content-h-full': { contentHeight: '100%' }
 '.content-h-screen': { contentHeight: Ti.UI.FILL }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): contentWidth
+// Component(s): Ti.UI.ScrollView
 '.content-w-0': { contentWidth: 0 }
 '.content-w-1': { contentWidth: 4 }
 '.content-w-2': { contentWidth: 8 }
@@ -4598,8 +4598,8 @@
 '.content-w-full': { contentWidth: '100%' }
 '.content-w-screen': { contentWidth: Ti.UI.FILL }
 
-// Component(s): Ti.UI.Picker
 // Property(ies): countDownDuration - Android Only
+// Component(s): Ti.UI.Picker
 '.count-down-duration-0[platform=android]': { countDownDuration: 0 }
 '.count-down-duration-25[platform=android]': { countDownDuration: 25 }
 '.count-down-duration-50[platform=android]': { countDownDuration: 50 }
@@ -4624,8 +4624,8 @@
 '.count-down-duration-5000[platform=android]': { countDownDuration: 5000 }
 '.count-down-duration[platform=android]': { countDownDuration: 150 }
 
-// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): elevation - Android Only
+// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 '.elevation-1[platform=android]': { elevation: 4 }
 '.elevation-2[platform=android]': { elevation: 8 }
 '.elevation-3[platform=android]': { elevation: 12 }
@@ -4661,8 +4661,8 @@
 '.elevation-2.5[platform=android]': { elevation: 10 }
 '.elevation-3.5[platform=android]': { elevation: 14 }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): fontSize
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 '.text-xs': { font: { fontSize: 12 } }
 '.text-sm': { font: { fontSize: 14 } }
 '.text-base': { font: { fontSize: 16 } }
@@ -4677,8 +4677,8 @@
 '.text-8xl': { font: { fontSize: 96 } }
 '.text-9xl': { font: { fontSize: 128 } }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): fontWeight
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 '.font-thin': { font: { fontWeight: 'thin' } }
 '.font-extralight': { font: { fontWeight: 'extralight' } }
 '.font-light': { font: { fontWeight: 'light' } }
@@ -4689,8 +4689,8 @@
 '.font-extrabold': { font: { fontWeight: 'bold' } }
 '.font-black': { font: { fontWeight: 'bold' } }
 
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 // Property(ies): top, right, bottom, left - Gap for Grid System
+// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.gap-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.gap-1': { top: 4, right: 4, bottom: 4, left: 4 }
 '.gap-2': { top: 8, right: 8, bottom: 8, left: 8 }
@@ -4951,8 +4951,8 @@
 '.gap-y-3.5': { top: 14, bottom: 14 }
 '.gap-y-full': { top: '100%', bottom: '100%' }
 
-// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): indentionLevel - Android Only
+// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 '.indentation-level-0[platform=ios]': { indentionLevel: 0 }
 '.indentation-level-1[platform=ios]': { indentionLevel: 4 }
 '.indentation-level-2[platform=ios]': { indentionLevel: 8 }
@@ -4989,8 +4989,8 @@
 '.indentation-level-2.5[platform=ios]': { indentionLevel: 10 }
 '.indentation-level-3.5[platform=ios]': { indentionLevel: 14 }
 
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): keyboardToolbarHeight - iOS Only
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-toolbar-h-0[platform=ios]': { keyboardToolbarHeight: 0 }
 '.keyboard-toolbar-h-1[platform=ios]': { keyboardToolbarHeight: 4 }
 '.keyboard-toolbar-h-2[platform=ios]': { keyboardToolbarHeight: 8 }
@@ -5027,8 +5027,8 @@
 '.keyboard-toolbar-h-2.5[platform=ios]': { keyboardToolbarHeight: 10 }
 '.keyboard-toolbar-h-3.5[platform=ios]': { keyboardToolbarHeight: 14 }
 
-// Component(s): Ti.UI.Label
 // Property(ies): leftButtonPadding - iOS Only
+// Component(s): Ti.UI.Label
 '.left-button-padding-0[platform=ios]': { leftButtonPadding: 0 }
 '.left-button-padding-1[platform=ios]': { leftButtonPadding: 4 }
 '.left-button-padding-2[platform=ios]': { leftButtonPadding: 8 }
@@ -5065,8 +5065,8 @@
 '.left-button-padding-2.5[platform=ios]': { leftButtonPadding: 10 }
 '.left-button-padding-3.5[platform=ios]': { leftButtonPadding: 14 }
 
-// Component(s): Ti.UI.Android.DrawerLayout
 // Property(ies): leftWidth - Android Only
+// Component(s): Ti.UI.Android.DrawerLayout
 '.left-w-0[platform=android]': { leftWidth: 0 }
 '.left-w-1[platform=android]': { leftWidth: 4 }
 '.left-w-2[platform=android]': { leftWidth: 8 }
@@ -5132,8 +5132,8 @@
 '.left-w-full[platform=android]': { leftWidth: '100%' }
 '.left-w-screen[platform=android]': { leftWidth: Ti.UI.FILL }
 
-// Component(s): Ti.UI.Label, Ti.UI.TextArea
 // Property(ies): lines - Android Only
+// Component(s): Ti.UI.Label, Ti.UI.TextArea
 '.lines-1[platform=android]': { lines: 1 }
 '.lines-2[platform=android]': { lines: 2 }
 '.lines-3[platform=android]': { lines: 3 }
@@ -5147,8 +5147,8 @@
 '.lines-11[platform=android]': { lines: 11 }
 '.lines-12[platform=android]': { lines: 12 }
 
-// Component(s): Ti.UI.Android.CardView
 // Property(ies): maxElevation - Android Only
+// Component(s): Ti.UI.Android.CardView
 '.max-elevation-1[platform=android]': { maxElevation: 4 }
 '.max-elevation-2[platform=android]': { maxElevation: 8 }
 '.max-elevation-3[platform=android]': { maxElevation: 12 }
@@ -5184,8 +5184,8 @@
 '.max-elevation-2.5[platform=android]': { maxElevation: 10 }
 '.max-elevation-3.5[platform=android]': { maxElevation: 14 }
 
-// Component(s): Ti.UI.Label, Ti.UI.TextArea
 // Property(ies): maxLines - Android Only
+// Component(s): Ti.UI.Label, Ti.UI.TextArea
 '.max-lines-1[platform=android]': { maxLines: 1 }
 '.max-lines-2[platform=android]': { maxLines: 2 }
 '.max-lines-3[platform=android]': { maxLines: 3 }
@@ -5199,8 +5199,8 @@
 '.max-lines-11[platform=android]': { maxLines: 11 }
 '.max-lines-12[platform=android]': { maxLines: 12 }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): maxRowHeight - iOS Only
+// Component(s): Ti.UI.TableView
 '.max-row-h-0[platform=ios]': { maxRowHeight: 0 }
 '.max-row-h-1[platform=ios]': { maxRowHeight: 4 }
 '.max-row-h-2[platform=ios]': { maxRowHeight: 8 }
@@ -5237,8 +5237,8 @@
 '.max-row-h-2.5[platform=ios]': { maxRowHeight: 10 }
 '.max-row-h-3.5[platform=ios]': { maxRowHeight: 14 }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): maxZoomScale
+// Component(s): Ti.UI.ScrollView
 '.max-zoom-scale-0[platform=ios]': { maxZoomScale: '0' }
 '.max-zoom-scale-1[platform=ios]': { maxZoomScale: '.01' }
 '.max-zoom-scale-5[platform=ios]': { maxZoomScale: '.05' }
@@ -5254,8 +5254,8 @@
 '.max-zoom-scale-125[platform=ios]': { maxZoomScale: '1.25' }
 '.max-zoom-scale-150[platform=ios]': { maxZoomScale: '1.5' }
 
-// Component(s): Ti.UI.label, Ti.UI.TextField
 // Property(ies): minimumFontSize
+// Component(s): Ti.UI.label, Ti.UI.TextField
 '.minimum-text-xs': { minimumFontSize: 12 }
 '.minimum-text-sm': { minimumFontSize: 14 }
 '.minimum-text-base': { minimumFontSize: 16 }
@@ -5270,8 +5270,8 @@
 '.minimum-text-8xl': { minimumFontSize: 96 }
 '.minimum-text-9xl': { minimumFontSize: 128 }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): minRowHeight - iOS Only
+// Component(s): Ti.UI.TableView
 '.min-row-h-0[platform=ios]': { minRowHeight: 0 }
 '.min-row-h-1[platform=ios]': { minRowHeight: 4 }
 '.min-row-h-2[platform=ios]': { minRowHeight: 8 }
@@ -5308,8 +5308,8 @@
 '.min-row-h-2.5[platform=ios]': { minRowHeight: 10 }
 '.min-row-h-3.5[platform=ios]': { minRowHeight: 14 }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): minZoomScale
+// Component(s): Ti.UI.ScrollView
 '.min-zoom-scale-0[platform=ios]': { minZoomScale: '0' }
 '.min-zoom-scale-1[platform=ios]': { minZoomScale: '.01' }
 '.min-zoom-scale-5[platform=ios]': { minZoomScale: '.05' }
@@ -5325,8 +5325,8 @@
 '.min-zoom-scale-125[platform=ios]': { minZoomScale: '1.25' }
 '.min-zoom-scale-150[platform=ios]': { minZoomScale: '1.5' }
 
-// Component(s): Ti.UI.Notification
 // Property(ies): xOffset - Android Only
+// Component(s): Ti.UI.Notification
 '.x-offset-0[platform=android]': { xOffset: 0 }
 '.x-offset-1[platform=android]': { xOffset: 4 }
 '.x-offset-2[platform=android]': { xOffset: 8 }
@@ -5363,8 +5363,8 @@
 '.x-offset-2.5[platform=android]': { xOffset: 10 }
 '.x-offset-3.5[platform=android]': { xOffset: 14 }
 
-// Component(s): Ti.UI.Notification
 // Property(ies): yOffset - Android Only
+// Component(s): Ti.UI.Notification
 '.y-offset-0[platform=android]': { yOffset: 0 }
 '.y-offset-1[platform=android]': { yOffset: 4 }
 '.y-offset-2[platform=android]': { yOffset: 8 }
@@ -5401,8 +5401,8 @@
 '.y-offset-2.5[platform=android]': { yOffset: 10 }
 '.y-offset-3.5[platform=android]': { yOffset: 14 }
 
-// Component(s): Ti.UI.Animation, Ti.UI.TableViewRow, Ti.UI.View, Ti.UI.Window
 // Property(ies): opacity
+// Component(s): Ti.UI.Animation, Ti.UI.TableViewRow, Ti.UI.View, Ti.UI.Window
 '.opacity-0': { opacity: 0 }
 '.opacity-5': { opacity: 0.05 }
 '.opacity-10': { opacity: 0.1 }
@@ -5419,8 +5419,8 @@
 '.opacity-95': { opacity: 0.95 }
 '.opacity-100': { opacity: 1 }
 
-// Component(s): Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): padding - Android Only
+// Component(s): Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField
 '.p-0': { padding: { top: 0, right: 0, bottom: 0, left: 0 } }
 '.p-1': { padding: { top: 4, right: 4, bottom: 4, left: 4 } }
 '.p-2': { padding: { top: 8, right: 8, bottom: 8, left: 8 } }
@@ -5856,8 +5856,8 @@
 '.pl-11/12': { padding: { left: '91.666667%' } }
 '.pl-full': { padding: { left: '100%' } }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlAlpha - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-alpha-0[platform=ios]': { pagingControlAlpha: 0 }
 '.paging-control-alpha-5[platform=ios]': { pagingControlAlpha: 0.05 }
 '.paging-control-alpha-10[platform=ios]': { pagingControlAlpha: 0.1 }
@@ -5874,8 +5874,8 @@
 '.paging-control-alpha-95[platform=ios]': { pagingControlAlpha: 0.95 }
 '.paging-control-alpha-100[platform=ios]': { pagingControlAlpha: 1 }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlHeight - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-h-0[platform=ios]': { pagingControlHeight: 0 }
 '.paging-control-h-1[platform=ios]': { pagingControlHeight: 4 }
 '.paging-control-h-2[platform=ios]': { pagingControlHeight: 8 }
@@ -5912,8 +5912,8 @@
 '.paging-control-h-2.5[platform=ios]': { pagingControlHeight: 10 }
 '.paging-control-h-3.5[platform=ios]': { pagingControlHeight: 14 }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlTimeout - Android Only
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-timeout-0[platform=android]': { pagingControlTimeout: 0 }
 '.paging-control-timeout-25[platform=android]': { pagingControlTimeout: 25 }
 '.paging-control-timeout-50[platform=android]': { pagingControlTimeout: 50 }
@@ -5937,8 +5937,8 @@
 '.paging-control-timeout-4000[platform=android]': { pagingControlTimeout: 4000 }
 '.paging-control-timeout-5000[platform=android]': { pagingControlTimeout: 5000 }
 
-// Component(s): Ti.UI.Animation
 // Property(ies): repeat
+// Component(s): Ti.UI.Animation
 '.repeat-1': { repeat: 1 }
 '.repeat-2': { repeat: 2 }
 '.repeat-3': { repeat: 3 }
@@ -5952,8 +5952,8 @@
 '.repeat-11': { repeat: 11 }
 '.repeat-12': { repeat: 12 }
 
-// Component(s): Ti.UI.ImageView
 // Property(ies): repeatCount
+// Component(s): Ti.UI.ImageView
 '.repeat-count-0': { repeatCount: 0 }
 '.repeat-count-1': { repeatCount: 1 }
 '.repeat-count-2': { repeatCount: 2 }
@@ -5968,8 +5968,8 @@
 '.repeat-count-11': { repeatCount: 11 }
 '.repeat-count-12': { repeatCount: 12 }
 
-// Component(s): Ti.UI.Label
 // Property(ies): rightButtonPadding - iOS Only
+// Component(s): Ti.UI.Label
 '.right-button-padding-0[platform=ios]': { rightButtonPadding: 0 }
 '.right-button-padding-1[platform=ios]': { rightButtonPadding: 4 }
 '.right-button-padding-2[platform=ios]': { rightButtonPadding: 8 }
@@ -6006,8 +6006,8 @@
 '.right-button-padding-2.5[platform=ios]': { rightButtonPadding: 10 }
 '.right-button-padding-3.5[platform=ios]': { rightButtonPadding: 14 }
 
-// Component(s): Ti.UI.Android.DrawerLayout
 // Property(ies): rightWidth - Android Only
+// Component(s): Ti.UI.Android.DrawerLayout
 '.right-w-0[platform=android]': { rightWidth: 0 }
 '.right-w-1[platform=android]': { rightWidth: 4 }
 '.right-w-2[platform=android]': { rightWidth: 8 }
@@ -6073,8 +6073,8 @@
 '.right-w-full[platform=android]': { rightWidth: '100%' }
 '.right-w-screen[platform=android]': { rightWidth: Ti.UI.FILL }
 
-// Component(s): For the Animation Component
 // Property(ies): rotate
+// Component(s): For the Animation Component
 '.rotate-0': { rotate: 0 }
 '.rotate-1': { rotate: 1 }
 '.rotate-2': { rotate: 2 }
@@ -6085,8 +6085,8 @@
 '.rotate-90': { rotate: 90 }
 '.rotate-180': { rotate: 180 }
 
-// Component(s): For the Animation Component
 // Property(ies): rotate ( Negative values )
+// Component(s): For the Animation Component
 '.-rotate-0': { rotate: 0 }
 '.-rotate-1': { rotate: -1 }
 '.-rotate-2': { rotate: -2 }
@@ -6097,8 +6097,8 @@
 '.-rotate-90': { rotate: -90 }
 '.-rotate-180': { rotate: -180 }
 
-// Component(s): Ti.UI.DashboardView
 // Property(ies): rowCount - iOS Only
+// Component(s): Ti.UI.DashboardView
 '.row-count-1[platform=ios]': { rowCount: 1 }
 '.row-count-2[platform=ios]': { rowCount: 2 }
 '.row-count-3[platform=ios]': { rowCount: 3 }
@@ -6112,8 +6112,8 @@
 '.row-count-11[platform=ios]': { rowCount: 11 }
 '.row-count-12[platform=ios]': { rowCount: 12 }
 
-// Component(s): Ti.UI.TableView
 // Property(ies): rowHeight
+// Component(s): Ti.UI.TableView
 '.row-h-0': { rowHeight: 0 }
 '.row-h-1': { rowHeight: 4 }
 '.row-h-2': { rowHeight: 8 }
@@ -6150,8 +6150,8 @@
 '.row-h-2.5': { rowHeight: 10 }
 '.row-h-3.5': { rowHeight: 14 }
 
-// Component(s): MatrixCreationDict
 // Property(ies): scale
+// Component(s): MatrixCreationDict
 '.scale-0': { scale: '0' }
 '.scale-1': { scale: '.01' }
 '.scale-5': { scale: '.05' }
@@ -6167,8 +6167,8 @@
 '.scale-125': { scale: '1.25' }
 '.scale-150': { scale: '1.5' }
 
-// Component(s): Ti.UI.ListView, Ti.UI.TableView
 // Property(ies): sectionHeaderTopPadding - iOS Only
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.section-header-top-padding-0[platform=ios]': { sectionHeaderTopPadding: 0 }
 '.section-header-top-padding-1[platform=ios]': { sectionHeaderTopPadding: 4 }
 '.section-header-top-padding-2[platform=ios]': { sectionHeaderTopPadding: 8 }
@@ -6205,8 +6205,8 @@
 '.section-header-top-padding-2.5[platform=ios]': { sectionHeaderTopPadding: 10 }
 '.section-header-top-padding-3.5[platform=ios]': { sectionHeaderTopPadding: 14 }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): separatorHeight - Android Only
+// Component(s): Ti.UI.ListView
 '.separator-h-0[platform=android]': { separatorHeight: 0 }
 '.separator-h-1[platform=android]': { separatorHeight: 4 }
 '.separator-h-2[platform=android]': { separatorHeight: 8 }
@@ -6243,8 +6243,8 @@
 '.separator-h-2.5[platform=android]': { separatorHeight: 10 }
 '.separator-h-3.5[platform=android]': { separatorHeight: 14 }
 
-// Component(s): Ti.UI.Button, Ti.UI.Label
 // Property(ies): shadowRadius ( with Extra Styles ) - Android Only
+// Component(s): Ti.UI.Button, Ti.UI.Label
 '.shadow-radius-1[platform=android]': { shadowRadius: 2 }
 '.shadow-radius-2[platform=android]': { shadowRadius: 4 }
 '.shadow-radius-3[platform=android]': { shadowRadius: 6 }
@@ -6280,8 +6280,8 @@
 '.shadow-radius-2.5[platform=android]': { shadowRadius: 5 }
 '.shadow-radius-3.5[platform=android]': { shadowRadius: 7 }
 
-// Component(s): Ti.UI.WebView
 // Property(ies): timeout - iOS Only
+// Component(s): Ti.UI.WebView
 '.timeout-0[platform=ios]': { timeout: 0 }
 '.timeout-25[platform=ios]': { timeout: 25 }
 '.timeout-50[platform=ios]': { timeout: 50 }
@@ -6305,8 +6305,8 @@
 '.timeout-4000[platform=ios]': { timeout: 4000 }
 '.timeout-5000[platform=ios]': { timeout: 5000 }
 
-// Component(s): Ti.UI.Animation
 // Property(ies): delay
+// Component(s): Ti.UI.Animation
 '.delay-0': { delay: 0 }
 '.delay-25': { delay: 25 }
 '.delay-50': { delay: 50 }
@@ -6330,8 +6330,8 @@
 '.delay-4000': { delay: 4000 }
 '.delay-5000': { delay: 5000 }
 
-// Component(s): Ti.UI.Animation, Ti.UI.ImageView
 // Property(ies): duration
+// Component(s): Ti.UI.Animation, Ti.UI.ImageView
 '.duration-0': { duration: 0 }
 '.duration-25': { duration: 25 }
 '.duration-50': { duration: 50 }
@@ -6356,8 +6356,8 @@
 '.duration-5000': { duration: 5000 }
 '.duration': { duration: 150 }
 
-// Component(s): Ti.UI.Animation, Ti.UI.View
 // Property(ies): zIndex
+// Component(s): Ti.UI.Animation, Ti.UI.View
 '.z-0': { zIndex: 0 }
 '.z-10': { zIndex: 10 }
 '.z-20': { zIndex: 20 }
@@ -6365,8 +6365,8 @@
 '.z-40': { zIndex: 40 }
 '.z-50': { zIndex: 50 }
 
-// Component(s): Ti.UI.ScrollView
 // Property(ies): zoomScale
+// Component(s): Ti.UI.ScrollView
 '.zoom-scale-0[platform=ios]': { zoomScale: '0' }
 '.zoom-scale-1[platform=ios]': { zoomScale: '.01' }
 '.zoom-scale-5[platform=ios]': { zoomScale: '.05' }
@@ -6382,8 +6382,8 @@
 '.zoom-scale-125[platform=ios]': { zoomScale: '1.25' }
 '.zoom-scale-150[platform=ios]': { zoomScale: '1.5' }
 
-// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 // Property(ies): activeTintColor
+// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.active-tint-transparent': { activeTintColor: 'transparent' }
 '.active-tint-black': { activeTintColor: '#000000' }
 '.active-tint-white': { activeTintColor: '#ffffff' }
@@ -6608,8 +6608,8 @@
 '.active-tint-rose-800': { activeTintColor: '#9f1239' }
 '.active-tint-rose-900': { activeTintColor: '#881337' }
 
-// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 // Property(ies): activeTitleColor
+// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.active-title-transparent': { activeTitleColor: 'transparent' }
 '.active-title-black': { activeTitleColor: '#000000' }
 '.active-title-white': { activeTitleColor: '#ffffff' }
@@ -6834,8 +6834,8 @@
 '.active-title-rose-800': { activeTitleColor: '#9f1239' }
 '.active-title-rose-900': { activeTitleColor: '#881337' }
 
-// Component(s): Ti.UI, Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.Tab, Ti.UI.TableView, Ti.UI.View, Ti.UI.Window
 // Property(ies): backgroundColor
+// Component(s): Ti.UI, Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.Tab, Ti.UI.TableView, Ti.UI.View, Ti.UI.Window
 '.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000000' }
 '.bg-white': { backgroundColor: '#ffffff' }
@@ -7060,8 +7060,8 @@
 '.bg-rose-800': { backgroundColor: '#9f1239' }
 '.bg-rose-900': { backgroundColor: '#881337' }
 
-// Component(s): Ti.UI.View
 // Property(ies): backgroundDisabledColor - Android Only
+// Component(s): Ti.UI.View
 '.bg-disabled-transparent[platform=android]': { backgroundDisabledColor: 'transparent' }
 '.bg-disabled-black[platform=android]': { backgroundDisabledColor: '#000000' }
 '.bg-disabled-white[platform=android]': { backgroundDisabledColor: '#ffffff' }
@@ -7286,8 +7286,8 @@
 '.bg-disabled-rose-800[platform=android]': { backgroundDisabledColor: '#9f1239' }
 '.bg-disabled-rose-900[platform=android]': { backgroundDisabledColor: '#881337' }
 
-// Component(s): Ti.UI.Tab, Ti.UI.View
 // Property(ies): backgroundFocusedColor - Android Only
+// Component(s): Ti.UI.Tab, Ti.UI.View
 '.bg-focused-transparent[platform=android]': { backgroundFocusedColor: 'transparent' }
 '.bg-focused-black[platform=android]': { backgroundFocusedColor: '#000000' }
 '.bg-focused-white[platform=android]': { backgroundFocusedColor: '#ffffff' }
@@ -7512,8 +7512,8 @@
 '.bg-focused-rose-800[platform=android]': { backgroundFocusedColor: '#9f1239' }
 '.bg-focused-rose-900[platform=android]': { backgroundFocusedColor: '#881337' }
 
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundGradient: colors - From Color
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.from-transparent': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }
 '.from-black': { backgroundGradient: { colors: [ '#00000000', '#000000' ] } }
 '.from-white': { backgroundGradient: { colors: [ '#00ffffff', '#ffffff' ] } }
@@ -7738,8 +7738,8 @@
 '.from-rose-800': { backgroundGradient: { colors: [ '#009f1239', '#9f1239' ] } }
 '.from-rose-900': { backgroundGradient: { colors: [ '#00881337', '#881337' ] } }
 
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundGradient: colors - To Color
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.to-transparent': { backgroundGradient: { colors: [ 'transparent' ] } }
 '.to-black': { backgroundGradient: { colors: [ '#000000' ] } }
 '.to-white': { backgroundGradient: { colors: [ '#ffffff' ] } }
@@ -7964,8 +7964,8 @@
 '.to-rose-800': { backgroundGradient: { colors: [ '#9f1239' ] } }
 '.to-rose-900': { backgroundGradient: { colors: [ '#881337' ] } }
 
-// Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow, Ti.UI.View
 // Property(ies): backgroundSelectedColor
+// Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow, Ti.UI.View
 '.bg-selected-transparent': { backgroundSelectedColor: 'transparent' }
 '.bg-selected-black': { backgroundSelectedColor: '#000000' }
 '.bg-selected-white': { backgroundSelectedColor: '#ffffff' }
@@ -8190,8 +8190,8 @@
 '.bg-selected-rose-800': { backgroundSelectedColor: '#9f1239' }
 '.bg-selected-rose-900': { backgroundSelectedColor: '#881337' }
 
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundSelectedGradient: colors - From Color - iOS Only
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.bg-selected-from-transparent': { backgroundSelectedGradient: { colors: [ 'transparent', 'transparent' ] } }
 '.bg-selected-from-black': { backgroundSelectedGradient: { colors: [ '#00000000', '#000000' ] } }
 '.bg-selected-from-white': { backgroundSelectedGradient: { colors: [ '#00ffffff', '#ffffff' ] } }
@@ -8416,8 +8416,8 @@
 '.bg-selected-from-rose-800': { backgroundSelectedGradient: { colors: [ '#009f1239', '#9f1239' ] } }
 '.bg-selected-from-rose-900': { backgroundSelectedGradient: { colors: [ '#00881337', '#881337' ] } }
 
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundSelectedGradient: colors - To Color - iOS Only
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.bg-selected-to-transparent': { backgroundSelectedGradient: { colors: [ 'transparent' ] } }
 '.bg-selected-to-black': { backgroundSelectedGradient: { colors: [ '#000000' ] } }
 '.bg-selected-to-white': { backgroundSelectedGradient: { colors: [ '#ffffff' ] } }
@@ -8642,8 +8642,8 @@
 '.bg-selected-to-rose-800': { backgroundSelectedGradient: { colors: [ '#9f1239' ] } }
 '.bg-selected-to-rose-900': { backgroundSelectedGradient: { colors: [ '#881337' ] } }
 
-// Component(s): Ti.UI.Tab
 // Property(ies): badgeColor
+// Component(s): Ti.UI.Tab
 '.badge-transparent': { badgeColor: 'transparent' }
 '.badge-black': { badgeColor: '#000000' }
 '.badge-white': { badgeColor: '#ffffff' }
@@ -8868,8 +8868,8 @@
 '.badge-rose-800': { badgeColor: '#9f1239' }
 '.badge-rose-900': { badgeColor: '#881337' }
 
-// Component(s): Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
 // Property(ies): barColor
+// Component(s): Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window
 '.bar-transparent': { barColor: 'transparent' }
 '.bar-black': { barColor: '#000000' }
 '.bar-white': { barColor: '#ffffff' }
@@ -9094,8 +9094,8 @@
 '.bar-rose-800': { barColor: '#9f1239' }
 '.bar-rose-900': { barColor: '#881337' }
 
-// Component(s): Ti.UI.View
 // Property(ies): borderColor
+// Component(s): Ti.UI.View
 '.border-transparent': { borderColor: 'transparent' }
 '.border-black': { borderColor: '#000000' }
 '.border-white': { borderColor: '#ffffff' }
@@ -9320,8 +9320,8 @@
 '.border-rose-800': { borderColor: '#9f1239' }
 '.border-rose-900': { borderColor: '#881337' }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): currentPageIndicatorColor - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.current-page-indicator-transparent': { currentPageIndicatorColor: 'transparent' }
 '.current-page-indicator-black': { currentPageIndicatorColor: '#000000' }
 '.current-page-indicator-white': { currentPageIndicatorColor: '#ffffff' }
@@ -9546,8 +9546,8 @@
 '.current-page-indicator-rose-800': { currentPageIndicatorColor: '#9f1239' }
 '.current-page-indicator-rose-900': { currentPageIndicatorColor: '#881337' }
 
-// Component(s): Ti.UI.Picker
 // Property(ies): dateTimeColor - iOS Only
+// Component(s): Ti.UI.Picker
 '.date-time-transparent': { dateTimeColor: 'transparent' }
 '.date-time-black': { dateTimeColor: '#000000' }
 '.date-time-white': { dateTimeColor: '#ffffff' }
@@ -9772,8 +9772,8 @@
 '.date-time-rose-800': { dateTimeColor: '#9f1239' }
 '.date-time-rose-900': { dateTimeColor: '#881337' }
 
-// Component(s): Ti.UI.Button
 // Property(ies): disabledColor - iOS Only
+// Component(s): Ti.UI.Button
 '.disabled-transparent[platform=ios]': { disabledColor: 'transparent' }
 '.disabled-black[platform=ios]': { disabledColor: '#000000' }
 '.disabled-white[platform=ios]': { disabledColor: '#ffffff' }
@@ -9998,8 +9998,8 @@
 '.disabled-rose-800[platform=ios]': { disabledColor: '#9f1239' }
 '.disabled-rose-900[platform=ios]': { disabledColor: '#881337' }
 
-// Component(s): Ti.UI.Label
 // Property(ies): highlightedColor
+// Component(s): Ti.UI.Label
 '.highlighted-transparent': { highlightedColor: 'transparent' }
 '.highlighted-black': { highlightedColor: '#000000' }
 '.highlighted-white': { highlightedColor: '#ffffff' }
@@ -10224,8 +10224,8 @@
 '.highlighted-rose-800': { highlightedColor: '#9f1239' }
 '.highlighted-rose-900': { highlightedColor: '#881337' }
 
-// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): hintTextColor
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.hint-text-transparent': { hintTextColor: 'transparent' }
 '.hint-text-black': { hintTextColor: '#000000' }
 '.hint-text-white': { hintTextColor: '#ffffff' }
@@ -10450,8 +10450,8 @@
 '.hint-text-rose-800': { hintTextColor: '#9f1239' }
 '.hint-text-rose-900': { hintTextColor: '#881337' }
 
-// Component(s): Ti.UI.ImageView
 // Property(ies): imageTouchFeedbackColor - Android Only
+// Component(s): Ti.UI.ImageView
 '.image-touch-feedback-transparent[platform=android]': { imageTouchFeedbackColor: 'transparent' }
 '.image-touch-feedback-black[platform=android]': { imageTouchFeedbackColor: '#000000' }
 '.image-touch-feedback-white[platform=android]': { imageTouchFeedbackColor: '#ffffff' }
@@ -10676,8 +10676,8 @@
 '.image-touch-feedback-rose-800[platform=android]': { imageTouchFeedbackColor: '#9f1239' }
 '.image-touch-feedback-rose-900[platform=android]': { imageTouchFeedbackColor: '#881337' }
 
-// Component(s): Ti.UI.ActivityIndicator
 // Property(ies): indicatorColor
+// Component(s): Ti.UI.ActivityIndicator
 '.indicator-transparent': { indicatorColor: 'transparent' }
 '.indicator-black': { indicatorColor: '#000000' }
 '.indicator-white': { indicatorColor: '#ffffff' }
@@ -10902,8 +10902,8 @@
 '.indicator-rose-800': { indicatorColor: '#9f1239' }
 '.indicator-rose-900': { indicatorColor: '#881337' }
 
-// Component(s): Ti.UI.ActivityIndicator
 // Property(ies): keyboardToolbarColor - iOS Only
+// Component(s): Ti.UI.ActivityIndicator
 '.keyboard-toolbar-transparent[platform=ios]': { keyboardToolbarColor: 'transparent' }
 '.keyboard-toolbar-black[platform=ios]': { keyboardToolbarColor: '#000000' }
 '.keyboard-toolbar-white[platform=ios]': { keyboardToolbarColor: '#ffffff' }
@@ -11128,8 +11128,8 @@
 '.keyboard-toolbar-rose-800[platform=ios]': { keyboardToolbarColor: '#9f1239' }
 '.keyboard-toolbar-rose-900[platform=ios]': { keyboardToolbarColor: '#881337' }
 
-// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): navTintColor - iOS Only
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.nav-tint-transparent': { navTintColor: 'transparent' }
 '.nav-tint-black': { navTintColor: '#000000' }
 '.nav-tint-white': { navTintColor: '#ffffff' }
@@ -11354,8 +11354,8 @@
 '.nav-tint-rose-800': { navTintColor: '#9f1239' }
 '.nav-tint-rose-900': { navTintColor: '#881337' }
 
-// Component(s): Ti.UI.Switch
 // Property(ies): onTintColor - iOS Only
+// Component(s): Ti.UI.Switch
 '.on-tint-transparent[platform=ios]': { onTintColor: 'transparent' }
 '.on-tint-black[platform=ios]': { onTintColor: '#000000' }
 '.on-tint-white[platform=ios]': { onTintColor: '#ffffff' }
@@ -11580,8 +11580,8 @@
 '.on-tint-rose-800[platform=ios]': { onTintColor: '#9f1239' }
 '.on-tint-rose-900[platform=ios]': { onTintColor: '#881337' }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pageIndicatorColor - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.page-indicator-transparent': { pageIndicatorColor: 'transparent' }
 '.page-indicator-black': { pageIndicatorColor: '#000000' }
 '.page-indicator-white': { pageIndicatorColor: '#ffffff' }
@@ -11806,8 +11806,8 @@
 '.page-indicator-rose-800': { pageIndicatorColor: '#9f1239' }
 '.page-indicator-rose-900': { pageIndicatorColor: '#881337' }
 
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlColor - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-transparent[platform=ios]': { pagingControlColor: 'transparent' }
 '.paging-control-black[platform=ios]': { pagingControlColor: '#000000' }
 '.paging-control-white[platform=ios]': { pagingControlColor: '#ffffff' }
@@ -12032,8 +12032,8 @@
 '.paging-control-rose-800[platform=ios]': { pagingControlColor: '#9f1239' }
 '.paging-control-rose-900[platform=ios]': { pagingControlColor: '#881337' }
 
-// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): hintTextColor ( Alternative )
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.placeholder-transparent': { hintTextColor: 'transparent' }
 '.placeholder-black': { hintTextColor: '#000000' }
 '.placeholder-white': { hintTextColor: '#ffffff' }
@@ -12258,8 +12258,8 @@
 '.placeholder-rose-800': { hintTextColor: '#9f1239' }
 '.placeholder-rose-900': { hintTextColor: '#881337' }
 
-// Component(s): Ti.UI.View
 // Property(ies): pullBackgroundColor - iOS Only
+// Component(s): Ti.UI.View
 '.pull-bg-transparent[platform=ios]': { pullBackgroundColor: 'transparent' }
 '.pull-bg-black[platform=ios]': { pullBackgroundColor: '#000000' }
 '.pull-bg-white[platform=ios]': { pullBackgroundColor: '#ffffff' }
@@ -12484,8 +12484,8 @@
 '.pull-bg-rose-800[platform=ios]': { pullBackgroundColor: '#9f1239' }
 '.pull-bg-rose-900[platform=ios]': { pullBackgroundColor: '#881337' }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): resultsBackgroundColor - iOS Only
+// Component(s): Ti.UI.ListView
 '.results-bg-transparent[platform=ios]': { resultsBackgroundColor: 'transparent' }
 '.results-bg-black[platform=ios]': { resultsBackgroundColor: '#000000' }
 '.results-bg-white[platform=ios]': { resultsBackgroundColor: '#ffffff' }
@@ -12710,8 +12710,8 @@
 '.results-bg-rose-800[platform=ios]': { resultsBackgroundColor: '#9f1239' }
 '.results-bg-rose-900[platform=ios]': { resultsBackgroundColor: '#881337' }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): resultsSeparatorColor
+// Component(s): Ti.UI.ListView
 '.results-separator-transparent': { resultsSeparatorColor: 'transparent' }
 '.results-separator-black': { resultsSeparatorColor: '#000000' }
 '.results-separator-white': { resultsSeparatorColor: '#ffffff' }
@@ -12936,8 +12936,8 @@
 '.results-separator-rose-800': { resultsSeparatorColor: '#9f1239' }
 '.results-separator-rose-900': { resultsSeparatorColor: '#881337' }
 
-// Component(s): Ti.UI.SearchBar
 // Property(ies): selectedButtonColor - iOS Only
+// Component(s): Ti.UI.SearchBar
 '.selected-button-transparent[platform=ios]': { selectedButtonColor: 'transparent' }
 '.selected-button-black[platform=ios]': { selectedButtonColor: '#000000' }
 '.selected-button-white[platform=ios]': { selectedButtonColor: '#ffffff' }
@@ -13162,8 +13162,8 @@
 '.selected-button-rose-800[platform=ios]': { selectedButtonColor: '#9f1239' }
 '.selected-button-rose-900[platform=ios]': { selectedButtonColor: '#881337' }
 
-// Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow
 // Property(ies): selectedColor - iOS Only
+// Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow
 '.selected-transparent[platform=ios]': { selectedColor: 'transparent' }
 '.selected-black[platform=ios]': { selectedColor: '#000000' }
 '.selected-white[platform=ios]': { selectedColor: '#ffffff' }
@@ -13388,8 +13388,8 @@
 '.selected-rose-800[platform=ios]': { selectedColor: '#9f1239' }
 '.selected-rose-900[platform=ios]': { selectedColor: '#881337' }
 
-// Component(s): Ti.UI.ListItem
 // Property(ies): selectedSubtitleColor - iOS Only
+// Component(s): Ti.UI.ListItem
 '.selected-subtitle-transparent[platform=ios]': { selectedSubtitleColor: 'transparent' }
 '.selected-subtitle-black[platform=ios]': { selectedSubtitleColor: '#000000' }
 '.selected-subtitle-white[platform=ios]': { selectedSubtitleColor: '#ffffff' }
@@ -13614,8 +13614,8 @@
 '.selected-subtitle-rose-800[platform=ios]': { selectedSubtitleColor: '#9f1239' }
 '.selected-subtitle-rose-900[platform=ios]': { selectedSubtitleColor: '#881337' }
 
-// Component(s): Ti.UI.SearchBar
 // Property(ies): selectedTextColor - iOS Only
+// Component(s): Ti.UI.SearchBar
 '.selected-text-transparent[platform=ios]': { selectedTextColor: 'transparent' }
 '.selected-text-black[platform=ios]': { selectedTextColor: '#000000' }
 '.selected-text-white[platform=ios]': { selectedTextColor: '#ffffff' }
@@ -13840,8 +13840,8 @@
 '.selected-text-rose-800[platform=ios]': { selectedTextColor: '#9f1239' }
 '.selected-text-rose-900[platform=ios]': { selectedTextColor: '#881337' }
 
-// Component(s): Ti.UI.ListView
 // Property(ies): separatorColor
+// Component(s): Ti.UI.ListView
 '.separator-transparent': { separatorColor: 'transparent' }
 '.separator-black': { separatorColor: '#000000' }
 '.separator-white': { separatorColor: '#ffffff' }
@@ -14066,8 +14066,8 @@
 '.separator-rose-800': { separatorColor: '#9f1239' }
 '.separator-rose-900': { separatorColor: '#881337' }
 
-// Component(s): Ti.UI.Button, Ti.UI.Label
 // Property(ies): shadowColor - Drop Shadow in Tailwind
+// Component(s): Ti.UI.Button, Ti.UI.Label
 '.drop-shadow-transparent': { shadowColor: 'transparent' }
 '.drop-shadow-black': { shadowColor: '#000000' }
 '.drop-shadow-white': { shadowColor: '#ffffff' }
@@ -14292,8 +14292,8 @@
 '.drop-shadow-rose-800': { shadowColor: '#9f1239' }
 '.drop-shadow-rose-900': { shadowColor: '#881337' }
 
-// Component(s): Ti.UI.ListItem
 // Property(ies): subtitleColor - iOS Only
+// Component(s): Ti.UI.ListItem
 '.subtitle-transparent[platform=ios]': { subtitleColor: 'transparent' }
 '.subtitle-black[platform=ios]': { subtitleColor: '#000000' }
 '.subtitle-white[platform=ios]': { subtitleColor: '#ffffff' }
@@ -14518,8 +14518,8 @@
 '.subtitle-rose-800[platform=ios]': { subtitleColor: '#9f1239' }
 '.subtitle-rose-900[platform=ios]': { subtitleColor: '#881337' }
 
-// Component(s): Ti.UI.TabGroup
 // Property(ies): tabsBackgroundColor
+// Component(s): Ti.UI.TabGroup
 '.tabs-bg-transparent': { tabsBackgroundColor: 'transparent' }
 '.tabs-bg-black': { tabsBackgroundColor: '#000000' }
 '.tabs-bg-white': { tabsBackgroundColor: '#ffffff' }
@@ -14744,8 +14744,8 @@
 '.tabs-bg-rose-800': { tabsBackgroundColor: '#9f1239' }
 '.tabs-bg-rose-900': { tabsBackgroundColor: '#881337' }
 
-// Component(s): Ti.UI.TabGroup
 // Property(ies): tabsBackgroundSelectedColor - Android Only
+// Component(s): Ti.UI.TabGroup
 '.tabs-bg-selected-transparent[platform=android]': { tabsBackgroundSelectedColor: 'transparent' }
 '.tabs-bg-selected-black[platform=android]': { tabsBackgroundSelectedColor: '#000000' }
 '.tabs-bg-selected-white[platform=android]': { tabsBackgroundSelectedColor: '#ffffff' }
@@ -14970,8 +14970,8 @@
 '.tabs-bg-selected-rose-800[platform=android]': { tabsBackgroundSelectedColor: '#9f1239' }
 '.tabs-bg-selected-rose-900[platform=android]': { tabsBackgroundSelectedColor: '#881337' }
 
-// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.PickerRow, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.ListItem, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextField, Ti.UI.Android.SearchView
 // Property(ies): color
+// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.PickerRow, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.ListItem, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextField, Ti.UI.Android.SearchView
 '.text-transparent': { color: 'transparent', textColor: 'transparent' }
 '.text-black': { color: '#000000', textColor: '#000000' }
 '.text-white': { color: '#ffffff', textColor: '#ffffff' }
@@ -15196,8 +15196,8 @@
 '.text-rose-800': { color: '#9f1239', textColor: '#9f1239' }
 '.text-rose-900': { color: '#881337', textColor: '#881337' }
 
-// Component(s): Ti.UI.Switch
 // Property(ies): thumbTintColor - iOS Only
+// Component(s): Ti.UI.Switch
 '.thumb-tint-transparent[platform=ios]': { thumbTintColor: 'transparent' }
 '.thumb-tint-black[platform=ios]': { thumbTintColor: '#000000' }
 '.thumb-tint-white[platform=ios]': { thumbTintColor: '#ffffff' }
@@ -15422,8 +15422,8 @@
 '.thumb-tint-rose-800[platform=ios]': { thumbTintColor: '#9f1239' }
 '.thumb-tint-rose-900[platform=ios]': { thumbTintColor: '#881337' }
 
-// Component(s): Ti.UI, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ImageView, Ti.UI.iOS.Stepper, Ti.UI.ProgressBar, Ti.UI.RefreshControll, Ti.UI.Slider, Ti.UI.Switch, and `tint` for Ti.UI.MaskedImage
 // Property(ies): tint and tintColor
+// Component(s): Ti.UI, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ImageView, Ti.UI.iOS.Stepper, Ti.UI.ProgressBar, Ti.UI.RefreshControll, Ti.UI.Slider, Ti.UI.Switch, and `tint` for Ti.UI.MaskedImage
 '.tint-transparent': { tint: 'transparent', tintColor: 'transparent' }
 '.tint-black': { tint: '#000000', tintColor: '#000000' }
 '.tint-white': { tint: '#ffffff', tintColor: '#ffffff' }
@@ -15648,8 +15648,8 @@
 '.tint-rose-800': { tint: '#9f1239', tintColor: '#9f1239' }
 '.tint-rose-900': { tint: '#881337', tintColor: '#881337' }
 
-// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): titleAttributes: color - iOS Only
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.title-attributes-transparent[platform=ios]': { titleAttributes: { color: 'transparent' } }
 '.title-attributes-black[platform=ios]': { titleAttributes: { color: '#000000' } }
 '.title-attributes-white[platform=ios]': { titleAttributes: { color: '#ffffff' } }
@@ -15874,8 +15874,8 @@
 '.title-attributes-rose-800[platform=ios]': { titleAttributes: { color: '#9f1239' } }
 '.title-attributes-rose-900[platform=ios]': { titleAttributes: { color: '#881337' } }
 
-// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): titleAttributes: shadow - iOS Only
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.title-attributes-shadow-transparent[platform=ios]': { titleAttributes: { shadow: { color: 'transparent' } } }
 '.title-attributes-shadow-black[platform=ios]': { titleAttributes: { shadow: { color: '#000000' } } }
 '.title-attributes-shadow-white[platform=ios]': { titleAttributes: { shadow: { color: '#ffffff' } } }
@@ -16100,8 +16100,8 @@
 '.title-attributes-shadow-rose-800[platform=ios]': { titleAttributes: { shadow: { color: '#9f1239' } } }
 '.title-attributes-shadow-rose-900[platform=ios]': { titleAttributes: { shadow: { color: '#881337' } } }
 
-// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 // Property(ies): titleColor
+// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.title-transparent': { titleColor: 'transparent' }
 '.title-black': { titleColor: '#000000' }
 '.title-white': { titleColor: '#ffffff' }
@@ -16326,8 +16326,8 @@
 '.title-rose-800': { titleColor: '#9f1239' }
 '.title-rose-900': { titleColor: '#881337' }
 
-// Component(s): Ti.UI.Toolbar
 // Property(ies): titleTextColor - Android Only
+// Component(s): Ti.UI.Toolbar
 '.title-text-transparent[platform=android]': { titleTextColor: 'transparent' }
 '.title-text-black[platform=android]': { titleTextColor: '#000000' }
 '.title-text-white[platform=android]': { titleTextColor: '#ffffff' }
@@ -16552,8 +16552,8 @@
 '.title-text-rose-800[platform=android]': { titleTextColor: '#9f1239' }
 '.title-text-rose-900[platform=android]': { titleTextColor: '#881337' }
 
-// Component(s): Ti.UI.View
 // Property(ies): touchFeedbackColor - Android Only
+// Component(s): Ti.UI.View
 '.touch-feedback-transparent[platform=android]': { touchFeedback: true, touchFeedbackColor: 'transparent' }
 '.touch-feedback-black[platform=android]': { touchFeedback: true, touchFeedbackColor: '#000000' }
 '.touch-feedback-white[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ffffff' }
@@ -16778,8 +16778,8 @@
 '.touch-feedback-rose-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#9f1239' }
 '.touch-feedback-rose-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#881337' }
 
-// Component(s): Ti.UI.ProgressBar, Ti.UI.Slider
 // Property(ies): trackTintColor
+// Component(s): Ti.UI.ProgressBar, Ti.UI.Slider
 '.track-tint-transparent': { trackTintColor: 'transparent' }
 '.track-tint-black': { trackTintColor: '#000000' }
 '.track-tint-white': { trackTintColor: '#ffffff' }
@@ -17004,8 +17004,8 @@
 '.track-tint-rose-800': { trackTintColor: '#9f1239' }
 '.track-tint-rose-900': { trackTintColor: '#881337' }
 
-// Component(s): Ti.UI.View
 // Property(ies): viewShadowColor - Box Shadow Color in Tailwind - iOS Only
+// Component(s): Ti.UI.View
 '.shadow-transparent[platform=ios]': { viewShadowColor: 'transparent' }
 '.shadow-black[platform=ios]': { viewShadowColor: '#000000' }
 '.shadow-white[platform=ios]': { viewShadowColor: '#ffffff' }

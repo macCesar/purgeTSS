@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ProgressBar, Ti.UI.Slider
 // Property(ies): trackTintColor
+// Component(s): Ti.UI.ProgressBar, Ti.UI.Slider
 '.track-tint-transparent': { trackTintColor: 'transparent' }
 '.track-tint-black': { trackTintColor: '#000000' }
 '.track-tint-white': { trackTintColor: '#ffffff' }

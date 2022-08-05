@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Animation
 // Property(ies): autoreverse
+// Component(s): Ti.UI.Animation
 '.autoreverse': { autoreverse: true }
 '.no-autoreverse': { autoreverse: false }
 ```

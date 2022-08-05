@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Label, Ti.UI.TextArea
 // Property(ies): maxLines - Android Only
+// Component(s): Ti.UI.Label, Ti.UI.TextArea
 '.max-lines-1[platform=android]': { maxLines: 1 }
 '.max-lines-2[platform=android]': { maxLines: 2 }
 '.max-lines-3[platform=android]': { maxLines: 3 }

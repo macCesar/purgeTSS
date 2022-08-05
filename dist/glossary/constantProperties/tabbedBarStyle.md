@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TabbedBar
 // Property(ies): style
+// Component(s): Ti.UI.TabbedBar
 '.tabbed-bar-style-bar': { style: Ti.UI.BUTTON_STYLE_FILLED }
 '.tabbed-bar-style-bordered': { style: Ti.UI.BUTTON_STYLE_OPTION_NEGATIVE }
 '.tabbed-bar-style-done': { style: Ti.UI.BUTTON_STYLE_OPTION_NEUTRAL }

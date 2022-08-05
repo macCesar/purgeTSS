@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.View
 // Property(ies): touchFeedbackColor - Android Only
+// Component(s): Ti.UI.View
 '.touch-feedback-transparent[platform=android]': { touchFeedback: true, touchFeedbackColor: 'transparent' }
 '.touch-feedback-black[platform=android]': { touchFeedback: true, touchFeedbackColor: '#000000' }
 '.touch-feedback-white[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ffffff' }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlTimeout - Android Only
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-timeout-0[platform=android]': { pagingControlTimeout: 0 }
 '.paging-control-timeout-25[platform=android]': { pagingControlTimeout: 25 }
 '.paging-control-timeout-50[platform=android]': { pagingControlTimeout: 50 }

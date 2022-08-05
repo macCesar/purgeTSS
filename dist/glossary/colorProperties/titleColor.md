@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 // Property(ies): titleColor
+// Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.title-transparent': { titleColor: 'transparent' }
 '.title-black': { titleColor: '#000000' }
 '.title-white': { titleColor: '#ffffff' }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlColor - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-transparent[platform=ios]': { pagingControlColor: 'transparent' }
 '.paging-control-black[platform=ios]': { pagingControlColor: '#000000' }
 '.paging-control-white[platform=ios]': { pagingControlColor: '#ffffff' }

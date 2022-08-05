@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): titleAttributes: shadow, color, blurRadius, offset - iOS Only
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.title-attributes-shadow-xs[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 1, offset: { width: 0, height: 0 } } } }
 '.title-attributes-shadow-sm[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 2, offset: { width: 0, height: 1 } } } }
 '.title-attributes-shadow[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 4, offset: { width: 0, height: 2 } } } }

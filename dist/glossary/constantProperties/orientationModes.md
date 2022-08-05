@@ -1,14 +1,14 @@
 ```scss
-// Component(s): Ti.UI.Window
 // Property(ies): orientationModes
+// Component(s): Ti.UI.Window
 '.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 '.orientation-portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.orientation-upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.orientation-landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
-// Component(s): Ti.UI.Window
 // Property(ies): orientationModes (Alternative)
+// Component(s): Ti.UI.Window
 '.portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }

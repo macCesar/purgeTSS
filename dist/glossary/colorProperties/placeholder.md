@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): hintTextColor ( Alternative )
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.placeholder-transparent': { hintTextColor: 'transparent' }
 '.placeholder-black': { hintTextColor: '#000000' }
 '.placeholder-white': { hintTextColor: '#ffffff' }

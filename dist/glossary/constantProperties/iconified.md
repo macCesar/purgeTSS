@@ -1,5 +1,5 @@
 ```scss
-// Component(s): Ti.UI.Android.SearchView, Ti.UI.Android.SearchBar
 // Property(ies): iconified
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.Android.SearchBar
 '.iconified': { iconified: true }
 ```

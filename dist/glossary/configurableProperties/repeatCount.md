@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ImageView
 // Property(ies): repeatCount
+// Component(s): Ti.UI.ImageView
 '.repeat-count-0': { repeatCount: 0 }
 '.repeat-count-1': { repeatCount: 1 }
 '.repeat-count-2': { repeatCount: 2 }

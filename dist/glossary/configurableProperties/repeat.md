@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Animation
 // Property(ies): repeat
+// Component(s): Ti.UI.Animation
 '.repeat-1': { repeat: 1 }
 '.repeat-2': { repeat: 2 }
 '.repeat-3': { repeat: 3 }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Label, Ti.UI.TextArea
 // Property(ies): lines - Android Only
+// Component(s): Ti.UI.Label, Ti.UI.TextArea
 '.lines-1[platform=android]': { lines: 1 }
 '.lines-2[platform=android]': { lines: 2 }
 '.lines-3[platform=android]': { lines: 3 }

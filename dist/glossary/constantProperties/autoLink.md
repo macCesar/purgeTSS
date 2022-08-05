@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): autoLink
+// Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
 '.auto-link-all': { autoLink: Ti.UI.AUTOLINK_ALL }
 '.auto-link-email-addresses': { autoLink: Ti.UI.AUTOLINK_EMAIL_ADDRESSES }
 '.auto-link-map-addresses': { autoLink: Ti.UI.AUTOLINK_MAP_ADDRESSES }

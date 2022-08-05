@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Picker
 // Property(ies): countDownDuration - Android Only
+// Component(s): Ti.UI.Picker
 '.count-down-duration-0[platform=android]': { countDownDuration: 0 }
 '.count-down-duration-25[platform=android]': { countDownDuration: 25 }
 '.count-down-duration-50[platform=android]': { countDownDuration: 50 }

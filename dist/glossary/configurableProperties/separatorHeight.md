@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ListView
 // Property(ies): separatorHeight - Android Only
+// Component(s): Ti.UI.ListView
 '.separator-h-0[platform=android]': { separatorHeight: 0 }
 '.separator-h-1[platform=android]': { separatorHeight: 4 }
 '.separator-h-2[platform=android]': { separatorHeight: 8 }
