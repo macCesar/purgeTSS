@@ -14,9 +14,7 @@
 '.right-w-10[platform=android]': { rightWidth: 40 }
 '.right-w-11[platform=android]': { rightWidth: 44 }
 '.right-w-12[platform=android]': { rightWidth: 48 }
-'.right-w-13[platform=android]': { rightWidth: 52 }
 '.right-w-14[platform=android]': { rightWidth: 56 }
-'.right-w-15[platform=android]': { rightWidth: 60 }
 '.right-w-16[platform=android]': { rightWidth: 64 }
 '.right-w-20[platform=android]': { rightWidth: 80 }
 '.right-w-24[platform=android]': { rightWidth: 96 }
@@ -32,9 +30,6 @@
 '.right-w-64[platform=android]': { rightWidth: 256 }
 '.right-w-72[platform=android]': { rightWidth: 288 }
 '.right-w-80[platform=android]': { rightWidth: 320 }
-'.right-w-84[platform=android]': { rightWidth: 336 }
-'.right-w-85[platform=android]': { rightWidth: 340 }
-'.right-w-86[platform=android]': { rightWidth: 344 }
 '.right-w-96[platform=android]': { rightWidth: 384 }
 '.right-w-auto[platform=android]': { rightWidth: Ti.UI.SIZE }
 '.right-w-px[platform=android]': { rightWidth: '1px' }
@@ -70,9 +65,4 @@
 '.right-w-11/12[platform=android]': { rightWidth: '91.666667%' }
 '.right-w-full[platform=android]': { rightWidth: '100%' }
 '.right-w-screen[platform=android]': { rightWidth: Ti.UI.FILL }
-'.right-w[platform=ios]250[platform=android]': { rightWidth: '350px' }
-'.right-w[platform=android]250[platform=android]': { rightWidth: '350px' }
-'.right-w[formFactor=tablet]250[platform=android]': { rightWidth: '350px' }
-'.right-w[formFactor=handheld]250[platform=android]': { rightWidth: '350px' }
-'.right-w[if=Alloy.Globals.iPhoneX]250[platform=android]': { rightWidth: '350px' }
 ```

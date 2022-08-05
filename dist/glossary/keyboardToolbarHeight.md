@@ -14,9 +14,7 @@
 '.keyboard-toolbar-h-10[platform=ios]': { keyboardToolbarHeight: 40 }
 '.keyboard-toolbar-h-11[platform=ios]': { keyboardToolbarHeight: 44 }
 '.keyboard-toolbar-h-12[platform=ios]': { keyboardToolbarHeight: 48 }
-'.keyboard-toolbar-h-13[platform=ios]': { keyboardToolbarHeight: 52 }
 '.keyboard-toolbar-h-14[platform=ios]': { keyboardToolbarHeight: 56 }
-'.keyboard-toolbar-h-15[platform=ios]': { keyboardToolbarHeight: 60 }
 '.keyboard-toolbar-h-16[platform=ios]': { keyboardToolbarHeight: 64 }
 '.keyboard-toolbar-h-20[platform=ios]': { keyboardToolbarHeight: 80 }
 '.keyboard-toolbar-h-24[platform=ios]': { keyboardToolbarHeight: 96 }
@@ -32,9 +30,6 @@
 '.keyboard-toolbar-h-64[platform=ios]': { keyboardToolbarHeight: 256 }
 '.keyboard-toolbar-h-72[platform=ios]': { keyboardToolbarHeight: 288 }
 '.keyboard-toolbar-h-80[platform=ios]': { keyboardToolbarHeight: 320 }
-'.keyboard-toolbar-h-84[platform=ios]': { keyboardToolbarHeight: 336 }
-'.keyboard-toolbar-h-85[platform=ios]': { keyboardToolbarHeight: 340 }
-'.keyboard-toolbar-h-86[platform=ios]': { keyboardToolbarHeight: 344 }
 '.keyboard-toolbar-h-96[platform=ios]': { keyboardToolbarHeight: 384 }
 '.keyboard-toolbar-h-px[platform=ios]': { keyboardToolbarHeight: '1px' }
 '.keyboard-toolbar-h-0.5[platform=ios]': { keyboardToolbarHeight: 2 }

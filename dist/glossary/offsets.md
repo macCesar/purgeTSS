@@ -14,9 +14,7 @@
 '.x-offset-10[platform=android]': { xOffset: 40 }
 '.x-offset-11[platform=android]': { xOffset: 44 }
 '.x-offset-12[platform=android]': { xOffset: 48 }
-'.x-offset-13[platform=android]': { xOffset: 52 }
 '.x-offset-14[platform=android]': { xOffset: 56 }
-'.x-offset-15[platform=android]': { xOffset: 60 }
 '.x-offset-16[platform=android]': { xOffset: 64 }
 '.x-offset-20[platform=android]': { xOffset: 80 }
 '.x-offset-24[platform=android]': { xOffset: 96 }
@@ -32,9 +30,6 @@
 '.x-offset-64[platform=android]': { xOffset: 256 }
 '.x-offset-72[platform=android]': { xOffset: 288 }
 '.x-offset-80[platform=android]': { xOffset: 320 }
-'.x-offset-84[platform=android]': { xOffset: 336 }
-'.x-offset-85[platform=android]': { xOffset: 340 }
-'.x-offset-86[platform=android]': { xOffset: 344 }
 '.x-offset-96[platform=android]': { xOffset: 384 }
 '.x-offset-px[platform=android]': { xOffset: '1px' }
 '.x-offset-0.5[platform=android]': { xOffset: 2 }
@@ -57,9 +52,7 @@
 '.y-offset-10[platform=android]': { yOffset: 40 }
 '.y-offset-11[platform=android]': { yOffset: 44 }
 '.y-offset-12[platform=android]': { yOffset: 48 }
-'.y-offset-13[platform=android]': { yOffset: 52 }
 '.y-offset-14[platform=android]': { yOffset: 56 }
-'.y-offset-15[platform=android]': { yOffset: 60 }
 '.y-offset-16[platform=android]': { yOffset: 64 }
 '.y-offset-20[platform=android]': { yOffset: 80 }
 '.y-offset-24[platform=android]': { yOffset: 96 }
@@ -75,9 +68,6 @@
 '.y-offset-64[platform=android]': { yOffset: 256 }
 '.y-offset-72[platform=android]': { yOffset: 288 }
 '.y-offset-80[platform=android]': { yOffset: 320 }
-'.y-offset-84[platform=android]': { yOffset: 336 }
-'.y-offset-85[platform=android]': { yOffset: 340 }
-'.y-offset-86[platform=android]': { yOffset: 344 }
 '.y-offset-96[platform=android]': { yOffset: 384 }
 '.y-offset-px[platform=android]': { yOffset: '1px' }
 '.y-offset-0.5[platform=android]': { yOffset: 2 }

@@ -14,9 +14,7 @@
 '.padding-10[platform=android]': { padding: 40 }
 '.padding-11[platform=android]': { padding: 44 }
 '.padding-12[platform=android]': { padding: 48 }
-'.padding-13[platform=android]': { padding: 52 }
 '.padding-14[platform=android]': { padding: 56 }
-'.padding-15[platform=android]': { padding: 60 }
 '.padding-16[platform=android]': { padding: 64 }
 '.padding-20[platform=android]': { padding: 80 }
 '.padding-24[platform=android]': { padding: 96 }
@@ -32,9 +30,6 @@
 '.padding-64[platform=android]': { padding: 256 }
 '.padding-72[platform=android]': { padding: 288 }
 '.padding-80[platform=android]': { padding: 320 }
-'.padding-84[platform=android]': { padding: 336 }
-'.padding-85[platform=android]': { padding: 340 }
-'.padding-86[platform=android]': { padding: 344 }
 '.padding-96[platform=android]': { padding: 384 }
 '.padding-px[platform=android]': { padding: '1px' }
 '.padding-0.5[platform=android]': { padding: 2 }
@@ -54,9 +49,7 @@
 '.padding-x-10[platform=android]': { paddingLeft: 40, paddingRight: 40 }
 '.padding-x-11[platform=android]': { paddingLeft: 44, paddingRight: 44 }
 '.padding-x-12[platform=android]': { paddingLeft: 48, paddingRight: 48 }
-'.padding-x-13[platform=android]': { paddingLeft: 52, paddingRight: 52 }
 '.padding-x-14[platform=android]': { paddingLeft: 56, paddingRight: 56 }
-'.padding-x-15[platform=android]': { paddingLeft: 60, paddingRight: 60 }
 '.padding-x-16[platform=android]': { paddingLeft: 64, paddingRight: 64 }
 '.padding-x-20[platform=android]': { paddingLeft: 80, paddingRight: 80 }
 '.padding-x-24[platform=android]': { paddingLeft: 96, paddingRight: 96 }
@@ -72,9 +65,6 @@
 '.padding-x-64[platform=android]': { paddingLeft: 256, paddingRight: 256 }
 '.padding-x-72[platform=android]': { paddingLeft: 288, paddingRight: 288 }
 '.padding-x-80[platform=android]': { paddingLeft: 320, paddingRight: 320 }
-'.padding-x-84[platform=android]': { paddingLeft: 336, paddingRight: 336 }
-'.padding-x-85[platform=android]': { paddingLeft: 340, paddingRight: 340 }
-'.padding-x-86[platform=android]': { paddingLeft: 344, paddingRight: 344 }
 '.padding-x-96[platform=android]': { paddingLeft: 384, paddingRight: 384 }
 '.padding-x-px[platform=android]': { paddingLeft: '1px', paddingRight: '1px' }
 '.padding-x-0.5[platform=android]': { paddingLeft: 2, paddingRight: 2 }
@@ -94,9 +84,7 @@
 '.padding-y-10[platform=android]': { paddingTop: 40, paddingBottom: 40 }
 '.padding-y-11[platform=android]': { paddingTop: 44, paddingBottom: 44 }
 '.padding-y-12[platform=android]': { paddingTop: 48, paddingBottom: 48 }
-'.padding-y-13[platform=android]': { paddingTop: 52, paddingBottom: 52 }
 '.padding-y-14[platform=android]': { paddingTop: 56, paddingBottom: 56 }
-'.padding-y-15[platform=android]': { paddingTop: 60, paddingBottom: 60 }
 '.padding-y-16[platform=android]': { paddingTop: 64, paddingBottom: 64 }
 '.padding-y-20[platform=android]': { paddingTop: 80, paddingBottom: 80 }
 '.padding-y-24[platform=android]': { paddingTop: 96, paddingBottom: 96 }
@@ -112,9 +100,6 @@
 '.padding-y-64[platform=android]': { paddingTop: 256, paddingBottom: 256 }
 '.padding-y-72[platform=android]': { paddingTop: 288, paddingBottom: 288 }
 '.padding-y-80[platform=android]': { paddingTop: 320, paddingBottom: 320 }
-'.padding-y-84[platform=android]': { paddingTop: 336, paddingBottom: 336 }
-'.padding-y-85[platform=android]': { paddingTop: 340, paddingBottom: 340 }
-'.padding-y-86[platform=android]': { paddingTop: 344, paddingBottom: 344 }
 '.padding-y-96[platform=android]': { paddingTop: 384, paddingBottom: 384 }
 '.padding-y-px[platform=android]': { paddingTop: '1px', paddingBottom: '1px' }
 '.padding-y-0.5[platform=android]': { paddingTop: 2, paddingBottom: 2 }
@@ -134,9 +119,7 @@
 '.padding-t-10[platform=android]': { paddingTop: 40 }
 '.padding-t-11[platform=android]': { paddingTop: 44 }
 '.padding-t-12[platform=android]': { paddingTop: 48 }
-'.padding-t-13[platform=android]': { paddingTop: 52 }
 '.padding-t-14[platform=android]': { paddingTop: 56 }
-'.padding-t-15[platform=android]': { paddingTop: 60 }
 '.padding-t-16[platform=android]': { paddingTop: 64 }
 '.padding-t-20[platform=android]': { paddingTop: 80 }
 '.padding-t-24[platform=android]': { paddingTop: 96 }
@@ -152,9 +135,6 @@
 '.padding-t-64[platform=android]': { paddingTop: 256 }
 '.padding-t-72[platform=android]': { paddingTop: 288 }
 '.padding-t-80[platform=android]': { paddingTop: 320 }
-'.padding-t-84[platform=android]': { paddingTop: 336 }
-'.padding-t-85[platform=android]': { paddingTop: 340 }
-'.padding-t-86[platform=android]': { paddingTop: 344 }
 '.padding-t-96[platform=android]': { paddingTop: 384 }
 '.padding-t-px[platform=android]': { paddingTop: '1px' }
 '.padding-t-0.5[platform=android]': { paddingTop: 2 }
@@ -174,9 +154,7 @@
 '.padding-l-10[platform=android]': { paddingLeft: 40 }
 '.padding-l-11[platform=android]': { paddingLeft: 44 }
 '.padding-l-12[platform=android]': { paddingLeft: 48 }
-'.padding-l-13[platform=android]': { paddingLeft: 52 }
 '.padding-l-14[platform=android]': { paddingLeft: 56 }
-'.padding-l-15[platform=android]': { paddingLeft: 60 }
 '.padding-l-16[platform=android]': { paddingLeft: 64 }
 '.padding-l-20[platform=android]': { paddingLeft: 80 }
 '.padding-l-24[platform=android]': { paddingLeft: 96 }
@@ -192,9 +170,6 @@
 '.padding-l-64[platform=android]': { paddingLeft: 256 }
 '.padding-l-72[platform=android]': { paddingLeft: 288 }
 '.padding-l-80[platform=android]': { paddingLeft: 320 }
-'.padding-l-84[platform=android]': { paddingLeft: 336 }
-'.padding-l-85[platform=android]': { paddingLeft: 340 }
-'.padding-l-86[platform=android]': { paddingLeft: 344 }
 '.padding-l-96[platform=android]': { paddingLeft: 384 }
 '.padding-l-px[platform=android]': { paddingLeft: '1px' }
 '.padding-l-0.5[platform=android]': { paddingLeft: 2 }
@@ -214,9 +189,7 @@
 '.padding-r-10[platform=android]': { paddingRight: 40 }
 '.padding-r-11[platform=android]': { paddingRight: 44 }
 '.padding-r-12[platform=android]': { paddingRight: 48 }
-'.padding-r-13[platform=android]': { paddingRight: 52 }
 '.padding-r-14[platform=android]': { paddingRight: 56 }
-'.padding-r-15[platform=android]': { paddingRight: 60 }
 '.padding-r-16[platform=android]': { paddingRight: 64 }
 '.padding-r-20[platform=android]': { paddingRight: 80 }
 '.padding-r-24[platform=android]': { paddingRight: 96 }
@@ -232,9 +205,6 @@
 '.padding-r-64[platform=android]': { paddingRight: 256 }
 '.padding-r-72[platform=android]': { paddingRight: 288 }
 '.padding-r-80[platform=android]': { paddingRight: 320 }
-'.padding-r-84[platform=android]': { paddingRight: 336 }
-'.padding-r-85[platform=android]': { paddingRight: 340 }
-'.padding-r-86[platform=android]': { paddingRight: 344 }
 '.padding-r-96[platform=android]': { paddingRight: 384 }
 '.padding-r-px[platform=android]': { paddingRight: '1px' }
 '.padding-r-0.5[platform=android]': { paddingRight: 2 }
@@ -254,9 +224,7 @@
 '.padding-b-10[platform=android]': { paddingBottom: 40 }
 '.padding-b-11[platform=android]': { paddingBottom: 44 }
 '.padding-b-12[platform=android]': { paddingBottom: 48 }
-'.padding-b-13[platform=android]': { paddingBottom: 52 }
 '.padding-b-14[platform=android]': { paddingBottom: 56 }
-'.padding-b-15[platform=android]': { paddingBottom: 60 }
 '.padding-b-16[platform=android]': { paddingBottom: 64 }
 '.padding-b-20[platform=android]': { paddingBottom: 80 }
 '.padding-b-24[platform=android]': { paddingBottom: 96 }
@@ -272,9 +240,6 @@
 '.padding-b-64[platform=android]': { paddingBottom: 256 }
 '.padding-b-72[platform=android]': { paddingBottom: 288 }
 '.padding-b-80[platform=android]': { paddingBottom: 320 }
-'.padding-b-84[platform=android]': { paddingBottom: 336 }
-'.padding-b-85[platform=android]': { paddingBottom: 340 }
-'.padding-b-86[platform=android]': { paddingBottom: 344 }
 '.padding-b-96[platform=android]': { paddingBottom: 384 }
 '.padding-b-px[platform=android]': { paddingBottom: '1px' }
 '.padding-b-0.5[platform=android]': { paddingBottom: 2 }

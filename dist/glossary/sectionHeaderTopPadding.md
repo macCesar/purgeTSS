@@ -14,9 +14,7 @@
 '.section-header-top-padding-10[platform=ios]': { sectionHeaderTopPadding: 40 }
 '.section-header-top-padding-11[platform=ios]': { sectionHeaderTopPadding: 44 }
 '.section-header-top-padding-12[platform=ios]': { sectionHeaderTopPadding: 48 }
-'.section-header-top-padding-13[platform=ios]': { sectionHeaderTopPadding: 52 }
 '.section-header-top-padding-14[platform=ios]': { sectionHeaderTopPadding: 56 }
-'.section-header-top-padding-15[platform=ios]': { sectionHeaderTopPadding: 60 }
 '.section-header-top-padding-16[platform=ios]': { sectionHeaderTopPadding: 64 }
 '.section-header-top-padding-20[platform=ios]': { sectionHeaderTopPadding: 80 }
 '.section-header-top-padding-24[platform=ios]': { sectionHeaderTopPadding: 96 }
@@ -32,9 +30,6 @@
 '.section-header-top-padding-64[platform=ios]': { sectionHeaderTopPadding: 256 }
 '.section-header-top-padding-72[platform=ios]': { sectionHeaderTopPadding: 288 }
 '.section-header-top-padding-80[platform=ios]': { sectionHeaderTopPadding: 320 }
-'.section-header-top-padding-84[platform=ios]': { sectionHeaderTopPadding: 336 }
-'.section-header-top-padding-85[platform=ios]': { sectionHeaderTopPadding: 340 }
-'.section-header-top-padding-86[platform=ios]': { sectionHeaderTopPadding: 344 }
 '.section-header-top-padding-96[platform=ios]': { sectionHeaderTopPadding: 384 }
 '.section-header-top-padding-px[platform=ios]': { sectionHeaderTopPadding: '1px' }
 '.section-header-top-padding-0.5[platform=ios]': { sectionHeaderTopPadding: 2 }

@@ -224,11 +224,4 @@
 '.selected-button-rose-700[platform=ios]': { selectedButtonColor: '#be123c' }
 '.selected-button-rose-800[platform=ios]': { selectedButtonColor: '#9f1239' }
 '.selected-button-rose-900[platform=ios]': { selectedButtonColor: '#881337' }
-'.selected-button-highlight[platform=ios]': { selectedButtonColor: '#ffff00' }
-'.selected-button-primary-dark[platform=ios]': { selectedButtonColor: '#000030' }
-'.selected-button-primary-solid[platform=ios]': { selectedButtonColor: '#10284B' }
-'.selected-button-primary-transparent[platform=ios]': { selectedButtonColor: '#D9002359' }
-'.selected-button-secondary-dark[platform=ios]': { selectedButtonColor: '#000023' }
-'.selected-button-secondary-solid[platform=ios]': { selectedButtonColor: '#13294B' }
-'.selected-button-secondary-transparent[platform=ios]': { selectedButtonColor: '#D913294B' }
 ```

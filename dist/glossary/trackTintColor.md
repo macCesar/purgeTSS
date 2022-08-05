@@ -224,11 +224,4 @@
 '.track-tint-rose-700': { trackTintColor: '#be123c' }
 '.track-tint-rose-800': { trackTintColor: '#9f1239' }
 '.track-tint-rose-900': { trackTintColor: '#881337' }
-'.track-tint-highlight': { trackTintColor: '#ffff00' }
-'.track-tint-primary-dark': { trackTintColor: '#000030' }
-'.track-tint-primary-solid': { trackTintColor: '#10284B' }
-'.track-tint-primary-transparent': { trackTintColor: '#D9002359' }
-'.track-tint-secondary-dark': { trackTintColor: '#000023' }
-'.track-tint-secondary-solid': { trackTintColor: '#13294B' }
-'.track-tint-secondary-transparent': { trackTintColor: '#D913294B' }
 ```

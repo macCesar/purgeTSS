@@ -224,11 +224,4 @@
 '.bg-focused-rose-700[platform=android]': { backgroundFocusedColor: '#be123c' }
 '.bg-focused-rose-800[platform=android]': { backgroundFocusedColor: '#9f1239' }
 '.bg-focused-rose-900[platform=android]': { backgroundFocusedColor: '#881337' }
-'.bg-focused-highlight[platform=android]': { backgroundFocusedColor: '#ffff00' }
-'.bg-focused-primary-dark[platform=android]': { backgroundFocusedColor: '#000030' }
-'.bg-focused-primary-solid[platform=android]': { backgroundFocusedColor: '#10284B' }
-'.bg-focused-primary-transparent[platform=android]': { backgroundFocusedColor: '#D9002359' }
-'.bg-focused-secondary-dark[platform=android]': { backgroundFocusedColor: '#000023' }
-'.bg-focused-secondary-solid[platform=android]': { backgroundFocusedColor: '#13294B' }
-'.bg-focused-secondary-transparent[platform=android]': { backgroundFocusedColor: '#D913294B' }
 ```

@@ -224,11 +224,4 @@
 '.shadow-rose-700[platform=ios]': { viewShadowColor: '#be123c' }
 '.shadow-rose-800[platform=ios]': { viewShadowColor: '#9f1239' }
 '.shadow-rose-900[platform=ios]': { viewShadowColor: '#881337' }
-'.shadow-highlight[platform=ios]': { viewShadowColor: '#ffff00' }
-'.shadow-primary-dark[platform=ios]': { viewShadowColor: '#000030' }
-'.shadow-primary-solid[platform=ios]': { viewShadowColor: '#10284B' }
-'.shadow-primary-transparent[platform=ios]': { viewShadowColor: '#D9002359' }
-'.shadow-secondary-dark[platform=ios]': { viewShadowColor: '#000023' }
-'.shadow-secondary-solid[platform=ios]': { viewShadowColor: '#13294B' }
-'.shadow-secondary-transparent[platform=ios]': { viewShadowColor: '#D913294B' }
 ```

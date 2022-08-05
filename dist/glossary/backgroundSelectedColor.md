@@ -224,11 +224,4 @@
 '.bg-selected-rose-700': { backgroundSelectedColor: '#be123c' }
 '.bg-selected-rose-800': { backgroundSelectedColor: '#9f1239' }
 '.bg-selected-rose-900': { backgroundSelectedColor: '#881337' }
-'.bg-selected-highlight': { backgroundSelectedColor: '#ffff00' }
-'.bg-selected-primary-dark': { backgroundSelectedColor: '#000030' }
-'.bg-selected-primary-solid': { backgroundSelectedColor: '#10284B' }
-'.bg-selected-primary-transparent': { backgroundSelectedColor: '#D9002359' }
-'.bg-selected-secondary-dark': { backgroundSelectedColor: '#000023' }
-'.bg-selected-secondary-solid': { backgroundSelectedColor: '#13294B' }
-'.bg-selected-secondary-transparent': { backgroundSelectedColor: '#D913294B' }
 ```

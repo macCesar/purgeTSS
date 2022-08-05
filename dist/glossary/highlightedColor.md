@@ -224,11 +224,4 @@
 '.highlighted-rose-700': { highlightedColor: '#be123c' }
 '.highlighted-rose-800': { highlightedColor: '#9f1239' }
 '.highlighted-rose-900': { highlightedColor: '#881337' }
-'.highlighted-highlight': { highlightedColor: '#ffff00' }
-'.highlighted-primary-dark': { highlightedColor: '#000030' }
-'.highlighted-primary-solid': { highlightedColor: '#10284B' }
-'.highlighted-primary-transparent': { highlightedColor: '#D9002359' }
-'.highlighted-secondary-dark': { highlightedColor: '#000023' }
-'.highlighted-secondary-solid': { highlightedColor: '#13294B' }
-'.highlighted-secondary-transparent': { highlightedColor: '#D913294B' }
 ```

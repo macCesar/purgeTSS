@@ -224,11 +224,4 @@
 '.placeholder-rose-700': { hintTextColor: '#be123c' }
 '.placeholder-rose-800': { hintTextColor: '#9f1239' }
 '.placeholder-rose-900': { hintTextColor: '#881337' }
-'.placeholder-highlight': { hintTextColor: '#ffff00' }
-'.placeholder-primary-dark': { hintTextColor: '#000030' }
-'.placeholder-primary-solid': { hintTextColor: '#10284B' }
-'.placeholder-primary-transparent': { hintTextColor: '#D9002359' }
-'.placeholder-secondary-dark': { hintTextColor: '#000023' }
-'.placeholder-secondary-solid': { hintTextColor: '#13294B' }
-'.placeholder-secondary-transparent': { hintTextColor: '#D913294B' }
 ```

@@ -224,11 +224,4 @@
 '.results-separator-rose-700': { resultsSeparatorColor: '#be123c' }
 '.results-separator-rose-800': { resultsSeparatorColor: '#9f1239' }
 '.results-separator-rose-900': { resultsSeparatorColor: '#881337' }
-'.results-separator-highlight': { resultsSeparatorColor: '#ffff00' }
-'.results-separator-primary-dark': { resultsSeparatorColor: '#000030' }
-'.results-separator-primary-solid': { resultsSeparatorColor: '#10284B' }
-'.results-separator-primary-transparent': { resultsSeparatorColor: '#D9002359' }
-'.results-separator-secondary-dark': { resultsSeparatorColor: '#000023' }
-'.results-separator-secondary-solid': { resultsSeparatorColor: '#13294B' }
-'.results-separator-secondary-transparent': { resultsSeparatorColor: '#D913294B' }
 ```

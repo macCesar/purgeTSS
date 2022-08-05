@@ -14,9 +14,7 @@
 '.min-row-h-10[platform=ios]': { minRowHeight: 40 }
 '.min-row-h-11[platform=ios]': { minRowHeight: 44 }
 '.min-row-h-12[platform=ios]': { minRowHeight: 48 }
-'.min-row-h-13[platform=ios]': { minRowHeight: 52 }
 '.min-row-h-14[platform=ios]': { minRowHeight: 56 }
-'.min-row-h-15[platform=ios]': { minRowHeight: 60 }
 '.min-row-h-16[platform=ios]': { minRowHeight: 64 }
 '.min-row-h-20[platform=ios]': { minRowHeight: 80 }
 '.min-row-h-24[platform=ios]': { minRowHeight: 96 }
@@ -32,9 +30,6 @@
 '.min-row-h-64[platform=ios]': { minRowHeight: 256 }
 '.min-row-h-72[platform=ios]': { minRowHeight: 288 }
 '.min-row-h-80[platform=ios]': { minRowHeight: 320 }
-'.min-row-h-84[platform=ios]': { minRowHeight: 336 }
-'.min-row-h-85[platform=ios]': { minRowHeight: 340 }
-'.min-row-h-86[platform=ios]': { minRowHeight: 344 }
 '.min-row-h-96[platform=ios]': { minRowHeight: 384 }
 '.min-row-h-px[platform=ios]': { minRowHeight: '1px' }
 '.min-row-h-0.5[platform=ios]': { minRowHeight: 2 }

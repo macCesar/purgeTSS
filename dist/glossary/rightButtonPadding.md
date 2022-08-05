@@ -14,9 +14,7 @@
 '.right-button-padding-10[platform=ios]': { rightButtonPadding: 40 }
 '.right-button-padding-11[platform=ios]': { rightButtonPadding: 44 }
 '.right-button-padding-12[platform=ios]': { rightButtonPadding: 48 }
-'.right-button-padding-13[platform=ios]': { rightButtonPadding: 52 }
 '.right-button-padding-14[platform=ios]': { rightButtonPadding: 56 }
-'.right-button-padding-15[platform=ios]': { rightButtonPadding: 60 }
 '.right-button-padding-16[platform=ios]': { rightButtonPadding: 64 }
 '.right-button-padding-20[platform=ios]': { rightButtonPadding: 80 }
 '.right-button-padding-24[platform=ios]': { rightButtonPadding: 96 }
@@ -32,9 +30,6 @@
 '.right-button-padding-64[platform=ios]': { rightButtonPadding: 256 }
 '.right-button-padding-72[platform=ios]': { rightButtonPadding: 288 }
 '.right-button-padding-80[platform=ios]': { rightButtonPadding: 320 }
-'.right-button-padding-84[platform=ios]': { rightButtonPadding: 336 }
-'.right-button-padding-85[platform=ios]': { rightButtonPadding: 340 }
-'.right-button-padding-86[platform=ios]': { rightButtonPadding: 344 }
 '.right-button-padding-96[platform=ios]': { rightButtonPadding: 384 }
 '.right-button-padding-px[platform=ios]': { rightButtonPadding: '1px' }
 '.right-button-padding-0.5[platform=ios]': { rightButtonPadding: 2 }

@@ -14,9 +14,7 @@
 '.indentation-level-10[platform=ios]': { indentionLevel: 40 }
 '.indentation-level-11[platform=ios]': { indentionLevel: 44 }
 '.indentation-level-12[platform=ios]': { indentionLevel: 48 }
-'.indentation-level-13[platform=ios]': { indentionLevel: 52 }
 '.indentation-level-14[platform=ios]': { indentionLevel: 56 }
-'.indentation-level-15[platform=ios]': { indentionLevel: 60 }
 '.indentation-level-16[platform=ios]': { indentionLevel: 64 }
 '.indentation-level-20[platform=ios]': { indentionLevel: 80 }
 '.indentation-level-24[platform=ios]': { indentionLevel: 96 }
@@ -32,9 +30,6 @@
 '.indentation-level-64[platform=ios]': { indentionLevel: 256 }
 '.indentation-level-72[platform=ios]': { indentionLevel: 288 }
 '.indentation-level-80[platform=ios]': { indentionLevel: 320 }
-'.indentation-level-84[platform=ios]': { indentionLevel: 336 }
-'.indentation-level-85[platform=ios]': { indentionLevel: 340 }
-'.indentation-level-86[platform=ios]': { indentionLevel: 344 }
 '.indentation-level-96[platform=ios]': { indentionLevel: 384 }
 '.indentation-level-px[platform=ios]': { indentionLevel: '1px' }
 '.indentation-level-0.5[platform=ios]': { indentionLevel: 2 }

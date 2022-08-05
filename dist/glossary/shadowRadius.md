@@ -13,9 +13,7 @@
 '.shadow-radius-10[platform=android]': { shadowRadius: 20 }
 '.shadow-radius-11[platform=android]': { shadowRadius: 22 }
 '.shadow-radius-12[platform=android]': { shadowRadius: 24 }
-'.shadow-radius-13[platform=android]': { shadowRadius: 26 }
 '.shadow-radius-14[platform=android]': { shadowRadius: 28 }
-'.shadow-radius-15[platform=android]': { shadowRadius: 30 }
 '.shadow-radius-16[platform=android]': { shadowRadius: 32 }
 '.shadow-radius-20[platform=android]': { shadowRadius: 40 }
 '.shadow-radius-24[platform=android]': { shadowRadius: 48 }
@@ -31,9 +29,6 @@
 '.shadow-radius-64[platform=android]': { shadowRadius: 128 }
 '.shadow-radius-72[platform=android]': { shadowRadius: 144 }
 '.shadow-radius-80[platform=android]': { shadowRadius: 160 }
-'.shadow-radius-84[platform=android]': { shadowRadius: 2688 }
-'.shadow-radius-85[platform=android]': { shadowRadius: 2720 }
-'.shadow-radius-86[platform=android]': { shadowRadius: 2752 }
 '.shadow-radius-96[platform=android]': { shadowRadius: 192 }
 '.shadow-radius-px[platform=android]': { shadowRadius: '1px' }
 '.shadow-radius-0.5[platform=android]': { shadowRadius: 1 }

@@ -224,11 +224,4 @@
 '.on-tint-rose-700[platform=ios]': { onTintColor: '#be123c' }
 '.on-tint-rose-800[platform=ios]': { onTintColor: '#9f1239' }
 '.on-tint-rose-900[platform=ios]': { onTintColor: '#881337' }
-'.on-tint-highlight[platform=ios]': { onTintColor: '#ffff00' }
-'.on-tint-primary-dark[platform=ios]': { onTintColor: '#000030' }
-'.on-tint-primary-solid[platform=ios]': { onTintColor: '#10284B' }
-'.on-tint-primary-transparent[platform=ios]': { onTintColor: '#D9002359' }
-'.on-tint-secondary-dark[platform=ios]': { onTintColor: '#000023' }
-'.on-tint-secondary-solid[platform=ios]': { onTintColor: '#13294B' }
-'.on-tint-secondary-transparent[platform=ios]': { onTintColor: '#D913294B' }
 ```

@@ -224,13 +224,6 @@
 '.bg-selected-from-rose-700': { backgroundSelectedGradient: { colors: [ '#00be123c', '#be123c' ] } }
 '.bg-selected-from-rose-800': { backgroundSelectedGradient: { colors: [ '#009f1239', '#9f1239' ] } }
 '.bg-selected-from-rose-900': { backgroundSelectedGradient: { colors: [ '#00881337', '#881337' ] } }
-'.bg-selected-from-highlight': { backgroundSelectedGradient: { colors: [ '#00ffff00', '#ffff00' ] } }
-'.bg-selected-from-primary-dark': { backgroundSelectedGradient: { colors: [ '#00000030', '#000030' ] } }
-'.bg-selected-from-primary-solid': { backgroundSelectedGradient: { colors: [ '#0010284B', '#10284B' ] } }
-'.bg-selected-from-primary-transparent': { backgroundSelectedGradient: { colors: [ '#00002359', '#D9002359' ] } }
-'.bg-selected-from-secondary-dark': { backgroundSelectedGradient: { colors: [ '#00000023', '#000023' ] } }
-'.bg-selected-from-secondary-solid': { backgroundSelectedGradient: { colors: [ '#0013294B', '#13294B' ] } }
-'.bg-selected-from-secondary-transparent': { backgroundSelectedGradient: { colors: [ '#0013294B', '#D913294B' ] } }
 
 // Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundSelectedGradient: colors - To Color - iOS Only
@@ -457,11 +450,4 @@
 '.bg-selected-to-rose-700': { backgroundSelectedGradient: { colors: [ '#be123c' ] } }
 '.bg-selected-to-rose-800': { backgroundSelectedGradient: { colors: [ '#9f1239' ] } }
 '.bg-selected-to-rose-900': { backgroundSelectedGradient: { colors: [ '#881337' ] } }
-'.bg-selected-to-highlight': { backgroundSelectedGradient: { colors: [ '#ffff00' ] } }
-'.bg-selected-to-primary-dark': { backgroundSelectedGradient: { colors: [ '#000030' ] } }
-'.bg-selected-to-primary-solid': { backgroundSelectedGradient: { colors: [ '#10284B' ] } }
-'.bg-selected-to-primary-transparent': { backgroundSelectedGradient: { colors: [ '#D9002359' ] } }
-'.bg-selected-to-secondary-dark': { backgroundSelectedGradient: { colors: [ '#000023' ] } }
-'.bg-selected-to-secondary-solid': { backgroundSelectedGradient: { colors: [ '#13294B' ] } }
-'.bg-selected-to-secondary-transparent': { backgroundSelectedGradient: { colors: [ '#D913294B' ] } }
 ```

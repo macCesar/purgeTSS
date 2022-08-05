@@ -14,9 +14,7 @@
 '.left-button-padding-10[platform=ios]': { leftButtonPadding: 40 }
 '.left-button-padding-11[platform=ios]': { leftButtonPadding: 44 }
 '.left-button-padding-12[platform=ios]': { leftButtonPadding: 48 }
-'.left-button-padding-13[platform=ios]': { leftButtonPadding: 52 }
 '.left-button-padding-14[platform=ios]': { leftButtonPadding: 56 }
-'.left-button-padding-15[platform=ios]': { leftButtonPadding: 60 }
 '.left-button-padding-16[platform=ios]': { leftButtonPadding: 64 }
 '.left-button-padding-20[platform=ios]': { leftButtonPadding: 80 }
 '.left-button-padding-24[platform=ios]': { leftButtonPadding: 96 }
@@ -32,9 +30,6 @@
 '.left-button-padding-64[platform=ios]': { leftButtonPadding: 256 }
 '.left-button-padding-72[platform=ios]': { leftButtonPadding: 288 }
 '.left-button-padding-80[platform=ios]': { leftButtonPadding: 320 }
-'.left-button-padding-84[platform=ios]': { leftButtonPadding: 336 }
-'.left-button-padding-85[platform=ios]': { leftButtonPadding: 340 }
-'.left-button-padding-86[platform=ios]': { leftButtonPadding: 344 }
 '.left-button-padding-96[platform=ios]': { leftButtonPadding: 384 }
 '.left-button-padding-px[platform=ios]': { leftButtonPadding: '1px' }
 '.left-button-padding-0.5[platform=ios]': { leftButtonPadding: 2 }

@@ -224,11 +224,4 @@
 '.pull-bg-rose-700[platform=ios]': { pullBackgroundColor: '#be123c' }
 '.pull-bg-rose-800[platform=ios]': { pullBackgroundColor: '#9f1239' }
 '.pull-bg-rose-900[platform=ios]': { pullBackgroundColor: '#881337' }
-'.pull-bg-highlight[platform=ios]': { pullBackgroundColor: '#ffff00' }
-'.pull-bg-primary-dark[platform=ios]': { pullBackgroundColor: '#000030' }
-'.pull-bg-primary-solid[platform=ios]': { pullBackgroundColor: '#10284B' }
-'.pull-bg-primary-transparent[platform=ios]': { pullBackgroundColor: '#D9002359' }
-'.pull-bg-secondary-dark[platform=ios]': { pullBackgroundColor: '#000023' }
-'.pull-bg-secondary-solid[platform=ios]': { pullBackgroundColor: '#13294B' }
-'.pull-bg-secondary-transparent[platform=ios]': { pullBackgroundColor: '#D913294B' }
 ```

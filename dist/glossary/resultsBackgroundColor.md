@@ -224,11 +224,4 @@
 '.results-bg-rose-700[platform=ios]': { resultsBackgroundColor: '#be123c' }
 '.results-bg-rose-800[platform=ios]': { resultsBackgroundColor: '#9f1239' }
 '.results-bg-rose-900[platform=ios]': { resultsBackgroundColor: '#881337' }
-'.results-bg-highlight[platform=ios]': { resultsBackgroundColor: '#ffff00' }
-'.results-bg-primary-dark[platform=ios]': { resultsBackgroundColor: '#000030' }
-'.results-bg-primary-solid[platform=ios]': { resultsBackgroundColor: '#10284B' }
-'.results-bg-primary-transparent[platform=ios]': { resultsBackgroundColor: '#D9002359' }
-'.results-bg-secondary-dark[platform=ios]': { resultsBackgroundColor: '#000023' }
-'.results-bg-secondary-solid[platform=ios]': { resultsBackgroundColor: '#13294B' }
-'.results-bg-secondary-transparent[platform=ios]': { resultsBackgroundColor: '#D913294B' }
 ```

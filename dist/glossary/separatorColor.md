@@ -224,11 +224,4 @@
 '.separator-rose-700': { separatorColor: '#be123c' }
 '.separator-rose-800': { separatorColor: '#9f1239' }
 '.separator-rose-900': { separatorColor: '#881337' }
-'.separator-highlight': { separatorColor: '#ffff00' }
-'.separator-primary-dark': { separatorColor: '#000030' }
-'.separator-primary-solid': { separatorColor: '#10284B' }
-'.separator-primary-transparent': { separatorColor: '#D9002359' }
-'.separator-secondary-dark': { separatorColor: '#000023' }
-'.separator-secondary-solid': { separatorColor: '#13294B' }
-'.separator-secondary-transparent': { separatorColor: '#D913294B' }
 ```

@@ -224,11 +224,4 @@
 '.keyboard-toolbar-rose-700[platform=ios]': { keyboardToolbarColor: '#be123c' }
 '.keyboard-toolbar-rose-800[platform=ios]': { keyboardToolbarColor: '#9f1239' }
 '.keyboard-toolbar-rose-900[platform=ios]': { keyboardToolbarColor: '#881337' }
-'.keyboard-toolbar-highlight[platform=ios]': { keyboardToolbarColor: '#ffff00' }
-'.keyboard-toolbar-primary-dark[platform=ios]': { keyboardToolbarColor: '#000030' }
-'.keyboard-toolbar-primary-solid[platform=ios]': { keyboardToolbarColor: '#10284B' }
-'.keyboard-toolbar-primary-transparent[platform=ios]': { keyboardToolbarColor: '#D9002359' }
-'.keyboard-toolbar-secondary-dark[platform=ios]': { keyboardToolbarColor: '#000023' }
-'.keyboard-toolbar-secondary-solid[platform=ios]': { keyboardToolbarColor: '#13294B' }
-'.keyboard-toolbar-secondary-transparent[platform=ios]': { keyboardToolbarColor: '#D913294B' }
 ```

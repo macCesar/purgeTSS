@@ -224,11 +224,4 @@
 '.title-text-rose-700[platform=android]': { titleTextColor: '#be123c' }
 '.title-text-rose-800[platform=android]': { titleTextColor: '#9f1239' }
 '.title-text-rose-900[platform=android]': { titleTextColor: '#881337' }
-'.title-text-highlight[platform=android]': { titleTextColor: '#ffff00' }
-'.title-text-primary-dark[platform=android]': { titleTextColor: '#000030' }
-'.title-text-primary-solid[platform=android]': { titleTextColor: '#10284B' }
-'.title-text-primary-transparent[platform=android]': { titleTextColor: '#D9002359' }
-'.title-text-secondary-dark[platform=android]': { titleTextColor: '#000023' }
-'.title-text-secondary-solid[platform=android]': { titleTextColor: '#13294B' }
-'.title-text-secondary-transparent[platform=android]': { titleTextColor: '#D913294B' }
 ```

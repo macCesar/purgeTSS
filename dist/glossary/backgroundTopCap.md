@@ -14,9 +14,7 @@
 '.bg-t-cap-10[platform=ios]': { backgroundTopCap: 40 }
 '.bg-t-cap-11[platform=ios]': { backgroundTopCap: 44 }
 '.bg-t-cap-12[platform=ios]': { backgroundTopCap: 48 }
-'.bg-t-cap-13[platform=ios]': { backgroundTopCap: 52 }
 '.bg-t-cap-14[platform=ios]': { backgroundTopCap: 56 }
-'.bg-t-cap-15[platform=ios]': { backgroundTopCap: 60 }
 '.bg-t-cap-16[platform=ios]': { backgroundTopCap: 64 }
 '.bg-t-cap-20[platform=ios]': { backgroundTopCap: 80 }
 '.bg-t-cap-24[platform=ios]': { backgroundTopCap: 96 }
@@ -32,9 +30,6 @@
 '.bg-t-cap-64[platform=ios]': { backgroundTopCap: 256 }
 '.bg-t-cap-72[platform=ios]': { backgroundTopCap: 288 }
 '.bg-t-cap-80[platform=ios]': { backgroundTopCap: 320 }
-'.bg-t-cap-84[platform=ios]': { backgroundTopCap: 336 }
-'.bg-t-cap-85[platform=ios]': { backgroundTopCap: 340 }
-'.bg-t-cap-86[platform=ios]': { backgroundTopCap: 344 }
 '.bg-t-cap-96[platform=ios]': { backgroundTopCap: 384 }
 '.bg-t-cap-px[platform=ios]': { backgroundTopCap: '1px' }
 '.bg-t-cap-0.5[platform=ios]': { backgroundTopCap: 2 }

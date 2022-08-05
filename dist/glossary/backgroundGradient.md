@@ -224,13 +224,6 @@
 '.from-rose-700': { backgroundGradient: { colors: [ '#00be123c', '#be123c' ] } }
 '.from-rose-800': { backgroundGradient: { colors: [ '#009f1239', '#9f1239' ] } }
 '.from-rose-900': { backgroundGradient: { colors: [ '#00881337', '#881337' ] } }
-'.from-highlight': { backgroundGradient: { colors: [ '#00ffff00', '#ffff00' ] } }
-'.from-primary-dark': { backgroundGradient: { colors: [ '#00000030', '#000030' ] } }
-'.from-primary-solid': { backgroundGradient: { colors: [ '#0010284B', '#10284B' ] } }
-'.from-primary-transparent': { backgroundGradient: { colors: [ '#00002359', '#D9002359' ] } }
-'.from-secondary-dark': { backgroundGradient: { colors: [ '#00000023', '#000023' ] } }
-'.from-secondary-solid': { backgroundGradient: { colors: [ '#0013294B', '#13294B' ] } }
-'.from-secondary-transparent': { backgroundGradient: { colors: [ '#0013294B', '#D913294B' ] } }
 
 // Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundGradient: colors - To Color
@@ -457,11 +450,4 @@
 '.to-rose-700': { backgroundGradient: { colors: [ '#be123c' ] } }
 '.to-rose-800': { backgroundGradient: { colors: [ '#9f1239' ] } }
 '.to-rose-900': { backgroundGradient: { colors: [ '#881337' ] } }
-'.to-highlight': { backgroundGradient: { colors: [ '#ffff00' ] } }
-'.to-primary-dark': { backgroundGradient: { colors: [ '#000030' ] } }
-'.to-primary-solid': { backgroundGradient: { colors: [ '#10284B' ] } }
-'.to-primary-transparent': { backgroundGradient: { colors: [ '#D9002359' ] } }
-'.to-secondary-dark': { backgroundGradient: { colors: [ '#000023' ] } }
-'.to-secondary-solid': { backgroundGradient: { colors: [ '#13294B' ] } }
-'.to-secondary-transparent': { backgroundGradient: { colors: [ '#D913294B' ] } }
 ```

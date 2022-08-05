@@ -13,9 +13,7 @@
 '.rounded-10': { borderRadius: 20 }
 '.rounded-11': { borderRadius: 22 }
 '.rounded-12': { borderRadius: 24 }
-'.rounded-13': { borderRadius: 26 }
 '.rounded-14': { borderRadius: 28 }
-'.rounded-15': { borderRadius: 30 }
 '.rounded-16': { borderRadius: 32 }
 '.rounded-20': { borderRadius: 40 }
 '.rounded-24': { borderRadius: 48 }
@@ -31,9 +29,6 @@
 '.rounded-64': { borderRadius: 128 }
 '.rounded-72': { borderRadius: 144 }
 '.rounded-80': { borderRadius: 160 }
-'.rounded-84': { borderRadius: 2688 }
-'.rounded-85': { borderRadius: 2720 }
-'.rounded-86': { borderRadius: 2752 }
 '.rounded-96': { borderRadius: 192 }
 '.rounded-none': { borderRadius: 0 }
 '.rounded-sm': { borderRadius: 2 }
@@ -60,9 +55,7 @@
 '.rounded-t-10': { borderRadius: [20, 20, 0, 0] }
 '.rounded-t-11': { borderRadius: [22, 22, 0, 0] }
 '.rounded-t-12': { borderRadius: [24, 24, 0, 0] }
-'.rounded-t-13': { borderRadius: [26, 26, 0, 0] }
 '.rounded-t-14': { borderRadius: [28, 28, 0, 0] }
-'.rounded-t-15': { borderRadius: [30, 30, 0, 0] }
 '.rounded-t-16': { borderRadius: [32, 32, 0, 0] }
 '.rounded-t-20': { borderRadius: [40, 40, 0, 0] }
 '.rounded-t-24': { borderRadius: [48, 48, 0, 0] }
@@ -78,9 +71,6 @@
 '.rounded-t-64': { borderRadius: [128, 128, 0, 0] }
 '.rounded-t-72': { borderRadius: [144, 144, 0, 0] }
 '.rounded-t-80': { borderRadius: [160, 160, 0, 0] }
-'.rounded-t-84': { borderRadius: [2688, 2688, 0, 0] }
-'.rounded-t-85': { borderRadius: [2720, 2720, 0, 0] }
-'.rounded-t-86': { borderRadius: [2752, 2752, 0, 0] }
 '.rounded-t-96': { borderRadius: [192, 192, 0, 0] }
 '.rounded-t-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-t-sm': { borderRadius: [2, 2, 0, 0] }
@@ -107,9 +97,7 @@
 '.rounded-r-10': { borderRadius: [0, 20, 20, 0] }
 '.rounded-r-11': { borderRadius: [0, 22, 22, 0] }
 '.rounded-r-12': { borderRadius: [0, 24, 24, 0] }
-'.rounded-r-13': { borderRadius: [0, 26, 26, 0] }
 '.rounded-r-14': { borderRadius: [0, 28, 28, 0] }
-'.rounded-r-15': { borderRadius: [0, 30, 30, 0] }
 '.rounded-r-16': { borderRadius: [0, 32, 32, 0] }
 '.rounded-r-20': { borderRadius: [0, 40, 40, 0] }
 '.rounded-r-24': { borderRadius: [0, 48, 48, 0] }
@@ -125,9 +113,6 @@
 '.rounded-r-64': { borderRadius: [0, 128, 128, 0] }
 '.rounded-r-72': { borderRadius: [0, 144, 144, 0] }
 '.rounded-r-80': { borderRadius: [0, 160, 160, 0] }
-'.rounded-r-84': { borderRadius: [0, 2688, 2688, 0] }
-'.rounded-r-85': { borderRadius: [0, 2720, 2720, 0] }
-'.rounded-r-86': { borderRadius: [0, 2752, 2752, 0] }
 '.rounded-r-96': { borderRadius: [0, 192, 192, 0] }
 '.rounded-r-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-r-sm': { borderRadius: [0, 2, 2, 0] }
@@ -154,9 +139,7 @@
 '.rounded-b-10': { borderRadius: [0, 0, 20, 20] }
 '.rounded-b-11': { borderRadius: [0, 0, 22, 22] }
 '.rounded-b-12': { borderRadius: [0, 0, 24, 24] }
-'.rounded-b-13': { borderRadius: [0, 0, 26, 26] }
 '.rounded-b-14': { borderRadius: [0, 0, 28, 28] }
-'.rounded-b-15': { borderRadius: [0, 0, 30, 30] }
 '.rounded-b-16': { borderRadius: [0, 0, 32, 32] }
 '.rounded-b-20': { borderRadius: [0, 0, 40, 40] }
 '.rounded-b-24': { borderRadius: [0, 0, 48, 48] }
@@ -172,9 +155,6 @@
 '.rounded-b-64': { borderRadius: [0, 0, 128, 128] }
 '.rounded-b-72': { borderRadius: [0, 0, 144, 144] }
 '.rounded-b-80': { borderRadius: [0, 0, 160, 160] }
-'.rounded-b-84': { borderRadius: [0, 0, 2688, 2688] }
-'.rounded-b-85': { borderRadius: [0, 0, 2720, 2720] }
-'.rounded-b-86': { borderRadius: [0, 0, 2752, 2752] }
 '.rounded-b-96': { borderRadius: [0, 0, 192, 192] }
 '.rounded-b-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-b-sm': { borderRadius: [0, 0, 2, 2] }
@@ -201,9 +181,7 @@
 '.rounded-l-10': { borderRadius: [20, 0, 0, 20] }
 '.rounded-l-11': { borderRadius: [22, 0, 0, 22] }
 '.rounded-l-12': { borderRadius: [24, 0, 0, 24] }
-'.rounded-l-13': { borderRadius: [26, 0, 0, 26] }
 '.rounded-l-14': { borderRadius: [28, 0, 0, 28] }
-'.rounded-l-15': { borderRadius: [30, 0, 0, 30] }
 '.rounded-l-16': { borderRadius: [32, 0, 0, 32] }
 '.rounded-l-20': { borderRadius: [40, 0, 0, 40] }
 '.rounded-l-24': { borderRadius: [48, 0, 0, 48] }
@@ -219,9 +197,6 @@
 '.rounded-l-64': { borderRadius: [128, 0, 0, 128] }
 '.rounded-l-72': { borderRadius: [144, 0, 0, 144] }
 '.rounded-l-80': { borderRadius: [160, 0, 0, 160] }
-'.rounded-l-84': { borderRadius: [2688, 0, 0, 2688] }
-'.rounded-l-85': { borderRadius: [2720, 0, 0, 2720] }
-'.rounded-l-86': { borderRadius: [2752, 0, 0, 2752] }
 '.rounded-l-96': { borderRadius: [192, 0, 0, 192] }
 '.rounded-l-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-l-sm': { borderRadius: [2, 0, 0, 2] }
@@ -248,9 +223,7 @@
 '.rounded-tl-10': { borderRadius: [20, 0, 0, 0] }
 '.rounded-tl-11': { borderRadius: [22, 0, 0, 0] }
 '.rounded-tl-12': { borderRadius: [24, 0, 0, 0] }
-'.rounded-tl-13': { borderRadius: [26, 0, 0, 0] }
 '.rounded-tl-14': { borderRadius: [28, 0, 0, 0] }
-'.rounded-tl-15': { borderRadius: [30, 0, 0, 0] }
 '.rounded-tl-16': { borderRadius: [32, 0, 0, 0] }
 '.rounded-tl-20': { borderRadius: [40, 0, 0, 0] }
 '.rounded-tl-24': { borderRadius: [48, 0, 0, 0] }
@@ -266,9 +239,6 @@
 '.rounded-tl-64': { borderRadius: [128, 0, 0, 0] }
 '.rounded-tl-72': { borderRadius: [144, 0, 0, 0] }
 '.rounded-tl-80': { borderRadius: [160, 0, 0, 0] }
-'.rounded-tl-84': { borderRadius: [2688, 0, 0, 0] }
-'.rounded-tl-85': { borderRadius: [2720, 0, 0, 0] }
-'.rounded-tl-86': { borderRadius: [2752, 0, 0, 0] }
 '.rounded-tl-96': { borderRadius: [192, 0, 0, 0] }
 '.rounded-tl-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-tl-sm': { borderRadius: [2, 0, 0, 0] }
@@ -295,9 +265,7 @@
 '.rounded-tr-10': { borderRadius: [0, 20, 0, 0] }
 '.rounded-tr-11': { borderRadius: [0, 22, 0, 0] }
 '.rounded-tr-12': { borderRadius: [0, 24, 0, 0] }
-'.rounded-tr-13': { borderRadius: [0, 26, 0, 0] }
 '.rounded-tr-14': { borderRadius: [0, 28, 0, 0] }
-'.rounded-tr-15': { borderRadius: [0, 30, 0, 0] }
 '.rounded-tr-16': { borderRadius: [0, 32, 0, 0] }
 '.rounded-tr-20': { borderRadius: [0, 40, 0, 0] }
 '.rounded-tr-24': { borderRadius: [0, 48, 0, 0] }
@@ -313,9 +281,6 @@
 '.rounded-tr-64': { borderRadius: [0, 128, 0, 0] }
 '.rounded-tr-72': { borderRadius: [0, 144, 0, 0] }
 '.rounded-tr-80': { borderRadius: [0, 160, 0, 0] }
-'.rounded-tr-84': { borderRadius: [0, 2688, 0, 0] }
-'.rounded-tr-85': { borderRadius: [0, 2720, 0, 0] }
-'.rounded-tr-86': { borderRadius: [0, 2752, 0, 0] }
 '.rounded-tr-96': { borderRadius: [0, 192, 0, 0] }
 '.rounded-tr-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-tr-sm': { borderRadius: [0, 2, 0, 0] }
@@ -342,9 +307,7 @@
 '.rounded-br-10': { borderRadius: [0, 0, 20, 0] }
 '.rounded-br-11': { borderRadius: [0, 0, 22, 0] }
 '.rounded-br-12': { borderRadius: [0, 0, 24, 0] }
-'.rounded-br-13': { borderRadius: [0, 0, 26, 0] }
 '.rounded-br-14': { borderRadius: [0, 0, 28, 0] }
-'.rounded-br-15': { borderRadius: [0, 0, 30, 0] }
 '.rounded-br-16': { borderRadius: [0, 0, 32, 0] }
 '.rounded-br-20': { borderRadius: [0, 0, 40, 0] }
 '.rounded-br-24': { borderRadius: [0, 0, 48, 0] }
@@ -360,9 +323,6 @@
 '.rounded-br-64': { borderRadius: [0, 0, 128, 0] }
 '.rounded-br-72': { borderRadius: [0, 0, 144, 0] }
 '.rounded-br-80': { borderRadius: [0, 0, 160, 0] }
-'.rounded-br-84': { borderRadius: [0, 0, 2688, 0] }
-'.rounded-br-85': { borderRadius: [0, 0, 2720, 0] }
-'.rounded-br-86': { borderRadius: [0, 0, 2752, 0] }
 '.rounded-br-96': { borderRadius: [0, 0, 192, 0] }
 '.rounded-br-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-br-sm': { borderRadius: [0, 0, 2, 0] }
@@ -389,9 +349,7 @@
 '.rounded-bl-10': { borderRadius: [0, 0, 0, 20] }
 '.rounded-bl-11': { borderRadius: [0, 0, 0, 22] }
 '.rounded-bl-12': { borderRadius: [0, 0, 0, 24] }
-'.rounded-bl-13': { borderRadius: [0, 0, 0, 26] }
 '.rounded-bl-14': { borderRadius: [0, 0, 0, 28] }
-'.rounded-bl-15': { borderRadius: [0, 0, 0, 30] }
 '.rounded-bl-16': { borderRadius: [0, 0, 0, 32] }
 '.rounded-bl-20': { borderRadius: [0, 0, 0, 40] }
 '.rounded-bl-24': { borderRadius: [0, 0, 0, 48] }
@@ -407,9 +365,6 @@
 '.rounded-bl-64': { borderRadius: [0, 0, 0, 128] }
 '.rounded-bl-72': { borderRadius: [0, 0, 0, 144] }
 '.rounded-bl-80': { borderRadius: [0, 0, 0, 160] }
-'.rounded-bl-84': { borderRadius: [0, 0, 0, 2688] }
-'.rounded-bl-85': { borderRadius: [0, 0, 0, 2720] }
-'.rounded-bl-86': { borderRadius: [0, 0, 0, 2752] }
 '.rounded-bl-96': { borderRadius: [0, 0, 0, 192] }
 '.rounded-bl-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-bl-sm': { borderRadius: [0, 0, 0, 2] }
@@ -436,9 +391,7 @@
 '.rounded-tl-br-10': { borderRadius: [20, 0, 20, 0] }
 '.rounded-tl-br-11': { borderRadius: [22, 0, 22, 0] }
 '.rounded-tl-br-12': { borderRadius: [24, 0, 24, 0] }
-'.rounded-tl-br-13': { borderRadius: [26, 0, 26, 0] }
 '.rounded-tl-br-14': { borderRadius: [28, 0, 28, 0] }
-'.rounded-tl-br-15': { borderRadius: [30, 0, 30, 0] }
 '.rounded-tl-br-16': { borderRadius: [32, 0, 32, 0] }
 '.rounded-tl-br-20': { borderRadius: [40, 0, 40, 0] }
 '.rounded-tl-br-24': { borderRadius: [48, 0, 48, 0] }
@@ -454,9 +407,6 @@
 '.rounded-tl-br-64': { borderRadius: [128, 0, 128, 0] }
 '.rounded-tl-br-72': { borderRadius: [144, 0, 144, 0] }
 '.rounded-tl-br-80': { borderRadius: [160, 0, 160, 0] }
-'.rounded-tl-br-84': { borderRadius: [2688, 0, 2688, 0] }
-'.rounded-tl-br-85': { borderRadius: [2720, 0, 2720, 0] }
-'.rounded-tl-br-86': { borderRadius: [2752, 0, 2752, 0] }
 '.rounded-tl-br-96': { borderRadius: [192, 0, 192, 0] }
 '.rounded-tl-br-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-tl-br-sm': { borderRadius: [2, 0, 2, 0] }
@@ -483,9 +433,7 @@
 '.rounded-tr-bl-10': { borderRadius: [0, 20, 0, 20] }
 '.rounded-tr-bl-11': { borderRadius: [0, 22, 0, 22] }
 '.rounded-tr-bl-12': { borderRadius: [0, 24, 0, 24] }
-'.rounded-tr-bl-13': { borderRadius: [0, 26, 0, 26] }
 '.rounded-tr-bl-14': { borderRadius: [0, 28, 0, 28] }
-'.rounded-tr-bl-15': { borderRadius: [0, 30, 0, 30] }
 '.rounded-tr-bl-16': { borderRadius: [0, 32, 0, 32] }
 '.rounded-tr-bl-20': { borderRadius: [0, 40, 0, 40] }
 '.rounded-tr-bl-24': { borderRadius: [0, 48, 0, 48] }
@@ -501,9 +449,6 @@
 '.rounded-tr-bl-64': { borderRadius: [0, 128, 0, 128] }
 '.rounded-tr-bl-72': { borderRadius: [0, 144, 0, 144] }
 '.rounded-tr-bl-80': { borderRadius: [0, 160, 0, 160] }
-'.rounded-tr-bl-84': { borderRadius: [0, 2688, 0, 2688] }
-'.rounded-tr-bl-85': { borderRadius: [0, 2720, 0, 2720] }
-'.rounded-tr-bl-86': { borderRadius: [0, 2752, 0, 2752] }
 '.rounded-tr-bl-96': { borderRadius: [0, 192, 0, 192] }
 '.rounded-tr-bl-none': { borderRadius: [0, 0, 0, 0] }
 '.rounded-tr-bl-sm': { borderRadius: [0, 2, 0, 2] }

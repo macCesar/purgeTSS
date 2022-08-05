@@ -224,11 +224,4 @@
 '.touch-feedback-rose-700[platform=android]': { touchFeedback: true, touchFeedbackColor: '#be123c' }
 '.touch-feedback-rose-800[platform=android]': { touchFeedback: true, touchFeedbackColor: '#9f1239' }
 '.touch-feedback-rose-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#881337' }
-'.touch-feedback-highlight[platform=android]': { touchFeedback: true, touchFeedbackColor: '#ffff00' }
-'.touch-feedback-primary-dark[platform=android]': { touchFeedback: true, touchFeedbackColor: '#000030' }
-'.touch-feedback-primary-solid[platform=android]': { touchFeedback: true, touchFeedbackColor: '#10284B' }
-'.touch-feedback-primary-transparent[platform=android]': { touchFeedback: true, touchFeedbackColor: '#D9002359' }
-'.touch-feedback-secondary-dark[platform=android]': { touchFeedback: true, touchFeedbackColor: '#000023' }
-'.touch-feedback-secondary-solid[platform=android]': { touchFeedback: true, touchFeedbackColor: '#13294B' }
-'.touch-feedback-secondary-transparent[platform=android]': { touchFeedback: true, touchFeedbackColor: '#D913294B' }
 ```

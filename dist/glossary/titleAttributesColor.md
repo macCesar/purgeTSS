@@ -224,11 +224,4 @@
 '.title-attributes-rose-700[platform=ios]': { titleAttributes: { color: '#be123c' } }
 '.title-attributes-rose-800[platform=ios]': { titleAttributes: { color: '#9f1239' } }
 '.title-attributes-rose-900[platform=ios]': { titleAttributes: { color: '#881337' } }
-'.title-attributes-highlight[platform=ios]': { titleAttributes: { color: '#ffff00' } }
-'.title-attributes-primary-dark[platform=ios]': { titleAttributes: { color: '#000030' } }
-'.title-attributes-primary-solid[platform=ios]': { titleAttributes: { color: '#10284B' } }
-'.title-attributes-primary-transparent[platform=ios]': { titleAttributes: { color: '#D9002359' } }
-'.title-attributes-secondary-dark[platform=ios]': { titleAttributes: { color: '#000023' } }
-'.title-attributes-secondary-solid[platform=ios]': { titleAttributes: { color: '#13294B' } }
-'.title-attributes-secondary-transparent[platform=ios]': { titleAttributes: { color: '#D913294B' } }
 ```

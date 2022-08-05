@@ -76,16 +76,22 @@ function autoBuildTailwindTSS(message = 'file created!') {
 exports.autoBuildTailwindTSS = autoBuildTailwindTSS;
 
 function tailwindSpecificClasses() {
-	let tailwindStyles = '\n// Tailwind Specific Classes\n';
-	// _.each(configFile.corePlugins, (value, key) => {
-	// 	tailwindStyles += helpers.customRules(value, key);
-	// });
+	let tailwindStyles = '';
 
-	return tailwindStyles;
+	_.each(configFile.corePlugins, (value, key) => {
+		tailwindStyles += helpers.customRules(value, key);
+	});
+
+	if (tailwindStyles !== '') {
+		return `\n// Tailwind Specific Classes\n${tailwindStyles}`;
+	}
+
+	return '';
 }
 
 function processCustomClasses() {
-	let tailwindStyles = '\n// Custom Classes and Extra Ti Elements\n';
+	let tailwindStyles = '';
+
 	if (Object.keys(configFile.theme).length) {
 		_.each(configFile.theme, (value, key) => {
 			if (key !== 'extend') {
@@ -94,8 +100,12 @@ function processCustomClasses() {
 		});
 	}
 
+	if (tailwindStyles !== '') {
+		return `\n// Custom Classes and Extra Ti Elements\n${tailwindStyles}`;
+	}
 
-	return tailwindStyles;
+	return '';
+
 	// //! Compile @apply properties
 	// let finalTailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
 
@@ -166,17 +176,17 @@ function processTitaniumElements(_base) {
 function currentKey(_key, _data) {
 	if (_key.includes('Color') || _key.includes('color')) {
 		return 'colors';
-	} else if (_key.includes('Spacing') || _key.includes('spacing') || _key.includes('backgroundLeftCap') || _key.includes('backgroundTopCap') || _key.includes('uprightWidth') || _key.includes('uprightHeight') || _key.includes('borderWidth') || _key.includes('pageWidth') || _key.includes('pageHeight') || (_key.includes('Padding') || (_key.includes('padding')) && _data.type !== 'Boolean')) {
+	} else if (_key.includes('Spacing') || _key.includes('spacing') || _key.includes('backgroundLeftCap') || _key.includes('backgroundTopCap') || _key.includes('uprightWidth') || _key.includes('uprightHeight') || _key.includes('pageWidth') || _key.includes('pageHeight') || ((_key.includes('Padding') || _key.includes('padding')) && _data.type !== 'Boolean')) {
 		return 'spacing';
+	} else if (_key.includes('borderWidth')) {
+		return 'columns';
 	} else if (_key.includes('Height') || _key.includes('height')) {
 		return 'height';
 	} else if (_key.includes('Width') || _key.includes('width')) {
 		return 'width';
-	} else if ((_key.includes('Padding') || (_key.includes('padding')) && _data.type !== 'Boolean')) {
-		return 'spacing';
 	} else if ((_key.includes('Scale') || (_key.includes('scale')) && _data.type !== 'Boolean')) {
 		return 'scale';
-	} else if (_key == 'bottom' || _key == 'left' || _key == 'right' || _key == 'leftTrackImage' || _key == 'leftTrackLeftCap' || _key == 'leftTrackTopCap' || _key == 'rightTrackImage' || _key == 'rightTrackLeftCap' || _key == 'rightTrackTopCap') {
+	} else if (_key == 'top' || _key == 'bottom' || _key == 'left' || _key == 'right' || _key == 'leftTrackImage' || _key == 'leftTrackLeftCap' || _key == 'leftTrackTopCap' || _key == 'rightTrackImage' || _key == 'rightTrackLeftCap' || _key == 'rightTrackTopCap') {
 		return 'margin';
 	}
 
@@ -219,7 +229,7 @@ function combineDefaultThemeWithConfigFile() {
 		borderWidth: defaultTheme.borderWidth,
 		verticalMargin: { top: '-0.5', bottom: '0.5', middle: '0' },
 		horizontalMargin: { left: '-0.5', right: '0.5', center: '0' },
-		scale: { ...{ 5: '.05', 10: '.10', 25: '.25' }, ...defaultTheme.scale },
+		scale: { ...{ 1: '01', 5: '.05', 10: '.10', 25: '.25' }, ...defaultTheme.scale },
 		columns: { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12 },
 		delay: { 0: '0ms', 25: '25ms', 50: '50ms', 250: '250ms', 350: '350ms', 400: '400ms', 450: '450ms', 600: '600ms', 800: '800ms', 900: '900ms', 2000: '2000ms', 3000: '3000ms', 4000: '4000ms', 5000: '5000ms' }
 	};
@@ -318,33 +328,6 @@ function saveFile(file, data) {
 	});
 }
 
-function hasValidValues(key) {
-	key = key.toLowerCase();
-	return !key.includes('_') &&
-		!key.includes('apiname') &&
-		!key.includes('animatedcenter') &&
-		!key.includes('attributes') &&
-		!key.includes('button') &&
-		!key.includes('children') &&
-		!key.includes('copyright') &&
-		!key.includes('data') &&
-		!key.includes('hint') &&
-		!key.includes('id') &&
-		!key.includes('image') &&
-		!key.includes('index') &&
-		!key.includes('item') &&
-		!key.includes('label') &&
-		!key.includes('landscape') &&
-		!key.includes('logo') &&
-		!key.includes('message') &&
-		!key.includes('name') &&
-		!key.includes('order') &&
-		!key.includes('placeholder') &&
-		!key.includes('text') &&
-		!key.includes('title') &&
-		!key.includes('value');
-}
-
 function validTypesOnly(property, key) {
 	return key.includes('Ti.UI.')
 		|| tiCompletionsFile.properties[property].type === 'Boolean'
@@ -407,6 +390,7 @@ function generateCombinedClasses(key, data) {
 		_.each(data.base, (value, _key) => {
 			if (typeof value === 'object') {
 				_.each(value, (_value, __key) => {
+					//! checar valores con . que no los convierta a número.
 					myClasses += `'.${setModifier(removeUneededVariables(camelCaseToDash(key + '-' + _key + '-' + __key)))}': { ${key}: ${helpers.parseValue(_value)} }\n`;
 				});
 			} else {
@@ -458,15 +442,29 @@ function removeUneededVariables(property) {
 		.replace('-right-', '-r-')
 		.replace('-top-', '-t-')
 		.replace('-true', '')
+		.replace('align-alignment-', '')
 		.replace('autolink', '')
 		.replace('background-', 'bg-')
 		.replace('buttonmode', '')
 		.replace('color-', '')
+		.replace('duration-notification', 'notification-duration')
 		.replace('flag-', '')
+		.replace('font-family', 'font')
+		.replace('font-size', 'text')
 		.replace('height-', 'h-')
 		.replace('layout-', '')
 		.replace('recurrencefrequency', 'recurrence')
 		.replace('returnkey-', '')
+		.replace('style-activity-indicator', 'activity-indicator-style')
+		.replace('style-button', 'button-style')
+		.replace('style-feedback-generator-impact', 'feedback-generator-impact-style')
+		.replace('style-input-borderstyle-', '')
+		.replace('style-list-view', 'list-view-style')
+		.replace('style-preview-action', 'preview-action-style')
+		.replace('style-search-bar', 'search-bar-style')
+		.replace('style-switch', 'switch-style')
+		.replace('style-table-view', 'table-view-style')
+		.replace('style-tabs', 'tabs-style')
 		.replace('text-alignment-', '')
 		.replace('ti-', '')
 		.replace('width-', 'w-')
