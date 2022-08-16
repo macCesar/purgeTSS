@@ -211,18 +211,18 @@ function tailwindSpecificClasses({ ..._base }) {
 	compoundClasses += helpers.borderRadius(_base.borderRadius);
 	compoundClasses += helpers.borderWidth(_base.borderWidth);
 	compoundClasses += helpers.fontFamily(_base.fontFamily);
-	compoundClasses += helpers.fontWeight(_base.fontWeight);
 	compoundClasses += helpers.fontSize(_base.fontSize);
+	compoundClasses += helpers.fontWeight(_base.fontWeight);
+	compoundClasses += helpers.gap(_base.margin);
 	compoundClasses += helpers.minimumFontSize(_base.fontSize);
 	compoundClasses += helpers.negativeRotate(_base.rotate);
-	compoundClasses += helpers.gap(_base.margin);
 	compoundClasses += helpers.padding(_base.padding);
 
 	// colors
-	compoundClasses += helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor'));
 	compoundClasses += helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient'));
 	compoundClasses += helpers.backgroundSelectedColor(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedColor'));
 	compoundClasses += helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient'));
+	compoundClasses += helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor'));
 	compoundClasses += helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor'));
 	compoundClasses += helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor'));
 
@@ -467,7 +467,6 @@ function generateCombinedClasses(key, data) {
 		_.each(data.base, (value, _key) => {
 			if (typeof value === 'object') {
 				_.each(value, (_value, __key) => {
-					//! checar valores con . que no los convierta a número.
 					myClasses += `'.${setModifier(removeUneededVariables(camelCaseToDash(key + '-' + _key + '-' + __key)))}': { ${key}: ${helpers.parseValue(_value)} }\n`;
 				});
 			} else {
