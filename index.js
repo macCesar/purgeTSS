@@ -2224,8 +2224,7 @@ function purgeTailwind(uniqueClasses) {
 	if (classesWithOpacityValues.length > 0) {
 		purgedClasses += '\n// Styles with color opacity modifiers\n';
 		classesWithOpacityValues.forEach(opacityValue => {
-			let opacityIndex = _.findIndex(tailwindClasses, line => line.startsWith(`'.${opacityValue.className}`));
-
+			let opacityIndex = _.findIndex(tailwindClasses, line => line.startsWith(`'.${opacityValue.theClassName}`));
 			if (opacityIndex > -1) {
 				//! TODO: Check if color value is a hex value!! (if not, they are using rbg, rgba or semantic colors)
 				//! In other words, we need to validate the color value, before we can alter its opacity.
