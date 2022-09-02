@@ -1502,30 +1502,30 @@ function buildCustomTailwind(message = 'file created!') {
 
 	tailwindStyles += '\n// Resets\n';
 
+	//! Generate glossary files
 	let distributionFolder = !fs.existsSync(projectConfigJS);
-	let destinationFolder = path.resolve(__dirname, './dist/glossary/');
-
 	if (distributionFolder) {
+		let destinationFolder = path.resolve(__dirname, './dist/glossary/');
 		makeSureFolderExists(destinationFolder);
-	}
 
-	let menuPosition = 1;
-	_.each(allValuesCombined, (value, key) => {
-		if (key.includes('Properties') && distributionFolder) {
-			destinationFolder = path.resolve(__dirname, './dist/glossary/' + key);
-			makeSureFolderExists(destinationFolder);
-			fs.writeFileSync(destinationFolder + '/_category_.json', `{ "label": "${key}", "position": ${menuPosition} }`);
-			menuPosition++;
-		} else {
-			let theClasses = helperToBuildCustomTailwindClasses(key, value);
+		let menuPosition = 1;
+		_.each(allValuesCombined, (value, key) => {
+			if (key.includes('Properties')) {
+				destinationFolder = path.resolve(__dirname, './dist/glossary/' + key);
+				makeSureFolderExists(destinationFolder);
+				fs.writeFileSync(destinationFolder + '/_category_.json', `{ "label": "${key}", "position": ${menuPosition} }`);
+				menuPosition++;
+			} else {
+				let theClasses = helperToBuildCustomTailwindClasses(key, value);
 
-			if (destinationFolder) {
-				fs.writeFileSync(`${destinationFolder}/${key}.md`, '```scss' + theClasses + '```');
+				if (destinationFolder) {
+					fs.writeFileSync(`${destinationFolder}/${key}.md`, '```scss' + theClasses + '```');
+				}
+
+				tailwindStyles += theClasses;
 			}
-
-			tailwindStyles += theClasses;
-		}
-	});
+		});
+	}
 
 	//! Compile @apply properties
 	let finalTailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
