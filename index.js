@@ -855,7 +855,7 @@ function findPrefix(rules) {
 		return `${firstPrefix}-${secondPrefix}`;
 	} else if (firstCounter == 1) {
 		return `${firstPrefix}`;
-	};
+	}
 }
 
 //! Purge Fonts
@@ -1555,7 +1555,6 @@ function buildTailwindLegacy() {
 	let distributionFolder = !fs.existsSync(projectsConfigJS);
 
 	if (distributionFolder) {
-		var destinationFolder = path.resolve(__dirname, './dist/glossary/');
 		makeSureFolderExists(destinationFolder);
 	}
 
