@@ -1555,6 +1555,7 @@ function buildTailwindLegacy() {
 	let distributionFolder = !fs.existsSync(projectsConfigJS);
 
 	if (distributionFolder) {
+		let destinationFolder = path.resolve(__dirname, './dist/glossary/');
 		makeSureFolderExists(destinationFolder);
 
 		let menuPosition = 1;
@@ -1592,6 +1593,9 @@ function buildTailwindLegacy() {
 
 			tailwindStyles += theClasses;
 		}
+
+		tailwindStyles += theClasses;
+	}
 	});
 }
 
