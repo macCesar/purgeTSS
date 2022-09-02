@@ -1555,6 +1555,7 @@ function buildTailwindLegacy() {
 	let distributionFolder = !fs.existsSync(projectsConfigJS);
 
 	if (distributionFolder) {
+		let destinationFolder = path.resolve(__dirname, './dist/glossary/');
 		makeSureFolderExists(destinationFolder);
 
 		let menuPosition = 1;
@@ -1578,7 +1579,7 @@ function buildTailwindLegacy() {
 
 	let menuPosition = 1;
 	_.each(allValuesCombined, (value, key) => {
-		if (key.includes('Properties') && distributionFolder) {
+		if (key.includes('Properties')) {
 			destinationFolder = path.resolve(__dirname, './dist/glossary/' + key);
 			makeSureFolderExists(destinationFolder);
 			fs.writeFileSync(destinationFolder + '/_category_.json', `{ "label": "${key}", "position": ${menuPosition} }`);
@@ -1593,17 +1594,18 @@ function buildTailwindLegacy() {
 			tailwindStyles += theClasses;
 		}
 	});
+}
 
-	//! Compile @apply properties
-	let finalTailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
+//! Compile @apply properties
+let finalTailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
 
-	if (fs.existsSync(projectsConfigJS)) {
-		fs.writeFileSync(projectsTailwind_TSS, finalTailwindStyles);
-		logger.file('./purgetss/tailwind.tss', '( Legacy )');
-	} else {
-		fs.writeFileSync(srcTailwindTSS, finalTailwindStyles);
-		logger.file('./dist/tailwind.tss', '( Legacy )');
-	}
+if (fs.existsSync(projectsConfigJS)) {
+	fs.writeFileSync(projectsTailwind_TSS, finalTailwindStyles);
+	logger.file('./purgetss/tailwind.tss', '( Legacy )');
+} else {
+	fs.writeFileSync(srcTailwindTSS, finalTailwindStyles);
+	logger.file('./dist/tailwind.tss', '( Legacy )');
+}
 }
 module.exports.buildTailwindLegacy = buildTailwindLegacy;
 
