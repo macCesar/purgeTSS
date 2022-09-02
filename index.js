@@ -809,7 +809,7 @@ function findPrefix(rules) {
 		return `${firstPrefix}-${secondPrefix}`;
 	} else if (firstCounter == 1) {
 		return `${firstPrefix}`;
-	};
+	}
 }
 
 //! Purge Custom Fonts
@@ -1503,9 +1503,9 @@ function buildCustomTailwind(message = 'file created!') {
 	tailwindStyles += '\n// Resets\n';
 
 	let distributionFolder = !fs.existsSync(projectConfigJS);
+	let destinationFolder = path.resolve(__dirname, './dist/glossary/');
 
 	if (distributionFolder) {
-		var destinationFolder = path.resolve(__dirname, './dist/glossary/');
 		makeSureFolderExists(destinationFolder);
 	}
 
