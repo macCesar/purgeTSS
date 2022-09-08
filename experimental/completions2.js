@@ -62,10 +62,10 @@ function autoBuildTailwindTSS(message = 'file created!') {
 	tailwindStyles += completionsClasses;
 
 	if (fs.existsSync(projectConfigJS)) {
-		fs.writeFileSync(cwd + '/purgetss/tailwind-auto.tss', tailwindStyles);
-		saveFile(cwd + '/purgetss/baseValues.json', JSON.stringify(baseValues, null, 2));
-		saveFile(cwd + '/purgetss/titaniumElements.json', JSON.stringify(titaniumElements, null, 2));
-		fs.writeFileSync(cwd + '/purgetss/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
+		fs.writeFileSync(cwd + '/purgetss/experimental/tailwind-auto.tss', tailwindStyles);
+		saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
+		saveFile(cwd + '/purgetss/experimental/titaniumElements.json', JSON.stringify(titaniumElements, null, 2));
+		fs.writeFileSync(cwd + '/purgetss/experimental/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
 		logger.info(chalk.yellow('./purgetss/tailwind-auto.tss'), message);
 	} else {
 		fs.writeFileSync(path.resolve(__dirname, '../dist/tailwind-auto.tss'), tailwindStyles);
@@ -134,7 +134,7 @@ function setBaseValuesToProperties(_allProperties, _base) {
 		_allProperties[key].base = combineKeys(configFile.theme, _base[activeKey], key);
 	});
 
-	saveFile(cwd + '/purgetss/allKeys.txt', allKeys);
+	saveFile(cwd + '/purgetss/experimental/allKeys.txt', allKeys);
 	return _allProperties;
 }
 
@@ -156,7 +156,7 @@ function processTitaniumElements(_base) {
 		}
 	});
 
-	saveFile(cwd + '/purgetss/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
+	saveFile(cwd + '/purgetss/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
 
 	return propertiesOnly;
 }
@@ -208,6 +208,7 @@ function tailwindSpecificClasses({ ..._base }) {
 	compoundClasses += helpers.touchEnabled();
 	compoundClasses += helpers.viewShadow();
 
+	console.log(_base.borderRadius);
 	compoundClasses += helpers.borderRadius(_base.borderRadius);
 	compoundClasses += helpers.borderWidth(_base.borderWidth);
 	compoundClasses += helpers.fontFamily(_base.fontFamily);
@@ -491,8 +492,8 @@ function generateCombinedClasses(key, data) {
 
 function saveAutoTSS(key, classes) {
 	if (fs.existsSync(projectConfigJS)) {
-		makeSureFolderExists(cwd + '/purgetss/tailwind-auto/');
-		saveFile(cwd + `/purgetss/tailwind-auto/${key}-auto.tss`, classes);
+		makeSureFolderExists(cwd + '/purgetss/experimental/tailwind-auto/');
+		saveFile(cwd + `/purgetss/experimental/tailwind-auto/${key}-auto.tss`, classes);
 	} else {
 		makeSureFolderExists(cwd + '/experimental/tailwind-auto/');
 		saveFile(cwd + `/experimental/tailwind-auto/${key}-auto.tss`, classes);
