@@ -1502,6 +1502,7 @@ function buildCustomTailwind(message = 'file created!') {
 
 	tailwindStyles += '\n// Resets\n';
 
+	//! Generate glossary files
 	let distributionFolder = !fs.existsSync(projectConfigJS);
 
 	if (distributionFolder) {
