@@ -61,6 +61,8 @@ function autoBuildTailwindTSS(message = 'file created!') {
 	tailwindStyles += tailwindSpecificClasses(baseValues);
 	tailwindStyles += completionsClasses;
 
+	tailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
+
 	if (fs.existsSync(projectConfigJS)) {
 		fs.writeFileSync(cwd + '/purgetss/tailwind.tss', tailwindStyles);
 		saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
