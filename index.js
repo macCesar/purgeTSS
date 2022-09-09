@@ -155,7 +155,7 @@ function init(options) {
 
 	// tailwind.tss
 	if (!fs.existsSync(projectsTailwind_TSS) || options.all) {
-		buildCustomTailwind();
+		autoBuildCustomTW();
 	}
 
 	// definitios file
@@ -387,6 +387,17 @@ function buildCustom() {
 	}
 }
 module.exports.buildCustom = buildCustom;
+
+function autoBuildTW() {
+	if (alloyProject()) {
+		initIfNotConfig()
+		autoBuildCustomTW()
+		buildCustomFontAwesome();
+		buildCustomFontAwesomeJS();
+		createDefinitionsFile();
+	}
+}
+module.exports.autoBuildTW = autoBuildTW;
 
 //! Command: Build fonts.tss
 function buildCustomFonts(options) {
@@ -1538,6 +1549,11 @@ function buildCustomTailwind(message = 'file created!') {
 }
 module.exports.buildCustomTailwind = buildCustomTailwind;
 
+function autoBuildCustomTW() {
+	require('./experimental/completions2').autoBuildTailwindTSS();
+}
+module.exports.autoBuildCustomTW = autoBuildCustomTW;
+
 function removeFitMaxMin(theObject) {
 	delete theObject.width['fit'];
 	delete theObject.width['max'];
@@ -2137,7 +2153,7 @@ function purgeTailwind(uniqueClasses) {
 
 	if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[6]) {
 		logger.info(chalk.yellow('config.js'), 'file updated!, rebuilding tailwind.tss...');
-		buildCustomTailwind();
+		autoBuildCustomTW();
 		createDefinitionsFile();
 		tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/);
 	}
@@ -2160,8 +2176,8 @@ function purgeTailwind(uniqueClasses) {
 			let transparency = Math.round(decimalValue * 255 / 100).toString(16);
 			if (transparency.length === 1) transparency = '0' + transparency;
 			let classNameWithTransparency = uniqueClasses[index];
-			let theClassName = cleanClassName.substring(0, cleanClassName.lastIndexOf('/'));
-			classesWithOpacityValues.push({ decimalValue, transparency, theClassName, classNameWithTransparency });
+			let className = cleanClassName.substring(0, cleanClassName.lastIndexOf('/'));
+			classesWithOpacityValues.push({ decimalValue, transparency, className, classNameWithTransparency });
 		} else {
 			cleanUniqueClasses.push(className);
 		}

@@ -62,11 +62,11 @@ function autoBuildTailwindTSS(message = 'file created!') {
 	tailwindStyles += completionsClasses;
 
 	if (fs.existsSync(projectConfigJS)) {
-		fs.writeFileSync(cwd + '/purgetss/experimental/tailwind-auto.tss', tailwindStyles);
+		fs.writeFileSync(cwd + '/purgetss/tailwind.tss', tailwindStyles);
 		saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
 		saveFile(cwd + '/purgetss/experimental/titaniumElements.json', JSON.stringify(titaniumElements, null, 2));
 		fs.writeFileSync(cwd + '/purgetss/experimental/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
-		logger.info(chalk.yellow('./purgetss/tailwind-auto.tss'), message);
+		logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
 	} else {
 		fs.writeFileSync(path.resolve(__dirname, '../dist/tailwind-auto.tss'), tailwindStyles);
 		logger.info(chalk.yellow('./dist/tailwind-auto.tss'), message);
@@ -134,6 +134,7 @@ function setBaseValuesToProperties(_allProperties, _base) {
 		_allProperties[key].base = combineKeys(configFile.theme, _base[activeKey], key);
 	});
 
+	makeSureFolderExists(cwd + '/purgetss/experimental/');
 	saveFile(cwd + '/purgetss/experimental/allKeys.txt', allKeys);
 	return _allProperties;
 }
@@ -208,7 +209,6 @@ function tailwindSpecificClasses({ ..._base }) {
 	compoundClasses += helpers.touchEnabled();
 	compoundClasses += helpers.viewShadow();
 
-	console.log(_base.borderRadius);
 	compoundClasses += helpers.borderRadius(_base.borderRadius);
 	compoundClasses += helpers.borderWidth(_base.borderWidth);
 	compoundClasses += helpers.fontFamily(_base.fontFamily);
@@ -327,8 +327,7 @@ function combineDefaultThemeWithConfigFile() {
 	base.minimumFontSize = combineKeys(configFile.theme, base.fontSize, 'minimumFontSize');
 
 	// combineKeys(configFile.theme, (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius');
-	base.borderRadius = helpers.integersInHalf(helpers.removeFractions((configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, ['full', 'auto', 'screen']));
-
+	base.borderRadius = helpers.processBorderRadius(helpers.removeFractions((configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, ['full', 'auto', 'screen']));
 	delete configFile.theme.fontFamily;
 	delete base.margin.screen;
 	delete base.zIndex.auto;
