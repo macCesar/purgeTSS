@@ -1,5 +1,6 @@
 'use_strick';
 let _applyClasses = {};
+let debugMode = false;
 const fs = require('fs');
 const cwd = process.cwd();
 const _ = require('lodash');
@@ -42,7 +43,9 @@ if (configOptions) {
 	configOptions.missing = configOptions.missing ?? false;
 }
 
-function autoBuildTailwindTSS(message = 'file created!') {
+function autoBuildTailwindTSS(options = {}) {
+	debugMode = options.debug ?? false;
+	let message = 'file created!';
 	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/template.tss'), 'utf8');
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8');
 	tailwindStyles += (fs.existsSync(projectConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : `// default config.js file\n`;
@@ -65,13 +68,15 @@ function autoBuildTailwindTSS(message = 'file created!') {
 
 	if (fs.existsSync(projectConfigJS)) {
 		fs.writeFileSync(cwd + '/purgetss/tailwind.tss', tailwindStyles);
-		saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
-		saveFile(cwd + '/purgetss/experimental/titaniumElements.json', JSON.stringify(titaniumElements, null, 2));
-		fs.writeFileSync(cwd + '/purgetss/experimental/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
+		if (debugMode) {
+			saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
+			saveFile(cwd + '/purgetss/experimental/titaniumElements.json', JSON.stringify(titaniumElements, null, 2));
+			fs.writeFileSync(cwd + '/purgetss/experimental/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
+		}
 		logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
 	} else {
-		fs.writeFileSync(path.resolve(__dirname, '../dist/tailwind-auto.tss'), tailwindStyles);
-		logger.info(chalk.yellow('./dist/tailwind-auto.tss'), message);
+		fs.writeFileSync(path.resolve(__dirname, '../dist/tailwind.tss'), tailwindStyles);
+		logger.info(chalk.yellow('./dist/tailwind.tss'), message);
 	}
 }
 exports.autoBuildTailwindTSS = autoBuildTailwindTSS;
@@ -136,8 +141,11 @@ function setBaseValuesToProperties(_allProperties, _base) {
 		_allProperties[key].base = combineKeys(configFile.theme, _base[activeKey], key);
 	});
 
-	makeSureFolderExists(cwd + '/purgetss/experimental/');
-	saveFile(cwd + '/purgetss/experimental/allKeys.txt', allKeys);
+	if (fs.existsSync(projectConfigJS) && debugMode) {
+		makeSureFolderExists(cwd + '/purgetss/experimental/');
+		saveFile(cwd + '/purgetss/experimental/allKeys.txt', allKeys);
+	}
+
 	return _allProperties;
 }
 
@@ -159,7 +167,9 @@ function processTitaniumElements(_base) {
 		}
 	});
 
-	saveFile(cwd + '/purgetss/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
+	if (fs.existsSync(projectConfigJS) && debugMode) {
+		saveFile(cwd + '/purgetss/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
+	}
 
 	return propertiesOnly;
 }
@@ -492,12 +502,9 @@ function generateCombinedClasses(key, data) {
 }
 
 function saveAutoTSS(key, classes) {
-	if (fs.existsSync(projectConfigJS)) {
-		makeSureFolderExists(cwd + '/purgetss/experimental/tailwind-auto/');
-		saveFile(cwd + `/purgetss/experimental/tailwind-auto/${key}-auto.tss`, classes);
-	} else {
-		makeSureFolderExists(cwd + '/experimental/tailwind-auto/');
-		saveFile(cwd + `/experimental/tailwind-auto/${key}-auto.tss`, classes);
+	if (fs.existsSync(projectConfigJS) && debugMode) {
+		makeSureFolderExists(cwd + '/purgetss/experimental/tailwind-classes/');
+		saveFile(cwd + `/purgetss/experimental/tailwind-classes/${key}.tss`, classes);
 	}
 }
 

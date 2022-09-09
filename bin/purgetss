@@ -47,9 +47,10 @@ program
 	.command('build')
 	.alias('b')
 	.description('Build a custom `tailwind.tss` file.')
+	.option('-d, --debug', 'Generate extra files for debuging.')
 	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.\n\nIt will also generate a custom `fontawesome.tss` file if you installed the proper dependencies, like FontAwesome Beta or FontAwesome Pro.')
 	.action((args, options, logger) => {
-		purgetss.autoBuildTW();
+		purgetss.build(options);
 	});
 
 program
@@ -58,7 +59,7 @@ program
 	.description('Build a custom `tailwind.tss` file.')
 	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.\n\nIt will also generate a custom `fontawesome.tss` file if you installed the proper dependencies, like FontAwesome Beta or FontAwesome Pro.')
 	.action((args, options, logger) => {
-		purgetss.buildCustom();
+		purgetss.buildLegacy();
 	});
 
 program
@@ -89,7 +90,7 @@ program
 	.help('It will generate a new custom `fonts.tss` file based on the fonts and css files located in `./purgetss/fonts` folder.')
 	.option('-m, --modules', 'Use the `--modules` option to also generate a CommonJS module into `./app/lib/` folder called `purgetss-fonts.js`.')
 	.action((args, options, logger) => {
-		purgetss.buildCustomFonts(options);
+		purgetss.buildFonts(options);
 	});
 
 program
