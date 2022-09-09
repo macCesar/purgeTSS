@@ -46,9 +46,9 @@ program
 program
 	.command('build')
 	.alias('b')
-	.description('Build a custom `tailwind.tss` file.')
+	.description('Build a `tailwind.tss` file.')
 	.option('-d, --debug', 'Generate extra files for debuging.')
-	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.\n\nIt will also generate a custom `fontawesome.tss` file if you installed the proper dependencies, like FontAwesome Beta or FontAwesome Pro.')
+	.help('It will generate a `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.\n\nIt will also generate a custom `fontawesome.tss` file if you installed the proper dependencies, like FontAwesome Beta or FontAwesome Pro.')
 	.action((args, options, logger) => {
 		purgetss.build(options);
 	});
@@ -56,8 +56,8 @@ program
 program
 	.command('build-legacy')
 	.alias('bl')
-	.description('Build a custom `tailwind.tss` file.')
-	.help('It will generate a new custom `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.\n\nIt will also generate a custom `fontawesome.tss` file if you installed the proper dependencies, like FontAwesome Beta or FontAwesome Pro.')
+	.description('Build a Legacy `tailwind.tss` file.')
+	.help('It will generate a Legacy `tailwind.tss` file based on the attributes defined in `./purgetss/config.js`.\n\nIt will also generate a custom `fontawesome.tss` file if you installed the proper dependencies, like FontAwesome Beta or FontAwesome Pro.')
 	.action((args, options, logger) => {
 		purgetss.buildLegacy();
 	});
@@ -86,8 +86,8 @@ program
 program
 	.command('build-fonts')
 	.alias('bf')
-	.description('Build a custom `fonts.tss` file.')
-	.help('It will generate a new custom `fonts.tss` file based on the fonts and css files located in `./purgetss/fonts` folder.')
+	.description('Build a `fonts.tss` file.')
+	.help('It will generate a new `fonts.tss` file based on the fonts and css files located in `./purgetss/fonts` folder.')
 	.option('-m, --modules', 'Use the `--modules` option to also generate a CommonJS module into `./app/lib/` folder called `purgetss-fonts.js`.')
 	.action((args, options, logger) => {
 		purgetss.buildFonts(options);

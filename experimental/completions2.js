@@ -137,7 +137,7 @@ function setBaseValuesToProperties(_allProperties, _base) {
 	let allKeys = '';
 	_.each(_allProperties, (data, key) => {
 		let activeKey = findBaseKey(key, data);
-		allKeys += `${activeKey}, ${key}\n`;
+		allKeys += `${key}\n`;
 		_allProperties[key].base = combineKeys(configFile.theme, _base[activeKey], key);
 	});
 
@@ -479,10 +479,10 @@ function generateCombinedClasses(key, data) {
 		_.each(data.base, (value, _key) => {
 			if (typeof value === 'object') {
 				_.each(value, (_value, __key) => {
-					myClasses += `'.${setModifier(removeUneededVariables(camelCaseToDash(key + '-' + _key + '-' + __key)))}': { ${key}: ${helpers.parseValue(_value)} }\n`;
+					myClasses += `'.${setModifier(removeUneededVariablesFromPropertyName(camelCaseToDash(key + '-' + _key + '-' + __key)))}': { ${key}: ${helpers.parseValue(_value)} }\n`;
 				});
 			} else {
-				myClasses += `'.${setModifier(removeUneededVariables(camelCaseToDash(key + '-' + _key)))}': { ${key}: ${helpers.parseValue(value)} }\n`;
+				myClasses += `'.${setModifier(removeUneededVariablesFromPropertyName(camelCaseToDash(key + '-' + _key)))}': { ${key}: ${helpers.parseValue(value)} }\n`;
 			}
 		});
 	} else {
@@ -513,10 +513,10 @@ function formatClass(key, value) {
 }
 
 function formatClassName(property, value) {
-	return removeUneededVariables(camelCaseToDash(`${property}-${removeModuleName(value, property)}`));
+	return removeUneededVariablesFromPropertyName(camelCaseToDash(`${property}-${removeModuleName(value, property)}`));
 }
 
-function removeUneededVariables(property) {
+function removeUneededVariablesFromPropertyName(property) {
 	return Array.from(new Set(property.split('-')))
 		.join('-')
 		.replace('-calendar-', '-')

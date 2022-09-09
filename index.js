@@ -410,8 +410,8 @@ function buildFonts(options) {
 		});
 
 		let fontMeta = '';
-		let customFontsJS = '';
-		let customFontFamiliesJS = '';
+		let fontJS = '';
+		let fontFamiliesJS = '';
 		const FontName = require('fontname');
 		let tssClasses = `// Fonts TSS file generated with PurgeTSS\n// https://github.com/macCesar/purgeTSS\n`;
 
@@ -463,8 +463,8 @@ function buildFonts(options) {
 
 				//! JavaScript Module
 				if (options.modules) {
-					customFontsJS += processFontsJS(readCSS(file), `\n\t// ${theCSSFileName}`);
-					customFontFamiliesJS += processFontFamilyNamesJS(readCSS(file), `\n\t// ${theCSSFileName}`);
+					fontJS += processFontsJS(readCSS(file), `\n\t// ${theCSSFileName}`);
+					fontFamiliesJS += processFontFamilyNamesJS(readCSS(file), `\n\t// ${theCSSFileName}`);
 				}
 
 				// !Done processing stylesheet
@@ -482,14 +482,14 @@ function buildFonts(options) {
 			makeSureFolderExists(projectsLibFolder);
 		}
 
-		if (customFontsJS) {
+		if (fontJS) {
 			let exportIcons = 'const icons = {';
-			exportIcons += customFontsJS.slice(0, -1);
+			exportIcons += fontJS.slice(0, -1);
 			exportIcons += '\n};\n';
 			exportIcons += 'exports.icons = icons;\n';
 
 			exportIcons += '\nconst families = {';
-			exportIcons += customFontFamiliesJS.slice(0, -1);
+			exportIcons += fontFamiliesJS.slice(0, -1);
 			exportIcons += '\n};\n';
 			exportIcons += 'exports.families = families;\n';
 
@@ -1510,7 +1510,7 @@ function buildTailwindLegacy(message = 'file created!') {
 	if (Object.keys(configFile.theme).length) {
 		tailwindStyles += '\n// Custom Styles\n';
 		_.each(configFile.theme, (value, key) => {
-			tailwindStyles += helperToBuildCustomTailwindClasses(key, value);
+			tailwindStyles += helperToBuildTailwindClasses(key, value);
 		});
 	}
 
@@ -1532,7 +1532,7 @@ function buildTailwindLegacy(message = 'file created!') {
 			fs.writeFileSync(destinationFolder + '/_category_.json', `{ "label": "${key}", "position": ${menuPosition} }`);
 			menuPosition++;
 		} else {
-			let theClasses = helperToBuildCustomTailwindClasses(key, value);
+			let theClasses = helperToBuildTailwindClasses(key, value);
 
 			if (destinationFolder) {
 				fs.writeFileSync(`${destinationFolder}/${key}.md`, '```scss' + theClasses + '```');
@@ -1620,7 +1620,7 @@ function createDefinitionsFile() {
 }
 
 //! Build tailwind's custom values
-function helperToBuildCustomTailwindClasses(key, value) {
+function helperToBuildTailwindClasses(key, value) {
 	switch (key) {
 		// case 'audioStreamType':
 		// case 'category':
