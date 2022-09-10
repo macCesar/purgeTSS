@@ -104,13 +104,12 @@ const configOptions = (configFile.purge && configFile.purge.options) ? configFil
 if (configOptions) {
 	configOptions.legacy = configOptions.legacy ?? false;
 	configOptions.widgets = configOptions.widgets ?? false;
-	configOptions.missing = configOptions.missing ?? false;
+	configOptions.missing = configOptions.missing ?? true;
 }
 
 const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
 
 //! Interfase
-
 //! Command: purgetss
 function purgeClasses(options) {
 	purgingDebug = options.debug;
@@ -156,7 +155,7 @@ function init(options) {
 
 	// tailwind.tss
 	if (!fs.existsSync(projectsTailwind_TSS) || options.all) {
-		buildTailwind();
+		buildTailwindBasedOnConfigOptions(options);
 	}
 
 	// definitios file
@@ -381,7 +380,7 @@ exports.create = create;
 function build(options) {
 	if (alloyProject()) {
 		initIfNotConfig()
-		buildTailwind(options)
+		buildTailwindBasedOnConfigOptions(options)
 		buildFontAwesome();
 		buildFontAwesomeJS();
 		createDefinitionsFile();
@@ -389,6 +388,7 @@ function build(options) {
 }
 module.exports.build = build;
 
+//! Command: build-legacy
 function buildLegacy() {
 	if (alloyProject()) {
 		initIfNotConfig()
@@ -824,11 +824,9 @@ function findPrefix(rules) {
 //! Purge Fonts
 function purgeFonts(uniqueClasses, cleanUniqueClasses) {
 	if (fs.existsSync(cwd + '/purgetss/fonts.tss')) {
-		let purgedClasses = '\n// Fonts styles\n';
-
-		purgedClasses += purgeFontIcons(cwd + '/purgetss/fonts.tss', uniqueClasses, 'Purging Fonts styles...', cleanUniqueClasses, []);
-
-		return (purgedClasses === '\n// Fonts styles\n') ? '' : purgedClasses;
+		let purgedClasses = '\n// Font Styles\n';
+		purgedClasses += purgeFontIcons(cwd + '/purgetss/fonts.tss', uniqueClasses, 'Purging Font styles...', cleanUniqueClasses, []);
+		return (purgedClasses === '\n// Font Styles\n') ? '' : purgedClasses;
 	}
 
 	return '';
@@ -1492,13 +1490,14 @@ function combineAllValues(base, defaultTheme) {
 	return allValues;
 }
 
-//! Build Tailwind ( Main )
+//! Build Tailwind ( AUTO )
 function buildTailwind(options) {
 	require('./experimental/completions2').autoBuildTailwindTSS(options);
 }
 module.exports.buildTailwind = buildTailwind;
 
-function buildTailwindLegacy(message = 'file created!') {
+//! Build Tailwind ( LEGACY )
+function buildTailwindLegacy() {
 	const defaultTheme = require('tailwindcss/defaultTheme');
 
 	let allValuesCombined = combineAllValues(getBaseValues(defaultTheme), defaultTheme);
@@ -1547,13 +1546,21 @@ function buildTailwindLegacy(message = 'file created!') {
 
 	if (fs.existsSync(projectsConfigJS)) {
 		fs.writeFileSync(projectsTailwind_TSS, finalTailwindStyles);
-		logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
+		logger.file('./purgetss/tailwind.tss', '( Legacy )');
 	} else {
 		fs.writeFileSync(srcTailwindTSS, finalTailwindStyles);
-		logger.info(chalk.yellow('./dist/tailwind.tss'), message);
+		logger.file('./dist/tailwind.tss', '( Legacy )');
 	}
 }
 module.exports.buildTailwindLegacy = buildTailwindLegacy;
+
+function buildTailwindBasedOnConfigOptions(options = {}) {
+	if (configOptions.legacy) {
+		buildTailwindLegacy();
+	} else {
+		buildTailwind(options);
+	}
+}
 
 function removeFitMaxMin(theObject) {
 	delete theObject.width['fit'];
@@ -2153,13 +2160,11 @@ function purgeTailwind(uniqueClasses) {
 	let tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/);
 
 	if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[6]) {
-		logger.info(chalk.yellow('config.js'), 'file updated!, rebuilding tailwind.tss...');
-		buildTailwind();
+		logger.info(chalk.yellow('config.js'), 'file changed!, rebuilding tailwind.tss...');
+		buildTailwindBasedOnConfigOptions();
 		createDefinitionsFile();
 		tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/);
 	}
-
-	logger.info('Purging', chalk.yellow('Custom Tailwind'), 'styles...')
 
 	let cleanUniqueClasses = [];
 	let classesWithOpacityValues = [];
@@ -2278,7 +2283,9 @@ function purgeTailwind(uniqueClasses) {
 	// Add arbitrary values
 	purgedClasses += (arbitraryValues !== '\n// Styles with arbitrary values\n') ? arbitraryValues : '';
 
-	let mensaje = 'Purging ' + chalk.yellow('Custom Tailwind') + ' styles...';
+	logger.info('Purging', chalk.yellow('Tailwind'), 'styles...')
+
+	let mensaje = 'Purging ' + chalk.yellow('Tailwind') + ' styles...';
 
 	localFinish(mensaje);
 

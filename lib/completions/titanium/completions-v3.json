@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "11.0.0.GA",
+	"sdkVersion": "11.1.0.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -4103,6 +4103,24 @@
 			"readOnly": false,
 			"values": []
 		},
+		"LENGTH_INDEFINITE": {
+			"description": "Use with <code>length</code> to specify the display time.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"LENGTH_LONG": {
+			"description": "Use with <code>length</code> to specify the display time.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"LENGTH_SHORT": {
+			"description": "Use with <code>length</code> to specify the display time.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
 		"LIGHT_CONTENT": {
 			"description": "Status bar style to use with dark backgrounds.",
 			"type": "Number",
@@ -7716,7 +7734,7 @@
 			]
 		},
 		"action": {
-			"description": "The action associated with this intent.",
+			"description": "",
 			"type": "String",
 			"readOnly": true,
 			"values": []
@@ -8899,6 +8917,15 @@
 		},
 		"autoRedirect": {
 			"description": "Determines whether automatic automatic handling of HTTP redirects is enabled.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
+		},
+		"autoSize": {
+			"description": "Automatically scales the label into its size.",
 			"type": "Boolean",
 			"readOnly": true,
 			"values": [
@@ -10493,6 +10520,15 @@
 		},
 		"continuous": {
 			"description": "If YES, value change events are sent immediately when the value changes during user interaction.\nIf NO, a value change event is sent when user interaction ends.\nThe default value is YES.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
+		},
+		"continuousUpdate": {
+			"description": "Determines if the scrolling event should fire every time there is a new visible item.",
 			"type": "Boolean",
 			"readOnly": true,
 			"values": [
@@ -12348,6 +12384,12 @@
 		},
 		"headingFilter": {
 			"description": "Minimum heading change (in degrees) before a <code>heading</code> event is fired.",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
+		"headingTime": {
+			"description": "Interval in milliseconds before a <code>heading</code> event is fired.",
 			"type": "Number",
 			"readOnly": true,
 			"values": []
@@ -15961,10 +16003,14 @@
 				"Ti.UI.iOS.ListViewScrollPosition.MIDDLE",
 				"Ti.UI.iOS.ListViewScrollPosition.NONE",
 				"Ti.UI.iOS.ListViewScrollPosition.TOP",
-				"Ti.UI.iOS.TableViewScrollPosition.BOTTOM",
-				"Ti.UI.iOS.TableViewScrollPosition.MIDDLE",
-				"Ti.UI.iOS.TableViewScrollPosition.NONE",
-				"Ti.UI.iOS.TableViewScrollPosition.TOP"
+				"Ti.UI.ListViewScrollPosition.BOTTOM",
+				"Ti.UI.ListViewScrollPosition.MIDDLE",
+				"Ti.UI.ListViewScrollPosition.NONE",
+				"Ti.UI.ListViewScrollPosition.TOP",
+				"Ti.UI.TableViewScrollPosition.BOTTOM",
+				"Ti.UI.TableViewScrollPosition.MIDDLE",
+				"Ti.UI.TableViewScrollPosition.NONE",
+				"Ti.UI.TableViewScrollPosition.TOP"
 			]
 		},
 		"posix": {
@@ -16521,6 +16567,15 @@
 			"type": "Array",
 			"readOnly": true,
 			"values": []
+		},
+		"requiresEditingToMove": {
+			"description": "Determines if the list view should allow drag-and-drop even without going into the editing mode",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
 		},
 		"resRawDirectory": {
 			"description": "Path to the application's raw resource directory.",
@@ -23513,6 +23568,7 @@
 				"frequency",
 				"hasCompass",
 				"headingFilter",
+				"headingTime",
 				"locationServicesAuthorization",
 				"locationServicesEnabled",
 				"preferredProvider",
@@ -25564,6 +25620,7 @@
 				"translationY",
 				"translationZ",
 				"transitionName",
+				"viewShadowColor",
 				"visible",
 				"width",
 				"horizontalWrap",
@@ -25679,6 +25736,7 @@
 				"translationY",
 				"translationZ",
 				"transitionName",
+				"viewShadowColor",
 				"visible",
 				"width",
 				"horizontalWrap",
@@ -25851,6 +25909,7 @@
 				"translationY",
 				"translationZ",
 				"transitionName",
+				"viewShadowColor",
 				"visible",
 				"width",
 				"horizontalWrap",
@@ -25885,6 +25944,23 @@
 				"cancel",
 				"change",
 				"submit"
+			]
+		},
+		"Ti.UI.Android.Snackbar": {
+			"description": "Snackbars provide brief messages about app processes at the bottom of the screen.",
+			"functions": [
+				"show"
+			],
+			"properties": [
+				"LENGTH_SHORT",
+				"LENGTH_LONG",
+				"LENGTH_INDEFINITE",
+				"length",
+				"action",
+				"message"
+			],
+			"events": [
+				"click"
 			]
 		},
 		"AnimatedOptions": {
@@ -26714,6 +26790,7 @@
 				"keepScreenOn",
 				"attributedString",
 				"autoLink",
+				"autoSize",
 				"backgroundPaddingBottom",
 				"backgroundPaddingLeft",
 				"backgroundPaddingRight",
@@ -26969,6 +27046,7 @@
 				"canScroll",
 				"disableBounce",
 				"editing",
+				"requiresEditingToMove",
 				"fastScroll",
 				"fixedSize",
 				"allowsSelectionDuringEditing",
@@ -26991,6 +27069,7 @@
 				"searchView",
 				"searchText",
 				"caseInsensitiveSearch",
+				"continuousUpdate",
 				"keepSectionsInSearch",
 				"keyboardDismissMode",
 				"sectionIndexTitles",
@@ -27024,6 +27103,8 @@
 				"dragstart",
 				"dragend",
 				"marker",
+				"movestart",
+				"moveend",
 				"move",
 				"noresults",
 				"pull",
@@ -27082,6 +27163,19 @@
 				"section",
 				"sectionIndex",
 				"itemIndex"
+			],
+			"events": []
+		},
+		"Ti.UI.ListViewScrollPosition": {
+			"description": "A set of constants for the position value that can be used for the <code>position</code> property of\n<a href=\"ListViewAnimationProperties\">ListViewAnimationProperties</a> when invoking the ListView's <code>scrollToItem</code>, <code>appendSection</code>,\n<code>deleteSectionAt</code>, <code>insertSectionAt</code> and <code>replaceSectionAt</code> methods.",
+			"functions": [],
+			"properties": [
+				"apiName",
+				"lifecycleContainer",
+				"BOTTOM",
+				"MIDDLE",
+				"NONE",
+				"TOP"
 			],
 			"events": []
 		},
@@ -29517,6 +29611,25 @@
 				"touchstart"
 			]
 		},
+		"Ti.UI.TableViewScrollPosition": {
+			"description": "A set of constants for the position value that can be used for the <code>position</code> property of\n<a href=\"Titanium.UI.TableView\">Titanium.UI.TableView</a> when invoking <code>scrollToIndex</code>.",
+			"functions": [
+				"addEventListener",
+				"removeEventListener",
+				"fireEvent",
+				"applyProperties"
+			],
+			"properties": [
+				"bubbleParent",
+				"apiName",
+				"lifecycleContainer",
+				"BOTTOM",
+				"MIDDLE",
+				"NONE",
+				"TOP"
+			],
+			"events": []
+		},
 		"Ti.UI.TableViewSection": {
 			"description": "A table view section is a container within a table used to organize table view rows.",
 			"functions": [
@@ -31344,18 +31457,6 @@
 			],
 			"events": []
 		},
-		"Ti.UI.iOS.ListViewScrollPosition": {
-			"description": "A set of constants for the position value that can be used for the <code>position</code> property of\n<a href=\"ListViewAnimationProperties\">ListViewAnimationProperties</a> when invoking the ListView's <code>scrollToItem</code>, <code>appendSection</code>,\n<code>deleteSectionAt</code>, <code>insertSectionAt</code> and <code>replaceSectionAt</code> methods.",
-			"functions": [],
-			"properties": [
-				"apiName",
-				"BOTTOM",
-				"MIDDLE",
-				"NONE",
-				"TOP"
-			],
-			"events": []
-		},
 		"Ti.UI.iOS.ListViewStyle": {
 			"description": "A set of constants for the style that can be used for the <code>style</code> property of\n<a href=\"Titanium.UI.ListView\">Titanium.UI.ListView</a>.",
 			"functions": [],
@@ -31970,24 +32071,6 @@
 				"width",
 				"enabled",
 				"accessibilityLabel"
-			],
-			"events": []
-		},
-		"Ti.UI.iOS.TableViewScrollPosition": {
-			"description": "A set of constants for the position value that can be used for the <code>position</code> property of\n<a href=\"Titanium.UI.TableView\">Titanium.UI.TableView</a> when invoking <code>scrollToIndex</code>.",
-			"functions": [
-				"addEventListener",
-				"removeEventListener",
-				"fireEvent",
-				"applyProperties"
-			],
-			"properties": [
-				"bubbleParent",
-				"apiName",
-				"BOTTOM",
-				"MIDDLE",
-				"NONE",
-				"TOP"
 			],
 			"events": []
 		},

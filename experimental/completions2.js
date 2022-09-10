@@ -45,38 +45,32 @@ if (configOptions) {
 
 function autoBuildTailwindTSS(options = {}) {
 	debugMode = options.debug ?? false;
-	let message = 'file created!';
 	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/template.tss'), 'utf8');
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8');
 	tailwindStyles += (fs.existsSync(projectConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : `// default config.js file\n`;
 
 	let baseValues = combineDefaultThemeWithConfigFile();
-	let propertiesFromTiCompletionsFile = getPropertiesFromTiCompletionsFile();
-	let completionsProrpertiesWithBaseValues = setBaseValuesToProperties(propertiesFromTiCompletionsFile, baseValues);
+	let completionsProrpertiesWithBaseValues = setBaseValuesToProperties(getPropertiesFromTiCompletionsFile(), baseValues);
 
-	let titaniumElements = processTitaniumElements(baseValues);
-	let titaniumRules = processTitaniumRules(titaniumElements);
-	let completionsClasses = processCompletionsClasses(completionsProrpertiesWithBaseValues);
-	let customClasses = processCustomClasses();
-
-	tailwindStyles += titaniumRules;
-	tailwindStyles += customClasses;
+	let tiUIComponents = getTiUIComponents(baseValues);
+	tailwindStyles += processTitaniumRules(tiUIComponents);
+	tailwindStyles += processCustomClasses();
 	tailwindStyles += tailwindSpecificClasses(baseValues);
-	tailwindStyles += completionsClasses;
+	tailwindStyles += processCompletionsClasses(completionsProrpertiesWithBaseValues);
 
 	tailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
 
 	if (fs.existsSync(projectConfigJS)) {
 		fs.writeFileSync(cwd + '/purgetss/tailwind.tss', tailwindStyles);
+		logger.file('./purgetss/tailwind.tss');
 		if (debugMode) {
 			saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
-			saveFile(cwd + '/purgetss/experimental/titaniumElements.json', JSON.stringify(titaniumElements, null, 2));
+			saveFile(cwd + '/purgetss/experimental/tiUIComponents.json', JSON.stringify(tiUIComponents, null, 2));
 			fs.writeFileSync(cwd + '/purgetss/experimental/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
 		}
-		logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
 	} else {
 		fs.writeFileSync(path.resolve(__dirname, '../dist/tailwind.tss'), tailwindStyles);
-		logger.info(chalk.yellow('./dist/tailwind.tss'), message);
+		logger.file('./dist/tailwind.tss');
 	}
 }
 exports.autoBuildTailwindTSS = autoBuildTailwindTSS;
@@ -93,30 +87,25 @@ function processCustomClasses() {
 	}
 
 	if (tailwindStyles !== '') {
-		return `\n// Custom Classes and Extra Ti Elements\n${tailwindStyles}`;
+		return `\n// Extra Ti Components and Custom Classes\n${tailwindStyles}`;
 	}
 
 	return '';
-
-	// //! Compile @apply properties
-	// let finalTailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
-
-	// if (fs.existsSync(projectsConfigJS)) {
-	// 	fs.writeFileSync(projectsTailwind_TSS, finalTailwindStyles);
-	// 	logger.info(chalk.yellow('./purgetss/tailwind.tss'), message);
-	// } else {
-	// 	fs.writeFileSync(srcTailwindTSS, finalTailwindStyles);
-	// 	logger.info(chalk.yellow('./dist/tailwind.tss'), message);
-	// }
 }
 
 function processTitaniumRules(_propertiesOnly) {
-	let customRules = '\n// Titanium Elements\n';
+	let customRules = '\n// Ti.UI Components\n';
 	_.each(_propertiesOnly, (value, key) => {
-		customRules += helpers.customRules(value.base, key);
+		let property = `\n// Property: ${key}\n`;
+		let description = `// Description: ${value.description.replace(/\n/g, ' ')}\n`;
+		customRules += property + description + helpers.customRules(value.base, key);
 	});
 
-	return customRules;
+	if (customRules != '\n// Ti.UI Components\n') {
+		return customRules;
+	}
+
+	return '';
 }
 
 function processCompletionsClasses(_completionsWithBaseValues) {
@@ -126,7 +115,6 @@ function processCompletionsClasses(_completionsWithBaseValues) {
 		let theClasses = generateCombinedClasses(key, data);
 		if (theClasses) {
 			processedClasses += theClasses;
-			delete configFile.theme[key];
 		}
 	});
 
@@ -138,7 +126,11 @@ function setBaseValuesToProperties(_allProperties, _base) {
 	_.each(_allProperties, (data, key) => {
 		let activeKey = findBaseKey(key, data);
 		allKeys += `${key}\n`;
-		_allProperties[key].base = combineKeys(configFile.theme, _base[activeKey], key);
+		if (_base[key]) {
+			_allProperties[key].base = combineKeys(configFile.theme, _base[key], key);
+		} else {
+			_allProperties[key].base = combineKeys(configFile.theme, _base[activeKey], key);
+		}
 	});
 
 	if (fs.existsSync(projectConfigJS) && debugMode) {
@@ -149,7 +141,7 @@ function setBaseValuesToProperties(_allProperties, _base) {
 	return _allProperties;
 }
 
-function processTitaniumElements(_base) {
+function getTiUIComponents(_base) {
 	let propertiesOnly = {};
 	_.each(tiCompletionsFile.types, (value, key) => {
 		if (key.includes('Ti.UI.')) {
@@ -175,11 +167,10 @@ function processTitaniumElements(_base) {
 }
 
 function tailwindSpecificClasses({ ..._base }) {
-	let compoundTenplate = require('../lib/templates/tailwind/compoundTenplate.json');
-
 	let compoundClasses = '';
+	let compoundTemplate = require('../lib/templates/tailwind/compoundTemplate.json');
 
-	_.each(compoundTenplate, (value, key) => {
+	_.each(compoundTemplate, (value, key) => {
 		compoundClasses += helpers.processProperties(value.description, value.template, value.base ?? { default: _base[key] });
 	});
 
@@ -222,7 +213,7 @@ function tailwindSpecificClasses({ ..._base }) {
 	compoundClasses += helpers.viewShadow();
 
 	compoundClasses += helpers.borderRadius(_base.borderRadius);
-	compoundClasses += helpers.borderWidth(_base.borderWidth);
+	// compoundClasses += helpers.borderWidth(_base.borderWidth);
 	compoundClasses += helpers.fontFamily(_base.fontFamily);
 	compoundClasses += helpers.fontSize(_base.fontSize);
 	compoundClasses += helpers.fontWeight(_base.fontWeight);
@@ -304,7 +295,7 @@ function combineDefaultThemeWithConfigFile() {
 		zIndex: defaultTheme.zIndex,
 		opacity: defaultTheme.opacity,
 		fontWeight: defaultTheme.fontWeight,
-		borderWidth: combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth'),
+		borderWidth: combineKeys(configFile.theme, removePxFromDefaultTheme(defaultTheme.borderWidth), 'borderWidth'),
 		fontSize: { ...themeOrDefaultValues.fontSize, ...configFile.theme.extend.spacing, ...configFile.theme.extend.fontSize },
 		minimumFontSize: { ...themeOrDefaultValues.minimumFontSize, ...configFile.theme.extend.spacing, ...configFile.theme.extend.minimumFontSize },
 		verticalMargin: { top: '-0.5', bottom: '0.5', middle: '0' },
@@ -333,14 +324,18 @@ function combineDefaultThemeWithConfigFile() {
 	base.textColor = combineKeys(configFile.theme, base.colors, 'textColor');
 
 	base.margin = combineKeys(configFile.theme, base.spacing, 'margin');
-	base.padding = combineKeys(configFile.theme, base.spacing, 'padding');
+	base.padding = combineKeys(configFile.theme, helpers.removeFractions(base.spacing, ['full', 'auto', 'screen']), 'padding');
 	base.countDownDuration = { ...base.delay, ...defaultTheme.transitionDuration };
 	base.noFractions = helpers.removeFractions(base.spacing, ['full', 'auto', 'screen']);
 	base.minimumFontSize = combineKeys(configFile.theme, base.fontSize, 'minimumFontSize');
 
 	// combineKeys(configFile.theme, (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius');
 	base.borderRadius = helpers.processBorderRadius(helpers.removeFractions((configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, ['full', 'auto', 'screen']));
-	delete configFile.theme.fontFamily;
+
+	_.each(base, (_value, key) => {
+		delete configFile.theme[key];
+	});
+
 	delete base.margin.screen;
 	delete base.zIndex.auto;
 
@@ -391,6 +386,16 @@ function fixPercentages(theObject) {
 	});
 }
 
+function removePxFromDefaultTheme(theObject) {
+	_.each(theObject, (value, key) => {
+		if (value.toString().includes('px')) {
+			theObject[key] = value.replace('px', '');
+		}
+	});
+
+	return theObject;
+}
+
 function fixfontSize(theObject) {
 	_.each(theObject, value => {
 		if (value.length > 1) {
@@ -408,7 +413,7 @@ function getPropertiesFromTiCompletionsFile() {
 	_.each(tiCompletionsFile.types, (value, key) => {
 		_.each(value.properties, property => {
 			if (validTypesOnly(property, key)) {
-				if (property !== 'textColor' && property !== 'orientationModes' && property !== 'fontFamily' && property !== 'fontSize' && property !== 'fontWeight' && property !== 'minimumFontSize' && property !== 'borderWidth') {
+				if (property !== 'textColor' && property !== 'orientationModes' && property !== 'fontFamily' && property !== 'fontSize' && property !== 'fontWeight' && property !== 'minimumFontSize') {
 					if (!propertiesOnly[property]) {
 						propertiesOnly[property] = tiCompletionsFile.properties[property];
 						propertiesOnly[property].modules = [];
