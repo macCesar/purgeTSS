@@ -6,9 +6,18 @@
 // https://github.com/macCesar/purgeTSS
 // default config.js file
 
-// Titanium Elements
+// Ti.UI Components
+
+// Property: View
+// Description: An empty drawing surface or container
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
+
+// Property: ImageView
+// Description: A view to display a single image or series of animated images.
 'ImageView[platform=ios]': { hires: true }
+
+// Property: Window
+// Description: The Window is an empty drawing surface or container.
 'Window': { backgroundColor: '#ffffff' }
 
 // Utilities for controlling an element's margin.
@@ -4760,7 +4769,7 @@
 
 // Property: bubbleParent
 // Description: Indicates if the proxy will bubble an event to its parent.
-// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewScrollPosition, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
+// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewScrollPosition, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
 '.bubble-parent': { bubbleParent: true }
 '.bubble-parent-false': { bubbleParent: false }
 
@@ -7186,7 +7195,7 @@
 
 // Property: viewShadowColor
 // Description: Determines the color of the shadow.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.view-shadow-transparent': { viewShadowColor: 'transparent' }
 '.view-shadow-black': { viewShadowColor: '#000000' }
 '.view-shadow-white': { viewShadowColor: '#ffffff' }
@@ -9346,10 +9355,14 @@
 '.position-list-view-scroll-middle': { position: Ti.UI.iOS.ListViewScrollPosition.MIDDLE }
 '.position-list-view-scroll-none': { position: Ti.UI.iOS.ListViewScrollPosition.NONE }
 '.position-list-view-scroll-top': { position: Ti.UI.iOS.ListViewScrollPosition.TOP }
-'.position-table-view-scroll-bottom': { position: Ti.UI.iOS.TableViewScrollPosition.BOTTOM }
-'.position-table-view-scroll-middle': { position: Ti.UI.iOS.TableViewScrollPosition.MIDDLE }
-'.position-table-view-scroll-none': { position: Ti.UI.iOS.TableViewScrollPosition.NONE }
-'.position-table-view-scroll-top': { position: Ti.UI.iOS.TableViewScrollPosition.TOP }
+'.position-list-view-scroll-bottom': { position: Ti.UI.ListViewScrollPosition.BOTTOM }
+'.position-list-view-scroll-middle': { position: Ti.UI.ListViewScrollPosition.MIDDLE }
+'.position-list-view-scroll-none': { position: Ti.UI.ListViewScrollPosition.NONE }
+'.position-list-view-scroll-top': { position: Ti.UI.ListViewScrollPosition.TOP }
+'.position-table-view-scroll-bottom': { position: Ti.UI.TableViewScrollPosition.BOTTOM }
+'.position-table-view-scroll-middle': { position: Ti.UI.TableViewScrollPosition.MIDDLE }
+'.position-table-view-scroll-none': { position: Ti.UI.TableViewScrollPosition.NONE }
+'.position-table-view-scroll-top': { position: Ti.UI.TableViewScrollPosition.TOP }
 
 // Property: charset
 // Component(s): EncodeStringDict, DecodeStringDict
@@ -13445,6 +13458,12 @@
 '.auto-link-phone-numbers': { autoLink: Ti.UI.AUTOLINK_PHONE_NUMBERS }
 '.auto-link-email-addresses': { autoLink: Ti.UI.AUTOLINK_EMAIL_ADDRESSES }
 
+// Property: autoSize
+// Description: Automatically scales the label into its size.
+// Component(s): Ti.UI.Label
+'.auto-size': { autoSize: true }
+'.auto-size-false': { autoSize: false }
+
 // Property: backgroundPaddingBottom
 // Description: Number of pixels to extend the background image past the label on the bottom.
 // Component(s): Ti.UI.Label
@@ -14608,6 +14627,12 @@
 '.editing': { editing: true }
 '.editing-false': { editing: false }
 
+// Property: requiresEditingToMove
+// Description: Determines if the list view should allow drag-and-drop even without going into the editing mode
+// Component(s): Ti.UI.ListView
+'.requires-editing-to-move': { requiresEditingToMove: true }
+'.requires-editing-to-move-false': { requiresEditingToMove: false }
+
 // Property: fastScroll
 // Description: Sets the fastScroll mode on Android ListViews.
 // Component(s): Ti.UI.ListView
@@ -14703,6 +14728,12 @@
 // Component(s): Ti.UI.ListView
 '.case-insensitive-search': { caseInsensitiveSearch: true }
 '.case-insensitive-search-false': { caseInsensitiveSearch: false }
+
+// Property: continuousUpdate
+// Description: Determines if the scrolling event should fire every time there is a new visible item.
+// Component(s): Ti.UI.ListView
+'.continuous-update': { continuousUpdate: true }
+'.continuous-update-false': { continuousUpdate: false }
 
 // Property: keepSectionsInSearch
 // Description: Determines if the section information is displayed in the search results when using the <code>searchText</code> property.
