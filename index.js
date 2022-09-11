@@ -10,6 +10,7 @@ const chalk = require('chalk');
 const convert = require('xml-js');
 const readCSS = require('read-css');
 const traverse = require('traverse');
+const inquirer = require('inquirer');
 const helpers = require('./lib/helpers');
 const colores = require('./lib/colores').colores;
 module.exports.colores = colores;
@@ -311,59 +312,38 @@ function create(args, options) {
 		let workspace = results[1];
 
 		if (idPrefix !== 'app.idprefix not found' && workspace !== '') {
-			console.log('');
-			logger.info('Creating a new Titanium project');
-
-			let projectName = `"${args.name}"`;
 			let projectID = `${idPrefix}.${args.name.replace(/ /g, '').replace(/-/g, '').replace(/_/g, '').toLowerCase()}`;
+			console.log('');
 
-			let tiCreateCommand = `ti create -t app -p all -n ${projectName} --no-prompt --id ${projectID}`;
-			exec(tiCreateCommand, (error) => {
-				if (error) return logger.error(error);
-
-				let fonts = (options.vendor) ? `&& purgetss f -m -v=${options.vendor}` : '';
-
-				if (options.vendor) {
-					logger.info('Installing requested fonts');
-				}
-
-				let cdToProject = `cd ${workspace}/${projectName} && alloy new && purgetss w && purgetss b ${fonts}`;
-				exec(cdToProject, (error) => {
-					if (error) return logger.error(error);
-
-					let theOpenCommand;
-					if (commandExistsSync('code')) {
-						theOpenCommand = `cd ${workspace}/${projectName} && code .`;
-					} else if (commandExistsSync('subl')) {
-						theOpenCommand = `cd ${workspace}/${projectName} && subl .`;
-					} else {
-						theOpenCommand = `cd ${workspace}/${projectName} && open .`;
-					}
-
-					if (options.tailwind) {
-						logger.info('Installing Tailwind CSS');
-
-						fs.writeFileSync(`${workspace}/${args.name}/package.json`, JSON.stringify({ "name": `${args.name.replace(/ /g, '-').toLowerCase()}`, "private": true }));
-
-						let installTailwind = `cd ${workspace}/${projectName} && npm init -y && npm i tailwindcss -D && npx tailwindcss init`;
-						exec(installTailwind, (error) => {
-							if (error) return logger.error(error);
-
-							finish(chalk.yellow(`‘${args.name}’`) + ' project created successfully in');
-
-							exec(theOpenCommand, (error) => {
+			if (fs.existsSync(`${workspace}/${args.name}`)) {
+				if (options.force) {
+					logger.info('Deleting existing project folder');
+					exec(`chown -R $USER "${workspace}/${args.name}" && rm -rf "${workspace}/${args.name}"`, error => {
+						if (error) return logger.error(error);
+						createProject(workspace, args.name, projectID, options);
+					});
+				} else {
+					inquirer.prompt([{
+						type: 'confirm',
+						name: 'delete',
+						message: `The folder ‘${args.name}’ already exists. Do you want to delete it?`,
+						default: false
+					}]).then(answers => {
+						if (answers.delete) {
+							logger.info('Deleting existing project folder');
+							exec(`chown -R $USER "${workspace}/${args.name}" && rm -rf "${workspace}/${args.name}"`, error => {
 								if (error) return logger.error(error);
+								createProject(workspace, args.name, projectID, options);
 							});
-						});
-					} else {
-						finish(chalk.yellow(`‘${args.name}’`) + ' project created successfully in');
-
-						exec(theOpenCommand, (error) => {
-							if (error) return logger.error(error);
-						});
-					}
-				});
-			});
+						} else {
+							console.log('');
+							logger.warn(chalk.yellow('Project creation aborted!'));
+						}
+					});
+				}
+			} else {
+				createProject(workspace, args.name, projectID, options);
+			}
 		} else {
 			console.log('');
 			logger.error('::Can’t create a Titanium project::');
@@ -376,6 +356,62 @@ function create(args, options) {
 	});
 }
 exports.create = create;
+
+function createProject(workspace, argsName, projectID, options) {
+	let projectName = `"${argsName}"`;
+	const { exec } = require("child_process");
+	const commandExistsSync = require('command-exists').sync;
+
+	logger.info('Creating a new Titanium project');
+
+	let tiCreateCommand = `ti create -t app -p all -n ${projectName} --no-prompt --id ${projectID}`;
+	exec(tiCreateCommand, (error) => {
+		if (error) return logger.error(error);
+
+		let fonts = (options.vendor) ? `&& purgetss f -m -v=${options.vendor}` : '';
+
+		if (options.vendor) {
+			logger.info('Installing requested fonts');
+		}
+
+		let cdToProject = `cd ${workspace}/${projectName} && alloy new && purgetss w && purgetss b ${fonts}`;
+		exec(cdToProject, (error) => {
+			if (error) return logger.error(error);
+
+			let theOpenCommand;
+			if (commandExistsSync('code')) {
+				theOpenCommand = `cd ${workspace}/${projectName} && code .`;
+			} else if (commandExistsSync('subl')) {
+				theOpenCommand = `cd ${workspace}/${projectName} && subl .`;
+			} else {
+				theOpenCommand = `cd ${workspace}/${projectName} && open .`;
+			}
+
+			if (options.tailwind) {
+				logger.info('Installing Tailwind CSS');
+
+				fs.writeFileSync(`${workspace}/${argsName}/package.json`, JSON.stringify({ "name": `${argsName.replace(/ /g, '-').toLowerCase()}`, "private": true }));
+
+				let installTailwind = `cd ${workspace}/${projectName} && npm init -y && npm i tailwindcss -D && npx tailwindcss init`;
+				exec(installTailwind, (error) => {
+					if (error) return logger.error(error);
+
+					finish(chalk.yellow(`‘${argsName}’`) + ' project created successfully in');
+
+					exec(theOpenCommand, (error) => {
+						if (error) return logger.error(error);
+					});
+				});
+			} else {
+				finish(chalk.yellow(`‘${argsName}’`) + ' project created successfully in');
+
+				exec(theOpenCommand, (error) => {
+					if (error) return logger.error(error);
+				});
+			}
+		});
+	});
+}
 
 //! Command: build-custom
 function buildCustom() {

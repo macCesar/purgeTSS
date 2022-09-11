@@ -36,6 +36,7 @@ program
 	.alias('c')
 	.description('Creates a new Alloy Project with `purgetss` already configured.')
 	.help('Creates a new Alloy Project with `purgetss` already configured.')
+	.option('-f, --force', 'To overwrite an existing project.')
 	.option('-t, --tailwind', 'To install Tailwind CSS in your project to work with `Tailwind CSS Intellisense` extenstion in VS Code.')
 	.option('-v, --vendor <arguments>', 'Use any of the following arguments to copy specific vendors:\n   fa = Font Awesome Icons\n   md = Material Design Icons\n   f7 = Framework7 Icons')
 	.argument('<name>', 'The name of the project')
