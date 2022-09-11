@@ -55,7 +55,7 @@ function autoBuildTailwindTSS(options = {}) {
 	let tiUIComponents = getTiUIComponents(baseValues);
 	tailwindStyles += processTitaniumRules(tiUIComponents);
 	tailwindStyles += processCustomClasses();
-	tailwindStyles += tailwindSpecificClasses(baseValues);
+	tailwindStyles += processCompoundClasses(baseValues);
 	tailwindStyles += processCompletionsClasses(completionsProrpertiesWithBaseValues);
 
 	tailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
@@ -166,7 +166,7 @@ function getTiUIComponents(_base) {
 	return propertiesOnly;
 }
 
-function tailwindSpecificClasses({ ..._base }) {
+function processCompoundClasses({ ..._base }) {
 	let compoundClasses = '';
 	let compoundTemplate = require('../lib/templates/tailwind/compoundTemplate.json');
 
@@ -175,6 +175,7 @@ function tailwindSpecificClasses({ ..._base }) {
 	});
 
 	compoundClasses += helpers.anchorPoint();
+
 	compoundClasses += helpers.autocapitalization();
 	compoundClasses += helpers.backgroundLinearGradient();
 	compoundClasses += helpers.backgroundRadialGradient();
@@ -188,7 +189,6 @@ function tailwindSpecificClasses({ ..._base }) {
 	compoundClasses += helpers.dropShadow();
 	compoundClasses += helpers.editable();
 	compoundClasses += helpers.ellipsize();
-	compoundClasses += helpers.exitOnClose();
 	compoundClasses += helpers.filterAttribute();
 	compoundClasses += helpers.flip();
 	compoundClasses += helpers.fontStyle();
@@ -213,7 +213,6 @@ function tailwindSpecificClasses({ ..._base }) {
 	compoundClasses += helpers.viewShadow();
 
 	compoundClasses += helpers.borderRadius(_base.borderRadius);
-	// compoundClasses += helpers.borderWidth(_base.borderWidth);
 	compoundClasses += helpers.fontFamily(_base.fontFamily);
 	compoundClasses += helpers.fontSize(_base.fontSize);
 	compoundClasses += helpers.fontWeight(_base.fontWeight);
