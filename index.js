@@ -10,6 +10,7 @@ const chalk = require('chalk');
 const convert = require('xml-js');
 const readCSS = require('read-css');
 const traverse = require('traverse');
+const inquirer = require('inquirer');
 const helpers = require('./lib/helpers');
 const colores = require('./lib/colores').colores;
 module.exports.colores = colores;
