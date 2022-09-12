@@ -1668,6 +1668,7 @@ function createDefinitionsFile() {
 		.replace(/\n\/\*\*\n([\s\S]*?)\*\/\n/g, '')
 		.replace(/\{[\s\S]*?\}/gm, '{ }')
 		.replace(/{(.*)}/g, '{}')
+		.replace(/:/g, '')
 		.replace(/\[(.*)\]/g, '')
 		.replace(/'/g, '')
 		.replace(/"/g, '')
