@@ -1631,8 +1631,8 @@ function createDefinitionsFile() {
 	let classDefinitions = '';
 
 	// read classes from _app.tss file
-	_.each(getFiles(cwd + '/app/styles').filter(file => file.endsWith('.tss') && !file.endsWith('_app.tss')), file => {
-		classDefinitions += fs.readFileSync(projects_AppTSS, 'utf8');
+	_.each(getFiles(cwd + '/app/styles').filter(file => file.endsWith('.tss') && file.endsWith('_app.tss')), file => {
+		classDefinitions += fs.readFileSync(file, 'utf8');
 	});
 
 	if (fs.existsSync(projectsTailwind_TSS)) {

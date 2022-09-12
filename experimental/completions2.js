@@ -87,19 +87,23 @@ function processCustomClasses() {
 	}
 
 	if (tailwindStyles !== '') {
-		return `\n// Extra Ti Components and Custom Classes\n${tailwindStyles}`;
+		return `\n// Custom Classes\n${tailwindStyles}`;
 	}
 
 	return '';
 }
 
 function processTitaniumRules(_propertiesOnly) {
+	let currentLegacyOption = helpers.globalOptions.legacy;
+	helpers.globalOptions.legacy = true;
 	let customRules = '\n// Ti.UI Components\n';
 	_.each(_propertiesOnly, (value, key) => {
 		let property = `\n// Property: ${key}\n`;
 		let description = `// Description: ${value.description.replace(/\n/g, ' ')}\n`;
 		customRules += property + description + helpers.customRules(value.base, key);
 	});
+
+	helpers.globalOptions.legacy = currentLegacyOption;
 
 	if (customRules != '\n// Ti.UI Components\n') {
 		return customRules;
@@ -144,8 +148,8 @@ function setBaseValuesToProperties(_allProperties, _base) {
 function getTiUIComponents(_base) {
 	let propertiesOnly = {};
 	_.each(tiCompletionsFile.types, (value, key) => {
-		if (key.includes('Ti.UI.')) {
-			let _key = key.replace('Ti.UI.', '');
+		if (key.includes('Ti.UI.') || key.includes('Ti.Android.')) {
+			let _key = key.replace('Ti.UI.', '').replace('Ti.Android.', '');
 			let combinedKeys = combineKeys(configFile.theme, _base[_key], _key);
 			if (combinedKeys !== {}) {
 				delete configFile.theme[_key];
