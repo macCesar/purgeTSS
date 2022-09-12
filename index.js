@@ -887,13 +887,12 @@ function prettifyFontName(str, prefix) {
 
 //! Helper Functions
 function findMissingClasses(tempPurged) {
-
 	//! Get Styles from App - Minus `app.tss`
 	_.each(getFiles(cwd + '/app/styles').filter(file => file.endsWith('.tss') && !file.endsWith('app.tss') && !file.endsWith('_app.tss')), file => {
 		tempPurged += '\n' + fs.readFileSync(file, 'utf8');
 	});
 
-	//! Get Views from Widgets  ( Experimental )
+	//! Get Styles from Widgets  ( Experimental )
 	if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
 		_.each(getFiles(cwd + '/app/widgets').filter(file => file.endsWith('.tss')), file => {
 			tempPurged += '\n' + fs.readFileSync(file, 'utf8');
@@ -1645,7 +1644,7 @@ function createDefinitionsFile() {
 		});
 	}
 
-	//! Get Views from Themes  ( Experimental )
+	//! Get Styles from Themes  ( Experimental )
 	if (fs.existsSync(cwd + '/app/themes/')) {
 		_.each(getFiles(cwd + '/app/themes').filter(file => file.endsWith('.tss')), file => {
 			classDefinitions += fs.readFileSync(file, 'utf8');
@@ -1663,15 +1662,13 @@ function createDefinitionsFile() {
 	classDefinitions += fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8');
 
 	classDefinitions = classDefinitions
-		// remove lines that don't start with single quote and a dot.
-		.replace(/^(?!['"]\.)[^\n]*\n/gm, '')
-		.replace(/\n\/\*\*\n([\s\S]*?)\*\/\n/g, '')
+		.replace(/\/\/[^\n]*\n/g, '')
+		.replace(/\/\*\*\n([\s\S]*?)\*\//gm, '')
 		.replace(/\{[\s\S]*?\}/gm, '{ }')
 		.replace(/{(.*)}/g, '{}')
-		.replace(/:/g, '')
 		.replace(/\[(.*)\]/g, '')
-		.replace(/'/g, '')
-		.replace(/"/g, '')
+		.replace(/[:'"]/g, '')
+		.replace(/^[a-zA-Z].*$/gm, '')
 		.replace(/\s/g, '');
 
 	classDefinitions += '.ios{}.android{}.handheld{}.tablet{}.open{}.close{}.complete{}.drag{}.drop{}.bounds{}';
