@@ -303,7 +303,6 @@ function createConfigFile() {
 function create(args, options) {
 	start();
 	const { exec } = require("child_process");
-	const commandExistsSync = require('command-exists').sync;
 
 	exec(`ti config app.idprefix && ti config app.workspace`, (error, stdout) => {
 
