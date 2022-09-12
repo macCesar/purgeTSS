@@ -1676,7 +1676,7 @@ function createDefinitionsFile() {
 
 	classDefinitions += '.ios{}.android{}.handheld{}.tablet{}.open{}.close{}.complete{}.drag{}.drop{}.bounds{}';
 
-	fs.writeFileSync(cwd + '/purgetss/definitions.css', `/* Class definitions */${classDefinitions}`);
+	fs.writeFileSync(cwd + '/purgetss/definitions.css', `/* Class definitions (v6) */${classDefinitions}`);
 
 	logger.file('./purgetss/definitions.css');
 }
