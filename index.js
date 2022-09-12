@@ -888,7 +888,7 @@ function findMissingClasses(tempPurged) {
 	});
 
 	//! Get Views from Widgets  ( Experimental )
-	if (configOptions.widgets) {
+	if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
 		_.each(getFiles(cwd + '/app/widgets').filter(file => file.endsWith('.tss')), file => {
 			tempPurged += '\n' + fs.readFileSync(file, 'utf8');
 		});
@@ -997,7 +997,7 @@ function getViewPaths() {
 	viewPaths.push(...glob.sync(cwd + '/app/views/**/*.xml'));
 
 	//! Parse Views from Widgets  ( Experimental )
-	if (configOptions.widgets) {
+	if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
 		viewPaths.push(...glob.sync(cwd + '/app/widgets/**/views/*.xml'));
 	}
 
