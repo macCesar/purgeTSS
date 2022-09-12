@@ -989,10 +989,8 @@ function makeSureFolderExists(folder) {
 
 function copyFile(src, dest) {
 	if (fs.existsSync(src)) {
-		// if (!fs.existsSync(`${projectsFontsFolder}/${dest}`)) {
 		fs.copyFile(src, `${projectsFontsFolder}/${dest}`, callback);
 		return true;
-		// }
 	}
 }
 
