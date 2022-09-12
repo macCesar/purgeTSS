@@ -3,10 +3,14 @@
 // Material design icons is the official icon set from Google. https://material.io/design/iconography/system-icons.html
 // Material design guidelines: https://material.io/guidelines/.
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Update material icons [08/01/22]
 =======
 // Update material icons [7/7/22]
 >>>>>>> 3d4deab (update Material Design (7/7/2022))
+=======
+// Update material icons [08/01/22]
+>>>>>>> 14f34cd (Update Material Design Icons [08/01/22])
 
 // Font Families
 '.md': { font: { fontFamily: 'MaterialIcons-Regular' } }
