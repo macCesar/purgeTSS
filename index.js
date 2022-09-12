@@ -1399,7 +1399,7 @@ function combineAllValues(base, defaultTheme) {
 	allValues.backgroundPaddingRight = combineKeys(configFile.theme, base.spacing, 'backgroundPaddingRight');
 	allValues.backgroundPaddingTop = combineKeys(configFile.theme, base.height, 'backgroundPaddingTop');
 	allValues.backgroundTopCap = combineKeys(configFile.theme, base.spacing, 'backgroundTopCap');
-	allValues.borderRadius = combineKeys(configFile.theme, (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius');
+	allValues.borderRadius = helpers.processBorderRadius(helpers.removeFractions((configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, ['full', 'auto', 'screen']));
 	allValues.borderWidth = combineKeys(configFile.theme, defaultTheme.borderWidth, 'borderWidth');
 	allValues.bottomNavigation = combineKeys(configFile.theme, base.spacing, 'bottomNavigation');
 	allValues.cacheSize = combineKeys(configFile.theme, base.columns, 'cacheSize');
