@@ -888,13 +888,13 @@ function prettifyFontName(str, prefix) {
 //! Helper Functions
 function findMissingClasses(tempPurged) {
 
-	//! Get Views from App - Minus `app.tss`
+	//! Get Styles from App - Minus `app.tss`
 	_.each(getFiles(cwd + '/app/styles').filter(file => file.endsWith('.tss') && !file.endsWith('app.tss') && !file.endsWith('_app.tss')), file => {
 		tempPurged += '\n' + fs.readFileSync(file, 'utf8');
 	});
 
 	//! Get Views from Widgets  ( Experimental )
-	if (configOptions.widgets) {
+	if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
 		_.each(getFiles(cwd + '/app/widgets').filter(file => file.endsWith('.tss')), file => {
 			tempPurged += '\n' + fs.readFileSync(file, 'utf8');
 		});
@@ -1003,7 +1003,7 @@ function getViewPaths() {
 	viewPaths.push(...glob.sync(cwd + '/app/views/**/*.xml'));
 
 	//! Parse Views from Widgets  ( Experimental )
-	if (configOptions.widgets) {
+	if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
 		viewPaths.push(...glob.sync(cwd + '/app/widgets/**/views/*.xml'));
 	}
 
@@ -1527,12 +1527,14 @@ function combineAllValues(base, defaultTheme) {
 
 //! Build Tailwind ( AUTO )
 function buildTailwind(options) {
+	helpers.globalOptions.legacy = configOptions.legacy;
 	require('./experimental/completions2').autoBuildTailwindTSS(options);
 }
 module.exports.buildTailwind = buildTailwind;
 
 //! Build Tailwind ( LEGACY )
 function buildTailwindLegacy() {
+	helpers.globalOptions.legacy = true;
 	const defaultTheme = require('tailwindcss/defaultTheme');
 
 	let allValuesCombined = combineAllValues(getBaseValues(defaultTheme), defaultTheme);
@@ -1630,12 +1632,30 @@ function removeDeprecatedColors(theObject) {
 function createDefinitionsFile() {
 	let classDefinitions = '';
 
+	// read classes from _app.tss file
+	_.each(getFiles(cwd + '/app/styles').filter(file => file.endsWith('.tss') && !file.endsWith('_app.tss')), file => {
+		classDefinitions += fs.readFileSync(projects_AppTSS, 'utf8');
+	});
+
 	if (fs.existsSync(projectsTailwind_TSS)) {
 		classDefinitions += fs.readFileSync(projectsTailwind_TSS, 'utf8');
 	}
 
+	if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
+		_.each(getFiles(cwd + '/app/widgets').filter(file => file.endsWith('.tss')), file => {
+			classDefinitions += fs.readFileSync(file, 'utf8');
+		});
+	}
+
+	//! Get Views from Themes  ( Experimental )
+	if (fs.existsSync(cwd + '/app/themes/')) {
+		_.each(getFiles(cwd + '/app/themes').filter(file => file.endsWith('.tss')), file => {
+			classDefinitions += fs.readFileSync(file, 'utf8');
+		});
+	}
+
 	if (fs.existsSync(cwd + '/purgetss/fonts.tss')) {
-		classDefinitions += fs.readFileSync(cwd + '/purgetss/fonts.tss', 'utf8').replace(/\n\/\*\*\n([\s\S]*?)\*\/\n/g, '');
+		classDefinitions += fs.readFileSync(cwd + '/purgetss/fonts.tss', 'utf8');
 	}
 
 	classDefinitions += (fs.existsSync(projectsFA_TSS_File)) ? fs.readFileSync(projectsFA_TSS_File, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8');
@@ -1645,14 +1665,15 @@ function createDefinitionsFile() {
 	classDefinitions += fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8');
 
 	classDefinitions = classDefinitions
-		.replace(`'ImageView[platform=ios]': { hires: true }\n`, '')
-		.replace(`'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }\n`, '')
-		.replace(`'Window': { backgroundColor: '#ffffff' }\n\n`, '')
-		.replace(/'.(.*)': /g, '.$1')
+		// remove lines that don't start with single quote and a dot.
+		.replace(/^(?!['"]\.)[^\n]*\n/gm, '')
+		.replace(/\n\/\*\*\n([\s\S]*?)\*\/\n/g, '')
+		.replace(/\{[\s\S]*?\}/gm, '{ }')
 		.replace(/{(.*)}/g, '{}')
 		.replace(/\[(.*)\]/g, '')
-		.replace(/\/\/(.*)\n/g, '')
-		.replace(/\n/g, '');
+		.replace(/'/g, '')
+		.replace(/"/g, '')
+		.replace(/\s/g, '');
 
 	classDefinitions += '.ios{}.android{}.handheld{}.tablet{}.open{}.close{}.complete{}.drag{}.drop{}.bounds{}';
 
