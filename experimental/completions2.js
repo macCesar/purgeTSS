@@ -209,7 +209,6 @@ function processCompoundClasses({ ..._base }) {
 	compoundClasses += helpers.scrollsToTop();
 	compoundClasses += helpers.scrollType();
 	compoundClasses += helpers.selectionStyle();
-	compoundClasses += helpers.showAsAction();
 	compoundClasses += helpers.statusBarStyle();
 	compoundClasses += helpers.theme();
 	compoundClasses += helpers.titleAttributesShadow();
@@ -416,7 +415,7 @@ function getPropertiesFromTiCompletionsFile() {
 	_.each(tiCompletionsFile.types, (value, key) => {
 		_.each(value.properties, property => {
 			if (validTypesOnly(property, key)) {
-				if (property !== 'textColor' && property !== 'orientationModes' && property !== 'fontFamily' && property !== 'fontSize' && property !== 'fontWeight' && property !== 'minimumFontSize') {
+				if (property !== 'textColor' && property !== 'orientationModes' && property !== 'portrait' && property !== 'fontFamily' && property !== 'fontSize' && property !== 'fontWeight' && property !== 'minimumFontSize') {
 					if (!propertiesOnly[property]) {
 						propertiesOnly[property] = tiCompletionsFile.properties[property];
 						propertiesOnly[property].modules = [];
@@ -527,40 +526,29 @@ function formatClassName(property, value) {
 function removeUneededVariablesFromPropertyName(property) {
 	return Array.from(new Set(property.split('-')))
 		.join('-')
-		.replace('-calendar-', '-')
 		.replace('-default', '')
-		// .replace('-bottom-', '-b-')
-		// .replace('-right-', '-r-')
-		// .replace('-top-', '-t-')
-		// .replace('-left-', '-l-')
-		.replace('-margin', '')
 		.replace('-true', '')
 		.replace('align-alignment-', '')
 		.replace('autolink', '')
 		.replace('background-', 'bg-')
-		.replace('buttonmode', '')
+		.replace('-input-buttonmode', '')
+		.replace('-user-notification', '')
+		.replace('-user-setting', '')
 		.replace('color-', '')
-		.replace('duration-notification', 'notification-duration')
 		.replace('flag-', '')
-		.replace('font-family', 'font')
-		.replace('font-size', 'text')
 		.replace('height-', 'h-')
 		.replace('layout-', '')
 		.replace('column-', 'col-')
 		.replace('recurrencefrequency', 'recurrence')
 		.replace('returnkey-', '')
-		.replace('style-activity-indicator', 'activity-indicator-style')
-		.replace('style-button', 'button-style')
-		.replace('style-feedback-generator-impact', 'feedback-generator-impact-style')
-		.replace('style-input-borderstyle-', '')
-		.replace('style-list-view', 'list-view-style')
-		.replace('style-preview-action', 'preview-action-style')
-		.replace('style-search-bar', 'search-bar-style')
-		.replace('style-switch', 'switch-style')
-		.replace('style-table-view', 'table-view-style')
-		.replace('style-tabs', 'tabs-style')
+		.replace('input-borderstyle-', '')
+		.replace('-option-', '-')
 		.replace('text-alignment-', '')
-		.replace('ti-', '')
+		.replace('-platform-android-', '-')
+		.replace('-ti-android-', '-')
+		.replace('-ti-confidential-', '-')
+		.replace('-ti-', '-')
+		.replace('-android', '')
 		.replace('width-', 'w-')
 		.replace(/--/g, '-');
 }
