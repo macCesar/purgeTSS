@@ -96,7 +96,7 @@ function processCustomClasses() {
 function processTitaniumRules(_propertiesOnly) {
 	let currentLegacyOption = helpers.globalOptions.legacy;
 	helpers.globalOptions.legacy = true;
-	let customRules = '\n// Ti.UI Components\n';
+	let customRules = '\n// Ti.UI Components';
 	_.each(_propertiesOnly, (value, key) => {
 		let property = `\n// Property: ${key}\n`;
 		let description = `// Description: ${value.description.replace(/\n/g, ' ')}\n`;
