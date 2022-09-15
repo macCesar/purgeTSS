@@ -32,6 +32,7 @@
 '.music-shuffle-songs[platform=ios]': { shuffleMode: Ti.Media.MUSIC_PLAYER_SHUFFLE_SONGS }
 
 // Property(ies): scalingMode
+// Component(s): Ti.UI.ImageView
 // Description: Background Size for compatibility with Tailwind classes
 // Component(s): Ti.UI.ImageView
 '.bg-auto': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
@@ -39,6 +40,7 @@
 '.bg-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
 // Property(ies): scalingMode
+// Component(s): Ti.UI.ImageView
 // Description: Object Fit for compatibility with Tailwind classes
 // Component(s): Ti.UI.ImageView
 '.object-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
@@ -48,6 +50,7 @@
 '.object-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
 // Property(ies): scalingMode
+// Component(s): Ti.UI.ImageView
 // Description: Image Scaling Mode
 // Component(s): Ti.UI.ImageView
 '.image-scaling-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
@@ -57,6 +60,7 @@
 '.image-scaling-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
 // Property(ies): scalingMode
+// Component(s): Ti.Media.VideoPlayer
 // Description: Video Scaling Mode
 // Component(s): Ti.Media.VideoPlayer
 '.video-scaling-resize': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE }
@@ -64,6 +68,7 @@
 '.video-scaling-cover': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT_FILL }
 
 // Property(ies): repeatMode
+// Component(s): Ti.Media.VideoPlayer
 // Description: Determines how the movie player repeats when reaching the end of playback.
 // Component(s): Ti.Media.VideoPlayer
 '.video-repeat-mode-one': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_ONE }

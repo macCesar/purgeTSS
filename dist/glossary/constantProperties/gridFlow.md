@@ -1,5 +1,6 @@
 ```scss
 // Property(ies): layout
+// Component(s): Ti.UI.View
 // Description: Grid Flow - layout
 // Component(s): Ti.UI.View
 '.grid': { layout: 'horizontal' }
