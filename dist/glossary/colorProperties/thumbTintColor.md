@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Switch
 // Property(ies): thumbTintColor - iOS Only
+// Component(s): Ti.UI.Switch
 '.thumb-tint-transparent[platform=ios]': { thumbTintColor: 'transparent' }
 '.thumb-tint-black[platform=ios]': { thumbTintColor: '#000000' }
 '.thumb-tint-white[platform=ios]': { thumbTintColor: '#ffffff' }

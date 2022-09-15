@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.AlertDialog
 // Property(ies): loginKeyboardType
+// Component(s): Ti.UI.AlertDialog
 '.login-keyboard-type-ascii': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.login-keyboard-type-decimal-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
 '.login-keyboard-type': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }

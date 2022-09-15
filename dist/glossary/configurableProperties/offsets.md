@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Notification
 // Property(ies): xOffset - Android Only
+// Component(s): Ti.UI.Notification
 '.x-offset-0[platform=android]': { xOffset: 0 }
 '.x-offset-1[platform=android]': { xOffset: 4 }
 '.x-offset-2[platform=android]': { xOffset: 8 }
@@ -37,8 +37,8 @@
 '.x-offset-2.5[platform=android]': { xOffset: 10 }
 '.x-offset-3.5[platform=android]': { xOffset: 14 }
 
-// Component(s): Ti.UI.Notification
 // Property(ies): yOffset - Android Only
+// Component(s): Ti.UI.Notification
 '.y-offset-0[platform=android]': { yOffset: 0 }
 '.y-offset-1[platform=android]': { yOffset: 4 }
 '.y-offset-2[platform=android]': { yOffset: 8 }

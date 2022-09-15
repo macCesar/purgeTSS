@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.SearchBar
 // Property(ies): selectedTextColor - iOS Only
+// Component(s): Ti.UI.SearchBar
 '.selected-text-transparent[platform=ios]': { selectedTextColor: 'transparent' }
 '.selected-text-black[platform=ios]': { selectedTextColor: '#000000' }
 '.selected-text-white[platform=ios]': { selectedTextColor: '#ffffff' }

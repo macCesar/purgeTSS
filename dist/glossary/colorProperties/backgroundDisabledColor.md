@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.View
 // Property(ies): backgroundDisabledColor - Android Only
+// Component(s): Ti.UI.View
 '.bg-disabled-transparent[platform=android]': { backgroundDisabledColor: 'transparent' }
 '.bg-disabled-black[platform=android]': { backgroundDisabledColor: '#000000' }
 '.bg-disabled-white[platform=android]': { backgroundDisabledColor: '#ffffff' }

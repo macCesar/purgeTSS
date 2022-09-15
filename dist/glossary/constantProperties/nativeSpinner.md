@@ -1,5 +1,5 @@
 ```scss
-// Component(s): Ti.UI.Picker
 // Property(ies): nativeSpinner - Android Only
+// Component(s): Ti.UI.Picker
 '.native-spinner[platform=android]': { nativeSpinner: true }
 ```

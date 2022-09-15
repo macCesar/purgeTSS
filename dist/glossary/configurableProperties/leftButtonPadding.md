@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Label
 // Property(ies): leftButtonPadding - iOS Only
+// Component(s): Ti.UI.Label
 '.left-button-padding-0[platform=ios]': { leftButtonPadding: 0 }
 '.left-button-padding-1[platform=ios]': { leftButtonPadding: 4 }
 '.left-button-padding-2[platform=ios]': { leftButtonPadding: 8 }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Window
 // Property(ies): activityExitTransition - Android Only
+// Component(s): Ti.UI.Window
 '.activity-exit-transition-explode[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_EXPLODE }
 '.activity-exit-transition-fade-in[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_FADE_IN }
 '.activity-exit-transition-fade-out[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_FADE_OUT }

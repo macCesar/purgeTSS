@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TabGroup
 // Property(ies): tabsBackgroundColor
+// Component(s): Ti.UI.TabGroup
 '.tabs-bg-transparent': { tabsBackgroundColor: 'transparent' }
 '.tabs-bg-black': { tabsBackgroundColor: '#000000' }
 '.tabs-bg-white': { tabsBackgroundColor: '#ffffff' }

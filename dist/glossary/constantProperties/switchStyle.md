@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Switch
 // Property(ies): style
+// Component(s): Ti.UI.Switch
 '.search-bar-style-checkox': { style: Ti.UI.SWITCH_STYLE_CHECKBOX }
 '.search-bar-style-chip': { style: Ti.UI.SWITCH_STYLE_CHIP }
 '.search-bar-style-slider': { style: Ti.UI.SWITCH_STYLE_SLIDER }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Window
 // Property(ies): windowPixelFormat - Android Only
+// Component(s): Ti.UI.Window
 '.pixel-format-a-8[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_A_8 }
 '.pixel-format-la-88[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_LA_88 }
 '.pixel-format-l-8[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_L_8 }

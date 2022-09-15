@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Android.CardView
 // Property(ies): maxElevation - Android Only
+// Component(s): Ti.UI.Android.CardView
 '.max-elevation-1[platform=android]': { maxElevation: 4 }
 '.max-elevation-2[platform=android]': { maxElevation: 8 }
 '.max-elevation-3[platform=android]': { maxElevation: 12 }

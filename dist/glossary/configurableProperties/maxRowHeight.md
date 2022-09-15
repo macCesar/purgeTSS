@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TableView
 // Property(ies): maxRowHeight - iOS Only
+// Component(s): Ti.UI.TableView
 '.max-row-h-0[platform=ios]': { maxRowHeight: 0 }
 '.max-row-h-1[platform=ios]': { maxRowHeight: 4 }
 '.max-row-h-2[platform=ios]': { maxRowHeight: 8 }

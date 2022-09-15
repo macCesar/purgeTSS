@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow, Ti.UI.View
 // Property(ies): backgroundSelectedColor
+// Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow, Ti.UI.View
 '.bg-selected-transparent': { backgroundSelectedColor: 'transparent' }
 '.bg-selected-black': { backgroundSelectedColor: '#000000' }
 '.bg-selected-white': { backgroundSelectedColor: '#ffffff' }

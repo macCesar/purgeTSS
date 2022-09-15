@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Button
 // Property(ies): disabledColor - iOS Only
+// Component(s): Ti.UI.Button
 '.disabled-transparent[platform=ios]': { disabledColor: 'transparent' }
 '.disabled-black[platform=ios]': { disabledColor: '#000000' }
 '.disabled-white[platform=ios]': { disabledColor: '#ffffff' }

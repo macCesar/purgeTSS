@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ScrollableView
 // Property(ies): pagingControlAlpha - iOS Only
+// Component(s): Ti.UI.ScrollableView
 '.paging-control-alpha-0[platform=ios]': { pagingControlAlpha: 0 }
 '.paging-control-alpha-5[platform=ios]': { pagingControlAlpha: 0.05 }
 '.paging-control-alpha-10[platform=ios]': { pagingControlAlpha: 0.1 }

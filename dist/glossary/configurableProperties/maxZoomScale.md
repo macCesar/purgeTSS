@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ScrollView
 // Property(ies): maxZoomScale
+// Component(s): Ti.UI.ScrollView
 '.max-zoom-scale-0[platform=ios]': { maxZoomScale: '0' }
 '.max-zoom-scale-1[platform=ios]': { maxZoomScale: '.01' }
 '.max-zoom-scale-5[platform=ios]': { maxZoomScale: '.05' }

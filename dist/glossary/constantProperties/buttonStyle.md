@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Button
 // Property(ies): style
+// Component(s): Ti.UI.Button
 '.button-style-filled': { style: Ti.UI.BUTTON_STYLE_FILLED }
 '.button-style-option-negative': { style: Ti.UI.BUTTON_STYLE_OPTION_NEGATIVE }
 '.button-style-option-neutral': { style: Ti.UI.BUTTON_STYLE_OPTION_NEUTRAL }

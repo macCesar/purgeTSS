@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 // Property(ies): titleAttributes: shadow - iOS Only
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.title-attributes-shadow-transparent[platform=ios]': { titleAttributes: { shadow: { color: 'transparent' } } }
 '.title-attributes-shadow-black[platform=ios]': { titleAttributes: { shadow: { color: '#000000' } } }
 '.title-attributes-shadow-white[platform=ios]': { titleAttributes: { shadow: { color: '#ffffff' } } }

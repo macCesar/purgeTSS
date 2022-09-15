@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.WebView
 // Property(ies): timeout - iOS Only
+// Component(s): Ti.UI.WebView
 '.timeout-0[platform=ios]': { timeout: 0 }
 '.timeout-25[platform=ios]': { timeout: 25 }
 '.timeout-50[platform=ios]': { timeout: 50 }

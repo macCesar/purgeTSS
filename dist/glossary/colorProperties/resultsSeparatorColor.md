@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ListView
 // Property(ies): resultsSeparatorColor
+// Component(s): Ti.UI.ListView
 '.results-separator-transparent': { resultsSeparatorColor: 'transparent' }
 '.results-separator-black': { resultsSeparatorColor: '#000000' }
 '.results-separator-white': { resultsSeparatorColor: '#ffffff' }

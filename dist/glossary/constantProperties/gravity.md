@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Notification
 // Property(ies): gravity - Android Only
+// Component(s): Ti.UI.Notification
 '.gravity-axis-clip[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_CLIP }
 '.gravity-axis-pull-after[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_PULL_AFTER }
 '.gravity-axis-pull-before[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_PULL_BEFORE }

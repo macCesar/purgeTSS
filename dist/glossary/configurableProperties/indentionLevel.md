@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): indentionLevel - Android Only
+// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 '.indentation-level-0[platform=ios]': { indentionLevel: 0 }
 '.indentation-level-1[platform=ios]': { indentionLevel: 4 }
 '.indentation-level-2[platform=ios]': { indentionLevel: 8 }

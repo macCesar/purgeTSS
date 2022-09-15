@@ -1,5 +1,5 @@
 ```scss
-// Component(s): Ti.UI.TableView
 // Property(ies): moving
+// Component(s): Ti.UI.TableView
 '.moving': { moving: true }
 ```

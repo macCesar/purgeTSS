@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.AlertDialog
 // Property(ies): passwordKeyboardType
+// Component(s): Ti.UI.AlertDialog
 '.password-keyboard-type': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
 '.password-keyboard-type-ascii': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.password-keyboard-type-decimal-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }

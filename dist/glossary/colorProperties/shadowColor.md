@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Button, Ti.UI.Label
 // Property(ies): shadowColor - Drop Shadow in Tailwind
+// Component(s): Ti.UI.Button, Ti.UI.Label
 '.drop-shadow-transparent': { shadowColor: 'transparent' }
 '.drop-shadow-black': { shadowColor: '#000000' }
 '.drop-shadow-white': { shadowColor: '#ffffff' }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.View
 // Property(ies): pullBackgroundColor - iOS Only
+// Component(s): Ti.UI.View
 '.pull-bg-transparent[platform=ios]': { pullBackgroundColor: 'transparent' }
 '.pull-bg-black[platform=ios]': { pullBackgroundColor: '#000000' }
 '.pull-bg-white[platform=ios]': { pullBackgroundColor: '#ffffff' }

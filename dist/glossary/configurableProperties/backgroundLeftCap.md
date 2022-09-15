@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Label
 // Property(ies): backgroundLeftCap - iOS Only
+// Component(s): Ti.UI.Label
 '.bg-l-cap-0[platform=ios]': { backgroundLeftCap: 0 }
 '.bg-l-cap-1[platform=ios]': { backgroundLeftCap: 4 }
 '.bg-l-cap-2[platform=ios]': { backgroundLeftCap: 8 }

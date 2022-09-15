@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ImageView. Ti.UI.WebView
 // Property(ies): systemButton - iOS Only
+// Component(s): Ti.UI.ImageView. Ti.UI.WebView
 '.system-button-action[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ACTION }
 '.system-button-activity[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ACTIVITY }
 '.system-button-add[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ADD }

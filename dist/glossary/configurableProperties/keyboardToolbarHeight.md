@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 // Property(ies): keyboardToolbarHeight - iOS Only
+// Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-toolbar-h-0[platform=ios]': { keyboardToolbarHeight: 0 }
 '.keyboard-toolbar-h-1[platform=ios]': { keyboardToolbarHeight: 4 }
 '.keyboard-toolbar-h-2[platform=ios]': { keyboardToolbarHeight: 8 }

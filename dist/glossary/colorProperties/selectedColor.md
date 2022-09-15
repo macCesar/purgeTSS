@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow
 // Property(ies): selectedColor - iOS Only
+// Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow
 '.selected-transparent[platform=ios]': { selectedColor: 'transparent' }
 '.selected-black[platform=ios]': { selectedColor: '#000000' }
 '.selected-white[platform=ios]': { selectedColor: '#ffffff' }

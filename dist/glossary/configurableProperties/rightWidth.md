@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Android.DrawerLayout
 // Property(ies): rightWidth - Android Only
+// Component(s): Ti.UI.Android.DrawerLayout
 '.right-w-0[platform=android]': { rightWidth: 0 }
 '.right-w-1[platform=android]': { rightWidth: 4 }
 '.right-w-2[platform=android]': { rightWidth: 8 }

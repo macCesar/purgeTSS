@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Animation, Ti.UI.TableViewRow, Ti.UI.View, Ti.UI.Window
 // Property(ies): opacity
+// Component(s): Ti.UI.Animation, Ti.UI.TableViewRow, Ti.UI.View, Ti.UI.Window
 '.opacity-0': { opacity: 0 }
 '.opacity-5': { opacity: 0.05 }
 '.opacity-10': { opacity: 0.1 }

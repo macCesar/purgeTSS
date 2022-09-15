@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.AlertDialog
 // Property(ies): loginReturnKeyType
+// Component(s): Ti.UI.AlertDialog
 '.login-return-key-type': { loginReturnKeyType: Ti.UI.RETURNKEY_DEFAULT }
 '.login-return-key-type-go': { loginReturnKeyType: Ti.UI.RETURNKEY_GO }
 '.login-return-key-type-done': { loginReturnKeyType: Ti.UI.RETURNKEY_DONE }

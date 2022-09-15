@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ListItem
 // Property(ies): subtitleColor - iOS Only
+// Component(s): Ti.UI.ListItem
 '.subtitle-transparent[platform=ios]': { subtitleColor: 'transparent' }
 '.subtitle-black[platform=ios]': { subtitleColor: '#000000' }
 '.subtitle-white[platform=ios]': { subtitleColor: '#ffffff' }

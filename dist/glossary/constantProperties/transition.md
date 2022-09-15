@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Animation
 // Property(ies): transition - iOS Only
+// Component(s): Ti.UI.Animation
 '.animation-style-curl-down[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
 '.animation-style-curl-up[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_UP }
 '.animation-style-flip-from-left[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }

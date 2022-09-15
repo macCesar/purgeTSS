@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Animation, Ti.UI.View
 // Property(ies): anchorPoint
+// Component(s): Ti.UI.Animation, Ti.UI.View
 '.origin-center': { anchorPoint: { x: 0.5, y: 0.5 } }
 '.origin-top': { anchorPoint: { x: 0.5, y: 0 } }
 '.origin-top-right': { anchorPoint: { x: 1, y: 0 } }

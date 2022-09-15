@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Tab
 // Property(ies): badgeColor
+// Component(s): Ti.UI.Tab
 '.badge-transparent': { badgeColor: 'transparent' }
 '.badge-black': { badgeColor: '#000000' }
 '.badge-white': { badgeColor: '#ffffff' }

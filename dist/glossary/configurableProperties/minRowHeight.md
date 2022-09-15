@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.TableView
 // Property(ies): minRowHeight - iOS Only
+// Component(s): Ti.UI.TableView
 '.min-row-h-0[platform=ios]': { minRowHeight: 0 }
 '.min-row-h-1[platform=ios]': { minRowHeight: 4 }
 '.min-row-h-2[platform=ios]': { minRowHeight: 8 }

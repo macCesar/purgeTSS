@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Button, Ti.UI.Label
 // Property(ies): shadowRadius ( with Extra Styles ) - Android Only
+// Component(s): Ti.UI.Button, Ti.UI.Label
 '.shadow-radius-1[platform=android]': { shadowRadius: 2 }
 '.shadow-radius-2[platform=android]': { shadowRadius: 4 }
 '.shadow-radius-3[platform=android]': { shadowRadius: 6 }

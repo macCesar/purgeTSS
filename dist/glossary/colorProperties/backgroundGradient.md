@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundGradient: colors - From Color
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.from-transparent': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }
 '.from-black': { backgroundGradient: { colors: [ '#00000000', '#000000' ] } }
 '.from-white': { backgroundGradient: { colors: [ '#00ffffff', '#ffffff' ] } }
@@ -225,8 +225,8 @@
 '.from-rose-800': { backgroundGradient: { colors: [ '#009f1239', '#9f1239' ] } }
 '.from-rose-900': { backgroundGradient: { colors: [ '#00881337', '#881337' ] } }
 
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundGradient: colors - To Color
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.to-transparent': { backgroundGradient: { colors: [ 'transparent' ] } }
 '.to-black': { backgroundGradient: { colors: [ '#000000' ] } }
 '.to-white': { backgroundGradient: { colors: [ '#ffffff' ] } }

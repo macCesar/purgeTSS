@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ListItem
 // Property(ies): canInsert
+// Component(s): Ti.UI.ListItem
 '.can-insert': { canInsert: true }
 '.cant-insert': { canInsert: false }
 ```

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundSelectedGradient: colors - From Color - iOS Only
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.bg-selected-from-transparent': { backgroundSelectedGradient: { colors: [ 'transparent', 'transparent' ] } }
 '.bg-selected-from-black': { backgroundSelectedGradient: { colors: [ '#00000000', '#000000' ] } }
 '.bg-selected-from-white': { backgroundSelectedGradient: { colors: [ '#00ffffff', '#ffffff' ] } }
@@ -225,8 +225,8 @@
 '.bg-selected-from-rose-800': { backgroundSelectedGradient: { colors: [ '#009f1239', '#9f1239' ] } }
 '.bg-selected-from-rose-900': { backgroundSelectedGradient: { colors: [ '#00881337', '#881337' ] } }
 
-// Component(s): Ti.UI.ListItem, Ti.UI.View
 // Property(ies): backgroundSelectedGradient: colors - To Color - iOS Only
+// Component(s): Ti.UI.ListItem, Ti.UI.View
 '.bg-selected-to-transparent': { backgroundSelectedGradient: { colors: [ 'transparent' ] } }
 '.bg-selected-to-black': { backgroundSelectedGradient: { colors: [ '#000000' ] } }
 '.bg-selected-to-white': { backgroundSelectedGradient: { colors: [ '#ffffff' ] } }

@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Label
 // Property(ies): backgroundPaddingLeft - iOS Only
+// Component(s): Ti.UI.Label
 '.bg-padding-l-0[platform=ios]': { backgroundPaddingLeft: 0 }
 '.bg-padding-l-1[platform=ios]': { backgroundPaddingLeft: 4 }
 '.bg-padding-l-2[platform=ios]': { backgroundPaddingLeft: 8 }

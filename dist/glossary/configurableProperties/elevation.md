@@ -1,6 +1,6 @@
 ```scss
-// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 // Property(ies): elevation - Android Only
+// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 '.elevation-1[platform=android]': { elevation: 4 }
 '.elevation-2[platform=android]': { elevation: 8 }
 '.elevation-3[platform=android]': { elevation: 12 }
