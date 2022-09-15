@@ -213,7 +213,7 @@ function processCompoundClasses({ ..._base }) {
 	compoundClasses += helpers.theme();
 	compoundClasses += helpers.titleAttributesShadow();
 	compoundClasses += helpers.touchEnabled();
-	compoundClasses += helpers.viewShadow();
+	compoundClasses += helpers.viewShadowV6();
 
 	compoundClasses += helpers.borderRadius(_base.borderRadius);
 	compoundClasses += helpers.fontFamily(_base.fontFamily);
@@ -412,10 +412,32 @@ function combineKeys(values, base, key) {
 
 function getPropertiesFromTiCompletionsFile() {
 	let propertiesOnly = {};
+	let properties = [
+		'animating',
+		'batteryState',
+		'externalPlaybackActive',
+		'fontFamily',
+		'fontSize',
+		'fontWeight',
+		'isAdvertisingTrackingEnabled',
+		'landscape',
+		'minimumFontSize',
+		'orientation',
+		'muted',
+		'paused',
+		'playing',
+		'waiting',
+		'orientationModes',
+		'portrait',
+		'textColor',
+		'wordWrap',
+	];
 	_.each(tiCompletionsFile.types, (value, key) => {
 		_.each(value.properties, property => {
 			if (validTypesOnly(property, key)) {
-				if (property !== 'textColor' && property !== 'orientationModes' && property !== 'portrait' && property !== 'fontFamily' && property !== 'fontSize' && property !== 'fontWeight' && property !== 'minimumFontSize') {
+				// check if property is in array
+				if (!properties.includes(property)) {
+					// if (property !== 'textColor' && property !== 'orientationModes' && property !== 'batteryState' && property !== 'wordWrap' && property !== 'animating' && property !== 'isAdvertisingTrackingEnabled' && property !== 'portrait' && property !== 'fontFamily' && property !== 'fontSize' && property !== 'fontWeight' && property !== 'minimumFontSize') {
 					if (!propertiesOnly[property]) {
 						propertiesOnly[property] = tiCompletionsFile.properties[property];
 						propertiesOnly[property].modules = [];
@@ -527,28 +549,29 @@ function removeUneededVariablesFromPropertyName(property) {
 	return Array.from(new Set(property.split('-')))
 		.join('-')
 		.replace('-default', '')
-		.replace('-true', '')
-		.replace('align-alignment-', '')
-		.replace('autolink', '')
-		.replace('background-', 'bg-')
 		.replace('-input-buttonmode', '')
-		.replace('-user-notification', '')
-		.replace('-user-setting', '')
-		.replace('color-', '')
-		.replace('flag-', '')
-		.replace('height-', 'h-')
-		.replace('layout-', '')
-		.replace('column-', 'col-')
-		.replace('recurrencefrequency', 'recurrence')
-		.replace('returnkey-', '')
-		.replace('input-borderstyle-', '')
 		.replace('-option-', '-')
-		.replace('text-alignment-', '')
-		.replace('-platform-android-', '-')
-		.replace('-ti-android-', '-')
+		.replace('-ti-platform-android', '')
+		.replace('-ti-platform', '')
 		.replace('-ti-confidential-', '-')
 		.replace('-ti-', '-')
 		.replace('-android', '')
+		.replace('-true', '')
+		.replace('-user-notification', '')
+		.replace('-user-setting', '')
+		.replace('align-alignment-', '')
+		.replace('autolink', '')
+		.replace('background-', 'bg-')
+		.replace('border-width', 'border')
+		.replace('color-', '')
+		.replace('column-', 'col-')
+		.replace('flag-', '')
+		.replace('height-', 'h-')
+		.replace('input-borderstyle-', '')
+		.replace('layout-', '')
+		.replace('recurrencefrequency', 'recurrence')
+		.replace('returnkey-', '')
+		.replace('text-alignment-', '')
 		.replace('width-', 'w-')
 		.replace(/--/g, '-');
 }

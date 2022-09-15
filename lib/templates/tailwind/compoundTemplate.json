@@ -28,7 +28,7 @@
 			"r-drawable": "{ icon: {value} }"
 		},
 		"base": {
-			"android": {
+			"default": {
 				"alert-dark-frame": "Ti.Android.R.drawable.alert_dark_frame",
 				"alert-light-frame": "Ti.Android.R.drawable.alert_light_frame",
 				"arrow-down-float": "Ti.Android.R.drawable.arrow_down_float",
@@ -207,7 +207,7 @@
 			"alert": "{ style: {value} }"
 		},
 		"base": {
-			"ios": {
+			"default": {
 				"dialog-style": {
 					"default": "Ti.UI.iOS.AlertDialogStyle.DEFAULT",
 					"login-and-password": "Ti.UI.iOS.AlertDialogStyle.LOGIN_AND_PASSWORD_INPUT",
