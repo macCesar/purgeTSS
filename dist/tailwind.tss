@@ -469,6 +469,9 @@
 // Property(ies): top, right, bottom, left ( Negative Margin )
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -2541,6 +2544,9 @@
 // Property(ies): icon - Android Only
 // Component(s): Ti.Android.R
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -2714,6 +2720,7 @@
 '.r-drawable-toast-frame[platform=android]': { icon: Ti.Android.R.drawable.toast_frame }
 '.r-drawable-zoom-plate[platform=android]': { icon: Ti.Android.R.drawable.zoom_plate }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 // A set of constants for the style that can be used for the `style` property of Titanium.UI.AlertDialog.
@@ -2948,6 +2955,8 @@
 =======
 =======
 >>>>>>> 945495f (Class and Bug fixes)
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): iconified
 // Component(s): Ti.UI.Android.SearchView, Ti.UI.Android.SearchBar
 '.iconified': { iconified: true }
@@ -2997,7 +3006,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): keepScreenOn - Android Only
@@ -3157,6 +3169,9 @@
 '.nav-bar-visible': { navBarHidden: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3168,10 +3183,13 @@
 // Property(ies): orientationModes
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Component(s): Ti.UI.Window
 '.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
@@ -3179,6 +3197,9 @@
 '.orientation-landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3189,7 +3210,12 @@
 // Property(ies): orientationModes (Alternative)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Component(s): Ti.UI.Window
+=======
+// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
+// Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 // Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
@@ -3206,7 +3232,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): overlayEnabled - iOS Only
@@ -3261,6 +3290,9 @@
 '.picker-type-time': { type: Ti.UI.PICKER_TYPE_TIME }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3279,7 +3311,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): pluginState - Android Only
@@ -3294,6 +3329,9 @@
 '.dont-prevent-corner-overlap[platform=android]': { preventCornerOverlap: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3305,7 +3343,10 @@
 // Property(ies): style - iOS Only
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Component(s): Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
@@ -3315,6 +3356,9 @@
 
 // Property(ies): style - iOS Only
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3325,7 +3369,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): type - Android Only
@@ -3398,6 +3445,9 @@
 '.unscrollable': { scrollable: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3412,7 +3462,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): scrollIndicatorStyle - iOS Only
@@ -3427,6 +3480,9 @@
 '.scrolling-disabled': { scrollingEnabled: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3442,7 +3498,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): searchAsChild - Android Only
@@ -3471,6 +3530,9 @@
 '.selection-dont-open[platform=android]': { selectionOpens: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3481,7 +3543,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): separatorStyle
@@ -3495,6 +3560,9 @@
 '.shift-mode-disabled[platform=android]': { shiftMode: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3508,7 +3576,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): showBookmark - iOS Only
@@ -3559,6 +3630,9 @@
 '.smooth-scroll-disabled[platform=android]': { smoothScrollOnTabClick: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3573,7 +3647,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): submitEnabled - Android Only
@@ -3671,6 +3748,9 @@
 '.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3774,6 +3854,9 @@
 '.video-repeat-mode-none': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_NONE }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3790,7 +3873,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): toolbarEnabled - Android Only
@@ -3799,6 +3885,9 @@
 '.toolbar-disabled[platform=android]': { toolbarEnabled: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3811,7 +3900,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): touchFeedback - Android Only
@@ -3863,6 +3955,9 @@
 '.vertical-bottom[platform=android]': { verticalMargin: '0.5' }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3894,7 +3989,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): visible
@@ -4192,6 +4290,9 @@
 '.bg-t-cap-3.5[platform=ios]': { backgroundTopCap: 14 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -4662,9 +4763,12 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Property(ies): fontFamily
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): borderWidth
@@ -5446,7 +5550,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): indentionLevel - Android Only
@@ -5753,6 +5860,9 @@
 '.max-zoom-scale-150[platform=ios]': { maxZoomScale: '1.5' }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -5774,6 +5884,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Property(ies): rotate ( Negative values )
 // Component(s): For the Animation Component
 '.-rotate-0': { rotate: 0 }
@@ -5787,6 +5898,8 @@
 '.-rotate-180': { rotate: 180 }
 
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): minRowHeight - iOS Only
@@ -5939,6 +6052,9 @@
 '.opacity-100': { opacity: 1 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -6192,7 +6308,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): pagingControlAlpha - iOS Only
@@ -7852,6 +7971,9 @@
 '.bg-focused-rose-900[platform=android]': { backgroundFocusedColor: '#881337' }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -8987,7 +9109,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): badgeColor
@@ -15319,6 +15444,9 @@
 '.tabs-bg-selected-rose-900[platform=android]': { tabsBackgroundSelectedColor: '#881337' }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -15550,7 +15678,10 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): thumbTintColor - iOS Only
@@ -16006,6 +16137,9 @@
 '.tint-rose-900': { tint: '#881337', tintColor: '#881337' }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -16461,6 +16595,7 @@
 '.title-attributes-shadow-rose-800[platform=ios]': { titleAttributes: { shadow: { color: '#9f1239' } } }
 '.title-attributes-shadow-rose-900[platform=ios]': { titleAttributes: { shadow: { color: '#881337' } } }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 // Property: bubbleParent
@@ -27950,6 +28085,8 @@
 =======
 =======
 >>>>>>> 945495f (Class and Bug fixes)
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): titleColor
 // Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.title-transparent': { titleColor: 'transparent' }
@@ -28630,6 +28767,9 @@
 
 // Property(ies): trackTintColor
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -28858,6 +28998,7 @@
 '.track-tint-rose-800': { trackTintColor: '#9f1239' }
 '.track-tint-rose-900': { trackTintColor: '#881337' }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 // Property: canCancelEvents
@@ -34598,6 +34739,8 @@
 '.specified': { specified: true }
 '.specified-false': { specified: false }
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): viewShadowColor - Box Shadow Color in Tailwind - iOS Only
