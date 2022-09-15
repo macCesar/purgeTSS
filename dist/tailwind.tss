@@ -470,6 +470,9 @@
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -2545,6 +2548,9 @@
 // Component(s): Ti.Android.R
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -2720,6 +2726,7 @@
 '.r-drawable-toast-frame[platform=android]': { icon: Ti.Android.R.drawable.toast_frame }
 '.r-drawable-zoom-plate[platform=android]': { icon: Ti.Android.R.drawable.zoom_plate }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -2957,6 +2964,8 @@
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): iconified
 // Component(s): Ti.UI.Android.SearchView, Ti.UI.Android.SearchBar
 '.iconified': { iconified: true }
@@ -3007,7 +3016,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3170,6 +3182,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3184,10 +3199,13 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Component(s): Ti.UI.Window
 '.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3198,6 +3216,9 @@
 '.orientation-landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3211,7 +3232,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Component(s): Ti.UI.Window
+=======
+// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
+// Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 // Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
@@ -3233,7 +3259,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3291,6 +3320,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3312,7 +3344,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3330,6 +3365,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3344,7 +3382,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3357,6 +3398,9 @@
 // Property(ies): style - iOS Only
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3370,7 +3414,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3446,6 +3493,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3463,7 +3513,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3481,6 +3534,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3499,7 +3555,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3531,6 +3590,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3544,7 +3606,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3561,6 +3626,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3577,7 +3645,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3631,6 +3702,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3648,7 +3722,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3749,6 +3826,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3855,6 +3935,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3874,7 +3957,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3886,6 +3972,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3901,7 +3990,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -3956,6 +4048,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -3990,7 +4085,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -4291,6 +4389,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -4764,9 +4865,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Property(ies): fontFamily
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -5551,7 +5655,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -5861,6 +5968,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -5885,6 +5995,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Property(ies): rotate ( Negative values )
 // Component(s): For the Animation Component
 '.-rotate-0': { rotate: 0 }
@@ -5898,6 +6009,8 @@
 '.-rotate-180': { rotate: 180 }
 
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -6053,6 +6166,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -6309,7 +6425,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -7972,6 +8091,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -9110,7 +9232,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -15445,6 +15570,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -15679,7 +15807,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
@@ -16138,6 +16269,9 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -16595,6 +16729,7 @@
 '.title-attributes-shadow-rose-800[platform=ios]': { titleAttributes: { shadow: { color: '#9f1239' } } }
 '.title-attributes-shadow-rose-900[platform=ios]': { titleAttributes: { shadow: { color: '#881337' } } }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -28087,6 +28222,8 @@
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): titleColor
 // Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.title-transparent': { titleColor: 'transparent' }
@@ -28768,6 +28905,9 @@
 // Property(ies): trackTintColor
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
@@ -28998,6 +29138,7 @@
 '.track-tint-rose-800': { trackTintColor: '#9f1239' }
 '.track-tint-rose-900': { trackTintColor: '#881337' }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -34739,6 +34880,8 @@
 '.specified': { specified: true }
 '.specified-false': { specified: false }
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 >>>>>>> 945495f (Class and Bug fixes)
 =======
