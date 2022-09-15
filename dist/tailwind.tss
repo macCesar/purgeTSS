@@ -468,6 +468,9 @@
 
 // Property(ies): top, right, bottom, left ( Negative Margin )
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 '.-m-1': { top: -4, right: -4, bottom: -4, left: -4 }
 '.-m-2': { top: -8, right: -8, bottom: -8, left: -8 }
@@ -2537,6 +2540,9 @@
 
 // Property(ies): icon - Android Only
 // Component(s): Ti.Android.R
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 '.r-drawable-alert-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_dark_frame }
 '.r-drawable-alert-light-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_light_frame }
@@ -2708,6 +2714,7 @@
 '.r-drawable-toast-frame[platform=android]': { icon: Ti.Android.R.drawable.toast_frame }
 '.r-drawable-zoom-plate[platform=android]': { icon: Ti.Android.R.drawable.zoom_plate }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // A set of constants for the style that can be used for the `style` property of Titanium.UI.AlertDialog.
 '.alert-dialog-style[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.DEFAULT }
@@ -2939,6 +2946,8 @@
 '.grid-rows-11': { height: '9.090909%' }
 '.grid-rows-12': { height: '8.333334%' }
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): iconified
 // Component(s): Ti.UI.Android.SearchView, Ti.UI.Android.SearchBar
 '.iconified': { iconified: true }
@@ -2987,7 +2996,10 @@
 '.items-center': { width: Ti.UI.FILL, height: Ti.UI.FILL }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): keepScreenOn - Android Only
 // Component(s): Ti.UI.View
 '.keep-screen-on[platform=android]': { keepScreenOn: true }
@@ -3144,6 +3156,9 @@
 '.nav-bar-hidden': { navBarHidden: true }
 '.nav-bar-visible': { navBarHidden: false }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): navigationMode
 // Component(s): Ti.Android.ActionBar
@@ -3152,14 +3167,20 @@
 
 // Property(ies): orientationModes
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Component(s): Ti.UI.Window
 '.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 // Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
 '.orientation-landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 '.orientation-portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.orientation-upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
@@ -3167,7 +3188,12 @@
 
 // Property(ies): orientationModes (Alternative)
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Component(s): Ti.UI.Window
+=======
+// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
+// Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
+>>>>>>> 945495f (Class and Bug fixes)
 =======
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 // Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
@@ -3179,7 +3205,10 @@
 '.landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): overlayEnabled - iOS Only
 // Component(s): Ti.UI.ScrollableView
 '.overlay-enabled[platform=ios]': { overlayEnabled: true }
@@ -3231,6 +3260,9 @@
 '.picker-type-plain': { type: Ti.UI.PICKER_TYPE_PLAIN }
 '.picker-type-time': { type: Ti.UI.PICKER_TYPE_TIME }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): top, right, bottom, left
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
@@ -3246,7 +3278,10 @@
 '.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): pluginState - Android Only
 // Component(s): Ti.UI.WebView
 '.webview-plugins-off[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_OFF }
@@ -3258,6 +3293,9 @@
 '.prevent-corner-overlap[platform=android]': { preventCornerOverlap: true }
 '.dont-prevent-corner-overlap[platform=android]': { preventCornerOverlap: false }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): preventDefaultImage - iOS Only
 // Component(s): Ti.UI.ImageView
@@ -3266,13 +3304,19 @@
 
 // Property(ies): style - iOS Only
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Component(s): Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
 '.preview-action-style[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DEFAULT }
 '.preview-action-style-selected[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_SELECTED }
 '.preview-action-style-destrutive[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DESTRUCTIVE }
 
 // Property(ies): style - iOS Only
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Component(s): Ti.UI.ProgressBar
 '.progress-bar-style-bar[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.BAR }
@@ -3280,7 +3324,10 @@
 '.progress-bar-style-plain[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.PLAIN }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): type - Android Only
 // Component(s): Ti.UI.Android.ProgressIndicator
 '.type-determinant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT }
@@ -3350,6 +3397,9 @@
 '.scrollable': { scrollable: true }
 '.unscrollable': { scrollable: false }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): showHorizontalScrollIndicator, showVerticalScrollIndicator
 // Component(s): Ti.UI.ScrollView
@@ -3361,7 +3411,10 @@
 '.overflow-hidden': { showHorizontalScrollIndicator: false, showVerticalScrollIndicator: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): scrollIndicatorStyle - iOS Only
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
 '.scrolling-indicator-style-black[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.BLACK }
@@ -3373,6 +3426,9 @@
 '.scrolling-enabled': { scrollingEnabled: true }
 '.scrolling-disabled': { scrollingEnabled: false }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): scrollsToTop - iOS Only
 // Component(s): Ti.UI.ScrollView, Ti.UI.TableView, Ti.UI.TextArea, Ti.UI.WebView
@@ -3385,7 +3441,10 @@
 '.scroll-type-vertical[platform=android]': { scrollType: 'vertical' }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): searchAsChild - Android Only
 // Component(s): Ti.UI.TableView
 '.search-as-child[platform=android]': { searchAsChild: true }
@@ -3411,6 +3470,9 @@
 '.selection-opens[platform=android]': { selectionOpens: true }
 '.selection-dont-open[platform=android]': { selectionOpens: false }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): selectionStyle
 // Component(s): Ti.UI.ListItem, Ti.UI.TableViewRow
@@ -3418,7 +3480,10 @@
 '.selection-style-none': { selectionStyle: Ti.UI.SELECTION_STYLE_NONE }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): separatorStyle
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.separator-style-none': { separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE }
@@ -3429,6 +3494,9 @@
 '.shift-mode[platform=android]': { shiftMode: true }
 '.shift-mode-disabled[platform=android]': { shiftMode: false }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): showAsAction - Android Only
 // Component(s): Ti.Android.MenuItem
@@ -3439,7 +3507,10 @@
 '.show-as-action-with-text[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_WITH_TEXT }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): showBookmark - iOS Only
 // Component(s): Ti.UI.SearchBar
 '.show-bookmark[platform=ios]': { showBookmark: true }
@@ -3487,6 +3558,9 @@
 '.smooth-scroll[platform=android]': { smoothScrollOnTabClick: true }
 '.smooth-scroll-disabled[platform=android]': { smoothScrollOnTabClick: false }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): statusBarStyle - iOS Only
 // Component(s): Ti.UI.Window
@@ -3498,7 +3572,10 @@
 '.status-bar-animation-slide[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.ANIMATION_STYLE_SLIDE }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): submitEnabled - Android Only
 // Component(s): Ti.UI.Android.SearchView
 '.submit-enabled[platform=android]': { submitEnabled: true }
@@ -3593,6 +3670,9 @@
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
 '.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): theme - Android Only
 // Component(s): Ti.UI.Window
@@ -3693,6 +3773,9 @@
 '.video-repeat-mode-one': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_ONE }
 '.video-repeat-mode-none': { repeatMode: Ti.Media.VIDEO_REPEAT_MODE_NONE }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): titleAttributes: shadow, color, blurRadius, offset - iOS Only
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
@@ -3706,12 +3789,18 @@
 '.title-attributes-shadow-none[platform=ios]': { titleAttributes: { shadow: { color: null, blurRadius: null, offset: { width: 0, height: 0 } } } }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): toolbarEnabled - Android Only
 // Component(s): Ti.UI.Android.DrawerLayout
 '.toolbar-enabled[platform=android]': { toolbarEnabled: true }
 '.toolbar-disabled[platform=android]': { toolbarEnabled: false }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): touchEnabled
 // Component(s): Ti.UI.View
@@ -3721,7 +3810,10 @@
 '.pointer-events-none': { touchEnabled: false }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): touchFeedback - Android Only
 // Component(s): Ti.UI.ListView, Ti.UI.TableView, Ti.UI.View
 '.touch-feedback[platform=android]': { touchFeedback: true }
@@ -3770,6 +3862,9 @@
 '.vertical-top[platform=android]': { verticalMargin: '-0.5' }
 '.vertical-bottom[platform=android]': { verticalMargin: '0.5' }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): elevation - Box Shadow Effect in Tailwind - Android Only
 // Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
@@ -3798,7 +3893,10 @@
 '.shadow-none[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): visible
 // Component(s): Ti.Android.MenuItem, Ti.UI.Animation, Ti.UI.Picker, Ti.UI.ScrollableView, Ti.UI.ShortcutItem, Ti.UI.View
 '.block': { visible: true }
@@ -4093,6 +4191,9 @@
 '.bg-t-cap-2.5[platform=ios]': { backgroundTopCap: 10 }
 '.bg-t-cap-3.5[platform=ios]': { backgroundTopCap: 14 }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): borderRadius ( with Extra Styles )
 // Component(s): Ti.UI.Android.CardView, Ti.UI.View
@@ -4560,9 +4661,12 @@
 '.rounded-tr-bl-3.5': { borderRadius: [0, 7, 0, 7] }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Property(ies): fontFamily
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): borderWidth
 // Component(s): Ti.UI.View
 '.border-0': { borderWidth: 0 }
@@ -5341,7 +5445,10 @@
 '.gap-y-full': { top: '100%', bottom: '100%' }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): indentionLevel - Android Only
 // Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 '.indentation-level-0[platform=ios]': { indentionLevel: 0 }
@@ -5645,6 +5752,9 @@
 '.max-zoom-scale-125[platform=ios]': { maxZoomScale: '1.25' }
 '.max-zoom-scale-150[platform=ios]': { maxZoomScale: '1.5' }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): minimumFontSize
 // Component(s): Ti.UI.label, Ti.UI.TextField
@@ -5663,6 +5773,7 @@
 '.minimum-text-9xl': { minimumFontSize: 128 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // Property(ies): rotate ( Negative values )
 // Component(s): For the Animation Component
 '.-rotate-0': { rotate: 0 }
@@ -5676,6 +5787,8 @@
 '.-rotate-180': { rotate: 180 }
 
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): minRowHeight - iOS Only
 // Component(s): Ti.UI.TableView
 '.min-row-h-0[platform=ios]': { minRowHeight: 0 }
@@ -5825,6 +5938,9 @@
 '.opacity-95': { opacity: 0.95 }
 '.opacity-100': { opacity: 1 }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): padding - Android Only
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField
@@ -6075,7 +6191,10 @@
 '.pl-3.5': { padding: { left: 14 } }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): pagingControlAlpha - iOS Only
 // Component(s): Ti.UI.ScrollableView
 '.paging-control-alpha-0[platform=ios]': { pagingControlAlpha: 0 }
@@ -7732,6 +7851,9 @@
 '.bg-focused-rose-800[platform=android]': { backgroundFocusedColor: '#9f1239' }
 '.bg-focused-rose-900[platform=android]': { backgroundFocusedColor: '#881337' }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): backgroundGradient: colors - From Color
 // Component(s): Ti.UI.ListItem, Ti.UI.View
@@ -8864,7 +8986,10 @@
 '.bg-selected-to-rose-900': { backgroundSelectedGradient: { colors: [ '#881337' ] } }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): badgeColor
 // Component(s): Ti.UI.Tab
 '.badge-transparent': { badgeColor: 'transparent' }
@@ -15193,6 +15318,9 @@
 '.tabs-bg-selected-rose-800[platform=android]': { tabsBackgroundSelectedColor: '#9f1239' }
 '.tabs-bg-selected-rose-900[platform=android]': { tabsBackgroundSelectedColor: '#881337' }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): color
 // Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.PickerRow, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.ListItem, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextField, Ti.UI.Android.SearchView
@@ -15421,7 +15549,10 @@
 '.text-rose-900': { color: '#881337', textColor: '#881337' }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): thumbTintColor - iOS Only
 // Component(s): Ti.UI.Switch
 '.thumb-tint-transparent[platform=ios]': { thumbTintColor: 'transparent' }
@@ -15874,6 +16005,9 @@
 '.tint-rose-800': { tint: '#9f1239', tintColor: '#9f1239' }
 '.tint-rose-900': { tint: '#881337', tintColor: '#881337' }
 
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): titleAttributes: color - iOS Only
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
@@ -16327,6 +16461,7 @@
 '.title-attributes-shadow-rose-800[platform=ios]': { titleAttributes: { shadow: { color: '#9f1239' } } }
 '.title-attributes-shadow-rose-900[platform=ios]': { titleAttributes: { shadow: { color: '#881337' } } }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Property: bubbleParent
 // Description: Indicates if the proxy will bubble an event to its parent.
@@ -27813,6 +27948,8 @@
 // Property: trackTintColor
 // Description: The color shown for the portion of the progress bar that is not filled.
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): titleColor
 // Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.title-transparent': { titleColor: 'transparent' }
@@ -28492,6 +28629,9 @@
 '.touch-feedback-rose-900[platform=android]': { touchFeedback: true, touchFeedbackColor: '#881337' }
 
 // Property(ies): trackTintColor
+<<<<<<< HEAD
+>>>>>>> 945495f (Class and Bug fixes)
+=======
 >>>>>>> 945495f (Class and Bug fixes)
 // Component(s): Ti.UI.ProgressBar, Ti.UI.Slider
 '.track-tint-transparent': { trackTintColor: 'transparent' }
@@ -28718,6 +28858,7 @@
 '.track-tint-rose-800': { trackTintColor: '#9f1239' }
 '.track-tint-rose-900': { trackTintColor: '#881337' }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // Property: canCancelEvents
 // Description: Determines whether this scroll view can cancel subview touches in order to scroll instead.
@@ -34457,6 +34598,8 @@
 '.specified': { specified: true }
 '.specified-false': { specified: false }
 =======
+=======
+>>>>>>> 945495f (Class and Bug fixes)
 // Property(ies): viewShadowColor - Box Shadow Color in Tailwind - iOS Only
 // Component(s): Ti.UI.View
 '.shadow-transparent[platform=ios]': { viewShadowColor: 'transparent' }
