@@ -547,7 +547,9 @@ function formatClassName(property, value) {
 function removeUneededVariablesFromPropertyName(property) {
 	return Array.from(new Set(property.split('-')))
 		.join('-')
+
 		.replace('-default', '')
+		.replace('prevent-image', 'prevent-default-image')
 		.replace('-input-buttonmode', '')
 		.replace('-option-', '-')
 		.replace('-ti-platform-android', '')
