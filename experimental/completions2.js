@@ -574,6 +574,7 @@ function removeUneededVariablesFromPropertyName(property) {
 		.replace('text-alignment-', '')
 		.replace('width-', 'w-')
 		.replace('-bg-false', '-background-false')
+		.replace('bg-repeat', 'background-repeat')
 		.replace(/--/g, '-');
 }
 
