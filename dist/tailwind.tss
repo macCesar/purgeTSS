@@ -9323,7 +9323,7 @@
 // Property: allowBackground
 // Component(s): Ti.Media.AudioPlayer, Ti.Media.Sound
 '.allow-background': { allowBackground: true }
-'.allow-bg-false': { allowBackground: false }
+'.allow-background-false': { allowBackground: false }
 
 // Property: audioFocus
 // Description: Focuses on the current audio player and stops other audio playing.
@@ -9830,7 +9830,7 @@
 // Description: Boolean indicating if notification was received while app was in background.
 // Component(s): PushNotificationData
 '.in-background': { inBackground: true }
-'.in-bg-false': { inBackground: false }
+'.in-background-false': { inBackground: false }
 
 // Property: physicalSizeCategory
 // Description: The physical size category of the Android device or emulator.
@@ -20619,7 +20619,7 @@
 // Description: If <code>true</code>, the background of the toolbar extends upwards.
 // Component(s): Ti.UI.Toolbar
 '.extend-background': { extendBackground: true }
-'.extend-bg-false': { extendBackground: false }
+'.extend-background-false': { extendBackground: false }
 
 // Property: subtitleTextColor
 // Description: Color for toolbar's subtitle
