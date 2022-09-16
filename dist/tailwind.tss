@@ -7,7 +7,6 @@
 // default config.js file
 
 // Ti.UI Components
-
 // Property: View
 // Description: An empty drawing surface or container
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
@@ -1157,181 +1156,181 @@
 '.-left-full': { left: '-100%' }
 
 // The Titanium binding of the native Android `R` class, giving access to Android system-wide resources or application resources.
-'.r-drawable-alert-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_dark_frame }
-'.r-drawable-alert-light-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_light_frame }
-'.r-drawable-arrow-down-float[platform=android]': { icon: Ti.Android.R.drawable.arrow_down_float }
-'.r-drawable-arrow-up-float[platform=android]': { icon: Ti.Android.R.drawable.arrow_up_float }
-'.r-drawable-bottom-bar[platform=android]': { icon: Ti.Android.R.drawable.bottom_bar }
-'.r-drawable-btn-default[platform=android]': { icon: Ti.Android.R.drawable.btn_default }
-'.r-drawable-btn-default-small[platform=android]': { icon: Ti.Android.R.drawable.btn_default_small }
-'.r-drawable-btn-dialog[platform=android]': { icon: Ti.Android.R.drawable.btn_dialog }
-'.r-drawable-btn-dropdown[platform=android]': { icon: Ti.Android.R.drawable.btn_dropdown }
-'.r-drawable-btn-minus[platform=android]': { icon: Ti.Android.R.drawable.btn_minus }
-'.r-drawable-btn-plus[platform=android]': { icon: Ti.Android.R.drawable.btn_plus }
-'.r-drawable-btn-radio[platform=android]': { icon: Ti.Android.R.drawable.btn_radio }
-'.r-drawable-btn-star[platform=android]': { icon: Ti.Android.R.drawable.btn_star }
-'.r-drawable-btn-star-big-off[platform=android]': { icon: Ti.Android.R.drawable.btn_star_big_off }
-'.r-drawable-btn-star-big-on[platform=android]': { icon: Ti.Android.R.drawable.btn_star_big_on }
-'.r-drawable-button-onoff-indicator-off[platform=android]': { icon: Ti.Android.R.drawable.button_onoff_indicator_off }
-'.r-drawable-button-onoff-indicator-on[platform=android]': { icon: Ti.Android.R.drawable.button_onoff_indicator_on }
-'.r-drawable-checkbox-off-background[platform=android]': { icon: Ti.Android.R.drawable.checkbox_off_background }
-'.r-drawable-checkbox-on-background[platform=android]': { icon: Ti.Android.R.drawable.checkbox_on_background }
-'.r-drawable-dark-header[platform=android]': { icon: Ti.Android.R.drawable.dark_header }
-'.r-drawable-dialog-frame[platform=android]': { icon: Ti.Android.R.drawable.dialog_frame }
-'.r-drawable-dialog-holo-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.dialog_holo_dark_frame }
-'.r-drawable-dialog-holo-light-frame[platform=android]': { icon: Ti.Android.R.drawable.dialog_holo_light_frame }
-'.r-drawable-divider-horizontal-bright[platform=android]': { icon: Ti.Android.R.drawable.divider_horizontal_bright }
-'.r-drawable-divider-horizontal-dark[platform=android]': { icon: Ti.Android.R.drawable.divider_horizontal_dark }
-'.r-drawable-divider-horizontal-dim-dark[platform=android]': { icon: Ti.Android.R.drawable.divider_horizontal_dim_dark }
-'.r-drawable-divider-horizontal-textfield[platform=android]': { icon: Ti.Android.R.drawable.divider_horizontal_textfield }
-'.r-drawable-edit-text[platform=android]': { icon: Ti.Android.R.drawable.edit_text }
-'.r-drawable-editbox-background[platform=android]': { icon: Ti.Android.R.drawable.editbox_background }
-'.r-drawable-editbox-background-normal[platform=android]': { icon: Ti.Android.R.drawable.editbox_background_normal }
-'.r-drawable-editbox-dropdown-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.editbox_dropdown_dark_frame }
-'.r-drawable-editbox-dropdown-light-frame[platform=android]': { icon: Ti.Android.R.drawable.editbox_dropdown_light_frame }
-'.r-drawable-gallery-thumb[platform=android]': { icon: Ti.Android.R.drawable.gallery_thumb }
-'.r-drawable-ic-btn-speak-now[platform=android]': { icon: Ti.Android.R.drawable.ic_btn_speak_now }
-'.r-drawable-ic-delete[platform=android]': { icon: Ti.Android.R.drawable.ic_delete }
-'.r-drawable-ic-dialog-alert[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_alert }
-'.r-drawable-ic-dialog-dialer[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_dialer }
-'.r-drawable-ic-dialog-email[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_email }
-'.r-drawable-ic-dialog-info[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_info }
-'.r-drawable-ic-dialog-map[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_map }
-'.r-drawable-ic-input-add[platform=android]': { icon: Ti.Android.R.drawable.ic_input_add }
-'.r-drawable-ic-input-delete[platform=android]': { icon: Ti.Android.R.drawable.ic_input_delete }
-'.r-drawable-ic-input-get[platform=android]': { icon: Ti.Android.R.drawable.ic_input_get }
-'.r-drawable-ic-lock-idle-alarm[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_idle_alarm }
-'.r-drawable-ic-lock-idle-charging[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_idle_charging }
-'.r-drawable-ic-lock-idle-lock[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_idle_lock }
-'.r-drawable-ic-lock-idle-low-battery[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_idle_low_battery }
-'.r-drawable-ic-lock-lock[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_lock }
-'.r-drawable-ic-lock-power-off[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_power_off }
-'.r-drawable-ic-lock-silent-mode[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_silent_mode }
-'.r-drawable-ic-lock-silent-mode-off[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_silent_mode_off }
-'.r-drawable-ic-media-ff[platform=android]': { icon: Ti.Android.R.drawable.ic_media_ff }
-'.r-drawable-ic-media-next[platform=android]': { icon: Ti.Android.R.drawable.ic_media_next }
-'.r-drawable-ic-media-pause[platform=android]': { icon: Ti.Android.R.drawable.ic_media_pause }
-'.r-drawable-ic-media-play[platform=android]': { icon: Ti.Android.R.drawable.ic_media_play }
-'.r-drawable-ic-media-previous[platform=android]': { icon: Ti.Android.R.drawable.ic_media_previous }
-'.r-drawable-ic-media-rew[platform=android]': { icon: Ti.Android.R.drawable.ic_media_rew }
-'.r-drawable-ic-menu-add[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_add }
-'.r-drawable-ic-menu-agenda[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_agenda }
-'.r-drawable-ic-menu-always-landscape-portrait[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_always_landscape_portrait }
-'.r-drawable-ic-menu-call[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_call }
-'.r-drawable-ic-menu-camera[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_camera }
-'.r-drawable-ic-menu-close-clear-cancel[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_close_clear_cancel }
-'.r-drawable-ic-menu-compass[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_compass }
-'.r-drawable-ic-menu-crop[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_crop }
-'.r-drawable-ic-menu-day[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_day }
-'.r-drawable-ic-menu-delete[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_delete }
-'.r-drawable-ic-menu-directions[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_directions }
-'.r-drawable-ic-menu-edit[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_edit }
-'.r-drawable-ic-menu-gallery[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_gallery }
-'.r-drawable-ic-menu-help[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_help }
-'.r-drawable-ic-menu-info-details[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_info_details }
-'.r-drawable-ic-menu-manage[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_manage }
-'.r-drawable-ic-menu-mapmode[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_mapmode }
-'.r-drawable-ic-menu-month[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_month }
-'.r-drawable-ic-menu-more[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_more }
-'.r-drawable-ic-menu-my-calendar[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_my_calendar }
-'.r-drawable-ic-menu-mylocation[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_mylocation }
-'.r-drawable-ic-menu-myplaces[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_myplaces }
-'.r-drawable-ic-menu-preferences[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_preferences }
-'.r-drawable-ic-menu-recent-history[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_recent_history }
-'.r-drawable-ic-menu-report-image[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_report_image }
-'.r-drawable-ic-menu-revert[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_revert }
-'.r-drawable-ic-menu-rotate[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_rotate }
-'.r-drawable-ic-menu-save[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_save }
-'.r-drawable-ic-menu-search[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_search }
-'.r-drawable-ic-menu-send[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_send }
-'.r-drawable-ic-menu-set-as[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_set_as }
-'.r-drawable-ic-menu-share[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_share }
-'.r-drawable-ic-menu-slideshow[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_slideshow }
-'.r-drawable-ic-menu-sort-alphabetically[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_sort_alphabetically }
-'.r-drawable-ic-menu-sort-by-size[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_sort_by_size }
-'.r-drawable-ic-menu-today[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_today }
-'.r-drawable-ic-menu-upload[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_upload }
-'.r-drawable-ic-menu-upload-you-tube[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_upload_you_tube }
-'.r-drawable-ic-menu-view[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_view }
-'.r-drawable-ic-menu-week[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_week }
-'.r-drawable-ic-menu-zoom[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_zoom }
-'.r-drawable-ic-notification-clear-all[platform=android]': { icon: Ti.Android.R.drawable.ic_notification_clear_all }
-'.r-drawable-ic-notification-overlay[platform=android]': { icon: Ti.Android.R.drawable.ic_notification_overlay }
-'.r-drawable-ic-partial-secure[platform=android]': { icon: Ti.Android.R.drawable.ic_partial_secure }
-'.r-drawable-ic-popup-disk-full[platform=android]': { icon: Ti.Android.R.drawable.ic_popup_disk_full }
-'.r-drawable-ic-popup-reminder[platform=android]': { icon: Ti.Android.R.drawable.ic_popup_reminder }
-'.r-drawable-ic-popup-sync[platform=android]': { icon: Ti.Android.R.drawable.ic_popup_sync }
-'.r-drawable-ic-search-category-default[platform=android]': { icon: Ti.Android.R.drawable.ic_search_category_default }
-'.r-drawable-ic-secure[platform=android]': { icon: Ti.Android.R.drawable.ic_secure }
-'.r-drawable-list-selector-background[platform=android]': { icon: Ti.Android.R.drawable.list_selector_background }
-'.r-drawable-menu-frame[platform=android]': { icon: Ti.Android.R.drawable.menu_frame }
-'.r-drawable-menu-full-frame[platform=android]': { icon: Ti.Android.R.drawable.menu_full_frame }
-'.r-drawable-menuitem-background[platform=android]': { icon: Ti.Android.R.drawable.menuitem_background }
-'.r-drawable-picture-frame[platform=android]': { icon: Ti.Android.R.drawable.picture_frame }
-'.r-drawable-presence-audio-away[platform=android]': { icon: Ti.Android.R.drawable.presence_audio_away }
-'.r-drawable-presence-audio-busy[platform=android]': { icon: Ti.Android.R.drawable.presence_audio_busy }
-'.r-drawable-presence-audio-online[platform=android]': { icon: Ti.Android.R.drawable.presence_audio_online }
-'.r-drawable-presence-away[platform=android]': { icon: Ti.Android.R.drawable.presence_away }
-'.r-drawable-presence-busy[platform=android]': { icon: Ti.Android.R.drawable.presence_busy }
-'.r-drawable-presence-invisible[platform=android]': { icon: Ti.Android.R.drawable.presence_invisible }
-'.r-drawable-presence-offline[platform=android]': { icon: Ti.Android.R.drawable.presence_offline }
-'.r-drawable-presence-online[platform=android]': { icon: Ti.Android.R.drawable.presence_online }
-'.r-drawable-presence-video-away[platform=android]': { icon: Ti.Android.R.drawable.presence_video_away }
-'.r-drawable-presence-video-busy[platform=android]': { icon: Ti.Android.R.drawable.presence_video_busy }
-'.r-drawable-presence-video-online[platform=android]': { icon: Ti.Android.R.drawable.presence_video_online }
-'.r-drawable-progress-horizontal[platform=android]': { icon: Ti.Android.R.drawable.progress_horizontal }
-'.r-drawable-progress-indeterminate-horizontal[platform=android]': { icon: Ti.Android.R.drawable.progress_indeterminate_horizontal }
-'.r-drawable-radiobutton-off-background[platform=android]': { icon: Ti.Android.R.drawable.radiobutton_off_background }
-'.r-drawable-radiobutton-on-background[platform=android]': { icon: Ti.Android.R.drawable.radiobutton_on_background }
-'.r-drawable-screen-background-dark[platform=android]': { icon: Ti.Android.R.drawable.screen_background_dark }
-'.r-drawable-screen-background-dark-transparent[platform=android]': { icon: Ti.Android.R.drawable.screen_background_dark_transparent }
-'.r-drawable-screen-background-light[platform=android]': { icon: Ti.Android.R.drawable.screen_background_light }
-'.r-drawable-screen-background-light-transparent[platform=android]': { icon: Ti.Android.R.drawable.screen_background_light_transparent }
-'.r-drawable-spinner-background[platform=android]': { icon: Ti.Android.R.drawable.spinner_background }
-'.r-drawable-spinner-dropdown-background[platform=android]': { icon: Ti.Android.R.drawable.spinner_dropdown_background }
-'.r-drawable-star-big-off[platform=android]': { icon: Ti.Android.R.drawable.star_big_off }
-'.r-drawable-star-big-on[platform=android]': { icon: Ti.Android.R.drawable.star_big_on }
-'.r-drawable-star-off[platform=android]': { icon: Ti.Android.R.drawable.star_off }
-'.r-drawable-star-on[platform=android]': { icon: Ti.Android.R.drawable.star_on }
-'.r-drawable-stat-notify-call-mute[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_call_mute }
-'.r-drawable-stat-notify-chat[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_chat }
-'.r-drawable-stat-notify-error[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_error }
-'.r-drawable-stat-notify-missed-call[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_missed_call }
-'.r-drawable-stat-notify-more[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_more }
-'.r-drawable-stat-notify-sdcard[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sdcard }
-'.r-drawable-stat-notify-sdcard-prepare[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sdcard_prepare }
-'.r-drawable-stat-notify-sdcard-usb[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sdcard_usb }
-'.r-drawable-stat-notify-sync[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sync }
-'.r-drawable-stat-notify-sync-noanim[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sync_noanim }
-'.r-drawable-stat-notify-voicemail[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_voicemail }
-'.r-drawable-stat-sys-data-bluetooth[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_data_bluetooth }
-'.r-drawable-stat-sys-download[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_download }
-'.r-drawable-stat-sys-download-done[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_download_done }
-'.r-drawable-stat-sys-headset[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_headset }
-'.r-drawable-stat-sys-speakerphone[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_speakerphone }
-'.r-drawable-stat-sys-upload[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_upload }
-'.r-drawable-stat-sys-upload-done[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_upload_done }
-'.r-drawable-stat-sys-warning[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_warning }
-'.r-drawable-status-bar-item-app-background[platform=android]': { icon: Ti.Android.R.drawable.status_bar_item_app_background }
-'.r-drawable-status-bar-item-background[platform=android]': { icon: Ti.Android.R.drawable.status_bar_item_background }
-'.r-drawable-sym-action-call[platform=android]': { icon: Ti.Android.R.drawable.sym_action_call }
-'.r-drawable-sym-action-chat[platform=android]': { icon: Ti.Android.R.drawable.sym_action_chat }
-'.r-drawable-sym-action-email[platform=android]': { icon: Ti.Android.R.drawable.sym_action_email }
-'.r-drawable-sym-call-incoming[platform=android]': { icon: Ti.Android.R.drawable.sym_call_incoming }
-'.r-drawable-sym-call-missed[platform=android]': { icon: Ti.Android.R.drawable.sym_call_missed }
-'.r-drawable-sym-call-outgoing[platform=android]': { icon: Ti.Android.R.drawable.sym_call_outgoing }
-'.r-drawable-sym-contact-card[platform=android]': { icon: Ti.Android.R.drawable.sym_contact_card }
-'.r-drawable-sym-def-app-icon[platform=android]': { icon: Ti.Android.R.drawable.sym_def_app_icon }
-'.r-drawable-title-bar[platform=android]': { icon: Ti.Android.R.drawable.title_bar }
-'.r-drawable-title-bar-tall[platform=android]': { icon: Ti.Android.R.drawable.title_bar_tall }
-'.r-drawable-toast-frame[platform=android]': { icon: Ti.Android.R.drawable.toast_frame }
-'.r-drawable-zoom-plate[platform=android]': { icon: Ti.Android.R.drawable.zoom_plate }
+'.r-drawable-alert-dark-frame': { icon: Ti.Android.R.drawable.alert_dark_frame }
+'.r-drawable-alert-light-frame': { icon: Ti.Android.R.drawable.alert_light_frame }
+'.r-drawable-arrow-down-float': { icon: Ti.Android.R.drawable.arrow_down_float }
+'.r-drawable-arrow-up-float': { icon: Ti.Android.R.drawable.arrow_up_float }
+'.r-drawable-bottom-bar': { icon: Ti.Android.R.drawable.bottom_bar }
+'.r-drawable-btn-default': { icon: Ti.Android.R.drawable.btn_default }
+'.r-drawable-btn-default-small': { icon: Ti.Android.R.drawable.btn_default_small }
+'.r-drawable-btn-dialog': { icon: Ti.Android.R.drawable.btn_dialog }
+'.r-drawable-btn-dropdown': { icon: Ti.Android.R.drawable.btn_dropdown }
+'.r-drawable-btn-minus': { icon: Ti.Android.R.drawable.btn_minus }
+'.r-drawable-btn-plus': { icon: Ti.Android.R.drawable.btn_plus }
+'.r-drawable-btn-radio': { icon: Ti.Android.R.drawable.btn_radio }
+'.r-drawable-btn-star': { icon: Ti.Android.R.drawable.btn_star }
+'.r-drawable-btn-star-big-off': { icon: Ti.Android.R.drawable.btn_star_big_off }
+'.r-drawable-btn-star-big-on': { icon: Ti.Android.R.drawable.btn_star_big_on }
+'.r-drawable-button-onoff-indicator-off': { icon: Ti.Android.R.drawable.button_onoff_indicator_off }
+'.r-drawable-button-onoff-indicator-on': { icon: Ti.Android.R.drawable.button_onoff_indicator_on }
+'.r-drawable-checkbox-off-background': { icon: Ti.Android.R.drawable.checkbox_off_background }
+'.r-drawable-checkbox-on-background': { icon: Ti.Android.R.drawable.checkbox_on_background }
+'.r-drawable-dark-header': { icon: Ti.Android.R.drawable.dark_header }
+'.r-drawable-dialog-frame': { icon: Ti.Android.R.drawable.dialog_frame }
+'.r-drawable-dialog-holo-dark-frame': { icon: Ti.Android.R.drawable.dialog_holo_dark_frame }
+'.r-drawable-dialog-holo-light-frame': { icon: Ti.Android.R.drawable.dialog_holo_light_frame }
+'.r-drawable-divider-horizontal-bright': { icon: Ti.Android.R.drawable.divider_horizontal_bright }
+'.r-drawable-divider-horizontal-dark': { icon: Ti.Android.R.drawable.divider_horizontal_dark }
+'.r-drawable-divider-horizontal-dim-dark': { icon: Ti.Android.R.drawable.divider_horizontal_dim_dark }
+'.r-drawable-divider-horizontal-textfield': { icon: Ti.Android.R.drawable.divider_horizontal_textfield }
+'.r-drawable-edit-text': { icon: Ti.Android.R.drawable.edit_text }
+'.r-drawable-editbox-background': { icon: Ti.Android.R.drawable.editbox_background }
+'.r-drawable-editbox-background-normal': { icon: Ti.Android.R.drawable.editbox_background_normal }
+'.r-drawable-editbox-dropdown-dark-frame': { icon: Ti.Android.R.drawable.editbox_dropdown_dark_frame }
+'.r-drawable-editbox-dropdown-light-frame': { icon: Ti.Android.R.drawable.editbox_dropdown_light_frame }
+'.r-drawable-gallery-thumb': { icon: Ti.Android.R.drawable.gallery_thumb }
+'.r-drawable-ic-btn-speak-now': { icon: Ti.Android.R.drawable.ic_btn_speak_now }
+'.r-drawable-ic-delete': { icon: Ti.Android.R.drawable.ic_delete }
+'.r-drawable-ic-dialog-alert': { icon: Ti.Android.R.drawable.ic_dialog_alert }
+'.r-drawable-ic-dialog-dialer': { icon: Ti.Android.R.drawable.ic_dialog_dialer }
+'.r-drawable-ic-dialog-email': { icon: Ti.Android.R.drawable.ic_dialog_email }
+'.r-drawable-ic-dialog-info': { icon: Ti.Android.R.drawable.ic_dialog_info }
+'.r-drawable-ic-dialog-map': { icon: Ti.Android.R.drawable.ic_dialog_map }
+'.r-drawable-ic-input-add': { icon: Ti.Android.R.drawable.ic_input_add }
+'.r-drawable-ic-input-delete': { icon: Ti.Android.R.drawable.ic_input_delete }
+'.r-drawable-ic-input-get': { icon: Ti.Android.R.drawable.ic_input_get }
+'.r-drawable-ic-lock-idle-alarm': { icon: Ti.Android.R.drawable.ic_lock_idle_alarm }
+'.r-drawable-ic-lock-idle-charging': { icon: Ti.Android.R.drawable.ic_lock_idle_charging }
+'.r-drawable-ic-lock-idle-lock': { icon: Ti.Android.R.drawable.ic_lock_idle_lock }
+'.r-drawable-ic-lock-idle-low-battery': { icon: Ti.Android.R.drawable.ic_lock_idle_low_battery }
+'.r-drawable-ic-lock-lock': { icon: Ti.Android.R.drawable.ic_lock_lock }
+'.r-drawable-ic-lock-power-off': { icon: Ti.Android.R.drawable.ic_lock_power_off }
+'.r-drawable-ic-lock-silent-mode': { icon: Ti.Android.R.drawable.ic_lock_silent_mode }
+'.r-drawable-ic-lock-silent-mode-off': { icon: Ti.Android.R.drawable.ic_lock_silent_mode_off }
+'.r-drawable-ic-media-ff': { icon: Ti.Android.R.drawable.ic_media_ff }
+'.r-drawable-ic-media-next': { icon: Ti.Android.R.drawable.ic_media_next }
+'.r-drawable-ic-media-pause': { icon: Ti.Android.R.drawable.ic_media_pause }
+'.r-drawable-ic-media-play': { icon: Ti.Android.R.drawable.ic_media_play }
+'.r-drawable-ic-media-previous': { icon: Ti.Android.R.drawable.ic_media_previous }
+'.r-drawable-ic-media-rew': { icon: Ti.Android.R.drawable.ic_media_rew }
+'.r-drawable-ic-menu-add': { icon: Ti.Android.R.drawable.ic_menu_add }
+'.r-drawable-ic-menu-agenda': { icon: Ti.Android.R.drawable.ic_menu_agenda }
+'.r-drawable-ic-menu-always-landscape-portrait': { icon: Ti.Android.R.drawable.ic_menu_always_landscape_portrait }
+'.r-drawable-ic-menu-call': { icon: Ti.Android.R.drawable.ic_menu_call }
+'.r-drawable-ic-menu-camera': { icon: Ti.Android.R.drawable.ic_menu_camera }
+'.r-drawable-ic-menu-close-clear-cancel': { icon: Ti.Android.R.drawable.ic_menu_close_clear_cancel }
+'.r-drawable-ic-menu-compass': { icon: Ti.Android.R.drawable.ic_menu_compass }
+'.r-drawable-ic-menu-crop': { icon: Ti.Android.R.drawable.ic_menu_crop }
+'.r-drawable-ic-menu-day': { icon: Ti.Android.R.drawable.ic_menu_day }
+'.r-drawable-ic-menu-delete': { icon: Ti.Android.R.drawable.ic_menu_delete }
+'.r-drawable-ic-menu-directions': { icon: Ti.Android.R.drawable.ic_menu_directions }
+'.r-drawable-ic-menu-edit': { icon: Ti.Android.R.drawable.ic_menu_edit }
+'.r-drawable-ic-menu-gallery': { icon: Ti.Android.R.drawable.ic_menu_gallery }
+'.r-drawable-ic-menu-help': { icon: Ti.Android.R.drawable.ic_menu_help }
+'.r-drawable-ic-menu-info-details': { icon: Ti.Android.R.drawable.ic_menu_info_details }
+'.r-drawable-ic-menu-manage': { icon: Ti.Android.R.drawable.ic_menu_manage }
+'.r-drawable-ic-menu-mapmode': { icon: Ti.Android.R.drawable.ic_menu_mapmode }
+'.r-drawable-ic-menu-month': { icon: Ti.Android.R.drawable.ic_menu_month }
+'.r-drawable-ic-menu-more': { icon: Ti.Android.R.drawable.ic_menu_more }
+'.r-drawable-ic-menu-my-calendar': { icon: Ti.Android.R.drawable.ic_menu_my_calendar }
+'.r-drawable-ic-menu-mylocation': { icon: Ti.Android.R.drawable.ic_menu_mylocation }
+'.r-drawable-ic-menu-myplaces': { icon: Ti.Android.R.drawable.ic_menu_myplaces }
+'.r-drawable-ic-menu-preferences': { icon: Ti.Android.R.drawable.ic_menu_preferences }
+'.r-drawable-ic-menu-recent-history': { icon: Ti.Android.R.drawable.ic_menu_recent_history }
+'.r-drawable-ic-menu-report-image': { icon: Ti.Android.R.drawable.ic_menu_report_image }
+'.r-drawable-ic-menu-revert': { icon: Ti.Android.R.drawable.ic_menu_revert }
+'.r-drawable-ic-menu-rotate': { icon: Ti.Android.R.drawable.ic_menu_rotate }
+'.r-drawable-ic-menu-save': { icon: Ti.Android.R.drawable.ic_menu_save }
+'.r-drawable-ic-menu-search': { icon: Ti.Android.R.drawable.ic_menu_search }
+'.r-drawable-ic-menu-send': { icon: Ti.Android.R.drawable.ic_menu_send }
+'.r-drawable-ic-menu-set-as': { icon: Ti.Android.R.drawable.ic_menu_set_as }
+'.r-drawable-ic-menu-share': { icon: Ti.Android.R.drawable.ic_menu_share }
+'.r-drawable-ic-menu-slideshow': { icon: Ti.Android.R.drawable.ic_menu_slideshow }
+'.r-drawable-ic-menu-sort-alphabetically': { icon: Ti.Android.R.drawable.ic_menu_sort_alphabetically }
+'.r-drawable-ic-menu-sort-by-size': { icon: Ti.Android.R.drawable.ic_menu_sort_by_size }
+'.r-drawable-ic-menu-today': { icon: Ti.Android.R.drawable.ic_menu_today }
+'.r-drawable-ic-menu-upload': { icon: Ti.Android.R.drawable.ic_menu_upload }
+'.r-drawable-ic-menu-upload-you-tube': { icon: Ti.Android.R.drawable.ic_menu_upload_you_tube }
+'.r-drawable-ic-menu-view': { icon: Ti.Android.R.drawable.ic_menu_view }
+'.r-drawable-ic-menu-week': { icon: Ti.Android.R.drawable.ic_menu_week }
+'.r-drawable-ic-menu-zoom': { icon: Ti.Android.R.drawable.ic_menu_zoom }
+'.r-drawable-ic-notification-clear-all': { icon: Ti.Android.R.drawable.ic_notification_clear_all }
+'.r-drawable-ic-notification-overlay': { icon: Ti.Android.R.drawable.ic_notification_overlay }
+'.r-drawable-ic-partial-secure': { icon: Ti.Android.R.drawable.ic_partial_secure }
+'.r-drawable-ic-popup-disk-full': { icon: Ti.Android.R.drawable.ic_popup_disk_full }
+'.r-drawable-ic-popup-reminder': { icon: Ti.Android.R.drawable.ic_popup_reminder }
+'.r-drawable-ic-popup-sync': { icon: Ti.Android.R.drawable.ic_popup_sync }
+'.r-drawable-ic-search-category-default': { icon: Ti.Android.R.drawable.ic_search_category_default }
+'.r-drawable-ic-secure': { icon: Ti.Android.R.drawable.ic_secure }
+'.r-drawable-list-selector-background': { icon: Ti.Android.R.drawable.list_selector_background }
+'.r-drawable-menu-frame': { icon: Ti.Android.R.drawable.menu_frame }
+'.r-drawable-menu-full-frame': { icon: Ti.Android.R.drawable.menu_full_frame }
+'.r-drawable-menuitem-background': { icon: Ti.Android.R.drawable.menuitem_background }
+'.r-drawable-picture-frame': { icon: Ti.Android.R.drawable.picture_frame }
+'.r-drawable-presence-audio-away': { icon: Ti.Android.R.drawable.presence_audio_away }
+'.r-drawable-presence-audio-busy': { icon: Ti.Android.R.drawable.presence_audio_busy }
+'.r-drawable-presence-audio-online': { icon: Ti.Android.R.drawable.presence_audio_online }
+'.r-drawable-presence-away': { icon: Ti.Android.R.drawable.presence_away }
+'.r-drawable-presence-busy': { icon: Ti.Android.R.drawable.presence_busy }
+'.r-drawable-presence-invisible': { icon: Ti.Android.R.drawable.presence_invisible }
+'.r-drawable-presence-offline': { icon: Ti.Android.R.drawable.presence_offline }
+'.r-drawable-presence-online': { icon: Ti.Android.R.drawable.presence_online }
+'.r-drawable-presence-video-away': { icon: Ti.Android.R.drawable.presence_video_away }
+'.r-drawable-presence-video-busy': { icon: Ti.Android.R.drawable.presence_video_busy }
+'.r-drawable-presence-video-online': { icon: Ti.Android.R.drawable.presence_video_online }
+'.r-drawable-progress-horizontal': { icon: Ti.Android.R.drawable.progress_horizontal }
+'.r-drawable-progress-indeterminate-horizontal': { icon: Ti.Android.R.drawable.progress_indeterminate_horizontal }
+'.r-drawable-radiobutton-off-background': { icon: Ti.Android.R.drawable.radiobutton_off_background }
+'.r-drawable-radiobutton-on-background': { icon: Ti.Android.R.drawable.radiobutton_on_background }
+'.r-drawable-screen-background-dark': { icon: Ti.Android.R.drawable.screen_background_dark }
+'.r-drawable-screen-background-dark-transparent': { icon: Ti.Android.R.drawable.screen_background_dark_transparent }
+'.r-drawable-screen-background-light': { icon: Ti.Android.R.drawable.screen_background_light }
+'.r-drawable-screen-background-light-transparent': { icon: Ti.Android.R.drawable.screen_background_light_transparent }
+'.r-drawable-spinner-background': { icon: Ti.Android.R.drawable.spinner_background }
+'.r-drawable-spinner-dropdown-background': { icon: Ti.Android.R.drawable.spinner_dropdown_background }
+'.r-drawable-star-big-off': { icon: Ti.Android.R.drawable.star_big_off }
+'.r-drawable-star-big-on': { icon: Ti.Android.R.drawable.star_big_on }
+'.r-drawable-star-off': { icon: Ti.Android.R.drawable.star_off }
+'.r-drawable-star-on': { icon: Ti.Android.R.drawable.star_on }
+'.r-drawable-stat-notify-call-mute': { icon: Ti.Android.R.drawable.stat_notify_call_mute }
+'.r-drawable-stat-notify-chat': { icon: Ti.Android.R.drawable.stat_notify_chat }
+'.r-drawable-stat-notify-error': { icon: Ti.Android.R.drawable.stat_notify_error }
+'.r-drawable-stat-notify-missed-call': { icon: Ti.Android.R.drawable.stat_notify_missed_call }
+'.r-drawable-stat-notify-more': { icon: Ti.Android.R.drawable.stat_notify_more }
+'.r-drawable-stat-notify-sdcard': { icon: Ti.Android.R.drawable.stat_notify_sdcard }
+'.r-drawable-stat-notify-sdcard-prepare': { icon: Ti.Android.R.drawable.stat_notify_sdcard_prepare }
+'.r-drawable-stat-notify-sdcard-usb': { icon: Ti.Android.R.drawable.stat_notify_sdcard_usb }
+'.r-drawable-stat-notify-sync': { icon: Ti.Android.R.drawable.stat_notify_sync }
+'.r-drawable-stat-notify-sync-noanim': { icon: Ti.Android.R.drawable.stat_notify_sync_noanim }
+'.r-drawable-stat-notify-voicemail': { icon: Ti.Android.R.drawable.stat_notify_voicemail }
+'.r-drawable-stat-sys-data-bluetooth': { icon: Ti.Android.R.drawable.stat_sys_data_bluetooth }
+'.r-drawable-stat-sys-download': { icon: Ti.Android.R.drawable.stat_sys_download }
+'.r-drawable-stat-sys-download-done': { icon: Ti.Android.R.drawable.stat_sys_download_done }
+'.r-drawable-stat-sys-headset': { icon: Ti.Android.R.drawable.stat_sys_headset }
+'.r-drawable-stat-sys-speakerphone': { icon: Ti.Android.R.drawable.stat_sys_speakerphone }
+'.r-drawable-stat-sys-upload': { icon: Ti.Android.R.drawable.stat_sys_upload }
+'.r-drawable-stat-sys-upload-done': { icon: Ti.Android.R.drawable.stat_sys_upload_done }
+'.r-drawable-stat-sys-warning': { icon: Ti.Android.R.drawable.stat_sys_warning }
+'.r-drawable-status-bar-item-app-background': { icon: Ti.Android.R.drawable.status_bar_item_app_background }
+'.r-drawable-status-bar-item-background': { icon: Ti.Android.R.drawable.status_bar_item_background }
+'.r-drawable-sym-action-call': { icon: Ti.Android.R.drawable.sym_action_call }
+'.r-drawable-sym-action-chat': { icon: Ti.Android.R.drawable.sym_action_chat }
+'.r-drawable-sym-action-email': { icon: Ti.Android.R.drawable.sym_action_email }
+'.r-drawable-sym-call-incoming': { icon: Ti.Android.R.drawable.sym_call_incoming }
+'.r-drawable-sym-call-missed': { icon: Ti.Android.R.drawable.sym_call_missed }
+'.r-drawable-sym-call-outgoing': { icon: Ti.Android.R.drawable.sym_call_outgoing }
+'.r-drawable-sym-contact-card': { icon: Ti.Android.R.drawable.sym_contact_card }
+'.r-drawable-sym-def-app-icon': { icon: Ti.Android.R.drawable.sym_def_app_icon }
+'.r-drawable-title-bar': { icon: Ti.Android.R.drawable.title_bar }
+'.r-drawable-title-bar-tall': { icon: Ti.Android.R.drawable.title_bar_tall }
+'.r-drawable-toast-frame': { icon: Ti.Android.R.drawable.toast_frame }
+'.r-drawable-zoom-plate': { icon: Ti.Android.R.drawable.zoom_plate }
 
 // A set of constants for the style that can be used for the `style` property of Titanium.UI.AlertDialog.
-'.alert-dialog-style[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.DEFAULT }
-'.alert-dialog-style-login-and-password[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.LOGIN_AND_PASSWORD_INPUT }
-'.alert-dialog-style-plain-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT }
-'.alert-dialog-style-secure-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.SECURE_TEXT_INPUT }
+'.alert-dialog-style': { style: Ti.UI.iOS.AlertDialogStyle.DEFAULT }
+'.alert-dialog-style-login-and-password': { style: Ti.UI.iOS.AlertDialogStyle.LOGIN_AND_PASSWORD_INPUT }
+'.alert-dialog-style-plain-text-input': { style: Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT }
+'.alert-dialog-style-secure-text-input': { style: Ti.UI.iOS.AlertDialogStyle.SECURE_TEXT_INPUT }
 
 // Property(ies): anchorPoint
 // Component(s): Ti.UI.Animation, Ti.UI.View
@@ -1389,20 +1388,20 @@
 
 // Property(ies): backgroundGradient: type, startRadius, endRadius, backfillStart, backfillEnd - iOS Only
 // Component(s): Ti.UI.ListItem, Ti.UI.View
-'.bg-radial[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '125%', endRadius: '0%' } }
-'.bg-radial-to-b[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '0%' }, endPoint: { x: '50%', y: '0%' } } }
-'.bg-radial-to-bl[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '100%', y: '0%' } } }
-'.bg-radial-to-l[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '50%' }, endPoint: { x: '100%', y: '50%' } } }
-'.bg-radial-to-tl[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '100%', y: '100%' } } }
-'.bg-radial-to-t[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '100%' } } }
-'.bg-radial-to-tr[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '0%', y: '100%' } } }
-'.bg-radial-to-r[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '50%' }, endPoint: { x: '0%', y: '50%' } } }
-'.bg-radial-to-br[platform=ios]': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' } } }
+'.bg-radial': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '125%', endRadius: '0%' } }
+'.bg-radial-to-b': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '0%' }, endPoint: { x: '50%', y: '0%' } } }
+'.bg-radial-to-bl': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '100%', y: '0%' } } }
+'.bg-radial-to-l': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '50%' }, endPoint: { x: '100%', y: '50%' } } }
+'.bg-radial-to-tl': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '100%', y: '100%' } } }
+'.bg-radial-to-t': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '100%' } } }
+'.bg-radial-to-tr': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '0%', y: '100%' } } }
+'.bg-radial-to-r': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '50%' }, endPoint: { x: '0%', y: '50%' } } }
+'.bg-radial-to-br': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' } } }
 
 // Property(ies): clipMode - iOS Only
 // Component(s): Ti.UI.View
-'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
-'.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.clip-enabled': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
+'.clip-disabled': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 
 // Property(ies): A custom property to use it with the Animation module
 // Component(s): Ti.UI.Animation
@@ -1424,9 +1423,9 @@
 // Property(ies): defaultItemTemplate
 // Component(s): Ti.UI.ListView
 '.list-item-template': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_DEFAULT }
-'.list-item-template-contacts[platform=ios]': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_CONTACTS }
-'.list-item-template-settings[platform=ios]': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_SETTINGS }
-'.list-item-template-subtitle[platform=ios]': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_SUBTITLE }
+'.list-item-template-contacts': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_CONTACTS }
+'.list-item-template-settings': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_SETTINGS }
+'.list-item-template-subtitle': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_SUBTITLE }
 
 // Property(ies): width, height
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View
@@ -1457,7 +1456,7 @@
 // Property(ies): editable
 // Component(s): Ti.UI.DashboardView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.editable': { editable: true }
-'.none-editable': { editable: false }
+'.editable-false': { editable: false }
 
 // Property(ies): ellipsize
 // Component(s): Ti.UI.Label
@@ -1473,12 +1472,12 @@
 // Property(ies): ellipsize
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.ellipsize': { ellipsize: true }
-'.no-ellipsize': { ellipsize: false }
+'.ellipsize-false': { ellipsize: false }
 
 // Property(ies): filterAttribute
 // Component(s): Ti.UI.TableView
 '.filter-attribute': { filterAttribute: true }
-'.dont-filter-attribute': { filterAttribute: false }
+'.filter-attribute-false': { filterAttribute: false }
 
 // Property(ies): flip
 // Component(s): For the Animation Component
@@ -1566,19 +1565,21 @@
 
 // Property(ies): navigationMode
 // Component(s): Ti.Android.ActionBar
-'.navigation-mode-standard[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_STANDARD }
-'.navigation-mode-tabs[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_TABS }
+'.navigation-mode-standard': { navigationMode: Ti.Android.NAVIGATION_MODE_STANDARD }
+'.navigation-mode-tabs': { navigationMode: Ti.Android.NAVIGATION_MODE_TABS }
 
 // Property(ies): orientationModes
-// Component(s): Ti.UI.Window
-'.orientation-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
-'.orientation-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
+// Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
+// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
+'.orientation-landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
+'.orientation-landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
 '.orientation-portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.orientation-upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.orientation-landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
 // Property(ies): orientationModes (Alternative)
-// Component(s): Ti.UI.Window
+// Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
+// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 '.portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
@@ -1600,14 +1601,14 @@
 
 // Property(ies): preventDefaultImage - iOS Only
 // Component(s): Ti.UI.ImageView
-'.prevent-default-image[platform=ios]': { preventDefaultImage: true }
-'.display-default-image[platform=ios]': { preventDefaultImage: false }
+'.prevent-default-image': { preventDefaultImage: true }
+'.prevent-default-image-false': { preventDefaultImage: false }
 
 // Property(ies): style - iOS Only
 // Component(s): Ti.UI.ProgressBar
-'.progress-bar-style-bar[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.BAR }
-'.progress-bar-style[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.DEFAULT }
-'.progress-bar-style-plain[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.PLAIN }
+'.progress-bar-style-bar': { style: Ti.UI.iOS.ProgressBarStyle.BAR }
+'.progress-bar-style': { style: Ti.UI.iOS.ProgressBarStyle.DEFAULT }
+'.progress-bar-style-plain': { style: Ti.UI.iOS.ProgressBarStyle.PLAIN }
 
 // Property(ies): showHorizontalScrollIndicator, showVerticalScrollIndicator
 // Component(s): Ti.UI.ScrollView
@@ -1620,106 +1621,83 @@
 
 // Property(ies): scrollsToTop - iOS Only
 // Component(s): Ti.UI.ScrollView, Ti.UI.TableView, Ti.UI.TextArea, Ti.UI.WebView
-'.scrolls-to-top[platform=ios]': { scrollsToTop: true }
-'.dont-scrolls-to-top[platform=ios]': { scrollsToTop: false }
+'.scrolls-to-top': { scrollsToTop: true }
+'.scrolls-to-top-false': { scrollsToTop: false }
 
 // Property(ies): scrollType - Android Only
 // Component(s): Ti.UI.ScrollView
-'.scroll-type-horizontal[platform=android]': { scrollType: 'horizontal' }
-'.scroll-type-vertical[platform=android]': { scrollType: 'vertical' }
+'.scroll-type-horizontal': { scrollType: 'horizontal' }
+'.scroll-type-vertical': { scrollType: 'vertical' }
 
 // Property(ies): selectionStyle
 // Component(s): Ti.UI.ListItem, Ti.UI.TableViewRow
 '.selection-style': { selectionStyle: Ti.UI.SELECTION_STYLE_DEFAULT }
 '.selection-style-none': { selectionStyle: Ti.UI.SELECTION_STYLE_NONE }
 
-// Property(ies): showAsAction - Android Only
-// Component(s): Ti.Android.MenuItem
-'.show-as-action-always[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS }
-'.show-as-action-collapse[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW }
-'.show-as-action-if-room[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM }
-'.show-as-action-never[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER }
-'.show-as-action-with-text[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_WITH_TEXT }
-
 // Property(ies): statusBarStyle - iOS Only
 // Component(s): Ti.UI.Window
-'.status-bar[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }
-'.status-bar-dark[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DARK_CONTENT }
-'.status-bar-light[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT }
-'.status-bar-animation-fade[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.ANIMATION_STYLE_FADE }
-'.status-bar-animation-none[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.ANIMATION_STYLE_NONE }
-'.status-bar-animation-slide[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.ANIMATION_STYLE_SLIDE }
+'.status-bar': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }
+'.status-bar-dark': { statusBarStyle: Ti.UI.iOS.StatusBar.DARK_CONTENT }
+'.status-bar-light': { statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT }
+'.status-bar-animation-fade': { statusBarStyle: Ti.UI.iOS.StatusBar.ANIMATION_STYLE_FADE }
+'.status-bar-animation-none': { statusBarStyle: Ti.UI.iOS.StatusBar.ANIMATION_STYLE_NONE }
+'.status-bar-animation-slide': { statusBarStyle: Ti.UI.iOS.StatusBar.ANIMATION_STYLE_SLIDE }
 
 // Property(ies): theme - Android Only
 // Component(s): Ti.UI.Window
-'.theme-titanium[platform=android]': { theme: "Theme.Titanium" }
-'.theme-titanium-day-night[platform=android]': { theme: "Theme.Titanium.DayNight" }
-'.theme-titanium-day-night-no-title-bar[platform=android]': { theme: "Theme.Titanium.DayNight.NoTitleBar" }
-'.theme-titanium-day-night-fullscreen[platform=android]': { theme: "Theme.Titanium.DayNight.Fullscreen" }
-'.theme-titanium-day-night-solid[platform=android]': { theme: "Theme.Titanium.DayNight.Solid" }
-'.theme-titanium-day-night-solid-no-title-bar[platform=android]': { theme: "Theme.Titanium.DayNight.Solid.NoTitleBar" }
-'.theme-titanium-day-night-solid-fullscreen[platform=android]': { theme: "Theme.Titanium.DayNight.Solid.Fullscreen" }
-'.theme-titanium-dark[platform=android]': { theme: "Theme.Titanium.Dark" }
-'.theme-titanium-dark-no-title-bar[platform=android]': { theme: "Theme.Titanium.Dark.NoTitleBar" }
-'.theme-titanium-dark-fullscreen[platform=android]': { theme: "Theme.Titanium.Dark.Fullscreen" }
-'.theme-titanium-dark-solid[platform=android]': { theme: "Theme.Titanium.Dark.Solid" }
-'.theme-titanium-dark-solid-no-title-bar[platform=android]': { theme: "Theme.Titanium.Dark.Solid.NoTitleBar" }
-'.theme-titanium-dark-solid-fullscreen[platform=android]': { theme: "Theme.Titanium.Dark.Solid.Fullscreen" }
-'.theme-titanium-light[platform=android]': { theme: "Theme.Titanium.Light" }
-'.theme-titanium-light-no-title-bar[platform=android]': { theme: "Theme.Titanium.Light.NoTitleBar" }
-'.theme-titanium-light-fullscreen[platform=android]': { theme: "Theme.Titanium.Light.Fullscreen" }
-'.theme-titanium-light-solid[platform=android]': { theme: "Theme.Titanium.Light.Solid" }
-'.theme-titanium-light-solid-no-title-bar[platform=android]': { theme: "Theme.Titanium.Light.Solid.NoTitleBar" }
-'.theme-titanium-light-solid-fullscreen[platform=android]': { theme: "Theme.Titanium.Light.Solid.Fullscreen" }
-'.theme-app-derived-no-title-bar[platform=android]': { theme: "'Theme.AppDerived.NoTitleBar'" }
-'.theme-app-derived-fullscreen[platform=android]': { theme: "'Theme.AppDerived.Fullscreen'" }
-'.theme-app-derived-translucent[platform=android]': { theme: "'Theme.AppDerived.Translucent'" }
-'.theme-app-derived-translucent-no-title-bar[platform=android]': { theme: "'Theme.AppDerived.Translucent.NoTitleBar'" }
-'.theme-app-derived-translucent-fullscreen[platform=android]': { theme: "'Theme.AppDerived.Translucent.Fullscreen'" }
+'.theme-titanium': { theme: "Theme.Titanium" }
+'.theme-titanium-day-night': { theme: "Theme.Titanium.DayNight" }
+'.theme-titanium-day-night-no-title-bar': { theme: "Theme.Titanium.DayNight.NoTitleBar" }
+'.theme-titanium-day-night-fullscreen': { theme: "Theme.Titanium.DayNight.Fullscreen" }
+'.theme-titanium-day-night-solid': { theme: "Theme.Titanium.DayNight.Solid" }
+'.theme-titanium-day-night-solid-no-title-bar': { theme: "Theme.Titanium.DayNight.Solid.NoTitleBar" }
+'.theme-titanium-day-night-solid-fullscreen': { theme: "Theme.Titanium.DayNight.Solid.Fullscreen" }
+'.theme-titanium-dark': { theme: "Theme.Titanium.Dark" }
+'.theme-titanium-dark-no-title-bar': { theme: "Theme.Titanium.Dark.NoTitleBar" }
+'.theme-titanium-dark-fullscreen': { theme: "Theme.Titanium.Dark.Fullscreen" }
+'.theme-titanium-dark-solid': { theme: "Theme.Titanium.Dark.Solid" }
+'.theme-titanium-dark-solid-no-title-bar': { theme: "Theme.Titanium.Dark.Solid.NoTitleBar" }
+'.theme-titanium-dark-solid-fullscreen': { theme: "Theme.Titanium.Dark.Solid.Fullscreen" }
+'.theme-titanium-light': { theme: "Theme.Titanium.Light" }
+'.theme-titanium-light-no-title-bar': { theme: "Theme.Titanium.Light.NoTitleBar" }
+'.theme-titanium-light-fullscreen': { theme: "Theme.Titanium.Light.Fullscreen" }
+'.theme-titanium-light-solid': { theme: "Theme.Titanium.Light.Solid" }
+'.theme-titanium-light-solid-no-title-bar': { theme: "Theme.Titanium.Light.Solid.NoTitleBar" }
+'.theme-titanium-light-solid-fullscreen': { theme: "Theme.Titanium.Light.Solid.Fullscreen" }
+'.theme-app-derived-no-title-bar': { theme: "'Theme.AppDerived.NoTitleBar'" }
+'.theme-app-derived-fullscreen': { theme: "'Theme.AppDerived.Fullscreen'" }
+'.theme-app-derived-translucent': { theme: "'Theme.AppDerived.Translucent'" }
+'.theme-app-derived-translucent-no-title-bar': { theme: "'Theme.AppDerived.Translucent.NoTitleBar'" }
+'.theme-app-derived-translucent-fullscreen': { theme: "'Theme.AppDerived.Translucent.Fullscreen'" }
 
 // Property(ies): titleAttributes: shadow, color, blurRadius, offset - iOS Only
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
-'.title-attributes-shadow-xs[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 1, offset: { width: 0, height: 0 } } } }
-'.title-attributes-shadow-sm[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 2, offset: { width: 0, height: 1 } } } }
-'.title-attributes-shadow[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 4, offset: { width: 0, height: 2 } } } }
-'.title-attributes-shadow-md[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 6, offset: { width: 0, height: 3 } } } }
-'.title-attributes-shadow-lg[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 8, offset: { width: 0, height: 4 } } } }
-'.title-attributes-shadow-xl[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 12, offset: { width: 0, height: 6 } } } }
-'.title-attributes-shadow-2xl[platform=ios]': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 14, offset: { width: 0, height: 8 } } } }
-'.title-attributes-shadow-none[platform=ios]': { titleAttributes: { shadow: { color: null, blurRadius: null, offset: { width: 0, height: 0 } } } }
+'.title-attributes-shadow-xs': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 1, offset: { width: 0, height: 0 } } } }
+'.title-attributes-shadow-sm': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 2, offset: { width: 0, height: 1 } } } }
+'.title-attributes-shadow': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 4, offset: { width: 0, height: 2 } } } }
+'.title-attributes-shadow-md': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 6, offset: { width: 0, height: 3 } } } }
+'.title-attributes-shadow-lg': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 8, offset: { width: 0, height: 4 } } } }
+'.title-attributes-shadow-xl': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 12, offset: { width: 0, height: 6 } } } }
+'.title-attributes-shadow-2xl': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 14, offset: { width: 0, height: 8 } } } }
+'.title-attributes-shadow-none': { titleAttributes: { shadow: { color: null, blurRadius: null, offset: { width: 0, height: 0 } } } }
 
-// Property(ies): touchEnabled
+// Property(ies): touchEnabled ( Alternative )
 // Component(s): Ti.UI.View
-'.touch-enabled': { touchEnabled: true }
-'.touch-disabled': { touchEnabled: false }
 '.pointer-events-auto': { touchEnabled: true }
 '.pointer-events-none': { touchEnabled: false }
 
-// Property(ies): elevation - Box Shadow Effect in Tailwind - Android Only
-// Component(s): Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
-'.shadow-xs[platform=android]': { elevation: 4 }
-'.shadow-sm[platform=android]': { elevation: 8 }
-'.shadow[platform=android]': { elevation: 16 }
-'.shadow-md[platform=android]': { elevation: 24 }
-'.shadow-lg[platform=android]': { elevation: 26 }
-'.shadow-xl[platform=android]': { elevation: 34 }
-'.shadow-2xl[platform=android]': { elevation: 38 }
-'.shadow-inner[platform=android]': { elevation: 0 }
-'.shadow-outline[platform=android]': { elevation: 16 }
-'.shadow-none[platform=android]': { elevation: 0 }
-
-// Property(ies): viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow Effect in Tailwind - iOS Only
-// Component(s): Ti.UI.View
-'.shadow-xs[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000' }
-'.shadow-sm[platform=ios]': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000' }
-'.shadow[platform=ios]': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
-'.shadow-md[platform=ios]': { viewShadowOffset: { x: 0, y: 3 }, viewShadowRadius: 6, viewShadowColor: '#80000000' }
-'.shadow-lg[platform=ios]': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 8, viewShadowColor: '#80000000' }
-'.shadow-xl[platform=ios]': { viewShadowOffset: { x: 0, y: 6 }, viewShadowRadius: 12, viewShadowColor: '#80000000' }
-'.shadow-2xl[platform=ios]': { viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 14, viewShadowColor: '#80000000' }
-'.shadow-inner[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
-'.shadow-outline[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 4, viewShadowColor: '#80000000' }
-'.shadow-none[platform=ios]': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null }
+// Property(ies): iOS: viewShadowOffset, viewShadowRadius, viewShadowColor, Android: elevation - Box Shadow Effect in Tailwind
+// Component(s): iOS: Ti.UI.View, Android: Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
+'.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000', elevation: 4 }
+'.shadow-sm': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000', elevation: 8 }
+'.shadow': { viewShadowOffset: { x: 0, y: 2 }, viewShadowRadius: 4, viewShadowColor: '#80000000', elevation: 16 }
+'.shadow-md': { viewShadowOffset: { x: 0, y: 3 }, viewShadowRadius: 6, viewShadowColor: '#80000000', elevation: 24 }
+'.shadow-lg': { viewShadowOffset: { x: 0, y: 4 }, viewShadowRadius: 8, viewShadowColor: '#80000000', elevation: 26 }
+'.shadow-xl': { viewShadowOffset: { x: 0, y: 6 }, viewShadowRadius: 12, viewShadowColor: '#80000000', elevation: 34 }
+'.shadow-2xl': { viewShadowOffset: { x: 0, y: 8 }, viewShadowRadius: 14, viewShadowColor: '#80000000', elevation: 38 }
+'.shadow-inner': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null, elevation: 0 }
+'.shadow-outline': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 4, viewShadowColor: '#80000000', elevation: 16 }
+'.shadow-none': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null, elevation: 0 }
 
 // Property(ies): borderRadius ( with Extra Styles )
 // Component(s): Ti.UI.Android.CardView, Ti.UI.View
@@ -4113,455 +4091,455 @@
 
 // Property(ies): titleAttributes: color - iOS Only
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
-'.title-attributes-transparent[platform=ios]': { titleAttributes: { color: 'transparent' } }
-'.title-attributes-black[platform=ios]': { titleAttributes: { color: '#000000' } }
-'.title-attributes-white[platform=ios]': { titleAttributes: { color: '#ffffff' } }
-'.title-attributes-slate-50[platform=ios]': { titleAttributes: { color: '#f8fafc' } }
-'.title-attributes-slate-100[platform=ios]': { titleAttributes: { color: '#f1f5f9' } }
-'.title-attributes-slate-200[platform=ios]': { titleAttributes: { color: '#e2e8f0' } }
-'.title-attributes-slate-300[platform=ios]': { titleAttributes: { color: '#cbd5e1' } }
-'.title-attributes-slate-400[platform=ios]': { titleAttributes: { color: '#94a3b8' } }
-'.title-attributes-slate-500[platform=ios]': { titleAttributes: { color: '#64748b' } }
-'.title-attributes-slate-600[platform=ios]': { titleAttributes: { color: '#475569' } }
-'.title-attributes-slate-700[platform=ios]': { titleAttributes: { color: '#334155' } }
-'.title-attributes-slate-800[platform=ios]': { titleAttributes: { color: '#1e293b' } }
-'.title-attributes-slate-900[platform=ios]': { titleAttributes: { color: '#0f172a' } }
-'.title-attributes-gray-50[platform=ios]': { titleAttributes: { color: '#f9fafb' } }
-'.title-attributes-gray-100[platform=ios]': { titleAttributes: { color: '#f3f4f6' } }
-'.title-attributes-gray-200[platform=ios]': { titleAttributes: { color: '#e5e7eb' } }
-'.title-attributes-gray-300[platform=ios]': { titleAttributes: { color: '#d1d5db' } }
-'.title-attributes-gray-400[platform=ios]': { titleAttributes: { color: '#9ca3af' } }
-'.title-attributes-gray-500[platform=ios]': { titleAttributes: { color: '#6b7280' } }
-'.title-attributes-gray-600[platform=ios]': { titleAttributes: { color: '#4b5563' } }
-'.title-attributes-gray-700[platform=ios]': { titleAttributes: { color: '#374151' } }
-'.title-attributes-gray-800[platform=ios]': { titleAttributes: { color: '#1f2937' } }
-'.title-attributes-gray-900[platform=ios]': { titleAttributes: { color: '#111827' } }
-'.title-attributes-zinc-50[platform=ios]': { titleAttributes: { color: '#fafafa' } }
-'.title-attributes-zinc-100[platform=ios]': { titleAttributes: { color: '#f4f4f5' } }
-'.title-attributes-zinc-200[platform=ios]': { titleAttributes: { color: '#e4e4e7' } }
-'.title-attributes-zinc-300[platform=ios]': { titleAttributes: { color: '#d4d4d8' } }
-'.title-attributes-zinc-400[platform=ios]': { titleAttributes: { color: '#a1a1aa' } }
-'.title-attributes-zinc-500[platform=ios]': { titleAttributes: { color: '#71717a' } }
-'.title-attributes-zinc-600[platform=ios]': { titleAttributes: { color: '#52525b' } }
-'.title-attributes-zinc-700[platform=ios]': { titleAttributes: { color: '#3f3f46' } }
-'.title-attributes-zinc-800[platform=ios]': { titleAttributes: { color: '#27272a' } }
-'.title-attributes-zinc-900[platform=ios]': { titleAttributes: { color: '#18181b' } }
-'.title-attributes-neutral-50[platform=ios]': { titleAttributes: { color: '#fafafa' } }
-'.title-attributes-neutral-100[platform=ios]': { titleAttributes: { color: '#f5f5f5' } }
-'.title-attributes-neutral-200[platform=ios]': { titleAttributes: { color: '#e5e5e5' } }
-'.title-attributes-neutral-300[platform=ios]': { titleAttributes: { color: '#d4d4d4' } }
-'.title-attributes-neutral-400[platform=ios]': { titleAttributes: { color: '#a3a3a3' } }
-'.title-attributes-neutral-500[platform=ios]': { titleAttributes: { color: '#737373' } }
-'.title-attributes-neutral-600[platform=ios]': { titleAttributes: { color: '#525252' } }
-'.title-attributes-neutral-700[platform=ios]': { titleAttributes: { color: '#404040' } }
-'.title-attributes-neutral-800[platform=ios]': { titleAttributes: { color: '#262626' } }
-'.title-attributes-neutral-900[platform=ios]': { titleAttributes: { color: '#171717' } }
-'.title-attributes-stone-50[platform=ios]': { titleAttributes: { color: '#fafaf9' } }
-'.title-attributes-stone-100[platform=ios]': { titleAttributes: { color: '#f5f5f4' } }
-'.title-attributes-stone-200[platform=ios]': { titleAttributes: { color: '#e7e5e4' } }
-'.title-attributes-stone-300[platform=ios]': { titleAttributes: { color: '#d6d3d1' } }
-'.title-attributes-stone-400[platform=ios]': { titleAttributes: { color: '#a8a29e' } }
-'.title-attributes-stone-500[platform=ios]': { titleAttributes: { color: '#78716c' } }
-'.title-attributes-stone-600[platform=ios]': { titleAttributes: { color: '#57534e' } }
-'.title-attributes-stone-700[platform=ios]': { titleAttributes: { color: '#44403c' } }
-'.title-attributes-stone-800[platform=ios]': { titleAttributes: { color: '#292524' } }
-'.title-attributes-stone-900[platform=ios]': { titleAttributes: { color: '#1c1917' } }
-'.title-attributes-red-50[platform=ios]': { titleAttributes: { color: '#fef2f2' } }
-'.title-attributes-red-100[platform=ios]': { titleAttributes: { color: '#fee2e2' } }
-'.title-attributes-red-200[platform=ios]': { titleAttributes: { color: '#fecaca' } }
-'.title-attributes-red-300[platform=ios]': { titleAttributes: { color: '#fca5a5' } }
-'.title-attributes-red-400[platform=ios]': { titleAttributes: { color: '#f87171' } }
-'.title-attributes-red-500[platform=ios]': { titleAttributes: { color: '#ef4444' } }
-'.title-attributes-red-600[platform=ios]': { titleAttributes: { color: '#dc2626' } }
-'.title-attributes-red-700[platform=ios]': { titleAttributes: { color: '#b91c1c' } }
-'.title-attributes-red-800[platform=ios]': { titleAttributes: { color: '#991b1b' } }
-'.title-attributes-red-900[platform=ios]': { titleAttributes: { color: '#7f1d1d' } }
-'.title-attributes-orange-50[platform=ios]': { titleAttributes: { color: '#fff7ed' } }
-'.title-attributes-orange-100[platform=ios]': { titleAttributes: { color: '#ffedd5' } }
-'.title-attributes-orange-200[platform=ios]': { titleAttributes: { color: '#fed7aa' } }
-'.title-attributes-orange-300[platform=ios]': { titleAttributes: { color: '#fdba74' } }
-'.title-attributes-orange-400[platform=ios]': { titleAttributes: { color: '#fb923c' } }
-'.title-attributes-orange-500[platform=ios]': { titleAttributes: { color: '#f97316' } }
-'.title-attributes-orange-600[platform=ios]': { titleAttributes: { color: '#ea580c' } }
-'.title-attributes-orange-700[platform=ios]': { titleAttributes: { color: '#c2410c' } }
-'.title-attributes-orange-800[platform=ios]': { titleAttributes: { color: '#9a3412' } }
-'.title-attributes-orange-900[platform=ios]': { titleAttributes: { color: '#7c2d12' } }
-'.title-attributes-amber-50[platform=ios]': { titleAttributes: { color: '#fffbeb' } }
-'.title-attributes-amber-100[platform=ios]': { titleAttributes: { color: '#fef3c7' } }
-'.title-attributes-amber-200[platform=ios]': { titleAttributes: { color: '#fde68a' } }
-'.title-attributes-amber-300[platform=ios]': { titleAttributes: { color: '#fcd34d' } }
-'.title-attributes-amber-400[platform=ios]': { titleAttributes: { color: '#fbbf24' } }
-'.title-attributes-amber-500[platform=ios]': { titleAttributes: { color: '#f59e0b' } }
-'.title-attributes-amber-600[platform=ios]': { titleAttributes: { color: '#d97706' } }
-'.title-attributes-amber-700[platform=ios]': { titleAttributes: { color: '#b45309' } }
-'.title-attributes-amber-800[platform=ios]': { titleAttributes: { color: '#92400e' } }
-'.title-attributes-amber-900[platform=ios]': { titleAttributes: { color: '#78350f' } }
-'.title-attributes-yellow-50[platform=ios]': { titleAttributes: { color: '#fefce8' } }
-'.title-attributes-yellow-100[platform=ios]': { titleAttributes: { color: '#fef9c3' } }
-'.title-attributes-yellow-200[platform=ios]': { titleAttributes: { color: '#fef08a' } }
-'.title-attributes-yellow-300[platform=ios]': { titleAttributes: { color: '#fde047' } }
-'.title-attributes-yellow-400[platform=ios]': { titleAttributes: { color: '#facc15' } }
-'.title-attributes-yellow-500[platform=ios]': { titleAttributes: { color: '#eab308' } }
-'.title-attributes-yellow-600[platform=ios]': { titleAttributes: { color: '#ca8a04' } }
-'.title-attributes-yellow-700[platform=ios]': { titleAttributes: { color: '#a16207' } }
-'.title-attributes-yellow-800[platform=ios]': { titleAttributes: { color: '#854d0e' } }
-'.title-attributes-yellow-900[platform=ios]': { titleAttributes: { color: '#713f12' } }
-'.title-attributes-lime-50[platform=ios]': { titleAttributes: { color: '#f7fee7' } }
-'.title-attributes-lime-100[platform=ios]': { titleAttributes: { color: '#ecfccb' } }
-'.title-attributes-lime-200[platform=ios]': { titleAttributes: { color: '#d9f99d' } }
-'.title-attributes-lime-300[platform=ios]': { titleAttributes: { color: '#bef264' } }
-'.title-attributes-lime-400[platform=ios]': { titleAttributes: { color: '#a3e635' } }
-'.title-attributes-lime-500[platform=ios]': { titleAttributes: { color: '#84cc16' } }
-'.title-attributes-lime-600[platform=ios]': { titleAttributes: { color: '#65a30d' } }
-'.title-attributes-lime-700[platform=ios]': { titleAttributes: { color: '#4d7c0f' } }
-'.title-attributes-lime-800[platform=ios]': { titleAttributes: { color: '#3f6212' } }
-'.title-attributes-lime-900[platform=ios]': { titleAttributes: { color: '#365314' } }
-'.title-attributes-green-50[platform=ios]': { titleAttributes: { color: '#f0fdf4' } }
-'.title-attributes-green-100[platform=ios]': { titleAttributes: { color: '#dcfce7' } }
-'.title-attributes-green-200[platform=ios]': { titleAttributes: { color: '#bbf7d0' } }
-'.title-attributes-green-300[platform=ios]': { titleAttributes: { color: '#86efac' } }
-'.title-attributes-green-400[platform=ios]': { titleAttributes: { color: '#4ade80' } }
-'.title-attributes-green-500[platform=ios]': { titleAttributes: { color: '#22c55e' } }
-'.title-attributes-green-600[platform=ios]': { titleAttributes: { color: '#16a34a' } }
-'.title-attributes-green-700[platform=ios]': { titleAttributes: { color: '#15803d' } }
-'.title-attributes-green-800[platform=ios]': { titleAttributes: { color: '#166534' } }
-'.title-attributes-green-900[platform=ios]': { titleAttributes: { color: '#14532d' } }
-'.title-attributes-emerald-50[platform=ios]': { titleAttributes: { color: '#ecfdf5' } }
-'.title-attributes-emerald-100[platform=ios]': { titleAttributes: { color: '#d1fae5' } }
-'.title-attributes-emerald-200[platform=ios]': { titleAttributes: { color: '#a7f3d0' } }
-'.title-attributes-emerald-300[platform=ios]': { titleAttributes: { color: '#6ee7b7' } }
-'.title-attributes-emerald-400[platform=ios]': { titleAttributes: { color: '#34d399' } }
-'.title-attributes-emerald-500[platform=ios]': { titleAttributes: { color: '#10b981' } }
-'.title-attributes-emerald-600[platform=ios]': { titleAttributes: { color: '#059669' } }
-'.title-attributes-emerald-700[platform=ios]': { titleAttributes: { color: '#047857' } }
-'.title-attributes-emerald-800[platform=ios]': { titleAttributes: { color: '#065f46' } }
-'.title-attributes-emerald-900[platform=ios]': { titleAttributes: { color: '#064e3b' } }
-'.title-attributes-teal-50[platform=ios]': { titleAttributes: { color: '#f0fdfa' } }
-'.title-attributes-teal-100[platform=ios]': { titleAttributes: { color: '#ccfbf1' } }
-'.title-attributes-teal-200[platform=ios]': { titleAttributes: { color: '#99f6e4' } }
-'.title-attributes-teal-300[platform=ios]': { titleAttributes: { color: '#5eead4' } }
-'.title-attributes-teal-400[platform=ios]': { titleAttributes: { color: '#2dd4bf' } }
-'.title-attributes-teal-500[platform=ios]': { titleAttributes: { color: '#14b8a6' } }
-'.title-attributes-teal-600[platform=ios]': { titleAttributes: { color: '#0d9488' } }
-'.title-attributes-teal-700[platform=ios]': { titleAttributes: { color: '#0f766e' } }
-'.title-attributes-teal-800[platform=ios]': { titleAttributes: { color: '#115e59' } }
-'.title-attributes-teal-900[platform=ios]': { titleAttributes: { color: '#134e4a' } }
-'.title-attributes-cyan-50[platform=ios]': { titleAttributes: { color: '#ecfeff' } }
-'.title-attributes-cyan-100[platform=ios]': { titleAttributes: { color: '#cffafe' } }
-'.title-attributes-cyan-200[platform=ios]': { titleAttributes: { color: '#a5f3fc' } }
-'.title-attributes-cyan-300[platform=ios]': { titleAttributes: { color: '#67e8f9' } }
-'.title-attributes-cyan-400[platform=ios]': { titleAttributes: { color: '#22d3ee' } }
-'.title-attributes-cyan-500[platform=ios]': { titleAttributes: { color: '#06b6d4' } }
-'.title-attributes-cyan-600[platform=ios]': { titleAttributes: { color: '#0891b2' } }
-'.title-attributes-cyan-700[platform=ios]': { titleAttributes: { color: '#0e7490' } }
-'.title-attributes-cyan-800[platform=ios]': { titleAttributes: { color: '#155e75' } }
-'.title-attributes-cyan-900[platform=ios]': { titleAttributes: { color: '#164e63' } }
-'.title-attributes-sky-50[platform=ios]': { titleAttributes: { color: '#f0f9ff' } }
-'.title-attributes-sky-100[platform=ios]': { titleAttributes: { color: '#e0f2fe' } }
-'.title-attributes-sky-200[platform=ios]': { titleAttributes: { color: '#bae6fd' } }
-'.title-attributes-sky-300[platform=ios]': { titleAttributes: { color: '#7dd3fc' } }
-'.title-attributes-sky-400[platform=ios]': { titleAttributes: { color: '#38bdf8' } }
-'.title-attributes-sky-500[platform=ios]': { titleAttributes: { color: '#0ea5e9' } }
-'.title-attributes-sky-600[platform=ios]': { titleAttributes: { color: '#0284c7' } }
-'.title-attributes-sky-700[platform=ios]': { titleAttributes: { color: '#0369a1' } }
-'.title-attributes-sky-800[platform=ios]': { titleAttributes: { color: '#075985' } }
-'.title-attributes-sky-900[platform=ios]': { titleAttributes: { color: '#0c4a6e' } }
-'.title-attributes-blue-50[platform=ios]': { titleAttributes: { color: '#eff6ff' } }
-'.title-attributes-blue-100[platform=ios]': { titleAttributes: { color: '#dbeafe' } }
-'.title-attributes-blue-200[platform=ios]': { titleAttributes: { color: '#bfdbfe' } }
-'.title-attributes-blue-300[platform=ios]': { titleAttributes: { color: '#93c5fd' } }
-'.title-attributes-blue-400[platform=ios]': { titleAttributes: { color: '#60a5fa' } }
-'.title-attributes-blue-500[platform=ios]': { titleAttributes: { color: '#3b82f6' } }
-'.title-attributes-blue-600[platform=ios]': { titleAttributes: { color: '#2563eb' } }
-'.title-attributes-blue-700[platform=ios]': { titleAttributes: { color: '#1d4ed8' } }
-'.title-attributes-blue-800[platform=ios]': { titleAttributes: { color: '#1e40af' } }
-'.title-attributes-blue-900[platform=ios]': { titleAttributes: { color: '#1e3a8a' } }
-'.title-attributes-indigo-50[platform=ios]': { titleAttributes: { color: '#eef2ff' } }
-'.title-attributes-indigo-100[platform=ios]': { titleAttributes: { color: '#e0e7ff' } }
-'.title-attributes-indigo-200[platform=ios]': { titleAttributes: { color: '#c7d2fe' } }
-'.title-attributes-indigo-300[platform=ios]': { titleAttributes: { color: '#a5b4fc' } }
-'.title-attributes-indigo-400[platform=ios]': { titleAttributes: { color: '#818cf8' } }
-'.title-attributes-indigo-500[platform=ios]': { titleAttributes: { color: '#6366f1' } }
-'.title-attributes-indigo-600[platform=ios]': { titleAttributes: { color: '#4f46e5' } }
-'.title-attributes-indigo-700[platform=ios]': { titleAttributes: { color: '#4338ca' } }
-'.title-attributes-indigo-800[platform=ios]': { titleAttributes: { color: '#3730a3' } }
-'.title-attributes-indigo-900[platform=ios]': { titleAttributes: { color: '#312e81' } }
-'.title-attributes-violet-50[platform=ios]': { titleAttributes: { color: '#f5f3ff' } }
-'.title-attributes-violet-100[platform=ios]': { titleAttributes: { color: '#ede9fe' } }
-'.title-attributes-violet-200[platform=ios]': { titleAttributes: { color: '#ddd6fe' } }
-'.title-attributes-violet-300[platform=ios]': { titleAttributes: { color: '#c4b5fd' } }
-'.title-attributes-violet-400[platform=ios]': { titleAttributes: { color: '#a78bfa' } }
-'.title-attributes-violet-500[platform=ios]': { titleAttributes: { color: '#8b5cf6' } }
-'.title-attributes-violet-600[platform=ios]': { titleAttributes: { color: '#7c3aed' } }
-'.title-attributes-violet-700[platform=ios]': { titleAttributes: { color: '#6d28d9' } }
-'.title-attributes-violet-800[platform=ios]': { titleAttributes: { color: '#5b21b6' } }
-'.title-attributes-violet-900[platform=ios]': { titleAttributes: { color: '#4c1d95' } }
-'.title-attributes-purple-50[platform=ios]': { titleAttributes: { color: '#faf5ff' } }
-'.title-attributes-purple-100[platform=ios]': { titleAttributes: { color: '#f3e8ff' } }
-'.title-attributes-purple-200[platform=ios]': { titleAttributes: { color: '#e9d5ff' } }
-'.title-attributes-purple-300[platform=ios]': { titleAttributes: { color: '#d8b4fe' } }
-'.title-attributes-purple-400[platform=ios]': { titleAttributes: { color: '#c084fc' } }
-'.title-attributes-purple-500[platform=ios]': { titleAttributes: { color: '#a855f7' } }
-'.title-attributes-purple-600[platform=ios]': { titleAttributes: { color: '#9333ea' } }
-'.title-attributes-purple-700[platform=ios]': { titleAttributes: { color: '#7e22ce' } }
-'.title-attributes-purple-800[platform=ios]': { titleAttributes: { color: '#6b21a8' } }
-'.title-attributes-purple-900[platform=ios]': { titleAttributes: { color: '#581c87' } }
-'.title-attributes-fuchsia-50[platform=ios]': { titleAttributes: { color: '#fdf4ff' } }
-'.title-attributes-fuchsia-100[platform=ios]': { titleAttributes: { color: '#fae8ff' } }
-'.title-attributes-fuchsia-200[platform=ios]': { titleAttributes: { color: '#f5d0fe' } }
-'.title-attributes-fuchsia-300[platform=ios]': { titleAttributes: { color: '#f0abfc' } }
-'.title-attributes-fuchsia-400[platform=ios]': { titleAttributes: { color: '#e879f9' } }
-'.title-attributes-fuchsia-500[platform=ios]': { titleAttributes: { color: '#d946ef' } }
-'.title-attributes-fuchsia-600[platform=ios]': { titleAttributes: { color: '#c026d3' } }
-'.title-attributes-fuchsia-700[platform=ios]': { titleAttributes: { color: '#a21caf' } }
-'.title-attributes-fuchsia-800[platform=ios]': { titleAttributes: { color: '#86198f' } }
-'.title-attributes-fuchsia-900[platform=ios]': { titleAttributes: { color: '#701a75' } }
-'.title-attributes-pink-50[platform=ios]': { titleAttributes: { color: '#fdf2f8' } }
-'.title-attributes-pink-100[platform=ios]': { titleAttributes: { color: '#fce7f3' } }
-'.title-attributes-pink-200[platform=ios]': { titleAttributes: { color: '#fbcfe8' } }
-'.title-attributes-pink-300[platform=ios]': { titleAttributes: { color: '#f9a8d4' } }
-'.title-attributes-pink-400[platform=ios]': { titleAttributes: { color: '#f472b6' } }
-'.title-attributes-pink-500[platform=ios]': { titleAttributes: { color: '#ec4899' } }
-'.title-attributes-pink-600[platform=ios]': { titleAttributes: { color: '#db2777' } }
-'.title-attributes-pink-700[platform=ios]': { titleAttributes: { color: '#be185d' } }
-'.title-attributes-pink-800[platform=ios]': { titleAttributes: { color: '#9d174d' } }
-'.title-attributes-pink-900[platform=ios]': { titleAttributes: { color: '#831843' } }
-'.title-attributes-rose-50[platform=ios]': { titleAttributes: { color: '#fff1f2' } }
-'.title-attributes-rose-100[platform=ios]': { titleAttributes: { color: '#ffe4e6' } }
-'.title-attributes-rose-200[platform=ios]': { titleAttributes: { color: '#fecdd3' } }
-'.title-attributes-rose-300[platform=ios]': { titleAttributes: { color: '#fda4af' } }
-'.title-attributes-rose-400[platform=ios]': { titleAttributes: { color: '#fb7185' } }
-'.title-attributes-rose-500[platform=ios]': { titleAttributes: { color: '#f43f5e' } }
-'.title-attributes-rose-600[platform=ios]': { titleAttributes: { color: '#e11d48' } }
-'.title-attributes-rose-700[platform=ios]': { titleAttributes: { color: '#be123c' } }
-'.title-attributes-rose-800[platform=ios]': { titleAttributes: { color: '#9f1239' } }
-'.title-attributes-rose-900[platform=ios]': { titleAttributes: { color: '#881337' } }
+'.title-attributes-transparent': { titleAttributes: { color: 'transparent' } }
+'.title-attributes-black': { titleAttributes: { color: '#000000' } }
+'.title-attributes-white': { titleAttributes: { color: '#ffffff' } }
+'.title-attributes-slate-50': { titleAttributes: { color: '#f8fafc' } }
+'.title-attributes-slate-100': { titleAttributes: { color: '#f1f5f9' } }
+'.title-attributes-slate-200': { titleAttributes: { color: '#e2e8f0' } }
+'.title-attributes-slate-300': { titleAttributes: { color: '#cbd5e1' } }
+'.title-attributes-slate-400': { titleAttributes: { color: '#94a3b8' } }
+'.title-attributes-slate-500': { titleAttributes: { color: '#64748b' } }
+'.title-attributes-slate-600': { titleAttributes: { color: '#475569' } }
+'.title-attributes-slate-700': { titleAttributes: { color: '#334155' } }
+'.title-attributes-slate-800': { titleAttributes: { color: '#1e293b' } }
+'.title-attributes-slate-900': { titleAttributes: { color: '#0f172a' } }
+'.title-attributes-gray-50': { titleAttributes: { color: '#f9fafb' } }
+'.title-attributes-gray-100': { titleAttributes: { color: '#f3f4f6' } }
+'.title-attributes-gray-200': { titleAttributes: { color: '#e5e7eb' } }
+'.title-attributes-gray-300': { titleAttributes: { color: '#d1d5db' } }
+'.title-attributes-gray-400': { titleAttributes: { color: '#9ca3af' } }
+'.title-attributes-gray-500': { titleAttributes: { color: '#6b7280' } }
+'.title-attributes-gray-600': { titleAttributes: { color: '#4b5563' } }
+'.title-attributes-gray-700': { titleAttributes: { color: '#374151' } }
+'.title-attributes-gray-800': { titleAttributes: { color: '#1f2937' } }
+'.title-attributes-gray-900': { titleAttributes: { color: '#111827' } }
+'.title-attributes-zinc-50': { titleAttributes: { color: '#fafafa' } }
+'.title-attributes-zinc-100': { titleAttributes: { color: '#f4f4f5' } }
+'.title-attributes-zinc-200': { titleAttributes: { color: '#e4e4e7' } }
+'.title-attributes-zinc-300': { titleAttributes: { color: '#d4d4d8' } }
+'.title-attributes-zinc-400': { titleAttributes: { color: '#a1a1aa' } }
+'.title-attributes-zinc-500': { titleAttributes: { color: '#71717a' } }
+'.title-attributes-zinc-600': { titleAttributes: { color: '#52525b' } }
+'.title-attributes-zinc-700': { titleAttributes: { color: '#3f3f46' } }
+'.title-attributes-zinc-800': { titleAttributes: { color: '#27272a' } }
+'.title-attributes-zinc-900': { titleAttributes: { color: '#18181b' } }
+'.title-attributes-neutral-50': { titleAttributes: { color: '#fafafa' } }
+'.title-attributes-neutral-100': { titleAttributes: { color: '#f5f5f5' } }
+'.title-attributes-neutral-200': { titleAttributes: { color: '#e5e5e5' } }
+'.title-attributes-neutral-300': { titleAttributes: { color: '#d4d4d4' } }
+'.title-attributes-neutral-400': { titleAttributes: { color: '#a3a3a3' } }
+'.title-attributes-neutral-500': { titleAttributes: { color: '#737373' } }
+'.title-attributes-neutral-600': { titleAttributes: { color: '#525252' } }
+'.title-attributes-neutral-700': { titleAttributes: { color: '#404040' } }
+'.title-attributes-neutral-800': { titleAttributes: { color: '#262626' } }
+'.title-attributes-neutral-900': { titleAttributes: { color: '#171717' } }
+'.title-attributes-stone-50': { titleAttributes: { color: '#fafaf9' } }
+'.title-attributes-stone-100': { titleAttributes: { color: '#f5f5f4' } }
+'.title-attributes-stone-200': { titleAttributes: { color: '#e7e5e4' } }
+'.title-attributes-stone-300': { titleAttributes: { color: '#d6d3d1' } }
+'.title-attributes-stone-400': { titleAttributes: { color: '#a8a29e' } }
+'.title-attributes-stone-500': { titleAttributes: { color: '#78716c' } }
+'.title-attributes-stone-600': { titleAttributes: { color: '#57534e' } }
+'.title-attributes-stone-700': { titleAttributes: { color: '#44403c' } }
+'.title-attributes-stone-800': { titleAttributes: { color: '#292524' } }
+'.title-attributes-stone-900': { titleAttributes: { color: '#1c1917' } }
+'.title-attributes-red-50': { titleAttributes: { color: '#fef2f2' } }
+'.title-attributes-red-100': { titleAttributes: { color: '#fee2e2' } }
+'.title-attributes-red-200': { titleAttributes: { color: '#fecaca' } }
+'.title-attributes-red-300': { titleAttributes: { color: '#fca5a5' } }
+'.title-attributes-red-400': { titleAttributes: { color: '#f87171' } }
+'.title-attributes-red-500': { titleAttributes: { color: '#ef4444' } }
+'.title-attributes-red-600': { titleAttributes: { color: '#dc2626' } }
+'.title-attributes-red-700': { titleAttributes: { color: '#b91c1c' } }
+'.title-attributes-red-800': { titleAttributes: { color: '#991b1b' } }
+'.title-attributes-red-900': { titleAttributes: { color: '#7f1d1d' } }
+'.title-attributes-orange-50': { titleAttributes: { color: '#fff7ed' } }
+'.title-attributes-orange-100': { titleAttributes: { color: '#ffedd5' } }
+'.title-attributes-orange-200': { titleAttributes: { color: '#fed7aa' } }
+'.title-attributes-orange-300': { titleAttributes: { color: '#fdba74' } }
+'.title-attributes-orange-400': { titleAttributes: { color: '#fb923c' } }
+'.title-attributes-orange-500': { titleAttributes: { color: '#f97316' } }
+'.title-attributes-orange-600': { titleAttributes: { color: '#ea580c' } }
+'.title-attributes-orange-700': { titleAttributes: { color: '#c2410c' } }
+'.title-attributes-orange-800': { titleAttributes: { color: '#9a3412' } }
+'.title-attributes-orange-900': { titleAttributes: { color: '#7c2d12' } }
+'.title-attributes-amber-50': { titleAttributes: { color: '#fffbeb' } }
+'.title-attributes-amber-100': { titleAttributes: { color: '#fef3c7' } }
+'.title-attributes-amber-200': { titleAttributes: { color: '#fde68a' } }
+'.title-attributes-amber-300': { titleAttributes: { color: '#fcd34d' } }
+'.title-attributes-amber-400': { titleAttributes: { color: '#fbbf24' } }
+'.title-attributes-amber-500': { titleAttributes: { color: '#f59e0b' } }
+'.title-attributes-amber-600': { titleAttributes: { color: '#d97706' } }
+'.title-attributes-amber-700': { titleAttributes: { color: '#b45309' } }
+'.title-attributes-amber-800': { titleAttributes: { color: '#92400e' } }
+'.title-attributes-amber-900': { titleAttributes: { color: '#78350f' } }
+'.title-attributes-yellow-50': { titleAttributes: { color: '#fefce8' } }
+'.title-attributes-yellow-100': { titleAttributes: { color: '#fef9c3' } }
+'.title-attributes-yellow-200': { titleAttributes: { color: '#fef08a' } }
+'.title-attributes-yellow-300': { titleAttributes: { color: '#fde047' } }
+'.title-attributes-yellow-400': { titleAttributes: { color: '#facc15' } }
+'.title-attributes-yellow-500': { titleAttributes: { color: '#eab308' } }
+'.title-attributes-yellow-600': { titleAttributes: { color: '#ca8a04' } }
+'.title-attributes-yellow-700': { titleAttributes: { color: '#a16207' } }
+'.title-attributes-yellow-800': { titleAttributes: { color: '#854d0e' } }
+'.title-attributes-yellow-900': { titleAttributes: { color: '#713f12' } }
+'.title-attributes-lime-50': { titleAttributes: { color: '#f7fee7' } }
+'.title-attributes-lime-100': { titleAttributes: { color: '#ecfccb' } }
+'.title-attributes-lime-200': { titleAttributes: { color: '#d9f99d' } }
+'.title-attributes-lime-300': { titleAttributes: { color: '#bef264' } }
+'.title-attributes-lime-400': { titleAttributes: { color: '#a3e635' } }
+'.title-attributes-lime-500': { titleAttributes: { color: '#84cc16' } }
+'.title-attributes-lime-600': { titleAttributes: { color: '#65a30d' } }
+'.title-attributes-lime-700': { titleAttributes: { color: '#4d7c0f' } }
+'.title-attributes-lime-800': { titleAttributes: { color: '#3f6212' } }
+'.title-attributes-lime-900': { titleAttributes: { color: '#365314' } }
+'.title-attributes-green-50': { titleAttributes: { color: '#f0fdf4' } }
+'.title-attributes-green-100': { titleAttributes: { color: '#dcfce7' } }
+'.title-attributes-green-200': { titleAttributes: { color: '#bbf7d0' } }
+'.title-attributes-green-300': { titleAttributes: { color: '#86efac' } }
+'.title-attributes-green-400': { titleAttributes: { color: '#4ade80' } }
+'.title-attributes-green-500': { titleAttributes: { color: '#22c55e' } }
+'.title-attributes-green-600': { titleAttributes: { color: '#16a34a' } }
+'.title-attributes-green-700': { titleAttributes: { color: '#15803d' } }
+'.title-attributes-green-800': { titleAttributes: { color: '#166534' } }
+'.title-attributes-green-900': { titleAttributes: { color: '#14532d' } }
+'.title-attributes-emerald-50': { titleAttributes: { color: '#ecfdf5' } }
+'.title-attributes-emerald-100': { titleAttributes: { color: '#d1fae5' } }
+'.title-attributes-emerald-200': { titleAttributes: { color: '#a7f3d0' } }
+'.title-attributes-emerald-300': { titleAttributes: { color: '#6ee7b7' } }
+'.title-attributes-emerald-400': { titleAttributes: { color: '#34d399' } }
+'.title-attributes-emerald-500': { titleAttributes: { color: '#10b981' } }
+'.title-attributes-emerald-600': { titleAttributes: { color: '#059669' } }
+'.title-attributes-emerald-700': { titleAttributes: { color: '#047857' } }
+'.title-attributes-emerald-800': { titleAttributes: { color: '#065f46' } }
+'.title-attributes-emerald-900': { titleAttributes: { color: '#064e3b' } }
+'.title-attributes-teal-50': { titleAttributes: { color: '#f0fdfa' } }
+'.title-attributes-teal-100': { titleAttributes: { color: '#ccfbf1' } }
+'.title-attributes-teal-200': { titleAttributes: { color: '#99f6e4' } }
+'.title-attributes-teal-300': { titleAttributes: { color: '#5eead4' } }
+'.title-attributes-teal-400': { titleAttributes: { color: '#2dd4bf' } }
+'.title-attributes-teal-500': { titleAttributes: { color: '#14b8a6' } }
+'.title-attributes-teal-600': { titleAttributes: { color: '#0d9488' } }
+'.title-attributes-teal-700': { titleAttributes: { color: '#0f766e' } }
+'.title-attributes-teal-800': { titleAttributes: { color: '#115e59' } }
+'.title-attributes-teal-900': { titleAttributes: { color: '#134e4a' } }
+'.title-attributes-cyan-50': { titleAttributes: { color: '#ecfeff' } }
+'.title-attributes-cyan-100': { titleAttributes: { color: '#cffafe' } }
+'.title-attributes-cyan-200': { titleAttributes: { color: '#a5f3fc' } }
+'.title-attributes-cyan-300': { titleAttributes: { color: '#67e8f9' } }
+'.title-attributes-cyan-400': { titleAttributes: { color: '#22d3ee' } }
+'.title-attributes-cyan-500': { titleAttributes: { color: '#06b6d4' } }
+'.title-attributes-cyan-600': { titleAttributes: { color: '#0891b2' } }
+'.title-attributes-cyan-700': { titleAttributes: { color: '#0e7490' } }
+'.title-attributes-cyan-800': { titleAttributes: { color: '#155e75' } }
+'.title-attributes-cyan-900': { titleAttributes: { color: '#164e63' } }
+'.title-attributes-sky-50': { titleAttributes: { color: '#f0f9ff' } }
+'.title-attributes-sky-100': { titleAttributes: { color: '#e0f2fe' } }
+'.title-attributes-sky-200': { titleAttributes: { color: '#bae6fd' } }
+'.title-attributes-sky-300': { titleAttributes: { color: '#7dd3fc' } }
+'.title-attributes-sky-400': { titleAttributes: { color: '#38bdf8' } }
+'.title-attributes-sky-500': { titleAttributes: { color: '#0ea5e9' } }
+'.title-attributes-sky-600': { titleAttributes: { color: '#0284c7' } }
+'.title-attributes-sky-700': { titleAttributes: { color: '#0369a1' } }
+'.title-attributes-sky-800': { titleAttributes: { color: '#075985' } }
+'.title-attributes-sky-900': { titleAttributes: { color: '#0c4a6e' } }
+'.title-attributes-blue-50': { titleAttributes: { color: '#eff6ff' } }
+'.title-attributes-blue-100': { titleAttributes: { color: '#dbeafe' } }
+'.title-attributes-blue-200': { titleAttributes: { color: '#bfdbfe' } }
+'.title-attributes-blue-300': { titleAttributes: { color: '#93c5fd' } }
+'.title-attributes-blue-400': { titleAttributes: { color: '#60a5fa' } }
+'.title-attributes-blue-500': { titleAttributes: { color: '#3b82f6' } }
+'.title-attributes-blue-600': { titleAttributes: { color: '#2563eb' } }
+'.title-attributes-blue-700': { titleAttributes: { color: '#1d4ed8' } }
+'.title-attributes-blue-800': { titleAttributes: { color: '#1e40af' } }
+'.title-attributes-blue-900': { titleAttributes: { color: '#1e3a8a' } }
+'.title-attributes-indigo-50': { titleAttributes: { color: '#eef2ff' } }
+'.title-attributes-indigo-100': { titleAttributes: { color: '#e0e7ff' } }
+'.title-attributes-indigo-200': { titleAttributes: { color: '#c7d2fe' } }
+'.title-attributes-indigo-300': { titleAttributes: { color: '#a5b4fc' } }
+'.title-attributes-indigo-400': { titleAttributes: { color: '#818cf8' } }
+'.title-attributes-indigo-500': { titleAttributes: { color: '#6366f1' } }
+'.title-attributes-indigo-600': { titleAttributes: { color: '#4f46e5' } }
+'.title-attributes-indigo-700': { titleAttributes: { color: '#4338ca' } }
+'.title-attributes-indigo-800': { titleAttributes: { color: '#3730a3' } }
+'.title-attributes-indigo-900': { titleAttributes: { color: '#312e81' } }
+'.title-attributes-violet-50': { titleAttributes: { color: '#f5f3ff' } }
+'.title-attributes-violet-100': { titleAttributes: { color: '#ede9fe' } }
+'.title-attributes-violet-200': { titleAttributes: { color: '#ddd6fe' } }
+'.title-attributes-violet-300': { titleAttributes: { color: '#c4b5fd' } }
+'.title-attributes-violet-400': { titleAttributes: { color: '#a78bfa' } }
+'.title-attributes-violet-500': { titleAttributes: { color: '#8b5cf6' } }
+'.title-attributes-violet-600': { titleAttributes: { color: '#7c3aed' } }
+'.title-attributes-violet-700': { titleAttributes: { color: '#6d28d9' } }
+'.title-attributes-violet-800': { titleAttributes: { color: '#5b21b6' } }
+'.title-attributes-violet-900': { titleAttributes: { color: '#4c1d95' } }
+'.title-attributes-purple-50': { titleAttributes: { color: '#faf5ff' } }
+'.title-attributes-purple-100': { titleAttributes: { color: '#f3e8ff' } }
+'.title-attributes-purple-200': { titleAttributes: { color: '#e9d5ff' } }
+'.title-attributes-purple-300': { titleAttributes: { color: '#d8b4fe' } }
+'.title-attributes-purple-400': { titleAttributes: { color: '#c084fc' } }
+'.title-attributes-purple-500': { titleAttributes: { color: '#a855f7' } }
+'.title-attributes-purple-600': { titleAttributes: { color: '#9333ea' } }
+'.title-attributes-purple-700': { titleAttributes: { color: '#7e22ce' } }
+'.title-attributes-purple-800': { titleAttributes: { color: '#6b21a8' } }
+'.title-attributes-purple-900': { titleAttributes: { color: '#581c87' } }
+'.title-attributes-fuchsia-50': { titleAttributes: { color: '#fdf4ff' } }
+'.title-attributes-fuchsia-100': { titleAttributes: { color: '#fae8ff' } }
+'.title-attributes-fuchsia-200': { titleAttributes: { color: '#f5d0fe' } }
+'.title-attributes-fuchsia-300': { titleAttributes: { color: '#f0abfc' } }
+'.title-attributes-fuchsia-400': { titleAttributes: { color: '#e879f9' } }
+'.title-attributes-fuchsia-500': { titleAttributes: { color: '#d946ef' } }
+'.title-attributes-fuchsia-600': { titleAttributes: { color: '#c026d3' } }
+'.title-attributes-fuchsia-700': { titleAttributes: { color: '#a21caf' } }
+'.title-attributes-fuchsia-800': { titleAttributes: { color: '#86198f' } }
+'.title-attributes-fuchsia-900': { titleAttributes: { color: '#701a75' } }
+'.title-attributes-pink-50': { titleAttributes: { color: '#fdf2f8' } }
+'.title-attributes-pink-100': { titleAttributes: { color: '#fce7f3' } }
+'.title-attributes-pink-200': { titleAttributes: { color: '#fbcfe8' } }
+'.title-attributes-pink-300': { titleAttributes: { color: '#f9a8d4' } }
+'.title-attributes-pink-400': { titleAttributes: { color: '#f472b6' } }
+'.title-attributes-pink-500': { titleAttributes: { color: '#ec4899' } }
+'.title-attributes-pink-600': { titleAttributes: { color: '#db2777' } }
+'.title-attributes-pink-700': { titleAttributes: { color: '#be185d' } }
+'.title-attributes-pink-800': { titleAttributes: { color: '#9d174d' } }
+'.title-attributes-pink-900': { titleAttributes: { color: '#831843' } }
+'.title-attributes-rose-50': { titleAttributes: { color: '#fff1f2' } }
+'.title-attributes-rose-100': { titleAttributes: { color: '#ffe4e6' } }
+'.title-attributes-rose-200': { titleAttributes: { color: '#fecdd3' } }
+'.title-attributes-rose-300': { titleAttributes: { color: '#fda4af' } }
+'.title-attributes-rose-400': { titleAttributes: { color: '#fb7185' } }
+'.title-attributes-rose-500': { titleAttributes: { color: '#f43f5e' } }
+'.title-attributes-rose-600': { titleAttributes: { color: '#e11d48' } }
+'.title-attributes-rose-700': { titleAttributes: { color: '#be123c' } }
+'.title-attributes-rose-800': { titleAttributes: { color: '#9f1239' } }
+'.title-attributes-rose-900': { titleAttributes: { color: '#881337' } }
 
 // Property(ies): titleAttributes: shadow - iOS Only
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
-'.title-attributes-shadow-transparent[platform=ios]': { titleAttributes: { shadow: { color: 'transparent' } } }
-'.title-attributes-shadow-black[platform=ios]': { titleAttributes: { shadow: { color: '#000000' } } }
-'.title-attributes-shadow-white[platform=ios]': { titleAttributes: { shadow: { color: '#ffffff' } } }
-'.title-attributes-shadow-slate-50[platform=ios]': { titleAttributes: { shadow: { color: '#f8fafc' } } }
-'.title-attributes-shadow-slate-100[platform=ios]': { titleAttributes: { shadow: { color: '#f1f5f9' } } }
-'.title-attributes-shadow-slate-200[platform=ios]': { titleAttributes: { shadow: { color: '#e2e8f0' } } }
-'.title-attributes-shadow-slate-300[platform=ios]': { titleAttributes: { shadow: { color: '#cbd5e1' } } }
-'.title-attributes-shadow-slate-400[platform=ios]': { titleAttributes: { shadow: { color: '#94a3b8' } } }
-'.title-attributes-shadow-slate-500[platform=ios]': { titleAttributes: { shadow: { color: '#64748b' } } }
-'.title-attributes-shadow-slate-600[platform=ios]': { titleAttributes: { shadow: { color: '#475569' } } }
-'.title-attributes-shadow-slate-700[platform=ios]': { titleAttributes: { shadow: { color: '#334155' } } }
-'.title-attributes-shadow-slate-800[platform=ios]': { titleAttributes: { shadow: { color: '#1e293b' } } }
-'.title-attributes-shadow-slate-900[platform=ios]': { titleAttributes: { shadow: { color: '#0f172a' } } }
-'.title-attributes-shadow-gray-50[platform=ios]': { titleAttributes: { shadow: { color: '#f9fafb' } } }
-'.title-attributes-shadow-gray-100[platform=ios]': { titleAttributes: { shadow: { color: '#f3f4f6' } } }
-'.title-attributes-shadow-gray-200[platform=ios]': { titleAttributes: { shadow: { color: '#e5e7eb' } } }
-'.title-attributes-shadow-gray-300[platform=ios]': { titleAttributes: { shadow: { color: '#d1d5db' } } }
-'.title-attributes-shadow-gray-400[platform=ios]': { titleAttributes: { shadow: { color: '#9ca3af' } } }
-'.title-attributes-shadow-gray-500[platform=ios]': { titleAttributes: { shadow: { color: '#6b7280' } } }
-'.title-attributes-shadow-gray-600[platform=ios]': { titleAttributes: { shadow: { color: '#4b5563' } } }
-'.title-attributes-shadow-gray-700[platform=ios]': { titleAttributes: { shadow: { color: '#374151' } } }
-'.title-attributes-shadow-gray-800[platform=ios]': { titleAttributes: { shadow: { color: '#1f2937' } } }
-'.title-attributes-shadow-gray-900[platform=ios]': { titleAttributes: { shadow: { color: '#111827' } } }
-'.title-attributes-shadow-zinc-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafafa' } } }
-'.title-attributes-shadow-zinc-100[platform=ios]': { titleAttributes: { shadow: { color: '#f4f4f5' } } }
-'.title-attributes-shadow-zinc-200[platform=ios]': { titleAttributes: { shadow: { color: '#e4e4e7' } } }
-'.title-attributes-shadow-zinc-300[platform=ios]': { titleAttributes: { shadow: { color: '#d4d4d8' } } }
-'.title-attributes-shadow-zinc-400[platform=ios]': { titleAttributes: { shadow: { color: '#a1a1aa' } } }
-'.title-attributes-shadow-zinc-500[platform=ios]': { titleAttributes: { shadow: { color: '#71717a' } } }
-'.title-attributes-shadow-zinc-600[platform=ios]': { titleAttributes: { shadow: { color: '#52525b' } } }
-'.title-attributes-shadow-zinc-700[platform=ios]': { titleAttributes: { shadow: { color: '#3f3f46' } } }
-'.title-attributes-shadow-zinc-800[platform=ios]': { titleAttributes: { shadow: { color: '#27272a' } } }
-'.title-attributes-shadow-zinc-900[platform=ios]': { titleAttributes: { shadow: { color: '#18181b' } } }
-'.title-attributes-shadow-neutral-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafafa' } } }
-'.title-attributes-shadow-neutral-100[platform=ios]': { titleAttributes: { shadow: { color: '#f5f5f5' } } }
-'.title-attributes-shadow-neutral-200[platform=ios]': { titleAttributes: { shadow: { color: '#e5e5e5' } } }
-'.title-attributes-shadow-neutral-300[platform=ios]': { titleAttributes: { shadow: { color: '#d4d4d4' } } }
-'.title-attributes-shadow-neutral-400[platform=ios]': { titleAttributes: { shadow: { color: '#a3a3a3' } } }
-'.title-attributes-shadow-neutral-500[platform=ios]': { titleAttributes: { shadow: { color: '#737373' } } }
-'.title-attributes-shadow-neutral-600[platform=ios]': { titleAttributes: { shadow: { color: '#525252' } } }
-'.title-attributes-shadow-neutral-700[platform=ios]': { titleAttributes: { shadow: { color: '#404040' } } }
-'.title-attributes-shadow-neutral-800[platform=ios]': { titleAttributes: { shadow: { color: '#262626' } } }
-'.title-attributes-shadow-neutral-900[platform=ios]': { titleAttributes: { shadow: { color: '#171717' } } }
-'.title-attributes-shadow-stone-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafaf9' } } }
-'.title-attributes-shadow-stone-100[platform=ios]': { titleAttributes: { shadow: { color: '#f5f5f4' } } }
-'.title-attributes-shadow-stone-200[platform=ios]': { titleAttributes: { shadow: { color: '#e7e5e4' } } }
-'.title-attributes-shadow-stone-300[platform=ios]': { titleAttributes: { shadow: { color: '#d6d3d1' } } }
-'.title-attributes-shadow-stone-400[platform=ios]': { titleAttributes: { shadow: { color: '#a8a29e' } } }
-'.title-attributes-shadow-stone-500[platform=ios]': { titleAttributes: { shadow: { color: '#78716c' } } }
-'.title-attributes-shadow-stone-600[platform=ios]': { titleAttributes: { shadow: { color: '#57534e' } } }
-'.title-attributes-shadow-stone-700[platform=ios]': { titleAttributes: { shadow: { color: '#44403c' } } }
-'.title-attributes-shadow-stone-800[platform=ios]': { titleAttributes: { shadow: { color: '#292524' } } }
-'.title-attributes-shadow-stone-900[platform=ios]': { titleAttributes: { shadow: { color: '#1c1917' } } }
-'.title-attributes-shadow-red-50[platform=ios]': { titleAttributes: { shadow: { color: '#fef2f2' } } }
-'.title-attributes-shadow-red-100[platform=ios]': { titleAttributes: { shadow: { color: '#fee2e2' } } }
-'.title-attributes-shadow-red-200[platform=ios]': { titleAttributes: { shadow: { color: '#fecaca' } } }
-'.title-attributes-shadow-red-300[platform=ios]': { titleAttributes: { shadow: { color: '#fca5a5' } } }
-'.title-attributes-shadow-red-400[platform=ios]': { titleAttributes: { shadow: { color: '#f87171' } } }
-'.title-attributes-shadow-red-500[platform=ios]': { titleAttributes: { shadow: { color: '#ef4444' } } }
-'.title-attributes-shadow-red-600[platform=ios]': { titleAttributes: { shadow: { color: '#dc2626' } } }
-'.title-attributes-shadow-red-700[platform=ios]': { titleAttributes: { shadow: { color: '#b91c1c' } } }
-'.title-attributes-shadow-red-800[platform=ios]': { titleAttributes: { shadow: { color: '#991b1b' } } }
-'.title-attributes-shadow-red-900[platform=ios]': { titleAttributes: { shadow: { color: '#7f1d1d' } } }
-'.title-attributes-shadow-orange-50[platform=ios]': { titleAttributes: { shadow: { color: '#fff7ed' } } }
-'.title-attributes-shadow-orange-100[platform=ios]': { titleAttributes: { shadow: { color: '#ffedd5' } } }
-'.title-attributes-shadow-orange-200[platform=ios]': { titleAttributes: { shadow: { color: '#fed7aa' } } }
-'.title-attributes-shadow-orange-300[platform=ios]': { titleAttributes: { shadow: { color: '#fdba74' } } }
-'.title-attributes-shadow-orange-400[platform=ios]': { titleAttributes: { shadow: { color: '#fb923c' } } }
-'.title-attributes-shadow-orange-500[platform=ios]': { titleAttributes: { shadow: { color: '#f97316' } } }
-'.title-attributes-shadow-orange-600[platform=ios]': { titleAttributes: { shadow: { color: '#ea580c' } } }
-'.title-attributes-shadow-orange-700[platform=ios]': { titleAttributes: { shadow: { color: '#c2410c' } } }
-'.title-attributes-shadow-orange-800[platform=ios]': { titleAttributes: { shadow: { color: '#9a3412' } } }
-'.title-attributes-shadow-orange-900[platform=ios]': { titleAttributes: { shadow: { color: '#7c2d12' } } }
-'.title-attributes-shadow-amber-50[platform=ios]': { titleAttributes: { shadow: { color: '#fffbeb' } } }
-'.title-attributes-shadow-amber-100[platform=ios]': { titleAttributes: { shadow: { color: '#fef3c7' } } }
-'.title-attributes-shadow-amber-200[platform=ios]': { titleAttributes: { shadow: { color: '#fde68a' } } }
-'.title-attributes-shadow-amber-300[platform=ios]': { titleAttributes: { shadow: { color: '#fcd34d' } } }
-'.title-attributes-shadow-amber-400[platform=ios]': { titleAttributes: { shadow: { color: '#fbbf24' } } }
-'.title-attributes-shadow-amber-500[platform=ios]': { titleAttributes: { shadow: { color: '#f59e0b' } } }
-'.title-attributes-shadow-amber-600[platform=ios]': { titleAttributes: { shadow: { color: '#d97706' } } }
-'.title-attributes-shadow-amber-700[platform=ios]': { titleAttributes: { shadow: { color: '#b45309' } } }
-'.title-attributes-shadow-amber-800[platform=ios]': { titleAttributes: { shadow: { color: '#92400e' } } }
-'.title-attributes-shadow-amber-900[platform=ios]': { titleAttributes: { shadow: { color: '#78350f' } } }
-'.title-attributes-shadow-yellow-50[platform=ios]': { titleAttributes: { shadow: { color: '#fefce8' } } }
-'.title-attributes-shadow-yellow-100[platform=ios]': { titleAttributes: { shadow: { color: '#fef9c3' } } }
-'.title-attributes-shadow-yellow-200[platform=ios]': { titleAttributes: { shadow: { color: '#fef08a' } } }
-'.title-attributes-shadow-yellow-300[platform=ios]': { titleAttributes: { shadow: { color: '#fde047' } } }
-'.title-attributes-shadow-yellow-400[platform=ios]': { titleAttributes: { shadow: { color: '#facc15' } } }
-'.title-attributes-shadow-yellow-500[platform=ios]': { titleAttributes: { shadow: { color: '#eab308' } } }
-'.title-attributes-shadow-yellow-600[platform=ios]': { titleAttributes: { shadow: { color: '#ca8a04' } } }
-'.title-attributes-shadow-yellow-700[platform=ios]': { titleAttributes: { shadow: { color: '#a16207' } } }
-'.title-attributes-shadow-yellow-800[platform=ios]': { titleAttributes: { shadow: { color: '#854d0e' } } }
-'.title-attributes-shadow-yellow-900[platform=ios]': { titleAttributes: { shadow: { color: '#713f12' } } }
-'.title-attributes-shadow-lime-50[platform=ios]': { titleAttributes: { shadow: { color: '#f7fee7' } } }
-'.title-attributes-shadow-lime-100[platform=ios]': { titleAttributes: { shadow: { color: '#ecfccb' } } }
-'.title-attributes-shadow-lime-200[platform=ios]': { titleAttributes: { shadow: { color: '#d9f99d' } } }
-'.title-attributes-shadow-lime-300[platform=ios]': { titleAttributes: { shadow: { color: '#bef264' } } }
-'.title-attributes-shadow-lime-400[platform=ios]': { titleAttributes: { shadow: { color: '#a3e635' } } }
-'.title-attributes-shadow-lime-500[platform=ios]': { titleAttributes: { shadow: { color: '#84cc16' } } }
-'.title-attributes-shadow-lime-600[platform=ios]': { titleAttributes: { shadow: { color: '#65a30d' } } }
-'.title-attributes-shadow-lime-700[platform=ios]': { titleAttributes: { shadow: { color: '#4d7c0f' } } }
-'.title-attributes-shadow-lime-800[platform=ios]': { titleAttributes: { shadow: { color: '#3f6212' } } }
-'.title-attributes-shadow-lime-900[platform=ios]': { titleAttributes: { shadow: { color: '#365314' } } }
-'.title-attributes-shadow-green-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0fdf4' } } }
-'.title-attributes-shadow-green-100[platform=ios]': { titleAttributes: { shadow: { color: '#dcfce7' } } }
-'.title-attributes-shadow-green-200[platform=ios]': { titleAttributes: { shadow: { color: '#bbf7d0' } } }
-'.title-attributes-shadow-green-300[platform=ios]': { titleAttributes: { shadow: { color: '#86efac' } } }
-'.title-attributes-shadow-green-400[platform=ios]': { titleAttributes: { shadow: { color: '#4ade80' } } }
-'.title-attributes-shadow-green-500[platform=ios]': { titleAttributes: { shadow: { color: '#22c55e' } } }
-'.title-attributes-shadow-green-600[platform=ios]': { titleAttributes: { shadow: { color: '#16a34a' } } }
-'.title-attributes-shadow-green-700[platform=ios]': { titleAttributes: { shadow: { color: '#15803d' } } }
-'.title-attributes-shadow-green-800[platform=ios]': { titleAttributes: { shadow: { color: '#166534' } } }
-'.title-attributes-shadow-green-900[platform=ios]': { titleAttributes: { shadow: { color: '#14532d' } } }
-'.title-attributes-shadow-emerald-50[platform=ios]': { titleAttributes: { shadow: { color: '#ecfdf5' } } }
-'.title-attributes-shadow-emerald-100[platform=ios]': { titleAttributes: { shadow: { color: '#d1fae5' } } }
-'.title-attributes-shadow-emerald-200[platform=ios]': { titleAttributes: { shadow: { color: '#a7f3d0' } } }
-'.title-attributes-shadow-emerald-300[platform=ios]': { titleAttributes: { shadow: { color: '#6ee7b7' } } }
-'.title-attributes-shadow-emerald-400[platform=ios]': { titleAttributes: { shadow: { color: '#34d399' } } }
-'.title-attributes-shadow-emerald-500[platform=ios]': { titleAttributes: { shadow: { color: '#10b981' } } }
-'.title-attributes-shadow-emerald-600[platform=ios]': { titleAttributes: { shadow: { color: '#059669' } } }
-'.title-attributes-shadow-emerald-700[platform=ios]': { titleAttributes: { shadow: { color: '#047857' } } }
-'.title-attributes-shadow-emerald-800[platform=ios]': { titleAttributes: { shadow: { color: '#065f46' } } }
-'.title-attributes-shadow-emerald-900[platform=ios]': { titleAttributes: { shadow: { color: '#064e3b' } } }
-'.title-attributes-shadow-teal-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0fdfa' } } }
-'.title-attributes-shadow-teal-100[platform=ios]': { titleAttributes: { shadow: { color: '#ccfbf1' } } }
-'.title-attributes-shadow-teal-200[platform=ios]': { titleAttributes: { shadow: { color: '#99f6e4' } } }
-'.title-attributes-shadow-teal-300[platform=ios]': { titleAttributes: { shadow: { color: '#5eead4' } } }
-'.title-attributes-shadow-teal-400[platform=ios]': { titleAttributes: { shadow: { color: '#2dd4bf' } } }
-'.title-attributes-shadow-teal-500[platform=ios]': { titleAttributes: { shadow: { color: '#14b8a6' } } }
-'.title-attributes-shadow-teal-600[platform=ios]': { titleAttributes: { shadow: { color: '#0d9488' } } }
-'.title-attributes-shadow-teal-700[platform=ios]': { titleAttributes: { shadow: { color: '#0f766e' } } }
-'.title-attributes-shadow-teal-800[platform=ios]': { titleAttributes: { shadow: { color: '#115e59' } } }
-'.title-attributes-shadow-teal-900[platform=ios]': { titleAttributes: { shadow: { color: '#134e4a' } } }
-'.title-attributes-shadow-cyan-50[platform=ios]': { titleAttributes: { shadow: { color: '#ecfeff' } } }
-'.title-attributes-shadow-cyan-100[platform=ios]': { titleAttributes: { shadow: { color: '#cffafe' } } }
-'.title-attributes-shadow-cyan-200[platform=ios]': { titleAttributes: { shadow: { color: '#a5f3fc' } } }
-'.title-attributes-shadow-cyan-300[platform=ios]': { titleAttributes: { shadow: { color: '#67e8f9' } } }
-'.title-attributes-shadow-cyan-400[platform=ios]': { titleAttributes: { shadow: { color: '#22d3ee' } } }
-'.title-attributes-shadow-cyan-500[platform=ios]': { titleAttributes: { shadow: { color: '#06b6d4' } } }
-'.title-attributes-shadow-cyan-600[platform=ios]': { titleAttributes: { shadow: { color: '#0891b2' } } }
-'.title-attributes-shadow-cyan-700[platform=ios]': { titleAttributes: { shadow: { color: '#0e7490' } } }
-'.title-attributes-shadow-cyan-800[platform=ios]': { titleAttributes: { shadow: { color: '#155e75' } } }
-'.title-attributes-shadow-cyan-900[platform=ios]': { titleAttributes: { shadow: { color: '#164e63' } } }
-'.title-attributes-shadow-sky-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0f9ff' } } }
-'.title-attributes-shadow-sky-100[platform=ios]': { titleAttributes: { shadow: { color: '#e0f2fe' } } }
-'.title-attributes-shadow-sky-200[platform=ios]': { titleAttributes: { shadow: { color: '#bae6fd' } } }
-'.title-attributes-shadow-sky-300[platform=ios]': { titleAttributes: { shadow: { color: '#7dd3fc' } } }
-'.title-attributes-shadow-sky-400[platform=ios]': { titleAttributes: { shadow: { color: '#38bdf8' } } }
-'.title-attributes-shadow-sky-500[platform=ios]': { titleAttributes: { shadow: { color: '#0ea5e9' } } }
-'.title-attributes-shadow-sky-600[platform=ios]': { titleAttributes: { shadow: { color: '#0284c7' } } }
-'.title-attributes-shadow-sky-700[platform=ios]': { titleAttributes: { shadow: { color: '#0369a1' } } }
-'.title-attributes-shadow-sky-800[platform=ios]': { titleAttributes: { shadow: { color: '#075985' } } }
-'.title-attributes-shadow-sky-900[platform=ios]': { titleAttributes: { shadow: { color: '#0c4a6e' } } }
-'.title-attributes-shadow-blue-50[platform=ios]': { titleAttributes: { shadow: { color: '#eff6ff' } } }
-'.title-attributes-shadow-blue-100[platform=ios]': { titleAttributes: { shadow: { color: '#dbeafe' } } }
-'.title-attributes-shadow-blue-200[platform=ios]': { titleAttributes: { shadow: { color: '#bfdbfe' } } }
-'.title-attributes-shadow-blue-300[platform=ios]': { titleAttributes: { shadow: { color: '#93c5fd' } } }
-'.title-attributes-shadow-blue-400[platform=ios]': { titleAttributes: { shadow: { color: '#60a5fa' } } }
-'.title-attributes-shadow-blue-500[platform=ios]': { titleAttributes: { shadow: { color: '#3b82f6' } } }
-'.title-attributes-shadow-blue-600[platform=ios]': { titleAttributes: { shadow: { color: '#2563eb' } } }
-'.title-attributes-shadow-blue-700[platform=ios]': { titleAttributes: { shadow: { color: '#1d4ed8' } } }
-'.title-attributes-shadow-blue-800[platform=ios]': { titleAttributes: { shadow: { color: '#1e40af' } } }
-'.title-attributes-shadow-blue-900[platform=ios]': { titleAttributes: { shadow: { color: '#1e3a8a' } } }
-'.title-attributes-shadow-indigo-50[platform=ios]': { titleAttributes: { shadow: { color: '#eef2ff' } } }
-'.title-attributes-shadow-indigo-100[platform=ios]': { titleAttributes: { shadow: { color: '#e0e7ff' } } }
-'.title-attributes-shadow-indigo-200[platform=ios]': { titleAttributes: { shadow: { color: '#c7d2fe' } } }
-'.title-attributes-shadow-indigo-300[platform=ios]': { titleAttributes: { shadow: { color: '#a5b4fc' } } }
-'.title-attributes-shadow-indigo-400[platform=ios]': { titleAttributes: { shadow: { color: '#818cf8' } } }
-'.title-attributes-shadow-indigo-500[platform=ios]': { titleAttributes: { shadow: { color: '#6366f1' } } }
-'.title-attributes-shadow-indigo-600[platform=ios]': { titleAttributes: { shadow: { color: '#4f46e5' } } }
-'.title-attributes-shadow-indigo-700[platform=ios]': { titleAttributes: { shadow: { color: '#4338ca' } } }
-'.title-attributes-shadow-indigo-800[platform=ios]': { titleAttributes: { shadow: { color: '#3730a3' } } }
-'.title-attributes-shadow-indigo-900[platform=ios]': { titleAttributes: { shadow: { color: '#312e81' } } }
-'.title-attributes-shadow-violet-50[platform=ios]': { titleAttributes: { shadow: { color: '#f5f3ff' } } }
-'.title-attributes-shadow-violet-100[platform=ios]': { titleAttributes: { shadow: { color: '#ede9fe' } } }
-'.title-attributes-shadow-violet-200[platform=ios]': { titleAttributes: { shadow: { color: '#ddd6fe' } } }
-'.title-attributes-shadow-violet-300[platform=ios]': { titleAttributes: { shadow: { color: '#c4b5fd' } } }
-'.title-attributes-shadow-violet-400[platform=ios]': { titleAttributes: { shadow: { color: '#a78bfa' } } }
-'.title-attributes-shadow-violet-500[platform=ios]': { titleAttributes: { shadow: { color: '#8b5cf6' } } }
-'.title-attributes-shadow-violet-600[platform=ios]': { titleAttributes: { shadow: { color: '#7c3aed' } } }
-'.title-attributes-shadow-violet-700[platform=ios]': { titleAttributes: { shadow: { color: '#6d28d9' } } }
-'.title-attributes-shadow-violet-800[platform=ios]': { titleAttributes: { shadow: { color: '#5b21b6' } } }
-'.title-attributes-shadow-violet-900[platform=ios]': { titleAttributes: { shadow: { color: '#4c1d95' } } }
-'.title-attributes-shadow-purple-50[platform=ios]': { titleAttributes: { shadow: { color: '#faf5ff' } } }
-'.title-attributes-shadow-purple-100[platform=ios]': { titleAttributes: { shadow: { color: '#f3e8ff' } } }
-'.title-attributes-shadow-purple-200[platform=ios]': { titleAttributes: { shadow: { color: '#e9d5ff' } } }
-'.title-attributes-shadow-purple-300[platform=ios]': { titleAttributes: { shadow: { color: '#d8b4fe' } } }
-'.title-attributes-shadow-purple-400[platform=ios]': { titleAttributes: { shadow: { color: '#c084fc' } } }
-'.title-attributes-shadow-purple-500[platform=ios]': { titleAttributes: { shadow: { color: '#a855f7' } } }
-'.title-attributes-shadow-purple-600[platform=ios]': { titleAttributes: { shadow: { color: '#9333ea' } } }
-'.title-attributes-shadow-purple-700[platform=ios]': { titleAttributes: { shadow: { color: '#7e22ce' } } }
-'.title-attributes-shadow-purple-800[platform=ios]': { titleAttributes: { shadow: { color: '#6b21a8' } } }
-'.title-attributes-shadow-purple-900[platform=ios]': { titleAttributes: { shadow: { color: '#581c87' } } }
-'.title-attributes-shadow-fuchsia-50[platform=ios]': { titleAttributes: { shadow: { color: '#fdf4ff' } } }
-'.title-attributes-shadow-fuchsia-100[platform=ios]': { titleAttributes: { shadow: { color: '#fae8ff' } } }
-'.title-attributes-shadow-fuchsia-200[platform=ios]': { titleAttributes: { shadow: { color: '#f5d0fe' } } }
-'.title-attributes-shadow-fuchsia-300[platform=ios]': { titleAttributes: { shadow: { color: '#f0abfc' } } }
-'.title-attributes-shadow-fuchsia-400[platform=ios]': { titleAttributes: { shadow: { color: '#e879f9' } } }
-'.title-attributes-shadow-fuchsia-500[platform=ios]': { titleAttributes: { shadow: { color: '#d946ef' } } }
-'.title-attributes-shadow-fuchsia-600[platform=ios]': { titleAttributes: { shadow: { color: '#c026d3' } } }
-'.title-attributes-shadow-fuchsia-700[platform=ios]': { titleAttributes: { shadow: { color: '#a21caf' } } }
-'.title-attributes-shadow-fuchsia-800[platform=ios]': { titleAttributes: { shadow: { color: '#86198f' } } }
-'.title-attributes-shadow-fuchsia-900[platform=ios]': { titleAttributes: { shadow: { color: '#701a75' } } }
-'.title-attributes-shadow-pink-50[platform=ios]': { titleAttributes: { shadow: { color: '#fdf2f8' } } }
-'.title-attributes-shadow-pink-100[platform=ios]': { titleAttributes: { shadow: { color: '#fce7f3' } } }
-'.title-attributes-shadow-pink-200[platform=ios]': { titleAttributes: { shadow: { color: '#fbcfe8' } } }
-'.title-attributes-shadow-pink-300[platform=ios]': { titleAttributes: { shadow: { color: '#f9a8d4' } } }
-'.title-attributes-shadow-pink-400[platform=ios]': { titleAttributes: { shadow: { color: '#f472b6' } } }
-'.title-attributes-shadow-pink-500[platform=ios]': { titleAttributes: { shadow: { color: '#ec4899' } } }
-'.title-attributes-shadow-pink-600[platform=ios]': { titleAttributes: { shadow: { color: '#db2777' } } }
-'.title-attributes-shadow-pink-700[platform=ios]': { titleAttributes: { shadow: { color: '#be185d' } } }
-'.title-attributes-shadow-pink-800[platform=ios]': { titleAttributes: { shadow: { color: '#9d174d' } } }
-'.title-attributes-shadow-pink-900[platform=ios]': { titleAttributes: { shadow: { color: '#831843' } } }
-'.title-attributes-shadow-rose-50[platform=ios]': { titleAttributes: { shadow: { color: '#fff1f2' } } }
-'.title-attributes-shadow-rose-100[platform=ios]': { titleAttributes: { shadow: { color: '#ffe4e6' } } }
-'.title-attributes-shadow-rose-200[platform=ios]': { titleAttributes: { shadow: { color: '#fecdd3' } } }
-'.title-attributes-shadow-rose-300[platform=ios]': { titleAttributes: { shadow: { color: '#fda4af' } } }
-'.title-attributes-shadow-rose-400[platform=ios]': { titleAttributes: { shadow: { color: '#fb7185' } } }
-'.title-attributes-shadow-rose-500[platform=ios]': { titleAttributes: { shadow: { color: '#f43f5e' } } }
-'.title-attributes-shadow-rose-600[platform=ios]': { titleAttributes: { shadow: { color: '#e11d48' } } }
-'.title-attributes-shadow-rose-700[platform=ios]': { titleAttributes: { shadow: { color: '#be123c' } } }
-'.title-attributes-shadow-rose-800[platform=ios]': { titleAttributes: { shadow: { color: '#9f1239' } } }
-'.title-attributes-shadow-rose-900[platform=ios]': { titleAttributes: { shadow: { color: '#881337' } } }
+'.title-attributes-shadow-transparent': { titleAttributes: { shadow: { color: 'transparent' } } }
+'.title-attributes-shadow-black': { titleAttributes: { shadow: { color: '#000000' } } }
+'.title-attributes-shadow-white': { titleAttributes: { shadow: { color: '#ffffff' } } }
+'.title-attributes-shadow-slate-50': { titleAttributes: { shadow: { color: '#f8fafc' } } }
+'.title-attributes-shadow-slate-100': { titleAttributes: { shadow: { color: '#f1f5f9' } } }
+'.title-attributes-shadow-slate-200': { titleAttributes: { shadow: { color: '#e2e8f0' } } }
+'.title-attributes-shadow-slate-300': { titleAttributes: { shadow: { color: '#cbd5e1' } } }
+'.title-attributes-shadow-slate-400': { titleAttributes: { shadow: { color: '#94a3b8' } } }
+'.title-attributes-shadow-slate-500': { titleAttributes: { shadow: { color: '#64748b' } } }
+'.title-attributes-shadow-slate-600': { titleAttributes: { shadow: { color: '#475569' } } }
+'.title-attributes-shadow-slate-700': { titleAttributes: { shadow: { color: '#334155' } } }
+'.title-attributes-shadow-slate-800': { titleAttributes: { shadow: { color: '#1e293b' } } }
+'.title-attributes-shadow-slate-900': { titleAttributes: { shadow: { color: '#0f172a' } } }
+'.title-attributes-shadow-gray-50': { titleAttributes: { shadow: { color: '#f9fafb' } } }
+'.title-attributes-shadow-gray-100': { titleAttributes: { shadow: { color: '#f3f4f6' } } }
+'.title-attributes-shadow-gray-200': { titleAttributes: { shadow: { color: '#e5e7eb' } } }
+'.title-attributes-shadow-gray-300': { titleAttributes: { shadow: { color: '#d1d5db' } } }
+'.title-attributes-shadow-gray-400': { titleAttributes: { shadow: { color: '#9ca3af' } } }
+'.title-attributes-shadow-gray-500': { titleAttributes: { shadow: { color: '#6b7280' } } }
+'.title-attributes-shadow-gray-600': { titleAttributes: { shadow: { color: '#4b5563' } } }
+'.title-attributes-shadow-gray-700': { titleAttributes: { shadow: { color: '#374151' } } }
+'.title-attributes-shadow-gray-800': { titleAttributes: { shadow: { color: '#1f2937' } } }
+'.title-attributes-shadow-gray-900': { titleAttributes: { shadow: { color: '#111827' } } }
+'.title-attributes-shadow-zinc-50': { titleAttributes: { shadow: { color: '#fafafa' } } }
+'.title-attributes-shadow-zinc-100': { titleAttributes: { shadow: { color: '#f4f4f5' } } }
+'.title-attributes-shadow-zinc-200': { titleAttributes: { shadow: { color: '#e4e4e7' } } }
+'.title-attributes-shadow-zinc-300': { titleAttributes: { shadow: { color: '#d4d4d8' } } }
+'.title-attributes-shadow-zinc-400': { titleAttributes: { shadow: { color: '#a1a1aa' } } }
+'.title-attributes-shadow-zinc-500': { titleAttributes: { shadow: { color: '#71717a' } } }
+'.title-attributes-shadow-zinc-600': { titleAttributes: { shadow: { color: '#52525b' } } }
+'.title-attributes-shadow-zinc-700': { titleAttributes: { shadow: { color: '#3f3f46' } } }
+'.title-attributes-shadow-zinc-800': { titleAttributes: { shadow: { color: '#27272a' } } }
+'.title-attributes-shadow-zinc-900': { titleAttributes: { shadow: { color: '#18181b' } } }
+'.title-attributes-shadow-neutral-50': { titleAttributes: { shadow: { color: '#fafafa' } } }
+'.title-attributes-shadow-neutral-100': { titleAttributes: { shadow: { color: '#f5f5f5' } } }
+'.title-attributes-shadow-neutral-200': { titleAttributes: { shadow: { color: '#e5e5e5' } } }
+'.title-attributes-shadow-neutral-300': { titleAttributes: { shadow: { color: '#d4d4d4' } } }
+'.title-attributes-shadow-neutral-400': { titleAttributes: { shadow: { color: '#a3a3a3' } } }
+'.title-attributes-shadow-neutral-500': { titleAttributes: { shadow: { color: '#737373' } } }
+'.title-attributes-shadow-neutral-600': { titleAttributes: { shadow: { color: '#525252' } } }
+'.title-attributes-shadow-neutral-700': { titleAttributes: { shadow: { color: '#404040' } } }
+'.title-attributes-shadow-neutral-800': { titleAttributes: { shadow: { color: '#262626' } } }
+'.title-attributes-shadow-neutral-900': { titleAttributes: { shadow: { color: '#171717' } } }
+'.title-attributes-shadow-stone-50': { titleAttributes: { shadow: { color: '#fafaf9' } } }
+'.title-attributes-shadow-stone-100': { titleAttributes: { shadow: { color: '#f5f5f4' } } }
+'.title-attributes-shadow-stone-200': { titleAttributes: { shadow: { color: '#e7e5e4' } } }
+'.title-attributes-shadow-stone-300': { titleAttributes: { shadow: { color: '#d6d3d1' } } }
+'.title-attributes-shadow-stone-400': { titleAttributes: { shadow: { color: '#a8a29e' } } }
+'.title-attributes-shadow-stone-500': { titleAttributes: { shadow: { color: '#78716c' } } }
+'.title-attributes-shadow-stone-600': { titleAttributes: { shadow: { color: '#57534e' } } }
+'.title-attributes-shadow-stone-700': { titleAttributes: { shadow: { color: '#44403c' } } }
+'.title-attributes-shadow-stone-800': { titleAttributes: { shadow: { color: '#292524' } } }
+'.title-attributes-shadow-stone-900': { titleAttributes: { shadow: { color: '#1c1917' } } }
+'.title-attributes-shadow-red-50': { titleAttributes: { shadow: { color: '#fef2f2' } } }
+'.title-attributes-shadow-red-100': { titleAttributes: { shadow: { color: '#fee2e2' } } }
+'.title-attributes-shadow-red-200': { titleAttributes: { shadow: { color: '#fecaca' } } }
+'.title-attributes-shadow-red-300': { titleAttributes: { shadow: { color: '#fca5a5' } } }
+'.title-attributes-shadow-red-400': { titleAttributes: { shadow: { color: '#f87171' } } }
+'.title-attributes-shadow-red-500': { titleAttributes: { shadow: { color: '#ef4444' } } }
+'.title-attributes-shadow-red-600': { titleAttributes: { shadow: { color: '#dc2626' } } }
+'.title-attributes-shadow-red-700': { titleAttributes: { shadow: { color: '#b91c1c' } } }
+'.title-attributes-shadow-red-800': { titleAttributes: { shadow: { color: '#991b1b' } } }
+'.title-attributes-shadow-red-900': { titleAttributes: { shadow: { color: '#7f1d1d' } } }
+'.title-attributes-shadow-orange-50': { titleAttributes: { shadow: { color: '#fff7ed' } } }
+'.title-attributes-shadow-orange-100': { titleAttributes: { shadow: { color: '#ffedd5' } } }
+'.title-attributes-shadow-orange-200': { titleAttributes: { shadow: { color: '#fed7aa' } } }
+'.title-attributes-shadow-orange-300': { titleAttributes: { shadow: { color: '#fdba74' } } }
+'.title-attributes-shadow-orange-400': { titleAttributes: { shadow: { color: '#fb923c' } } }
+'.title-attributes-shadow-orange-500': { titleAttributes: { shadow: { color: '#f97316' } } }
+'.title-attributes-shadow-orange-600': { titleAttributes: { shadow: { color: '#ea580c' } } }
+'.title-attributes-shadow-orange-700': { titleAttributes: { shadow: { color: '#c2410c' } } }
+'.title-attributes-shadow-orange-800': { titleAttributes: { shadow: { color: '#9a3412' } } }
+'.title-attributes-shadow-orange-900': { titleAttributes: { shadow: { color: '#7c2d12' } } }
+'.title-attributes-shadow-amber-50': { titleAttributes: { shadow: { color: '#fffbeb' } } }
+'.title-attributes-shadow-amber-100': { titleAttributes: { shadow: { color: '#fef3c7' } } }
+'.title-attributes-shadow-amber-200': { titleAttributes: { shadow: { color: '#fde68a' } } }
+'.title-attributes-shadow-amber-300': { titleAttributes: { shadow: { color: '#fcd34d' } } }
+'.title-attributes-shadow-amber-400': { titleAttributes: { shadow: { color: '#fbbf24' } } }
+'.title-attributes-shadow-amber-500': { titleAttributes: { shadow: { color: '#f59e0b' } } }
+'.title-attributes-shadow-amber-600': { titleAttributes: { shadow: { color: '#d97706' } } }
+'.title-attributes-shadow-amber-700': { titleAttributes: { shadow: { color: '#b45309' } } }
+'.title-attributes-shadow-amber-800': { titleAttributes: { shadow: { color: '#92400e' } } }
+'.title-attributes-shadow-amber-900': { titleAttributes: { shadow: { color: '#78350f' } } }
+'.title-attributes-shadow-yellow-50': { titleAttributes: { shadow: { color: '#fefce8' } } }
+'.title-attributes-shadow-yellow-100': { titleAttributes: { shadow: { color: '#fef9c3' } } }
+'.title-attributes-shadow-yellow-200': { titleAttributes: { shadow: { color: '#fef08a' } } }
+'.title-attributes-shadow-yellow-300': { titleAttributes: { shadow: { color: '#fde047' } } }
+'.title-attributes-shadow-yellow-400': { titleAttributes: { shadow: { color: '#facc15' } } }
+'.title-attributes-shadow-yellow-500': { titleAttributes: { shadow: { color: '#eab308' } } }
+'.title-attributes-shadow-yellow-600': { titleAttributes: { shadow: { color: '#ca8a04' } } }
+'.title-attributes-shadow-yellow-700': { titleAttributes: { shadow: { color: '#a16207' } } }
+'.title-attributes-shadow-yellow-800': { titleAttributes: { shadow: { color: '#854d0e' } } }
+'.title-attributes-shadow-yellow-900': { titleAttributes: { shadow: { color: '#713f12' } } }
+'.title-attributes-shadow-lime-50': { titleAttributes: { shadow: { color: '#f7fee7' } } }
+'.title-attributes-shadow-lime-100': { titleAttributes: { shadow: { color: '#ecfccb' } } }
+'.title-attributes-shadow-lime-200': { titleAttributes: { shadow: { color: '#d9f99d' } } }
+'.title-attributes-shadow-lime-300': { titleAttributes: { shadow: { color: '#bef264' } } }
+'.title-attributes-shadow-lime-400': { titleAttributes: { shadow: { color: '#a3e635' } } }
+'.title-attributes-shadow-lime-500': { titleAttributes: { shadow: { color: '#84cc16' } } }
+'.title-attributes-shadow-lime-600': { titleAttributes: { shadow: { color: '#65a30d' } } }
+'.title-attributes-shadow-lime-700': { titleAttributes: { shadow: { color: '#4d7c0f' } } }
+'.title-attributes-shadow-lime-800': { titleAttributes: { shadow: { color: '#3f6212' } } }
+'.title-attributes-shadow-lime-900': { titleAttributes: { shadow: { color: '#365314' } } }
+'.title-attributes-shadow-green-50': { titleAttributes: { shadow: { color: '#f0fdf4' } } }
+'.title-attributes-shadow-green-100': { titleAttributes: { shadow: { color: '#dcfce7' } } }
+'.title-attributes-shadow-green-200': { titleAttributes: { shadow: { color: '#bbf7d0' } } }
+'.title-attributes-shadow-green-300': { titleAttributes: { shadow: { color: '#86efac' } } }
+'.title-attributes-shadow-green-400': { titleAttributes: { shadow: { color: '#4ade80' } } }
+'.title-attributes-shadow-green-500': { titleAttributes: { shadow: { color: '#22c55e' } } }
+'.title-attributes-shadow-green-600': { titleAttributes: { shadow: { color: '#16a34a' } } }
+'.title-attributes-shadow-green-700': { titleAttributes: { shadow: { color: '#15803d' } } }
+'.title-attributes-shadow-green-800': { titleAttributes: { shadow: { color: '#166534' } } }
+'.title-attributes-shadow-green-900': { titleAttributes: { shadow: { color: '#14532d' } } }
+'.title-attributes-shadow-emerald-50': { titleAttributes: { shadow: { color: '#ecfdf5' } } }
+'.title-attributes-shadow-emerald-100': { titleAttributes: { shadow: { color: '#d1fae5' } } }
+'.title-attributes-shadow-emerald-200': { titleAttributes: { shadow: { color: '#a7f3d0' } } }
+'.title-attributes-shadow-emerald-300': { titleAttributes: { shadow: { color: '#6ee7b7' } } }
+'.title-attributes-shadow-emerald-400': { titleAttributes: { shadow: { color: '#34d399' } } }
+'.title-attributes-shadow-emerald-500': { titleAttributes: { shadow: { color: '#10b981' } } }
+'.title-attributes-shadow-emerald-600': { titleAttributes: { shadow: { color: '#059669' } } }
+'.title-attributes-shadow-emerald-700': { titleAttributes: { shadow: { color: '#047857' } } }
+'.title-attributes-shadow-emerald-800': { titleAttributes: { shadow: { color: '#065f46' } } }
+'.title-attributes-shadow-emerald-900': { titleAttributes: { shadow: { color: '#064e3b' } } }
+'.title-attributes-shadow-teal-50': { titleAttributes: { shadow: { color: '#f0fdfa' } } }
+'.title-attributes-shadow-teal-100': { titleAttributes: { shadow: { color: '#ccfbf1' } } }
+'.title-attributes-shadow-teal-200': { titleAttributes: { shadow: { color: '#99f6e4' } } }
+'.title-attributes-shadow-teal-300': { titleAttributes: { shadow: { color: '#5eead4' } } }
+'.title-attributes-shadow-teal-400': { titleAttributes: { shadow: { color: '#2dd4bf' } } }
+'.title-attributes-shadow-teal-500': { titleAttributes: { shadow: { color: '#14b8a6' } } }
+'.title-attributes-shadow-teal-600': { titleAttributes: { shadow: { color: '#0d9488' } } }
+'.title-attributes-shadow-teal-700': { titleAttributes: { shadow: { color: '#0f766e' } } }
+'.title-attributes-shadow-teal-800': { titleAttributes: { shadow: { color: '#115e59' } } }
+'.title-attributes-shadow-teal-900': { titleAttributes: { shadow: { color: '#134e4a' } } }
+'.title-attributes-shadow-cyan-50': { titleAttributes: { shadow: { color: '#ecfeff' } } }
+'.title-attributes-shadow-cyan-100': { titleAttributes: { shadow: { color: '#cffafe' } } }
+'.title-attributes-shadow-cyan-200': { titleAttributes: { shadow: { color: '#a5f3fc' } } }
+'.title-attributes-shadow-cyan-300': { titleAttributes: { shadow: { color: '#67e8f9' } } }
+'.title-attributes-shadow-cyan-400': { titleAttributes: { shadow: { color: '#22d3ee' } } }
+'.title-attributes-shadow-cyan-500': { titleAttributes: { shadow: { color: '#06b6d4' } } }
+'.title-attributes-shadow-cyan-600': { titleAttributes: { shadow: { color: '#0891b2' } } }
+'.title-attributes-shadow-cyan-700': { titleAttributes: { shadow: { color: '#0e7490' } } }
+'.title-attributes-shadow-cyan-800': { titleAttributes: { shadow: { color: '#155e75' } } }
+'.title-attributes-shadow-cyan-900': { titleAttributes: { shadow: { color: '#164e63' } } }
+'.title-attributes-shadow-sky-50': { titleAttributes: { shadow: { color: '#f0f9ff' } } }
+'.title-attributes-shadow-sky-100': { titleAttributes: { shadow: { color: '#e0f2fe' } } }
+'.title-attributes-shadow-sky-200': { titleAttributes: { shadow: { color: '#bae6fd' } } }
+'.title-attributes-shadow-sky-300': { titleAttributes: { shadow: { color: '#7dd3fc' } } }
+'.title-attributes-shadow-sky-400': { titleAttributes: { shadow: { color: '#38bdf8' } } }
+'.title-attributes-shadow-sky-500': { titleAttributes: { shadow: { color: '#0ea5e9' } } }
+'.title-attributes-shadow-sky-600': { titleAttributes: { shadow: { color: '#0284c7' } } }
+'.title-attributes-shadow-sky-700': { titleAttributes: { shadow: { color: '#0369a1' } } }
+'.title-attributes-shadow-sky-800': { titleAttributes: { shadow: { color: '#075985' } } }
+'.title-attributes-shadow-sky-900': { titleAttributes: { shadow: { color: '#0c4a6e' } } }
+'.title-attributes-shadow-blue-50': { titleAttributes: { shadow: { color: '#eff6ff' } } }
+'.title-attributes-shadow-blue-100': { titleAttributes: { shadow: { color: '#dbeafe' } } }
+'.title-attributes-shadow-blue-200': { titleAttributes: { shadow: { color: '#bfdbfe' } } }
+'.title-attributes-shadow-blue-300': { titleAttributes: { shadow: { color: '#93c5fd' } } }
+'.title-attributes-shadow-blue-400': { titleAttributes: { shadow: { color: '#60a5fa' } } }
+'.title-attributes-shadow-blue-500': { titleAttributes: { shadow: { color: '#3b82f6' } } }
+'.title-attributes-shadow-blue-600': { titleAttributes: { shadow: { color: '#2563eb' } } }
+'.title-attributes-shadow-blue-700': { titleAttributes: { shadow: { color: '#1d4ed8' } } }
+'.title-attributes-shadow-blue-800': { titleAttributes: { shadow: { color: '#1e40af' } } }
+'.title-attributes-shadow-blue-900': { titleAttributes: { shadow: { color: '#1e3a8a' } } }
+'.title-attributes-shadow-indigo-50': { titleAttributes: { shadow: { color: '#eef2ff' } } }
+'.title-attributes-shadow-indigo-100': { titleAttributes: { shadow: { color: '#e0e7ff' } } }
+'.title-attributes-shadow-indigo-200': { titleAttributes: { shadow: { color: '#c7d2fe' } } }
+'.title-attributes-shadow-indigo-300': { titleAttributes: { shadow: { color: '#a5b4fc' } } }
+'.title-attributes-shadow-indigo-400': { titleAttributes: { shadow: { color: '#818cf8' } } }
+'.title-attributes-shadow-indigo-500': { titleAttributes: { shadow: { color: '#6366f1' } } }
+'.title-attributes-shadow-indigo-600': { titleAttributes: { shadow: { color: '#4f46e5' } } }
+'.title-attributes-shadow-indigo-700': { titleAttributes: { shadow: { color: '#4338ca' } } }
+'.title-attributes-shadow-indigo-800': { titleAttributes: { shadow: { color: '#3730a3' } } }
+'.title-attributes-shadow-indigo-900': { titleAttributes: { shadow: { color: '#312e81' } } }
+'.title-attributes-shadow-violet-50': { titleAttributes: { shadow: { color: '#f5f3ff' } } }
+'.title-attributes-shadow-violet-100': { titleAttributes: { shadow: { color: '#ede9fe' } } }
+'.title-attributes-shadow-violet-200': { titleAttributes: { shadow: { color: '#ddd6fe' } } }
+'.title-attributes-shadow-violet-300': { titleAttributes: { shadow: { color: '#c4b5fd' } } }
+'.title-attributes-shadow-violet-400': { titleAttributes: { shadow: { color: '#a78bfa' } } }
+'.title-attributes-shadow-violet-500': { titleAttributes: { shadow: { color: '#8b5cf6' } } }
+'.title-attributes-shadow-violet-600': { titleAttributes: { shadow: { color: '#7c3aed' } } }
+'.title-attributes-shadow-violet-700': { titleAttributes: { shadow: { color: '#6d28d9' } } }
+'.title-attributes-shadow-violet-800': { titleAttributes: { shadow: { color: '#5b21b6' } } }
+'.title-attributes-shadow-violet-900': { titleAttributes: { shadow: { color: '#4c1d95' } } }
+'.title-attributes-shadow-purple-50': { titleAttributes: { shadow: { color: '#faf5ff' } } }
+'.title-attributes-shadow-purple-100': { titleAttributes: { shadow: { color: '#f3e8ff' } } }
+'.title-attributes-shadow-purple-200': { titleAttributes: { shadow: { color: '#e9d5ff' } } }
+'.title-attributes-shadow-purple-300': { titleAttributes: { shadow: { color: '#d8b4fe' } } }
+'.title-attributes-shadow-purple-400': { titleAttributes: { shadow: { color: '#c084fc' } } }
+'.title-attributes-shadow-purple-500': { titleAttributes: { shadow: { color: '#a855f7' } } }
+'.title-attributes-shadow-purple-600': { titleAttributes: { shadow: { color: '#9333ea' } } }
+'.title-attributes-shadow-purple-700': { titleAttributes: { shadow: { color: '#7e22ce' } } }
+'.title-attributes-shadow-purple-800': { titleAttributes: { shadow: { color: '#6b21a8' } } }
+'.title-attributes-shadow-purple-900': { titleAttributes: { shadow: { color: '#581c87' } } }
+'.title-attributes-shadow-fuchsia-50': { titleAttributes: { shadow: { color: '#fdf4ff' } } }
+'.title-attributes-shadow-fuchsia-100': { titleAttributes: { shadow: { color: '#fae8ff' } } }
+'.title-attributes-shadow-fuchsia-200': { titleAttributes: { shadow: { color: '#f5d0fe' } } }
+'.title-attributes-shadow-fuchsia-300': { titleAttributes: { shadow: { color: '#f0abfc' } } }
+'.title-attributes-shadow-fuchsia-400': { titleAttributes: { shadow: { color: '#e879f9' } } }
+'.title-attributes-shadow-fuchsia-500': { titleAttributes: { shadow: { color: '#d946ef' } } }
+'.title-attributes-shadow-fuchsia-600': { titleAttributes: { shadow: { color: '#c026d3' } } }
+'.title-attributes-shadow-fuchsia-700': { titleAttributes: { shadow: { color: '#a21caf' } } }
+'.title-attributes-shadow-fuchsia-800': { titleAttributes: { shadow: { color: '#86198f' } } }
+'.title-attributes-shadow-fuchsia-900': { titleAttributes: { shadow: { color: '#701a75' } } }
+'.title-attributes-shadow-pink-50': { titleAttributes: { shadow: { color: '#fdf2f8' } } }
+'.title-attributes-shadow-pink-100': { titleAttributes: { shadow: { color: '#fce7f3' } } }
+'.title-attributes-shadow-pink-200': { titleAttributes: { shadow: { color: '#fbcfe8' } } }
+'.title-attributes-shadow-pink-300': { titleAttributes: { shadow: { color: '#f9a8d4' } } }
+'.title-attributes-shadow-pink-400': { titleAttributes: { shadow: { color: '#f472b6' } } }
+'.title-attributes-shadow-pink-500': { titleAttributes: { shadow: { color: '#ec4899' } } }
+'.title-attributes-shadow-pink-600': { titleAttributes: { shadow: { color: '#db2777' } } }
+'.title-attributes-shadow-pink-700': { titleAttributes: { shadow: { color: '#be185d' } } }
+'.title-attributes-shadow-pink-800': { titleAttributes: { shadow: { color: '#9d174d' } } }
+'.title-attributes-shadow-pink-900': { titleAttributes: { shadow: { color: '#831843' } } }
+'.title-attributes-shadow-rose-50': { titleAttributes: { shadow: { color: '#fff1f2' } } }
+'.title-attributes-shadow-rose-100': { titleAttributes: { shadow: { color: '#ffe4e6' } } }
+'.title-attributes-shadow-rose-200': { titleAttributes: { shadow: { color: '#fecdd3' } } }
+'.title-attributes-shadow-rose-300': { titleAttributes: { shadow: { color: '#fda4af' } } }
+'.title-attributes-shadow-rose-400': { titleAttributes: { shadow: { color: '#fb7185' } } }
+'.title-attributes-shadow-rose-500': { titleAttributes: { shadow: { color: '#f43f5e' } } }
+'.title-attributes-shadow-rose-600': { titleAttributes: { shadow: { color: '#e11d48' } } }
+'.title-attributes-shadow-rose-700': { titleAttributes: { shadow: { color: '#be123c' } } }
+'.title-attributes-shadow-rose-800': { titleAttributes: { shadow: { color: '#9f1239' } } }
+'.title-attributes-shadow-rose-900': { titleAttributes: { shadow: { color: '#881337' } } }
 
 // Property: bubbleParent
 // Description: Indicates if the proxy will bubble an event to its parent.
@@ -5840,11 +5818,11 @@
 // Property: borderWidth
 // Description: Border width of the view.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
-'.border-w-0': { borderWidth: 0 }
-'.border-w-2': { borderWidth: 2 }
-'.border-w-4': { borderWidth: 4 }
-'.border-w-8': { borderWidth: 8 }
-'.border-width': { borderWidth: 1 }
+'.border-0': { borderWidth: 0 }
+'.border-2': { borderWidth: 2 }
+'.border-4': { borderWidth: 4 }
+'.border-8': { borderWidth: 8 }
+'.border': { borderWidth: 1 }
 
 // Property: bottom
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
@@ -7392,13 +7370,13 @@
 
 // Property: type
 // Component(s): DateTimeFormattedPart, NumberFormattedPart, EmitWarningOptions, Ti.Android.Intent, Ti.Buffer, Ti.Calendar.Attendee, EncodeNumberDict, DecodeNumberDict, Ti.Event, Ti.Network.BonjourService, PushNotificationSuccessArg, PushNotificationErrorArg, CreateBufferArgs, Ti.UI.Android.ProgressIndicator, Attribute, ViewTemplate, Ti.UI.Picker, Gradient, Ti.UI.iOS.FeedbackGenerator
-'.type-attendee-unknown': { type: Ti.Calendar.ATTENDEE_TYPE_UNKNOWN }
-'.type-attendee-person': { type: Ti.Calendar.ATTENDEE_TYPE_PERSON }
-'.type-attendee-room': { type: Ti.Calendar.ATTENDEE_TYPE_ROOM }
-'.type-attendee-resource': { type: Ti.Calendar.ATTENDEE_TYPE_RESOURCE }
-'.type-attendee-none': { type: Ti.Calendar.ATTENDEE_TYPE_NONE }
-'.type-attendee-required': { type: Ti.Calendar.ATTENDEE_TYPE_REQUIRED }
-'.type-attendee-group': { type: Ti.Calendar.ATTENDEE_TYPE_GROUP }
+'.type-calendar-attendee-unknown': { type: Ti.Calendar.ATTENDEE_TYPE_UNKNOWN }
+'.type-calendar-attendee-person': { type: Ti.Calendar.ATTENDEE_TYPE_PERSON }
+'.type-calendar-attendee-room': { type: Ti.Calendar.ATTENDEE_TYPE_ROOM }
+'.type-calendar-attendee-resource': { type: Ti.Calendar.ATTENDEE_TYPE_RESOURCE }
+'.type-calendar-attendee-none': { type: Ti.Calendar.ATTENDEE_TYPE_NONE }
+'.type-calendar-attendee-required': { type: Ti.Calendar.ATTENDEE_TYPE_REQUIRED }
+'.type-calendar-attendee-group': { type: Ti.Calendar.ATTENDEE_TYPE_GROUP }
 '.type-codec-byte': { type: Ti.Codec.TYPE_BYTE }
 '.type-codec-short': { type: Ti.Codec.TYPE_SHORT }
 '.type-codec-int': { type: Ti.Codec.TYPE_INT }
@@ -7449,36 +7427,36 @@
 
 // Property: style
 // Component(s): NumberFormatOptions, Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Button, RowActionType, Ti.UI.ListView, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
-'.activity-indicator-style-big': { style: Ti.UI.ActivityIndicatorStyle.BIG }
-'.activity-indicator-style-dark': { style: Ti.UI.ActivityIndicatorStyle.DARK }
-'.activity-indicator-style-big-dark': { style: Ti.UI.ActivityIndicatorStyle.BIG_DARK }
-'.activity-indicator-style-plain': { style: Ti.UI.ActivityIndicatorStyle.PLAIN }
-'.button-style-filled': { style: Ti.UI.BUTTON_STYLE_FILLED }
-'.button-style-outlined': { style: Ti.UI.BUTTON_STYLE_OUTLINED }
-'.button-style-text': { style: Ti.UI.BUTTON_STYLE_TEXT }
-'.button-style-option-positive': { style: Ti.UI.BUTTON_STYLE_OPTION_POSITIVE }
-'.button-style-option-negative': { style: Ti.UI.BUTTON_STYLE_OPTION_NEGATIVE }
-'.button-style-option-neutral': { style: Ti.UI.BUTTON_STYLE_OPTION_NEUTRAL }
-'.list-view-style-grouped': { style: Ti.UI.iOS.ListViewStyle.GROUPED }
-'.list-view-style-plain': { style: Ti.UI.iOS.ListViewStyle.PLAIN }
-'.list-view-style-inset-grouped': { style: Ti.UI.iOS.ListViewStyle.INSET_GROUPED }
-'.search-bar-style-prominent': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_PROMINENT }
-'.search-bar-style-minimal': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_MINIMAL }
-'.switch-style-checkbox': { style: Ti.UI.SWITCH_STYLE_CHECKBOX }
-'.switch-style-toggle-button': { style: Ti.UI.SWITCH_STYLE_TOGGLE_BUTTON }
-'.switch-style-slider': { style: Ti.UI.SWITCH_STYLE_SLIDER }
-'.switch-style-chip': { style: Ti.UI.SWITCH_STYLE_CHIP }
-'.tabs-style': { style: Ti.UI.Android.TABS_STYLE_DEFAULT }
-'.tabs-style-bottom-navigation': { style: Ti.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION }
-'.table-view-style-grouped': { style: Ti.UI.iOS.TableViewStyle.GROUPED }
-'.table-view-style-plain': { style: Ti.UI.iOS.TableViewStyle.PLAIN }
-'.table-view-style-inset-grouped': { style: Ti.UI.iOS.TableViewStyle.INSET_GROUPED }
-'.feedback-generator-impact-style-light': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_LIGHT }
-'.feedback-generator-impact-style-medium': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_MEDIUM }
-'.feedback-generator-impact-style-heavy': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_HEAVY }
-'.preview-action-style': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DEFAULT }
-'.preview-action-style-selected': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_SELECTED }
-'.preview-action-style-destructive': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DESTRUCTIVE }
+'.style-activity-indicator-big': { style: Ti.UI.ActivityIndicatorStyle.BIG }
+'.style-activity-indicator-dark': { style: Ti.UI.ActivityIndicatorStyle.DARK }
+'.style-activity-indicator-big-dark': { style: Ti.UI.ActivityIndicatorStyle.BIG_DARK }
+'.style-activity-indicator-plain': { style: Ti.UI.ActivityIndicatorStyle.PLAIN }
+'.style-button-filled': { style: Ti.UI.BUTTON_STYLE_FILLED }
+'.style-button-outlined': { style: Ti.UI.BUTTON_STYLE_OUTLINED }
+'.style-button-text': { style: Ti.UI.BUTTON_STYLE_TEXT }
+'.style-button-positive': { style: Ti.UI.BUTTON_STYLE_OPTION_POSITIVE }
+'.style-button-negative': { style: Ti.UI.BUTTON_STYLE_OPTION_NEGATIVE }
+'.style-button-neutral': { style: Ti.UI.BUTTON_STYLE_OPTION_NEUTRAL }
+'.style-list-view-grouped': { style: Ti.UI.iOS.ListViewStyle.GROUPED }
+'.style-list-view-plain': { style: Ti.UI.iOS.ListViewStyle.PLAIN }
+'.style-list-view-inset-grouped': { style: Ti.UI.iOS.ListViewStyle.INSET_GROUPED }
+'.style-search-bar-prominent': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_PROMINENT }
+'.style-search-bar-minimal': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_MINIMAL }
+'.style-switch-checkbox': { style: Ti.UI.SWITCH_STYLE_CHECKBOX }
+'.style-switch-toggle-button': { style: Ti.UI.SWITCH_STYLE_TOGGLE_BUTTON }
+'.style-switch-slider': { style: Ti.UI.SWITCH_STYLE_SLIDER }
+'.style-switch-chip': { style: Ti.UI.SWITCH_STYLE_CHIP }
+'.style-tabs': { style: Ti.UI.Android.TABS_STYLE_DEFAULT }
+'.style-tabs-bottom-navigation': { style: Ti.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION }
+'.style-table-view-grouped': { style: Ti.UI.iOS.TableViewStyle.GROUPED }
+'.style-table-view-plain': { style: Ti.UI.iOS.TableViewStyle.PLAIN }
+'.style-table-view-inset-grouped': { style: Ti.UI.iOS.TableViewStyle.INSET_GROUPED }
+'.style-feedback-generator-impact-light': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_LIGHT }
+'.style-feedback-generator-impact-medium': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_MEDIUM }
+'.style-feedback-generator-impact-heavy': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_HEAVY }
+'.style-preview-action': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DEFAULT }
+'.style-preview-action-selected': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_SELECTED }
+'.style-preview-action-destructive': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DESTRUCTIVE }
 
 // Property: useGrouping
 // Description: Indicates if grouping separators should be displayed.
@@ -7887,19 +7865,19 @@
 // Property: requestedOrientation
 // Description: Specifies a specific orientation for this activity.
 // Component(s): Ti.Android.Activity
-'.requested-orientation-android-screen-behind': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_BEHIND }
-'.requested-orientation-android-screen-landscape': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_LANDSCAPE }
-'.requested-orientation-android-screen-nosensor': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_NOSENSOR }
-'.requested-orientation-android-screen-portrait': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_PORTRAIT }
-'.requested-orientation-android-screen-sensor': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_SENSOR }
-'.requested-orientation-android-screen-unspecified': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_UNSPECIFIED }
-'.requested-orientation-android-screen-user': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_USER }
+'.requested-orientation-screen-behind': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_BEHIND }
+'.requested-orientation-screen-landscape': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_LANDSCAPE }
+'.requested-orientation-screen-nosensor': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_NOSENSOR }
+'.requested-orientation-screen-portrait': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_PORTRAIT }
+'.requested-orientation-screen-sensor': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_SENSOR }
+'.requested-orientation-screen-unspecified': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_UNSPECIFIED }
+'.requested-orientation-screen-user': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_USER }
 
 // Property: startMode
 // Description: One of the <code>START_*</code> constants from <a href="Titanium.Android">Titanium.Android</a> to specify the &quot;stickiness&quot; of the Service when Android shuts down the host application.
 // Component(s): ServiceIntentOptions
-'.start-mode-android-not-sticky': { startMode: Ti.Android.START_NOT_STICKY }
-'.start-mode-android-redeliver-intent': { startMode: Ti.Android.START_REDELIVER_INTENT }
+'.start-mode-not-sticky': { startMode: Ti.Android.START_NOT_STICKY }
+'.start-mode-redeliver-intent': { startMode: Ti.Android.START_REDELIVER_INTENT }
 
 // Property: success
 // Component(s): RequestPermissionAccessResult, EventsAuthorizationResponse, ContactsAuthorizationResponse, ErrorResponse, SuccessResponse, FailureResponse, RequestStorageAccessResult, LocationResults, ForwardGeocodeResponse, HeadingResponse, ReverseGeocodeResponse, LocationAuthorizationResponse, LocationAccuracyAuthorizationResponse, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, CameraMediaMultipleItemsType, CameraMediaItemType, PreviewImageOptions, PreviewImageError, MediaAuthorizationResponse, RequestCameraAccessResult, RequestMusicLibraryAccessResult, RequestPhotoGalleryAccessResult, ThumbnailResponse, PushNotificationConfig, PushNotificationSuccessArg, PushNotificationErrorArg, ErrorCallbackArgs, ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs, SnapshotResult, DataCreationResult, SearchResult, MessageReply, YQLResponse
@@ -7908,44 +7886,44 @@
 
 // Property: flags
 // Component(s): Ti.Android.Intent, Ti.Android.Notification, wakeLockOptions, Ti.Android.PendingIntent
-'.flags-android-activity-brought-to-front': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
-'.flags-android-activity-clear-top': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
-'.flags-android-activity-clear-when-task-reset': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET }
-'.flags-android-activity-exclude-from-recents': { flags: Ti.Android.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS }
-'.flags-android-activity-forward-result': { flags: Ti.Android.FLAG_ACTIVITY_FORWARD_RESULT }
-'.flags-android-activity-launched-from-history': { flags: Ti.Android.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY }
-'.flags-android-activity-multiple-task': { flags: Ti.Android.FLAG_ACTIVITY_MULTIPLE_TASK }
-'.flags-android-activity-new-task': { flags: Ti.Android.FLAG_ACTIVITY_NEW_TASK }
-'.flags-android-activity-no-animation': { flags: Ti.Android.FLAG_ACTIVITY_NO_ANIMATION }
-'.flags-android-activity-no-history': { flags: Ti.Android.FLAG_ACTIVITY_NO_HISTORY }
-'.flags-android-activity-no-user-action': { flags: Ti.Android.FLAG_ACTIVITY_NO_USER_ACTION }
-'.flags-android-activity-previous-is-top': { flags: Ti.Android.FLAG_ACTIVITY_PREVIOUS_IS_TOP }
-'.flags-android-activity-reorder-to-front': { flags: Ti.Android.FLAG_ACTIVITY_REORDER_TO_FRONT }
-'.flags-android-activity-reset-task-if-needed': { flags: Ti.Android.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED }
-'.flags-android-activity-single-top': { flags: Ti.Android.FLAG_ACTIVITY_SINGLE_TOP }
-'.flags-android-debug-log-resolution': { flags: Ti.Android.FLAG_DEBUG_LOG_RESOLUTION }
-'.flags-android-from-background': { flags: Ti.Android.FLAG_FROM_BACKGROUND }
-'.flags-android-grant-read-uri-permission': { flags: Ti.Android.FLAG_GRANT_READ_URI_PERMISSION }
-'.flags-android-grant-write-uri-permission': { flags: Ti.Android.FLAG_GRANT_WRITE_URI_PERMISSION }
-'.flags-android-receiver-registered-only': { flags: Ti.Android.FLAG_RECEIVER_REGISTERED_ONLY }
-'.flags-android-cancel-current': { flags: Ti.Android.FLAG_CANCEL_CURRENT }
-'.flags-android-immutable': { flags: Ti.Android.FLAG_IMMUTABLE }
-'.flags-android-mutable': { flags: Ti.Android.FLAG_MUTABLE }
-'.flags-android-no-create': { flags: Ti.Android.FLAG_NO_CREATE }
-'.flags-android-one-shot': { flags: Ti.Android.FLAG_ONE_SHOT }
-'.flags-android-update-current': { flags: Ti.Android.FLAG_UPDATE_CURRENT }
-'.flags-android-auto-cancel': { flags: Ti.Android.FLAG_AUTO_CANCEL }
-'.flags-android-insistent': { flags: Ti.Android.FLAG_INSISTENT }
-'.flags-android-no-clear': { flags: Ti.Android.FLAG_NO_CLEAR }
-'.flags-android-ongoing-event': { flags: Ti.Android.FLAG_ONGOING_EVENT }
-'.flags-android-only-alert-once': { flags: Ti.Android.FLAG_ONLY_ALERT_ONCE }
-'.flags-android-show-lights': { flags: Ti.Android.FLAG_SHOW_LIGHTS }
-'.flags-android-wake-lock-partial': { flags: Ti.Android.WAKE_LOCK_PARTIAL }
-'.flags-android-wake-lock-full': { flags: Ti.Android.WAKE_LOCK_FULL }
-'.flags-android-wake-lock-screen-dim': { flags: Ti.Android.WAKE_LOCK_SCREEN_DIM }
-'.flags-android-wake-lock-screen-bright': { flags: Ti.Android.WAKE_LOCK_SCREEN_BRIGHT }
-'.flags-android-wake-lock-acquire-causes-wakeup': { flags: Ti.Android.WAKE_LOCK_ACQUIRE_CAUSES_WAKEUP }
-'.flags-android-wake-lock-on-after-release': { flags: Ti.Android.WAKE_LOCK_ON_AFTER_RELEASE }
+'.flags-activity-brought-to-front': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
+'.flags-activity-clear-top': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
+'.flags-activity-clear-when-task-reset': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET }
+'.flags-activity-exclude-from-recents': { flags: Ti.Android.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS }
+'.flags-activity-forward-result': { flags: Ti.Android.FLAG_ACTIVITY_FORWARD_RESULT }
+'.flags-activity-launched-from-history': { flags: Ti.Android.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY }
+'.flags-activity-multiple-task': { flags: Ti.Android.FLAG_ACTIVITY_MULTIPLE_TASK }
+'.flags-activity-new-task': { flags: Ti.Android.FLAG_ACTIVITY_NEW_TASK }
+'.flags-activity-no-animation': { flags: Ti.Android.FLAG_ACTIVITY_NO_ANIMATION }
+'.flags-activity-no-history': { flags: Ti.Android.FLAG_ACTIVITY_NO_HISTORY }
+'.flags-activity-no-user-action': { flags: Ti.Android.FLAG_ACTIVITY_NO_USER_ACTION }
+'.flags-activity-previous-is-top': { flags: Ti.Android.FLAG_ACTIVITY_PREVIOUS_IS_TOP }
+'.flags-activity-reorder-to-front': { flags: Ti.Android.FLAG_ACTIVITY_REORDER_TO_FRONT }
+'.flags-activity-reset-task-if-needed': { flags: Ti.Android.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED }
+'.flags-activity-single-top': { flags: Ti.Android.FLAG_ACTIVITY_SINGLE_TOP }
+'.flags-debug-log-resolution': { flags: Ti.Android.FLAG_DEBUG_LOG_RESOLUTION }
+'.flags-from-background': { flags: Ti.Android.FLAG_FROM_BACKGROUND }
+'.flags-grant-read-uri-permission': { flags: Ti.Android.FLAG_GRANT_READ_URI_PERMISSION }
+'.flags-grant-write-uri-permission': { flags: Ti.Android.FLAG_GRANT_WRITE_URI_PERMISSION }
+'.flags-receiver-registered-only': { flags: Ti.Android.FLAG_RECEIVER_REGISTERED_ONLY }
+'.flags-cancel-current': { flags: Ti.Android.FLAG_CANCEL_CURRENT }
+'.flags-immutable': { flags: Ti.Android.FLAG_IMMUTABLE }
+'.flags-mutable': { flags: Ti.Android.FLAG_MUTABLE }
+'.flags-no-create': { flags: Ti.Android.FLAG_NO_CREATE }
+'.flags-one-shot': { flags: Ti.Android.FLAG_ONE_SHOT }
+'.flags-update-current': { flags: Ti.Android.FLAG_UPDATE_CURRENT }
+'.flags-auto-cancel': { flags: Ti.Android.FLAG_AUTO_CANCEL }
+'.flags-insistent': { flags: Ti.Android.FLAG_INSISTENT }
+'.flags-no-clear': { flags: Ti.Android.FLAG_NO_CLEAR }
+'.flags-ongoing-event': { flags: Ti.Android.FLAG_ONGOING_EVENT }
+'.flags-only-alert-once': { flags: Ti.Android.FLAG_ONLY_ALERT_ONCE }
+'.flags-show-lights': { flags: Ti.Android.FLAG_SHOW_LIGHTS }
+'.flags-wake-lock-partial': { flags: Ti.Android.WAKE_LOCK_PARTIAL }
+'.flags-wake-lock-full': { flags: Ti.Android.WAKE_LOCK_FULL }
+'.flags-wake-lock-screen-dim': { flags: Ti.Android.WAKE_LOCK_SCREEN_DIM }
+'.flags-wake-lock-screen-bright': { flags: Ti.Android.WAKE_LOCK_SCREEN_BRIGHT }
+'.flags-wake-lock-acquire-causes-wakeup': { flags: Ti.Android.WAKE_LOCK_ACQUIRE_CAUSES_WAKEUP }
+'.flags-wake-lock-on-after-release': { flags: Ti.Android.WAKE_LOCK_ON_AFTER_RELEASE }
 
 // Property: actionViewExpanded
 // Description: True if this menu item's action view has been expanded.
@@ -7973,63 +7951,63 @@
 // Property: showAsAction
 // Description: A set of flags that controls how this item appears in the action bar.
 // Component(s): Ti.Android.MenuItem
-'.show-as-action-android-always': { showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS }
-'.show-as-action-android-collapse-view': { showAsAction: Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW }
-'.show-as-action-android-if-room': { showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM }
-'.show-as-action-android-never': { showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER }
-'.show-as-action-android-with-text': { showAsAction: Ti.Android.SHOW_AS_ACTION_WITH_TEXT }
+'.show-as-action-always': { showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS }
+'.show-as-action-collapse-view': { showAsAction: Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW }
+'.show-as-action-if-room': { showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM }
+'.show-as-action-never': { showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER }
+'.show-as-action-with-text': { showAsAction: Ti.Android.SHOW_AS_ACTION_WITH_TEXT }
 
 // Property: audioStreamType
 // Description: The audio stream type to use when playing the sound.
 // Component(s): Ti.Android.Notification
-'.audio-stream-type-android-alarm': { audioStreamType: Ti.Android.STREAM_ALARM }
-'.audio-stream-type-android': { audioStreamType: Ti.Android.STREAM_DEFAULT }
-'.audio-stream-type-android-music': { audioStreamType: Ti.Android.STREAM_MUSIC }
-'.audio-stream-type-android-notification': { audioStreamType: Ti.Android.STREAM_NOTIFICATION }
-'.audio-stream-type-android-ring': { audioStreamType: Ti.Android.STREAM_RING }
-'.audio-stream-type-android-system': { audioStreamType: Ti.Android.STREAM_SYSTEM }
-'.audio-stream-type-android-voice-call': { audioStreamType: Ti.Android.STREAM_VOICE_CALL }
+'.audio-stream-type-alarm': { audioStreamType: Ti.Android.STREAM_ALARM }
+'.audio-stream-type': { audioStreamType: Ti.Android.STREAM_DEFAULT }
+'.audio-stream-type-music': { audioStreamType: Ti.Android.STREAM_MUSIC }
+'.audio-stream-type-notification': { audioStreamType: Ti.Android.STREAM_NOTIFICATION }
+'.audio-stream-type-ring': { audioStreamType: Ti.Android.STREAM_RING }
+'.audio-stream-type-system': { audioStreamType: Ti.Android.STREAM_SYSTEM }
+'.audio-stream-type-voice-call': { audioStreamType: Ti.Android.STREAM_VOICE_CALL }
 
 // Property: category
 // Component(s): Ti.Android.Notification, UserNotificationDictionary, NotificationParams
-'.category-android-alternative': { category: Ti.Android.CATEGORY_ALTERNATIVE }
-'.category-android-browsable': { category: Ti.Android.CATEGORY_BROWSABLE }
-'.category-android': { category: Ti.Android.CATEGORY_DEFAULT }
-'.category-android-development-preference': { category: Ti.Android.CATEGORY_DEVELOPMENT_PREFERENCE }
-'.category-android-embed': { category: Ti.Android.CATEGORY_EMBED }
-'.category-android-framework-instrumentation-test': { category: Ti.Android.CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST }
-'.category-android-home': { category: Ti.Android.CATEGORY_HOME }
-'.category-android-info': { category: Ti.Android.CATEGORY_INFO }
-'.category-android-launcher': { category: Ti.Android.CATEGORY_LAUNCHER }
-'.category-android-monkey': { category: Ti.Android.CATEGORY_MONKEY }
-'.category-android-openable': { category: Ti.Android.CATEGORY_OPENABLE }
-'.category-android-preference': { category: Ti.Android.CATEGORY_PREFERENCE }
-'.category-android-sample-code': { category: Ti.Android.CATEGORY_SAMPLE_CODE }
-'.category-android-selected-alternative': { category: Ti.Android.CATEGORY_SELECTED_ALTERNATIVE }
-'.category-android-tab': { category: Ti.Android.CATEGORY_TAB }
-'.category-android-test': { category: Ti.Android.CATEGORY_TEST }
-'.category-android-unit-test': { category: Ti.Android.CATEGORY_UNIT_TEST }
-'.category-android-alarm': { category: Ti.Android.CATEGORY_ALARM }
-'.category-android-call': { category: Ti.Android.CATEGORY_CALL }
-'.category-android-email': { category: Ti.Android.CATEGORY_EMAIL }
-'.category-android-error': { category: Ti.Android.CATEGORY_ERROR }
-'.category-android-event': { category: Ti.Android.CATEGORY_EVENT }
-'.category-android-message': { category: Ti.Android.CATEGORY_MESSAGE }
-'.category-android-progress': { category: Ti.Android.CATEGORY_PROGRESS }
-'.category-android-promo': { category: Ti.Android.CATEGORY_PROMO }
-'.category-android-recommendation': { category: Ti.Android.CATEGORY_RECOMMENDATION }
-'.category-android-service': { category: Ti.Android.CATEGORY_SERVICE }
-'.category-android-social': { category: Ti.Android.CATEGORY_SOCIAL }
-'.category-android-status': { category: Ti.Android.CATEGORY_STATUS }
-'.category-android-transport': { category: Ti.Android.CATEGORY_TRANSPORT }
+'.category-alternative': { category: Ti.Android.CATEGORY_ALTERNATIVE }
+'.category-browsable': { category: Ti.Android.CATEGORY_BROWSABLE }
+'.category': { category: Ti.Android.CATEGORY_DEFAULT }
+'.category-development-preference': { category: Ti.Android.CATEGORY_DEVELOPMENT_PREFERENCE }
+'.category-embed': { category: Ti.Android.CATEGORY_EMBED }
+'.category-framework-instrumentation-test': { category: Ti.Android.CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST }
+'.category-home': { category: Ti.Android.CATEGORY_HOME }
+'.category-info': { category: Ti.Android.CATEGORY_INFO }
+'.category-launcher': { category: Ti.Android.CATEGORY_LAUNCHER }
+'.category-monkey': { category: Ti.Android.CATEGORY_MONKEY }
+'.category-openable': { category: Ti.Android.CATEGORY_OPENABLE }
+'.category-preference': { category: Ti.Android.CATEGORY_PREFERENCE }
+'.category-sample-code': { category: Ti.Android.CATEGORY_SAMPLE_CODE }
+'.category-selected-alternative': { category: Ti.Android.CATEGORY_SELECTED_ALTERNATIVE }
+'.category-tab': { category: Ti.Android.CATEGORY_TAB }
+'.category-test': { category: Ti.Android.CATEGORY_TEST }
+'.category-unit-test': { category: Ti.Android.CATEGORY_UNIT_TEST }
+'.category-alarm': { category: Ti.Android.CATEGORY_ALARM }
+'.category-call': { category: Ti.Android.CATEGORY_CALL }
+'.category-email': { category: Ti.Android.CATEGORY_EMAIL }
+'.category-error': { category: Ti.Android.CATEGORY_ERROR }
+'.category-event': { category: Ti.Android.CATEGORY_EVENT }
+'.category-message': { category: Ti.Android.CATEGORY_MESSAGE }
+'.category-progress': { category: Ti.Android.CATEGORY_PROGRESS }
+'.category-promo': { category: Ti.Android.CATEGORY_PROMO }
+'.category-recommendation': { category: Ti.Android.CATEGORY_RECOMMENDATION }
+'.category-service': { category: Ti.Android.CATEGORY_SERVICE }
+'.category-social': { category: Ti.Android.CATEGORY_SOCIAL }
+'.category-status': { category: Ti.Android.CATEGORY_STATUS }
+'.category-transport': { category: Ti.Android.CATEGORY_TRANSPORT }
 
 // Property: defaults
 // Description: Specifies which values should be taken from the defaults.
 // Component(s): Ti.Android.Notification
-'.defaults-android-all': { defaults: Ti.Android.DEFAULT_ALL }
-'.defaults-android-lights': { defaults: Ti.Android.DEFAULT_LIGHTS }
-'.defaults-android-sound': { defaults: Ti.Android.DEFAULT_SOUND }
-'.defaults-android-vibrate': { defaults: Ti.Android.DEFAULT_VIBRATE }
+'.defaults-all': { defaults: Ti.Android.DEFAULT_ALL }
+'.defaults-lights': { defaults: Ti.Android.DEFAULT_LIGHTS }
+'.defaults-sound': { defaults: Ti.Android.DEFAULT_SOUND }
+'.defaults-vibrate': { defaults: Ti.Android.DEFAULT_VIBRATE }
 
 // Property: groupSummary
 // Description: Specifies if this is a group summary notification.
@@ -8265,13 +8243,13 @@
 
 // Property: visibility
 // Component(s): Ti.Android.Notification, Ti.Calendar.Event
-'.visibility-android-private': { visibility: Ti.Android.VISIBILITY_PRIVATE }
-'.visibility-android-public': { visibility: Ti.Android.VISIBILITY_PUBLIC }
-'.visibility-android-secret': { visibility: Ti.Android.VISIBILITY_SECRET }
-'.visibility-confidential': { visibility: Ti.Calendar.VISIBILITY_CONFIDENTIAL }
-'.visibility-ti': { visibility: Ti.Calendar.VISIBILITY_DEFAULT }
-'.visibility-private': { visibility: Ti.Calendar.VISIBILITY_PRIVATE }
-'.visibility-public': { visibility: Ti.Calendar.VISIBILITY_PUBLIC }
+'.visibility-private': { visibility: Ti.Android.VISIBILITY_PRIVATE }
+'.visibility-public': { visibility: Ti.Android.VISIBILITY_PUBLIC }
+'.visibility-secret': { visibility: Ti.Android.VISIBILITY_SECRET }
+'.visibility-calendar-confidential': { visibility: Ti.Calendar.VISIBILITY_CONFIDENTIAL }
+'.visibility-calendar': { visibility: Ti.Calendar.VISIBILITY_DEFAULT }
+'.visibility-calendar-private': { visibility: Ti.Calendar.VISIBILITY_PRIVATE }
+'.visibility-calendar-public': { visibility: Ti.Calendar.VISIBILITY_PUBLIC }
 
 // Property: bypassDnd
 // Description: Whether or not notifications posted to this channel can interrupt the user.
@@ -8294,13 +8272,13 @@
 // Property: importance
 // Description: The audio stream type to use when playing the sound.
 // Component(s): Ti.Android.NotificationChannel
-'.importance-android': { importance: Ti.Android.IMPORTANCE_DEFAULT }
-'.importance-android-high': { importance: Ti.Android.IMPORTANCE_HIGH }
-'.importance-android-low': { importance: Ti.Android.IMPORTANCE_LOW }
-'.importance-android-max': { importance: Ti.Android.IMPORTANCE_MAX }
-'.importance-android-min': { importance: Ti.Android.IMPORTANCE_MIN }
-'.importance-android-none': { importance: Ti.Android.IMPORTANCE_NONE }
-'.importance-android-unspecified': { importance: Ti.Android.IMPORTANCE_UNSPECIFIED }
+'.importance': { importance: Ti.Android.IMPORTANCE_DEFAULT }
+'.importance-high': { importance: Ti.Android.IMPORTANCE_HIGH }
+'.importance-low': { importance: Ti.Android.IMPORTANCE_LOW }
+'.importance-max': { importance: Ti.Android.IMPORTANCE_MAX }
+'.importance-min': { importance: Ti.Android.IMPORTANCE_MIN }
+'.importance-none': { importance: Ti.Android.IMPORTANCE_NONE }
+'.importance-unspecified': { importance: Ti.Android.IMPORTANCE_UNSPECIFIED }
 
 // Property: lightColor
 // Description: The notification light color for notifications posted to this channel.
@@ -8532,9 +8510,9 @@
 // Property: lockscreenVisibility
 // Description: Whether or not notifications posted to this channel are shown on the lockscreen in full or redacted form.
 // Component(s): Ti.Android.NotificationChannel
-'.lockscreen-visibility-android-private': { lockscreenVisibility: Ti.Android.VISIBILITY_PRIVATE }
-'.lockscreen-visibility-android-public': { lockscreenVisibility: Ti.Android.VISIBILITY_PUBLIC }
-'.lockscreen-visibility-android-secret': { lockscreenVisibility: Ti.Android.VISIBILITY_SECRET }
+'.lockscreen-visibility-private': { lockscreenVisibility: Ti.Android.VISIBILITY_PRIVATE }
+'.lockscreen-visibility-public': { lockscreenVisibility: Ti.Android.VISIBILITY_PUBLIC }
+'.lockscreen-visibility-secret': { lockscreenVisibility: Ti.Android.VISIBILITY_SECRET }
 
 // Property: showBadge
 // Description: Whether notifications posted to this channel can appear as application icon badges in a Launcher.
@@ -8550,12 +8528,12 @@
 
 // Property: state
 // Component(s): Ti.Android.QuickSettingsService, Ti.Calendar.Alert, GeocodedAddress, Ti.Media.AudioPlayer, Ti.Network.Socket.TCP
-'.state-android-tile-unavailable': { state: Ti.Android.TILE_STATE_UNAVAILABLE }
-'.state-android-tile-inactive': { state: Ti.Android.TILE_STATE_INACTIVE }
-'.state-android-tile-active': { state: Ti.Android.TILE_STATE_ACTIVE }
-'.state-dismissed': { state: Ti.Calendar.STATE_DISMISSED }
-'.state-fired': { state: Ti.Calendar.STATE_FIRED }
-'.state-scheduled': { state: Ti.Calendar.STATE_SCHEDULED }
+'.state-tile-unavailable': { state: Ti.Android.TILE_STATE_UNAVAILABLE }
+'.state-tile-inactive': { state: Ti.Android.TILE_STATE_INACTIVE }
+'.state-tile-active': { state: Ti.Android.TILE_STATE_ACTIVE }
+'.state-calendar-dismissed': { state: Ti.Calendar.STATE_DISMISSED }
+'.state-calendar-fired': { state: Ti.Calendar.STATE_FIRED }
+'.state-calendar-scheduled': { state: Ti.Calendar.STATE_SCHEDULED }
 '.state-audio-buffering': { state: Ti.Media.AUDIO_STATE_BUFFERING }
 '.state-audio-initialized': { state: Ti.Media.AUDIO_STATE_INITIALIZED }
 '.state-audio-paused': { state: Ti.Media.AUDIO_STATE_PAUSED }
@@ -8573,11 +8551,11 @@
 
 // Property: options
 // Component(s): showParams, Ti.App.iOS.UserNotificationCategory, UserNotificationAttachment, ClipboardItemsType, Ti.UI.OptionDialog
-'.options-user-notification-category-option-none': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_NONE }
-'.options-user-notification-category-option-custom-dismiss-action': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_CUSTOM_DISMISS_ACTION }
-'.options-user-notification-category-option-allow-in-carplay': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_ALLOW_IN_CARPLAY }
-'.options-user-notification-category-option-hidden-previews-show-title': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_TITLE }
-'.options-user-notification-category-option-hidden-previews-show-subtitle': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_SUBTITLE }
+'.options-category-none': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_NONE }
+'.options-category-custom-dismiss-action': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_CUSTOM_DISMISS_ACTION }
+'.options-category-allow-in-carplay': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_ALLOW_IN_CARPLAY }
+'.options-category-hidden-previews-show-title': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_TITLE }
+'.options-category-hidden-previews-show-subtitle': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_SUBTITLE }
 
 // Property: animated
 // Component(s): showParams, showContactsParams, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, AnimatedOptions, AnimatedWithDurationOptions, ListViewAnimationProperties, hideParams, Ti.UI.ProgressBar, Ti.UI.Switch, TableViewAnimationProperties, openWindowParams, windowToolbarParam, closeWindowParams, DocumentViewerOptions, MenuPopupShowParams, ShowPopoverParams
@@ -8806,11 +8784,11 @@
 
 // Property: role
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Calendar.Attendee
-'.role-attendee-unknown': { role: Ti.Calendar.ATTENDEE_ROLE_UNKNOWN }
-'.role-attendee-optional': { role: Ti.Calendar.ATTENDEE_ROLE_OPTIONAL }
-'.role-attendee-required': { role: Ti.Calendar.ATTENDEE_ROLE_REQUIRED }
-'.role-attendee-chair': { role: Ti.Calendar.ATTENDEE_ROLE_CHAIR }
-'.role-attendee-non-participant': { role: Ti.Calendar.ATTENDEE_ROLE_NON_PARTICIPANT }
+'.role-calendar-attendee-unknown': { role: Ti.Calendar.ATTENDEE_ROLE_UNKNOWN }
+'.role-calendar-attendee-optional': { role: Ti.Calendar.ATTENDEE_ROLE_OPTIONAL }
+'.role-calendar-attendee-required': { role: Ti.Calendar.ATTENDEE_ROLE_REQUIRED }
+'.role-calendar-attendee-chair': { role: Ti.Calendar.ATTENDEE_ROLE_CHAIR }
+'.role-calendar-attendee-non-participant': { role: Ti.Calendar.ATTENDEE_ROLE_NON_PARTICIPANT }
 
 // Property: activityType
 // Component(s): Ti.App.iOS.UserActivity, Ti.Geolocation
@@ -8858,14 +8836,14 @@
 // Property: activationMode
 // Description: Selects how to activate the application.
 // Component(s): Ti.App.iOS.UserNotificationAction
-'.activation-mode-user-notification-background': { activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_BACKGROUND }
-'.activation-mode-user-notification-foreground': { activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_FOREGROUND }
+'.activation-mode-background': { activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_BACKGROUND }
+'.activation-mode-foreground': { activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_FOREGROUND }
 
 // Property: behavior
 // Description: Custom behavior the user notification supports.
 // Component(s): Ti.App.iOS.UserNotificationAction
-'.behavior-user-notification': { behavior: Ti.App.iOS.USER_NOTIFICATION_BEHAVIOR_DEFAULT }
-'.behavior-user-notification-textinput': { behavior: Ti.App.iOS.USER_NOTIFICATION_BEHAVIOR_TEXTINPUT }
+'.behavior': { behavior: Ti.App.iOS.USER_NOTIFICATION_BEHAVIOR_DEFAULT }
+'.behavior-textinput': { behavior: Ti.App.iOS.USER_NOTIFICATION_BEHAVIOR_TEXTINPUT }
 
 // Property: authenticationRequired
 // Description: Set to true if the action requires the device to be unlocked. On the Apple Watch actions never require authentication.
@@ -8881,31 +8859,31 @@
 // Property: authorizationStatus
 // Description: The current authorization status for using notifications.
 // Component(s): GetUserNotificationSettings
-'.authorization-status-user-notification-not-determined': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_NOT_DETERMINED }
-'.authorization-status-user-notification-authorized': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_AUTHORIZED }
-'.authorization-status-user-notification-denied': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_DENIED }
-'.authorization-status-user-notification-provisional': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_PROVISIONAL }
+'.authorization-status-not-determined': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_NOT_DETERMINED }
+'.authorization-status-authorized': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_AUTHORIZED }
+'.authorization-status-denied': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_DENIED }
+'.authorization-status-provisional': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_PROVISIONAL }
 
 // Property: soundSetting
 // Description: The current sound settings.
 // Component(s): GetUserNotificationSettings
-'.sound-setting-user-notification-not-supported': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.sound-setting-user-notification-enabled': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.sound-setting-user-notification-disabled': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.sound-setting-not-supported': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.sound-setting-enabled': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.sound-setting-disabled': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: badgeSetting
 // Description: The current badge settings.
 // Component(s): GetUserNotificationSettings
-'.badge-setting-user-notification-not-supported': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.badge-setting-user-notification-enabled': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.badge-setting-user-notification-disabled': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.badge-setting-not-supported': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.badge-setting-enabled': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.badge-setting-disabled': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: alertSetting
 // Description: The current alert settings.
 // Component(s): GetUserNotificationSettings
-'.alert-setting-user-notification-not-supported': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.alert-setting-user-notification-enabled': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.alert-setting-user-notification-disabled': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.alert-setting-not-supported': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.alert-setting-enabled': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.alert-setting-disabled': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: notificationCenterSetting
 // Description: The current notication-center settings.
@@ -8917,37 +8895,37 @@
 // Property: lockScreenSetting
 // Description: The current lock-screen settings.
 // Component(s): GetUserNotificationSettings
-'.lock-screen-setting-user-notification-not-supported': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.lock-screen-setting-user-notification-enabled': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.lock-screen-setting-user-notification-disabled': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.lock-screen-setting-not-supported': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.lock-screen-setting-enabled': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.lock-screen-setting-disabled': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: carPlaySetting
 // Description: The current CarPlay settings.
 // Component(s): GetUserNotificationSettings
-'.car-play-setting-user-notification-not-supported': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.car-play-setting-user-notification-enabled': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.car-play-setting-user-notification-disabled': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.car-play-setting-not-supported': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.car-play-setting-enabled': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.car-play-setting-disabled': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: criticalAlertSetting
 // Description: The authorization status to play sounds for critical alerts. Available in Titanium SDK 7.4.0 and later.
 // Component(s): GetUserNotificationSettings
-'.critical-alert-setting-user-notification-not-supported': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.critical-alert-setting-user-notification-enabled': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.critical-alert-setting-user-notification-disabled': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.critical-alert-setting-not-supported': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.critical-alert-setting-enabled': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.critical-alert-setting-disabled': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: providesAppNotificationSettings
 // Description: A Boolean value indicating the system displays a button for in-app notification settings. Available in Titanium SDK 7.4.0 and later.
 // Component(s): GetUserNotificationSettings
-'.provides-app-notification-settings-user-setting-not-supported': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.provides-app-notification-settings-user-setting-enabled': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.provides-app-notification-settings-user-setting-disabled': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.provides-app-notification-settings-not-supported': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.provides-app-notification-settings-enabled': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.provides-app-notification-settings-disabled': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: alertStyle
 // Description: The current alert style used to display notifications.
 // Component(s): GetUserNotificationSettings
-'.alert-style-user-notification-none': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_NONE }
-'.alert-style-user-notification': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_ALERT }
-'.alert-style-user-notification-banner': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_BANNER }
+'.alert-style-none': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_NONE }
+'.alert-style': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_ALERT }
+'.alert-style-banner': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_BANNER }
 
 // Property: userInterfaceStyle
 // Component(s): Ti.App.iOS, Ti.UI
@@ -9057,27 +9035,27 @@
 
 // Property: status
 // Component(s): Ti.Calendar.Attendee, Ti.Calendar.Event, Ti.Network.HTTPClient
-'.status-attendee-unknown': { status: Ti.Calendar.ATTENDEE_STATUS_UNKNOWN }
-'.status-attendee-pending': { status: Ti.Calendar.ATTENDEE_STATUS_PENDING }
-'.status-attendee-accepted': { status: Ti.Calendar.ATTENDEE_STATUS_ACCEPTED }
-'.status-attendee-declined': { status: Ti.Calendar.ATTENDEE_STATUS_DECLINED }
-'.status-attendee-tentative': { status: Ti.Calendar.ATTENDEE_STATUS_TENTATIVE }
-'.status-attendee-invited': { status: Ti.Calendar.ATTENDEE_STATUS_INVITED }
-'.status-attendee-none': { status: Ti.Calendar.ATTENDEE_STATUS_NONE }
-'.status-attendee-delegated': { status: Ti.Calendar.ATTENDEE_STATUS_DELEGATED }
-'.status-attendee-in-process': { status: Ti.Calendar.ATTENDEE_STATUS_IN_PROCESS }
-'.status-none': { status: Ti.Calendar.STATUS_NONE }
-'.status-canceled': { status: Ti.Calendar.STATUS_CANCELED }
-'.status-confirmed': { status: Ti.Calendar.STATUS_CONFIRMED }
-'.status-tentative': { status: Ti.Calendar.STATUS_TENTATIVE }
+'.status-calendar-attendee-unknown': { status: Ti.Calendar.ATTENDEE_STATUS_UNKNOWN }
+'.status-calendar-attendee-pending': { status: Ti.Calendar.ATTENDEE_STATUS_PENDING }
+'.status-calendar-attendee-accepted': { status: Ti.Calendar.ATTENDEE_STATUS_ACCEPTED }
+'.status-calendar-attendee-declined': { status: Ti.Calendar.ATTENDEE_STATUS_DECLINED }
+'.status-calendar-attendee-tentative': { status: Ti.Calendar.ATTENDEE_STATUS_TENTATIVE }
+'.status-calendar-attendee-invited': { status: Ti.Calendar.ATTENDEE_STATUS_INVITED }
+'.status-calendar-attendee-none': { status: Ti.Calendar.ATTENDEE_STATUS_NONE }
+'.status-calendar-attendee-delegated': { status: Ti.Calendar.ATTENDEE_STATUS_DELEGATED }
+'.status-calendar-attendee-in-process': { status: Ti.Calendar.ATTENDEE_STATUS_IN_PROCESS }
+'.status-calendar-none': { status: Ti.Calendar.STATUS_NONE }
+'.status-calendar-canceled': { status: Ti.Calendar.STATUS_CANCELED }
+'.status-calendar-confirmed': { status: Ti.Calendar.STATUS_CONFIRMED }
+'.status-calendar-tentative': { status: Ti.Calendar.STATUS_TENTATIVE }
 
 // Property: eventsAuthorization
 // Description: Returns an authorization constant indicating if the application has access to the events in the EventKit. <strong>Removed in 8.1.0. Use the <a href="Titanium.Calendar.calendarAuthorization">Titanium.Calendar.calendarAuthorization</a> property instead.</strong>
 // Component(s): Ti.Calendar
-'.events-authorization-authorized': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_AUTHORIZED }
-'.events-authorization-denied': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_DENIED }
-'.events-authorization-restricted': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_RESTRICTED }
-'.events-authorization-unknown': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_UNKNOWN }
+'.events-authorization-calendar-authorized': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_AUTHORIZED }
+'.events-authorization-calendar-denied': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_DENIED }
+'.events-authorization-calendar-restricted': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_RESTRICTED }
+'.events-authorization-calendar-unknown': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_UNKNOWN }
 
 // Property: calendarAuthorization
 // Description: Returns an authorization constant indicating if the application has access to the events in the EventKit.
@@ -9100,12 +9078,12 @@
 // Property: sourceType
 // Description: Displays the source type.
 // Component(s): Ti.Calendar.Calendar
-'.source-type-local': { sourceType: Ti.Calendar.SOURCE_TYPE_LOCAL }
-'.source-type-exchange': { sourceType: Ti.Calendar.SOURCE_TYPE_EXCHANGE }
-'.source-type-caldav': { sourceType: Ti.Calendar.SOURCE_TYPE_CALDAV }
-'.source-type-mobileme': { sourceType: Ti.Calendar.SOURCE_TYPE_MOBILEME }
-'.source-type-subscribed': { sourceType: Ti.Calendar.SOURCE_TYPE_SUBSCRIBED }
-'.source-type-birthdays': { sourceType: Ti.Calendar.SOURCE_TYPE_BIRTHDAYS }
+'.source-type-calendar-local': { sourceType: Ti.Calendar.SOURCE_TYPE_LOCAL }
+'.source-type-calendar-exchange': { sourceType: Ti.Calendar.SOURCE_TYPE_EXCHANGE }
+'.source-type-calendar-caldav': { sourceType: Ti.Calendar.SOURCE_TYPE_CALDAV }
+'.source-type-calendar-mobileme': { sourceType: Ti.Calendar.SOURCE_TYPE_MOBILEME }
+'.source-type-calendar-subscribed': { sourceType: Ti.Calendar.SOURCE_TYPE_SUBSCRIBED }
+'.source-type-calendar-birthdays': { sourceType: Ti.Calendar.SOURCE_TYPE_BIRTHDAYS }
 
 // Property: allDay
 // Description: Indicates whether this event is all day.
@@ -9127,11 +9105,11 @@
 // Property: availability
 // Description: Availability of this event.
 // Component(s): Ti.Calendar.Event
-'.availability-notsupported': { availability: Ti.Calendar.AVAILABILITY_NOTSUPPORTED }
-'.availability-busy': { availability: Ti.Calendar.AVAILABILITY_BUSY }
-'.availability-free': { availability: Ti.Calendar.AVAILABILITY_FREE }
-'.availability-tentative': { availability: Ti.Calendar.AVAILABILITY_TENTATIVE }
-'.availability-unavailable': { availability: Ti.Calendar.AVAILABILITY_UNAVAILABLE }
+'.availability-calendar-notsupported': { availability: Ti.Calendar.AVAILABILITY_NOTSUPPORTED }
+'.availability-calendar-busy': { availability: Ti.Calendar.AVAILABILITY_BUSY }
+'.availability-calendar-free': { availability: Ti.Calendar.AVAILABILITY_FREE }
+'.availability-calendar-tentative': { availability: Ti.Calendar.AVAILABILITY_TENTATIVE }
+'.availability-calendar-unavailable': { availability: Ti.Calendar.AVAILABILITY_UNAVAILABLE }
 
 // Property: isDetached
 // Description: Boolean value that indicates whether an event is a detached instance of a repeating event.
@@ -9141,18 +9119,18 @@
 
 // Property: frequency
 // Component(s): Ti.Calendar.RecurrenceRule, Ti.Geolocation, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.ViewAttachmentBehavior
-'.frequency-recurrence-daily': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_DAILY }
-'.frequency-recurrence-weekly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_WEEKLY }
-'.frequency-recurrence-monthly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_MONTHLY }
-'.frequency-recurrence-yearly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_YEARLY }
+'.frequency-calendar-recurrence-daily': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_DAILY }
+'.frequency-calendar-recurrence-weekly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_WEEKLY }
+'.frequency-calendar-recurrence-monthly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_MONTHLY }
+'.frequency-calendar-recurrence-yearly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_YEARLY }
 
 // Property: method
 // Description: Method by which this reminder will be delivered.
 // Component(s): Ti.Calendar.Reminder
-'.method-alert': { method: Ti.Calendar.METHOD_ALERT }
-'.method-ti': { method: Ti.Calendar.METHOD_DEFAULT }
-'.method-email': { method: Ti.Calendar.METHOD_EMAIL }
-'.method-sms': { method: Ti.Calendar.METHOD_SMS }
+'.method-calendar-alert': { method: Ti.Calendar.METHOD_ALERT }
+'.method-calendar': { method: Ti.Calendar.METHOD_DEFAULT }
+'.method-calendar-email': { method: Ti.Calendar.METHOD_EMAIL }
+'.method-calendar-sms': { method: Ti.Calendar.METHOD_SMS }
 
 // Property: position
 // Component(s): EncodeNumberDict, DecodeNumberDict, DecodeStringDict, ListViewAnimationProperties, TableViewAnimationProperties, ViewPositionOptions
@@ -9342,25 +9320,6 @@
 '.accuracy-authorization-full': { accuracyAuthorization: Ti.Geolocation.ACCURACY_AUTHORIZATION_FULL }
 '.accuracy-authorization-reduced': { accuracyAuthorization: Ti.Geolocation.ACCURACY_AUTHORIZATION_REDUCED }
 
-// Property: portrait
-// Description: Indicates if the device is currently held in portrait form.
-// Component(s): Ti.Gesture
-'.portrait': { portrait: true }
-'.portrait-false': { portrait: false }
-
-// Property: landscape
-// Description: Indicates if the device is currently held in landscape form.
-// Component(s): Ti.Gesture
-'.landscape': { landscape: true }
-'.landscape-false': { landscape: false }
-
-// Property: orientation
-// Component(s): Ti.Gesture, Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.orientation-landscape-left': { orientation: Ti.UI.LANDSCAPE_LEFT }
-'.orientation-landscape-right': { orientation: Ti.UI.LANDSCAPE_RIGHT }
-'.orientation-portrait': { orientation: Ti.UI.PORTRAIT }
-'.orientation-upside-portrait': { orientation: Ti.UI.UPSIDE_PORTRAIT }
-
 // Property: allowBackground
 // Component(s): Ti.Media.AudioPlayer, Ti.Media.Sound
 '.allow-background': { allowBackground: true }
@@ -9382,38 +9341,11 @@
 '.audio-type-ring': { audioType: Ti.Media.Sound.AUDIO_TYPE_RING }
 '.audio-type-voice': { audioType: Ti.Media.Sound.AUDIO_TYPE_VOICE }
 
-// Property: muted
-// Component(s): Ti.Media.AudioPlayer, Ti.UI.iOS.LivePhotoView
-'.muted': { muted: true }
-'.muted-false': { muted: false }
-
-// Property: externalPlaybackActive
-// Description: Indicates whether the player is currently playing video in &quot;external playback&quot; mode.
-// Component(s): Ti.Media.AudioPlayer
-'.external-playback-active': { externalPlaybackActive: true }
-'.external-playback-active-false': { externalPlaybackActive: false }
-
 // Property: allowsExternalPlayback
 // Description: Indicates whether the player allows switching to &quot;external playback&quot; mode.
 // Component(s): Ti.Media.AudioPlayer
 '.allows-external-playback': { allowsExternalPlayback: true }
 '.allows-external-playback-false': { allowsExternalPlayback: false }
-
-// Property: paused
-// Component(s): Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Sound, Ti.UI.ImageView
-'.paused': { paused: true }
-'.paused-false': { paused: false }
-
-// Property: playing
-// Component(s): Ti.Media.AudioPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer
-'.playing': { playing: true }
-'.playing-false': { playing: false }
-
-// Property: waiting
-// Description: Boolean indicating if the playback is waiting for audio data from the network.
-// Component(s): Ti.Media.AudioPlayer
-'.waiting': { waiting: true }
-'.waiting-false': { waiting: false }
 
 // Property: compression
 // Description: Audio compression to be used for the recording.
@@ -9903,31 +9835,17 @@
 // Property: physicalSizeCategory
 // Description: The physical size category of the Android device or emulator.
 // Component(s): Ti.Platform.Android
-'.physical-size-category-platform-android-large': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_LARGE }
-'.physical-size-category-platform-android-normal': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_NORMAL }
-'.physical-size-category-platform-android-small': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_SMALL }
-'.physical-size-category-platform-android-undefined': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_UNDEFINED }
-'.physical-size-category-platform-android-xlarge': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_XLARGE }
+'.physical-size-category-large': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_LARGE }
+'.physical-size-category-normal': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_NORMAL }
+'.physical-size-category-small': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_SMALL }
+'.physical-size-category-undefined': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_UNDEFINED }
+'.physical-size-category-xlarge': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_XLARGE }
 
 // Property: batteryMonitoring
 // Description: Determines whether battery monitoring is enabled.
 // Component(s): Ti.Platform
 '.battery-monitoring': { batteryMonitoring: true }
 '.battery-monitoring-false': { batteryMonitoring: false }
-
-// Property: batteryState
-// Description: Indicates the state of the battery. Accessible only when <code>batteryMonitoring</code> is enabled.
-// Component(s): Ti.Platform
-'.battery-state-platform-charging': { batteryState: Ti.Platform.BATTERY_STATE_CHARGING }
-'.battery-state-platform-full': { batteryState: Ti.Platform.BATTERY_STATE_FULL }
-'.battery-state-platform-unknown': { batteryState: Ti.Platform.BATTERY_STATE_UNKNOWN }
-'.battery-state-platform-unplugged': { batteryState: Ti.Platform.BATTERY_STATE_UNPLUGGED }
-
-// Property: isAdvertisingTrackingEnabled
-// Description: A Boolean value that indicates whether the user has limited ad tracking.
-// Component(s): Ti.Platform
-'.is-advertising-tracking-enabled': { isAdvertisingTrackingEnabled: true }
-'.is-advertising-tracking-enabled-false': { isAdvertisingTrackingEnabled: false }
 
 // Property: UIApplicationOpenURLOptionsOpenInPlaceKey
 // Description: When the value of this property is <code>false</code>, you must copy the document to maintain access to it. If the flag is not set, you also must copy the document before you can use it.
@@ -12975,12 +12893,6 @@
 '.text-style-title3': { textStyle: Ti.UI.TEXT_STYLE_TITLE3 }
 '.text-style-large-title': { textStyle: Ti.UI.TEXT_STYLE_LARGE_TITLE }
 
-// Property: animating
-// Description: Indicates whether animation is running.
-// Component(s): Ti.UI.ImageView
-'.animating': { animating: true }
-'.animating-false': { animating: false }
-
 // Property: enableZoomControls
 // Component(s): Ti.UI.ImageView, Ti.UI.WebView
 '.enable-zoom-controls': { enableZoomControls: true }
@@ -13698,12 +13610,6 @@
 '.max-lines-10': { maxLines: 10 }
 '.max-lines-11': { maxLines: 11 }
 '.max-lines-12': { maxLines: 12 }
-
-// Property: wordWrap
-// Description: Enable or disable word wrapping in the label. <strong>Deprecated since 8.0.0. If you want to disable wrapping, then set <a href="Titanium.UI.Label.maxLines">Titanium.UI.Label.maxLines</a> to 1 instead.</strong>
-// Component(s): Ti.UI.Label
-'.word-wrap': { wordWrap: true }
-'.word-wrap-false': { wordWrap: false }
 
 // Property: accessoryType
 // Description: Sets an accessory on the right side of an item.
@@ -14843,8 +14749,8 @@
 // Property: separatorStyle
 // Description: Separator style constant.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
-'.separator-table-view-style-none': { separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE }
-'.separator-table-view-style-single-line': { separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_SINGLE_LINE }
+'.separator-style-table-view-none': { separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE }
+'.separator-style-table-view-single-line': { separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_SINGLE_LINE }
 
 // Property: dimBackgroundForSearch
 // Description: A Boolean indicating whether the underlying content is dimmed during a search.
@@ -15315,8 +15221,8 @@
 // Property: resultsSeparatorStyle
 // Description: The separator style of the search results (iOS-only).
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
-'.results-separator-table-view-style-none': { resultsSeparatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE }
-'.results-separator-table-view-style-single-line': { resultsSeparatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_SINGLE_LINE }
+'.results-separator-style-table-view-none': { resultsSeparatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE }
+'.results-separator-style-table-view-single-line': { resultsSeparatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_SINGLE_LINE }
 
 // Property: animationStyle
 // Component(s): ListViewAnimationProperties, TableViewAnimationProperties, closeWindowParams
@@ -15721,16 +15627,16 @@
 // Property: horizontalMargin
 // Description: Horizontal placement of the notification, <em>as a fraction of the screen width</em>.
 // Component(s): Ti.UI.Notification
-'.horizontal-left': { horizontalMargin: -0.5 }
-'.horizontal-right': { horizontalMargin: 0.5 }
-'.horizontal-center': { horizontalMargin: 0 }
+'.horizontal-margin-left': { horizontalMargin: -0.5 }
+'.horizontal-margin-right': { horizontalMargin: 0.5 }
+'.horizontal-margin-center': { horizontalMargin: 0 }
 
 // Property: verticalMargin
 // Description: Vertical placement of the notifcation, <em>as a fraction of the screen height</em>.
 // Component(s): Ti.UI.Notification
-'.vertical-top': { verticalMargin: -0.5 }
-'.vertical-bottom': { verticalMargin: 0.5 }
-'.vertical-middle': { verticalMargin: 0 }
+'.vertical-margin-top': { verticalMargin: -0.5 }
+'.vertical-margin-bottom': { verticalMargin: 0.5 }
+'.vertical-margin-middle': { verticalMargin: 0 }
 
 // Property: opaquebackground
 // Description: Boolean value indicating if the option dialog should have an opaque background.
@@ -15740,12 +15646,12 @@
 
 // Property: borderStyle
 // Component(s): Ti.UI.Picker, Ti.UI.TextArea, Ti.UI.TextField
-'.border-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
-'.border-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
-'.border-none': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE }
-'.border-rounded': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED }
-'.border-underlined': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_UNDERLINED }
-'.border-filled': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
+'.border-style-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
+'.border-style-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
+'.border-style-none': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_NONE }
+'.border-style-rounded': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED }
+'.border-style-underlined': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_UNDERLINED }
+'.border-style-filled': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_FILLED }
 
 // Property: countDownDuration
 // Description: Duration in milliseconds used for a Countdown Timer picker.
@@ -20598,10 +20504,10 @@
 // Property: clearButtonMode
 // Description: Determines when the clear button is displayed.
 // Component(s): Ti.UI.TextField
-'.clear-button-mode-input-always': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
-'.clear-button-mode-input-never': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
-'.clear-button-mode-input-onblur': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
-'.clear-button-mode-input-onfocus': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
+'.clear-button-mode-always': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
+'.clear-button-mode-never': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
+'.clear-button-mode-onblur': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
+'.clear-button-mode-onfocus': { clearButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
 
 // Property: inputType
 // Description: Input type to accept in the text field. Also influences the Keyboard type to display.
@@ -20612,10 +20518,10 @@
 // Property: leftButtonMode
 // Description: Determines when to display the left button view.
 // Component(s): Ti.UI.TextField
-'.left-button-mode-input-always': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
-'.left-button-mode-input-never': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
-'.left-button-mode-input-onblur': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
-'.left-button-mode-input-onfocus': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
+'.left-button-mode-always': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
+'.left-button-mode-never': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
+'.left-button-mode-onblur': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
+'.left-button-mode-onfocus': { leftButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
 
 // Property: leftButtonPadding
 // Description: Padding between the left button and the edge of the field.
@@ -20665,10 +20571,10 @@
 // Property: rightButtonMode
 // Description: Determines when to display the right button view.
 // Component(s): Ti.UI.TextField
-'.right-button-mode-input-always': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
-'.right-button-mode-input-never': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
-'.right-button-mode-input-onblur': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
-'.right-button-mode-input-onfocus': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
+'.right-button-mode-always': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_ALWAYS }
+'.right-button-mode-never': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_NEVER }
+'.right-button-mode-onblur': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_ONBLUR }
+'.right-button-mode-onfocus': { rightButtonMode: Ti.UI.INPUT_BUTTONMODE_ONFOCUS }
 
 // Property: rightButtonPadding
 // Description: Padding between the right button and the edge of the field.
