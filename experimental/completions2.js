@@ -203,7 +203,6 @@ function processCompoundClasses({ ..._base }) {
 	compoundClasses += helpers.navigationMode();
 	compoundClasses += helpers.orientationModes();
 	compoundClasses += helpers.placement();
-	compoundClasses += helpers.preventDefaultImage();
 	compoundClasses += helpers.progressBarStyle();
 	compoundClasses += helpers.scrollIndicators();
 	compoundClasses += helpers.scrollsToTop();
