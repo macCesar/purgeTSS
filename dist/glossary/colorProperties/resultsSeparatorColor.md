@@ -1,6 +1,7 @@
 ```scss
-// Property(ies): resultsSeparatorColor
-// Component(s): Ti.UI.ListView
+// Property: resultsSeparatorColor
+// Description: Separator line color between rows inside search results, as a color name or hex triplet (iOS-only).
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.results-separator-transparent': { resultsSeparatorColor: 'transparent' }
 '.results-separator-black': { resultsSeparatorColor: '#000000' }
 '.results-separator-white': { resultsSeparatorColor: '#ffffff' }

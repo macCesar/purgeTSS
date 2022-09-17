@@ -1,39 +1,40 @@
 ```scss
-// Property(ies): backgroundPaddingBottom - iOS Only
+// Property: backgroundPaddingBottom
+// Description: Number of pixels to extend the background image past the label on the bottom.
 // Component(s): Ti.UI.Label
-'.bg-padding-b-0[platform=ios]': { backgroundPaddingBottom: 0 }
-'.bg-padding-b-1[platform=ios]': { backgroundPaddingBottom: 4 }
-'.bg-padding-b-2[platform=ios]': { backgroundPaddingBottom: 8 }
-'.bg-padding-b-3[platform=ios]': { backgroundPaddingBottom: 12 }
-'.bg-padding-b-4[platform=ios]': { backgroundPaddingBottom: 16 }
-'.bg-padding-b-5[platform=ios]': { backgroundPaddingBottom: 20 }
-'.bg-padding-b-6[platform=ios]': { backgroundPaddingBottom: 24 }
-'.bg-padding-b-7[platform=ios]': { backgroundPaddingBottom: 28 }
-'.bg-padding-b-8[platform=ios]': { backgroundPaddingBottom: 32 }
-'.bg-padding-b-9[platform=ios]': { backgroundPaddingBottom: 36 }
-'.bg-padding-b-10[platform=ios]': { backgroundPaddingBottom: 40 }
-'.bg-padding-b-11[platform=ios]': { backgroundPaddingBottom: 44 }
-'.bg-padding-b-12[platform=ios]': { backgroundPaddingBottom: 48 }
-'.bg-padding-b-14[platform=ios]': { backgroundPaddingBottom: 56 }
-'.bg-padding-b-16[platform=ios]': { backgroundPaddingBottom: 64 }
-'.bg-padding-b-20[platform=ios]': { backgroundPaddingBottom: 80 }
-'.bg-padding-b-24[platform=ios]': { backgroundPaddingBottom: 96 }
-'.bg-padding-b-28[platform=ios]': { backgroundPaddingBottom: 112 }
-'.bg-padding-b-32[platform=ios]': { backgroundPaddingBottom: 128 }
-'.bg-padding-b-36[platform=ios]': { backgroundPaddingBottom: 144 }
-'.bg-padding-b-40[platform=ios]': { backgroundPaddingBottom: 160 }
-'.bg-padding-b-44[platform=ios]': { backgroundPaddingBottom: 176 }
-'.bg-padding-b-48[platform=ios]': { backgroundPaddingBottom: 192 }
-'.bg-padding-b-52[platform=ios]': { backgroundPaddingBottom: 208 }
-'.bg-padding-b-56[platform=ios]': { backgroundPaddingBottom: 224 }
-'.bg-padding-b-60[platform=ios]': { backgroundPaddingBottom: 240 }
-'.bg-padding-b-64[platform=ios]': { backgroundPaddingBottom: 256 }
-'.bg-padding-b-72[platform=ios]': { backgroundPaddingBottom: 288 }
-'.bg-padding-b-80[platform=ios]': { backgroundPaddingBottom: 320 }
-'.bg-padding-b-96[platform=ios]': { backgroundPaddingBottom: 384 }
-'.bg-padding-b-px[platform=ios]': { backgroundPaddingBottom: '1px' }
-'.bg-padding-b-0.5[platform=ios]': { backgroundPaddingBottom: 2 }
-'.bg-padding-b-1.5[platform=ios]': { backgroundPaddingBottom: 6 }
-'.bg-padding-b-2.5[platform=ios]': { backgroundPaddingBottom: 10 }
-'.bg-padding-b-3.5[platform=ios]': { backgroundPaddingBottom: 14 }
+'.bg-padding-bottom-0': { backgroundPaddingBottom: 0 }
+'.bg-padding-bottom-1': { backgroundPaddingBottom: 4 }
+'.bg-padding-bottom-2': { backgroundPaddingBottom: 8 }
+'.bg-padding-bottom-3': { backgroundPaddingBottom: 12 }
+'.bg-padding-bottom-4': { backgroundPaddingBottom: 16 }
+'.bg-padding-bottom-5': { backgroundPaddingBottom: 20 }
+'.bg-padding-bottom-6': { backgroundPaddingBottom: 24 }
+'.bg-padding-bottom-7': { backgroundPaddingBottom: 28 }
+'.bg-padding-bottom-8': { backgroundPaddingBottom: 32 }
+'.bg-padding-bottom-9': { backgroundPaddingBottom: 36 }
+'.bg-padding-bottom-10': { backgroundPaddingBottom: 40 }
+'.bg-padding-bottom-11': { backgroundPaddingBottom: 44 }
+'.bg-padding-bottom-12': { backgroundPaddingBottom: 48 }
+'.bg-padding-bottom-14': { backgroundPaddingBottom: 56 }
+'.bg-padding-bottom-16': { backgroundPaddingBottom: 64 }
+'.bg-padding-bottom-20': { backgroundPaddingBottom: 80 }
+'.bg-padding-bottom-24': { backgroundPaddingBottom: 96 }
+'.bg-padding-bottom-28': { backgroundPaddingBottom: 112 }
+'.bg-padding-bottom-32': { backgroundPaddingBottom: 128 }
+'.bg-padding-bottom-36': { backgroundPaddingBottom: 144 }
+'.bg-padding-bottom-40': { backgroundPaddingBottom: 160 }
+'.bg-padding-bottom-44': { backgroundPaddingBottom: 176 }
+'.bg-padding-bottom-48': { backgroundPaddingBottom: 192 }
+'.bg-padding-bottom-52': { backgroundPaddingBottom: 208 }
+'.bg-padding-bottom-56': { backgroundPaddingBottom: 224 }
+'.bg-padding-bottom-60': { backgroundPaddingBottom: 240 }
+'.bg-padding-bottom-64': { backgroundPaddingBottom: 256 }
+'.bg-padding-bottom-72': { backgroundPaddingBottom: 288 }
+'.bg-padding-bottom-80': { backgroundPaddingBottom: 320 }
+'.bg-padding-bottom-96': { backgroundPaddingBottom: 384 }
+'.bg-padding-bottom-px': { backgroundPaddingBottom: '1px' }
+'.bg-padding-bottom-0.5': { backgroundPaddingBottom: 2 }
+'.bg-padding-bottom-1.5': { backgroundPaddingBottom: 6 }
+'.bg-padding-bottom-2.5': { backgroundPaddingBottom: 10 }
+'.bg-padding-bottom-3.5': { backgroundPaddingBottom: 14 }
 ```

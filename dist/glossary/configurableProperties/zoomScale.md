@@ -1,18 +1,19 @@
 ```scss
-// Property(ies): zoomScale
+// Property: zoomScale
+// Description: Scaling factor of the scroll view's content.
 // Component(s): Ti.UI.ScrollView
-'.zoom-scale-0[platform=ios]': { zoomScale: '0' }
-'.zoom-scale-1[platform=ios]': { zoomScale: '.01' }
-'.zoom-scale-5[platform=ios]': { zoomScale: '.05' }
-'.zoom-scale-10[platform=ios]': { zoomScale: '.10' }
-'.zoom-scale-25[platform=ios]': { zoomScale: '.25' }
-'.zoom-scale-50[platform=ios]': { zoomScale: '.5' }
-'.zoom-scale-75[platform=ios]': { zoomScale: '.75' }
-'.zoom-scale-90[platform=ios]': { zoomScale: '.9' }
-'.zoom-scale-95[platform=ios]': { zoomScale: '.95' }
-'.zoom-scale-100[platform=ios]': { zoomScale: '1' }
-'.zoom-scale-105[platform=ios]': { zoomScale: '1.05' }
-'.zoom-scale-110[platform=ios]': { zoomScale: '1.1' }
-'.zoom-scale-125[platform=ios]': { zoomScale: '1.25' }
-'.zoom-scale-150[platform=ios]': { zoomScale: '1.5' }
+'.zoom-scale-0': { zoomScale: 0 }
+'.zoom-scale-1': { zoomScale: 0.01 }
+'.zoom-scale-5': { zoomScale: 0.05 }
+'.zoom-scale-10': { zoomScale: 0.10 }
+'.zoom-scale-25': { zoomScale: 0.25 }
+'.zoom-scale-50': { zoomScale: 0.5 }
+'.zoom-scale-75': { zoomScale: 0.75 }
+'.zoom-scale-90': { zoomScale: 0.9 }
+'.zoom-scale-95': { zoomScale: 0.95 }
+'.zoom-scale-100': { zoomScale: 1 }
+'.zoom-scale-105': { zoomScale: 1.05 }
+'.zoom-scale-110': { zoomScale: 1.1 }
+'.zoom-scale-125': { zoomScale: 1.25 }
+'.zoom-scale-150': { zoomScale: 1.5 }
 ```

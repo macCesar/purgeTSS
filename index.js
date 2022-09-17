@@ -1553,14 +1553,14 @@ function buildTailwindLegacy() {
 	let distributionFolder = !fs.existsSync(projectsConfigJS);
 
 	if (distributionFolder) {
-		var destinationFolder = path.resolve(__dirname, './dist/glossary/');
+		var destinationFolder = path.resolve(__dirname, './dist/glossary-legacy/');
 		makeSureFolderExists(destinationFolder);
 	}
 
 	let menuPosition = 1;
 	_.each(allValuesCombined, (value, key) => {
 		if (key.includes('Properties') && distributionFolder) {
-			destinationFolder = path.resolve(__dirname, './dist/glossary/' + key);
+			destinationFolder = path.resolve(__dirname, './dist/glossary-legacy/' + key);
 			makeSureFolderExists(destinationFolder);
 			fs.writeFileSync(destinationFolder + '/_category_.json', `{ "label": "${key}", "position": ${menuPosition} }`);
 			menuPosition++;

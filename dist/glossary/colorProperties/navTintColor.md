@@ -1,6 +1,6 @@
 ```scss
-// Property(ies): navTintColor - iOS Only
-// Component(s): Ti.UI.TabGroup, Ti.UI.Window
+// Property: navTintColor
+// Component(s): Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 '.nav-tint-transparent': { navTintColor: 'transparent' }
 '.nav-tint-black': { navTintColor: '#000000' }
 '.nav-tint-white': { navTintColor: '#ffffff' }

@@ -1,6 +1,6 @@
 ```scss
-// Property(ies): contentHeight
-// Component(s): Ti.UI.ScrollView
+// Property: contentHeight
+// Component(s): Ti.UI.ScrollView, Ti.UI.iOS.PreviewContext
 '.content-h-0': { contentHeight: 0 }
 '.content-h-1': { contentHeight: 4 }
 '.content-h-2': { contentHeight: 8 }
@@ -31,38 +31,9 @@
 '.content-h-72': { contentHeight: 288 }
 '.content-h-80': { contentHeight: 320 }
 '.content-h-96': { contentHeight: 384 }
-'.content-h-auto': { contentHeight: Ti.UI.SIZE }
 '.content-h-px': { contentHeight: '1px' }
 '.content-h-0.5': { contentHeight: 2 }
 '.content-h-1.5': { contentHeight: 6 }
 '.content-h-2.5': { contentHeight: 10 }
 '.content-h-3.5': { contentHeight: 14 }
-'.content-h-1/2': { contentHeight: '50%' }
-'.content-h-1/3': { contentHeight: '33.333334%' }
-'.content-h-2/3': { contentHeight: '66.666667%' }
-'.content-h-1/4': { contentHeight: '25%' }
-'.content-h-2/4': { contentHeight: '50%' }
-'.content-h-3/4': { contentHeight: '75%' }
-'.content-h-1/5': { contentHeight: '20%' }
-'.content-h-2/5': { contentHeight: '40%' }
-'.content-h-3/5': { contentHeight: '60%' }
-'.content-h-4/5': { contentHeight: '80%' }
-'.content-h-1/6': { contentHeight: '16.666667%' }
-'.content-h-2/6': { contentHeight: '33.333334%' }
-'.content-h-3/6': { contentHeight: '50%' }
-'.content-h-4/6': { contentHeight: '66.666667%' }
-'.content-h-5/6': { contentHeight: '83.333334%' }
-'.content-h-1/12': { contentHeight: '8.333334%' }
-'.content-h-2/12': { contentHeight: '16.666667%' }
-'.content-h-3/12': { contentHeight: '25%' }
-'.content-h-4/12': { contentHeight: '33.333334%' }
-'.content-h-5/12': { contentHeight: '41.666667%' }
-'.content-h-6/12': { contentHeight: '50%' }
-'.content-h-7/12': { contentHeight: '58.333334%' }
-'.content-h-8/12': { contentHeight: '66.666667%' }
-'.content-h-9/12': { contentHeight: '75%' }
-'.content-h-10/12': { contentHeight: '83.333334%' }
-'.content-h-11/12': { contentHeight: '91.666667%' }
-'.content-h-full': { contentHeight: '100%' }
-'.content-h-screen': { contentHeight: Ti.UI.FILL }
 ```

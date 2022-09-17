@@ -1,6 +1,7 @@
 ```scss
-// Property(ies): repeat
-// Component(s): Ti.UI.Animation
+// Property: repeat
+// Component(s): NotificationParams, Ti.UI.Animation
+'.repeat-0': { repeat: 0 }
 '.repeat-1': { repeat: 1 }
 '.repeat-2': { repeat: 2 }
 '.repeat-3': { repeat: 3 }

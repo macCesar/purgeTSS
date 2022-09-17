@@ -1,5 +1,6 @@
 ```scss
-// Property(ies): activeTitleColor
+// Property: activeTitleColor
+// Description: Defines the color of the title of tab when it's active.
 // Component(s): Ti.UI.Tab, Ti.UI.TabGroup
 '.active-title-transparent': { activeTitleColor: 'transparent' }
 '.active-title-black': { activeTitleColor: '#000000' }

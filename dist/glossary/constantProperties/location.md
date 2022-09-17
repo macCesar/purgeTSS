@@ -1,6 +1,6 @@
 ```scss
-// Property(ies): location - Android Only
-// Component(s): Ti.UI.Android.ProgressIndicator
-'.location-dialog[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_DIALOG }
-'.location-statur-bar[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR }
+// Property: location
+// Component(s): Ti.Calendar.Event, Ti.Network.HTTPClient, Ti.UI.Android.ProgressIndicator, textAreaSelectedParams, textFieldSelectedParams
+'.location-progress-indicator-dialog': { location: Ti.UI.Android.PROGRESS_INDICATOR_DIALOG }
+'.location-progress-indicator-status-bar': { location: Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR }
 ```

@@ -1,5 +1,6 @@
 ```scss
-// Property(ies): cacheSize
+// Property: cacheSize
+// Description: Number of pages to cache (pre-render).
 // Component(s): Ti.UI.ScrollableView
 '.cache-size-0': { cacheSize: 0 }
 '.cache-size-1': { cacheSize: 1 }

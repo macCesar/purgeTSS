@@ -1,5 +1,6 @@
 ```scss
-// Property(ies): datePickerStyle
+// Property: datePickerStyle
+// Description: Determines how a date or time picker should appear.
 // Component(s): Ti.UI.Picker
 '.date-picker-style-automatic': { datePickerStyle: Ti.UI.DATE_PICKER_STYLE_AUTOMATIC }
 '.date-picker-style-wheels': { datePickerStyle: Ti.UI.DATE_PICKER_STYLE_WHEELS }

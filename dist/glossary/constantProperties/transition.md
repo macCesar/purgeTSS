@@ -1,12 +1,12 @@
 ```scss
-// Property(ies): transition - iOS Only
+// Property: transition
 // Component(s): Ti.UI.Animation
-'.animation-style-curl-down[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
-'.animation-style-curl-up[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_UP }
-'.animation-style-flip-from-left[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }
-'.animation-style-flip-from-right[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT }
-'.animation-style-flip-from-top[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP }
-'.animation-style-flip-from-bottom[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM }
-'.animation-style-cross-dissolve[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
-'.animation-style-none[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.NONE }
+'.transition-animation-style-curl-down': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
+'.transition-animation-style-curl-up': { transition: Ti.UI.iOS.AnimationStyle.CURL_UP }
+'.transition-animation-style-flip-from-left': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }
+'.transition-animation-style-flip-from-right': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT }
+'.transition-animation-style-flip-from-top': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP }
+'.transition-animation-style-flip-from-bottom': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM }
+'.transition-animation-style-cross-dissolve': { transition: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
+'.transition-animation-style-none': { transition: Ti.UI.iOS.AnimationStyle.NONE }
 ```

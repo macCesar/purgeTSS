@@ -10,7 +10,7 @@ const colores = require('../lib/colores').colores;
 module.exports.colores = colores;
 const purgeLabel = colores.purgeLabel;
 
-const projectConfigJS = cwd + '/purgetss/config.js';
+const projectsConfigJS = cwd + '/purgetss/config.js';
 
 const logger = {
 	info: function(...args) {
@@ -31,7 +31,7 @@ const helpers = require('../lib/helpers');
 const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json');
 const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js');
 
-const configFile = (fs.existsSync(projectConfigJS)) ? require(projectConfigJS) : require(srcConfigFile);
+const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile);
 configFile.corePlugins = configFile.corePlugins ?? {};
 configFile.purge = configFile.purge ?? { mode: 'all' };
 configFile.theme.extend = configFile.theme.extend ?? {};
@@ -47,7 +47,7 @@ function autoBuildTailwindTSS(options = {}) {
 	debugMode = options.debug ?? false;
 	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/template.tss'), 'utf8');
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8');
-	tailwindStyles += (fs.existsSync(projectConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : `// default config.js file\n`;
+	tailwindStyles += (fs.existsSync(projectsConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}\n` : `// default config.js file\n`;
 
 	let baseValues = combineDefaultThemeWithConfigFile();
 	let completionsProrpertiesWithBaseValues = setBaseValuesToProperties(getPropertiesFromTiCompletionsFile(), baseValues);
@@ -60,7 +60,7 @@ function autoBuildTailwindTSS(options = {}) {
 
 	tailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
 
-	if (fs.existsSync(projectConfigJS)) {
+	if (fs.existsSync(projectsConfigJS)) {
 		fs.writeFileSync(cwd + '/purgetss/tailwind.tss', tailwindStyles);
 		logger.file('./purgetss/tailwind.tss');
 		if (debugMode) {
@@ -81,7 +81,9 @@ function processCustomClasses() {
 	if (Object.keys(configFile.theme).length) {
 		_.each(configFile.theme, (value, key) => {
 			if (key !== 'extend') {
-				tailwindStyles += helpers.customRules(value, key)
+				let theClasses = helpers.customRules(value, key);
+				saveAutoTSS(key, theClasses);
+				tailwindStyles += theClasses;
 			}
 		});
 	}
@@ -115,14 +117,38 @@ function processTitaniumRules(_propertiesOnly) {
 function processCompletionsClasses(_completionsWithBaseValues) {
 	let processedClasses = '';
 
+	if (!fs.existsSync(projectsConfigJS)) {
+		makeSureFolderExists(path.resolve(__dirname, '../dist/glossary/'));
+	}
+
 	_.each(_completionsWithBaseValues, (data, key) => {
 		let theClasses = generateCombinedClasses(key, data);
 		if (theClasses) {
+			if (!fs.existsSync(projectsConfigJS)) {
+				generateGlossary(theClasses, key, data);
+			}
 			processedClasses += theClasses;
 		}
 	});
 
 	return processedClasses;
+}
+
+function generateGlossary(_theClasses, _key, _keyName) {
+	let destinationFolder = '';
+
+	if (_key.includes('color') || _key.includes('Color')) {
+		destinationFolder = path.resolve(__dirname, '../dist/glossary/colorProperties');
+	} else if (Object.entries(_keyName.base).length) {
+		destinationFolder = path.resolve(__dirname, '../dist/glossary/configurableProperties');
+	} else if (_keyName.type === 'Boolean') {
+		destinationFolder = path.resolve(__dirname, '../dist/glossary/booleanProperties');
+	} else {
+		destinationFolder = path.resolve(__dirname, '../dist/glossary/constantProperties');
+	}
+
+	makeSureFolderExists(destinationFolder);
+	fs.writeFileSync(`${destinationFolder}/${_key}.md`, '```scss' + _theClasses + '```');
 }
 
 function setBaseValuesToProperties(_allProperties, _base) {
@@ -137,7 +163,7 @@ function setBaseValuesToProperties(_allProperties, _base) {
 		}
 	});
 
-	if (fs.existsSync(projectConfigJS) && debugMode) {
+	if (fs.existsSync(projectsConfigJS) && debugMode) {
 		makeSureFolderExists(cwd + '/purgetss/experimental/');
 		saveFile(cwd + '/purgetss/experimental/allKeys.txt', allKeys);
 	}
@@ -163,7 +189,7 @@ function getTiUIComponents(_base) {
 		}
 	});
 
-	if (fs.existsSync(projectConfigJS) && debugMode) {
+	if (fs.existsSync(projectsConfigJS) && debugMode) {
 		saveFile(cwd + '/purgetss/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
 	}
 
@@ -175,63 +201,59 @@ function processCompoundClasses({ ..._base }) {
 	let compoundTemplate = require('../lib/templates/tailwind/compoundTemplate.json');
 
 	_.each(compoundTemplate, (value, key) => {
-		compoundClasses += helpers.processProperties(value.description, value.template, value.base ?? { default: _base[key] });
+		compoundClasses += saveAutoTSS(key, helpers.processProperties(value.description, value.template, value.base ?? { default: _base[key] }));
 	});
 
-	compoundClasses += helpers.anchorPoint();
+	compoundClasses += saveAutoTSS('anchorPoint', helpers.anchorPoint());
 
-	compoundClasses += helpers.autocapitalization();
-	compoundClasses += helpers.backgroundBlendMode();
-	compoundClasses += helpers.backgroundLinearGradient();
-	compoundClasses += helpers.backgroundRadialGradient();
-	compoundClasses += helpers.clipMode();
-	compoundClasses += helpers.constraint();
-	compoundClasses += helpers.contentHeightAndWidth();
-	compoundClasses += helpers.debugMode();
-	compoundClasses += helpers.defaultItemTemplate();
-	compoundClasses += helpers.displayCaps();
-	compoundClasses += helpers.draggingType();
-	compoundClasses += helpers.dropShadow();
-	compoundClasses += helpers.editable();
-	compoundClasses += helpers.ellipsize();
-	compoundClasses += helpers.filterAttribute();
-	compoundClasses += helpers.flip();
-	compoundClasses += helpers.fontStyle();
-	compoundClasses += helpers.gridColumnsRowsStartEnd();
-	compoundClasses += helpers.gridFlow();
-	compoundClasses += helpers.gridSystem();
-	compoundClasses += helpers.items();
-	compoundClasses += helpers.navigationMode();
-	compoundClasses += helpers.orientationModes();
-	compoundClasses += helpers.placement();
-	compoundClasses += helpers.progressBarStyle();
-	compoundClasses += helpers.scrollIndicators();
-	compoundClasses += helpers.scrollsToTop();
-	compoundClasses += helpers.scrollType();
-	compoundClasses += helpers.selectionStyle();
-	compoundClasses += helpers.statusBarStyle();
-	compoundClasses += helpers.theme();
-	compoundClasses += helpers.titleAttributesShadow();
-	compoundClasses += helpers.touchEnabled();
-	compoundClasses += helpers.viewShadowV6();
-	compoundClasses += helpers.visible();
+	compoundClasses += saveAutoTSS('autocapitalization-alternative', helpers.autocapitalization());
+	compoundClasses += saveAutoTSS('backgroundGradient-linear', helpers.backgroundLinearGradient());
+	compoundClasses += saveAutoTSS('backgroundGradient-radial', helpers.backgroundRadialGradient());
+	compoundClasses += saveAutoTSS('clipMode', helpers.clipMode());
+	compoundClasses += saveAutoTSS('constraint', helpers.constraint());
+	compoundClasses += saveAutoTSS('content-height-and-width', helpers.contentHeightAndWidth());
+	compoundClasses += saveAutoTSS('debug', helpers.debugMode());
+	compoundClasses += saveAutoTSS('defaultItemTemplate', helpers.defaultItemTemplate());
+	compoundClasses += saveAutoTSS('displayCaps', helpers.displayCaps());
+	compoundClasses += saveAutoTSS('draggingType', helpers.draggingType());
+	compoundClasses += saveAutoTSS('dropShadow', helpers.dropShadow());
+	compoundClasses += saveAutoTSS('ellipsize-alternative', helpers.ellipsize());
+	compoundClasses += saveAutoTSS('filterAttribute', helpers.filterAttribute());
+	compoundClasses += saveAutoTSS('flip', helpers.flip());
+	compoundClasses += saveAutoTSS('fontStyle', helpers.fontStyle());
+	compoundClasses += saveAutoTSS('grid-cols-rows-span', helpers.gridColumnsRowsStartEnd());
+	compoundClasses += saveAutoTSS('gridFlow', helpers.gridFlow());
+	compoundClasses += saveAutoTSS('gridSystem', helpers.gridSystem());
+	compoundClasses += saveAutoTSS('items', helpers.items());
+	compoundClasses += saveAutoTSS('navigationMode', helpers.navigationMode());
+	compoundClasses += saveAutoTSS('orientationModes', helpers.orientationModes());
+	compoundClasses += saveAutoTSS('placement', helpers.placement());
+	compoundClasses += saveAutoTSS('progressBarStyle', helpers.progressBarStyle());
+	compoundClasses += saveAutoTSS('showScrollIndicators', helpers.scrollIndicators());
+	compoundClasses += saveAutoTSS('scrollType', helpers.scrollType());
+	compoundClasses += saveAutoTSS('selectionStyle', helpers.selectionStyle());
+	compoundClasses += saveAutoTSS('statusBarStyle-alternative', helpers.statusBarStyle());
+	compoundClasses += saveAutoTSS('theme', helpers.theme());
+	compoundClasses += saveAutoTSS('titleAttributesShadow-alternative', helpers.titleAttributesShadow());
+	compoundClasses += saveAutoTSS('touchEnabled-alternative', helpers.touchEnabled());
+	compoundClasses += saveAutoTSS('viewShadowOffset', helpers.viewShadowV6());
+	compoundClasses += saveAutoTSS('visible-alternative', helpers.visible());
 
-	compoundClasses += helpers.borderRadius(_base.borderRadius);
-	compoundClasses += helpers.fontFamily(_base.fontFamily);
-	compoundClasses += helpers.fontSize(_base.fontSize);
-	compoundClasses += helpers.fontWeight(_base.fontWeight);
-	compoundClasses += helpers.gap(_base.margin);
-	compoundClasses += helpers.minimumFontSize(_base.fontSize);
-	compoundClasses += helpers.negativeRotate(_base.rotate);
-	compoundClasses += helpers.padding(_base.padding);
+	compoundClasses += saveAutoTSS('borderRadius-alternative', helpers.borderRadius(_base.borderRadius));
+	compoundClasses += saveAutoTSS('fontFamily', helpers.fontFamily(_base.fontFamily));
+	compoundClasses += saveAutoTSS('fontSize', helpers.fontSize(_base.fontSize));
+	compoundClasses += saveAutoTSS('fontWeight', helpers.fontWeight(_base.fontWeight));
+	compoundClasses += saveAutoTSS('margin-alternative', helpers.gap(_base.margin));
+	compoundClasses += saveAutoTSS('minimumFontSize', helpers.minimumFontSize(_base.fontSize));
+	compoundClasses += saveAutoTSS('rotate-negative-values', helpers.negativeRotate(_base.rotate));
+	compoundClasses += saveAutoTSS('padding-alternative', helpers.padding(_base.padding));
 
 	// colors
-	compoundClasses += helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient'));
-	compoundClasses += helpers.backgroundSelectedColor(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedColor'));
-	compoundClasses += helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient'));
-	compoundClasses += helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor'));
-	compoundClasses += helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor'));
-	compoundClasses += helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor'));
+	compoundClasses += saveAutoTSS('backgroundGradient-colors', helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient')));
+	compoundClasses += saveAutoTSS('backgroundSelectedGradient-colors', helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient')));
+	compoundClasses += saveAutoTSS('color-alternative', helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor')));
+	compoundClasses += saveAutoTSS('titleAttributes-color', helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor')));
+	compoundClasses += saveAutoTSS('titleAttributes-shadow-color', helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor')));
 
 	return compoundClasses;
 }
@@ -339,6 +361,7 @@ function combineDefaultThemeWithConfigFile() {
 		delete configFile.theme[key];
 	});
 
+	base.margin.auto = 'null';
 	delete base.margin.screen;
 	delete base.zIndex.auto;
 
@@ -425,17 +448,46 @@ function getPropertiesFromTiCompletionsFile() {
 		'wordWrap',
 
 		//! Readonly
+		'activationState',
 		'animating',
 		'batteryState',
+		'DIST_ADHOC',
+		'DIST_STORE',
+		'ENV_DEV',
+		'ENV_DEVELOPMENT',
+		'ENV_PROD',
+		'ENV_PRODUCTION',
+		'ENV_TEST',
 		'externalPlaybackActive',
+		'hasContentPending',
+		'isActivated',
 		'isAdvertisingTrackingEnabled',
+		'isComplicationEnabled',
+		'isPaired',
+		'isReachable',
+		'isSupported',
+		'isWatchAppInstalled',
 		'landscape',
 		'muted',
 		'orientation',
+		'OS_ANDROID',
+		'OS_IOS',
 		'paused',
 		'playing',
 		'portrait',
+		'specified',
 		'waiting',
+
+		//! fs. properties
+		'bigint',
+		'executable',
+		'force',
+		'readonly',
+		'recursive',
+		'remoteBackup',
+		'symbolicLink',
+		'withFileTypes',
+		'writable',
 
 		//! Handled by PurgeTSS
 		'fontFamily',
@@ -542,10 +594,12 @@ function generateCombinedClasses(key, data) {
 }
 
 function saveAutoTSS(key, classes) {
-	if (fs.existsSync(projectConfigJS) && debugMode) {
+	if (fs.existsSync(projectsConfigJS) && debugMode) {
 		makeSureFolderExists(cwd + '/purgetss/experimental/tailwind-classes/');
 		saveFile(cwd + `/purgetss/experimental/tailwind-classes/${key}.tss`, classes);
 	}
+
+	return classes;
 }
 
 function formatClass(key, value) {

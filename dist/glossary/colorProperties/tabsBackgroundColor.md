@@ -1,5 +1,6 @@
 ```scss
-// Property(ies): tabsBackgroundColor
+// Property: tabsBackgroundColor
+// Description: Default background color for inactive tabs, as a color name or hex triplet.
 // Component(s): Ti.UI.TabGroup
 '.tabs-bg-transparent': { tabsBackgroundColor: 'transparent' }
 '.tabs-bg-black': { tabsBackgroundColor: '#000000' }

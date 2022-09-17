@@ -1,5 +1,6 @@
 ```scss
-// Property(ies): badgeColor
+// Property: badgeColor
+// Description: If this item displays a badge, this color will be used for the badge's background. If set to null, the default background color will be used instead.
 // Component(s): Ti.UI.Tab
 '.badge-transparent': { badgeColor: 'transparent' }
 '.badge-black': { badgeColor: '#000000' }

@@ -1,6 +1,7 @@
 ```scss
-// Property(ies): inputType - Android Only
+// Property: inputType
+// Description: Input type to accept in the text field. Also influences the Keyboard type to display.
 // Component(s): Ti.UI.TextField
-'.input-type-class-number[platform=android]': { inputType: Ti.UI.INPUT_TYPE_CLASS_NUMBER }
-'.input-type-class-text[platform=android]': { inputType: Ti.UI.INPUT_TYPE_CLASS_TEXT }
+'.input-type-class-number': { inputType: Ti.UI.INPUT_TYPE_CLASS_NUMBER }
+'.input-type-class-text': { inputType: Ti.UI.INPUT_TYPE_CLASS_TEXT }
 ```

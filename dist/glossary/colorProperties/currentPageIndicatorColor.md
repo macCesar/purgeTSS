@@ -1,5 +1,6 @@
 ```scss
-// Property(ies): currentPageIndicatorColor - iOS Only
+// Property: currentPageIndicatorColor
+// Description: Color for the current page of the paging control, as a color name or hex triplet.
 // Component(s): Ti.UI.ScrollableView
 '.current-page-indicator-transparent': { currentPageIndicatorColor: 'transparent' }
 '.current-page-indicator-black': { currentPageIndicatorColor: '#000000' }

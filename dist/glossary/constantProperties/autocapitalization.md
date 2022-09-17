@@ -1,8 +1,9 @@
 ```scss
-// Property(ies): autocapitalization
+// Property: autocapitalization
+// Description: Determines how text is capitalized during typing.
 // Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
-'.uppercase': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_ALL }
-'.normal-case': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE }
-'.capitalize': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS }
-'.sentences': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_SENTENCES }
+'.autocapitalization-text-all': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_ALL }
+'.autocapitalization-text-none': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE }
+'.autocapitalization-text-sentences': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_SENTENCES }
+'.autocapitalization-text-words': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS }
 ```

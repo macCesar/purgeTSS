@@ -1,7 +1,7 @@
 ```scss
-// Property(ies): repeatCount
+// Property: repeatCount
+// Description: Number of times to repeat the image animation.
 // Component(s): Ti.UI.ImageView
-'.repeat-count-0': { repeatCount: 0 }
 '.repeat-count-1': { repeatCount: 1 }
 '.repeat-count-2': { repeatCount: 2 }
 '.repeat-count-3': { repeatCount: 3 }

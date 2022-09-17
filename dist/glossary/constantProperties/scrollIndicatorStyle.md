@@ -1,7 +1,8 @@
 ```scss
-// Property(ies): scrollIndicatorStyle - iOS Only
+// Property: scrollIndicatorStyle
+// Description: Style of the scrollbar.
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
-'.scrolling-indicator-style-black[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.BLACK }
-'.scrolling-indicator-style[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.DEFAULT }
-'.scrolling-indicator-style-white[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.WHITE }
+'.scroll-indicator-style-black': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.BLACK }
+'.scroll-indicator-style': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.DEFAULT }
+'.scroll-indicator-style-white': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.WHITE }
 ```

@@ -13,6 +13,7 @@
 		"build": "npm run build:all",
 		"notifier": "node ./lib/test-function",
 		"build:tailwind": "node ./lib/build-tailwind",
+		"build:tailwind-legacy": "node ./lib/build-tailwind-legacy",
 		"build:fonts": "node ./lib/build-fonts-folder",
 		"build:fa": "node ./lib/build-fontawesome-free-tss",
 		"build:fa-js": "node ./lib/build-fontawesome-free-js",

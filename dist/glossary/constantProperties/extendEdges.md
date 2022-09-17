@@ -1,10 +1,11 @@
 ```scss
-// Property(ies): extendEdges - iOS Only
-// Component(s): Ti.UI.Window
-'.extend-edges-all[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_ALL ] }
-'.extend-edges-bottom[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_BOTTOM ] }
-'.extend-edges-left[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_LEFT ] }
-'.extend-edges-none[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_NONE ] }
-'.extend-edges-right[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_RIGHT ] }
-'.extend-edges-top[platform=ios]': { extendEdges: [ Ti.UI.EXTEND_EDGE_TOP ] }
+// Property: extendEdges
+// Description: An array of supported values specified using the EXTEND_EDGE constants in Titanium.UI.
+// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
+'.extend-edges-edge-top': { extendEdges: Ti.UI.EXTEND_EDGE_TOP }
+'.extend-edges-edge-bottom': { extendEdges: Ti.UI.EXTEND_EDGE_BOTTOM }
+'.extend-edges-edge-left': { extendEdges: Ti.UI.EXTEND_EDGE_LEFT }
+'.extend-edges-edge-right': { extendEdges: Ti.UI.EXTEND_EDGE_RIGHT }
+'.extend-edges-edge-none': { extendEdges: Ti.UI.EXTEND_EDGE_NONE }
+'.extend-edges-edge-all': { extendEdges: Ti.UI.EXTEND_EDGE_ALL }
 ```
