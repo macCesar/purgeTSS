@@ -490,7 +490,8 @@ function processComments(key, data) {
 	myComments += `\n// Property: ${key}`;
 
 	if (data.description) {
-		myComments += `\n// Description: ${data.description.replace(/\n/g, ' ')}`;
+		// remove hrefs
+		myComments += `\n// Description: ${data.description.replace(/\n/g, ' ').replace(/<code>|<\/code>/g, '').replace(/<a[^>]*>|<\/a>/g, '')}`;
 	}
 
 	if (data.modules) {
