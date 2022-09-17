@@ -419,17 +419,24 @@ function getPropertiesFromTiCompletionsFile() {
 		'fontFamily',
 		'fontSize',
 		'fontWeight',
+		'handlePlatformUrl',
 		'isAdvertisingTrackingEnabled',
 		'landscape',
 		'minimumFontSize',
-		'orientation',
 		'muted',
+		'orientation',
+		'orientationModes',
 		'paused',
 		'playing',
-		'waiting',
-		'orientationModes',
 		'portrait',
+		'selectionIndicator',
+		'semanticColorType',
+		'splitActionBar',
+		'supported',
+		'tabsTintColor',
 		'textColor',
+		'unselectedItemTintColor',
+		'waiting',
 		'wordWrap',
 	];
 	_.each(tiCompletionsFile.types, (value, key) => {
@@ -491,7 +498,7 @@ function processComments(key, data) {
 
 	if (data.description) {
 		// remove hrefs
-		myComments += `\n// Description: ${data.description.replace(/\n/g, ' ').replace(/<code>|<\/code>/g, '').replace(/<a[^>]*>|<\/a>/g, '')}`;
+		myComments += `\n// Description: ${data.description.replace(/\n/g, ' ').replace(/<code>|<\/code>/g, '').replace(/<strong>|<\/strong>/g, '').replace(/<em>|<\/em>/g, '').replace(/<a[^>]*>|<\/a>/g, '')}`;
 	}
 
 	if (data.modules) {
