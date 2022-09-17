@@ -181,6 +181,7 @@ function processCompoundClasses({ ..._base }) {
 	compoundClasses += helpers.anchorPoint();
 
 	compoundClasses += helpers.autocapitalization();
+	compoundClasses += helpers.backgroundBlendMode();
 	compoundClasses += helpers.backgroundLinearGradient();
 	compoundClasses += helpers.backgroundRadialGradient();
 	compoundClasses += helpers.clipMode();
@@ -413,44 +414,46 @@ function combineKeys(values, base, key) {
 function getPropertiesFromTiCompletionsFile() {
 	let propertiesOnly = {};
 	let properties = [
-		'animating',
-		'batteryState',
-		'externalPlaybackActive',
-		'fontFamily',
-		'fontSize',
-		'fontWeight',
+		//! Deprecated
 		'handlePlatformUrl',
-		'isAdvertisingTrackingEnabled',
-		'landscape',
-		'minimumFontSize',
-		'muted',
-		'orientation',
-		'orientationModes',
-		'paused',
-		'playing',
-		'portrait',
 		'selectionIndicator',
 		'semanticColorType',
 		'splitActionBar',
 		'supported',
 		'tabsTintColor',
-		'textColor',
 		'unselectedItemTintColor',
-		'waiting',
 		'wordWrap',
+
+		//! Readonly
+		'animating',
+		'batteryState',
+		'externalPlaybackActive',
+		'isAdvertisingTrackingEnabled',
+		'landscape',
+		'muted',
+		'orientation',
+		'paused',
+		'playing',
+		'portrait',
+		'waiting',
+
+		//! Handled by PurgeTSS
+		'fontFamily',
+		'fontSize',
+		'fontWeight',
+		'minimumFontSize',
+		'orientationModes',
+		'textColor',
+
 	];
 	_.each(tiCompletionsFile.types, (value, key) => {
 		_.each(value.properties, property => {
-			if (validTypesOnly(property, key)) {
-				// check if property is in array
-				if (!properties.includes(property)) {
-					// if (property !== 'textColor' && property !== 'orientationModes' && property !== 'batteryState' && property !== 'wordWrap' && property !== 'animating' && property !== 'isAdvertisingTrackingEnabled' && property !== 'portrait' && property !== 'fontFamily' && property !== 'fontSize' && property !== 'fontWeight' && property !== 'minimumFontSize') {
-					if (!propertiesOnly[property]) {
-						propertiesOnly[property] = tiCompletionsFile.properties[property];
-						propertiesOnly[property].modules = [];
-					}
-					propertiesOnly[property].modules.push(key);
+			if (validTypesOnly(property, key) && !properties.includes(property)) {
+				if (!propertiesOnly[property]) {
+					propertiesOnly[property] = tiCompletionsFile.properties[property];
+					propertiesOnly[property].modules = [];
 				}
+				propertiesOnly[property].modules.push(key);
 			}
 		});
 	});
