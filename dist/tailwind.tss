@@ -1362,6 +1362,37 @@
 '.capitalize': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS }
 '.sentences': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_SENTENCES }
 
+// Property(ies): mode ( Background Blend Mode )
+// Component(s): Ti.UI.MaskedImage
+'.bg-blend-clear': { mode: Ti.UI.BLEND_MODE_CLEAR }
+'.bg-blend-copy': { mode: Ti.UI.BLEND_MODE_COPY }
+'.bg-blend-darken': { mode: Ti.UI.BLEND_MODE_DARKEN }
+'.bg-blend-destination-atop': { mode: Ti.UI.BLEND_MODE_DESTINATION_ATOP }
+'.bg-blend-destination-in': { mode: Ti.UI.BLEND_MODE_DESTINATION_IN }
+'.bg-blend-destination-out': { mode: Ti.UI.BLEND_MODE_DESTINATION_OUT }
+'.bg-blend-destination-over': { mode: Ti.UI.BLEND_MODE_DESTINATION_OVER }
+'.bg-blend-lighten': { mode: Ti.UI.BLEND_MODE_LIGHTEN }
+'.bg-blend-multiply': { mode: Ti.UI.BLEND_MODE_MULTIPLY }
+'.bg-blend-normal': { mode: Ti.UI.BLEND_MODE_NORMAL }
+'.bg-blend-overlay': { mode: Ti.UI.BLEND_MODE_OVERLAY }
+'.bg-blend-plus-lighter': { mode: Ti.UI.BLEND_MODE_PLUS_LIGHTER }
+'.bg-blend-screen': { mode: Ti.UI.BLEND_MODE_SCREEN }
+'.bg-blend-source-atop': { mode: Ti.UI.BLEND_MODE_SOURCE_ATOP }
+'.bg-blend-source-in': { mode: Ti.UI.BLEND_MODE_SOURCE_IN }
+'.bg-blend-source-out': { mode: Ti.UI.BLEND_MODE_SOURCE_OUT }
+'.bg-blend-xor': { mode: Ti.UI.BLEND_MODE_XOR }
+'.bg-blend-color': { mode: Ti.UI.BLEND_MODE_COLOR }
+'.bg-blend-color-burn': { mode: Ti.UI.BLEND_MODE_COLOR_BURN }
+'.bg-blend-color-dodge': { mode: Ti.UI.BLEND_MODE_COLOR_DODGE }
+'.bg-blend-diference': { mode: Ti.UI.BLEND_MODE_DIFFERENCE }
+'.bg-blend-exclusion': { mode: Ti.UI.BLEND_MODE_EXCLUSION }
+'.bg-blend-hard-light': { mode: Ti.UI.BLEND_MODE_HARD_LIGHT }
+'.bg-blend-hue': { mode: Ti.UI.BLEND_MODE_HUE }
+'.bg-blend-luminosity': { mode: Ti.UI.BLEND_MODE_LUMINOSITY }
+'.bg-blend-plus-darker': { mode: Ti.UI.BLEND_MODE_PLUS_DARKER }
+'.bg-blend-saturation': { mode: Ti.UI.BLEND_MODE_SATURATION }
+'.bg-blend-soft-light': { mode: Ti.UI.BLEND_MODE_SOFT_LIGHT }
+
 // Property(ies): backgroundGradient - Linear
 // Component(s): Ti.UI.MaskedImage
 '.bg-linear': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' } } }
@@ -1569,7 +1600,7 @@
 '.navigation-mode-tabs': { navigationMode: Ti.Android.NAVIGATION_MODE_TABS }
 
 // Property(ies): orientationModes
-// Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
+// Description: Array of supported orientation modes, specified using the orientation constants defined in Titanium.UI.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 '.orientation-landscape-left': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT ] }
 '.orientation-landscape-right': { orientationModes: [ Ti.UI.LANDSCAPE_RIGHT ] }
@@ -1578,7 +1609,7 @@
 '.orientation-landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
 // Property(ies): orientationModes (Alternative)
-// Description: Array of supported orientation modes, specified using the orientation constants defined in <a href="Titanium.UI">Titanium.UI</a>.
+// Description: Array of supported orientation modes, specified using the orientation constants defined in Titanium.UI.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 '.portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
@@ -1598,11 +1629,6 @@
 '.inset-x-auto': { right: Ti.UI.SIZE, left: Ti.UI.SIZE }
 '.inset-y-auto': { top: Ti.UI.SIZE, bottom: Ti.UI.SIZE }
 '.inset-auto': { top: Ti.UI.SIZE, right: Ti.UI.SIZE, bottom: Ti.UI.SIZE, left: Ti.UI.SIZE }
-
-// Property(ies): preventDefaultImage - iOS Only
-// Component(s): Ti.UI.ImageView
-'.prevent-default-image': { preventDefaultImage: true }
-'.prevent-default-image-false': { preventDefaultImage: false }
 
 // Property(ies): style - iOS Only
 // Component(s): Ti.UI.ProgressBar
@@ -1698,6 +1724,11 @@
 '.shadow-inner': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null, elevation: 0 }
 '.shadow-outline': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 4, viewShadowColor: '#80000000', elevation: 16 }
 '.shadow-none': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: null, viewShadowColor: null, elevation: 0 }
+
+// Property(ies): visible (Alternative)
+// Component(s): Ti.UI.View, Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+'.block': { visible: true }
+'.hidden': { visible: false }
 
 // Property(ies): borderRadius ( with Extra Styles )
 // Component(s): Ti.UI.Android.CardView, Ti.UI.View
@@ -2476,14 +2507,14 @@
 // Property(ies): rotate ( Negative values )
 // Component(s): For the Animation Component
 '.-rotate-0': { rotate: 0 }
-'.-rotate-1': { rotate: 1 }
-'.-rotate-2': { rotate: 2 }
-'.-rotate-3': { rotate: 3 }
-'.-rotate-6': { rotate: 6 }
-'.-rotate-12': { rotate: 12 }
-'.-rotate-45': { rotate: 45 }
-'.-rotate-90': { rotate: 90 }
-'.-rotate-180': { rotate: 180 }
+'.-rotate-1': { rotate: -1 }
+'.-rotate-2': { rotate: -2 }
+'.-rotate-3': { rotate: -3 }
+'.-rotate-6': { rotate: -6 }
+'.-rotate-12': { rotate: -12 }
+'.-rotate-45': { rotate: -45 }
+'.-rotate-90': { rotate: -90 }
+'.-rotate-180': { rotate: -180 }
 
 // Property(ies): padding - Android Only
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField
@@ -6110,7 +6141,7 @@
 '.override-current-animation-false': { overrideCurrentAnimation: false }
 
 // Property: pullBackgroundColor
-// Description: Background color of the wrapper view when this view is used as either <a href="Titanium.UI.ListView.pullView">Titanium.UI.ListView.pullView</a> or <a href="Titanium.UI.TableView.headerPullView">Titanium.UI.TableView.headerPullView</a>. Defaults to <code>undefined</code>. Results in a light grey background color on the wrapper view.
+// Description: Background color of the wrapper view when this view is used as either Titanium.UI.ListView.pullView or Titanium.UI.TableView.headerPullView. Defaults to undefined. Results in a light grey background color on the wrapper view.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.pull-bg-transparent': { pullBackgroundColor: 'transparent' }
 '.pull-bg-black': { pullBackgroundColor: '#000000' }
@@ -6439,7 +6470,7 @@
 '.scale-y-150': { scaleY: 1.5 }
 
 // Property: softKeyboardOnFocus
-// Description: Determines keyboard behavior when this view is focused. Defaults to <a href="Titanium.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS">Titanium.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS</a>.
+// Description: Determines keyboard behavior when this view is focused. Defaults to Titanium.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.WebView, Ti.UI.Window
 '.soft-keyboard-on-focus': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS }
 '.soft-keyboard-on-focus-hide': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS }
@@ -6750,7 +6781,7 @@
 '.touch-feedback-false': { touchFeedback: false }
 
 // Property: touchFeedbackColor
-// Description: Optional touch feedback ripple color. This has no effect unless <code>touchFeedback</code> is true.
+// Description: Optional touch feedback ripple color. This has no effect unless touchFeedback is true.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.touch-feedback-transparent': { touchFeedbackColor: 'transparent' }
 '.touch-feedback-black': { touchFeedbackColor: '#000000' }
@@ -7297,55 +7328,55 @@
 '.keep-screen-on-false': { keepScreenOn: false }
 
 // Property: OS_ANDROID
-// Description: A special constant that is replaced during the app build with a boolean <code>true</code>/<code>false</code> value.
+// Description: A special constant that is replaced during the app build with a boolean true/false value.
 // Component(s): Global
 '.os_android': { OS_ANDROID: true }
 '.os_android-false': { OS_ANDROID: false }
 
 // Property: OS_IOS
-// Description: A special constant that is replaced during the app build with a boolean <code>true</code>/<code>false</code> value.
+// Description: A special constant that is replaced during the app build with a boolean true/false value.
 // Component(s): Global
 '.os_ios': { OS_IOS: true }
 '.os_ios-false': { OS_IOS: false }
 
 // Property: ENV_DEV
-// Description: Alias for <a href="Global.ENV_DEVELOPMENT">Global.ENV_DEVELOPMENT</a>
+// Description: Alias for Global.ENV_DEVELOPMENT
 // Component(s): Global
 '.env_dev': { ENV_DEV: true }
 '.env_dev-false': { ENV_DEV: false }
 
 // Property: ENV_DEVELOPMENT
-// Description: A special constant that is replaced during the app build with a boolean <code>true</code>/<code>false</code> value, based on whether deploy type is <code>'development'</code>. Typically true for simulator/emulator builds.
+// Description: A special constant that is replaced during the app build with a boolean true/false value, based on whether deploy type is 'development'. Typically true for simulator/emulator builds.
 // Component(s): Global
 '.env_development': { ENV_DEVELOPMENT: true }
 '.env_development-false': { ENV_DEVELOPMENT: false }
 
 // Property: ENV_PROD
-// Description: Alias for <a href="Global.ENV_PRODUCTION">Global.ENV_PRODUCTION</a>
+// Description: Alias for Global.ENV_PRODUCTION
 // Component(s): Global
 '.env_prod': { ENV_PROD: true }
 '.env_prod-false': { ENV_PROD: false }
 
 // Property: ENV_PRODUCTION
-// Description: A special constant that is replaced during the app build with a boolean <code>true</code>/<code>false</code> value, based on whether deploy type is <code>'production'</code>. Typically true for app store/ad-hoc builds.
+// Description: A special constant that is replaced during the app build with a boolean true/false value, based on whether deploy type is 'production'. Typically true for app store/ad-hoc builds.
 // Component(s): Global
 '.env_production': { ENV_PRODUCTION: true }
 '.env_production-false': { ENV_PRODUCTION: false }
 
 // Property: ENV_TEST
-// Description: A special constant that is replaced during the app build with a boolean <code>true</code>/<code>false</code> value, based on whether deploy type is <code>'test'</code>. Typically true for device builds.
+// Description: A special constant that is replaced during the app build with a boolean true/false value, based on whether deploy type is 'test'. Typically true for device builds.
 // Component(s): Global
 '.env_test': { ENV_TEST: true }
 '.env_test-false': { ENV_TEST: false }
 
 // Property: DIST_ADHOC
-// Description: A special constant that is replaced during the app build with a boolean <code>true</code>/<code>false</code> value, based on whether build target is <code>'dist-adhoc'</code>.
+// Description: A special constant that is replaced during the app build with a boolean true/false value, based on whether build target is 'dist-adhoc'.
 // Component(s): Global
 '.dist_adhoc': { DIST_ADHOC: true }
 '.dist_adhoc-false': { DIST_ADHOC: false }
 
 // Property: DIST_STORE
-// Description: A special constant that is replaced during the app build with a boolean <code>true</code>/<code>false</code> value, based on whether build target is <code>'dist-appstore'</code> or <code>'dist-playstore'</code>.
+// Description: A special constant that is replaced during the app build with a boolean true/false value, based on whether build target is 'dist-appstore' or 'dist-playstore'.
 // Component(s): Global
 '.dist_store': { DIST_STORE: true }
 '.dist_store-false': { DIST_STORE: false }
@@ -7465,7 +7496,7 @@
 '.use-grouping-false': { useGrouping: false }
 
 // Property: generatedMessage
-// Description: Indicates if the message was auto-generated (<code>true</code>) or not.
+// Description: Indicates if the message was auto-generated (true) or not.
 // Component(s): assert.AssertionError
 '.generated-message': { generatedMessage: true }
 '.generated-message-false': { generatedMessage: false }
@@ -7516,19 +7547,19 @@
 '.recursive-false': { recursive: false }
 
 // Property: withFileTypes
-// Description: If <code>true</code>, the results will be returned as <a href="fs.Dirent">fs.Dirent</a>s
+// Description: If true, the results will be returned as fs.Dirents
 // Component(s): fs.readdir.options
 '.with-file-types': { withFileTypes: true }
 '.with-file-types-false': { withFileTypes: false }
 
 // Property: force
-// Description: When <code>true</code>, exceptions will be ignored if path does not exist.
+// Description: When true, exceptions will be ignored if path does not exist.
 // Component(s): fs.rm.options
 '.force': { force: true }
 '.force-false': { force: false }
 
 // Property: bigint
-// Description: Whether the numeric values in the returned <a href="fs.Stats">fs.Stats</a> object should be <code>bigint</code>.
+// Description: Whether the numeric values in the returned fs.Stats object should be bigint.
 // Component(s): fs.stat.options
 '.bigint': { bigint: true }
 '.bigint-false': { bigint: false }
@@ -7539,25 +7570,25 @@
 '.connected-false': { connected: false }
 
 // Property: noDeprecation
-// Description: The <code>process.noDeprecation</code> property indicates whether the <code>--no-deprecation</code> flag is set on the current Node.js process. See the documentation for the <code>'warning'</code> event and the <code>emitWarning()</code> method for more information about this flag's behavior.
+// Description: The process.noDeprecation property indicates whether the --no-deprecation flag is set on the current Node.js process. See the documentation for the 'warning' event and the emitWarning() method for more information about this flag's behavior.
 // Component(s): process
 '.no-deprecation': { noDeprecation: true }
 '.no-deprecation-false': { noDeprecation: false }
 
 // Property: throwDeprecation
-// Description: The initial value of <code>process.throwDeprecation</code> indicates whether the <code>--throw-deprecation</code> flag is set on the current Node.js process. process.throwDeprecation is mutable, so whether or not deprecation warnings result in errors may be altered at runtime. See the documentation for the <code>'warning'</code> event and the <code>emitWarning()</code> method for more information.
+// Description: The initial value of process.throwDeprecation indicates whether the --throw-deprecation flag is set on the current Node.js process. process.throwDeprecation is mutable, so whether or not deprecation warnings result in errors may be altered at runtime. See the documentation for the 'warning' event and the emitWarning() method for more information.
 // Component(s): process
 '.throw-deprecation': { throwDeprecation: true }
 '.throw-deprecation-false': { throwDeprecation: false }
 
 // Property: traceDeprecation
-// Description: The <code>process.traceDeprecation</code> property indicates whether the <code>--trace-deprecation</code> flag is set on the current Node.js process. See the documentation for the <code>'warning'</code> event and the <code>emitWarning()</code> method for more information about this flag's behavior.
+// Description: The process.traceDeprecation property indicates whether the --trace-deprecation flag is set on the current Node.js process. See the documentation for the 'warning' event and the emitWarning() method for more information about this flag's behavior.
 // Component(s): process
 '.trace-deprecation': { traceDeprecation: true }
 '.trace-deprecation-false': { traceDeprecation: false }
 
 // Property: showHidden
-// Description: If <code>true</code>, object's non-enumerable symbols and properties are included in the formatted result. <code>WeakMap</code> and <code>WeakSet</code> entries are also included as well as user defined prototype properties (excluding method properties).
+// Description: If true, object's non-enumerable symbols and properties are included in the formatted result. WeakMap and WeakSet entries are also included as well as user defined prototype properties (excluding method properties).
 // Component(s): UtilInspectOptions
 '.show-hidden': { showHidden: true }
 '.show-hidden-false': { showHidden: false }
@@ -7789,31 +7820,31 @@
 '.colors-rose-900': { colors: '#881337' }
 
 // Property: customInspect
-// Description: If <code>false</code>, <code>[util.inspect.custom](depth, opts)</code> functions are not invoked.
+// Description: If false, [util.inspect.custom](depth, opts) functions are not invoked.
 // Component(s): UtilInspectOptions
 '.custom-inspect': { customInspect: true }
 '.custom-inspect-false': { customInspect: false }
 
 // Property: showProxy
-// Description: If <code>true</code>, <code>Proxy</code> inspection includes the target and handler objects.
+// Description: If true, Proxy inspection includes the target and handler objects.
 // Component(s): UtilInspectOptions
 '.show-proxy': { showProxy: true }
 '.show-proxy-false': { showProxy: false }
 
 // Property: compact
-// Description: Setting this to <code>false</code> causes each object key to be displayed on a new line. It will also add new lines to text that is longer than <code>breakLength</code>. If set to a number, the most n inner elements are united on a single line as long as all properties fit into <code>breakLength</code>. Short array elements are also grouped together. No text will be reduced below 16 characters, no matter the <code>breakLength</code> size. For more information, see the example below.
+// Description: Setting this to false causes each object key to be displayed on a new line. It will also add new lines to text that is longer than breakLength. If set to a number, the most n inner elements are united on a single line as long as all properties fit into breakLength. Short array elements are also grouped together. No text will be reduced below 16 characters, no matter the breakLength size. For more information, see the example below.
 // Component(s): UtilInspectOptions
 '.compact': { compact: true }
 '.compact-false': { compact: false }
 
 // Property: sorted
-// Description: If set to <code>true</code> or a function, all properties of an object, and <code>Set</code> and <code>Map</code> entries are sorted in the resulting string. If set to <code>true</code> the default sort is used. If set to a function, it is used as a compare function.
+// Description: If set to true or a function, all properties of an object, and Set and Map entries are sorted in the resulting string. If set to true the default sort is used. If set to a function, it is used as a compare function.
 // Component(s): UtilInspectOptions
 '.sorted': { sorted: true }
 '.sorted-false': { sorted: false }
 
 // Property: getters
-// Description: If set to <code>true</code>, getters are inspected. If set to <code>'get'</code>, only getters without a corresponding setter are inspected. If set to <code>'set'</code>, only getters with a corresponding setter are inspected. This might cause side effects depending on the getter function.
+// Description: If set to true, getters are inspected. If set to 'get', only getters without a corresponding setter are inspected. If set to 'set', only getters with a corresponding setter are inspected. This might cause side effects depending on the getter function.
 // Component(s): UtilInspectOptions
 '.getters': { getters: true }
 '.getters-false': { getters: false }
@@ -7874,7 +7905,7 @@
 '.requested-orientation-screen-user': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_USER }
 
 // Property: startMode
-// Description: One of the <code>START_*</code> constants from <a href="Titanium.Android">Titanium.Android</a> to specify the &quot;stickiness&quot; of the Service when Android shuts down the host application.
+// Description: One of the START_* constants from Titanium.Android to specify the &quot;stickiness&quot; of the Service when Android shuts down the host application.
 // Component(s): ServiceIntentOptions
 '.start-mode-not-sticky': { startMode: Ti.Android.START_NOT_STICKY }
 '.start-mode-redeliver-intent': { startMode: Ti.Android.START_REDELIVER_INTENT }
@@ -8521,7 +8552,7 @@
 '.show-badge-false': { showBadge: false }
 
 // Property: updateCurrentIntent
-// Description: If this property is true, flag <a href="Titanium.Android.FLAG_UPDATE_CURRENT">Titanium.Android.FLAG_UPDATE_CURRENT</a> will be appended to <code>flags</code> automatically. Default value is true.
+// Description: If this property is true, flag Titanium.Android.FLAG_UPDATE_CURRENT will be appended to flags automatically. Default value is true.
 // Component(s): Ti.Android.PendingIntent
 '.update-current-intent': { updateCurrentIntent: true }
 '.update-current-intent-false': { updateCurrentIntent: false }
@@ -8587,7 +8618,7 @@
 '.proximity-detection-false': { proximityDetection: false }
 
 // Property: proximityState
-// Description: Indicates the state of the device's proximity sensor, according to the <a href="Titanium.App.proximity">Titanium.App.proximity</a> event.
+// Description: Indicates the state of the device's proximity sensor, according to the Titanium.App.proximity event.
 // Component(s): Ti.App
 '.proximity-state': { proximityState: true }
 '.proximity-state-false': { proximityState: false }
@@ -8611,7 +8642,7 @@
 '.track-user-interaction-false': { trackUserInteraction: false }
 
 // Property: launchOptionsLocationKey
-// Description: If set to <code>true</code>, this key indicates that the application was launched in response to an incoming location event.
+// Description: If set to true, this key indicates that the application was launched in response to an incoming location event.
 // Component(s): launchOptions
 '.launch-options-location-key': { launchOptionsLocationKey: true }
 '.launch-options-location-key-false': { launchOptionsLocationKey: false }
@@ -8798,7 +8829,7 @@
 '.activity-type-activitytype-other-navigation': { activityType: Ti.Geolocation.ACTIVITYTYPE_OTHER_NAVIGATION }
 
 // Property: eligibleForPublicIndexing
-// Description: Set to <code>true</code> if the user activity can be publicly accessed by all iOS users.
+// Description: Set to true if the user activity can be publicly accessed by all iOS users.
 // Component(s): Ti.App.iOS.UserActivity
 '.eligible-for-public-indexing': { eligibleForPublicIndexing: true }
 '.eligible-for-public-indexing-false': { eligibleForPublicIndexing: false }
@@ -8826,12 +8857,6 @@
 // Component(s): Ti.App.iOS.UserActivity
 '.needs-save': { needsSave: true }
 '.needs-save-false': { needsSave: false }
-
-// Property: supported
-// Description: Determines if user activities are supported (<code>true</code>) or not (<code>false</code>) by the device. <strong>Deprecated since 5.1.0. Use <a href="Titanium.App.iOS.UserActivity.isSupported">Titanium.App.iOS.UserActivity.isSupported</a> instead.</strong>
-// Component(s): Ti.App.iOS.UserActivity
-'.supported': { supported: true }
-'.supported-false': { supported: false }
 
 // Property: activationMode
 // Description: Selects how to activate the application.
@@ -9050,7 +9075,7 @@
 '.status-calendar-tentative': { status: Ti.Calendar.STATUS_TENTATIVE }
 
 // Property: eventsAuthorization
-// Description: Returns an authorization constant indicating if the application has access to the events in the EventKit. <strong>Removed in 8.1.0. Use the <a href="Titanium.Calendar.calendarAuthorization">Titanium.Calendar.calendarAuthorization</a> property instead.</strong>
+// Description: Returns an authorization constant indicating if the application has access to the events in the EventKit. Removed in 8.1.0. Use the Titanium.Calendar.calendarAuthorization property instead.
 // Component(s): Ti.Calendar
 '.events-authorization-calendar-authorized': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_AUTHORIZED }
 '.events-authorization-calendar-denied': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_DENIED }
@@ -9203,13 +9228,13 @@
 '.cancel-bubble-false': { cancelBubble: false }
 
 // Property: executable
-// Description: <code>true</code> if the file is executable.
+// Description: true if the file is executable.
 // Component(s): Ti.Filesystem.File
 '.executable': { executable: true }
 '.executable-false': { executable: false }
 
 // Property: readonly
-// Description: <code>true</code> if the file identified by this object is read-only.
+// Description: true if the file identified by this object is read-only.
 // Component(s): Ti.Filesystem.File
 '.readonly': { readonly: true }
 '.readonly-false': { readonly: false }
@@ -9221,19 +9246,19 @@
 '.remote-backup-false': { remoteBackup: false }
 
 // Property: symbolicLink
-// Description: <code>true</code> if the file identified by this object is a symbolic link.
+// Description: true if the file identified by this object is a symbolic link.
 // Component(s): Ti.Filesystem.File
 '.symbolic-link': { symbolicLink: true }
 '.symbolic-link-false': { symbolicLink: false }
 
 // Property: writable
-// Description: <code>true</code> if the file identified by this object is writable.
+// Description: true if the file identified by this object is writable.
 // Component(s): Ti.Filesystem.File
 '.writable': { writable: true }
 '.writable-false': { writable: false }
 
 // Property: manualMode
-// Description: Set to <code>true</code> to enable manual configuration of location updates through this module.
+// Description: Set to true to enable manual configuration of location updates through this module.
 // Component(s): Ti.Geolocation.Android
 '.manual-mode': { manualMode: true }
 '.manual-mode-false': { manualMode: false }
@@ -9272,7 +9297,7 @@
 '.location-services-enabled-false': { locationServicesEnabled: false }
 
 // Property: preferredProvider
-// Description: Determines the preferred location provider. <strong>Removed in 8.0.0. Android legacy mode operation is deprecated. For new development, use either simple mode or manual mode. See &quot;Configurating Location Updates on Android&quot; in the main description of this class for more information.</strong>
+// Description: Determines the preferred location provider. Removed in 8.0.0. Android legacy mode operation is deprecated. For new development, use either simple mode or manual mode. See &quot;Configurating Location Updates on Android&quot; in the main description of this class for more information.
 // Component(s): Ti.Geolocation
 '.preferred-provider-gps': { preferredProvider: Ti.Geolocation.Android.PROVIDER_GPS }
 '.preferred-provider-network': { preferredProvider: Ti.Geolocation.Android.PROVIDER_NETWORK }
@@ -9413,7 +9438,7 @@
 '.media-type-music-podcast': { mediaType: Ti.Media.MUSIC_MEDIA_TYPE_PODCAST }
 
 // Property: audioPlaying
-// Description: Returns <code>true</code> if the device is playing audio.
+// Description: Returns true if the device is playing audio.
 // Component(s): Ti.Media
 '.audio-playing': { audioPlaying: true }
 '.audio-playing-false': { audioPlaying: false }
@@ -9428,7 +9453,7 @@
 '.audio-session-category-solo-ambient': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
 
 // Property: availableCameras
-// Description: Array indicating which cameras are available, <code>CAMERA_FRONT</code>, <code>CAMERA_REAR</code> or both.
+// Description: Array indicating which cameras are available, CAMERA_FRONT, CAMERA_REAR or both.
 // Component(s): Ti.Media
 '.available-cameras-camera-front': { availableCameras: Ti.Media.CAMERA_FRONT }
 '.available-cameras-camera-rear': { availableCameras: Ti.Media.CAMERA_REAR }
@@ -9462,13 +9487,13 @@
 '.camera-flash-mode-on': { cameraFlashMode: Ti.Media.CAMERA_FLASH_ON }
 
 // Property: canRecord
-// Description: <code>true</code> if the device has a recording input device available.
+// Description: true if the device has a recording input device available.
 // Component(s): Ti.Media
 '.can-record': { canRecord: true }
 '.can-record-false': { canRecord: false }
 
 // Property: isCameraSupported
-// Description: <code>true</code> if the device has camera support.
+// Description: true if the device has camera support.
 // Component(s): Ti.Media
 '.is-camera-supported': { isCameraSupported: true }
 '.is-camera-supported-false': { isCameraSupported: false }
@@ -9487,7 +9512,7 @@
 '.autohide-false': { autohide: false }
 
 // Property: allowMultipleSelections
-// Description: Set to <code>true</code> to allow the user to select multiple items from the library.
+// Description: Set to true to allow the user to select multiple items from the library.
 // Component(s): MusicLibraryOptionsType
 '.allow-multiple-selections': { allowMultipleSelections: true }
 '.allow-multiple-selections-false': { allowMultipleSelections: false }
@@ -9505,7 +9530,7 @@
 '.grouping-music-media-group-podcast-title': { grouping: Ti.Media.MUSIC_MEDIA_GROUP_PODCAST_TITLE }
 
 // Property: exact
-// Description: Whether or not the predicate is for an exact match.  The default is <code>true</code>.
+// Description: Whether or not the predicate is for an exact match.  The default is true.
 // Component(s): MediaQueryInfoType
 '.exact': { exact: true }
 '.exact-false': { exact: false }
@@ -9585,7 +9610,7 @@
 '.allow-transcoding-false': { allowTranscoding: false }
 
 // Property: inputs
-// Description: An Array of current input ports for the session. See the <code>AUDIO_SESSION_PORT</code> constants.
+// Description: An Array of current input ports for the session. See the AUDIO_SESSION_PORT constants.
 // Component(s): RouteDescription
 '.inputs-audio-session-port-linein': { inputs: Ti.Media.AUDIO_SESSION_PORT_LINEIN }
 '.inputs-audio-session-port-builtinmic': { inputs: Ti.Media.AUDIO_SESSION_PORT_BUILTINMIC }
@@ -9603,7 +9628,7 @@
 '.inputs-audio-session-port-caraudio': { inputs: Ti.Media.AUDIO_SESSION_PORT_CARAUDIO }
 
 // Property: outputs
-// Description: An Array of current output ports for the session. See the <code>AUDIO_SESSION_PORT</code> constants.
+// Description: An Array of current output ports for the session. See the AUDIO_SESSION_PORT constants.
 // Component(s): RouteDescription
 '.outputs-audio-session-port-linein': { outputs: Ti.Media.AUDIO_SESSION_PORT_LINEIN }
 '.outputs-audio-session-port-builtinmic': { outputs: Ti.Media.AUDIO_SESSION_PORT_BUILTINMIC }
@@ -9821,7 +9846,7 @@
 '.online-false': { online: false }
 
 // Property: remoteNotificationsEnabled
-// Description: Indicates whether push  notifications have been enabled using <a href="Titanium.Network.registerForPushNotifications">registerForPushNotifications</a>.
+// Description: Indicates whether push  notifications have been enabled using registerForPushNotifications.
 // Component(s): Ti.Network
 '.remote-notifications-enabled': { remoteNotificationsEnabled: true }
 '.remote-notifications-enabled-false': { remoteNotificationsEnabled: false }
@@ -9848,7 +9873,7 @@
 '.battery-monitoring-false': { batteryMonitoring: false }
 
 // Property: UIApplicationOpenURLOptionsOpenInPlaceKey
-// Description: When the value of this property is <code>false</code>, you must copy the document to maintain access to it. If the flag is not set, you also must copy the document before you can use it.
+// Description: When the value of this property is false, you must copy the document to maintain access to it. If the flag is not set, you also must copy the document before you can use it.
 // Component(s): OpenURLOptions
 '.uiapplication-open-urloptions-in-place-key': { UIApplicationOpenURLOptionsOpenInPlaceKey: true }
 '.uiapplication-open-urloptions-in-place-key-false': { UIApplicationOpenURLOptionsOpenInPlaceKey: false }
@@ -10150,7 +10175,7 @@
 '.keyboard-appearance-light': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
 
 // Property: loginReturnKeyType
-// Description: Specifies the text to display on the keyboard <code>Return</code> key when this field is focused.
+// Description: Specifies the text to display on the keyboard Return key when this field is focused.
 // Component(s): Ti.UI.AlertDialog
 '.login-return-key-type-continue': { loginReturnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 '.login-return-key-type-returnkey': { loginReturnKeyType: Ti.UI.RETURNKEY_DEFAULT }
@@ -10184,7 +10209,7 @@
 '.login-keyboard-type-url': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_URL }
 
 // Property: passwordReturnKeyType
-// Description: Specifies the text to display on the keyboard <code>Return</code> key when this field is focused.
+// Description: Specifies the text to display on the keyboard Return key when this field is focused.
 // Component(s): Ti.UI.AlertDialog
 '.password-return-key-type-continue': { passwordReturnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 '.password-return-key-type-returnkey': { passwordReturnKeyType: Ti.UI.RETURNKEY_DEFAULT }
@@ -10676,7 +10701,7 @@
 '.toolbar-enabled-false': { toolbarEnabled: false }
 
 // Property: cancelable
-// Description: When <code>true</code> allows the user to cancel the progress dialog by pressing the BACK button.
+// Description: When true allows the user to cancel the progress dialog by pressing the BACK button.
 // Component(s): Ti.UI.Android.ProgressIndicator
 '.cancelable': { cancelable: true }
 '.cancelable-false': { cancelable: false }
@@ -10964,7 +10989,7 @@
 '.delay-5000': { delay: 5000 }
 
 // Property: opaque
-// Description: Value of the <code>opaque</code> property at the end of the animation.
+// Description: Value of the opaque property at the end of the animation.
 // Component(s): Ti.UI.Animation
 '.opaque': { opaque: true }
 '.opaque-false': { opaque: false }
@@ -12106,7 +12131,7 @@
 '.shadow-radius-3.5': { shadowRadius: 14 }
 
 // Property: systemButton
-// Description: Specifies an iOS system button appearance, as defined in <a href="Titanium.UI.iOS.SystemButton">Titanium.UI.iOS.SystemButton</a>.
+// Description: Specifies an iOS system button appearance, as defined in Titanium.UI.iOS.SystemButton.
 // Component(s): Ti.UI.Button
 '.system-button-action': { systemButton: Ti.UI.iOS.SystemButton.ACTION }
 '.system-button-activity': { systemButton: Ti.UI.iOS.SystemButton.ACTIVITY }
@@ -12899,7 +12924,7 @@
 '.enable-zoom-controls-false': { enableZoomControls: false }
 
 // Property: hires
-// Description: Set to <code>true</code> to prevent scaling of 2x/3x-resolution remote images for retina displays.
+// Description: Set to true to prevent scaling of 2x/3x-resolution remote images for retina displays.
 // Component(s): Ti.UI.ImageView
 '.hires': { hires: true }
 '.hires-false': { hires: false }
@@ -12911,7 +12936,7 @@
 '.image-touch-feedback-false': { imageTouchFeedback: false }
 
 // Property: imageTouchFeedbackColor
-// Description: Optional touch feedback ripple color. This has no effect unless <code>imageTouchFeedback</code> is true.
+// Description: Optional touch feedback ripple color. This has no effect unless imageTouchFeedback is true.
 // Component(s): Ti.UI.ImageView
 '.image-touch-feedback-transparent': { imageTouchFeedbackColor: 'transparent' }
 '.image-touch-feedback-black': { imageTouchFeedbackColor: '#000000' }
@@ -13138,10 +13163,10 @@
 '.image-touch-feedback-rose-900': { imageTouchFeedbackColor: '#881337' }
 
 // Property: preventDefaultImage
-// Description: Prevent the default image from being displayed while loading a remote image. This property is ignored when the <code>defaultImage</code> property is set.
+// Description: Prevent the default image from being displayed while loading a remote image. This property is ignored when the defaultImage property is set.
 // Component(s): Ti.UI.ImageView
-'.prevent-image': { preventDefaultImage: true }
-'.prevent-image-false': { preventDefaultImage: false }
+'.prevent-default-image': { preventDefaultImage: true }
+'.prevent-default-image-false': { preventDefaultImage: false }
 
 // Property: repeatCount
 // Description: Number of times to repeat the image animation.
@@ -14447,7 +14472,7 @@
 '.continuous-update-false': { continuousUpdate: false }
 
 // Property: keepSectionsInSearch
-// Description: Determines if the section information is displayed in the search results when using the <code>searchText</code> property.
+// Description: Determines if the section information is displayed in the search results when using the searchText property.
 // Component(s): Ti.UI.ListView
 '.keep-sections-in-search': { keepSectionsInSearch: true }
 '.keep-sections-in-search-false': { keepSectionsInSearch: false }
@@ -15253,7 +15278,7 @@
 '.exit-on-close-false': { exitOnClose: false }
 
 // Property: extendEdges
-// Description: An array of supported values specified using the EXTEND_EDGE constants in <a href="Titanium.UI">Titanium.UI</a>.
+// Description: An array of supported values specified using the EXTEND_EDGE constants in Titanium.UI.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 '.extend-edges-edge-top': { extendEdges: Ti.UI.EXTEND_EDGE_TOP }
 '.extend-edges-edge-bottom': { extendEdges: Ti.UI.EXTEND_EDGE_BOTTOM }
@@ -15383,12 +15408,6 @@
 '.safe-area-padding-1.5': { safeAreaPadding: 6 }
 '.safe-area-padding-2.5': { safeAreaPadding: 10 }
 '.safe-area-padding-3.5': { safeAreaPadding: 14 }
-
-// Property: splitActionBar
-// Description: Boolean value to enable split action bar. <strong>Deprecated since 6.2.0. Deprecated in AppCompat theme. The same behaviour can be achived by using Toolbar.</strong>
-// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.split-action-bar': { splitActionBar: true }
-'.split-action-bar-false': { splitActionBar: false }
 
 // Property: statusBarStyle
 // Description: The status bar style associated with this window.
@@ -15625,14 +15644,14 @@
 '.y-offset-3.5': { yOffset: 14 }
 
 // Property: horizontalMargin
-// Description: Horizontal placement of the notification, <em>as a fraction of the screen width</em>.
+// Description: Horizontal placement of the notification, as a fraction of the screen width.
 // Component(s): Ti.UI.Notification
 '.horizontal-margin-left': { horizontalMargin: -0.5 }
 '.horizontal-margin-right': { horizontalMargin: 0.5 }
 '.horizontal-margin-center': { horizontalMargin: 0 }
 
 // Property: verticalMargin
-// Description: Vertical placement of the notifcation, <em>as a fraction of the screen height</em>.
+// Description: Vertical placement of the notifcation, as a fraction of the screen height.
 // Component(s): Ti.UI.Notification
 '.vertical-margin-top': { verticalMargin: -0.5 }
 '.vertical-margin-bottom': { verticalMargin: 0.5 }
@@ -15913,14 +15932,8 @@
 '.format24': { format24: true }
 '.format24-false': { format24: false }
 
-// Property: selectionIndicator
-// Description: Determines whether the visual selection indicator is shown. <strong>Deprecated since 10.0.1. This property is ignored as of Titanium 10.0.1.</strong>
-// Component(s): Ti.UI.Picker
-'.selection-indicator': { selectionIndicator: true }
-'.selection-indicator-false': { selectionIndicator: false }
-
 // Property: selectionOpens
-// Description: Determines whether calling the method <code>setSelectedRow</code> opens when called
+// Description: Determines whether calling the method setSelectedRow opens when called
 // Component(s): Ti.UI.Picker
 '.selection-opens': { selectionOpens: true }
 '.selection-opens-false': { selectionOpens: false }
@@ -19000,13 +19013,13 @@
 '.active-tab-12': { activeTab: 12 }
 
 // Property: allowUserCustomization
-// Description: Allow the user to reorder tabs in the tab group using the <strong>Edit</strong> button on the <strong>More</strong> tab.
+// Description: Allow the user to reorder tabs in the tab group using the Edit button on the More tab.
 // Component(s): Ti.UI.TabGroup
 '.allow-user-customization': { allowUserCustomization: true }
 '.allow-user-customization-false': { allowUserCustomization: false }
 
 // Property: autoTabTitle
-// Description: If set to <code>true</code> it will automatically set the actionbar title to the current tabs window title.
+// Description: If set to true it will automatically set the actionbar title to the current tabs window title.
 // Component(s): Ti.UI.TabGroup
 '.auto-tab-title': { autoTabTitle: true }
 '.auto-tab-title-false': { autoTabTitle: false }
@@ -19250,465 +19263,11 @@
 '.tabs-bg-rose-800': { tabsBackgroundColor: '#9f1239' }
 '.tabs-bg-rose-900': { tabsBackgroundColor: '#881337' }
 
-// Property: tabsTintColor
-// Description: The tintColor to apply to the tabs. <strong>Deprecated since 9.0.3. Deprecated in favor of <a href="Titanium.UI.TabGroup.tintColor">Titanium.UI.TabGroup.tintColor</a> or alternatively <a href="Titanium.UI.Tab.tintColor">Titanium.UI.Tab.tintColor</a>.</strong>
-// Component(s): Ti.UI.TabGroup
-'.tabs-tint-transparent': { tabsTintColor: 'transparent' }
-'.tabs-tint-black': { tabsTintColor: '#000000' }
-'.tabs-tint-white': { tabsTintColor: '#ffffff' }
-'.tabs-tint-slate-50': { tabsTintColor: '#f8fafc' }
-'.tabs-tint-slate-100': { tabsTintColor: '#f1f5f9' }
-'.tabs-tint-slate-200': { tabsTintColor: '#e2e8f0' }
-'.tabs-tint-slate-300': { tabsTintColor: '#cbd5e1' }
-'.tabs-tint-slate-400': { tabsTintColor: '#94a3b8' }
-'.tabs-tint-slate-500': { tabsTintColor: '#64748b' }
-'.tabs-tint-slate-600': { tabsTintColor: '#475569' }
-'.tabs-tint-slate-700': { tabsTintColor: '#334155' }
-'.tabs-tint-slate-800': { tabsTintColor: '#1e293b' }
-'.tabs-tint-slate-900': { tabsTintColor: '#0f172a' }
-'.tabs-tint-gray-50': { tabsTintColor: '#f9fafb' }
-'.tabs-tint-gray-100': { tabsTintColor: '#f3f4f6' }
-'.tabs-tint-gray-200': { tabsTintColor: '#e5e7eb' }
-'.tabs-tint-gray-300': { tabsTintColor: '#d1d5db' }
-'.tabs-tint-gray-400': { tabsTintColor: '#9ca3af' }
-'.tabs-tint-gray-500': { tabsTintColor: '#6b7280' }
-'.tabs-tint-gray-600': { tabsTintColor: '#4b5563' }
-'.tabs-tint-gray-700': { tabsTintColor: '#374151' }
-'.tabs-tint-gray-800': { tabsTintColor: '#1f2937' }
-'.tabs-tint-gray-900': { tabsTintColor: '#111827' }
-'.tabs-tint-zinc-50': { tabsTintColor: '#fafafa' }
-'.tabs-tint-zinc-100': { tabsTintColor: '#f4f4f5' }
-'.tabs-tint-zinc-200': { tabsTintColor: '#e4e4e7' }
-'.tabs-tint-zinc-300': { tabsTintColor: '#d4d4d8' }
-'.tabs-tint-zinc-400': { tabsTintColor: '#a1a1aa' }
-'.tabs-tint-zinc-500': { tabsTintColor: '#71717a' }
-'.tabs-tint-zinc-600': { tabsTintColor: '#52525b' }
-'.tabs-tint-zinc-700': { tabsTintColor: '#3f3f46' }
-'.tabs-tint-zinc-800': { tabsTintColor: '#27272a' }
-'.tabs-tint-zinc-900': { tabsTintColor: '#18181b' }
-'.tabs-tint-neutral-50': { tabsTintColor: '#fafafa' }
-'.tabs-tint-neutral-100': { tabsTintColor: '#f5f5f5' }
-'.tabs-tint-neutral-200': { tabsTintColor: '#e5e5e5' }
-'.tabs-tint-neutral-300': { tabsTintColor: '#d4d4d4' }
-'.tabs-tint-neutral-400': { tabsTintColor: '#a3a3a3' }
-'.tabs-tint-neutral-500': { tabsTintColor: '#737373' }
-'.tabs-tint-neutral-600': { tabsTintColor: '#525252' }
-'.tabs-tint-neutral-700': { tabsTintColor: '#404040' }
-'.tabs-tint-neutral-800': { tabsTintColor: '#262626' }
-'.tabs-tint-neutral-900': { tabsTintColor: '#171717' }
-'.tabs-tint-stone-50': { tabsTintColor: '#fafaf9' }
-'.tabs-tint-stone-100': { tabsTintColor: '#f5f5f4' }
-'.tabs-tint-stone-200': { tabsTintColor: '#e7e5e4' }
-'.tabs-tint-stone-300': { tabsTintColor: '#d6d3d1' }
-'.tabs-tint-stone-400': { tabsTintColor: '#a8a29e' }
-'.tabs-tint-stone-500': { tabsTintColor: '#78716c' }
-'.tabs-tint-stone-600': { tabsTintColor: '#57534e' }
-'.tabs-tint-stone-700': { tabsTintColor: '#44403c' }
-'.tabs-tint-stone-800': { tabsTintColor: '#292524' }
-'.tabs-tint-stone-900': { tabsTintColor: '#1c1917' }
-'.tabs-tint-red-50': { tabsTintColor: '#fef2f2' }
-'.tabs-tint-red-100': { tabsTintColor: '#fee2e2' }
-'.tabs-tint-red-200': { tabsTintColor: '#fecaca' }
-'.tabs-tint-red-300': { tabsTintColor: '#fca5a5' }
-'.tabs-tint-red-400': { tabsTintColor: '#f87171' }
-'.tabs-tint-red-500': { tabsTintColor: '#ef4444' }
-'.tabs-tint-red-600': { tabsTintColor: '#dc2626' }
-'.tabs-tint-red-700': { tabsTintColor: '#b91c1c' }
-'.tabs-tint-red-800': { tabsTintColor: '#991b1b' }
-'.tabs-tint-red-900': { tabsTintColor: '#7f1d1d' }
-'.tabs-tint-orange-50': { tabsTintColor: '#fff7ed' }
-'.tabs-tint-orange-100': { tabsTintColor: '#ffedd5' }
-'.tabs-tint-orange-200': { tabsTintColor: '#fed7aa' }
-'.tabs-tint-orange-300': { tabsTintColor: '#fdba74' }
-'.tabs-tint-orange-400': { tabsTintColor: '#fb923c' }
-'.tabs-tint-orange-500': { tabsTintColor: '#f97316' }
-'.tabs-tint-orange-600': { tabsTintColor: '#ea580c' }
-'.tabs-tint-orange-700': { tabsTintColor: '#c2410c' }
-'.tabs-tint-orange-800': { tabsTintColor: '#9a3412' }
-'.tabs-tint-orange-900': { tabsTintColor: '#7c2d12' }
-'.tabs-tint-amber-50': { tabsTintColor: '#fffbeb' }
-'.tabs-tint-amber-100': { tabsTintColor: '#fef3c7' }
-'.tabs-tint-amber-200': { tabsTintColor: '#fde68a' }
-'.tabs-tint-amber-300': { tabsTintColor: '#fcd34d' }
-'.tabs-tint-amber-400': { tabsTintColor: '#fbbf24' }
-'.tabs-tint-amber-500': { tabsTintColor: '#f59e0b' }
-'.tabs-tint-amber-600': { tabsTintColor: '#d97706' }
-'.tabs-tint-amber-700': { tabsTintColor: '#b45309' }
-'.tabs-tint-amber-800': { tabsTintColor: '#92400e' }
-'.tabs-tint-amber-900': { tabsTintColor: '#78350f' }
-'.tabs-tint-yellow-50': { tabsTintColor: '#fefce8' }
-'.tabs-tint-yellow-100': { tabsTintColor: '#fef9c3' }
-'.tabs-tint-yellow-200': { tabsTintColor: '#fef08a' }
-'.tabs-tint-yellow-300': { tabsTintColor: '#fde047' }
-'.tabs-tint-yellow-400': { tabsTintColor: '#facc15' }
-'.tabs-tint-yellow-500': { tabsTintColor: '#eab308' }
-'.tabs-tint-yellow-600': { tabsTintColor: '#ca8a04' }
-'.tabs-tint-yellow-700': { tabsTintColor: '#a16207' }
-'.tabs-tint-yellow-800': { tabsTintColor: '#854d0e' }
-'.tabs-tint-yellow-900': { tabsTintColor: '#713f12' }
-'.tabs-tint-lime-50': { tabsTintColor: '#f7fee7' }
-'.tabs-tint-lime-100': { tabsTintColor: '#ecfccb' }
-'.tabs-tint-lime-200': { tabsTintColor: '#d9f99d' }
-'.tabs-tint-lime-300': { tabsTintColor: '#bef264' }
-'.tabs-tint-lime-400': { tabsTintColor: '#a3e635' }
-'.tabs-tint-lime-500': { tabsTintColor: '#84cc16' }
-'.tabs-tint-lime-600': { tabsTintColor: '#65a30d' }
-'.tabs-tint-lime-700': { tabsTintColor: '#4d7c0f' }
-'.tabs-tint-lime-800': { tabsTintColor: '#3f6212' }
-'.tabs-tint-lime-900': { tabsTintColor: '#365314' }
-'.tabs-tint-green-50': { tabsTintColor: '#f0fdf4' }
-'.tabs-tint-green-100': { tabsTintColor: '#dcfce7' }
-'.tabs-tint-green-200': { tabsTintColor: '#bbf7d0' }
-'.tabs-tint-green-300': { tabsTintColor: '#86efac' }
-'.tabs-tint-green-400': { tabsTintColor: '#4ade80' }
-'.tabs-tint-green-500': { tabsTintColor: '#22c55e' }
-'.tabs-tint-green-600': { tabsTintColor: '#16a34a' }
-'.tabs-tint-green-700': { tabsTintColor: '#15803d' }
-'.tabs-tint-green-800': { tabsTintColor: '#166534' }
-'.tabs-tint-green-900': { tabsTintColor: '#14532d' }
-'.tabs-tint-emerald-50': { tabsTintColor: '#ecfdf5' }
-'.tabs-tint-emerald-100': { tabsTintColor: '#d1fae5' }
-'.tabs-tint-emerald-200': { tabsTintColor: '#a7f3d0' }
-'.tabs-tint-emerald-300': { tabsTintColor: '#6ee7b7' }
-'.tabs-tint-emerald-400': { tabsTintColor: '#34d399' }
-'.tabs-tint-emerald-500': { tabsTintColor: '#10b981' }
-'.tabs-tint-emerald-600': { tabsTintColor: '#059669' }
-'.tabs-tint-emerald-700': { tabsTintColor: '#047857' }
-'.tabs-tint-emerald-800': { tabsTintColor: '#065f46' }
-'.tabs-tint-emerald-900': { tabsTintColor: '#064e3b' }
-'.tabs-tint-teal-50': { tabsTintColor: '#f0fdfa' }
-'.tabs-tint-teal-100': { tabsTintColor: '#ccfbf1' }
-'.tabs-tint-teal-200': { tabsTintColor: '#99f6e4' }
-'.tabs-tint-teal-300': { tabsTintColor: '#5eead4' }
-'.tabs-tint-teal-400': { tabsTintColor: '#2dd4bf' }
-'.tabs-tint-teal-500': { tabsTintColor: '#14b8a6' }
-'.tabs-tint-teal-600': { tabsTintColor: '#0d9488' }
-'.tabs-tint-teal-700': { tabsTintColor: '#0f766e' }
-'.tabs-tint-teal-800': { tabsTintColor: '#115e59' }
-'.tabs-tint-teal-900': { tabsTintColor: '#134e4a' }
-'.tabs-tint-cyan-50': { tabsTintColor: '#ecfeff' }
-'.tabs-tint-cyan-100': { tabsTintColor: '#cffafe' }
-'.tabs-tint-cyan-200': { tabsTintColor: '#a5f3fc' }
-'.tabs-tint-cyan-300': { tabsTintColor: '#67e8f9' }
-'.tabs-tint-cyan-400': { tabsTintColor: '#22d3ee' }
-'.tabs-tint-cyan-500': { tabsTintColor: '#06b6d4' }
-'.tabs-tint-cyan-600': { tabsTintColor: '#0891b2' }
-'.tabs-tint-cyan-700': { tabsTintColor: '#0e7490' }
-'.tabs-tint-cyan-800': { tabsTintColor: '#155e75' }
-'.tabs-tint-cyan-900': { tabsTintColor: '#164e63' }
-'.tabs-tint-sky-50': { tabsTintColor: '#f0f9ff' }
-'.tabs-tint-sky-100': { tabsTintColor: '#e0f2fe' }
-'.tabs-tint-sky-200': { tabsTintColor: '#bae6fd' }
-'.tabs-tint-sky-300': { tabsTintColor: '#7dd3fc' }
-'.tabs-tint-sky-400': { tabsTintColor: '#38bdf8' }
-'.tabs-tint-sky-500': { tabsTintColor: '#0ea5e9' }
-'.tabs-tint-sky-600': { tabsTintColor: '#0284c7' }
-'.tabs-tint-sky-700': { tabsTintColor: '#0369a1' }
-'.tabs-tint-sky-800': { tabsTintColor: '#075985' }
-'.tabs-tint-sky-900': { tabsTintColor: '#0c4a6e' }
-'.tabs-tint-blue-50': { tabsTintColor: '#eff6ff' }
-'.tabs-tint-blue-100': { tabsTintColor: '#dbeafe' }
-'.tabs-tint-blue-200': { tabsTintColor: '#bfdbfe' }
-'.tabs-tint-blue-300': { tabsTintColor: '#93c5fd' }
-'.tabs-tint-blue-400': { tabsTintColor: '#60a5fa' }
-'.tabs-tint-blue-500': { tabsTintColor: '#3b82f6' }
-'.tabs-tint-blue-600': { tabsTintColor: '#2563eb' }
-'.tabs-tint-blue-700': { tabsTintColor: '#1d4ed8' }
-'.tabs-tint-blue-800': { tabsTintColor: '#1e40af' }
-'.tabs-tint-blue-900': { tabsTintColor: '#1e3a8a' }
-'.tabs-tint-indigo-50': { tabsTintColor: '#eef2ff' }
-'.tabs-tint-indigo-100': { tabsTintColor: '#e0e7ff' }
-'.tabs-tint-indigo-200': { tabsTintColor: '#c7d2fe' }
-'.tabs-tint-indigo-300': { tabsTintColor: '#a5b4fc' }
-'.tabs-tint-indigo-400': { tabsTintColor: '#818cf8' }
-'.tabs-tint-indigo-500': { tabsTintColor: '#6366f1' }
-'.tabs-tint-indigo-600': { tabsTintColor: '#4f46e5' }
-'.tabs-tint-indigo-700': { tabsTintColor: '#4338ca' }
-'.tabs-tint-indigo-800': { tabsTintColor: '#3730a3' }
-'.tabs-tint-indigo-900': { tabsTintColor: '#312e81' }
-'.tabs-tint-violet-50': { tabsTintColor: '#f5f3ff' }
-'.tabs-tint-violet-100': { tabsTintColor: '#ede9fe' }
-'.tabs-tint-violet-200': { tabsTintColor: '#ddd6fe' }
-'.tabs-tint-violet-300': { tabsTintColor: '#c4b5fd' }
-'.tabs-tint-violet-400': { tabsTintColor: '#a78bfa' }
-'.tabs-tint-violet-500': { tabsTintColor: '#8b5cf6' }
-'.tabs-tint-violet-600': { tabsTintColor: '#7c3aed' }
-'.tabs-tint-violet-700': { tabsTintColor: '#6d28d9' }
-'.tabs-tint-violet-800': { tabsTintColor: '#5b21b6' }
-'.tabs-tint-violet-900': { tabsTintColor: '#4c1d95' }
-'.tabs-tint-purple-50': { tabsTintColor: '#faf5ff' }
-'.tabs-tint-purple-100': { tabsTintColor: '#f3e8ff' }
-'.tabs-tint-purple-200': { tabsTintColor: '#e9d5ff' }
-'.tabs-tint-purple-300': { tabsTintColor: '#d8b4fe' }
-'.tabs-tint-purple-400': { tabsTintColor: '#c084fc' }
-'.tabs-tint-purple-500': { tabsTintColor: '#a855f7' }
-'.tabs-tint-purple-600': { tabsTintColor: '#9333ea' }
-'.tabs-tint-purple-700': { tabsTintColor: '#7e22ce' }
-'.tabs-tint-purple-800': { tabsTintColor: '#6b21a8' }
-'.tabs-tint-purple-900': { tabsTintColor: '#581c87' }
-'.tabs-tint-fuchsia-50': { tabsTintColor: '#fdf4ff' }
-'.tabs-tint-fuchsia-100': { tabsTintColor: '#fae8ff' }
-'.tabs-tint-fuchsia-200': { tabsTintColor: '#f5d0fe' }
-'.tabs-tint-fuchsia-300': { tabsTintColor: '#f0abfc' }
-'.tabs-tint-fuchsia-400': { tabsTintColor: '#e879f9' }
-'.tabs-tint-fuchsia-500': { tabsTintColor: '#d946ef' }
-'.tabs-tint-fuchsia-600': { tabsTintColor: '#c026d3' }
-'.tabs-tint-fuchsia-700': { tabsTintColor: '#a21caf' }
-'.tabs-tint-fuchsia-800': { tabsTintColor: '#86198f' }
-'.tabs-tint-fuchsia-900': { tabsTintColor: '#701a75' }
-'.tabs-tint-pink-50': { tabsTintColor: '#fdf2f8' }
-'.tabs-tint-pink-100': { tabsTintColor: '#fce7f3' }
-'.tabs-tint-pink-200': { tabsTintColor: '#fbcfe8' }
-'.tabs-tint-pink-300': { tabsTintColor: '#f9a8d4' }
-'.tabs-tint-pink-400': { tabsTintColor: '#f472b6' }
-'.tabs-tint-pink-500': { tabsTintColor: '#ec4899' }
-'.tabs-tint-pink-600': { tabsTintColor: '#db2777' }
-'.tabs-tint-pink-700': { tabsTintColor: '#be185d' }
-'.tabs-tint-pink-800': { tabsTintColor: '#9d174d' }
-'.tabs-tint-pink-900': { tabsTintColor: '#831843' }
-'.tabs-tint-rose-50': { tabsTintColor: '#fff1f2' }
-'.tabs-tint-rose-100': { tabsTintColor: '#ffe4e6' }
-'.tabs-tint-rose-200': { tabsTintColor: '#fecdd3' }
-'.tabs-tint-rose-300': { tabsTintColor: '#fda4af' }
-'.tabs-tint-rose-400': { tabsTintColor: '#fb7185' }
-'.tabs-tint-rose-500': { tabsTintColor: '#f43f5e' }
-'.tabs-tint-rose-600': { tabsTintColor: '#e11d48' }
-'.tabs-tint-rose-700': { tabsTintColor: '#be123c' }
-'.tabs-tint-rose-800': { tabsTintColor: '#9f1239' }
-'.tabs-tint-rose-900': { tabsTintColor: '#881337' }
-
 // Property: tabsTranslucent
 // Description: A Boolean value that indicates whether the tab bar is translucent.
 // Component(s): Ti.UI.TabGroup
 '.tabs-translucent': { tabsTranslucent: true }
 '.tabs-translucent-false': { tabsTranslucent: false }
-
-// Property: unselectedItemTintColor
-// Description: Unselected items in this tab group will be tinted with this color. Setting this value to null indicates that the tab group should use its default value instead. <strong>Deprecated since 9.0.3. Deprecated in favor of <a href="Titanium.UI.TabGroup.tintColor">Titanium.UI.TabGroup.tintColor</a> or alternatively <a href="Titanium.UI.Tab.tintColor">Titanium.UI.Tab.tintColor</a>.</strong>
-// Component(s): Ti.UI.TabGroup
-'.unselected-item-tint-transparent': { unselectedItemTintColor: 'transparent' }
-'.unselected-item-tint-black': { unselectedItemTintColor: '#000000' }
-'.unselected-item-tint-white': { unselectedItemTintColor: '#ffffff' }
-'.unselected-item-tint-slate-50': { unselectedItemTintColor: '#f8fafc' }
-'.unselected-item-tint-slate-100': { unselectedItemTintColor: '#f1f5f9' }
-'.unselected-item-tint-slate-200': { unselectedItemTintColor: '#e2e8f0' }
-'.unselected-item-tint-slate-300': { unselectedItemTintColor: '#cbd5e1' }
-'.unselected-item-tint-slate-400': { unselectedItemTintColor: '#94a3b8' }
-'.unselected-item-tint-slate-500': { unselectedItemTintColor: '#64748b' }
-'.unselected-item-tint-slate-600': { unselectedItemTintColor: '#475569' }
-'.unselected-item-tint-slate-700': { unselectedItemTintColor: '#334155' }
-'.unselected-item-tint-slate-800': { unselectedItemTintColor: '#1e293b' }
-'.unselected-item-tint-slate-900': { unselectedItemTintColor: '#0f172a' }
-'.unselected-item-tint-gray-50': { unselectedItemTintColor: '#f9fafb' }
-'.unselected-item-tint-gray-100': { unselectedItemTintColor: '#f3f4f6' }
-'.unselected-item-tint-gray-200': { unselectedItemTintColor: '#e5e7eb' }
-'.unselected-item-tint-gray-300': { unselectedItemTintColor: '#d1d5db' }
-'.unselected-item-tint-gray-400': { unselectedItemTintColor: '#9ca3af' }
-'.unselected-item-tint-gray-500': { unselectedItemTintColor: '#6b7280' }
-'.unselected-item-tint-gray-600': { unselectedItemTintColor: '#4b5563' }
-'.unselected-item-tint-gray-700': { unselectedItemTintColor: '#374151' }
-'.unselected-item-tint-gray-800': { unselectedItemTintColor: '#1f2937' }
-'.unselected-item-tint-gray-900': { unselectedItemTintColor: '#111827' }
-'.unselected-item-tint-zinc-50': { unselectedItemTintColor: '#fafafa' }
-'.unselected-item-tint-zinc-100': { unselectedItemTintColor: '#f4f4f5' }
-'.unselected-item-tint-zinc-200': { unselectedItemTintColor: '#e4e4e7' }
-'.unselected-item-tint-zinc-300': { unselectedItemTintColor: '#d4d4d8' }
-'.unselected-item-tint-zinc-400': { unselectedItemTintColor: '#a1a1aa' }
-'.unselected-item-tint-zinc-500': { unselectedItemTintColor: '#71717a' }
-'.unselected-item-tint-zinc-600': { unselectedItemTintColor: '#52525b' }
-'.unselected-item-tint-zinc-700': { unselectedItemTintColor: '#3f3f46' }
-'.unselected-item-tint-zinc-800': { unselectedItemTintColor: '#27272a' }
-'.unselected-item-tint-zinc-900': { unselectedItemTintColor: '#18181b' }
-'.unselected-item-tint-neutral-50': { unselectedItemTintColor: '#fafafa' }
-'.unselected-item-tint-neutral-100': { unselectedItemTintColor: '#f5f5f5' }
-'.unselected-item-tint-neutral-200': { unselectedItemTintColor: '#e5e5e5' }
-'.unselected-item-tint-neutral-300': { unselectedItemTintColor: '#d4d4d4' }
-'.unselected-item-tint-neutral-400': { unselectedItemTintColor: '#a3a3a3' }
-'.unselected-item-tint-neutral-500': { unselectedItemTintColor: '#737373' }
-'.unselected-item-tint-neutral-600': { unselectedItemTintColor: '#525252' }
-'.unselected-item-tint-neutral-700': { unselectedItemTintColor: '#404040' }
-'.unselected-item-tint-neutral-800': { unselectedItemTintColor: '#262626' }
-'.unselected-item-tint-neutral-900': { unselectedItemTintColor: '#171717' }
-'.unselected-item-tint-stone-50': { unselectedItemTintColor: '#fafaf9' }
-'.unselected-item-tint-stone-100': { unselectedItemTintColor: '#f5f5f4' }
-'.unselected-item-tint-stone-200': { unselectedItemTintColor: '#e7e5e4' }
-'.unselected-item-tint-stone-300': { unselectedItemTintColor: '#d6d3d1' }
-'.unselected-item-tint-stone-400': { unselectedItemTintColor: '#a8a29e' }
-'.unselected-item-tint-stone-500': { unselectedItemTintColor: '#78716c' }
-'.unselected-item-tint-stone-600': { unselectedItemTintColor: '#57534e' }
-'.unselected-item-tint-stone-700': { unselectedItemTintColor: '#44403c' }
-'.unselected-item-tint-stone-800': { unselectedItemTintColor: '#292524' }
-'.unselected-item-tint-stone-900': { unselectedItemTintColor: '#1c1917' }
-'.unselected-item-tint-red-50': { unselectedItemTintColor: '#fef2f2' }
-'.unselected-item-tint-red-100': { unselectedItemTintColor: '#fee2e2' }
-'.unselected-item-tint-red-200': { unselectedItemTintColor: '#fecaca' }
-'.unselected-item-tint-red-300': { unselectedItemTintColor: '#fca5a5' }
-'.unselected-item-tint-red-400': { unselectedItemTintColor: '#f87171' }
-'.unselected-item-tint-red-500': { unselectedItemTintColor: '#ef4444' }
-'.unselected-item-tint-red-600': { unselectedItemTintColor: '#dc2626' }
-'.unselected-item-tint-red-700': { unselectedItemTintColor: '#b91c1c' }
-'.unselected-item-tint-red-800': { unselectedItemTintColor: '#991b1b' }
-'.unselected-item-tint-red-900': { unselectedItemTintColor: '#7f1d1d' }
-'.unselected-item-tint-orange-50': { unselectedItemTintColor: '#fff7ed' }
-'.unselected-item-tint-orange-100': { unselectedItemTintColor: '#ffedd5' }
-'.unselected-item-tint-orange-200': { unselectedItemTintColor: '#fed7aa' }
-'.unselected-item-tint-orange-300': { unselectedItemTintColor: '#fdba74' }
-'.unselected-item-tint-orange-400': { unselectedItemTintColor: '#fb923c' }
-'.unselected-item-tint-orange-500': { unselectedItemTintColor: '#f97316' }
-'.unselected-item-tint-orange-600': { unselectedItemTintColor: '#ea580c' }
-'.unselected-item-tint-orange-700': { unselectedItemTintColor: '#c2410c' }
-'.unselected-item-tint-orange-800': { unselectedItemTintColor: '#9a3412' }
-'.unselected-item-tint-orange-900': { unselectedItemTintColor: '#7c2d12' }
-'.unselected-item-tint-amber-50': { unselectedItemTintColor: '#fffbeb' }
-'.unselected-item-tint-amber-100': { unselectedItemTintColor: '#fef3c7' }
-'.unselected-item-tint-amber-200': { unselectedItemTintColor: '#fde68a' }
-'.unselected-item-tint-amber-300': { unselectedItemTintColor: '#fcd34d' }
-'.unselected-item-tint-amber-400': { unselectedItemTintColor: '#fbbf24' }
-'.unselected-item-tint-amber-500': { unselectedItemTintColor: '#f59e0b' }
-'.unselected-item-tint-amber-600': { unselectedItemTintColor: '#d97706' }
-'.unselected-item-tint-amber-700': { unselectedItemTintColor: '#b45309' }
-'.unselected-item-tint-amber-800': { unselectedItemTintColor: '#92400e' }
-'.unselected-item-tint-amber-900': { unselectedItemTintColor: '#78350f' }
-'.unselected-item-tint-yellow-50': { unselectedItemTintColor: '#fefce8' }
-'.unselected-item-tint-yellow-100': { unselectedItemTintColor: '#fef9c3' }
-'.unselected-item-tint-yellow-200': { unselectedItemTintColor: '#fef08a' }
-'.unselected-item-tint-yellow-300': { unselectedItemTintColor: '#fde047' }
-'.unselected-item-tint-yellow-400': { unselectedItemTintColor: '#facc15' }
-'.unselected-item-tint-yellow-500': { unselectedItemTintColor: '#eab308' }
-'.unselected-item-tint-yellow-600': { unselectedItemTintColor: '#ca8a04' }
-'.unselected-item-tint-yellow-700': { unselectedItemTintColor: '#a16207' }
-'.unselected-item-tint-yellow-800': { unselectedItemTintColor: '#854d0e' }
-'.unselected-item-tint-yellow-900': { unselectedItemTintColor: '#713f12' }
-'.unselected-item-tint-lime-50': { unselectedItemTintColor: '#f7fee7' }
-'.unselected-item-tint-lime-100': { unselectedItemTintColor: '#ecfccb' }
-'.unselected-item-tint-lime-200': { unselectedItemTintColor: '#d9f99d' }
-'.unselected-item-tint-lime-300': { unselectedItemTintColor: '#bef264' }
-'.unselected-item-tint-lime-400': { unselectedItemTintColor: '#a3e635' }
-'.unselected-item-tint-lime-500': { unselectedItemTintColor: '#84cc16' }
-'.unselected-item-tint-lime-600': { unselectedItemTintColor: '#65a30d' }
-'.unselected-item-tint-lime-700': { unselectedItemTintColor: '#4d7c0f' }
-'.unselected-item-tint-lime-800': { unselectedItemTintColor: '#3f6212' }
-'.unselected-item-tint-lime-900': { unselectedItemTintColor: '#365314' }
-'.unselected-item-tint-green-50': { unselectedItemTintColor: '#f0fdf4' }
-'.unselected-item-tint-green-100': { unselectedItemTintColor: '#dcfce7' }
-'.unselected-item-tint-green-200': { unselectedItemTintColor: '#bbf7d0' }
-'.unselected-item-tint-green-300': { unselectedItemTintColor: '#86efac' }
-'.unselected-item-tint-green-400': { unselectedItemTintColor: '#4ade80' }
-'.unselected-item-tint-green-500': { unselectedItemTintColor: '#22c55e' }
-'.unselected-item-tint-green-600': { unselectedItemTintColor: '#16a34a' }
-'.unselected-item-tint-green-700': { unselectedItemTintColor: '#15803d' }
-'.unselected-item-tint-green-800': { unselectedItemTintColor: '#166534' }
-'.unselected-item-tint-green-900': { unselectedItemTintColor: '#14532d' }
-'.unselected-item-tint-emerald-50': { unselectedItemTintColor: '#ecfdf5' }
-'.unselected-item-tint-emerald-100': { unselectedItemTintColor: '#d1fae5' }
-'.unselected-item-tint-emerald-200': { unselectedItemTintColor: '#a7f3d0' }
-'.unselected-item-tint-emerald-300': { unselectedItemTintColor: '#6ee7b7' }
-'.unselected-item-tint-emerald-400': { unselectedItemTintColor: '#34d399' }
-'.unselected-item-tint-emerald-500': { unselectedItemTintColor: '#10b981' }
-'.unselected-item-tint-emerald-600': { unselectedItemTintColor: '#059669' }
-'.unselected-item-tint-emerald-700': { unselectedItemTintColor: '#047857' }
-'.unselected-item-tint-emerald-800': { unselectedItemTintColor: '#065f46' }
-'.unselected-item-tint-emerald-900': { unselectedItemTintColor: '#064e3b' }
-'.unselected-item-tint-teal-50': { unselectedItemTintColor: '#f0fdfa' }
-'.unselected-item-tint-teal-100': { unselectedItemTintColor: '#ccfbf1' }
-'.unselected-item-tint-teal-200': { unselectedItemTintColor: '#99f6e4' }
-'.unselected-item-tint-teal-300': { unselectedItemTintColor: '#5eead4' }
-'.unselected-item-tint-teal-400': { unselectedItemTintColor: '#2dd4bf' }
-'.unselected-item-tint-teal-500': { unselectedItemTintColor: '#14b8a6' }
-'.unselected-item-tint-teal-600': { unselectedItemTintColor: '#0d9488' }
-'.unselected-item-tint-teal-700': { unselectedItemTintColor: '#0f766e' }
-'.unselected-item-tint-teal-800': { unselectedItemTintColor: '#115e59' }
-'.unselected-item-tint-teal-900': { unselectedItemTintColor: '#134e4a' }
-'.unselected-item-tint-cyan-50': { unselectedItemTintColor: '#ecfeff' }
-'.unselected-item-tint-cyan-100': { unselectedItemTintColor: '#cffafe' }
-'.unselected-item-tint-cyan-200': { unselectedItemTintColor: '#a5f3fc' }
-'.unselected-item-tint-cyan-300': { unselectedItemTintColor: '#67e8f9' }
-'.unselected-item-tint-cyan-400': { unselectedItemTintColor: '#22d3ee' }
-'.unselected-item-tint-cyan-500': { unselectedItemTintColor: '#06b6d4' }
-'.unselected-item-tint-cyan-600': { unselectedItemTintColor: '#0891b2' }
-'.unselected-item-tint-cyan-700': { unselectedItemTintColor: '#0e7490' }
-'.unselected-item-tint-cyan-800': { unselectedItemTintColor: '#155e75' }
-'.unselected-item-tint-cyan-900': { unselectedItemTintColor: '#164e63' }
-'.unselected-item-tint-sky-50': { unselectedItemTintColor: '#f0f9ff' }
-'.unselected-item-tint-sky-100': { unselectedItemTintColor: '#e0f2fe' }
-'.unselected-item-tint-sky-200': { unselectedItemTintColor: '#bae6fd' }
-'.unselected-item-tint-sky-300': { unselectedItemTintColor: '#7dd3fc' }
-'.unselected-item-tint-sky-400': { unselectedItemTintColor: '#38bdf8' }
-'.unselected-item-tint-sky-500': { unselectedItemTintColor: '#0ea5e9' }
-'.unselected-item-tint-sky-600': { unselectedItemTintColor: '#0284c7' }
-'.unselected-item-tint-sky-700': { unselectedItemTintColor: '#0369a1' }
-'.unselected-item-tint-sky-800': { unselectedItemTintColor: '#075985' }
-'.unselected-item-tint-sky-900': { unselectedItemTintColor: '#0c4a6e' }
-'.unselected-item-tint-blue-50': { unselectedItemTintColor: '#eff6ff' }
-'.unselected-item-tint-blue-100': { unselectedItemTintColor: '#dbeafe' }
-'.unselected-item-tint-blue-200': { unselectedItemTintColor: '#bfdbfe' }
-'.unselected-item-tint-blue-300': { unselectedItemTintColor: '#93c5fd' }
-'.unselected-item-tint-blue-400': { unselectedItemTintColor: '#60a5fa' }
-'.unselected-item-tint-blue-500': { unselectedItemTintColor: '#3b82f6' }
-'.unselected-item-tint-blue-600': { unselectedItemTintColor: '#2563eb' }
-'.unselected-item-tint-blue-700': { unselectedItemTintColor: '#1d4ed8' }
-'.unselected-item-tint-blue-800': { unselectedItemTintColor: '#1e40af' }
-'.unselected-item-tint-blue-900': { unselectedItemTintColor: '#1e3a8a' }
-'.unselected-item-tint-indigo-50': { unselectedItemTintColor: '#eef2ff' }
-'.unselected-item-tint-indigo-100': { unselectedItemTintColor: '#e0e7ff' }
-'.unselected-item-tint-indigo-200': { unselectedItemTintColor: '#c7d2fe' }
-'.unselected-item-tint-indigo-300': { unselectedItemTintColor: '#a5b4fc' }
-'.unselected-item-tint-indigo-400': { unselectedItemTintColor: '#818cf8' }
-'.unselected-item-tint-indigo-500': { unselectedItemTintColor: '#6366f1' }
-'.unselected-item-tint-indigo-600': { unselectedItemTintColor: '#4f46e5' }
-'.unselected-item-tint-indigo-700': { unselectedItemTintColor: '#4338ca' }
-'.unselected-item-tint-indigo-800': { unselectedItemTintColor: '#3730a3' }
-'.unselected-item-tint-indigo-900': { unselectedItemTintColor: '#312e81' }
-'.unselected-item-tint-violet-50': { unselectedItemTintColor: '#f5f3ff' }
-'.unselected-item-tint-violet-100': { unselectedItemTintColor: '#ede9fe' }
-'.unselected-item-tint-violet-200': { unselectedItemTintColor: '#ddd6fe' }
-'.unselected-item-tint-violet-300': { unselectedItemTintColor: '#c4b5fd' }
-'.unselected-item-tint-violet-400': { unselectedItemTintColor: '#a78bfa' }
-'.unselected-item-tint-violet-500': { unselectedItemTintColor: '#8b5cf6' }
-'.unselected-item-tint-violet-600': { unselectedItemTintColor: '#7c3aed' }
-'.unselected-item-tint-violet-700': { unselectedItemTintColor: '#6d28d9' }
-'.unselected-item-tint-violet-800': { unselectedItemTintColor: '#5b21b6' }
-'.unselected-item-tint-violet-900': { unselectedItemTintColor: '#4c1d95' }
-'.unselected-item-tint-purple-50': { unselectedItemTintColor: '#faf5ff' }
-'.unselected-item-tint-purple-100': { unselectedItemTintColor: '#f3e8ff' }
-'.unselected-item-tint-purple-200': { unselectedItemTintColor: '#e9d5ff' }
-'.unselected-item-tint-purple-300': { unselectedItemTintColor: '#d8b4fe' }
-'.unselected-item-tint-purple-400': { unselectedItemTintColor: '#c084fc' }
-'.unselected-item-tint-purple-500': { unselectedItemTintColor: '#a855f7' }
-'.unselected-item-tint-purple-600': { unselectedItemTintColor: '#9333ea' }
-'.unselected-item-tint-purple-700': { unselectedItemTintColor: '#7e22ce' }
-'.unselected-item-tint-purple-800': { unselectedItemTintColor: '#6b21a8' }
-'.unselected-item-tint-purple-900': { unselectedItemTintColor: '#581c87' }
-'.unselected-item-tint-fuchsia-50': { unselectedItemTintColor: '#fdf4ff' }
-'.unselected-item-tint-fuchsia-100': { unselectedItemTintColor: '#fae8ff' }
-'.unselected-item-tint-fuchsia-200': { unselectedItemTintColor: '#f5d0fe' }
-'.unselected-item-tint-fuchsia-300': { unselectedItemTintColor: '#f0abfc' }
-'.unselected-item-tint-fuchsia-400': { unselectedItemTintColor: '#e879f9' }
-'.unselected-item-tint-fuchsia-500': { unselectedItemTintColor: '#d946ef' }
-'.unselected-item-tint-fuchsia-600': { unselectedItemTintColor: '#c026d3' }
-'.unselected-item-tint-fuchsia-700': { unselectedItemTintColor: '#a21caf' }
-'.unselected-item-tint-fuchsia-800': { unselectedItemTintColor: '#86198f' }
-'.unselected-item-tint-fuchsia-900': { unselectedItemTintColor: '#701a75' }
-'.unselected-item-tint-pink-50': { unselectedItemTintColor: '#fdf2f8' }
-'.unselected-item-tint-pink-100': { unselectedItemTintColor: '#fce7f3' }
-'.unselected-item-tint-pink-200': { unselectedItemTintColor: '#fbcfe8' }
-'.unselected-item-tint-pink-300': { unselectedItemTintColor: '#f9a8d4' }
-'.unselected-item-tint-pink-400': { unselectedItemTintColor: '#f472b6' }
-'.unselected-item-tint-pink-500': { unselectedItemTintColor: '#ec4899' }
-'.unselected-item-tint-pink-600': { unselectedItemTintColor: '#db2777' }
-'.unselected-item-tint-pink-700': { unselectedItemTintColor: '#be185d' }
-'.unselected-item-tint-pink-800': { unselectedItemTintColor: '#9d174d' }
-'.unselected-item-tint-pink-900': { unselectedItemTintColor: '#831843' }
-'.unselected-item-tint-rose-50': { unselectedItemTintColor: '#fff1f2' }
-'.unselected-item-tint-rose-100': { unselectedItemTintColor: '#ffe4e6' }
-'.unselected-item-tint-rose-200': { unselectedItemTintColor: '#fecdd3' }
-'.unselected-item-tint-rose-300': { unselectedItemTintColor: '#fda4af' }
-'.unselected-item-tint-rose-400': { unselectedItemTintColor: '#fb7185' }
-'.unselected-item-tint-rose-500': { unselectedItemTintColor: '#f43f5e' }
-'.unselected-item-tint-rose-600': { unselectedItemTintColor: '#e11d48' }
-'.unselected-item-tint-rose-700': { unselectedItemTintColor: '#be123c' }
-'.unselected-item-tint-rose-800': { unselectedItemTintColor: '#9f1239' }
-'.unselected-item-tint-rose-900': { unselectedItemTintColor: '#881337' }
 
 // Property: tabsBackgroundSelectedColor
 // Description: Default background selected color for tabs, as a color name or hex triplet.
@@ -20089,7 +19648,7 @@
 '.scrollable-false': { scrollable: false }
 
 // Property: searchAsChild
-// Description: Determines whether the <a href="Titanium.UI.SearchBar">SearchBar</a> or <a href="Titanium.UI.Android.SearchView">SearchView</a> appears as part of the TableView.
+// Description: Determines whether the SearchBar or SearchView appears as part of the TableView.
 // Component(s): Ti.UI.TableView
 '.search-as-child': { searchAsChild: true }
 '.search-as-child-false': { searchAsChild: false }
@@ -20616,7 +20175,7 @@
 '.right-button-padding-3.5': { rightButtonPadding: 14 }
 
 // Property: extendBackground
-// Description: If <code>true</code>, the background of the toolbar extends upwards.
+// Description: If true, the background of the toolbar extends upwards.
 // Component(s): Ti.UI.Toolbar
 '.extend-background': { extendBackground: true }
 '.extend-background-false': { extendBackground: false }
@@ -21075,233 +20634,6 @@
 '.title-text-rose-800': { titleTextColor: '#9f1239' }
 '.title-text-rose-900': { titleTextColor: '#881337' }
 
-// Property: semanticColorType
-// Description: The current mode for the device (corresponding to night/dark or light/normal) <strong>Deprecated since 9.1.0. Use <a href="Titanium.UI.userInterfaceStyle">userInterfaceStyle</a> instead.</strong>
-// Component(s): Ti.UI
-'.semantic-type-transparent': { semanticColorType: 'transparent' }
-'.semantic-type-black': { semanticColorType: '#000000' }
-'.semantic-type-white': { semanticColorType: '#ffffff' }
-'.semantic-type-slate-50': { semanticColorType: '#f8fafc' }
-'.semantic-type-slate-100': { semanticColorType: '#f1f5f9' }
-'.semantic-type-slate-200': { semanticColorType: '#e2e8f0' }
-'.semantic-type-slate-300': { semanticColorType: '#cbd5e1' }
-'.semantic-type-slate-400': { semanticColorType: '#94a3b8' }
-'.semantic-type-slate-500': { semanticColorType: '#64748b' }
-'.semantic-type-slate-600': { semanticColorType: '#475569' }
-'.semantic-type-slate-700': { semanticColorType: '#334155' }
-'.semantic-type-slate-800': { semanticColorType: '#1e293b' }
-'.semantic-type-slate-900': { semanticColorType: '#0f172a' }
-'.semantic-type-gray-50': { semanticColorType: '#f9fafb' }
-'.semantic-type-gray-100': { semanticColorType: '#f3f4f6' }
-'.semantic-type-gray-200': { semanticColorType: '#e5e7eb' }
-'.semantic-type-gray-300': { semanticColorType: '#d1d5db' }
-'.semantic-type-gray-400': { semanticColorType: '#9ca3af' }
-'.semantic-type-gray-500': { semanticColorType: '#6b7280' }
-'.semantic-type-gray-600': { semanticColorType: '#4b5563' }
-'.semantic-type-gray-700': { semanticColorType: '#374151' }
-'.semantic-type-gray-800': { semanticColorType: '#1f2937' }
-'.semantic-type-gray-900': { semanticColorType: '#111827' }
-'.semantic-type-zinc-50': { semanticColorType: '#fafafa' }
-'.semantic-type-zinc-100': { semanticColorType: '#f4f4f5' }
-'.semantic-type-zinc-200': { semanticColorType: '#e4e4e7' }
-'.semantic-type-zinc-300': { semanticColorType: '#d4d4d8' }
-'.semantic-type-zinc-400': { semanticColorType: '#a1a1aa' }
-'.semantic-type-zinc-500': { semanticColorType: '#71717a' }
-'.semantic-type-zinc-600': { semanticColorType: '#52525b' }
-'.semantic-type-zinc-700': { semanticColorType: '#3f3f46' }
-'.semantic-type-zinc-800': { semanticColorType: '#27272a' }
-'.semantic-type-zinc-900': { semanticColorType: '#18181b' }
-'.semantic-type-neutral-50': { semanticColorType: '#fafafa' }
-'.semantic-type-neutral-100': { semanticColorType: '#f5f5f5' }
-'.semantic-type-neutral-200': { semanticColorType: '#e5e5e5' }
-'.semantic-type-neutral-300': { semanticColorType: '#d4d4d4' }
-'.semantic-type-neutral-400': { semanticColorType: '#a3a3a3' }
-'.semantic-type-neutral-500': { semanticColorType: '#737373' }
-'.semantic-type-neutral-600': { semanticColorType: '#525252' }
-'.semantic-type-neutral-700': { semanticColorType: '#404040' }
-'.semantic-type-neutral-800': { semanticColorType: '#262626' }
-'.semantic-type-neutral-900': { semanticColorType: '#171717' }
-'.semantic-type-stone-50': { semanticColorType: '#fafaf9' }
-'.semantic-type-stone-100': { semanticColorType: '#f5f5f4' }
-'.semantic-type-stone-200': { semanticColorType: '#e7e5e4' }
-'.semantic-type-stone-300': { semanticColorType: '#d6d3d1' }
-'.semantic-type-stone-400': { semanticColorType: '#a8a29e' }
-'.semantic-type-stone-500': { semanticColorType: '#78716c' }
-'.semantic-type-stone-600': { semanticColorType: '#57534e' }
-'.semantic-type-stone-700': { semanticColorType: '#44403c' }
-'.semantic-type-stone-800': { semanticColorType: '#292524' }
-'.semantic-type-stone-900': { semanticColorType: '#1c1917' }
-'.semantic-type-red-50': { semanticColorType: '#fef2f2' }
-'.semantic-type-red-100': { semanticColorType: '#fee2e2' }
-'.semantic-type-red-200': { semanticColorType: '#fecaca' }
-'.semantic-type-red-300': { semanticColorType: '#fca5a5' }
-'.semantic-type-red-400': { semanticColorType: '#f87171' }
-'.semantic-type-red-500': { semanticColorType: '#ef4444' }
-'.semantic-type-red-600': { semanticColorType: '#dc2626' }
-'.semantic-type-red-700': { semanticColorType: '#b91c1c' }
-'.semantic-type-red-800': { semanticColorType: '#991b1b' }
-'.semantic-type-red-900': { semanticColorType: '#7f1d1d' }
-'.semantic-type-orange-50': { semanticColorType: '#fff7ed' }
-'.semantic-type-orange-100': { semanticColorType: '#ffedd5' }
-'.semantic-type-orange-200': { semanticColorType: '#fed7aa' }
-'.semantic-type-orange-300': { semanticColorType: '#fdba74' }
-'.semantic-type-orange-400': { semanticColorType: '#fb923c' }
-'.semantic-type-orange-500': { semanticColorType: '#f97316' }
-'.semantic-type-orange-600': { semanticColorType: '#ea580c' }
-'.semantic-type-orange-700': { semanticColorType: '#c2410c' }
-'.semantic-type-orange-800': { semanticColorType: '#9a3412' }
-'.semantic-type-orange-900': { semanticColorType: '#7c2d12' }
-'.semantic-type-amber-50': { semanticColorType: '#fffbeb' }
-'.semantic-type-amber-100': { semanticColorType: '#fef3c7' }
-'.semantic-type-amber-200': { semanticColorType: '#fde68a' }
-'.semantic-type-amber-300': { semanticColorType: '#fcd34d' }
-'.semantic-type-amber-400': { semanticColorType: '#fbbf24' }
-'.semantic-type-amber-500': { semanticColorType: '#f59e0b' }
-'.semantic-type-amber-600': { semanticColorType: '#d97706' }
-'.semantic-type-amber-700': { semanticColorType: '#b45309' }
-'.semantic-type-amber-800': { semanticColorType: '#92400e' }
-'.semantic-type-amber-900': { semanticColorType: '#78350f' }
-'.semantic-type-yellow-50': { semanticColorType: '#fefce8' }
-'.semantic-type-yellow-100': { semanticColorType: '#fef9c3' }
-'.semantic-type-yellow-200': { semanticColorType: '#fef08a' }
-'.semantic-type-yellow-300': { semanticColorType: '#fde047' }
-'.semantic-type-yellow-400': { semanticColorType: '#facc15' }
-'.semantic-type-yellow-500': { semanticColorType: '#eab308' }
-'.semantic-type-yellow-600': { semanticColorType: '#ca8a04' }
-'.semantic-type-yellow-700': { semanticColorType: '#a16207' }
-'.semantic-type-yellow-800': { semanticColorType: '#854d0e' }
-'.semantic-type-yellow-900': { semanticColorType: '#713f12' }
-'.semantic-type-lime-50': { semanticColorType: '#f7fee7' }
-'.semantic-type-lime-100': { semanticColorType: '#ecfccb' }
-'.semantic-type-lime-200': { semanticColorType: '#d9f99d' }
-'.semantic-type-lime-300': { semanticColorType: '#bef264' }
-'.semantic-type-lime-400': { semanticColorType: '#a3e635' }
-'.semantic-type-lime-500': { semanticColorType: '#84cc16' }
-'.semantic-type-lime-600': { semanticColorType: '#65a30d' }
-'.semantic-type-lime-700': { semanticColorType: '#4d7c0f' }
-'.semantic-type-lime-800': { semanticColorType: '#3f6212' }
-'.semantic-type-lime-900': { semanticColorType: '#365314' }
-'.semantic-type-green-50': { semanticColorType: '#f0fdf4' }
-'.semantic-type-green-100': { semanticColorType: '#dcfce7' }
-'.semantic-type-green-200': { semanticColorType: '#bbf7d0' }
-'.semantic-type-green-300': { semanticColorType: '#86efac' }
-'.semantic-type-green-400': { semanticColorType: '#4ade80' }
-'.semantic-type-green-500': { semanticColorType: '#22c55e' }
-'.semantic-type-green-600': { semanticColorType: '#16a34a' }
-'.semantic-type-green-700': { semanticColorType: '#15803d' }
-'.semantic-type-green-800': { semanticColorType: '#166534' }
-'.semantic-type-green-900': { semanticColorType: '#14532d' }
-'.semantic-type-emerald-50': { semanticColorType: '#ecfdf5' }
-'.semantic-type-emerald-100': { semanticColorType: '#d1fae5' }
-'.semantic-type-emerald-200': { semanticColorType: '#a7f3d0' }
-'.semantic-type-emerald-300': { semanticColorType: '#6ee7b7' }
-'.semantic-type-emerald-400': { semanticColorType: '#34d399' }
-'.semantic-type-emerald-500': { semanticColorType: '#10b981' }
-'.semantic-type-emerald-600': { semanticColorType: '#059669' }
-'.semantic-type-emerald-700': { semanticColorType: '#047857' }
-'.semantic-type-emerald-800': { semanticColorType: '#065f46' }
-'.semantic-type-emerald-900': { semanticColorType: '#064e3b' }
-'.semantic-type-teal-50': { semanticColorType: '#f0fdfa' }
-'.semantic-type-teal-100': { semanticColorType: '#ccfbf1' }
-'.semantic-type-teal-200': { semanticColorType: '#99f6e4' }
-'.semantic-type-teal-300': { semanticColorType: '#5eead4' }
-'.semantic-type-teal-400': { semanticColorType: '#2dd4bf' }
-'.semantic-type-teal-500': { semanticColorType: '#14b8a6' }
-'.semantic-type-teal-600': { semanticColorType: '#0d9488' }
-'.semantic-type-teal-700': { semanticColorType: '#0f766e' }
-'.semantic-type-teal-800': { semanticColorType: '#115e59' }
-'.semantic-type-teal-900': { semanticColorType: '#134e4a' }
-'.semantic-type-cyan-50': { semanticColorType: '#ecfeff' }
-'.semantic-type-cyan-100': { semanticColorType: '#cffafe' }
-'.semantic-type-cyan-200': { semanticColorType: '#a5f3fc' }
-'.semantic-type-cyan-300': { semanticColorType: '#67e8f9' }
-'.semantic-type-cyan-400': { semanticColorType: '#22d3ee' }
-'.semantic-type-cyan-500': { semanticColorType: '#06b6d4' }
-'.semantic-type-cyan-600': { semanticColorType: '#0891b2' }
-'.semantic-type-cyan-700': { semanticColorType: '#0e7490' }
-'.semantic-type-cyan-800': { semanticColorType: '#155e75' }
-'.semantic-type-cyan-900': { semanticColorType: '#164e63' }
-'.semantic-type-sky-50': { semanticColorType: '#f0f9ff' }
-'.semantic-type-sky-100': { semanticColorType: '#e0f2fe' }
-'.semantic-type-sky-200': { semanticColorType: '#bae6fd' }
-'.semantic-type-sky-300': { semanticColorType: '#7dd3fc' }
-'.semantic-type-sky-400': { semanticColorType: '#38bdf8' }
-'.semantic-type-sky-500': { semanticColorType: '#0ea5e9' }
-'.semantic-type-sky-600': { semanticColorType: '#0284c7' }
-'.semantic-type-sky-700': { semanticColorType: '#0369a1' }
-'.semantic-type-sky-800': { semanticColorType: '#075985' }
-'.semantic-type-sky-900': { semanticColorType: '#0c4a6e' }
-'.semantic-type-blue-50': { semanticColorType: '#eff6ff' }
-'.semantic-type-blue-100': { semanticColorType: '#dbeafe' }
-'.semantic-type-blue-200': { semanticColorType: '#bfdbfe' }
-'.semantic-type-blue-300': { semanticColorType: '#93c5fd' }
-'.semantic-type-blue-400': { semanticColorType: '#60a5fa' }
-'.semantic-type-blue-500': { semanticColorType: '#3b82f6' }
-'.semantic-type-blue-600': { semanticColorType: '#2563eb' }
-'.semantic-type-blue-700': { semanticColorType: '#1d4ed8' }
-'.semantic-type-blue-800': { semanticColorType: '#1e40af' }
-'.semantic-type-blue-900': { semanticColorType: '#1e3a8a' }
-'.semantic-type-indigo-50': { semanticColorType: '#eef2ff' }
-'.semantic-type-indigo-100': { semanticColorType: '#e0e7ff' }
-'.semantic-type-indigo-200': { semanticColorType: '#c7d2fe' }
-'.semantic-type-indigo-300': { semanticColorType: '#a5b4fc' }
-'.semantic-type-indigo-400': { semanticColorType: '#818cf8' }
-'.semantic-type-indigo-500': { semanticColorType: '#6366f1' }
-'.semantic-type-indigo-600': { semanticColorType: '#4f46e5' }
-'.semantic-type-indigo-700': { semanticColorType: '#4338ca' }
-'.semantic-type-indigo-800': { semanticColorType: '#3730a3' }
-'.semantic-type-indigo-900': { semanticColorType: '#312e81' }
-'.semantic-type-violet-50': { semanticColorType: '#f5f3ff' }
-'.semantic-type-violet-100': { semanticColorType: '#ede9fe' }
-'.semantic-type-violet-200': { semanticColorType: '#ddd6fe' }
-'.semantic-type-violet-300': { semanticColorType: '#c4b5fd' }
-'.semantic-type-violet-400': { semanticColorType: '#a78bfa' }
-'.semantic-type-violet-500': { semanticColorType: '#8b5cf6' }
-'.semantic-type-violet-600': { semanticColorType: '#7c3aed' }
-'.semantic-type-violet-700': { semanticColorType: '#6d28d9' }
-'.semantic-type-violet-800': { semanticColorType: '#5b21b6' }
-'.semantic-type-violet-900': { semanticColorType: '#4c1d95' }
-'.semantic-type-purple-50': { semanticColorType: '#faf5ff' }
-'.semantic-type-purple-100': { semanticColorType: '#f3e8ff' }
-'.semantic-type-purple-200': { semanticColorType: '#e9d5ff' }
-'.semantic-type-purple-300': { semanticColorType: '#d8b4fe' }
-'.semantic-type-purple-400': { semanticColorType: '#c084fc' }
-'.semantic-type-purple-500': { semanticColorType: '#a855f7' }
-'.semantic-type-purple-600': { semanticColorType: '#9333ea' }
-'.semantic-type-purple-700': { semanticColorType: '#7e22ce' }
-'.semantic-type-purple-800': { semanticColorType: '#6b21a8' }
-'.semantic-type-purple-900': { semanticColorType: '#581c87' }
-'.semantic-type-fuchsia-50': { semanticColorType: '#fdf4ff' }
-'.semantic-type-fuchsia-100': { semanticColorType: '#fae8ff' }
-'.semantic-type-fuchsia-200': { semanticColorType: '#f5d0fe' }
-'.semantic-type-fuchsia-300': { semanticColorType: '#f0abfc' }
-'.semantic-type-fuchsia-400': { semanticColorType: '#e879f9' }
-'.semantic-type-fuchsia-500': { semanticColorType: '#d946ef' }
-'.semantic-type-fuchsia-600': { semanticColorType: '#c026d3' }
-'.semantic-type-fuchsia-700': { semanticColorType: '#a21caf' }
-'.semantic-type-fuchsia-800': { semanticColorType: '#86198f' }
-'.semantic-type-fuchsia-900': { semanticColorType: '#701a75' }
-'.semantic-type-pink-50': { semanticColorType: '#fdf2f8' }
-'.semantic-type-pink-100': { semanticColorType: '#fce7f3' }
-'.semantic-type-pink-200': { semanticColorType: '#fbcfe8' }
-'.semantic-type-pink-300': { semanticColorType: '#f9a8d4' }
-'.semantic-type-pink-400': { semanticColorType: '#f472b6' }
-'.semantic-type-pink-500': { semanticColorType: '#ec4899' }
-'.semantic-type-pink-600': { semanticColorType: '#db2777' }
-'.semantic-type-pink-700': { semanticColorType: '#be185d' }
-'.semantic-type-pink-800': { semanticColorType: '#9d174d' }
-'.semantic-type-pink-900': { semanticColorType: '#831843' }
-'.semantic-type-rose-50': { semanticColorType: '#fff1f2' }
-'.semantic-type-rose-100': { semanticColorType: '#ffe4e6' }
-'.semantic-type-rose-200': { semanticColorType: '#fecdd3' }
-'.semantic-type-rose-300': { semanticColorType: '#fda4af' }
-'.semantic-type-rose-400': { semanticColorType: '#fb7185' }
-'.semantic-type-rose-500': { semanticColorType: '#f43f5e' }
-'.semantic-type-rose-600': { semanticColorType: '#e11d48' }
-'.semantic-type-rose-700': { semanticColorType: '#be123c' }
-'.semantic-type-rose-800': { semanticColorType: '#9f1239' }
-'.semantic-type-rose-900': { semanticColorType: '#881337' }
-
 // Property: overrideUserInterfaceStyle
 // Description: Forces the app to used assigned theme instead of the system theme.
 // Component(s): Ti.UI
@@ -21310,13 +20642,13 @@
 '.override-user-interface-style-dark': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_DARK }
 
 // Property: backfillStart
-// Description: Set to <code>true</code> to continue filling with the starting color beyond the <code>startPoint</code>.
+// Description: Set to true to continue filling with the starting color beyond the startPoint.
 // Component(s): Gradient
 '.backfill-start': { backfillStart: true }
 '.backfill-start-false': { backfillStart: false }
 
 // Property: backfillEnd
-// Description: Set to <code>true</code> to continue filling with the final color beyond the <code>endPoint</code>.
+// Description: Set to true to continue filling with the final color beyond the endPoint.
 // Component(s): Gradient
 '.backfill-end': { backfillEnd: true }
 '.backfill-end-false': { backfillEnd: false }
@@ -21338,12 +20670,6 @@
 // Component(s): Ti.UI.WebView
 '.enable-javascript-interface': { enableJavascriptInterface: true }
 '.enable-javascript-interface-false': { enableJavascriptInterface: false }
-
-// Property: handlePlatformUrl
-// Description: Lets the webview handle platform supported urls <strong>Deprecated since 8.0.0. This property in no more supported in Titanium SDK 8.0.0+. Use property <a href="Titanium.UI.WebView.allowedURLSchemes">Titanium.UI.WebView.allowedURLSchemes</a> in conjuction with <a href="Titanium.UI.WebView.handleurl">Titanium.UI.WebView.handleurl</a>. See the example section &quot;Usage of allowedURLSchemes and handleurl in iOS&quot;.</strong>
-// Component(s): Ti.UI.WebView
-'.handle-platform-url': { handlePlatformUrl: true }
-'.handle-platform-url-false': { handlePlatformUrl: false }
 
 // Property: hideLoadIndicator
 // Description: Hides activity indicator when loading remote URL.
@@ -21385,13 +20711,13 @@
 '.plugin-state-webview-plugins-on-demand': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON_DEMAND }
 
 // Property: mixedContentMode
-// Description: If <code>true</code>, allows the loading of insecure resources from a secure origin.
+// Description: If true, allows the loading of insecure resources from a secure origin.
 // Component(s): Ti.UI.WebView
 '.mixed-content-mode': { mixedContentMode: true }
 '.mixed-content-mode-false': { mixedContentMode: false }
 
 // Property: scalesPageToFit
-// Description: If <code>true</code>, scale contents to fit the web view.
+// Description: If true, scale contents to fit the web view.
 // Component(s): Ti.UI.WebView
 '.scales-page-to-fit-0': { scalesPageToFit: 0 }
 '.scales-page-to-fit-1': { scalesPageToFit: 0.01 }
@@ -21494,7 +20820,7 @@
 '.modal-transition-style-partial-curl': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_PARTIAL_CURL }
 
 // Property: running
-// Description: Returns <code>true</code> if the animator is running else <code>false</code>.
+// Description: Returns true if the animator is running else false.
 // Component(s): Ti.UI.iOS.Animator
 '.running': { running: true }
 '.running-false': { running: false }
@@ -21623,7 +20949,7 @@
 '.java-script-can-open-windows-automatically-false': { javaScriptCanOpenWindowsAutomatically: false }
 
 // Property: forceTouchSupported
-// Description: Determines if the 3D-Touch capability &quot;Force Touch&quot; is supported (<code>true</code>) or not (<code>false</code>) by the device.
+// Description: Determines if the 3D-Touch capability &quot;Force Touch&quot; is supported (true) or not (false) by the device.
 // Component(s): Ti.UI.iOS
 '.force-touch-supported': { forceTouchSupported: true }
 '.force-touch-supported-false': { forceTouchSupported: false }
@@ -21635,7 +20961,7 @@
 '.app-supports-shake-to-edit-false': { appSupportsShakeToEdit: false }
 
 // Property: statusBarBackgroundColor
-// Description: Sets the global status bar background color for the application. Android does not support setting instances of <a href="Titanium.UI.Color">Titanium.UI.Color</a>
+// Description: Sets the global status bar background color for the application. Android does not support setting instances of Titanium.UI.Color
 // Component(s): Ti.UI.iOS
 '.status-bar-bg-transparent': { statusBarBackgroundColor: 'transparent' }
 '.status-bar-bg-black': { statusBarBackgroundColor: '#000000' }
@@ -21869,43 +21195,43 @@
 '.activation-state-watch-session-activated': { activationState: Ti.WatchSession.ACTIVATION_STATE_ACTIVATED }
 
 // Property: hasContentPending
-// Description: Returns <code>true</code> if there is more content for the session to deliver.
+// Description: Returns true if there is more content for the session to deliver.
 // Component(s): Ti.WatchSession
 '.has-content-pending': { hasContentPending: true }
 '.has-content-pending-false': { hasContentPending: false }
 
 // Property: isSupported
-// Description: Returns <code>true</code> if the device supports watch connectivity.
+// Description: Returns true if the device supports watch connectivity.
 // Component(s): Ti.WatchSession
 '.is-supported': { isSupported: true }
 '.is-supported-false': { isSupported: false }
 
 // Property: isPaired
-// Description: Returns <code>true</code> if the device is paired with a watch.
+// Description: Returns true if the device is paired with a watch.
 // Component(s): Ti.WatchSession
 '.is-paired': { isPaired: true }
 '.is-paired-false': { isPaired: false }
 
 // Property: isWatchAppInstalled
-// Description: Returns <code>true</code> if the accompanying watch app is installed.
+// Description: Returns true if the accompanying watch app is installed.
 // Component(s): Ti.WatchSession
 '.is-watch-app-installed': { isWatchAppInstalled: true }
 '.is-watch-app-installed-false': { isWatchAppInstalled: false }
 
 // Property: isComplicationEnabled
-// Description: Returns <code>true</code> if complication is enabled on the installed watch app.
+// Description: Returns true if complication is enabled on the installed watch app.
 // Component(s): Ti.WatchSession
 '.is-complication-enabled': { isComplicationEnabled: true }
 '.is-complication-enabled-false': { isComplicationEnabled: false }
 
 // Property: isReachable
-// Description: Returns <code>true</code> if the watch is currently reachable.
+// Description: Returns true if the watch is currently reachable.
 // Component(s): Ti.WatchSession
 '.is-reachable': { isReachable: true }
 '.is-reachable-false': { isReachable: false }
 
 // Property: isActivated
-// Description: Returns <code>true</code> if the watch is currently activated.
+// Description: Returns true if the watch is currently activated.
 // Component(s): Ti.WatchSession
 '.is-activated': { isActivated: true }
 '.is-activated-false': { isActivated: false }
