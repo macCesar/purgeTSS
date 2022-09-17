@@ -213,6 +213,7 @@ function processCompoundClasses({ ..._base }) {
 	compoundClasses += helpers.titleAttributesShadow();
 	compoundClasses += helpers.touchEnabled();
 	compoundClasses += helpers.viewShadowV6();
+	compoundClasses += helpers.visible();
 
 	compoundClasses += helpers.borderRadius(_base.borderRadius);
 	compoundClasses += helpers.fontFamily(_base.fontFamily);
