@@ -117,16 +117,10 @@ function processTitaniumRules(_propertiesOnly) {
 function processCompletionsClasses(_completionsWithBaseValues) {
 	let processedClasses = '';
 
-	if (!fs.existsSync(projectsConfigJS)) {
-		makeSureFolderExists(path.resolve(__dirname, '../dist/glossary/'));
-	}
-
 	_.each(_completionsWithBaseValues, (data, key) => {
 		let theClasses = generateCombinedClasses(key, data);
 		if (theClasses) {
-			if (!fs.existsSync(projectsConfigJS)) {
-				generateGlossary(theClasses, key, data);
-			}
+			generateGlossary(theClasses, key, data);
 			processedClasses += theClasses;
 		}
 	});
@@ -134,21 +128,35 @@ function processCompletionsClasses(_completionsWithBaseValues) {
 	return processedClasses;
 }
 
-function generateGlossary(_theClasses, _key, _keyName) {
-	let destinationFolder = '';
+function generateGlossary(_theClasses, _key, _keyName = null) {
+	if (!fs.existsSync(projectsConfigJS)) {
+		makeSureFolderExists(path.resolve(__dirname, '../dist/glossary/'));
 
-	if (_key.includes('color') || _key.includes('Color')) {
-		destinationFolder = path.resolve(__dirname, '../dist/glossary/colorProperties');
-	} else if (Object.entries(_keyName.base).length) {
-		destinationFolder = path.resolve(__dirname, '../dist/glossary/configurableProperties');
-	} else if (_keyName.type === 'Boolean') {
-		destinationFolder = path.resolve(__dirname, '../dist/glossary/booleanProperties');
-	} else {
-		destinationFolder = path.resolve(__dirname, '../dist/glossary/constantProperties');
+		let destinationFolder = '';
+
+		if (_keyName) {
+			if (_key.includes('color') || _key.includes('Color') || _key.includes('colors')) {
+				destinationFolder = path.resolve(__dirname, '../dist/glossary/colorProperties');
+			} else if (Object.entries(_keyName.base).length) {
+				destinationFolder = path.resolve(__dirname, '../dist/glossary/configurableProperties');
+			} else if (_keyName.type === 'Boolean') {
+				destinationFolder = path.resolve(__dirname, '../dist/glossary/booleanProperties');
+			} else {
+				destinationFolder = path.resolve(__dirname, '../dist/glossary/constantProperties');
+			}
+		} else {
+			if (_key.includes('color') || _key.includes('Color') || _key.includes('colors')) {
+				destinationFolder = path.resolve(__dirname, '../dist/glossary/colorProperties');
+			} else {
+				destinationFolder = path.resolve(__dirname, '../dist/glossary/compoundClasses');
+			}
+		}
+
+		makeSureFolderExists(destinationFolder);
+		fs.writeFileSync(`${destinationFolder}/${_key}.md`, '```scss' + _theClasses + '```');
 	}
 
-	makeSureFolderExists(destinationFolder);
-	fs.writeFileSync(`${destinationFolder}/${_key}.md`, '```scss' + _theClasses + '```');
+	return _theClasses;
 }
 
 function setBaseValuesToProperties(_allProperties, _base) {
@@ -201,61 +209,66 @@ function processCompoundClasses({ ..._base }) {
 	let compoundTemplate = require('../lib/templates/tailwind/compoundTemplate.json');
 
 	_.each(compoundTemplate, (value, key) => {
-		compoundClasses += saveAutoTSS(key, helpers.processProperties(value.description, value.template, value.base ?? { default: _base[key] }));
+		compoundClasses += saveTSSandGlossary(key, helpers.processProperties(value.description, value.template, value.base ?? { default: _base[key] }));
 	});
 
-	compoundClasses += saveAutoTSS('anchorPoint', helpers.anchorPoint());
+	// Fixed values
+	compoundClasses += saveTSSandGlossary('anchorPoint', helpers.anchorPoint());
+	compoundClasses += saveTSSandGlossary('autocapitalization-alternative', helpers.autocapitalization());
+	compoundClasses += saveTSSandGlossary('backgroundGradient-linear', helpers.backgroundLinearGradient());
+	compoundClasses += saveTSSandGlossary('backgroundGradient-radial', helpers.backgroundRadialGradient());
+	compoundClasses += saveTSSandGlossary('clipMode', helpers.clipMode());
+	compoundClasses += saveTSSandGlossary('constraint', helpers.constraint());
+	compoundClasses += saveTSSandGlossary('content-height-and-width', helpers.contentHeightAndWidth());
+	compoundClasses += saveTSSandGlossary('debug', helpers.debugMode());
+	compoundClasses += saveTSSandGlossary('defaultItemTemplate', helpers.defaultItemTemplate());
+	compoundClasses += saveTSSandGlossary('displayCaps', helpers.displayCaps());
+	compoundClasses += saveTSSandGlossary('draggingType', helpers.draggingType());
+	compoundClasses += saveTSSandGlossary('dropShadow', helpers.dropShadow());
+	compoundClasses += saveTSSandGlossary('ellipsize-alternative', helpers.ellipsize());
+	compoundClasses += saveTSSandGlossary('filterAttribute', helpers.filterAttribute());
+	compoundClasses += saveTSSandGlossary('flip', helpers.flip());
+	compoundClasses += saveTSSandGlossary('fontStyle', helpers.fontStyle());
+	compoundClasses += saveTSSandGlossary('grid-cols-rows-span', helpers.gridColumnsRowsStartEnd());
+	compoundClasses += saveTSSandGlossary('gridFlow', helpers.gridFlow());
+	compoundClasses += saveTSSandGlossary('gridSystem', helpers.gridSystem());
+	compoundClasses += saveTSSandGlossary('items', helpers.items());
+	compoundClasses += saveTSSandGlossary('navigationMode', helpers.navigationMode());
+	compoundClasses += saveTSSandGlossary('orientationModes', helpers.orientationModes());
+	compoundClasses += saveTSSandGlossary('placement', helpers.placement());
+	compoundClasses += saveTSSandGlossary('progressBarStyle', helpers.progressBarStyle());
+	compoundClasses += saveTSSandGlossary('scrollType', helpers.scrollType());
+	compoundClasses += saveTSSandGlossary('selectionStyle', helpers.selectionStyle());
+	compoundClasses += saveTSSandGlossary('showScrollIndicators', helpers.scrollIndicators());
+	compoundClasses += saveTSSandGlossary('statusBarStyle-alternative', helpers.statusBarStyle());
+	compoundClasses += saveTSSandGlossary('theme', helpers.theme());
+	compoundClasses += saveTSSandGlossary('titleAttributesShadow-alternative', helpers.titleAttributesShadow());
+	compoundClasses += saveTSSandGlossary('touchEnabled-alternative', helpers.touchEnabled());
+	compoundClasses += saveTSSandGlossary('viewShadowOffset', helpers.viewShadowV6());
+	compoundClasses += saveTSSandGlossary('visible-alternative', helpers.visible());
 
-	compoundClasses += saveAutoTSS('autocapitalization-alternative', helpers.autocapitalization());
-	compoundClasses += saveAutoTSS('backgroundGradient-linear', helpers.backgroundLinearGradient());
-	compoundClasses += saveAutoTSS('backgroundGradient-radial', helpers.backgroundRadialGradient());
-	compoundClasses += saveAutoTSS('clipMode', helpers.clipMode());
-	compoundClasses += saveAutoTSS('constraint', helpers.constraint());
-	compoundClasses += saveAutoTSS('content-height-and-width', helpers.contentHeightAndWidth());
-	compoundClasses += saveAutoTSS('debug', helpers.debugMode());
-	compoundClasses += saveAutoTSS('defaultItemTemplate', helpers.defaultItemTemplate());
-	compoundClasses += saveAutoTSS('displayCaps', helpers.displayCaps());
-	compoundClasses += saveAutoTSS('draggingType', helpers.draggingType());
-	compoundClasses += saveAutoTSS('dropShadow', helpers.dropShadow());
-	compoundClasses += saveAutoTSS('ellipsize-alternative', helpers.ellipsize());
-	compoundClasses += saveAutoTSS('filterAttribute', helpers.filterAttribute());
-	compoundClasses += saveAutoTSS('flip', helpers.flip());
-	compoundClasses += saveAutoTSS('fontStyle', helpers.fontStyle());
-	compoundClasses += saveAutoTSS('grid-cols-rows-span', helpers.gridColumnsRowsStartEnd());
-	compoundClasses += saveAutoTSS('gridFlow', helpers.gridFlow());
-	compoundClasses += saveAutoTSS('gridSystem', helpers.gridSystem());
-	compoundClasses += saveAutoTSS('items', helpers.items());
-	compoundClasses += saveAutoTSS('navigationMode', helpers.navigationMode());
-	compoundClasses += saveAutoTSS('orientationModes', helpers.orientationModes());
-	compoundClasses += saveAutoTSS('placement', helpers.placement());
-	compoundClasses += saveAutoTSS('progressBarStyle', helpers.progressBarStyle());
-	compoundClasses += saveAutoTSS('showScrollIndicators', helpers.scrollIndicators());
-	compoundClasses += saveAutoTSS('scrollType', helpers.scrollType());
-	compoundClasses += saveAutoTSS('selectionStyle', helpers.selectionStyle());
-	compoundClasses += saveAutoTSS('statusBarStyle-alternative', helpers.statusBarStyle());
-	compoundClasses += saveAutoTSS('theme', helpers.theme());
-	compoundClasses += saveAutoTSS('titleAttributesShadow-alternative', helpers.titleAttributesShadow());
-	compoundClasses += saveAutoTSS('touchEnabled-alternative', helpers.touchEnabled());
-	compoundClasses += saveAutoTSS('viewShadowOffset', helpers.viewShadowV6());
-	compoundClasses += saveAutoTSS('visible-alternative', helpers.visible());
+	//! Configurables
+	compoundClasses += saveTSSandGlossary('borderRadius-alternative', helpers.borderRadius(_base.borderRadius));
+	compoundClasses += saveTSSandGlossary('fontFamily', helpers.fontFamily(_base.fontFamily));
+	compoundClasses += saveTSSandGlossary('fontSize', helpers.fontSize(_base.fontSize));
+	compoundClasses += saveTSSandGlossary('fontWeight', helpers.fontWeight(_base.fontWeight));
+	compoundClasses += saveTSSandGlossary('margin-alternative', helpers.gap(_base.margin));
+	compoundClasses += saveTSSandGlossary('minimumFontSize', helpers.minimumFontSize(_base.fontSize));
+	compoundClasses += saveTSSandGlossary('padding-alternative', helpers.padding(_base.padding));
+	compoundClasses += saveTSSandGlossary('rotate-negative-values', helpers.negativeRotate(_base.rotate));
 
-	compoundClasses += saveAutoTSS('borderRadius-alternative', helpers.borderRadius(_base.borderRadius));
-	compoundClasses += saveAutoTSS('fontFamily', helpers.fontFamily(_base.fontFamily));
-	compoundClasses += saveAutoTSS('fontSize', helpers.fontSize(_base.fontSize));
-	compoundClasses += saveAutoTSS('fontWeight', helpers.fontWeight(_base.fontWeight));
-	compoundClasses += saveAutoTSS('margin-alternative', helpers.gap(_base.margin));
-	compoundClasses += saveAutoTSS('minimumFontSize', helpers.minimumFontSize(_base.fontSize));
-	compoundClasses += saveAutoTSS('rotate-negative-values', helpers.negativeRotate(_base.rotate));
-	compoundClasses += saveAutoTSS('padding-alternative', helpers.padding(_base.padding));
-
-	// colors
-	compoundClasses += saveAutoTSS('backgroundGradient-colors', helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient')));
-	compoundClasses += saveAutoTSS('backgroundSelectedGradient-colors', helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient')));
-	compoundClasses += saveAutoTSS('color-alternative', helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor')));
-	compoundClasses += saveAutoTSS('titleAttributes-color', helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor')));
-	compoundClasses += saveAutoTSS('titleAttributes-shadow-color', helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor')));
+	//! colors
+	compoundClasses += saveTSSandGlossary('backgroundGradient', helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient')));
+	compoundClasses += saveTSSandGlossary('backgroundSelectedGradient', helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient')));
+	compoundClasses += saveTSSandGlossary('color-alternative', helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor')));
+	compoundClasses += saveTSSandGlossary('titleAttributes-color', helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor')));
+	compoundClasses += saveTSSandGlossary('titleAttributes-shadow-color', helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor')));
 
 	return compoundClasses;
+}
+
+function saveTSSandGlossary(_key, _values) {
+	return generateGlossary(saveAutoTSS(_key, _values), _key);
 }
 
 function findBaseKey(_key, _data) {
@@ -488,6 +501,8 @@ function getPropertiesFromTiCompletionsFile() {
 		'symbolicLink',
 		'withFileTypes',
 		'writable',
+		'UIApplicationOpenURLOptionsOpenInPlaceKey',
+		'UIApplicationOpenURLOptionUniversalLinksOnly',
 
 		//! Handled by PurgeTSS
 		'fontFamily',
