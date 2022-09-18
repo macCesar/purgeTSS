@@ -157,11 +157,7 @@ function Animation(args) {
 	}
 
 	function realSourceView(_source) {
-		if (param.draggables.map(a => a.id).includes(_source.id)) {
-			return _source;
-		} else {
-			return realSourceView(_source.parent);
-		}
+		return (param.draggables.map(a => a.id).includes(_source.id)) ? _source : realSourceView(_source.parent);
 	}
 
 	function checkBoundaries(_view) {

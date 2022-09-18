@@ -63,11 +63,11 @@ function autoBuildTailwindTSS(options = {}) {
 	if (fs.existsSync(projectsConfigJS)) {
 		fs.writeFileSync(cwd + '/purgetss/tailwind.tss', tailwindStyles);
 		logger.file('./purgetss/tailwind.tss');
-		if (debugMode) {
-			saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
-			saveFile(cwd + '/purgetss/experimental/tiUIComponents.json', JSON.stringify(tiUIComponents, null, 2));
-			fs.writeFileSync(cwd + '/purgetss/experimental/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
-		}
+		// if (debugMode) {
+		// 	saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
+		// 	saveFile(cwd + '/purgetss/experimental/tiUIComponents.json', JSON.stringify(tiUIComponents, null, 2));
+		// 	fs.writeFileSync(cwd + '/purgetss/experimental/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
+		// }
 	} else {
 		fs.writeFileSync(path.resolve(__dirname, '../dist/tailwind.tss'), tailwindStyles);
 		logger.file('./dist/tailwind.tss');
@@ -82,7 +82,7 @@ function processCustomClasses() {
 		_.each(configFile.theme, (value, key) => {
 			if (key !== 'extend') {
 				let theClasses = helpers.customRules(value, key);
-				saveAutoTSS(key, theClasses);
+				// saveAutoTSS(key, theClasses);
 				tailwindStyles += theClasses;
 			}
 		});
@@ -120,7 +120,7 @@ function processCompletionsClasses(_completionsWithBaseValues) {
 	_.each(_completionsWithBaseValues, (data, key) => {
 		let theClasses = generateCombinedClasses(key, data);
 		if (theClasses) {
-			generateGlossary(theClasses, key, data);
+			generateGlossary(key, theClasses, data);
 			processedClasses += theClasses;
 		}
 	});
@@ -128,27 +128,34 @@ function processCompletionsClasses(_completionsWithBaseValues) {
 	return processedClasses;
 }
 
-function generateGlossary(_theClasses, _key, _keyName = null) {
+function generateGlossary(_key, _theClasses, _keyName = null) {
+	let baseDestinationFolder = '';
 	if (!fs.existsSync(projectsConfigJS)) {
-		makeSureFolderExists(path.resolve(__dirname, '../dist/glossary/'));
+		baseDestinationFolder = path.resolve(__dirname, '../dist/glossary/');
+	} else if (debugMode) {
+		baseDestinationFolder = cwd + '/purgetss/glossary/';
+	}
+
+	if (baseDestinationFolder !== '') {
+		makeSureFolderExists(baseDestinationFolder);
 
 		let destinationFolder = '';
 
 		if (_keyName) {
 			if (_key.includes('color') || _key.includes('Color') || _key.includes('colors')) {
-				destinationFolder = path.resolve(__dirname, '../dist/glossary/colorProperties');
+				destinationFolder = baseDestinationFolder + '/colorProperties';
 			} else if (Object.entries(_keyName.base).length) {
-				destinationFolder = path.resolve(__dirname, '../dist/glossary/configurableProperties');
+				destinationFolder = baseDestinationFolder + '/configurableProperties';
 			} else if (_keyName.type === 'Boolean') {
-				destinationFolder = path.resolve(__dirname, '../dist/glossary/booleanProperties');
+				destinationFolder = baseDestinationFolder + '/booleanProperties';
 			} else {
-				destinationFolder = path.resolve(__dirname, '../dist/glossary/constantProperties');
+				destinationFolder = baseDestinationFolder + '/constantProperties';
 			}
 		} else {
 			if (_key.includes('color') || _key.includes('Color') || _key.includes('colors')) {
-				destinationFolder = path.resolve(__dirname, '../dist/glossary/colorProperties');
+				destinationFolder = baseDestinationFolder + '/colorProperties';
 			} else {
-				destinationFolder = path.resolve(__dirname, '../dist/glossary/compoundClasses');
+				destinationFolder = baseDestinationFolder + '/compoundClasses';
 			}
 		}
 
@@ -171,10 +178,10 @@ function setBaseValuesToProperties(_allProperties, _base) {
 		}
 	});
 
-	if (fs.existsSync(projectsConfigJS) && debugMode) {
-		makeSureFolderExists(cwd + '/purgetss/experimental/');
-		saveFile(cwd + '/purgetss/experimental/allKeys.txt', allKeys);
-	}
+	// if (fs.existsSync(projectsConfigJS) && debugMode) {
+	// 	makeSureFolderExists(cwd + '/purgetss/experimental/');
+	// 	saveFile(cwd + '/purgetss/experimental/allKeys.txt', allKeys);
+	// }
 
 	return _allProperties;
 }
@@ -197,9 +204,9 @@ function getTiUIComponents(_base) {
 		}
 	});
 
-	if (fs.existsSync(projectsConfigJS) && debugMode) {
-		saveFile(cwd + '/purgetss/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
-	}
+	// if (fs.existsSync(projectsConfigJS) && debugMode) {
+	// 	saveFile(cwd + '/purgetss/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
+	// }
 
 	return propertiesOnly;
 }
@@ -209,66 +216,64 @@ function processCompoundClasses({ ..._base }) {
 	let compoundTemplate = require('../lib/templates/tailwind/compoundTemplate.json');
 
 	_.each(compoundTemplate, (value, key) => {
-		compoundClasses += saveTSSandGlossary(key, helpers.processProperties(value.description, value.template, value.base ?? { default: _base[key] }));
+		compoundClasses += generateGlossary(key, helpers.processProperties(value.description, value.template, value.base ?? { default: _base[key] }));
 	});
 
 	// Fixed values
-	compoundClasses += saveTSSandGlossary('anchorPoint', helpers.anchorPoint());
-	compoundClasses += saveTSSandGlossary('autocapitalization-alternative', helpers.autocapitalization());
-	compoundClasses += saveTSSandGlossary('backgroundGradient-linear', helpers.backgroundLinearGradient());
-	compoundClasses += saveTSSandGlossary('backgroundGradient-radial', helpers.backgroundRadialGradient());
-	compoundClasses += saveTSSandGlossary('clipMode', helpers.clipMode());
-	compoundClasses += saveTSSandGlossary('constraint', helpers.constraint());
-	compoundClasses += saveTSSandGlossary('content-height-and-width', helpers.contentHeightAndWidth());
-	compoundClasses += saveTSSandGlossary('debug', helpers.debugMode());
-	compoundClasses += saveTSSandGlossary('defaultItemTemplate', helpers.defaultItemTemplate());
-	compoundClasses += saveTSSandGlossary('displayCaps', helpers.displayCaps());
-	compoundClasses += saveTSSandGlossary('draggingType', helpers.draggingType());
-	compoundClasses += saveTSSandGlossary('dropShadow', helpers.dropShadow());
-	compoundClasses += saveTSSandGlossary('ellipsize-alternative', helpers.ellipsize());
-	compoundClasses += saveTSSandGlossary('filterAttribute', helpers.filterAttribute());
-	compoundClasses += saveTSSandGlossary('flip', helpers.flip());
-	compoundClasses += saveTSSandGlossary('fontStyle', helpers.fontStyle());
-	compoundClasses += saveTSSandGlossary('grid-cols-rows-span', helpers.gridColumnsRowsStartEnd());
-	compoundClasses += saveTSSandGlossary('gridFlow', helpers.gridFlow());
-	compoundClasses += saveTSSandGlossary('gridSystem', helpers.gridSystem());
-	compoundClasses += saveTSSandGlossary('items', helpers.items());
-	compoundClasses += saveTSSandGlossary('navigationMode', helpers.navigationMode());
-	compoundClasses += saveTSSandGlossary('orientationModes', helpers.orientationModes());
-	compoundClasses += saveTSSandGlossary('placement', helpers.placement());
-	compoundClasses += saveTSSandGlossary('progressBarStyle', helpers.progressBarStyle());
-	compoundClasses += saveTSSandGlossary('scrollType', helpers.scrollType());
-	compoundClasses += saveTSSandGlossary('selectionStyle', helpers.selectionStyle());
-	compoundClasses += saveTSSandGlossary('showScrollIndicators', helpers.scrollIndicators());
-	compoundClasses += saveTSSandGlossary('statusBarStyle-alternative', helpers.statusBarStyle());
-	compoundClasses += saveTSSandGlossary('theme', helpers.theme());
-	compoundClasses += saveTSSandGlossary('titleAttributesShadow-alternative', helpers.titleAttributesShadow());
-	compoundClasses += saveTSSandGlossary('touchEnabled-alternative', helpers.touchEnabled());
-	compoundClasses += saveTSSandGlossary('viewShadowOffset', helpers.viewShadowV6());
-	compoundClasses += saveTSSandGlossary('visible-alternative', helpers.visible());
+	compoundClasses += generateGlossary('anchorPoint', helpers.anchorPoint());
+	compoundClasses += generateGlossary('autocapitalization-alternative', helpers.autocapitalization());
+	compoundClasses += generateGlossary('backgroundGradient-linear', helpers.backgroundLinearGradient());
+	compoundClasses += generateGlossary('backgroundGradient-radial', helpers.backgroundRadialGradient());
+	compoundClasses += generateGlossary('clipMode', helpers.clipMode());
+	compoundClasses += generateGlossary('constraint', helpers.constraint());
+	compoundClasses += generateGlossary('content-height-and-width', helpers.contentHeightAndWidth());
+	compoundClasses += generateGlossary('debug', helpers.debugMode());
+	compoundClasses += generateGlossary('defaultItemTemplate', helpers.defaultItemTemplate());
+	compoundClasses += generateGlossary('displayCaps', helpers.displayCaps());
+	compoundClasses += generateGlossary('draggingType', helpers.draggingType());
+	compoundClasses += generateGlossary('dropShadow', helpers.dropShadow());
+	compoundClasses += generateGlossary('ellipsize-alternative', helpers.ellipsize());
+	compoundClasses += generateGlossary('filterAttribute', helpers.filterAttribute());
+	compoundClasses += generateGlossary('flip', helpers.flip());
+	compoundClasses += generateGlossary('fontStyle', helpers.fontStyle());
+	compoundClasses += generateGlossary('grid-cols-rows-span', helpers.gridColumnsRowsStartEnd());
+	compoundClasses += generateGlossary('gridFlow', helpers.gridFlow());
+	compoundClasses += generateGlossary('gridSystem', helpers.gridSystem());
+	compoundClasses += generateGlossary('items', helpers.items());
+	compoundClasses += generateGlossary('navigationMode', helpers.navigationMode());
+	compoundClasses += generateGlossary('orientationModes', helpers.orientationModes());
+	compoundClasses += generateGlossary('placement', helpers.placement());
+	compoundClasses += generateGlossary('progressBarStyle', helpers.progressBarStyle());
+	compoundClasses += generateGlossary('scrollType', helpers.scrollType());
+	compoundClasses += generateGlossary('selectionStyle', helpers.selectionStyle());
+	compoundClasses += generateGlossary('showScrollIndicators', helpers.scrollIndicators());
+	compoundClasses += generateGlossary('statusBarStyle-alternative', helpers.statusBarStyle());
+	compoundClasses += generateGlossary('theme', helpers.theme());
+	compoundClasses += generateGlossary('tiMedia', helpers.tiMedia(false));
+	compoundClasses += generateGlossary('titleAttributesShadow-alternative', helpers.titleAttributesShadow());
+	compoundClasses += generateGlossary('touchEnabled-alternative', helpers.touchEnabled());
+	compoundClasses += generateGlossary('viewShadowOffset', helpers.viewShadowV6());
+	compoundClasses += generateGlossary('visible-alternative', helpers.visible());
 
 	//! Configurables
-	compoundClasses += saveTSSandGlossary('borderRadius-alternative', helpers.borderRadius(_base.borderRadius));
-	compoundClasses += saveTSSandGlossary('fontFamily', helpers.fontFamily(_base.fontFamily));
-	compoundClasses += saveTSSandGlossary('fontSize', helpers.fontSize(_base.fontSize));
-	compoundClasses += saveTSSandGlossary('fontWeight', helpers.fontWeight(_base.fontWeight));
-	compoundClasses += saveTSSandGlossary('margin-alternative', helpers.gap(_base.margin));
-	compoundClasses += saveTSSandGlossary('minimumFontSize', helpers.minimumFontSize(_base.fontSize));
-	compoundClasses += saveTSSandGlossary('padding-alternative', helpers.padding(_base.padding));
-	compoundClasses += saveTSSandGlossary('rotate-negative-values', helpers.negativeRotate(_base.rotate));
+	compoundClasses += generateGlossary('borderRadius-alternative', helpers.borderRadius(_base.borderRadius));
+	compoundClasses += generateGlossary('fontFamily', helpers.fontFamily(_base.fontFamily));
+	compoundClasses += generateGlossary('fontSize', helpers.fontSize(_base.fontSize));
+	compoundClasses += generateGlossary('fontWeight', helpers.fontWeight(_base.fontWeight));
+	compoundClasses += generateGlossary('margin-alternative', helpers.gap(_base.margin));
+	compoundClasses += generateGlossary('minimumFontSize', helpers.minimumFontSize(_base.fontSize));
+	compoundClasses += generateGlossary('padding-alternative', helpers.padding(_base.padding));
+	compoundClasses += generateGlossary('rotate-negative-values', helpers.negativeRotate(_base.rotate));
 
 	//! colors
-	compoundClasses += saveTSSandGlossary('backgroundGradient', helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient')));
-	compoundClasses += saveTSSandGlossary('backgroundSelectedGradient', helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient')));
-	compoundClasses += saveTSSandGlossary('color-alternative', helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor')));
-	compoundClasses += saveTSSandGlossary('titleAttributes-color', helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor')));
-	compoundClasses += saveTSSandGlossary('titleAttributes-shadow-color', helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor')));
+	compoundClasses += generateGlossary('backgroundGradient', helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient')));
+	compoundClasses += generateGlossary('backgroundSelectedGradient', helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient')));
+	compoundClasses += generateGlossary('color-alternative', helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor')));
+	compoundClasses += generateGlossary('hintTextColor', helpers.placeholder(combineKeys(configFile.theme, _base.colors, 'hintTextColor')));
+	compoundClasses += generateGlossary('titleAttributes-color', helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor')));
+	compoundClasses += generateGlossary('titleAttributes-shadow-color', helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor')));
 
 	return compoundClasses;
-}
-
-function saveTSSandGlossary(_key, _values) {
-	return generateGlossary(saveAutoTSS(_key, _values), _key);
 }
 
 function findBaseKey(_key, _data) {
@@ -449,6 +454,7 @@ function combineKeys(values, base, key) {
 
 function getPropertiesFromTiCompletionsFile() {
 	let propertiesOnly = {};
+
 	let properties = [
 		//! Deprecated
 		'handlePlatformUrl',
@@ -511,8 +517,8 @@ function getPropertiesFromTiCompletionsFile() {
 		'minimumFontSize',
 		'orientationModes',
 		'textColor',
-
 	];
+
 	_.each(tiCompletionsFile.types, (value, key) => {
 		_.each(value.properties, property => {
 			if (validTypesOnly(property, key) && !properties.includes(property)) {
@@ -601,7 +607,7 @@ function generateCombinedClasses(key, data) {
 	}
 
 	if (myClasses !== '') {
-		saveAutoTSS(key, comments + myClasses);
+		// saveAutoTSS(key, comments + myClasses);
 		return comments + myClasses;
 	}
 
@@ -613,8 +619,6 @@ function saveAutoTSS(key, classes) {
 		makeSureFolderExists(cwd + '/purgetss/experimental/tailwind-classes/');
 		saveFile(cwd + `/purgetss/experimental/tailwind-classes/${key}.tss`, classes);
 	}
-
-	return classes;
 }
 
 function formatClass(key, value) {

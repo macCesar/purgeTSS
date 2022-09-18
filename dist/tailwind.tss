@@ -1652,6 +1652,23 @@
 '.theme-app-derived-translucent-no-title-bar': { theme: "'Theme.AppDerived.Translucent.NoTitleBar'" }
 '.theme-app-derived-translucent-fullscreen': { theme: "'Theme.AppDerived.Translucent.Fullscreen'" }
 
+// Ti.Media
+// Property(ies): scalingMode - ( Alternative )
+// Description: Background Size for compatibility with Tailwind classes
+// Component(s): Ti.UI.ImageView
+'.bg-auto': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
+'.bg-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
+'.bg-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
+
+// Property(ies): scalingMode - ( Alternative )
+// Description: Object Fit for compatibility with Tailwind classes
+// Component(s): Ti.UI.ImageView
+'.object-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
+'.object-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
+'.object-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
+'.object-cover': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
+'.object-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
+
 // Property(ies): titleAttributes: shadow, color, blurRadius, offset - iOS Only
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.title-attributes-shadow-xs': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 1, offset: { width: 0, height: 0 } } } }
@@ -3849,6 +3866,232 @@
 '.text-rose-700': { color: '#be123c', textColor: '#be123c' }
 '.text-rose-800': { color: '#9f1239', textColor: '#9f1239' }
 '.text-rose-900': { color: '#881337', textColor: '#881337' }
+
+// Property(ies): hintTextColor ( Alternative )
+// Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
+'.placeholder-transparent': { hintTextColor: 'transparent' }
+'.placeholder-black': { hintTextColor: '#000000' }
+'.placeholder-white': { hintTextColor: '#ffffff' }
+'.placeholder-slate-50': { hintTextColor: '#f8fafc' }
+'.placeholder-slate-100': { hintTextColor: '#f1f5f9' }
+'.placeholder-slate-200': { hintTextColor: '#e2e8f0' }
+'.placeholder-slate-300': { hintTextColor: '#cbd5e1' }
+'.placeholder-slate-400': { hintTextColor: '#94a3b8' }
+'.placeholder-slate-500': { hintTextColor: '#64748b' }
+'.placeholder-slate-600': { hintTextColor: '#475569' }
+'.placeholder-slate-700': { hintTextColor: '#334155' }
+'.placeholder-slate-800': { hintTextColor: '#1e293b' }
+'.placeholder-slate-900': { hintTextColor: '#0f172a' }
+'.placeholder-gray-50': { hintTextColor: '#f9fafb' }
+'.placeholder-gray-100': { hintTextColor: '#f3f4f6' }
+'.placeholder-gray-200': { hintTextColor: '#e5e7eb' }
+'.placeholder-gray-300': { hintTextColor: '#d1d5db' }
+'.placeholder-gray-400': { hintTextColor: '#9ca3af' }
+'.placeholder-gray-500': { hintTextColor: '#6b7280' }
+'.placeholder-gray-600': { hintTextColor: '#4b5563' }
+'.placeholder-gray-700': { hintTextColor: '#374151' }
+'.placeholder-gray-800': { hintTextColor: '#1f2937' }
+'.placeholder-gray-900': { hintTextColor: '#111827' }
+'.placeholder-zinc-50': { hintTextColor: '#fafafa' }
+'.placeholder-zinc-100': { hintTextColor: '#f4f4f5' }
+'.placeholder-zinc-200': { hintTextColor: '#e4e4e7' }
+'.placeholder-zinc-300': { hintTextColor: '#d4d4d8' }
+'.placeholder-zinc-400': { hintTextColor: '#a1a1aa' }
+'.placeholder-zinc-500': { hintTextColor: '#71717a' }
+'.placeholder-zinc-600': { hintTextColor: '#52525b' }
+'.placeholder-zinc-700': { hintTextColor: '#3f3f46' }
+'.placeholder-zinc-800': { hintTextColor: '#27272a' }
+'.placeholder-zinc-900': { hintTextColor: '#18181b' }
+'.placeholder-neutral-50': { hintTextColor: '#fafafa' }
+'.placeholder-neutral-100': { hintTextColor: '#f5f5f5' }
+'.placeholder-neutral-200': { hintTextColor: '#e5e5e5' }
+'.placeholder-neutral-300': { hintTextColor: '#d4d4d4' }
+'.placeholder-neutral-400': { hintTextColor: '#a3a3a3' }
+'.placeholder-neutral-500': { hintTextColor: '#737373' }
+'.placeholder-neutral-600': { hintTextColor: '#525252' }
+'.placeholder-neutral-700': { hintTextColor: '#404040' }
+'.placeholder-neutral-800': { hintTextColor: '#262626' }
+'.placeholder-neutral-900': { hintTextColor: '#171717' }
+'.placeholder-stone-50': { hintTextColor: '#fafaf9' }
+'.placeholder-stone-100': { hintTextColor: '#f5f5f4' }
+'.placeholder-stone-200': { hintTextColor: '#e7e5e4' }
+'.placeholder-stone-300': { hintTextColor: '#d6d3d1' }
+'.placeholder-stone-400': { hintTextColor: '#a8a29e' }
+'.placeholder-stone-500': { hintTextColor: '#78716c' }
+'.placeholder-stone-600': { hintTextColor: '#57534e' }
+'.placeholder-stone-700': { hintTextColor: '#44403c' }
+'.placeholder-stone-800': { hintTextColor: '#292524' }
+'.placeholder-stone-900': { hintTextColor: '#1c1917' }
+'.placeholder-red-50': { hintTextColor: '#fef2f2' }
+'.placeholder-red-100': { hintTextColor: '#fee2e2' }
+'.placeholder-red-200': { hintTextColor: '#fecaca' }
+'.placeholder-red-300': { hintTextColor: '#fca5a5' }
+'.placeholder-red-400': { hintTextColor: '#f87171' }
+'.placeholder-red-500': { hintTextColor: '#ef4444' }
+'.placeholder-red-600': { hintTextColor: '#dc2626' }
+'.placeholder-red-700': { hintTextColor: '#b91c1c' }
+'.placeholder-red-800': { hintTextColor: '#991b1b' }
+'.placeholder-red-900': { hintTextColor: '#7f1d1d' }
+'.placeholder-orange-50': { hintTextColor: '#fff7ed' }
+'.placeholder-orange-100': { hintTextColor: '#ffedd5' }
+'.placeholder-orange-200': { hintTextColor: '#fed7aa' }
+'.placeholder-orange-300': { hintTextColor: '#fdba74' }
+'.placeholder-orange-400': { hintTextColor: '#fb923c' }
+'.placeholder-orange-500': { hintTextColor: '#f97316' }
+'.placeholder-orange-600': { hintTextColor: '#ea580c' }
+'.placeholder-orange-700': { hintTextColor: '#c2410c' }
+'.placeholder-orange-800': { hintTextColor: '#9a3412' }
+'.placeholder-orange-900': { hintTextColor: '#7c2d12' }
+'.placeholder-amber-50': { hintTextColor: '#fffbeb' }
+'.placeholder-amber-100': { hintTextColor: '#fef3c7' }
+'.placeholder-amber-200': { hintTextColor: '#fde68a' }
+'.placeholder-amber-300': { hintTextColor: '#fcd34d' }
+'.placeholder-amber-400': { hintTextColor: '#fbbf24' }
+'.placeholder-amber-500': { hintTextColor: '#f59e0b' }
+'.placeholder-amber-600': { hintTextColor: '#d97706' }
+'.placeholder-amber-700': { hintTextColor: '#b45309' }
+'.placeholder-amber-800': { hintTextColor: '#92400e' }
+'.placeholder-amber-900': { hintTextColor: '#78350f' }
+'.placeholder-yellow-50': { hintTextColor: '#fefce8' }
+'.placeholder-yellow-100': { hintTextColor: '#fef9c3' }
+'.placeholder-yellow-200': { hintTextColor: '#fef08a' }
+'.placeholder-yellow-300': { hintTextColor: '#fde047' }
+'.placeholder-yellow-400': { hintTextColor: '#facc15' }
+'.placeholder-yellow-500': { hintTextColor: '#eab308' }
+'.placeholder-yellow-600': { hintTextColor: '#ca8a04' }
+'.placeholder-yellow-700': { hintTextColor: '#a16207' }
+'.placeholder-yellow-800': { hintTextColor: '#854d0e' }
+'.placeholder-yellow-900': { hintTextColor: '#713f12' }
+'.placeholder-lime-50': { hintTextColor: '#f7fee7' }
+'.placeholder-lime-100': { hintTextColor: '#ecfccb' }
+'.placeholder-lime-200': { hintTextColor: '#d9f99d' }
+'.placeholder-lime-300': { hintTextColor: '#bef264' }
+'.placeholder-lime-400': { hintTextColor: '#a3e635' }
+'.placeholder-lime-500': { hintTextColor: '#84cc16' }
+'.placeholder-lime-600': { hintTextColor: '#65a30d' }
+'.placeholder-lime-700': { hintTextColor: '#4d7c0f' }
+'.placeholder-lime-800': { hintTextColor: '#3f6212' }
+'.placeholder-lime-900': { hintTextColor: '#365314' }
+'.placeholder-green-50': { hintTextColor: '#f0fdf4' }
+'.placeholder-green-100': { hintTextColor: '#dcfce7' }
+'.placeholder-green-200': { hintTextColor: '#bbf7d0' }
+'.placeholder-green-300': { hintTextColor: '#86efac' }
+'.placeholder-green-400': { hintTextColor: '#4ade80' }
+'.placeholder-green-500': { hintTextColor: '#22c55e' }
+'.placeholder-green-600': { hintTextColor: '#16a34a' }
+'.placeholder-green-700': { hintTextColor: '#15803d' }
+'.placeholder-green-800': { hintTextColor: '#166534' }
+'.placeholder-green-900': { hintTextColor: '#14532d' }
+'.placeholder-emerald-50': { hintTextColor: '#ecfdf5' }
+'.placeholder-emerald-100': { hintTextColor: '#d1fae5' }
+'.placeholder-emerald-200': { hintTextColor: '#a7f3d0' }
+'.placeholder-emerald-300': { hintTextColor: '#6ee7b7' }
+'.placeholder-emerald-400': { hintTextColor: '#34d399' }
+'.placeholder-emerald-500': { hintTextColor: '#10b981' }
+'.placeholder-emerald-600': { hintTextColor: '#059669' }
+'.placeholder-emerald-700': { hintTextColor: '#047857' }
+'.placeholder-emerald-800': { hintTextColor: '#065f46' }
+'.placeholder-emerald-900': { hintTextColor: '#064e3b' }
+'.placeholder-teal-50': { hintTextColor: '#f0fdfa' }
+'.placeholder-teal-100': { hintTextColor: '#ccfbf1' }
+'.placeholder-teal-200': { hintTextColor: '#99f6e4' }
+'.placeholder-teal-300': { hintTextColor: '#5eead4' }
+'.placeholder-teal-400': { hintTextColor: '#2dd4bf' }
+'.placeholder-teal-500': { hintTextColor: '#14b8a6' }
+'.placeholder-teal-600': { hintTextColor: '#0d9488' }
+'.placeholder-teal-700': { hintTextColor: '#0f766e' }
+'.placeholder-teal-800': { hintTextColor: '#115e59' }
+'.placeholder-teal-900': { hintTextColor: '#134e4a' }
+'.placeholder-cyan-50': { hintTextColor: '#ecfeff' }
+'.placeholder-cyan-100': { hintTextColor: '#cffafe' }
+'.placeholder-cyan-200': { hintTextColor: '#a5f3fc' }
+'.placeholder-cyan-300': { hintTextColor: '#67e8f9' }
+'.placeholder-cyan-400': { hintTextColor: '#22d3ee' }
+'.placeholder-cyan-500': { hintTextColor: '#06b6d4' }
+'.placeholder-cyan-600': { hintTextColor: '#0891b2' }
+'.placeholder-cyan-700': { hintTextColor: '#0e7490' }
+'.placeholder-cyan-800': { hintTextColor: '#155e75' }
+'.placeholder-cyan-900': { hintTextColor: '#164e63' }
+'.placeholder-sky-50': { hintTextColor: '#f0f9ff' }
+'.placeholder-sky-100': { hintTextColor: '#e0f2fe' }
+'.placeholder-sky-200': { hintTextColor: '#bae6fd' }
+'.placeholder-sky-300': { hintTextColor: '#7dd3fc' }
+'.placeholder-sky-400': { hintTextColor: '#38bdf8' }
+'.placeholder-sky-500': { hintTextColor: '#0ea5e9' }
+'.placeholder-sky-600': { hintTextColor: '#0284c7' }
+'.placeholder-sky-700': { hintTextColor: '#0369a1' }
+'.placeholder-sky-800': { hintTextColor: '#075985' }
+'.placeholder-sky-900': { hintTextColor: '#0c4a6e' }
+'.placeholder-blue-50': { hintTextColor: '#eff6ff' }
+'.placeholder-blue-100': { hintTextColor: '#dbeafe' }
+'.placeholder-blue-200': { hintTextColor: '#bfdbfe' }
+'.placeholder-blue-300': { hintTextColor: '#93c5fd' }
+'.placeholder-blue-400': { hintTextColor: '#60a5fa' }
+'.placeholder-blue-500': { hintTextColor: '#3b82f6' }
+'.placeholder-blue-600': { hintTextColor: '#2563eb' }
+'.placeholder-blue-700': { hintTextColor: '#1d4ed8' }
+'.placeholder-blue-800': { hintTextColor: '#1e40af' }
+'.placeholder-blue-900': { hintTextColor: '#1e3a8a' }
+'.placeholder-indigo-50': { hintTextColor: '#eef2ff' }
+'.placeholder-indigo-100': { hintTextColor: '#e0e7ff' }
+'.placeholder-indigo-200': { hintTextColor: '#c7d2fe' }
+'.placeholder-indigo-300': { hintTextColor: '#a5b4fc' }
+'.placeholder-indigo-400': { hintTextColor: '#818cf8' }
+'.placeholder-indigo-500': { hintTextColor: '#6366f1' }
+'.placeholder-indigo-600': { hintTextColor: '#4f46e5' }
+'.placeholder-indigo-700': { hintTextColor: '#4338ca' }
+'.placeholder-indigo-800': { hintTextColor: '#3730a3' }
+'.placeholder-indigo-900': { hintTextColor: '#312e81' }
+'.placeholder-violet-50': { hintTextColor: '#f5f3ff' }
+'.placeholder-violet-100': { hintTextColor: '#ede9fe' }
+'.placeholder-violet-200': { hintTextColor: '#ddd6fe' }
+'.placeholder-violet-300': { hintTextColor: '#c4b5fd' }
+'.placeholder-violet-400': { hintTextColor: '#a78bfa' }
+'.placeholder-violet-500': { hintTextColor: '#8b5cf6' }
+'.placeholder-violet-600': { hintTextColor: '#7c3aed' }
+'.placeholder-violet-700': { hintTextColor: '#6d28d9' }
+'.placeholder-violet-800': { hintTextColor: '#5b21b6' }
+'.placeholder-violet-900': { hintTextColor: '#4c1d95' }
+'.placeholder-purple-50': { hintTextColor: '#faf5ff' }
+'.placeholder-purple-100': { hintTextColor: '#f3e8ff' }
+'.placeholder-purple-200': { hintTextColor: '#e9d5ff' }
+'.placeholder-purple-300': { hintTextColor: '#d8b4fe' }
+'.placeholder-purple-400': { hintTextColor: '#c084fc' }
+'.placeholder-purple-500': { hintTextColor: '#a855f7' }
+'.placeholder-purple-600': { hintTextColor: '#9333ea' }
+'.placeholder-purple-700': { hintTextColor: '#7e22ce' }
+'.placeholder-purple-800': { hintTextColor: '#6b21a8' }
+'.placeholder-purple-900': { hintTextColor: '#581c87' }
+'.placeholder-fuchsia-50': { hintTextColor: '#fdf4ff' }
+'.placeholder-fuchsia-100': { hintTextColor: '#fae8ff' }
+'.placeholder-fuchsia-200': { hintTextColor: '#f5d0fe' }
+'.placeholder-fuchsia-300': { hintTextColor: '#f0abfc' }
+'.placeholder-fuchsia-400': { hintTextColor: '#e879f9' }
+'.placeholder-fuchsia-500': { hintTextColor: '#d946ef' }
+'.placeholder-fuchsia-600': { hintTextColor: '#c026d3' }
+'.placeholder-fuchsia-700': { hintTextColor: '#a21caf' }
+'.placeholder-fuchsia-800': { hintTextColor: '#86198f' }
+'.placeholder-fuchsia-900': { hintTextColor: '#701a75' }
+'.placeholder-pink-50': { hintTextColor: '#fdf2f8' }
+'.placeholder-pink-100': { hintTextColor: '#fce7f3' }
+'.placeholder-pink-200': { hintTextColor: '#fbcfe8' }
+'.placeholder-pink-300': { hintTextColor: '#f9a8d4' }
+'.placeholder-pink-400': { hintTextColor: '#f472b6' }
+'.placeholder-pink-500': { hintTextColor: '#ec4899' }
+'.placeholder-pink-600': { hintTextColor: '#db2777' }
+'.placeholder-pink-700': { hintTextColor: '#be185d' }
+'.placeholder-pink-800': { hintTextColor: '#9d174d' }
+'.placeholder-pink-900': { hintTextColor: '#831843' }
+'.placeholder-rose-50': { hintTextColor: '#fff1f2' }
+'.placeholder-rose-100': { hintTextColor: '#ffe4e6' }
+'.placeholder-rose-200': { hintTextColor: '#fecdd3' }
+'.placeholder-rose-300': { hintTextColor: '#fda4af' }
+'.placeholder-rose-400': { hintTextColor: '#fb7185' }
+'.placeholder-rose-500': { hintTextColor: '#f43f5e' }
+'.placeholder-rose-600': { hintTextColor: '#e11d48' }
+'.placeholder-rose-700': { hintTextColor: '#be123c' }
+'.placeholder-rose-800': { hintTextColor: '#9f1239' }
+'.placeholder-rose-900': { hintTextColor: '#881337' }
 
 // Property(ies): titleAttributes: color - iOS Only
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
@@ -9494,18 +9737,6 @@
 // Component(s): Ti.Platform
 '.battery-monitoring': { batteryMonitoring: true }
 '.battery-monitoring-false': { batteryMonitoring: false }
-
-// Property: UIApplicationOpenURLOptionsOpenInPlaceKey
-// Description: When the value of this property is false, you must copy the document to maintain access to it. If the flag is not set, you also must copy the document before you can use it.
-// Component(s): OpenURLOptions
-'.uiapplication-open-urloptions-in-place-key': { UIApplicationOpenURLOptionsOpenInPlaceKey: true }
-'.uiapplication-open-urloptions-in-place-key-false': { UIApplicationOpenURLOptionsOpenInPlaceKey: false }
-
-// Property: UIApplicationOpenURLOptionUniversalLinksOnly
-// Description: When you include this key in the options dictionary, the method opens the URL only if the URL is a valid universal link and there is an installed app capable of opening that URL.
-// Component(s): OpenURLOptions
-'.uiapplication-open-urloption-universal-links-only': { UIApplicationOpenURLOptionUniversalLinksOnly: true }
-'.uiapplication-open-urloption-universal-links-only-false': { UIApplicationOpenURLOptionUniversalLinksOnly: false }
 
 // Property: scale
 // Component(s): MatrixCreationDict, Matrix2DCreationDict, Matrix3DCreationDict
