@@ -10,21 +10,22 @@ function Animation(args) {
 		hasTransformation: (args.scale !== undefined || args.rotate !== undefined),
 	};
 
-	logger('Create Animation View:');
+	logger('Create Animation View: ' + param.id);
 
 	const animationView = Ti.UI.createView({ width: 0, height: 0, touchEnabled: false });
 
+	delete args.id;
+
 	if (args.scale || args.rotate || args.anchorPoint) {
-		logger('   Creating transform');
+		logger('   -> Creating transform');
 		args.transform = Ti.UI.createMatrix2D(args);
+		delete args.scale;
+		delete args.rotate;
+		delete args.anchorPoint;
 	}
 
-	delete args.id;
-	delete args.scale;
-	delete args.rotate;
-
 	if (args.animation && args.animation.open && (args.animation.open.anchorPoint || args.animation.open.rotate || args.animation.open.scale)) {
-		logger('   Creating transformOnOpen');
+		logger('   -> Creating transformOnOpen');
 		args.transformOnOpen = Ti.UI.createMatrix2D(args.animation.open);
 		delete args.animation.open.scale;
 		delete args.animation.open.rotate;
@@ -32,28 +33,28 @@ function Animation(args) {
 	}
 
 	if (args.animation && args.animation.close && (args.animation.close.anchorPoint || args.animation.close.rotate || args.animation.close.scale)) {
-		logger('   Creating transformOnClose');
+		logger('   -> Creating transformOnClose');
 		args.transformOnClose = Ti.UI.createMatrix2D(args.animation.close);
 		delete args.animation.close.scale;
 		delete args.animation.close.rotate;
 		delete args.animation.close.anchorPoint;
 	}
 
-	// TODO: A library of useful animations
+	// TODO: Create a library of useful animations!!
 	animationView.play = (_views, _cb) => {
-		logger('-> play Called');
+		logger('`play` Called');
 		(param.playing) ? logger(`$.${param.view.id}: is playing...`) : play(_views, _cb);
 	};
 
 	animationView.toggle = animationView.play;
 
 	animationView.apply = (_views, _cb) => {
-		logger('-> apply Called');
+		logger('`apply` Called');
 		play(_views, _cb, 'apply')
 	};
 
 	animationView.draggable = (_views) => {
-		logger('-> draggable Called');
+		logger('`draggable` Called');
 		if (Array.isArray(_views)) {
 			_views.forEach((_view, key) => {
 				_view.zIndex = key;
@@ -66,7 +67,7 @@ function Animation(args) {
 
 	//! Helper Functions
 	function play(_views, _cb, action = 'play') {
-		logger('     Helper Function');
+		logger('   -> `play` helper');
 
 		checkAnimation(action);
 
@@ -76,16 +77,14 @@ function Animation(args) {
 				(action === 'play') ? playView(_view, _cb, action) : applyView(_view, _cb, action);
 				args.delay += param.delay;
 			});
-		} else if (action === 'play') {
-			playView(_views, _cb, action);
-		} else if (action === 'apply') {
-			applyView(_views, _cb, action);
+		} else {
+			(action === 'play') ? playView(_views, _cb, action) : applyView(_views, _cb, action);
 		}
 	}
 
 	function draggable(_view) {
 		if (_view) {
-			logger('    draggable helper function');
+			logger('   -> `draggable` helper');
 
 			let offsetX, offsetY;
 
@@ -169,18 +168,18 @@ function Animation(args) {
 
 	function checkAnimation(action) {
 		if (args.animation) {
-			logger('       Check Animation');
 			param.open = !param.open;
 
 			// For regular animations, including extra animations with open and close states.
 			args = param.open ? { ...args, ...args.animation.open } : { ...args, ...args.animation.close };
 
 			if (action === 'play') {
+				logger('   -> `' + action + '` Check Animation');
 				if (param.open && args.transformOnOpen) {
-					logger('       Set args.transform = args.transformOnOpen');
+					logger('   -> Set args.transform = args.transformOnOpen');
 					args.transform = args.transformOnOpen;
 				} else if (args.transformOnClose) {
-					logger('       Set args.transform = args.transformOnClose');
+					logger('   -> Set args.transform = args.transformOnClose');
 					args.transform = args.transformOnClose;
 				}
 
@@ -197,9 +196,20 @@ function Animation(args) {
 		console.error('The provided target can’t be found!');
 	}
 
+	function innerAnimations(_view, _action) {
+		_.each(_view.children, child => {
+			if (param.open && child['open']) {
+				(_action === 'play') ? child.animate(Ti.UI.createAnimation(child['open'])) : child.applyProperties(child['open']);
+			} else if (child['close']) {
+				(_action === 'play') ? child.animate(Ti.UI.createAnimation(child['close'])) : child.applyProperties(child['close']);
+			}
+		});
+	}
+
 	//! Needs refactor!! It's so ugly right now!!
 	function checkDraggable(_view, _action) {
-		logger('   Check Draggable');
+		logger('Check Draggable');
+		logger('   -> `' + _action + '`');
 		let draggingType = (_view.draggingType) ? _view.draggingType : args.draggingType;
 		if (_action === 'drag' && _view.draggable && _view.draggable.drag) {
 			let theArgs = (args.draggable) ? { ...args.draggable.drag, ..._view.draggable.drag } : _view.draggable.drag;
@@ -218,7 +228,7 @@ function Animation(args) {
 
 	function checkComplete(view, action) {
 		if (args.animation && args.animation.complete) {
-			logger('       check `complete` args');
+			logger('   -> `complete` Animation');
 			if (action === 'play') {
 				param.playing = true;
 				view.animate(Ti.UI.createAnimation({ ...args, ...args.animation.complete, transform: Ti.UI.createMatrix2D(args.animation.complete) }), () => {
@@ -232,8 +242,7 @@ function Animation(args) {
 
 	function playView(view, _cb, action) {
 		if (view) {
-			logger('---> Animate args to View');
-			// if (args && args.constructor === Object && Object.keys(args).length === 0) {
+			logger('   -> `animate` View');
 			param.view = view;
 			param.playing = true;
 			view.animate(Ti.UI.createAnimation(args), e => {
@@ -245,7 +254,8 @@ function Animation(args) {
 
 				param.playing = false;
 			});
-			// }
+
+			innerAnimations(view, action);
 		} else {
 			notFound(args);
 		}
@@ -253,8 +263,10 @@ function Animation(args) {
 
 	function applyView(view, _cb, action) {
 		if (view) {
-			logger('---> Apply Properties to View');
+			logger('   -> `apply` View');
 			view.applyProperties(args);
+
+			innerAnimations(view, action);
 
 			checkComplete(view, action);
 
