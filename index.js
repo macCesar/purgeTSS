@@ -88,6 +88,7 @@ const srcFA_Beta_FontFamilies = {
 //
 const srcFonts_Folder = path.resolve(__dirname, './assets/fonts');
 const srcReset_TSS_File = path.resolve(__dirname, './dist/reset.tss');
+const PurgeTSSPackageJSON = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json'), 'utf8'));
 
 const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss');
 const srcFramework7FontTSSFile = path.resolve(__dirname, './dist/framework7icons.tss');
@@ -2166,14 +2167,14 @@ function copyResetTemplateAnd_appTSS() {
 
 	logger.info('Copying Reset styles...');
 
-	let tempPurged = fs.readFileSync(srcReset_TSS_File, 'utf8');
+	let tempPurged = `// PurgeTSS v${PurgeTSSPackageJSON.version}\n` + fs.readFileSync(srcReset_TSS_File, 'utf8');
 
 	if (fs.existsSync(projects_AppTSS)) {
 		let appTSSContent = fs.readFileSync(projects_AppTSS, 'utf8');
 
 		if (appTSSContent.length) {
 			logger.info('Copying', chalk.yellow('_app.tss'), 'styles...');
-			tempPurged += '\n// Styles from _app.tss\n' + appTSSContent;
+			tempPurged += '\n// _app.tss styles\n' + appTSSContent;
 		}
 	}
 
@@ -2208,7 +2209,9 @@ function localFinish(customMessage = 'Finished purging in') {
 function purgeTailwind(uniqueClasses) {
 	localStart();
 
-	let purgedClasses = '\n// Main styles\n';
+	logger.info('Purging', chalk.yellow('Tailwind'), 'styles...')
+
+	let purgedClasses = '';
 	let tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/);
 
 	if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[6]) {
@@ -2218,16 +2221,18 @@ function purgeTailwind(uniqueClasses) {
 		tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/);
 	}
 
+	// let complexClasses = [];
 	let cleanUniqueClasses = [];
 	let classesWithOpacityValues = [];
 
-	let arbitraryValues = '\n// Styles with arbitrary values\n';
+	let arbitraryValues = '\n// Arbitrary Values\n';
 
 	uniqueClasses.forEach((className, index) => {
 		let cleanClassName = cleanClassNameFn(className);
 
-		//TODO: Check if cleanClassName is a complex class ( several classes separated by : )
-		if (cleanClassName.includes('(')) {
+		if (cleanClassName.indexOf(':') !== -1) {
+			// complexClasses.push(cleanClassName);
+		} else if (cleanClassName.includes('(')) {
 			let line = helpers.formatArbitraryValues(cleanClassName, true);
 			if (line) arbitraryValues += helpers.checkPlatformAndDevice(line, className);
 		} else if (helpers.checkColorClasses(cleanClassName)) {
@@ -2242,106 +2247,119 @@ function purgeTailwind(uniqueClasses) {
 		}
 	});
 
+	//TODO: Process complex Classes
+	// complexClasses.forEach((className) => {
+	// 	let classes = className.split(':');
+	// 	let line = '';
+	// 	classes.forEach((className) => {
+	// 		let classLine = tailwindClasses[22] + '\n';
+	// 		if (classLine) line += classLine;
+	// 	});
+	// 	if (line) purgedClasses += line;
+	// });
+
+	let deviceClasses = [];
+	let titaniumClasses = [];
 	let anArrayOfClasses = [];
+	let anArrayOfAnimationClasses = [];
 	tailwindClasses.forEach(tailwindClass => {
 		if (tailwindClass !== '' && !tailwindClass.includes('//')) {
 			let cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '')}`;
 
 			if (cleanUniqueClasses.indexOf(cleanTailwindClass) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]));
+				if (cleanTailwindClass.charAt(0) === cleanTailwindClass.charAt(0).toUpperCase() && cleanTailwindClass.charAt(0) !== '-') {
+					titaniumClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]));
+				} else {
+					anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]));
+				}
 			}
 
 			if (cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`)]));
+				deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`)]));
+				deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`)]));
+				deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]));
+				deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]));
+				anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]));
+				anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`)]));
+				anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`)]));
+				anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]));
+				anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]));
 			}
 
 			if (cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`) > -1) {
-				anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`)]));
+				anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`)]));
 			}
 		}
 	});
 
-	purgedClasses += anArrayOfClasses.join('');
+	purgedClasses += (titaniumClasses.length) ? '\n// Titanium Components\n' + titaniumClasses.sort().join('') : '';
+	purgedClasses += (anArrayOfClasses.length) ? '\n// Main Styles\n' + anArrayOfClasses.sort().join('') : '';
 
-	// Styles with color opacity modifiers
+	purgedClasses += (deviceClasses.length) ? '\n// Platform and Device Modifiers\n' + deviceClasses.sort().join('') : '';
+	purgedClasses += (anArrayOfAnimationClasses.length) ? '\n// Animation Module\n' + anArrayOfAnimationClasses.sort().join('') : '';
+
+	// Color Opacity Modifiers
 	if (classesWithOpacityValues.length > 0) {
-		purgedClasses += '\n// Styles with color opacity modifiers\n';
+		purgedClasses += '\n// Color Opacity Modifiers\n';
 		classesWithOpacityValues.forEach(opacityValue => {
 			let opacityIndex = _.findIndex(tailwindClasses, line => line.startsWith(`'.${opacityValue.className}`));
 
 			if (opacityIndex > -1) {
 				//! TODO: Check if color value is a hex value!! (if not, they are using rbg, rgba or semantic colors)
 				//! In other words, we need to validate the color value, before we can alter its opacity.
-				let defaultHexValue;
-				if (tailwindClasses[opacityIndex].includes('from')) {
-					defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/g)[1];
-				} else {
-					defaultHexValue = tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/i)[0];
-				}
-
+				let defaultHexValue = (tailwindClasses[opacityIndex].includes('from')) ? tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/g)[1] : tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/i)[0];
 				let classWithoutDecimalOpacity = `${tailwindClasses[opacityIndex].replace(new RegExp(defaultHexValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
+
 				let defaultTextValue = tailwindClasses[opacityIndex].match(/'[^']*'/i)[0];
 				defaultTextValue = defaultTextValue.substring(1, defaultTextValue.length);
 				let finalClassName = `${classWithoutDecimalOpacity.replace(defaultTextValue, `.${defaultTextValue.substring(1, defaultTextValue.length - 1)}/${opacityValue.decimalValue}'`)}`;
-				let withPlatformDeviceStyle = helpers.checkPlatformAndDevice(finalClassName, opacityValue.classNameWithTransparency);
 
-				// !Move platform specific styles to the end of the class name
-				let platformIndex = withPlatformDeviceStyle.search(/\[platform=ios\]|\[platform=android\]/i);
-				if (platformIndex > -1) {
-					if (withPlatformDeviceStyle.includes('[platform=ios]')) {
-						withPlatformDeviceStyle = withPlatformDeviceStyle.replace('[platform=ios]', '').replace(/[^'.][^']+|1/, `$&[platform=ios]`);
-					} else {
-						withPlatformDeviceStyle = withPlatformDeviceStyle.replace('[platform=android]', '').replace(/[^'.][^']+|1/, `$&[platform=android]`);
-					}
-				}
-
-				purgedClasses += withPlatformDeviceStyle;
+				purgedClasses += switchPlatform(helpers.checkPlatformAndDevice(finalClassName, opacityValue.classNameWithTransparency));
 			}
 		});
 	}
 
 	// Add arbitrary values
-	purgedClasses += (arbitraryValues !== '\n// Styles with arbitrary values\n') ? arbitraryValues : '';
+	purgedClasses += (arbitraryValues !== '\n// Arbitrary Values\n') ? arbitraryValues : '';
 
-	logger.info('Purging', chalk.yellow('Tailwind'), 'styles...')
-
-	let mensaje = 'Purging ' + chalk.yellow('Tailwind') + ' styles...';
-
-	localFinish(mensaje);
+	localFinish('Purging ' + chalk.yellow('Tailwind') + ' styles...');
 
 	return purgedClasses;
+}
+
+function switchPlatform(withPlatformDeviceStyle) {
+	// !Move platform specific styles to the end of the class name
+	if (withPlatformDeviceStyle.search(/\[platform=ios\]|\[platform=android\]/i) > -1) {
+		return (withPlatformDeviceStyle.includes('[platform=ios]')) ?
+			withPlatformDeviceStyle.replace('[platform=ios]', '').replace(/[^'.][^']+|1/, `$&[platform=ios]`) :
+			withPlatformDeviceStyle.replace('[platform=android]', '').replace(/[^'.][^']+|1/, `$&[platform=android]`);
+	}
+
+	return withPlatformDeviceStyle;
 }
 
 function cleanClassNameFn(className) {
@@ -2365,17 +2383,17 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 
 		if (fs.existsSync(projectsFA_TSS_File)) {
 			sourceFolder = projectsFA_TSS_File;
-			purgedClasses = '\n// Pro/Beta Font Awesome styles\n';
+			purgedClasses = '\n// Pro/Beta Font Awesome\n';
 			purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...')`;
 		} else {
 			sourceFolder = srcFontAwesomeTSSFile;
-			purgedClasses = '\n// Default Font Awesome styles\n';
+			purgedClasses = '\n// Default Font Awesome\n';
 			purgingMessage = `Purging Default Font Awesome styles...`;
 		}
 
 		purgedClasses += purgeFontIcons(sourceFolder, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fat', 'fas', 'fal', 'far', 'fab', 'fa-thin', 'fa-solid', 'fa-light', 'fa-regular', 'fa-brands', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands']);
 
-		return (purgedClasses === '\n// Pro/Beta Font Awesome styles\n' || purgedClasses === '\n// Default Font Awesome styles\n') ? '' : purgedClasses;
+		return (purgedClasses === '\n// Pro/Beta Font Awesome\n' || purgedClasses === '\n// Default Font Awesome\n') ? '' : purgedClasses;
 	}
 
 	return '';
@@ -2383,20 +2401,20 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 
 //! Material Design Icons
 function purgeMaterialDesign(uniqueClasses, cleanUniqueClasses) {
-	let purgedClasses = '\n// Material Design Icons styles\n';
+	let purgedClasses = '\n// Material Design Icons\n';
 
 	purgedClasses += purgeFontIcons(srcMaterialDesignIconsTSSFile, uniqueClasses, 'Purging Material Design Icons styles...', cleanUniqueClasses, ['md', 'mdo', 'mdr', 'mds', 'mdt', '.materialdesign', '.materialdesign-round', '.materialdesign-sharp', '.materialdesign-two-tone', '.materialdesign-outlined', '.material-icons', '.material-icons-round', '.material-icons-sharp', '.material-icons-two-tone', '.material-icons-outlined']);
 
-	return (purgedClasses === '\n// Material Design Icons styles\n') ? '' : purgedClasses;
+	return (purgedClasses === '\n// Material Design Icons\n') ? '' : purgedClasses;
 }
 
 //! Framework7
 function purgeFramework7(uniqueClasses, cleanUniqueClasses) {
-	let purgedClasses = '\n// Framework7 styles\n';
+	let purgedClasses = '\n// Framework7\n';
 
 	purgedClasses += purgeFontIcons(srcFramework7FontTSSFile, uniqueClasses, 'Purging Framework7 Icons styles...', cleanUniqueClasses, ['f7', 'f7i', 'framework7']);
 
-	return (purgedClasses === '\n// Framework7 styles\n') ? '' : purgedClasses;
+	return (purgedClasses === '\n// Framework7\n') ? '' : purgedClasses;
 }
 
 function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, _prefixes) {
