@@ -98,7 +98,7 @@ function processCustomClasses() {
 function processTitaniumRules(_propertiesOnly) {
 	let currentLegacyOption = helpers.globalOptions.legacy;
 	helpers.globalOptions.legacy = true;
-	let customRules = '\n// Ti.UI Components';
+	let customRules = '\n// Titanium Components';
 	_.each(_propertiesOnly, (value, key) => {
 		let property = `\n// Property: ${key}\n`;
 		let description = `// Description: ${value.description.replace(/\n/g, ' ')}\n`;
@@ -107,7 +107,7 @@ function processTitaniumRules(_propertiesOnly) {
 
 	helpers.globalOptions.legacy = currentLegacyOption;
 
-	if (customRules != '\n// Ti.UI Components\n') {
+	if (customRules != '\n// Titanium Components\n') {
 		return customRules;
 	}
 
@@ -265,7 +265,7 @@ function processCompoundClasses({ ..._base }) {
 	compoundClasses += generateGlossary('minimumFontSize', helpers.minimumFontSize(_base.fontSize));
 	compoundClasses += generateGlossary('padding-alternative', helpers.padding(_base.padding));
 	compoundClasses += generateGlossary('rotate-negative-values', helpers.negativeRotate(_base.rotate));
-	compoundClasses += generateGlossary('zoom-in', helpers.zoomIn(_base.scale));
+	compoundClasses += generateGlossary('zoom-in-out', helpers.zoomIn(_base.scale));
 
 	//! colors
 	compoundClasses += generateGlossary('backgroundGradient', helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient')));
@@ -340,7 +340,7 @@ function combineDefaultThemeWithConfigFile() {
 		zIndex: defaultTheme.zIndex,
 		opacity: defaultTheme.opacity,
 		fontWeight: defaultTheme.fontWeight,
-		borderWidth: combineKeys(configFile.theme, removePxFromDefaultTheme(defaultTheme.borderWidth), 'borderWidth'),
+		borderWidth: combineKeys(configFile.theme, { ...removePxFromDefaultTheme(defaultTheme.borderWidth), ...{ 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12 } }, 'borderWidth'),
 		fontSize: { ...themeOrDefaultValues.fontSize, ...configFile.theme.extend.spacing, ...configFile.theme.extend.fontSize },
 		minimumFontSize: { ...themeOrDefaultValues.minimumFontSize, ...configFile.theme.extend.spacing, ...configFile.theme.extend.minimumFontSize },
 		verticalMargin: { top: '-0.5', bottom: '0.5', middle: '0' },
