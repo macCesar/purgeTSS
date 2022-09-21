@@ -496,6 +496,7 @@ function getPropertiesFromTiCompletionsFile() {
 		'paused',
 		'playing',
 		'portrait',
+		'safeAreaPadding',
 		'specified',
 		'waiting',
 

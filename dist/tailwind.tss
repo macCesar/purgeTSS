@@ -6,7 +6,7 @@
 // https://github.com/macCesar/purgeTSS
 // default config.js file
 
-// Ti.UI Components
+// Titanium Components
 // Property: View
 // Description: An empty drawing surface or container
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
@@ -1689,7 +1689,8 @@
 
 // Property(ies): toggle - For the Animation module
 // Component(s): Animation
-'.toggle-opacity': { animation: { open: { opacity: 1 }, close: { opacity: 0, duration: 0 } } }
+'.opacity-to-0': { opacity: 1, animation: { open: { opacity: 0 }, close: { opacity: 1 } } }
+'.opacity-to-100': { opacity: 0, animation: { open: { opacity: 1 }, close: { opacity: 0 } } }
 '.toggle-visible': { animation: { open: { visible: true }, close: { visible: false } } }
 
 // Property(ies): touchEnabled ( Alternative )
@@ -2765,6 +2766,20 @@
 '.zoom-in-110': { animation: { open: { scale: 1.1 }, complete: { scale: 1 } } }
 '.zoom-in-125': { animation: { open: { scale: 1.25 }, complete: { scale: 1 } } }
 '.zoom-in-150': { animation: { open: { scale: 1.5 }, complete: { scale: 1 } } }
+'.zoom-out-0': { animation: { close: { scale: 0 }, complete: { scale: 1 } } }
+'.zoom-out-1': { animation: { close: { scale: 0.01 }, complete: { scale: 1 } } }
+'.zoom-out-5': { animation: { close: { scale: 0.05 }, complete: { scale: 1 } } }
+'.zoom-out-10': { animation: { close: { scale: 0.10 }, complete: { scale: 1 } } }
+'.zoom-out-25': { animation: { close: { scale: 0.25 }, complete: { scale: 1 } } }
+'.zoom-out-50': { animation: { close: { scale: 0.5 }, complete: { scale: 1 } } }
+'.zoom-out-75': { animation: { close: { scale: 0.75 }, complete: { scale: 1 } } }
+'.zoom-out-90': { animation: { close: { scale: 0.9 }, complete: { scale: 1 } } }
+'.zoom-out-95': { animation: { close: { scale: 0.95 }, complete: { scale: 1 } } }
+'.zoom-out-100': { animation: { close: { scale: 1 }, complete: { scale: 1 } } }
+'.zoom-out-105': { animation: { close: { scale: 1.05 }, complete: { scale: 1 } } }
+'.zoom-out-110': { animation: { close: { scale: 1.1 }, complete: { scale: 1 } } }
+'.zoom-out-125': { animation: { close: { scale: 1.25 }, complete: { scale: 1 } } }
+'.zoom-out-150': { animation: { close: { scale: 1.5 }, complete: { scale: 1 } } }
 
 // Property(ies): backgroundGradient: colors - From Color
 // Component(s): Ti.UI.ListItem, Ti.UI.View
@@ -5852,9 +5867,18 @@
 // Description: Border width of the view.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.border-0': { borderWidth: 0 }
+'.border-1': { borderWidth: 1 }
 '.border-2': { borderWidth: 2 }
+'.border-3': { borderWidth: 3 }
 '.border-4': { borderWidth: 4 }
+'.border-5': { borderWidth: 5 }
+'.border-6': { borderWidth: 6 }
+'.border-7': { borderWidth: 7 }
 '.border-8': { borderWidth: 8 }
+'.border-9': { borderWidth: 9 }
+'.border-10': { borderWidth: 10 }
+'.border-11': { borderWidth: 11 }
+'.border-12': { borderWidth: 12 }
 '.border': { borderWidth: 1 }
 
 // Property: bottom
@@ -15252,45 +15276,6 @@
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, openWindowParams, Ti.UI.iOS.SplitWindow
 '.modal': { modal: true }
 '.modal-false': { modal: false }
-
-// Property: safeAreaPadding
-// Description: The padding needed to safely display content without it being overlapped by the screen insets and notches.
-// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.safe-area-padding-0': { safeAreaPadding: 0 }
-'.safe-area-padding-1': { safeAreaPadding: 4 }
-'.safe-area-padding-2': { safeAreaPadding: 8 }
-'.safe-area-padding-3': { safeAreaPadding: 12 }
-'.safe-area-padding-4': { safeAreaPadding: 16 }
-'.safe-area-padding-5': { safeAreaPadding: 20 }
-'.safe-area-padding-6': { safeAreaPadding: 24 }
-'.safe-area-padding-7': { safeAreaPadding: 28 }
-'.safe-area-padding-8': { safeAreaPadding: 32 }
-'.safe-area-padding-9': { safeAreaPadding: 36 }
-'.safe-area-padding-10': { safeAreaPadding: 40 }
-'.safe-area-padding-11': { safeAreaPadding: 44 }
-'.safe-area-padding-12': { safeAreaPadding: 48 }
-'.safe-area-padding-14': { safeAreaPadding: 56 }
-'.safe-area-padding-16': { safeAreaPadding: 64 }
-'.safe-area-padding-20': { safeAreaPadding: 80 }
-'.safe-area-padding-24': { safeAreaPadding: 96 }
-'.safe-area-padding-28': { safeAreaPadding: 112 }
-'.safe-area-padding-32': { safeAreaPadding: 128 }
-'.safe-area-padding-36': { safeAreaPadding: 144 }
-'.safe-area-padding-40': { safeAreaPadding: 160 }
-'.safe-area-padding-44': { safeAreaPadding: 176 }
-'.safe-area-padding-48': { safeAreaPadding: 192 }
-'.safe-area-padding-52': { safeAreaPadding: 208 }
-'.safe-area-padding-56': { safeAreaPadding: 224 }
-'.safe-area-padding-60': { safeAreaPadding: 240 }
-'.safe-area-padding-64': { safeAreaPadding: 256 }
-'.safe-area-padding-72': { safeAreaPadding: 288 }
-'.safe-area-padding-80': { safeAreaPadding: 320 }
-'.safe-area-padding-96': { safeAreaPadding: 384 }
-'.safe-area-padding-px': { safeAreaPadding: '1px' }
-'.safe-area-padding-0.5': { safeAreaPadding: 2 }
-'.safe-area-padding-1.5': { safeAreaPadding: 6 }
-'.safe-area-padding-2.5': { safeAreaPadding: 10 }
-'.safe-area-padding-3.5': { safeAreaPadding: 14 }
 
 // Property: statusBarStyle
 // Description: The status bar style associated with this window.
