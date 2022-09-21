@@ -15200,11 +15200,6 @@
 '.secure': { flagSecure: true }
 '.secure-false': { flagSecure: false }
 
-// Property: focused
-// Component(s): Ti.UI.NavigationWindow, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.focused': { focused: true }
-'.focused-false': { focused: false }
-
 // Property: includeOpaqueBars
 // Description: Specifies if the edges should extend beyond opaque bars (navigation bar, tab bar, toolbar).
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow

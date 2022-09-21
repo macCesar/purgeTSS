@@ -480,6 +480,7 @@ function getPropertiesFromTiCompletionsFile() {
 		'ENV_PRODUCTION',
 		'ENV_TEST',
 		'externalPlaybackActive',
+		'focused',
 		'hasContentPending',
 		'isActivated',
 		'isAdvertisingTrackingEnabled',
