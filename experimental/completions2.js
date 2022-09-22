@@ -655,6 +655,7 @@ function removeUneededVariablesFromPropertyName(property) {
 		.replace('border-width', 'border')
 		.replace('color-', '')
 		.replace('column-', 'col-')
+		.replace('edges-edge', 'edges')
 		.replace('flag-', '')
 		.replace('height-', 'h-')
 		.replace('input-borderstyle-', '')
