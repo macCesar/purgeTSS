@@ -20,9 +20,9 @@
 '.theme-titanium-light-solid': { theme: "Theme.Titanium.Light.Solid" }
 '.theme-titanium-light-solid-no-title-bar': { theme: "Theme.Titanium.Light.Solid.NoTitleBar" }
 '.theme-titanium-light-solid-fullscreen': { theme: "Theme.Titanium.Light.Solid.Fullscreen" }
-'.theme-app-derived-no-title-bar': { theme: "'Theme.AppDerived.NoTitleBar'" }
-'.theme-app-derived-fullscreen': { theme: "'Theme.AppDerived.Fullscreen'" }
-'.theme-app-derived-translucent': { theme: "'Theme.AppDerived.Translucent'" }
-'.theme-app-derived-translucent-no-title-bar': { theme: "'Theme.AppDerived.Translucent.NoTitleBar'" }
-'.theme-app-derived-translucent-fullscreen': { theme: "'Theme.AppDerived.Translucent.Fullscreen'" }
+'.theme-app-derived-no-title-bar': { theme: "Theme.AppDerived.NoTitleBar" }
+'.theme-app-derived-fullscreen': { theme: "Theme.AppDerived.Fullscreen" }
+'.theme-app-derived-translucent': { theme: "Theme.AppDerived.Translucent" }
+'.theme-app-derived-translucent-no-title-bar': { theme: "Theme.AppDerived.Translucent.NoTitleBar" }
+'.theme-app-derived-translucent-fullscreen': { theme: "Theme.AppDerived.Translucent.Fullscreen" }
 ```
