@@ -5,7 +5,7 @@ function Animation(args) {
 		draggables: [],
 		playing: false,
 		delay: args.delay ?? 0,
-		// delay: args.delay ? args.delay : (args.animation && args.animation.open && args.animation.open.delay) ? args.animation.open.delay : 0,
+		// delay: args.delay ? args.delay : (args.animationProperties && args.animationProperties.open && args.animationProperties.open.delay) ? args.animationProperties.open.delay : 0,
 		debug: args.debug ?? false,
 		hasTransformation: (args.scale !== undefined || args.rotate !== undefined),
 	};
@@ -24,20 +24,20 @@ function Animation(args) {
 		delete args.anchorPoint;
 	}
 
-	if (args.animation && args.animation.open && (args.animation.open.anchorPoint || args.animation.open.rotate || args.animation.open.scale)) {
+	if (args.animationProperties && args.animationProperties.open && (args.animationProperties.open.anchorPoint || args.animationProperties.open.rotate || args.animationProperties.open.scale)) {
 		logger('   -> Creating transformOnOpen');
-		args.transformOnOpen = Ti.UI.createMatrix2D(args.animation.open);
-		delete args.animation.open.scale;
-		delete args.animation.open.rotate;
-		delete args.animation.open.anchorPoint;
+		args.transformOnOpen = Ti.UI.createMatrix2D(args.animationProperties.open);
+		delete args.animationProperties.open.scale;
+		delete args.animationProperties.open.rotate;
+		delete args.animationProperties.open.anchorPoint;
 	}
 
-	if (args.animation && args.animation.close && (args.animation.close.anchorPoint || args.animation.close.rotate || args.animation.close.scale)) {
+	if (args.animationProperties && args.animationProperties.close && (args.animationProperties.close.anchorPoint || args.animationProperties.close.rotate || args.animationProperties.close.scale)) {
 		logger('   -> Creating transformOnClose');
-		args.transformOnClose = Ti.UI.createMatrix2D(args.animation.close);
-		delete args.animation.close.scale;
-		delete args.animation.close.rotate;
-		delete args.animation.close.anchorPoint;
+		args.transformOnClose = Ti.UI.createMatrix2D(args.animationProperties.close);
+		delete args.animationProperties.close.scale;
+		delete args.animationProperties.close.rotate;
+		delete args.animationProperties.close.anchorPoint;
 	}
 
 	// TODO: Create a library of useful animations!!
@@ -167,11 +167,11 @@ function Animation(args) {
 	}
 
 	function checkAnimation(action) {
-		if (args.animation) {
+		if (args.animationProperties) {
 			param.open = !param.open;
 
 			// For regular animations, including extra animations with open and close states.
-			args = param.open ? { ...args, ...args.animation.open } : { ...args, ...args.animation.close };
+			args = param.open ? { ...args, ...args.animationProperties.open } : { ...args, ...args.animationProperties.close };
 
 			if (action === 'play') {
 				logger('   -> `' + action + '` Check Animation');
@@ -198,11 +198,26 @@ function Animation(args) {
 
 	function innerAnimations(_view, _action) {
 		_.each(_view.children, child => {
-			if (param.open && child['open']) {
-				(_action === 'play') ? child.animate(Ti.UI.createAnimation(child['open'])) : child.applyProperties(child['open']);
-			} else if (child['close']) {
-				(_action === 'play') ? child.animate(Ti.UI.createAnimation(child['close'])) : child.applyProperties(child['close']);
+			if (param.open && child['animationProperties'] && child['animationProperties']['open']) {
+				if (_action === 'play') {
+					child.animate(createAnimationObject(child, 'open'), () => {
+						if (child['animationProperties']['complete']) {
+							child.animate(createAnimationObject(child, 'complete'));
+						}
+					});
+				} else {
+					child.applyProperties(child['animationProperties']['open']);
+				}
+			} else if (child['animationProperties'] && child['animationProperties']['close']) {
+				(_action === 'play') ? child.animate(createAnimationObject(child, 'close')) : child.applyProperties(child['animationProperties']['close']);
 			}
+		});
+	}
+
+	function createAnimationObject(_child, type) {
+		return Ti.UI.createAnimation({
+			..._child['animationProperties'][type],
+			transform: Ti.UI.createMatrix2D(_child['animationProperties'][type])
 		});
 	}
 
@@ -227,15 +242,15 @@ function Animation(args) {
 	}
 
 	function checkComplete(view, action) {
-		if (args.animation && args.animation.complete) {
+		if (args.animationProperties && args.animationProperties.complete) {
 			logger('   -> `complete` Animation');
 			if (action === 'play') {
 				param.playing = true;
-				view.animate(Ti.UI.createAnimation({ ...args, ...args.animation.complete, transform: Ti.UI.createMatrix2D(args.animation.complete) }), () => {
+				view.animate(Ti.UI.createAnimation({ ...args, ...args.animationProperties.complete, transform: Ti.UI.createMatrix2D(args.animationProperties.complete) }), () => {
 					param.playing = false;
 				});
 			} else {
-				view.applyProperties(args.animation.complete);
+				view.applyProperties(args.animationProperties.complete);
 			}
 		}
 	}
@@ -281,7 +296,7 @@ function Animation(args) {
 
 	return animationView;
 }
-exports.Animation = Animation;
+exports.AnimationProperties = Animation;
 
 function deviceInfo() {
 	console.warn('------------------- DEVICE INFO -------------------');
