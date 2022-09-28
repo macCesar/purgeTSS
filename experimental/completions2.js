@@ -32,7 +32,7 @@ const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.js
 const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js');
 
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile);
-configFile.corePlugins = configFile.corePlugins ?? {};
+configFile.plugins = configFile.plugins ?? [];
 configFile.purge = configFile.purge ?? { mode: 'all' };
 configFile.theme.extend = configFile.theme.extend ?? {};
 configFile.fonts = configFile.fonts ?? { mode: 'fileName' };
@@ -397,6 +397,12 @@ function combineDefaultThemeWithConfigFile() {
 	base.View = (configFile.theme.View && configFile.theme.View.apply)
 		? _.merge({ apply: configFile.theme.View.apply }, configFile.theme.View)
 		: _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
+
+	_.each(configFile.plugins, value => {
+		delete base[value];
+		delete configFile.theme[value];
+		delete configFile.theme.extend[value];
+	});
 
 	return base;
 }
