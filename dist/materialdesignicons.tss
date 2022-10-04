@@ -225,6 +225,7 @@
 '.md-aspect_ratio': { text: '\ue85b', title: '\ue85b' }
 '.md-assessment': { text: '\ue85c', title: '\ue85c' }
 '.md-assignment': { text: '\ue85d', title: '\ue85d' }
+'.md-assignment_add': { text: '\uf848', title: '\uf848' }
 '.md-assignment_ind': { text: '\ue85e', title: '\ue85e' }
 '.md-assignment_late': { text: '\ue85f', title: '\ue85f' }
 '.md-assignment_return': { text: '\ue860', title: '\ue860' }
@@ -911,6 +912,7 @@
 '.md-format_italic': { text: '\ue23f', title: '\ue23f' }
 '.md-format_line_spacing': { text: '\ue240', title: '\ue240' }
 '.md-format_list_bulleted': { text: '\ue241', title: '\ue241' }
+'.md-format_list_bulleted_add': { text: '\uf849', title: '\uf849' }
 '.md-format_list_numbered': { text: '\ue242', title: '\ue242' }
 '.md-format_list_numbered_rtl': { text: '\ue267', title: '\ue267' }
 '.md-format_overline': { text: '\ueb65', title: '\ueb65' }
@@ -1342,6 +1344,7 @@
 '.md-move_up': { text: '\ueb64', title: '\ueb64' }
 '.md-movie': { text: '\ue02c', title: '\ue02c' }
 '.md-movie_creation': { text: '\ue404', title: '\ue404' }
+'.md-movie_edit': { text: '\uf840', title: '\uf840' }
 '.md-movie_filter': { text: '\ue43a', title: '\ue43a' }
 '.md-moving': { text: '\ue501', title: '\ue501' }
 '.md-mp': { text: '\ue9c3', title: '\ue9c3' }
@@ -1654,6 +1657,7 @@
 '.md-raw_on': { text: '\uf050', title: '\uf050' }
 '.md-read_more': { text: '\uef6d', title: '\uef6d' }
 '.md-real_estate_agent': { text: '\ue73a', title: '\ue73a' }
+'.md-rebase_edit': { text: '\uf846', title: '\uf846' }
 '.md-receipt': { text: '\ue8b0', title: '\ue8b0' }
 '.md-receipt_long': { text: '\uef6e', title: '\uef6e' }
 '.md-recent_actors': { text: '\ue03f', title: '\ue03f' }
@@ -2276,7 +2280,6 @@
 '.md-wechat': { text: '\uea81', title: '\uea81' }
 '.md-weekend': { text: '\ue16b', title: '\ue16b' }
 '.md-west': { text: '\uf1e6', title: '\uf1e6' }
-'.md-whatsapp': { text: '\uea9c', title: '\uea9c' }
 '.md-whatshot': { text: '\ue80e', title: '\ue80e' }
 '.md-wheelchair_pickup': { text: '\uf1ab', title: '\uf1ab' }
 '.md-where_to_vote': { text: '\ue177', title: '\ue177' }

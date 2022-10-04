@@ -72,6 +72,19 @@ function autoBuildTailwindTSS(options = {}) {
 		saveFile(path.resolve(__dirname, '../dist/tailwind.tss'), tailwindStyles);
 		logger.file('./dist/tailwind.tss');
 	}
+
+	// create tailwind.js file
+	// let arrayOfClasses = '';
+	// tailwindStyles.split(/\r?\n/).map(item => {
+	// 	if (!item.includes('//') && !item.includes('[') && item !== '') {
+	// 		let classParts = item.trim().split(/: (.+)/);
+	// 		let classParts1 = classParts[1];
+	// 		let theObjectNew = "'" + classParts[0].replace(/\./, '').replace(/'/g, '') + "': " + classParts1 + ',\n';
+	// 		arrayOfClasses += theObjectNew;
+	// 	}
+	// });
+
+	// saveFile(cwd + '/purgetss/tailwind.js', `const icons = {${arrayOfClasses}}`);
 }
 exports.autoBuildTailwindTSS = autoBuildTailwindTSS;
 
