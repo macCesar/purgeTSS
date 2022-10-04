@@ -50,6 +50,7 @@ const projectsFA_TSS_File = cwd + '/purgetss/fontawesome.tss';
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
 const srcLibF7 = path.resolve(__dirname, './dist/framework7icons.js');
 const srcLibMD = path.resolve(__dirname, './dist/materialdesignicons.js');
+const srcLibMS = path.resolve(__dirname, './dist/materialsymbols.js');
 const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
 
 //
@@ -93,6 +94,7 @@ const PurgeTSSPackageJSON = JSON.parse(fs.readFileSync(path.resolve(__dirname, '
 const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss');
 const srcFramework7FontTSSFile = path.resolve(__dirname, './dist/framework7icons.tss');
 const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialdesignicons.tss');
+const srcMaterialSymbolsTSSFile = path.resolve(__dirname, './dist/materialsymbols.tss');
 
 const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
 
@@ -133,6 +135,8 @@ function purgeClasses(options) {
 		tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses);
 
 		tempPurged += purgeMaterialDesign(uniqueClasses, cleanUniqueClasses);
+
+		tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses);
 
 		tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses);
 
@@ -691,6 +695,21 @@ function copyMaterialDesignFonts() {
 	});
 
 	logger.info('Material Design Icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
+}
+
+function copyMaterialSymbolsFonts() {
+	// Material Symbols Icons Font
+	let fontFamilies = [
+		'MaterialSymbolsOutlined-Regular.ttf',
+		'MaterialSymbolsRounded-Regular.ttf',
+		'MaterialSymbolsSharp-Regular.ttf'
+	];
+
+	_.each(fontFamilies, familyName => {
+		copyFile(`${srcFonts_Folder}/${familyName}`, familyName);
+	});
+
+	logger.info('Material Symbols Icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
 
 function copyFramework7IconsFonts() {
@@ -1662,6 +1681,8 @@ function createDefinitionsFile() {
 
 	classDefinitions += fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8');
 
+	classDefinitions += fs.readFileSync(srcMaterialSymbolsTSSFile, 'utf8');
+
 	classDefinitions = classDefinitions
 		.replace(/\/\/[^\n]*\n/g, '')
 		.replace(/\/\*\*\n([\s\S]*?)\*\//gm, '')
@@ -2104,6 +2125,10 @@ function copyFont(vendor) {
 		case 'materialdesign':
 			copyMaterialDesignFonts();
 			break;
+		case 'ms':
+		case 'materialsymbol':
+			copyMaterialSymbolsFonts();
+			break;
 		case 'f7':
 		case 'framework':
 		case 'framework7':
@@ -2130,6 +2155,11 @@ function copyFontLibrary(vendor) {
 		case 'materialdesign':
 			fs.copyFileSync(srcLibMD, projectsLibFolder + '/materialdesignicons.js');
 			logger.info('Material Design CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+			break;
+		case 'ms':
+		case 'materialsymbol':
+			fs.copyFileSync(srcLibMS, projectsLibFolder + '/materialsymbols.js');
+			logger.info('Material Symbols CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 		case 'f7':
 		case 'framework':
@@ -2403,9 +2433,18 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 function purgeMaterialDesign(uniqueClasses, cleanUniqueClasses) {
 	let purgedClasses = '\n// Material Design Icons\n';
 
-	purgedClasses += purgeFontIcons(srcMaterialDesignIconsTSSFile, uniqueClasses, 'Purging Material Design Icons styles...', cleanUniqueClasses, ['md', 'mdo', 'mdr', 'mds', 'mdt', '.materialdesign', '.materialdesign-round', '.materialdesign-sharp', '.materialdesign-two-tone', '.materialdesign-outlined', '.material-icons', '.material-icons-round', '.material-icons-sharp', '.material-icons-two-tone', '.material-icons-outlined']);
+	purgedClasses += purgeFontIcons(srcMaterialDesignIconsTSSFile, uniqueClasses, 'Purging Material Design Icons styles...', cleanUniqueClasses, ['md', 'mdo', 'mdr', 'mds', 'mdt', 'materialdesign', 'materialdesign-round', 'materialdesign-sharp', 'materialdesign-two-tone', 'materialdesign-outlined', 'material-icons', 'material-icons-round', 'material-icons-sharp', 'material-icons-two-tone', 'material-icons-outlined']);
 
 	return (purgedClasses === '\n// Material Design Icons\n') ? '' : purgedClasses;
+}
+
+// !Material Symbols
+function purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses) {
+	let purgedClasses = '\n// Material Symbols\n';
+
+	purgedClasses += purgeFontIcons(srcMaterialSymbolsTSSFile, uniqueClasses, 'Purging Material Symbols styles...', cleanUniqueClasses, ['ms', 'msr', 'mss', 'mso', 'materialsymbol', 'materialsymbol-rounded', 'materialsymbol-sharp', 'materialsymbol-outlined', 'material-symbol', 'material-symbol-rounded', 'material-symbol-sharp', 'material-symbol-outlined']);
+
+	return (purgedClasses === '\n// Material Symbols\n') ? '' : purgedClasses;
 }
 
 //! Framework7

@@ -1,0 +1,32 @@
+// Font Families
+'.ms': { font: { fontFamily: 'MaterialSymbolsOutlined-Regular' } }
+'.msr': { font: { fontFamily: 'MaterialSymbolsRounded-Regular' } }
+'.mss': { font: { fontFamily: 'MaterialSymbolsSharp-Regular' } }
+'.mso': { font: { fontFamily: 'MaterialSymbolsOutlined-Regular' } }
+
+'.materialsymbol': { font: { fontFamily: 'MaterialSymbolsOutlined-Regular' } }
+'.materialsymbol-rounded': { font: { fontFamily: 'MaterialSymbolsRounded-Regular' } }
+'.materialsymbol-sharp': { font: { fontFamily: 'MaterialSymbolsSharp-Regular' } }
+'.materialsymbol-outlined': { font: { fontFamily: 'MaterialSymbolsOutlined-Regular' } }
+
+'.material-symbol': { font: { fontFamily: 'MaterialSymbolsOutlined-Regular' } }
+'.material-symbol-rounded': { font: { fontFamily: 'MaterialSymbolsRounded-Regular' } }
+'.material-symbol-sharp': { font: { fontFamily: 'MaterialSymbolsSharp-Regular' } }
+'.material-symbol-outlined': { font: { fontFamily: 'MaterialSymbolsOutlined-Regular' } }
+
+// Font Sizes
+'.ms-18': { font: { fontSize: 18 } }
+'.ms-24': { font: { fontSize: 24 } }
+'.ms-36': { font: { fontSize: 36 } }
+'.ms-48': { font: { fontSize: 48 } }
+
+// Rules for using icons as black on a light background.
+'.ms-dark': { color: 'rgba(0, 0, 0, 0.54)' }
+'.ms-dark-inactive': { color: 'rgba(0, 0, 0, 0.26)' }
+
+// Rules for using icons as white on a dark background.
+'.ms-light': { color: 'rgba(255, 255, 255, 1)' }
+'.ms-light-inactive': { color: 'rgba(255, 255, 255, 0.3)' }
+
+// Font Icons
+// To use Material Icons in Buttons AND Labels each class sets 'text' and 'title' properties

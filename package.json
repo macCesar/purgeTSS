@@ -19,9 +19,11 @@
 		"build:fa-js": "node ./lib/build-fontawesome-free-js",
 		"build:material": "node ./lib/build-material-icons-tss",
 		"build:material-js": "node ./lib/build-material-icons-js",
+		"build:symbols": "node ./lib/build-material-symbols-tss",
+		"build:symbols-js": "node ./lib/build-material-symbols-js",
 		"build:framework7": "node ./lib/build-framework7-icons-tss",
 		"build:framework7-js": "node ./lib/build-framework7-icons-js",
-		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:material && npm run build:material-js && npm run build:framework7 && npm run build:framework7-js && npm run build:fonts"
+		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:material && npm run build:material-js && npm run build:symbols && npm run build:symbols-js && npm run build:framework7 && npm run build:framework7-js && npm run build:fonts"
 	},
 	"repository": {
 		"type": "git",
