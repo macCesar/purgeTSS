@@ -1,6 +1,6 @@
 'use_strick';
 let _applyClasses = {};
-let debugMode = false;
+let saveGlossary = false;
 const fs = require('fs');
 const cwd = process.cwd();
 const _ = require('lodash');
@@ -44,7 +44,7 @@ if (configOptions) {
 }
 
 function autoBuildTailwindTSS(options = {}) {
-	debugMode = options.debug ?? false;
+	saveGlossary = options.glossary ?? false;
 	let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/template.tss'), 'utf8');
 	tailwindStyles += fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8');
 	tailwindStyles += (fs.existsSync(projectsConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}\n` : `// default config.js file\n`;
@@ -63,7 +63,7 @@ function autoBuildTailwindTSS(options = {}) {
 	if (fs.existsSync(projectsConfigJS)) {
 		saveFile(cwd + '/purgetss/tailwind.tss', tailwindStyles);
 		logger.file('./purgetss/tailwind.tss');
-		// if (debugMode) {
+		// if (saveGlossary) {
 		// 	saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
 		// 	saveFile(cwd + '/purgetss/experimental/tiUIComponents.json', JSON.stringify(tiUIComponents, null, 2));
 		//  saveFile(path.resolve(cwd + '/purgetss/experimental/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
@@ -145,7 +145,7 @@ function generateGlossary(_key, _theClasses, _keyName = null) {
 	let baseDestinationFolder = '';
 	if (!fs.existsSync(projectsConfigJS)) {
 		baseDestinationFolder = path.resolve(__dirname, '../dist/glossary/');
-	} else if (debugMode) {
+	} else if (saveGlossary) {
 		baseDestinationFolder = cwd + '/purgetss/glossary/';
 	}
 
@@ -191,7 +191,7 @@ function setBaseValuesToProperties(_allProperties, _base) {
 		}
 	});
 
-	// if (fs.existsSync(projectsConfigJS) && debugMode) {
+	// if (fs.existsSync(projectsConfigJS) && saveGlossary) {
 	// 	makeSureFolderExists(cwd + '/purgetss/experimental/');
 	// 	saveFile(cwd + '/purgetss/experimental/allKeys.txt', allKeys);
 	// }
@@ -217,7 +217,7 @@ function getTiUIComponents(_base) {
 		}
 	});
 
-	// if (fs.existsSync(projectsConfigJS) && debugMode) {
+	// if (fs.existsSync(projectsConfigJS) && saveGlossary) {
 	// 	saveFile(cwd + '/purgetss/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
 	// }
 
@@ -638,7 +638,7 @@ function generateCombinedClasses(key, data) {
 }
 
 function saveAutoTSS(key, classes) {
-	if (fs.existsSync(projectsConfigJS) && debugMode) {
+	if (fs.existsSync(projectsConfigJS) && saveGlossary) {
 		makeSureFolderExists(cwd + '/purgetss/experimental/tailwind-classes/');
 		saveFile(cwd + `/purgetss/experimental/tailwind-classes/${key}.tss`, classes);
 	}
