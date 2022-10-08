@@ -2346,7 +2346,7 @@ function purgeTailwind(uniqueClasses) {
 		}
 	});
 
-	purgedClasses += (titaniumClasses.length) ? '\n// Titanium Components\n' + titaniumClasses.sort().join('') : '';
+	purgedClasses += (titaniumClasses.length) ? '\n// Ti Elements\n' + titaniumClasses.sort().join('') : '';
 	purgedClasses += (anArrayOfClasses.length) ? '\n// Main Styles\n' + anArrayOfClasses.sort().join('') : '';
 
 	purgedClasses += (deviceClasses.length) ? '\n// Platform and Device Modifiers\n' + deviceClasses.sort().join('') : '';

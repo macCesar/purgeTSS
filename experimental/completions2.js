@@ -111,7 +111,7 @@ function processCustomClasses() {
 function processTitaniumRules(_propertiesOnly) {
 	let currentLegacyOption = helpers.globalOptions.legacy;
 	helpers.globalOptions.legacy = true;
-	let customRules = '\n// Titanium Components';
+	let customRules = '\n// Ti Elements';
 	_.each(_propertiesOnly, (value, key) => {
 		let property = `\n// Property: ${key}\n`;
 		let description = `// Description: ${value.description.replace(/\n/g, ' ')}\n`;
@@ -120,7 +120,7 @@ function processTitaniumRules(_propertiesOnly) {
 
 	helpers.globalOptions.legacy = currentLegacyOption;
 
-	if (customRules != '\n// Titanium Components\n') {
+	if (customRules != '\n// Ti Elements\n') {
 		return customRules;
 	}
 

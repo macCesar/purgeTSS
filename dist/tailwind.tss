@@ -6,7 +6,7 @@
 // https://github.com/macCesar/purgeTSS
 // default config.js file
 
-// Titanium Components
+// Ti Elements
 // Property: View
 // Description: An empty drawing surface or container
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
