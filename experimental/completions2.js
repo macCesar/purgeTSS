@@ -1,5 +1,4 @@
 'use_strick';
-let _applyClasses = {};
 let saveGlossary = false;
 const fs = require('fs');
 const cwd = process.cwd();
