@@ -72,20 +72,22 @@ function autoBuildTailwindTSS(options = {}) {
 		logger.file('./dist/tailwind.tss');
 	}
 
-	// create tailwind.js file
-	// let arrayOfClasses = '';
-	// tailwindStyles.split(/\r?\n/).map(item => {
-	// 	if (!item.includes('//') && !item.includes('[') && item !== '') {
-	// 		let classParts = item.trim().split(/: (.+)/);
-	// 		let classParts1 = classParts[1];
-	// 		let theObjectNew = "'" + classParts[0].replace(/\./, '').replace(/'/g, '') + "': " + classParts1 + ',\n';
-	// 		arrayOfClasses += theObjectNew;
-	// 	}
-	// });
-
-	// saveFile(cwd + '/purgetss/tailwind.js', `const icons = {${arrayOfClasses}}`);
+	saveTailwindJSFile(tailwindStyles);
 }
 exports.autoBuildTailwindTSS = autoBuildTailwindTSS;
+
+function saveTailwindJSFile(tailwindStyles) {
+	let arrayOfClasses = '';
+	tailwindStyles.split(/\r?\n/).map(item => {
+		if (!item.startsWith('//') && item !== '') {
+			let split = item.split(/:(.+)/);
+			arrayOfClasses += (split[0].startsWith('\'.')) ? `\t'${split[0].replace('\'.', '')}: "${split[1].trim()}",\n` : `\t${split[0]}: "${split[1].trim()}",\n`;
+		} else {
+			arrayOfClasses += `\t${item}\n`;
+		}
+	});
+	saveFile(cwd + '/purgetss/tailwind.js', `exports.tailwindJS = {\n${arrayOfClasses}}`);
+}
 
 function processCustomClasses() {
 	let tailwindStyles = '';

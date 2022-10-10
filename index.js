@@ -149,9 +149,57 @@ function purgeClasses(options) {
 		logger.file('app.tss');
 
 		finish();
+
+		// purgeClasses2(options);
 	}
 }
 module.exports.purgeClasses = purgeClasses;
+
+function purgeClasses2(options) {
+	purgingDebug = options.debug;
+	if (alloyProject()) {
+		console.time('purgeClasses2');
+		start();
+
+		init(options);
+
+		backupOriginalAppTss();
+
+		let uniqueClasses = getUniqueClasses();
+
+		let tailwindTSS = fs.readFileSync(projectsTailwind_TSS, 'utf8');
+		let fontsTSS = fs.existsSync(cwd + '/purgetss/fonts.tss') ? fs.readFileSync(cwd + '/purgetss/fonts.tss', 'utf8') : '';
+		let fontAwesomeTSS = (fs.existsSync(projectsFA_TSS_File)) ? fs.readFileSync(projectsFA_TSS_File, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8');
+		let materialDesignTSS = fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8');
+		let materialSymbolsTSS = fs.readFileSync(srcMaterialSymbolsTSSFile, 'utf8');
+		let frameWork7TSS = fs.readFileSync(srcFramework7FontTSSFile, 'utf8');
+
+		let allStylesTogether = tailwindTSS + fontsTSS + fontAwesomeTSS + materialDesignTSS + materialSymbolsTSS + frameWork7TSS;
+
+		// find only classes from styles
+		let pureClasses = [];
+		_.each(uniqueClasses, uniqueClass => {
+			if (allStylesTogether.includes(`'.${cleanClassNameFn2(uniqueClass)}`) || uniqueClass.charAt(0) === uniqueClass.charAt(0).toUpperCase() && allStylesTogether.includes(`'${cleanClassNameFn2(uniqueClass)}`)) {
+				pureClasses.push(uniqueClass);
+			}
+		});
+
+		console.timeEnd('purgeClasses2');
+		// console.log('pureClasses', JSON.stringify(pureClasses));
+	}
+}
+module.exports.purgeClasses2 = purgeClasses2;
+
+function testingTailwindJS(uniqueClasses) {
+	let extractedClasses = {};
+	if (fs.existsSync(cwd + '/purgetss/tailwind.js')) {
+		let theClassesInJS = require(cwd + '/purgetss/tailwind.js').tailwindJS;
+		uniqueClasses.forEach((className) => {
+			extractedClasses[`.${className}`] = `${theClassesInJS[cleanClassNameFn(className)]}`;
+		});
+	}
+	return extractedClasses;
+}
 
 function init(options) {
 	// config file
@@ -2244,12 +2292,7 @@ function purgeTailwind(uniqueClasses) {
 	let purgedClasses = '';
 	let tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/);
 
-	if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[6]) {
-		logger.info(chalk.yellow('config.js'), 'file changed!, rebuilding tailwind.tss...');
-		buildTailwindBasedOnConfigOptions();
-		createDefinitionsFile();
-		tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/);
-	}
+	if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[6]) tailwindClasses = reBuildTailwindTSS();
 
 	// let complexClasses = [];
 	let cleanUniqueClasses = [];
@@ -2261,7 +2304,7 @@ function purgeTailwind(uniqueClasses) {
 		let cleanClassName = cleanClassNameFn(className);
 
 		if (cleanClassName.indexOf(':') !== -1) {
-			// complexClasses.push(cleanClassName);
+			// TODO: complexClasses.push(cleanClassName);
 		} else if (cleanClassName.includes('(')) {
 			let line = helpers.formatArbitraryValues(cleanClassName, true);
 			if (line) arbitraryValues += helpers.checkPlatformAndDevice(line, className);
@@ -2381,6 +2424,13 @@ function purgeTailwind(uniqueClasses) {
 	return purgedClasses;
 }
 
+function reBuildTailwindTSS() {
+	logger.info(chalk.yellow('config.js'), 'changed...', chalk.yellow('tailwind.tss'), 'rebuilt!');
+	buildTailwindBasedOnConfigOptions();
+	createDefinitionsFile();
+	return fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/)
+}
+
 function switchPlatform(withPlatformDeviceStyle) {
 	// !Move platform specific styles to the end of the class name
 	if (withPlatformDeviceStyle.search(/\[platform=ios\]|\[platform=android\]/i) > -1) {
@@ -2394,6 +2444,10 @@ function switchPlatform(withPlatformDeviceStyle) {
 
 function cleanClassNameFn(className) {
 	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
+}
+
+function cleanClassNameFn2(className) {
+	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '').replace(/\/[^']+/g, '').replace(/ *\([^)]*\) */g, '');
 }
 
 //! FontAwesome
