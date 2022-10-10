@@ -58,7 +58,7 @@
 		"read-css": "^0.3.0",
 		"tailwindcss": "^3.1.8",
 		"traverse": "^0.6.6",
-		"update-notifier": "^6.0.2",
+		"update-notifier": "^5.1.0",
 		"xml-js": "^1.6.11"
 	}
 }
