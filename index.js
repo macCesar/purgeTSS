@@ -2358,13 +2358,14 @@ function purgeTailwind(uniqueClasses) {
 		classesWithOpacityValues.forEach(opacityValue => {
 			let opacityIndex = _.findIndex(tailwindClasses, line => line.startsWith(`'.${opacityValue.className}'`));
 
-			if (opacityIndex > -1) {
+			let classProperties = tailwindClasses[opacityIndex];
+			if (opacityIndex > -1 && classProperties.includes('#')) {
 				//! TODO: Check if color value is a hex value!! (if not, they are using rbg, rgba or semantic colors)
 				//! In other words, we need to validate the color value, before we can alter its opacity.
-				let defaultHexValue = (tailwindClasses[opacityIndex].includes('from')) ? tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/g)[1] : tailwindClasses[opacityIndex].match(/\#[0-9a-f]{6}/i)[0];
-				let classWithoutDecimalOpacity = `${tailwindClasses[opacityIndex].replace(new RegExp(defaultHexValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
+				let defaultHexValue = (classProperties.includes('from')) ? classProperties.match(/\#[0-9a-f]{6}/g)[1] : classProperties.match(/\#[0-9a-f]{6}/i)[0];
+				let classWithoutDecimalOpacity = `${classProperties.replace(new RegExp(defaultHexValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
 
-				let defaultTextValue = tailwindClasses[opacityIndex].match(/'[^']*'/i)[0];
+				let defaultTextValue = classProperties.match(/'[^']*'/i)[0];
 				defaultTextValue = defaultTextValue.substring(1, defaultTextValue.length);
 				let finalClassName = `${classWithoutDecimalOpacity.replace(defaultTextValue, `.${defaultTextValue.substring(1, defaultTextValue.length - 1)}/${opacityValue.decimalValue}'`)}`;
 
