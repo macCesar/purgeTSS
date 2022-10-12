@@ -183,11 +183,7 @@ function setBaseValuesToProperties(_allProperties, _base) {
 	_.each(_allProperties, (data, key) => {
 		let activeKey = findBaseKey(key, data);
 		allKeys += `${key}\n`;
-		if (_base[key]) {
-			_allProperties[key].base = combineKeys(configFile.theme, _base[key], key);
-		} else {
-			_allProperties[key].base = combineKeys(configFile.theme, _base[activeKey], key);
-		}
+		_allProperties[key].base = combineKeys(configFile.theme, _base[key] ?? _base[activeKey], key);
 	});
 
 	// if (fs.existsSync(projectsConfigJS) && saveGlossary) {
@@ -348,6 +344,7 @@ function combineDefaultThemeWithConfigFile() {
 		spacing: {},
 		width: {},
 		height: {},
+		boolean: { true: true, false: false },
 		rotate: combineKeys(configFile.theme, defaultTheme.rotate, 'rotate'),
 		zIndex: defaultTheme.zIndex,
 		opacity: defaultTheme.opacity,
@@ -648,7 +645,7 @@ function formatClass(key, value) {
 }
 
 function formatClassName(property, value) {
-	return removeUneededVariablesFromPropertyName(camelCaseToDash(`${property}-${removeModuleName(value, property)}`));
+	return setModifier(removeUneededVariablesFromPropertyName(camelCaseToDash(`${property}-${removeModuleName(value, property)}`)));
 }
 
 function removeUneededVariablesFromPropertyName(property) {
@@ -659,11 +656,11 @@ function removeUneededVariablesFromPropertyName(property) {
 		.replace('prevent-image', 'prevent-default-image')
 		.replace('-input-buttonmode', '')
 		.replace('-option-', '-')
-		.replace('-ti-platform-android', '')
+		// .replace('-ti-platform-android', '')
 		.replace('-ti-platform', '')
 		.replace('-ti-confidential-', '-')
 		.replace('-ti-', '-')
-		.replace('-android', '')
+		// .replace('-android', '')
 		.replace('-true', '')
 		.replace('-user-notification', '')
 		.replace('-user-setting', '')
@@ -688,10 +685,10 @@ function removeUneededVariablesFromPropertyName(property) {
 }
 
 function setModifier(_modifier) {
-	if (_modifier.includes('-ios-')) {
-		_modifier = _modifier.replace('-ios-', '-') + '[platform=ios]';
-	} else if (_modifier.includes('-android-')) {
-		_modifier = _modifier.replace('-android-', '-') + '[platform=android]';
+	if (_modifier.includes('-i-os')) {
+		_modifier = _modifier.replace('-i-os', '') + '[platform=ios]';
+	} else if (_modifier.includes('-android')) {
+		_modifier = _modifier.replace('-android', '') + '[platform=android]';
 	} else if (_modifier.includes('-handheld-')) {
 		_modifier = _modifier.replace('-handheld-', '-') + '[formFactor=handheld]';
 	} else if (_modifier.includes('-tablet-')) {
@@ -717,21 +714,17 @@ function notDefaultRules(rule) {
 }
 
 function camelCaseToDash(str) {
-	if (str.includes('[')) {
-		return str;
-	} else {
-		return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-	}
+	return (str.includes('[')) ? str : str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 }
 
 function removeModuleName(value, property) {
 	return camelCaseToDash(value
-		.replace(/^Ti.UI.iOS./, '')
+		// .replace(/^Ti.UI.iOS./, '')
 		.replace(/^Ti.UI.iPad./, '')
-		.replace(/^Ti.App.iOS./, '')
-		.replace(/^Ti.Geolocation.Android./, '')
+		// .replace(/^Ti.App.iOS./, '')
+		// .replace(/^Ti.Geolocation.Android./, '')g
 		.replace(/^Ti.Geolocation./, '')
-		.replace(/^Ti.UI.Android./, '')
+		// .replace(/^Ti.UI.Android./, '')
 		.replace(/^Ti.UI./, '')
 		.replace(/^Ti.Media.Sound./, '')
 		.replace(/^Ti.Media./, '')
