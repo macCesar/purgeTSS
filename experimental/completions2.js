@@ -309,6 +309,8 @@ function findBaseKey(_key, _data) {
 		return 'height';
 	} else if ((_key.includes('width') || _key.includes('Width')) && _key !== 'platformWidth') {
 		return 'width';
+	} else if (_key === 'shiftMode') {
+		return 'boolean';
 	}
 
 	return _key;
