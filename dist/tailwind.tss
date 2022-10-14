@@ -1156,181 +1156,181 @@
 '.-left-full': { left: '-100%' }
 
 // The Titanium binding of the native Android `R` class, giving access to Android system-wide resources or application resources.
-'.r-drawable-alert-dark-frame': { icon: Ti.Android.R.drawable.alert_dark_frame }
-'.r-drawable-alert-light-frame': { icon: Ti.Android.R.drawable.alert_light_frame }
-'.r-drawable-arrow-down-float': { icon: Ti.Android.R.drawable.arrow_down_float }
-'.r-drawable-arrow-up-float': { icon: Ti.Android.R.drawable.arrow_up_float }
-'.r-drawable-bottom-bar': { icon: Ti.Android.R.drawable.bottom_bar }
-'.r-drawable-btn-default': { icon: Ti.Android.R.drawable.btn_default }
-'.r-drawable-btn-default-small': { icon: Ti.Android.R.drawable.btn_default_small }
-'.r-drawable-btn-dialog': { icon: Ti.Android.R.drawable.btn_dialog }
-'.r-drawable-btn-dropdown': { icon: Ti.Android.R.drawable.btn_dropdown }
-'.r-drawable-btn-minus': { icon: Ti.Android.R.drawable.btn_minus }
-'.r-drawable-btn-plus': { icon: Ti.Android.R.drawable.btn_plus }
-'.r-drawable-btn-radio': { icon: Ti.Android.R.drawable.btn_radio }
-'.r-drawable-btn-star': { icon: Ti.Android.R.drawable.btn_star }
-'.r-drawable-btn-star-big-off': { icon: Ti.Android.R.drawable.btn_star_big_off }
-'.r-drawable-btn-star-big-on': { icon: Ti.Android.R.drawable.btn_star_big_on }
-'.r-drawable-button-onoff-indicator-off': { icon: Ti.Android.R.drawable.button_onoff_indicator_off }
-'.r-drawable-button-onoff-indicator-on': { icon: Ti.Android.R.drawable.button_onoff_indicator_on }
-'.r-drawable-checkbox-off-background': { icon: Ti.Android.R.drawable.checkbox_off_background }
-'.r-drawable-checkbox-on-background': { icon: Ti.Android.R.drawable.checkbox_on_background }
-'.r-drawable-dark-header': { icon: Ti.Android.R.drawable.dark_header }
-'.r-drawable-dialog-frame': { icon: Ti.Android.R.drawable.dialog_frame }
-'.r-drawable-dialog-holo-dark-frame': { icon: Ti.Android.R.drawable.dialog_holo_dark_frame }
-'.r-drawable-dialog-holo-light-frame': { icon: Ti.Android.R.drawable.dialog_holo_light_frame }
-'.r-drawable-divider-horizontal-bright': { icon: Ti.Android.R.drawable.divider_horizontal_bright }
-'.r-drawable-divider-horizontal-dark': { icon: Ti.Android.R.drawable.divider_horizontal_dark }
-'.r-drawable-divider-horizontal-dim-dark': { icon: Ti.Android.R.drawable.divider_horizontal_dim_dark }
-'.r-drawable-divider-horizontal-textfield': { icon: Ti.Android.R.drawable.divider_horizontal_textfield }
-'.r-drawable-edit-text': { icon: Ti.Android.R.drawable.edit_text }
-'.r-drawable-editbox-background': { icon: Ti.Android.R.drawable.editbox_background }
-'.r-drawable-editbox-background-normal': { icon: Ti.Android.R.drawable.editbox_background_normal }
-'.r-drawable-editbox-dropdown-dark-frame': { icon: Ti.Android.R.drawable.editbox_dropdown_dark_frame }
-'.r-drawable-editbox-dropdown-light-frame': { icon: Ti.Android.R.drawable.editbox_dropdown_light_frame }
-'.r-drawable-gallery-thumb': { icon: Ti.Android.R.drawable.gallery_thumb }
-'.r-drawable-ic-btn-speak-now': { icon: Ti.Android.R.drawable.ic_btn_speak_now }
-'.r-drawable-ic-delete': { icon: Ti.Android.R.drawable.ic_delete }
-'.r-drawable-ic-dialog-alert': { icon: Ti.Android.R.drawable.ic_dialog_alert }
-'.r-drawable-ic-dialog-dialer': { icon: Ti.Android.R.drawable.ic_dialog_dialer }
-'.r-drawable-ic-dialog-email': { icon: Ti.Android.R.drawable.ic_dialog_email }
-'.r-drawable-ic-dialog-info': { icon: Ti.Android.R.drawable.ic_dialog_info }
-'.r-drawable-ic-dialog-map': { icon: Ti.Android.R.drawable.ic_dialog_map }
-'.r-drawable-ic-input-add': { icon: Ti.Android.R.drawable.ic_input_add }
-'.r-drawable-ic-input-delete': { icon: Ti.Android.R.drawable.ic_input_delete }
-'.r-drawable-ic-input-get': { icon: Ti.Android.R.drawable.ic_input_get }
-'.r-drawable-ic-lock-idle-alarm': { icon: Ti.Android.R.drawable.ic_lock_idle_alarm }
-'.r-drawable-ic-lock-idle-charging': { icon: Ti.Android.R.drawable.ic_lock_idle_charging }
-'.r-drawable-ic-lock-idle-lock': { icon: Ti.Android.R.drawable.ic_lock_idle_lock }
-'.r-drawable-ic-lock-idle-low-battery': { icon: Ti.Android.R.drawable.ic_lock_idle_low_battery }
-'.r-drawable-ic-lock-lock': { icon: Ti.Android.R.drawable.ic_lock_lock }
-'.r-drawable-ic-lock-power-off': { icon: Ti.Android.R.drawable.ic_lock_power_off }
-'.r-drawable-ic-lock-silent-mode': { icon: Ti.Android.R.drawable.ic_lock_silent_mode }
-'.r-drawable-ic-lock-silent-mode-off': { icon: Ti.Android.R.drawable.ic_lock_silent_mode_off }
-'.r-drawable-ic-media-ff': { icon: Ti.Android.R.drawable.ic_media_ff }
-'.r-drawable-ic-media-next': { icon: Ti.Android.R.drawable.ic_media_next }
-'.r-drawable-ic-media-pause': { icon: Ti.Android.R.drawable.ic_media_pause }
-'.r-drawable-ic-media-play': { icon: Ti.Android.R.drawable.ic_media_play }
-'.r-drawable-ic-media-previous': { icon: Ti.Android.R.drawable.ic_media_previous }
-'.r-drawable-ic-media-rew': { icon: Ti.Android.R.drawable.ic_media_rew }
-'.r-drawable-ic-menu-add': { icon: Ti.Android.R.drawable.ic_menu_add }
-'.r-drawable-ic-menu-agenda': { icon: Ti.Android.R.drawable.ic_menu_agenda }
-'.r-drawable-ic-menu-always-landscape-portrait': { icon: Ti.Android.R.drawable.ic_menu_always_landscape_portrait }
-'.r-drawable-ic-menu-call': { icon: Ti.Android.R.drawable.ic_menu_call }
-'.r-drawable-ic-menu-camera': { icon: Ti.Android.R.drawable.ic_menu_camera }
-'.r-drawable-ic-menu-close-clear-cancel': { icon: Ti.Android.R.drawable.ic_menu_close_clear_cancel }
-'.r-drawable-ic-menu-compass': { icon: Ti.Android.R.drawable.ic_menu_compass }
-'.r-drawable-ic-menu-crop': { icon: Ti.Android.R.drawable.ic_menu_crop }
-'.r-drawable-ic-menu-day': { icon: Ti.Android.R.drawable.ic_menu_day }
-'.r-drawable-ic-menu-delete': { icon: Ti.Android.R.drawable.ic_menu_delete }
-'.r-drawable-ic-menu-directions': { icon: Ti.Android.R.drawable.ic_menu_directions }
-'.r-drawable-ic-menu-edit': { icon: Ti.Android.R.drawable.ic_menu_edit }
-'.r-drawable-ic-menu-gallery': { icon: Ti.Android.R.drawable.ic_menu_gallery }
-'.r-drawable-ic-menu-help': { icon: Ti.Android.R.drawable.ic_menu_help }
-'.r-drawable-ic-menu-info-details': { icon: Ti.Android.R.drawable.ic_menu_info_details }
-'.r-drawable-ic-menu-manage': { icon: Ti.Android.R.drawable.ic_menu_manage }
-'.r-drawable-ic-menu-mapmode': { icon: Ti.Android.R.drawable.ic_menu_mapmode }
-'.r-drawable-ic-menu-month': { icon: Ti.Android.R.drawable.ic_menu_month }
-'.r-drawable-ic-menu-more': { icon: Ti.Android.R.drawable.ic_menu_more }
-'.r-drawable-ic-menu-my-calendar': { icon: Ti.Android.R.drawable.ic_menu_my_calendar }
-'.r-drawable-ic-menu-mylocation': { icon: Ti.Android.R.drawable.ic_menu_mylocation }
-'.r-drawable-ic-menu-myplaces': { icon: Ti.Android.R.drawable.ic_menu_myplaces }
-'.r-drawable-ic-menu-preferences': { icon: Ti.Android.R.drawable.ic_menu_preferences }
-'.r-drawable-ic-menu-recent-history': { icon: Ti.Android.R.drawable.ic_menu_recent_history }
-'.r-drawable-ic-menu-report-image': { icon: Ti.Android.R.drawable.ic_menu_report_image }
-'.r-drawable-ic-menu-revert': { icon: Ti.Android.R.drawable.ic_menu_revert }
-'.r-drawable-ic-menu-rotate': { icon: Ti.Android.R.drawable.ic_menu_rotate }
-'.r-drawable-ic-menu-save': { icon: Ti.Android.R.drawable.ic_menu_save }
-'.r-drawable-ic-menu-search': { icon: Ti.Android.R.drawable.ic_menu_search }
-'.r-drawable-ic-menu-send': { icon: Ti.Android.R.drawable.ic_menu_send }
-'.r-drawable-ic-menu-set-as': { icon: Ti.Android.R.drawable.ic_menu_set_as }
-'.r-drawable-ic-menu-share': { icon: Ti.Android.R.drawable.ic_menu_share }
-'.r-drawable-ic-menu-slideshow': { icon: Ti.Android.R.drawable.ic_menu_slideshow }
-'.r-drawable-ic-menu-sort-alphabetically': { icon: Ti.Android.R.drawable.ic_menu_sort_alphabetically }
-'.r-drawable-ic-menu-sort-by-size': { icon: Ti.Android.R.drawable.ic_menu_sort_by_size }
-'.r-drawable-ic-menu-today': { icon: Ti.Android.R.drawable.ic_menu_today }
-'.r-drawable-ic-menu-upload': { icon: Ti.Android.R.drawable.ic_menu_upload }
-'.r-drawable-ic-menu-upload-you-tube': { icon: Ti.Android.R.drawable.ic_menu_upload_you_tube }
-'.r-drawable-ic-menu-view': { icon: Ti.Android.R.drawable.ic_menu_view }
-'.r-drawable-ic-menu-week': { icon: Ti.Android.R.drawable.ic_menu_week }
-'.r-drawable-ic-menu-zoom': { icon: Ti.Android.R.drawable.ic_menu_zoom }
-'.r-drawable-ic-notification-clear-all': { icon: Ti.Android.R.drawable.ic_notification_clear_all }
-'.r-drawable-ic-notification-overlay': { icon: Ti.Android.R.drawable.ic_notification_overlay }
-'.r-drawable-ic-partial-secure': { icon: Ti.Android.R.drawable.ic_partial_secure }
-'.r-drawable-ic-popup-disk-full': { icon: Ti.Android.R.drawable.ic_popup_disk_full }
-'.r-drawable-ic-popup-reminder': { icon: Ti.Android.R.drawable.ic_popup_reminder }
-'.r-drawable-ic-popup-sync': { icon: Ti.Android.R.drawable.ic_popup_sync }
-'.r-drawable-ic-search-category-default': { icon: Ti.Android.R.drawable.ic_search_category_default }
-'.r-drawable-ic-secure': { icon: Ti.Android.R.drawable.ic_secure }
-'.r-drawable-list-selector-background': { icon: Ti.Android.R.drawable.list_selector_background }
-'.r-drawable-menu-frame': { icon: Ti.Android.R.drawable.menu_frame }
-'.r-drawable-menu-full-frame': { icon: Ti.Android.R.drawable.menu_full_frame }
-'.r-drawable-menuitem-background': { icon: Ti.Android.R.drawable.menuitem_background }
-'.r-drawable-picture-frame': { icon: Ti.Android.R.drawable.picture_frame }
-'.r-drawable-presence-audio-away': { icon: Ti.Android.R.drawable.presence_audio_away }
-'.r-drawable-presence-audio-busy': { icon: Ti.Android.R.drawable.presence_audio_busy }
-'.r-drawable-presence-audio-online': { icon: Ti.Android.R.drawable.presence_audio_online }
-'.r-drawable-presence-away': { icon: Ti.Android.R.drawable.presence_away }
-'.r-drawable-presence-busy': { icon: Ti.Android.R.drawable.presence_busy }
-'.r-drawable-presence-invisible': { icon: Ti.Android.R.drawable.presence_invisible }
-'.r-drawable-presence-offline': { icon: Ti.Android.R.drawable.presence_offline }
-'.r-drawable-presence-online': { icon: Ti.Android.R.drawable.presence_online }
-'.r-drawable-presence-video-away': { icon: Ti.Android.R.drawable.presence_video_away }
-'.r-drawable-presence-video-busy': { icon: Ti.Android.R.drawable.presence_video_busy }
-'.r-drawable-presence-video-online': { icon: Ti.Android.R.drawable.presence_video_online }
-'.r-drawable-progress-horizontal': { icon: Ti.Android.R.drawable.progress_horizontal }
-'.r-drawable-progress-indeterminate-horizontal': { icon: Ti.Android.R.drawable.progress_indeterminate_horizontal }
-'.r-drawable-radiobutton-off-background': { icon: Ti.Android.R.drawable.radiobutton_off_background }
-'.r-drawable-radiobutton-on-background': { icon: Ti.Android.R.drawable.radiobutton_on_background }
-'.r-drawable-screen-background-dark': { icon: Ti.Android.R.drawable.screen_background_dark }
-'.r-drawable-screen-background-dark-transparent': { icon: Ti.Android.R.drawable.screen_background_dark_transparent }
-'.r-drawable-screen-background-light': { icon: Ti.Android.R.drawable.screen_background_light }
-'.r-drawable-screen-background-light-transparent': { icon: Ti.Android.R.drawable.screen_background_light_transparent }
-'.r-drawable-spinner-background': { icon: Ti.Android.R.drawable.spinner_background }
-'.r-drawable-spinner-dropdown-background': { icon: Ti.Android.R.drawable.spinner_dropdown_background }
-'.r-drawable-star-big-off': { icon: Ti.Android.R.drawable.star_big_off }
-'.r-drawable-star-big-on': { icon: Ti.Android.R.drawable.star_big_on }
-'.r-drawable-star-off': { icon: Ti.Android.R.drawable.star_off }
-'.r-drawable-star-on': { icon: Ti.Android.R.drawable.star_on }
-'.r-drawable-stat-notify-call-mute': { icon: Ti.Android.R.drawable.stat_notify_call_mute }
-'.r-drawable-stat-notify-chat': { icon: Ti.Android.R.drawable.stat_notify_chat }
-'.r-drawable-stat-notify-error': { icon: Ti.Android.R.drawable.stat_notify_error }
-'.r-drawable-stat-notify-missed-call': { icon: Ti.Android.R.drawable.stat_notify_missed_call }
-'.r-drawable-stat-notify-more': { icon: Ti.Android.R.drawable.stat_notify_more }
-'.r-drawable-stat-notify-sdcard': { icon: Ti.Android.R.drawable.stat_notify_sdcard }
-'.r-drawable-stat-notify-sdcard-prepare': { icon: Ti.Android.R.drawable.stat_notify_sdcard_prepare }
-'.r-drawable-stat-notify-sdcard-usb': { icon: Ti.Android.R.drawable.stat_notify_sdcard_usb }
-'.r-drawable-stat-notify-sync': { icon: Ti.Android.R.drawable.stat_notify_sync }
-'.r-drawable-stat-notify-sync-noanim': { icon: Ti.Android.R.drawable.stat_notify_sync_noanim }
-'.r-drawable-stat-notify-voicemail': { icon: Ti.Android.R.drawable.stat_notify_voicemail }
-'.r-drawable-stat-sys-data-bluetooth': { icon: Ti.Android.R.drawable.stat_sys_data_bluetooth }
-'.r-drawable-stat-sys-download': { icon: Ti.Android.R.drawable.stat_sys_download }
-'.r-drawable-stat-sys-download-done': { icon: Ti.Android.R.drawable.stat_sys_download_done }
-'.r-drawable-stat-sys-headset': { icon: Ti.Android.R.drawable.stat_sys_headset }
-'.r-drawable-stat-sys-speakerphone': { icon: Ti.Android.R.drawable.stat_sys_speakerphone }
-'.r-drawable-stat-sys-upload': { icon: Ti.Android.R.drawable.stat_sys_upload }
-'.r-drawable-stat-sys-upload-done': { icon: Ti.Android.R.drawable.stat_sys_upload_done }
-'.r-drawable-stat-sys-warning': { icon: Ti.Android.R.drawable.stat_sys_warning }
-'.r-drawable-status-bar-item-app-background': { icon: Ti.Android.R.drawable.status_bar_item_app_background }
-'.r-drawable-status-bar-item-background': { icon: Ti.Android.R.drawable.status_bar_item_background }
-'.r-drawable-sym-action-call': { icon: Ti.Android.R.drawable.sym_action_call }
-'.r-drawable-sym-action-chat': { icon: Ti.Android.R.drawable.sym_action_chat }
-'.r-drawable-sym-action-email': { icon: Ti.Android.R.drawable.sym_action_email }
-'.r-drawable-sym-call-incoming': { icon: Ti.Android.R.drawable.sym_call_incoming }
-'.r-drawable-sym-call-missed': { icon: Ti.Android.R.drawable.sym_call_missed }
-'.r-drawable-sym-call-outgoing': { icon: Ti.Android.R.drawable.sym_call_outgoing }
-'.r-drawable-sym-contact-card': { icon: Ti.Android.R.drawable.sym_contact_card }
-'.r-drawable-sym-def-app-icon': { icon: Ti.Android.R.drawable.sym_def_app_icon }
-'.r-drawable-title-bar': { icon: Ti.Android.R.drawable.title_bar }
-'.r-drawable-title-bar-tall': { icon: Ti.Android.R.drawable.title_bar_tall }
-'.r-drawable-toast-frame': { icon: Ti.Android.R.drawable.toast_frame }
-'.r-drawable-zoom-plate': { icon: Ti.Android.R.drawable.zoom_plate }
+'.r-drawable-alert-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_dark_frame }
+'.r-drawable-alert-light-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_light_frame }
+'.r-drawable-arrow-down-float[platform=android]': { icon: Ti.Android.R.drawable.arrow_down_float }
+'.r-drawable-arrow-up-float[platform=android]': { icon: Ti.Android.R.drawable.arrow_up_float }
+'.r-drawable-bottom-bar[platform=android]': { icon: Ti.Android.R.drawable.bottom_bar }
+'.r-drawable-btn-default[platform=android]': { icon: Ti.Android.R.drawable.btn_default }
+'.r-drawable-btn-default-small[platform=android]': { icon: Ti.Android.R.drawable.btn_default_small }
+'.r-drawable-btn-dialog[platform=android]': { icon: Ti.Android.R.drawable.btn_dialog }
+'.r-drawable-btn-dropdown[platform=android]': { icon: Ti.Android.R.drawable.btn_dropdown }
+'.r-drawable-btn-minus[platform=android]': { icon: Ti.Android.R.drawable.btn_minus }
+'.r-drawable-btn-plus[platform=android]': { icon: Ti.Android.R.drawable.btn_plus }
+'.r-drawable-btn-radio[platform=android]': { icon: Ti.Android.R.drawable.btn_radio }
+'.r-drawable-btn-star[platform=android]': { icon: Ti.Android.R.drawable.btn_star }
+'.r-drawable-btn-star-big-off[platform=android]': { icon: Ti.Android.R.drawable.btn_star_big_off }
+'.r-drawable-btn-star-big-on[platform=android]': { icon: Ti.Android.R.drawable.btn_star_big_on }
+'.r-drawable-button-onoff-indicator-off[platform=android]': { icon: Ti.Android.R.drawable.button_onoff_indicator_off }
+'.r-drawable-button-onoff-indicator-on[platform=android]': { icon: Ti.Android.R.drawable.button_onoff_indicator_on }
+'.r-drawable-checkbox-off-background[platform=android]': { icon: Ti.Android.R.drawable.checkbox_off_background }
+'.r-drawable-checkbox-on-background[platform=android]': { icon: Ti.Android.R.drawable.checkbox_on_background }
+'.r-drawable-dark-header[platform=android]': { icon: Ti.Android.R.drawable.dark_header }
+'.r-drawable-dialog-frame[platform=android]': { icon: Ti.Android.R.drawable.dialog_frame }
+'.r-drawable-dialog-holo-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.dialog_holo_dark_frame }
+'.r-drawable-dialog-holo-light-frame[platform=android]': { icon: Ti.Android.R.drawable.dialog_holo_light_frame }
+'.r-drawable-divider-horizontal-bright[platform=android]': { icon: Ti.Android.R.drawable.divider_horizontal_bright }
+'.r-drawable-divider-horizontal-dark[platform=android]': { icon: Ti.Android.R.drawable.divider_horizontal_dark }
+'.r-drawable-divider-horizontal-dim-dark[platform=android]': { icon: Ti.Android.R.drawable.divider_horizontal_dim_dark }
+'.r-drawable-divider-horizontal-textfield[platform=android]': { icon: Ti.Android.R.drawable.divider_horizontal_textfield }
+'.r-drawable-edit-text[platform=android]': { icon: Ti.Android.R.drawable.edit_text }
+'.r-drawable-editbox-background[platform=android]': { icon: Ti.Android.R.drawable.editbox_background }
+'.r-drawable-editbox-background-normal[platform=android]': { icon: Ti.Android.R.drawable.editbox_background_normal }
+'.r-drawable-editbox-dropdown-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.editbox_dropdown_dark_frame }
+'.r-drawable-editbox-dropdown-light-frame[platform=android]': { icon: Ti.Android.R.drawable.editbox_dropdown_light_frame }
+'.r-drawable-gallery-thumb[platform=android]': { icon: Ti.Android.R.drawable.gallery_thumb }
+'.r-drawable-ic-btn-speak-now[platform=android]': { icon: Ti.Android.R.drawable.ic_btn_speak_now }
+'.r-drawable-ic-delete[platform=android]': { icon: Ti.Android.R.drawable.ic_delete }
+'.r-drawable-ic-dialog-alert[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_alert }
+'.r-drawable-ic-dialog-dialer[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_dialer }
+'.r-drawable-ic-dialog-email[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_email }
+'.r-drawable-ic-dialog-info[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_info }
+'.r-drawable-ic-dialog-map[platform=android]': { icon: Ti.Android.R.drawable.ic_dialog_map }
+'.r-drawable-ic-input-add[platform=android]': { icon: Ti.Android.R.drawable.ic_input_add }
+'.r-drawable-ic-input-delete[platform=android]': { icon: Ti.Android.R.drawable.ic_input_delete }
+'.r-drawable-ic-input-get[platform=android]': { icon: Ti.Android.R.drawable.ic_input_get }
+'.r-drawable-ic-lock-idle-alarm[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_idle_alarm }
+'.r-drawable-ic-lock-idle-charging[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_idle_charging }
+'.r-drawable-ic-lock-idle-lock[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_idle_lock }
+'.r-drawable-ic-lock-idle-low-battery[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_idle_low_battery }
+'.r-drawable-ic-lock-lock[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_lock }
+'.r-drawable-ic-lock-power-off[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_power_off }
+'.r-drawable-ic-lock-silent-mode[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_silent_mode }
+'.r-drawable-ic-lock-silent-mode-off[platform=android]': { icon: Ti.Android.R.drawable.ic_lock_silent_mode_off }
+'.r-drawable-ic-media-ff[platform=android]': { icon: Ti.Android.R.drawable.ic_media_ff }
+'.r-drawable-ic-media-next[platform=android]': { icon: Ti.Android.R.drawable.ic_media_next }
+'.r-drawable-ic-media-pause[platform=android]': { icon: Ti.Android.R.drawable.ic_media_pause }
+'.r-drawable-ic-media-play[platform=android]': { icon: Ti.Android.R.drawable.ic_media_play }
+'.r-drawable-ic-media-previous[platform=android]': { icon: Ti.Android.R.drawable.ic_media_previous }
+'.r-drawable-ic-media-rew[platform=android]': { icon: Ti.Android.R.drawable.ic_media_rew }
+'.r-drawable-ic-menu-add[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_add }
+'.r-drawable-ic-menu-agenda[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_agenda }
+'.r-drawable-ic-menu-always-landscape-portrait[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_always_landscape_portrait }
+'.r-drawable-ic-menu-call[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_call }
+'.r-drawable-ic-menu-camera[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_camera }
+'.r-drawable-ic-menu-close-clear-cancel[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_close_clear_cancel }
+'.r-drawable-ic-menu-compass[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_compass }
+'.r-drawable-ic-menu-crop[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_crop }
+'.r-drawable-ic-menu-day[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_day }
+'.r-drawable-ic-menu-delete[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_delete }
+'.r-drawable-ic-menu-directions[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_directions }
+'.r-drawable-ic-menu-edit[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_edit }
+'.r-drawable-ic-menu-gallery[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_gallery }
+'.r-drawable-ic-menu-help[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_help }
+'.r-drawable-ic-menu-info-details[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_info_details }
+'.r-drawable-ic-menu-manage[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_manage }
+'.r-drawable-ic-menu-mapmode[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_mapmode }
+'.r-drawable-ic-menu-month[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_month }
+'.r-drawable-ic-menu-more[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_more }
+'.r-drawable-ic-menu-my-calendar[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_my_calendar }
+'.r-drawable-ic-menu-mylocation[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_mylocation }
+'.r-drawable-ic-menu-myplaces[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_myplaces }
+'.r-drawable-ic-menu-preferences[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_preferences }
+'.r-drawable-ic-menu-recent-history[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_recent_history }
+'.r-drawable-ic-menu-report-image[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_report_image }
+'.r-drawable-ic-menu-revert[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_revert }
+'.r-drawable-ic-menu-rotate[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_rotate }
+'.r-drawable-ic-menu-save[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_save }
+'.r-drawable-ic-menu-search[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_search }
+'.r-drawable-ic-menu-send[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_send }
+'.r-drawable-ic-menu-set-as[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_set_as }
+'.r-drawable-ic-menu-share[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_share }
+'.r-drawable-ic-menu-slideshow[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_slideshow }
+'.r-drawable-ic-menu-sort-alphabetically[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_sort_alphabetically }
+'.r-drawable-ic-menu-sort-by-size[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_sort_by_size }
+'.r-drawable-ic-menu-today[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_today }
+'.r-drawable-ic-menu-upload[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_upload }
+'.r-drawable-ic-menu-upload-you-tube[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_upload_you_tube }
+'.r-drawable-ic-menu-view[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_view }
+'.r-drawable-ic-menu-week[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_week }
+'.r-drawable-ic-menu-zoom[platform=android]': { icon: Ti.Android.R.drawable.ic_menu_zoom }
+'.r-drawable-ic-notification-clear-all[platform=android]': { icon: Ti.Android.R.drawable.ic_notification_clear_all }
+'.r-drawable-ic-notification-overlay[platform=android]': { icon: Ti.Android.R.drawable.ic_notification_overlay }
+'.r-drawable-ic-partial-secure[platform=android]': { icon: Ti.Android.R.drawable.ic_partial_secure }
+'.r-drawable-ic-popup-disk-full[platform=android]': { icon: Ti.Android.R.drawable.ic_popup_disk_full }
+'.r-drawable-ic-popup-reminder[platform=android]': { icon: Ti.Android.R.drawable.ic_popup_reminder }
+'.r-drawable-ic-popup-sync[platform=android]': { icon: Ti.Android.R.drawable.ic_popup_sync }
+'.r-drawable-ic-search-category-default[platform=android]': { icon: Ti.Android.R.drawable.ic_search_category_default }
+'.r-drawable-ic-secure[platform=android]': { icon: Ti.Android.R.drawable.ic_secure }
+'.r-drawable-list-selector-background[platform=android]': { icon: Ti.Android.R.drawable.list_selector_background }
+'.r-drawable-menu-frame[platform=android]': { icon: Ti.Android.R.drawable.menu_frame }
+'.r-drawable-menu-full-frame[platform=android]': { icon: Ti.Android.R.drawable.menu_full_frame }
+'.r-drawable-menuitem-background[platform=android]': { icon: Ti.Android.R.drawable.menuitem_background }
+'.r-drawable-picture-frame[platform=android]': { icon: Ti.Android.R.drawable.picture_frame }
+'.r-drawable-presence-audio-away[platform=android]': { icon: Ti.Android.R.drawable.presence_audio_away }
+'.r-drawable-presence-audio-busy[platform=android]': { icon: Ti.Android.R.drawable.presence_audio_busy }
+'.r-drawable-presence-audio-online[platform=android]': { icon: Ti.Android.R.drawable.presence_audio_online }
+'.r-drawable-presence-away[platform=android]': { icon: Ti.Android.R.drawable.presence_away }
+'.r-drawable-presence-busy[platform=android]': { icon: Ti.Android.R.drawable.presence_busy }
+'.r-drawable-presence-invisible[platform=android]': { icon: Ti.Android.R.drawable.presence_invisible }
+'.r-drawable-presence-offline[platform=android]': { icon: Ti.Android.R.drawable.presence_offline }
+'.r-drawable-presence-online[platform=android]': { icon: Ti.Android.R.drawable.presence_online }
+'.r-drawable-presence-video-away[platform=android]': { icon: Ti.Android.R.drawable.presence_video_away }
+'.r-drawable-presence-video-busy[platform=android]': { icon: Ti.Android.R.drawable.presence_video_busy }
+'.r-drawable-presence-video-online[platform=android]': { icon: Ti.Android.R.drawable.presence_video_online }
+'.r-drawable-progress-horizontal[platform=android]': { icon: Ti.Android.R.drawable.progress_horizontal }
+'.r-drawable-progress-indeterminate-horizontal[platform=android]': { icon: Ti.Android.R.drawable.progress_indeterminate_horizontal }
+'.r-drawable-radiobutton-off-background[platform=android]': { icon: Ti.Android.R.drawable.radiobutton_off_background }
+'.r-drawable-radiobutton-on-background[platform=android]': { icon: Ti.Android.R.drawable.radiobutton_on_background }
+'.r-drawable-screen-background-dark[platform=android]': { icon: Ti.Android.R.drawable.screen_background_dark }
+'.r-drawable-screen-background-dark-transparent[platform=android]': { icon: Ti.Android.R.drawable.screen_background_dark_transparent }
+'.r-drawable-screen-background-light[platform=android]': { icon: Ti.Android.R.drawable.screen_background_light }
+'.r-drawable-screen-background-light-transparent[platform=android]': { icon: Ti.Android.R.drawable.screen_background_light_transparent }
+'.r-drawable-spinner-background[platform=android]': { icon: Ti.Android.R.drawable.spinner_background }
+'.r-drawable-spinner-dropdown-background[platform=android]': { icon: Ti.Android.R.drawable.spinner_dropdown_background }
+'.r-drawable-star-big-off[platform=android]': { icon: Ti.Android.R.drawable.star_big_off }
+'.r-drawable-star-big-on[platform=android]': { icon: Ti.Android.R.drawable.star_big_on }
+'.r-drawable-star-off[platform=android]': { icon: Ti.Android.R.drawable.star_off }
+'.r-drawable-star-on[platform=android]': { icon: Ti.Android.R.drawable.star_on }
+'.r-drawable-stat-notify-call-mute[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_call_mute }
+'.r-drawable-stat-notify-chat[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_chat }
+'.r-drawable-stat-notify-error[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_error }
+'.r-drawable-stat-notify-missed-call[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_missed_call }
+'.r-drawable-stat-notify-more[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_more }
+'.r-drawable-stat-notify-sdcard[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sdcard }
+'.r-drawable-stat-notify-sdcard-prepare[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sdcard_prepare }
+'.r-drawable-stat-notify-sdcard-usb[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sdcard_usb }
+'.r-drawable-stat-notify-sync[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sync }
+'.r-drawable-stat-notify-sync-noanim[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_sync_noanim }
+'.r-drawable-stat-notify-voicemail[platform=android]': { icon: Ti.Android.R.drawable.stat_notify_voicemail }
+'.r-drawable-stat-sys-data-bluetooth[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_data_bluetooth }
+'.r-drawable-stat-sys-download[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_download }
+'.r-drawable-stat-sys-download-done[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_download_done }
+'.r-drawable-stat-sys-headset[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_headset }
+'.r-drawable-stat-sys-speakerphone[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_speakerphone }
+'.r-drawable-stat-sys-upload[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_upload }
+'.r-drawable-stat-sys-upload-done[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_upload_done }
+'.r-drawable-stat-sys-warning[platform=android]': { icon: Ti.Android.R.drawable.stat_sys_warning }
+'.r-drawable-status-bar-item-app-background[platform=android]': { icon: Ti.Android.R.drawable.status_bar_item_app_background }
+'.r-drawable-status-bar-item-background[platform=android]': { icon: Ti.Android.R.drawable.status_bar_item_background }
+'.r-drawable-sym-action-call[platform=android]': { icon: Ti.Android.R.drawable.sym_action_call }
+'.r-drawable-sym-action-chat[platform=android]': { icon: Ti.Android.R.drawable.sym_action_chat }
+'.r-drawable-sym-action-email[platform=android]': { icon: Ti.Android.R.drawable.sym_action_email }
+'.r-drawable-sym-call-incoming[platform=android]': { icon: Ti.Android.R.drawable.sym_call_incoming }
+'.r-drawable-sym-call-missed[platform=android]': { icon: Ti.Android.R.drawable.sym_call_missed }
+'.r-drawable-sym-call-outgoing[platform=android]': { icon: Ti.Android.R.drawable.sym_call_outgoing }
+'.r-drawable-sym-contact-card[platform=android]': { icon: Ti.Android.R.drawable.sym_contact_card }
+'.r-drawable-sym-def-app-icon[platform=android]': { icon: Ti.Android.R.drawable.sym_def_app_icon }
+'.r-drawable-title-bar[platform=android]': { icon: Ti.Android.R.drawable.title_bar }
+'.r-drawable-title-bar-tall[platform=android]': { icon: Ti.Android.R.drawable.title_bar_tall }
+'.r-drawable-toast-frame[platform=android]': { icon: Ti.Android.R.drawable.toast_frame }
+'.r-drawable-zoom-plate[platform=android]': { icon: Ti.Android.R.drawable.zoom_plate }
 
 // A set of constants for the style that can be used for the `style` property of Titanium.UI.AlertDialog.
-'.alert-dialog-style': { style: Ti.UI.iOS.AlertDialogStyle.DEFAULT }
-'.alert-dialog-style-login-and-password': { style: Ti.UI.iOS.AlertDialogStyle.LOGIN_AND_PASSWORD_INPUT }
-'.alert-dialog-style-plain-text-input': { style: Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT }
-'.alert-dialog-style-secure-text-input': { style: Ti.UI.iOS.AlertDialogStyle.SECURE_TEXT_INPUT }
+'.alert-dialog-style[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.DEFAULT }
+'.alert-dialog-style-login-and-password[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.LOGIN_AND_PASSWORD_INPUT }
+'.alert-dialog-style-plain-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT }
+'.alert-dialog-style-secure-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.SECURE_TEXT_INPUT }
 
 // Property(ies): anchorPoint
 // Component(s): Ti.UI.Animation, Ti.UI.View
@@ -1400,8 +1400,8 @@
 
 // Property(ies): clipMode - iOS Only
 // Component(s): Ti.UI.View
-'.clip-enabled': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
-'.clip-disabled': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
+'.clip-enabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED }
+'.clip-disabled[platform=ios]': { clipMode: Ti.UI.iOS.CLIP_MODE_DISABLED }
 
 // Property(ies): A custom property to use it with the Animation module
 // Component(s): Ti.UI.Animation
@@ -1567,8 +1567,8 @@
 
 // Property(ies): navigationMode
 // Component(s): Ti.Android.ActionBar
-'.navigation-mode-standard': { navigationMode: Ti.Android.NAVIGATION_MODE_STANDARD }
-'.navigation-mode-tabs': { navigationMode: Ti.Android.NAVIGATION_MODE_TABS }
+'.navigation-mode-standard[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_STANDARD }
+'.navigation-mode-tabs[platform=android]': { navigationMode: Ti.Android.NAVIGATION_MODE_TABS }
 
 // Property(ies): orientationModes
 // Description: Array of supported orientation modes, specified using the orientation constants defined in Titanium.UI.
@@ -1603,9 +1603,9 @@
 
 // Property(ies): style - iOS Only
 // Component(s): Ti.UI.ProgressBar
-'.progress-bar-style-bar': { style: Ti.UI.iOS.ProgressBarStyle.BAR }
-'.progress-bar-style': { style: Ti.UI.iOS.ProgressBarStyle.DEFAULT }
-'.progress-bar-style-plain': { style: Ti.UI.iOS.ProgressBarStyle.PLAIN }
+'.progress-bar-style-bar[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.BAR }
+'.progress-bar-style[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.DEFAULT }
+'.progress-bar-style-plain[platform=ios]': { style: Ti.UI.iOS.ProgressBarStyle.PLAIN }
 
 // Property(ies): scrollType - Android Only
 // Component(s): Ti.UI.ScrollView
@@ -1628,9 +1628,9 @@
 
 // Property(ies): statusBarStyle - iOS Only
 // Component(s): Ti.UI.Window
-'.status-bar': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }
-'.status-bar-dark': { statusBarStyle: Ti.UI.iOS.StatusBar.DARK_CONTENT }
-'.status-bar-light': { statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT }
+'.status-bar[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }
+'.status-bar-dark[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DARK_CONTENT }
+'.status-bar-light[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT }
 
 // Property(ies): theme - Android Only
 // Component(s): Ti.UI.Window
@@ -2750,8 +2750,8 @@
 '.-rotate-90': { rotate: -90 }
 '.-rotate-180': { rotate: -180 }
 
-// Property(ies): fontFamily
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): animationProperties - scales the view (in or out) and resets it to 100% when the animation completes
+// Component(s): Animation
 '.zoom-in-0': { animationProperties: { open: { scale: 0 }, complete: { scale: 1 } } }
 '.zoom-in-1': { animationProperties: { open: { scale: 0.01 }, complete: { scale: 1 } } }
 '.zoom-in-5': { animationProperties: { open: { scale: 0.05 }, complete: { scale: 1 } } }
@@ -6498,9 +6498,9 @@
 // Property: softKeyboardOnFocus
 // Description: Determines keyboard behavior when this view is focused. Defaults to Titanium.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.WebView, Ti.UI.Window
-'.soft-keyboard-on-focus': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS }
-'.soft-keyboard-on-focus-hide': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS }
-'.soft-keyboard-on-focus-show': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_SHOW_ON_FOCUS }
+'.soft-keyboard-on-focus[platform=android]': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS }
+'.soft-keyboard-on-focus-hide[platform=android]': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS }
+'.soft-keyboard-on-focus-show[platform=android]': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_SHOW_ON_FOCUS }
 
 // Property: tintColor
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
@@ -7386,8 +7386,8 @@
 '.type-codec-float': { type: Ti.Codec.TYPE_FLOAT }
 '.type-codec-long': { type: Ti.Codec.TYPE_LONG }
 '.type-codec-double': { type: Ti.Codec.TYPE_DOUBLE }
-'.type-progress-indicator-indeterminant': { type: Ti.UI.Android.PROGRESS_INDICATOR_INDETERMINANT }
-'.type-progress-indicator-determinant': { type: Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT }
+'.type-progress-indicator-indeterminant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_INDETERMINANT }
+'.type-progress-indicator-determinant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT }
 '.type-attribute-font': { type: Ti.UI.ATTRIBUTE_FONT }
 '.type-attribute-foreground-color': { type: Ti.UI.ATTRIBUTE_FOREGROUND_COLOR }
 '.type-attribute-bg-color': { type: Ti.UI.ATTRIBUTE_BACKGROUND_COLOR }
@@ -7411,9 +7411,9 @@
 '.type-picker-date-and-time': { type: Ti.UI.PICKER_TYPE_DATE_AND_TIME }
 '.type-picker-plain': { type: Ti.UI.PICKER_TYPE_PLAIN }
 '.type-picker-time': { type: Ti.UI.PICKER_TYPE_TIME }
-'.type-feedback-generator-selection': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_SELECTION }
-'.type-feedback-generator-impact': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_IMPACT }
-'.type-feedback-generator-notification': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_NOTIFICATION }
+'.type-feedback-generator-selection[platform=ios]': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_SELECTION }
+'.type-feedback-generator-impact[platform=ios]': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_IMPACT }
+'.type-feedback-generator-notification[platform=ios]': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_NOTIFICATION }
 
 // Property: value
 // Component(s): DateTimeFormattedPart, NumberFormattedPart, Ti.Buffer, TiMetadataItemType, MediaQueryInfoType, Ti.Network.Cookie, CreateBufferArgs, Ti.UI.AlertDialog, Ti.UI.Android.SearchView, Attribute, Ti.UI.Picker, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.iOS.Stepper, Ti.XML.Attr
@@ -7440,26 +7440,26 @@
 '.style-button-positive': { style: Ti.UI.BUTTON_STYLE_OPTION_POSITIVE }
 '.style-button-negative': { style: Ti.UI.BUTTON_STYLE_OPTION_NEGATIVE }
 '.style-button-neutral': { style: Ti.UI.BUTTON_STYLE_OPTION_NEUTRAL }
-'.style-list-view-grouped': { style: Ti.UI.iOS.ListViewStyle.GROUPED }
-'.style-list-view-plain': { style: Ti.UI.iOS.ListViewStyle.PLAIN }
-'.style-list-view-inset-grouped': { style: Ti.UI.iOS.ListViewStyle.INSET_GROUPED }
-'.style-search-bar-prominent': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_PROMINENT }
-'.style-search-bar-minimal': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_MINIMAL }
+'.style-list-view-grouped[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.GROUPED }
+'.style-list-view-plain[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.PLAIN }
+'.style-list-view-inset-grouped[platform=ios]': { style: Ti.UI.iOS.ListViewStyle.INSET_GROUPED }
+'.style-search-bar-prominent[platform=ios]': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_PROMINENT }
+'.style-search-bar-minimal[platform=ios]': { style: Ti.UI.iOS.SEARCH_BAR_STYLE_MINIMAL }
 '.style-switch-checkbox': { style: Ti.UI.SWITCH_STYLE_CHECKBOX }
 '.style-switch-toggle-button': { style: Ti.UI.SWITCH_STYLE_TOGGLE_BUTTON }
 '.style-switch-slider': { style: Ti.UI.SWITCH_STYLE_SLIDER }
 '.style-switch-chip': { style: Ti.UI.SWITCH_STYLE_CHIP }
-'.style-tabs': { style: Ti.UI.Android.TABS_STYLE_DEFAULT }
-'.style-tabs-bottom-navigation': { style: Ti.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION }
-'.style-table-view-grouped': { style: Ti.UI.iOS.TableViewStyle.GROUPED }
-'.style-table-view-plain': { style: Ti.UI.iOS.TableViewStyle.PLAIN }
-'.style-table-view-inset-grouped': { style: Ti.UI.iOS.TableViewStyle.INSET_GROUPED }
-'.style-feedback-generator-impact-light': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_LIGHT }
-'.style-feedback-generator-impact-medium': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_MEDIUM }
-'.style-feedback-generator-impact-heavy': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_HEAVY }
-'.style-preview-action': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DEFAULT }
-'.style-preview-action-selected': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_SELECTED }
-'.style-preview-action-destructive': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DESTRUCTIVE }
+'.style-tabs[platform=android]': { style: Ti.UI.Android.TABS_STYLE_DEFAULT }
+'.style-tabs-bottom-navigation[platform=android]': { style: Ti.UI.Android.TABS_STYLE_BOTTOM_NAVIGATION }
+'.style-table-view-grouped[platform=ios]': { style: Ti.UI.iOS.TableViewStyle.GROUPED }
+'.style-table-view-plain[platform=ios]': { style: Ti.UI.iOS.TableViewStyle.PLAIN }
+'.style-table-view-inset-grouped[platform=ios]': { style: Ti.UI.iOS.TableViewStyle.INSET_GROUPED }
+'.style-feedback-generator-impact-light[platform=ios]': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_LIGHT }
+'.style-feedback-generator-impact-medium[platform=ios]': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_MEDIUM }
+'.style-feedback-generator-impact-heavy[platform=ios]': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_HEAVY }
+'.style-preview-action[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DEFAULT }
+'.style-preview-action-selected[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_SELECTED }
+'.style-preview-action-destructive[platform=ios]': { style: Ti.UI.iOS.PREVIEW_ACTION_STYLE_DESTRUCTIVE }
 
 // Property: useGrouping
 // Description: Indicates if grouping separators should be displayed.
@@ -7812,52 +7812,52 @@
 
 // Property: icon
 // Component(s): Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.QuickSettingsService, Ti.UI.ShortcutItem, Ti.UI.Tab, ShortcutParams
-'.icon-shortcut-type-compose': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_COMPOSE }
-'.icon-shortcut-type-play': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_PLAY }
-'.icon-shortcut-type-pause': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_PAUSE }
-'.icon-shortcut-type-add': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_ADD }
-'.icon-shortcut-type-location': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_LOCATION }
-'.icon-shortcut-type-search': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_SEARCH }
-'.icon-shortcut-type-share': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_SHARE }
-'.icon-shortcut-type-prohibit': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_PROHIBIT }
-'.icon-shortcut-type-contact': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CONTACT }
-'.icon-shortcut-type-home': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_HOME }
-'.icon-shortcut-type-mark-location': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_MARK_LOCATION }
-'.icon-shortcut-type-favorite': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_FAVORITE }
-'.icon-shortcut-type-love': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_LOVE }
-'.icon-shortcut-type-cloud': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CLOUD }
-'.icon-shortcut-type-invitation': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_INVITATION }
-'.icon-shortcut-type-confirmation': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CONFIRMATION }
-'.icon-shortcut-type-mail': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_MAIL }
-'.icon-shortcut-type-message': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_MESSAGE }
-'.icon-shortcut-type-date': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_DATE }
-'.icon-shortcut-type-time': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_TIME }
-'.icon-shortcut-type-capture-photo': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CAPTURE_PHOTO }
-'.icon-shortcut-type-capture-video': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CAPTURE_VIDEO }
-'.icon-shortcut-type-task': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_TASK }
-'.icon-shortcut-type-task-completed': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_TASK_COMPLETED }
-'.icon-shortcut-type-alarm': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_ALARM }
-'.icon-shortcut-type-bookmark': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_BOOKMARK }
-'.icon-shortcut-type-shuffle': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_SHUFFLE }
-'.icon-shortcut-type-audio': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_AUDIO }
-'.icon-shortcut-type-update': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_UPDATE }
+'.icon-shortcut-type-compose[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_COMPOSE }
+'.icon-shortcut-type-play[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_PLAY }
+'.icon-shortcut-type-pause[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_PAUSE }
+'.icon-shortcut-type-add[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_ADD }
+'.icon-shortcut-type-location[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_LOCATION }
+'.icon-shortcut-type-search[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_SEARCH }
+'.icon-shortcut-type-share[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_SHARE }
+'.icon-shortcut-type-prohibit[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_PROHIBIT }
+'.icon-shortcut-type-contact[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CONTACT }
+'.icon-shortcut-type-home[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_HOME }
+'.icon-shortcut-type-mark-location[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_MARK_LOCATION }
+'.icon-shortcut-type-favorite[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_FAVORITE }
+'.icon-shortcut-type-love[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_LOVE }
+'.icon-shortcut-type-cloud[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CLOUD }
+'.icon-shortcut-type-invitation[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_INVITATION }
+'.icon-shortcut-type-confirmation[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CONFIRMATION }
+'.icon-shortcut-type-mail[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_MAIL }
+'.icon-shortcut-type-message[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_MESSAGE }
+'.icon-shortcut-type-date[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_DATE }
+'.icon-shortcut-type-time[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_TIME }
+'.icon-shortcut-type-capture-photo[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CAPTURE_PHOTO }
+'.icon-shortcut-type-capture-video[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_CAPTURE_VIDEO }
+'.icon-shortcut-type-task[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_TASK }
+'.icon-shortcut-type-task-completed[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_TASK_COMPLETED }
+'.icon-shortcut-type-alarm[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_ALARM }
+'.icon-shortcut-type-bookmark[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_BOOKMARK }
+'.icon-shortcut-type-shuffle[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_SHUFFLE }
+'.icon-shortcut-type-audio[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_AUDIO }
+'.icon-shortcut-type-update[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_UPDATE }
 
 // Property: requestedOrientation
 // Description: Specifies a specific orientation for this activity.
 // Component(s): Ti.Android.Activity
-'.requested-orientation-screen-behind': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_BEHIND }
-'.requested-orientation-screen-landscape': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_LANDSCAPE }
-'.requested-orientation-screen-nosensor': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_NOSENSOR }
-'.requested-orientation-screen-portrait': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_PORTRAIT }
-'.requested-orientation-screen-sensor': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_SENSOR }
-'.requested-orientation-screen-unspecified': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_UNSPECIFIED }
-'.requested-orientation-screen-user': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_USER }
+'.requested-orientation-screen-behind[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_BEHIND }
+'.requested-orientation-screen-landscape[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_LANDSCAPE }
+'.requested-orientation-screen-nosensor[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_NOSENSOR }
+'.requested-orientation-screen-portrait[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_PORTRAIT }
+'.requested-orientation-screen-sensor[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_SENSOR }
+'.requested-orientation-screen-unspecified[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_UNSPECIFIED }
+'.requested-orientation-screen-user[platform=android]': { requestedOrientation: Ti.Android.SCREEN_ORIENTATION_USER }
 
 // Property: startMode
 // Description: One of the START_* constants from Titanium.Android to specify the &quot;stickiness&quot; of the Service when Android shuts down the host application.
 // Component(s): ServiceIntentOptions
-'.start-mode-not-sticky': { startMode: Ti.Android.START_NOT_STICKY }
-'.start-mode-redeliver-intent': { startMode: Ti.Android.START_REDELIVER_INTENT }
+'.start-mode-not-sticky[platform=android]': { startMode: Ti.Android.START_NOT_STICKY }
+'.start-mode-redeliver-intent[platform=android]': { startMode: Ti.Android.START_REDELIVER_INTENT }
 
 // Property: success
 // Component(s): RequestPermissionAccessResult, EventsAuthorizationResponse, ContactsAuthorizationResponse, ErrorResponse, SuccessResponse, FailureResponse, RequestStorageAccessResult, LocationResults, ForwardGeocodeResponse, HeadingResponse, ReverseGeocodeResponse, LocationAuthorizationResponse, LocationAccuracyAuthorizationResponse, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, CameraMediaMultipleItemsType, CameraMediaItemType, PreviewImageOptions, PreviewImageError, MediaAuthorizationResponse, RequestCameraAccessResult, RequestMusicLibraryAccessResult, RequestPhotoGalleryAccessResult, ThumbnailResponse, PushNotificationConfig, PushNotificationSuccessArg, PushNotificationErrorArg, ErrorCallbackArgs, ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs, SnapshotResult, DataCreationResult, SearchResult, MessageReply, YQLResponse
@@ -7866,44 +7866,44 @@
 
 // Property: flags
 // Component(s): Ti.Android.Intent, Ti.Android.Notification, wakeLockOptions, Ti.Android.PendingIntent
-'.flags-activity-brought-to-front': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
-'.flags-activity-clear-top': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
-'.flags-activity-clear-when-task-reset': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET }
-'.flags-activity-exclude-from-recents': { flags: Ti.Android.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS }
-'.flags-activity-forward-result': { flags: Ti.Android.FLAG_ACTIVITY_FORWARD_RESULT }
-'.flags-activity-launched-from-history': { flags: Ti.Android.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY }
-'.flags-activity-multiple-task': { flags: Ti.Android.FLAG_ACTIVITY_MULTIPLE_TASK }
-'.flags-activity-new-task': { flags: Ti.Android.FLAG_ACTIVITY_NEW_TASK }
-'.flags-activity-no-animation': { flags: Ti.Android.FLAG_ACTIVITY_NO_ANIMATION }
-'.flags-activity-no-history': { flags: Ti.Android.FLAG_ACTIVITY_NO_HISTORY }
-'.flags-activity-no-user-action': { flags: Ti.Android.FLAG_ACTIVITY_NO_USER_ACTION }
-'.flags-activity-previous-is-top': { flags: Ti.Android.FLAG_ACTIVITY_PREVIOUS_IS_TOP }
-'.flags-activity-reorder-to-front': { flags: Ti.Android.FLAG_ACTIVITY_REORDER_TO_FRONT }
-'.flags-activity-reset-task-if-needed': { flags: Ti.Android.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED }
-'.flags-activity-single-top': { flags: Ti.Android.FLAG_ACTIVITY_SINGLE_TOP }
-'.flags-debug-log-resolution': { flags: Ti.Android.FLAG_DEBUG_LOG_RESOLUTION }
-'.flags-from-background': { flags: Ti.Android.FLAG_FROM_BACKGROUND }
-'.flags-grant-read-uri-permission': { flags: Ti.Android.FLAG_GRANT_READ_URI_PERMISSION }
-'.flags-grant-write-uri-permission': { flags: Ti.Android.FLAG_GRANT_WRITE_URI_PERMISSION }
-'.flags-receiver-registered-only': { flags: Ti.Android.FLAG_RECEIVER_REGISTERED_ONLY }
-'.flags-cancel-current': { flags: Ti.Android.FLAG_CANCEL_CURRENT }
-'.flags-immutable': { flags: Ti.Android.FLAG_IMMUTABLE }
-'.flags-mutable': { flags: Ti.Android.FLAG_MUTABLE }
-'.flags-no-create': { flags: Ti.Android.FLAG_NO_CREATE }
-'.flags-one-shot': { flags: Ti.Android.FLAG_ONE_SHOT }
-'.flags-update-current': { flags: Ti.Android.FLAG_UPDATE_CURRENT }
-'.flags-auto-cancel': { flags: Ti.Android.FLAG_AUTO_CANCEL }
-'.flags-insistent': { flags: Ti.Android.FLAG_INSISTENT }
-'.flags-no-clear': { flags: Ti.Android.FLAG_NO_CLEAR }
-'.flags-ongoing-event': { flags: Ti.Android.FLAG_ONGOING_EVENT }
-'.flags-only-alert-once': { flags: Ti.Android.FLAG_ONLY_ALERT_ONCE }
-'.flags-show-lights': { flags: Ti.Android.FLAG_SHOW_LIGHTS }
-'.flags-wake-lock-partial': { flags: Ti.Android.WAKE_LOCK_PARTIAL }
-'.flags-wake-lock-full': { flags: Ti.Android.WAKE_LOCK_FULL }
-'.flags-wake-lock-screen-dim': { flags: Ti.Android.WAKE_LOCK_SCREEN_DIM }
-'.flags-wake-lock-screen-bright': { flags: Ti.Android.WAKE_LOCK_SCREEN_BRIGHT }
-'.flags-wake-lock-acquire-causes-wakeup': { flags: Ti.Android.WAKE_LOCK_ACQUIRE_CAUSES_WAKEUP }
-'.flags-wake-lock-on-after-release': { flags: Ti.Android.WAKE_LOCK_ON_AFTER_RELEASE }
+'.flags-activity-brought-to-front[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
+'.flags-activity-clear-top[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
+'.flags-activity-clear-when-task-reset[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET }
+'.flags-activity-exclude-from-recents[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS }
+'.flags-activity-forward-result[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_FORWARD_RESULT }
+'.flags-activity-launched-from-history[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY }
+'.flags-activity-multiple-task[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_MULTIPLE_TASK }
+'.flags-activity-new-task[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_NEW_TASK }
+'.flags-activity-no-animation[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_NO_ANIMATION }
+'.flags-activity-no-history[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_NO_HISTORY }
+'.flags-activity-no-user-action[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_NO_USER_ACTION }
+'.flags-activity-previous-is-top[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_PREVIOUS_IS_TOP }
+'.flags-activity-reorder-to-front[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_REORDER_TO_FRONT }
+'.flags-activity-reset-task-if-needed[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED }
+'.flags-activity-single-top[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_SINGLE_TOP }
+'.flags-debug-log-resolution[platform=android]': { flags: Ti.Android.FLAG_DEBUG_LOG_RESOLUTION }
+'.flags-from-background[platform=android]': { flags: Ti.Android.FLAG_FROM_BACKGROUND }
+'.flags-grant-read-uri-permission[platform=android]': { flags: Ti.Android.FLAG_GRANT_READ_URI_PERMISSION }
+'.flags-grant-write-uri-permission[platform=android]': { flags: Ti.Android.FLAG_GRANT_WRITE_URI_PERMISSION }
+'.flags-receiver-registered-only[platform=android]': { flags: Ti.Android.FLAG_RECEIVER_REGISTERED_ONLY }
+'.flags-cancel-current[platform=android]': { flags: Ti.Android.FLAG_CANCEL_CURRENT }
+'.flags-immutable[platform=android]': { flags: Ti.Android.FLAG_IMMUTABLE }
+'.flags-mutable[platform=android]': { flags: Ti.Android.FLAG_MUTABLE }
+'.flags-no-create[platform=android]': { flags: Ti.Android.FLAG_NO_CREATE }
+'.flags-one-shot[platform=android]': { flags: Ti.Android.FLAG_ONE_SHOT }
+'.flags-update-current[platform=android]': { flags: Ti.Android.FLAG_UPDATE_CURRENT }
+'.flags-auto-cancel[platform=android]': { flags: Ti.Android.FLAG_AUTO_CANCEL }
+'.flags-insistent[platform=android]': { flags: Ti.Android.FLAG_INSISTENT }
+'.flags-no-clear[platform=android]': { flags: Ti.Android.FLAG_NO_CLEAR }
+'.flags-ongoing-event[platform=android]': { flags: Ti.Android.FLAG_ONGOING_EVENT }
+'.flags-only-alert-once[platform=android]': { flags: Ti.Android.FLAG_ONLY_ALERT_ONCE }
+'.flags-show-lights[platform=android]': { flags: Ti.Android.FLAG_SHOW_LIGHTS }
+'.flags-wake-lock-partial[platform=android]': { flags: Ti.Android.WAKE_LOCK_PARTIAL }
+'.flags-wake-lock-full[platform=android]': { flags: Ti.Android.WAKE_LOCK_FULL }
+'.flags-wake-lock-screen-dim[platform=android]': { flags: Ti.Android.WAKE_LOCK_SCREEN_DIM }
+'.flags-wake-lock-screen-bright[platform=android]': { flags: Ti.Android.WAKE_LOCK_SCREEN_BRIGHT }
+'.flags-wake-lock-acquire-causes-wakeup[platform=android]': { flags: Ti.Android.WAKE_LOCK_ACQUIRE_CAUSES_WAKEUP }
+'.flags-wake-lock-on-after-release[platform=android]': { flags: Ti.Android.WAKE_LOCK_ON_AFTER_RELEASE }
 
 // Property: actionViewExpanded
 // Description: True if this menu item's action view has been expanded.
@@ -7931,63 +7931,63 @@
 // Property: showAsAction
 // Description: A set of flags that controls how this item appears in the action bar.
 // Component(s): Ti.Android.MenuItem
-'.show-as-action-always': { showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS }
-'.show-as-action-collapse-view': { showAsAction: Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW }
-'.show-as-action-if-room': { showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM }
-'.show-as-action-never': { showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER }
-'.show-as-action-with-text': { showAsAction: Ti.Android.SHOW_AS_ACTION_WITH_TEXT }
+'.show-as-action-always[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_ALWAYS }
+'.show-as-action-collapse-view[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW }
+'.show-as-action-if-room[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_IF_ROOM }
+'.show-as-action-never[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_NEVER }
+'.show-as-action-with-text[platform=android]': { showAsAction: Ti.Android.SHOW_AS_ACTION_WITH_TEXT }
 
 // Property: audioStreamType
 // Description: The audio stream type to use when playing the sound.
 // Component(s): Ti.Android.Notification
-'.audio-stream-type-alarm': { audioStreamType: Ti.Android.STREAM_ALARM }
-'.audio-stream-type': { audioStreamType: Ti.Android.STREAM_DEFAULT }
-'.audio-stream-type-music': { audioStreamType: Ti.Android.STREAM_MUSIC }
-'.audio-stream-type-notification': { audioStreamType: Ti.Android.STREAM_NOTIFICATION }
-'.audio-stream-type-ring': { audioStreamType: Ti.Android.STREAM_RING }
-'.audio-stream-type-system': { audioStreamType: Ti.Android.STREAM_SYSTEM }
-'.audio-stream-type-voice-call': { audioStreamType: Ti.Android.STREAM_VOICE_CALL }
+'.audio-stream-type-alarm[platform=android]': { audioStreamType: Ti.Android.STREAM_ALARM }
+'.audio-stream-type[platform=android]': { audioStreamType: Ti.Android.STREAM_DEFAULT }
+'.audio-stream-type-music[platform=android]': { audioStreamType: Ti.Android.STREAM_MUSIC }
+'.audio-stream-type-notification[platform=android]': { audioStreamType: Ti.Android.STREAM_NOTIFICATION }
+'.audio-stream-type-ring[platform=android]': { audioStreamType: Ti.Android.STREAM_RING }
+'.audio-stream-type-system[platform=android]': { audioStreamType: Ti.Android.STREAM_SYSTEM }
+'.audio-stream-type-voice-call[platform=android]': { audioStreamType: Ti.Android.STREAM_VOICE_CALL }
 
 // Property: category
 // Component(s): Ti.Android.Notification, UserNotificationDictionary, NotificationParams
-'.category-alternative': { category: Ti.Android.CATEGORY_ALTERNATIVE }
-'.category-browsable': { category: Ti.Android.CATEGORY_BROWSABLE }
-'.category': { category: Ti.Android.CATEGORY_DEFAULT }
-'.category-development-preference': { category: Ti.Android.CATEGORY_DEVELOPMENT_PREFERENCE }
-'.category-embed': { category: Ti.Android.CATEGORY_EMBED }
-'.category-framework-instrumentation-test': { category: Ti.Android.CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST }
-'.category-home': { category: Ti.Android.CATEGORY_HOME }
-'.category-info': { category: Ti.Android.CATEGORY_INFO }
-'.category-launcher': { category: Ti.Android.CATEGORY_LAUNCHER }
-'.category-monkey': { category: Ti.Android.CATEGORY_MONKEY }
-'.category-openable': { category: Ti.Android.CATEGORY_OPENABLE }
-'.category-preference': { category: Ti.Android.CATEGORY_PREFERENCE }
-'.category-sample-code': { category: Ti.Android.CATEGORY_SAMPLE_CODE }
-'.category-selected-alternative': { category: Ti.Android.CATEGORY_SELECTED_ALTERNATIVE }
-'.category-tab': { category: Ti.Android.CATEGORY_TAB }
-'.category-test': { category: Ti.Android.CATEGORY_TEST }
-'.category-unit-test': { category: Ti.Android.CATEGORY_UNIT_TEST }
-'.category-alarm': { category: Ti.Android.CATEGORY_ALARM }
-'.category-call': { category: Ti.Android.CATEGORY_CALL }
-'.category-email': { category: Ti.Android.CATEGORY_EMAIL }
-'.category-error': { category: Ti.Android.CATEGORY_ERROR }
-'.category-event': { category: Ti.Android.CATEGORY_EVENT }
-'.category-message': { category: Ti.Android.CATEGORY_MESSAGE }
-'.category-progress': { category: Ti.Android.CATEGORY_PROGRESS }
-'.category-promo': { category: Ti.Android.CATEGORY_PROMO }
-'.category-recommendation': { category: Ti.Android.CATEGORY_RECOMMENDATION }
-'.category-service': { category: Ti.Android.CATEGORY_SERVICE }
-'.category-social': { category: Ti.Android.CATEGORY_SOCIAL }
-'.category-status': { category: Ti.Android.CATEGORY_STATUS }
-'.category-transport': { category: Ti.Android.CATEGORY_TRANSPORT }
+'.category-alternative[platform=android]': { category: Ti.Android.CATEGORY_ALTERNATIVE }
+'.category-browsable[platform=android]': { category: Ti.Android.CATEGORY_BROWSABLE }
+'.category[platform=android]': { category: Ti.Android.CATEGORY_DEFAULT }
+'.category-development-preference[platform=android]': { category: Ti.Android.CATEGORY_DEVELOPMENT_PREFERENCE }
+'.category-embed[platform=android]': { category: Ti.Android.CATEGORY_EMBED }
+'.category-framework-instrumentation-test[platform=android]': { category: Ti.Android.CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST }
+'.category-home[platform=android]': { category: Ti.Android.CATEGORY_HOME }
+'.category-info[platform=android]': { category: Ti.Android.CATEGORY_INFO }
+'.category-launcher[platform=android]': { category: Ti.Android.CATEGORY_LAUNCHER }
+'.category-monkey[platform=android]': { category: Ti.Android.CATEGORY_MONKEY }
+'.category-openable[platform=android]': { category: Ti.Android.CATEGORY_OPENABLE }
+'.category-preference[platform=android]': { category: Ti.Android.CATEGORY_PREFERENCE }
+'.category-sample-code[platform=android]': { category: Ti.Android.CATEGORY_SAMPLE_CODE }
+'.category-selected-alternative[platform=android]': { category: Ti.Android.CATEGORY_SELECTED_ALTERNATIVE }
+'.category-tab[platform=android]': { category: Ti.Android.CATEGORY_TAB }
+'.category-test[platform=android]': { category: Ti.Android.CATEGORY_TEST }
+'.category-unit-test[platform=android]': { category: Ti.Android.CATEGORY_UNIT_TEST }
+'.category-alarm[platform=android]': { category: Ti.Android.CATEGORY_ALARM }
+'.category-call[platform=android]': { category: Ti.Android.CATEGORY_CALL }
+'.category-email[platform=android]': { category: Ti.Android.CATEGORY_EMAIL }
+'.category-error[platform=android]': { category: Ti.Android.CATEGORY_ERROR }
+'.category-event[platform=android]': { category: Ti.Android.CATEGORY_EVENT }
+'.category-message[platform=android]': { category: Ti.Android.CATEGORY_MESSAGE }
+'.category-progress[platform=android]': { category: Ti.Android.CATEGORY_PROGRESS }
+'.category-promo[platform=android]': { category: Ti.Android.CATEGORY_PROMO }
+'.category-recommendation[platform=android]': { category: Ti.Android.CATEGORY_RECOMMENDATION }
+'.category-service[platform=android]': { category: Ti.Android.CATEGORY_SERVICE }
+'.category-social[platform=android]': { category: Ti.Android.CATEGORY_SOCIAL }
+'.category-status[platform=android]': { category: Ti.Android.CATEGORY_STATUS }
+'.category-transport[platform=android]': { category: Ti.Android.CATEGORY_TRANSPORT }
 
 // Property: defaults
 // Description: Specifies which values should be taken from the defaults.
 // Component(s): Ti.Android.Notification
-'.defaults-all': { defaults: Ti.Android.DEFAULT_ALL }
-'.defaults-lights': { defaults: Ti.Android.DEFAULT_LIGHTS }
-'.defaults-sound': { defaults: Ti.Android.DEFAULT_SOUND }
-'.defaults-vibrate': { defaults: Ti.Android.DEFAULT_VIBRATE }
+'.defaults-all[platform=android]': { defaults: Ti.Android.DEFAULT_ALL }
+'.defaults-lights[platform=android]': { defaults: Ti.Android.DEFAULT_LIGHTS }
+'.defaults-sound[platform=android]': { defaults: Ti.Android.DEFAULT_SOUND }
+'.defaults-vibrate[platform=android]': { defaults: Ti.Android.DEFAULT_VIBRATE }
 
 // Property: groupSummary
 // Description: Specifies if this is a group summary notification.
@@ -8223,9 +8223,9 @@
 
 // Property: visibility
 // Component(s): Ti.Android.Notification, Ti.Calendar.Event
-'.visibility-private': { visibility: Ti.Android.VISIBILITY_PRIVATE }
-'.visibility-public': { visibility: Ti.Android.VISIBILITY_PUBLIC }
-'.visibility-secret': { visibility: Ti.Android.VISIBILITY_SECRET }
+'.visibility-private[platform=android]': { visibility: Ti.Android.VISIBILITY_PRIVATE }
+'.visibility-public[platform=android]': { visibility: Ti.Android.VISIBILITY_PUBLIC }
+'.visibility-secret[platform=android]': { visibility: Ti.Android.VISIBILITY_SECRET }
 '.visibility-calendar-confidential': { visibility: Ti.Calendar.VISIBILITY_CONFIDENTIAL }
 '.visibility-calendar': { visibility: Ti.Calendar.VISIBILITY_DEFAULT }
 '.visibility-calendar-private': { visibility: Ti.Calendar.VISIBILITY_PRIVATE }
@@ -8252,13 +8252,13 @@
 // Property: importance
 // Description: The audio stream type to use when playing the sound.
 // Component(s): Ti.Android.NotificationChannel
-'.importance': { importance: Ti.Android.IMPORTANCE_DEFAULT }
-'.importance-high': { importance: Ti.Android.IMPORTANCE_HIGH }
-'.importance-low': { importance: Ti.Android.IMPORTANCE_LOW }
-'.importance-max': { importance: Ti.Android.IMPORTANCE_MAX }
-'.importance-min': { importance: Ti.Android.IMPORTANCE_MIN }
-'.importance-none': { importance: Ti.Android.IMPORTANCE_NONE }
-'.importance-unspecified': { importance: Ti.Android.IMPORTANCE_UNSPECIFIED }
+'.importance[platform=android]': { importance: Ti.Android.IMPORTANCE_DEFAULT }
+'.importance-high[platform=android]': { importance: Ti.Android.IMPORTANCE_HIGH }
+'.importance-low[platform=android]': { importance: Ti.Android.IMPORTANCE_LOW }
+'.importance-max[platform=android]': { importance: Ti.Android.IMPORTANCE_MAX }
+'.importance-min[platform=android]': { importance: Ti.Android.IMPORTANCE_MIN }
+'.importance-none[platform=android]': { importance: Ti.Android.IMPORTANCE_NONE }
+'.importance-unspecified[platform=android]': { importance: Ti.Android.IMPORTANCE_UNSPECIFIED }
 
 // Property: lightColor
 // Description: The notification light color for notifications posted to this channel.
@@ -8490,9 +8490,9 @@
 // Property: lockscreenVisibility
 // Description: Whether or not notifications posted to this channel are shown on the lockscreen in full or redacted form.
 // Component(s): Ti.Android.NotificationChannel
-'.lockscreen-visibility-private': { lockscreenVisibility: Ti.Android.VISIBILITY_PRIVATE }
-'.lockscreen-visibility-public': { lockscreenVisibility: Ti.Android.VISIBILITY_PUBLIC }
-'.lockscreen-visibility-secret': { lockscreenVisibility: Ti.Android.VISIBILITY_SECRET }
+'.lockscreen-visibility-private[platform=android]': { lockscreenVisibility: Ti.Android.VISIBILITY_PRIVATE }
+'.lockscreen-visibility-public[platform=android]': { lockscreenVisibility: Ti.Android.VISIBILITY_PUBLIC }
+'.lockscreen-visibility-secret[platform=android]': { lockscreenVisibility: Ti.Android.VISIBILITY_SECRET }
 
 // Property: showBadge
 // Description: Whether notifications posted to this channel can appear as application icon badges in a Launcher.
@@ -8508,9 +8508,9 @@
 
 // Property: state
 // Component(s): Ti.Android.QuickSettingsService, Ti.Calendar.Alert, GeocodedAddress, Ti.Media.AudioPlayer, Ti.Network.Socket.TCP
-'.state-tile-unavailable': { state: Ti.Android.TILE_STATE_UNAVAILABLE }
-'.state-tile-inactive': { state: Ti.Android.TILE_STATE_INACTIVE }
-'.state-tile-active': { state: Ti.Android.TILE_STATE_ACTIVE }
+'.state-tile-unavailable[platform=android]': { state: Ti.Android.TILE_STATE_UNAVAILABLE }
+'.state-tile-inactive[platform=android]': { state: Ti.Android.TILE_STATE_INACTIVE }
+'.state-tile-active[platform=android]': { state: Ti.Android.TILE_STATE_ACTIVE }
 '.state-calendar-dismissed': { state: Ti.Calendar.STATE_DISMISSED }
 '.state-calendar-fired': { state: Ti.Calendar.STATE_FIRED }
 '.state-calendar-scheduled': { state: Ti.Calendar.STATE_SCHEDULED }
@@ -8531,11 +8531,11 @@
 
 // Property: options
 // Component(s): showParams, Ti.App.iOS.UserNotificationCategory, UserNotificationAttachment, ClipboardItemsType, Ti.UI.OptionDialog
-'.options-category-none': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_NONE }
-'.options-category-custom-dismiss-action': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_CUSTOM_DISMISS_ACTION }
-'.options-category-allow-in-carplay': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_ALLOW_IN_CARPLAY }
-'.options-category-hidden-previews-show-title': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_TITLE }
-'.options-category-hidden-previews-show-subtitle': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_SUBTITLE }
+'.options-app-category-none[platform=ios]': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_NONE }
+'.options-app-category-custom-dismiss-action[platform=ios]': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_CUSTOM_DISMISS_ACTION }
+'.options-app-category-allow-in-carplay[platform=ios]': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_ALLOW_IN_CARPLAY }
+'.options-app-category-hidden-previews-show-title[platform=ios]': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_TITLE }
+'.options-app-category-hidden-previews-show-subtitle[platform=ios]': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_SUBTITLE }
 
 // Property: animated
 // Component(s): showParams, showContactsParams, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, AnimatedOptions, AnimatedWithDurationOptions, ListViewAnimationProperties, hideParams, Ti.UI.ProgressBar, Ti.UI.Switch, TableViewAnimationProperties, openWindowParams, windowToolbarParam, closeWindowParams, DocumentViewerOptions, MenuPopupShowParams, ShowPopoverParams
@@ -8599,39 +8599,39 @@
 // Property: itemContentType
 // Description: Content type of the attribute set.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet
-'.item-content-type-uttype-text': { itemContentType: Ti.App.iOS.UTTYPE_TEXT }
-'.item-content-type-uttype-plain-text': { itemContentType: Ti.App.iOS.UTTYPE_PLAIN_TEXT }
-'.item-content-type-uttype-utf8-plain-text': { itemContentType: Ti.App.iOS.UTTYPE_UTF8_PLAIN_TEXT }
-'.item-content-type-uttype-utf16-external-plain-text': { itemContentType: Ti.App.iOS.UTTYPE_UTF16_EXTERNAL_PLAIN_TEXT }
-'.item-content-type-uttype-utf16-plain-text': { itemContentType: Ti.App.iOS.UTTYPE_UTF16_PLAIN_TEXT }
-'.item-content-type-uttype-rtf': { itemContentType: Ti.App.iOS.UTTYPE_RTF }
-'.item-content-type-uttype-html': { itemContentType: Ti.App.iOS.UTTYPE_HTML }
-'.item-content-type-uttype-xml': { itemContentType: Ti.App.iOS.UTTYPE_XML }
-'.item-content-type-uttype-pdf': { itemContentType: Ti.App.iOS.UTTYPE_PDF }
-'.item-content-type-uttype-rtfd': { itemContentType: Ti.App.iOS.UTTYPE_RTFD }
-'.item-content-type-uttype-flat-rtfd': { itemContentType: Ti.App.iOS.UTTYPE_FLAT_RTFD }
-'.item-content-type-uttype-txn-text-and-multimedia-data': { itemContentType: Ti.App.iOS.UTTYPE_TXN_TEXT_AND_MULTIMEDIA_DATA }
-'.item-content-type-uttype-web-archive': { itemContentType: Ti.App.iOS.UTTYPE_WEB_ARCHIVE }
-'.item-content-type-uttype-image': { itemContentType: Ti.App.iOS.UTTYPE_IMAGE }
-'.item-content-type-uttype-jpeg': { itemContentType: Ti.App.iOS.UTTYPE_JPEG }
-'.item-content-type-uttype-jpeg2000': { itemContentType: Ti.App.iOS.UTTYPE_JPEG2000 }
-'.item-content-type-uttype-tiff': { itemContentType: Ti.App.iOS.UTTYPE_TIFF }
-'.item-content-type-uttype-pict': { itemContentType: Ti.App.iOS.UTTYPE_PICT }
-'.item-content-type-uttype-gif': { itemContentType: Ti.App.iOS.UTTYPE_GIF }
-'.item-content-type-uttype-png': { itemContentType: Ti.App.iOS.UTTYPE_PNG }
-'.item-content-type-uttype-quicktime-image': { itemContentType: Ti.App.iOS.UTTYPE_QUICKTIME_IMAGE }
-'.item-content-type-uttype-apple-icns': { itemContentType: Ti.App.iOS.UTTYPE_APPLE_ICNS }
-'.item-content-type-uttype-bmp': { itemContentType: Ti.App.iOS.UTTYPE_BMP }
-'.item-content-type-uttype-ico': { itemContentType: Ti.App.iOS.UTTYPE_ICO }
-'.item-content-type-uttype-movie': { itemContentType: Ti.App.iOS.UTTYPE_MOVIE }
-'.item-content-type-uttype-video': { itemContentType: Ti.App.iOS.UTTYPE_VIDEO }
-'.item-content-type-uttype-audio': { itemContentType: Ti.App.iOS.UTTYPE_AUDIO }
-'.item-content-type-uttype-quicktime-movie': { itemContentType: Ti.App.iOS.UTTYPE_QUICKTIME_MOVIE }
-'.item-content-type-uttype-mpeg': { itemContentType: Ti.App.iOS.UTTYPE_MPEG }
-'.item-content-type-uttype-mpeg4': { itemContentType: Ti.App.iOS.UTTYPE_MPEG4 }
-'.item-content-type-uttype-mp3': { itemContentType: Ti.App.iOS.UTTYPE_MP3 }
-'.item-content-type-uttype-mpeg4-audio': { itemContentType: Ti.App.iOS.UTTYPE_MPEG4_AUDIO }
-'.item-content-type-uttype-apple-protected-mpeg4-audio': { itemContentType: Ti.App.iOS.UTTYPE_APPLE_PROTECTED_MPEG4_AUDIO }
+'.item-content-type-app-uttype-text[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_TEXT }
+'.item-content-type-app-uttype-plain-text[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_PLAIN_TEXT }
+'.item-content-type-app-uttype-utf8-plain-text[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_UTF8_PLAIN_TEXT }
+'.item-content-type-app-uttype-utf16-external-plain-text[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_UTF16_EXTERNAL_PLAIN_TEXT }
+'.item-content-type-app-uttype-utf16-plain-text[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_UTF16_PLAIN_TEXT }
+'.item-content-type-app-uttype-rtf[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_RTF }
+'.item-content-type-app-uttype-html[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_HTML }
+'.item-content-type-app-uttype-xml[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_XML }
+'.item-content-type-app-uttype-pdf[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_PDF }
+'.item-content-type-app-uttype-rtfd[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_RTFD }
+'.item-content-type-app-uttype-flat-rtfd[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_FLAT_RTFD }
+'.item-content-type-app-uttype-txn-text-and-multimedia-data[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_TXN_TEXT_AND_MULTIMEDIA_DATA }
+'.item-content-type-app-uttype-web-archive[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_WEB_ARCHIVE }
+'.item-content-type-app-uttype-image[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_IMAGE }
+'.item-content-type-app-uttype-jpeg[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_JPEG }
+'.item-content-type-app-uttype-jpeg2000[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_JPEG2000 }
+'.item-content-type-app-uttype-tiff[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_TIFF }
+'.item-content-type-app-uttype-pict[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_PICT }
+'.item-content-type-app-uttype-gif[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_GIF }
+'.item-content-type-app-uttype-png[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_PNG }
+'.item-content-type-app-uttype-quicktime-image[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_QUICKTIME_IMAGE }
+'.item-content-type-app-uttype-apple-icns[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_APPLE_ICNS }
+'.item-content-type-app-uttype-bmp[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_BMP }
+'.item-content-type-app-uttype-ico[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_ICO }
+'.item-content-type-app-uttype-movie[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_MOVIE }
+'.item-content-type-app-uttype-video[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_VIDEO }
+'.item-content-type-app-uttype-audio[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_AUDIO }
+'.item-content-type-app-uttype-quicktime-movie[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_QUICKTIME_MOVIE }
+'.item-content-type-app-uttype-mpeg[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_MPEG }
+'.item-content-type-app-uttype-mpeg4[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_MPEG4 }
+'.item-content-type-app-uttype-mp3[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_MP3 }
+'.item-content-type-app-uttype-mpeg4-audio[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_MPEG4_AUDIO }
+'.item-content-type-app-uttype-apple-protected-mpeg4-audio[platform=ios]': { itemContentType: Ti.App.iOS.UTTYPE_APPLE_PROTECTED_MPEG4_AUDIO }
 
 // Property: pageWidth
 // Description: Width in points (72 points per inch) of the document page.
@@ -8810,14 +8810,14 @@
 // Property: activationMode
 // Description: Selects how to activate the application.
 // Component(s): Ti.App.iOS.UserNotificationAction
-'.activation-mode-background': { activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_BACKGROUND }
-'.activation-mode-foreground': { activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_FOREGROUND }
+'.activation-mode-app-background[platform=ios]': { activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_BACKGROUND }
+'.activation-mode-app-foreground[platform=ios]': { activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_FOREGROUND }
 
 // Property: behavior
 // Description: Custom behavior the user notification supports.
 // Component(s): Ti.App.iOS.UserNotificationAction
-'.behavior': { behavior: Ti.App.iOS.USER_NOTIFICATION_BEHAVIOR_DEFAULT }
-'.behavior-textinput': { behavior: Ti.App.iOS.USER_NOTIFICATION_BEHAVIOR_TEXTINPUT }
+'.behavior-app[platform=ios]': { behavior: Ti.App.iOS.USER_NOTIFICATION_BEHAVIOR_DEFAULT }
+'.behavior-app-textinput[platform=ios]': { behavior: Ti.App.iOS.USER_NOTIFICATION_BEHAVIOR_TEXTINPUT }
 
 // Property: authenticationRequired
 // Description: Set to true if the action requires the device to be unlocked. On the Apple Watch actions never require authentication.
@@ -8833,73 +8833,73 @@
 // Property: authorizationStatus
 // Description: The current authorization status for using notifications.
 // Component(s): GetUserNotificationSettings
-'.authorization-status-not-determined': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_NOT_DETERMINED }
-'.authorization-status-authorized': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_AUTHORIZED }
-'.authorization-status-denied': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_DENIED }
-'.authorization-status-provisional': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_PROVISIONAL }
+'.authorization-status-app-not-determined[platform=ios]': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_NOT_DETERMINED }
+'.authorization-status-app-authorized[platform=ios]': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_AUTHORIZED }
+'.authorization-status-app-denied[platform=ios]': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_DENIED }
+'.authorization-status-app-provisional[platform=ios]': { authorizationStatus: Ti.App.iOS.USER_NOTIFICATION_AUTHORIZATION_STATUS_PROVISIONAL }
 
 // Property: soundSetting
 // Description: The current sound settings.
 // Component(s): GetUserNotificationSettings
-'.sound-setting-not-supported': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.sound-setting-enabled': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.sound-setting-disabled': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.sound-setting-app-not-supported[platform=ios]': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.sound-setting-app-enabled[platform=ios]': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.sound-setting-app-disabled[platform=ios]': { soundSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: badgeSetting
 // Description: The current badge settings.
 // Component(s): GetUserNotificationSettings
-'.badge-setting-not-supported': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.badge-setting-enabled': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.badge-setting-disabled': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.badge-setting-app-not-supported[platform=ios]': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.badge-setting-app-enabled[platform=ios]': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.badge-setting-app-disabled[platform=ios]': { badgeSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: alertSetting
 // Description: The current alert settings.
 // Component(s): GetUserNotificationSettings
-'.alert-setting-not-supported': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.alert-setting-enabled': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.alert-setting-disabled': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.alert-setting-app-not-supported[platform=ios]': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.alert-setting-app-enabled[platform=ios]': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.alert-setting-app-disabled[platform=ios]': { alertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: notificationCenterSetting
 // Description: The current notication-center settings.
 // Component(s): GetUserNotificationSettings
-'.notification-center-setting-user-not-supported': { notificationCenterSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.notification-center-setting-user-enabled': { notificationCenterSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.notification-center-setting-user-disabled': { notificationCenterSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.notification-center-setting-app-user-not-supported[platform=ios]': { notificationCenterSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.notification-center-setting-app-user-enabled[platform=ios]': { notificationCenterSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.notification-center-setting-app-user-disabled[platform=ios]': { notificationCenterSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: lockScreenSetting
 // Description: The current lock-screen settings.
 // Component(s): GetUserNotificationSettings
-'.lock-screen-setting-not-supported': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.lock-screen-setting-enabled': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.lock-screen-setting-disabled': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.lock-screen-setting-app-not-supported[platform=ios]': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.lock-screen-setting-app-enabled[platform=ios]': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.lock-screen-setting-app-disabled[platform=ios]': { lockScreenSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: carPlaySetting
 // Description: The current CarPlay settings.
 // Component(s): GetUserNotificationSettings
-'.car-play-setting-not-supported': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.car-play-setting-enabled': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.car-play-setting-disabled': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.car-play-setting-app-not-supported[platform=ios]': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.car-play-setting-app-enabled[platform=ios]': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.car-play-setting-app-disabled[platform=ios]': { carPlaySetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: criticalAlertSetting
 // Description: The authorization status to play sounds for critical alerts. Available in Titanium SDK 7.4.0 and later.
 // Component(s): GetUserNotificationSettings
-'.critical-alert-setting-not-supported': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.critical-alert-setting-enabled': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.critical-alert-setting-disabled': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.critical-alert-setting-app-not-supported[platform=ios]': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.critical-alert-setting-app-enabled[platform=ios]': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.critical-alert-setting-app-disabled[platform=ios]': { criticalAlertSetting: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: providesAppNotificationSettings
 // Description: A Boolean value indicating the system displays a button for in-app notification settings. Available in Titanium SDK 7.4.0 and later.
 // Component(s): GetUserNotificationSettings
-'.provides-app-notification-settings-not-supported': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
-'.provides-app-notification-settings-enabled': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
-'.provides-app-notification-settings-disabled': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
+'.provides-app-notification-settings-not-supported[platform=ios]': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED }
+'.provides-app-notification-settings-enabled[platform=ios]': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED }
+'.provides-app-notification-settings-disabled[platform=ios]': { providesAppNotificationSettings: Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED }
 
 // Property: alertStyle
 // Description: The current alert style used to display notifications.
 // Component(s): GetUserNotificationSettings
-'.alert-style-none': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_NONE }
-'.alert-style': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_ALERT }
-'.alert-style-banner': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_BANNER }
+'.alert-style-app-none[platform=ios]': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_NONE }
+'.alert-style-app[platform=ios]': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_ALERT }
+'.alert-style-app-banner[platform=ios]': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_BANNER }
 
 // Property: userInterfaceStyle
 // Component(s): Ti.App.iOS, Ti.UI
@@ -9073,8 +9073,8 @@
 
 // Property: location
 // Component(s): Ti.Calendar.Event, Ti.Network.HTTPClient, Ti.UI.Android.ProgressIndicator, textAreaSelectedParams, textFieldSelectedParams
-'.location-progress-indicator-dialog': { location: Ti.UI.Android.PROGRESS_INDICATOR_DIALOG }
-'.location-progress-indicator-status-bar': { location: Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR }
+'.location-progress-indicator-dialog[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_DIALOG }
+'.location-progress-indicator-status-bar[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR }
 
 // Property: availability
 // Description: Availability of this event.
@@ -9108,10 +9108,10 @@
 
 // Property: position
 // Component(s): EncodeNumberDict, DecodeNumberDict, DecodeStringDict, ListViewAnimationProperties, TableViewAnimationProperties, ViewPositionOptions
-'.position-list-view-scroll-bottom': { position: Ti.UI.iOS.ListViewScrollPosition.BOTTOM }
-'.position-list-view-scroll-middle': { position: Ti.UI.iOS.ListViewScrollPosition.MIDDLE }
-'.position-list-view-scroll-none': { position: Ti.UI.iOS.ListViewScrollPosition.NONE }
-'.position-list-view-scroll-top': { position: Ti.UI.iOS.ListViewScrollPosition.TOP }
+'.position-list-view-scroll-bottom[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.BOTTOM }
+'.position-list-view-scroll-middle[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.MIDDLE }
+'.position-list-view-scroll-none[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.NONE }
+'.position-list-view-scroll-top[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.TOP }
 '.position-list-view-scroll-bottom': { position: Ti.UI.ListViewScrollPosition.BOTTOM }
 '.position-list-view-scroll-middle': { position: Ti.UI.ListViewScrollPosition.MIDDLE }
 '.position-list-view-scroll-none': { position: Ti.UI.ListViewScrollPosition.NONE }
@@ -9218,9 +9218,9 @@
 // Property: preferredProvider
 // Description: Determines the preferred location provider. Removed in 8.0.0. Android legacy mode operation is deprecated. For new development, use either simple mode or manual mode. See &quot;Configurating Location Updates on Android&quot; in the main description of this class for more information.
 // Component(s): Ti.Geolocation
-'.preferred-provider-gps': { preferredProvider: Ti.Geolocation.Android.PROVIDER_GPS }
-'.preferred-provider-network': { preferredProvider: Ti.Geolocation.Android.PROVIDER_NETWORK }
-'.preferred-provider-passive': { preferredProvider: Ti.Geolocation.Android.PROVIDER_PASSIVE }
+'.preferred-provider-gps[platform=android]': { preferredProvider: Ti.Geolocation.Android.PROVIDER_GPS }
+'.preferred-provider-network[platform=android]': { preferredProvider: Ti.Geolocation.Android.PROVIDER_NETWORK }
+'.preferred-provider-passive[platform=android]': { preferredProvider: Ti.Geolocation.Android.PROVIDER_PASSIVE }
 
 // Property: showCalibration
 // Description: Determines whether the compass calibration UI is shown if needed.
@@ -9499,11 +9499,11 @@
 '.arrow-direction-popover-right': { arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_RIGHT }
 '.arrow-direction-popover-unknown': { arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_UNKNOWN }
 '.arrow-direction-popover-up': { arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_UP }
-'.arrow-direction-menu-popup-up': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_UP }
-'.arrow-direction-menu-popup-down': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_DOWN }
-'.arrow-direction-menu-popup-left': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_LEFT }
-'.arrow-direction-menu-popup-right': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_RIGHT }
-'.arrow-direction-menu-popup': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_DEFAULT }
+'.arrow-direction-menu-popup-up[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_UP }
+'.arrow-direction-menu-popup-down[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_DOWN }
+'.arrow-direction-menu-popup-left[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_LEFT }
+'.arrow-direction-menu-popup-right[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_RIGHT }
+'.arrow-direction-menu-popup[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_DEFAULT }
 
 // Property: autorotate
 // Component(s): CameraOptionsType, Ti.UI.ImageView
@@ -9779,11 +9779,11 @@
 // Property: physicalSizeCategory
 // Description: The physical size category of the Android device or emulator.
 // Component(s): Ti.Platform.Android
-'.physical-size-category-large': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_LARGE }
-'.physical-size-category-normal': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_NORMAL }
-'.physical-size-category-small': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_SMALL }
-'.physical-size-category-undefined': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_UNDEFINED }
-'.physical-size-category-xlarge': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_XLARGE }
+'.physical-size-category-large[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_LARGE }
+'.physical-size-category-normal[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_NORMAL }
+'.physical-size-category-small[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_SMALL }
+'.physical-size-category-undefined[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_UNDEFINED }
+'.physical-size-category-xlarge[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_XLARGE }
 
 // Property: batteryMonitoring
 // Description: Determines whether battery monitoring is enabled.
@@ -10580,26 +10580,26 @@
 // Property: drawerLockMode
 // Description: Get or set the drawerLockMode
 // Component(s): Ti.UI.Android.DrawerLayout
-'.drawer-lock-mode-locked-closed': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
-'.drawer-lock-mode-locked-open': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
-'.drawer-lock-mode-undefined': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
-'.drawer-lock-mode-unlocked': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
+'.drawer-lock-mode-locked-closed[platform=android]': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
+'.drawer-lock-mode-locked-open[platform=android]': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
+'.drawer-lock-mode-undefined[platform=android]': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
+'.drawer-lock-mode-unlocked[platform=android]': { drawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
 
 // Property: leftDrawerLockMode
 // Description: Get or set lock mode for the left drawer
 // Component(s): Ti.UI.Android.DrawerLayout
-'.left-drawer-lock-mode-locked-closed': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
-'.left-drawer-lock-mode-locked-open': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
-'.left-drawer-lock-mode-undefined': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
-'.left-drawer-lock-mode-unlocked': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
+'.left-drawer-lock-mode-locked-closed[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
+'.left-drawer-lock-mode-locked-open[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
+'.left-drawer-lock-mode-undefined[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
+'.left-drawer-lock-mode-unlocked[platform=android]': { leftDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
 
 // Property: rightDrawerLockMode
 // Description: Get or set lock mode for the right drawer
 // Component(s): Ti.UI.Android.DrawerLayout
-'.right-drawer-lock-mode-locked-closed': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
-'.right-drawer-lock-mode-locked-open': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
-'.right-drawer-lock-mode-undefined': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
-'.right-drawer-lock-mode-unlocked': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
+'.right-drawer-lock-mode-locked-closed[platform=android]': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_CLOSED }
+'.right-drawer-lock-mode-locked-open[platform=android]': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_LOCKED_OPEN }
+'.right-drawer-lock-mode-undefined[platform=android]': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNDEFINED }
+'.right-drawer-lock-mode-unlocked[platform=android]': { rightDrawerLockMode: Ti.UI.Android.DrawerLayout.LOCK_MODE_UNLOCKED }
 
 // Property: toolbarEnabled
 // Description: Determine whether to enable the toolbar.
@@ -10903,14 +10903,14 @@
 
 // Property: transition
 // Component(s): Ti.UI.Animation
-'.transition-animation-style-curl-down': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
-'.transition-animation-style-curl-up': { transition: Ti.UI.iOS.AnimationStyle.CURL_UP }
-'.transition-animation-style-flip-from-left': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }
-'.transition-animation-style-flip-from-right': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT }
-'.transition-animation-style-flip-from-top': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP }
-'.transition-animation-style-flip-from-bottom': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM }
-'.transition-animation-style-cross-dissolve': { transition: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
-'.transition-animation-style-none': { transition: Ti.UI.iOS.AnimationStyle.NONE }
+'.transition-animation-style-curl-down[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
+'.transition-animation-style-curl-up[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_UP }
+'.transition-animation-style-flip-from-left[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }
+'.transition-animation-style-flip-from-right[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT }
+'.transition-animation-style-flip-from-top[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP }
+'.transition-animation-style-flip-from-bottom[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM }
+'.transition-animation-style-cross-dissolve[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
+'.transition-animation-style-none[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.NONE }
 
 // Property: alignment
 // Description: The text alignment of the receiver.
@@ -12040,32 +12040,32 @@
 // Property: systemButton
 // Description: Specifies an iOS system button appearance, as defined in Titanium.UI.iOS.SystemButton.
 // Component(s): Ti.UI.Button
-'.system-button-action': { systemButton: Ti.UI.iOS.SystemButton.ACTION }
-'.system-button-activity': { systemButton: Ti.UI.iOS.SystemButton.ACTIVITY }
-'.system-button-add': { systemButton: Ti.UI.iOS.SystemButton.ADD }
-'.system-button-bookmarks': { systemButton: Ti.UI.iOS.SystemButton.BOOKMARKS }
-'.system-button-camera': { systemButton: Ti.UI.iOS.SystemButton.CAMERA }
-'.system-button-cancel': { systemButton: Ti.UI.iOS.SystemButton.CANCEL }
-'.system-button-compose': { systemButton: Ti.UI.iOS.SystemButton.COMPOSE }
-'.system-button-contact-add': { systemButton: Ti.UI.iOS.SystemButton.CONTACT_ADD }
-'.system-button-disclosure': { systemButton: Ti.UI.iOS.SystemButton.DISCLOSURE }
-'.system-button-done': { systemButton: Ti.UI.iOS.SystemButton.DONE }
-'.system-button-edit': { systemButton: Ti.UI.iOS.SystemButton.EDIT }
-'.system-button-fast-forward': { systemButton: Ti.UI.iOS.SystemButton.FAST_FORWARD }
-'.system-button-fixed-space': { systemButton: Ti.UI.iOS.SystemButton.FIXED_SPACE }
-'.system-button-flexible-space': { systemButton: Ti.UI.iOS.SystemButton.FLEXIBLE_SPACE }
-'.system-button-info-dark': { systemButton: Ti.UI.iOS.SystemButton.INFO_DARK }
-'.system-button-info-light': { systemButton: Ti.UI.iOS.SystemButton.INFO_LIGHT }
-'.system-button-organize': { systemButton: Ti.UI.iOS.SystemButton.ORGANIZE }
-'.system-button-pause': { systemButton: Ti.UI.iOS.SystemButton.PAUSE }
-'.system-button-play': { systemButton: Ti.UI.iOS.SystemButton.PLAY }
-'.system-button-refresh': { systemButton: Ti.UI.iOS.SystemButton.REFRESH }
-'.system-button-reply': { systemButton: Ti.UI.iOS.SystemButton.REPLY }
-'.system-button-rewind': { systemButton: Ti.UI.iOS.SystemButton.REWIND }
-'.system-button-save': { systemButton: Ti.UI.iOS.SystemButton.SAVE }
-'.system-button-spinner': { systemButton: Ti.UI.iOS.SystemButton.SPINNER }
-'.system-button-stop': { systemButton: Ti.UI.iOS.SystemButton.STOP }
-'.system-button-trash': { systemButton: Ti.UI.iOS.SystemButton.TRASH }
+'.system-button-action[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ACTION }
+'.system-button-activity[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ACTIVITY }
+'.system-button-add[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ADD }
+'.system-button-bookmarks[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.BOOKMARKS }
+'.system-button-camera[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.CAMERA }
+'.system-button-cancel[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.CANCEL }
+'.system-button-compose[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.COMPOSE }
+'.system-button-contact-add[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.CONTACT_ADD }
+'.system-button-disclosure[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.DISCLOSURE }
+'.system-button-done[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.DONE }
+'.system-button-edit[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.EDIT }
+'.system-button-fast-forward[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.FAST_FORWARD }
+'.system-button-fixed-space[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.FIXED_SPACE }
+'.system-button-flexible-space[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.FLEXIBLE_SPACE }
+'.system-button-info-dark[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.INFO_DARK }
+'.system-button-info-light[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.INFO_LIGHT }
+'.system-button-organize[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.ORGANIZE }
+'.system-button-pause[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.PAUSE }
+'.system-button-play[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.PLAY }
+'.system-button-refresh[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.REFRESH }
+'.system-button-reply[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.REPLY }
+'.system-button-rewind[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.REWIND }
+'.system-button-save[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.SAVE }
+'.system-button-spinner[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.SPINNER }
+'.system-button-stop[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.STOP }
+'.system-button-trash[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.TRASH }
 
 // Property: textAlign
 // Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
@@ -14386,16 +14386,16 @@
 
 // Property: keyboardDismissMode
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView
-'.keyboard-dismiss-mode-none': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }
-'.keyboard-dismiss-mode-on-drag': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG }
-'.keyboard-dismiss-mode-interactive': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_INTERACTIVE }
+'.keyboard-dismiss-mode-none[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }
+'.keyboard-dismiss-mode-on-drag[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG }
+'.keyboard-dismiss-mode-interactive[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_INTERACTIVE }
 
 // Property: scrollIndicatorStyle
 // Description: Style of the scrollbar.
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
-'.scroll-indicator-style-black': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.BLACK }
-'.scroll-indicator-style': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.DEFAULT }
-'.scroll-indicator-style-white': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.WHITE }
+'.scroll-indicator-style-black[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.BLACK }
+'.scroll-indicator-style[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.DEFAULT }
+'.scroll-indicator-style-white[platform=ios]': { scrollIndicatorStyle: Ti.UI.iOS.ScrollIndicatorStyle.WHITE }
 
 // Property: willScrollOnStatusTap
 // Description: Controls the scroll-to-top gesture.
@@ -15158,20 +15158,20 @@
 
 // Property: animationStyle
 // Component(s): ListViewAnimationProperties, TableViewAnimationProperties, closeWindowParams
-'.animation-style-row-bottom': { animationStyle: Ti.UI.iOS.RowAnimationStyle.BOTTOM }
-'.animation-style-row-fade': { animationStyle: Ti.UI.iOS.RowAnimationStyle.FADE }
-'.animation-style-row-left': { animationStyle: Ti.UI.iOS.RowAnimationStyle.LEFT }
-'.animation-style-row-none': { animationStyle: Ti.UI.iOS.RowAnimationStyle.NONE }
-'.animation-style-row-right': { animationStyle: Ti.UI.iOS.RowAnimationStyle.RIGHT }
-'.animation-style-row-top': { animationStyle: Ti.UI.iOS.RowAnimationStyle.TOP }
-'.animation-style-curl-down': { animationStyle: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
-'.animation-style-curl-up': { animationStyle: Ti.UI.iOS.AnimationStyle.CURL_UP }
-'.animation-style-flip-from-left': { animationStyle: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }
-'.animation-style-flip-from-right': { animationStyle: Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT }
-'.animation-style-flip-from-top': { animationStyle: Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP }
-'.animation-style-flip-from-bottom': { animationStyle: Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM }
-'.animation-style-cross-dissolve': { animationStyle: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
-'.animation-style-none': { animationStyle: Ti.UI.iOS.AnimationStyle.NONE }
+'.animation-style-row-bottom[platform=ios]': { animationStyle: Ti.UI.iOS.RowAnimationStyle.BOTTOM }
+'.animation-style-row-fade[platform=ios]': { animationStyle: Ti.UI.iOS.RowAnimationStyle.FADE }
+'.animation-style-row-left[platform=ios]': { animationStyle: Ti.UI.iOS.RowAnimationStyle.LEFT }
+'.animation-style-row-none[platform=ios]': { animationStyle: Ti.UI.iOS.RowAnimationStyle.NONE }
+'.animation-style-row-right[platform=ios]': { animationStyle: Ti.UI.iOS.RowAnimationStyle.RIGHT }
+'.animation-style-row-top[platform=ios]': { animationStyle: Ti.UI.iOS.RowAnimationStyle.TOP }
+'.animation-style-curl-down[platform=ios]': { animationStyle: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
+'.animation-style-curl-up[platform=ios]': { animationStyle: Ti.UI.iOS.AnimationStyle.CURL_UP }
+'.animation-style-flip-from-left[platform=ios]': { animationStyle: Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT }
+'.animation-style-flip-from-right[platform=ios]': { animationStyle: Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT }
+'.animation-style-flip-from-top[platform=ios]': { animationStyle: Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP }
+'.animation-style-flip-from-bottom[platform=ios]': { animationStyle: Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM }
+'.animation-style-cross-dissolve[platform=ios]': { animationStyle: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
+'.animation-style-none[platform=ios]': { animationStyle: Ti.UI.iOS.AnimationStyle.NONE }
 
 // Property: closed
 // Description: Determines whether this Window is closed.
@@ -15263,9 +15263,9 @@
 // Property: largeTitleDisplayMode
 // Description: The mode to use when displaying the title of the navigation bar.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.large-title-display-mode-automatic': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_AUTOMATIC }
-'.large-title-display-mode-always': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_ALWAYS }
-'.large-title-display-mode-never': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_NEVER }
+'.large-title-display-mode-automatic[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_AUTOMATIC }
+'.large-title-display-mode-always[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_ALWAYS }
+'.large-title-display-mode-never[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_NEVER }
 
 // Property: modal
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, openWindowParams, Ti.UI.iOS.SplitWindow
@@ -15275,8 +15275,8 @@
 // Property: statusBarStyle
 // Description: The status bar style associated with this window.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.status-bar-style': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }
-'.status-bar-style-light-content': { statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT }
+'.status-bar-style[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }
+'.status-bar-style-light-content[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.LIGHT_CONTENT }
 
 // Property: sustainedPerformanceMode
 // Description: Maintain a sustainable level of performance.
@@ -15286,147 +15286,147 @@
 
 // Property: windowSoftInputMode
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.window-soft-input-mode-state-always-hidden': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_HIDDEN }
-'.window-soft-input-mode-state-always-visible': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_VISIBLE }
-'.window-soft-input-mode-state-hidden': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN }
-'.window-soft-input-mode-state-unspecified': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_UNSPECIFIED }
-'.window-soft-input-mode-state-visible': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_VISIBLE }
-'.window-soft-input-mode-adjust-pan': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_PAN }
-'.window-soft-input-mode-adjust-resize': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE }
-'.window-soft-input-mode-adjust-unspecified': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED }
+'.window-soft-input-mode-state-always-hidden[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_HIDDEN }
+'.window-soft-input-mode-state-always-visible[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_VISIBLE }
+'.window-soft-input-mode-state-hidden[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN }
+'.window-soft-input-mode-state-unspecified[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_UNSPECIFIED }
+'.window-soft-input-mode-state-visible[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_VISIBLE }
+'.window-soft-input-mode-adjust-pan[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_PAN }
+'.window-soft-input-mode-adjust-resize[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE }
+'.window-soft-input-mode-adjust-unspecified[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED }
 
 // Property: windowPixelFormat
 // Description: Set the pixel format for the Activity's Window.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.window-pixel-format-a-8': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_A_8 }
-'.window-pixel-format-la-88': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_LA_88 }
-'.window-pixel-format-l-8': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_L_8 }
-'.window-pixel-format-opaque': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_OPAQUE }
-'.window-pixel-format-rgba-4444': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGBA_4444 }
-'.window-pixel-format-rgba-5551': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGBA_5551 }
-'.window-pixel-format-rgba-8888': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGBA_8888 }
-'.window-pixel-format-rgbx-8888': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGBX_8888 }
-'.window-pixel-format-rgb-332': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGB_332 }
-'.window-pixel-format-rgb-565': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGB_565 }
-'.window-pixel-format-rgb-888': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGB_888 }
-'.window-pixel-format-translucent': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_TRANSLUCENT }
-'.window-pixel-format-transparent': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_TRANSPARENT }
-'.window-pixel-format-unknown': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_UNKNOWN }
+'.window-pixel-format-a-8[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_A_8 }
+'.window-pixel-format-la-88[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_LA_88 }
+'.window-pixel-format-l-8[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_L_8 }
+'.window-pixel-format-opaque[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_OPAQUE }
+'.window-pixel-format-rgba-4444[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGBA_4444 }
+'.window-pixel-format-rgba-5551[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGBA_5551 }
+'.window-pixel-format-rgba-8888[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGBA_8888 }
+'.window-pixel-format-rgbx-8888[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGBX_8888 }
+'.window-pixel-format-rgb-332[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGB_332 }
+'.window-pixel-format-rgb-565[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGB_565 }
+'.window-pixel-format-rgb-888[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_RGB_888 }
+'.window-pixel-format-translucent[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_TRANSLUCENT }
+'.window-pixel-format-transparent[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_TRANSPARENT }
+'.window-pixel-format-unknown[platform=android]': { windowPixelFormat: Ti.UI.Android.PIXEL_FORMAT_UNKNOWN }
 
 // Property: activityExitTransition
 // Description: The type of transition used when activity is exiting.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.activity-exit-transition-explode': { activityExitTransition: Ti.UI.Android.TRANSITION_EXPLODE }
-'.activity-exit-transition-fade-in': { activityExitTransition: Ti.UI.Android.TRANSITION_FADE_IN }
-'.activity-exit-transition-fade-out': { activityExitTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
-'.activity-exit-transition-slide-top': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
-'.activity-exit-transition-slide-right': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
-'.activity-exit-transition-slide-bottom': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_BOTTOM }
-'.activity-exit-transition-slide-left': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT }
-'.activity-exit-transition-none': { activityExitTransition: Ti.UI.Android.TRANSITION_NONE }
+'.activity-exit-transition-explode[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_EXPLODE }
+'.activity-exit-transition-fade-in[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_FADE_IN }
+'.activity-exit-transition-fade-out[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
+'.activity-exit-transition-slide-top[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
+'.activity-exit-transition-slide-right[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
+'.activity-exit-transition-slide-bottom[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_BOTTOM }
+'.activity-exit-transition-slide-left[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT }
+'.activity-exit-transition-none[platform=android]': { activityExitTransition: Ti.UI.Android.TRANSITION_NONE }
 
 // Property: activityEnterTransition
 // Description: The type of transition used when activity is entering.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.activity-enter-transition-explode': { activityEnterTransition: Ti.UI.Android.TRANSITION_EXPLODE }
-'.activity-enter-transition-fade-in': { activityEnterTransition: Ti.UI.Android.TRANSITION_FADE_IN }
-'.activity-enter-transition-fade-out': { activityEnterTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
-'.activity-enter-transition-slide-top': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
-'.activity-enter-transition-slide-right': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
-'.activity-enter-transition-slide-bottom': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_BOTTOM }
-'.activity-enter-transition-slide-left': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT }
-'.activity-enter-transition-none': { activityEnterTransition: Ti.UI.Android.TRANSITION_NONE }
+'.activity-enter-transition-explode[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_EXPLODE }
+'.activity-enter-transition-fade-in[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_FADE_IN }
+'.activity-enter-transition-fade-out[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
+'.activity-enter-transition-slide-top[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
+'.activity-enter-transition-slide-right[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
+'.activity-enter-transition-slide-bottom[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_BOTTOM }
+'.activity-enter-transition-slide-left[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT }
+'.activity-enter-transition-none[platform=android]': { activityEnterTransition: Ti.UI.Android.TRANSITION_NONE }
 
 // Property: activityReturnTransition
 // Description: The type of transition used when returning from a previously started activity.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.activity-return-transition-explode': { activityReturnTransition: Ti.UI.Android.TRANSITION_EXPLODE }
-'.activity-return-transition-fade-in': { activityReturnTransition: Ti.UI.Android.TRANSITION_FADE_IN }
-'.activity-return-transition-fade-out': { activityReturnTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
-'.activity-return-transition-slide-top': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
-'.activity-return-transition-slide-right': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
-'.activity-return-transition-slide-bottom': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_BOTTOM }
-'.activity-return-transition-slide-left': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT }
-'.activity-return-transition-none': { activityReturnTransition: Ti.UI.Android.TRANSITION_NONE }
+'.activity-return-transition-explode[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_EXPLODE }
+'.activity-return-transition-fade-in[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_FADE_IN }
+'.activity-return-transition-fade-out[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
+'.activity-return-transition-slide-top[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
+'.activity-return-transition-slide-right[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
+'.activity-return-transition-slide-bottom[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_BOTTOM }
+'.activity-return-transition-slide-left[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT }
+'.activity-return-transition-none[platform=android]': { activityReturnTransition: Ti.UI.Android.TRANSITION_NONE }
 
 // Property: activityReenterTransition
 // Description: The type of transition used when reentering to a previously started activity.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.activity-reenter-transition-explode': { activityReenterTransition: Ti.UI.Android.TRANSITION_EXPLODE }
-'.activity-reenter-transition-fade-in': { activityReenterTransition: Ti.UI.Android.TRANSITION_FADE_IN }
-'.activity-reenter-transition-fade-out': { activityReenterTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
-'.activity-reenter-transition-slide-top': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
-'.activity-reenter-transition-slide-right': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
-'.activity-reenter-transition-slide-bottom': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_BOTTOM }
-'.activity-reenter-transition-slide-left': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT }
-'.activity-reenter-transition-none': { activityReenterTransition: Ti.UI.Android.TRANSITION_NONE }
+'.activity-reenter-transition-explode[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_EXPLODE }
+'.activity-reenter-transition-fade-in[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_FADE_IN }
+'.activity-reenter-transition-fade-out[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_FADE_OUT }
+'.activity-reenter-transition-slide-top[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_TOP }
+'.activity-reenter-transition-slide-right[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_RIGHT }
+'.activity-reenter-transition-slide-bottom[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_BOTTOM }
+'.activity-reenter-transition-slide-left[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_SLIDE_LEFT }
+'.activity-reenter-transition-none[platform=android]': { activityReenterTransition: Ti.UI.Android.TRANSITION_NONE }
 
 // Property: activitySharedElementExitTransition
 // Description: The type of exit transition used when animating shared elements between two activities.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.activity-shared-element-exit-transition-change-bounds': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
-'.activity-shared-element-exit-transition-change-clip-bounds': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
-'.activity-shared-element-exit-transition-change-transform': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
-'.activity-shared-element-exit-transition-change-image-transform': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
-'.activity-shared-element-exit-transition-none': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_NONE }
+'.activity-shared-element-exit-transition-change-bounds[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
+'.activity-shared-element-exit-transition-change-clip-bounds[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
+'.activity-shared-element-exit-transition-change-transform[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
+'.activity-shared-element-exit-transition-change-image-transform[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
+'.activity-shared-element-exit-transition-none[platform=android]': { activitySharedElementExitTransition: Ti.UI.Android.TRANSITION_NONE }
 
 // Property: activitySharedElementEnterTransition
 // Description: The type of enter transition used when animating shared elements between two activities.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.activity-shared-element-enter-transition-change-bounds': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
-'.activity-shared-element-enter-transition-change-clip-bounds': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
-'.activity-shared-element-enter-transition-change-transform': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
-'.activity-shared-element-enter-transition-change-image-transform': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
-'.activity-shared-element-enter-transition-none': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_NONE }
+'.activity-shared-element-enter-transition-change-bounds[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
+'.activity-shared-element-enter-transition-change-clip-bounds[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
+'.activity-shared-element-enter-transition-change-transform[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
+'.activity-shared-element-enter-transition-change-image-transform[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
+'.activity-shared-element-enter-transition-none[platform=android]': { activitySharedElementEnterTransition: Ti.UI.Android.TRANSITION_NONE }
 
 // Property: activitySharedElementReturnTransition
 // Description: The type of return transition used when animating shared elements between two activities.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.activity-shared-element-return-transition-change-bounds': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
-'.activity-shared-element-return-transition-change-clip-bounds': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
-'.activity-shared-element-return-transition-change-transform': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
-'.activity-shared-element-return-transition-change-image-transform': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
-'.activity-shared-element-return-transition-none': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_NONE }
+'.activity-shared-element-return-transition-change-bounds[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
+'.activity-shared-element-return-transition-change-clip-bounds[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
+'.activity-shared-element-return-transition-change-transform[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
+'.activity-shared-element-return-transition-change-image-transform[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
+'.activity-shared-element-return-transition-none[platform=android]': { activitySharedElementReturnTransition: Ti.UI.Android.TRANSITION_NONE }
 
 // Property: activitySharedElementReenterTransition
 // Description: The type of reenter transition used when animating shared elements between two activities.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
-'.activity-shared-element-reenter-transition-change-bounds': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
-'.activity-shared-element-reenter-transition-change-clip-bounds': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
-'.activity-shared-element-reenter-transition-change-transform': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
-'.activity-shared-element-reenter-transition-change-image-transform': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
-'.activity-shared-element-reenter-transition-none': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_NONE }
+'.activity-shared-element-reenter-transition-change-bounds[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_BOUNDS }
+'.activity-shared-element-reenter-transition-change-clip-bounds[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_CLIP_BOUNDS }
+'.activity-shared-element-reenter-transition-change-transform[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_TRANSFORM }
+'.activity-shared-element-reenter-transition-change-image-transform[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_CHANGE_IMAGE_TRANSFORM }
+'.activity-shared-element-reenter-transition-none[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_NONE }
 
 // Property: gravity
 // Description: Determines the location at which the notification should appear on the screen.
 // Component(s): Ti.UI.Notification
-'.gravity-axis-clip': { gravity: Ti.UI.Android.GRAVITY_AXIS_CLIP }
-'.gravity-axis-pull-after': { gravity: Ti.UI.Android.GRAVITY_AXIS_PULL_AFTER }
-'.gravity-axis-pull-before': { gravity: Ti.UI.Android.GRAVITY_AXIS_PULL_BEFORE }
-'.gravity-axis-specified': { gravity: Ti.UI.Android.GRAVITY_AXIS_SPECIFIED }
-'.gravity-axis-x-shift': { gravity: Ti.UI.Android.GRAVITY_AXIS_X_SHIFT }
-'.gravity-axis-y-shift': { gravity: Ti.UI.Android.GRAVITY_AXIS_Y_SHIFT }
-'.gravity-bottom': { gravity: Ti.UI.Android.GRAVITY_BOTTOM }
-'.gravity-center': { gravity: Ti.UI.Android.GRAVITY_CENTER }
-'.gravity-center-horizontal': { gravity: Ti.UI.Android.GRAVITY_CENTER_HORIZONTAL }
-'.gravity-center-vertical': { gravity: Ti.UI.Android.GRAVITY_CENTER_VERTICAL }
-'.gravity-clip-horizontal': { gravity: Ti.UI.Android.GRAVITY_CLIP_HORIZONTAL }
-'.gravity-clip-vertical': { gravity: Ti.UI.Android.GRAVITY_CLIP_VERTICAL }
-'.gravity-display-clip-horizontal': { gravity: Ti.UI.Android.GRAVITY_DISPLAY_CLIP_HORIZONTAL }
-'.gravity-display-clip-vertical': { gravity: Ti.UI.Android.GRAVITY_DISPLAY_CLIP_VERTICAL }
-'.gravity-end': { gravity: Ti.UI.Android.GRAVITY_END }
-'.gravity-fill': { gravity: Ti.UI.Android.GRAVITY_FILL }
-'.gravity-fill-horizontal': { gravity: Ti.UI.Android.GRAVITY_FILL_HORIZONTAL }
-'.gravity-fill-vertical': { gravity: Ti.UI.Android.GRAVITY_FILL_VERTICAL }
-'.gravity-horizontal-mask': { gravity: Ti.UI.Android.GRAVITY_HORIZONTAL_GRAVITY_MASK }
-'.gravity-left': { gravity: Ti.UI.Android.GRAVITY_LEFT }
-'.gravity-no': { gravity: Ti.UI.Android.GRAVITY_NO_GRAVITY }
-'.gravity-relative-horizontal-mask': { gravity: Ti.UI.Android.GRAVITY_RELATIVE_HORIZONTAL_GRAVITY_MASK }
-'.gravity-relative-direction': { gravity: Ti.UI.Android.GRAVITY_RELATIVE_LAYOUT_DIRECTION }
-'.gravity-right': { gravity: Ti.UI.Android.GRAVITY_RIGHT }
-'.gravity-start': { gravity: Ti.UI.Android.GRAVITY_START }
-'.gravity-top': { gravity: Ti.UI.Android.GRAVITY_TOP }
-'.gravity-vertical-mask': { gravity: Ti.UI.Android.GRAVITY_VERTICAL_GRAVITY_MASK }
+'.gravity-axis-clip[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_CLIP }
+'.gravity-axis-pull-after[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_PULL_AFTER }
+'.gravity-axis-pull-before[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_PULL_BEFORE }
+'.gravity-axis-specified[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_SPECIFIED }
+'.gravity-axis-x-shift[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_X_SHIFT }
+'.gravity-axis-y-shift[platform=android]': { gravity: Ti.UI.Android.GRAVITY_AXIS_Y_SHIFT }
+'.gravity-bottom[platform=android]': { gravity: Ti.UI.Android.GRAVITY_BOTTOM }
+'.gravity-center[platform=android]': { gravity: Ti.UI.Android.GRAVITY_CENTER }
+'.gravity-center-horizontal[platform=android]': { gravity: Ti.UI.Android.GRAVITY_CENTER_HORIZONTAL }
+'.gravity-center-vertical[platform=android]': { gravity: Ti.UI.Android.GRAVITY_CENTER_VERTICAL }
+'.gravity-clip-horizontal[platform=android]': { gravity: Ti.UI.Android.GRAVITY_CLIP_HORIZONTAL }
+'.gravity-clip-vertical[platform=android]': { gravity: Ti.UI.Android.GRAVITY_CLIP_VERTICAL }
+'.gravity-display-clip-horizontal[platform=android]': { gravity: Ti.UI.Android.GRAVITY_DISPLAY_CLIP_HORIZONTAL }
+'.gravity-display-clip-vertical[platform=android]': { gravity: Ti.UI.Android.GRAVITY_DISPLAY_CLIP_VERTICAL }
+'.gravity-end[platform=android]': { gravity: Ti.UI.Android.GRAVITY_END }
+'.gravity-fill[platform=android]': { gravity: Ti.UI.Android.GRAVITY_FILL }
+'.gravity-fill-horizontal[platform=android]': { gravity: Ti.UI.Android.GRAVITY_FILL_HORIZONTAL }
+'.gravity-fill-vertical[platform=android]': { gravity: Ti.UI.Android.GRAVITY_FILL_VERTICAL }
+'.gravity-horizontal-mask[platform=android]': { gravity: Ti.UI.Android.GRAVITY_HORIZONTAL_GRAVITY_MASK }
+'.gravity-left[platform=android]': { gravity: Ti.UI.Android.GRAVITY_LEFT }
+'.gravity-no[platform=android]': { gravity: Ti.UI.Android.GRAVITY_NO_GRAVITY }
+'.gravity-relative-horizontal-mask[platform=android]': { gravity: Ti.UI.Android.GRAVITY_RELATIVE_HORIZONTAL_GRAVITY_MASK }
+'.gravity-relative-direction[platform=android]': { gravity: Ti.UI.Android.GRAVITY_RELATIVE_LAYOUT_DIRECTION }
+'.gravity-right[platform=android]': { gravity: Ti.UI.Android.GRAVITY_RIGHT }
+'.gravity-start[platform=android]': { gravity: Ti.UI.Android.GRAVITY_START }
+'.gravity-top[platform=android]': { gravity: Ti.UI.Android.GRAVITY_TOP }
+'.gravity-vertical-mask[platform=android]': { gravity: Ti.UI.Android.GRAVITY_VERTICAL_GRAVITY_MASK }
 
 // Property: xOffset
 // Description: X offset from the default position, in pixels.
@@ -16140,8 +16140,8 @@
 // Property: decelerationRate
 // Description: The deceleration rate of the ScrollView.
 // Component(s): Ti.UI.ScrollView
-'.deceleration-rate-scroll-fast': { decelerationRate: Ti.UI.iOS.SCROLL_DECELERATION_RATE_FAST }
-'.deceleration-rate-scroll-normal': { decelerationRate: Ti.UI.iOS.SCROLL_DECELERATION_RATE_NORMAL }
+'.deceleration-rate-scroll-fast[platform=ios]': { decelerationRate: Ti.UI.iOS.SCROLL_DECELERATION_RATE_FAST }
+'.deceleration-rate-scroll-normal[platform=ios]': { decelerationRate: Ti.UI.iOS.SCROLL_DECELERATION_RATE_NORMAL }
 
 // Property: horizontalBounce
 // Description: Determines whether horizontal scroll bounce of the scrollable region is enabled.
@@ -16187,9 +16187,9 @@
 
 // Property: overScrollMode
 // Component(s): Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.TableView, Ti.UI.WebView
-'.over-scroll-mode-always': { overScrollMode: Ti.UI.Android.OVER_SCROLL_ALWAYS }
-'.over-scroll-mode-if-content-scrolls': { overScrollMode: Ti.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS }
-'.over-scroll-mode-never': { overScrollMode: Ti.UI.Android.OVER_SCROLL_NEVER }
+'.over-scroll-mode-always[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_ALWAYS }
+'.over-scroll-mode-if-content-scrolls[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS }
+'.over-scroll-mode-never[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_NEVER }
 
 // Property: scrollsToTop
 // Description: Controls whether the scroll-to-top gesture is effective.
@@ -18899,6 +18899,12 @@
 '.smooth-scroll-on-tab-click': { smoothScrollOnTabClick: true }
 '.smooth-scroll-on-tab-click-false': { smoothScrollOnTabClick: false }
 
+// Property: shiftMode
+// Description: Determines whether the TABS_STYLE_BOTTOM_NAVIGATION uses shiftMode.
+// Component(s): Ti.UI.TabGroup
+'.shift-mode': { shiftMode: true }
+'.shift-mode-false': { shiftMode: false }
+
 // Property: tabsBackgroundColor
 // Description: Default background color for inactive tabs, as a color name or hex triplet.
 // Component(s): Ti.UI.TabGroup
@@ -20561,17 +20567,17 @@
 // Property: cacheMode
 // Description: Determines how a cache is used in this web view.
 // Component(s): Ti.UI.WebView
-'.cache-mode-webview-load': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_DEFAULT }
-'.cache-mode-webview-load-no': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_NO_CACHE }
-'.cache-mode-webview-load-only': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_CACHE_ONLY }
-'.cache-mode-webview-load-else-network': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_CACHE_ELSE_NETWORK }
+'.cache-mode-webview-load[platform=android]': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_DEFAULT }
+'.cache-mode-webview-load-no[platform=android]': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_NO_CACHE }
+'.cache-mode-webview-load-only[platform=android]': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_CACHE_ONLY }
+'.cache-mode-webview-load-else-network[platform=android]': { cacheMode: Ti.UI.Android.WEBVIEW_LOAD_CACHE_ELSE_NETWORK }
 
 // Property: pluginState
 // Description: Determines how to treat content that requires plugins in this web view.
 // Component(s): Ti.UI.WebView
-'.plugin-state-webview-plugins-off': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_OFF }
-'.plugin-state-webview-plugins-on': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON }
-'.plugin-state-webview-plugins-on-demand': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON_DEMAND }
+'.plugin-state-webview-plugins-off[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_OFF }
+'.plugin-state-webview-plugins-on[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON }
+'.plugin-state-webview-plugins-on-demand[platform=android]': { pluginState: Ti.UI.Android.WEBVIEW_PLUGINS_ON_DEMAND }
 
 // Property: mixedContentMode
 // Description: If true, allows the loading of insecure resources from a secure origin.
@@ -20618,16 +20624,16 @@
 // Property: cachePolicy
 // Description: The cache policy for the request.
 // Component(s): Ti.UI.WebView
-'.cache-policy-use-protocol': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_USE_PROTOCOL_CACHE_POLICY }
-'.cache-policy-reload-ignoring-local-data': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_RELOAD_IGNORING_LOCAL_CACHE_DATA }
-'.cache-policy-return-data-else-load': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_RETURN_CACHE_DATA_ELSE_LOAD }
-'.cache-policy-return-data-dont-load': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_RETURN_CACHE_DATA_DONT_LOAD }
+'.cache-policy-use-protocol[platform=ios]': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_USE_PROTOCOL_CACHE_POLICY }
+'.cache-policy-reload-ignoring-local-data[platform=ios]': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_RELOAD_IGNORING_LOCAL_CACHE_DATA }
+'.cache-policy-return-data-else-load[platform=ios]': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_RETURN_CACHE_DATA_ELSE_LOAD }
+'.cache-policy-return-data-dont-load[platform=ios]': { cachePolicy: Ti.UI.iOS.CACHE_POLICY_RETURN_CACHE_DATA_DONT_LOAD }
 
 // Property: selectionGranularity
 // Description: The level of granularity with which the user can interactively select content in the web view.
 // Component(s): Ti.UI.WebView, Ti.UI.iOS.WebViewConfiguration
-'.selection-granularity-dynamic': { selectionGranularity: Ti.UI.iOS.SELECTION_GRANULARITY_DYNAMIC }
-'.selection-granularity-character': { selectionGranularity: Ti.UI.iOS.SELECTION_GRANULARITY_CHARACTER }
+'.selection-granularity-dynamic[platform=ios]': { selectionGranularity: Ti.UI.iOS.SELECTION_GRANULARITY_DYNAMIC }
+'.selection-granularity-character[platform=ios]': { selectionGranularity: Ti.UI.iOS.SELECTION_GRANULARITY_CHARACTER }
 
 // Property: caseSensitive
 // Description: Whether or not the search should be case sensitive.
@@ -20649,8 +20655,8 @@
 // Property: injectionTime
 // Description: The time when the script should be injected into the webpage.
 // Component(s): UserScriptParams
-'.injection-time-document-start': { injectionTime: Ti.UI.iOS.INJECTION_TIME_DOCUMENT_START }
-'.injection-time-document-end': { injectionTime: Ti.UI.iOS.INJECTION_TIME_DOCUMENT_END }
+'.injection-time-document-start[platform=ios]': { injectionTime: Ti.UI.iOS.INJECTION_TIME_DOCUMENT_START }
+'.injection-time-document-end[platform=ios]': { injectionTime: Ti.UI.iOS.INJECTION_TIME_DOCUMENT_END }
 
 // Property: mainFrameOnly
 // Description: A Boolean value indicating whether the script should be injected only into the main frame (true) or into all frames (false).
@@ -20667,20 +20673,20 @@
 // Property: modalStyle
 // Description: Presentation style of this modal window.
 // Component(s): openWindowParams
-'.modal-style-presentation-current-context': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_CURRENT_CONTEXT }
-'.modal-style-presentation-over-current-context': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_OVER_CURRENT_CONTEXT }
-'.modal-style-presentation-over-current-full-screen': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_OVER_CURRENT_FULL_SCREEN }
-'.modal-style-presentation-formsheet': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_FORMSHEET }
-'.modal-style-presentation-fullscreen': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_FULLSCREEN }
-'.modal-style-presentation-pagesheet': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_PAGESHEET }
+'.modal-style-presentation-current-context[platform=ios]': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_CURRENT_CONTEXT }
+'.modal-style-presentation-over-current-context[platform=ios]': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_OVER_CURRENT_CONTEXT }
+'.modal-style-presentation-over-current-full-screen[platform=ios]': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_OVER_CURRENT_FULL_SCREEN }
+'.modal-style-presentation-formsheet[platform=ios]': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_FORMSHEET }
+'.modal-style-presentation-fullscreen[platform=ios]': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_FULLSCREEN }
+'.modal-style-presentation-pagesheet[platform=ios]': { modalStyle: Ti.UI.iOS.MODAL_PRESENTATION_PAGESHEET }
 
 // Property: modalTransitionStyle
 // Description: Transition style of this modal window.
 // Component(s): openWindowParams
-'.modal-transition-style-cover-vertical': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_COVER_VERTICAL }
-'.modal-transition-style-cross-dissolve': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_CROSS_DISSOLVE }
-'.modal-transition-style-flip-horizontal': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL }
-'.modal-transition-style-partial-curl': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_PARTIAL_CURL }
+'.modal-transition-style-cover-vertical[platform=ios]': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_COVER_VERTICAL }
+'.modal-transition-style-cross-dissolve[platform=ios]': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_CROSS_DISSOLVE }
+'.modal-transition-style-flip-horizontal[platform=ios]': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL }
+'.modal-transition-style-partial-curl[platform=ios]': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_PARTIAL_CURL }
 
 // Property: running
 // Description: Returns true if the animator is running else false.
@@ -20691,33 +20697,33 @@
 // Property: effect
 // Description: The effect you provide for the view.
 // Component(s): Ti.UI.iOS.BlurView
-'.effect-blur-style-extra-light': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_EXTRA_LIGHT }
-'.effect-blur-style-light': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_LIGHT }
-'.effect-blur-style-dark': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_DARK }
-'.effect-blur-style-regular': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_REGULAR }
-'.effect-blur-style-prominent': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_PROMINENT }
-'.effect-blur-style-system-ultra-thin-material': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_ULTRA_THIN_MATERIAL }
-'.effect-blur-style-system-thin-material': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THIN_MATERIAL }
-'.effect-blur-style-system-material': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_MATERIAL }
-'.effect-blur-style-system-thick-material': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THICK_MATERIAL }
-'.effect-blur-style-system-chrome-material': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_CHROME_MATERIAL }
-'.effect-blur-style-system-ultra-thin-material-light': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_ULTRA_THIN_MATERIAL_LIGHT }
-'.effect-blur-style-system-thin-material-light': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THIN_MATERIAL_LIGHT }
-'.effect-blur-style-system-material-light': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_MATERIAL_LIGHT }
-'.effect-blur-style-system-thick-material-light': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THICK_MATERIAL_LIGHT }
-'.effect-blur-style-system-chrome-material-light': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_CHROME_MATERIAL_LIGHT }
-'.effect-blur-style-system-ultra-thin-material-dark': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_ULTRA_THIN_MATERIAL_DARK }
-'.effect-blur-style-system-thin-material-dark': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THIN_MATERIAL_DARK }
-'.effect-blur-style-system-material-dark': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_MATERIAL_DARK }
-'.effect-blur-style-system-thick-material-dark': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THICK_MATERIAL_DARK }
-'.effect-blur-style-system-chrome-material-dark': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_CHROME_MATERIAL_DARK }
+'.effect-blur-style-extra-light[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_EXTRA_LIGHT }
+'.effect-blur-style-light[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_LIGHT }
+'.effect-blur-style-dark[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_DARK }
+'.effect-blur-style-regular[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_REGULAR }
+'.effect-blur-style-prominent[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_PROMINENT }
+'.effect-blur-style-system-ultra-thin-material[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_ULTRA_THIN_MATERIAL }
+'.effect-blur-style-system-thin-material[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THIN_MATERIAL }
+'.effect-blur-style-system-material[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_MATERIAL }
+'.effect-blur-style-system-thick-material[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THICK_MATERIAL }
+'.effect-blur-style-system-chrome-material[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_CHROME_MATERIAL }
+'.effect-blur-style-system-ultra-thin-material-light[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_ULTRA_THIN_MATERIAL_LIGHT }
+'.effect-blur-style-system-thin-material-light[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THIN_MATERIAL_LIGHT }
+'.effect-blur-style-system-material-light[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_MATERIAL_LIGHT }
+'.effect-blur-style-system-thick-material-light[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THICK_MATERIAL_LIGHT }
+'.effect-blur-style-system-chrome-material-light[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_CHROME_MATERIAL_LIGHT }
+'.effect-blur-style-system-ultra-thin-material-dark[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_ULTRA_THIN_MATERIAL_DARK }
+'.effect-blur-style-system-thin-material-dark[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THIN_MATERIAL_DARK }
+'.effect-blur-style-system-material-dark[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_MATERIAL_DARK }
+'.effect-blur-style-system-thick-material-dark[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THICK_MATERIAL_DARK }
+'.effect-blur-style-system-chrome-material-dark[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_CHROME_MATERIAL_DARK }
 
 // Property: collisionMode
 // Description: Specifies the collision behavior.
 // Component(s): Ti.UI.iOS.CollisionBehavior
-'.collision-mode-all': { collisionMode: Ti.UI.iOS.COLLISION_MODE_ALL }
-'.collision-mode-boundary': { collisionMode: Ti.UI.iOS.COLLISION_MODE_BOUNDARY }
-'.collision-mode-item': { collisionMode: Ti.UI.iOS.COLLISION_MODE_ITEM }
+'.collision-mode-all[platform=ios]': { collisionMode: Ti.UI.iOS.COLLISION_MODE_ALL }
+'.collision-mode-boundary[platform=ios]': { collisionMode: Ti.UI.iOS.COLLISION_MODE_BOUNDARY }
+'.collision-mode-item[platform=ios]': { collisionMode: Ti.UI.iOS.COLLISION_MODE_ITEM }
 
 // Property: treatReferenceAsBoundary
 // Description: Use the animator's reference view as the boundary.
@@ -20734,8 +20740,8 @@
 // Property: pushMode
 // Description: Specifies the push mode.
 // Component(s): Ti.UI.iOS.PushBehavior
-'.push-mode-continuous': { pushMode: Ti.UI.iOS.PUSH_MODE_CONTINUOUS }
-'.push-mode-instantaneous': { pushMode: Ti.UI.iOS.PUSH_MODE_INSTANTANEOUS }
+'.push-mode-continuous[platform=ios]': { pushMode: Ti.UI.iOS.PUSH_MODE_CONTINUOUS }
+'.push-mode-instantaneous[platform=ios]': { pushMode: Ti.UI.iOS.PUSH_MODE_INSTANTANEOUS }
 
 // Property: showMasterInPortrait
 // Description: Determines whether to show the master view in portrait orientation.
@@ -20770,10 +20776,10 @@
 // Property: mediaTypesRequiringUserActionForPlayback
 // Description: Determines which media types require a user gesture to begin playing.
 // Component(s): Ti.UI.iOS.WebViewConfiguration
-'.media-types-requiring-user-action-for-playback-audiovisual-type-none': { mediaTypesRequiringUserActionForPlayback: Ti.UI.iOS.AUDIOVISUAL_MEDIA_TYPE_NONE }
-'.media-types-requiring-user-action-for-playback-audiovisual-type-audio': { mediaTypesRequiringUserActionForPlayback: Ti.UI.iOS.AUDIOVISUAL_MEDIA_TYPE_AUDIO }
-'.media-types-requiring-user-action-for-playback-audiovisual-type-video': { mediaTypesRequiringUserActionForPlayback: Ti.UI.iOS.AUDIOVISUAL_MEDIA_TYPE_VIDEO }
-'.media-types-requiring-user-action-for-playback-audiovisual-type-all': { mediaTypesRequiringUserActionForPlayback: Ti.UI.iOS.AUDIOVISUAL_MEDIA_TYPE_ALL }
+'.media-types-requiring-user-action-for-playback-audiovisual-type-none[platform=ios]': { mediaTypesRequiringUserActionForPlayback: Ti.UI.iOS.AUDIOVISUAL_MEDIA_TYPE_NONE }
+'.media-types-requiring-user-action-for-playback-audiovisual-type-audio[platform=ios]': { mediaTypesRequiringUserActionForPlayback: Ti.UI.iOS.AUDIOVISUAL_MEDIA_TYPE_AUDIO }
+'.media-types-requiring-user-action-for-playback-audiovisual-type-video[platform=ios]': { mediaTypesRequiringUserActionForPlayback: Ti.UI.iOS.AUDIOVISUAL_MEDIA_TYPE_VIDEO }
+'.media-types-requiring-user-action-for-playback-audiovisual-type-all[platform=ios]': { mediaTypesRequiringUserActionForPlayback: Ti.UI.iOS.AUDIOVISUAL_MEDIA_TYPE_ALL }
 
 // Property: suppressesIncrementalRendering
 // Description: A Boolean value indicating whether the web view suppresses content rendering until it is fully loaded into memory.

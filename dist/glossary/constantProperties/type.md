@@ -14,8 +14,8 @@
 '.type-codec-float': { type: Ti.Codec.TYPE_FLOAT }
 '.type-codec-long': { type: Ti.Codec.TYPE_LONG }
 '.type-codec-double': { type: Ti.Codec.TYPE_DOUBLE }
-'.type-progress-indicator-indeterminant': { type: Ti.UI.Android.PROGRESS_INDICATOR_INDETERMINANT }
-'.type-progress-indicator-determinant': { type: Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT }
+'.type-progress-indicator-indeterminant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_INDETERMINANT }
+'.type-progress-indicator-determinant[platform=android]': { type: Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT }
 '.type-attribute-font': { type: Ti.UI.ATTRIBUTE_FONT }
 '.type-attribute-foreground-color': { type: Ti.UI.ATTRIBUTE_FOREGROUND_COLOR }
 '.type-attribute-bg-color': { type: Ti.UI.ATTRIBUTE_BACKGROUND_COLOR }
@@ -39,7 +39,7 @@
 '.type-picker-date-and-time': { type: Ti.UI.PICKER_TYPE_DATE_AND_TIME }
 '.type-picker-plain': { type: Ti.UI.PICKER_TYPE_PLAIN }
 '.type-picker-time': { type: Ti.UI.PICKER_TYPE_TIME }
-'.type-feedback-generator-selection': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_SELECTION }
-'.type-feedback-generator-impact': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_IMPACT }
-'.type-feedback-generator-notification': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_NOTIFICATION }
+'.type-feedback-generator-selection[platform=ios]': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_SELECTION }
+'.type-feedback-generator-impact[platform=ios]': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_IMPACT }
+'.type-feedback-generator-notification[platform=ios]': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_NOTIFICATION }
 ```

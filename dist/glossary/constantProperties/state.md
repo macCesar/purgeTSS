@@ -1,9 +1,9 @@
 ```scss
 // Property: state
 // Component(s): Ti.Android.QuickSettingsService, Ti.Calendar.Alert, GeocodedAddress, Ti.Media.AudioPlayer, Ti.Network.Socket.TCP
-'.state-tile-unavailable': { state: Ti.Android.TILE_STATE_UNAVAILABLE }
-'.state-tile-inactive': { state: Ti.Android.TILE_STATE_INACTIVE }
-'.state-tile-active': { state: Ti.Android.TILE_STATE_ACTIVE }
+'.state-tile-unavailable[platform=android]': { state: Ti.Android.TILE_STATE_UNAVAILABLE }
+'.state-tile-inactive[platform=android]': { state: Ti.Android.TILE_STATE_INACTIVE }
+'.state-tile-active[platform=android]': { state: Ti.Android.TILE_STATE_ACTIVE }
 '.state-calendar-dismissed': { state: Ti.Calendar.STATE_DISMISSED }
 '.state-calendar-fired': { state: Ti.Calendar.STATE_FIRED }
 '.state-calendar-scheduled': { state: Ti.Calendar.STATE_SCHEDULED }

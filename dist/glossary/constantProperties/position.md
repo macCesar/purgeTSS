@@ -1,10 +1,10 @@
 ```scss
 // Property: position
 // Component(s): EncodeNumberDict, DecodeNumberDict, DecodeStringDict, ListViewAnimationProperties, TableViewAnimationProperties, ViewPositionOptions
-'.position-list-view-scroll-bottom': { position: Ti.UI.iOS.ListViewScrollPosition.BOTTOM }
-'.position-list-view-scroll-middle': { position: Ti.UI.iOS.ListViewScrollPosition.MIDDLE }
-'.position-list-view-scroll-none': { position: Ti.UI.iOS.ListViewScrollPosition.NONE }
-'.position-list-view-scroll-top': { position: Ti.UI.iOS.ListViewScrollPosition.TOP }
+'.position-list-view-scroll-bottom[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.BOTTOM }
+'.position-list-view-scroll-middle[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.MIDDLE }
+'.position-list-view-scroll-none[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.NONE }
+'.position-list-view-scroll-top[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.TOP }
 '.position-list-view-scroll-bottom': { position: Ti.UI.ListViewScrollPosition.BOTTOM }
 '.position-list-view-scroll-middle': { position: Ti.UI.ListViewScrollPosition.MIDDLE }
 '.position-list-view-scroll-none': { position: Ti.UI.ListViewScrollPosition.NONE }

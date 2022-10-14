@@ -1,6 +1,6 @@
 ```scss
-// Property(ies): fontFamily
-// Component(s): Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
+// Property(ies): animationProperties - scales the view (in or out) and resets it to 100% when the animation completes
+// Component(s): Animation
 '.zoom-in-0': { animationProperties: { open: { scale: 0 }, complete: { scale: 1 } } }
 '.zoom-in-1': { animationProperties: { open: { scale: 0.01 }, complete: { scale: 1 } } }
 '.zoom-in-5': { animationProperties: { open: { scale: 0.05 }, complete: { scale: 1 } } }

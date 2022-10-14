@@ -7,9 +7,9 @@
 '.arrow-direction-popover-right': { arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_RIGHT }
 '.arrow-direction-popover-unknown': { arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_UNKNOWN }
 '.arrow-direction-popover-up': { arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_UP }
-'.arrow-direction-menu-popup-up': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_UP }
-'.arrow-direction-menu-popup-down': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_DOWN }
-'.arrow-direction-menu-popup-left': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_LEFT }
-'.arrow-direction-menu-popup-right': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_RIGHT }
-'.arrow-direction-menu-popup': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_DEFAULT }
+'.arrow-direction-menu-popup-up[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_UP }
+'.arrow-direction-menu-popup-down[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_DOWN }
+'.arrow-direction-menu-popup-left[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_LEFT }
+'.arrow-direction-menu-popup-right[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_RIGHT }
+'.arrow-direction-menu-popup[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_DEFAULT }
 ```
