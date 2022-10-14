@@ -2296,11 +2296,14 @@ function purgeTailwind(uniqueClasses) {
 		if (tailwindClass !== '' && !tailwindClass.includes('//')) {
 			let cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '')}`;
 
-			if (cleanUniqueClasses.indexOf(cleanTailwindClass) > -1) {
+			let classIndex = cleanUniqueClasses.indexOf(cleanTailwindClass);
+			if (classIndex > -1) {
 				if (cleanTailwindClass.charAt(0) === cleanTailwindClass.charAt(0).toUpperCase() && cleanTailwindClass.charAt(0) !== '-') {
-					titaniumClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]));
+					titaniumClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[classIndex]));
+				} else if (tailwindClass.includes('animationProperties')) {
+					anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[classIndex]));
 				} else {
-					anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(cleanTailwindClass)]));
+					anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[classIndex]));
 				}
 			}
 
