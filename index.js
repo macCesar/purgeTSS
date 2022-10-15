@@ -2290,9 +2290,11 @@ function purgeTailwind(uniqueClasses) {
 
 	let deviceClasses = [];
 	let titaniumClasses = [];
-	let anArrayOfClasses = [];
+	let anArrayOfCustomClasses = [];
+	let anArrayOfDefaultClasses = [];
 	let anArrayOfAnimationClasses = [];
-	tailwindClasses.forEach(tailwindClass => {
+	let endOfCustomClasses = tailwindClasses.indexOf('// End of Custom Classes');
+	tailwindClasses.forEach((tailwindClass, key) => {
 		if (tailwindClass !== '' && !tailwindClass.includes('//')) {
 			let cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '')}`;
 
@@ -2302,8 +2304,10 @@ function purgeTailwind(uniqueClasses) {
 					titaniumClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[classIndex]));
 				} else if (tailwindClass.includes('animationProperties')) {
 					anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[classIndex]));
+				} else if (key > endOfCustomClasses) {
+					anArrayOfDefaultClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[classIndex]));
 				} else {
-					anArrayOfClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[classIndex]));
+					anArrayOfCustomClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[classIndex]));
 				}
 			}
 
@@ -2350,8 +2354,8 @@ function purgeTailwind(uniqueClasses) {
 	});
 
 	purgedClasses += (titaniumClasses.length) ? '\n// Ti Elements\n' + titaniumClasses.sort().join('') : '';
-	purgedClasses += (anArrayOfClasses.length) ? '\n// Main Styles\n' + anArrayOfClasses.sort().join('') : '';
-
+	purgedClasses += (anArrayOfCustomClasses.length) ? '\n// Custom Styles\n' + anArrayOfCustomClasses.sort().join('') : '';
+	purgedClasses += (anArrayOfDefaultClasses.length) ? '\n// Main Styles\n' + anArrayOfDefaultClasses.sort().join('') : '';
 	purgedClasses += (deviceClasses.length) ? '\n// Platform and Device Modifiers\n' + deviceClasses.sort().join('') : '';
 	purgedClasses += (anArrayOfAnimationClasses.length) ? '\n// Animation Module\n' + anArrayOfAnimationClasses.sort().join('') : '';
 

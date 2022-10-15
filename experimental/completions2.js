@@ -101,7 +101,7 @@ function processCustomClasses() {
 	}
 
 	if (tailwindStyles !== '') {
-		return `\n// Custom Classes\n${tailwindStyles}`;
+		return `\n// Custom Classes\n${tailwindStyles}// End of Custom Classes\n`;
 	}
 
 	return '';
