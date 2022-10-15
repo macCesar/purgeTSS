@@ -723,7 +723,7 @@ function removeModuleName(value, property) {
 	return camelCaseToDash(value
 		// .replace(/^Ti.UI.iOS./, '')
 		.replace(/^Ti.UI.iPad./, '')
-		// .replace(/^Ti.App.iOS./, '')
+		.replace(/^Ti.App./, '')
 		// .replace(/^Ti.Geolocation.Android./, '')g
 		.replace(/^Ti.Geolocation./, '')
 		// .replace(/^Ti.UI.Android./, '')
