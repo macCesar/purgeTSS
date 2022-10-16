@@ -16,7 +16,7 @@
 
 # Key features of PurgeTSS
 
-- Provides more than 19,500 **[Tailwind-like utility classes](https://tailwindcss.com/)** ready to use in your projects.
+- Provides almost 19,000 **[Tailwind-like utility classes](https://tailwindcss.com/)** ready to use in your projects.
 - It creates a clean **`app.tss`** file with only the classes used in your project by parsing all your XML files.
 - You can customize any of the default classes through a simple configuration file, or you can create _just-in-time_ classes with **arbitrary values** within the `Views`.
 - You can easily use **Font Awesome**, **Material Design** and **Framework7-Icons** fonts in `Buttons` and `Labels`.

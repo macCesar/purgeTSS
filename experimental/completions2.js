@@ -274,6 +274,7 @@ function processCompoundClasses({ ..._base }) {
 	compoundClasses += generateGlossary('padding-alternative', helpers.padding(_base.padding));
 	compoundClasses += generateGlossary('rotate-negative-values', helpers.negativeRotate(_base.rotate));
 	compoundClasses += generateGlossary('zoom-in-out', helpers.zoomIn(_base.scale));
+	compoundClasses += generateGlossary('widthHeight', helpers.widthHeight(_base.widthHeight));
 
 	//! colors
 	compoundClasses += generateGlossary('backgroundGradient', helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient')));
@@ -346,6 +347,7 @@ function combineDefaultThemeWithConfigFile() {
 		spacing: {},
 		width: {},
 		height: {},
+		widthHeight: {},
 		boolean: { true: true, false: false },
 		rotate: combineKeys(configFile.theme, defaultTheme.rotate, 'rotate'),
 		zIndex: defaultTheme.zIndex,
@@ -366,6 +368,7 @@ function combineDefaultThemeWithConfigFile() {
 	_.merge(base.spacing, themeOrDefaultValues.spacing, configFile.theme.extend.spacing);
 	_.merge(base.width, themeOrDefaultValues.spacing, configFile.theme.extend.spacing, themeOrDefaultValues.width, configFile.theme.extend.width);
 	_.merge(base.height, themeOrDefaultValues.spacing, configFile.theme.extend.spacing, themeOrDefaultValues.height, configFile.theme.extend.height);
+	_.merge(base.widthHeight, base.width, base.height);
 
 	fixPercentages(base.width);
 	fixPercentages(base.height);
