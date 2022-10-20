@@ -99,7 +99,7 @@ const srcMaterialSymbolsTSSFile = path.resolve(__dirname, './dist/materialsymbol
 const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
 
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile);
-configFile.corePlugins = configFile.corePlugins ?? {};
+configFile.plugins = configFile.plugins ?? {};
 configFile.purge = configFile.purge ?? { mode: 'all' };
 configFile.theme.extend = configFile.theme.extend ?? {};
 configFile.fonts = configFile.fonts ?? { mode: 'fileName' };
@@ -153,6 +153,7 @@ function purgeClasses(options) {
 }
 module.exports.purgeClasses = purgeClasses;
 
+//! Command: init
 function init(options) {
 	// config file
 	if (!fs.existsSync(projectsConfigJS)) {
@@ -287,7 +288,6 @@ function cleanClasses(uniqueClasses) {
 	return cleanClassNames;
 }
 
-//! Command: init
 function createConfigFile() {
 	if (alloyProject()) {
 		makeSureFolderExists(projectsPurgeTSSFolder);
@@ -360,6 +360,57 @@ function create(args, options) {
 }
 exports.create = create;
 
+//! Command: shades
+function shades(args, options) {
+	delete configFile.fonts;
+
+	let chroma = require('chroma-js');
+	let generateColorShades = require('./lib/color-shades/generateColorShades');
+	let referenceColorFamilies = require('./lib/color-shades/tailwind').filter((item) => {
+		return item.name !== 'warmGray' &&
+			item.name !== 'trueGray' &&
+			item.name !== 'gray' &&
+			item.name !== 'coolGray' &&
+			item.name !== 'blueGray'
+	});
+
+	let colorFamily = (options.random || !args.hexcode) ? generateColorShades(chroma.random(), referenceColorFamilies) : generateColorShades(args.hexcode, referenceColorFamilies);
+	if (args.name) colorFamily.name = args.name;
+	colorFamily.name = colorFamily.name.replace(/'/g, '');
+
+	let colorObject = createColorObject(colorFamily, colorFamily.hexcode);
+
+	if (!configFile['theme']['extend']['colors']) configFile['theme']['extend']['colors'] = {};
+	configFile['theme']['extend']['colors'][colorObject.name] = colorObject.shades;
+
+	if (alloyProject() && !options.log) {
+		fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options.quotes), 'utf8', err => { throw err; });
+		logger.info(`${chalk.bgHex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} ${chalk.hex(colorFamily.hexcode)(`(${colorFamily.hexcode}) saved in`)}`, chalk.yellow('config.js'));
+	} else {
+		logger.info(`${chalk.bgHex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} ${chalk.hex(colorFamily.hexcode)(`(${colorFamily.hexcode})`)}\n${cleanDoubleQuotes({ colors: { [colorObject.name]: colorObject.shades } }, options.quotes)}`);
+	}
+}
+exports.shades = shades;
+
+function cleanDoubleQuotes(configFile, quotes = false) {
+	let json = JSON.stringify(configFile, null, 2);
+
+	if (quotes) return json;
+
+	json = json.replace(/"([^"]+)":/g, (match, p1) => (p1.match(/[._-]/)) ? `'${p1}':` : `${p1}:`);
+
+	return json.replaceAll("\"", "'");
+}
+
+function createColorObject(family, hexcode) {
+	let colors = {};
+	let shades = { default: hexcode };
+	family.shades.forEach((shade) => shades[shade.number] = shade.hexcode);
+	colors.name = family.name.toLowerCase().split(" ").join("-");
+	colors.shades = shades;
+	return colors;
+}
+
 function createProject(workspace, argsName, projectID, options) {
 	let projectName = `"${argsName}"`;
 	const { exec } = require("child_process");
@@ -367,35 +418,35 @@ function createProject(workspace, argsName, projectID, options) {
 
 	logger.info('Creating a new Titanium project');
 
-	let tiCreateCommand = `ti create -t app -p all -n ${projectName} --no-prompt --id ${projectID}`;
+	let tiCreateCommand = `ti create - t app - p all - n ${projectName} --no - prompt--id ${projectID}`;
 	exec(tiCreateCommand, (error) => {
 		if (error) return logger.error(error);
 
-		let fonts = (options.vendor) ? `&& purgetss f -m -v=${options.vendor}` : '';
+		let fonts = (options.vendor) ? `&& purgetss f - m - v=${options.vendor}` : '';
 
 		if (options.vendor) {
 			logger.info('Installing requested fonts');
 		}
 
-		let cdToProject = `cd ${workspace}/${projectName} && alloy new && purgetss w && purgetss b ${fonts}`;
+		let cdToProject = `cd ${workspace} / ${projectName} && alloy new && purgetss w && purgetss b ${fonts}`;
 		exec(cdToProject, (error) => {
 			if (error) return logger.error(error);
 
 			let theOpenCommand;
 			if (commandExistsSync('code')) {
-				theOpenCommand = `cd ${workspace}/${projectName} && code .`;
+				theOpenCommand = `cd ${workspace} / ${projectName} && code.`;
 			} else if (commandExistsSync('subl')) {
-				theOpenCommand = `cd ${workspace}/${projectName} && subl .`;
+				theOpenCommand = `cd ${workspace} / ${projectName} && subl.`;
 			} else {
-				theOpenCommand = `cd ${workspace}/${projectName} && open .`;
+				theOpenCommand = `cd ${workspace} / ${projectName} && open.`;
 			}
 
 			if (options.tailwind) {
 				logger.info('Installing Tailwind CSS');
 
-				fs.writeFileSync(`${workspace}/${argsName}/package.json`, JSON.stringify({ "name": `${argsName.replace(/ /g, '-').toLowerCase()}`, "private": true }));
+				fs.writeFileSync(`${workspace} / ${argsName} / package.json`, JSON.stringify({ "name": `${argsName.replace(/ /g, '-').toLowerCase()}`, "private": true }));
 
-				let installTailwind = `cd ${workspace}/${projectName} && npm init -y && npm i tailwindcss -D && npx tailwindcss init`;
+				let installTailwind = `cd ${workspace} / ${projectName} && npm init - y && npm i tailwindcss - D && npx tailwindcss init`;
 				exec(installTailwind, (error) => {
 					if (error) return logger.error(error);
 
@@ -465,7 +516,7 @@ function buildFonts(options) {
 				let fontFamilyName = fontMeta.postScriptName.replace(/\//g, '');
 				//! Maybe this is deprecated
 				if (configFile.fonts.mode.toLowerCase() === 'postscriptname' || configFile.fonts.mode.toLowerCase() === 'postscript' || configFile.fonts.mode.toLowerCase() === 'ps') {
-					tssClasses += `\n'.${fontFamilyName}': { font: { fontFamily: '${fontFamilyName}' } }\n`;
+					tssClasses += `\n'.${fontFamilyName.toLowerCase()}': { font: { fontFamily: '${fontFamilyName}' } }\n`;
 				} else {
 					tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontFamilyName}' } }\n`;
 				}
@@ -1528,9 +1579,9 @@ function combineAllValues(base, defaultTheme) {
 		delete configFile.theme.fontFamily;
 	}
 
-	// !Delete corePlugins specified in the config file
-	let corePlugins = Array.isArray(configFile.corePlugins) ? configFile.corePlugins : Object.keys(configFile.corePlugins).map(key => key);
-	_.each(corePlugins, value => {
+	// !Delete plugins specified in the config file
+	let plugins = Array.isArray(configFile.plugins) ? configFile.plugins : Object.keys(configFile.plugins).map(key => key);
+	_.each(plugins, value => {
 		delete allValues[value];
 		delete configFile.theme[value];
 	});

@@ -65,6 +65,20 @@ program
 	});
 
 program
+	.command('shades')
+	.alias('s')
+	.argument('[hexcode]', 'The base hexcode value')
+	.argument('[name]', 'Name of the color shades')
+	.option('-q, --quotes', 'Keep double quotes in config.js')
+	.option('-r, --random', 'Generates shades from a random color')
+	.option('-l, --log', `Log the generated shades instead of saving them`)
+	.description(`Color shades generator from a given hexcolor`)
+	.help(`Generates color shades from a given hexcolor to use in your project`)
+	.action((args, options, logger) => {
+		purgetss.shades(args, options);
+	});
+
+program
 	.command('watch')
 	.alias('w')
 	.description(`Auto-runs ${chalk.green('PurgeTSS')} every time you compile your project`)
