@@ -385,9 +385,9 @@ function shades(args, options) {
 
 	if (alloyProject() && !options.log) {
 		fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options.quotes), 'utf8', err => { throw err; });
-		logger.info(`${chalk.bgHex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} ${chalk.hex(colorFamily.hexcode)(`(${colorFamily.hexcode}) saved in`)}`, chalk.yellow('config.js'));
+		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)}) saved in`, chalk.yellow('config.js'));
 	} else {
-		logger.info(`${chalk.bgHex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} ${chalk.hex(colorFamily.hexcode)(`(${colorFamily.hexcode})`)}\n${cleanDoubleQuotes({ colors: { [colorObject.name]: colorObject.shades } }, options.quotes)}`);
+		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)})\n${cleanDoubleQuotes({ colors: { [colorObject.name]: colorObject.shades } }, options.quotes)}`);
 	}
 }
 exports.shades = shades;
