@@ -16,12 +16,13 @@
 
 # Key features of PurgeTSS
 
-- Provides almost 19,000 **[Tailwind-like utility classes](https://tailwindcss.com/)** ready to use in your projects.
-- It creates a clean **`app.tss`** file with only the classes used in your project by parsing all your XML files.
-- You can customize any of the default classes through a simple configuration file, or you can create _just-in-time_ classes with **arbitrary values** within the `Views`.
-- You can easily use **Font Awesome**, **Material Design** and **Framework7-Icons** fonts in `Buttons` and `Labels`.
-- You can create a **`fonts.tss`** file with all the class definitions and fontFamily selectors from any Icon, Serif, Sans-Serif, Cursive, Fantasy or Monospace font families.
-- Includes an **Animation module** to apply basic 2D Matrix animations or transformations to any element or to an `Array` of elements.
+- Provides more tahn 18,800 **[Tailwind-like utility classes](https://tailwindcss.com/)** ready to be used in your projects.
+- Create a clean **`app.tss`** file with only the classes used in your project by parsing all your XML files.
+- You can customize any of the default classes via a simple configuration file, or you can create *just-in-time* classes with **arbitrary values** within your `Views`.
+- You can easily use fonts from **Font Awesome**, **Material Design** and **Framework7-Icons** on `Buttons` and `Labels`.
+- Generates a **`fonts.tss`** file with all class definitions and *fontFamily* selectors for any Icon, Serif, Sans-Serif, Italic, Fancy, or Monospace font.
+- Use the `shades` command to generate custom color shades from the given hex color to use in your projects. You no longer need a separate online tool to generate them.
+- Includes an **Animation module** to apply basic 2D Matrix animations or transform any element or `Array` of elements.
 - Includes a simple two-dimensional **Grid System** to align and distribute elements in your views.
 
 ### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more about PurgeTSS
