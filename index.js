@@ -399,7 +399,7 @@ function cleanDoubleQuotes(configFile, options) {
 
 	if (options.quotes) return json;
 
-	json = json.replace(/"([^"]+)":/g, (match, p1) => (p1.match(/[._-]/)) ? `'${p1}':` : `${p1}:`);
+	json = json.replace(/"([^"]+)":/g, (match, p1) => (p1.match(/[#._-]/)) ? `'${p1}':` : `${p1}:`);
 
 	return json.replaceAll("\"", "'");
 }
