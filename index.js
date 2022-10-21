@@ -375,39 +375,52 @@ function shades(args, options) {
 	});
 
 	let colorFamily = (options.random || !args.hexcode) ? generateColorShades(chroma.random(), referenceColorFamilies) : generateColorShades(args.hexcode, referenceColorFamilies);
+
 	if (args.name) colorFamily.name = args.name;
-	colorFamily.name = colorFamily.name.replace(/'/g, '');
+	colorFamily.name = colorFamily.name.replace(/'/g, '').replace(/\//g, '').replace('  ', ' ');
 
-	let colorObject = createColorObject(colorFamily, colorFamily.hexcode);
+	let colorObject = createColorObject(colorFamily, colorFamily.hexcode, options);
 
-	if (!configFile['theme']['extend']['colors']) configFile['theme']['extend']['colors'] = {};
-	configFile['theme']['extend']['colors'][colorObject.name] = colorObject.shades;
-
-	if (alloyProject() && !options.log) {
-		fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options.quotes), 'utf8', err => { throw err; });
+	if (alloyProject() && !options.log && !options.json) {
+		if (!configFile['theme']['extend']['colors']) configFile['theme']['extend']['colors'] = {};
+		configFile['theme']['extend']['colors'][colorObject.name] = colorObject.shades;
+		fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err; });
 		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)}) saved in`, chalk.yellow('config.js'));
+	} else if (options.json) {
+		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)})\n${JSON.stringify(colorObject, null, 2)}`);
 	} else {
-		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)})\n${cleanDoubleQuotes({ colors: { [colorObject.name]: colorObject.shades } }, options.quotes)}`);
+		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)})\n${cleanDoubleQuotes({ colors: { [colorObject.name]: colorObject.shades } }, options)}`);
 	}
 }
 exports.shades = shades;
 
-function cleanDoubleQuotes(configFile, quotes = false) {
+function cleanDoubleQuotes(configFile, options) {
 	let json = JSON.stringify(configFile, null, 2);
 
-	if (quotes) return json;
+	if (options.quotes) return json;
 
 	json = json.replace(/"([^"]+)":/g, (match, p1) => (p1.match(/[._-]/)) ? `'${p1}':` : `${p1}:`);
 
 	return json.replaceAll("\"", "'");
 }
 
-function createColorObject(family, hexcode) {
+function createColorObject(family, hexcode, options) {
 	let colors = {};
-	let shades = { default: hexcode };
-	family.shades.forEach((shade) => shades[shade.number] = shade.hexcode);
-	colors.name = family.name.toLowerCase().split(" ").join("-");
-	colors.shades = shades;
+
+	if (options.json) {
+		let shades = {};
+		colors.global = {};
+		let name = family.name.toLowerCase().split(" ").join("-");
+		shades[name] = hexcode;
+		family.shades.forEach((shade) => shades[`${name}-${shade.number}`] = shade.hexcode);
+		colors.global.colors = shades;
+	} else {
+		let shades = { default: hexcode };
+		family.shades.forEach((shade) => shades[shade.number] = shade.hexcode);
+		colors.name = family.name.toLowerCase().split(" ").join("-");
+		colors.shades = shades;
+	}
+
 	return colors;
 }
 
