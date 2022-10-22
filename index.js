@@ -2132,7 +2132,7 @@ function extractClassesOnly(currentText, currentFile) {
 		let jsontext = convert.xml2json(encodeHTML(currentText), { compact: true });
 
 		return traverse(JSON.parse(jsontext)).reduce(function(acc, value) {
-			if (this.key === 'class') acc.push(value.split(' '));
+			if (this.key === 'class' || this.key === 'classes' || this.key === 'icon') acc.push(value.split(' '));
 			return acc;
 		}, []);
 	} catch (error) {
