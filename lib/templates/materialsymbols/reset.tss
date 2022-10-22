@@ -29,4 +29,4 @@
 '.ms-light-inactive': { color: 'rgba(255, 255, 255, 0.3)' }
 
 // Font Icons
-// To use Material Icons in Buttons AND Labels each class sets 'text' and 'title' properties
+// To use Material Symbols in Buttons AND Labels each class sets 'text' and 'title' properties

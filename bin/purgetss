@@ -39,7 +39,7 @@ program
 	.help(`Creates a new Alloy Project with ${chalk.green('PurgeTSS')} configured. You’ll need to have ${chalk.yellow('app.idprefix')} and ${chalk.yellow('app.workspace')} already configured.`)
 	.option('-f, --force', 'To overwrite an existing project')
 	.option('-t, --tailwind', `To install ${chalk.green('Tailwind CSS')} in your project for Tailwind CSS Intellisense VS Code extension`)
-	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('md')} = Material Design Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
+	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
 	.argument('<name>', 'The name of the project')
 	.action((args, options, logger) => {
 		purgetss.create(args, options);
@@ -93,8 +93,8 @@ program
 	.command('fonts')
 	.alias('f')
 	.description('Copies default icon font libraries into your project')
-	.help(`Copy Font Awesome (Brands, Regular, Solid), Material Design, Material Symbols or Framework 7 icons,\ninto your projects’s ${chalk.yellow('app/assets/fonts/')} folder and their names fixed to work on iOS and Android`)
-	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('md')} = Material Design Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
+	.help(`Copy Font Awesome (Brands, Regular, Solid), Material Icons, Material Symbols or Framework 7 icons,\ninto your projects’s ${chalk.yellow('app/assets/fonts/')} folder and their names fixed to work on iOS and Android`)
+	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
 	.option('-m, --modules', `Use the --modules option to also copy the corresponding CommonJS module into ${chalk.yellow('./app/lib/')} folder`)
 	.action((args, options, logger) => {
 		purgetss.copyFonts(options);

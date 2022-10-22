@@ -1,7 +1,7 @@
 // Material Symbols by Google (https://github.com/google/material-design-icons)
+// Material Symbols is the official icon set from Google. https://fonts.google.com/icons?icon.set=Material+Symbols
 // Material Symbols are our newest icons consolidating over 2,500 glyphs in a single font file with a wide range of design variants.
 // Symbols are available in three styles and four adjustable variable font styles (fill, weight, grade, and optical size).
-// Material Symbols is the official icon set from Google. https://fonts.google.com/icons?icon.set=Material+Symbols
 
 // Font Families
 '.ms': { font: { fontFamily: 'MaterialSymbolsOutlined-Regular' } }
@@ -34,7 +34,7 @@
 '.ms-light-inactive': { color: 'rgba(255, 255, 255, 0.3)' }
 
 // Font Icons
-// To use Material Icons in Buttons AND Labels each class sets 'text' and 'title' properties
+// To use Material Symbols in Buttons AND Labels each class sets 'text' and 'title' properties
 '.ms-10k': { text: '\ue951', title: '\ue951' }
 '.ms-10mp': { text: '\ue952', title: '\ue952' }
 '.ms-11mp': { text: '\ue953', title: '\ue953' }

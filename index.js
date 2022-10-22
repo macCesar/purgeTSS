@@ -48,9 +48,9 @@ const projectsFA_TSS_File = cwd + '/purgetss/fontawesome.tss';
 
 // js icon modules
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js');
-const srcLibF7 = path.resolve(__dirname, './dist/framework7icons.js');
-const srcLibMD = path.resolve(__dirname, './dist/materialdesignicons.js');
+const srcLibMI = path.resolve(__dirname, './dist/materialicons.js');
 const srcLibMS = path.resolve(__dirname, './dist/materialsymbols.js');
+const srcLibF7 = path.resolve(__dirname, './dist/framework7icons.js');
 const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js');
 
 //
@@ -93,7 +93,7 @@ const PurgeTSSPackageJSON = JSON.parse(fs.readFileSync(path.resolve(__dirname, '
 
 const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss');
 const srcFramework7FontTSSFile = path.resolve(__dirname, './dist/framework7icons.tss');
-const srcMaterialDesignIconsTSSFile = path.resolve(__dirname, './dist/materialdesignicons.tss');
+const srcMaterialIconsTSSFile = path.resolve(__dirname, './dist/materialicons.tss');
 const srcMaterialSymbolsTSSFile = path.resolve(__dirname, './dist/materialsymbols.tss');
 
 const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
@@ -134,7 +134,7 @@ function purgeClasses(options) {
 
 		tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses);
 
-		tempPurged += purgeMaterialDesign(uniqueClasses, cleanUniqueClasses);
+		tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses);
 
 		tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses);
 
@@ -235,7 +235,8 @@ function copyFonts(options) {
 			});
 		} else {
 			copyFont('fa');
-			copyFont('md');
+			copyFont('mi');
+			copyFont('ms');
 			copyFont('f7');
 		}
 
@@ -258,7 +259,7 @@ function copyFontLibraries(options) {
 			});
 		} else {
 			copyFontLibrary('fa');
-			copyFontLibrary('md');
+			copyFontLibrary('mi');
 			copyFontLibrary('f7');
 		}
 	}
@@ -744,8 +745,8 @@ function copyProFonts(fontFamilies, webFonts) {
 	});
 }
 
-function copyMaterialDesignFonts() {
-	// Material Design Icons Font
+function copyMaterialIconsFonts() {
+	// Material Icons Font
 	let fontFamilies = [
 		'MaterialIcons-Regular.ttf',
 		'MaterialIconsOutlined-Regular.otf',
@@ -758,7 +759,7 @@ function copyMaterialDesignFonts() {
 		copyFile(`${srcFonts_Folder}/${familyName}`, familyName);
 	});
 
-	logger.info('Material Design Icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
+	logger.info('Material Icons Font copied to', chalk.yellow('./app/assets/fonts'), 'folder');
 }
 
 function copyMaterialSymbolsFonts() {
@@ -1743,7 +1744,7 @@ function createDefinitionsFile() {
 
 	classDefinitions += fs.readFileSync(srcFramework7FontTSSFile, 'utf8');
 
-	classDefinitions += fs.readFileSync(srcMaterialDesignIconsTSSFile, 'utf8');
+	classDefinitions += fs.readFileSync(srcMaterialIconsTSSFile, 'utf8');
 
 	classDefinitions += fs.readFileSync(srcMaterialSymbolsTSSFile, 'utf8');
 
@@ -2174,7 +2175,6 @@ function copyFont(vendor) {
 
 	switch (vendor) {
 		case 'fa':
-		case 'font':
 		case 'fontawesome':
 			if (fs.existsSync(srcFA_Beta_CSSFile)) {
 				copyProFonts(srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder);
@@ -2184,17 +2184,15 @@ function copyFont(vendor) {
 				copyFreeFonts();
 			}
 			break;
-		case 'md':
-		case 'material':
-		case 'materialdesign':
-			copyMaterialDesignFonts();
+		case 'mi':
+		case 'materialicons':
+			copyMaterialIconsFonts();
 			break;
 		case 'ms':
 		case 'materialsymbol':
 			copyMaterialSymbolsFonts();
 			break;
 		case 'f7':
-		case 'framework':
 		case 'framework7':
 			copyFramework7IconsFonts();
 			break;
@@ -2205,7 +2203,6 @@ function copyFont(vendor) {
 function copyFontLibrary(vendor) {
 	switch (vendor) {
 		case 'fa':
-		case 'font':
 		case 'fontawesome':
 			if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
 				buildFontAwesomeJS();
@@ -2214,11 +2211,10 @@ function copyFontLibrary(vendor) {
 				logger.info('FontAwesome CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			}
 			break;
-		case 'md':
-		case 'material':
-		case 'materialdesign':
-			fs.copyFileSync(srcLibMD, projectsLibFolder + '/materialdesignicons.js');
-			logger.info('Material Design CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
+		case 'mi':
+		case 'materialicons':
+			fs.copyFileSync(srcLibMI, projectsLibFolder + '/materialicons.js');
+			logger.info('Material Icons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 		case 'ms':
 		case 'materialsymbol':
@@ -2226,7 +2222,6 @@ function copyFontLibrary(vendor) {
 			logger.info('Material Symbols CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
 			break;
 		case 'f7':
-		case 'framework':
 		case 'framework7':
 			fs.copyFileSync(srcLibF7, projectsLibFolder + '/framework7icons.js');
 			logger.info('Framework7-Icons CommonJS module copied to', chalk.yellow('./app/lib'), 'folder');
@@ -2501,13 +2496,13 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
 	return '';
 }
 
-//! Material Design Icons
-function purgeMaterialDesign(uniqueClasses, cleanUniqueClasses) {
-	let purgedClasses = '\n// Material Design Icons\n';
+//! Material Icons
+function purgeMaterialIcons(uniqueClasses, cleanUniqueClasses) {
+	let purgedClasses = '\n// Material Icons\n';
 
-	purgedClasses += purgeFontIcons(srcMaterialDesignIconsTSSFile, uniqueClasses, 'Purging Material Design Icons styles...', cleanUniqueClasses, ['md', 'mdo', 'mdr', 'mds', 'mdt', 'materialdesign', 'materialdesign-round', 'materialdesign-sharp', 'materialdesign-two-tone', 'materialdesign-outlined', 'material-icons', 'material-icons-round', 'material-icons-sharp', 'material-icons-two-tone', 'material-icons-outlined']);
+	purgedClasses += purgeFontIcons(srcMaterialIconsTSSFile, uniqueClasses, 'Purging Material Icons styles...', cleanUniqueClasses, ['mi', 'mio', 'mir', 'mis', 'mit', 'material-icons', 'material-icons-round', 'material-icons-sharp', 'material-icons-two-tone', 'material-icons-outlined']);
 
-	return (purgedClasses === '\n// Material Design Icons\n') ? '' : purgedClasses;
+	return (purgedClasses === '\n// Material Icons\n') ? '' : purgedClasses;
 }
 
 // !Material Symbols

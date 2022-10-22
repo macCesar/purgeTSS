@@ -1,8 +1,6 @@
 /**
- * Material icons 4.0.0. by Google (https://github.com/google/material-design-icons)
- * Are delightful, beautifully crafted symbols for common actions and items. https://material.io/resources/icons/?style=baseline
- * Material design icons is the official icon set from Google. https://material.io/design/iconography/system-icons.html
- * Material design guidelines: https://material.io/guidelines/.
+ * Material Icons 4.0.0. by Google (https://github.com/google/material-design-icons)
+ * Material icons is the official icon set from Google. https://fonts.google.com/icons
  * Update material icons [09/19/22]
 */
 
