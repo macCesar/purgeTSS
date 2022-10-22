@@ -99,7 +99,6 @@ const srcMaterialSymbolsTSSFile = path.resolve(__dirname, './dist/materialsymbol
 const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
 
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile);
-configFile.plugins = configFile.plugins ?? {};
 configFile.purge = configFile.purge ?? { mode: 'all' };
 configFile.theme.extend = configFile.theme.extend ?? {};
 configFile.fonts = configFile.fonts ?? { mode: 'fileName' };
@@ -109,6 +108,7 @@ if (configOptions) {
 	configOptions.legacy = configOptions.legacy ?? false;
 	configOptions.widgets = configOptions.widgets ?? false;
 	configOptions.missing = configOptions.missing ?? true;
+	configOptions.plugins = configOptions.plugins ?? [];
 }
 
 const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
@@ -1595,7 +1595,7 @@ function combineAllValues(base, defaultTheme) {
 	}
 
 	// !Delete plugins specified in the config file
-	let deletePlugins = Array.isArray(configFile.plugins) ? configFile.plugins : Object.keys(configFile.plugins).map(key => key);
+	let deletePlugins = checkDeletePlugins();
 	_.each(deletePlugins, value => {
 		delete allValues[value];
 		delete configFile.theme[value];
@@ -1607,6 +1607,11 @@ function combineAllValues(base, defaultTheme) {
 	});
 
 	return allValues;
+}
+
+function checkDeletePlugins() {
+	let deletePlugins = configFile.plugins ?? configOptions.plugins;
+	return Array.isArray(deletePlugins) ? deletePlugins : Object.keys(deletePlugins).map(key => key);
 }
 
 //! Build Tailwind ( AUTO )

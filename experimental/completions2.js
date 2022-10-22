@@ -31,7 +31,6 @@ const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.js
 const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js');
 
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile);
-configFile.plugins = configFile.plugins ?? [];
 configFile.purge = configFile.purge ?? { mode: 'all' };
 configFile.theme.extend = configFile.theme.extend ?? {};
 configFile.fonts = configFile.fonts ?? { mode: 'fileName' };
@@ -39,7 +38,8 @@ configFile.fonts = configFile.fonts ?? { mode: 'fileName' };
 const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : false;
 if (configOptions) {
 	configOptions.widgets = configOptions.widgets ?? false;
-	configOptions.missing = configOptions.missing ?? false;
+	configOptions.missing = configOptions.missing ?? true;
+	configOptions.plugins = configOptions.plugins ?? [];
 }
 
 function autoBuildTailwindTSS(options = {}) {
@@ -413,7 +413,7 @@ function combineDefaultThemeWithConfigFile() {
 		: _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
 
 	// !Delete plugins specified in the config file
-	let deletePlugins = Array.isArray(configFile.plugins) ? configFile.plugins : Object.keys(configFile.plugins).map(key => key);
+	let deletePlugins = checkDeletePlugins();
 	_.each(deletePlugins, value => {
 		delete base[value];
 		delete configFile.theme[value];
@@ -421,6 +421,11 @@ function combineDefaultThemeWithConfigFile() {
 	});
 
 	return base;
+}
+
+function checkDeletePlugins() {
+	let deletePlugins = configFile.plugins ?? configOptions.plugins;
+	return Array.isArray(deletePlugins) ? deletePlugins : Object.keys(deletePlugins).map(key => key);
 }
 
 //! Helper Functions
