@@ -396,13 +396,14 @@ function shades(args, options) {
 exports.shades = shades;
 
 function cleanDoubleQuotes(configFile, options) {
-	let json = JSON.stringify(configFile, null, 2);
+	const regexUnicode = /[^\u0000-\u00FF]/g;
 
-	if (options.quotes) return json;
+	if (options.quotes) return JSON.stringify(configFile, null, 2).replace(regexUnicode, match => `\\u${match.charCodeAt(0).toString(16)}`);
 
-	json = json.replace(/"([^"]+)":/g, (match, p1) => (p1.match(/[#._-]/)) ? `'${p1}':` : `${p1}:`);
+	let util = require('util');
+	let inspected = util.inspect(configFile, false, 10);
 
-	return json.replaceAll("\"", "'");
+	return inspected.replace(regexUnicode, match => `\\u${match.charCodeAt(0).toString(16)}`);
 }
 
 function createColorObject(family, hexcode, options) {
@@ -1594,10 +1595,11 @@ function combineAllValues(base, defaultTheme) {
 	}
 
 	// !Delete plugins specified in the config file
-	let plugins = Array.isArray(configFile.plugins) ? configFile.plugins : Object.keys(configFile.plugins).map(key => key);
-	_.each(plugins, value => {
+	let deletePlugins = Array.isArray(configFile.plugins) ? configFile.plugins : Object.keys(configFile.plugins).map(key => key);
+	_.each(deletePlugins, value => {
 		delete allValues[value];
 		delete configFile.theme[value];
+		delete configFile.theme.extend[value];
 	});
 
 	_.each(allValues, (_value, key) => {

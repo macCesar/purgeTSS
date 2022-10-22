@@ -412,7 +412,9 @@ function combineDefaultThemeWithConfigFile() {
 		? _.merge({ apply: configFile.theme.View.apply }, configFile.theme.View)
 		: _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View);
 
-	_.each(configFile.plugins, value => {
+	// !Delete plugins specified in the config file
+	let deletePlugins = Array.isArray(configFile.plugins) ? configFile.plugins : Object.keys(configFile.plugins).map(key => key);
+	_.each(deletePlugins, value => {
 		delete base[value];
 		delete configFile.theme[value];
 		delete configFile.theme.extend[value];
