@@ -260,6 +260,7 @@ function copyFontLibraries(options) {
 		} else {
 			copyFontLibrary('fa');
 			copyFontLibrary('mi');
+			copyFontLibrary('ms');
 			copyFontLibrary('f7');
 		}
 	}
@@ -939,7 +940,7 @@ function findPrefix(rules) {
 		return `${firstPrefix}-${secondPrefix}`;
 	} else if (firstCounter == 1) {
 		return `${firstPrefix}`;
-	};
+	}
 }
 
 //! Purge Fonts
@@ -969,7 +970,7 @@ function prettifyFontName(str, prefix) {
 
 	let pretty = withoutPrefix.join('').replace(':', '');
 	return pretty.replace(/^.{1}/g, pretty[0].toLowerCase());
-};
+}
 
 //! Helper Functions
 function findMissingClasses(tempPurged) {
@@ -2151,7 +2152,7 @@ function encodeHTML(str) {
 	const code = {
 		'&': '&amp;',
 	};
-	return str.replace(/[&]/gm, i => code[i]);
+	return str.replace(/&/gm, i => code[i]);
 }
 
 function callback(err) {
