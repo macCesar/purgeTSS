@@ -60,8 +60,9 @@ function autoBuildTailwindTSS(options = {}) {
 	tailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
 
 	if (fs.existsSync(projectsConfigJS)) {
-		saveFile(cwd + '/purgetss/tailwind.tss', tailwindStyles);
-		logger.file('./purgetss/tailwind.tss');
+		makeSureFolderExists(cwd + '/purgetss/styles/');
+		saveFile(cwd + '/purgetss/styles/tailwind.tss', tailwindStyles);
+		logger.file('./purgetss/styles/tailwind.tss');
 		// if (saveGlossary) {
 		// 	saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
 		// 	saveFile(cwd + '/purgetss/experimental/tiUIComponents.json', JSON.stringify(tiUIComponents, null, 2));
