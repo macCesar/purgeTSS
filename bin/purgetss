@@ -93,7 +93,7 @@ program
 program
 	.command('fonts')
 	.alias('f')
-	.description('Copies default icon font libraries into your project')
+	.description(`<deprecated> Will be removed in the next major release. Use ${chalk.yellow('copy-fonts')} instead!`)
 	.help(`Copy Font Awesome (Brands, Regular, Solid), Material Icons, Material Symbols or Framework 7 icons,\nin your projects’s ${chalk.yellow('app/assets/fonts/')} folder and their names fixed to work on iOS and Android`)
 	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
 	.option('-m, --modules', `Use the --modules option to also copy the corresponding CommonJS module in ${chalk.yellow('./app/lib/')} folder`)
