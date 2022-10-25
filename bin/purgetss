@@ -38,7 +38,7 @@ program
 	.description(`Creates a new Alloy Project with ${chalk.green('PurgeTSS')} configured`)
 	.help(`Creates a new Alloy Project with ${chalk.green('PurgeTSS')} configured. You’ll need to have ${chalk.yellow('app.idprefix')} and ${chalk.yellow('app.workspace')} already configured.`)
 	.option('-f, --force', 'To overwrite an existing project')
-	.option('-t, --tailwind', `To install ${chalk.green('Tailwind CSS')} in your project for Tailwind CSS Intellisense VS Code extension`)
+	.option('-t, --tailwind', `Install ${chalk.green('Tailwind CSS')} for Tailwind CSS Intellisense VS Code extension`)
 	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
 	.argument('<name>', 'The name of the project')
 	.action((args, options, logger) => {
@@ -75,9 +75,18 @@ program
 	.option('-l, --log', `Log the generated shades instead of saving them`)
 	.option('-j, --json', `Log a JSON compatible structure, to use it in ${chalk.yellow('app/config.json')}`)
 	.description(`Color shades generator from a given hexcolor`)
-	.help(`Generates color shades from a given hexcolor to use in your project`)
+	.help(`Generate color shades from a given hexcolor to use in your project`)
 	.action((args, options, logger) => {
 		purgetss.shades(args, options);
+	});
+
+program
+	.command('color-module')
+	.alias('cm')
+	.description(`Copy all colors from ${chalk.yellow('config.js')} to your ${chalk.yellow('lib')} folder`)
+	.help(`Copy all colors from ${chalk.yellow('theme.colors')} and ${chalk.yellow('theme.extend.colors')} into a CommonJS module to your project's ${chalk.yellow('lib')} folder`)
+	.action((args, options, logger) => {
+		purgetss.colorModule();
 	});
 
 program
@@ -94,9 +103,9 @@ program
 	.command('fonts')
 	.alias('f')
 	.description(`<deprecated> Will be removed in the next major release. Use ${chalk.yellow('copy-fonts')} instead!`)
-	.help(`Copy Font Awesome (Brands, Regular, Solid), Material Icons, Material Symbols or Framework 7 icons,\nin your projects’s ${chalk.yellow('app/assets/fonts/')} folder and their names fixed to work on iOS and Android`)
+	.help(`Copy Font Awesome (Brands, Regular, Solid), Material Icons, Material Symbols or Framework 7 icons,\nto your project's ${chalk.yellow('app/assets/fonts/')} folder and their names fixed to work on iOS and Android`)
 	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
-	.option('-m, --modules', `Use the --modules option to also copy the corresponding CommonJS module in ${chalk.yellow('./app/lib/')} folder`)
+	.option('-m, --module', `Use the --module option to also copy the corresponding CommonJS module in ${chalk.yellow('./app/lib/')} folder`)
 	.option('-s, --styles', `Copy the corresponding .tss file into ${chalk.yellow('./purgetss/styles/')} folder`)
 	.action((args, options, logger) => {
 		purgetss.copyFonts(options);
@@ -105,10 +114,10 @@ program
 program
 	.command('copy-fonts')
 	.alias('cf')
-	.description('Copies default icon font libraries into your project')
-	.help(`Copy Font Awesome (Brands, Regular, Solid), Material Icons, Material Symbols or Framework 7 icons,\nin your projects’s ${chalk.yellow('app/assets/fonts/')} folder and their names fixed to work on iOS and Android`)
+	.description('Copy default icon font libraries to your project')
+	.help(`Copy Font Awesome (Brands, Regular, Solid), Material Icons, Material Symbols or Framework 7 icons,\nto your project's ${chalk.yellow('app/assets/fonts/')} folder and their names fixed to work on iOS and Android`)
 	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
-	.option('-m, --modules', `Use the --modules option to also copy the corresponding CommonJS module in ${chalk.yellow('./app/lib/')} folder`)
+	.option('-m, --module', `Use the --module option to also copy the corresponding CommonJS module in ${chalk.yellow('./app/lib/')} folder`)
 	.option('-s, --styles', `Copy the corresponding .tss file into ${chalk.yellow('./purgetss/styles/')} folder`)
 	.action((args, options, logger) => {
 		purgetss.copyFonts(options);
@@ -119,7 +128,7 @@ program
 	.alias('bf')
 	.description(`Builds a ${chalk.yellow('fonts.tss')} file from fonts and styles in ${chalk.yellow('./purgetss/fonts')}`)
 	.help(`It will generate a new ${chalk.yellow('fonts.tss')} file based on the fonts and css files located in ${chalk.yellow('./purgetss/fonts')} folder`)
-	.option('-m, --modules', `Use the --modules option to also generate a CommonJS module in ${chalk.yellow('./app/lib/')} folder called ${chalk.yellow('purgetss-fonts.js')}`)
+	.option('-m, --module', `Use the --module option to also generate a CommonJS module in ${chalk.yellow('./app/lib/')} folder called ${chalk.yellow('purgetss-fonts.js')}`)
 	.action((args, options, logger) => {
 		purgetss.buildFonts(options);
 	});
@@ -127,7 +136,7 @@ program
 program
 	.command('module')
 	.alias('m')
-	.description(`Copies ${chalk.yellow('purgetss.ui.js')} module in your project’s ${chalk.yellow('lib')} folder`)
+	.description(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('lib')} folder`)
 	.help('This file contains the Animation module\n')
 	.action((args, options, logger) => {
 		purgetss.copyModulesLibrary();

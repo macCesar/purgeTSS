@@ -422,6 +422,10 @@ function shades(args, options) {
 		configFile['theme']['extend']['colors'][colorObject.name] = colorObject.shades;
 		fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err; });
 		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)}) saved in`, chalk.yellow('config.js'));
+
+		if (options.module) {
+			colorModule();
+		}
 	} else if (options.json) {
 		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)})\n${JSON.stringify(colorObject, null, 2)}`);
 	} else {
@@ -430,6 +434,16 @@ function shades(args, options) {
 }
 exports.shades = shades;
 
+function colorModule() {
+	// read config.js
+	let configFile = require(projectsConfigJS);
+	makeSureFolderExists(projectsLibFolder);
+	let mainColors = { ...configFile.theme.colors, ...configFile.theme.extend.colors };
+	fs.writeFileSync(`${projectsLibFolder}/purgetss.colors.js`, 'exports.colors = ' + cleanDoubleQuotes(mainColors, {}), 'utf8', err => { throw err; });
+	logger.info(`All colors copied to ${chalk.yellow('lib/purgetss.colors.js')} module`);
+}
+exports.colorModule = colorModule;
+
 function cleanDoubleQuotes(configFile, options) {
 	const regexUnicode = /[^\u0000-\u00FF]/g;
 
@@ -437,6 +451,8 @@ function cleanDoubleQuotes(configFile, options) {
 
 	let util = require('util');
 	let inspected = util.inspect(configFile, false, 10);
+
+	if (inspected === 'undefined') return '{}';
 
 	return inspected.replace(regexUnicode, match => `\\u${match.charCodeAt(0).toString(16)}`);
 }
