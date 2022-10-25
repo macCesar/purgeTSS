@@ -243,7 +243,7 @@ function copyFonts(options) {
 			copyFont('f7');
 		}
 
-		if (options.modules) {
+		if (options.module) {
 			console.log();
 			logger.info('Copying Modules to', chalk.yellow('./app/lib'), 'folder');
 			copyFontLibraries(options);
@@ -619,7 +619,7 @@ function buildFonts(options) {
 				tssClasses += processFontsCSS(readCSS(file));
 
 				//! JavaScript Module
-				if (options.modules) {
+				if (options.module) {
 					fontJS += processFontsJS(readCSS(file), `\n\t// ${theCSSFileName}`);
 					fontFamiliesJS += processFontFamilyNamesJS(readCSS(file), `\n\t// ${theCSSFileName}`);
 				}
