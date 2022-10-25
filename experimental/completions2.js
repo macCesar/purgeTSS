@@ -33,7 +33,6 @@ const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile);
 configFile.purge = configFile.purge ?? { mode: 'all' };
 configFile.theme.extend = configFile.theme.extend ?? {};
-configFile.fonts = configFile.fonts ?? { mode: 'fileName' };
 
 const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : false;
 if (configOptions) {

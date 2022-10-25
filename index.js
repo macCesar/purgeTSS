@@ -102,7 +102,6 @@ const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.j
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile);
 configFile.purge = configFile.purge ?? { mode: 'all' };
 configFile.theme.extend = configFile.theme.extend ?? {};
-configFile.fonts = configFile.fonts ?? { mode: 'fileName' };
 
 const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : false;
 if (configOptions) {
@@ -396,8 +395,6 @@ exports.create = create;
 
 //! Command: shades
 function shades(args, options) {
-	delete configFile.fonts;
-
 	let chroma = require('chroma-js');
 	let generateColorShades = require('./lib/color-shades/generateColorShades');
 	let referenceColorFamilies = require('./lib/color-shades/tailwind').filter((item) => {
@@ -435,14 +432,18 @@ function shades(args, options) {
 exports.shades = shades;
 
 function colorModule() {
-	// read config.js
-	let configFile = require(projectsConfigJS);
+	initIfNotConfig();
+	let colorModuleConfigFile = require(projectsConfigJS);
 	makeSureFolderExists(projectsLibFolder);
-	let mainColors = { ...configFile.theme.colors, ...configFile.theme.extend.colors };
+	let mainColors = { ...colorModuleConfigFile.theme.colors, ...colorModuleConfigFile.theme.extend.colors };
 	fs.writeFileSync(`${projectsLibFolder}/purgetss.colors.js`, 'module.exports = ' + cleanDoubleQuotes(mainColors, {}), 'utf8', err => { throw err; });
-	logger.info(`All colors copied to ${chalk.yellow('lib/purgetss.colors.js')} module`);
+	logger.info(`All colors copied to ${chalk.yellow('lib/purgetss.colors.js')}`);
 }
 exports.colorModule = colorModule;
+
+function checkIfColorModule() {
+	if (fs.existsSync(`${projectsLibFolder}/purgetss.colors.js`)) colorModule();
+}
 
 function cleanDoubleQuotes(configFile, options) {
 	const regexUnicode = /[^\u0000-\u00FF]/g;
@@ -581,7 +582,7 @@ function buildFonts(options) {
 
 				let fontFamilyName = fontMeta.postScriptName.replace(/\//g, '');
 				//! Maybe this is deprecated
-				if (configFile.fonts.mode.toLowerCase() === 'postscriptname' || configFile.fonts.mode.toLowerCase() === 'postscript' || configFile.fonts.mode.toLowerCase() === 'ps') {
+				if (configFile.fonts && (configFile.fonts.mode.toLowerCase() === 'postscriptname' || configFile.fonts.mode.toLowerCase() === 'postscript' || configFile.fonts.mode.toLowerCase() === 'ps')) {
 					tssClasses += `\n'.${fontFamilyName.toLowerCase()}': { font: { fontFamily: '${fontFamilyName}' } }\n`;
 				} else {
 					tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontFamilyName}' } }\n`;
@@ -2396,6 +2397,7 @@ function purgeTailwind(uniqueClasses) {
 
 	if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[6]) {
 		logger.info(chalk.yellow('config.js'), 'file changed!, rebuilding tailwind.tss...');
+		checkIfColorModule();
 		buildTailwindBasedOnConfigOptions();
 		createDefinitionsFile();
 		tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/);
