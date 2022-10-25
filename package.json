@@ -46,7 +46,7 @@
 		"@fortawesome/fontawesome-free": "^6.2.0",
 		"caporal": "^1.4.0",
 		"chalk": "^4.1.2",
-		"chroma-js": "^2.4.2",
+		"chroma-js": "^2.1.2",
 		"command-exists": "^1.2.9",
 		"fontname": "^1.0.0",
 		"framework7-icons": "^5.0.5",
