@@ -439,7 +439,7 @@ function colorModule() {
 	let configFile = require(projectsConfigJS);
 	makeSureFolderExists(projectsLibFolder);
 	let mainColors = { ...configFile.theme.colors, ...configFile.theme.extend.colors };
-	fs.writeFileSync(`${projectsLibFolder}/purgetss.colors.js`, 'exports.colors = ' + cleanDoubleQuotes(mainColors, {}), 'utf8', err => { throw err; });
+	fs.writeFileSync(`${projectsLibFolder}/purgetss.colors.js`, 'module.exports = ' + cleanDoubleQuotes(mainColors, {}), 'utf8', err => { throw err; });
 	logger.info(`All colors copied to ${chalk.yellow('lib/purgetss.colors.js')} module`);
 }
 exports.colorModule = colorModule;
