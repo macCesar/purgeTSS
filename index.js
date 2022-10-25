@@ -420,9 +420,7 @@ function shades(args, options) {
 		fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err; });
 		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)}) saved in`, chalk.yellow('config.js'));
 
-		if (options.module) {
-			colorModule();
-		}
+		// if (options.module) colorModule();
 	} else if (options.json) {
 		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)})\n${JSON.stringify(colorObject, null, 2)}`);
 	} else {
