@@ -418,8 +418,8 @@ function shades(args, options) {
 		if (!configFile['theme']['extend']['colors']) configFile['theme']['extend']['colors'] = {};
 		configFile['theme']['extend']['colors'][colorObject.name] = colorObject.shades;
 		fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err; });
+		checkIfColorModule();
 		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)}) saved in`, chalk.yellow('config.js'));
-
 		// if (options.module) colorModule();
 	} else if (options.json) {
 		logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(`${colorFamily.hexcode}`)})\n${JSON.stringify(colorObject, null, 2)}`);
@@ -458,18 +458,21 @@ function cleanDoubleQuotes(configFile, options) {
 
 function createColorObject(family, hexcode, options) {
 	let colors = {};
+	let name = family.name.toLowerCase().split(" ").join("-");
 
 	if (options.json) {
 		let shades = {};
 		colors.global = {};
-		let name = family.name.toLowerCase().split(" ").join("-");
 		shades[name] = hexcode;
 		family.shades.forEach((shade) => shades[`${name}-${shade.number}`] = shade.hexcode);
-		colors.global.colors = shades;
+		colors.global.colors = (options.single) ? { [name]: hexcode } : shades;
+	} else if (options.single) {
+		colors.name = name;
+		colors.shades = hexcode;
 	} else {
 		let shades = { default: hexcode };
 		family.shades.forEach((shade) => shades[shade.number] = shade.hexcode);
-		colors.name = family.name.toLowerCase().split(" ").join("-");
+		colors.name = name;
 		colors.shades = shades;
 	}
 
