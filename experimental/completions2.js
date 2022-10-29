@@ -547,7 +547,7 @@ function validTypesOnly(property, key) {
 
 function fixDefaultScale(values) {
 	_.each(values, (value, key) => {
-		if (value.startsWith('.')) alues[key] = '0' + value;
+		if (value.startsWith('.')) values[key] = '0' + value;
 	});
 
 	return values;
