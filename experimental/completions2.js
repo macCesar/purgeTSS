@@ -36,9 +36,10 @@ configFile.theme.extend = configFile.theme.extend ?? {};
 
 const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : false;
 if (configOptions) {
-	configOptions.widgets = configOptions.widgets ?? false;
-	configOptions.missing = configOptions.missing ?? true;
 	configOptions.plugins = configOptions.plugins ?? [];
+	configOptions.safelist = configOptions.safelist ?? [];
+	configOptions.missing = configOptions.missing ?? true;
+	configOptions.widgets = configOptions.widgets ?? false;
 }
 
 function autoBuildTailwindTSS(options = {}) {
@@ -62,28 +63,10 @@ function autoBuildTailwindTSS(options = {}) {
 		makeSureFolderExists(cwd + '/purgetss/styles/');
 		saveFile(cwd + '/purgetss/styles/tailwind.tss', tailwindStyles);
 		logger.file('./purgetss/styles/tailwind.tss');
-		// if (saveGlossary) {
-		// 	saveFile(cwd + '/purgetss/experimental/baseValues.json', JSON.stringify(baseValues, null, 2));
-		// 	saveFile(cwd + '/purgetss/experimental/tiUIComponents.json', JSON.stringify(tiUIComponents, null, 2));
-		//  saveFile(path.resolve(cwd + '/purgetss/experimental/completionsProrpertiesWithBaseValues.json', JSON.stringify(completionsProrpertiesWithBaseValues, null, 2));
-		// }
 	} else {
 		saveFile(path.resolve(__dirname, '../dist/tailwind.tss'), tailwindStyles);
 		logger.file('./dist/tailwind.tss');
 	}
-
-	// create tailwind.js file
-	// let arrayOfClasses = '';
-	// tailwindStyles.split(/\r?\n/).map(item => {
-	// 	if (!item.includes('//') && !item.includes('[') && item !== '') {
-	// 		let classParts = item.trim().split(/: (.+)/);
-	// 		let classParts1 = classParts[1];
-	// 		let theObjectNew = "'" + classParts[0].replace(/\./, '').replace(/'/g, '') + "': " + classParts1 + ',\n';
-	// 		arrayOfClasses += theObjectNew;
-	// 	}
-	// });
-
-	// saveFile(cwd + '/purgetss/tailwind.js', `const icons = {${arrayOfClasses}}`);
 }
 exports.autoBuildTailwindTSS = autoBuildTailwindTSS;
 
@@ -94,15 +77,12 @@ function processCustomClasses() {
 		_.each(configFile.theme, (value, key) => {
 			if (key !== 'extend') {
 				let theClasses = helpers.customRules(value, key);
-				// saveAutoTSS(key, theClasses);
 				tailwindStyles += theClasses;
 			}
 		});
 	}
 
-	if (tailwindStyles !== '') {
-		return `\n// Custom Classes\n${tailwindStyles}// End of Custom Classes\n`;
-	}
+	if (tailwindStyles !== '') return `\n// Custom Classes\n${tailwindStyles}// End of Custom Classes\n`;
 
 	return '';
 }
@@ -119,9 +99,7 @@ function processTitaniumRules(_propertiesOnly) {
 
 	helpers.globalOptions.legacy = currentLegacyOption;
 
-	if (customRules != '\n// Ti Elements\n') {
-		return customRules;
-	}
+	if (customRules != '\n// Ti Elements\n') return customRules;
 
 	return '';
 }
@@ -142,11 +120,8 @@ function processCompletionsClasses(_completionsWithBaseValues) {
 
 function generateGlossary(_key, _theClasses, _keyName = null) {
 	let baseDestinationFolder = '';
-	if (!fs.existsSync(projectsConfigJS)) {
-		baseDestinationFolder = path.resolve(__dirname, '../dist/glossary/');
-	} else if (saveGlossary) {
-		baseDestinationFolder = cwd + '/purgetss/glossary/';
-	}
+	if (!fs.existsSync(projectsConfigJS)) baseDestinationFolder = path.resolve(__dirname, '../dist/glossary/');
+	else if (saveGlossary) baseDestinationFolder = cwd + '/purgetss/glossary/';
 
 	if (baseDestinationFolder !== '') {
 		makeSureFolderExists(baseDestinationFolder);
@@ -186,11 +161,6 @@ function setBaseValuesToProperties(_allProperties, _base) {
 		_allProperties[key].base = combineKeys(configFile.theme, _base[key] ?? _base[activeKey], key);
 	});
 
-	// if (fs.existsSync(projectsConfigJS) && saveGlossary) {
-	// 	makeSureFolderExists(cwd + '/purgetss/experimental/');
-	// 	saveFile(cwd + '/purgetss/experimental/allKeys.txt', allKeys);
-	// }
-
 	return _allProperties;
 }
 
@@ -211,10 +181,6 @@ function getTiUIComponents(_base) {
 			}
 		}
 	});
-
-	// if (fs.existsSync(projectsConfigJS) && saveGlossary) {
-	// 	saveFile(cwd + '/purgetss/experimental/propertiesOnly.json', JSON.stringify(propertiesOnly, null, 2));
-	// }
 
 	return propertiesOnly;
 }
@@ -266,6 +232,7 @@ function processCompoundClasses({ ..._base }) {
 
 	//! Configurables
 	compoundClasses += generateGlossary('borderRadius-alternative', helpers.borderRadius(_base.borderRadius));
+	// compoundClasses += generateGlossary('borderRadius-full', helpers.borderRadiusFull(_base.borderRadius));
 	compoundClasses += generateGlossary('fontFamily', helpers.fontFamily(_base.fontFamily));
 	compoundClasses += generateGlossary('fontSize', helpers.fontSize(_base.fontSize));
 	compoundClasses += generateGlossary('fontWeight', helpers.fontWeight(_base.fontWeight));
@@ -453,17 +420,13 @@ function removeUnnecesaryValues(theObject) {
 
 function fixPercentages(theObject) {
 	_.each(theObject, (value, key) => {
-		if (value.toString().includes('.333333%')) {
-			theObject[key] = value.replace('.333333%', '.333334%');
-		}
+		if (value.toString().includes('.333333%')) theObject[key] = value.replace('.333333%', '.333334%');
 	});
 }
 
 function removePxFromDefaultTheme(theObject) {
 	_.each(theObject, (value, key) => {
-		if (value.toString().includes('px')) {
-			theObject[key] = value.replace('px', '');
-		}
+		if (value.toString().includes('px')) theObject[key] = value.replace('px', '');
 	});
 
 	return theObject;
@@ -471,9 +434,7 @@ function removePxFromDefaultTheme(theObject) {
 
 function fixfontSize(theObject) {
 	_.each(theObject, value => {
-		if (value.length > 1) {
-			value.pop();
-		}
+		if (value.length > 1) value.pop();
 	});
 }
 
@@ -586,9 +547,7 @@ function validTypesOnly(property, key) {
 
 function fixDefaultScale(values) {
 	_.each(values, (value, key) => {
-		if (value.startsWith('.')) {
-			values[key] = '0' + value;
-		}
+		if (value.startsWith('.')) alues[key] = '0' + value;
 	});
 
 	return values;
@@ -597,20 +556,11 @@ function fixDefaultScale(values) {
 function processComments(key, data) {
 	let myComments = '';
 
-	// if (data.type) {
-	// 	myComments += `\n// Type: ${data.type}`;
-	// }
-
 	myComments += `\n// Property: ${key}`;
 
-	if (data.description) {
-		// remove hrefs
-		myComments += `\n// Description: ${data.description.replace(/\n/g, ' ').replace(/<code>|<\/code>/g, '').replace(/<strong>|<\/strong>/g, '').replace(/<em>|<\/em>/g, '').replace(/<a[^>]*>|<\/a>/g, '')}`;
-	}
+	if (data.description) myComments += `\n// Description: ${data.description.replace(/\n/g, ' ').replace(/<code>|<\/code>/g, '').replace(/<strong>|<\/strong>/g, '').replace(/<em>|<\/em>/g, '').replace(/<a[^>]*>|<\/a>/g, '')}`;
 
-	if (data.modules) {
-		myComments += `\n// Component(s): ${data.modules.join(', ')}\n`;
-	}
+	if (data.modules) myComments += `\n// Component(s): ${data.modules.join(', ')}\n`;
 
 	return myComments;
 }
@@ -631,16 +581,11 @@ function generateCombinedClasses(key, data) {
 		});
 	} else {
 		_.each(data.values, (_value, _key) => {
-			if (!_value.includes('deprecated')) {
-				myClasses += formatClass(key, _value);
-			}
+			if (!_value.includes('deprecated')) myClasses += formatClass(key, _value);
 		});
 	}
 
-	if (myClasses !== '') {
-		// saveAutoTSS(key, comments + myClasses);
-		return comments + myClasses;
-	}
+	if (myClasses !== '') return comments + myClasses;
 
 	return false;
 }
@@ -747,7 +692,5 @@ function removeModuleName(value, property) {
 }
 
 function makeSureFolderExists(folder) {
-	if (!fs.existsSync(folder)) {
-		fs.mkdirSync(folder);
-	}
+	if (!fs.existsSync(folder)) fs.mkdirSync(folder);
 }
