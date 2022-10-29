@@ -5,7 +5,6 @@ function Animation(args) {
 		draggables: [],
 		playing: false,
 		delay: args.delay ?? 0,
-		// delay: args.delay ? args.delay : (args.animationProperties && args.animationProperties.open && args.animationProperties.open.delay) ? args.animationProperties.open.delay : 0,
 		debug: args.debug ?? false,
 		hasTransformation: (args.scale !== undefined || args.rotate !== undefined),
 	};
@@ -16,7 +15,7 @@ function Animation(args) {
 
 	delete args.id;
 
-	if (args.scale || args.rotate || args.anchorPoint) {
+	if ("anchorPoint" in args || "rotate" in args || "scale" in args) {
 		logger('   -> Creating transform');
 		args.transform = Ti.UI.createMatrix2D(args);
 		delete args.scale;
@@ -24,20 +23,16 @@ function Animation(args) {
 		delete args.anchorPoint;
 	}
 
-	if (args.animationProperties && args.animationProperties.open && (args.animationProperties.open.anchorPoint || args.animationProperties.open.rotate || args.animationProperties.open.scale)) {
+	if (args.animationProperties && args.animationProperties.open && ("anchorPoint" in args.animationProperties.open || "rotate" in args.animationProperties.open || "scale" in args.animationProperties.open)) {
 		logger('   -> Creating transformOnOpen');
 		args.transformOnOpen = Ti.UI.createMatrix2D(args.animationProperties.open);
-		delete args.animationProperties.open.scale;
-		delete args.animationProperties.open.rotate;
-		delete args.animationProperties.open.anchorPoint;
+		delete args.animationProperties.open;
 	}
 
-	if (args.animationProperties && args.animationProperties.close && (args.animationProperties.close.anchorPoint || args.animationProperties.close.rotate || args.animationProperties.close.scale)) {
+	if (args.animationProperties && args.animationProperties.close && ("anchorPoint" in args.animationProperties.close || "rotate" in args.animationProperties.close || "scale" in args.animationProperties.close)) {
 		logger('   -> Creating transformOnClose');
 		args.transformOnClose = Ti.UI.createMatrix2D(args.animationProperties.close);
-		delete args.animationProperties.close.scale;
-		delete args.animationProperties.close.rotate;
-		delete args.animationProperties.close.anchorPoint;
+		delete args.animationProperties.close;
 	}
 
 	// TODO: Create a library of useful animations!!
@@ -69,6 +64,8 @@ function Animation(args) {
 	function play(_views, _cb, action = 'play') {
 		logger('   -> `play` helper');
 
+		param.open = !param.open;
+
 		checkAnimation(action);
 
 		if (Array.isArray(_views)) {
@@ -88,24 +85,13 @@ function Animation(args) {
 
 			let offsetX, offsetY;
 
-			if (args.bounds) {
-				if (_view.bounds) {
-					_view.bounds = { ...args.bounds, ..._view.bounds };
-				} else {
-					_view.bounds = args.bounds;
-				}
-			}
+			if (args.bounds) _view.bounds = (_view.bounds) ? { ...args.bounds, ..._view.bounds } : args.bounds;
 
 			param.draggables.push(_view);
 
 			Ti.Gesture.addEventListener('orientationchange', (e) => {
-				if (OS_ANDROID) {
-					setTimeout(() => {
-						checkBoundaries(_view);
-					}, 1000);
-				} else {
-					checkBoundaries(_view);
-				}
+				if (OS_ANDROID) setTimeout(() => { checkBoundaries(_view); }, 1000);
+				else checkBoundaries(_view);
 			});
 
 			_view.addEventListener('touchstart', function(e) {
@@ -114,9 +100,7 @@ function Animation(args) {
 
 				param.draggables.push(param.draggables.splice(realSourceView(e.source).zIndex, 1)[0]);
 
-				param.draggables.forEach((draggable, key) => {
-					draggable.zIndex = key;
-				});
+				param.draggables.forEach((draggable, key) => { draggable.zIndex = key; });
 
 				checkDraggable(_view, 'drag');
 			});
@@ -141,11 +125,8 @@ function Animation(args) {
 
 					let moveValues = { top: top, left: left, duration: 0 }
 
-					if (_view.constraint === 'vertical') {
-						delete moveValues.left;
-					} else if (_view.constraint === 'horizontal') {
-						delete moveValues.top;
-					}
+					if (_view.constraint === 'vertical') delete moveValues.left;
+					else if (_view.constraint === 'horizontal') delete moveValues.top;
 
 					_view.animate(moveValues);
 				}
@@ -168,8 +149,6 @@ function Animation(args) {
 
 	function checkAnimation(action) {
 		if (args.animationProperties) {
-			param.open = !param.open;
-
 			// For regular animations, including extra animations with open and close states.
 			args = param.open ? { ...args, ...args.animationProperties.open } : { ...args, ...args.animationProperties.close };
 
@@ -201,9 +180,7 @@ function Animation(args) {
 			if (param.open && child['animationProperties'] && child['animationProperties']['open']) {
 				if (_action === 'play') {
 					child.animate(createAnimationObject(child, 'open'), () => {
-						if (child['animationProperties']['complete']) {
-							child.animate(createAnimationObject(child, 'complete'));
-						}
+						if (child['animationProperties']['complete']) child.animate(createAnimationObject(child, 'complete'));
 					});
 				} else {
 					child.applyProperties(child['animationProperties']['open']);
@@ -339,6 +316,4 @@ function deviceInfo() {
 }
 exports.deviceInfo = deviceInfo;
 
-exports.createAnimation = (args) => {
-	return new Animation(args);
-};
+exports.createAnimation = (args) => { return new Animation(args); };
