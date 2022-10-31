@@ -2480,6 +2480,14 @@ function purgeTailwind(uniqueClasses) {
 				deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]));
 			}
 
+			if (cleanUniqueClasses.indexOf(`children:${cleanTailwindClass}`) > -1) {
+				anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`children:${cleanTailwindClass}`)]));
+			}
+
+			if (cleanUniqueClasses.indexOf(`child:${cleanTailwindClass}`) > -1) {
+				anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`child:${cleanTailwindClass}`)]));
+			}
+
 			if (cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`) > -1) {
 				anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]));
 			}
@@ -2554,7 +2562,7 @@ function switchPlatform(withPlatformDeviceStyle) {
 }
 
 function cleanClassNameFn(className) {
-	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
+	return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('children:', '').replace('child:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '');
 }
 
 //! FontAwesome

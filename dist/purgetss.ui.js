@@ -140,13 +140,6 @@ function Animation(args) {
 		return (param.draggables.map(a => a.id).includes(_source.id)) ? _source : realSourceView(_source.parent);
 	}
 
-	function checkBoundaries(_view) {
-		if (_view.bounds) {
-			if (_view.bounds.right !== undefined && _view.left > _view.parent.rect.width - _view.rect.width - _view.bounds.right) _view.left = _view.parent.rect.width - _view.rect.width - _view.bounds.right;
-			if (_view.bounds.bottom !== undefined && _view.top > _view.parent.rect.height - _view.rect.height - _view.bounds.bottom) _view.top = _view.parent.rect.height - _view.rect.height - _view.bounds.bottom;
-		}
-	}
-
 	function checkAnimation(action) {
 		if (args.animationProperties) {
 			// For regular animations, including extra animations with open and close states.
@@ -167,54 +160,10 @@ function Animation(args) {
 		}
 	}
 
-	function logger(_message, forceLog = false) {
-		if (param.debug || forceLog) console.warn(`:: ti.animation :: ${_message}`);
-	}
-
-	function notFound(source) {
-		console.error('The provided target can’t be found!');
-	}
-
-	function innerAnimations(_view, _action) {
-		_.each(_view.children, child => {
-			if (param.open && child['animationProperties'] && child['animationProperties']['open']) {
-				if (_action === 'play') {
-					child.animate(createAnimationObject(child, 'open'), () => {
-						if (child['animationProperties']['complete']) child.animate(createAnimationObject(child, 'complete'));
-					});
-				} else {
-					child.applyProperties(child['animationProperties']['open']);
-				}
-			} else if (child['animationProperties'] && child['animationProperties']['close']) {
-				(_action === 'play') ? child.animate(createAnimationObject(child, 'close')) : child.applyProperties(child['animationProperties']['close']);
-			}
-		});
-	}
-
-	function createAnimationObject(_child, type) {
-		return Ti.UI.createAnimation({
-			..._child['animationProperties'][type],
-			transform: Ti.UI.createMatrix2D(_child['animationProperties'][type])
-		});
-	}
-
-	//! Needs refactor!! It's so ugly right now!!
-	function checkDraggable(_view, _action) {
-		logger('Check Draggable');
-		logger('   -> `' + _action + '`');
-		let draggingType = (_view.draggingType) ? _view.draggingType : args.draggingType;
-		if (_action === 'drag' && _view.draggable && _view.draggable.drag) {
-			let theArgs = (args.draggable) ? { ...args.draggable.drag, ..._view.draggable.drag } : _view.draggable.drag;
-			(draggingType === 'apply') ? _view.applyProperties(theArgs) : _view.animate(Ti.UI.createAnimation(theArgs));
-		} else if (_action === 'drop' && _view.draggable && _view.draggable.drop) {
-			let theArgs = (args.draggable) ? { ...args.draggable.drop, ..._view.draggable.drop } : _view.draggable.drop;
-			(draggingType === 'apply') ? _view.applyProperties(theArgs) : _view.animate(Ti.UI.createAnimation(theArgs));
-		} else if (args.draggable) {
-			if (_action === 'drag') {
-				(draggingType === 'apply') ? _view.applyProperties(args.draggable.drag) : _view.animate(Ti.UI.createAnimation(args.draggable.drag));
-			} else if (_action === 'drop') {
-				(draggingType === 'apply') ? _view.applyProperties(args.draggable.drop) : _view.animate(Ti.UI.createAnimation(args.draggable.drop));
-			}
+	function checkBoundaries(_view) {
+		if (_view.bounds) {
+			if (_view.bounds.right !== undefined && _view.left > _view.parent.rect.width - _view.rect.width - _view.bounds.right) _view.left = _view.parent.rect.width - _view.rect.width - _view.bounds.right;
+			if (_view.bounds.bottom !== undefined && _view.top > _view.parent.rect.height - _view.rect.height - _view.bounds.bottom) _view.top = _view.parent.rect.height - _view.rect.height - _view.bounds.bottom;
 		}
 	}
 
@@ -228,6 +177,43 @@ function Animation(args) {
 				});
 			} else {
 				view.applyProperties(args.animationProperties.complete);
+			}
+		}
+	}
+
+	function logger(_message, forceLog = false) {
+		if (param.debug || forceLog) console.warn(`::ti.animation:: ${_message}`);
+	}
+
+	function notFound(source) {
+		console.error('The provided target can’t be found!');
+	}
+
+	function createAnimationObject(_child, type) {
+		return Ti.UI.createAnimation({
+			...(args['animationProperties'] && args['animationProperties']['children']) ?? {},
+			..._child['animationProperties']['child'] ?? {},
+			..._child['animationProperties'][type] ?? {},
+			transform: Ti.UI.createMatrix2D(_child['animationProperties'][type] ?? {})
+		});
+	}
+
+	//! Needs refactor!! It's so ugly right now!!
+	function checkDraggable(_view, _action) {
+		logger('Check Draggable');
+		logger('   -> `' + _action + '`');
+		let draggingType = _view.draggingType ?? args.draggingType;
+		if (_action === 'drag' && _view.draggable && _view.draggable.drag) {
+			let theArgs = (args.draggable) ? { ...args.draggable.drag, ..._view.draggable.drag } : _view.draggable.drag;
+			(draggingType === 'apply') ? _view.applyProperties(theArgs) : _view.animate(Ti.UI.createAnimation(theArgs));
+		} else if (_action === 'drop' && _view.draggable && _view.draggable.drop) {
+			let theArgs = (args.draggable) ? { ...args.draggable.drop, ..._view.draggable.drop } : _view.draggable.drop;
+			(draggingType === 'apply') ? _view.applyProperties(theArgs) : _view.animate(Ti.UI.createAnimation(theArgs));
+		} else if (args.draggable) {
+			if (_action === 'drag') {
+				(draggingType === 'apply') ? _view.applyProperties(args.draggable.drag) : _view.animate(Ti.UI.createAnimation(args.draggable.drag));
+			} else if (_action === 'drop') {
+				(draggingType === 'apply') ? _view.applyProperties(args.draggable.drop) : _view.animate(Ti.UI.createAnimation(args.draggable.drop));
 			}
 		}
 	}
@@ -269,6 +255,22 @@ function Animation(args) {
 		} else {
 			notFound(args);
 		}
+	}
+
+	function innerAnimations(_view, _action) {
+		_.each(_view.children, child => {
+			if (param.open && child['animationProperties'] && child['animationProperties']['open']) {
+				if (_action === 'play') {
+					child.animate(createAnimationObject(child, 'open'), () => {
+						if (child['animationProperties']['complete']) child.animate(createAnimationObject(child, 'complete'));
+					});
+				} else {
+					child.applyProperties({ transform: Ti.UI.createMatrix2D(child['animationProperties']['open']), ...child['animationProperties']['open'] });
+				}
+			} else if (child['animationProperties'] && child['animationProperties']['close']) {
+				(_action === 'play') ? child.animate(createAnimationObject(child, 'close')) : child.applyProperties({ transform: Ti.UI.createMatrix2D(child['animationProperties']['close']), ...child['animationProperties']['close'] });
+			}
+		});
 	}
 
 	return animationView;
