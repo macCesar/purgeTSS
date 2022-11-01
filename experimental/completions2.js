@@ -316,7 +316,7 @@ function combineDefaultThemeWithConfigFile() {
 		height: {},
 		widthHeight: {},
 		boolean: { true: true, false: false },
-		rotate: combineKeys(configFile.theme, defaultTheme.rotate, 'rotate'),
+		rotate: combineKeys(configFile.theme, { ...defaultTheme.rotate, ...{ '135': '135deg', '225': '225deg', '270': '270deg', '315': '315deg', '360': '360deg' } }, 'rotate'),
 		zIndex: defaultTheme.zIndex,
 		opacity: defaultTheme.opacity,
 		fontWeight: defaultTheme.fontWeight,
