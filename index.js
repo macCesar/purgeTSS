@@ -1072,7 +1072,18 @@ function addHook() {
 
 		saveFile(projectsAlloyJMKFile, updatedJMKFile.join("\n"));
 	} else {
-		fs.appendFileSync(projectsAlloyJMKFile, '\n' + fs.readFileSync(srcJMKFile, 'utf8'));
+		let alloyJMKTemplate = fs.readFileSync(srcJMKFile, 'utf8');
+
+		let updatedJMKFile = [];
+
+		alloyJMKTemplate.split(/\r?\n/).forEach((line) => {
+			if (line.includes('pre:compile')) {
+				line += `\n\trequire('child_process').execSync('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
+			}
+			updatedJMKFile.push(line);
+		});
+
+		fs.appendFileSync(projectsAlloyJMKFile, '\n' + updatedJMKFile.join("\n"));
 	}
 }
 
