@@ -37,19 +37,22 @@ function Animation(args) {
 
 	// TODO: Create a library of useful animations!!
 	animationView.play = (_views, _cb) => {
-		logger('`play` Called');
-		(param.playing) ? logger(`$.${param.view.id}: is playing...`) : play(_views, _cb);
+		if (param.debug) console.log(''); // Just for debug
+		logger('`play` method called on: ' + param.id);
+		(param.playing) ? logger(`$.${param.view.id}: is playing...`) : mainPlayApplyFn(_views, _cb);
 	};
 
 	animationView.toggle = animationView.play;
 
 	animationView.apply = (_views, _cb) => {
-		logger('`apply` Called');
-		play(_views, _cb, 'apply')
+		if (param.debug) console.log(''); // Just for debug
+		logger('`apply` method called on: ' + param.id);
+		mainPlayApplyFn(_views, _cb, 'apply')
 	};
 
 	animationView.draggable = (_views) => {
-		logger('`draggable` Called');
+		if (param.debug) console.log(''); // Just for debug
+		logger('`draggable` method called on: ' + param.id);
 		if (Array.isArray(_views)) {
 			_views.forEach((_view, key) => {
 				_view.zIndex = key;
@@ -61,12 +64,12 @@ function Animation(args) {
 	};
 
 	//! Helper Functions
-	function play(_views, _cb, action = 'play') {
-		logger('   -> `play` helper');
+	function mainPlayApplyFn(_views, _cb, action = 'play') {
+		logger('   -> `mainPlayApplyFn` helper');
 
 		param.open = !param.open;
 
-		checkAnimation(action);
+		chooseAnimationBasedOnState(action);
 
 		if (Array.isArray(_views)) {
 			args.delay = param.delay;
@@ -140,7 +143,7 @@ function Animation(args) {
 		return (param.draggables.map(a => a.id).includes(_source.id)) ? _source : realSourceView(_source.parent);
 	}
 
-	function checkAnimation(action) {
+	function chooseAnimationBasedOnState(action) {
 		if (args.animationProperties) {
 			// For regular animations, including extra animations with open and close states.
 			args = param.open ? { ...args, ...args.animationProperties.open } : { ...args, ...args.animationProperties.close };
@@ -148,10 +151,10 @@ function Animation(args) {
 			if (action === 'play') {
 				logger('   -> `' + action + '` Check Animation');
 				if (param.open && args.transformOnOpen) {
-					logger('   -> Set args.transform = args.transformOnOpen');
+					logger('   -> set args.transform = args.transformOnOpen');
 					args.transform = args.transformOnOpen;
 				} else if (args.transformOnClose) {
-					logger('   -> Set args.transform = args.transformOnClose');
+					logger('   -> set args.transform = args.transformOnClose');
 					args.transform = args.transformOnClose;
 				}
 
@@ -265,7 +268,10 @@ function Animation(args) {
 						if (child['animationProperties']['complete']) child.animate(createAnimationObject(child, 'complete'));
 					});
 				} else {
-					child.applyProperties({ transform: Ti.UI.createMatrix2D(child['animationProperties']['open']), ...child['animationProperties']['open'] });
+					child.applyProperties({
+						transform: Ti.UI.createMatrix2D(child['animationProperties']['open']),
+						...child['animationProperties']['open']
+					});
 				}
 			} else if (child['animationProperties'] && child['animationProperties']['close']) {
 				(_action === 'play') ? child.animate(createAnimationObject(child, 'close')) : child.applyProperties({ transform: Ti.UI.createMatrix2D(child['animationProperties']['close']), ...child['animationProperties']['close'] });
