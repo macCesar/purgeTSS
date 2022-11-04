@@ -34,7 +34,7 @@ const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS)
 configFile.purge = configFile.purge ?? { mode: 'all' };
 configFile.theme.extend = configFile.theme.extend ?? {};
 
-const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : false;
+const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : {};
 if (configOptions) {
 	configOptions.plugins = configOptions.plugins ?? [];
 	configOptions.safelist = configOptions.safelist ?? [];
