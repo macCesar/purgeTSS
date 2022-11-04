@@ -656,14 +656,14 @@ function buildFonts(options) {
 
 			exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8');
 
-			fs.writeFileSync(`${projectsLibFolder}/purgetss.fonts.js'`, exportIcons, err => {
+			fs.writeFileSync(`${projectsLibFolder}/purgetss.fonts.js`, exportIcons, err => {
 				throw err;
 			});
 
 			logger.info(`${chalk.yellow('./app/lib/purgetss.fonts.js')} file created!`);
 		} else {
-			if (fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js'`)) {
-				fs.unlinkSync(`${projectsLibFolder}/purgetss.fonts.js'`);
+			if (fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
+				fs.unlinkSync(`${projectsLibFolder}/purgetss.fonts.js`);
 			}
 		}
 
