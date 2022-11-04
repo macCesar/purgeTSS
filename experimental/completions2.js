@@ -246,7 +246,7 @@ function processCompoundClasses({ ..._base }) {
 	//! colors
 	compoundClasses += generateGlossary('backgroundGradient', helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient')));
 	compoundClasses += generateGlossary('backgroundSelectedGradient', helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient')));
-	compoundClasses += generateGlossary('color-alternative', helpers.textColor(combineKeys(configFile.theme, _base.colors, 'textColor')));
+	compoundClasses += generateGlossary('color-alternative', helpers.textColor(_base.textColor));
 	compoundClasses += generateGlossary('hintTextColor', helpers.placeholder(combineKeys(configFile.theme, _base.colors, 'hintTextColor')));
 	compoundClasses += generateGlossary('titleAttributes-color', helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor')));
 	compoundClasses += generateGlossary('titleAttributes-shadow-color', helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor')));
