@@ -16,4 +16,5 @@
 '.scale-x-110': { scaleX: 1.1 }
 '.scale-x-125': { scaleX: 1.25 }
 '.scale-x-150': { scaleX: 1.5 }
+'.scale-x-200': { scaleX: 2 }
 ```

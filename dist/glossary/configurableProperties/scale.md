@@ -15,4 +15,5 @@
 '.scale-110': { scale: 1.1 }
 '.scale-125': { scale: 1.25 }
 '.scale-150': { scale: 1.5 }
+'.scale-200': { scale: 2 }
 ```

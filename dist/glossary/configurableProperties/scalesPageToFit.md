@@ -16,4 +16,5 @@
 '.scales-page-to-fit-110': { scalesPageToFit: 1.1 }
 '.scales-page-to-fit-125': { scalesPageToFit: 1.25 }
 '.scales-page-to-fit-150': { scalesPageToFit: 1.5 }
+'.scales-page-to-fit-200': { scalesPageToFit: 2 }
 ```

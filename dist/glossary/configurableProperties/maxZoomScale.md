@@ -16,4 +16,5 @@
 '.max-zoom-scale-110': { maxZoomScale: 1.1 }
 '.max-zoom-scale-125': { maxZoomScale: 1.25 }
 '.max-zoom-scale-150': { maxZoomScale: 1.5 }
+'.max-zoom-scale-200': { maxZoomScale: 2 }
 ```

@@ -15,6 +15,7 @@
 '.zoom-in-110': { animationProperties: { open: { scale: 1.1 }, complete: { scale: 1 } } }
 '.zoom-in-125': { animationProperties: { open: { scale: 1.25 }, complete: { scale: 1 } } }
 '.zoom-in-150': { animationProperties: { open: { scale: 1.5 }, complete: { scale: 1 } } }
+'.zoom-in-200': { animationProperties: { open: { scale: 2 }, complete: { scale: 1 } } }
 '.zoom-out-0': { animationProperties: { close: { scale: 0 }, complete: { scale: 1 } } }
 '.zoom-out-1': { animationProperties: { close: { scale: 0.01 }, complete: { scale: 1 } } }
 '.zoom-out-5': { animationProperties: { close: { scale: 0.05 }, complete: { scale: 1 } } }
@@ -29,4 +30,5 @@
 '.zoom-out-110': { animationProperties: { close: { scale: 1.1 }, complete: { scale: 1 } } }
 '.zoom-out-125': { animationProperties: { close: { scale: 1.25 }, complete: { scale: 1 } } }
 '.zoom-out-150': { animationProperties: { close: { scale: 1.5 }, complete: { scale: 1 } } }
+'.zoom-out-200': { animationProperties: { close: { scale: 2 }, complete: { scale: 1 } } }
 ```

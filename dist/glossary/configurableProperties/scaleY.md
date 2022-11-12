@@ -16,4 +16,5 @@
 '.scale-y-110': { scaleY: 1.1 }
 '.scale-y-125': { scaleY: 1.25 }
 '.scale-y-150': { scaleY: 1.5 }
+'.scale-y-200': { scaleY: 2 }
 ```
