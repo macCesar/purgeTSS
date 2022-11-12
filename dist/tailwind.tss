@@ -1,4 +1,4 @@
-// Based on Tailwind CSS v3.2.1: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
+// Based on Tailwind CSS v3.2.4: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // Tailwind-like styles
@@ -2771,6 +2771,7 @@
 '.zoom-in-110': { animationProperties: { open: { scale: 1.1 }, complete: { scale: 1 } } }
 '.zoom-in-125': { animationProperties: { open: { scale: 1.25 }, complete: { scale: 1 } } }
 '.zoom-in-150': { animationProperties: { open: { scale: 1.5 }, complete: { scale: 1 } } }
+'.zoom-in-200': { animationProperties: { open: { scale: 2 }, complete: { scale: 1 } } }
 '.zoom-out-0': { animationProperties: { close: { scale: 0 }, complete: { scale: 1 } } }
 '.zoom-out-1': { animationProperties: { close: { scale: 0.01 }, complete: { scale: 1 } } }
 '.zoom-out-5': { animationProperties: { close: { scale: 0.05 }, complete: { scale: 1 } } }
@@ -2785,6 +2786,7 @@
 '.zoom-out-110': { animationProperties: { close: { scale: 1.1 }, complete: { scale: 1 } } }
 '.zoom-out-125': { animationProperties: { close: { scale: 1.25 }, complete: { scale: 1 } } }
 '.zoom-out-150': { animationProperties: { close: { scale: 1.5 }, complete: { scale: 1 } } }
+'.zoom-out-200': { animationProperties: { close: { scale: 2 }, complete: { scale: 1 } } }
 
 // Property(ies): width and height
 // Component(s): Ti.UI.View, Ti.Blob, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, BarItemType, Ti.UI.iPad.Popover
@@ -6548,6 +6550,7 @@
 '.scale-x-110': { scaleX: 1.1 }
 '.scale-x-125': { scaleX: 1.25 }
 '.scale-x-150': { scaleX: 1.5 }
+'.scale-x-200': { scaleX: 2 }
 
 // Property: scaleY
 // Description: Scaling of the view in y-axis in pixels.
@@ -6566,6 +6569,7 @@
 '.scale-y-110': { scaleY: 1.1 }
 '.scale-y-125': { scaleY: 1.25 }
 '.scale-y-150': { scaleY: 1.5 }
+'.scale-y-200': { scaleY: 2 }
 
 // Property: softKeyboardOnFocus
 // Description: Determines keyboard behavior when this view is focused. Defaults to Titanium.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS.
@@ -9879,6 +9883,7 @@
 '.scale-110': { scale: 1.1 }
 '.scale-125': { scale: 1.25 }
 '.scale-150': { scale: 1.5 }
+'.scale-200': { scale: 2 }
 
 // Property: rotate
 // Component(s): MatrixCreationDict, Matrix2DCreationDict
@@ -16243,6 +16248,7 @@
 '.max-zoom-scale-110': { maxZoomScale: 1.1 }
 '.max-zoom-scale-125': { maxZoomScale: 1.25 }
 '.max-zoom-scale-150': { maxZoomScale: 1.5 }
+'.max-zoom-scale-200': { maxZoomScale: 2 }
 
 // Property: minZoomScale
 // Description: Minimum scaling factor of the scrollable region and its content.
@@ -16261,6 +16267,7 @@
 '.min-zoom-scale-110': { minZoomScale: 1.1 }
 '.min-zoom-scale-125': { minZoomScale: 1.25 }
 '.min-zoom-scale-150': { minZoomScale: 1.5 }
+'.min-zoom-scale-200': { minZoomScale: 2 }
 
 // Property: overScrollMode
 // Component(s): Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.TableView, Ti.UI.WebView
@@ -16309,6 +16316,7 @@
 '.zoom-scale-110': { zoomScale: 1.1 }
 '.zoom-scale-125': { zoomScale: 1.25 }
 '.zoom-scale-150': { zoomScale: 1.5 }
+'.zoom-scale-200': { zoomScale: 2 }
 
 // Property: cacheSize
 // Description: Number of pages to cache (pre-render).
@@ -20679,6 +20687,7 @@
 '.scales-page-to-fit-110': { scalesPageToFit: 1.1 }
 '.scales-page-to-fit-125': { scalesPageToFit: 1.25 }
 '.scales-page-to-fit-150': { scalesPageToFit: 1.5 }
+'.scales-page-to-fit-200': { scalesPageToFit: 2 }
 
 // Property: willHandleTouches
 // Description: Explicitly specifies if this web view handles touches.
