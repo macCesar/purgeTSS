@@ -677,7 +677,7 @@ function buildFonts(options) {
 			logger.info('No fonts found in', chalk.yellow('./purgetss/fonts'), 'folder!');
 		}
 	} else {
-		logger.info(`Add font and style files to ${chalk.yellow('./purgetss/fonts')} and run this command again!`);
+		logger.info(`Add font and style files to ${chalk.yellow('./purgetss/fonts')} folder and run this command again!`);
 	}
 }
 module.exports.buildFonts = buildFonts;
