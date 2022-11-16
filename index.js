@@ -383,11 +383,11 @@ function create(args, options) {
 		} else {
 			console.log('');
 			logger.error('::Can’t create a Titanium project::');
-			logger.info('You need to have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a Project with', chalk.green('`PurgeTSS`'));
+			logger.info('You must have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a project with', chalk.green('`PurgeTSS`'));
 			console.log('');
 			logger.info('Please, set them like this:');
 			logger.info(chalk.green('ti config app.idprefix'), chalk.yellow("'com.your.reverse.domain'"));
-			logger.info(chalk.green('ti config app.workspace'), chalk.yellow("'path/to/your/workspace/directory'"));
+			logger.info(chalk.green('ti config app.workspace'), chalk.yellow("'path/to/your/workspace'"));
 		}
 	});
 }
