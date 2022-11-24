@@ -278,7 +278,7 @@ function findBaseKey(_key, _data) {
 	} else if ((_key.includes('width') || _key.includes('Width')) && _key !== 'platformWidth') {
 		return 'width';
 	} else if (_key === 'shiftMode') {
-		return 'boolean';
+		return 'shiftMode';
 	}
 
 	return _key;
@@ -316,6 +316,7 @@ function combineDefaultThemeWithConfigFile() {
 		height: {},
 		widthHeight: {},
 		boolean: { true: true, false: false },
+		shiftMode: { none: 0, title: 1, icon: 2, },
 		rotate: combineKeys(configFile.theme, { ...defaultTheme.rotate, ...{ '135': '135deg', '225': '225deg', '270': '270deg', '315': '315deg', '360': '360deg' } }, 'rotate'),
 		zIndex: defaultTheme.zIndex,
 		opacity: defaultTheme.opacity,
