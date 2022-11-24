@@ -1,4 +1,4 @@
-// Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -369,6 +369,7 @@
 '.fa-grin-alt': { text: '\uf581', title: '\uf581' }
 '.fa-tooth': { text: '\uf5c9', title: '\uf5c9' }
 '.fa-v': { text: '\u0056', title: '\u0056' }
+'.fa-bangladeshi-taka-sign': { text: '\ue2e6', title: '\ue2e6' }
 '.fa-bicycle': { text: '\uf206', title: '\uf206' }
 '.fa-staff-snake': { text: '\ue579', title: '\ue579' }
 '.fa-rod-asclepius': { text: '\ue579', title: '\ue579' }
@@ -1226,7 +1227,6 @@
 '.fa-virus-slash': { text: '\ue075', title: '\ue075' }
 '.fa-minus': { text: '\uf068', title: '\uf068' }
 '.fa-subtract': { text: '\uf068', title: '\uf068' }
-'.fa-child-rifle': { text: '\ue4e0', title: '\ue4e0' }
 '.fa-chess': { text: '\uf439', title: '\uf439' }
 '.fa-arrow-left-long': { text: '\uf177', title: '\uf177' }
 '.fa-long-arrow-left': { text: '\uf177', title: '\uf177' }
@@ -1596,6 +1596,8 @@
 '.fa-grip-horizontal': { text: '\uf58d', title: '\uf58d' }
 '.fa-share-from-square': { text: '\uf14d', title: '\uf14d' }
 '.fa-share-square': { text: '\uf14d', title: '\uf14d' }
+'.fa-child-combatant': { text: '\ue4e0', title: '\ue4e0' }
+'.fa-child-rifle': { text: '\ue4e0', title: '\ue4e0' }
 '.fa-gun': { text: '\ue19b', title: '\ue19b' }
 '.fa-square-phone': { text: '\uf098', title: '\uf098' }
 '.fa-phone-square': { text: '\uf098', title: '\uf098' }
@@ -1655,6 +1657,7 @@
 '.fa-chevron-left': { text: '\uf053', title: '\uf053' }
 '.fa-bacteria': { text: '\ue059', title: '\ue059' }
 '.fa-hand-lizard': { text: '\uf258', title: '\uf258' }
+'.fa-notdef': { text: '\ue1fe', title: '\ue1fe' }
 '.fa-disease': { text: '\uf7fa', title: '\uf7fa' }
 '.fa-briefcase-medical': { text: '\uf469', title: '\uf469' }
 '.fa-genderless': { text: '\uf22d', title: '\uf22d' }

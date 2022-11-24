@@ -1,5 +1,5 @@
 /**
- * Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 */
 
@@ -361,6 +361,7 @@ const icons = {
 	'grinAlt': '\uf581',
 	'tooth': '\uf5c9',
 	'v': '\u0056',
+	'bangladeshiTakaSign': '\ue2e6',
 	'bicycle': '\uf206',
 	'staffSnake': '\ue579',
 	'rodAsclepius': '\ue579',
@@ -1218,7 +1219,6 @@ const icons = {
 	'virusSlash': '\ue075',
 	'minus': '\uf068',
 	'subtract': '\uf068',
-	'childRifle': '\ue4e0',
 	'chess': '\uf439',
 	'arrowLeftLong': '\uf177',
 	'longArrowLeft': '\uf177',
@@ -1588,6 +1588,8 @@ const icons = {
 	'gripHorizontal': '\uf58d',
 	'shareFromSquare': '\uf14d',
 	'shareSquare': '\uf14d',
+	'childCombatant': '\ue4e0',
+	'childRifle': '\ue4e0',
 	'gun': '\ue19b',
 	'squarePhone': '\uf098',
 	'phoneSquare': '\uf098',
@@ -1647,6 +1649,7 @@ const icons = {
 	'chevronLeft': '\uf053',
 	'bacteria': '\ue059',
 	'handLizard': '\uf258',
+	'notdef': '\ue1fe',
 	'disease': '\uf7fa',
 	'briefcaseMedical': '\uf469',
 	'genderless': '\uf22d',
