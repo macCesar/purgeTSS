@@ -2543,6 +2543,8 @@ function purgeTailwind(uniqueClasses) {
 				//! In other words, we need to validate the color value, before we can alter its opacity.
 				let defaultHexValue = (classProperties.includes('from')) ? classProperties.match(/\#[0-9a-f]{6}/g)[1] : classProperties.match(/\#[0-9a-f]{6}/i)[0];
 				let classWithoutDecimalOpacity = `${classProperties.replace(new RegExp(defaultHexValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`;
+				// Special case: #000000
+				if (classProperties.includes('from') && defaultHexValue == '#000000') classWithoutDecimalOpacity = classWithoutDecimalOpacity.replace('00000000', '000000');
 
 				let defaultTextValue = classProperties.match(/'[^']*'/i)[0];
 				defaultTextValue = defaultTextValue.substring(1, defaultTextValue.length);
