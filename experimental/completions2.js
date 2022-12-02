@@ -232,7 +232,7 @@ function processCompoundClasses({ ..._base }) {
 
 	//! Configurables
 	compoundClasses += generateGlossary('borderRadius-alternative', helpers.borderRadius(_base.borderRadius));
-	// compoundClasses += generateGlossary('borderRadius-full', helpers.borderRadiusFull(_base.borderRadius));
+	compoundClasses += generateGlossary('borderRadius-full', helpers.borderRadiusFull(_base.borderRadius));
 	compoundClasses += generateGlossary('fontFamily', helpers.fontFamily(_base.fontFamily));
 	compoundClasses += generateGlossary('fontSize', helpers.fontSize(_base.fontSize));
 	compoundClasses += generateGlossary('fontWeight', helpers.fontWeight(_base.fontWeight));
