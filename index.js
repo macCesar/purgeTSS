@@ -706,7 +706,7 @@ function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilies, web
 			throw err2;
 		});
 
-		logger.file('./purgetss/fontawesome.tss');
+		logger.file('./purgetss/styles/fontawesome.tss');
 
 		makeSureFolderExists(projectsFontsFolder);
 
