@@ -216,7 +216,7 @@ function watchMode(options) {
 				deleteHook();
 			} else if (!fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
 				addHook();
-			} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes("//\trequire('child_process').exec('")) {
+			} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes("//\trequire('child_process').exec('purgetss")) {
 				enableHook();
 			} else {
 				logger.warn(chalk.yellow('Auto-Purging hook already present!'));
