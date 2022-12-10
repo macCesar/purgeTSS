@@ -128,8 +128,6 @@ function purgeClasses(options) {
 
 		let tempPurged = copyResetTemplateAnd_appTSS();
 
-		tempPurged += `// ${Date.now()}\n`;
-
 		tempPurged += purgeTailwind(uniqueClasses);
 
 		let cleanUniqueClasses = cleanClasses(uniqueClasses);
