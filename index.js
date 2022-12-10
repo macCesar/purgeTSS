@@ -117,7 +117,7 @@ const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
 //! Command: purgetss
 function purgeClasses(options) {
 	purgingDebug = options.debug;
-	if (alloyProject()) {
+	if (alloyProject() && Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 1000)) {
 		start();
 
 		init(options);
@@ -127,6 +127,8 @@ function purgeClasses(options) {
 		let uniqueClasses = getUniqueClasses();
 
 		let tempPurged = copyResetTemplateAnd_appTSS();
+
+		tempPurged += `// ${Date.now()}\n`;
 
 		tempPurged += purgeTailwind(uniqueClasses);
 
