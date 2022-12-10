@@ -174,6 +174,9 @@ function init(options) {
 	if (fs.existsSync(projectsAlloyJMKFile)) {
 		if (!fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
 			addHook();
+		} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes("require('child_process').execSync('purgetss")) {
+			deleteHook();
+			addHook();
 		}
 	} else {
 		createJMKFile();
@@ -206,10 +209,12 @@ function watchMode(options) {
 		if (fs.existsSync(projectsAlloyJMKFile)) {
 			//! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
 			if (options.off) {
-				removeHook();
+				disableHook();
+			} else if (options.delete) {
+				deleteHook();
 			} else if (!fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
 				addHook();
-			} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes("//\trequire('child_process').execSync('")) {
+			} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes("//\trequire('child_process').exec('")) {
 				enableHook();
 			} else {
 				logger.warn(chalk.yellow('Auto-Purging hook already present!'));
@@ -1065,7 +1070,7 @@ function addHook() {
 
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
 			if (line.includes('pre:compile')) {
-				line += `\n\trequire('child_process').execSync('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
+				line += `\n\trequire('child_process').exec('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
 			}
 			updatedJMKFile.push(line);
 		});
@@ -1078,7 +1083,7 @@ function addHook() {
 
 		alloyJMKTemplate.split(/\r?\n/).forEach((line) => {
 			if (line.includes('pre:compile')) {
-				line += `\n\trequire('child_process').execSync('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
+				line += `\n\trequire('child_process').exec('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
 			}
 			updatedJMKFile.push(line);
 		});
@@ -1087,7 +1092,7 @@ function addHook() {
 	}
 }
 
-function removeHook() {
+function disableHook() {
 	let updatedJMKFile = [];
 	let originalJMKFile = fs.readFileSync(projectsAlloyJMKFile, 'utf8');
 	let purgeCmdPresent = (originalJMKFile.includes('::PurgeTSS::'));
@@ -1102,6 +1107,24 @@ function removeHook() {
 			} else {
 				updatedJMKFile.push(line);
 				logger.warn(chalk.red('Auto-Purging hook already disabled!'));
+			}
+		});
+
+		saveFile(projectsAlloyJMKFile, updatedJMKFile.join("\n"));
+	}
+}
+
+function deleteHook() {
+	let updatedJMKFile = [];
+	let originalJMKFile = fs.readFileSync(projectsAlloyJMKFile, 'utf8');
+	let purgeCmdPresent = (originalJMKFile.includes('::PurgeTSS::'));
+
+	if (purgeCmdPresent) {
+		originalJMKFile.split(/\r?\n/).forEach((line) => {
+			if (!line.includes("::PurgeTSS::")) {
+				updatedJMKFile.push(line);
+			} else {
+				logger.warn(chalk.red('Auto-Purging hook deleted!'));
 			}
 		});
 
