@@ -96,6 +96,7 @@ program
 	.description(`Auto-runs ${chalk.green('PurgeTSS')} every time you compile your project`)
 	.help(`Auto-runs ${chalk.green('PurgeTSS')} every time you compile your project\nThis is very useful in combination with ${chalk.green('LiveView')} by purging your files every time you make a change`)
 	.option('-o, --off', 'To turn off watch mode')
+	.option('-d, --delete', 'To completely delete the Auto-Purging hook')
 	.action((args, options, logger) => {
 		purgetss.watchMode(options);
 	});
