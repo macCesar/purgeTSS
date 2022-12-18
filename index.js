@@ -100,7 +100,8 @@ const srcMaterialSymbolsTSSFile = path.resolve(__dirname, './dist/materialsymbol
 const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js');
 
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile);
-configFile.purge = configFile.purge ?? { mode: 'all' };
+configFile.purge = configFile.purge ?? { mode: 'all', method: 'sync' };
+configFile.purge.method = configFile.purge.method ?? 'sync';
 configFile.theme.extend = configFile.theme.extend ?? {};
 
 const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : {};
@@ -111,13 +112,23 @@ if (configOptions) {
 	configOptions.plugins = configOptions.plugins ?? [];
 }
 
+let methodCommand
+let oppositeCommand
+if (configFile.purge.method === 'sync') {
+	oppositeCommand = "require('child_process').exec('purgetss"
+	methodCommand = "\trequire('child_process').execSync('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));"
+} else {
+	oppositeCommand = "require('child_process').execSync('purgetss"
+	methodCommand = "\trequire('child_process').exec('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));"
+}
 const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
 
 //! Interfase
 //! Command: purgetss
 function purgeClasses(options) {
 	purgingDebug = options.debug;
-	if (alloyProject() && Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 1000)) {
+	let recentlyCreated = makeSureFileExists(projectsAppTSS)
+	if (alloyProject() && Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 2000) || recentlyCreated) {
 		start();
 
 		init(options);
@@ -149,6 +160,8 @@ function purgeClasses(options) {
 		logger.file('app.tss');
 
 		finish();
+	} else {
+		logger.warn('Purged less than 2 seconds ago!');
 	}
 }
 module.exports.purgeClasses = purgeClasses;
@@ -174,7 +187,7 @@ function init(options) {
 	if (fs.existsSync(projectsAlloyJMKFile)) {
 		if (!fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
 			addHook();
-		} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes("require('child_process').execSync('purgetss")) {
+		} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes(oppositeCommand)) {
 			deleteHook();
 			addHook();
 		}
@@ -214,7 +227,7 @@ function watchMode(options) {
 				deleteHook();
 			} else if (!fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
 				addHook();
-			} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes("//\trequire('child_process').exec('purgetss")) {
+			} else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes(`//${methodCommand}`)) {
 				enableHook();
 			} else {
 				logger.warn(chalk.yellow('Auto-Purging hook already present!'));
@@ -222,8 +235,6 @@ function watchMode(options) {
 		} else if (!options.off) {
 			createJMKFile();
 		}
-	} else {
-		logger.warn(chalk.yellow('You can’t autorun purgetss !'));
 	}
 }
 module.exports.watchMode = watchMode;
@@ -1070,7 +1081,7 @@ function addHook() {
 
 		originalJMKFile.split(/\r?\n/).forEach((line) => {
 			if (line.includes('pre:compile')) {
-				line += `\n\trequire('child_process').exec('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
+				line += `\n${methodCommand}`;
 			}
 			updatedJMKFile.push(line);
 		});
@@ -1083,7 +1094,7 @@ function addHook() {
 
 		alloyJMKTemplate.split(/\r?\n/).forEach((line) => {
 			if (line.includes('pre:compile')) {
-				line += `\n\trequire('child_process').exec('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));`;
+				line += `\n${methodCommand}`;
 			}
 			updatedJMKFile.push(line);
 		});
@@ -1155,6 +1166,13 @@ function initIfNotConfig() {
 	}
 }
 
+function makeSureFileExists(file) {
+	if (!fs.existsSync(file)) {
+		fs.writeFileSync(file, '')
+		return true
+	}
+}
+
 function makeSureFolderExists(folder) {
 	if (!fs.existsSync(folder)) {
 		fs.mkdirSync(folder);
@@ -1188,18 +1206,13 @@ function getViewPaths() {
 }
 
 function getClassesOnlyFromXMLFiles() {
-	let viewPaths = getViewPaths();
-
 	let allClasses = [];
-	_.each(viewPaths, viewPath => {
-		allClasses.push(extractClassesOnly(fs.readFileSync(viewPath, 'utf8'), viewPath));
-	});
+	let viewPaths = getViewPaths();
+	_.each(viewPaths, viewPath => allClasses.push(extractClassesOnly(fs.readFileSync(viewPath, 'utf8'), viewPath)));
 
 	let uniqueClasses = [];
 	_.each(_.uniq(_.flattenDeep(allClasses)).sort(), uniqueClass => {
-		if (filterCharacters(uniqueClass)) {
-			uniqueClasses.push(uniqueClass);
-		}
+		if (filterCharacters(uniqueClass)) uniqueClasses.push(uniqueClass);
 	});
 
 	return uniqueClasses.sort();
@@ -1208,29 +1221,18 @@ function getClassesOnlyFromXMLFiles() {
 function getUniqueClasses() {
 	localStart();
 
-	let viewPaths = getViewPaths();
-
 	let allClasses = [];
+	let viewPaths = getViewPaths();
 	_.each(viewPaths, viewPath => {
 		let file = fs.readFileSync(viewPath, 'utf8');
-		if (file) {
-			allClasses.push((configFile.purge.mode === 'all') ? file.match(/[^<>"'`\s]*[^<>"'`\s:]/g) : extractClasses(file, viewPath));
-		}
+		if (file) allClasses.push((configFile.purge.mode === 'all') ? file.match(/[^<>"'`\s]*[^<>"'`\s:]/g) : extractClasses(file, viewPath));
 	});
 
-	if (configOptions.safelist) {
-		_.each(configOptions.safelist, safe => {
-			allClasses.push(safe);
-		})
-	}
+	if (configOptions.safelist) _.each(configOptions.safelist, safe => allClasses.push(safe))
 
 	let uniqueClasses = [];
-
-	// Clean even more unnecessary names
 	_.each(_.uniq(_.flattenDeep(allClasses)).sort(), uniqueClass => {
-		if (filterCharacters(uniqueClass)) {
-			uniqueClasses.push(uniqueClass);
-		}
+		if (filterCharacters(uniqueClass)) uniqueClasses.push(uniqueClass)
 	});
 
 	localFinish('Get Unique Classes');
