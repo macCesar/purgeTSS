@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "11.1.1.GA",
+	"sdkVersion": "12.0.0.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -604,6 +604,18 @@
 		},
 		"ADD": {
 			"description": "Use with <a href=\"Titanium.UI.Button.systemButton\">Button.systemButton</a> to specify an <strong>Add</strong> button.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"ALERT_SEVERITY_CRITICAL": {
+			"description": "Indicates that the system should present the alert using the\ncritical, or caution, style.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"ALERT_SEVERITY_DEFAULT": {
+			"description": "Indicates that the system should present the alert using the standard\nalert style.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -1634,8 +1646,26 @@
 			"readOnly": false,
 			"values": []
 		},
+		"AUTOLINK_FLIGHT_NUMBER": {
+			"description": "An option to detect strings with the format of a flight number from an airline.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"AUTOLINK_LOOKUP_SUGGESTION": {
+			"description": "An option to detect strings with the format of information that the user might want to look up.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
 		"AUTOLINK_MAP_ADDRESSES": {
 			"description": "Converts strings formatted as addresses into clickable links.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"AUTOLINK_MONEY": {
+			"description": "An option to detect strings with the format of money amounts.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -1648,6 +1678,18 @@
 		},
 		"AUTOLINK_PHONE_NUMBERS": {
 			"description": "Converts strings formatted as phone numbers into clickable links.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"AUTOLINK_PHYSICAL_VALUE": {
+			"description": "An option to detect strings with the format of physical values (length, temperatures, etc...)",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"AUTOLINK_SHIPMENT_TRACKING_NUMBER": {
+			"description": "An option to detect strings with the format of a tracking number from a package delivery company.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -1761,169 +1803,169 @@
 			"values": []
 		},
 		"BLEND_MODE_CLEAR": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_COLOR": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_COLOR_BURN": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_COLOR_DODGE": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_COPY": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_DARKEN": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_DESTINATION_ATOP": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_DESTINATION_IN": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_DESTINATION_OUT": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_DESTINATION_OVER": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_DIFFERENCE": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_EXCLUSION": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_HARD_LIGHT": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_HUE": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_LIGHTEN": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_LUMINOSITY": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_MULTIPLY": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_NORMAL": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_OVERLAY": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_PLUS_DARKER": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_PLUS_LIGHTER": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_SATURATION": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_SCREEN": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_SOFT_LIGHT": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_SOURCE_ATOP": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_SOURCE_IN": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_SOURCE_OUT": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
 		"BLEND_MODE_XOR": {
-			"description": "",
+			"description": "Use with <a href=\"Titanium.UI.MaskedImage.mode\">MaskedImage.mode</a> to specify a blend mode.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -3761,12 +3803,6 @@
 			"readOnly": false,
 			"values": []
 		},
-		"INADDR_ANY": {
-			"description": "Special hostname value for listening sockets, representing all\nlocally available network interfaces.\n<strong>Removed in 7.0.0.</strong>",
-			"type": "String",
-			"readOnly": false,
-			"values": []
-		},
 		"INFO_DARK": {
 			"description": "Use with <a href=\"Titanium.UI.Button.style\">Button.style</a> to specify a dark-colored <strong>Info</strong> button.",
 			"type": "Number",
@@ -3905,12 +3941,6 @@
 			"readOnly": false,
 			"values": []
 		},
-		"KEYBOARD_APPEARANCE_ALERT": {
-			"description": "Use a keyboard appearance suitable for entering text on an alert. <strong>Removed in 8.0.0.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
 		"KEYBOARD_APPEARANCE_DARK": {
 			"description": "Use the platform-specific dark keyboard appearance.",
 			"type": "Number",
@@ -3929,24 +3959,6 @@
 			"readOnly": false,
 			"values": []
 		},
-		"KEYBOARD_ASCII": {
-			"description": "Use a keyboard supporting all characters except emoji. Defaults to English letters layout on iOS. <strong>Removed in 8.0.0. Use <a href=\"Titanium.UI.KEYBOARD_TYPE_ASCII\">Titanium.UI.KEYBOARD_TYPE_ASCII</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"KEYBOARD_DECIMAL_PAD": {
-			"description": "Use a number pad keyboard layout showing only numbers, decimal separator, and sign character. <strong>Removed in 8.0.0. Use <a href=\"Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD\">Titanium.UI.KEYBOARD_TYPE_DECIMAL_PAD</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"KEYBOARD_DEFAULT": {
-			"description": "Use the default keyboard, depending on the platform. <strong>Removed in 8.0.0. Use <a href=\"Titanium.UI.KEYBOARD_TYPE_DEFAULT\">Titanium.UI.KEYBOARD_TYPE_DEFAULT</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
 		"KEYBOARD_DISMISS_MODE_INTERACTIVE": {
 			"description": "Use with <a href=\"Titanium.UI.ScrollView.keyboardDismissMode\">Titanium.UI.ScrollView.keyboardDismissMode</a> to control keyboard dismiss mode.",
 			"type": "Number",
@@ -3961,36 +3973,6 @@
 		},
 		"KEYBOARD_DISMISS_MODE_ON_DRAG": {
 			"description": "Use with <a href=\"Titanium.UI.ScrollView.keyboardDismissMode\">Titanium.UI.ScrollView.keyboardDismissMode</a> to control keyboard dismiss mode.",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"KEYBOARD_EMAIL": {
-			"description": "Use a keyboard suitable for composing email, with the standard keyboard layout. <strong>Removed in 8.0.0. Use <a href=\"Titanium.UI.KEYBOARD_TYPE_EMAIL\">Titanium.UI.KEYBOARD_TYPE_EMAIL</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"KEYBOARD_NAMEPHONE_PAD": {
-			"description": "Use a keyboard suitable for entering names and phone numbers, with the pad keyboard layout. <strong>Removed in 8.0.0. Use <a href=\"Titanium.UI.KEYBOARD_TYPE_NAMEPHONE_PAD\">Titanium.UI.KEYBOARD_TYPE_NAMEPHONE_PAD</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"KEYBOARD_NUMBERS_PUNCTUATION": {
-			"description": "Use a keyboard supporting all characters except emoji, defaulting to numbers layout on iOS. <strong>Removed in 8.0.0. Use <a href=\"Titanium.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION\">Titanium.UI.KEYBOARD_TYPE_NUMBERS_PUNCTUATION</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"KEYBOARD_NUMBER_PAD": {
-			"description": "Use a number pad keyboard layout only showing numbers for entering positive integers. <strong>Removed in 8.0.0. Use <a href=\"Titanium.UI.KEYBOARD_TYPE_NUMBER_PAD\">Titanium.UI.KEYBOARD_TYPE_NUMBER_PAD</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"KEYBOARD_PHONE_PAD": {
-			"description": "Use a keyboard with a phone-style number pad, with the pad keyboard layout. <strong>Removed in 8.0.0. Use <a href=\"Titanium.UI.KEYBOARD_TYPE_PHONE_PAD\">Titanium.UI.KEYBOARD_TYPE_PHONE_PAD</a> instead.</strong>",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -4061,12 +4043,6 @@
 			"readOnly": false,
 			"values": []
 		},
-		"KEYBOARD_URL": {
-			"description": "Use a keyboard optimized for entering URLs, with the standard keyboard layout. <strong>Removed in 8.0.0. Use <a href=\"Titanium.UI.KEYBOARD_TYPE_URL\">Titanium.UI.KEYBOARD_TYPE_URL</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
 		"LANDSCAPE_LEFT": {
 			"description": "Standard landscape orientation (home button on left).",
 			"type": "Number",
@@ -4123,36 +4099,6 @@
 		},
 		"LIGHT_CONTENT": {
 			"description": "Status bar style to use with dark backgrounds.",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"LINKIFY_ALL": {
-			"description": "Converts all detectable types of data into clickable links. <strong>Removed in 9.0.0. Use <a href=\"Titanium.UI.AUTOLINK_ALL\">Titanium.UI.AUTOLINK_ALL</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"LINKIFY_EMAIL_ADDRESSES": {
-			"description": "Converts strings formatted as email addresses into clickable links. <strong>Removed in 9.0.0. Use <a href=\"Titanium.UI.AUTOLINK_EMAIL_ADDRESSES\">Titanium.UI.AUTOLINK_EMAIL_ADDRESSES</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"LINKIFY_MAP_ADDRESSES": {
-			"description": "Converts strings formatted as addresses into clickable links. <strong>Removed in 9.0.0. Use <a href=\"Titanium.UI.AUTOLINK_MAP_ADDRESSES\">Titanium.UI.AUTOLINK_MAP_ADDRESSES</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"LINKIFY_PHONE_NUMBERS": {
-			"description": "Converts strings formatted as phone numbers into clickable links. <strong>Removed in 9.0.0. Use <a href=\"Titanium.UI.AUTOLINK_PHONE_NUMBERS\">Titanium.UI.AUTOLINK_PHONE_NUMBERS</a> instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"LINKIFY_WEB_URLS": {
-			"description": "Converts strings formatted as URLs into clickable links. <strong>Removed in 9.0.0. Use <a href=\"Titanium.UI.AUTOLINK_URLS\">Titanium.UI.AUTOLINK_URLS</a> instead.</strong>",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -5279,18 +5225,6 @@
 			"readOnly": false,
 			"values": []
 		},
-		"READ_MODE": {
-			"description": "Constant value specifying read-only mode for sockets. **Removed in 9.0.0. Used with the deprecated <a href=\"Titanium.Network.TCPSocket\">Titanium.Network.TCPSocket</a> only.\nSee <a href=\"Titanium.Network.Socket\">Socket</a> for constants used with\n<a href=\"Titanium.Network.Socket.TCP\">TCP</a> sockets.**",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"READ_WRITE_MODE": {
-			"description": "Constant value specifying read-write mode for sockets. **Removed in 9.0.0. Used with the deprecated <a href=\"Titanium.Network.TCPSocket\">Titanium.Network.TCPSocket</a> only.\nSee <a href=\"Titanium.Network.Socket\">Socket</a> for constants used with\n<a href=\"Titanium.Network.Socket.TCP\">TCP</a> sockets.**",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
 		"RECENTS": {
 			"description": "Recents style icon",
 			"type": "Number",
@@ -5840,12 +5774,6 @@
 		"SIZE": {
 			"description": "SIZE behavior for UI layout.",
 			"type": "String",
-			"readOnly": false,
-			"values": []
-		},
-		"SOCKET_LISTENING": {
-			"description": "Constant value representing a socket in the LISTENING state. **Removed in 9.0.0. Used with the deprecated <a href=\"Titanium.Network.TCPSocket\">Titanium.Network.TCPSocket</a> only.\nSee <a href=\"Titanium.Network.Socket\">Socket</a> for constants used with\n<a href=\"Titanium.Network.Socket.TCP\">TCP</a> sockets.**",
-			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
@@ -7547,42 +7475,6 @@
 			"readOnly": false,
 			"values": []
 		},
-		"WEBVIEW_NAVIGATIONTYPE_BACK_FORWARD": {
-			"description": "User tapped the back or forward button. <strong>Removed in 8.2.0. Not used with Titanium SDK 8.0.0 and later by replacing UIWebView with WKWebView.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"WEBVIEW_NAVIGATIONTYPE_FORM_RESUBMITTED": {
-			"description": "User resubmitted a form. <strong>Removed in 8.2.0. Not used with Titanium SDK 8.0.0 and later by replacing UIWebView with WKWebView.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"WEBVIEW_NAVIGATIONTYPE_FORM_SUBMITTED": {
-			"description": "User submitted a form. <strong>Removed in 8.2.0. Not used with Titanium SDK 8.0.0 and later by replacing UIWebView with WKWebView.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"WEBVIEW_NAVIGATIONTYPE_LINK_CLICKED": {
-			"description": "User tapped a link. <strong>Removed in 8.2.0. Not used with Titanium SDK 8.0.0 and later by replacing UIWebView with WKWebView.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"WEBVIEW_NAVIGATIONTYPE_OTHER": {
-			"description": "Some other action occurred. <strong>Removed in 8.2.0. Not used with Titanium SDK 8.0.0 and later by replacing UIWebView with WKWebView.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"WEBVIEW_NAVIGATIONTYPE_RELOAD": {
-			"description": "User tapped the reload button. <strong>Removed in 8.2.0. Not used with Titanium SDK 8.0.0 and later by replacing UIWebView with WKWebView.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
 		"WEBVIEW_PLUGINS_OFF": {
 			"description": "Use with <a href=\"Titanium.UI.WebView.pluginState\">WebView.pluginState</a> to disable plugins in a web view.",
 			"type": "Number",
@@ -7603,12 +7495,6 @@
 		},
 		"WHITE": {
 			"description": "A style of indicator is white and smaller than the default style. This style is good against\na black content background.",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"WRITE_MODE": {
-			"description": "Constant value specifying write-only mode for sockets. **Removed in 9.0.0. Used with the deprecated <a href=\"Titanium.Network.TCPSocket\">Titanium.Network.TCPSocket</a> only.\nSee <a href=\"Titanium.Network.Socket\">Socket</a> for constants used with\n<a href=\"Titanium.Network.Socket.TCP\">TCP</a> sockets.**",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -8591,17 +8477,6 @@
 			"readOnly": false,
 			"values": []
 		},
-		"appearance": {
-			"description": "",
-			"type": "Number",
-			"readOnly": true,
-			"values": [
-				"Ti.UI.KEYBOARD_APPEARANCE_ALERT|deprecated",
-				"Ti.UI.KEYBOARD_APPEARANCE_DEFAULT",
-				"Ti.UI.KEYBOARD_APPEARANCE_DARK",
-				"Ti.UI.KEYBOARD_APPEARANCE_LIGHT"
-			]
-		},
 		"applicationCacheDirectory": {
 			"description": "Path to the application's internal cache directory.",
 			"type": "String",
@@ -8912,6 +8787,11 @@
 				"Ti.UI.AUTOLINK_URLS",
 				"Ti.UI.AUTOLINK_NONE",
 				"Ti.UI.AUTOLINK_PHONE_NUMBERS",
+				"Ti.UI.AUTOLINK_SHIPMENT_TRACKING_NUMBER",
+				"Ti.UI.AUTOLINK_FLIGHT_NUMBER",
+				"Ti.UI.AUTOLINK_LOOKUP_SUGGESTION",
+				"Ti.UI.AUTOLINK_MONEY",
+				"Ti.UI.AUTOLINK_PHYSICAL_VALUE",
 				"Ti.UI.AUTOLINK_EMAIL_ADDRESSES"
 			]
 		},
@@ -10388,7 +10268,6 @@
 			"values": [
 				"Ti.Contacts.AUTHORIZATION_AUTHORIZED",
 				"Ti.Contacts.AUTHORIZATION_DENIED",
-				"Ti.Contacts.AUTHORIZATION_RESTRICTED|deprecated",
 				"Ti.Contacts.AUTHORIZATION_UNKNOWN"
 			]
 		},
@@ -10573,7 +10452,7 @@
 			"values": []
 		},
 		"country_code": {
-			"description": "",
+			"description": "Country code. Same as <code>countryCode</code>.",
 			"type": "String",
 			"readOnly": true,
 			"values": []
@@ -10582,12 +10461,6 @@
 			"description": "Used to designate the extent or scope of the content of the resource.",
 			"type": "Array",
 			"readOnly": true,
-			"values": []
-		},
-		"created": {
-			"description": "Date and time that the person record was created. Single value. Deprecated since iOS 9.",
-			"type": "String",
-			"readOnly": false,
 			"values": []
 		},
 		"creator": {
@@ -11168,7 +11041,7 @@
 			"values": []
 		},
 		"displayAddress": {
-			"description": "",
+			"description": "Display address. Identical to <code>address</code>.",
 			"type": "String",
 			"readOnly": true,
 			"values": []
@@ -11553,24 +11426,6 @@
 			"readOnly": true,
 			"values": []
 		},
-		"errorCode": {
-			"description": "The error code of the error (potentially system-dependent). <strong>Removed in 9.0.0. Use the <code>code</code> property for a numeric error code.</strong>",
-			"type": "Number",
-			"readOnly": true,
-			"values": []
-		},
-		"errorDescription": {
-			"description": "",
-			"type": "String",
-			"readOnly": true,
-			"values": []
-		},
-		"errorState": {
-			"description": "",
-			"type": "Number",
-			"readOnly": true,
-			"values": []
-		},
 		"eventId": {
 			"description": "Identifier of the event for which this alert is set.",
 			"type": "Number",
@@ -11582,17 +11437,6 @@
 			"type": "Object",
 			"readOnly": true,
 			"values": []
-		},
-		"eventsAuthorization": {
-			"description": "Returns an authorization constant indicating if the application has access to the events in the EventKit. <strong>Removed in 8.1.0. Use the <a href=\"Titanium.Calendar.calendarAuthorization\">Titanium.Calendar.calendarAuthorization</a> property instead.</strong>",
-			"type": "Number",
-			"readOnly": false,
-			"values": [
-				"Ti.Calendar.AUTHORIZATION_AUTHORIZED",
-				"Ti.Calendar.AUTHORIZATION_DENIED",
-				"Ti.Calendar.AUTHORIZATION_RESTRICTED",
-				"Ti.Calendar.AUTHORIZATION_UNKNOWN"
-			]
 		},
 		"exact": {
 			"description": "Whether or not the predicate is for an exact match.  The default is <code>true</code>.",
@@ -12762,6 +12606,37 @@
 				"Ti.UI.iOS.SHORTCUT_ICON_TYPE_UPDATE"
 			]
 		},
+		"iconColor": {
+			"description": "Color of the search and close icon. Search icon will only work for <code>iconified:false</code>.",
+			"type": "String",
+			"readOnly": true,
+			"values": [
+				"'transparent'",
+				"'aqua'",
+				"'black'",
+				"'blue'",
+				"'brown'",
+				"'cyan'",
+				"'darkgray'",
+				"'fuchsia'",
+				"'gray'",
+				"'green'",
+				"'lightgray'",
+				"'lime'",
+				"'magenta'",
+				"'maroon'",
+				"'navy'",
+				"'olive'",
+				"'orange'",
+				"'pink'",
+				"'purple'",
+				"'red'",
+				"'silver'",
+				"'teal'",
+				"'white'",
+				"'yellow'"
+			]
+		},
 		"iconInsets": {
 			"description": "The icon inset or outset for each edge.",
 			"type": "TabIconInsets",
@@ -13318,6 +13193,15 @@
 				"false"
 			]
 		},
+		"isTranslatedBinaryOnAppleSilicon": {
+			"description": "A Boolean value that indicates whether the current app is running as a translated\nbinary using Rosetta on an Apple Silicon device.",
+			"type": "Boolean",
+			"readOnly": false,
+			"values": [
+				"true",
+				"false"
+			]
+		},
 		"isWatchAppInstalled": {
 			"description": "Returns <code>true</code> if the accompanying watch app is installed.",
 			"type": "Boolean",
@@ -13474,7 +13358,6 @@
 			"type": "Number",
 			"readOnly": true,
 			"values": [
-				"Ti.UI.KEYBOARD_APPEARANCE_ALERT|deprecated",
 				"Ti.UI.KEYBOARD_APPEARANCE_DEFAULT",
 				"Ti.UI.KEYBOARD_APPEARANCE_DARK",
 				"Ti.UI.KEYBOARD_APPEARANCE_LIGHT"
@@ -13558,19 +13441,9 @@
 				"Ti.UI.KEYBOARD_TYPE_WEBSEARCH",
 				"Ti.UI.KEYBOARD_TYPE_TWITTER",
 				"Ti.UI.KEYBOARD_TYPE_URL",
-				"Ti.UI.KEYBOARD_APPEARANCE_ALERT|deprecated",
 				"Ti.UI.KEYBOARD_APPEARANCE_DEFAULT",
 				"Ti.UI.KEYBOARD_APPEARANCE_DARK",
-				"Ti.UI.KEYBOARD_APPEARANCE_LIGHT",
-				"Ti.UI.KEYBOARD_ASCII|deprecated",
-				"Ti.UI.KEYBOARD_DECIMAL_PAD|deprecated",
-				"Ti.UI.KEYBOARD_DEFAULT|deprecated",
-				"Ti.UI.KEYBOARD_EMAIL|deprecated",
-				"Ti.UI.KEYBOARD_NAMEPHONE_PAD|deprecated",
-				"Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION|deprecated",
-				"Ti.UI.KEYBOARD_NUMBER_PAD|deprecated",
-				"Ti.UI.KEYBOARD_PHONE_PAD|deprecated",
-				"Ti.UI.KEYBOARD_URL|deprecated"
+				"Ti.UI.KEYBOARD_APPEARANCE_LIGHT"
 			]
 		},
 		"keyboardVisible": {
@@ -14084,19 +13957,9 @@
 			"type": "Number",
 			"readOnly": true,
 			"values": [
-				"Ti.UI.KEYBOARD_APPEARANCE_ALERT|deprecated",
 				"Ti.UI.KEYBOARD_APPEARANCE_DEFAULT",
 				"Ti.UI.KEYBOARD_APPEARANCE_DARK",
 				"Ti.UI.KEYBOARD_APPEARANCE_LIGHT",
-				"Ti.UI.KEYBOARD_ASCII|deprecated",
-				"Ti.UI.KEYBOARD_DECIMAL_PAD|deprecated",
-				"Ti.UI.KEYBOARD_DEFAULT|deprecated",
-				"Ti.UI.KEYBOARD_EMAIL|deprecated",
-				"Ti.UI.KEYBOARD_NAMEPHONE_PAD|deprecated",
-				"Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION|deprecated",
-				"Ti.UI.KEYBOARD_NUMBER_PAD|deprecated",
-				"Ti.UI.KEYBOARD_PHONE_PAD|deprecated",
-				"Ti.UI.KEYBOARD_URL|deprecated",
 				"Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD",
 				"Ti.UI.KEYBOARD_TYPE_ASCII",
 				"Ti.UI.KEYBOARD_TYPE_DEFAULT",
@@ -14761,12 +14624,6 @@
 			"description": "",
 			"type": "String",
 			"readOnly": true,
-			"values": []
-		},
-		"modified": {
-			"description": "Date and time that the person record was last modified. Single value. Deprecated since iOS 9.",
-			"type": "String",
-			"readOnly": false,
 			"values": []
 		},
 		"month": {
@@ -15671,19 +15528,9 @@
 			"type": "Number",
 			"readOnly": true,
 			"values": [
-				"Ti.UI.KEYBOARD_APPEARANCE_ALERT|deprecated",
 				"Ti.UI.KEYBOARD_APPEARANCE_DEFAULT",
 				"Ti.UI.KEYBOARD_APPEARANCE_DARK",
 				"Ti.UI.KEYBOARD_APPEARANCE_LIGHT",
-				"Ti.UI.KEYBOARD_ASCII|deprecated",
-				"Ti.UI.KEYBOARD_DECIMAL_PAD|deprecated",
-				"Ti.UI.KEYBOARD_DEFAULT|deprecated",
-				"Ti.UI.KEYBOARD_EMAIL|deprecated",
-				"Ti.UI.KEYBOARD_NAMEPHONE_PAD|deprecated",
-				"Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION|deprecated",
-				"Ti.UI.KEYBOARD_NUMBER_PAD|deprecated",
-				"Ti.UI.KEYBOARD_PHONE_PAD|deprecated",
-				"Ti.UI.KEYBOARD_URL|deprecated",
 				"Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD",
 				"Ti.UI.KEYBOARD_TYPE_ASCII",
 				"Ti.UI.KEYBOARD_TYPE_DEFAULT",
@@ -16055,16 +15902,6 @@
 			"readOnly": true,
 			"values": []
 		},
-		"preferredProvider": {
-			"description": "Determines the preferred location provider.\n<strong>Removed in 8.0.0. Android legacy mode operation is deprecated. For new development, use\neither simple mode or manual mode. See &quot;Configurating Location Updates on Android&quot;\nin the main description of this class for more information.</strong>",
-			"type": "String",
-			"readOnly": true,
-			"values": [
-				"Ti.Geolocation.Android.PROVIDER_GPS",
-				"Ti.Geolocation.Android.PROVIDER_NETWORK",
-				"Ti.Geolocation.Android.PROVIDER_PASSIVE"
-			]
-		},
 		"prefix": {
 			"description": "",
 			"type": "String",
@@ -16362,7 +16199,7 @@
 			"values": []
 		},
 		"recordId": {
-			"description": "",
+			"description": "Record identifier of the person. Single value. Deprecated since iOS 9.",
 			"type": "Number",
 			"readOnly": true,
 			"values": []
@@ -17344,7 +17181,7 @@
 			]
 		},
 		"selectedTextColor": {
-			"description": "Color of title of button when it is selected, as a color name or hex triplet.",
+			"description": "",
 			"type": "String",
 			"readOnly": true,
 			"values": [
@@ -17530,6 +17367,15 @@
 			"type": "Array",
 			"readOnly": false,
 			"values": []
+		},
+		"severity": {
+			"description": "Indicates the severity of the alert in apps built with Mac Catalyst.",
+			"type": "Number",
+			"readOnly": true,
+			"values": [
+				"Ti.UI.iOS.ALERT_SEVERITY_DEFAULT",
+				"Ti.UI.iOS.ALERT_SEVERITY_CRITICAL"
+			]
 		},
 		"shadow": {
 			"description": "Shadow color and offset for the window title.",
@@ -18616,7 +18462,7 @@
 			]
 		},
 		"textColor": {
-			"description": "Color of title of button, as a color name or hex triplet.",
+			"description": "",
 			"type": "String",
 			"readOnly": true,
 			"values": [
@@ -19954,12 +19800,6 @@
 			"readOnly": true,
 			"values": []
 		},
-		"zipcode": {
-			"description": "Postal code. To be replaced by <code>postalCode</code> <strong>Removed in 9.0.0. Use the <code>postalCode</code> property for parity.</strong>",
-			"type": "String",
-			"readOnly": true,
-			"values": []
-		},
 		"zoomLevel": {
 			"description": "Manage the zoom-level of the current page.",
 			"type": "Number",
@@ -20014,7 +19854,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -21181,15 +21020,8 @@
 				"supportToolbar"
 			],
 			"events": [
-				"create|deprecated",
-				"destroy|deprecated",
 				"newintent",
 				"onIntent",
-				"pause|deprecated",
-				"restart|deprecated",
-				"resume|deprecated",
-				"start|deprecated",
-				"stop|deprecated",
 				"userleavehint",
 				"userinteraction"
 			]
@@ -21765,6 +21597,7 @@
 				"cancelAll",
 				"notify",
 				"createNotificationChannel",
+				"deleteNotificationChannel",
 				"areNotificationsEnabled"
 			],
 			"properties": [
@@ -22080,6 +21913,14 @@
 			"events": [
 				"change"
 			]
+		},
+		"Ti.App.iOS.ActivityAttributes": {
+			"description": "Use this module to communicate with the native iOS 16+ Dynamic Island APIs.",
+			"functions": [
+				"startActivity"
+			],
+			"properties": [],
+			"events": []
 		},
 		"Ti.App.iOS.BackgroundService": {
 			"description": "A service that runs when the application is placed in the background.",
@@ -22765,8 +22606,7 @@
 				"applyProperties",
 				"getCalendarById",
 				"hasCalendarPermissions",
-				"requestCalendarPermissions",
-				"requestEventsAuthorization|deprecated"
+				"requestCalendarPermissions"
 			],
 			"properties": [
 				"bubbleParent",
@@ -22835,7 +22675,6 @@
 				"SOURCE_TYPE_MOBILEME",
 				"SOURCE_TYPE_SUBSCRIBED",
 				"SOURCE_TYPE_BIRTHDAYS",
-				"eventsAuthorization",
 				"calendarAuthorization",
 				"allAlerts",
 				"allCalendars",
@@ -23081,19 +22920,15 @@
 				"createPerson",
 				"getAllGroups",
 				"getAllPeople",
-				"getGroupByID|deprecated",
 				"getGroupByIdentifier",
 				"getPeopleWithName",
-				"getPersonByID|deprecated",
 				"getPersonByIdentifier",
 				"removeGroup",
 				"removePerson",
-				"revert",
 				"save",
 				"showContacts",
 				"hasContactsPermissions",
-				"requestContactsPermissions",
-				"requestAuthorization|deprecated"
+				"requestContactsPermissions"
 			],
 			"properties": [
 				"bubbleParent",
@@ -23106,7 +22941,6 @@
 				"CONTACTS_SORT_LAST_NAME",
 				"AUTHORIZATION_AUTHORIZED",
 				"AUTHORIZATION_DENIED",
-				"AUTHORIZATION_RESTRICTED",
 				"AUTHORIZATION_UNKNOWN",
 				"contactsAuthorization"
 			],
@@ -23152,7 +22986,6 @@
 				"bubbleParent",
 				"apiName",
 				"name",
-				"recordId",
 				"identifier"
 			],
 			"events": []
@@ -23172,7 +23005,6 @@
 				"address",
 				"birthday",
 				"alternateBirthday",
-				"created",
 				"date",
 				"department",
 				"email",
@@ -23190,7 +23022,6 @@
 				"lastPhonetic",
 				"middleName",
 				"middlePhonetic",
-				"modified",
 				"nickname",
 				"note",
 				"organization",
@@ -23565,13 +23396,11 @@
 				"ACCURACY_AUTHORIZATION_REDUCED",
 				"accuracy",
 				"distanceFilter",
-				"frequency",
 				"hasCompass",
 				"headingFilter",
 				"headingTime",
 				"locationServicesAuthorization",
 				"locationServicesEnabled",
-				"preferredProvider",
 				"showCalibration",
 				"showBackgroundLocationIndicator",
 				"trackSignificantLocationChange",
@@ -23707,13 +23536,10 @@
 				"region2",
 				"postalCode",
 				"state",
-				"zipcode",
 				"country",
 				"countryCode",
-				"country_code",
 				"longitude",
 				"latitude",
-				"displayAddress",
 				"address"
 			],
 			"events": []
@@ -24019,13 +23845,10 @@
 				"requestCameraPermissions",
 				"hasPhotoGalleryPermissions",
 				"requestPhotoGalleryPermissions",
-				"requestCameraAccess|deprecated",
 				"takeScreenshot",
 				"vibrate",
-				"requestAuthorization|deprecated",
 				"hasAudioPermissions|deprecated",
 				"hasAudioRecorderPermissions",
-				"requestAudioPermissions|deprecated",
 				"requestAudioRecorderPermissions",
 				"createAudioPlayer",
 				"createAudioRecorder",
@@ -24508,7 +24331,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -24638,7 +24460,6 @@
 				"complete",
 				"durationavailable",
 				"error",
-				"fullscreen|deprecated",
 				"load",
 				"loadstate",
 				"naturalsizeavailable",
@@ -24837,7 +24658,6 @@
 				"addSystemCookie",
 				"createBonjourBrowser",
 				"createBonjourService",
-				"createTCPSocket|deprecated",
 				"decodeURIComponent",
 				"encodeURIComponent",
 				"getHTTPCookies",
@@ -24851,13 +24671,13 @@
 				"registerForPushNotifications",
 				"unregisterForPushNotifications",
 				"createCookie",
-				"createHTTPClient"
+				"createHTTPClient",
+				"createTCPSocket|deprecated"
 			],
 			"properties": [
 				"bubbleParent",
 				"apiName",
 				"lifecycleContainer",
-				"INADDR_ANY",
 				"NETWORK_LAN",
 				"NETWORK_MOBILE",
 				"NETWORK_NONE",
@@ -24867,10 +24687,6 @@
 				"NOTIFICATION_TYPE_BADGE",
 				"NOTIFICATION_TYPE_SOUND",
 				"NOTIFICATION_TYPE_NEWSSTAND",
-				"READ_MODE",
-				"READ_WRITE_MODE",
-				"SOCKET_LISTENING",
-				"WRITE_MODE",
 				"TLS_VERSION_1_0",
 				"TLS_VERSION_1_1",
 				"TLS_VERSION_1_2",
@@ -24998,8 +24814,7 @@
 				"success",
 				"error",
 				"code",
-				"socket",
-				"errorCode"
+				"socket"
 			],
 			"events": []
 		},
@@ -25097,6 +24912,7 @@
 				"identifierForVendor",
 				"identifierForAdvertising",
 				"isAdvertisingTrackingEnabled",
+				"isTranslatedBinaryOnAppleSilicon",
 				"locale",
 				"macaddress",
 				"manufacturer",
@@ -25193,9 +25009,7 @@
 				"error",
 				"code",
 				"source",
-				"bytesProcessed",
-				"errorState",
-				"errorDescription"
+				"bytesProcessed"
 			],
 			"events": []
 		},
@@ -25207,9 +25021,7 @@
 				"error",
 				"code",
 				"source",
-				"bytesProcessed",
-				"errorState",
-				"errorDescription"
+				"bytesProcessed"
 			],
 			"events": []
 		},
@@ -25222,9 +25034,7 @@
 				"code",
 				"fromStream",
 				"toStream",
-				"bytesProcessed",
-				"errorState",
-				"errorDescription"
+				"bytesProcessed"
 			],
 			"events": []
 		},
@@ -25238,9 +25048,7 @@
 				"source",
 				"buffer",
 				"bytesProcessed",
-				"totalBytesProcessed",
-				"errorState",
-				"errorDescription"
+				"totalBytesProcessed"
 			],
 			"events": []
 		},
@@ -25293,7 +25101,6 @@
 				"fireEvent",
 				"applyProperties",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -25365,7 +25172,6 @@
 				"fireEvent",
 				"applyProperties",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"replaceAt",
@@ -25428,6 +25234,7 @@
 				"preferred",
 				"returnKeyType",
 				"style",
+				"severity",
 				"title",
 				"titleid",
 				"value"
@@ -25443,13 +25250,15 @@
 				"removeEventListener",
 				"fireEvent",
 				"applyProperties",
+				"harmonizedColor",
 				"hideSoftKeyboard",
 				"openPreferences",
 				"getColorResource",
 				"createCardView",
 				"createDrawerLayout",
 				"createProgressIndicator",
-				"createSearchView"
+				"createSearchView",
+				"createSnackbar"
 			],
 			"properties": [
 				"bubbleParent",
@@ -25485,11 +25294,6 @@
 				"GRAVITY_START",
 				"GRAVITY_TOP",
 				"GRAVITY_VERTICAL_GRAVITY_MASK",
-				"LINKIFY_ALL",
-				"LINKIFY_EMAIL_ADDRESSES",
-				"LINKIFY_MAP_ADDRESSES",
-				"LINKIFY_PHONE_NUMBERS",
-				"LINKIFY_WEB_URLS",
 				"OVER_SCROLL_ALWAYS",
 				"OVER_SCROLL_IF_CONTENT_SCROLLS",
 				"OVER_SCROLL_NEVER",
@@ -25558,7 +25362,6 @@
 				"applyProperties",
 				"add",
 				"animate",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -25663,7 +25466,6 @@
 				"applyProperties",
 				"add",
 				"animate",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -25792,7 +25594,6 @@
 				"removeEventListener",
 				"fireEvent",
 				"applyProperties",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"replaceAt",
@@ -25841,7 +25642,6 @@
 				"fireEvent",
 				"applyProperties",
 				"animate",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -25949,9 +25749,37 @@
 		"Ti.UI.Android.Snackbar": {
 			"description": "Snackbars provide brief messages about app processes at the bottom of the screen.",
 			"functions": [
-				"show"
+				"addEventListener",
+				"removeEventListener",
+				"fireEvent",
+				"applyProperties",
+				"hide",
+				"insertAt",
+				"replaceAt",
+				"show",
+				"startLayout|deprecated",
+				"updateLayout|deprecated",
+				"getViewById"
 			],
 			"properties": [
+				"bubbleParent",
+				"apiName",
+				"lifecycleContainer",
+				"elevation",
+				"filterTouchesWhenObscured",
+				"hiddenBehavior",
+				"id",
+				"rotation",
+				"rotationX",
+				"rotationY",
+				"scaleX",
+				"scaleY",
+				"touchFeedback",
+				"touchFeedbackColor",
+				"translationX",
+				"translationY",
+				"translationZ",
+				"transitionName",
 				"LENGTH_SHORT",
 				"LENGTH_LONG",
 				"LENGTH_INDEFINITE",
@@ -26080,7 +25908,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -26206,7 +26033,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -26388,7 +26214,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -26503,7 +26328,6 @@
 				"fireEvent",
 				"applyProperties",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"replaceAt",
@@ -26574,7 +26398,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -26709,7 +26532,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -26954,7 +26776,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -27188,7 +27009,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -27380,7 +27200,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -27534,12 +27353,6 @@
 				"touchmove",
 				"touchstart",
 				"twofingertap",
-				"android:back|deprecated",
-				"android:camera|deprecated",
-				"android:focus|deprecated",
-				"android:search|deprecated",
-				"android:voldown|deprecated",
-				"android:volup|deprecated",
 				"androidback",
 				"androidcamera",
 				"androidfocus",
@@ -27583,7 +27396,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -27682,7 +27494,6 @@
 				"fireEvent",
 				"applyProperties",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -27766,7 +27577,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -27854,7 +27664,8 @@
 				"value",
 				"visibleItems",
 				"calendarViewShown",
-				"font"
+				"font",
+				"color"
 			],
 			"events": [
 				"click",
@@ -27912,7 +27723,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -28027,7 +27837,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -28167,7 +27976,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -28310,7 +28118,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -28441,7 +28248,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -28539,6 +28345,7 @@
 				"hinttextid",
 				"iconified",
 				"iconifiedByDefault",
+				"iconColor",
 				"keyboardType",
 				"keyboardAppearance",
 				"prompt",
@@ -28648,7 +28455,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -28782,7 +28588,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -28903,7 +28708,6 @@
 				"fireEvent",
 				"applyProperties",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"insertAt",
 				"startLayout|deprecated",
 				"toImage",
@@ -29004,7 +28808,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -29154,12 +28957,6 @@
 			],
 			"events": [
 				"focus",
-				"android:back|deprecated",
-				"android:camera|deprecated",
-				"android:focus|deprecated",
-				"android:search|deprecated",
-				"android:voldown|deprecated",
-				"android:volup|deprecated",
 				"androidback",
 				"androidcamera",
 				"androidfocus",
@@ -29168,9 +28965,7 @@
 				"androidvolup",
 				"blur",
 				"close",
-				"open",
-				"selected|deprecated",
-				"unselected|deprecated"
+				"open"
 			]
 		},
 		"Ti.UI.TabbedBar": {
@@ -29182,7 +28977,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -29263,6 +29057,8 @@
 				"keepScreenOn",
 				"index",
 				"labels",
+				"textColor",
+				"selectedTextColor",
 				"style"
 			],
 			"events": [
@@ -29283,7 +29079,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -29495,7 +29290,6 @@
 				"applyProperties",
 				"add",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -29663,7 +29457,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -29746,7 +29539,6 @@
 				"horizontalWrap",
 				"zIndex",
 				"keepScreenOn",
-				"appearance",
 				"keyboardAppearance",
 				"attributedHintText",
 				"attributedString",
@@ -29828,7 +29620,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -29911,7 +29702,6 @@
 				"horizontalWrap",
 				"zIndex",
 				"keepScreenOn",
-				"appearance",
 				"keyboardAppearance",
 				"attributedString",
 				"attributedHintText",
@@ -29944,8 +29734,6 @@
 				"leftButtonPadding",
 				"minimumFontSize",
 				"padding",
-				"paddingLeft",
-				"paddingRight",
 				"passwordMask",
 				"passwordRules",
 				"returnKeyType",
@@ -30011,7 +29799,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -30272,6 +30059,11 @@
 				"AUTOLINK_URLS",
 				"AUTOLINK_NONE",
 				"AUTOLINK_PHONE_NUMBERS",
+				"AUTOLINK_SHIPMENT_TRACKING_NUMBER",
+				"AUTOLINK_FLIGHT_NUMBER",
+				"AUTOLINK_LOOKUP_SUGGESTION",
+				"AUTOLINK_MONEY",
+				"AUTOLINK_PHYSICAL_VALUE",
 				"AUTOLINK_EMAIL_ADDRESSES",
 				"BLEND_MODE_CLEAR",
 				"BLEND_MODE_COLOR",
@@ -30344,19 +30136,9 @@
 				"INPUT_BUTTONMODE_ONFOCUS",
 				"INPUT_TYPE_CLASS_NUMBER",
 				"INPUT_TYPE_CLASS_TEXT",
-				"KEYBOARD_APPEARANCE_ALERT",
 				"KEYBOARD_APPEARANCE_DEFAULT",
 				"KEYBOARD_APPEARANCE_DARK",
 				"KEYBOARD_APPEARANCE_LIGHT",
-				"KEYBOARD_ASCII",
-				"KEYBOARD_DECIMAL_PAD",
-				"KEYBOARD_DEFAULT",
-				"KEYBOARD_EMAIL",
-				"KEYBOARD_NAMEPHONE_PAD",
-				"KEYBOARD_NUMBERS_PUNCTUATION",
-				"KEYBOARD_NUMBER_PAD",
-				"KEYBOARD_PHONE_PAD",
-				"KEYBOARD_URL",
 				"KEYBOARD_TYPE_DECIMAL_PAD",
 				"KEYBOARD_TYPE_ASCII",
 				"KEYBOARD_TYPE_DEFAULT",
@@ -30525,7 +30307,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -30689,7 +30470,6 @@
 				"load",
 				"onLoadResource",
 				"sslerror",
-				"onStopBlacklistedUrl|deprecated",
 				"blacklisturl|deprecated",
 				"blockedurl",
 				"message",
@@ -30796,7 +30576,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -30969,12 +30748,6 @@
 				"touchmove",
 				"touchstart",
 				"twofingertap",
-				"android:back|deprecated",
-				"android:camera|deprecated",
-				"android:focus|deprecated",
-				"android:search|deprecated",
-				"android:voldown|deprecated",
-				"android:volup|deprecated",
 				"androidback",
 				"androidcamera",
 				"androidfocus",
@@ -31160,7 +30933,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -31283,7 +31055,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -31493,7 +31264,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -31750,7 +31520,6 @@
 				"add",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"remove",
@@ -31919,7 +31688,6 @@
 				"applyProperties",
 				"animate",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",
@@ -32234,34 +32002,8 @@
 				"LARGE_TITLE_DISPLAY_MODE_NEVER",
 				"LIVEPHOTO_BADGE_OPTIONS_OVER_CONTENT",
 				"LIVEPHOTO_BADGE_OPTIONS_LIVE_OFF",
-				"BLEND_MODE_CLEAR",
-				"BLEND_MODE_COLOR",
-				"BLEND_MODE_COLOR_BURN",
-				"BLEND_MODE_COLOR_DODGE",
-				"BLEND_MODE_COPY",
-				"BLEND_MODE_DARKEN",
-				"BLEND_MODE_DESTINATION_ATOP",
-				"BLEND_MODE_DESTINATION_IN",
-				"BLEND_MODE_DESTINATION_OUT",
-				"BLEND_MODE_DESTINATION_OVER",
-				"BLEND_MODE_DIFFERENCE",
-				"BLEND_MODE_EXCLUSION",
-				"BLEND_MODE_HARD_LIGHT",
-				"BLEND_MODE_HUE",
-				"BLEND_MODE_LIGHTEN",
-				"BLEND_MODE_LUMINOSITY",
-				"BLEND_MODE_MULTIPLY",
-				"BLEND_MODE_NORMAL",
-				"BLEND_MODE_OVERLAY",
-				"BLEND_MODE_PLUS_DARKER",
-				"BLEND_MODE_PLUS_LIGHTER",
-				"BLEND_MODE_SATURATION",
-				"BLEND_MODE_SCREEN",
-				"BLEND_MODE_SOFT_LIGHT",
-				"BLEND_MODE_SOURCE_ATOP",
-				"BLEND_MODE_SOURCE_IN",
-				"BLEND_MODE_SOURCE_OUT",
-				"BLEND_MODE_XOR",
+				"ALERT_SEVERITY_DEFAULT",
+				"ALERT_SEVERITY_CRITICAL",
 				"BLUR_EFFECT_STYLE_EXTRA_LIGHT",
 				"BLUR_EFFECT_STYLE_LIGHT",
 				"BLUR_EFFECT_STYLE_DARK",
@@ -32334,12 +32076,6 @@
 				"KEYBOARD_DISMISS_MODE_INTERACTIVE",
 				"SEARCH_BAR_STYLE_PROMINENT",
 				"SEARCH_BAR_STYLE_MINIMAL",
-				"WEBVIEW_NAVIGATIONTYPE_LINK_CLICKED",
-				"WEBVIEW_NAVIGATIONTYPE_FORM_SUBMITTED",
-				"WEBVIEW_NAVIGATIONTYPE_BACK_FORWARD",
-				"WEBVIEW_NAVIGATIONTYPE_RELOAD",
-				"WEBVIEW_NAVIGATIONTYPE_FORM_RESUBMITTED",
-				"WEBVIEW_NAVIGATIONTYPE_OTHER",
 				"TABLEVIEW_INDEX_SEARCH",
 				"SHORTCUT_ICON_TYPE_COMPOSE",
 				"SHORTCUT_ICON_TYPE_PLAY",
@@ -32411,7 +32147,6 @@
 				"fireEvent",
 				"applyProperties",
 				"clearMotionEffects",
-				"finishLayout|deprecated",
 				"hide",
 				"insertAt",
 				"show",

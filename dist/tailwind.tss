@@ -4709,7 +4709,7 @@
 
 // Property: bubbleParent
 // Description: Indicates if the proxy will bubble an event to its parent.
-// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewScrollPosition, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
+// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewScrollPosition, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
 '.bubble-parent': { bubbleParent: true }
 '.bubble-parent-false': { bubbleParent: false }
 
@@ -6066,7 +6066,7 @@
 '.bottom-full': { bottom: '100%' }
 
 // Property: elevation
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.elevation-0': { elevation: 0 }
 '.elevation-1': { elevation: 4 }
 '.elevation-2': { elevation: 8 }
@@ -6105,7 +6105,7 @@
 
 // Property: filterTouchesWhenObscured
 // Description: Discards touch related events if another app's system overlay covers the view.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.filter-touches-when-obscured': { filterTouchesWhenObscured: true }
 '.filter-touches-when-obscured-false': { filterTouchesWhenObscured: false }
 
@@ -6184,7 +6184,7 @@
 
 // Property: hiddenBehavior
 // Description: Sets the behavior when hiding an object to release or keep the free space
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.hidden-behavior-invisible': { hiddenBehavior: Ti.UI.HIDDEN_BEHAVIOR_INVISIBLE }
 '.hidden-behavior-gone': { hiddenBehavior: Ti.UI.HIDDEN_BEHAVIOR_GONE }
 
@@ -6579,7 +6579,7 @@
 
 // Property: scaleX
 // Description: Scaling of the view in x-axis in pixels.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.scale-x-0': { scaleX: 0 }
 '.scale-x-1': { scaleX: 0.01 }
 '.scale-x-5': { scaleX: 0.05 }
@@ -6598,7 +6598,7 @@
 
 // Property: scaleY
 // Description: Scaling of the view in y-axis in pixels.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.scale-y-0': { scaleY: 0 }
 '.scale-y-1': { scaleY: 0.01 }
 '.scale-y-5': { scaleY: 0.05 }
@@ -6922,13 +6922,13 @@
 
 // Property: touchFeedback
 // Description: A material design visual construct that provides an instantaneous visual confirmation of touch point.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.touch-feedback': { touchFeedback: true }
 '.touch-feedback-false': { touchFeedback: false }
 
 // Property: touchFeedbackColor
 // Description: Optional touch feedback ripple color. This has no effect unless touchFeedback is true.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.touch-feedback-transparent': { touchFeedbackColor: 'transparent' }
 '.touch-feedback-black': { touchFeedbackColor: '#000000' }
 '.touch-feedback-white': { touchFeedbackColor: '#ffffff' }
@@ -8116,7 +8116,7 @@
 '.group-summary-false': { groupSummary: false }
 
 // Property: color
-// Component(s): Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, RowActionType, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, GradientColorRef, titleAttributesParams, shadowDict
+// Component(s): Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, RowActionType, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, GradientColorRef, titleAttributesParams, shadowDict
 '.transparent': { color: 'transparent' }
 '.black': { color: '#000000' }
 '.white': { color: '#ffffff' }
@@ -9143,14 +9143,6 @@
 '.status-calendar-confirmed': { status: Ti.Calendar.STATUS_CONFIRMED }
 '.status-calendar-tentative': { status: Ti.Calendar.STATUS_TENTATIVE }
 
-// Property: eventsAuthorization
-// Description: Returns an authorization constant indicating if the application has access to the events in the EventKit. Removed in 8.1.0. Use the Titanium.Calendar.calendarAuthorization property instead.
-// Component(s): Ti.Calendar
-'.events-authorization-calendar-authorized': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_AUTHORIZED }
-'.events-authorization-calendar-denied': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_DENIED }
-'.events-authorization-calendar-restricted': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_RESTRICTED }
-'.events-authorization-calendar-unknown': { eventsAuthorization: Ti.Calendar.AUTHORIZATION_UNKNOWN }
-
 // Property: calendarAuthorization
 // Description: Returns an authorization constant indicating if the application has access to the events in the EventKit.
 // Component(s): Ti.Calendar
@@ -9212,7 +9204,7 @@
 '.is-detached-false': { isDetached: false }
 
 // Property: frequency
-// Component(s): Ti.Calendar.RecurrenceRule, Ti.Geolocation, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.ViewAttachmentBehavior
+// Component(s): Ti.Calendar.RecurrenceRule, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.ViewAttachmentBehavior
 '.frequency-calendar-recurrence-daily': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_DAILY }
 '.frequency-calendar-recurrence-weekly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_WEEKLY }
 '.frequency-calendar-recurrence-monthly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_MONTHLY }
@@ -9334,13 +9326,6 @@
 // Component(s): Ti.Geolocation
 '.location-services-enabled': { locationServicesEnabled: true }
 '.location-services-enabled-false': { locationServicesEnabled: false }
-
-// Property: preferredProvider
-// Description: Determines the preferred location provider. Removed in 8.0.0. Android legacy mode operation is deprecated. For new development, use either simple mode or manual mode. See &quot;Configurating Location Updates on Android&quot; in the main description of this class for more information.
-// Component(s): Ti.Geolocation
-'.preferred-provider-gps[platform=android]': { preferredProvider: Ti.Geolocation.Android.PROVIDER_GPS }
-'.preferred-provider-network[platform=android]': { preferredProvider: Ti.Geolocation.Android.PROVIDER_NETWORK }
-'.preferred-provider-passive[platform=android]': { preferredProvider: Ti.Geolocation.Android.PROVIDER_PASSIVE }
 
 // Property: showCalibration
 // Description: Determines whether the compass calibration UI is shown if needed.
@@ -9911,6 +9896,12 @@
 '.battery-monitoring': { batteryMonitoring: true }
 '.battery-monitoring-false': { batteryMonitoring: false }
 
+// Property: isTranslatedBinaryOnAppleSilicon
+// Description: A Boolean value that indicates whether the current app is running as a translated binary using Rosetta on an Apple Silicon device.
+// Component(s): Ti.Platform
+'.is-translated-binary-on-apple-silicon': { isTranslatedBinaryOnAppleSilicon: true }
+'.is-translated-binary-on-apple-silicon-false': { isTranslatedBinaryOnAppleSilicon: false }
+
 // Property: scale
 // Component(s): MatrixCreationDict, Matrix2DCreationDict, Matrix3DCreationDict
 '.scale-0': { scale: 0 }
@@ -10295,6 +10286,12 @@
 '.return-key-type-send': { returnKeyType: Ti.UI.RETURNKEY_SEND }
 '.return-key-type-yahoo': { returnKeyType: Ti.UI.RETURNKEY_YAHOO }
 
+// Property: severity
+// Description: Indicates the severity of the alert in apps built with Mac Catalyst.
+// Component(s): Ti.UI.AlertDialog
+'.severity-alert[platform=ios]': { severity: Ti.UI.iOS.ALERT_SEVERITY_DEFAULT }
+'.severity-alert-critical[platform=ios]': { severity: Ti.UI.iOS.ALERT_SEVERITY_CRITICAL }
+
 // Property: maxElevation
 // Description: Maximum Elevation for CardView.
 // Component(s): Ti.UI.Android.CardView
@@ -10423,7 +10420,7 @@
 '.padding-bottom-3.5': { paddingBottom: 14 }
 
 // Property: paddingLeft
-// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup, Ti.UI.TextField
+// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
 '.padding-left-0': { paddingLeft: 0 }
 '.padding-left-1': { paddingLeft: 4 }
 '.padding-left-2': { paddingLeft: 8 }
@@ -10461,7 +10458,7 @@
 '.padding-left-3.5': { paddingLeft: 14 }
 
 // Property: paddingRight
-// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup, Ti.UI.TextField
+// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
 '.padding-right-0': { paddingRight: 0 }
 '.padding-right-1': { paddingRight: 4 }
 '.padding-right-2': { paddingRight: 8 }
@@ -12207,8 +12204,7 @@
 '.vertical-align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
 
 // Property: selectedTextColor
-// Description: Color of title of button when it is selected, as a color name or hex triplet.
-// Component(s): Ti.UI.ButtonBar
+// Component(s): Ti.UI.ButtonBar, Ti.UI.TabbedBar
 '.selected-text-transparent': { selectedTextColor: 'transparent' }
 '.selected-text-black': { selectedTextColor: '#000000' }
 '.selected-text-white': { selectedTextColor: '#ffffff' }
@@ -13231,6 +13227,11 @@
 '.auto-link-urls': { autoLink: Ti.UI.AUTOLINK_URLS }
 '.auto-link-none': { autoLink: Ti.UI.AUTOLINK_NONE }
 '.auto-link-phone-numbers': { autoLink: Ti.UI.AUTOLINK_PHONE_NUMBERS }
+'.auto-link-shipment-tracking-number': { autoLink: Ti.UI.AUTOLINK_SHIPMENT_TRACKING_NUMBER }
+'.auto-link-flight-number': { autoLink: Ti.UI.AUTOLINK_FLIGHT_NUMBER }
+'.auto-link-lookup-suggestion': { autoLink: Ti.UI.AUTOLINK_LOOKUP_SUGGESTION }
+'.auto-link-money': { autoLink: Ti.UI.AUTOLINK_MONEY }
+'.auto-link-physical-value': { autoLink: Ti.UI.AUTOLINK_PHYSICAL_VALUE }
 '.auto-link-email-addresses': { autoLink: Ti.UI.AUTOLINK_EMAIL_ADDRESSES }
 
 // Property: autoSize
@@ -17181,6 +17182,233 @@
 '.autocorrect': { autocorrect: true }
 '.autocorrect-false': { autocorrect: false }
 
+// Property: iconColor
+// Description: Color of the search and close icon. Search icon will only work for iconified:false.
+// Component(s): Ti.UI.SearchBar
+'.icon-transparent': { iconColor: 'transparent' }
+'.icon-black': { iconColor: '#000000' }
+'.icon-white': { iconColor: '#ffffff' }
+'.icon-slate-50': { iconColor: '#f8fafc' }
+'.icon-slate-100': { iconColor: '#f1f5f9' }
+'.icon-slate-200': { iconColor: '#e2e8f0' }
+'.icon-slate-300': { iconColor: '#cbd5e1' }
+'.icon-slate-400': { iconColor: '#94a3b8' }
+'.icon-slate-500': { iconColor: '#64748b' }
+'.icon-slate-600': { iconColor: '#475569' }
+'.icon-slate-700': { iconColor: '#334155' }
+'.icon-slate-800': { iconColor: '#1e293b' }
+'.icon-slate-900': { iconColor: '#0f172a' }
+'.icon-gray-50': { iconColor: '#f9fafb' }
+'.icon-gray-100': { iconColor: '#f3f4f6' }
+'.icon-gray-200': { iconColor: '#e5e7eb' }
+'.icon-gray-300': { iconColor: '#d1d5db' }
+'.icon-gray-400': { iconColor: '#9ca3af' }
+'.icon-gray-500': { iconColor: '#6b7280' }
+'.icon-gray-600': { iconColor: '#4b5563' }
+'.icon-gray-700': { iconColor: '#374151' }
+'.icon-gray-800': { iconColor: '#1f2937' }
+'.icon-gray-900': { iconColor: '#111827' }
+'.icon-zinc-50': { iconColor: '#fafafa' }
+'.icon-zinc-100': { iconColor: '#f4f4f5' }
+'.icon-zinc-200': { iconColor: '#e4e4e7' }
+'.icon-zinc-300': { iconColor: '#d4d4d8' }
+'.icon-zinc-400': { iconColor: '#a1a1aa' }
+'.icon-zinc-500': { iconColor: '#71717a' }
+'.icon-zinc-600': { iconColor: '#52525b' }
+'.icon-zinc-700': { iconColor: '#3f3f46' }
+'.icon-zinc-800': { iconColor: '#27272a' }
+'.icon-zinc-900': { iconColor: '#18181b' }
+'.icon-neutral-50': { iconColor: '#fafafa' }
+'.icon-neutral-100': { iconColor: '#f5f5f5' }
+'.icon-neutral-200': { iconColor: '#e5e5e5' }
+'.icon-neutral-300': { iconColor: '#d4d4d4' }
+'.icon-neutral-400': { iconColor: '#a3a3a3' }
+'.icon-neutral-500': { iconColor: '#737373' }
+'.icon-neutral-600': { iconColor: '#525252' }
+'.icon-neutral-700': { iconColor: '#404040' }
+'.icon-neutral-800': { iconColor: '#262626' }
+'.icon-neutral-900': { iconColor: '#171717' }
+'.icon-stone-50': { iconColor: '#fafaf9' }
+'.icon-stone-100': { iconColor: '#f5f5f4' }
+'.icon-stone-200': { iconColor: '#e7e5e4' }
+'.icon-stone-300': { iconColor: '#d6d3d1' }
+'.icon-stone-400': { iconColor: '#a8a29e' }
+'.icon-stone-500': { iconColor: '#78716c' }
+'.icon-stone-600': { iconColor: '#57534e' }
+'.icon-stone-700': { iconColor: '#44403c' }
+'.icon-stone-800': { iconColor: '#292524' }
+'.icon-stone-900': { iconColor: '#1c1917' }
+'.icon-red-50': { iconColor: '#fef2f2' }
+'.icon-red-100': { iconColor: '#fee2e2' }
+'.icon-red-200': { iconColor: '#fecaca' }
+'.icon-red-300': { iconColor: '#fca5a5' }
+'.icon-red-400': { iconColor: '#f87171' }
+'.icon-red-500': { iconColor: '#ef4444' }
+'.icon-red-600': { iconColor: '#dc2626' }
+'.icon-red-700': { iconColor: '#b91c1c' }
+'.icon-red-800': { iconColor: '#991b1b' }
+'.icon-red-900': { iconColor: '#7f1d1d' }
+'.icon-orange-50': { iconColor: '#fff7ed' }
+'.icon-orange-100': { iconColor: '#ffedd5' }
+'.icon-orange-200': { iconColor: '#fed7aa' }
+'.icon-orange-300': { iconColor: '#fdba74' }
+'.icon-orange-400': { iconColor: '#fb923c' }
+'.icon-orange-500': { iconColor: '#f97316' }
+'.icon-orange-600': { iconColor: '#ea580c' }
+'.icon-orange-700': { iconColor: '#c2410c' }
+'.icon-orange-800': { iconColor: '#9a3412' }
+'.icon-orange-900': { iconColor: '#7c2d12' }
+'.icon-amber-50': { iconColor: '#fffbeb' }
+'.icon-amber-100': { iconColor: '#fef3c7' }
+'.icon-amber-200': { iconColor: '#fde68a' }
+'.icon-amber-300': { iconColor: '#fcd34d' }
+'.icon-amber-400': { iconColor: '#fbbf24' }
+'.icon-amber-500': { iconColor: '#f59e0b' }
+'.icon-amber-600': { iconColor: '#d97706' }
+'.icon-amber-700': { iconColor: '#b45309' }
+'.icon-amber-800': { iconColor: '#92400e' }
+'.icon-amber-900': { iconColor: '#78350f' }
+'.icon-yellow-50': { iconColor: '#fefce8' }
+'.icon-yellow-100': { iconColor: '#fef9c3' }
+'.icon-yellow-200': { iconColor: '#fef08a' }
+'.icon-yellow-300': { iconColor: '#fde047' }
+'.icon-yellow-400': { iconColor: '#facc15' }
+'.icon-yellow-500': { iconColor: '#eab308' }
+'.icon-yellow-600': { iconColor: '#ca8a04' }
+'.icon-yellow-700': { iconColor: '#a16207' }
+'.icon-yellow-800': { iconColor: '#854d0e' }
+'.icon-yellow-900': { iconColor: '#713f12' }
+'.icon-lime-50': { iconColor: '#f7fee7' }
+'.icon-lime-100': { iconColor: '#ecfccb' }
+'.icon-lime-200': { iconColor: '#d9f99d' }
+'.icon-lime-300': { iconColor: '#bef264' }
+'.icon-lime-400': { iconColor: '#a3e635' }
+'.icon-lime-500': { iconColor: '#84cc16' }
+'.icon-lime-600': { iconColor: '#65a30d' }
+'.icon-lime-700': { iconColor: '#4d7c0f' }
+'.icon-lime-800': { iconColor: '#3f6212' }
+'.icon-lime-900': { iconColor: '#365314' }
+'.icon-green-50': { iconColor: '#f0fdf4' }
+'.icon-green-100': { iconColor: '#dcfce7' }
+'.icon-green-200': { iconColor: '#bbf7d0' }
+'.icon-green-300': { iconColor: '#86efac' }
+'.icon-green-400': { iconColor: '#4ade80' }
+'.icon-green-500': { iconColor: '#22c55e' }
+'.icon-green-600': { iconColor: '#16a34a' }
+'.icon-green-700': { iconColor: '#15803d' }
+'.icon-green-800': { iconColor: '#166534' }
+'.icon-green-900': { iconColor: '#14532d' }
+'.icon-emerald-50': { iconColor: '#ecfdf5' }
+'.icon-emerald-100': { iconColor: '#d1fae5' }
+'.icon-emerald-200': { iconColor: '#a7f3d0' }
+'.icon-emerald-300': { iconColor: '#6ee7b7' }
+'.icon-emerald-400': { iconColor: '#34d399' }
+'.icon-emerald-500': { iconColor: '#10b981' }
+'.icon-emerald-600': { iconColor: '#059669' }
+'.icon-emerald-700': { iconColor: '#047857' }
+'.icon-emerald-800': { iconColor: '#065f46' }
+'.icon-emerald-900': { iconColor: '#064e3b' }
+'.icon-teal-50': { iconColor: '#f0fdfa' }
+'.icon-teal-100': { iconColor: '#ccfbf1' }
+'.icon-teal-200': { iconColor: '#99f6e4' }
+'.icon-teal-300': { iconColor: '#5eead4' }
+'.icon-teal-400': { iconColor: '#2dd4bf' }
+'.icon-teal-500': { iconColor: '#14b8a6' }
+'.icon-teal-600': { iconColor: '#0d9488' }
+'.icon-teal-700': { iconColor: '#0f766e' }
+'.icon-teal-800': { iconColor: '#115e59' }
+'.icon-teal-900': { iconColor: '#134e4a' }
+'.icon-cyan-50': { iconColor: '#ecfeff' }
+'.icon-cyan-100': { iconColor: '#cffafe' }
+'.icon-cyan-200': { iconColor: '#a5f3fc' }
+'.icon-cyan-300': { iconColor: '#67e8f9' }
+'.icon-cyan-400': { iconColor: '#22d3ee' }
+'.icon-cyan-500': { iconColor: '#06b6d4' }
+'.icon-cyan-600': { iconColor: '#0891b2' }
+'.icon-cyan-700': { iconColor: '#0e7490' }
+'.icon-cyan-800': { iconColor: '#155e75' }
+'.icon-cyan-900': { iconColor: '#164e63' }
+'.icon-sky-50': { iconColor: '#f0f9ff' }
+'.icon-sky-100': { iconColor: '#e0f2fe' }
+'.icon-sky-200': { iconColor: '#bae6fd' }
+'.icon-sky-300': { iconColor: '#7dd3fc' }
+'.icon-sky-400': { iconColor: '#38bdf8' }
+'.icon-sky-500': { iconColor: '#0ea5e9' }
+'.icon-sky-600': { iconColor: '#0284c7' }
+'.icon-sky-700': { iconColor: '#0369a1' }
+'.icon-sky-800': { iconColor: '#075985' }
+'.icon-sky-900': { iconColor: '#0c4a6e' }
+'.icon-blue-50': { iconColor: '#eff6ff' }
+'.icon-blue-100': { iconColor: '#dbeafe' }
+'.icon-blue-200': { iconColor: '#bfdbfe' }
+'.icon-blue-300': { iconColor: '#93c5fd' }
+'.icon-blue-400': { iconColor: '#60a5fa' }
+'.icon-blue-500': { iconColor: '#3b82f6' }
+'.icon-blue-600': { iconColor: '#2563eb' }
+'.icon-blue-700': { iconColor: '#1d4ed8' }
+'.icon-blue-800': { iconColor: '#1e40af' }
+'.icon-blue-900': { iconColor: '#1e3a8a' }
+'.icon-indigo-50': { iconColor: '#eef2ff' }
+'.icon-indigo-100': { iconColor: '#e0e7ff' }
+'.icon-indigo-200': { iconColor: '#c7d2fe' }
+'.icon-indigo-300': { iconColor: '#a5b4fc' }
+'.icon-indigo-400': { iconColor: '#818cf8' }
+'.icon-indigo-500': { iconColor: '#6366f1' }
+'.icon-indigo-600': { iconColor: '#4f46e5' }
+'.icon-indigo-700': { iconColor: '#4338ca' }
+'.icon-indigo-800': { iconColor: '#3730a3' }
+'.icon-indigo-900': { iconColor: '#312e81' }
+'.icon-violet-50': { iconColor: '#f5f3ff' }
+'.icon-violet-100': { iconColor: '#ede9fe' }
+'.icon-violet-200': { iconColor: '#ddd6fe' }
+'.icon-violet-300': { iconColor: '#c4b5fd' }
+'.icon-violet-400': { iconColor: '#a78bfa' }
+'.icon-violet-500': { iconColor: '#8b5cf6' }
+'.icon-violet-600': { iconColor: '#7c3aed' }
+'.icon-violet-700': { iconColor: '#6d28d9' }
+'.icon-violet-800': { iconColor: '#5b21b6' }
+'.icon-violet-900': { iconColor: '#4c1d95' }
+'.icon-purple-50': { iconColor: '#faf5ff' }
+'.icon-purple-100': { iconColor: '#f3e8ff' }
+'.icon-purple-200': { iconColor: '#e9d5ff' }
+'.icon-purple-300': { iconColor: '#d8b4fe' }
+'.icon-purple-400': { iconColor: '#c084fc' }
+'.icon-purple-500': { iconColor: '#a855f7' }
+'.icon-purple-600': { iconColor: '#9333ea' }
+'.icon-purple-700': { iconColor: '#7e22ce' }
+'.icon-purple-800': { iconColor: '#6b21a8' }
+'.icon-purple-900': { iconColor: '#581c87' }
+'.icon-fuchsia-50': { iconColor: '#fdf4ff' }
+'.icon-fuchsia-100': { iconColor: '#fae8ff' }
+'.icon-fuchsia-200': { iconColor: '#f5d0fe' }
+'.icon-fuchsia-300': { iconColor: '#f0abfc' }
+'.icon-fuchsia-400': { iconColor: '#e879f9' }
+'.icon-fuchsia-500': { iconColor: '#d946ef' }
+'.icon-fuchsia-600': { iconColor: '#c026d3' }
+'.icon-fuchsia-700': { iconColor: '#a21caf' }
+'.icon-fuchsia-800': { iconColor: '#86198f' }
+'.icon-fuchsia-900': { iconColor: '#701a75' }
+'.icon-pink-50': { iconColor: '#fdf2f8' }
+'.icon-pink-100': { iconColor: '#fce7f3' }
+'.icon-pink-200': { iconColor: '#fbcfe8' }
+'.icon-pink-300': { iconColor: '#f9a8d4' }
+'.icon-pink-400': { iconColor: '#f472b6' }
+'.icon-pink-500': { iconColor: '#ec4899' }
+'.icon-pink-600': { iconColor: '#db2777' }
+'.icon-pink-700': { iconColor: '#be185d' }
+'.icon-pink-800': { iconColor: '#9d174d' }
+'.icon-pink-900': { iconColor: '#831843' }
+'.icon-rose-50': { iconColor: '#fff1f2' }
+'.icon-rose-100': { iconColor: '#ffe4e6' }
+'.icon-rose-200': { iconColor: '#fecdd3' }
+'.icon-rose-300': { iconColor: '#fda4af' }
+'.icon-rose-400': { iconColor: '#fb7185' }
+'.icon-rose-500': { iconColor: '#f43f5e' }
+'.icon-rose-600': { iconColor: '#e11d48' }
+'.icon-rose-700': { iconColor: '#be123c' }
+'.icon-rose-800': { iconColor: '#9f1239' }
+'.icon-rose-900': { iconColor: '#881337' }
+
 // Property: showBookmark
 // Description: Determines whether the bookmark button is displayed.
 // Component(s): Ti.UI.SearchBar
@@ -19714,12 +19942,6 @@
 '.indention-level-1.5': { indentionLevel: 6 }
 '.indention-level-2.5': { indentionLevel: 10 }
 '.indention-level-3.5': { indentionLevel: 14 }
-
-// Property: appearance
-// Component(s): Ti.UI.TextArea, Ti.UI.TextField
-'.appearance-keyboard': { appearance: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
-'.appearance-keyboard-dark': { appearance: Ti.UI.KEYBOARD_APPEARANCE_DARK }
-'.appearance-keyboard-light': { appearance: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
 
 // Property: autofillType
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField

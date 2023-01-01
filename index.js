@@ -114,7 +114,7 @@ if (configOptions) {
 
 let methodCommand
 let oppositeCommand
-if (configFile.purge.method === 'sync') {
+if (configFile.purge.method === 'sync' || configFile.purge.method === '') {
 	oppositeCommand = "require('child_process').exec('purgetss"
 	methodCommand = "\trequire('child_process').execSync('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));"
 } else {
@@ -161,7 +161,7 @@ function purgeClasses(options) {
 
 		finish();
 	} else {
-		logger.warn('Purged less than 2 seconds ago!');
+		logger.warn('Project purged less than 2 seconds ago!');
 	}
 }
 module.exports.purgeClasses = purgeClasses;
@@ -1751,7 +1751,8 @@ function buildTailwindLegacy() {
 			let theClasses = helperToBuildTailwindClasses(key, value);
 
 			if (destinationFolder) {
-				fs.writeFileSync(`${destinationFolder}/${key}.md`, '```scss' + theClasses + '```');
+				let adMissingNewLineCharacter = theClasses.startsWith("\n") ? theClasses : "\n" + theClasses
+				fs.writeFileSync(`${destinationFolder}/${key}.md`, '```scss' + adMissingNewLineCharacter + '```');
 			}
 
 			tailwindStyles += theClasses;

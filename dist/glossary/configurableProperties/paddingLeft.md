@@ -1,6 +1,6 @@
 ```scss
 // Property: paddingLeft
-// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup, Ti.UI.TextField
+// Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
 '.padding-left-0': { paddingLeft: 0 }
 '.padding-left-1': { paddingLeft: 4 }
 '.padding-left-2': { paddingLeft: 8 }

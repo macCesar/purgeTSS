@@ -1,7 +1,6 @@
 ```scss
 // Property: selectedTextColor
-// Description: Color of title of button when it is selected, as a color name or hex triplet.
-// Component(s): Ti.UI.ButtonBar
+// Component(s): Ti.UI.ButtonBar, Ti.UI.TabbedBar
 '.selected-text-transparent': { selectedTextColor: 'transparent' }
 '.selected-text-black': { selectedTextColor: '#000000' }
 '.selected-text-white': { selectedTextColor: '#ffffff' }
