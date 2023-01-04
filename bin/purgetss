@@ -73,7 +73,7 @@ program
 	.option('-q, --quotes', 'Keep double quotes in config.js')
 	.option('-r, --random', 'Generates shades from a random color')
 	.option('-s, --single', 'Generate a single color definition')
-	.option('-t, --tailwind', `Save generated color in ${chalk.yellow('tailwind.config.js')}`)
+	.option('-t, --tailwind', 'Log the generated shades with a compatible structure with `tailwind.config.js`')
 	.option('-l, --log', `Log the generated shades instead of saving them`)
 	.option('-j, --json', `Log a JSON compatible structure, to use it in ${chalk.yellow('app/config.json')}`)
 	.description(`Color shades generator from a given hexcolor`)
