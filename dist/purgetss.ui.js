@@ -131,7 +131,8 @@ function Animation(args) {
 					if (_view.constraint === 'vertical') delete moveValues.left;
 					else if (_view.constraint === 'horizontal') delete moveValues.top;
 
-					_view.animate(moveValues);
+					// _view.animate(moveValues);
+					_view.applyProperties({ top: top, left: left })
 				}
 			});
 		} else {
