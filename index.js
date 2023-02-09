@@ -972,7 +972,7 @@ function getFontFamily(data) {
 	return _.map(data.stylesheet.rules, rule => {
 		if (rule.type === 'font-face') {
 			let something = rule.declarations.filter(declaration => declaration.property === 'font-family').map(declaration => declaration.value)[0];
-			something = something.replace(/'(.*?)'/g, (_match, p1) => p1);
+			something = something.replace(/['"](.*?)['"]/g, (_match, p1) => p1);
 			return something;
 		}
 	}).filter(rule => rule);
