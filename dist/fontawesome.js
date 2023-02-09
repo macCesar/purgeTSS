@@ -1,5 +1,5 @@
 /**
- * Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 */
 
@@ -2432,9 +2432,11 @@ const icons = {
 	'dribbble': '\uf17d',
 	'stumbleuponCircle': '\uf1a3',
 	'internetExplorer': '\uf26b',
+	'stubber': '\ue5c7',
 	'telegram': '\uf2c6',
 	'telegramPlane': '\uf2c6',
 	'oldRepublic': '\uf510',
+	'odysee': '\ue5c6',
 	'squareWhatsapp': '\uf40c',
 	'whatsappSquare': '\uf40c',
 	'nodeJs': '\uf3d3',

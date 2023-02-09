@@ -1,4 +1,4 @@
-// Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -2440,9 +2440,11 @@
 '.fa-dribbble': { text: '\uf17d', title: '\uf17d' }
 '.fa-stumbleupon-circle': { text: '\uf1a3', title: '\uf1a3' }
 '.fa-internet-explorer': { text: '\uf26b', title: '\uf26b' }
+'.fa-stubber': { text: '\ue5c7', title: '\ue5c7' }
 '.fa-telegram': { text: '\uf2c6', title: '\uf2c6' }
 '.fa-telegram-plane': { text: '\uf2c6', title: '\uf2c6' }
 '.fa-old-republic': { text: '\uf510', title: '\uf510' }
+'.fa-odysee': { text: '\ue5c6', title: '\ue5c6' }
 '.fa-square-whatsapp': { text: '\uf40c', title: '\uf40c' }
 '.fa-whatsapp-square': { text: '\uf40c', title: '\uf40c' }
 '.fa-node-js': { text: '\uf3d3', title: '\uf3d3' }
