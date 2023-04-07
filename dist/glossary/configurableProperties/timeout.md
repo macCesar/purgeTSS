@@ -1,7 +1,7 @@
 ```scss
 // Property: timeout
 // Component(s): Ti.Network.HTTPClient, Ti.Network.Socket.TCP, AcceptDict, Ti.UI.WebView
-'.timeout-0': { timeout: '0s' }
+'.timeout-0': { timeout: 0 }
 '.timeout-25': { timeout: 25 }
 '.timeout-50': { timeout: 50 }
 '.timeout-75': { timeout: 75 }

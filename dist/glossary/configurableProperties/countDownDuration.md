@@ -2,7 +2,7 @@
 // Property: countDownDuration
 // Description: Duration in milliseconds used for a Countdown Timer picker.
 // Component(s): Ti.UI.Picker
-'.count-down-duration-0': { countDownDuration: '0s' }
+'.count-down-duration-0': { countDownDuration: 0 }
 '.count-down-duration-25': { countDownDuration: 25 }
 '.count-down-duration-50': { countDownDuration: 50 }
 '.count-down-duration-75': { countDownDuration: 75 }
