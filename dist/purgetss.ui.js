@@ -26,13 +26,13 @@ function Animation(args) {
 	if (args.animationProperties && args.animationProperties.open && ("anchorPoint" in args.animationProperties.open || "rotate" in args.animationProperties.open || "scale" in args.animationProperties.open)) {
 		logger('   -> Creating transformOnOpen');
 		args.transformOnOpen = Ti.UI.createMatrix2D(args.animationProperties.open);
-		delete args.animationProperties.open;
+		// delete args.animationProperties.open;
 	}
 
 	if (args.animationProperties && args.animationProperties.close && ("anchorPoint" in args.animationProperties.close || "rotate" in args.animationProperties.close || "scale" in args.animationProperties.close)) {
 		logger('   -> Creating transformOnClose');
 		args.transformOnClose = Ti.UI.createMatrix2D(args.animationProperties.close);
-		delete args.animationProperties.close;
+		// delete args.animationProperties.close;
 	}
 
 	// TODO: Create a library of useful animations!!
