@@ -14,6 +14,7 @@
 '.hint-text-slate-700': { hintTextColor: '#334155' }
 '.hint-text-slate-800': { hintTextColor: '#1e293b' }
 '.hint-text-slate-900': { hintTextColor: '#0f172a' }
+'.hint-text-slate-950': { hintTextColor: '#020617' }
 '.hint-text-gray-50': { hintTextColor: '#f9fafb' }
 '.hint-text-gray-100': { hintTextColor: '#f3f4f6' }
 '.hint-text-gray-200': { hintTextColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.hint-text-gray-700': { hintTextColor: '#374151' }
 '.hint-text-gray-800': { hintTextColor: '#1f2937' }
 '.hint-text-gray-900': { hintTextColor: '#111827' }
+'.hint-text-gray-950': { hintTextColor: '#030712' }
 '.hint-text-zinc-50': { hintTextColor: '#fafafa' }
 '.hint-text-zinc-100': { hintTextColor: '#f4f4f5' }
 '.hint-text-zinc-200': { hintTextColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.hint-text-zinc-700': { hintTextColor: '#3f3f46' }
 '.hint-text-zinc-800': { hintTextColor: '#27272a' }
 '.hint-text-zinc-900': { hintTextColor: '#18181b' }
+'.hint-text-zinc-950': { hintTextColor: '#09090b' }
 '.hint-text-neutral-50': { hintTextColor: '#fafafa' }
 '.hint-text-neutral-100': { hintTextColor: '#f5f5f5' }
 '.hint-text-neutral-200': { hintTextColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.hint-text-neutral-700': { hintTextColor: '#404040' }
 '.hint-text-neutral-800': { hintTextColor: '#262626' }
 '.hint-text-neutral-900': { hintTextColor: '#171717' }
+'.hint-text-neutral-950': { hintTextColor: '#0a0a0a' }
 '.hint-text-stone-50': { hintTextColor: '#fafaf9' }
 '.hint-text-stone-100': { hintTextColor: '#f5f5f4' }
 '.hint-text-stone-200': { hintTextColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.hint-text-stone-700': { hintTextColor: '#44403c' }
 '.hint-text-stone-800': { hintTextColor: '#292524' }
 '.hint-text-stone-900': { hintTextColor: '#1c1917' }
+'.hint-text-stone-950': { hintTextColor: '#0c0a09' }
 '.hint-text-red-50': { hintTextColor: '#fef2f2' }
 '.hint-text-red-100': { hintTextColor: '#fee2e2' }
 '.hint-text-red-200': { hintTextColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.hint-text-red-700': { hintTextColor: '#b91c1c' }
 '.hint-text-red-800': { hintTextColor: '#991b1b' }
 '.hint-text-red-900': { hintTextColor: '#7f1d1d' }
+'.hint-text-red-950': { hintTextColor: '#450a0a' }
 '.hint-text-orange-50': { hintTextColor: '#fff7ed' }
 '.hint-text-orange-100': { hintTextColor: '#ffedd5' }
 '.hint-text-orange-200': { hintTextColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.hint-text-orange-700': { hintTextColor: '#c2410c' }
 '.hint-text-orange-800': { hintTextColor: '#9a3412' }
 '.hint-text-orange-900': { hintTextColor: '#7c2d12' }
+'.hint-text-orange-950': { hintTextColor: '#431407' }
 '.hint-text-amber-50': { hintTextColor: '#fffbeb' }
 '.hint-text-amber-100': { hintTextColor: '#fef3c7' }
 '.hint-text-amber-200': { hintTextColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.hint-text-amber-700': { hintTextColor: '#b45309' }
 '.hint-text-amber-800': { hintTextColor: '#92400e' }
 '.hint-text-amber-900': { hintTextColor: '#78350f' }
+'.hint-text-amber-950': { hintTextColor: '#451a03' }
 '.hint-text-yellow-50': { hintTextColor: '#fefce8' }
 '.hint-text-yellow-100': { hintTextColor: '#fef9c3' }
 '.hint-text-yellow-200': { hintTextColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.hint-text-yellow-700': { hintTextColor: '#a16207' }
 '.hint-text-yellow-800': { hintTextColor: '#854d0e' }
 '.hint-text-yellow-900': { hintTextColor: '#713f12' }
+'.hint-text-yellow-950': { hintTextColor: '#422006' }
 '.hint-text-lime-50': { hintTextColor: '#f7fee7' }
 '.hint-text-lime-100': { hintTextColor: '#ecfccb' }
 '.hint-text-lime-200': { hintTextColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.hint-text-lime-700': { hintTextColor: '#4d7c0f' }
 '.hint-text-lime-800': { hintTextColor: '#3f6212' }
 '.hint-text-lime-900': { hintTextColor: '#365314' }
+'.hint-text-lime-950': { hintTextColor: '#1a2e05' }
 '.hint-text-green-50': { hintTextColor: '#f0fdf4' }
 '.hint-text-green-100': { hintTextColor: '#dcfce7' }
 '.hint-text-green-200': { hintTextColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.hint-text-green-700': { hintTextColor: '#15803d' }
 '.hint-text-green-800': { hintTextColor: '#166534' }
 '.hint-text-green-900': { hintTextColor: '#14532d' }
+'.hint-text-green-950': { hintTextColor: '#052e16' }
 '.hint-text-emerald-50': { hintTextColor: '#ecfdf5' }
 '.hint-text-emerald-100': { hintTextColor: '#d1fae5' }
 '.hint-text-emerald-200': { hintTextColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.hint-text-emerald-700': { hintTextColor: '#047857' }
 '.hint-text-emerald-800': { hintTextColor: '#065f46' }
 '.hint-text-emerald-900': { hintTextColor: '#064e3b' }
+'.hint-text-emerald-950': { hintTextColor: '#022c22' }
 '.hint-text-teal-50': { hintTextColor: '#f0fdfa' }
 '.hint-text-teal-100': { hintTextColor: '#ccfbf1' }
 '.hint-text-teal-200': { hintTextColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.hint-text-teal-700': { hintTextColor: '#0f766e' }
 '.hint-text-teal-800': { hintTextColor: '#115e59' }
 '.hint-text-teal-900': { hintTextColor: '#134e4a' }
+'.hint-text-teal-950': { hintTextColor: '#042f2e' }
 '.hint-text-cyan-50': { hintTextColor: '#ecfeff' }
 '.hint-text-cyan-100': { hintTextColor: '#cffafe' }
 '.hint-text-cyan-200': { hintTextColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.hint-text-cyan-700': { hintTextColor: '#0e7490' }
 '.hint-text-cyan-800': { hintTextColor: '#155e75' }
 '.hint-text-cyan-900': { hintTextColor: '#164e63' }
+'.hint-text-cyan-950': { hintTextColor: '#083344' }
 '.hint-text-sky-50': { hintTextColor: '#f0f9ff' }
 '.hint-text-sky-100': { hintTextColor: '#e0f2fe' }
 '.hint-text-sky-200': { hintTextColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.hint-text-sky-700': { hintTextColor: '#0369a1' }
 '.hint-text-sky-800': { hintTextColor: '#075985' }
 '.hint-text-sky-900': { hintTextColor: '#0c4a6e' }
+'.hint-text-sky-950': { hintTextColor: '#082f49' }
 '.hint-text-blue-50': { hintTextColor: '#eff6ff' }
 '.hint-text-blue-100': { hintTextColor: '#dbeafe' }
 '.hint-text-blue-200': { hintTextColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.hint-text-blue-700': { hintTextColor: '#1d4ed8' }
 '.hint-text-blue-800': { hintTextColor: '#1e40af' }
 '.hint-text-blue-900': { hintTextColor: '#1e3a8a' }
+'.hint-text-blue-950': { hintTextColor: '#172554' }
 '.hint-text-indigo-50': { hintTextColor: '#eef2ff' }
 '.hint-text-indigo-100': { hintTextColor: '#e0e7ff' }
 '.hint-text-indigo-200': { hintTextColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.hint-text-indigo-700': { hintTextColor: '#4338ca' }
 '.hint-text-indigo-800': { hintTextColor: '#3730a3' }
 '.hint-text-indigo-900': { hintTextColor: '#312e81' }
+'.hint-text-indigo-950': { hintTextColor: '#1e1b4b' }
 '.hint-text-violet-50': { hintTextColor: '#f5f3ff' }
 '.hint-text-violet-100': { hintTextColor: '#ede9fe' }
 '.hint-text-violet-200': { hintTextColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.hint-text-violet-700': { hintTextColor: '#6d28d9' }
 '.hint-text-violet-800': { hintTextColor: '#5b21b6' }
 '.hint-text-violet-900': { hintTextColor: '#4c1d95' }
+'.hint-text-violet-950': { hintTextColor: '#2e1065' }
 '.hint-text-purple-50': { hintTextColor: '#faf5ff' }
 '.hint-text-purple-100': { hintTextColor: '#f3e8ff' }
 '.hint-text-purple-200': { hintTextColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.hint-text-purple-700': { hintTextColor: '#7e22ce' }
 '.hint-text-purple-800': { hintTextColor: '#6b21a8' }
 '.hint-text-purple-900': { hintTextColor: '#581c87' }
+'.hint-text-purple-950': { hintTextColor: '#3b0764' }
 '.hint-text-fuchsia-50': { hintTextColor: '#fdf4ff' }
 '.hint-text-fuchsia-100': { hintTextColor: '#fae8ff' }
 '.hint-text-fuchsia-200': { hintTextColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.hint-text-fuchsia-700': { hintTextColor: '#a21caf' }
 '.hint-text-fuchsia-800': { hintTextColor: '#86198f' }
 '.hint-text-fuchsia-900': { hintTextColor: '#701a75' }
+'.hint-text-fuchsia-950': { hintTextColor: '#4a044e' }
 '.hint-text-pink-50': { hintTextColor: '#fdf2f8' }
 '.hint-text-pink-100': { hintTextColor: '#fce7f3' }
 '.hint-text-pink-200': { hintTextColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.hint-text-pink-700': { hintTextColor: '#be185d' }
 '.hint-text-pink-800': { hintTextColor: '#9d174d' }
 '.hint-text-pink-900': { hintTextColor: '#831843' }
+'.hint-text-pink-950': { hintTextColor: '#500724' }
 '.hint-text-rose-50': { hintTextColor: '#fff1f2' }
 '.hint-text-rose-100': { hintTextColor: '#ffe4e6' }
 '.hint-text-rose-200': { hintTextColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.hint-text-rose-700': { hintTextColor: '#be123c' }
 '.hint-text-rose-800': { hintTextColor: '#9f1239' }
 '.hint-text-rose-900': { hintTextColor: '#881337' }
+'.hint-text-rose-950': { hintTextColor: '#4c0519' }
 ```

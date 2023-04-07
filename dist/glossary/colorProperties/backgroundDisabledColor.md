@@ -15,6 +15,7 @@
 '.bg-disabled-slate-700': { backgroundDisabledColor: '#334155' }
 '.bg-disabled-slate-800': { backgroundDisabledColor: '#1e293b' }
 '.bg-disabled-slate-900': { backgroundDisabledColor: '#0f172a' }
+'.bg-disabled-slate-950': { backgroundDisabledColor: '#020617' }
 '.bg-disabled-gray-50': { backgroundDisabledColor: '#f9fafb' }
 '.bg-disabled-gray-100': { backgroundDisabledColor: '#f3f4f6' }
 '.bg-disabled-gray-200': { backgroundDisabledColor: '#e5e7eb' }
@@ -25,6 +26,7 @@
 '.bg-disabled-gray-700': { backgroundDisabledColor: '#374151' }
 '.bg-disabled-gray-800': { backgroundDisabledColor: '#1f2937' }
 '.bg-disabled-gray-900': { backgroundDisabledColor: '#111827' }
+'.bg-disabled-gray-950': { backgroundDisabledColor: '#030712' }
 '.bg-disabled-zinc-50': { backgroundDisabledColor: '#fafafa' }
 '.bg-disabled-zinc-100': { backgroundDisabledColor: '#f4f4f5' }
 '.bg-disabled-zinc-200': { backgroundDisabledColor: '#e4e4e7' }
@@ -35,6 +37,7 @@
 '.bg-disabled-zinc-700': { backgroundDisabledColor: '#3f3f46' }
 '.bg-disabled-zinc-800': { backgroundDisabledColor: '#27272a' }
 '.bg-disabled-zinc-900': { backgroundDisabledColor: '#18181b' }
+'.bg-disabled-zinc-950': { backgroundDisabledColor: '#09090b' }
 '.bg-disabled-neutral-50': { backgroundDisabledColor: '#fafafa' }
 '.bg-disabled-neutral-100': { backgroundDisabledColor: '#f5f5f5' }
 '.bg-disabled-neutral-200': { backgroundDisabledColor: '#e5e5e5' }
@@ -45,6 +48,7 @@
 '.bg-disabled-neutral-700': { backgroundDisabledColor: '#404040' }
 '.bg-disabled-neutral-800': { backgroundDisabledColor: '#262626' }
 '.bg-disabled-neutral-900': { backgroundDisabledColor: '#171717' }
+'.bg-disabled-neutral-950': { backgroundDisabledColor: '#0a0a0a' }
 '.bg-disabled-stone-50': { backgroundDisabledColor: '#fafaf9' }
 '.bg-disabled-stone-100': { backgroundDisabledColor: '#f5f5f4' }
 '.bg-disabled-stone-200': { backgroundDisabledColor: '#e7e5e4' }
@@ -55,6 +59,7 @@
 '.bg-disabled-stone-700': { backgroundDisabledColor: '#44403c' }
 '.bg-disabled-stone-800': { backgroundDisabledColor: '#292524' }
 '.bg-disabled-stone-900': { backgroundDisabledColor: '#1c1917' }
+'.bg-disabled-stone-950': { backgroundDisabledColor: '#0c0a09' }
 '.bg-disabled-red-50': { backgroundDisabledColor: '#fef2f2' }
 '.bg-disabled-red-100': { backgroundDisabledColor: '#fee2e2' }
 '.bg-disabled-red-200': { backgroundDisabledColor: '#fecaca' }
@@ -65,6 +70,7 @@
 '.bg-disabled-red-700': { backgroundDisabledColor: '#b91c1c' }
 '.bg-disabled-red-800': { backgroundDisabledColor: '#991b1b' }
 '.bg-disabled-red-900': { backgroundDisabledColor: '#7f1d1d' }
+'.bg-disabled-red-950': { backgroundDisabledColor: '#450a0a' }
 '.bg-disabled-orange-50': { backgroundDisabledColor: '#fff7ed' }
 '.bg-disabled-orange-100': { backgroundDisabledColor: '#ffedd5' }
 '.bg-disabled-orange-200': { backgroundDisabledColor: '#fed7aa' }
@@ -75,6 +81,7 @@
 '.bg-disabled-orange-700': { backgroundDisabledColor: '#c2410c' }
 '.bg-disabled-orange-800': { backgroundDisabledColor: '#9a3412' }
 '.bg-disabled-orange-900': { backgroundDisabledColor: '#7c2d12' }
+'.bg-disabled-orange-950': { backgroundDisabledColor: '#431407' }
 '.bg-disabled-amber-50': { backgroundDisabledColor: '#fffbeb' }
 '.bg-disabled-amber-100': { backgroundDisabledColor: '#fef3c7' }
 '.bg-disabled-amber-200': { backgroundDisabledColor: '#fde68a' }
@@ -85,6 +92,7 @@
 '.bg-disabled-amber-700': { backgroundDisabledColor: '#b45309' }
 '.bg-disabled-amber-800': { backgroundDisabledColor: '#92400e' }
 '.bg-disabled-amber-900': { backgroundDisabledColor: '#78350f' }
+'.bg-disabled-amber-950': { backgroundDisabledColor: '#451a03' }
 '.bg-disabled-yellow-50': { backgroundDisabledColor: '#fefce8' }
 '.bg-disabled-yellow-100': { backgroundDisabledColor: '#fef9c3' }
 '.bg-disabled-yellow-200': { backgroundDisabledColor: '#fef08a' }
@@ -95,6 +103,7 @@
 '.bg-disabled-yellow-700': { backgroundDisabledColor: '#a16207' }
 '.bg-disabled-yellow-800': { backgroundDisabledColor: '#854d0e' }
 '.bg-disabled-yellow-900': { backgroundDisabledColor: '#713f12' }
+'.bg-disabled-yellow-950': { backgroundDisabledColor: '#422006' }
 '.bg-disabled-lime-50': { backgroundDisabledColor: '#f7fee7' }
 '.bg-disabled-lime-100': { backgroundDisabledColor: '#ecfccb' }
 '.bg-disabled-lime-200': { backgroundDisabledColor: '#d9f99d' }
@@ -105,6 +114,7 @@
 '.bg-disabled-lime-700': { backgroundDisabledColor: '#4d7c0f' }
 '.bg-disabled-lime-800': { backgroundDisabledColor: '#3f6212' }
 '.bg-disabled-lime-900': { backgroundDisabledColor: '#365314' }
+'.bg-disabled-lime-950': { backgroundDisabledColor: '#1a2e05' }
 '.bg-disabled-green-50': { backgroundDisabledColor: '#f0fdf4' }
 '.bg-disabled-green-100': { backgroundDisabledColor: '#dcfce7' }
 '.bg-disabled-green-200': { backgroundDisabledColor: '#bbf7d0' }
@@ -115,6 +125,7 @@
 '.bg-disabled-green-700': { backgroundDisabledColor: '#15803d' }
 '.bg-disabled-green-800': { backgroundDisabledColor: '#166534' }
 '.bg-disabled-green-900': { backgroundDisabledColor: '#14532d' }
+'.bg-disabled-green-950': { backgroundDisabledColor: '#052e16' }
 '.bg-disabled-emerald-50': { backgroundDisabledColor: '#ecfdf5' }
 '.bg-disabled-emerald-100': { backgroundDisabledColor: '#d1fae5' }
 '.bg-disabled-emerald-200': { backgroundDisabledColor: '#a7f3d0' }
@@ -125,6 +136,7 @@
 '.bg-disabled-emerald-700': { backgroundDisabledColor: '#047857' }
 '.bg-disabled-emerald-800': { backgroundDisabledColor: '#065f46' }
 '.bg-disabled-emerald-900': { backgroundDisabledColor: '#064e3b' }
+'.bg-disabled-emerald-950': { backgroundDisabledColor: '#022c22' }
 '.bg-disabled-teal-50': { backgroundDisabledColor: '#f0fdfa' }
 '.bg-disabled-teal-100': { backgroundDisabledColor: '#ccfbf1' }
 '.bg-disabled-teal-200': { backgroundDisabledColor: '#99f6e4' }
@@ -135,6 +147,7 @@
 '.bg-disabled-teal-700': { backgroundDisabledColor: '#0f766e' }
 '.bg-disabled-teal-800': { backgroundDisabledColor: '#115e59' }
 '.bg-disabled-teal-900': { backgroundDisabledColor: '#134e4a' }
+'.bg-disabled-teal-950': { backgroundDisabledColor: '#042f2e' }
 '.bg-disabled-cyan-50': { backgroundDisabledColor: '#ecfeff' }
 '.bg-disabled-cyan-100': { backgroundDisabledColor: '#cffafe' }
 '.bg-disabled-cyan-200': { backgroundDisabledColor: '#a5f3fc' }
@@ -145,6 +158,7 @@
 '.bg-disabled-cyan-700': { backgroundDisabledColor: '#0e7490' }
 '.bg-disabled-cyan-800': { backgroundDisabledColor: '#155e75' }
 '.bg-disabled-cyan-900': { backgroundDisabledColor: '#164e63' }
+'.bg-disabled-cyan-950': { backgroundDisabledColor: '#083344' }
 '.bg-disabled-sky-50': { backgroundDisabledColor: '#f0f9ff' }
 '.bg-disabled-sky-100': { backgroundDisabledColor: '#e0f2fe' }
 '.bg-disabled-sky-200': { backgroundDisabledColor: '#bae6fd' }
@@ -155,6 +169,7 @@
 '.bg-disabled-sky-700': { backgroundDisabledColor: '#0369a1' }
 '.bg-disabled-sky-800': { backgroundDisabledColor: '#075985' }
 '.bg-disabled-sky-900': { backgroundDisabledColor: '#0c4a6e' }
+'.bg-disabled-sky-950': { backgroundDisabledColor: '#082f49' }
 '.bg-disabled-blue-50': { backgroundDisabledColor: '#eff6ff' }
 '.bg-disabled-blue-100': { backgroundDisabledColor: '#dbeafe' }
 '.bg-disabled-blue-200': { backgroundDisabledColor: '#bfdbfe' }
@@ -165,6 +180,7 @@
 '.bg-disabled-blue-700': { backgroundDisabledColor: '#1d4ed8' }
 '.bg-disabled-blue-800': { backgroundDisabledColor: '#1e40af' }
 '.bg-disabled-blue-900': { backgroundDisabledColor: '#1e3a8a' }
+'.bg-disabled-blue-950': { backgroundDisabledColor: '#172554' }
 '.bg-disabled-indigo-50': { backgroundDisabledColor: '#eef2ff' }
 '.bg-disabled-indigo-100': { backgroundDisabledColor: '#e0e7ff' }
 '.bg-disabled-indigo-200': { backgroundDisabledColor: '#c7d2fe' }
@@ -175,6 +191,7 @@
 '.bg-disabled-indigo-700': { backgroundDisabledColor: '#4338ca' }
 '.bg-disabled-indigo-800': { backgroundDisabledColor: '#3730a3' }
 '.bg-disabled-indigo-900': { backgroundDisabledColor: '#312e81' }
+'.bg-disabled-indigo-950': { backgroundDisabledColor: '#1e1b4b' }
 '.bg-disabled-violet-50': { backgroundDisabledColor: '#f5f3ff' }
 '.bg-disabled-violet-100': { backgroundDisabledColor: '#ede9fe' }
 '.bg-disabled-violet-200': { backgroundDisabledColor: '#ddd6fe' }
@@ -185,6 +202,7 @@
 '.bg-disabled-violet-700': { backgroundDisabledColor: '#6d28d9' }
 '.bg-disabled-violet-800': { backgroundDisabledColor: '#5b21b6' }
 '.bg-disabled-violet-900': { backgroundDisabledColor: '#4c1d95' }
+'.bg-disabled-violet-950': { backgroundDisabledColor: '#2e1065' }
 '.bg-disabled-purple-50': { backgroundDisabledColor: '#faf5ff' }
 '.bg-disabled-purple-100': { backgroundDisabledColor: '#f3e8ff' }
 '.bg-disabled-purple-200': { backgroundDisabledColor: '#e9d5ff' }
@@ -195,6 +213,7 @@
 '.bg-disabled-purple-700': { backgroundDisabledColor: '#7e22ce' }
 '.bg-disabled-purple-800': { backgroundDisabledColor: '#6b21a8' }
 '.bg-disabled-purple-900': { backgroundDisabledColor: '#581c87' }
+'.bg-disabled-purple-950': { backgroundDisabledColor: '#3b0764' }
 '.bg-disabled-fuchsia-50': { backgroundDisabledColor: '#fdf4ff' }
 '.bg-disabled-fuchsia-100': { backgroundDisabledColor: '#fae8ff' }
 '.bg-disabled-fuchsia-200': { backgroundDisabledColor: '#f5d0fe' }
@@ -205,6 +224,7 @@
 '.bg-disabled-fuchsia-700': { backgroundDisabledColor: '#a21caf' }
 '.bg-disabled-fuchsia-800': { backgroundDisabledColor: '#86198f' }
 '.bg-disabled-fuchsia-900': { backgroundDisabledColor: '#701a75' }
+'.bg-disabled-fuchsia-950': { backgroundDisabledColor: '#4a044e' }
 '.bg-disabled-pink-50': { backgroundDisabledColor: '#fdf2f8' }
 '.bg-disabled-pink-100': { backgroundDisabledColor: '#fce7f3' }
 '.bg-disabled-pink-200': { backgroundDisabledColor: '#fbcfe8' }
@@ -215,6 +235,7 @@
 '.bg-disabled-pink-700': { backgroundDisabledColor: '#be185d' }
 '.bg-disabled-pink-800': { backgroundDisabledColor: '#9d174d' }
 '.bg-disabled-pink-900': { backgroundDisabledColor: '#831843' }
+'.bg-disabled-pink-950': { backgroundDisabledColor: '#500724' }
 '.bg-disabled-rose-50': { backgroundDisabledColor: '#fff1f2' }
 '.bg-disabled-rose-100': { backgroundDisabledColor: '#ffe4e6' }
 '.bg-disabled-rose-200': { backgroundDisabledColor: '#fecdd3' }
@@ -225,4 +246,5 @@
 '.bg-disabled-rose-700': { backgroundDisabledColor: '#be123c' }
 '.bg-disabled-rose-800': { backgroundDisabledColor: '#9f1239' }
 '.bg-disabled-rose-900': { backgroundDisabledColor: '#881337' }
+'.bg-disabled-rose-950': { backgroundDisabledColor: '#4c0519' }
 ```

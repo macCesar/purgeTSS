@@ -15,6 +15,7 @@
 '.badge-slate-700': { badgeColor: '#334155' }
 '.badge-slate-800': { badgeColor: '#1e293b' }
 '.badge-slate-900': { badgeColor: '#0f172a' }
+'.badge-slate-950': { badgeColor: '#020617' }
 '.badge-gray-50': { badgeColor: '#f9fafb' }
 '.badge-gray-100': { badgeColor: '#f3f4f6' }
 '.badge-gray-200': { badgeColor: '#e5e7eb' }
@@ -25,6 +26,7 @@
 '.badge-gray-700': { badgeColor: '#374151' }
 '.badge-gray-800': { badgeColor: '#1f2937' }
 '.badge-gray-900': { badgeColor: '#111827' }
+'.badge-gray-950': { badgeColor: '#030712' }
 '.badge-zinc-50': { badgeColor: '#fafafa' }
 '.badge-zinc-100': { badgeColor: '#f4f4f5' }
 '.badge-zinc-200': { badgeColor: '#e4e4e7' }
@@ -35,6 +37,7 @@
 '.badge-zinc-700': { badgeColor: '#3f3f46' }
 '.badge-zinc-800': { badgeColor: '#27272a' }
 '.badge-zinc-900': { badgeColor: '#18181b' }
+'.badge-zinc-950': { badgeColor: '#09090b' }
 '.badge-neutral-50': { badgeColor: '#fafafa' }
 '.badge-neutral-100': { badgeColor: '#f5f5f5' }
 '.badge-neutral-200': { badgeColor: '#e5e5e5' }
@@ -45,6 +48,7 @@
 '.badge-neutral-700': { badgeColor: '#404040' }
 '.badge-neutral-800': { badgeColor: '#262626' }
 '.badge-neutral-900': { badgeColor: '#171717' }
+'.badge-neutral-950': { badgeColor: '#0a0a0a' }
 '.badge-stone-50': { badgeColor: '#fafaf9' }
 '.badge-stone-100': { badgeColor: '#f5f5f4' }
 '.badge-stone-200': { badgeColor: '#e7e5e4' }
@@ -55,6 +59,7 @@
 '.badge-stone-700': { badgeColor: '#44403c' }
 '.badge-stone-800': { badgeColor: '#292524' }
 '.badge-stone-900': { badgeColor: '#1c1917' }
+'.badge-stone-950': { badgeColor: '#0c0a09' }
 '.badge-red-50': { badgeColor: '#fef2f2' }
 '.badge-red-100': { badgeColor: '#fee2e2' }
 '.badge-red-200': { badgeColor: '#fecaca' }
@@ -65,6 +70,7 @@
 '.badge-red-700': { badgeColor: '#b91c1c' }
 '.badge-red-800': { badgeColor: '#991b1b' }
 '.badge-red-900': { badgeColor: '#7f1d1d' }
+'.badge-red-950': { badgeColor: '#450a0a' }
 '.badge-orange-50': { badgeColor: '#fff7ed' }
 '.badge-orange-100': { badgeColor: '#ffedd5' }
 '.badge-orange-200': { badgeColor: '#fed7aa' }
@@ -75,6 +81,7 @@
 '.badge-orange-700': { badgeColor: '#c2410c' }
 '.badge-orange-800': { badgeColor: '#9a3412' }
 '.badge-orange-900': { badgeColor: '#7c2d12' }
+'.badge-orange-950': { badgeColor: '#431407' }
 '.badge-amber-50': { badgeColor: '#fffbeb' }
 '.badge-amber-100': { badgeColor: '#fef3c7' }
 '.badge-amber-200': { badgeColor: '#fde68a' }
@@ -85,6 +92,7 @@
 '.badge-amber-700': { badgeColor: '#b45309' }
 '.badge-amber-800': { badgeColor: '#92400e' }
 '.badge-amber-900': { badgeColor: '#78350f' }
+'.badge-amber-950': { badgeColor: '#451a03' }
 '.badge-yellow-50': { badgeColor: '#fefce8' }
 '.badge-yellow-100': { badgeColor: '#fef9c3' }
 '.badge-yellow-200': { badgeColor: '#fef08a' }
@@ -95,6 +103,7 @@
 '.badge-yellow-700': { badgeColor: '#a16207' }
 '.badge-yellow-800': { badgeColor: '#854d0e' }
 '.badge-yellow-900': { badgeColor: '#713f12' }
+'.badge-yellow-950': { badgeColor: '#422006' }
 '.badge-lime-50': { badgeColor: '#f7fee7' }
 '.badge-lime-100': { badgeColor: '#ecfccb' }
 '.badge-lime-200': { badgeColor: '#d9f99d' }
@@ -105,6 +114,7 @@
 '.badge-lime-700': { badgeColor: '#4d7c0f' }
 '.badge-lime-800': { badgeColor: '#3f6212' }
 '.badge-lime-900': { badgeColor: '#365314' }
+'.badge-lime-950': { badgeColor: '#1a2e05' }
 '.badge-green-50': { badgeColor: '#f0fdf4' }
 '.badge-green-100': { badgeColor: '#dcfce7' }
 '.badge-green-200': { badgeColor: '#bbf7d0' }
@@ -115,6 +125,7 @@
 '.badge-green-700': { badgeColor: '#15803d' }
 '.badge-green-800': { badgeColor: '#166534' }
 '.badge-green-900': { badgeColor: '#14532d' }
+'.badge-green-950': { badgeColor: '#052e16' }
 '.badge-emerald-50': { badgeColor: '#ecfdf5' }
 '.badge-emerald-100': { badgeColor: '#d1fae5' }
 '.badge-emerald-200': { badgeColor: '#a7f3d0' }
@@ -125,6 +136,7 @@
 '.badge-emerald-700': { badgeColor: '#047857' }
 '.badge-emerald-800': { badgeColor: '#065f46' }
 '.badge-emerald-900': { badgeColor: '#064e3b' }
+'.badge-emerald-950': { badgeColor: '#022c22' }
 '.badge-teal-50': { badgeColor: '#f0fdfa' }
 '.badge-teal-100': { badgeColor: '#ccfbf1' }
 '.badge-teal-200': { badgeColor: '#99f6e4' }
@@ -135,6 +147,7 @@
 '.badge-teal-700': { badgeColor: '#0f766e' }
 '.badge-teal-800': { badgeColor: '#115e59' }
 '.badge-teal-900': { badgeColor: '#134e4a' }
+'.badge-teal-950': { badgeColor: '#042f2e' }
 '.badge-cyan-50': { badgeColor: '#ecfeff' }
 '.badge-cyan-100': { badgeColor: '#cffafe' }
 '.badge-cyan-200': { badgeColor: '#a5f3fc' }
@@ -145,6 +158,7 @@
 '.badge-cyan-700': { badgeColor: '#0e7490' }
 '.badge-cyan-800': { badgeColor: '#155e75' }
 '.badge-cyan-900': { badgeColor: '#164e63' }
+'.badge-cyan-950': { badgeColor: '#083344' }
 '.badge-sky-50': { badgeColor: '#f0f9ff' }
 '.badge-sky-100': { badgeColor: '#e0f2fe' }
 '.badge-sky-200': { badgeColor: '#bae6fd' }
@@ -155,6 +169,7 @@
 '.badge-sky-700': { badgeColor: '#0369a1' }
 '.badge-sky-800': { badgeColor: '#075985' }
 '.badge-sky-900': { badgeColor: '#0c4a6e' }
+'.badge-sky-950': { badgeColor: '#082f49' }
 '.badge-blue-50': { badgeColor: '#eff6ff' }
 '.badge-blue-100': { badgeColor: '#dbeafe' }
 '.badge-blue-200': { badgeColor: '#bfdbfe' }
@@ -165,6 +180,7 @@
 '.badge-blue-700': { badgeColor: '#1d4ed8' }
 '.badge-blue-800': { badgeColor: '#1e40af' }
 '.badge-blue-900': { badgeColor: '#1e3a8a' }
+'.badge-blue-950': { badgeColor: '#172554' }
 '.badge-indigo-50': { badgeColor: '#eef2ff' }
 '.badge-indigo-100': { badgeColor: '#e0e7ff' }
 '.badge-indigo-200': { badgeColor: '#c7d2fe' }
@@ -175,6 +191,7 @@
 '.badge-indigo-700': { badgeColor: '#4338ca' }
 '.badge-indigo-800': { badgeColor: '#3730a3' }
 '.badge-indigo-900': { badgeColor: '#312e81' }
+'.badge-indigo-950': { badgeColor: '#1e1b4b' }
 '.badge-violet-50': { badgeColor: '#f5f3ff' }
 '.badge-violet-100': { badgeColor: '#ede9fe' }
 '.badge-violet-200': { badgeColor: '#ddd6fe' }
@@ -185,6 +202,7 @@
 '.badge-violet-700': { badgeColor: '#6d28d9' }
 '.badge-violet-800': { badgeColor: '#5b21b6' }
 '.badge-violet-900': { badgeColor: '#4c1d95' }
+'.badge-violet-950': { badgeColor: '#2e1065' }
 '.badge-purple-50': { badgeColor: '#faf5ff' }
 '.badge-purple-100': { badgeColor: '#f3e8ff' }
 '.badge-purple-200': { badgeColor: '#e9d5ff' }
@@ -195,6 +213,7 @@
 '.badge-purple-700': { badgeColor: '#7e22ce' }
 '.badge-purple-800': { badgeColor: '#6b21a8' }
 '.badge-purple-900': { badgeColor: '#581c87' }
+'.badge-purple-950': { badgeColor: '#3b0764' }
 '.badge-fuchsia-50': { badgeColor: '#fdf4ff' }
 '.badge-fuchsia-100': { badgeColor: '#fae8ff' }
 '.badge-fuchsia-200': { badgeColor: '#f5d0fe' }
@@ -205,6 +224,7 @@
 '.badge-fuchsia-700': { badgeColor: '#a21caf' }
 '.badge-fuchsia-800': { badgeColor: '#86198f' }
 '.badge-fuchsia-900': { badgeColor: '#701a75' }
+'.badge-fuchsia-950': { badgeColor: '#4a044e' }
 '.badge-pink-50': { badgeColor: '#fdf2f8' }
 '.badge-pink-100': { badgeColor: '#fce7f3' }
 '.badge-pink-200': { badgeColor: '#fbcfe8' }
@@ -215,6 +235,7 @@
 '.badge-pink-700': { badgeColor: '#be185d' }
 '.badge-pink-800': { badgeColor: '#9d174d' }
 '.badge-pink-900': { badgeColor: '#831843' }
+'.badge-pink-950': { badgeColor: '#500724' }
 '.badge-rose-50': { badgeColor: '#fff1f2' }
 '.badge-rose-100': { badgeColor: '#ffe4e6' }
 '.badge-rose-200': { badgeColor: '#fecdd3' }
@@ -225,4 +246,5 @@
 '.badge-rose-700': { badgeColor: '#be123c' }
 '.badge-rose-800': { badgeColor: '#9f1239' }
 '.badge-rose-900': { badgeColor: '#881337' }
+'.badge-rose-950': { badgeColor: '#4c0519' }
 ```

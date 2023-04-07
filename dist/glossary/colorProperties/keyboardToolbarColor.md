@@ -15,6 +15,7 @@
 '.keyboard-toolbar-slate-700': { keyboardToolbarColor: '#334155' }
 '.keyboard-toolbar-slate-800': { keyboardToolbarColor: '#1e293b' }
 '.keyboard-toolbar-slate-900': { keyboardToolbarColor: '#0f172a' }
+'.keyboard-toolbar-slate-950': { keyboardToolbarColor: '#020617' }
 '.keyboard-toolbar-gray-50': { keyboardToolbarColor: '#f9fafb' }
 '.keyboard-toolbar-gray-100': { keyboardToolbarColor: '#f3f4f6' }
 '.keyboard-toolbar-gray-200': { keyboardToolbarColor: '#e5e7eb' }
@@ -25,6 +26,7 @@
 '.keyboard-toolbar-gray-700': { keyboardToolbarColor: '#374151' }
 '.keyboard-toolbar-gray-800': { keyboardToolbarColor: '#1f2937' }
 '.keyboard-toolbar-gray-900': { keyboardToolbarColor: '#111827' }
+'.keyboard-toolbar-gray-950': { keyboardToolbarColor: '#030712' }
 '.keyboard-toolbar-zinc-50': { keyboardToolbarColor: '#fafafa' }
 '.keyboard-toolbar-zinc-100': { keyboardToolbarColor: '#f4f4f5' }
 '.keyboard-toolbar-zinc-200': { keyboardToolbarColor: '#e4e4e7' }
@@ -35,6 +37,7 @@
 '.keyboard-toolbar-zinc-700': { keyboardToolbarColor: '#3f3f46' }
 '.keyboard-toolbar-zinc-800': { keyboardToolbarColor: '#27272a' }
 '.keyboard-toolbar-zinc-900': { keyboardToolbarColor: '#18181b' }
+'.keyboard-toolbar-zinc-950': { keyboardToolbarColor: '#09090b' }
 '.keyboard-toolbar-neutral-50': { keyboardToolbarColor: '#fafafa' }
 '.keyboard-toolbar-neutral-100': { keyboardToolbarColor: '#f5f5f5' }
 '.keyboard-toolbar-neutral-200': { keyboardToolbarColor: '#e5e5e5' }
@@ -45,6 +48,7 @@
 '.keyboard-toolbar-neutral-700': { keyboardToolbarColor: '#404040' }
 '.keyboard-toolbar-neutral-800': { keyboardToolbarColor: '#262626' }
 '.keyboard-toolbar-neutral-900': { keyboardToolbarColor: '#171717' }
+'.keyboard-toolbar-neutral-950': { keyboardToolbarColor: '#0a0a0a' }
 '.keyboard-toolbar-stone-50': { keyboardToolbarColor: '#fafaf9' }
 '.keyboard-toolbar-stone-100': { keyboardToolbarColor: '#f5f5f4' }
 '.keyboard-toolbar-stone-200': { keyboardToolbarColor: '#e7e5e4' }
@@ -55,6 +59,7 @@
 '.keyboard-toolbar-stone-700': { keyboardToolbarColor: '#44403c' }
 '.keyboard-toolbar-stone-800': { keyboardToolbarColor: '#292524' }
 '.keyboard-toolbar-stone-900': { keyboardToolbarColor: '#1c1917' }
+'.keyboard-toolbar-stone-950': { keyboardToolbarColor: '#0c0a09' }
 '.keyboard-toolbar-red-50': { keyboardToolbarColor: '#fef2f2' }
 '.keyboard-toolbar-red-100': { keyboardToolbarColor: '#fee2e2' }
 '.keyboard-toolbar-red-200': { keyboardToolbarColor: '#fecaca' }
@@ -65,6 +70,7 @@
 '.keyboard-toolbar-red-700': { keyboardToolbarColor: '#b91c1c' }
 '.keyboard-toolbar-red-800': { keyboardToolbarColor: '#991b1b' }
 '.keyboard-toolbar-red-900': { keyboardToolbarColor: '#7f1d1d' }
+'.keyboard-toolbar-red-950': { keyboardToolbarColor: '#450a0a' }
 '.keyboard-toolbar-orange-50': { keyboardToolbarColor: '#fff7ed' }
 '.keyboard-toolbar-orange-100': { keyboardToolbarColor: '#ffedd5' }
 '.keyboard-toolbar-orange-200': { keyboardToolbarColor: '#fed7aa' }
@@ -75,6 +81,7 @@
 '.keyboard-toolbar-orange-700': { keyboardToolbarColor: '#c2410c' }
 '.keyboard-toolbar-orange-800': { keyboardToolbarColor: '#9a3412' }
 '.keyboard-toolbar-orange-900': { keyboardToolbarColor: '#7c2d12' }
+'.keyboard-toolbar-orange-950': { keyboardToolbarColor: '#431407' }
 '.keyboard-toolbar-amber-50': { keyboardToolbarColor: '#fffbeb' }
 '.keyboard-toolbar-amber-100': { keyboardToolbarColor: '#fef3c7' }
 '.keyboard-toolbar-amber-200': { keyboardToolbarColor: '#fde68a' }
@@ -85,6 +92,7 @@
 '.keyboard-toolbar-amber-700': { keyboardToolbarColor: '#b45309' }
 '.keyboard-toolbar-amber-800': { keyboardToolbarColor: '#92400e' }
 '.keyboard-toolbar-amber-900': { keyboardToolbarColor: '#78350f' }
+'.keyboard-toolbar-amber-950': { keyboardToolbarColor: '#451a03' }
 '.keyboard-toolbar-yellow-50': { keyboardToolbarColor: '#fefce8' }
 '.keyboard-toolbar-yellow-100': { keyboardToolbarColor: '#fef9c3' }
 '.keyboard-toolbar-yellow-200': { keyboardToolbarColor: '#fef08a' }
@@ -95,6 +103,7 @@
 '.keyboard-toolbar-yellow-700': { keyboardToolbarColor: '#a16207' }
 '.keyboard-toolbar-yellow-800': { keyboardToolbarColor: '#854d0e' }
 '.keyboard-toolbar-yellow-900': { keyboardToolbarColor: '#713f12' }
+'.keyboard-toolbar-yellow-950': { keyboardToolbarColor: '#422006' }
 '.keyboard-toolbar-lime-50': { keyboardToolbarColor: '#f7fee7' }
 '.keyboard-toolbar-lime-100': { keyboardToolbarColor: '#ecfccb' }
 '.keyboard-toolbar-lime-200': { keyboardToolbarColor: '#d9f99d' }
@@ -105,6 +114,7 @@
 '.keyboard-toolbar-lime-700': { keyboardToolbarColor: '#4d7c0f' }
 '.keyboard-toolbar-lime-800': { keyboardToolbarColor: '#3f6212' }
 '.keyboard-toolbar-lime-900': { keyboardToolbarColor: '#365314' }
+'.keyboard-toolbar-lime-950': { keyboardToolbarColor: '#1a2e05' }
 '.keyboard-toolbar-green-50': { keyboardToolbarColor: '#f0fdf4' }
 '.keyboard-toolbar-green-100': { keyboardToolbarColor: '#dcfce7' }
 '.keyboard-toolbar-green-200': { keyboardToolbarColor: '#bbf7d0' }
@@ -115,6 +125,7 @@
 '.keyboard-toolbar-green-700': { keyboardToolbarColor: '#15803d' }
 '.keyboard-toolbar-green-800': { keyboardToolbarColor: '#166534' }
 '.keyboard-toolbar-green-900': { keyboardToolbarColor: '#14532d' }
+'.keyboard-toolbar-green-950': { keyboardToolbarColor: '#052e16' }
 '.keyboard-toolbar-emerald-50': { keyboardToolbarColor: '#ecfdf5' }
 '.keyboard-toolbar-emerald-100': { keyboardToolbarColor: '#d1fae5' }
 '.keyboard-toolbar-emerald-200': { keyboardToolbarColor: '#a7f3d0' }
@@ -125,6 +136,7 @@
 '.keyboard-toolbar-emerald-700': { keyboardToolbarColor: '#047857' }
 '.keyboard-toolbar-emerald-800': { keyboardToolbarColor: '#065f46' }
 '.keyboard-toolbar-emerald-900': { keyboardToolbarColor: '#064e3b' }
+'.keyboard-toolbar-emerald-950': { keyboardToolbarColor: '#022c22' }
 '.keyboard-toolbar-teal-50': { keyboardToolbarColor: '#f0fdfa' }
 '.keyboard-toolbar-teal-100': { keyboardToolbarColor: '#ccfbf1' }
 '.keyboard-toolbar-teal-200': { keyboardToolbarColor: '#99f6e4' }
@@ -135,6 +147,7 @@
 '.keyboard-toolbar-teal-700': { keyboardToolbarColor: '#0f766e' }
 '.keyboard-toolbar-teal-800': { keyboardToolbarColor: '#115e59' }
 '.keyboard-toolbar-teal-900': { keyboardToolbarColor: '#134e4a' }
+'.keyboard-toolbar-teal-950': { keyboardToolbarColor: '#042f2e' }
 '.keyboard-toolbar-cyan-50': { keyboardToolbarColor: '#ecfeff' }
 '.keyboard-toolbar-cyan-100': { keyboardToolbarColor: '#cffafe' }
 '.keyboard-toolbar-cyan-200': { keyboardToolbarColor: '#a5f3fc' }
@@ -145,6 +158,7 @@
 '.keyboard-toolbar-cyan-700': { keyboardToolbarColor: '#0e7490' }
 '.keyboard-toolbar-cyan-800': { keyboardToolbarColor: '#155e75' }
 '.keyboard-toolbar-cyan-900': { keyboardToolbarColor: '#164e63' }
+'.keyboard-toolbar-cyan-950': { keyboardToolbarColor: '#083344' }
 '.keyboard-toolbar-sky-50': { keyboardToolbarColor: '#f0f9ff' }
 '.keyboard-toolbar-sky-100': { keyboardToolbarColor: '#e0f2fe' }
 '.keyboard-toolbar-sky-200': { keyboardToolbarColor: '#bae6fd' }
@@ -155,6 +169,7 @@
 '.keyboard-toolbar-sky-700': { keyboardToolbarColor: '#0369a1' }
 '.keyboard-toolbar-sky-800': { keyboardToolbarColor: '#075985' }
 '.keyboard-toolbar-sky-900': { keyboardToolbarColor: '#0c4a6e' }
+'.keyboard-toolbar-sky-950': { keyboardToolbarColor: '#082f49' }
 '.keyboard-toolbar-blue-50': { keyboardToolbarColor: '#eff6ff' }
 '.keyboard-toolbar-blue-100': { keyboardToolbarColor: '#dbeafe' }
 '.keyboard-toolbar-blue-200': { keyboardToolbarColor: '#bfdbfe' }
@@ -165,6 +180,7 @@
 '.keyboard-toolbar-blue-700': { keyboardToolbarColor: '#1d4ed8' }
 '.keyboard-toolbar-blue-800': { keyboardToolbarColor: '#1e40af' }
 '.keyboard-toolbar-blue-900': { keyboardToolbarColor: '#1e3a8a' }
+'.keyboard-toolbar-blue-950': { keyboardToolbarColor: '#172554' }
 '.keyboard-toolbar-indigo-50': { keyboardToolbarColor: '#eef2ff' }
 '.keyboard-toolbar-indigo-100': { keyboardToolbarColor: '#e0e7ff' }
 '.keyboard-toolbar-indigo-200': { keyboardToolbarColor: '#c7d2fe' }
@@ -175,6 +191,7 @@
 '.keyboard-toolbar-indigo-700': { keyboardToolbarColor: '#4338ca' }
 '.keyboard-toolbar-indigo-800': { keyboardToolbarColor: '#3730a3' }
 '.keyboard-toolbar-indigo-900': { keyboardToolbarColor: '#312e81' }
+'.keyboard-toolbar-indigo-950': { keyboardToolbarColor: '#1e1b4b' }
 '.keyboard-toolbar-violet-50': { keyboardToolbarColor: '#f5f3ff' }
 '.keyboard-toolbar-violet-100': { keyboardToolbarColor: '#ede9fe' }
 '.keyboard-toolbar-violet-200': { keyboardToolbarColor: '#ddd6fe' }
@@ -185,6 +202,7 @@
 '.keyboard-toolbar-violet-700': { keyboardToolbarColor: '#6d28d9' }
 '.keyboard-toolbar-violet-800': { keyboardToolbarColor: '#5b21b6' }
 '.keyboard-toolbar-violet-900': { keyboardToolbarColor: '#4c1d95' }
+'.keyboard-toolbar-violet-950': { keyboardToolbarColor: '#2e1065' }
 '.keyboard-toolbar-purple-50': { keyboardToolbarColor: '#faf5ff' }
 '.keyboard-toolbar-purple-100': { keyboardToolbarColor: '#f3e8ff' }
 '.keyboard-toolbar-purple-200': { keyboardToolbarColor: '#e9d5ff' }
@@ -195,6 +213,7 @@
 '.keyboard-toolbar-purple-700': { keyboardToolbarColor: '#7e22ce' }
 '.keyboard-toolbar-purple-800': { keyboardToolbarColor: '#6b21a8' }
 '.keyboard-toolbar-purple-900': { keyboardToolbarColor: '#581c87' }
+'.keyboard-toolbar-purple-950': { keyboardToolbarColor: '#3b0764' }
 '.keyboard-toolbar-fuchsia-50': { keyboardToolbarColor: '#fdf4ff' }
 '.keyboard-toolbar-fuchsia-100': { keyboardToolbarColor: '#fae8ff' }
 '.keyboard-toolbar-fuchsia-200': { keyboardToolbarColor: '#f5d0fe' }
@@ -205,6 +224,7 @@
 '.keyboard-toolbar-fuchsia-700': { keyboardToolbarColor: '#a21caf' }
 '.keyboard-toolbar-fuchsia-800': { keyboardToolbarColor: '#86198f' }
 '.keyboard-toolbar-fuchsia-900': { keyboardToolbarColor: '#701a75' }
+'.keyboard-toolbar-fuchsia-950': { keyboardToolbarColor: '#4a044e' }
 '.keyboard-toolbar-pink-50': { keyboardToolbarColor: '#fdf2f8' }
 '.keyboard-toolbar-pink-100': { keyboardToolbarColor: '#fce7f3' }
 '.keyboard-toolbar-pink-200': { keyboardToolbarColor: '#fbcfe8' }
@@ -215,6 +235,7 @@
 '.keyboard-toolbar-pink-700': { keyboardToolbarColor: '#be185d' }
 '.keyboard-toolbar-pink-800': { keyboardToolbarColor: '#9d174d' }
 '.keyboard-toolbar-pink-900': { keyboardToolbarColor: '#831843' }
+'.keyboard-toolbar-pink-950': { keyboardToolbarColor: '#500724' }
 '.keyboard-toolbar-rose-50': { keyboardToolbarColor: '#fff1f2' }
 '.keyboard-toolbar-rose-100': { keyboardToolbarColor: '#ffe4e6' }
 '.keyboard-toolbar-rose-200': { keyboardToolbarColor: '#fecdd3' }
@@ -225,4 +246,5 @@
 '.keyboard-toolbar-rose-700': { keyboardToolbarColor: '#be123c' }
 '.keyboard-toolbar-rose-800': { keyboardToolbarColor: '#9f1239' }
 '.keyboard-toolbar-rose-900': { keyboardToolbarColor: '#881337' }
+'.keyboard-toolbar-rose-950': { keyboardToolbarColor: '#4c0519' }
 ```

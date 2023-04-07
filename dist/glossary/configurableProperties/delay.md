@@ -2,7 +2,7 @@
 // Property: delay
 // Description: Delay, in milliseconds before starting the animation.
 // Component(s): Ti.UI.Animation
-'.delay-0': { delay: 0 }
+'.delay-0': { delay: '0s' }
 '.delay-25': { delay: 25 }
 '.delay-50': { delay: 50 }
 '.delay-75': { delay: 75 }

@@ -14,6 +14,7 @@
 '.bar-slate-700': { barColor: '#334155' }
 '.bar-slate-800': { barColor: '#1e293b' }
 '.bar-slate-900': { barColor: '#0f172a' }
+'.bar-slate-950': { barColor: '#020617' }
 '.bar-gray-50': { barColor: '#f9fafb' }
 '.bar-gray-100': { barColor: '#f3f4f6' }
 '.bar-gray-200': { barColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.bar-gray-700': { barColor: '#374151' }
 '.bar-gray-800': { barColor: '#1f2937' }
 '.bar-gray-900': { barColor: '#111827' }
+'.bar-gray-950': { barColor: '#030712' }
 '.bar-zinc-50': { barColor: '#fafafa' }
 '.bar-zinc-100': { barColor: '#f4f4f5' }
 '.bar-zinc-200': { barColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.bar-zinc-700': { barColor: '#3f3f46' }
 '.bar-zinc-800': { barColor: '#27272a' }
 '.bar-zinc-900': { barColor: '#18181b' }
+'.bar-zinc-950': { barColor: '#09090b' }
 '.bar-neutral-50': { barColor: '#fafafa' }
 '.bar-neutral-100': { barColor: '#f5f5f5' }
 '.bar-neutral-200': { barColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.bar-neutral-700': { barColor: '#404040' }
 '.bar-neutral-800': { barColor: '#262626' }
 '.bar-neutral-900': { barColor: '#171717' }
+'.bar-neutral-950': { barColor: '#0a0a0a' }
 '.bar-stone-50': { barColor: '#fafaf9' }
 '.bar-stone-100': { barColor: '#f5f5f4' }
 '.bar-stone-200': { barColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.bar-stone-700': { barColor: '#44403c' }
 '.bar-stone-800': { barColor: '#292524' }
 '.bar-stone-900': { barColor: '#1c1917' }
+'.bar-stone-950': { barColor: '#0c0a09' }
 '.bar-red-50': { barColor: '#fef2f2' }
 '.bar-red-100': { barColor: '#fee2e2' }
 '.bar-red-200': { barColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.bar-red-700': { barColor: '#b91c1c' }
 '.bar-red-800': { barColor: '#991b1b' }
 '.bar-red-900': { barColor: '#7f1d1d' }
+'.bar-red-950': { barColor: '#450a0a' }
 '.bar-orange-50': { barColor: '#fff7ed' }
 '.bar-orange-100': { barColor: '#ffedd5' }
 '.bar-orange-200': { barColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.bar-orange-700': { barColor: '#c2410c' }
 '.bar-orange-800': { barColor: '#9a3412' }
 '.bar-orange-900': { barColor: '#7c2d12' }
+'.bar-orange-950': { barColor: '#431407' }
 '.bar-amber-50': { barColor: '#fffbeb' }
 '.bar-amber-100': { barColor: '#fef3c7' }
 '.bar-amber-200': { barColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.bar-amber-700': { barColor: '#b45309' }
 '.bar-amber-800': { barColor: '#92400e' }
 '.bar-amber-900': { barColor: '#78350f' }
+'.bar-amber-950': { barColor: '#451a03' }
 '.bar-yellow-50': { barColor: '#fefce8' }
 '.bar-yellow-100': { barColor: '#fef9c3' }
 '.bar-yellow-200': { barColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.bar-yellow-700': { barColor: '#a16207' }
 '.bar-yellow-800': { barColor: '#854d0e' }
 '.bar-yellow-900': { barColor: '#713f12' }
+'.bar-yellow-950': { barColor: '#422006' }
 '.bar-lime-50': { barColor: '#f7fee7' }
 '.bar-lime-100': { barColor: '#ecfccb' }
 '.bar-lime-200': { barColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.bar-lime-700': { barColor: '#4d7c0f' }
 '.bar-lime-800': { barColor: '#3f6212' }
 '.bar-lime-900': { barColor: '#365314' }
+'.bar-lime-950': { barColor: '#1a2e05' }
 '.bar-green-50': { barColor: '#f0fdf4' }
 '.bar-green-100': { barColor: '#dcfce7' }
 '.bar-green-200': { barColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.bar-green-700': { barColor: '#15803d' }
 '.bar-green-800': { barColor: '#166534' }
 '.bar-green-900': { barColor: '#14532d' }
+'.bar-green-950': { barColor: '#052e16' }
 '.bar-emerald-50': { barColor: '#ecfdf5' }
 '.bar-emerald-100': { barColor: '#d1fae5' }
 '.bar-emerald-200': { barColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.bar-emerald-700': { barColor: '#047857' }
 '.bar-emerald-800': { barColor: '#065f46' }
 '.bar-emerald-900': { barColor: '#064e3b' }
+'.bar-emerald-950': { barColor: '#022c22' }
 '.bar-teal-50': { barColor: '#f0fdfa' }
 '.bar-teal-100': { barColor: '#ccfbf1' }
 '.bar-teal-200': { barColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.bar-teal-700': { barColor: '#0f766e' }
 '.bar-teal-800': { barColor: '#115e59' }
 '.bar-teal-900': { barColor: '#134e4a' }
+'.bar-teal-950': { barColor: '#042f2e' }
 '.bar-cyan-50': { barColor: '#ecfeff' }
 '.bar-cyan-100': { barColor: '#cffafe' }
 '.bar-cyan-200': { barColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.bar-cyan-700': { barColor: '#0e7490' }
 '.bar-cyan-800': { barColor: '#155e75' }
 '.bar-cyan-900': { barColor: '#164e63' }
+'.bar-cyan-950': { barColor: '#083344' }
 '.bar-sky-50': { barColor: '#f0f9ff' }
 '.bar-sky-100': { barColor: '#e0f2fe' }
 '.bar-sky-200': { barColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.bar-sky-700': { barColor: '#0369a1' }
 '.bar-sky-800': { barColor: '#075985' }
 '.bar-sky-900': { barColor: '#0c4a6e' }
+'.bar-sky-950': { barColor: '#082f49' }
 '.bar-blue-50': { barColor: '#eff6ff' }
 '.bar-blue-100': { barColor: '#dbeafe' }
 '.bar-blue-200': { barColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.bar-blue-700': { barColor: '#1d4ed8' }
 '.bar-blue-800': { barColor: '#1e40af' }
 '.bar-blue-900': { barColor: '#1e3a8a' }
+'.bar-blue-950': { barColor: '#172554' }
 '.bar-indigo-50': { barColor: '#eef2ff' }
 '.bar-indigo-100': { barColor: '#e0e7ff' }
 '.bar-indigo-200': { barColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.bar-indigo-700': { barColor: '#4338ca' }
 '.bar-indigo-800': { barColor: '#3730a3' }
 '.bar-indigo-900': { barColor: '#312e81' }
+'.bar-indigo-950': { barColor: '#1e1b4b' }
 '.bar-violet-50': { barColor: '#f5f3ff' }
 '.bar-violet-100': { barColor: '#ede9fe' }
 '.bar-violet-200': { barColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.bar-violet-700': { barColor: '#6d28d9' }
 '.bar-violet-800': { barColor: '#5b21b6' }
 '.bar-violet-900': { barColor: '#4c1d95' }
+'.bar-violet-950': { barColor: '#2e1065' }
 '.bar-purple-50': { barColor: '#faf5ff' }
 '.bar-purple-100': { barColor: '#f3e8ff' }
 '.bar-purple-200': { barColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.bar-purple-700': { barColor: '#7e22ce' }
 '.bar-purple-800': { barColor: '#6b21a8' }
 '.bar-purple-900': { barColor: '#581c87' }
+'.bar-purple-950': { barColor: '#3b0764' }
 '.bar-fuchsia-50': { barColor: '#fdf4ff' }
 '.bar-fuchsia-100': { barColor: '#fae8ff' }
 '.bar-fuchsia-200': { barColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.bar-fuchsia-700': { barColor: '#a21caf' }
 '.bar-fuchsia-800': { barColor: '#86198f' }
 '.bar-fuchsia-900': { barColor: '#701a75' }
+'.bar-fuchsia-950': { barColor: '#4a044e' }
 '.bar-pink-50': { barColor: '#fdf2f8' }
 '.bar-pink-100': { barColor: '#fce7f3' }
 '.bar-pink-200': { barColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.bar-pink-700': { barColor: '#be185d' }
 '.bar-pink-800': { barColor: '#9d174d' }
 '.bar-pink-900': { barColor: '#831843' }
+'.bar-pink-950': { barColor: '#500724' }
 '.bar-rose-50': { barColor: '#fff1f2' }
 '.bar-rose-100': { barColor: '#ffe4e6' }
 '.bar-rose-200': { barColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.bar-rose-700': { barColor: '#be123c' }
 '.bar-rose-800': { barColor: '#9f1239' }
 '.bar-rose-900': { barColor: '#881337' }
+'.bar-rose-950': { barColor: '#4c0519' }
 ```

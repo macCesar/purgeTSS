@@ -14,6 +14,7 @@
 '.colors-slate-700': { colors: '#334155' }
 '.colors-slate-800': { colors: '#1e293b' }
 '.colors-slate-900': { colors: '#0f172a' }
+'.colors-slate-950': { colors: '#020617' }
 '.colors-gray-50': { colors: '#f9fafb' }
 '.colors-gray-100': { colors: '#f3f4f6' }
 '.colors-gray-200': { colors: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.colors-gray-700': { colors: '#374151' }
 '.colors-gray-800': { colors: '#1f2937' }
 '.colors-gray-900': { colors: '#111827' }
+'.colors-gray-950': { colors: '#030712' }
 '.colors-zinc-50': { colors: '#fafafa' }
 '.colors-zinc-100': { colors: '#f4f4f5' }
 '.colors-zinc-200': { colors: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.colors-zinc-700': { colors: '#3f3f46' }
 '.colors-zinc-800': { colors: '#27272a' }
 '.colors-zinc-900': { colors: '#18181b' }
+'.colors-zinc-950': { colors: '#09090b' }
 '.colors-neutral-50': { colors: '#fafafa' }
 '.colors-neutral-100': { colors: '#f5f5f5' }
 '.colors-neutral-200': { colors: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.colors-neutral-700': { colors: '#404040' }
 '.colors-neutral-800': { colors: '#262626' }
 '.colors-neutral-900': { colors: '#171717' }
+'.colors-neutral-950': { colors: '#0a0a0a' }
 '.colors-stone-50': { colors: '#fafaf9' }
 '.colors-stone-100': { colors: '#f5f5f4' }
 '.colors-stone-200': { colors: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.colors-stone-700': { colors: '#44403c' }
 '.colors-stone-800': { colors: '#292524' }
 '.colors-stone-900': { colors: '#1c1917' }
+'.colors-stone-950': { colors: '#0c0a09' }
 '.colors-red-50': { colors: '#fef2f2' }
 '.colors-red-100': { colors: '#fee2e2' }
 '.colors-red-200': { colors: '#fecaca' }
@@ -64,6 +69,7 @@
 '.colors-red-700': { colors: '#b91c1c' }
 '.colors-red-800': { colors: '#991b1b' }
 '.colors-red-900': { colors: '#7f1d1d' }
+'.colors-red-950': { colors: '#450a0a' }
 '.colors-orange-50': { colors: '#fff7ed' }
 '.colors-orange-100': { colors: '#ffedd5' }
 '.colors-orange-200': { colors: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.colors-orange-700': { colors: '#c2410c' }
 '.colors-orange-800': { colors: '#9a3412' }
 '.colors-orange-900': { colors: '#7c2d12' }
+'.colors-orange-950': { colors: '#431407' }
 '.colors-amber-50': { colors: '#fffbeb' }
 '.colors-amber-100': { colors: '#fef3c7' }
 '.colors-amber-200': { colors: '#fde68a' }
@@ -84,6 +91,7 @@
 '.colors-amber-700': { colors: '#b45309' }
 '.colors-amber-800': { colors: '#92400e' }
 '.colors-amber-900': { colors: '#78350f' }
+'.colors-amber-950': { colors: '#451a03' }
 '.colors-yellow-50': { colors: '#fefce8' }
 '.colors-yellow-100': { colors: '#fef9c3' }
 '.colors-yellow-200': { colors: '#fef08a' }
@@ -94,6 +102,7 @@
 '.colors-yellow-700': { colors: '#a16207' }
 '.colors-yellow-800': { colors: '#854d0e' }
 '.colors-yellow-900': { colors: '#713f12' }
+'.colors-yellow-950': { colors: '#422006' }
 '.colors-lime-50': { colors: '#f7fee7' }
 '.colors-lime-100': { colors: '#ecfccb' }
 '.colors-lime-200': { colors: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.colors-lime-700': { colors: '#4d7c0f' }
 '.colors-lime-800': { colors: '#3f6212' }
 '.colors-lime-900': { colors: '#365314' }
+'.colors-lime-950': { colors: '#1a2e05' }
 '.colors-green-50': { colors: '#f0fdf4' }
 '.colors-green-100': { colors: '#dcfce7' }
 '.colors-green-200': { colors: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.colors-green-700': { colors: '#15803d' }
 '.colors-green-800': { colors: '#166534' }
 '.colors-green-900': { colors: '#14532d' }
+'.colors-green-950': { colors: '#052e16' }
 '.colors-emerald-50': { colors: '#ecfdf5' }
 '.colors-emerald-100': { colors: '#d1fae5' }
 '.colors-emerald-200': { colors: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.colors-emerald-700': { colors: '#047857' }
 '.colors-emerald-800': { colors: '#065f46' }
 '.colors-emerald-900': { colors: '#064e3b' }
+'.colors-emerald-950': { colors: '#022c22' }
 '.colors-teal-50': { colors: '#f0fdfa' }
 '.colors-teal-100': { colors: '#ccfbf1' }
 '.colors-teal-200': { colors: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.colors-teal-700': { colors: '#0f766e' }
 '.colors-teal-800': { colors: '#115e59' }
 '.colors-teal-900': { colors: '#134e4a' }
+'.colors-teal-950': { colors: '#042f2e' }
 '.colors-cyan-50': { colors: '#ecfeff' }
 '.colors-cyan-100': { colors: '#cffafe' }
 '.colors-cyan-200': { colors: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.colors-cyan-700': { colors: '#0e7490' }
 '.colors-cyan-800': { colors: '#155e75' }
 '.colors-cyan-900': { colors: '#164e63' }
+'.colors-cyan-950': { colors: '#083344' }
 '.colors-sky-50': { colors: '#f0f9ff' }
 '.colors-sky-100': { colors: '#e0f2fe' }
 '.colors-sky-200': { colors: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.colors-sky-700': { colors: '#0369a1' }
 '.colors-sky-800': { colors: '#075985' }
 '.colors-sky-900': { colors: '#0c4a6e' }
+'.colors-sky-950': { colors: '#082f49' }
 '.colors-blue-50': { colors: '#eff6ff' }
 '.colors-blue-100': { colors: '#dbeafe' }
 '.colors-blue-200': { colors: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.colors-blue-700': { colors: '#1d4ed8' }
 '.colors-blue-800': { colors: '#1e40af' }
 '.colors-blue-900': { colors: '#1e3a8a' }
+'.colors-blue-950': { colors: '#172554' }
 '.colors-indigo-50': { colors: '#eef2ff' }
 '.colors-indigo-100': { colors: '#e0e7ff' }
 '.colors-indigo-200': { colors: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.colors-indigo-700': { colors: '#4338ca' }
 '.colors-indigo-800': { colors: '#3730a3' }
 '.colors-indigo-900': { colors: '#312e81' }
+'.colors-indigo-950': { colors: '#1e1b4b' }
 '.colors-violet-50': { colors: '#f5f3ff' }
 '.colors-violet-100': { colors: '#ede9fe' }
 '.colors-violet-200': { colors: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.colors-violet-700': { colors: '#6d28d9' }
 '.colors-violet-800': { colors: '#5b21b6' }
 '.colors-violet-900': { colors: '#4c1d95' }
+'.colors-violet-950': { colors: '#2e1065' }
 '.colors-purple-50': { colors: '#faf5ff' }
 '.colors-purple-100': { colors: '#f3e8ff' }
 '.colors-purple-200': { colors: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.colors-purple-700': { colors: '#7e22ce' }
 '.colors-purple-800': { colors: '#6b21a8' }
 '.colors-purple-900': { colors: '#581c87' }
+'.colors-purple-950': { colors: '#3b0764' }
 '.colors-fuchsia-50': { colors: '#fdf4ff' }
 '.colors-fuchsia-100': { colors: '#fae8ff' }
 '.colors-fuchsia-200': { colors: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.colors-fuchsia-700': { colors: '#a21caf' }
 '.colors-fuchsia-800': { colors: '#86198f' }
 '.colors-fuchsia-900': { colors: '#701a75' }
+'.colors-fuchsia-950': { colors: '#4a044e' }
 '.colors-pink-50': { colors: '#fdf2f8' }
 '.colors-pink-100': { colors: '#fce7f3' }
 '.colors-pink-200': { colors: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.colors-pink-700': { colors: '#be185d' }
 '.colors-pink-800': { colors: '#9d174d' }
 '.colors-pink-900': { colors: '#831843' }
+'.colors-pink-950': { colors: '#500724' }
 '.colors-rose-50': { colors: '#fff1f2' }
 '.colors-rose-100': { colors: '#ffe4e6' }
 '.colors-rose-200': { colors: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.colors-rose-700': { colors: '#be123c' }
 '.colors-rose-800': { colors: '#9f1239' }
 '.colors-rose-900': { colors: '#881337' }
+'.colors-rose-950': { colors: '#4c0519' }
 ```

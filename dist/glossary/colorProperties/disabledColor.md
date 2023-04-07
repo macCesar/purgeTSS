@@ -15,6 +15,7 @@
 '.disabled-slate-700': { disabledColor: '#334155' }
 '.disabled-slate-800': { disabledColor: '#1e293b' }
 '.disabled-slate-900': { disabledColor: '#0f172a' }
+'.disabled-slate-950': { disabledColor: '#020617' }
 '.disabled-gray-50': { disabledColor: '#f9fafb' }
 '.disabled-gray-100': { disabledColor: '#f3f4f6' }
 '.disabled-gray-200': { disabledColor: '#e5e7eb' }
@@ -25,6 +26,7 @@
 '.disabled-gray-700': { disabledColor: '#374151' }
 '.disabled-gray-800': { disabledColor: '#1f2937' }
 '.disabled-gray-900': { disabledColor: '#111827' }
+'.disabled-gray-950': { disabledColor: '#030712' }
 '.disabled-zinc-50': { disabledColor: '#fafafa' }
 '.disabled-zinc-100': { disabledColor: '#f4f4f5' }
 '.disabled-zinc-200': { disabledColor: '#e4e4e7' }
@@ -35,6 +37,7 @@
 '.disabled-zinc-700': { disabledColor: '#3f3f46' }
 '.disabled-zinc-800': { disabledColor: '#27272a' }
 '.disabled-zinc-900': { disabledColor: '#18181b' }
+'.disabled-zinc-950': { disabledColor: '#09090b' }
 '.disabled-neutral-50': { disabledColor: '#fafafa' }
 '.disabled-neutral-100': { disabledColor: '#f5f5f5' }
 '.disabled-neutral-200': { disabledColor: '#e5e5e5' }
@@ -45,6 +48,7 @@
 '.disabled-neutral-700': { disabledColor: '#404040' }
 '.disabled-neutral-800': { disabledColor: '#262626' }
 '.disabled-neutral-900': { disabledColor: '#171717' }
+'.disabled-neutral-950': { disabledColor: '#0a0a0a' }
 '.disabled-stone-50': { disabledColor: '#fafaf9' }
 '.disabled-stone-100': { disabledColor: '#f5f5f4' }
 '.disabled-stone-200': { disabledColor: '#e7e5e4' }
@@ -55,6 +59,7 @@
 '.disabled-stone-700': { disabledColor: '#44403c' }
 '.disabled-stone-800': { disabledColor: '#292524' }
 '.disabled-stone-900': { disabledColor: '#1c1917' }
+'.disabled-stone-950': { disabledColor: '#0c0a09' }
 '.disabled-red-50': { disabledColor: '#fef2f2' }
 '.disabled-red-100': { disabledColor: '#fee2e2' }
 '.disabled-red-200': { disabledColor: '#fecaca' }
@@ -65,6 +70,7 @@
 '.disabled-red-700': { disabledColor: '#b91c1c' }
 '.disabled-red-800': { disabledColor: '#991b1b' }
 '.disabled-red-900': { disabledColor: '#7f1d1d' }
+'.disabled-red-950': { disabledColor: '#450a0a' }
 '.disabled-orange-50': { disabledColor: '#fff7ed' }
 '.disabled-orange-100': { disabledColor: '#ffedd5' }
 '.disabled-orange-200': { disabledColor: '#fed7aa' }
@@ -75,6 +81,7 @@
 '.disabled-orange-700': { disabledColor: '#c2410c' }
 '.disabled-orange-800': { disabledColor: '#9a3412' }
 '.disabled-orange-900': { disabledColor: '#7c2d12' }
+'.disabled-orange-950': { disabledColor: '#431407' }
 '.disabled-amber-50': { disabledColor: '#fffbeb' }
 '.disabled-amber-100': { disabledColor: '#fef3c7' }
 '.disabled-amber-200': { disabledColor: '#fde68a' }
@@ -85,6 +92,7 @@
 '.disabled-amber-700': { disabledColor: '#b45309' }
 '.disabled-amber-800': { disabledColor: '#92400e' }
 '.disabled-amber-900': { disabledColor: '#78350f' }
+'.disabled-amber-950': { disabledColor: '#451a03' }
 '.disabled-yellow-50': { disabledColor: '#fefce8' }
 '.disabled-yellow-100': { disabledColor: '#fef9c3' }
 '.disabled-yellow-200': { disabledColor: '#fef08a' }
@@ -95,6 +103,7 @@
 '.disabled-yellow-700': { disabledColor: '#a16207' }
 '.disabled-yellow-800': { disabledColor: '#854d0e' }
 '.disabled-yellow-900': { disabledColor: '#713f12' }
+'.disabled-yellow-950': { disabledColor: '#422006' }
 '.disabled-lime-50': { disabledColor: '#f7fee7' }
 '.disabled-lime-100': { disabledColor: '#ecfccb' }
 '.disabled-lime-200': { disabledColor: '#d9f99d' }
@@ -105,6 +114,7 @@
 '.disabled-lime-700': { disabledColor: '#4d7c0f' }
 '.disabled-lime-800': { disabledColor: '#3f6212' }
 '.disabled-lime-900': { disabledColor: '#365314' }
+'.disabled-lime-950': { disabledColor: '#1a2e05' }
 '.disabled-green-50': { disabledColor: '#f0fdf4' }
 '.disabled-green-100': { disabledColor: '#dcfce7' }
 '.disabled-green-200': { disabledColor: '#bbf7d0' }
@@ -115,6 +125,7 @@
 '.disabled-green-700': { disabledColor: '#15803d' }
 '.disabled-green-800': { disabledColor: '#166534' }
 '.disabled-green-900': { disabledColor: '#14532d' }
+'.disabled-green-950': { disabledColor: '#052e16' }
 '.disabled-emerald-50': { disabledColor: '#ecfdf5' }
 '.disabled-emerald-100': { disabledColor: '#d1fae5' }
 '.disabled-emerald-200': { disabledColor: '#a7f3d0' }
@@ -125,6 +136,7 @@
 '.disabled-emerald-700': { disabledColor: '#047857' }
 '.disabled-emerald-800': { disabledColor: '#065f46' }
 '.disabled-emerald-900': { disabledColor: '#064e3b' }
+'.disabled-emerald-950': { disabledColor: '#022c22' }
 '.disabled-teal-50': { disabledColor: '#f0fdfa' }
 '.disabled-teal-100': { disabledColor: '#ccfbf1' }
 '.disabled-teal-200': { disabledColor: '#99f6e4' }
@@ -135,6 +147,7 @@
 '.disabled-teal-700': { disabledColor: '#0f766e' }
 '.disabled-teal-800': { disabledColor: '#115e59' }
 '.disabled-teal-900': { disabledColor: '#134e4a' }
+'.disabled-teal-950': { disabledColor: '#042f2e' }
 '.disabled-cyan-50': { disabledColor: '#ecfeff' }
 '.disabled-cyan-100': { disabledColor: '#cffafe' }
 '.disabled-cyan-200': { disabledColor: '#a5f3fc' }
@@ -145,6 +158,7 @@
 '.disabled-cyan-700': { disabledColor: '#0e7490' }
 '.disabled-cyan-800': { disabledColor: '#155e75' }
 '.disabled-cyan-900': { disabledColor: '#164e63' }
+'.disabled-cyan-950': { disabledColor: '#083344' }
 '.disabled-sky-50': { disabledColor: '#f0f9ff' }
 '.disabled-sky-100': { disabledColor: '#e0f2fe' }
 '.disabled-sky-200': { disabledColor: '#bae6fd' }
@@ -155,6 +169,7 @@
 '.disabled-sky-700': { disabledColor: '#0369a1' }
 '.disabled-sky-800': { disabledColor: '#075985' }
 '.disabled-sky-900': { disabledColor: '#0c4a6e' }
+'.disabled-sky-950': { disabledColor: '#082f49' }
 '.disabled-blue-50': { disabledColor: '#eff6ff' }
 '.disabled-blue-100': { disabledColor: '#dbeafe' }
 '.disabled-blue-200': { disabledColor: '#bfdbfe' }
@@ -165,6 +180,7 @@
 '.disabled-blue-700': { disabledColor: '#1d4ed8' }
 '.disabled-blue-800': { disabledColor: '#1e40af' }
 '.disabled-blue-900': { disabledColor: '#1e3a8a' }
+'.disabled-blue-950': { disabledColor: '#172554' }
 '.disabled-indigo-50': { disabledColor: '#eef2ff' }
 '.disabled-indigo-100': { disabledColor: '#e0e7ff' }
 '.disabled-indigo-200': { disabledColor: '#c7d2fe' }
@@ -175,6 +191,7 @@
 '.disabled-indigo-700': { disabledColor: '#4338ca' }
 '.disabled-indigo-800': { disabledColor: '#3730a3' }
 '.disabled-indigo-900': { disabledColor: '#312e81' }
+'.disabled-indigo-950': { disabledColor: '#1e1b4b' }
 '.disabled-violet-50': { disabledColor: '#f5f3ff' }
 '.disabled-violet-100': { disabledColor: '#ede9fe' }
 '.disabled-violet-200': { disabledColor: '#ddd6fe' }
@@ -185,6 +202,7 @@
 '.disabled-violet-700': { disabledColor: '#6d28d9' }
 '.disabled-violet-800': { disabledColor: '#5b21b6' }
 '.disabled-violet-900': { disabledColor: '#4c1d95' }
+'.disabled-violet-950': { disabledColor: '#2e1065' }
 '.disabled-purple-50': { disabledColor: '#faf5ff' }
 '.disabled-purple-100': { disabledColor: '#f3e8ff' }
 '.disabled-purple-200': { disabledColor: '#e9d5ff' }
@@ -195,6 +213,7 @@
 '.disabled-purple-700': { disabledColor: '#7e22ce' }
 '.disabled-purple-800': { disabledColor: '#6b21a8' }
 '.disabled-purple-900': { disabledColor: '#581c87' }
+'.disabled-purple-950': { disabledColor: '#3b0764' }
 '.disabled-fuchsia-50': { disabledColor: '#fdf4ff' }
 '.disabled-fuchsia-100': { disabledColor: '#fae8ff' }
 '.disabled-fuchsia-200': { disabledColor: '#f5d0fe' }
@@ -205,6 +224,7 @@
 '.disabled-fuchsia-700': { disabledColor: '#a21caf' }
 '.disabled-fuchsia-800': { disabledColor: '#86198f' }
 '.disabled-fuchsia-900': { disabledColor: '#701a75' }
+'.disabled-fuchsia-950': { disabledColor: '#4a044e' }
 '.disabled-pink-50': { disabledColor: '#fdf2f8' }
 '.disabled-pink-100': { disabledColor: '#fce7f3' }
 '.disabled-pink-200': { disabledColor: '#fbcfe8' }
@@ -215,6 +235,7 @@
 '.disabled-pink-700': { disabledColor: '#be185d' }
 '.disabled-pink-800': { disabledColor: '#9d174d' }
 '.disabled-pink-900': { disabledColor: '#831843' }
+'.disabled-pink-950': { disabledColor: '#500724' }
 '.disabled-rose-50': { disabledColor: '#fff1f2' }
 '.disabled-rose-100': { disabledColor: '#ffe4e6' }
 '.disabled-rose-200': { disabledColor: '#fecdd3' }
@@ -225,4 +246,5 @@
 '.disabled-rose-700': { disabledColor: '#be123c' }
 '.disabled-rose-800': { disabledColor: '#9f1239' }
 '.disabled-rose-900': { disabledColor: '#881337' }
+'.disabled-rose-950': { disabledColor: '#4c0519' }
 ```

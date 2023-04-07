@@ -14,6 +14,7 @@
 '.selected-slate-700': { selectedColor: '#334155' }
 '.selected-slate-800': { selectedColor: '#1e293b' }
 '.selected-slate-900': { selectedColor: '#0f172a' }
+'.selected-slate-950': { selectedColor: '#020617' }
 '.selected-gray-50': { selectedColor: '#f9fafb' }
 '.selected-gray-100': { selectedColor: '#f3f4f6' }
 '.selected-gray-200': { selectedColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.selected-gray-700': { selectedColor: '#374151' }
 '.selected-gray-800': { selectedColor: '#1f2937' }
 '.selected-gray-900': { selectedColor: '#111827' }
+'.selected-gray-950': { selectedColor: '#030712' }
 '.selected-zinc-50': { selectedColor: '#fafafa' }
 '.selected-zinc-100': { selectedColor: '#f4f4f5' }
 '.selected-zinc-200': { selectedColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.selected-zinc-700': { selectedColor: '#3f3f46' }
 '.selected-zinc-800': { selectedColor: '#27272a' }
 '.selected-zinc-900': { selectedColor: '#18181b' }
+'.selected-zinc-950': { selectedColor: '#09090b' }
 '.selected-neutral-50': { selectedColor: '#fafafa' }
 '.selected-neutral-100': { selectedColor: '#f5f5f5' }
 '.selected-neutral-200': { selectedColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.selected-neutral-700': { selectedColor: '#404040' }
 '.selected-neutral-800': { selectedColor: '#262626' }
 '.selected-neutral-900': { selectedColor: '#171717' }
+'.selected-neutral-950': { selectedColor: '#0a0a0a' }
 '.selected-stone-50': { selectedColor: '#fafaf9' }
 '.selected-stone-100': { selectedColor: '#f5f5f4' }
 '.selected-stone-200': { selectedColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.selected-stone-700': { selectedColor: '#44403c' }
 '.selected-stone-800': { selectedColor: '#292524' }
 '.selected-stone-900': { selectedColor: '#1c1917' }
+'.selected-stone-950': { selectedColor: '#0c0a09' }
 '.selected-red-50': { selectedColor: '#fef2f2' }
 '.selected-red-100': { selectedColor: '#fee2e2' }
 '.selected-red-200': { selectedColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.selected-red-700': { selectedColor: '#b91c1c' }
 '.selected-red-800': { selectedColor: '#991b1b' }
 '.selected-red-900': { selectedColor: '#7f1d1d' }
+'.selected-red-950': { selectedColor: '#450a0a' }
 '.selected-orange-50': { selectedColor: '#fff7ed' }
 '.selected-orange-100': { selectedColor: '#ffedd5' }
 '.selected-orange-200': { selectedColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.selected-orange-700': { selectedColor: '#c2410c' }
 '.selected-orange-800': { selectedColor: '#9a3412' }
 '.selected-orange-900': { selectedColor: '#7c2d12' }
+'.selected-orange-950': { selectedColor: '#431407' }
 '.selected-amber-50': { selectedColor: '#fffbeb' }
 '.selected-amber-100': { selectedColor: '#fef3c7' }
 '.selected-amber-200': { selectedColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.selected-amber-700': { selectedColor: '#b45309' }
 '.selected-amber-800': { selectedColor: '#92400e' }
 '.selected-amber-900': { selectedColor: '#78350f' }
+'.selected-amber-950': { selectedColor: '#451a03' }
 '.selected-yellow-50': { selectedColor: '#fefce8' }
 '.selected-yellow-100': { selectedColor: '#fef9c3' }
 '.selected-yellow-200': { selectedColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.selected-yellow-700': { selectedColor: '#a16207' }
 '.selected-yellow-800': { selectedColor: '#854d0e' }
 '.selected-yellow-900': { selectedColor: '#713f12' }
+'.selected-yellow-950': { selectedColor: '#422006' }
 '.selected-lime-50': { selectedColor: '#f7fee7' }
 '.selected-lime-100': { selectedColor: '#ecfccb' }
 '.selected-lime-200': { selectedColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.selected-lime-700': { selectedColor: '#4d7c0f' }
 '.selected-lime-800': { selectedColor: '#3f6212' }
 '.selected-lime-900': { selectedColor: '#365314' }
+'.selected-lime-950': { selectedColor: '#1a2e05' }
 '.selected-green-50': { selectedColor: '#f0fdf4' }
 '.selected-green-100': { selectedColor: '#dcfce7' }
 '.selected-green-200': { selectedColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.selected-green-700': { selectedColor: '#15803d' }
 '.selected-green-800': { selectedColor: '#166534' }
 '.selected-green-900': { selectedColor: '#14532d' }
+'.selected-green-950': { selectedColor: '#052e16' }
 '.selected-emerald-50': { selectedColor: '#ecfdf5' }
 '.selected-emerald-100': { selectedColor: '#d1fae5' }
 '.selected-emerald-200': { selectedColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.selected-emerald-700': { selectedColor: '#047857' }
 '.selected-emerald-800': { selectedColor: '#065f46' }
 '.selected-emerald-900': { selectedColor: '#064e3b' }
+'.selected-emerald-950': { selectedColor: '#022c22' }
 '.selected-teal-50': { selectedColor: '#f0fdfa' }
 '.selected-teal-100': { selectedColor: '#ccfbf1' }
 '.selected-teal-200': { selectedColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.selected-teal-700': { selectedColor: '#0f766e' }
 '.selected-teal-800': { selectedColor: '#115e59' }
 '.selected-teal-900': { selectedColor: '#134e4a' }
+'.selected-teal-950': { selectedColor: '#042f2e' }
 '.selected-cyan-50': { selectedColor: '#ecfeff' }
 '.selected-cyan-100': { selectedColor: '#cffafe' }
 '.selected-cyan-200': { selectedColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.selected-cyan-700': { selectedColor: '#0e7490' }
 '.selected-cyan-800': { selectedColor: '#155e75' }
 '.selected-cyan-900': { selectedColor: '#164e63' }
+'.selected-cyan-950': { selectedColor: '#083344' }
 '.selected-sky-50': { selectedColor: '#f0f9ff' }
 '.selected-sky-100': { selectedColor: '#e0f2fe' }
 '.selected-sky-200': { selectedColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.selected-sky-700': { selectedColor: '#0369a1' }
 '.selected-sky-800': { selectedColor: '#075985' }
 '.selected-sky-900': { selectedColor: '#0c4a6e' }
+'.selected-sky-950': { selectedColor: '#082f49' }
 '.selected-blue-50': { selectedColor: '#eff6ff' }
 '.selected-blue-100': { selectedColor: '#dbeafe' }
 '.selected-blue-200': { selectedColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.selected-blue-700': { selectedColor: '#1d4ed8' }
 '.selected-blue-800': { selectedColor: '#1e40af' }
 '.selected-blue-900': { selectedColor: '#1e3a8a' }
+'.selected-blue-950': { selectedColor: '#172554' }
 '.selected-indigo-50': { selectedColor: '#eef2ff' }
 '.selected-indigo-100': { selectedColor: '#e0e7ff' }
 '.selected-indigo-200': { selectedColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.selected-indigo-700': { selectedColor: '#4338ca' }
 '.selected-indigo-800': { selectedColor: '#3730a3' }
 '.selected-indigo-900': { selectedColor: '#312e81' }
+'.selected-indigo-950': { selectedColor: '#1e1b4b' }
 '.selected-violet-50': { selectedColor: '#f5f3ff' }
 '.selected-violet-100': { selectedColor: '#ede9fe' }
 '.selected-violet-200': { selectedColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.selected-violet-700': { selectedColor: '#6d28d9' }
 '.selected-violet-800': { selectedColor: '#5b21b6' }
 '.selected-violet-900': { selectedColor: '#4c1d95' }
+'.selected-violet-950': { selectedColor: '#2e1065' }
 '.selected-purple-50': { selectedColor: '#faf5ff' }
 '.selected-purple-100': { selectedColor: '#f3e8ff' }
 '.selected-purple-200': { selectedColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.selected-purple-700': { selectedColor: '#7e22ce' }
 '.selected-purple-800': { selectedColor: '#6b21a8' }
 '.selected-purple-900': { selectedColor: '#581c87' }
+'.selected-purple-950': { selectedColor: '#3b0764' }
 '.selected-fuchsia-50': { selectedColor: '#fdf4ff' }
 '.selected-fuchsia-100': { selectedColor: '#fae8ff' }
 '.selected-fuchsia-200': { selectedColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.selected-fuchsia-700': { selectedColor: '#a21caf' }
 '.selected-fuchsia-800': { selectedColor: '#86198f' }
 '.selected-fuchsia-900': { selectedColor: '#701a75' }
+'.selected-fuchsia-950': { selectedColor: '#4a044e' }
 '.selected-pink-50': { selectedColor: '#fdf2f8' }
 '.selected-pink-100': { selectedColor: '#fce7f3' }
 '.selected-pink-200': { selectedColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.selected-pink-700': { selectedColor: '#be185d' }
 '.selected-pink-800': { selectedColor: '#9d174d' }
 '.selected-pink-900': { selectedColor: '#831843' }
+'.selected-pink-950': { selectedColor: '#500724' }
 '.selected-rose-50': { selectedColor: '#fff1f2' }
 '.selected-rose-100': { selectedColor: '#ffe4e6' }
 '.selected-rose-200': { selectedColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.selected-rose-700': { selectedColor: '#be123c' }
 '.selected-rose-800': { selectedColor: '#9f1239' }
 '.selected-rose-900': { selectedColor: '#881337' }
+'.selected-rose-950': { selectedColor: '#4c0519' }
 ```

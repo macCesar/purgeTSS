@@ -15,6 +15,7 @@
 '.border-slate-700': { borderColor: '#334155' }
 '.border-slate-800': { borderColor: '#1e293b' }
 '.border-slate-900': { borderColor: '#0f172a' }
+'.border-slate-950': { borderColor: '#020617' }
 '.border-gray-50': { borderColor: '#f9fafb' }
 '.border-gray-100': { borderColor: '#f3f4f6' }
 '.border-gray-200': { borderColor: '#e5e7eb' }
@@ -25,6 +26,7 @@
 '.border-gray-700': { borderColor: '#374151' }
 '.border-gray-800': { borderColor: '#1f2937' }
 '.border-gray-900': { borderColor: '#111827' }
+'.border-gray-950': { borderColor: '#030712' }
 '.border-zinc-50': { borderColor: '#fafafa' }
 '.border-zinc-100': { borderColor: '#f4f4f5' }
 '.border-zinc-200': { borderColor: '#e4e4e7' }
@@ -35,6 +37,7 @@
 '.border-zinc-700': { borderColor: '#3f3f46' }
 '.border-zinc-800': { borderColor: '#27272a' }
 '.border-zinc-900': { borderColor: '#18181b' }
+'.border-zinc-950': { borderColor: '#09090b' }
 '.border-neutral-50': { borderColor: '#fafafa' }
 '.border-neutral-100': { borderColor: '#f5f5f5' }
 '.border-neutral-200': { borderColor: '#e5e5e5' }
@@ -45,6 +48,7 @@
 '.border-neutral-700': { borderColor: '#404040' }
 '.border-neutral-800': { borderColor: '#262626' }
 '.border-neutral-900': { borderColor: '#171717' }
+'.border-neutral-950': { borderColor: '#0a0a0a' }
 '.border-stone-50': { borderColor: '#fafaf9' }
 '.border-stone-100': { borderColor: '#f5f5f4' }
 '.border-stone-200': { borderColor: '#e7e5e4' }
@@ -55,6 +59,7 @@
 '.border-stone-700': { borderColor: '#44403c' }
 '.border-stone-800': { borderColor: '#292524' }
 '.border-stone-900': { borderColor: '#1c1917' }
+'.border-stone-950': { borderColor: '#0c0a09' }
 '.border-red-50': { borderColor: '#fef2f2' }
 '.border-red-100': { borderColor: '#fee2e2' }
 '.border-red-200': { borderColor: '#fecaca' }
@@ -65,6 +70,7 @@
 '.border-red-700': { borderColor: '#b91c1c' }
 '.border-red-800': { borderColor: '#991b1b' }
 '.border-red-900': { borderColor: '#7f1d1d' }
+'.border-red-950': { borderColor: '#450a0a' }
 '.border-orange-50': { borderColor: '#fff7ed' }
 '.border-orange-100': { borderColor: '#ffedd5' }
 '.border-orange-200': { borderColor: '#fed7aa' }
@@ -75,6 +81,7 @@
 '.border-orange-700': { borderColor: '#c2410c' }
 '.border-orange-800': { borderColor: '#9a3412' }
 '.border-orange-900': { borderColor: '#7c2d12' }
+'.border-orange-950': { borderColor: '#431407' }
 '.border-amber-50': { borderColor: '#fffbeb' }
 '.border-amber-100': { borderColor: '#fef3c7' }
 '.border-amber-200': { borderColor: '#fde68a' }
@@ -85,6 +92,7 @@
 '.border-amber-700': { borderColor: '#b45309' }
 '.border-amber-800': { borderColor: '#92400e' }
 '.border-amber-900': { borderColor: '#78350f' }
+'.border-amber-950': { borderColor: '#451a03' }
 '.border-yellow-50': { borderColor: '#fefce8' }
 '.border-yellow-100': { borderColor: '#fef9c3' }
 '.border-yellow-200': { borderColor: '#fef08a' }
@@ -95,6 +103,7 @@
 '.border-yellow-700': { borderColor: '#a16207' }
 '.border-yellow-800': { borderColor: '#854d0e' }
 '.border-yellow-900': { borderColor: '#713f12' }
+'.border-yellow-950': { borderColor: '#422006' }
 '.border-lime-50': { borderColor: '#f7fee7' }
 '.border-lime-100': { borderColor: '#ecfccb' }
 '.border-lime-200': { borderColor: '#d9f99d' }
@@ -105,6 +114,7 @@
 '.border-lime-700': { borderColor: '#4d7c0f' }
 '.border-lime-800': { borderColor: '#3f6212' }
 '.border-lime-900': { borderColor: '#365314' }
+'.border-lime-950': { borderColor: '#1a2e05' }
 '.border-green-50': { borderColor: '#f0fdf4' }
 '.border-green-100': { borderColor: '#dcfce7' }
 '.border-green-200': { borderColor: '#bbf7d0' }
@@ -115,6 +125,7 @@
 '.border-green-700': { borderColor: '#15803d' }
 '.border-green-800': { borderColor: '#166534' }
 '.border-green-900': { borderColor: '#14532d' }
+'.border-green-950': { borderColor: '#052e16' }
 '.border-emerald-50': { borderColor: '#ecfdf5' }
 '.border-emerald-100': { borderColor: '#d1fae5' }
 '.border-emerald-200': { borderColor: '#a7f3d0' }
@@ -125,6 +136,7 @@
 '.border-emerald-700': { borderColor: '#047857' }
 '.border-emerald-800': { borderColor: '#065f46' }
 '.border-emerald-900': { borderColor: '#064e3b' }
+'.border-emerald-950': { borderColor: '#022c22' }
 '.border-teal-50': { borderColor: '#f0fdfa' }
 '.border-teal-100': { borderColor: '#ccfbf1' }
 '.border-teal-200': { borderColor: '#99f6e4' }
@@ -135,6 +147,7 @@
 '.border-teal-700': { borderColor: '#0f766e' }
 '.border-teal-800': { borderColor: '#115e59' }
 '.border-teal-900': { borderColor: '#134e4a' }
+'.border-teal-950': { borderColor: '#042f2e' }
 '.border-cyan-50': { borderColor: '#ecfeff' }
 '.border-cyan-100': { borderColor: '#cffafe' }
 '.border-cyan-200': { borderColor: '#a5f3fc' }
@@ -145,6 +158,7 @@
 '.border-cyan-700': { borderColor: '#0e7490' }
 '.border-cyan-800': { borderColor: '#155e75' }
 '.border-cyan-900': { borderColor: '#164e63' }
+'.border-cyan-950': { borderColor: '#083344' }
 '.border-sky-50': { borderColor: '#f0f9ff' }
 '.border-sky-100': { borderColor: '#e0f2fe' }
 '.border-sky-200': { borderColor: '#bae6fd' }
@@ -155,6 +169,7 @@
 '.border-sky-700': { borderColor: '#0369a1' }
 '.border-sky-800': { borderColor: '#075985' }
 '.border-sky-900': { borderColor: '#0c4a6e' }
+'.border-sky-950': { borderColor: '#082f49' }
 '.border-blue-50': { borderColor: '#eff6ff' }
 '.border-blue-100': { borderColor: '#dbeafe' }
 '.border-blue-200': { borderColor: '#bfdbfe' }
@@ -165,6 +180,7 @@
 '.border-blue-700': { borderColor: '#1d4ed8' }
 '.border-blue-800': { borderColor: '#1e40af' }
 '.border-blue-900': { borderColor: '#1e3a8a' }
+'.border-blue-950': { borderColor: '#172554' }
 '.border-indigo-50': { borderColor: '#eef2ff' }
 '.border-indigo-100': { borderColor: '#e0e7ff' }
 '.border-indigo-200': { borderColor: '#c7d2fe' }
@@ -175,6 +191,7 @@
 '.border-indigo-700': { borderColor: '#4338ca' }
 '.border-indigo-800': { borderColor: '#3730a3' }
 '.border-indigo-900': { borderColor: '#312e81' }
+'.border-indigo-950': { borderColor: '#1e1b4b' }
 '.border-violet-50': { borderColor: '#f5f3ff' }
 '.border-violet-100': { borderColor: '#ede9fe' }
 '.border-violet-200': { borderColor: '#ddd6fe' }
@@ -185,6 +202,7 @@
 '.border-violet-700': { borderColor: '#6d28d9' }
 '.border-violet-800': { borderColor: '#5b21b6' }
 '.border-violet-900': { borderColor: '#4c1d95' }
+'.border-violet-950': { borderColor: '#2e1065' }
 '.border-purple-50': { borderColor: '#faf5ff' }
 '.border-purple-100': { borderColor: '#f3e8ff' }
 '.border-purple-200': { borderColor: '#e9d5ff' }
@@ -195,6 +213,7 @@
 '.border-purple-700': { borderColor: '#7e22ce' }
 '.border-purple-800': { borderColor: '#6b21a8' }
 '.border-purple-900': { borderColor: '#581c87' }
+'.border-purple-950': { borderColor: '#3b0764' }
 '.border-fuchsia-50': { borderColor: '#fdf4ff' }
 '.border-fuchsia-100': { borderColor: '#fae8ff' }
 '.border-fuchsia-200': { borderColor: '#f5d0fe' }
@@ -205,6 +224,7 @@
 '.border-fuchsia-700': { borderColor: '#a21caf' }
 '.border-fuchsia-800': { borderColor: '#86198f' }
 '.border-fuchsia-900': { borderColor: '#701a75' }
+'.border-fuchsia-950': { borderColor: '#4a044e' }
 '.border-pink-50': { borderColor: '#fdf2f8' }
 '.border-pink-100': { borderColor: '#fce7f3' }
 '.border-pink-200': { borderColor: '#fbcfe8' }
@@ -215,6 +235,7 @@
 '.border-pink-700': { borderColor: '#be185d' }
 '.border-pink-800': { borderColor: '#9d174d' }
 '.border-pink-900': { borderColor: '#831843' }
+'.border-pink-950': { borderColor: '#500724' }
 '.border-rose-50': { borderColor: '#fff1f2' }
 '.border-rose-100': { borderColor: '#ffe4e6' }
 '.border-rose-200': { borderColor: '#fecdd3' }
@@ -225,4 +246,5 @@
 '.border-rose-700': { borderColor: '#be123c' }
 '.border-rose-800': { borderColor: '#9f1239' }
 '.border-rose-900': { borderColor: '#881337' }
+'.border-rose-950': { borderColor: '#4c0519' }
 ```

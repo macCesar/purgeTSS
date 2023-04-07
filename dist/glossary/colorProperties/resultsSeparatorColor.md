@@ -15,6 +15,7 @@
 '.results-separator-slate-700': { resultsSeparatorColor: '#334155' }
 '.results-separator-slate-800': { resultsSeparatorColor: '#1e293b' }
 '.results-separator-slate-900': { resultsSeparatorColor: '#0f172a' }
+'.results-separator-slate-950': { resultsSeparatorColor: '#020617' }
 '.results-separator-gray-50': { resultsSeparatorColor: '#f9fafb' }
 '.results-separator-gray-100': { resultsSeparatorColor: '#f3f4f6' }
 '.results-separator-gray-200': { resultsSeparatorColor: '#e5e7eb' }
@@ -25,6 +26,7 @@
 '.results-separator-gray-700': { resultsSeparatorColor: '#374151' }
 '.results-separator-gray-800': { resultsSeparatorColor: '#1f2937' }
 '.results-separator-gray-900': { resultsSeparatorColor: '#111827' }
+'.results-separator-gray-950': { resultsSeparatorColor: '#030712' }
 '.results-separator-zinc-50': { resultsSeparatorColor: '#fafafa' }
 '.results-separator-zinc-100': { resultsSeparatorColor: '#f4f4f5' }
 '.results-separator-zinc-200': { resultsSeparatorColor: '#e4e4e7' }
@@ -35,6 +37,7 @@
 '.results-separator-zinc-700': { resultsSeparatorColor: '#3f3f46' }
 '.results-separator-zinc-800': { resultsSeparatorColor: '#27272a' }
 '.results-separator-zinc-900': { resultsSeparatorColor: '#18181b' }
+'.results-separator-zinc-950': { resultsSeparatorColor: '#09090b' }
 '.results-separator-neutral-50': { resultsSeparatorColor: '#fafafa' }
 '.results-separator-neutral-100': { resultsSeparatorColor: '#f5f5f5' }
 '.results-separator-neutral-200': { resultsSeparatorColor: '#e5e5e5' }
@@ -45,6 +48,7 @@
 '.results-separator-neutral-700': { resultsSeparatorColor: '#404040' }
 '.results-separator-neutral-800': { resultsSeparatorColor: '#262626' }
 '.results-separator-neutral-900': { resultsSeparatorColor: '#171717' }
+'.results-separator-neutral-950': { resultsSeparatorColor: '#0a0a0a' }
 '.results-separator-stone-50': { resultsSeparatorColor: '#fafaf9' }
 '.results-separator-stone-100': { resultsSeparatorColor: '#f5f5f4' }
 '.results-separator-stone-200': { resultsSeparatorColor: '#e7e5e4' }
@@ -55,6 +59,7 @@
 '.results-separator-stone-700': { resultsSeparatorColor: '#44403c' }
 '.results-separator-stone-800': { resultsSeparatorColor: '#292524' }
 '.results-separator-stone-900': { resultsSeparatorColor: '#1c1917' }
+'.results-separator-stone-950': { resultsSeparatorColor: '#0c0a09' }
 '.results-separator-red-50': { resultsSeparatorColor: '#fef2f2' }
 '.results-separator-red-100': { resultsSeparatorColor: '#fee2e2' }
 '.results-separator-red-200': { resultsSeparatorColor: '#fecaca' }
@@ -65,6 +70,7 @@
 '.results-separator-red-700': { resultsSeparatorColor: '#b91c1c' }
 '.results-separator-red-800': { resultsSeparatorColor: '#991b1b' }
 '.results-separator-red-900': { resultsSeparatorColor: '#7f1d1d' }
+'.results-separator-red-950': { resultsSeparatorColor: '#450a0a' }
 '.results-separator-orange-50': { resultsSeparatorColor: '#fff7ed' }
 '.results-separator-orange-100': { resultsSeparatorColor: '#ffedd5' }
 '.results-separator-orange-200': { resultsSeparatorColor: '#fed7aa' }
@@ -75,6 +81,7 @@
 '.results-separator-orange-700': { resultsSeparatorColor: '#c2410c' }
 '.results-separator-orange-800': { resultsSeparatorColor: '#9a3412' }
 '.results-separator-orange-900': { resultsSeparatorColor: '#7c2d12' }
+'.results-separator-orange-950': { resultsSeparatorColor: '#431407' }
 '.results-separator-amber-50': { resultsSeparatorColor: '#fffbeb' }
 '.results-separator-amber-100': { resultsSeparatorColor: '#fef3c7' }
 '.results-separator-amber-200': { resultsSeparatorColor: '#fde68a' }
@@ -85,6 +92,7 @@
 '.results-separator-amber-700': { resultsSeparatorColor: '#b45309' }
 '.results-separator-amber-800': { resultsSeparatorColor: '#92400e' }
 '.results-separator-amber-900': { resultsSeparatorColor: '#78350f' }
+'.results-separator-amber-950': { resultsSeparatorColor: '#451a03' }
 '.results-separator-yellow-50': { resultsSeparatorColor: '#fefce8' }
 '.results-separator-yellow-100': { resultsSeparatorColor: '#fef9c3' }
 '.results-separator-yellow-200': { resultsSeparatorColor: '#fef08a' }
@@ -95,6 +103,7 @@
 '.results-separator-yellow-700': { resultsSeparatorColor: '#a16207' }
 '.results-separator-yellow-800': { resultsSeparatorColor: '#854d0e' }
 '.results-separator-yellow-900': { resultsSeparatorColor: '#713f12' }
+'.results-separator-yellow-950': { resultsSeparatorColor: '#422006' }
 '.results-separator-lime-50': { resultsSeparatorColor: '#f7fee7' }
 '.results-separator-lime-100': { resultsSeparatorColor: '#ecfccb' }
 '.results-separator-lime-200': { resultsSeparatorColor: '#d9f99d' }
@@ -105,6 +114,7 @@
 '.results-separator-lime-700': { resultsSeparatorColor: '#4d7c0f' }
 '.results-separator-lime-800': { resultsSeparatorColor: '#3f6212' }
 '.results-separator-lime-900': { resultsSeparatorColor: '#365314' }
+'.results-separator-lime-950': { resultsSeparatorColor: '#1a2e05' }
 '.results-separator-green-50': { resultsSeparatorColor: '#f0fdf4' }
 '.results-separator-green-100': { resultsSeparatorColor: '#dcfce7' }
 '.results-separator-green-200': { resultsSeparatorColor: '#bbf7d0' }
@@ -115,6 +125,7 @@
 '.results-separator-green-700': { resultsSeparatorColor: '#15803d' }
 '.results-separator-green-800': { resultsSeparatorColor: '#166534' }
 '.results-separator-green-900': { resultsSeparatorColor: '#14532d' }
+'.results-separator-green-950': { resultsSeparatorColor: '#052e16' }
 '.results-separator-emerald-50': { resultsSeparatorColor: '#ecfdf5' }
 '.results-separator-emerald-100': { resultsSeparatorColor: '#d1fae5' }
 '.results-separator-emerald-200': { resultsSeparatorColor: '#a7f3d0' }
@@ -125,6 +136,7 @@
 '.results-separator-emerald-700': { resultsSeparatorColor: '#047857' }
 '.results-separator-emerald-800': { resultsSeparatorColor: '#065f46' }
 '.results-separator-emerald-900': { resultsSeparatorColor: '#064e3b' }
+'.results-separator-emerald-950': { resultsSeparatorColor: '#022c22' }
 '.results-separator-teal-50': { resultsSeparatorColor: '#f0fdfa' }
 '.results-separator-teal-100': { resultsSeparatorColor: '#ccfbf1' }
 '.results-separator-teal-200': { resultsSeparatorColor: '#99f6e4' }
@@ -135,6 +147,7 @@
 '.results-separator-teal-700': { resultsSeparatorColor: '#0f766e' }
 '.results-separator-teal-800': { resultsSeparatorColor: '#115e59' }
 '.results-separator-teal-900': { resultsSeparatorColor: '#134e4a' }
+'.results-separator-teal-950': { resultsSeparatorColor: '#042f2e' }
 '.results-separator-cyan-50': { resultsSeparatorColor: '#ecfeff' }
 '.results-separator-cyan-100': { resultsSeparatorColor: '#cffafe' }
 '.results-separator-cyan-200': { resultsSeparatorColor: '#a5f3fc' }
@@ -145,6 +158,7 @@
 '.results-separator-cyan-700': { resultsSeparatorColor: '#0e7490' }
 '.results-separator-cyan-800': { resultsSeparatorColor: '#155e75' }
 '.results-separator-cyan-900': { resultsSeparatorColor: '#164e63' }
+'.results-separator-cyan-950': { resultsSeparatorColor: '#083344' }
 '.results-separator-sky-50': { resultsSeparatorColor: '#f0f9ff' }
 '.results-separator-sky-100': { resultsSeparatorColor: '#e0f2fe' }
 '.results-separator-sky-200': { resultsSeparatorColor: '#bae6fd' }
@@ -155,6 +169,7 @@
 '.results-separator-sky-700': { resultsSeparatorColor: '#0369a1' }
 '.results-separator-sky-800': { resultsSeparatorColor: '#075985' }
 '.results-separator-sky-900': { resultsSeparatorColor: '#0c4a6e' }
+'.results-separator-sky-950': { resultsSeparatorColor: '#082f49' }
 '.results-separator-blue-50': { resultsSeparatorColor: '#eff6ff' }
 '.results-separator-blue-100': { resultsSeparatorColor: '#dbeafe' }
 '.results-separator-blue-200': { resultsSeparatorColor: '#bfdbfe' }
@@ -165,6 +180,7 @@
 '.results-separator-blue-700': { resultsSeparatorColor: '#1d4ed8' }
 '.results-separator-blue-800': { resultsSeparatorColor: '#1e40af' }
 '.results-separator-blue-900': { resultsSeparatorColor: '#1e3a8a' }
+'.results-separator-blue-950': { resultsSeparatorColor: '#172554' }
 '.results-separator-indigo-50': { resultsSeparatorColor: '#eef2ff' }
 '.results-separator-indigo-100': { resultsSeparatorColor: '#e0e7ff' }
 '.results-separator-indigo-200': { resultsSeparatorColor: '#c7d2fe' }
@@ -175,6 +191,7 @@
 '.results-separator-indigo-700': { resultsSeparatorColor: '#4338ca' }
 '.results-separator-indigo-800': { resultsSeparatorColor: '#3730a3' }
 '.results-separator-indigo-900': { resultsSeparatorColor: '#312e81' }
+'.results-separator-indigo-950': { resultsSeparatorColor: '#1e1b4b' }
 '.results-separator-violet-50': { resultsSeparatorColor: '#f5f3ff' }
 '.results-separator-violet-100': { resultsSeparatorColor: '#ede9fe' }
 '.results-separator-violet-200': { resultsSeparatorColor: '#ddd6fe' }
@@ -185,6 +202,7 @@
 '.results-separator-violet-700': { resultsSeparatorColor: '#6d28d9' }
 '.results-separator-violet-800': { resultsSeparatorColor: '#5b21b6' }
 '.results-separator-violet-900': { resultsSeparatorColor: '#4c1d95' }
+'.results-separator-violet-950': { resultsSeparatorColor: '#2e1065' }
 '.results-separator-purple-50': { resultsSeparatorColor: '#faf5ff' }
 '.results-separator-purple-100': { resultsSeparatorColor: '#f3e8ff' }
 '.results-separator-purple-200': { resultsSeparatorColor: '#e9d5ff' }
@@ -195,6 +213,7 @@
 '.results-separator-purple-700': { resultsSeparatorColor: '#7e22ce' }
 '.results-separator-purple-800': { resultsSeparatorColor: '#6b21a8' }
 '.results-separator-purple-900': { resultsSeparatorColor: '#581c87' }
+'.results-separator-purple-950': { resultsSeparatorColor: '#3b0764' }
 '.results-separator-fuchsia-50': { resultsSeparatorColor: '#fdf4ff' }
 '.results-separator-fuchsia-100': { resultsSeparatorColor: '#fae8ff' }
 '.results-separator-fuchsia-200': { resultsSeparatorColor: '#f5d0fe' }
@@ -205,6 +224,7 @@
 '.results-separator-fuchsia-700': { resultsSeparatorColor: '#a21caf' }
 '.results-separator-fuchsia-800': { resultsSeparatorColor: '#86198f' }
 '.results-separator-fuchsia-900': { resultsSeparatorColor: '#701a75' }
+'.results-separator-fuchsia-950': { resultsSeparatorColor: '#4a044e' }
 '.results-separator-pink-50': { resultsSeparatorColor: '#fdf2f8' }
 '.results-separator-pink-100': { resultsSeparatorColor: '#fce7f3' }
 '.results-separator-pink-200': { resultsSeparatorColor: '#fbcfe8' }
@@ -215,6 +235,7 @@
 '.results-separator-pink-700': { resultsSeparatorColor: '#be185d' }
 '.results-separator-pink-800': { resultsSeparatorColor: '#9d174d' }
 '.results-separator-pink-900': { resultsSeparatorColor: '#831843' }
+'.results-separator-pink-950': { resultsSeparatorColor: '#500724' }
 '.results-separator-rose-50': { resultsSeparatorColor: '#fff1f2' }
 '.results-separator-rose-100': { resultsSeparatorColor: '#ffe4e6' }
 '.results-separator-rose-200': { resultsSeparatorColor: '#fecdd3' }
@@ -225,4 +246,5 @@
 '.results-separator-rose-700': { resultsSeparatorColor: '#be123c' }
 '.results-separator-rose-800': { resultsSeparatorColor: '#9f1239' }
 '.results-separator-rose-900': { resultsSeparatorColor: '#881337' }
+'.results-separator-rose-950': { resultsSeparatorColor: '#4c0519' }
 ```

@@ -15,6 +15,7 @@
 '.selected-subtitle-slate-700': { selectedSubtitleColor: '#334155' }
 '.selected-subtitle-slate-800': { selectedSubtitleColor: '#1e293b' }
 '.selected-subtitle-slate-900': { selectedSubtitleColor: '#0f172a' }
+'.selected-subtitle-slate-950': { selectedSubtitleColor: '#020617' }
 '.selected-subtitle-gray-50': { selectedSubtitleColor: '#f9fafb' }
 '.selected-subtitle-gray-100': { selectedSubtitleColor: '#f3f4f6' }
 '.selected-subtitle-gray-200': { selectedSubtitleColor: '#e5e7eb' }
@@ -25,6 +26,7 @@
 '.selected-subtitle-gray-700': { selectedSubtitleColor: '#374151' }
 '.selected-subtitle-gray-800': { selectedSubtitleColor: '#1f2937' }
 '.selected-subtitle-gray-900': { selectedSubtitleColor: '#111827' }
+'.selected-subtitle-gray-950': { selectedSubtitleColor: '#030712' }
 '.selected-subtitle-zinc-50': { selectedSubtitleColor: '#fafafa' }
 '.selected-subtitle-zinc-100': { selectedSubtitleColor: '#f4f4f5' }
 '.selected-subtitle-zinc-200': { selectedSubtitleColor: '#e4e4e7' }
@@ -35,6 +37,7 @@
 '.selected-subtitle-zinc-700': { selectedSubtitleColor: '#3f3f46' }
 '.selected-subtitle-zinc-800': { selectedSubtitleColor: '#27272a' }
 '.selected-subtitle-zinc-900': { selectedSubtitleColor: '#18181b' }
+'.selected-subtitle-zinc-950': { selectedSubtitleColor: '#09090b' }
 '.selected-subtitle-neutral-50': { selectedSubtitleColor: '#fafafa' }
 '.selected-subtitle-neutral-100': { selectedSubtitleColor: '#f5f5f5' }
 '.selected-subtitle-neutral-200': { selectedSubtitleColor: '#e5e5e5' }
@@ -45,6 +48,7 @@
 '.selected-subtitle-neutral-700': { selectedSubtitleColor: '#404040' }
 '.selected-subtitle-neutral-800': { selectedSubtitleColor: '#262626' }
 '.selected-subtitle-neutral-900': { selectedSubtitleColor: '#171717' }
+'.selected-subtitle-neutral-950': { selectedSubtitleColor: '#0a0a0a' }
 '.selected-subtitle-stone-50': { selectedSubtitleColor: '#fafaf9' }
 '.selected-subtitle-stone-100': { selectedSubtitleColor: '#f5f5f4' }
 '.selected-subtitle-stone-200': { selectedSubtitleColor: '#e7e5e4' }
@@ -55,6 +59,7 @@
 '.selected-subtitle-stone-700': { selectedSubtitleColor: '#44403c' }
 '.selected-subtitle-stone-800': { selectedSubtitleColor: '#292524' }
 '.selected-subtitle-stone-900': { selectedSubtitleColor: '#1c1917' }
+'.selected-subtitle-stone-950': { selectedSubtitleColor: '#0c0a09' }
 '.selected-subtitle-red-50': { selectedSubtitleColor: '#fef2f2' }
 '.selected-subtitle-red-100': { selectedSubtitleColor: '#fee2e2' }
 '.selected-subtitle-red-200': { selectedSubtitleColor: '#fecaca' }
@@ -65,6 +70,7 @@
 '.selected-subtitle-red-700': { selectedSubtitleColor: '#b91c1c' }
 '.selected-subtitle-red-800': { selectedSubtitleColor: '#991b1b' }
 '.selected-subtitle-red-900': { selectedSubtitleColor: '#7f1d1d' }
+'.selected-subtitle-red-950': { selectedSubtitleColor: '#450a0a' }
 '.selected-subtitle-orange-50': { selectedSubtitleColor: '#fff7ed' }
 '.selected-subtitle-orange-100': { selectedSubtitleColor: '#ffedd5' }
 '.selected-subtitle-orange-200': { selectedSubtitleColor: '#fed7aa' }
@@ -75,6 +81,7 @@
 '.selected-subtitle-orange-700': { selectedSubtitleColor: '#c2410c' }
 '.selected-subtitle-orange-800': { selectedSubtitleColor: '#9a3412' }
 '.selected-subtitle-orange-900': { selectedSubtitleColor: '#7c2d12' }
+'.selected-subtitle-orange-950': { selectedSubtitleColor: '#431407' }
 '.selected-subtitle-amber-50': { selectedSubtitleColor: '#fffbeb' }
 '.selected-subtitle-amber-100': { selectedSubtitleColor: '#fef3c7' }
 '.selected-subtitle-amber-200': { selectedSubtitleColor: '#fde68a' }
@@ -85,6 +92,7 @@
 '.selected-subtitle-amber-700': { selectedSubtitleColor: '#b45309' }
 '.selected-subtitle-amber-800': { selectedSubtitleColor: '#92400e' }
 '.selected-subtitle-amber-900': { selectedSubtitleColor: '#78350f' }
+'.selected-subtitle-amber-950': { selectedSubtitleColor: '#451a03' }
 '.selected-subtitle-yellow-50': { selectedSubtitleColor: '#fefce8' }
 '.selected-subtitle-yellow-100': { selectedSubtitleColor: '#fef9c3' }
 '.selected-subtitle-yellow-200': { selectedSubtitleColor: '#fef08a' }
@@ -95,6 +103,7 @@
 '.selected-subtitle-yellow-700': { selectedSubtitleColor: '#a16207' }
 '.selected-subtitle-yellow-800': { selectedSubtitleColor: '#854d0e' }
 '.selected-subtitle-yellow-900': { selectedSubtitleColor: '#713f12' }
+'.selected-subtitle-yellow-950': { selectedSubtitleColor: '#422006' }
 '.selected-subtitle-lime-50': { selectedSubtitleColor: '#f7fee7' }
 '.selected-subtitle-lime-100': { selectedSubtitleColor: '#ecfccb' }
 '.selected-subtitle-lime-200': { selectedSubtitleColor: '#d9f99d' }
@@ -105,6 +114,7 @@
 '.selected-subtitle-lime-700': { selectedSubtitleColor: '#4d7c0f' }
 '.selected-subtitle-lime-800': { selectedSubtitleColor: '#3f6212' }
 '.selected-subtitle-lime-900': { selectedSubtitleColor: '#365314' }
+'.selected-subtitle-lime-950': { selectedSubtitleColor: '#1a2e05' }
 '.selected-subtitle-green-50': { selectedSubtitleColor: '#f0fdf4' }
 '.selected-subtitle-green-100': { selectedSubtitleColor: '#dcfce7' }
 '.selected-subtitle-green-200': { selectedSubtitleColor: '#bbf7d0' }
@@ -115,6 +125,7 @@
 '.selected-subtitle-green-700': { selectedSubtitleColor: '#15803d' }
 '.selected-subtitle-green-800': { selectedSubtitleColor: '#166534' }
 '.selected-subtitle-green-900': { selectedSubtitleColor: '#14532d' }
+'.selected-subtitle-green-950': { selectedSubtitleColor: '#052e16' }
 '.selected-subtitle-emerald-50': { selectedSubtitleColor: '#ecfdf5' }
 '.selected-subtitle-emerald-100': { selectedSubtitleColor: '#d1fae5' }
 '.selected-subtitle-emerald-200': { selectedSubtitleColor: '#a7f3d0' }
@@ -125,6 +136,7 @@
 '.selected-subtitle-emerald-700': { selectedSubtitleColor: '#047857' }
 '.selected-subtitle-emerald-800': { selectedSubtitleColor: '#065f46' }
 '.selected-subtitle-emerald-900': { selectedSubtitleColor: '#064e3b' }
+'.selected-subtitle-emerald-950': { selectedSubtitleColor: '#022c22' }
 '.selected-subtitle-teal-50': { selectedSubtitleColor: '#f0fdfa' }
 '.selected-subtitle-teal-100': { selectedSubtitleColor: '#ccfbf1' }
 '.selected-subtitle-teal-200': { selectedSubtitleColor: '#99f6e4' }
@@ -135,6 +147,7 @@
 '.selected-subtitle-teal-700': { selectedSubtitleColor: '#0f766e' }
 '.selected-subtitle-teal-800': { selectedSubtitleColor: '#115e59' }
 '.selected-subtitle-teal-900': { selectedSubtitleColor: '#134e4a' }
+'.selected-subtitle-teal-950': { selectedSubtitleColor: '#042f2e' }
 '.selected-subtitle-cyan-50': { selectedSubtitleColor: '#ecfeff' }
 '.selected-subtitle-cyan-100': { selectedSubtitleColor: '#cffafe' }
 '.selected-subtitle-cyan-200': { selectedSubtitleColor: '#a5f3fc' }
@@ -145,6 +158,7 @@
 '.selected-subtitle-cyan-700': { selectedSubtitleColor: '#0e7490' }
 '.selected-subtitle-cyan-800': { selectedSubtitleColor: '#155e75' }
 '.selected-subtitle-cyan-900': { selectedSubtitleColor: '#164e63' }
+'.selected-subtitle-cyan-950': { selectedSubtitleColor: '#083344' }
 '.selected-subtitle-sky-50': { selectedSubtitleColor: '#f0f9ff' }
 '.selected-subtitle-sky-100': { selectedSubtitleColor: '#e0f2fe' }
 '.selected-subtitle-sky-200': { selectedSubtitleColor: '#bae6fd' }
@@ -155,6 +169,7 @@
 '.selected-subtitle-sky-700': { selectedSubtitleColor: '#0369a1' }
 '.selected-subtitle-sky-800': { selectedSubtitleColor: '#075985' }
 '.selected-subtitle-sky-900': { selectedSubtitleColor: '#0c4a6e' }
+'.selected-subtitle-sky-950': { selectedSubtitleColor: '#082f49' }
 '.selected-subtitle-blue-50': { selectedSubtitleColor: '#eff6ff' }
 '.selected-subtitle-blue-100': { selectedSubtitleColor: '#dbeafe' }
 '.selected-subtitle-blue-200': { selectedSubtitleColor: '#bfdbfe' }
@@ -165,6 +180,7 @@
 '.selected-subtitle-blue-700': { selectedSubtitleColor: '#1d4ed8' }
 '.selected-subtitle-blue-800': { selectedSubtitleColor: '#1e40af' }
 '.selected-subtitle-blue-900': { selectedSubtitleColor: '#1e3a8a' }
+'.selected-subtitle-blue-950': { selectedSubtitleColor: '#172554' }
 '.selected-subtitle-indigo-50': { selectedSubtitleColor: '#eef2ff' }
 '.selected-subtitle-indigo-100': { selectedSubtitleColor: '#e0e7ff' }
 '.selected-subtitle-indigo-200': { selectedSubtitleColor: '#c7d2fe' }
@@ -175,6 +191,7 @@
 '.selected-subtitle-indigo-700': { selectedSubtitleColor: '#4338ca' }
 '.selected-subtitle-indigo-800': { selectedSubtitleColor: '#3730a3' }
 '.selected-subtitle-indigo-900': { selectedSubtitleColor: '#312e81' }
+'.selected-subtitle-indigo-950': { selectedSubtitleColor: '#1e1b4b' }
 '.selected-subtitle-violet-50': { selectedSubtitleColor: '#f5f3ff' }
 '.selected-subtitle-violet-100': { selectedSubtitleColor: '#ede9fe' }
 '.selected-subtitle-violet-200': { selectedSubtitleColor: '#ddd6fe' }
@@ -185,6 +202,7 @@
 '.selected-subtitle-violet-700': { selectedSubtitleColor: '#6d28d9' }
 '.selected-subtitle-violet-800': { selectedSubtitleColor: '#5b21b6' }
 '.selected-subtitle-violet-900': { selectedSubtitleColor: '#4c1d95' }
+'.selected-subtitle-violet-950': { selectedSubtitleColor: '#2e1065' }
 '.selected-subtitle-purple-50': { selectedSubtitleColor: '#faf5ff' }
 '.selected-subtitle-purple-100': { selectedSubtitleColor: '#f3e8ff' }
 '.selected-subtitle-purple-200': { selectedSubtitleColor: '#e9d5ff' }
@@ -195,6 +213,7 @@
 '.selected-subtitle-purple-700': { selectedSubtitleColor: '#7e22ce' }
 '.selected-subtitle-purple-800': { selectedSubtitleColor: '#6b21a8' }
 '.selected-subtitle-purple-900': { selectedSubtitleColor: '#581c87' }
+'.selected-subtitle-purple-950': { selectedSubtitleColor: '#3b0764' }
 '.selected-subtitle-fuchsia-50': { selectedSubtitleColor: '#fdf4ff' }
 '.selected-subtitle-fuchsia-100': { selectedSubtitleColor: '#fae8ff' }
 '.selected-subtitle-fuchsia-200': { selectedSubtitleColor: '#f5d0fe' }
@@ -205,6 +224,7 @@
 '.selected-subtitle-fuchsia-700': { selectedSubtitleColor: '#a21caf' }
 '.selected-subtitle-fuchsia-800': { selectedSubtitleColor: '#86198f' }
 '.selected-subtitle-fuchsia-900': { selectedSubtitleColor: '#701a75' }
+'.selected-subtitle-fuchsia-950': { selectedSubtitleColor: '#4a044e' }
 '.selected-subtitle-pink-50': { selectedSubtitleColor: '#fdf2f8' }
 '.selected-subtitle-pink-100': { selectedSubtitleColor: '#fce7f3' }
 '.selected-subtitle-pink-200': { selectedSubtitleColor: '#fbcfe8' }
@@ -215,6 +235,7 @@
 '.selected-subtitle-pink-700': { selectedSubtitleColor: '#be185d' }
 '.selected-subtitle-pink-800': { selectedSubtitleColor: '#9d174d' }
 '.selected-subtitle-pink-900': { selectedSubtitleColor: '#831843' }
+'.selected-subtitle-pink-950': { selectedSubtitleColor: '#500724' }
 '.selected-subtitle-rose-50': { selectedSubtitleColor: '#fff1f2' }
 '.selected-subtitle-rose-100': { selectedSubtitleColor: '#ffe4e6' }
 '.selected-subtitle-rose-200': { selectedSubtitleColor: '#fecdd3' }
@@ -225,4 +246,5 @@
 '.selected-subtitle-rose-700': { selectedSubtitleColor: '#be123c' }
 '.selected-subtitle-rose-800': { selectedSubtitleColor: '#9f1239' }
 '.selected-subtitle-rose-900': { selectedSubtitleColor: '#881337' }
+'.selected-subtitle-rose-950': { selectedSubtitleColor: '#4c0519' }
 ```

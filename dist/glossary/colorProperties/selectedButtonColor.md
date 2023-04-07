@@ -15,6 +15,7 @@
 '.selected-button-slate-700': { selectedButtonColor: '#334155' }
 '.selected-button-slate-800': { selectedButtonColor: '#1e293b' }
 '.selected-button-slate-900': { selectedButtonColor: '#0f172a' }
+'.selected-button-slate-950': { selectedButtonColor: '#020617' }
 '.selected-button-gray-50': { selectedButtonColor: '#f9fafb' }
 '.selected-button-gray-100': { selectedButtonColor: '#f3f4f6' }
 '.selected-button-gray-200': { selectedButtonColor: '#e5e7eb' }
@@ -25,6 +26,7 @@
 '.selected-button-gray-700': { selectedButtonColor: '#374151' }
 '.selected-button-gray-800': { selectedButtonColor: '#1f2937' }
 '.selected-button-gray-900': { selectedButtonColor: '#111827' }
+'.selected-button-gray-950': { selectedButtonColor: '#030712' }
 '.selected-button-zinc-50': { selectedButtonColor: '#fafafa' }
 '.selected-button-zinc-100': { selectedButtonColor: '#f4f4f5' }
 '.selected-button-zinc-200': { selectedButtonColor: '#e4e4e7' }
@@ -35,6 +37,7 @@
 '.selected-button-zinc-700': { selectedButtonColor: '#3f3f46' }
 '.selected-button-zinc-800': { selectedButtonColor: '#27272a' }
 '.selected-button-zinc-900': { selectedButtonColor: '#18181b' }
+'.selected-button-zinc-950': { selectedButtonColor: '#09090b' }
 '.selected-button-neutral-50': { selectedButtonColor: '#fafafa' }
 '.selected-button-neutral-100': { selectedButtonColor: '#f5f5f5' }
 '.selected-button-neutral-200': { selectedButtonColor: '#e5e5e5' }
@@ -45,6 +48,7 @@
 '.selected-button-neutral-700': { selectedButtonColor: '#404040' }
 '.selected-button-neutral-800': { selectedButtonColor: '#262626' }
 '.selected-button-neutral-900': { selectedButtonColor: '#171717' }
+'.selected-button-neutral-950': { selectedButtonColor: '#0a0a0a' }
 '.selected-button-stone-50': { selectedButtonColor: '#fafaf9' }
 '.selected-button-stone-100': { selectedButtonColor: '#f5f5f4' }
 '.selected-button-stone-200': { selectedButtonColor: '#e7e5e4' }
@@ -55,6 +59,7 @@
 '.selected-button-stone-700': { selectedButtonColor: '#44403c' }
 '.selected-button-stone-800': { selectedButtonColor: '#292524' }
 '.selected-button-stone-900': { selectedButtonColor: '#1c1917' }
+'.selected-button-stone-950': { selectedButtonColor: '#0c0a09' }
 '.selected-button-red-50': { selectedButtonColor: '#fef2f2' }
 '.selected-button-red-100': { selectedButtonColor: '#fee2e2' }
 '.selected-button-red-200': { selectedButtonColor: '#fecaca' }
@@ -65,6 +70,7 @@
 '.selected-button-red-700': { selectedButtonColor: '#b91c1c' }
 '.selected-button-red-800': { selectedButtonColor: '#991b1b' }
 '.selected-button-red-900': { selectedButtonColor: '#7f1d1d' }
+'.selected-button-red-950': { selectedButtonColor: '#450a0a' }
 '.selected-button-orange-50': { selectedButtonColor: '#fff7ed' }
 '.selected-button-orange-100': { selectedButtonColor: '#ffedd5' }
 '.selected-button-orange-200': { selectedButtonColor: '#fed7aa' }
@@ -75,6 +81,7 @@
 '.selected-button-orange-700': { selectedButtonColor: '#c2410c' }
 '.selected-button-orange-800': { selectedButtonColor: '#9a3412' }
 '.selected-button-orange-900': { selectedButtonColor: '#7c2d12' }
+'.selected-button-orange-950': { selectedButtonColor: '#431407' }
 '.selected-button-amber-50': { selectedButtonColor: '#fffbeb' }
 '.selected-button-amber-100': { selectedButtonColor: '#fef3c7' }
 '.selected-button-amber-200': { selectedButtonColor: '#fde68a' }
@@ -85,6 +92,7 @@
 '.selected-button-amber-700': { selectedButtonColor: '#b45309' }
 '.selected-button-amber-800': { selectedButtonColor: '#92400e' }
 '.selected-button-amber-900': { selectedButtonColor: '#78350f' }
+'.selected-button-amber-950': { selectedButtonColor: '#451a03' }
 '.selected-button-yellow-50': { selectedButtonColor: '#fefce8' }
 '.selected-button-yellow-100': { selectedButtonColor: '#fef9c3' }
 '.selected-button-yellow-200': { selectedButtonColor: '#fef08a' }
@@ -95,6 +103,7 @@
 '.selected-button-yellow-700': { selectedButtonColor: '#a16207' }
 '.selected-button-yellow-800': { selectedButtonColor: '#854d0e' }
 '.selected-button-yellow-900': { selectedButtonColor: '#713f12' }
+'.selected-button-yellow-950': { selectedButtonColor: '#422006' }
 '.selected-button-lime-50': { selectedButtonColor: '#f7fee7' }
 '.selected-button-lime-100': { selectedButtonColor: '#ecfccb' }
 '.selected-button-lime-200': { selectedButtonColor: '#d9f99d' }
@@ -105,6 +114,7 @@
 '.selected-button-lime-700': { selectedButtonColor: '#4d7c0f' }
 '.selected-button-lime-800': { selectedButtonColor: '#3f6212' }
 '.selected-button-lime-900': { selectedButtonColor: '#365314' }
+'.selected-button-lime-950': { selectedButtonColor: '#1a2e05' }
 '.selected-button-green-50': { selectedButtonColor: '#f0fdf4' }
 '.selected-button-green-100': { selectedButtonColor: '#dcfce7' }
 '.selected-button-green-200': { selectedButtonColor: '#bbf7d0' }
@@ -115,6 +125,7 @@
 '.selected-button-green-700': { selectedButtonColor: '#15803d' }
 '.selected-button-green-800': { selectedButtonColor: '#166534' }
 '.selected-button-green-900': { selectedButtonColor: '#14532d' }
+'.selected-button-green-950': { selectedButtonColor: '#052e16' }
 '.selected-button-emerald-50': { selectedButtonColor: '#ecfdf5' }
 '.selected-button-emerald-100': { selectedButtonColor: '#d1fae5' }
 '.selected-button-emerald-200': { selectedButtonColor: '#a7f3d0' }
@@ -125,6 +136,7 @@
 '.selected-button-emerald-700': { selectedButtonColor: '#047857' }
 '.selected-button-emerald-800': { selectedButtonColor: '#065f46' }
 '.selected-button-emerald-900': { selectedButtonColor: '#064e3b' }
+'.selected-button-emerald-950': { selectedButtonColor: '#022c22' }
 '.selected-button-teal-50': { selectedButtonColor: '#f0fdfa' }
 '.selected-button-teal-100': { selectedButtonColor: '#ccfbf1' }
 '.selected-button-teal-200': { selectedButtonColor: '#99f6e4' }
@@ -135,6 +147,7 @@
 '.selected-button-teal-700': { selectedButtonColor: '#0f766e' }
 '.selected-button-teal-800': { selectedButtonColor: '#115e59' }
 '.selected-button-teal-900': { selectedButtonColor: '#134e4a' }
+'.selected-button-teal-950': { selectedButtonColor: '#042f2e' }
 '.selected-button-cyan-50': { selectedButtonColor: '#ecfeff' }
 '.selected-button-cyan-100': { selectedButtonColor: '#cffafe' }
 '.selected-button-cyan-200': { selectedButtonColor: '#a5f3fc' }
@@ -145,6 +158,7 @@
 '.selected-button-cyan-700': { selectedButtonColor: '#0e7490' }
 '.selected-button-cyan-800': { selectedButtonColor: '#155e75' }
 '.selected-button-cyan-900': { selectedButtonColor: '#164e63' }
+'.selected-button-cyan-950': { selectedButtonColor: '#083344' }
 '.selected-button-sky-50': { selectedButtonColor: '#f0f9ff' }
 '.selected-button-sky-100': { selectedButtonColor: '#e0f2fe' }
 '.selected-button-sky-200': { selectedButtonColor: '#bae6fd' }
@@ -155,6 +169,7 @@
 '.selected-button-sky-700': { selectedButtonColor: '#0369a1' }
 '.selected-button-sky-800': { selectedButtonColor: '#075985' }
 '.selected-button-sky-900': { selectedButtonColor: '#0c4a6e' }
+'.selected-button-sky-950': { selectedButtonColor: '#082f49' }
 '.selected-button-blue-50': { selectedButtonColor: '#eff6ff' }
 '.selected-button-blue-100': { selectedButtonColor: '#dbeafe' }
 '.selected-button-blue-200': { selectedButtonColor: '#bfdbfe' }
@@ -165,6 +180,7 @@
 '.selected-button-blue-700': { selectedButtonColor: '#1d4ed8' }
 '.selected-button-blue-800': { selectedButtonColor: '#1e40af' }
 '.selected-button-blue-900': { selectedButtonColor: '#1e3a8a' }
+'.selected-button-blue-950': { selectedButtonColor: '#172554' }
 '.selected-button-indigo-50': { selectedButtonColor: '#eef2ff' }
 '.selected-button-indigo-100': { selectedButtonColor: '#e0e7ff' }
 '.selected-button-indigo-200': { selectedButtonColor: '#c7d2fe' }
@@ -175,6 +191,7 @@
 '.selected-button-indigo-700': { selectedButtonColor: '#4338ca' }
 '.selected-button-indigo-800': { selectedButtonColor: '#3730a3' }
 '.selected-button-indigo-900': { selectedButtonColor: '#312e81' }
+'.selected-button-indigo-950': { selectedButtonColor: '#1e1b4b' }
 '.selected-button-violet-50': { selectedButtonColor: '#f5f3ff' }
 '.selected-button-violet-100': { selectedButtonColor: '#ede9fe' }
 '.selected-button-violet-200': { selectedButtonColor: '#ddd6fe' }
@@ -185,6 +202,7 @@
 '.selected-button-violet-700': { selectedButtonColor: '#6d28d9' }
 '.selected-button-violet-800': { selectedButtonColor: '#5b21b6' }
 '.selected-button-violet-900': { selectedButtonColor: '#4c1d95' }
+'.selected-button-violet-950': { selectedButtonColor: '#2e1065' }
 '.selected-button-purple-50': { selectedButtonColor: '#faf5ff' }
 '.selected-button-purple-100': { selectedButtonColor: '#f3e8ff' }
 '.selected-button-purple-200': { selectedButtonColor: '#e9d5ff' }
@@ -195,6 +213,7 @@
 '.selected-button-purple-700': { selectedButtonColor: '#7e22ce' }
 '.selected-button-purple-800': { selectedButtonColor: '#6b21a8' }
 '.selected-button-purple-900': { selectedButtonColor: '#581c87' }
+'.selected-button-purple-950': { selectedButtonColor: '#3b0764' }
 '.selected-button-fuchsia-50': { selectedButtonColor: '#fdf4ff' }
 '.selected-button-fuchsia-100': { selectedButtonColor: '#fae8ff' }
 '.selected-button-fuchsia-200': { selectedButtonColor: '#f5d0fe' }
@@ -205,6 +224,7 @@
 '.selected-button-fuchsia-700': { selectedButtonColor: '#a21caf' }
 '.selected-button-fuchsia-800': { selectedButtonColor: '#86198f' }
 '.selected-button-fuchsia-900': { selectedButtonColor: '#701a75' }
+'.selected-button-fuchsia-950': { selectedButtonColor: '#4a044e' }
 '.selected-button-pink-50': { selectedButtonColor: '#fdf2f8' }
 '.selected-button-pink-100': { selectedButtonColor: '#fce7f3' }
 '.selected-button-pink-200': { selectedButtonColor: '#fbcfe8' }
@@ -215,6 +235,7 @@
 '.selected-button-pink-700': { selectedButtonColor: '#be185d' }
 '.selected-button-pink-800': { selectedButtonColor: '#9d174d' }
 '.selected-button-pink-900': { selectedButtonColor: '#831843' }
+'.selected-button-pink-950': { selectedButtonColor: '#500724' }
 '.selected-button-rose-50': { selectedButtonColor: '#fff1f2' }
 '.selected-button-rose-100': { selectedButtonColor: '#ffe4e6' }
 '.selected-button-rose-200': { selectedButtonColor: '#fecdd3' }
@@ -225,4 +246,5 @@
 '.selected-button-rose-700': { selectedButtonColor: '#be123c' }
 '.selected-button-rose-800': { selectedButtonColor: '#9f1239' }
 '.selected-button-rose-900': { selectedButtonColor: '#881337' }
+'.selected-button-rose-950': { selectedButtonColor: '#4c0519' }
 ```
