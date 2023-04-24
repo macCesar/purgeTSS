@@ -6,6 +6,7 @@ function Animation(args) {
 		playing: false,
 		delay: args.delay ?? 0,
 		debug: args.debug ?? false,
+		moveByProperties: args.moveByProperties ?? false,
 		hasTransformation: (args.scale !== undefined || args.rotate !== undefined),
 	};
 
@@ -126,13 +127,13 @@ function Animation(args) {
 						if (_view.bounds.bottom !== undefined && top > _view.parent.rect.height - _view.rect.height - _view.bounds.bottom) top = _view.parent.rect.height - _view.rect.height - _view.bounds.bottom;
 					}
 
-					let moveValues = { top: top, left: left, duration: 0 }
+					let moveValues = { top, left, duration: 0 }
 
 					if (_view.constraint === 'vertical') delete moveValues.left;
 					else if (_view.constraint === 'horizontal') delete moveValues.top;
 
-					_view.animate(moveValues);
-					// _view.applyProperties({ top: top, left: left })
+					if (param.moveByProperties) _view.applyProperties(moveValues)
+					else _view.animate(moveValues)
 				}
 			});
 		} else {
