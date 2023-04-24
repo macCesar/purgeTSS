@@ -1311,7 +1311,7 @@ function combineAllValues(base, defaultTheme) {
 	//! Custom Window, View and ImageView
 	allValues.Window = (configFile.theme.Window && configFile.theme.Window.apply)
 		? _.merge({ apply: configFile.theme.Window.apply }, configFile.theme.Window)
-		: _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
+		: _.merge({ default: { backgroundColor: '#FFFFFF' } }, configFile.theme.Window);
 
 	allValues.ImageView = (configFile.theme.ImageView && configFile.theme.ImageView.apply)
 		? _.merge({ apply: configFile.theme.ImageView.apply }, { ios: { hires: true } }, configFile.theme.ImageView)
