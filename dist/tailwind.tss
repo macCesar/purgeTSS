@@ -17,7 +17,7 @@
 
 // Property: Window
 // Description: The Window is an empty drawing surface or container.
-'Window': { backgroundColor: '#ffffff' }
+'Window': { backgroundColor: '#FFFFFF' }
 
 // Utilities for controlling an element's margin.
 '.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
@@ -1326,11 +1326,15 @@
 '.r-drawable-toast-frame[platform=android]': { icon: Ti.Android.R.drawable.toast_frame }
 '.r-drawable-zoom-plate[platform=android]': { icon: Ti.Android.R.drawable.zoom_plate }
 
-// A set of constants for the style that can be used for the `style` property of Titanium.UI.AlertDialog.
+// This is a set of constants that can be used as styles for the style property of the Titanium.UI.AlertDialog.
 '.alert-dialog-style[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.DEFAULT }
 '.alert-dialog-style-login-and-password[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.LOGIN_AND_PASSWORD_INPUT }
 '.alert-dialog-style-plain-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT }
 '.alert-dialog-style-secure-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.SECURE_TEXT_INPUT }
+
+// To use the `applyProperties` method instead of the `animate` method when dragging objects using the PurgeTSS Animation Module.
+'.move-by-properties': { moveByProperties: true }
+'.move-by-properties-false': { moveByProperties: false }
 
 // Property(ies): anchorPoint
 // Component(s): Ti.UI.Animation, Ti.UI.View

@@ -315,7 +315,7 @@ function combineDefaultThemeWithConfigFile() {
 		width: {},
 		height: {},
 		widthHeight: {},
-		boolean: { true: true, false: false },
+		boolean: { default: true, false: false },
 		shiftMode: { none: 0, title: 1, icon: 2, },
 		rotate: combineKeys(configFile.theme, { ...defaultTheme.rotate, ...{ '135': '135deg', '225': '225deg', '270': '270deg', '315': '315deg', '360': '360deg' } }, 'rotate'),
 		zIndex: defaultTheme.zIndex,
@@ -327,6 +327,7 @@ function combineDefaultThemeWithConfigFile() {
 		verticalMargin: { top: '-0.5', bottom: '0.5', middle: '0' },
 		horizontalMargin: { left: '-0.5', right: '0.5', center: '0' },
 		scale: { ...{ 1: '0.01', 5: '0.05', 10: '0.10', 25: '0.25', 200: 2 }, ...defaultTheme.scale },
+		moveByProperties: { default: true, false: false },
 		repeat: { 0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12 },
 		count: { 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12 },
 		delay: { ...{ 0: '0ms', 25: '25ms', 50: '50ms', 250: '250ms', 350: '350ms', 400: '400ms', 450: '450ms', 600: '600ms', 800: '800ms', 900: '900ms', 2000: '2000ms', 3000: '3000ms', 4000: '4000ms', 5000: '5000ms' }, ...defaultTheme.transitionDelay }
@@ -370,7 +371,7 @@ function combineDefaultThemeWithConfigFile() {
 	//! Process custom Window, View and ImageView
 	base.Window = (configFile.theme.Window && configFile.theme.Window.apply)
 		? _.merge({ apply: configFile.theme.Window.apply }, configFile.theme.Window)
-		: _.merge({ default: { backgroundColor: '#ffffff' } }, configFile.theme.Window);
+		: _.merge({ default: { backgroundColor: '#FFFFFF' } }, configFile.theme.Window);
 
 	base.ImageView = (configFile.theme.ImageView && configFile.theme.ImageView.apply)
 		? _.merge({ apply: configFile.theme.ImageView.apply }, { ios: { hires: true } }, configFile.theme.ImageView)

@@ -202,7 +202,7 @@
 		}
 	},
 	"style": {
-		"description": "A set of constants for the style that can be used for the `style` property of Titanium.UI.AlertDialog.",
+		"description": "This is a set of constants that can be used as styles for the style property of the Titanium.UI.AlertDialog.",
 		"template": {
 			"alert": "{ style: {value} }"
 		},
@@ -215,6 +215,13 @@
 					"secure-text-input": "Ti.UI.iOS.AlertDialogStyle.SECURE_TEXT_INPUT"
 				}
 			}
+		}
+	},
+	"moveByProperties": {
+		"prop": "moveByProperties",
+		"description": "To use the `applyProperties` method instead of the `animate` method when dragging objects using the PurgeTSS Animation Module.",
+		"template": {
+			"move-by-properties": "{ moveByProperties: {value} }"
 		}
 	}
 }
