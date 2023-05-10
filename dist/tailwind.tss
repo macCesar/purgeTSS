@@ -4889,7 +4889,7 @@
 
 // Property: bubbleParent
 // Description: Indicates if the proxy will bubble an event to its parent.
-// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewScrollPosition, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
+// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewScrollPosition, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
 '.bubble-parent': { bubbleParent: true }
 '.bubble-parent-false': { bubbleParent: false }
 
@@ -4900,7 +4900,7 @@
 '.accessibility-hidden-false': { accessibilityHidden: false }
 
 // Property: backgroundColor
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
 '.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000000' }
 '.bg-white': { backgroundColor: '#ffffff' }
@@ -6290,7 +6290,7 @@
 '.border': { borderWidth: 1 }
 
 // Property: bottom
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.bottom-0': { bottom: 0 }
 '.bottom-1': { bottom: 4 }
 '.bottom-2': { bottom: 8 }
@@ -6356,7 +6356,7 @@
 '.bottom-full': { bottom: '100%' }
 
 // Property: elevation
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.elevation-0': { elevation: 0 }
 '.elevation-1': { elevation: 4 }
 '.elevation-2': { elevation: 8 }
@@ -6395,7 +6395,7 @@
 
 // Property: filterTouchesWhenObscured
 // Description: Discards touch related events if another app's system overlay covers the view.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.filter-touches-when-obscured': { filterTouchesWhenObscured: true }
 '.filter-touches-when-obscured-false': { filterTouchesWhenObscured: false }
 
@@ -6406,7 +6406,7 @@
 '.focusable-false': { focusable: false }
 
 // Property: height
-// Component(s): Ti.UI.View, Ti.Blob, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
+// Component(s): Ti.UI.View, Ti.Blob, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
 '.h-0': { height: 0 }
 '.h-1': { height: 4 }
 '.h-2': { height: 8 }
@@ -6474,12 +6474,12 @@
 
 // Property: hiddenBehavior
 // Description: Sets the behavior when hiding an object to release or keep the free space
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.hidden-behavior-invisible': { hiddenBehavior: Ti.UI.HIDDEN_BEHAVIOR_INVISIBLE }
 '.hidden-behavior-gone': { hiddenBehavior: Ti.UI.HIDDEN_BEHAVIOR_GONE }
 
 // Property: left
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, HorizontalInsets, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, TabIconInsets, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, HorizontalInsets, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, TabIconInsets, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.left-0': { left: 0 }
 '.left-1': { left: 4 }
 '.left-2': { left: 8 }
@@ -6824,7 +6824,7 @@
 '.pull-bg-rose-950': { pullBackgroundColor: '#4c0519' }
 
 // Property: right
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, HorizontalInsets, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, HorizontalInsets, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.right-0': { right: 0 }
 '.right-1': { right: 4 }
 '.right-2': { right: 8 }
@@ -6891,7 +6891,7 @@
 
 // Property: scaleX
 // Description: Scaling of the view in x-axis in pixels.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.scale-x-0': { scaleX: 0 }
 '.scale-x-1': { scaleX: 0.01 }
 '.scale-x-5': { scaleX: 0.05 }
@@ -6910,7 +6910,7 @@
 
 // Property: scaleY
 // Description: Scaling of the view in y-axis in pixels.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.scale-y-0': { scaleY: 0 }
 '.scale-y-1': { scaleY: 0.01 }
 '.scale-y-5': { scaleY: 0.05 }
@@ -7183,7 +7183,7 @@
 '.tint-rose-950': { tintColor: '#4c0519' }
 
 // Property: top
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, TabIconInsets, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, TabIconInsets, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.top-0': { top: 0 }
 '.top-1': { top: 4 }
 '.top-2': { top: 8 }
@@ -7262,7 +7262,7 @@
 
 // Property: touchFeedbackColor
 // Description: Optional touch feedback ripple color. This has no effect unless touchFeedback is true.
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.touch-feedback-transparent': { touchFeedbackColor: 'transparent' }
 '.touch-feedback-black': { touchFeedbackColor: '#000000' }
 '.touch-feedback-white': { touchFeedbackColor: '#ffffff' }
@@ -7759,12 +7759,12 @@
 '.view-shadow-rose-950': { viewShadowColor: '#4c0519' }
 
 // Property: visible
-// Component(s): Ti.UI.View, Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Component(s): Ti.UI.View, Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.visible': { visible: true }
 '.visible-false': { visible: false }
 
 // Property: width
-// Component(s): Ti.UI.View, Ti.Blob, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, BarItemType, Ti.UI.iPad.Popover
+// Component(s): Ti.UI.View, Ti.Blob, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, BarItemType, Ti.UI.iPad.Popover
 '.w-0': { width: 0 }
 '.w-1': { width: 4 }
 '.w-2': { width: 8 }
@@ -8320,7 +8320,7 @@
 
 // Property: displayHomeAsUp
 // Description: Displays an &quot;up&quot; affordance on the &quot;home&quot; area of the action bar.
-// Component(s): Ti.Android.ActionBar
+// Component(s): Ti.Android.ActionBar, Ti.UI.Android.CollapseToolbar
 '.display-home-as-up': { displayHomeAsUp: true }
 '.display-home-as-up-false': { displayHomeAsUp: false }
 
@@ -8385,7 +8385,7 @@
 '.success-false': { success: false }
 
 // Property: flags
-// Component(s): Ti.Android.Intent, Ti.Android.Notification, wakeLockOptions, Ti.Android.PendingIntent
+// Component(s): Ti.Android.Intent, Ti.Android.Notification, wakeLockOptions, Ti.Android.PendingIntent, Ti.UI.Android.CollapseToolbar
 '.flags-activity-brought-to-front[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
 '.flags-activity-clear-top[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
 '.flags-activity-clear-when-task-reset[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET }
@@ -8424,6 +8424,13 @@
 '.flags-wake-lock-screen-bright[platform=android]': { flags: Ti.Android.WAKE_LOCK_SCREEN_BRIGHT }
 '.flags-wake-lock-acquire-causes-wakeup[platform=android]': { flags: Ti.Android.WAKE_LOCK_ACQUIRE_CAUSES_WAKEUP }
 '.flags-wake-lock-on-after-release[platform=android]': { flags: Ti.Android.WAKE_LOCK_ON_AFTER_RELEASE }
+'.flags-scroll-enter-always[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_ENTER_ALWAYS }
+'.flags-scroll-enter-always-collapsed[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED }
+'.flags-scroll-exit-until-collapsed[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED }
+'.flags-scroll-no[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_NO_SCROLL }
+'.flags-scroll-flag[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_SCROLL }
+'.flags-scroll-snap[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_SNAP }
+'.flags-scroll-snap-margins[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_SNAP_MARGINS }
 
 // Property: actionViewExpanded
 // Description: True if this menu item's action view has been expanded.
@@ -8444,7 +8451,7 @@
 '.checked-false': { checked: false }
 
 // Property: enabled
-// Component(s): Ti.Android.MenuItem, Ti.UI.Button, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.iOS.Stepper, BarItemType
+// Component(s): Ti.Android.MenuItem, Ti.UI.Button, Ti.UI.Slider, Ti.UI.Switch, disableTabOptions, Ti.UI.iOS.Stepper, BarItemType
 '.enabled': { enabled: true }
 '.enabled-false': { enabled: false }
 
@@ -8516,7 +8523,7 @@
 '.group-summary-false': { groupSummary: false }
 
 // Property: color
-// Component(s): Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, RowActionType, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, GradientColorRef, titleAttributesParams, shadowDict
+// Component(s): Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, RowActionType, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, GradientColorRef, titleAttributesParams, shadowDict
 '.transparent': { color: 'transparent' }
 '.black': { color: '#000000' }
 '.white': { color: '#ffffff' }
@@ -9102,7 +9109,7 @@
 '.options-category-hidden-previews-show-subtitle[platform=ios]': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_SUBTITLE }
 
 // Property: animated
-// Component(s): showParams, showContactsParams, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, AnimatedOptions, AnimatedWithDurationOptions, ListViewAnimationProperties, hideParams, Ti.UI.ProgressBar, Ti.UI.Switch, TableViewAnimationProperties, openWindowParams, windowToolbarParam, closeWindowParams, DocumentViewerOptions, MenuPopupShowParams, ShowPopoverParams
+// Component(s): showParams, showContactsParams, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, AnimatedOptions, AnimatedWithDurationOptions, ListViewAnimationProperties, hideParams, Ti.UI.ProgressBar, Ti.UI.Switch, disableTabOptions, TableViewAnimationProperties, openWindowParams, windowToolbarParam, closeWindowParams, DocumentViewerOptions, MenuPopupShowParams, ShowPopoverParams
 '.animated': { animated: true }
 '.animated-false': { animated: false }
 
@@ -10163,6 +10170,12 @@
 '.autoplay': { autoplay: true }
 '.autoplay-false': { autoplay: false }
 
+// Property: autoHide
+// Description: Indicates if player is hidden by default and shown when its ready.
+// Component(s): Ti.Media.VideoPlayer
+'.auto-hide': { autoHide: true }
+'.auto-hide-false': { autoHide: false }
+
 // Property: fullscreen
 // Component(s): Ti.Media.VideoPlayer, Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Window, openWindowParams, Ti.UI.iOS.SplitWindow
 '.fullscreen': { fullscreen: true }
@@ -10999,6 +11012,819 @@
 '.padding-top-1.5': { paddingTop: 6 }
 '.padding-top-2.5': { paddingTop: 10 }
 '.padding-top-3.5': { paddingTop: 14 }
+
+// Property: barColor
+// Component(s): Ti.UI.Android.CollapseToolbar, Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.SplitWindow
+'.bar-transparent': { barColor: 'transparent' }
+'.bar-black': { barColor: '#000000' }
+'.bar-white': { barColor: '#ffffff' }
+'.bar-slate-50': { barColor: '#f8fafc' }
+'.bar-slate-100': { barColor: '#f1f5f9' }
+'.bar-slate-200': { barColor: '#e2e8f0' }
+'.bar-slate-300': { barColor: '#cbd5e1' }
+'.bar-slate-400': { barColor: '#94a3b8' }
+'.bar-slate-500': { barColor: '#64748b' }
+'.bar-slate-600': { barColor: '#475569' }
+'.bar-slate-700': { barColor: '#334155' }
+'.bar-slate-800': { barColor: '#1e293b' }
+'.bar-slate-900': { barColor: '#0f172a' }
+'.bar-slate-950': { barColor: '#020617' }
+'.bar-gray-50': { barColor: '#f9fafb' }
+'.bar-gray-100': { barColor: '#f3f4f6' }
+'.bar-gray-200': { barColor: '#e5e7eb' }
+'.bar-gray-300': { barColor: '#d1d5db' }
+'.bar-gray-400': { barColor: '#9ca3af' }
+'.bar-gray-500': { barColor: '#6b7280' }
+'.bar-gray-600': { barColor: '#4b5563' }
+'.bar-gray-700': { barColor: '#374151' }
+'.bar-gray-800': { barColor: '#1f2937' }
+'.bar-gray-900': { barColor: '#111827' }
+'.bar-gray-950': { barColor: '#030712' }
+'.bar-zinc-50': { barColor: '#fafafa' }
+'.bar-zinc-100': { barColor: '#f4f4f5' }
+'.bar-zinc-200': { barColor: '#e4e4e7' }
+'.bar-zinc-300': { barColor: '#d4d4d8' }
+'.bar-zinc-400': { barColor: '#a1a1aa' }
+'.bar-zinc-500': { barColor: '#71717a' }
+'.bar-zinc-600': { barColor: '#52525b' }
+'.bar-zinc-700': { barColor: '#3f3f46' }
+'.bar-zinc-800': { barColor: '#27272a' }
+'.bar-zinc-900': { barColor: '#18181b' }
+'.bar-zinc-950': { barColor: '#09090b' }
+'.bar-neutral-50': { barColor: '#fafafa' }
+'.bar-neutral-100': { barColor: '#f5f5f5' }
+'.bar-neutral-200': { barColor: '#e5e5e5' }
+'.bar-neutral-300': { barColor: '#d4d4d4' }
+'.bar-neutral-400': { barColor: '#a3a3a3' }
+'.bar-neutral-500': { barColor: '#737373' }
+'.bar-neutral-600': { barColor: '#525252' }
+'.bar-neutral-700': { barColor: '#404040' }
+'.bar-neutral-800': { barColor: '#262626' }
+'.bar-neutral-900': { barColor: '#171717' }
+'.bar-neutral-950': { barColor: '#0a0a0a' }
+'.bar-stone-50': { barColor: '#fafaf9' }
+'.bar-stone-100': { barColor: '#f5f5f4' }
+'.bar-stone-200': { barColor: '#e7e5e4' }
+'.bar-stone-300': { barColor: '#d6d3d1' }
+'.bar-stone-400': { barColor: '#a8a29e' }
+'.bar-stone-500': { barColor: '#78716c' }
+'.bar-stone-600': { barColor: '#57534e' }
+'.bar-stone-700': { barColor: '#44403c' }
+'.bar-stone-800': { barColor: '#292524' }
+'.bar-stone-900': { barColor: '#1c1917' }
+'.bar-stone-950': { barColor: '#0c0a09' }
+'.bar-red-50': { barColor: '#fef2f2' }
+'.bar-red-100': { barColor: '#fee2e2' }
+'.bar-red-200': { barColor: '#fecaca' }
+'.bar-red-300': { barColor: '#fca5a5' }
+'.bar-red-400': { barColor: '#f87171' }
+'.bar-red-500': { barColor: '#ef4444' }
+'.bar-red-600': { barColor: '#dc2626' }
+'.bar-red-700': { barColor: '#b91c1c' }
+'.bar-red-800': { barColor: '#991b1b' }
+'.bar-red-900': { barColor: '#7f1d1d' }
+'.bar-red-950': { barColor: '#450a0a' }
+'.bar-orange-50': { barColor: '#fff7ed' }
+'.bar-orange-100': { barColor: '#ffedd5' }
+'.bar-orange-200': { barColor: '#fed7aa' }
+'.bar-orange-300': { barColor: '#fdba74' }
+'.bar-orange-400': { barColor: '#fb923c' }
+'.bar-orange-500': { barColor: '#f97316' }
+'.bar-orange-600': { barColor: '#ea580c' }
+'.bar-orange-700': { barColor: '#c2410c' }
+'.bar-orange-800': { barColor: '#9a3412' }
+'.bar-orange-900': { barColor: '#7c2d12' }
+'.bar-orange-950': { barColor: '#431407' }
+'.bar-amber-50': { barColor: '#fffbeb' }
+'.bar-amber-100': { barColor: '#fef3c7' }
+'.bar-amber-200': { barColor: '#fde68a' }
+'.bar-amber-300': { barColor: '#fcd34d' }
+'.bar-amber-400': { barColor: '#fbbf24' }
+'.bar-amber-500': { barColor: '#f59e0b' }
+'.bar-amber-600': { barColor: '#d97706' }
+'.bar-amber-700': { barColor: '#b45309' }
+'.bar-amber-800': { barColor: '#92400e' }
+'.bar-amber-900': { barColor: '#78350f' }
+'.bar-amber-950': { barColor: '#451a03' }
+'.bar-yellow-50': { barColor: '#fefce8' }
+'.bar-yellow-100': { barColor: '#fef9c3' }
+'.bar-yellow-200': { barColor: '#fef08a' }
+'.bar-yellow-300': { barColor: '#fde047' }
+'.bar-yellow-400': { barColor: '#facc15' }
+'.bar-yellow-500': { barColor: '#eab308' }
+'.bar-yellow-600': { barColor: '#ca8a04' }
+'.bar-yellow-700': { barColor: '#a16207' }
+'.bar-yellow-800': { barColor: '#854d0e' }
+'.bar-yellow-900': { barColor: '#713f12' }
+'.bar-yellow-950': { barColor: '#422006' }
+'.bar-lime-50': { barColor: '#f7fee7' }
+'.bar-lime-100': { barColor: '#ecfccb' }
+'.bar-lime-200': { barColor: '#d9f99d' }
+'.bar-lime-300': { barColor: '#bef264' }
+'.bar-lime-400': { barColor: '#a3e635' }
+'.bar-lime-500': { barColor: '#84cc16' }
+'.bar-lime-600': { barColor: '#65a30d' }
+'.bar-lime-700': { barColor: '#4d7c0f' }
+'.bar-lime-800': { barColor: '#3f6212' }
+'.bar-lime-900': { barColor: '#365314' }
+'.bar-lime-950': { barColor: '#1a2e05' }
+'.bar-green-50': { barColor: '#f0fdf4' }
+'.bar-green-100': { barColor: '#dcfce7' }
+'.bar-green-200': { barColor: '#bbf7d0' }
+'.bar-green-300': { barColor: '#86efac' }
+'.bar-green-400': { barColor: '#4ade80' }
+'.bar-green-500': { barColor: '#22c55e' }
+'.bar-green-600': { barColor: '#16a34a' }
+'.bar-green-700': { barColor: '#15803d' }
+'.bar-green-800': { barColor: '#166534' }
+'.bar-green-900': { barColor: '#14532d' }
+'.bar-green-950': { barColor: '#052e16' }
+'.bar-emerald-50': { barColor: '#ecfdf5' }
+'.bar-emerald-100': { barColor: '#d1fae5' }
+'.bar-emerald-200': { barColor: '#a7f3d0' }
+'.bar-emerald-300': { barColor: '#6ee7b7' }
+'.bar-emerald-400': { barColor: '#34d399' }
+'.bar-emerald-500': { barColor: '#10b981' }
+'.bar-emerald-600': { barColor: '#059669' }
+'.bar-emerald-700': { barColor: '#047857' }
+'.bar-emerald-800': { barColor: '#065f46' }
+'.bar-emerald-900': { barColor: '#064e3b' }
+'.bar-emerald-950': { barColor: '#022c22' }
+'.bar-teal-50': { barColor: '#f0fdfa' }
+'.bar-teal-100': { barColor: '#ccfbf1' }
+'.bar-teal-200': { barColor: '#99f6e4' }
+'.bar-teal-300': { barColor: '#5eead4' }
+'.bar-teal-400': { barColor: '#2dd4bf' }
+'.bar-teal-500': { barColor: '#14b8a6' }
+'.bar-teal-600': { barColor: '#0d9488' }
+'.bar-teal-700': { barColor: '#0f766e' }
+'.bar-teal-800': { barColor: '#115e59' }
+'.bar-teal-900': { barColor: '#134e4a' }
+'.bar-teal-950': { barColor: '#042f2e' }
+'.bar-cyan-50': { barColor: '#ecfeff' }
+'.bar-cyan-100': { barColor: '#cffafe' }
+'.bar-cyan-200': { barColor: '#a5f3fc' }
+'.bar-cyan-300': { barColor: '#67e8f9' }
+'.bar-cyan-400': { barColor: '#22d3ee' }
+'.bar-cyan-500': { barColor: '#06b6d4' }
+'.bar-cyan-600': { barColor: '#0891b2' }
+'.bar-cyan-700': { barColor: '#0e7490' }
+'.bar-cyan-800': { barColor: '#155e75' }
+'.bar-cyan-900': { barColor: '#164e63' }
+'.bar-cyan-950': { barColor: '#083344' }
+'.bar-sky-50': { barColor: '#f0f9ff' }
+'.bar-sky-100': { barColor: '#e0f2fe' }
+'.bar-sky-200': { barColor: '#bae6fd' }
+'.bar-sky-300': { barColor: '#7dd3fc' }
+'.bar-sky-400': { barColor: '#38bdf8' }
+'.bar-sky-500': { barColor: '#0ea5e9' }
+'.bar-sky-600': { barColor: '#0284c7' }
+'.bar-sky-700': { barColor: '#0369a1' }
+'.bar-sky-800': { barColor: '#075985' }
+'.bar-sky-900': { barColor: '#0c4a6e' }
+'.bar-sky-950': { barColor: '#082f49' }
+'.bar-blue-50': { barColor: '#eff6ff' }
+'.bar-blue-100': { barColor: '#dbeafe' }
+'.bar-blue-200': { barColor: '#bfdbfe' }
+'.bar-blue-300': { barColor: '#93c5fd' }
+'.bar-blue-400': { barColor: '#60a5fa' }
+'.bar-blue-500': { barColor: '#3b82f6' }
+'.bar-blue-600': { barColor: '#2563eb' }
+'.bar-blue-700': { barColor: '#1d4ed8' }
+'.bar-blue-800': { barColor: '#1e40af' }
+'.bar-blue-900': { barColor: '#1e3a8a' }
+'.bar-blue-950': { barColor: '#172554' }
+'.bar-indigo-50': { barColor: '#eef2ff' }
+'.bar-indigo-100': { barColor: '#e0e7ff' }
+'.bar-indigo-200': { barColor: '#c7d2fe' }
+'.bar-indigo-300': { barColor: '#a5b4fc' }
+'.bar-indigo-400': { barColor: '#818cf8' }
+'.bar-indigo-500': { barColor: '#6366f1' }
+'.bar-indigo-600': { barColor: '#4f46e5' }
+'.bar-indigo-700': { barColor: '#4338ca' }
+'.bar-indigo-800': { barColor: '#3730a3' }
+'.bar-indigo-900': { barColor: '#312e81' }
+'.bar-indigo-950': { barColor: '#1e1b4b' }
+'.bar-violet-50': { barColor: '#f5f3ff' }
+'.bar-violet-100': { barColor: '#ede9fe' }
+'.bar-violet-200': { barColor: '#ddd6fe' }
+'.bar-violet-300': { barColor: '#c4b5fd' }
+'.bar-violet-400': { barColor: '#a78bfa' }
+'.bar-violet-500': { barColor: '#8b5cf6' }
+'.bar-violet-600': { barColor: '#7c3aed' }
+'.bar-violet-700': { barColor: '#6d28d9' }
+'.bar-violet-800': { barColor: '#5b21b6' }
+'.bar-violet-900': { barColor: '#4c1d95' }
+'.bar-violet-950': { barColor: '#2e1065' }
+'.bar-purple-50': { barColor: '#faf5ff' }
+'.bar-purple-100': { barColor: '#f3e8ff' }
+'.bar-purple-200': { barColor: '#e9d5ff' }
+'.bar-purple-300': { barColor: '#d8b4fe' }
+'.bar-purple-400': { barColor: '#c084fc' }
+'.bar-purple-500': { barColor: '#a855f7' }
+'.bar-purple-600': { barColor: '#9333ea' }
+'.bar-purple-700': { barColor: '#7e22ce' }
+'.bar-purple-800': { barColor: '#6b21a8' }
+'.bar-purple-900': { barColor: '#581c87' }
+'.bar-purple-950': { barColor: '#3b0764' }
+'.bar-fuchsia-50': { barColor: '#fdf4ff' }
+'.bar-fuchsia-100': { barColor: '#fae8ff' }
+'.bar-fuchsia-200': { barColor: '#f5d0fe' }
+'.bar-fuchsia-300': { barColor: '#f0abfc' }
+'.bar-fuchsia-400': { barColor: '#e879f9' }
+'.bar-fuchsia-500': { barColor: '#d946ef' }
+'.bar-fuchsia-600': { barColor: '#c026d3' }
+'.bar-fuchsia-700': { barColor: '#a21caf' }
+'.bar-fuchsia-800': { barColor: '#86198f' }
+'.bar-fuchsia-900': { barColor: '#701a75' }
+'.bar-fuchsia-950': { barColor: '#4a044e' }
+'.bar-pink-50': { barColor: '#fdf2f8' }
+'.bar-pink-100': { barColor: '#fce7f3' }
+'.bar-pink-200': { barColor: '#fbcfe8' }
+'.bar-pink-300': { barColor: '#f9a8d4' }
+'.bar-pink-400': { barColor: '#f472b6' }
+'.bar-pink-500': { barColor: '#ec4899' }
+'.bar-pink-600': { barColor: '#db2777' }
+'.bar-pink-700': { barColor: '#be185d' }
+'.bar-pink-800': { barColor: '#9d174d' }
+'.bar-pink-900': { barColor: '#831843' }
+'.bar-pink-950': { barColor: '#500724' }
+'.bar-rose-50': { barColor: '#fff1f2' }
+'.bar-rose-100': { barColor: '#ffe4e6' }
+'.bar-rose-200': { barColor: '#fecdd3' }
+'.bar-rose-300': { barColor: '#fda4af' }
+'.bar-rose-400': { barColor: '#fb7185' }
+'.bar-rose-500': { barColor: '#f43f5e' }
+'.bar-rose-600': { barColor: '#e11d48' }
+'.bar-rose-700': { barColor: '#be123c' }
+'.bar-rose-800': { barColor: '#9f1239' }
+'.bar-rose-900': { barColor: '#881337' }
+'.bar-rose-950': { barColor: '#4c0519' }
+
+// Property: contentScrimColor
+// Description: Background color of the small toolbar when the content is scrolled up.
+// Component(s): Ti.UI.Android.CollapseToolbar
+'.content-scrim-transparent': { contentScrimColor: 'transparent' }
+'.content-scrim-black': { contentScrimColor: '#000000' }
+'.content-scrim-white': { contentScrimColor: '#ffffff' }
+'.content-scrim-slate-50': { contentScrimColor: '#f8fafc' }
+'.content-scrim-slate-100': { contentScrimColor: '#f1f5f9' }
+'.content-scrim-slate-200': { contentScrimColor: '#e2e8f0' }
+'.content-scrim-slate-300': { contentScrimColor: '#cbd5e1' }
+'.content-scrim-slate-400': { contentScrimColor: '#94a3b8' }
+'.content-scrim-slate-500': { contentScrimColor: '#64748b' }
+'.content-scrim-slate-600': { contentScrimColor: '#475569' }
+'.content-scrim-slate-700': { contentScrimColor: '#334155' }
+'.content-scrim-slate-800': { contentScrimColor: '#1e293b' }
+'.content-scrim-slate-900': { contentScrimColor: '#0f172a' }
+'.content-scrim-slate-950': { contentScrimColor: '#020617' }
+'.content-scrim-gray-50': { contentScrimColor: '#f9fafb' }
+'.content-scrim-gray-100': { contentScrimColor: '#f3f4f6' }
+'.content-scrim-gray-200': { contentScrimColor: '#e5e7eb' }
+'.content-scrim-gray-300': { contentScrimColor: '#d1d5db' }
+'.content-scrim-gray-400': { contentScrimColor: '#9ca3af' }
+'.content-scrim-gray-500': { contentScrimColor: '#6b7280' }
+'.content-scrim-gray-600': { contentScrimColor: '#4b5563' }
+'.content-scrim-gray-700': { contentScrimColor: '#374151' }
+'.content-scrim-gray-800': { contentScrimColor: '#1f2937' }
+'.content-scrim-gray-900': { contentScrimColor: '#111827' }
+'.content-scrim-gray-950': { contentScrimColor: '#030712' }
+'.content-scrim-zinc-50': { contentScrimColor: '#fafafa' }
+'.content-scrim-zinc-100': { contentScrimColor: '#f4f4f5' }
+'.content-scrim-zinc-200': { contentScrimColor: '#e4e4e7' }
+'.content-scrim-zinc-300': { contentScrimColor: '#d4d4d8' }
+'.content-scrim-zinc-400': { contentScrimColor: '#a1a1aa' }
+'.content-scrim-zinc-500': { contentScrimColor: '#71717a' }
+'.content-scrim-zinc-600': { contentScrimColor: '#52525b' }
+'.content-scrim-zinc-700': { contentScrimColor: '#3f3f46' }
+'.content-scrim-zinc-800': { contentScrimColor: '#27272a' }
+'.content-scrim-zinc-900': { contentScrimColor: '#18181b' }
+'.content-scrim-zinc-950': { contentScrimColor: '#09090b' }
+'.content-scrim-neutral-50': { contentScrimColor: '#fafafa' }
+'.content-scrim-neutral-100': { contentScrimColor: '#f5f5f5' }
+'.content-scrim-neutral-200': { contentScrimColor: '#e5e5e5' }
+'.content-scrim-neutral-300': { contentScrimColor: '#d4d4d4' }
+'.content-scrim-neutral-400': { contentScrimColor: '#a3a3a3' }
+'.content-scrim-neutral-500': { contentScrimColor: '#737373' }
+'.content-scrim-neutral-600': { contentScrimColor: '#525252' }
+'.content-scrim-neutral-700': { contentScrimColor: '#404040' }
+'.content-scrim-neutral-800': { contentScrimColor: '#262626' }
+'.content-scrim-neutral-900': { contentScrimColor: '#171717' }
+'.content-scrim-neutral-950': { contentScrimColor: '#0a0a0a' }
+'.content-scrim-stone-50': { contentScrimColor: '#fafaf9' }
+'.content-scrim-stone-100': { contentScrimColor: '#f5f5f4' }
+'.content-scrim-stone-200': { contentScrimColor: '#e7e5e4' }
+'.content-scrim-stone-300': { contentScrimColor: '#d6d3d1' }
+'.content-scrim-stone-400': { contentScrimColor: '#a8a29e' }
+'.content-scrim-stone-500': { contentScrimColor: '#78716c' }
+'.content-scrim-stone-600': { contentScrimColor: '#57534e' }
+'.content-scrim-stone-700': { contentScrimColor: '#44403c' }
+'.content-scrim-stone-800': { contentScrimColor: '#292524' }
+'.content-scrim-stone-900': { contentScrimColor: '#1c1917' }
+'.content-scrim-stone-950': { contentScrimColor: '#0c0a09' }
+'.content-scrim-red-50': { contentScrimColor: '#fef2f2' }
+'.content-scrim-red-100': { contentScrimColor: '#fee2e2' }
+'.content-scrim-red-200': { contentScrimColor: '#fecaca' }
+'.content-scrim-red-300': { contentScrimColor: '#fca5a5' }
+'.content-scrim-red-400': { contentScrimColor: '#f87171' }
+'.content-scrim-red-500': { contentScrimColor: '#ef4444' }
+'.content-scrim-red-600': { contentScrimColor: '#dc2626' }
+'.content-scrim-red-700': { contentScrimColor: '#b91c1c' }
+'.content-scrim-red-800': { contentScrimColor: '#991b1b' }
+'.content-scrim-red-900': { contentScrimColor: '#7f1d1d' }
+'.content-scrim-red-950': { contentScrimColor: '#450a0a' }
+'.content-scrim-orange-50': { contentScrimColor: '#fff7ed' }
+'.content-scrim-orange-100': { contentScrimColor: '#ffedd5' }
+'.content-scrim-orange-200': { contentScrimColor: '#fed7aa' }
+'.content-scrim-orange-300': { contentScrimColor: '#fdba74' }
+'.content-scrim-orange-400': { contentScrimColor: '#fb923c' }
+'.content-scrim-orange-500': { contentScrimColor: '#f97316' }
+'.content-scrim-orange-600': { contentScrimColor: '#ea580c' }
+'.content-scrim-orange-700': { contentScrimColor: '#c2410c' }
+'.content-scrim-orange-800': { contentScrimColor: '#9a3412' }
+'.content-scrim-orange-900': { contentScrimColor: '#7c2d12' }
+'.content-scrim-orange-950': { contentScrimColor: '#431407' }
+'.content-scrim-amber-50': { contentScrimColor: '#fffbeb' }
+'.content-scrim-amber-100': { contentScrimColor: '#fef3c7' }
+'.content-scrim-amber-200': { contentScrimColor: '#fde68a' }
+'.content-scrim-amber-300': { contentScrimColor: '#fcd34d' }
+'.content-scrim-amber-400': { contentScrimColor: '#fbbf24' }
+'.content-scrim-amber-500': { contentScrimColor: '#f59e0b' }
+'.content-scrim-amber-600': { contentScrimColor: '#d97706' }
+'.content-scrim-amber-700': { contentScrimColor: '#b45309' }
+'.content-scrim-amber-800': { contentScrimColor: '#92400e' }
+'.content-scrim-amber-900': { contentScrimColor: '#78350f' }
+'.content-scrim-amber-950': { contentScrimColor: '#451a03' }
+'.content-scrim-yellow-50': { contentScrimColor: '#fefce8' }
+'.content-scrim-yellow-100': { contentScrimColor: '#fef9c3' }
+'.content-scrim-yellow-200': { contentScrimColor: '#fef08a' }
+'.content-scrim-yellow-300': { contentScrimColor: '#fde047' }
+'.content-scrim-yellow-400': { contentScrimColor: '#facc15' }
+'.content-scrim-yellow-500': { contentScrimColor: '#eab308' }
+'.content-scrim-yellow-600': { contentScrimColor: '#ca8a04' }
+'.content-scrim-yellow-700': { contentScrimColor: '#a16207' }
+'.content-scrim-yellow-800': { contentScrimColor: '#854d0e' }
+'.content-scrim-yellow-900': { contentScrimColor: '#713f12' }
+'.content-scrim-yellow-950': { contentScrimColor: '#422006' }
+'.content-scrim-lime-50': { contentScrimColor: '#f7fee7' }
+'.content-scrim-lime-100': { contentScrimColor: '#ecfccb' }
+'.content-scrim-lime-200': { contentScrimColor: '#d9f99d' }
+'.content-scrim-lime-300': { contentScrimColor: '#bef264' }
+'.content-scrim-lime-400': { contentScrimColor: '#a3e635' }
+'.content-scrim-lime-500': { contentScrimColor: '#84cc16' }
+'.content-scrim-lime-600': { contentScrimColor: '#65a30d' }
+'.content-scrim-lime-700': { contentScrimColor: '#4d7c0f' }
+'.content-scrim-lime-800': { contentScrimColor: '#3f6212' }
+'.content-scrim-lime-900': { contentScrimColor: '#365314' }
+'.content-scrim-lime-950': { contentScrimColor: '#1a2e05' }
+'.content-scrim-green-50': { contentScrimColor: '#f0fdf4' }
+'.content-scrim-green-100': { contentScrimColor: '#dcfce7' }
+'.content-scrim-green-200': { contentScrimColor: '#bbf7d0' }
+'.content-scrim-green-300': { contentScrimColor: '#86efac' }
+'.content-scrim-green-400': { contentScrimColor: '#4ade80' }
+'.content-scrim-green-500': { contentScrimColor: '#22c55e' }
+'.content-scrim-green-600': { contentScrimColor: '#16a34a' }
+'.content-scrim-green-700': { contentScrimColor: '#15803d' }
+'.content-scrim-green-800': { contentScrimColor: '#166534' }
+'.content-scrim-green-900': { contentScrimColor: '#14532d' }
+'.content-scrim-green-950': { contentScrimColor: '#052e16' }
+'.content-scrim-emerald-50': { contentScrimColor: '#ecfdf5' }
+'.content-scrim-emerald-100': { contentScrimColor: '#d1fae5' }
+'.content-scrim-emerald-200': { contentScrimColor: '#a7f3d0' }
+'.content-scrim-emerald-300': { contentScrimColor: '#6ee7b7' }
+'.content-scrim-emerald-400': { contentScrimColor: '#34d399' }
+'.content-scrim-emerald-500': { contentScrimColor: '#10b981' }
+'.content-scrim-emerald-600': { contentScrimColor: '#059669' }
+'.content-scrim-emerald-700': { contentScrimColor: '#047857' }
+'.content-scrim-emerald-800': { contentScrimColor: '#065f46' }
+'.content-scrim-emerald-900': { contentScrimColor: '#064e3b' }
+'.content-scrim-emerald-950': { contentScrimColor: '#022c22' }
+'.content-scrim-teal-50': { contentScrimColor: '#f0fdfa' }
+'.content-scrim-teal-100': { contentScrimColor: '#ccfbf1' }
+'.content-scrim-teal-200': { contentScrimColor: '#99f6e4' }
+'.content-scrim-teal-300': { contentScrimColor: '#5eead4' }
+'.content-scrim-teal-400': { contentScrimColor: '#2dd4bf' }
+'.content-scrim-teal-500': { contentScrimColor: '#14b8a6' }
+'.content-scrim-teal-600': { contentScrimColor: '#0d9488' }
+'.content-scrim-teal-700': { contentScrimColor: '#0f766e' }
+'.content-scrim-teal-800': { contentScrimColor: '#115e59' }
+'.content-scrim-teal-900': { contentScrimColor: '#134e4a' }
+'.content-scrim-teal-950': { contentScrimColor: '#042f2e' }
+'.content-scrim-cyan-50': { contentScrimColor: '#ecfeff' }
+'.content-scrim-cyan-100': { contentScrimColor: '#cffafe' }
+'.content-scrim-cyan-200': { contentScrimColor: '#a5f3fc' }
+'.content-scrim-cyan-300': { contentScrimColor: '#67e8f9' }
+'.content-scrim-cyan-400': { contentScrimColor: '#22d3ee' }
+'.content-scrim-cyan-500': { contentScrimColor: '#06b6d4' }
+'.content-scrim-cyan-600': { contentScrimColor: '#0891b2' }
+'.content-scrim-cyan-700': { contentScrimColor: '#0e7490' }
+'.content-scrim-cyan-800': { contentScrimColor: '#155e75' }
+'.content-scrim-cyan-900': { contentScrimColor: '#164e63' }
+'.content-scrim-cyan-950': { contentScrimColor: '#083344' }
+'.content-scrim-sky-50': { contentScrimColor: '#f0f9ff' }
+'.content-scrim-sky-100': { contentScrimColor: '#e0f2fe' }
+'.content-scrim-sky-200': { contentScrimColor: '#bae6fd' }
+'.content-scrim-sky-300': { contentScrimColor: '#7dd3fc' }
+'.content-scrim-sky-400': { contentScrimColor: '#38bdf8' }
+'.content-scrim-sky-500': { contentScrimColor: '#0ea5e9' }
+'.content-scrim-sky-600': { contentScrimColor: '#0284c7' }
+'.content-scrim-sky-700': { contentScrimColor: '#0369a1' }
+'.content-scrim-sky-800': { contentScrimColor: '#075985' }
+'.content-scrim-sky-900': { contentScrimColor: '#0c4a6e' }
+'.content-scrim-sky-950': { contentScrimColor: '#082f49' }
+'.content-scrim-blue-50': { contentScrimColor: '#eff6ff' }
+'.content-scrim-blue-100': { contentScrimColor: '#dbeafe' }
+'.content-scrim-blue-200': { contentScrimColor: '#bfdbfe' }
+'.content-scrim-blue-300': { contentScrimColor: '#93c5fd' }
+'.content-scrim-blue-400': { contentScrimColor: '#60a5fa' }
+'.content-scrim-blue-500': { contentScrimColor: '#3b82f6' }
+'.content-scrim-blue-600': { contentScrimColor: '#2563eb' }
+'.content-scrim-blue-700': { contentScrimColor: '#1d4ed8' }
+'.content-scrim-blue-800': { contentScrimColor: '#1e40af' }
+'.content-scrim-blue-900': { contentScrimColor: '#1e3a8a' }
+'.content-scrim-blue-950': { contentScrimColor: '#172554' }
+'.content-scrim-indigo-50': { contentScrimColor: '#eef2ff' }
+'.content-scrim-indigo-100': { contentScrimColor: '#e0e7ff' }
+'.content-scrim-indigo-200': { contentScrimColor: '#c7d2fe' }
+'.content-scrim-indigo-300': { contentScrimColor: '#a5b4fc' }
+'.content-scrim-indigo-400': { contentScrimColor: '#818cf8' }
+'.content-scrim-indigo-500': { contentScrimColor: '#6366f1' }
+'.content-scrim-indigo-600': { contentScrimColor: '#4f46e5' }
+'.content-scrim-indigo-700': { contentScrimColor: '#4338ca' }
+'.content-scrim-indigo-800': { contentScrimColor: '#3730a3' }
+'.content-scrim-indigo-900': { contentScrimColor: '#312e81' }
+'.content-scrim-indigo-950': { contentScrimColor: '#1e1b4b' }
+'.content-scrim-violet-50': { contentScrimColor: '#f5f3ff' }
+'.content-scrim-violet-100': { contentScrimColor: '#ede9fe' }
+'.content-scrim-violet-200': { contentScrimColor: '#ddd6fe' }
+'.content-scrim-violet-300': { contentScrimColor: '#c4b5fd' }
+'.content-scrim-violet-400': { contentScrimColor: '#a78bfa' }
+'.content-scrim-violet-500': { contentScrimColor: '#8b5cf6' }
+'.content-scrim-violet-600': { contentScrimColor: '#7c3aed' }
+'.content-scrim-violet-700': { contentScrimColor: '#6d28d9' }
+'.content-scrim-violet-800': { contentScrimColor: '#5b21b6' }
+'.content-scrim-violet-900': { contentScrimColor: '#4c1d95' }
+'.content-scrim-violet-950': { contentScrimColor: '#2e1065' }
+'.content-scrim-purple-50': { contentScrimColor: '#faf5ff' }
+'.content-scrim-purple-100': { contentScrimColor: '#f3e8ff' }
+'.content-scrim-purple-200': { contentScrimColor: '#e9d5ff' }
+'.content-scrim-purple-300': { contentScrimColor: '#d8b4fe' }
+'.content-scrim-purple-400': { contentScrimColor: '#c084fc' }
+'.content-scrim-purple-500': { contentScrimColor: '#a855f7' }
+'.content-scrim-purple-600': { contentScrimColor: '#9333ea' }
+'.content-scrim-purple-700': { contentScrimColor: '#7e22ce' }
+'.content-scrim-purple-800': { contentScrimColor: '#6b21a8' }
+'.content-scrim-purple-900': { contentScrimColor: '#581c87' }
+'.content-scrim-purple-950': { contentScrimColor: '#3b0764' }
+'.content-scrim-fuchsia-50': { contentScrimColor: '#fdf4ff' }
+'.content-scrim-fuchsia-100': { contentScrimColor: '#fae8ff' }
+'.content-scrim-fuchsia-200': { contentScrimColor: '#f5d0fe' }
+'.content-scrim-fuchsia-300': { contentScrimColor: '#f0abfc' }
+'.content-scrim-fuchsia-400': { contentScrimColor: '#e879f9' }
+'.content-scrim-fuchsia-500': { contentScrimColor: '#d946ef' }
+'.content-scrim-fuchsia-600': { contentScrimColor: '#c026d3' }
+'.content-scrim-fuchsia-700': { contentScrimColor: '#a21caf' }
+'.content-scrim-fuchsia-800': { contentScrimColor: '#86198f' }
+'.content-scrim-fuchsia-900': { contentScrimColor: '#701a75' }
+'.content-scrim-fuchsia-950': { contentScrimColor: '#4a044e' }
+'.content-scrim-pink-50': { contentScrimColor: '#fdf2f8' }
+'.content-scrim-pink-100': { contentScrimColor: '#fce7f3' }
+'.content-scrim-pink-200': { contentScrimColor: '#fbcfe8' }
+'.content-scrim-pink-300': { contentScrimColor: '#f9a8d4' }
+'.content-scrim-pink-400': { contentScrimColor: '#f472b6' }
+'.content-scrim-pink-500': { contentScrimColor: '#ec4899' }
+'.content-scrim-pink-600': { contentScrimColor: '#db2777' }
+'.content-scrim-pink-700': { contentScrimColor: '#be185d' }
+'.content-scrim-pink-800': { contentScrimColor: '#9d174d' }
+'.content-scrim-pink-900': { contentScrimColor: '#831843' }
+'.content-scrim-pink-950': { contentScrimColor: '#500724' }
+'.content-scrim-rose-50': { contentScrimColor: '#fff1f2' }
+'.content-scrim-rose-100': { contentScrimColor: '#ffe4e6' }
+'.content-scrim-rose-200': { contentScrimColor: '#fecdd3' }
+'.content-scrim-rose-300': { contentScrimColor: '#fda4af' }
+'.content-scrim-rose-400': { contentScrimColor: '#fb7185' }
+'.content-scrim-rose-500': { contentScrimColor: '#f43f5e' }
+'.content-scrim-rose-600': { contentScrimColor: '#e11d48' }
+'.content-scrim-rose-700': { contentScrimColor: '#be123c' }
+'.content-scrim-rose-800': { contentScrimColor: '#9f1239' }
+'.content-scrim-rose-900': { contentScrimColor: '#881337' }
+'.content-scrim-rose-950': { contentScrimColor: '#4c0519' }
+
+// Property: imageHeight
+// Description: Height of the image. Use height for the height of the extended toolbar.
+// Component(s): Ti.UI.Android.CollapseToolbar
+'.image-h-0': { imageHeight: 0 }
+'.image-h-1': { imageHeight: 4 }
+'.image-h-2': { imageHeight: 8 }
+'.image-h-3': { imageHeight: 12 }
+'.image-h-4': { imageHeight: 16 }
+'.image-h-5': { imageHeight: 20 }
+'.image-h-6': { imageHeight: 24 }
+'.image-h-7': { imageHeight: 28 }
+'.image-h-8': { imageHeight: 32 }
+'.image-h-9': { imageHeight: 36 }
+'.image-h-10': { imageHeight: 40 }
+'.image-h-11': { imageHeight: 44 }
+'.image-h-12': { imageHeight: 48 }
+'.image-h-14': { imageHeight: 56 }
+'.image-h-16': { imageHeight: 64 }
+'.image-h-20': { imageHeight: 80 }
+'.image-h-24': { imageHeight: 96 }
+'.image-h-28': { imageHeight: 112 }
+'.image-h-32': { imageHeight: 128 }
+'.image-h-36': { imageHeight: 144 }
+'.image-h-40': { imageHeight: 160 }
+'.image-h-44': { imageHeight: 176 }
+'.image-h-48': { imageHeight: 192 }
+'.image-h-52': { imageHeight: 208 }
+'.image-h-56': { imageHeight: 224 }
+'.image-h-60': { imageHeight: 240 }
+'.image-h-64': { imageHeight: 256 }
+'.image-h-72': { imageHeight: 288 }
+'.image-h-80': { imageHeight: 320 }
+'.image-h-96': { imageHeight: 384 }
+'.image-h-auto': { imageHeight: Ti.UI.SIZE }
+'.image-h-px': { imageHeight: '1px' }
+'.image-h-0.5': { imageHeight: 2 }
+'.image-h-1.5': { imageHeight: 6 }
+'.image-h-2.5': { imageHeight: 10 }
+'.image-h-3.5': { imageHeight: 14 }
+'.image-h-1/2': { imageHeight: '50%' }
+'.image-h-1/3': { imageHeight: '33.333334%' }
+'.image-h-2/3': { imageHeight: '66.666667%' }
+'.image-h-1/4': { imageHeight: '25%' }
+'.image-h-2/4': { imageHeight: '50%' }
+'.image-h-3/4': { imageHeight: '75%' }
+'.image-h-1/5': { imageHeight: '20%' }
+'.image-h-2/5': { imageHeight: '40%' }
+'.image-h-3/5': { imageHeight: '60%' }
+'.image-h-4/5': { imageHeight: '80%' }
+'.image-h-1/6': { imageHeight: '16.666667%' }
+'.image-h-2/6': { imageHeight: '33.333334%' }
+'.image-h-3/6': { imageHeight: '50%' }
+'.image-h-4/6': { imageHeight: '66.666667%' }
+'.image-h-5/6': { imageHeight: '83.333334%' }
+'.image-h-1/12': { imageHeight: '8.333334%' }
+'.image-h-2/12': { imageHeight: '16.666667%' }
+'.image-h-3/12': { imageHeight: '25%' }
+'.image-h-4/12': { imageHeight: '33.333334%' }
+'.image-h-5/12': { imageHeight: '41.666667%' }
+'.image-h-6/12': { imageHeight: '50%' }
+'.image-h-7/12': { imageHeight: '58.333334%' }
+'.image-h-8/12': { imageHeight: '66.666667%' }
+'.image-h-9/12': { imageHeight: '75%' }
+'.image-h-10/12': { imageHeight: '83.333334%' }
+'.image-h-11/12': { imageHeight: '91.666667%' }
+'.image-h-full': { imageHeight: '100%' }
+'.image-h-screen': { imageHeight: Ti.UI.FILL }
+
+// Property: navigationIconColor
+// Component(s): Ti.UI.Android.CollapseToolbar, Ti.UI.Toolbar
+'.navigation-icon-transparent': { navigationIconColor: 'transparent' }
+'.navigation-icon-black': { navigationIconColor: '#000000' }
+'.navigation-icon-white': { navigationIconColor: '#ffffff' }
+'.navigation-icon-slate-50': { navigationIconColor: '#f8fafc' }
+'.navigation-icon-slate-100': { navigationIconColor: '#f1f5f9' }
+'.navigation-icon-slate-200': { navigationIconColor: '#e2e8f0' }
+'.navigation-icon-slate-300': { navigationIconColor: '#cbd5e1' }
+'.navigation-icon-slate-400': { navigationIconColor: '#94a3b8' }
+'.navigation-icon-slate-500': { navigationIconColor: '#64748b' }
+'.navigation-icon-slate-600': { navigationIconColor: '#475569' }
+'.navigation-icon-slate-700': { navigationIconColor: '#334155' }
+'.navigation-icon-slate-800': { navigationIconColor: '#1e293b' }
+'.navigation-icon-slate-900': { navigationIconColor: '#0f172a' }
+'.navigation-icon-slate-950': { navigationIconColor: '#020617' }
+'.navigation-icon-gray-50': { navigationIconColor: '#f9fafb' }
+'.navigation-icon-gray-100': { navigationIconColor: '#f3f4f6' }
+'.navigation-icon-gray-200': { navigationIconColor: '#e5e7eb' }
+'.navigation-icon-gray-300': { navigationIconColor: '#d1d5db' }
+'.navigation-icon-gray-400': { navigationIconColor: '#9ca3af' }
+'.navigation-icon-gray-500': { navigationIconColor: '#6b7280' }
+'.navigation-icon-gray-600': { navigationIconColor: '#4b5563' }
+'.navigation-icon-gray-700': { navigationIconColor: '#374151' }
+'.navigation-icon-gray-800': { navigationIconColor: '#1f2937' }
+'.navigation-icon-gray-900': { navigationIconColor: '#111827' }
+'.navigation-icon-gray-950': { navigationIconColor: '#030712' }
+'.navigation-icon-zinc-50': { navigationIconColor: '#fafafa' }
+'.navigation-icon-zinc-100': { navigationIconColor: '#f4f4f5' }
+'.navigation-icon-zinc-200': { navigationIconColor: '#e4e4e7' }
+'.navigation-icon-zinc-300': { navigationIconColor: '#d4d4d8' }
+'.navigation-icon-zinc-400': { navigationIconColor: '#a1a1aa' }
+'.navigation-icon-zinc-500': { navigationIconColor: '#71717a' }
+'.navigation-icon-zinc-600': { navigationIconColor: '#52525b' }
+'.navigation-icon-zinc-700': { navigationIconColor: '#3f3f46' }
+'.navigation-icon-zinc-800': { navigationIconColor: '#27272a' }
+'.navigation-icon-zinc-900': { navigationIconColor: '#18181b' }
+'.navigation-icon-zinc-950': { navigationIconColor: '#09090b' }
+'.navigation-icon-neutral-50': { navigationIconColor: '#fafafa' }
+'.navigation-icon-neutral-100': { navigationIconColor: '#f5f5f5' }
+'.navigation-icon-neutral-200': { navigationIconColor: '#e5e5e5' }
+'.navigation-icon-neutral-300': { navigationIconColor: '#d4d4d4' }
+'.navigation-icon-neutral-400': { navigationIconColor: '#a3a3a3' }
+'.navigation-icon-neutral-500': { navigationIconColor: '#737373' }
+'.navigation-icon-neutral-600': { navigationIconColor: '#525252' }
+'.navigation-icon-neutral-700': { navigationIconColor: '#404040' }
+'.navigation-icon-neutral-800': { navigationIconColor: '#262626' }
+'.navigation-icon-neutral-900': { navigationIconColor: '#171717' }
+'.navigation-icon-neutral-950': { navigationIconColor: '#0a0a0a' }
+'.navigation-icon-stone-50': { navigationIconColor: '#fafaf9' }
+'.navigation-icon-stone-100': { navigationIconColor: '#f5f5f4' }
+'.navigation-icon-stone-200': { navigationIconColor: '#e7e5e4' }
+'.navigation-icon-stone-300': { navigationIconColor: '#d6d3d1' }
+'.navigation-icon-stone-400': { navigationIconColor: '#a8a29e' }
+'.navigation-icon-stone-500': { navigationIconColor: '#78716c' }
+'.navigation-icon-stone-600': { navigationIconColor: '#57534e' }
+'.navigation-icon-stone-700': { navigationIconColor: '#44403c' }
+'.navigation-icon-stone-800': { navigationIconColor: '#292524' }
+'.navigation-icon-stone-900': { navigationIconColor: '#1c1917' }
+'.navigation-icon-stone-950': { navigationIconColor: '#0c0a09' }
+'.navigation-icon-red-50': { navigationIconColor: '#fef2f2' }
+'.navigation-icon-red-100': { navigationIconColor: '#fee2e2' }
+'.navigation-icon-red-200': { navigationIconColor: '#fecaca' }
+'.navigation-icon-red-300': { navigationIconColor: '#fca5a5' }
+'.navigation-icon-red-400': { navigationIconColor: '#f87171' }
+'.navigation-icon-red-500': { navigationIconColor: '#ef4444' }
+'.navigation-icon-red-600': { navigationIconColor: '#dc2626' }
+'.navigation-icon-red-700': { navigationIconColor: '#b91c1c' }
+'.navigation-icon-red-800': { navigationIconColor: '#991b1b' }
+'.navigation-icon-red-900': { navigationIconColor: '#7f1d1d' }
+'.navigation-icon-red-950': { navigationIconColor: '#450a0a' }
+'.navigation-icon-orange-50': { navigationIconColor: '#fff7ed' }
+'.navigation-icon-orange-100': { navigationIconColor: '#ffedd5' }
+'.navigation-icon-orange-200': { navigationIconColor: '#fed7aa' }
+'.navigation-icon-orange-300': { navigationIconColor: '#fdba74' }
+'.navigation-icon-orange-400': { navigationIconColor: '#fb923c' }
+'.navigation-icon-orange-500': { navigationIconColor: '#f97316' }
+'.navigation-icon-orange-600': { navigationIconColor: '#ea580c' }
+'.navigation-icon-orange-700': { navigationIconColor: '#c2410c' }
+'.navigation-icon-orange-800': { navigationIconColor: '#9a3412' }
+'.navigation-icon-orange-900': { navigationIconColor: '#7c2d12' }
+'.navigation-icon-orange-950': { navigationIconColor: '#431407' }
+'.navigation-icon-amber-50': { navigationIconColor: '#fffbeb' }
+'.navigation-icon-amber-100': { navigationIconColor: '#fef3c7' }
+'.navigation-icon-amber-200': { navigationIconColor: '#fde68a' }
+'.navigation-icon-amber-300': { navigationIconColor: '#fcd34d' }
+'.navigation-icon-amber-400': { navigationIconColor: '#fbbf24' }
+'.navigation-icon-amber-500': { navigationIconColor: '#f59e0b' }
+'.navigation-icon-amber-600': { navigationIconColor: '#d97706' }
+'.navigation-icon-amber-700': { navigationIconColor: '#b45309' }
+'.navigation-icon-amber-800': { navigationIconColor: '#92400e' }
+'.navigation-icon-amber-900': { navigationIconColor: '#78350f' }
+'.navigation-icon-amber-950': { navigationIconColor: '#451a03' }
+'.navigation-icon-yellow-50': { navigationIconColor: '#fefce8' }
+'.navigation-icon-yellow-100': { navigationIconColor: '#fef9c3' }
+'.navigation-icon-yellow-200': { navigationIconColor: '#fef08a' }
+'.navigation-icon-yellow-300': { navigationIconColor: '#fde047' }
+'.navigation-icon-yellow-400': { navigationIconColor: '#facc15' }
+'.navigation-icon-yellow-500': { navigationIconColor: '#eab308' }
+'.navigation-icon-yellow-600': { navigationIconColor: '#ca8a04' }
+'.navigation-icon-yellow-700': { navigationIconColor: '#a16207' }
+'.navigation-icon-yellow-800': { navigationIconColor: '#854d0e' }
+'.navigation-icon-yellow-900': { navigationIconColor: '#713f12' }
+'.navigation-icon-yellow-950': { navigationIconColor: '#422006' }
+'.navigation-icon-lime-50': { navigationIconColor: '#f7fee7' }
+'.navigation-icon-lime-100': { navigationIconColor: '#ecfccb' }
+'.navigation-icon-lime-200': { navigationIconColor: '#d9f99d' }
+'.navigation-icon-lime-300': { navigationIconColor: '#bef264' }
+'.navigation-icon-lime-400': { navigationIconColor: '#a3e635' }
+'.navigation-icon-lime-500': { navigationIconColor: '#84cc16' }
+'.navigation-icon-lime-600': { navigationIconColor: '#65a30d' }
+'.navigation-icon-lime-700': { navigationIconColor: '#4d7c0f' }
+'.navigation-icon-lime-800': { navigationIconColor: '#3f6212' }
+'.navigation-icon-lime-900': { navigationIconColor: '#365314' }
+'.navigation-icon-lime-950': { navigationIconColor: '#1a2e05' }
+'.navigation-icon-green-50': { navigationIconColor: '#f0fdf4' }
+'.navigation-icon-green-100': { navigationIconColor: '#dcfce7' }
+'.navigation-icon-green-200': { navigationIconColor: '#bbf7d0' }
+'.navigation-icon-green-300': { navigationIconColor: '#86efac' }
+'.navigation-icon-green-400': { navigationIconColor: '#4ade80' }
+'.navigation-icon-green-500': { navigationIconColor: '#22c55e' }
+'.navigation-icon-green-600': { navigationIconColor: '#16a34a' }
+'.navigation-icon-green-700': { navigationIconColor: '#15803d' }
+'.navigation-icon-green-800': { navigationIconColor: '#166534' }
+'.navigation-icon-green-900': { navigationIconColor: '#14532d' }
+'.navigation-icon-green-950': { navigationIconColor: '#052e16' }
+'.navigation-icon-emerald-50': { navigationIconColor: '#ecfdf5' }
+'.navigation-icon-emerald-100': { navigationIconColor: '#d1fae5' }
+'.navigation-icon-emerald-200': { navigationIconColor: '#a7f3d0' }
+'.navigation-icon-emerald-300': { navigationIconColor: '#6ee7b7' }
+'.navigation-icon-emerald-400': { navigationIconColor: '#34d399' }
+'.navigation-icon-emerald-500': { navigationIconColor: '#10b981' }
+'.navigation-icon-emerald-600': { navigationIconColor: '#059669' }
+'.navigation-icon-emerald-700': { navigationIconColor: '#047857' }
+'.navigation-icon-emerald-800': { navigationIconColor: '#065f46' }
+'.navigation-icon-emerald-900': { navigationIconColor: '#064e3b' }
+'.navigation-icon-emerald-950': { navigationIconColor: '#022c22' }
+'.navigation-icon-teal-50': { navigationIconColor: '#f0fdfa' }
+'.navigation-icon-teal-100': { navigationIconColor: '#ccfbf1' }
+'.navigation-icon-teal-200': { navigationIconColor: '#99f6e4' }
+'.navigation-icon-teal-300': { navigationIconColor: '#5eead4' }
+'.navigation-icon-teal-400': { navigationIconColor: '#2dd4bf' }
+'.navigation-icon-teal-500': { navigationIconColor: '#14b8a6' }
+'.navigation-icon-teal-600': { navigationIconColor: '#0d9488' }
+'.navigation-icon-teal-700': { navigationIconColor: '#0f766e' }
+'.navigation-icon-teal-800': { navigationIconColor: '#115e59' }
+'.navigation-icon-teal-900': { navigationIconColor: '#134e4a' }
+'.navigation-icon-teal-950': { navigationIconColor: '#042f2e' }
+'.navigation-icon-cyan-50': { navigationIconColor: '#ecfeff' }
+'.navigation-icon-cyan-100': { navigationIconColor: '#cffafe' }
+'.navigation-icon-cyan-200': { navigationIconColor: '#a5f3fc' }
+'.navigation-icon-cyan-300': { navigationIconColor: '#67e8f9' }
+'.navigation-icon-cyan-400': { navigationIconColor: '#22d3ee' }
+'.navigation-icon-cyan-500': { navigationIconColor: '#06b6d4' }
+'.navigation-icon-cyan-600': { navigationIconColor: '#0891b2' }
+'.navigation-icon-cyan-700': { navigationIconColor: '#0e7490' }
+'.navigation-icon-cyan-800': { navigationIconColor: '#155e75' }
+'.navigation-icon-cyan-900': { navigationIconColor: '#164e63' }
+'.navigation-icon-cyan-950': { navigationIconColor: '#083344' }
+'.navigation-icon-sky-50': { navigationIconColor: '#f0f9ff' }
+'.navigation-icon-sky-100': { navigationIconColor: '#e0f2fe' }
+'.navigation-icon-sky-200': { navigationIconColor: '#bae6fd' }
+'.navigation-icon-sky-300': { navigationIconColor: '#7dd3fc' }
+'.navigation-icon-sky-400': { navigationIconColor: '#38bdf8' }
+'.navigation-icon-sky-500': { navigationIconColor: '#0ea5e9' }
+'.navigation-icon-sky-600': { navigationIconColor: '#0284c7' }
+'.navigation-icon-sky-700': { navigationIconColor: '#0369a1' }
+'.navigation-icon-sky-800': { navigationIconColor: '#075985' }
+'.navigation-icon-sky-900': { navigationIconColor: '#0c4a6e' }
+'.navigation-icon-sky-950': { navigationIconColor: '#082f49' }
+'.navigation-icon-blue-50': { navigationIconColor: '#eff6ff' }
+'.navigation-icon-blue-100': { navigationIconColor: '#dbeafe' }
+'.navigation-icon-blue-200': { navigationIconColor: '#bfdbfe' }
+'.navigation-icon-blue-300': { navigationIconColor: '#93c5fd' }
+'.navigation-icon-blue-400': { navigationIconColor: '#60a5fa' }
+'.navigation-icon-blue-500': { navigationIconColor: '#3b82f6' }
+'.navigation-icon-blue-600': { navigationIconColor: '#2563eb' }
+'.navigation-icon-blue-700': { navigationIconColor: '#1d4ed8' }
+'.navigation-icon-blue-800': { navigationIconColor: '#1e40af' }
+'.navigation-icon-blue-900': { navigationIconColor: '#1e3a8a' }
+'.navigation-icon-blue-950': { navigationIconColor: '#172554' }
+'.navigation-icon-indigo-50': { navigationIconColor: '#eef2ff' }
+'.navigation-icon-indigo-100': { navigationIconColor: '#e0e7ff' }
+'.navigation-icon-indigo-200': { navigationIconColor: '#c7d2fe' }
+'.navigation-icon-indigo-300': { navigationIconColor: '#a5b4fc' }
+'.navigation-icon-indigo-400': { navigationIconColor: '#818cf8' }
+'.navigation-icon-indigo-500': { navigationIconColor: '#6366f1' }
+'.navigation-icon-indigo-600': { navigationIconColor: '#4f46e5' }
+'.navigation-icon-indigo-700': { navigationIconColor: '#4338ca' }
+'.navigation-icon-indigo-800': { navigationIconColor: '#3730a3' }
+'.navigation-icon-indigo-900': { navigationIconColor: '#312e81' }
+'.navigation-icon-indigo-950': { navigationIconColor: '#1e1b4b' }
+'.navigation-icon-violet-50': { navigationIconColor: '#f5f3ff' }
+'.navigation-icon-violet-100': { navigationIconColor: '#ede9fe' }
+'.navigation-icon-violet-200': { navigationIconColor: '#ddd6fe' }
+'.navigation-icon-violet-300': { navigationIconColor: '#c4b5fd' }
+'.navigation-icon-violet-400': { navigationIconColor: '#a78bfa' }
+'.navigation-icon-violet-500': { navigationIconColor: '#8b5cf6' }
+'.navigation-icon-violet-600': { navigationIconColor: '#7c3aed' }
+'.navigation-icon-violet-700': { navigationIconColor: '#6d28d9' }
+'.navigation-icon-violet-800': { navigationIconColor: '#5b21b6' }
+'.navigation-icon-violet-900': { navigationIconColor: '#4c1d95' }
+'.navigation-icon-violet-950': { navigationIconColor: '#2e1065' }
+'.navigation-icon-purple-50': { navigationIconColor: '#faf5ff' }
+'.navigation-icon-purple-100': { navigationIconColor: '#f3e8ff' }
+'.navigation-icon-purple-200': { navigationIconColor: '#e9d5ff' }
+'.navigation-icon-purple-300': { navigationIconColor: '#d8b4fe' }
+'.navigation-icon-purple-400': { navigationIconColor: '#c084fc' }
+'.navigation-icon-purple-500': { navigationIconColor: '#a855f7' }
+'.navigation-icon-purple-600': { navigationIconColor: '#9333ea' }
+'.navigation-icon-purple-700': { navigationIconColor: '#7e22ce' }
+'.navigation-icon-purple-800': { navigationIconColor: '#6b21a8' }
+'.navigation-icon-purple-900': { navigationIconColor: '#581c87' }
+'.navigation-icon-purple-950': { navigationIconColor: '#3b0764' }
+'.navigation-icon-fuchsia-50': { navigationIconColor: '#fdf4ff' }
+'.navigation-icon-fuchsia-100': { navigationIconColor: '#fae8ff' }
+'.navigation-icon-fuchsia-200': { navigationIconColor: '#f5d0fe' }
+'.navigation-icon-fuchsia-300': { navigationIconColor: '#f0abfc' }
+'.navigation-icon-fuchsia-400': { navigationIconColor: '#e879f9' }
+'.navigation-icon-fuchsia-500': { navigationIconColor: '#d946ef' }
+'.navigation-icon-fuchsia-600': { navigationIconColor: '#c026d3' }
+'.navigation-icon-fuchsia-700': { navigationIconColor: '#a21caf' }
+'.navigation-icon-fuchsia-800': { navigationIconColor: '#86198f' }
+'.navigation-icon-fuchsia-900': { navigationIconColor: '#701a75' }
+'.navigation-icon-fuchsia-950': { navigationIconColor: '#4a044e' }
+'.navigation-icon-pink-50': { navigationIconColor: '#fdf2f8' }
+'.navigation-icon-pink-100': { navigationIconColor: '#fce7f3' }
+'.navigation-icon-pink-200': { navigationIconColor: '#fbcfe8' }
+'.navigation-icon-pink-300': { navigationIconColor: '#f9a8d4' }
+'.navigation-icon-pink-400': { navigationIconColor: '#f472b6' }
+'.navigation-icon-pink-500': { navigationIconColor: '#ec4899' }
+'.navigation-icon-pink-600': { navigationIconColor: '#db2777' }
+'.navigation-icon-pink-700': { navigationIconColor: '#be185d' }
+'.navigation-icon-pink-800': { navigationIconColor: '#9d174d' }
+'.navigation-icon-pink-900': { navigationIconColor: '#831843' }
+'.navigation-icon-pink-950': { navigationIconColor: '#500724' }
+'.navigation-icon-rose-50': { navigationIconColor: '#fff1f2' }
+'.navigation-icon-rose-100': { navigationIconColor: '#ffe4e6' }
+'.navigation-icon-rose-200': { navigationIconColor: '#fecdd3' }
+'.navigation-icon-rose-300': { navigationIconColor: '#fda4af' }
+'.navigation-icon-rose-400': { navigationIconColor: '#fb7185' }
+'.navigation-icon-rose-500': { navigationIconColor: '#f43f5e' }
+'.navigation-icon-rose-600': { navigationIconColor: '#e11d48' }
+'.navigation-icon-rose-700': { navigationIconColor: '#be123c' }
+'.navigation-icon-rose-800': { navigationIconColor: '#9f1239' }
+'.navigation-icon-rose-900': { navigationIconColor: '#881337' }
+'.navigation-icon-rose-950': { navigationIconColor: '#4c0519' }
 
 // Property: isLeftOpen
 // Description: Determine whether the left drawer is open
@@ -13299,254 +14125,6 @@
 '.wobble': { wobble: true }
 '.wobble-false': { wobble: false }
 
-// Property: barColor
-// Component(s): Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.SplitWindow
-'.bar-transparent': { barColor: 'transparent' }
-'.bar-black': { barColor: '#000000' }
-'.bar-white': { barColor: '#ffffff' }
-'.bar-slate-50': { barColor: '#f8fafc' }
-'.bar-slate-100': { barColor: '#f1f5f9' }
-'.bar-slate-200': { barColor: '#e2e8f0' }
-'.bar-slate-300': { barColor: '#cbd5e1' }
-'.bar-slate-400': { barColor: '#94a3b8' }
-'.bar-slate-500': { barColor: '#64748b' }
-'.bar-slate-600': { barColor: '#475569' }
-'.bar-slate-700': { barColor: '#334155' }
-'.bar-slate-800': { barColor: '#1e293b' }
-'.bar-slate-900': { barColor: '#0f172a' }
-'.bar-slate-950': { barColor: '#020617' }
-'.bar-gray-50': { barColor: '#f9fafb' }
-'.bar-gray-100': { barColor: '#f3f4f6' }
-'.bar-gray-200': { barColor: '#e5e7eb' }
-'.bar-gray-300': { barColor: '#d1d5db' }
-'.bar-gray-400': { barColor: '#9ca3af' }
-'.bar-gray-500': { barColor: '#6b7280' }
-'.bar-gray-600': { barColor: '#4b5563' }
-'.bar-gray-700': { barColor: '#374151' }
-'.bar-gray-800': { barColor: '#1f2937' }
-'.bar-gray-900': { barColor: '#111827' }
-'.bar-gray-950': { barColor: '#030712' }
-'.bar-zinc-50': { barColor: '#fafafa' }
-'.bar-zinc-100': { barColor: '#f4f4f5' }
-'.bar-zinc-200': { barColor: '#e4e4e7' }
-'.bar-zinc-300': { barColor: '#d4d4d8' }
-'.bar-zinc-400': { barColor: '#a1a1aa' }
-'.bar-zinc-500': { barColor: '#71717a' }
-'.bar-zinc-600': { barColor: '#52525b' }
-'.bar-zinc-700': { barColor: '#3f3f46' }
-'.bar-zinc-800': { barColor: '#27272a' }
-'.bar-zinc-900': { barColor: '#18181b' }
-'.bar-zinc-950': { barColor: '#09090b' }
-'.bar-neutral-50': { barColor: '#fafafa' }
-'.bar-neutral-100': { barColor: '#f5f5f5' }
-'.bar-neutral-200': { barColor: '#e5e5e5' }
-'.bar-neutral-300': { barColor: '#d4d4d4' }
-'.bar-neutral-400': { barColor: '#a3a3a3' }
-'.bar-neutral-500': { barColor: '#737373' }
-'.bar-neutral-600': { barColor: '#525252' }
-'.bar-neutral-700': { barColor: '#404040' }
-'.bar-neutral-800': { barColor: '#262626' }
-'.bar-neutral-900': { barColor: '#171717' }
-'.bar-neutral-950': { barColor: '#0a0a0a' }
-'.bar-stone-50': { barColor: '#fafaf9' }
-'.bar-stone-100': { barColor: '#f5f5f4' }
-'.bar-stone-200': { barColor: '#e7e5e4' }
-'.bar-stone-300': { barColor: '#d6d3d1' }
-'.bar-stone-400': { barColor: '#a8a29e' }
-'.bar-stone-500': { barColor: '#78716c' }
-'.bar-stone-600': { barColor: '#57534e' }
-'.bar-stone-700': { barColor: '#44403c' }
-'.bar-stone-800': { barColor: '#292524' }
-'.bar-stone-900': { barColor: '#1c1917' }
-'.bar-stone-950': { barColor: '#0c0a09' }
-'.bar-red-50': { barColor: '#fef2f2' }
-'.bar-red-100': { barColor: '#fee2e2' }
-'.bar-red-200': { barColor: '#fecaca' }
-'.bar-red-300': { barColor: '#fca5a5' }
-'.bar-red-400': { barColor: '#f87171' }
-'.bar-red-500': { barColor: '#ef4444' }
-'.bar-red-600': { barColor: '#dc2626' }
-'.bar-red-700': { barColor: '#b91c1c' }
-'.bar-red-800': { barColor: '#991b1b' }
-'.bar-red-900': { barColor: '#7f1d1d' }
-'.bar-red-950': { barColor: '#450a0a' }
-'.bar-orange-50': { barColor: '#fff7ed' }
-'.bar-orange-100': { barColor: '#ffedd5' }
-'.bar-orange-200': { barColor: '#fed7aa' }
-'.bar-orange-300': { barColor: '#fdba74' }
-'.bar-orange-400': { barColor: '#fb923c' }
-'.bar-orange-500': { barColor: '#f97316' }
-'.bar-orange-600': { barColor: '#ea580c' }
-'.bar-orange-700': { barColor: '#c2410c' }
-'.bar-orange-800': { barColor: '#9a3412' }
-'.bar-orange-900': { barColor: '#7c2d12' }
-'.bar-orange-950': { barColor: '#431407' }
-'.bar-amber-50': { barColor: '#fffbeb' }
-'.bar-amber-100': { barColor: '#fef3c7' }
-'.bar-amber-200': { barColor: '#fde68a' }
-'.bar-amber-300': { barColor: '#fcd34d' }
-'.bar-amber-400': { barColor: '#fbbf24' }
-'.bar-amber-500': { barColor: '#f59e0b' }
-'.bar-amber-600': { barColor: '#d97706' }
-'.bar-amber-700': { barColor: '#b45309' }
-'.bar-amber-800': { barColor: '#92400e' }
-'.bar-amber-900': { barColor: '#78350f' }
-'.bar-amber-950': { barColor: '#451a03' }
-'.bar-yellow-50': { barColor: '#fefce8' }
-'.bar-yellow-100': { barColor: '#fef9c3' }
-'.bar-yellow-200': { barColor: '#fef08a' }
-'.bar-yellow-300': { barColor: '#fde047' }
-'.bar-yellow-400': { barColor: '#facc15' }
-'.bar-yellow-500': { barColor: '#eab308' }
-'.bar-yellow-600': { barColor: '#ca8a04' }
-'.bar-yellow-700': { barColor: '#a16207' }
-'.bar-yellow-800': { barColor: '#854d0e' }
-'.bar-yellow-900': { barColor: '#713f12' }
-'.bar-yellow-950': { barColor: '#422006' }
-'.bar-lime-50': { barColor: '#f7fee7' }
-'.bar-lime-100': { barColor: '#ecfccb' }
-'.bar-lime-200': { barColor: '#d9f99d' }
-'.bar-lime-300': { barColor: '#bef264' }
-'.bar-lime-400': { barColor: '#a3e635' }
-'.bar-lime-500': { barColor: '#84cc16' }
-'.bar-lime-600': { barColor: '#65a30d' }
-'.bar-lime-700': { barColor: '#4d7c0f' }
-'.bar-lime-800': { barColor: '#3f6212' }
-'.bar-lime-900': { barColor: '#365314' }
-'.bar-lime-950': { barColor: '#1a2e05' }
-'.bar-green-50': { barColor: '#f0fdf4' }
-'.bar-green-100': { barColor: '#dcfce7' }
-'.bar-green-200': { barColor: '#bbf7d0' }
-'.bar-green-300': { barColor: '#86efac' }
-'.bar-green-400': { barColor: '#4ade80' }
-'.bar-green-500': { barColor: '#22c55e' }
-'.bar-green-600': { barColor: '#16a34a' }
-'.bar-green-700': { barColor: '#15803d' }
-'.bar-green-800': { barColor: '#166534' }
-'.bar-green-900': { barColor: '#14532d' }
-'.bar-green-950': { barColor: '#052e16' }
-'.bar-emerald-50': { barColor: '#ecfdf5' }
-'.bar-emerald-100': { barColor: '#d1fae5' }
-'.bar-emerald-200': { barColor: '#a7f3d0' }
-'.bar-emerald-300': { barColor: '#6ee7b7' }
-'.bar-emerald-400': { barColor: '#34d399' }
-'.bar-emerald-500': { barColor: '#10b981' }
-'.bar-emerald-600': { barColor: '#059669' }
-'.bar-emerald-700': { barColor: '#047857' }
-'.bar-emerald-800': { barColor: '#065f46' }
-'.bar-emerald-900': { barColor: '#064e3b' }
-'.bar-emerald-950': { barColor: '#022c22' }
-'.bar-teal-50': { barColor: '#f0fdfa' }
-'.bar-teal-100': { barColor: '#ccfbf1' }
-'.bar-teal-200': { barColor: '#99f6e4' }
-'.bar-teal-300': { barColor: '#5eead4' }
-'.bar-teal-400': { barColor: '#2dd4bf' }
-'.bar-teal-500': { barColor: '#14b8a6' }
-'.bar-teal-600': { barColor: '#0d9488' }
-'.bar-teal-700': { barColor: '#0f766e' }
-'.bar-teal-800': { barColor: '#115e59' }
-'.bar-teal-900': { barColor: '#134e4a' }
-'.bar-teal-950': { barColor: '#042f2e' }
-'.bar-cyan-50': { barColor: '#ecfeff' }
-'.bar-cyan-100': { barColor: '#cffafe' }
-'.bar-cyan-200': { barColor: '#a5f3fc' }
-'.bar-cyan-300': { barColor: '#67e8f9' }
-'.bar-cyan-400': { barColor: '#22d3ee' }
-'.bar-cyan-500': { barColor: '#06b6d4' }
-'.bar-cyan-600': { barColor: '#0891b2' }
-'.bar-cyan-700': { barColor: '#0e7490' }
-'.bar-cyan-800': { barColor: '#155e75' }
-'.bar-cyan-900': { barColor: '#164e63' }
-'.bar-cyan-950': { barColor: '#083344' }
-'.bar-sky-50': { barColor: '#f0f9ff' }
-'.bar-sky-100': { barColor: '#e0f2fe' }
-'.bar-sky-200': { barColor: '#bae6fd' }
-'.bar-sky-300': { barColor: '#7dd3fc' }
-'.bar-sky-400': { barColor: '#38bdf8' }
-'.bar-sky-500': { barColor: '#0ea5e9' }
-'.bar-sky-600': { barColor: '#0284c7' }
-'.bar-sky-700': { barColor: '#0369a1' }
-'.bar-sky-800': { barColor: '#075985' }
-'.bar-sky-900': { barColor: '#0c4a6e' }
-'.bar-sky-950': { barColor: '#082f49' }
-'.bar-blue-50': { barColor: '#eff6ff' }
-'.bar-blue-100': { barColor: '#dbeafe' }
-'.bar-blue-200': { barColor: '#bfdbfe' }
-'.bar-blue-300': { barColor: '#93c5fd' }
-'.bar-blue-400': { barColor: '#60a5fa' }
-'.bar-blue-500': { barColor: '#3b82f6' }
-'.bar-blue-600': { barColor: '#2563eb' }
-'.bar-blue-700': { barColor: '#1d4ed8' }
-'.bar-blue-800': { barColor: '#1e40af' }
-'.bar-blue-900': { barColor: '#1e3a8a' }
-'.bar-blue-950': { barColor: '#172554' }
-'.bar-indigo-50': { barColor: '#eef2ff' }
-'.bar-indigo-100': { barColor: '#e0e7ff' }
-'.bar-indigo-200': { barColor: '#c7d2fe' }
-'.bar-indigo-300': { barColor: '#a5b4fc' }
-'.bar-indigo-400': { barColor: '#818cf8' }
-'.bar-indigo-500': { barColor: '#6366f1' }
-'.bar-indigo-600': { barColor: '#4f46e5' }
-'.bar-indigo-700': { barColor: '#4338ca' }
-'.bar-indigo-800': { barColor: '#3730a3' }
-'.bar-indigo-900': { barColor: '#312e81' }
-'.bar-indigo-950': { barColor: '#1e1b4b' }
-'.bar-violet-50': { barColor: '#f5f3ff' }
-'.bar-violet-100': { barColor: '#ede9fe' }
-'.bar-violet-200': { barColor: '#ddd6fe' }
-'.bar-violet-300': { barColor: '#c4b5fd' }
-'.bar-violet-400': { barColor: '#a78bfa' }
-'.bar-violet-500': { barColor: '#8b5cf6' }
-'.bar-violet-600': { barColor: '#7c3aed' }
-'.bar-violet-700': { barColor: '#6d28d9' }
-'.bar-violet-800': { barColor: '#5b21b6' }
-'.bar-violet-900': { barColor: '#4c1d95' }
-'.bar-violet-950': { barColor: '#2e1065' }
-'.bar-purple-50': { barColor: '#faf5ff' }
-'.bar-purple-100': { barColor: '#f3e8ff' }
-'.bar-purple-200': { barColor: '#e9d5ff' }
-'.bar-purple-300': { barColor: '#d8b4fe' }
-'.bar-purple-400': { barColor: '#c084fc' }
-'.bar-purple-500': { barColor: '#a855f7' }
-'.bar-purple-600': { barColor: '#9333ea' }
-'.bar-purple-700': { barColor: '#7e22ce' }
-'.bar-purple-800': { barColor: '#6b21a8' }
-'.bar-purple-900': { barColor: '#581c87' }
-'.bar-purple-950': { barColor: '#3b0764' }
-'.bar-fuchsia-50': { barColor: '#fdf4ff' }
-'.bar-fuchsia-100': { barColor: '#fae8ff' }
-'.bar-fuchsia-200': { barColor: '#f5d0fe' }
-'.bar-fuchsia-300': { barColor: '#f0abfc' }
-'.bar-fuchsia-400': { barColor: '#e879f9' }
-'.bar-fuchsia-500': { barColor: '#d946ef' }
-'.bar-fuchsia-600': { barColor: '#c026d3' }
-'.bar-fuchsia-700': { barColor: '#a21caf' }
-'.bar-fuchsia-800': { barColor: '#86198f' }
-'.bar-fuchsia-900': { barColor: '#701a75' }
-'.bar-fuchsia-950': { barColor: '#4a044e' }
-'.bar-pink-50': { barColor: '#fdf2f8' }
-'.bar-pink-100': { barColor: '#fce7f3' }
-'.bar-pink-200': { barColor: '#fbcfe8' }
-'.bar-pink-300': { barColor: '#f9a8d4' }
-'.bar-pink-400': { barColor: '#f472b6' }
-'.bar-pink-500': { barColor: '#ec4899' }
-'.bar-pink-600': { barColor: '#db2777' }
-'.bar-pink-700': { barColor: '#be185d' }
-'.bar-pink-800': { barColor: '#9d174d' }
-'.bar-pink-900': { barColor: '#831843' }
-'.bar-pink-950': { barColor: '#500724' }
-'.bar-rose-50': { barColor: '#fff1f2' }
-'.bar-rose-100': { barColor: '#ffe4e6' }
-'.bar-rose-200': { barColor: '#fecdd3' }
-'.bar-rose-300': { barColor: '#fda4af' }
-'.bar-rose-400': { barColor: '#fb7185' }
-'.bar-rose-500': { barColor: '#f43f5e' }
-'.bar-rose-600': { barColor: '#e11d48' }
-'.bar-rose-700': { barColor: '#be123c' }
-'.bar-rose-800': { barColor: '#9f1239' }
-'.bar-rose-900': { barColor: '#881337' }
-'.bar-rose-950': { barColor: '#4c0519' }
-
 // Property: html
 // Component(s): Ti.UI.EmailDialog, Ti.UI.Label, Ti.UI.WebView
 '.html': { html: true }
@@ -15106,6 +15684,12 @@
 '.selected-subtitle-rose-900': { selectedSubtitleColor: '#881337' }
 '.selected-subtitle-rose-950': { selectedSubtitleColor: '#4c0519' }
 
+// Property: selectionStyle
+// Description: Selection style constant to control the selection color.
+// Component(s): Ti.UI.ListItem, Ti.UI.TableViewRow
+'.selection-style-none': { selectionStyle: Ti.UI.SELECTION_STYLE_NONE }
+'.selection-style': { selectionStyle: Ti.UI.SELECTION_STYLE_DEFAULT }
+
 // Property: allowsSelection
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.allows-selection': { allowsSelection: true }
@@ -16216,6 +16800,7 @@
 '.window-soft-input-mode-state-visible[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_VISIBLE }
 '.window-soft-input-mode-adjust-pan[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_PAN }
 '.window-soft-input-mode-adjust-resize[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE }
+'.window-soft-input-mode-adjust-nothing[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_NOTHING }
 '.window-soft-input-mode-adjust-unspecified[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED }
 
 // Property: windowPixelFormat
@@ -20849,6 +21434,12 @@
 '.tabs-bg-selected-rose-900': { tabsBackgroundSelectedColor: '#881337' }
 '.tabs-bg-selected-rose-950': { tabsBackgroundSelectedColor: '#4c0519' }
 
+// Property: tabBarVisible
+// Description: Programmatically shows / hides the bottom tab bar of the tab group.
+// Component(s): Ti.UI.TabGroup
+'.tab-bar-visible': { tabBarVisible: true }
+'.tab-bar-visible-false': { tabBarVisible: false }
+
 // Property: filterAnchored
 // Description: Determines whether the search is limited to the start of the string
 // Component(s): Ti.UI.TableView
@@ -22054,6 +22645,74 @@
 '.override-user-interface-style-light': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_LIGHT }
 '.override-user-interface-style-dark': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_DARK }
 
+// Property: statusBarHeight
+// Description: The total height of the status bar including safe area padding.
+// Component(s): Ti.UI
+'.status-bar-h-0': { statusBarHeight: 0 }
+'.status-bar-h-1': { statusBarHeight: 4 }
+'.status-bar-h-2': { statusBarHeight: 8 }
+'.status-bar-h-3': { statusBarHeight: 12 }
+'.status-bar-h-4': { statusBarHeight: 16 }
+'.status-bar-h-5': { statusBarHeight: 20 }
+'.status-bar-h-6': { statusBarHeight: 24 }
+'.status-bar-h-7': { statusBarHeight: 28 }
+'.status-bar-h-8': { statusBarHeight: 32 }
+'.status-bar-h-9': { statusBarHeight: 36 }
+'.status-bar-h-10': { statusBarHeight: 40 }
+'.status-bar-h-11': { statusBarHeight: 44 }
+'.status-bar-h-12': { statusBarHeight: 48 }
+'.status-bar-h-14': { statusBarHeight: 56 }
+'.status-bar-h-16': { statusBarHeight: 64 }
+'.status-bar-h-20': { statusBarHeight: 80 }
+'.status-bar-h-24': { statusBarHeight: 96 }
+'.status-bar-h-28': { statusBarHeight: 112 }
+'.status-bar-h-32': { statusBarHeight: 128 }
+'.status-bar-h-36': { statusBarHeight: 144 }
+'.status-bar-h-40': { statusBarHeight: 160 }
+'.status-bar-h-44': { statusBarHeight: 176 }
+'.status-bar-h-48': { statusBarHeight: 192 }
+'.status-bar-h-52': { statusBarHeight: 208 }
+'.status-bar-h-56': { statusBarHeight: 224 }
+'.status-bar-h-60': { statusBarHeight: 240 }
+'.status-bar-h-64': { statusBarHeight: 256 }
+'.status-bar-h-72': { statusBarHeight: 288 }
+'.status-bar-h-80': { statusBarHeight: 320 }
+'.status-bar-h-96': { statusBarHeight: 384 }
+'.status-bar-h-auto': { statusBarHeight: Ti.UI.SIZE }
+'.status-bar-h-px': { statusBarHeight: '1px' }
+'.status-bar-h-0.5': { statusBarHeight: 2 }
+'.status-bar-h-1.5': { statusBarHeight: 6 }
+'.status-bar-h-2.5': { statusBarHeight: 10 }
+'.status-bar-h-3.5': { statusBarHeight: 14 }
+'.status-bar-h-1/2': { statusBarHeight: '50%' }
+'.status-bar-h-1/3': { statusBarHeight: '33.333334%' }
+'.status-bar-h-2/3': { statusBarHeight: '66.666667%' }
+'.status-bar-h-1/4': { statusBarHeight: '25%' }
+'.status-bar-h-2/4': { statusBarHeight: '50%' }
+'.status-bar-h-3/4': { statusBarHeight: '75%' }
+'.status-bar-h-1/5': { statusBarHeight: '20%' }
+'.status-bar-h-2/5': { statusBarHeight: '40%' }
+'.status-bar-h-3/5': { statusBarHeight: '60%' }
+'.status-bar-h-4/5': { statusBarHeight: '80%' }
+'.status-bar-h-1/6': { statusBarHeight: '16.666667%' }
+'.status-bar-h-2/6': { statusBarHeight: '33.333334%' }
+'.status-bar-h-3/6': { statusBarHeight: '50%' }
+'.status-bar-h-4/6': { statusBarHeight: '66.666667%' }
+'.status-bar-h-5/6': { statusBarHeight: '83.333334%' }
+'.status-bar-h-1/12': { statusBarHeight: '8.333334%' }
+'.status-bar-h-2/12': { statusBarHeight: '16.666667%' }
+'.status-bar-h-3/12': { statusBarHeight: '25%' }
+'.status-bar-h-4/12': { statusBarHeight: '33.333334%' }
+'.status-bar-h-5/12': { statusBarHeight: '41.666667%' }
+'.status-bar-h-6/12': { statusBarHeight: '50%' }
+'.status-bar-h-7/12': { statusBarHeight: '58.333334%' }
+'.status-bar-h-8/12': { statusBarHeight: '66.666667%' }
+'.status-bar-h-9/12': { statusBarHeight: '75%' }
+'.status-bar-h-10/12': { statusBarHeight: '83.333334%' }
+'.status-bar-h-11/12': { statusBarHeight: '91.666667%' }
+'.status-bar-h-full': { statusBarHeight: '100%' }
+'.status-bar-h-screen': { statusBarHeight: Ti.UI.FILL }
+
 // Property: backfillStart
 // Description: Set to true to continue filling with the starting color beyond the startPoint.
 // Component(s): Gradient
@@ -22065,6 +22724,12 @@
 // Component(s): Gradient
 '.backfill-end': { backfillEnd: true }
 '.backfill-end-false': { backfillEnd: false }
+
+// Property: allowFileAccess
+// Description: A Boolean value indicating file access within WebView.
+// Component(s): Ti.UI.WebView
+'.allow-file-access': { allowFileAccess: true }
+'.allow-file-access-false': { allowFileAccess: false }
 
 // Property: allowsLinkPreview
 // Description: A Boolean value that determines whether pressing on a link displays a preview of the destination for the link.
