@@ -8,5 +8,6 @@
 '.window-soft-input-mode-state-visible[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_VISIBLE }
 '.window-soft-input-mode-adjust-pan[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_PAN }
 '.window-soft-input-mode-adjust-resize[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE }
+'.window-soft-input-mode-adjust-nothing[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_NOTHING }
 '.window-soft-input-mode-adjust-unspecified[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED }
 ```

@@ -248,6 +248,7 @@ function processCompoundClasses({ ..._base }) {
 	compoundClasses += generateGlossary('backgroundSelectedGradient', helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient')));
 	compoundClasses += generateGlossary('color-alternative', helpers.textColor(_base.textColor));
 	compoundClasses += generateGlossary('hintTextColor', helpers.placeholder(combineKeys(configFile.theme, _base.colors, 'hintTextColor')));
+	compoundClasses += generateGlossary('tintColor', helpers.tintColor(combineKeys(configFile.theme, _base.colors, 'tintColor')));
 	compoundClasses += generateGlossary('titleAttributes-color', helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor')));
 	compoundClasses += generateGlossary('titleAttributes-shadow-color', helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor')));
 
@@ -645,6 +646,7 @@ function removeUneededVariablesFromPropertyName(property) {
 
 function setModifier(_modifier) {
 	if (_modifier.includes('-i-os')) {
+		// some classes ended up with '-i-os' in their names after processing, this is to clear it.
 		_modifier = _modifier.replace('-i-os', '') + '[platform=ios]';
 	} else if (_modifier.includes('-android')) {
 		_modifier = _modifier.replace('-android', '') + '[platform=android]';

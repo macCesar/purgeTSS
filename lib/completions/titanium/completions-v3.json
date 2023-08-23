@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "12.0.0.GA",
+	"sdkVersion": "12.1.2.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -4817,6 +4817,36 @@
 			"readOnly": false,
 			"values": []
 		},
+		"PDF_PAGE_DIN_A1": {
+			"description": "PDF paper size",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"PDF_PAGE_DIN_A2": {
+			"description": "PDF paper size",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"PDF_PAGE_DIN_A3": {
+			"description": "PDF paper size",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"PDF_PAGE_DIN_A4": {
+			"description": "PDF paper size",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"PDF_PAGE_DIN_A5": {
+			"description": "PDF paper size",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
 		"PENDING_INTENT_FOR_ACTIVITY": {
 			"description": "Not used. <strong>Removed in 10.0.0.</strong>",
 			"type": "Number",
@@ -5501,6 +5531,48 @@
 			"readOnly": false,
 			"values": []
 		},
+		"SCROLL_FLAG_ENTER_ALWAYS": {
+			"description": "When entering (scrolling on screen) the view will scroll on any downwards scroll event, regardless of whether the scrolling view is also scrolling. This is commonly referred to as the 'quick return' pattern.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED": {
+			"description": "An additional flag for 'enterAlways' which modifies the returning view to only initially scroll back to it's collapsed height. Once the scrolling view has reached the end of it's scroll range, the remainder of this view will be scrolled into view. The collapsed height is defined by the view's minimum height.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"SCROLL_FLAG_EXIT_UNTIL_COLLAPSED": {
+			"description": "When exiting (scrolling off screen) the view will be scrolled until it is 'collapsed'. The collapsed height is defined by the view's minimum height.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"SCROLL_FLAG_NO_SCROLL": {
+			"description": "Disable scrolling on the view. This flag should not be combined with any of the other scroll flags.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"SCROLL_FLAG_SCROLL": {
+			"description": "The view will be scroll in direct relation to scroll events. This flag needs to be set for any of the other flags to take effect. If any sibling views before this one do not have this flag, then this value has no effect.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"SCROLL_FLAG_SNAP": {
+			"description": "Upon a scroll ending, if the view is only partially visible then it will be snapped and scrolled to its closest edge. For example, if the view only has its bottom 25% displayed, it will be scrolled off screen completely. Conversely, if its bottom 75% is visible then it will be scrolled fully into view.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"SCROLL_FLAG_SNAP_MARGINS": {
+			"description": "An additional flag to be used with 'snap'. If set, the view will be snapped to its top and bottom margins, as opposed to the edges of the view itself.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
 		"SEARCH": {
 			"description": "Search style icon",
 			"type": "Number",
@@ -5774,6 +5846,12 @@
 		"SIZE": {
 			"description": "SIZE behavior for UI layout.",
 			"type": "String",
+			"readOnly": false,
+			"values": []
+		},
+		"SOFT_INPUT_ADJUST_NOTHING": {
+			"description": "The window will not be resized, and it will not be panned to make its focus visible.",
+			"type": "Number",
 			"readOnly": false,
 			"values": []
 		},
@@ -8129,6 +8207,15 @@
 				"false"
 			]
 		},
+		"allowFileAccess": {
+			"description": "A Boolean value indicating file access within WebView.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
+		},
 		"allowMultiple": {
 			"description": "Specifies if the user should be able to select multiple photos.",
 			"type": "Boolean",
@@ -8776,6 +8863,15 @@
 				"false"
 			]
 		},
+		"autoHide": {
+			"description": "Indicates if player is hidden by default and shown when its ready.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
+		},
 		"autoLink": {
 			"description": "",
 			"type": "Number",
@@ -8982,6 +9078,12 @@
 				"Ti.Media.MEDIA_TYPE_LIVEPHOTO",
 				"Ti.Media.MEDIA_TYPE_VIDEO"
 			]
+		},
+		"availableSystemFontFamilies": {
+			"description": "Returns a list of font families that are provided by the system.",
+			"type": "Array",
+			"readOnly": false,
+			"values": []
 		},
 		"averageMicrophonePower": {
 			"description": "Current average microphone level in dB or -1 if microphone monitoring is disabled.",
@@ -10349,6 +10451,37 @@
 			"readOnly": true,
 			"values": []
 		},
+		"contentScrimColor": {
+			"description": "Background color of the small toolbar when the content is scrolled up.",
+			"type": "String",
+			"readOnly": true,
+			"values": [
+				"'transparent'",
+				"'aqua'",
+				"'black'",
+				"'blue'",
+				"'brown'",
+				"'cyan'",
+				"'darkgray'",
+				"'fuchsia'",
+				"'gray'",
+				"'green'",
+				"'lightgray'",
+				"'lime'",
+				"'magenta'",
+				"'maroon'",
+				"'navy'",
+				"'olive'",
+				"'orange'",
+				"'pink'",
+				"'purple'",
+				"'red'",
+				"'silver'",
+				"'teal'",
+				"'white'",
+				"'yellow'"
+			]
+		},
 		"contentSources": {
 			"description": "Used to indicate where the item was obtained from.",
 			"type": "Array",
@@ -10626,10 +10759,22 @@
 				"false"
 			]
 		},
+		"customSize": {
+			"description": "Size of the button",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
 		"customView": {
 			"description": "Sets a view to be used for a custom navigation mode.",
 			"type": "Titanium.UI.View",
 			"readOnly": true,
+			"values": []
+		},
+		"cutoutSize": {
+			"description": "Returns the position and shape of the Android notch. Read more about the notch <a href=\"https://developer.android.com/develop/ui/views/layout/display-cutout\">here</a>.",
+			"type": "CutoutSize",
+			"readOnly": false,
 			"values": []
 		},
 		"d": {
@@ -11745,7 +11890,14 @@
 				"Ti.Android.WAKE_LOCK_SCREEN_DIM",
 				"Ti.Android.WAKE_LOCK_SCREEN_BRIGHT",
 				"Ti.Android.WAKE_LOCK_ACQUIRE_CAUSES_WAKEUP",
-				"Ti.Android.WAKE_LOCK_ON_AFTER_RELEASE"
+				"Ti.Android.WAKE_LOCK_ON_AFTER_RELEASE",
+				"Ti.UI.Android.SCROLL_FLAG_ENTER_ALWAYS",
+				"Ti.UI.Android.SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED",
+				"Ti.UI.Android.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED",
+				"Ti.UI.Android.SCROLL_FLAG_NO_SCROLL",
+				"Ti.UI.Android.SCROLL_FLAG_SCROLL",
+				"Ti.UI.Android.SCROLL_FLAG_SNAP",
+				"Ti.UI.Android.SCROLL_FLAG_SNAP_MARGINS"
 			]
 		},
 		"floor": {
@@ -12652,6 +12804,12 @@
 				"false"
 			]
 		},
+		"iconSize": {
+			"description": "Predefined button size",
+			"type": "String",
+			"readOnly": false,
+			"values": []
+		},
 		"iconified": {
 			"description": "",
 			"type": "Boolean",
@@ -12730,6 +12888,12 @@
 		"image": {
 			"description": "",
 			"type": "Titanium.Blob",
+			"readOnly": true,
+			"values": []
+		},
+		"imageHeight": {
+			"description": "Height of the image. Use <code>height</code> for the height of the extended toolbar.",
+			"type": "Number",
 			"readOnly": true,
 			"values": []
 		},
@@ -14247,6 +14411,12 @@
 			"readOnly": true,
 			"values": []
 		},
+		"maxImageSize": {
+			"description": "Size of the image inside the button",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
 		"maxLength": {
 			"description": "Maximum length of text field input.",
 			"type": "Number",
@@ -14790,6 +14960,37 @@
 			"readOnly": true,
 			"values": []
 		},
+		"navigationIconColor": {
+			"description": "",
+			"type": "String",
+			"readOnly": true,
+			"values": [
+				"'transparent'",
+				"'aqua'",
+				"'black'",
+				"'blue'",
+				"'brown'",
+				"'cyan'",
+				"'darkgray'",
+				"'fuchsia'",
+				"'gray'",
+				"'green'",
+				"'lightgray'",
+				"'lime'",
+				"'magenta'",
+				"'maroon'",
+				"'navy'",
+				"'olive'",
+				"'orange'",
+				"'pink'",
+				"'purple'",
+				"'red'",
+				"'silver'",
+				"'teal'",
+				"'white'",
+				"'yellow'"
+			]
+		},
 		"navigationMode": {
 			"description": "Controls the navigation mode.",
 			"type": "Number",
@@ -14925,6 +15126,12 @@
 				"Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED",
 				"Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED"
 			]
+		},
+		"notificationChannels": {
+			"description": "Returns an object with the ID and name of the notification channels",
+			"type": "NotificationChannels",
+			"readOnly": true,
+			"values": []
 		},
 		"notifications": {
 			"description": "An array of identifiers used to create notifications.",
@@ -17263,7 +17470,10 @@
 			"description": "Selection style constant to control the selection color.",
 			"type": "Number",
 			"readOnly": true,
-			"values": []
+			"values": [
+				"Ti.UI.SELECTION_STYLE_NONE",
+				"Ti.UI.SELECTION_STYLE_DEFAULT"
+			]
 		},
 		"semanticColorType": {
 			"description": "The current mode for the device (corresponding to night/dark or light/normal) <strong>Deprecated since 9.1.0. Use <a href=\"Titanium.UI.userInterfaceStyle\">userInterfaceStyle</a> instead.</strong>",
@@ -17890,6 +18100,12 @@
 				"'yellow'"
 			]
 		},
+		"statusBarHeight": {
+			"description": "The total height of the status bar including safe area padding.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
 		"statusBarStyle": {
 			"description": "The status bar style associated with this window.",
 			"type": "Number",
@@ -18275,6 +18491,15 @@
 		},
 		"tabBarHidden": {
 			"description": "Boolean value indicating if the tab bar should be hidden.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
+		},
+		"tabBarVisible": {
+			"description": "Programmatically shows / hides the bottom tab bar of the tab group.",
 			"type": "Boolean",
 			"readOnly": true,
 			"values": [
@@ -18860,6 +19085,12 @@
 				"true",
 				"false"
 			]
+		},
+		"tooltip": {
+			"description": "The default text to display in the control's tooltip.",
+			"type": "String",
+			"readOnly": true,
+			"values": []
 		},
 		"top": {
 			"description": "",
@@ -19692,6 +19923,7 @@
 				"Ti.UI.Android.SOFT_INPUT_STATE_VISIBLE",
 				"Ti.UI.Android.SOFT_INPUT_ADJUST_PAN",
 				"Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE",
+				"Ti.UI.Android.SOFT_INPUT_ADJUST_NOTHING",
 				"Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED"
 			]
 		},
@@ -19861,6 +20093,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -19918,6 +20151,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -21614,7 +21848,17 @@
 				"FLAG_ONGOING_EVENT",
 				"FLAG_ONLY_ALERT_ONCE",
 				"FLAG_SHOW_LIGHTS",
-				"STREAM_DEFAULT"
+				"STREAM_DEFAULT",
+				"notificationChannels"
+			],
+			"events": []
+		},
+		"NotificationChannels": {
+			"description": "The parameter passed to the <code>error</code> callback of <a href=\"PreviewImageOptions\">PreviewImageOptions</a>.",
+			"functions": [],
+			"properties": [
+				"name",
+				"id"
 			],
 			"events": []
 		},
@@ -23571,7 +23815,8 @@
 				"addEventListener",
 				"removeEventListener",
 				"fireEvent",
-				"applyProperties"
+				"applyProperties",
+				"stopListener"
 			],
 			"properties": [
 				"bubbleParent",
@@ -24338,6 +24583,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -24401,6 +24647,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -24421,6 +24668,7 @@
 				"keepScreenOn",
 				"allowsAirPlay",
 				"autoplay",
+				"autoHide",
 				"backgroundView",
 				"currentPlaybackTime",
 				"duration",
@@ -25105,6 +25353,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"updateLayout|deprecated",
 				"getViewById"
 			],
@@ -25127,6 +25376,7 @@
 				"rotationY",
 				"scaleX",
 				"scaleY",
+				"tooltip",
 				"top",
 				"touchFeedback",
 				"touchFeedbackColor",
@@ -25177,6 +25427,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"updateLayout|deprecated",
 				"getViewById"
 			],
@@ -25196,6 +25447,7 @@
 				"scaleX",
 				"scaleY",
 				"tintColor",
+				"tooltip",
 				"touchFeedback",
 				"touchFeedbackColor",
 				"translationX",
@@ -25255,7 +25507,9 @@
 				"openPreferences",
 				"getColorResource",
 				"createCardView",
+				"createCollapseToolbar",
 				"createDrawerLayout",
+				"createFloatingActionButton",
 				"createProgressIndicator",
 				"createSearchView",
 				"createSnackbar"
@@ -25317,6 +25571,7 @@
 				"PROGRESS_INDICATOR_DETERMINANT",
 				"SOFT_INPUT_ADJUST_PAN",
 				"SOFT_INPUT_ADJUST_RESIZE",
+				"SOFT_INPUT_ADJUST_NOTHING",
 				"SOFT_INPUT_ADJUST_UNSPECIFIED",
 				"SOFT_INPUT_STATE_ALWAYS_HIDDEN",
 				"SOFT_INPUT_STATE_ALWAYS_VISIBLE",
@@ -25349,7 +25604,14 @@
 				"TRANSITION_CHANGE_IMAGE_TRANSFORM",
 				"TRANSITION_NONE",
 				"TABS_STYLE_DEFAULT",
-				"TABS_STYLE_BOTTOM_NAVIGATION"
+				"TABS_STYLE_BOTTOM_NAVIGATION",
+				"SCROLL_FLAG_ENTER_ALWAYS",
+				"SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED",
+				"SCROLL_FLAG_EXIT_UNTIL_COLLAPSED",
+				"SCROLL_FLAG_NO_SCROLL",
+				"SCROLL_FLAG_SCROLL",
+				"SCROLL_FLAG_SNAP",
+				"SCROLL_FLAG_SNAP_MARGINS"
 			],
 			"events": []
 		},
@@ -25369,6 +25631,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -25414,6 +25677,7 @@
 				"scaleY",
 				"size",
 				"softKeyboardOnFocus",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -25457,6 +25721,31 @@
 				"twofingertap"
 			]
 		},
+		"Ti.UI.Android.CollapseToolbar": {
+			"description": "A collapsing toolbar layout.",
+			"functions": [
+				"stopAnimation"
+			],
+			"properties": [
+				"apiName",
+				"height",
+				"id",
+				"tooltip",
+				"top",
+				"barColor",
+				"contentScrimColor",
+				"image",
+				"imageHeight",
+				"title",
+				"color",
+				"navigationIconColor",
+				"contentView",
+				"displayHomeAsUp",
+				"flags",
+				"onHomeIconItemSelected"
+			],
+			"events": []
+		},
 		"Ti.UI.Android.DrawerLayout": {
 			"description": "A panel that displays the app's main navigation options on the left edge of the screen.",
 			"functions": [
@@ -25473,6 +25762,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -25529,6 +25819,7 @@
 				"scaleY",
 				"size",
 				"softKeyboardOnFocus",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -25587,6 +25878,56 @@
 				"slide"
 			]
 		},
+		"Ti.UI.Android.FloatingActionButton": {
+			"description": "A floating action button (FAB) is a circular button that triggers the primary action in your app's UI.",
+			"functions": [
+				"addEventListener",
+				"removeEventListener",
+				"fireEvent",
+				"applyProperties",
+				"hide",
+				"insertAt",
+				"replaceAt",
+				"show",
+				"startLayout|deprecated",
+				"stopAnimation",
+				"updateLayout|deprecated",
+				"getViewById"
+			],
+			"properties": [
+				"bubbleParent",
+				"apiName",
+				"lifecycleContainer",
+				"backgroundColor",
+				"bottom",
+				"elevation",
+				"filterTouchesWhenObscured",
+				"hiddenBehavior",
+				"id",
+				"left",
+				"right",
+				"rotation",
+				"rotationX",
+				"rotationY",
+				"scaleX",
+				"scaleY",
+				"tooltip",
+				"top",
+				"touchFeedbackColor",
+				"translationX",
+				"translationY",
+				"translationZ",
+				"transitionName",
+				"visible",
+				"customSize",
+				"maxImageSize",
+				"image",
+				"iconSize"
+			],
+			"events": [
+				"click"
+			]
+		},
 		"Ti.UI.Android.ProgressIndicator": {
 			"description": "A progress dialog or a horizontal progress bar in the title of the window.",
 			"functions": [
@@ -25599,6 +25940,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"updateLayout|deprecated",
 				"getViewById"
 			],
@@ -25615,6 +25957,7 @@
 				"rotationY",
 				"scaleX",
 				"scaleY",
+				"tooltip",
 				"touchFeedback",
 				"touchFeedbackColor",
 				"translationX",
@@ -25649,6 +25992,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -25700,6 +26044,7 @@
 				"scaleY",
 				"size",
 				"softKeyboardOnFocus",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -25758,6 +26103,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"updateLayout|deprecated",
 				"getViewById"
 			],
@@ -25774,6 +26120,7 @@
 				"rotationY",
 				"scaleX",
 				"scaleY",
+				"tooltip",
 				"touchFeedback",
 				"touchFeedbackColor",
 				"translationX",
@@ -25847,6 +26194,7 @@
 				"zIndex"
 			],
 			"events": [
+				"cancel",
 				"complete",
 				"start"
 			]
@@ -25912,6 +26260,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -25968,6 +26317,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -26037,6 +26387,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -26093,6 +26444,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -26259,6 +26611,7 @@
 				"rect",
 				"size",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"transform",
@@ -26333,6 +26686,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"updateLayout|deprecated",
 				"getViewById",
 				"addAttachment",
@@ -26354,6 +26708,7 @@
 				"rotationY",
 				"scaleX",
 				"scaleY",
+				"tooltip",
 				"touchFeedback",
 				"touchFeedbackColor",
 				"translationX",
@@ -26402,6 +26757,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -26463,6 +26819,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -26536,6 +26893,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -26592,6 +26950,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -26738,7 +27097,8 @@
 				"title",
 				"identifier",
 				"style",
-				"color"
+				"color",
+				"image"
 			],
 			"events": []
 		},
@@ -26780,6 +27140,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -26845,6 +27206,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -27013,6 +27375,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -27069,6 +27432,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -27206,6 +27570,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -27274,6 +27639,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -27400,6 +27766,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -27456,6 +27823,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -27498,6 +27866,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"updateLayout|deprecated",
 				"getViewById"
 			],
@@ -27517,6 +27886,7 @@
 				"scaleX",
 				"scaleY",
 				"tintColor",
+				"tooltip",
 				"touchFeedback",
 				"touchFeedbackColor",
 				"translationX",
@@ -27581,6 +27951,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -27628,6 +27999,7 @@
 				"scaleY",
 				"size",
 				"softKeyboardOnFocus",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -27694,6 +28066,7 @@
 				"removeEventListener",
 				"fireEvent",
 				"applyProperties",
+				"stopAnimation",
 				"addRow",
 				"removeRow"
 			],
@@ -27703,6 +28076,7 @@
 				"lifecycleContainer",
 				"filterTouchesWhenObscured",
 				"id",
+				"tooltip",
 				"rowCount",
 				"rows",
 				"font"
@@ -27730,6 +28104,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -27787,6 +28162,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -27841,6 +28217,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -27897,6 +28274,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -27983,6 +28361,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -28045,6 +28424,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -28122,6 +28502,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -28185,6 +28566,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -28252,6 +28634,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -28314,6 +28697,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -28459,6 +28843,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -28515,6 +28900,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -28592,6 +28978,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -28648,6 +29035,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -28710,6 +29098,7 @@
 				"clearMotionEffects",
 				"insertAt",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -28746,6 +29135,7 @@
 				"scaleX",
 				"scaleY",
 				"tintColor",
+				"tooltip",
 				"touchEnabled",
 				"touchFeedback",
 				"touchFeedbackColor",
@@ -28812,6 +29202,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -28855,6 +29246,7 @@
 				"scaleY",
 				"size",
 				"tintColor",
+				"tooltip",
 				"touchEnabled",
 				"touchFeedback",
 				"touchFeedbackColor",
@@ -28953,7 +29345,8 @@
 				"unselectedItemTintColor",
 				"activeTabIconTint",
 				"tabsBackgroundSelectedColor",
-				"activeTabBackgroundImage"
+				"activeTabBackgroundImage",
+				"tabBarVisible"
 			],
 			"events": [
 				"focus",
@@ -28968,6 +29361,15 @@
 				"open"
 			]
 		},
+		"disableTabOptions": {
+			"description": "Dictionary of options for the &lt;Titanium.UI.TabGroup.disableTabOptions&gt; method.",
+			"functions": [],
+			"properties": [
+				"animated",
+				"enabled"
+			],
+			"events": []
+		},
 		"Ti.UI.TabbedBar": {
 			"description": "A button bar that maintains a selected state.",
 			"functions": [
@@ -28981,6 +29383,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -29037,6 +29440,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -29083,6 +29487,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -29155,6 +29560,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -29297,6 +29703,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -29354,6 +29761,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -29461,6 +29869,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -29521,6 +29930,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -29624,6 +30034,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -29684,6 +30095,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -29803,6 +30215,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -29863,6 +30276,7 @@
 				"scaleY",
 				"size",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -29889,6 +30303,7 @@
 				"contentInsetStartWithNavigation",
 				"logo",
 				"navigationIcon",
+				"navigationIconColor",
 				"overflowIcon",
 				"subtitle",
 				"subtitleTextColor",
@@ -30237,15 +30652,29 @@
 				"USER_INTERFACE_STYLE_UNSPECIFIED",
 				"USER_INTERFACE_STYLE_LIGHT",
 				"USER_INTERFACE_STYLE_DARK",
+				"availableSystemFontFamilies",
 				"backgroundColor",
 				"backgroundImage",
 				"overrideUserInterfaceStyle",
 				"tintColor",
-				"userInterfaceStyle"
+				"userInterfaceStyle",
+				"cutoutSize",
+				"statusBarHeight"
 			],
 			"events": [
 				"userinterfacestyle"
 			]
+		},
+		"CutoutSize": {
+			"description": "Dictionary object of parameters for the <a href=\"Titanium.UI.cutoutSize\">Titanium.UI.cutoutSize</a>.",
+			"functions": [],
+			"properties": [
+				"top",
+				"left",
+				"width",
+				"height"
+			],
+			"events": []
 		},
 		"Point": {
 			"description": "A pair of coordinates used to describe the location of a <a href=\"Titanium.UI.View\">Titanium.UI.View</a>.",
@@ -30311,6 +30740,7 @@
 				"insertAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -30391,6 +30821,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -30409,6 +30840,7 @@
 				"horizontalWrap",
 				"zIndex",
 				"keepScreenOn",
+				"allowFileAccess",
 				"allowsLinkPreview",
 				"blacklistedURLs",
 				"blockedURLs",
@@ -30446,7 +30878,12 @@
 				"cachePolicy",
 				"timeout",
 				"selectionGranularity",
-				"secure"
+				"secure",
+				"PDF_PAGE_DIN_A5",
+				"PDF_PAGE_DIN_A4",
+				"PDF_PAGE_DIN_A3",
+				"PDF_PAGE_DIN_A2",
+				"PDF_PAGE_DIN_A1"
 			],
 			"events": [
 				"click",
@@ -30495,6 +30932,14 @@
 				"data",
 				"success",
 				"error"
+			],
+			"events": []
+		},
+		"DataCreationResultAndroid": {
+			"description": "Success callback in <a href=\"Titanium.UI.WebView.createPDF\">Titanium.UI.WebView.createPDF</a>.",
+			"functions": [],
+			"properties": [
+				"data"
 			],
 			"events": []
 		},
@@ -30582,6 +31027,7 @@
 				"replaceAt",
 				"show",
 				"startLayout|deprecated",
+				"stopAnimation",
 				"toImage",
 				"updateLayout|deprecated",
 				"convertPointToView",
@@ -30649,6 +31095,7 @@
 				"size",
 				"softKeyboardOnFocus",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"touchFeedback",
@@ -30979,6 +31426,7 @@
 				"rect",
 				"size",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"transform",
@@ -31098,6 +31546,7 @@
 				"rect",
 				"size",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"transform",
@@ -31312,6 +31761,7 @@
 				"rect",
 				"size",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"transform",
@@ -31574,6 +32024,7 @@
 				"rect",
 				"size",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"transform",
@@ -31730,6 +32181,7 @@
 				"rect",
 				"size",
 				"tintColor",
+				"tooltip",
 				"top",
 				"touchEnabled",
 				"transform",
@@ -32161,6 +32613,7 @@
 				"height",
 				"horizontalMotionEffect",
 				"id",
+				"tooltip",
 				"verticalMotionEffect",
 				"width",
 				"arrowDirection",

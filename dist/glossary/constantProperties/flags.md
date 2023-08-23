@@ -1,6 +1,6 @@
 ```scss
 // Property: flags
-// Component(s): Ti.Android.Intent, Ti.Android.Notification, wakeLockOptions, Ti.Android.PendingIntent
+// Component(s): Ti.Android.Intent, Ti.Android.Notification, wakeLockOptions, Ti.Android.PendingIntent, Ti.UI.Android.CollapseToolbar
 '.flags-activity-brought-to-front[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
 '.flags-activity-clear-top[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
 '.flags-activity-clear-when-task-reset[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET }
@@ -39,4 +39,11 @@
 '.flags-wake-lock-screen-bright[platform=android]': { flags: Ti.Android.WAKE_LOCK_SCREEN_BRIGHT }
 '.flags-wake-lock-acquire-causes-wakeup[platform=android]': { flags: Ti.Android.WAKE_LOCK_ACQUIRE_CAUSES_WAKEUP }
 '.flags-wake-lock-on-after-release[platform=android]': { flags: Ti.Android.WAKE_LOCK_ON_AFTER_RELEASE }
+'.flags-scroll-enter-always[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_ENTER_ALWAYS }
+'.flags-scroll-enter-always-collapsed[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED }
+'.flags-scroll-exit-until-collapsed[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_EXIT_UNTIL_COLLAPSED }
+'.flags-scroll-no[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_NO_SCROLL }
+'.flags-scroll-flag[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_SCROLL }
+'.flags-scroll-snap[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_SNAP }
+'.flags-scroll-snap-margins[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_SNAP_MARGINS }
 ```

@@ -1,6 +1,6 @@
 ```scss
 // Property: barColor
-// Component(s): Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.SplitWindow
+// Component(s): Ti.UI.Android.CollapseToolbar, Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.SplitWindow
 '.bar-transparent': { barColor: 'transparent' }
 '.bar-black': { barColor: '#000000' }
 '.bar-white': { barColor: '#ffffff' }

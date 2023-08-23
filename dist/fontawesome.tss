@@ -2041,6 +2041,7 @@
 '.fa-square-hacker-news': { text: '\uf3af', title: '\uf3af' }
 '.fa-hacker-news-square': { text: '\uf3af', title: '\uf3af' }
 '.fa-edge': { text: '\uf282', title: '\uf282' }
+'.fa-threads': { text: '\ue618', title: '\ue618' }
 '.fa-napster': { text: '\uf3d2', title: '\uf3d2' }
 '.fa-square-snapchat': { text: '\uf2ad', title: '\uf2ad' }
 '.fa-snapchat-square': { text: '\uf2ad', title: '\uf2ad' }
@@ -2097,6 +2098,7 @@
 '.fa-steam': { text: '\uf1b6', title: '\uf1b6' }
 '.fa-cc-apple-pay': { text: '\uf416', title: '\uf416' }
 '.fa-scribd': { text: '\uf28a', title: '\uf28a' }
+'.fa-debian': { text: '\ue60b', title: '\ue60b' }
 '.fa-openid': { text: '\uf19b', title: '\uf19b' }
 '.fa-instalod': { text: '\ue081', title: '\ue081' }
 '.fa-expeditedssl': { text: '\uf23e', title: '\uf23e' }
@@ -2177,6 +2179,7 @@
 '.fa-phoenix-framework': { text: '\uf3dc', title: '\uf3dc' }
 '.fa-shopify': { text: '\ue057', title: '\ue057' }
 '.fa-neos': { text: '\uf612', title: '\uf612' }
+'.fa-square-threads': { text: '\ue619', title: '\ue619' }
 '.fa-hackerrank': { text: '\uf5f7', title: '\uf5f7' }
 '.fa-researchgate': { text: '\uf4f8', title: '\uf4f8' }
 '.fa-swift': { text: '\uf8e1', title: '\uf8e1' }
@@ -2291,6 +2294,7 @@
 '.fa-think-peaks': { text: '\uf731', title: '\uf731' }
 '.fa-bilibili': { text: '\ue3d9', title: '\ue3d9' }
 '.fa-erlang': { text: '\uf39d', title: '\uf39d' }
+'.fa-x-twitter': { text: '\ue61b', title: '\ue61b' }
 '.fa-cotton-bureau': { text: '\uf89e', title: '\uf89e' }
 '.fa-dashcube': { text: '\uf210', title: '\uf210' }
 '.fa-42-group': { text: '\ue080', title: '\ue080' }
@@ -2456,6 +2460,7 @@
 '.fa-tumblr': { text: '\uf173', title: '\uf173' }
 '.fa-vaadin': { text: '\uf408', title: '\uf408' }
 '.fa-quora': { text: '\uf2c4', title: '\uf2c4' }
+'.fa-square-x-twitter': { text: '\ue61a', title: '\ue61a' }
 '.fa-reacteurope': { text: '\uf75d', title: '\uf75d' }
 '.fa-medium': { text: '\uf23a', title: '\uf23a' }
 '.fa-medium-m': { text: '\uf23a', title: '\uf23a' }
