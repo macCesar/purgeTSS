@@ -10,11 +10,12 @@
 
 </div>
 
-**PurgeTSS** is a package that helps **[Titanium developers](https://tidev.io/)** create visually appealing mobile apps more easily, with features including highly customizable utility classes, icon fonts support, a basic Animation module, a simple grid system, and a shades command for creating custom colors.
+**PurgeTSS** serves as a valuable toolkit tailored to streamline the mobile app development journey for **[Titanium developers](https://tidev.io/)**. By offering a range of user-friendly functionalities, including the ability to fine-tune utility classes, seamless integration of icon fonts, a foundational Animation module, a straightforward grid system, and the innovative 'shades' command for personalized color palettes, PurgeTSS aims to simplify the creation of visually captivating mobile applications.
 
 ---
 
-# Key features of PurgeTSS
+Now, let's delve into the key features that make **PurgeTSS** a game-changer for developers:
+
 - Provides more than 21,000 **[Tailwind-like](https://tailwindcss.com/)** utility classes ready to use in your projects.
 - Creates a clean **app.tss** file with only the classes used in your project by parsing all your XML files.
 - You can customize any of the default classes via a simple configuration file, or create **just-in-time** classes with **arbitrary values** within your Views.
