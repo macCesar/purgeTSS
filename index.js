@@ -126,42 +126,45 @@ const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk');
 //! Interfase
 //! Command: purgetss
 function purgeClasses(options) {
-	purgingDebug = options.debug;
-	let recentlyCreated = makeSureFileExists(projectsAppTSS)
-	if (alloyProject() && Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 2000) || recentlyCreated) {
-		start();
+	if (alloyProject()) {
+		purgingDebug = options.debug;
+		let recentlyCreated = makeSureFileExists(projectsAppTSS)
 
-		init(options);
+		if (Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 2000) || recentlyCreated) {
+			start();
 
-		backupOriginalAppTss();
+			init(options);
 
-		let uniqueClasses = getUniqueClasses();
+			backupOriginalAppTss();
 
-		let tempPurged = copyResetTemplateAnd_appTSS();
+			let uniqueClasses = getUniqueClasses();
 
-		tempPurged += purgeTailwind(uniqueClasses);
+			let tempPurged = copyResetTemplateAnd_appTSS();
 
-		let cleanUniqueClasses = cleanClasses(uniqueClasses);
+			tempPurged += purgeTailwind(uniqueClasses);
 
-		tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses);
+			let cleanUniqueClasses = cleanClasses(uniqueClasses);
 
-		tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses);
+			tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses);
 
-		tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses);
+			tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses);
 
-		tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses);
+			tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses);
 
-		tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses);
+			tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses);
 
-		tempPurged += processMissingClasses(tempPurged);
+			tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses);
 
-		saveFile(projectsAppTSS, tempPurged);
+			tempPurged += processMissingClasses(tempPurged);
 
-		logger.file('app.tss');
+			saveFile(projectsAppTSS, tempPurged);
 
-		finish();
-	} else {
-		logger.warn('Project purged less than 2 seconds ago!');
+			logger.file('app.tss');
+
+			finish();
+		} else {
+			logger.warn('Project purged less than 2 seconds ago!');
+		}
 	}
 }
 module.exports.purgeClasses = purgeClasses;
@@ -2364,7 +2367,8 @@ function copyFontStyle(vendor) {
 function alloyProject(silent = false) {
 	if (!fs.existsSync(cwd + '/app/views')) {
 		if (!silent) {
-			logger.error('Please make sure you’re running PurgeTSS inside an Alloy Project.');
+			logger.info('Please make sure you are running `purgetss` within an Alloy Project.');
+			logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`);
 		}
 
 		return false;
