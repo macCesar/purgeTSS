@@ -10,7 +10,9 @@
 
 </div>
 
-**PurgeTSS** is a powerful package designed to enhance the process of developing visually captivating mobile applications for **[Titanium developers](https://tidev.io/)**. It offers a range of tools such as customizable utility classes, support for icon fonts, a user-friendly Animation module, a straightforward grid system, and the added convenience of the `shades` command for crafting personalized colors. With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes more accessible and efficient.
+**PurgeTSS** is a powerful package designed to enhance the process of developing visually captivating mobile applications for **[Titanium developers](https://tidev.io/)**.
+
+It offers a range of tools such as customizable utility classes, support for icon fonts, a user-friendly Animation module, a straightforward grid system, and the added convenience of the `shades` command for crafting personalized colors. With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes more accessible and efficient.
 
 ---
 
