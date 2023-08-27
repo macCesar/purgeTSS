@@ -12,19 +12,11 @@ const purgeLabel = colores.purgeLabel;
 const projectsConfigJS = cwd + '/purgetss/config.js';
 
 const logger = {
-	info: function(...args) {
-		console.log(purgeLabel, args.join(' '));
-	},
-	warn: function(...args) {
-		console.log(purgeLabel, chalk.yellow(args.join(' ')));
-	},
-	error: function(...args) {
-		console.log(purgeLabel, chalk.red(args.join(' ')));
-	},
-	file: function(...args) {
-		console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!');
-	}
-}
+	info: (...args) => console.log(purgeLabel, args.join(' ')),
+	warn: (...args) => console.log(purgeLabel, chalk.yellow(args.join(' '))),
+	error: (...args) => console.log(purgeLabel, chalk.red(args.join(' '))),
+	file: (...args) => console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!')
+};
 
 const helpers = require('../lib/helpers');
 const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json');
@@ -49,13 +41,13 @@ function autoBuildTailwindTSS(options = {}) {
 	tailwindStyles += (fs.existsSync(projectsConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}\n` : `// default config.js file\n`;
 
 	let baseValues = combineDefaultThemeWithConfigFile();
-	let completionsProrpertiesWithBaseValues = setBaseValuesToProperties(getPropertiesFromTiCompletionsFile(), baseValues);
+	let completionsPropertiesWithBaseValues = setBaseValuesToProperties(getPropertiesFromTiCompletionsFile(), baseValues);
 
 	let tiUIComponents = getTiUIComponents(baseValues);
 	tailwindStyles += processTitaniumRules(tiUIComponents);
 	tailwindStyles += processCustomClasses();
 	tailwindStyles += processCompoundClasses(baseValues);
-	tailwindStyles += processCompletionsClasses(completionsProrpertiesWithBaseValues);
+	tailwindStyles += processCompletionsClasses(completionsPropertiesWithBaseValues);
 
 	tailwindStyles = helpers.compileApplyDirectives(tailwindStyles);
 
@@ -451,11 +443,13 @@ function getPropertiesFromTiCompletionsFile() {
 	let properties = [
 		//! Deprecated
 		'handlePlatformUrl',
+		'hidden',
 		'selectionIndicator',
 		'semanticColorType',
 		'splitActionBar',
 		'supported',
 		'tabsTintColor',
+		'tintColor',
 		'unselectedItemTintColor',
 		'wordWrap',
 

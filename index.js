@@ -431,7 +431,7 @@ function shades(args, options) {
 	let colorObject = createColorObject(colorFamily, colorFamily.hexcode, options);
 
 	let silent = options.tailwind || options.json || options.log
-	if (alloyProject(silent) && !options.log && !options.json) {
+	if (alloyProject(silent) && !silent) {
 		if (!configFile['theme']['extend']['colors']) configFile['theme']['extend']['colors'] = {};
 		configFile['theme']['extend']['colors'][colorObject.name] = colorObject.shades;
 		fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err; });
@@ -2338,18 +2338,18 @@ function copyFontStyle(vendor) {
 			if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
 				buildFontAwesomeJS();
 			} else {
-				fs.copyFileSync(srcLibFA, projectsPurge_TSS_Styles_Folder + '/fontawesome.tss');
+				fs.copyFileSync(srcFontAwesomeTSSFile, projectsPurge_TSS_Styles_Folder + '/fontawesome.tss');
 				logger.warn(' - fontawesome.tss');
 			}
 			break;
 		case 'mi':
 		case 'materialicons':
-			fs.copyFileSync(srcLibMI, projectsPurge_TSS_Styles_Folder + '/materialicons.tss');
+			fs.copyFileSync(srcMaterialIconsTSSFile, projectsPurge_TSS_Styles_Folder + '/materialicons.tss');
 			logger.warn(' - materialicons.tss');
 			break;
 		case 'ms':
 		case 'materialsymbol':
-			fs.copyFileSync(srcLibMS, projectsPurge_TSS_Styles_Folder + '/materialsymbols.tss');
+			fs.copyFileSync(srcMaterialSymbolsTSSFile, projectsPurge_TSS_Styles_Folder + '/materialsymbols.tss');
 			logger.warn(' - materialsymbols.tss');
 			break;
 		case 'f7':
@@ -2487,8 +2487,13 @@ function purgeTailwind(uniqueClasses) {
 	let anArrayOfDefaultClasses = [];
 	let anArrayOfAnimationClasses = [];
 	let endOfCustomClasses = tailwindClasses.indexOf('// End of Custom Classes');
+	// let colorClasses = 0;
+	// let restOfClasses = 0;
 	tailwindClasses.forEach((tailwindClass, key) => {
 		if (tailwindClass !== '' && !tailwindClass.includes('//')) {
+			// if (tailwindClass.includes('color') || tailwindClass.includes('Color')) colorClasses++;
+			// else restOfClasses++;
+
 			let cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '')}`;
 
 			let classIndex = cleanUniqueClasses.indexOf(cleanTailwindClass);
@@ -2553,6 +2558,9 @@ function purgeTailwind(uniqueClasses) {
 			}
 		}
 	});
+	// console.log('colorClasses', colorClasses);
+	// console.log('restOfClasses', restOfClasses);
+	// console.log('Total:', colorClasses + restOfClasses);
 
 	purgedClasses += (titaniumClasses.length) ? '\n// Ti Elements\n' + titaniumClasses.sort().join('') : '';
 	purgedClasses += (anArrayOfCustomClasses.length) ? '\n// Custom Styles\n' + anArrayOfCustomClasses.sort().join('') : '';

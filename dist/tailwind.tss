@@ -9850,11 +9850,6 @@
 '.calendar-authorization-restricted': { calendarAuthorization: Ti.Calendar.AUTHORIZATION_RESTRICTED }
 '.calendar-authorization-unknown': { calendarAuthorization: Ti.Calendar.AUTHORIZATION_UNKNOWN }
 
-// Property: hidden
-// Component(s): Ti.Calendar.Calendar, Ti.Filesystem.File
-'.hidden': { hidden: true }
-'.hidden-false': { hidden: false }
-
 // Property: selected
 // Component(s): Ti.Calendar.Calendar, Ti.UI.iOS.CoverFlowView
 '.selected': { selected: true }
