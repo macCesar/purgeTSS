@@ -27,7 +27,7 @@ Now, let's delve into the key features that make **PurgeTSS** a game-changer for
 - Includes an **Animation module** to apply basic 2D Matrix animations or transform to any element or array of elements.
 - Includes a simple two-dimensional **Grid System** to align and distribute elements in your Views.
 
-### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more about PurgeTSS
+### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more.
 
 ## Table of Content
 
