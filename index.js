@@ -249,7 +249,7 @@ function copyFonts(options) {
 
 		if (options.vendor && typeof options.vendor === 'string') {
 			let selected = _.uniq(options.vendor.replace(/ /g, '').split(','));
-			logger.info('Copying Fonts...');
+			logger.info('Copying Icon Fonts...');
 			_.each(selected, vendor => {
 				copyFont(vendor);
 			});
@@ -510,7 +510,7 @@ function createProject(workspace, argsName, projectID, options) {
 	exec(tiCreateCmd, (error) => {
 		if (error) return logger.error(error);
 
-		let theFontsCmd = (options.vendor) ? `&& purgetss f -m -v=${options.vendor}` : '';
+		let theFontsCmd = (options.vendor) ? `&& purgetss il -m -v=${options.vendor}` : '';
 
 		if (options.vendor) {
 			logger.info('Installing requested fonts');
