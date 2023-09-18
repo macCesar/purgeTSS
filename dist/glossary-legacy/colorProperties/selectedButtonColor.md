@@ -14,6 +14,7 @@
 '.selected-button-slate-700[platform=ios]': { selectedButtonColor: '#334155' }
 '.selected-button-slate-800[platform=ios]': { selectedButtonColor: '#1e293b' }
 '.selected-button-slate-900[platform=ios]': { selectedButtonColor: '#0f172a' }
+'.selected-button-slate-950[platform=ios]': { selectedButtonColor: '#020617' }
 '.selected-button-gray-50[platform=ios]': { selectedButtonColor: '#f9fafb' }
 '.selected-button-gray-100[platform=ios]': { selectedButtonColor: '#f3f4f6' }
 '.selected-button-gray-200[platform=ios]': { selectedButtonColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.selected-button-gray-700[platform=ios]': { selectedButtonColor: '#374151' }
 '.selected-button-gray-800[platform=ios]': { selectedButtonColor: '#1f2937' }
 '.selected-button-gray-900[platform=ios]': { selectedButtonColor: '#111827' }
+'.selected-button-gray-950[platform=ios]': { selectedButtonColor: '#030712' }
 '.selected-button-zinc-50[platform=ios]': { selectedButtonColor: '#fafafa' }
 '.selected-button-zinc-100[platform=ios]': { selectedButtonColor: '#f4f4f5' }
 '.selected-button-zinc-200[platform=ios]': { selectedButtonColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.selected-button-zinc-700[platform=ios]': { selectedButtonColor: '#3f3f46' }
 '.selected-button-zinc-800[platform=ios]': { selectedButtonColor: '#27272a' }
 '.selected-button-zinc-900[platform=ios]': { selectedButtonColor: '#18181b' }
+'.selected-button-zinc-950[platform=ios]': { selectedButtonColor: '#09090b' }
 '.selected-button-neutral-50[platform=ios]': { selectedButtonColor: '#fafafa' }
 '.selected-button-neutral-100[platform=ios]': { selectedButtonColor: '#f5f5f5' }
 '.selected-button-neutral-200[platform=ios]': { selectedButtonColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.selected-button-neutral-700[platform=ios]': { selectedButtonColor: '#404040' }
 '.selected-button-neutral-800[platform=ios]': { selectedButtonColor: '#262626' }
 '.selected-button-neutral-900[platform=ios]': { selectedButtonColor: '#171717' }
+'.selected-button-neutral-950[platform=ios]': { selectedButtonColor: '#0a0a0a' }
 '.selected-button-stone-50[platform=ios]': { selectedButtonColor: '#fafaf9' }
 '.selected-button-stone-100[platform=ios]': { selectedButtonColor: '#f5f5f4' }
 '.selected-button-stone-200[platform=ios]': { selectedButtonColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.selected-button-stone-700[platform=ios]': { selectedButtonColor: '#44403c' }
 '.selected-button-stone-800[platform=ios]': { selectedButtonColor: '#292524' }
 '.selected-button-stone-900[platform=ios]': { selectedButtonColor: '#1c1917' }
+'.selected-button-stone-950[platform=ios]': { selectedButtonColor: '#0c0a09' }
 '.selected-button-red-50[platform=ios]': { selectedButtonColor: '#fef2f2' }
 '.selected-button-red-100[platform=ios]': { selectedButtonColor: '#fee2e2' }
 '.selected-button-red-200[platform=ios]': { selectedButtonColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.selected-button-red-700[platform=ios]': { selectedButtonColor: '#b91c1c' }
 '.selected-button-red-800[platform=ios]': { selectedButtonColor: '#991b1b' }
 '.selected-button-red-900[platform=ios]': { selectedButtonColor: '#7f1d1d' }
+'.selected-button-red-950[platform=ios]': { selectedButtonColor: '#450a0a' }
 '.selected-button-orange-50[platform=ios]': { selectedButtonColor: '#fff7ed' }
 '.selected-button-orange-100[platform=ios]': { selectedButtonColor: '#ffedd5' }
 '.selected-button-orange-200[platform=ios]': { selectedButtonColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.selected-button-orange-700[platform=ios]': { selectedButtonColor: '#c2410c' }
 '.selected-button-orange-800[platform=ios]': { selectedButtonColor: '#9a3412' }
 '.selected-button-orange-900[platform=ios]': { selectedButtonColor: '#7c2d12' }
+'.selected-button-orange-950[platform=ios]': { selectedButtonColor: '#431407' }
 '.selected-button-amber-50[platform=ios]': { selectedButtonColor: '#fffbeb' }
 '.selected-button-amber-100[platform=ios]': { selectedButtonColor: '#fef3c7' }
 '.selected-button-amber-200[platform=ios]': { selectedButtonColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.selected-button-amber-700[platform=ios]': { selectedButtonColor: '#b45309' }
 '.selected-button-amber-800[platform=ios]': { selectedButtonColor: '#92400e' }
 '.selected-button-amber-900[platform=ios]': { selectedButtonColor: '#78350f' }
+'.selected-button-amber-950[platform=ios]': { selectedButtonColor: '#451a03' }
 '.selected-button-yellow-50[platform=ios]': { selectedButtonColor: '#fefce8' }
 '.selected-button-yellow-100[platform=ios]': { selectedButtonColor: '#fef9c3' }
 '.selected-button-yellow-200[platform=ios]': { selectedButtonColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.selected-button-yellow-700[platform=ios]': { selectedButtonColor: '#a16207' }
 '.selected-button-yellow-800[platform=ios]': { selectedButtonColor: '#854d0e' }
 '.selected-button-yellow-900[platform=ios]': { selectedButtonColor: '#713f12' }
+'.selected-button-yellow-950[platform=ios]': { selectedButtonColor: '#422006' }
 '.selected-button-lime-50[platform=ios]': { selectedButtonColor: '#f7fee7' }
 '.selected-button-lime-100[platform=ios]': { selectedButtonColor: '#ecfccb' }
 '.selected-button-lime-200[platform=ios]': { selectedButtonColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.selected-button-lime-700[platform=ios]': { selectedButtonColor: '#4d7c0f' }
 '.selected-button-lime-800[platform=ios]': { selectedButtonColor: '#3f6212' }
 '.selected-button-lime-900[platform=ios]': { selectedButtonColor: '#365314' }
+'.selected-button-lime-950[platform=ios]': { selectedButtonColor: '#1a2e05' }
 '.selected-button-green-50[platform=ios]': { selectedButtonColor: '#f0fdf4' }
 '.selected-button-green-100[platform=ios]': { selectedButtonColor: '#dcfce7' }
 '.selected-button-green-200[platform=ios]': { selectedButtonColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.selected-button-green-700[platform=ios]': { selectedButtonColor: '#15803d' }
 '.selected-button-green-800[platform=ios]': { selectedButtonColor: '#166534' }
 '.selected-button-green-900[platform=ios]': { selectedButtonColor: '#14532d' }
+'.selected-button-green-950[platform=ios]': { selectedButtonColor: '#052e16' }
 '.selected-button-emerald-50[platform=ios]': { selectedButtonColor: '#ecfdf5' }
 '.selected-button-emerald-100[platform=ios]': { selectedButtonColor: '#d1fae5' }
 '.selected-button-emerald-200[platform=ios]': { selectedButtonColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.selected-button-emerald-700[platform=ios]': { selectedButtonColor: '#047857' }
 '.selected-button-emerald-800[platform=ios]': { selectedButtonColor: '#065f46' }
 '.selected-button-emerald-900[platform=ios]': { selectedButtonColor: '#064e3b' }
+'.selected-button-emerald-950[platform=ios]': { selectedButtonColor: '#022c22' }
 '.selected-button-teal-50[platform=ios]': { selectedButtonColor: '#f0fdfa' }
 '.selected-button-teal-100[platform=ios]': { selectedButtonColor: '#ccfbf1' }
 '.selected-button-teal-200[platform=ios]': { selectedButtonColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.selected-button-teal-700[platform=ios]': { selectedButtonColor: '#0f766e' }
 '.selected-button-teal-800[platform=ios]': { selectedButtonColor: '#115e59' }
 '.selected-button-teal-900[platform=ios]': { selectedButtonColor: '#134e4a' }
+'.selected-button-teal-950[platform=ios]': { selectedButtonColor: '#042f2e' }
 '.selected-button-cyan-50[platform=ios]': { selectedButtonColor: '#ecfeff' }
 '.selected-button-cyan-100[platform=ios]': { selectedButtonColor: '#cffafe' }
 '.selected-button-cyan-200[platform=ios]': { selectedButtonColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.selected-button-cyan-700[platform=ios]': { selectedButtonColor: '#0e7490' }
 '.selected-button-cyan-800[platform=ios]': { selectedButtonColor: '#155e75' }
 '.selected-button-cyan-900[platform=ios]': { selectedButtonColor: '#164e63' }
+'.selected-button-cyan-950[platform=ios]': { selectedButtonColor: '#083344' }
 '.selected-button-sky-50[platform=ios]': { selectedButtonColor: '#f0f9ff' }
 '.selected-button-sky-100[platform=ios]': { selectedButtonColor: '#e0f2fe' }
 '.selected-button-sky-200[platform=ios]': { selectedButtonColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.selected-button-sky-700[platform=ios]': { selectedButtonColor: '#0369a1' }
 '.selected-button-sky-800[platform=ios]': { selectedButtonColor: '#075985' }
 '.selected-button-sky-900[platform=ios]': { selectedButtonColor: '#0c4a6e' }
+'.selected-button-sky-950[platform=ios]': { selectedButtonColor: '#082f49' }
 '.selected-button-blue-50[platform=ios]': { selectedButtonColor: '#eff6ff' }
 '.selected-button-blue-100[platform=ios]': { selectedButtonColor: '#dbeafe' }
 '.selected-button-blue-200[platform=ios]': { selectedButtonColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.selected-button-blue-700[platform=ios]': { selectedButtonColor: '#1d4ed8' }
 '.selected-button-blue-800[platform=ios]': { selectedButtonColor: '#1e40af' }
 '.selected-button-blue-900[platform=ios]': { selectedButtonColor: '#1e3a8a' }
+'.selected-button-blue-950[platform=ios]': { selectedButtonColor: '#172554' }
 '.selected-button-indigo-50[platform=ios]': { selectedButtonColor: '#eef2ff' }
 '.selected-button-indigo-100[platform=ios]': { selectedButtonColor: '#e0e7ff' }
 '.selected-button-indigo-200[platform=ios]': { selectedButtonColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.selected-button-indigo-700[platform=ios]': { selectedButtonColor: '#4338ca' }
 '.selected-button-indigo-800[platform=ios]': { selectedButtonColor: '#3730a3' }
 '.selected-button-indigo-900[platform=ios]': { selectedButtonColor: '#312e81' }
+'.selected-button-indigo-950[platform=ios]': { selectedButtonColor: '#1e1b4b' }
 '.selected-button-violet-50[platform=ios]': { selectedButtonColor: '#f5f3ff' }
 '.selected-button-violet-100[platform=ios]': { selectedButtonColor: '#ede9fe' }
 '.selected-button-violet-200[platform=ios]': { selectedButtonColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.selected-button-violet-700[platform=ios]': { selectedButtonColor: '#6d28d9' }
 '.selected-button-violet-800[platform=ios]': { selectedButtonColor: '#5b21b6' }
 '.selected-button-violet-900[platform=ios]': { selectedButtonColor: '#4c1d95' }
+'.selected-button-violet-950[platform=ios]': { selectedButtonColor: '#2e1065' }
 '.selected-button-purple-50[platform=ios]': { selectedButtonColor: '#faf5ff' }
 '.selected-button-purple-100[platform=ios]': { selectedButtonColor: '#f3e8ff' }
 '.selected-button-purple-200[platform=ios]': { selectedButtonColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.selected-button-purple-700[platform=ios]': { selectedButtonColor: '#7e22ce' }
 '.selected-button-purple-800[platform=ios]': { selectedButtonColor: '#6b21a8' }
 '.selected-button-purple-900[platform=ios]': { selectedButtonColor: '#581c87' }
+'.selected-button-purple-950[platform=ios]': { selectedButtonColor: '#3b0764' }
 '.selected-button-fuchsia-50[platform=ios]': { selectedButtonColor: '#fdf4ff' }
 '.selected-button-fuchsia-100[platform=ios]': { selectedButtonColor: '#fae8ff' }
 '.selected-button-fuchsia-200[platform=ios]': { selectedButtonColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.selected-button-fuchsia-700[platform=ios]': { selectedButtonColor: '#a21caf' }
 '.selected-button-fuchsia-800[platform=ios]': { selectedButtonColor: '#86198f' }
 '.selected-button-fuchsia-900[platform=ios]': { selectedButtonColor: '#701a75' }
+'.selected-button-fuchsia-950[platform=ios]': { selectedButtonColor: '#4a044e' }
 '.selected-button-pink-50[platform=ios]': { selectedButtonColor: '#fdf2f8' }
 '.selected-button-pink-100[platform=ios]': { selectedButtonColor: '#fce7f3' }
 '.selected-button-pink-200[platform=ios]': { selectedButtonColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.selected-button-pink-700[platform=ios]': { selectedButtonColor: '#be185d' }
 '.selected-button-pink-800[platform=ios]': { selectedButtonColor: '#9d174d' }
 '.selected-button-pink-900[platform=ios]': { selectedButtonColor: '#831843' }
+'.selected-button-pink-950[platform=ios]': { selectedButtonColor: '#500724' }
 '.selected-button-rose-50[platform=ios]': { selectedButtonColor: '#fff1f2' }
 '.selected-button-rose-100[platform=ios]': { selectedButtonColor: '#ffe4e6' }
 '.selected-button-rose-200[platform=ios]': { selectedButtonColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.selected-button-rose-700[platform=ios]': { selectedButtonColor: '#be123c' }
 '.selected-button-rose-800[platform=ios]': { selectedButtonColor: '#9f1239' }
 '.selected-button-rose-900[platform=ios]': { selectedButtonColor: '#881337' }
+'.selected-button-rose-950[platform=ios]': { selectedButtonColor: '#4c0519' }
 ```

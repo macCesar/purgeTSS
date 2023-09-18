@@ -14,6 +14,7 @@
 '.drop-shadow-slate-700': { shadowColor: '#334155' }
 '.drop-shadow-slate-800': { shadowColor: '#1e293b' }
 '.drop-shadow-slate-900': { shadowColor: '#0f172a' }
+'.drop-shadow-slate-950': { shadowColor: '#020617' }
 '.drop-shadow-gray-50': { shadowColor: '#f9fafb' }
 '.drop-shadow-gray-100': { shadowColor: '#f3f4f6' }
 '.drop-shadow-gray-200': { shadowColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.drop-shadow-gray-700': { shadowColor: '#374151' }
 '.drop-shadow-gray-800': { shadowColor: '#1f2937' }
 '.drop-shadow-gray-900': { shadowColor: '#111827' }
+'.drop-shadow-gray-950': { shadowColor: '#030712' }
 '.drop-shadow-zinc-50': { shadowColor: '#fafafa' }
 '.drop-shadow-zinc-100': { shadowColor: '#f4f4f5' }
 '.drop-shadow-zinc-200': { shadowColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.drop-shadow-zinc-700': { shadowColor: '#3f3f46' }
 '.drop-shadow-zinc-800': { shadowColor: '#27272a' }
 '.drop-shadow-zinc-900': { shadowColor: '#18181b' }
+'.drop-shadow-zinc-950': { shadowColor: '#09090b' }
 '.drop-shadow-neutral-50': { shadowColor: '#fafafa' }
 '.drop-shadow-neutral-100': { shadowColor: '#f5f5f5' }
 '.drop-shadow-neutral-200': { shadowColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.drop-shadow-neutral-700': { shadowColor: '#404040' }
 '.drop-shadow-neutral-800': { shadowColor: '#262626' }
 '.drop-shadow-neutral-900': { shadowColor: '#171717' }
+'.drop-shadow-neutral-950': { shadowColor: '#0a0a0a' }
 '.drop-shadow-stone-50': { shadowColor: '#fafaf9' }
 '.drop-shadow-stone-100': { shadowColor: '#f5f5f4' }
 '.drop-shadow-stone-200': { shadowColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.drop-shadow-stone-700': { shadowColor: '#44403c' }
 '.drop-shadow-stone-800': { shadowColor: '#292524' }
 '.drop-shadow-stone-900': { shadowColor: '#1c1917' }
+'.drop-shadow-stone-950': { shadowColor: '#0c0a09' }
 '.drop-shadow-red-50': { shadowColor: '#fef2f2' }
 '.drop-shadow-red-100': { shadowColor: '#fee2e2' }
 '.drop-shadow-red-200': { shadowColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.drop-shadow-red-700': { shadowColor: '#b91c1c' }
 '.drop-shadow-red-800': { shadowColor: '#991b1b' }
 '.drop-shadow-red-900': { shadowColor: '#7f1d1d' }
+'.drop-shadow-red-950': { shadowColor: '#450a0a' }
 '.drop-shadow-orange-50': { shadowColor: '#fff7ed' }
 '.drop-shadow-orange-100': { shadowColor: '#ffedd5' }
 '.drop-shadow-orange-200': { shadowColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.drop-shadow-orange-700': { shadowColor: '#c2410c' }
 '.drop-shadow-orange-800': { shadowColor: '#9a3412' }
 '.drop-shadow-orange-900': { shadowColor: '#7c2d12' }
+'.drop-shadow-orange-950': { shadowColor: '#431407' }
 '.drop-shadow-amber-50': { shadowColor: '#fffbeb' }
 '.drop-shadow-amber-100': { shadowColor: '#fef3c7' }
 '.drop-shadow-amber-200': { shadowColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.drop-shadow-amber-700': { shadowColor: '#b45309' }
 '.drop-shadow-amber-800': { shadowColor: '#92400e' }
 '.drop-shadow-amber-900': { shadowColor: '#78350f' }
+'.drop-shadow-amber-950': { shadowColor: '#451a03' }
 '.drop-shadow-yellow-50': { shadowColor: '#fefce8' }
 '.drop-shadow-yellow-100': { shadowColor: '#fef9c3' }
 '.drop-shadow-yellow-200': { shadowColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.drop-shadow-yellow-700': { shadowColor: '#a16207' }
 '.drop-shadow-yellow-800': { shadowColor: '#854d0e' }
 '.drop-shadow-yellow-900': { shadowColor: '#713f12' }
+'.drop-shadow-yellow-950': { shadowColor: '#422006' }
 '.drop-shadow-lime-50': { shadowColor: '#f7fee7' }
 '.drop-shadow-lime-100': { shadowColor: '#ecfccb' }
 '.drop-shadow-lime-200': { shadowColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.drop-shadow-lime-700': { shadowColor: '#4d7c0f' }
 '.drop-shadow-lime-800': { shadowColor: '#3f6212' }
 '.drop-shadow-lime-900': { shadowColor: '#365314' }
+'.drop-shadow-lime-950': { shadowColor: '#1a2e05' }
 '.drop-shadow-green-50': { shadowColor: '#f0fdf4' }
 '.drop-shadow-green-100': { shadowColor: '#dcfce7' }
 '.drop-shadow-green-200': { shadowColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.drop-shadow-green-700': { shadowColor: '#15803d' }
 '.drop-shadow-green-800': { shadowColor: '#166534' }
 '.drop-shadow-green-900': { shadowColor: '#14532d' }
+'.drop-shadow-green-950': { shadowColor: '#052e16' }
 '.drop-shadow-emerald-50': { shadowColor: '#ecfdf5' }
 '.drop-shadow-emerald-100': { shadowColor: '#d1fae5' }
 '.drop-shadow-emerald-200': { shadowColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.drop-shadow-emerald-700': { shadowColor: '#047857' }
 '.drop-shadow-emerald-800': { shadowColor: '#065f46' }
 '.drop-shadow-emerald-900': { shadowColor: '#064e3b' }
+'.drop-shadow-emerald-950': { shadowColor: '#022c22' }
 '.drop-shadow-teal-50': { shadowColor: '#f0fdfa' }
 '.drop-shadow-teal-100': { shadowColor: '#ccfbf1' }
 '.drop-shadow-teal-200': { shadowColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.drop-shadow-teal-700': { shadowColor: '#0f766e' }
 '.drop-shadow-teal-800': { shadowColor: '#115e59' }
 '.drop-shadow-teal-900': { shadowColor: '#134e4a' }
+'.drop-shadow-teal-950': { shadowColor: '#042f2e' }
 '.drop-shadow-cyan-50': { shadowColor: '#ecfeff' }
 '.drop-shadow-cyan-100': { shadowColor: '#cffafe' }
 '.drop-shadow-cyan-200': { shadowColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.drop-shadow-cyan-700': { shadowColor: '#0e7490' }
 '.drop-shadow-cyan-800': { shadowColor: '#155e75' }
 '.drop-shadow-cyan-900': { shadowColor: '#164e63' }
+'.drop-shadow-cyan-950': { shadowColor: '#083344' }
 '.drop-shadow-sky-50': { shadowColor: '#f0f9ff' }
 '.drop-shadow-sky-100': { shadowColor: '#e0f2fe' }
 '.drop-shadow-sky-200': { shadowColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.drop-shadow-sky-700': { shadowColor: '#0369a1' }
 '.drop-shadow-sky-800': { shadowColor: '#075985' }
 '.drop-shadow-sky-900': { shadowColor: '#0c4a6e' }
+'.drop-shadow-sky-950': { shadowColor: '#082f49' }
 '.drop-shadow-blue-50': { shadowColor: '#eff6ff' }
 '.drop-shadow-blue-100': { shadowColor: '#dbeafe' }
 '.drop-shadow-blue-200': { shadowColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.drop-shadow-blue-700': { shadowColor: '#1d4ed8' }
 '.drop-shadow-blue-800': { shadowColor: '#1e40af' }
 '.drop-shadow-blue-900': { shadowColor: '#1e3a8a' }
+'.drop-shadow-blue-950': { shadowColor: '#172554' }
 '.drop-shadow-indigo-50': { shadowColor: '#eef2ff' }
 '.drop-shadow-indigo-100': { shadowColor: '#e0e7ff' }
 '.drop-shadow-indigo-200': { shadowColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.drop-shadow-indigo-700': { shadowColor: '#4338ca' }
 '.drop-shadow-indigo-800': { shadowColor: '#3730a3' }
 '.drop-shadow-indigo-900': { shadowColor: '#312e81' }
+'.drop-shadow-indigo-950': { shadowColor: '#1e1b4b' }
 '.drop-shadow-violet-50': { shadowColor: '#f5f3ff' }
 '.drop-shadow-violet-100': { shadowColor: '#ede9fe' }
 '.drop-shadow-violet-200': { shadowColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.drop-shadow-violet-700': { shadowColor: '#6d28d9' }
 '.drop-shadow-violet-800': { shadowColor: '#5b21b6' }
 '.drop-shadow-violet-900': { shadowColor: '#4c1d95' }
+'.drop-shadow-violet-950': { shadowColor: '#2e1065' }
 '.drop-shadow-purple-50': { shadowColor: '#faf5ff' }
 '.drop-shadow-purple-100': { shadowColor: '#f3e8ff' }
 '.drop-shadow-purple-200': { shadowColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.drop-shadow-purple-700': { shadowColor: '#7e22ce' }
 '.drop-shadow-purple-800': { shadowColor: '#6b21a8' }
 '.drop-shadow-purple-900': { shadowColor: '#581c87' }
+'.drop-shadow-purple-950': { shadowColor: '#3b0764' }
 '.drop-shadow-fuchsia-50': { shadowColor: '#fdf4ff' }
 '.drop-shadow-fuchsia-100': { shadowColor: '#fae8ff' }
 '.drop-shadow-fuchsia-200': { shadowColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.drop-shadow-fuchsia-700': { shadowColor: '#a21caf' }
 '.drop-shadow-fuchsia-800': { shadowColor: '#86198f' }
 '.drop-shadow-fuchsia-900': { shadowColor: '#701a75' }
+'.drop-shadow-fuchsia-950': { shadowColor: '#4a044e' }
 '.drop-shadow-pink-50': { shadowColor: '#fdf2f8' }
 '.drop-shadow-pink-100': { shadowColor: '#fce7f3' }
 '.drop-shadow-pink-200': { shadowColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.drop-shadow-pink-700': { shadowColor: '#be185d' }
 '.drop-shadow-pink-800': { shadowColor: '#9d174d' }
 '.drop-shadow-pink-900': { shadowColor: '#831843' }
+'.drop-shadow-pink-950': { shadowColor: '#500724' }
 '.drop-shadow-rose-50': { shadowColor: '#fff1f2' }
 '.drop-shadow-rose-100': { shadowColor: '#ffe4e6' }
 '.drop-shadow-rose-200': { shadowColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.drop-shadow-rose-700': { shadowColor: '#be123c' }
 '.drop-shadow-rose-800': { shadowColor: '#9f1239' }
 '.drop-shadow-rose-900': { shadowColor: '#881337' }
+'.drop-shadow-rose-950': { shadowColor: '#4c0519' }
 ```

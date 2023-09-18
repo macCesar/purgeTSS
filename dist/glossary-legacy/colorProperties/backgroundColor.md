@@ -14,6 +14,7 @@
 '.bg-slate-700': { backgroundColor: '#334155' }
 '.bg-slate-800': { backgroundColor: '#1e293b' }
 '.bg-slate-900': { backgroundColor: '#0f172a' }
+'.bg-slate-950': { backgroundColor: '#020617' }
 '.bg-gray-50': { backgroundColor: '#f9fafb' }
 '.bg-gray-100': { backgroundColor: '#f3f4f6' }
 '.bg-gray-200': { backgroundColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.bg-gray-700': { backgroundColor: '#374151' }
 '.bg-gray-800': { backgroundColor: '#1f2937' }
 '.bg-gray-900': { backgroundColor: '#111827' }
+'.bg-gray-950': { backgroundColor: '#030712' }
 '.bg-zinc-50': { backgroundColor: '#fafafa' }
 '.bg-zinc-100': { backgroundColor: '#f4f4f5' }
 '.bg-zinc-200': { backgroundColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.bg-zinc-700': { backgroundColor: '#3f3f46' }
 '.bg-zinc-800': { backgroundColor: '#27272a' }
 '.bg-zinc-900': { backgroundColor: '#18181b' }
+'.bg-zinc-950': { backgroundColor: '#09090b' }
 '.bg-neutral-50': { backgroundColor: '#fafafa' }
 '.bg-neutral-100': { backgroundColor: '#f5f5f5' }
 '.bg-neutral-200': { backgroundColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.bg-neutral-700': { backgroundColor: '#404040' }
 '.bg-neutral-800': { backgroundColor: '#262626' }
 '.bg-neutral-900': { backgroundColor: '#171717' }
+'.bg-neutral-950': { backgroundColor: '#0a0a0a' }
 '.bg-stone-50': { backgroundColor: '#fafaf9' }
 '.bg-stone-100': { backgroundColor: '#f5f5f4' }
 '.bg-stone-200': { backgroundColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.bg-stone-700': { backgroundColor: '#44403c' }
 '.bg-stone-800': { backgroundColor: '#292524' }
 '.bg-stone-900': { backgroundColor: '#1c1917' }
+'.bg-stone-950': { backgroundColor: '#0c0a09' }
 '.bg-red-50': { backgroundColor: '#fef2f2' }
 '.bg-red-100': { backgroundColor: '#fee2e2' }
 '.bg-red-200': { backgroundColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.bg-red-700': { backgroundColor: '#b91c1c' }
 '.bg-red-800': { backgroundColor: '#991b1b' }
 '.bg-red-900': { backgroundColor: '#7f1d1d' }
+'.bg-red-950': { backgroundColor: '#450a0a' }
 '.bg-orange-50': { backgroundColor: '#fff7ed' }
 '.bg-orange-100': { backgroundColor: '#ffedd5' }
 '.bg-orange-200': { backgroundColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.bg-orange-700': { backgroundColor: '#c2410c' }
 '.bg-orange-800': { backgroundColor: '#9a3412' }
 '.bg-orange-900': { backgroundColor: '#7c2d12' }
+'.bg-orange-950': { backgroundColor: '#431407' }
 '.bg-amber-50': { backgroundColor: '#fffbeb' }
 '.bg-amber-100': { backgroundColor: '#fef3c7' }
 '.bg-amber-200': { backgroundColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.bg-amber-700': { backgroundColor: '#b45309' }
 '.bg-amber-800': { backgroundColor: '#92400e' }
 '.bg-amber-900': { backgroundColor: '#78350f' }
+'.bg-amber-950': { backgroundColor: '#451a03' }
 '.bg-yellow-50': { backgroundColor: '#fefce8' }
 '.bg-yellow-100': { backgroundColor: '#fef9c3' }
 '.bg-yellow-200': { backgroundColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.bg-yellow-700': { backgroundColor: '#a16207' }
 '.bg-yellow-800': { backgroundColor: '#854d0e' }
 '.bg-yellow-900': { backgroundColor: '#713f12' }
+'.bg-yellow-950': { backgroundColor: '#422006' }
 '.bg-lime-50': { backgroundColor: '#f7fee7' }
 '.bg-lime-100': { backgroundColor: '#ecfccb' }
 '.bg-lime-200': { backgroundColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.bg-lime-700': { backgroundColor: '#4d7c0f' }
 '.bg-lime-800': { backgroundColor: '#3f6212' }
 '.bg-lime-900': { backgroundColor: '#365314' }
+'.bg-lime-950': { backgroundColor: '#1a2e05' }
 '.bg-green-50': { backgroundColor: '#f0fdf4' }
 '.bg-green-100': { backgroundColor: '#dcfce7' }
 '.bg-green-200': { backgroundColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.bg-green-700': { backgroundColor: '#15803d' }
 '.bg-green-800': { backgroundColor: '#166534' }
 '.bg-green-900': { backgroundColor: '#14532d' }
+'.bg-green-950': { backgroundColor: '#052e16' }
 '.bg-emerald-50': { backgroundColor: '#ecfdf5' }
 '.bg-emerald-100': { backgroundColor: '#d1fae5' }
 '.bg-emerald-200': { backgroundColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.bg-emerald-700': { backgroundColor: '#047857' }
 '.bg-emerald-800': { backgroundColor: '#065f46' }
 '.bg-emerald-900': { backgroundColor: '#064e3b' }
+'.bg-emerald-950': { backgroundColor: '#022c22' }
 '.bg-teal-50': { backgroundColor: '#f0fdfa' }
 '.bg-teal-100': { backgroundColor: '#ccfbf1' }
 '.bg-teal-200': { backgroundColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.bg-teal-700': { backgroundColor: '#0f766e' }
 '.bg-teal-800': { backgroundColor: '#115e59' }
 '.bg-teal-900': { backgroundColor: '#134e4a' }
+'.bg-teal-950': { backgroundColor: '#042f2e' }
 '.bg-cyan-50': { backgroundColor: '#ecfeff' }
 '.bg-cyan-100': { backgroundColor: '#cffafe' }
 '.bg-cyan-200': { backgroundColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.bg-cyan-700': { backgroundColor: '#0e7490' }
 '.bg-cyan-800': { backgroundColor: '#155e75' }
 '.bg-cyan-900': { backgroundColor: '#164e63' }
+'.bg-cyan-950': { backgroundColor: '#083344' }
 '.bg-sky-50': { backgroundColor: '#f0f9ff' }
 '.bg-sky-100': { backgroundColor: '#e0f2fe' }
 '.bg-sky-200': { backgroundColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.bg-sky-700': { backgroundColor: '#0369a1' }
 '.bg-sky-800': { backgroundColor: '#075985' }
 '.bg-sky-900': { backgroundColor: '#0c4a6e' }
+'.bg-sky-950': { backgroundColor: '#082f49' }
 '.bg-blue-50': { backgroundColor: '#eff6ff' }
 '.bg-blue-100': { backgroundColor: '#dbeafe' }
 '.bg-blue-200': { backgroundColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.bg-blue-700': { backgroundColor: '#1d4ed8' }
 '.bg-blue-800': { backgroundColor: '#1e40af' }
 '.bg-blue-900': { backgroundColor: '#1e3a8a' }
+'.bg-blue-950': { backgroundColor: '#172554' }
 '.bg-indigo-50': { backgroundColor: '#eef2ff' }
 '.bg-indigo-100': { backgroundColor: '#e0e7ff' }
 '.bg-indigo-200': { backgroundColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.bg-indigo-700': { backgroundColor: '#4338ca' }
 '.bg-indigo-800': { backgroundColor: '#3730a3' }
 '.bg-indigo-900': { backgroundColor: '#312e81' }
+'.bg-indigo-950': { backgroundColor: '#1e1b4b' }
 '.bg-violet-50': { backgroundColor: '#f5f3ff' }
 '.bg-violet-100': { backgroundColor: '#ede9fe' }
 '.bg-violet-200': { backgroundColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.bg-violet-700': { backgroundColor: '#6d28d9' }
 '.bg-violet-800': { backgroundColor: '#5b21b6' }
 '.bg-violet-900': { backgroundColor: '#4c1d95' }
+'.bg-violet-950': { backgroundColor: '#2e1065' }
 '.bg-purple-50': { backgroundColor: '#faf5ff' }
 '.bg-purple-100': { backgroundColor: '#f3e8ff' }
 '.bg-purple-200': { backgroundColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.bg-purple-700': { backgroundColor: '#7e22ce' }
 '.bg-purple-800': { backgroundColor: '#6b21a8' }
 '.bg-purple-900': { backgroundColor: '#581c87' }
+'.bg-purple-950': { backgroundColor: '#3b0764' }
 '.bg-fuchsia-50': { backgroundColor: '#fdf4ff' }
 '.bg-fuchsia-100': { backgroundColor: '#fae8ff' }
 '.bg-fuchsia-200': { backgroundColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.bg-fuchsia-700': { backgroundColor: '#a21caf' }
 '.bg-fuchsia-800': { backgroundColor: '#86198f' }
 '.bg-fuchsia-900': { backgroundColor: '#701a75' }
+'.bg-fuchsia-950': { backgroundColor: '#4a044e' }
 '.bg-pink-50': { backgroundColor: '#fdf2f8' }
 '.bg-pink-100': { backgroundColor: '#fce7f3' }
 '.bg-pink-200': { backgroundColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.bg-pink-700': { backgroundColor: '#be185d' }
 '.bg-pink-800': { backgroundColor: '#9d174d' }
 '.bg-pink-900': { backgroundColor: '#831843' }
+'.bg-pink-950': { backgroundColor: '#500724' }
 '.bg-rose-50': { backgroundColor: '#fff1f2' }
 '.bg-rose-100': { backgroundColor: '#ffe4e6' }
 '.bg-rose-200': { backgroundColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.bg-rose-700': { backgroundColor: '#be123c' }
 '.bg-rose-800': { backgroundColor: '#9f1239' }
 '.bg-rose-900': { backgroundColor: '#881337' }
+'.bg-rose-950': { backgroundColor: '#4c0519' }
 ```

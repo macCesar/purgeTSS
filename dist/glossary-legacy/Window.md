@@ -1,3 +1,3 @@
 ```scss
-'Window': { backgroundColor: '#ffffff' }
+'Window': { backgroundColor: '#FFFFFF' }
 ```

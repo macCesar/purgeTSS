@@ -14,6 +14,7 @@
 '.pull-bg-slate-700[platform=ios]': { pullBackgroundColor: '#334155' }
 '.pull-bg-slate-800[platform=ios]': { pullBackgroundColor: '#1e293b' }
 '.pull-bg-slate-900[platform=ios]': { pullBackgroundColor: '#0f172a' }
+'.pull-bg-slate-950[platform=ios]': { pullBackgroundColor: '#020617' }
 '.pull-bg-gray-50[platform=ios]': { pullBackgroundColor: '#f9fafb' }
 '.pull-bg-gray-100[platform=ios]': { pullBackgroundColor: '#f3f4f6' }
 '.pull-bg-gray-200[platform=ios]': { pullBackgroundColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.pull-bg-gray-700[platform=ios]': { pullBackgroundColor: '#374151' }
 '.pull-bg-gray-800[platform=ios]': { pullBackgroundColor: '#1f2937' }
 '.pull-bg-gray-900[platform=ios]': { pullBackgroundColor: '#111827' }
+'.pull-bg-gray-950[platform=ios]': { pullBackgroundColor: '#030712' }
 '.pull-bg-zinc-50[platform=ios]': { pullBackgroundColor: '#fafafa' }
 '.pull-bg-zinc-100[platform=ios]': { pullBackgroundColor: '#f4f4f5' }
 '.pull-bg-zinc-200[platform=ios]': { pullBackgroundColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.pull-bg-zinc-700[platform=ios]': { pullBackgroundColor: '#3f3f46' }
 '.pull-bg-zinc-800[platform=ios]': { pullBackgroundColor: '#27272a' }
 '.pull-bg-zinc-900[platform=ios]': { pullBackgroundColor: '#18181b' }
+'.pull-bg-zinc-950[platform=ios]': { pullBackgroundColor: '#09090b' }
 '.pull-bg-neutral-50[platform=ios]': { pullBackgroundColor: '#fafafa' }
 '.pull-bg-neutral-100[platform=ios]': { pullBackgroundColor: '#f5f5f5' }
 '.pull-bg-neutral-200[platform=ios]': { pullBackgroundColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.pull-bg-neutral-700[platform=ios]': { pullBackgroundColor: '#404040' }
 '.pull-bg-neutral-800[platform=ios]': { pullBackgroundColor: '#262626' }
 '.pull-bg-neutral-900[platform=ios]': { pullBackgroundColor: '#171717' }
+'.pull-bg-neutral-950[platform=ios]': { pullBackgroundColor: '#0a0a0a' }
 '.pull-bg-stone-50[platform=ios]': { pullBackgroundColor: '#fafaf9' }
 '.pull-bg-stone-100[platform=ios]': { pullBackgroundColor: '#f5f5f4' }
 '.pull-bg-stone-200[platform=ios]': { pullBackgroundColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.pull-bg-stone-700[platform=ios]': { pullBackgroundColor: '#44403c' }
 '.pull-bg-stone-800[platform=ios]': { pullBackgroundColor: '#292524' }
 '.pull-bg-stone-900[platform=ios]': { pullBackgroundColor: '#1c1917' }
+'.pull-bg-stone-950[platform=ios]': { pullBackgroundColor: '#0c0a09' }
 '.pull-bg-red-50[platform=ios]': { pullBackgroundColor: '#fef2f2' }
 '.pull-bg-red-100[platform=ios]': { pullBackgroundColor: '#fee2e2' }
 '.pull-bg-red-200[platform=ios]': { pullBackgroundColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.pull-bg-red-700[platform=ios]': { pullBackgroundColor: '#b91c1c' }
 '.pull-bg-red-800[platform=ios]': { pullBackgroundColor: '#991b1b' }
 '.pull-bg-red-900[platform=ios]': { pullBackgroundColor: '#7f1d1d' }
+'.pull-bg-red-950[platform=ios]': { pullBackgroundColor: '#450a0a' }
 '.pull-bg-orange-50[platform=ios]': { pullBackgroundColor: '#fff7ed' }
 '.pull-bg-orange-100[platform=ios]': { pullBackgroundColor: '#ffedd5' }
 '.pull-bg-orange-200[platform=ios]': { pullBackgroundColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.pull-bg-orange-700[platform=ios]': { pullBackgroundColor: '#c2410c' }
 '.pull-bg-orange-800[platform=ios]': { pullBackgroundColor: '#9a3412' }
 '.pull-bg-orange-900[platform=ios]': { pullBackgroundColor: '#7c2d12' }
+'.pull-bg-orange-950[platform=ios]': { pullBackgroundColor: '#431407' }
 '.pull-bg-amber-50[platform=ios]': { pullBackgroundColor: '#fffbeb' }
 '.pull-bg-amber-100[platform=ios]': { pullBackgroundColor: '#fef3c7' }
 '.pull-bg-amber-200[platform=ios]': { pullBackgroundColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.pull-bg-amber-700[platform=ios]': { pullBackgroundColor: '#b45309' }
 '.pull-bg-amber-800[platform=ios]': { pullBackgroundColor: '#92400e' }
 '.pull-bg-amber-900[platform=ios]': { pullBackgroundColor: '#78350f' }
+'.pull-bg-amber-950[platform=ios]': { pullBackgroundColor: '#451a03' }
 '.pull-bg-yellow-50[platform=ios]': { pullBackgroundColor: '#fefce8' }
 '.pull-bg-yellow-100[platform=ios]': { pullBackgroundColor: '#fef9c3' }
 '.pull-bg-yellow-200[platform=ios]': { pullBackgroundColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.pull-bg-yellow-700[platform=ios]': { pullBackgroundColor: '#a16207' }
 '.pull-bg-yellow-800[platform=ios]': { pullBackgroundColor: '#854d0e' }
 '.pull-bg-yellow-900[platform=ios]': { pullBackgroundColor: '#713f12' }
+'.pull-bg-yellow-950[platform=ios]': { pullBackgroundColor: '#422006' }
 '.pull-bg-lime-50[platform=ios]': { pullBackgroundColor: '#f7fee7' }
 '.pull-bg-lime-100[platform=ios]': { pullBackgroundColor: '#ecfccb' }
 '.pull-bg-lime-200[platform=ios]': { pullBackgroundColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.pull-bg-lime-700[platform=ios]': { pullBackgroundColor: '#4d7c0f' }
 '.pull-bg-lime-800[platform=ios]': { pullBackgroundColor: '#3f6212' }
 '.pull-bg-lime-900[platform=ios]': { pullBackgroundColor: '#365314' }
+'.pull-bg-lime-950[platform=ios]': { pullBackgroundColor: '#1a2e05' }
 '.pull-bg-green-50[platform=ios]': { pullBackgroundColor: '#f0fdf4' }
 '.pull-bg-green-100[platform=ios]': { pullBackgroundColor: '#dcfce7' }
 '.pull-bg-green-200[platform=ios]': { pullBackgroundColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.pull-bg-green-700[platform=ios]': { pullBackgroundColor: '#15803d' }
 '.pull-bg-green-800[platform=ios]': { pullBackgroundColor: '#166534' }
 '.pull-bg-green-900[platform=ios]': { pullBackgroundColor: '#14532d' }
+'.pull-bg-green-950[platform=ios]': { pullBackgroundColor: '#052e16' }
 '.pull-bg-emerald-50[platform=ios]': { pullBackgroundColor: '#ecfdf5' }
 '.pull-bg-emerald-100[platform=ios]': { pullBackgroundColor: '#d1fae5' }
 '.pull-bg-emerald-200[platform=ios]': { pullBackgroundColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.pull-bg-emerald-700[platform=ios]': { pullBackgroundColor: '#047857' }
 '.pull-bg-emerald-800[platform=ios]': { pullBackgroundColor: '#065f46' }
 '.pull-bg-emerald-900[platform=ios]': { pullBackgroundColor: '#064e3b' }
+'.pull-bg-emerald-950[platform=ios]': { pullBackgroundColor: '#022c22' }
 '.pull-bg-teal-50[platform=ios]': { pullBackgroundColor: '#f0fdfa' }
 '.pull-bg-teal-100[platform=ios]': { pullBackgroundColor: '#ccfbf1' }
 '.pull-bg-teal-200[platform=ios]': { pullBackgroundColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.pull-bg-teal-700[platform=ios]': { pullBackgroundColor: '#0f766e' }
 '.pull-bg-teal-800[platform=ios]': { pullBackgroundColor: '#115e59' }
 '.pull-bg-teal-900[platform=ios]': { pullBackgroundColor: '#134e4a' }
+'.pull-bg-teal-950[platform=ios]': { pullBackgroundColor: '#042f2e' }
 '.pull-bg-cyan-50[platform=ios]': { pullBackgroundColor: '#ecfeff' }
 '.pull-bg-cyan-100[platform=ios]': { pullBackgroundColor: '#cffafe' }
 '.pull-bg-cyan-200[platform=ios]': { pullBackgroundColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.pull-bg-cyan-700[platform=ios]': { pullBackgroundColor: '#0e7490' }
 '.pull-bg-cyan-800[platform=ios]': { pullBackgroundColor: '#155e75' }
 '.pull-bg-cyan-900[platform=ios]': { pullBackgroundColor: '#164e63' }
+'.pull-bg-cyan-950[platform=ios]': { pullBackgroundColor: '#083344' }
 '.pull-bg-sky-50[platform=ios]': { pullBackgroundColor: '#f0f9ff' }
 '.pull-bg-sky-100[platform=ios]': { pullBackgroundColor: '#e0f2fe' }
 '.pull-bg-sky-200[platform=ios]': { pullBackgroundColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.pull-bg-sky-700[platform=ios]': { pullBackgroundColor: '#0369a1' }
 '.pull-bg-sky-800[platform=ios]': { pullBackgroundColor: '#075985' }
 '.pull-bg-sky-900[platform=ios]': { pullBackgroundColor: '#0c4a6e' }
+'.pull-bg-sky-950[platform=ios]': { pullBackgroundColor: '#082f49' }
 '.pull-bg-blue-50[platform=ios]': { pullBackgroundColor: '#eff6ff' }
 '.pull-bg-blue-100[platform=ios]': { pullBackgroundColor: '#dbeafe' }
 '.pull-bg-blue-200[platform=ios]': { pullBackgroundColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.pull-bg-blue-700[platform=ios]': { pullBackgroundColor: '#1d4ed8' }
 '.pull-bg-blue-800[platform=ios]': { pullBackgroundColor: '#1e40af' }
 '.pull-bg-blue-900[platform=ios]': { pullBackgroundColor: '#1e3a8a' }
+'.pull-bg-blue-950[platform=ios]': { pullBackgroundColor: '#172554' }
 '.pull-bg-indigo-50[platform=ios]': { pullBackgroundColor: '#eef2ff' }
 '.pull-bg-indigo-100[platform=ios]': { pullBackgroundColor: '#e0e7ff' }
 '.pull-bg-indigo-200[platform=ios]': { pullBackgroundColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.pull-bg-indigo-700[platform=ios]': { pullBackgroundColor: '#4338ca' }
 '.pull-bg-indigo-800[platform=ios]': { pullBackgroundColor: '#3730a3' }
 '.pull-bg-indigo-900[platform=ios]': { pullBackgroundColor: '#312e81' }
+'.pull-bg-indigo-950[platform=ios]': { pullBackgroundColor: '#1e1b4b' }
 '.pull-bg-violet-50[platform=ios]': { pullBackgroundColor: '#f5f3ff' }
 '.pull-bg-violet-100[platform=ios]': { pullBackgroundColor: '#ede9fe' }
 '.pull-bg-violet-200[platform=ios]': { pullBackgroundColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.pull-bg-violet-700[platform=ios]': { pullBackgroundColor: '#6d28d9' }
 '.pull-bg-violet-800[platform=ios]': { pullBackgroundColor: '#5b21b6' }
 '.pull-bg-violet-900[platform=ios]': { pullBackgroundColor: '#4c1d95' }
+'.pull-bg-violet-950[platform=ios]': { pullBackgroundColor: '#2e1065' }
 '.pull-bg-purple-50[platform=ios]': { pullBackgroundColor: '#faf5ff' }
 '.pull-bg-purple-100[platform=ios]': { pullBackgroundColor: '#f3e8ff' }
 '.pull-bg-purple-200[platform=ios]': { pullBackgroundColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.pull-bg-purple-700[platform=ios]': { pullBackgroundColor: '#7e22ce' }
 '.pull-bg-purple-800[platform=ios]': { pullBackgroundColor: '#6b21a8' }
 '.pull-bg-purple-900[platform=ios]': { pullBackgroundColor: '#581c87' }
+'.pull-bg-purple-950[platform=ios]': { pullBackgroundColor: '#3b0764' }
 '.pull-bg-fuchsia-50[platform=ios]': { pullBackgroundColor: '#fdf4ff' }
 '.pull-bg-fuchsia-100[platform=ios]': { pullBackgroundColor: '#fae8ff' }
 '.pull-bg-fuchsia-200[platform=ios]': { pullBackgroundColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.pull-bg-fuchsia-700[platform=ios]': { pullBackgroundColor: '#a21caf' }
 '.pull-bg-fuchsia-800[platform=ios]': { pullBackgroundColor: '#86198f' }
 '.pull-bg-fuchsia-900[platform=ios]': { pullBackgroundColor: '#701a75' }
+'.pull-bg-fuchsia-950[platform=ios]': { pullBackgroundColor: '#4a044e' }
 '.pull-bg-pink-50[platform=ios]': { pullBackgroundColor: '#fdf2f8' }
 '.pull-bg-pink-100[platform=ios]': { pullBackgroundColor: '#fce7f3' }
 '.pull-bg-pink-200[platform=ios]': { pullBackgroundColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.pull-bg-pink-700[platform=ios]': { pullBackgroundColor: '#be185d' }
 '.pull-bg-pink-800[platform=ios]': { pullBackgroundColor: '#9d174d' }
 '.pull-bg-pink-900[platform=ios]': { pullBackgroundColor: '#831843' }
+'.pull-bg-pink-950[platform=ios]': { pullBackgroundColor: '#500724' }
 '.pull-bg-rose-50[platform=ios]': { pullBackgroundColor: '#fff1f2' }
 '.pull-bg-rose-100[platform=ios]': { pullBackgroundColor: '#ffe4e6' }
 '.pull-bg-rose-200[platform=ios]': { pullBackgroundColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.pull-bg-rose-700[platform=ios]': { pullBackgroundColor: '#be123c' }
 '.pull-bg-rose-800[platform=ios]': { pullBackgroundColor: '#9f1239' }
 '.pull-bg-rose-900[platform=ios]': { pullBackgroundColor: '#881337' }
+'.pull-bg-rose-950[platform=ios]': { pullBackgroundColor: '#4c0519' }
 ```

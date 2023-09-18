@@ -14,6 +14,7 @@
 '.shadow-slate-700[platform=ios]': { viewShadowColor: '#334155' }
 '.shadow-slate-800[platform=ios]': { viewShadowColor: '#1e293b' }
 '.shadow-slate-900[platform=ios]': { viewShadowColor: '#0f172a' }
+'.shadow-slate-950[platform=ios]': { viewShadowColor: '#020617' }
 '.shadow-gray-50[platform=ios]': { viewShadowColor: '#f9fafb' }
 '.shadow-gray-100[platform=ios]': { viewShadowColor: '#f3f4f6' }
 '.shadow-gray-200[platform=ios]': { viewShadowColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.shadow-gray-700[platform=ios]': { viewShadowColor: '#374151' }
 '.shadow-gray-800[platform=ios]': { viewShadowColor: '#1f2937' }
 '.shadow-gray-900[platform=ios]': { viewShadowColor: '#111827' }
+'.shadow-gray-950[platform=ios]': { viewShadowColor: '#030712' }
 '.shadow-zinc-50[platform=ios]': { viewShadowColor: '#fafafa' }
 '.shadow-zinc-100[platform=ios]': { viewShadowColor: '#f4f4f5' }
 '.shadow-zinc-200[platform=ios]': { viewShadowColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.shadow-zinc-700[platform=ios]': { viewShadowColor: '#3f3f46' }
 '.shadow-zinc-800[platform=ios]': { viewShadowColor: '#27272a' }
 '.shadow-zinc-900[platform=ios]': { viewShadowColor: '#18181b' }
+'.shadow-zinc-950[platform=ios]': { viewShadowColor: '#09090b' }
 '.shadow-neutral-50[platform=ios]': { viewShadowColor: '#fafafa' }
 '.shadow-neutral-100[platform=ios]': { viewShadowColor: '#f5f5f5' }
 '.shadow-neutral-200[platform=ios]': { viewShadowColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.shadow-neutral-700[platform=ios]': { viewShadowColor: '#404040' }
 '.shadow-neutral-800[platform=ios]': { viewShadowColor: '#262626' }
 '.shadow-neutral-900[platform=ios]': { viewShadowColor: '#171717' }
+'.shadow-neutral-950[platform=ios]': { viewShadowColor: '#0a0a0a' }
 '.shadow-stone-50[platform=ios]': { viewShadowColor: '#fafaf9' }
 '.shadow-stone-100[platform=ios]': { viewShadowColor: '#f5f5f4' }
 '.shadow-stone-200[platform=ios]': { viewShadowColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.shadow-stone-700[platform=ios]': { viewShadowColor: '#44403c' }
 '.shadow-stone-800[platform=ios]': { viewShadowColor: '#292524' }
 '.shadow-stone-900[platform=ios]': { viewShadowColor: '#1c1917' }
+'.shadow-stone-950[platform=ios]': { viewShadowColor: '#0c0a09' }
 '.shadow-red-50[platform=ios]': { viewShadowColor: '#fef2f2' }
 '.shadow-red-100[platform=ios]': { viewShadowColor: '#fee2e2' }
 '.shadow-red-200[platform=ios]': { viewShadowColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.shadow-red-700[platform=ios]': { viewShadowColor: '#b91c1c' }
 '.shadow-red-800[platform=ios]': { viewShadowColor: '#991b1b' }
 '.shadow-red-900[platform=ios]': { viewShadowColor: '#7f1d1d' }
+'.shadow-red-950[platform=ios]': { viewShadowColor: '#450a0a' }
 '.shadow-orange-50[platform=ios]': { viewShadowColor: '#fff7ed' }
 '.shadow-orange-100[platform=ios]': { viewShadowColor: '#ffedd5' }
 '.shadow-orange-200[platform=ios]': { viewShadowColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.shadow-orange-700[platform=ios]': { viewShadowColor: '#c2410c' }
 '.shadow-orange-800[platform=ios]': { viewShadowColor: '#9a3412' }
 '.shadow-orange-900[platform=ios]': { viewShadowColor: '#7c2d12' }
+'.shadow-orange-950[platform=ios]': { viewShadowColor: '#431407' }
 '.shadow-amber-50[platform=ios]': { viewShadowColor: '#fffbeb' }
 '.shadow-amber-100[platform=ios]': { viewShadowColor: '#fef3c7' }
 '.shadow-amber-200[platform=ios]': { viewShadowColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.shadow-amber-700[platform=ios]': { viewShadowColor: '#b45309' }
 '.shadow-amber-800[platform=ios]': { viewShadowColor: '#92400e' }
 '.shadow-amber-900[platform=ios]': { viewShadowColor: '#78350f' }
+'.shadow-amber-950[platform=ios]': { viewShadowColor: '#451a03' }
 '.shadow-yellow-50[platform=ios]': { viewShadowColor: '#fefce8' }
 '.shadow-yellow-100[platform=ios]': { viewShadowColor: '#fef9c3' }
 '.shadow-yellow-200[platform=ios]': { viewShadowColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.shadow-yellow-700[platform=ios]': { viewShadowColor: '#a16207' }
 '.shadow-yellow-800[platform=ios]': { viewShadowColor: '#854d0e' }
 '.shadow-yellow-900[platform=ios]': { viewShadowColor: '#713f12' }
+'.shadow-yellow-950[platform=ios]': { viewShadowColor: '#422006' }
 '.shadow-lime-50[platform=ios]': { viewShadowColor: '#f7fee7' }
 '.shadow-lime-100[platform=ios]': { viewShadowColor: '#ecfccb' }
 '.shadow-lime-200[platform=ios]': { viewShadowColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.shadow-lime-700[platform=ios]': { viewShadowColor: '#4d7c0f' }
 '.shadow-lime-800[platform=ios]': { viewShadowColor: '#3f6212' }
 '.shadow-lime-900[platform=ios]': { viewShadowColor: '#365314' }
+'.shadow-lime-950[platform=ios]': { viewShadowColor: '#1a2e05' }
 '.shadow-green-50[platform=ios]': { viewShadowColor: '#f0fdf4' }
 '.shadow-green-100[platform=ios]': { viewShadowColor: '#dcfce7' }
 '.shadow-green-200[platform=ios]': { viewShadowColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.shadow-green-700[platform=ios]': { viewShadowColor: '#15803d' }
 '.shadow-green-800[platform=ios]': { viewShadowColor: '#166534' }
 '.shadow-green-900[platform=ios]': { viewShadowColor: '#14532d' }
+'.shadow-green-950[platform=ios]': { viewShadowColor: '#052e16' }
 '.shadow-emerald-50[platform=ios]': { viewShadowColor: '#ecfdf5' }
 '.shadow-emerald-100[platform=ios]': { viewShadowColor: '#d1fae5' }
 '.shadow-emerald-200[platform=ios]': { viewShadowColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.shadow-emerald-700[platform=ios]': { viewShadowColor: '#047857' }
 '.shadow-emerald-800[platform=ios]': { viewShadowColor: '#065f46' }
 '.shadow-emerald-900[platform=ios]': { viewShadowColor: '#064e3b' }
+'.shadow-emerald-950[platform=ios]': { viewShadowColor: '#022c22' }
 '.shadow-teal-50[platform=ios]': { viewShadowColor: '#f0fdfa' }
 '.shadow-teal-100[platform=ios]': { viewShadowColor: '#ccfbf1' }
 '.shadow-teal-200[platform=ios]': { viewShadowColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.shadow-teal-700[platform=ios]': { viewShadowColor: '#0f766e' }
 '.shadow-teal-800[platform=ios]': { viewShadowColor: '#115e59' }
 '.shadow-teal-900[platform=ios]': { viewShadowColor: '#134e4a' }
+'.shadow-teal-950[platform=ios]': { viewShadowColor: '#042f2e' }
 '.shadow-cyan-50[platform=ios]': { viewShadowColor: '#ecfeff' }
 '.shadow-cyan-100[platform=ios]': { viewShadowColor: '#cffafe' }
 '.shadow-cyan-200[platform=ios]': { viewShadowColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.shadow-cyan-700[platform=ios]': { viewShadowColor: '#0e7490' }
 '.shadow-cyan-800[platform=ios]': { viewShadowColor: '#155e75' }
 '.shadow-cyan-900[platform=ios]': { viewShadowColor: '#164e63' }
+'.shadow-cyan-950[platform=ios]': { viewShadowColor: '#083344' }
 '.shadow-sky-50[platform=ios]': { viewShadowColor: '#f0f9ff' }
 '.shadow-sky-100[platform=ios]': { viewShadowColor: '#e0f2fe' }
 '.shadow-sky-200[platform=ios]': { viewShadowColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.shadow-sky-700[platform=ios]': { viewShadowColor: '#0369a1' }
 '.shadow-sky-800[platform=ios]': { viewShadowColor: '#075985' }
 '.shadow-sky-900[platform=ios]': { viewShadowColor: '#0c4a6e' }
+'.shadow-sky-950[platform=ios]': { viewShadowColor: '#082f49' }
 '.shadow-blue-50[platform=ios]': { viewShadowColor: '#eff6ff' }
 '.shadow-blue-100[platform=ios]': { viewShadowColor: '#dbeafe' }
 '.shadow-blue-200[platform=ios]': { viewShadowColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.shadow-blue-700[platform=ios]': { viewShadowColor: '#1d4ed8' }
 '.shadow-blue-800[platform=ios]': { viewShadowColor: '#1e40af' }
 '.shadow-blue-900[platform=ios]': { viewShadowColor: '#1e3a8a' }
+'.shadow-blue-950[platform=ios]': { viewShadowColor: '#172554' }
 '.shadow-indigo-50[platform=ios]': { viewShadowColor: '#eef2ff' }
 '.shadow-indigo-100[platform=ios]': { viewShadowColor: '#e0e7ff' }
 '.shadow-indigo-200[platform=ios]': { viewShadowColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.shadow-indigo-700[platform=ios]': { viewShadowColor: '#4338ca' }
 '.shadow-indigo-800[platform=ios]': { viewShadowColor: '#3730a3' }
 '.shadow-indigo-900[platform=ios]': { viewShadowColor: '#312e81' }
+'.shadow-indigo-950[platform=ios]': { viewShadowColor: '#1e1b4b' }
 '.shadow-violet-50[platform=ios]': { viewShadowColor: '#f5f3ff' }
 '.shadow-violet-100[platform=ios]': { viewShadowColor: '#ede9fe' }
 '.shadow-violet-200[platform=ios]': { viewShadowColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.shadow-violet-700[platform=ios]': { viewShadowColor: '#6d28d9' }
 '.shadow-violet-800[platform=ios]': { viewShadowColor: '#5b21b6' }
 '.shadow-violet-900[platform=ios]': { viewShadowColor: '#4c1d95' }
+'.shadow-violet-950[platform=ios]': { viewShadowColor: '#2e1065' }
 '.shadow-purple-50[platform=ios]': { viewShadowColor: '#faf5ff' }
 '.shadow-purple-100[platform=ios]': { viewShadowColor: '#f3e8ff' }
 '.shadow-purple-200[platform=ios]': { viewShadowColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.shadow-purple-700[platform=ios]': { viewShadowColor: '#7e22ce' }
 '.shadow-purple-800[platform=ios]': { viewShadowColor: '#6b21a8' }
 '.shadow-purple-900[platform=ios]': { viewShadowColor: '#581c87' }
+'.shadow-purple-950[platform=ios]': { viewShadowColor: '#3b0764' }
 '.shadow-fuchsia-50[platform=ios]': { viewShadowColor: '#fdf4ff' }
 '.shadow-fuchsia-100[platform=ios]': { viewShadowColor: '#fae8ff' }
 '.shadow-fuchsia-200[platform=ios]': { viewShadowColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.shadow-fuchsia-700[platform=ios]': { viewShadowColor: '#a21caf' }
 '.shadow-fuchsia-800[platform=ios]': { viewShadowColor: '#86198f' }
 '.shadow-fuchsia-900[platform=ios]': { viewShadowColor: '#701a75' }
+'.shadow-fuchsia-950[platform=ios]': { viewShadowColor: '#4a044e' }
 '.shadow-pink-50[platform=ios]': { viewShadowColor: '#fdf2f8' }
 '.shadow-pink-100[platform=ios]': { viewShadowColor: '#fce7f3' }
 '.shadow-pink-200[platform=ios]': { viewShadowColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.shadow-pink-700[platform=ios]': { viewShadowColor: '#be185d' }
 '.shadow-pink-800[platform=ios]': { viewShadowColor: '#9d174d' }
 '.shadow-pink-900[platform=ios]': { viewShadowColor: '#831843' }
+'.shadow-pink-950[platform=ios]': { viewShadowColor: '#500724' }
 '.shadow-rose-50[platform=ios]': { viewShadowColor: '#fff1f2' }
 '.shadow-rose-100[platform=ios]': { viewShadowColor: '#ffe4e6' }
 '.shadow-rose-200[platform=ios]': { viewShadowColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.shadow-rose-700[platform=ios]': { viewShadowColor: '#be123c' }
 '.shadow-rose-800[platform=ios]': { viewShadowColor: '#9f1239' }
 '.shadow-rose-900[platform=ios]': { viewShadowColor: '#881337' }
+'.shadow-rose-950[platform=ios]': { viewShadowColor: '#4c0519' }
 ```

@@ -14,6 +14,7 @@
 '.date-time-slate-700': { dateTimeColor: '#334155' }
 '.date-time-slate-800': { dateTimeColor: '#1e293b' }
 '.date-time-slate-900': { dateTimeColor: '#0f172a' }
+'.date-time-slate-950': { dateTimeColor: '#020617' }
 '.date-time-gray-50': { dateTimeColor: '#f9fafb' }
 '.date-time-gray-100': { dateTimeColor: '#f3f4f6' }
 '.date-time-gray-200': { dateTimeColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.date-time-gray-700': { dateTimeColor: '#374151' }
 '.date-time-gray-800': { dateTimeColor: '#1f2937' }
 '.date-time-gray-900': { dateTimeColor: '#111827' }
+'.date-time-gray-950': { dateTimeColor: '#030712' }
 '.date-time-zinc-50': { dateTimeColor: '#fafafa' }
 '.date-time-zinc-100': { dateTimeColor: '#f4f4f5' }
 '.date-time-zinc-200': { dateTimeColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.date-time-zinc-700': { dateTimeColor: '#3f3f46' }
 '.date-time-zinc-800': { dateTimeColor: '#27272a' }
 '.date-time-zinc-900': { dateTimeColor: '#18181b' }
+'.date-time-zinc-950': { dateTimeColor: '#09090b' }
 '.date-time-neutral-50': { dateTimeColor: '#fafafa' }
 '.date-time-neutral-100': { dateTimeColor: '#f5f5f5' }
 '.date-time-neutral-200': { dateTimeColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.date-time-neutral-700': { dateTimeColor: '#404040' }
 '.date-time-neutral-800': { dateTimeColor: '#262626' }
 '.date-time-neutral-900': { dateTimeColor: '#171717' }
+'.date-time-neutral-950': { dateTimeColor: '#0a0a0a' }
 '.date-time-stone-50': { dateTimeColor: '#fafaf9' }
 '.date-time-stone-100': { dateTimeColor: '#f5f5f4' }
 '.date-time-stone-200': { dateTimeColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.date-time-stone-700': { dateTimeColor: '#44403c' }
 '.date-time-stone-800': { dateTimeColor: '#292524' }
 '.date-time-stone-900': { dateTimeColor: '#1c1917' }
+'.date-time-stone-950': { dateTimeColor: '#0c0a09' }
 '.date-time-red-50': { dateTimeColor: '#fef2f2' }
 '.date-time-red-100': { dateTimeColor: '#fee2e2' }
 '.date-time-red-200': { dateTimeColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.date-time-red-700': { dateTimeColor: '#b91c1c' }
 '.date-time-red-800': { dateTimeColor: '#991b1b' }
 '.date-time-red-900': { dateTimeColor: '#7f1d1d' }
+'.date-time-red-950': { dateTimeColor: '#450a0a' }
 '.date-time-orange-50': { dateTimeColor: '#fff7ed' }
 '.date-time-orange-100': { dateTimeColor: '#ffedd5' }
 '.date-time-orange-200': { dateTimeColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.date-time-orange-700': { dateTimeColor: '#c2410c' }
 '.date-time-orange-800': { dateTimeColor: '#9a3412' }
 '.date-time-orange-900': { dateTimeColor: '#7c2d12' }
+'.date-time-orange-950': { dateTimeColor: '#431407' }
 '.date-time-amber-50': { dateTimeColor: '#fffbeb' }
 '.date-time-amber-100': { dateTimeColor: '#fef3c7' }
 '.date-time-amber-200': { dateTimeColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.date-time-amber-700': { dateTimeColor: '#b45309' }
 '.date-time-amber-800': { dateTimeColor: '#92400e' }
 '.date-time-amber-900': { dateTimeColor: '#78350f' }
+'.date-time-amber-950': { dateTimeColor: '#451a03' }
 '.date-time-yellow-50': { dateTimeColor: '#fefce8' }
 '.date-time-yellow-100': { dateTimeColor: '#fef9c3' }
 '.date-time-yellow-200': { dateTimeColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.date-time-yellow-700': { dateTimeColor: '#a16207' }
 '.date-time-yellow-800': { dateTimeColor: '#854d0e' }
 '.date-time-yellow-900': { dateTimeColor: '#713f12' }
+'.date-time-yellow-950': { dateTimeColor: '#422006' }
 '.date-time-lime-50': { dateTimeColor: '#f7fee7' }
 '.date-time-lime-100': { dateTimeColor: '#ecfccb' }
 '.date-time-lime-200': { dateTimeColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.date-time-lime-700': { dateTimeColor: '#4d7c0f' }
 '.date-time-lime-800': { dateTimeColor: '#3f6212' }
 '.date-time-lime-900': { dateTimeColor: '#365314' }
+'.date-time-lime-950': { dateTimeColor: '#1a2e05' }
 '.date-time-green-50': { dateTimeColor: '#f0fdf4' }
 '.date-time-green-100': { dateTimeColor: '#dcfce7' }
 '.date-time-green-200': { dateTimeColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.date-time-green-700': { dateTimeColor: '#15803d' }
 '.date-time-green-800': { dateTimeColor: '#166534' }
 '.date-time-green-900': { dateTimeColor: '#14532d' }
+'.date-time-green-950': { dateTimeColor: '#052e16' }
 '.date-time-emerald-50': { dateTimeColor: '#ecfdf5' }
 '.date-time-emerald-100': { dateTimeColor: '#d1fae5' }
 '.date-time-emerald-200': { dateTimeColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.date-time-emerald-700': { dateTimeColor: '#047857' }
 '.date-time-emerald-800': { dateTimeColor: '#065f46' }
 '.date-time-emerald-900': { dateTimeColor: '#064e3b' }
+'.date-time-emerald-950': { dateTimeColor: '#022c22' }
 '.date-time-teal-50': { dateTimeColor: '#f0fdfa' }
 '.date-time-teal-100': { dateTimeColor: '#ccfbf1' }
 '.date-time-teal-200': { dateTimeColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.date-time-teal-700': { dateTimeColor: '#0f766e' }
 '.date-time-teal-800': { dateTimeColor: '#115e59' }
 '.date-time-teal-900': { dateTimeColor: '#134e4a' }
+'.date-time-teal-950': { dateTimeColor: '#042f2e' }
 '.date-time-cyan-50': { dateTimeColor: '#ecfeff' }
 '.date-time-cyan-100': { dateTimeColor: '#cffafe' }
 '.date-time-cyan-200': { dateTimeColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.date-time-cyan-700': { dateTimeColor: '#0e7490' }
 '.date-time-cyan-800': { dateTimeColor: '#155e75' }
 '.date-time-cyan-900': { dateTimeColor: '#164e63' }
+'.date-time-cyan-950': { dateTimeColor: '#083344' }
 '.date-time-sky-50': { dateTimeColor: '#f0f9ff' }
 '.date-time-sky-100': { dateTimeColor: '#e0f2fe' }
 '.date-time-sky-200': { dateTimeColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.date-time-sky-700': { dateTimeColor: '#0369a1' }
 '.date-time-sky-800': { dateTimeColor: '#075985' }
 '.date-time-sky-900': { dateTimeColor: '#0c4a6e' }
+'.date-time-sky-950': { dateTimeColor: '#082f49' }
 '.date-time-blue-50': { dateTimeColor: '#eff6ff' }
 '.date-time-blue-100': { dateTimeColor: '#dbeafe' }
 '.date-time-blue-200': { dateTimeColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.date-time-blue-700': { dateTimeColor: '#1d4ed8' }
 '.date-time-blue-800': { dateTimeColor: '#1e40af' }
 '.date-time-blue-900': { dateTimeColor: '#1e3a8a' }
+'.date-time-blue-950': { dateTimeColor: '#172554' }
 '.date-time-indigo-50': { dateTimeColor: '#eef2ff' }
 '.date-time-indigo-100': { dateTimeColor: '#e0e7ff' }
 '.date-time-indigo-200': { dateTimeColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.date-time-indigo-700': { dateTimeColor: '#4338ca' }
 '.date-time-indigo-800': { dateTimeColor: '#3730a3' }
 '.date-time-indigo-900': { dateTimeColor: '#312e81' }
+'.date-time-indigo-950': { dateTimeColor: '#1e1b4b' }
 '.date-time-violet-50': { dateTimeColor: '#f5f3ff' }
 '.date-time-violet-100': { dateTimeColor: '#ede9fe' }
 '.date-time-violet-200': { dateTimeColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.date-time-violet-700': { dateTimeColor: '#6d28d9' }
 '.date-time-violet-800': { dateTimeColor: '#5b21b6' }
 '.date-time-violet-900': { dateTimeColor: '#4c1d95' }
+'.date-time-violet-950': { dateTimeColor: '#2e1065' }
 '.date-time-purple-50': { dateTimeColor: '#faf5ff' }
 '.date-time-purple-100': { dateTimeColor: '#f3e8ff' }
 '.date-time-purple-200': { dateTimeColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.date-time-purple-700': { dateTimeColor: '#7e22ce' }
 '.date-time-purple-800': { dateTimeColor: '#6b21a8' }
 '.date-time-purple-900': { dateTimeColor: '#581c87' }
+'.date-time-purple-950': { dateTimeColor: '#3b0764' }
 '.date-time-fuchsia-50': { dateTimeColor: '#fdf4ff' }
 '.date-time-fuchsia-100': { dateTimeColor: '#fae8ff' }
 '.date-time-fuchsia-200': { dateTimeColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.date-time-fuchsia-700': { dateTimeColor: '#a21caf' }
 '.date-time-fuchsia-800': { dateTimeColor: '#86198f' }
 '.date-time-fuchsia-900': { dateTimeColor: '#701a75' }
+'.date-time-fuchsia-950': { dateTimeColor: '#4a044e' }
 '.date-time-pink-50': { dateTimeColor: '#fdf2f8' }
 '.date-time-pink-100': { dateTimeColor: '#fce7f3' }
 '.date-time-pink-200': { dateTimeColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.date-time-pink-700': { dateTimeColor: '#be185d' }
 '.date-time-pink-800': { dateTimeColor: '#9d174d' }
 '.date-time-pink-900': { dateTimeColor: '#831843' }
+'.date-time-pink-950': { dateTimeColor: '#500724' }
 '.date-time-rose-50': { dateTimeColor: '#fff1f2' }
 '.date-time-rose-100': { dateTimeColor: '#ffe4e6' }
 '.date-time-rose-200': { dateTimeColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.date-time-rose-700': { dateTimeColor: '#be123c' }
 '.date-time-rose-800': { dateTimeColor: '#9f1239' }
 '.date-time-rose-900': { dateTimeColor: '#881337' }
+'.date-time-rose-950': { dateTimeColor: '#4c0519' }
 ```

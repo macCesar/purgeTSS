@@ -14,6 +14,7 @@
 '.page-indicator-slate-700': { pageIndicatorColor: '#334155' }
 '.page-indicator-slate-800': { pageIndicatorColor: '#1e293b' }
 '.page-indicator-slate-900': { pageIndicatorColor: '#0f172a' }
+'.page-indicator-slate-950': { pageIndicatorColor: '#020617' }
 '.page-indicator-gray-50': { pageIndicatorColor: '#f9fafb' }
 '.page-indicator-gray-100': { pageIndicatorColor: '#f3f4f6' }
 '.page-indicator-gray-200': { pageIndicatorColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.page-indicator-gray-700': { pageIndicatorColor: '#374151' }
 '.page-indicator-gray-800': { pageIndicatorColor: '#1f2937' }
 '.page-indicator-gray-900': { pageIndicatorColor: '#111827' }
+'.page-indicator-gray-950': { pageIndicatorColor: '#030712' }
 '.page-indicator-zinc-50': { pageIndicatorColor: '#fafafa' }
 '.page-indicator-zinc-100': { pageIndicatorColor: '#f4f4f5' }
 '.page-indicator-zinc-200': { pageIndicatorColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.page-indicator-zinc-700': { pageIndicatorColor: '#3f3f46' }
 '.page-indicator-zinc-800': { pageIndicatorColor: '#27272a' }
 '.page-indicator-zinc-900': { pageIndicatorColor: '#18181b' }
+'.page-indicator-zinc-950': { pageIndicatorColor: '#09090b' }
 '.page-indicator-neutral-50': { pageIndicatorColor: '#fafafa' }
 '.page-indicator-neutral-100': { pageIndicatorColor: '#f5f5f5' }
 '.page-indicator-neutral-200': { pageIndicatorColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.page-indicator-neutral-700': { pageIndicatorColor: '#404040' }
 '.page-indicator-neutral-800': { pageIndicatorColor: '#262626' }
 '.page-indicator-neutral-900': { pageIndicatorColor: '#171717' }
+'.page-indicator-neutral-950': { pageIndicatorColor: '#0a0a0a' }
 '.page-indicator-stone-50': { pageIndicatorColor: '#fafaf9' }
 '.page-indicator-stone-100': { pageIndicatorColor: '#f5f5f4' }
 '.page-indicator-stone-200': { pageIndicatorColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.page-indicator-stone-700': { pageIndicatorColor: '#44403c' }
 '.page-indicator-stone-800': { pageIndicatorColor: '#292524' }
 '.page-indicator-stone-900': { pageIndicatorColor: '#1c1917' }
+'.page-indicator-stone-950': { pageIndicatorColor: '#0c0a09' }
 '.page-indicator-red-50': { pageIndicatorColor: '#fef2f2' }
 '.page-indicator-red-100': { pageIndicatorColor: '#fee2e2' }
 '.page-indicator-red-200': { pageIndicatorColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.page-indicator-red-700': { pageIndicatorColor: '#b91c1c' }
 '.page-indicator-red-800': { pageIndicatorColor: '#991b1b' }
 '.page-indicator-red-900': { pageIndicatorColor: '#7f1d1d' }
+'.page-indicator-red-950': { pageIndicatorColor: '#450a0a' }
 '.page-indicator-orange-50': { pageIndicatorColor: '#fff7ed' }
 '.page-indicator-orange-100': { pageIndicatorColor: '#ffedd5' }
 '.page-indicator-orange-200': { pageIndicatorColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.page-indicator-orange-700': { pageIndicatorColor: '#c2410c' }
 '.page-indicator-orange-800': { pageIndicatorColor: '#9a3412' }
 '.page-indicator-orange-900': { pageIndicatorColor: '#7c2d12' }
+'.page-indicator-orange-950': { pageIndicatorColor: '#431407' }
 '.page-indicator-amber-50': { pageIndicatorColor: '#fffbeb' }
 '.page-indicator-amber-100': { pageIndicatorColor: '#fef3c7' }
 '.page-indicator-amber-200': { pageIndicatorColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.page-indicator-amber-700': { pageIndicatorColor: '#b45309' }
 '.page-indicator-amber-800': { pageIndicatorColor: '#92400e' }
 '.page-indicator-amber-900': { pageIndicatorColor: '#78350f' }
+'.page-indicator-amber-950': { pageIndicatorColor: '#451a03' }
 '.page-indicator-yellow-50': { pageIndicatorColor: '#fefce8' }
 '.page-indicator-yellow-100': { pageIndicatorColor: '#fef9c3' }
 '.page-indicator-yellow-200': { pageIndicatorColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.page-indicator-yellow-700': { pageIndicatorColor: '#a16207' }
 '.page-indicator-yellow-800': { pageIndicatorColor: '#854d0e' }
 '.page-indicator-yellow-900': { pageIndicatorColor: '#713f12' }
+'.page-indicator-yellow-950': { pageIndicatorColor: '#422006' }
 '.page-indicator-lime-50': { pageIndicatorColor: '#f7fee7' }
 '.page-indicator-lime-100': { pageIndicatorColor: '#ecfccb' }
 '.page-indicator-lime-200': { pageIndicatorColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.page-indicator-lime-700': { pageIndicatorColor: '#4d7c0f' }
 '.page-indicator-lime-800': { pageIndicatorColor: '#3f6212' }
 '.page-indicator-lime-900': { pageIndicatorColor: '#365314' }
+'.page-indicator-lime-950': { pageIndicatorColor: '#1a2e05' }
 '.page-indicator-green-50': { pageIndicatorColor: '#f0fdf4' }
 '.page-indicator-green-100': { pageIndicatorColor: '#dcfce7' }
 '.page-indicator-green-200': { pageIndicatorColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.page-indicator-green-700': { pageIndicatorColor: '#15803d' }
 '.page-indicator-green-800': { pageIndicatorColor: '#166534' }
 '.page-indicator-green-900': { pageIndicatorColor: '#14532d' }
+'.page-indicator-green-950': { pageIndicatorColor: '#052e16' }
 '.page-indicator-emerald-50': { pageIndicatorColor: '#ecfdf5' }
 '.page-indicator-emerald-100': { pageIndicatorColor: '#d1fae5' }
 '.page-indicator-emerald-200': { pageIndicatorColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.page-indicator-emerald-700': { pageIndicatorColor: '#047857' }
 '.page-indicator-emerald-800': { pageIndicatorColor: '#065f46' }
 '.page-indicator-emerald-900': { pageIndicatorColor: '#064e3b' }
+'.page-indicator-emerald-950': { pageIndicatorColor: '#022c22' }
 '.page-indicator-teal-50': { pageIndicatorColor: '#f0fdfa' }
 '.page-indicator-teal-100': { pageIndicatorColor: '#ccfbf1' }
 '.page-indicator-teal-200': { pageIndicatorColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.page-indicator-teal-700': { pageIndicatorColor: '#0f766e' }
 '.page-indicator-teal-800': { pageIndicatorColor: '#115e59' }
 '.page-indicator-teal-900': { pageIndicatorColor: '#134e4a' }
+'.page-indicator-teal-950': { pageIndicatorColor: '#042f2e' }
 '.page-indicator-cyan-50': { pageIndicatorColor: '#ecfeff' }
 '.page-indicator-cyan-100': { pageIndicatorColor: '#cffafe' }
 '.page-indicator-cyan-200': { pageIndicatorColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.page-indicator-cyan-700': { pageIndicatorColor: '#0e7490' }
 '.page-indicator-cyan-800': { pageIndicatorColor: '#155e75' }
 '.page-indicator-cyan-900': { pageIndicatorColor: '#164e63' }
+'.page-indicator-cyan-950': { pageIndicatorColor: '#083344' }
 '.page-indicator-sky-50': { pageIndicatorColor: '#f0f9ff' }
 '.page-indicator-sky-100': { pageIndicatorColor: '#e0f2fe' }
 '.page-indicator-sky-200': { pageIndicatorColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.page-indicator-sky-700': { pageIndicatorColor: '#0369a1' }
 '.page-indicator-sky-800': { pageIndicatorColor: '#075985' }
 '.page-indicator-sky-900': { pageIndicatorColor: '#0c4a6e' }
+'.page-indicator-sky-950': { pageIndicatorColor: '#082f49' }
 '.page-indicator-blue-50': { pageIndicatorColor: '#eff6ff' }
 '.page-indicator-blue-100': { pageIndicatorColor: '#dbeafe' }
 '.page-indicator-blue-200': { pageIndicatorColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.page-indicator-blue-700': { pageIndicatorColor: '#1d4ed8' }
 '.page-indicator-blue-800': { pageIndicatorColor: '#1e40af' }
 '.page-indicator-blue-900': { pageIndicatorColor: '#1e3a8a' }
+'.page-indicator-blue-950': { pageIndicatorColor: '#172554' }
 '.page-indicator-indigo-50': { pageIndicatorColor: '#eef2ff' }
 '.page-indicator-indigo-100': { pageIndicatorColor: '#e0e7ff' }
 '.page-indicator-indigo-200': { pageIndicatorColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.page-indicator-indigo-700': { pageIndicatorColor: '#4338ca' }
 '.page-indicator-indigo-800': { pageIndicatorColor: '#3730a3' }
 '.page-indicator-indigo-900': { pageIndicatorColor: '#312e81' }
+'.page-indicator-indigo-950': { pageIndicatorColor: '#1e1b4b' }
 '.page-indicator-violet-50': { pageIndicatorColor: '#f5f3ff' }
 '.page-indicator-violet-100': { pageIndicatorColor: '#ede9fe' }
 '.page-indicator-violet-200': { pageIndicatorColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.page-indicator-violet-700': { pageIndicatorColor: '#6d28d9' }
 '.page-indicator-violet-800': { pageIndicatorColor: '#5b21b6' }
 '.page-indicator-violet-900': { pageIndicatorColor: '#4c1d95' }
+'.page-indicator-violet-950': { pageIndicatorColor: '#2e1065' }
 '.page-indicator-purple-50': { pageIndicatorColor: '#faf5ff' }
 '.page-indicator-purple-100': { pageIndicatorColor: '#f3e8ff' }
 '.page-indicator-purple-200': { pageIndicatorColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.page-indicator-purple-700': { pageIndicatorColor: '#7e22ce' }
 '.page-indicator-purple-800': { pageIndicatorColor: '#6b21a8' }
 '.page-indicator-purple-900': { pageIndicatorColor: '#581c87' }
+'.page-indicator-purple-950': { pageIndicatorColor: '#3b0764' }
 '.page-indicator-fuchsia-50': { pageIndicatorColor: '#fdf4ff' }
 '.page-indicator-fuchsia-100': { pageIndicatorColor: '#fae8ff' }
 '.page-indicator-fuchsia-200': { pageIndicatorColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.page-indicator-fuchsia-700': { pageIndicatorColor: '#a21caf' }
 '.page-indicator-fuchsia-800': { pageIndicatorColor: '#86198f' }
 '.page-indicator-fuchsia-900': { pageIndicatorColor: '#701a75' }
+'.page-indicator-fuchsia-950': { pageIndicatorColor: '#4a044e' }
 '.page-indicator-pink-50': { pageIndicatorColor: '#fdf2f8' }
 '.page-indicator-pink-100': { pageIndicatorColor: '#fce7f3' }
 '.page-indicator-pink-200': { pageIndicatorColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.page-indicator-pink-700': { pageIndicatorColor: '#be185d' }
 '.page-indicator-pink-800': { pageIndicatorColor: '#9d174d' }
 '.page-indicator-pink-900': { pageIndicatorColor: '#831843' }
+'.page-indicator-pink-950': { pageIndicatorColor: '#500724' }
 '.page-indicator-rose-50': { pageIndicatorColor: '#fff1f2' }
 '.page-indicator-rose-100': { pageIndicatorColor: '#ffe4e6' }
 '.page-indicator-rose-200': { pageIndicatorColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.page-indicator-rose-700': { pageIndicatorColor: '#be123c' }
 '.page-indicator-rose-800': { pageIndicatorColor: '#9f1239' }
 '.page-indicator-rose-900': { pageIndicatorColor: '#881337' }
+'.page-indicator-rose-950': { pageIndicatorColor: '#4c0519' }
 ```

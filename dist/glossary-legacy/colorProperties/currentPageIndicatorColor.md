@@ -14,6 +14,7 @@
 '.current-page-indicator-slate-700': { currentPageIndicatorColor: '#334155' }
 '.current-page-indicator-slate-800': { currentPageIndicatorColor: '#1e293b' }
 '.current-page-indicator-slate-900': { currentPageIndicatorColor: '#0f172a' }
+'.current-page-indicator-slate-950': { currentPageIndicatorColor: '#020617' }
 '.current-page-indicator-gray-50': { currentPageIndicatorColor: '#f9fafb' }
 '.current-page-indicator-gray-100': { currentPageIndicatorColor: '#f3f4f6' }
 '.current-page-indicator-gray-200': { currentPageIndicatorColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.current-page-indicator-gray-700': { currentPageIndicatorColor: '#374151' }
 '.current-page-indicator-gray-800': { currentPageIndicatorColor: '#1f2937' }
 '.current-page-indicator-gray-900': { currentPageIndicatorColor: '#111827' }
+'.current-page-indicator-gray-950': { currentPageIndicatorColor: '#030712' }
 '.current-page-indicator-zinc-50': { currentPageIndicatorColor: '#fafafa' }
 '.current-page-indicator-zinc-100': { currentPageIndicatorColor: '#f4f4f5' }
 '.current-page-indicator-zinc-200': { currentPageIndicatorColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.current-page-indicator-zinc-700': { currentPageIndicatorColor: '#3f3f46' }
 '.current-page-indicator-zinc-800': { currentPageIndicatorColor: '#27272a' }
 '.current-page-indicator-zinc-900': { currentPageIndicatorColor: '#18181b' }
+'.current-page-indicator-zinc-950': { currentPageIndicatorColor: '#09090b' }
 '.current-page-indicator-neutral-50': { currentPageIndicatorColor: '#fafafa' }
 '.current-page-indicator-neutral-100': { currentPageIndicatorColor: '#f5f5f5' }
 '.current-page-indicator-neutral-200': { currentPageIndicatorColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.current-page-indicator-neutral-700': { currentPageIndicatorColor: '#404040' }
 '.current-page-indicator-neutral-800': { currentPageIndicatorColor: '#262626' }
 '.current-page-indicator-neutral-900': { currentPageIndicatorColor: '#171717' }
+'.current-page-indicator-neutral-950': { currentPageIndicatorColor: '#0a0a0a' }
 '.current-page-indicator-stone-50': { currentPageIndicatorColor: '#fafaf9' }
 '.current-page-indicator-stone-100': { currentPageIndicatorColor: '#f5f5f4' }
 '.current-page-indicator-stone-200': { currentPageIndicatorColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.current-page-indicator-stone-700': { currentPageIndicatorColor: '#44403c' }
 '.current-page-indicator-stone-800': { currentPageIndicatorColor: '#292524' }
 '.current-page-indicator-stone-900': { currentPageIndicatorColor: '#1c1917' }
+'.current-page-indicator-stone-950': { currentPageIndicatorColor: '#0c0a09' }
 '.current-page-indicator-red-50': { currentPageIndicatorColor: '#fef2f2' }
 '.current-page-indicator-red-100': { currentPageIndicatorColor: '#fee2e2' }
 '.current-page-indicator-red-200': { currentPageIndicatorColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.current-page-indicator-red-700': { currentPageIndicatorColor: '#b91c1c' }
 '.current-page-indicator-red-800': { currentPageIndicatorColor: '#991b1b' }
 '.current-page-indicator-red-900': { currentPageIndicatorColor: '#7f1d1d' }
+'.current-page-indicator-red-950': { currentPageIndicatorColor: '#450a0a' }
 '.current-page-indicator-orange-50': { currentPageIndicatorColor: '#fff7ed' }
 '.current-page-indicator-orange-100': { currentPageIndicatorColor: '#ffedd5' }
 '.current-page-indicator-orange-200': { currentPageIndicatorColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.current-page-indicator-orange-700': { currentPageIndicatorColor: '#c2410c' }
 '.current-page-indicator-orange-800': { currentPageIndicatorColor: '#9a3412' }
 '.current-page-indicator-orange-900': { currentPageIndicatorColor: '#7c2d12' }
+'.current-page-indicator-orange-950': { currentPageIndicatorColor: '#431407' }
 '.current-page-indicator-amber-50': { currentPageIndicatorColor: '#fffbeb' }
 '.current-page-indicator-amber-100': { currentPageIndicatorColor: '#fef3c7' }
 '.current-page-indicator-amber-200': { currentPageIndicatorColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.current-page-indicator-amber-700': { currentPageIndicatorColor: '#b45309' }
 '.current-page-indicator-amber-800': { currentPageIndicatorColor: '#92400e' }
 '.current-page-indicator-amber-900': { currentPageIndicatorColor: '#78350f' }
+'.current-page-indicator-amber-950': { currentPageIndicatorColor: '#451a03' }
 '.current-page-indicator-yellow-50': { currentPageIndicatorColor: '#fefce8' }
 '.current-page-indicator-yellow-100': { currentPageIndicatorColor: '#fef9c3' }
 '.current-page-indicator-yellow-200': { currentPageIndicatorColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.current-page-indicator-yellow-700': { currentPageIndicatorColor: '#a16207' }
 '.current-page-indicator-yellow-800': { currentPageIndicatorColor: '#854d0e' }
 '.current-page-indicator-yellow-900': { currentPageIndicatorColor: '#713f12' }
+'.current-page-indicator-yellow-950': { currentPageIndicatorColor: '#422006' }
 '.current-page-indicator-lime-50': { currentPageIndicatorColor: '#f7fee7' }
 '.current-page-indicator-lime-100': { currentPageIndicatorColor: '#ecfccb' }
 '.current-page-indicator-lime-200': { currentPageIndicatorColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.current-page-indicator-lime-700': { currentPageIndicatorColor: '#4d7c0f' }
 '.current-page-indicator-lime-800': { currentPageIndicatorColor: '#3f6212' }
 '.current-page-indicator-lime-900': { currentPageIndicatorColor: '#365314' }
+'.current-page-indicator-lime-950': { currentPageIndicatorColor: '#1a2e05' }
 '.current-page-indicator-green-50': { currentPageIndicatorColor: '#f0fdf4' }
 '.current-page-indicator-green-100': { currentPageIndicatorColor: '#dcfce7' }
 '.current-page-indicator-green-200': { currentPageIndicatorColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.current-page-indicator-green-700': { currentPageIndicatorColor: '#15803d' }
 '.current-page-indicator-green-800': { currentPageIndicatorColor: '#166534' }
 '.current-page-indicator-green-900': { currentPageIndicatorColor: '#14532d' }
+'.current-page-indicator-green-950': { currentPageIndicatorColor: '#052e16' }
 '.current-page-indicator-emerald-50': { currentPageIndicatorColor: '#ecfdf5' }
 '.current-page-indicator-emerald-100': { currentPageIndicatorColor: '#d1fae5' }
 '.current-page-indicator-emerald-200': { currentPageIndicatorColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.current-page-indicator-emerald-700': { currentPageIndicatorColor: '#047857' }
 '.current-page-indicator-emerald-800': { currentPageIndicatorColor: '#065f46' }
 '.current-page-indicator-emerald-900': { currentPageIndicatorColor: '#064e3b' }
+'.current-page-indicator-emerald-950': { currentPageIndicatorColor: '#022c22' }
 '.current-page-indicator-teal-50': { currentPageIndicatorColor: '#f0fdfa' }
 '.current-page-indicator-teal-100': { currentPageIndicatorColor: '#ccfbf1' }
 '.current-page-indicator-teal-200': { currentPageIndicatorColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.current-page-indicator-teal-700': { currentPageIndicatorColor: '#0f766e' }
 '.current-page-indicator-teal-800': { currentPageIndicatorColor: '#115e59' }
 '.current-page-indicator-teal-900': { currentPageIndicatorColor: '#134e4a' }
+'.current-page-indicator-teal-950': { currentPageIndicatorColor: '#042f2e' }
 '.current-page-indicator-cyan-50': { currentPageIndicatorColor: '#ecfeff' }
 '.current-page-indicator-cyan-100': { currentPageIndicatorColor: '#cffafe' }
 '.current-page-indicator-cyan-200': { currentPageIndicatorColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.current-page-indicator-cyan-700': { currentPageIndicatorColor: '#0e7490' }
 '.current-page-indicator-cyan-800': { currentPageIndicatorColor: '#155e75' }
 '.current-page-indicator-cyan-900': { currentPageIndicatorColor: '#164e63' }
+'.current-page-indicator-cyan-950': { currentPageIndicatorColor: '#083344' }
 '.current-page-indicator-sky-50': { currentPageIndicatorColor: '#f0f9ff' }
 '.current-page-indicator-sky-100': { currentPageIndicatorColor: '#e0f2fe' }
 '.current-page-indicator-sky-200': { currentPageIndicatorColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.current-page-indicator-sky-700': { currentPageIndicatorColor: '#0369a1' }
 '.current-page-indicator-sky-800': { currentPageIndicatorColor: '#075985' }
 '.current-page-indicator-sky-900': { currentPageIndicatorColor: '#0c4a6e' }
+'.current-page-indicator-sky-950': { currentPageIndicatorColor: '#082f49' }
 '.current-page-indicator-blue-50': { currentPageIndicatorColor: '#eff6ff' }
 '.current-page-indicator-blue-100': { currentPageIndicatorColor: '#dbeafe' }
 '.current-page-indicator-blue-200': { currentPageIndicatorColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.current-page-indicator-blue-700': { currentPageIndicatorColor: '#1d4ed8' }
 '.current-page-indicator-blue-800': { currentPageIndicatorColor: '#1e40af' }
 '.current-page-indicator-blue-900': { currentPageIndicatorColor: '#1e3a8a' }
+'.current-page-indicator-blue-950': { currentPageIndicatorColor: '#172554' }
 '.current-page-indicator-indigo-50': { currentPageIndicatorColor: '#eef2ff' }
 '.current-page-indicator-indigo-100': { currentPageIndicatorColor: '#e0e7ff' }
 '.current-page-indicator-indigo-200': { currentPageIndicatorColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.current-page-indicator-indigo-700': { currentPageIndicatorColor: '#4338ca' }
 '.current-page-indicator-indigo-800': { currentPageIndicatorColor: '#3730a3' }
 '.current-page-indicator-indigo-900': { currentPageIndicatorColor: '#312e81' }
+'.current-page-indicator-indigo-950': { currentPageIndicatorColor: '#1e1b4b' }
 '.current-page-indicator-violet-50': { currentPageIndicatorColor: '#f5f3ff' }
 '.current-page-indicator-violet-100': { currentPageIndicatorColor: '#ede9fe' }
 '.current-page-indicator-violet-200': { currentPageIndicatorColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.current-page-indicator-violet-700': { currentPageIndicatorColor: '#6d28d9' }
 '.current-page-indicator-violet-800': { currentPageIndicatorColor: '#5b21b6' }
 '.current-page-indicator-violet-900': { currentPageIndicatorColor: '#4c1d95' }
+'.current-page-indicator-violet-950': { currentPageIndicatorColor: '#2e1065' }
 '.current-page-indicator-purple-50': { currentPageIndicatorColor: '#faf5ff' }
 '.current-page-indicator-purple-100': { currentPageIndicatorColor: '#f3e8ff' }
 '.current-page-indicator-purple-200': { currentPageIndicatorColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.current-page-indicator-purple-700': { currentPageIndicatorColor: '#7e22ce' }
 '.current-page-indicator-purple-800': { currentPageIndicatorColor: '#6b21a8' }
 '.current-page-indicator-purple-900': { currentPageIndicatorColor: '#581c87' }
+'.current-page-indicator-purple-950': { currentPageIndicatorColor: '#3b0764' }
 '.current-page-indicator-fuchsia-50': { currentPageIndicatorColor: '#fdf4ff' }
 '.current-page-indicator-fuchsia-100': { currentPageIndicatorColor: '#fae8ff' }
 '.current-page-indicator-fuchsia-200': { currentPageIndicatorColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.current-page-indicator-fuchsia-700': { currentPageIndicatorColor: '#a21caf' }
 '.current-page-indicator-fuchsia-800': { currentPageIndicatorColor: '#86198f' }
 '.current-page-indicator-fuchsia-900': { currentPageIndicatorColor: '#701a75' }
+'.current-page-indicator-fuchsia-950': { currentPageIndicatorColor: '#4a044e' }
 '.current-page-indicator-pink-50': { currentPageIndicatorColor: '#fdf2f8' }
 '.current-page-indicator-pink-100': { currentPageIndicatorColor: '#fce7f3' }
 '.current-page-indicator-pink-200': { currentPageIndicatorColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.current-page-indicator-pink-700': { currentPageIndicatorColor: '#be185d' }
 '.current-page-indicator-pink-800': { currentPageIndicatorColor: '#9d174d' }
 '.current-page-indicator-pink-900': { currentPageIndicatorColor: '#831843' }
+'.current-page-indicator-pink-950': { currentPageIndicatorColor: '#500724' }
 '.current-page-indicator-rose-50': { currentPageIndicatorColor: '#fff1f2' }
 '.current-page-indicator-rose-100': { currentPageIndicatorColor: '#ffe4e6' }
 '.current-page-indicator-rose-200': { currentPageIndicatorColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.current-page-indicator-rose-700': { currentPageIndicatorColor: '#be123c' }
 '.current-page-indicator-rose-800': { currentPageIndicatorColor: '#9f1239' }
 '.current-page-indicator-rose-900': { currentPageIndicatorColor: '#881337' }
+'.current-page-indicator-rose-950': { currentPageIndicatorColor: '#4c0519' }
 ```

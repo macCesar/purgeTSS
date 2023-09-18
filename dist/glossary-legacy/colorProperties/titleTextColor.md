@@ -14,6 +14,7 @@
 '.title-text-slate-700[platform=android]': { titleTextColor: '#334155' }
 '.title-text-slate-800[platform=android]': { titleTextColor: '#1e293b' }
 '.title-text-slate-900[platform=android]': { titleTextColor: '#0f172a' }
+'.title-text-slate-950[platform=android]': { titleTextColor: '#020617' }
 '.title-text-gray-50[platform=android]': { titleTextColor: '#f9fafb' }
 '.title-text-gray-100[platform=android]': { titleTextColor: '#f3f4f6' }
 '.title-text-gray-200[platform=android]': { titleTextColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.title-text-gray-700[platform=android]': { titleTextColor: '#374151' }
 '.title-text-gray-800[platform=android]': { titleTextColor: '#1f2937' }
 '.title-text-gray-900[platform=android]': { titleTextColor: '#111827' }
+'.title-text-gray-950[platform=android]': { titleTextColor: '#030712' }
 '.title-text-zinc-50[platform=android]': { titleTextColor: '#fafafa' }
 '.title-text-zinc-100[platform=android]': { titleTextColor: '#f4f4f5' }
 '.title-text-zinc-200[platform=android]': { titleTextColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.title-text-zinc-700[platform=android]': { titleTextColor: '#3f3f46' }
 '.title-text-zinc-800[platform=android]': { titleTextColor: '#27272a' }
 '.title-text-zinc-900[platform=android]': { titleTextColor: '#18181b' }
+'.title-text-zinc-950[platform=android]': { titleTextColor: '#09090b' }
 '.title-text-neutral-50[platform=android]': { titleTextColor: '#fafafa' }
 '.title-text-neutral-100[platform=android]': { titleTextColor: '#f5f5f5' }
 '.title-text-neutral-200[platform=android]': { titleTextColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.title-text-neutral-700[platform=android]': { titleTextColor: '#404040' }
 '.title-text-neutral-800[platform=android]': { titleTextColor: '#262626' }
 '.title-text-neutral-900[platform=android]': { titleTextColor: '#171717' }
+'.title-text-neutral-950[platform=android]': { titleTextColor: '#0a0a0a' }
 '.title-text-stone-50[platform=android]': { titleTextColor: '#fafaf9' }
 '.title-text-stone-100[platform=android]': { titleTextColor: '#f5f5f4' }
 '.title-text-stone-200[platform=android]': { titleTextColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.title-text-stone-700[platform=android]': { titleTextColor: '#44403c' }
 '.title-text-stone-800[platform=android]': { titleTextColor: '#292524' }
 '.title-text-stone-900[platform=android]': { titleTextColor: '#1c1917' }
+'.title-text-stone-950[platform=android]': { titleTextColor: '#0c0a09' }
 '.title-text-red-50[platform=android]': { titleTextColor: '#fef2f2' }
 '.title-text-red-100[platform=android]': { titleTextColor: '#fee2e2' }
 '.title-text-red-200[platform=android]': { titleTextColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.title-text-red-700[platform=android]': { titleTextColor: '#b91c1c' }
 '.title-text-red-800[platform=android]': { titleTextColor: '#991b1b' }
 '.title-text-red-900[platform=android]': { titleTextColor: '#7f1d1d' }
+'.title-text-red-950[platform=android]': { titleTextColor: '#450a0a' }
 '.title-text-orange-50[platform=android]': { titleTextColor: '#fff7ed' }
 '.title-text-orange-100[platform=android]': { titleTextColor: '#ffedd5' }
 '.title-text-orange-200[platform=android]': { titleTextColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.title-text-orange-700[platform=android]': { titleTextColor: '#c2410c' }
 '.title-text-orange-800[platform=android]': { titleTextColor: '#9a3412' }
 '.title-text-orange-900[platform=android]': { titleTextColor: '#7c2d12' }
+'.title-text-orange-950[platform=android]': { titleTextColor: '#431407' }
 '.title-text-amber-50[platform=android]': { titleTextColor: '#fffbeb' }
 '.title-text-amber-100[platform=android]': { titleTextColor: '#fef3c7' }
 '.title-text-amber-200[platform=android]': { titleTextColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.title-text-amber-700[platform=android]': { titleTextColor: '#b45309' }
 '.title-text-amber-800[platform=android]': { titleTextColor: '#92400e' }
 '.title-text-amber-900[platform=android]': { titleTextColor: '#78350f' }
+'.title-text-amber-950[platform=android]': { titleTextColor: '#451a03' }
 '.title-text-yellow-50[platform=android]': { titleTextColor: '#fefce8' }
 '.title-text-yellow-100[platform=android]': { titleTextColor: '#fef9c3' }
 '.title-text-yellow-200[platform=android]': { titleTextColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.title-text-yellow-700[platform=android]': { titleTextColor: '#a16207' }
 '.title-text-yellow-800[platform=android]': { titleTextColor: '#854d0e' }
 '.title-text-yellow-900[platform=android]': { titleTextColor: '#713f12' }
+'.title-text-yellow-950[platform=android]': { titleTextColor: '#422006' }
 '.title-text-lime-50[platform=android]': { titleTextColor: '#f7fee7' }
 '.title-text-lime-100[platform=android]': { titleTextColor: '#ecfccb' }
 '.title-text-lime-200[platform=android]': { titleTextColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.title-text-lime-700[platform=android]': { titleTextColor: '#4d7c0f' }
 '.title-text-lime-800[platform=android]': { titleTextColor: '#3f6212' }
 '.title-text-lime-900[platform=android]': { titleTextColor: '#365314' }
+'.title-text-lime-950[platform=android]': { titleTextColor: '#1a2e05' }
 '.title-text-green-50[platform=android]': { titleTextColor: '#f0fdf4' }
 '.title-text-green-100[platform=android]': { titleTextColor: '#dcfce7' }
 '.title-text-green-200[platform=android]': { titleTextColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.title-text-green-700[platform=android]': { titleTextColor: '#15803d' }
 '.title-text-green-800[platform=android]': { titleTextColor: '#166534' }
 '.title-text-green-900[platform=android]': { titleTextColor: '#14532d' }
+'.title-text-green-950[platform=android]': { titleTextColor: '#052e16' }
 '.title-text-emerald-50[platform=android]': { titleTextColor: '#ecfdf5' }
 '.title-text-emerald-100[platform=android]': { titleTextColor: '#d1fae5' }
 '.title-text-emerald-200[platform=android]': { titleTextColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.title-text-emerald-700[platform=android]': { titleTextColor: '#047857' }
 '.title-text-emerald-800[platform=android]': { titleTextColor: '#065f46' }
 '.title-text-emerald-900[platform=android]': { titleTextColor: '#064e3b' }
+'.title-text-emerald-950[platform=android]': { titleTextColor: '#022c22' }
 '.title-text-teal-50[platform=android]': { titleTextColor: '#f0fdfa' }
 '.title-text-teal-100[platform=android]': { titleTextColor: '#ccfbf1' }
 '.title-text-teal-200[platform=android]': { titleTextColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.title-text-teal-700[platform=android]': { titleTextColor: '#0f766e' }
 '.title-text-teal-800[platform=android]': { titleTextColor: '#115e59' }
 '.title-text-teal-900[platform=android]': { titleTextColor: '#134e4a' }
+'.title-text-teal-950[platform=android]': { titleTextColor: '#042f2e' }
 '.title-text-cyan-50[platform=android]': { titleTextColor: '#ecfeff' }
 '.title-text-cyan-100[platform=android]': { titleTextColor: '#cffafe' }
 '.title-text-cyan-200[platform=android]': { titleTextColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.title-text-cyan-700[platform=android]': { titleTextColor: '#0e7490' }
 '.title-text-cyan-800[platform=android]': { titleTextColor: '#155e75' }
 '.title-text-cyan-900[platform=android]': { titleTextColor: '#164e63' }
+'.title-text-cyan-950[platform=android]': { titleTextColor: '#083344' }
 '.title-text-sky-50[platform=android]': { titleTextColor: '#f0f9ff' }
 '.title-text-sky-100[platform=android]': { titleTextColor: '#e0f2fe' }
 '.title-text-sky-200[platform=android]': { titleTextColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.title-text-sky-700[platform=android]': { titleTextColor: '#0369a1' }
 '.title-text-sky-800[platform=android]': { titleTextColor: '#075985' }
 '.title-text-sky-900[platform=android]': { titleTextColor: '#0c4a6e' }
+'.title-text-sky-950[platform=android]': { titleTextColor: '#082f49' }
 '.title-text-blue-50[platform=android]': { titleTextColor: '#eff6ff' }
 '.title-text-blue-100[platform=android]': { titleTextColor: '#dbeafe' }
 '.title-text-blue-200[platform=android]': { titleTextColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.title-text-blue-700[platform=android]': { titleTextColor: '#1d4ed8' }
 '.title-text-blue-800[platform=android]': { titleTextColor: '#1e40af' }
 '.title-text-blue-900[platform=android]': { titleTextColor: '#1e3a8a' }
+'.title-text-blue-950[platform=android]': { titleTextColor: '#172554' }
 '.title-text-indigo-50[platform=android]': { titleTextColor: '#eef2ff' }
 '.title-text-indigo-100[platform=android]': { titleTextColor: '#e0e7ff' }
 '.title-text-indigo-200[platform=android]': { titleTextColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.title-text-indigo-700[platform=android]': { titleTextColor: '#4338ca' }
 '.title-text-indigo-800[platform=android]': { titleTextColor: '#3730a3' }
 '.title-text-indigo-900[platform=android]': { titleTextColor: '#312e81' }
+'.title-text-indigo-950[platform=android]': { titleTextColor: '#1e1b4b' }
 '.title-text-violet-50[platform=android]': { titleTextColor: '#f5f3ff' }
 '.title-text-violet-100[platform=android]': { titleTextColor: '#ede9fe' }
 '.title-text-violet-200[platform=android]': { titleTextColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.title-text-violet-700[platform=android]': { titleTextColor: '#6d28d9' }
 '.title-text-violet-800[platform=android]': { titleTextColor: '#5b21b6' }
 '.title-text-violet-900[platform=android]': { titleTextColor: '#4c1d95' }
+'.title-text-violet-950[platform=android]': { titleTextColor: '#2e1065' }
 '.title-text-purple-50[platform=android]': { titleTextColor: '#faf5ff' }
 '.title-text-purple-100[platform=android]': { titleTextColor: '#f3e8ff' }
 '.title-text-purple-200[platform=android]': { titleTextColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.title-text-purple-700[platform=android]': { titleTextColor: '#7e22ce' }
 '.title-text-purple-800[platform=android]': { titleTextColor: '#6b21a8' }
 '.title-text-purple-900[platform=android]': { titleTextColor: '#581c87' }
+'.title-text-purple-950[platform=android]': { titleTextColor: '#3b0764' }
 '.title-text-fuchsia-50[platform=android]': { titleTextColor: '#fdf4ff' }
 '.title-text-fuchsia-100[platform=android]': { titleTextColor: '#fae8ff' }
 '.title-text-fuchsia-200[platform=android]': { titleTextColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.title-text-fuchsia-700[platform=android]': { titleTextColor: '#a21caf' }
 '.title-text-fuchsia-800[platform=android]': { titleTextColor: '#86198f' }
 '.title-text-fuchsia-900[platform=android]': { titleTextColor: '#701a75' }
+'.title-text-fuchsia-950[platform=android]': { titleTextColor: '#4a044e' }
 '.title-text-pink-50[platform=android]': { titleTextColor: '#fdf2f8' }
 '.title-text-pink-100[platform=android]': { titleTextColor: '#fce7f3' }
 '.title-text-pink-200[platform=android]': { titleTextColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.title-text-pink-700[platform=android]': { titleTextColor: '#be185d' }
 '.title-text-pink-800[platform=android]': { titleTextColor: '#9d174d' }
 '.title-text-pink-900[platform=android]': { titleTextColor: '#831843' }
+'.title-text-pink-950[platform=android]': { titleTextColor: '#500724' }
 '.title-text-rose-50[platform=android]': { titleTextColor: '#fff1f2' }
 '.title-text-rose-100[platform=android]': { titleTextColor: '#ffe4e6' }
 '.title-text-rose-200[platform=android]': { titleTextColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.title-text-rose-700[platform=android]': { titleTextColor: '#be123c' }
 '.title-text-rose-800[platform=android]': { titleTextColor: '#9f1239' }
 '.title-text-rose-900[platform=android]': { titleTextColor: '#881337' }
+'.title-text-rose-950[platform=android]': { titleTextColor: '#4c0519' }
 ```

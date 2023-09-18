@@ -1,6 +1,6 @@
 ```scss
 // Property(ies): tint and tintColor
-// Component(s): Ti.UI, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ImageView, Ti.UI.iOS.Stepper, Ti.UI.ProgressBar, Ti.UI.RefreshControll, Ti.UI.Slider, Ti.UI.Switch, and `tint` for Ti.UI.MaskedImage
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.tint-transparent': { tint: 'transparent', tintColor: 'transparent' }
 '.tint-black': { tint: '#000000', tintColor: '#000000' }
 '.tint-white': { tint: '#ffffff', tintColor: '#ffffff' }
@@ -14,6 +14,7 @@
 '.tint-slate-700': { tint: '#334155', tintColor: '#334155' }
 '.tint-slate-800': { tint: '#1e293b', tintColor: '#1e293b' }
 '.tint-slate-900': { tint: '#0f172a', tintColor: '#0f172a' }
+'.tint-slate-950': { tint: '#020617', tintColor: '#020617' }
 '.tint-gray-50': { tint: '#f9fafb', tintColor: '#f9fafb' }
 '.tint-gray-100': { tint: '#f3f4f6', tintColor: '#f3f4f6' }
 '.tint-gray-200': { tint: '#e5e7eb', tintColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.tint-gray-700': { tint: '#374151', tintColor: '#374151' }
 '.tint-gray-800': { tint: '#1f2937', tintColor: '#1f2937' }
 '.tint-gray-900': { tint: '#111827', tintColor: '#111827' }
+'.tint-gray-950': { tint: '#030712', tintColor: '#030712' }
 '.tint-zinc-50': { tint: '#fafafa', tintColor: '#fafafa' }
 '.tint-zinc-100': { tint: '#f4f4f5', tintColor: '#f4f4f5' }
 '.tint-zinc-200': { tint: '#e4e4e7', tintColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.tint-zinc-700': { tint: '#3f3f46', tintColor: '#3f3f46' }
 '.tint-zinc-800': { tint: '#27272a', tintColor: '#27272a' }
 '.tint-zinc-900': { tint: '#18181b', tintColor: '#18181b' }
+'.tint-zinc-950': { tint: '#09090b', tintColor: '#09090b' }
 '.tint-neutral-50': { tint: '#fafafa', tintColor: '#fafafa' }
 '.tint-neutral-100': { tint: '#f5f5f5', tintColor: '#f5f5f5' }
 '.tint-neutral-200': { tint: '#e5e5e5', tintColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.tint-neutral-700': { tint: '#404040', tintColor: '#404040' }
 '.tint-neutral-800': { tint: '#262626', tintColor: '#262626' }
 '.tint-neutral-900': { tint: '#171717', tintColor: '#171717' }
+'.tint-neutral-950': { tint: '#0a0a0a', tintColor: '#0a0a0a' }
 '.tint-stone-50': { tint: '#fafaf9', tintColor: '#fafaf9' }
 '.tint-stone-100': { tint: '#f5f5f4', tintColor: '#f5f5f4' }
 '.tint-stone-200': { tint: '#e7e5e4', tintColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.tint-stone-700': { tint: '#44403c', tintColor: '#44403c' }
 '.tint-stone-800': { tint: '#292524', tintColor: '#292524' }
 '.tint-stone-900': { tint: '#1c1917', tintColor: '#1c1917' }
+'.tint-stone-950': { tint: '#0c0a09', tintColor: '#0c0a09' }
 '.tint-red-50': { tint: '#fef2f2', tintColor: '#fef2f2' }
 '.tint-red-100': { tint: '#fee2e2', tintColor: '#fee2e2' }
 '.tint-red-200': { tint: '#fecaca', tintColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.tint-red-700': { tint: '#b91c1c', tintColor: '#b91c1c' }
 '.tint-red-800': { tint: '#991b1b', tintColor: '#991b1b' }
 '.tint-red-900': { tint: '#7f1d1d', tintColor: '#7f1d1d' }
+'.tint-red-950': { tint: '#450a0a', tintColor: '#450a0a' }
 '.tint-orange-50': { tint: '#fff7ed', tintColor: '#fff7ed' }
 '.tint-orange-100': { tint: '#ffedd5', tintColor: '#ffedd5' }
 '.tint-orange-200': { tint: '#fed7aa', tintColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.tint-orange-700': { tint: '#c2410c', tintColor: '#c2410c' }
 '.tint-orange-800': { tint: '#9a3412', tintColor: '#9a3412' }
 '.tint-orange-900': { tint: '#7c2d12', tintColor: '#7c2d12' }
+'.tint-orange-950': { tint: '#431407', tintColor: '#431407' }
 '.tint-amber-50': { tint: '#fffbeb', tintColor: '#fffbeb' }
 '.tint-amber-100': { tint: '#fef3c7', tintColor: '#fef3c7' }
 '.tint-amber-200': { tint: '#fde68a', tintColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.tint-amber-700': { tint: '#b45309', tintColor: '#b45309' }
 '.tint-amber-800': { tint: '#92400e', tintColor: '#92400e' }
 '.tint-amber-900': { tint: '#78350f', tintColor: '#78350f' }
+'.tint-amber-950': { tint: '#451a03', tintColor: '#451a03' }
 '.tint-yellow-50': { tint: '#fefce8', tintColor: '#fefce8' }
 '.tint-yellow-100': { tint: '#fef9c3', tintColor: '#fef9c3' }
 '.tint-yellow-200': { tint: '#fef08a', tintColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.tint-yellow-700': { tint: '#a16207', tintColor: '#a16207' }
 '.tint-yellow-800': { tint: '#854d0e', tintColor: '#854d0e' }
 '.tint-yellow-900': { tint: '#713f12', tintColor: '#713f12' }
+'.tint-yellow-950': { tint: '#422006', tintColor: '#422006' }
 '.tint-lime-50': { tint: '#f7fee7', tintColor: '#f7fee7' }
 '.tint-lime-100': { tint: '#ecfccb', tintColor: '#ecfccb' }
 '.tint-lime-200': { tint: '#d9f99d', tintColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.tint-lime-700': { tint: '#4d7c0f', tintColor: '#4d7c0f' }
 '.tint-lime-800': { tint: '#3f6212', tintColor: '#3f6212' }
 '.tint-lime-900': { tint: '#365314', tintColor: '#365314' }
+'.tint-lime-950': { tint: '#1a2e05', tintColor: '#1a2e05' }
 '.tint-green-50': { tint: '#f0fdf4', tintColor: '#f0fdf4' }
 '.tint-green-100': { tint: '#dcfce7', tintColor: '#dcfce7' }
 '.tint-green-200': { tint: '#bbf7d0', tintColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.tint-green-700': { tint: '#15803d', tintColor: '#15803d' }
 '.tint-green-800': { tint: '#166534', tintColor: '#166534' }
 '.tint-green-900': { tint: '#14532d', tintColor: '#14532d' }
+'.tint-green-950': { tint: '#052e16', tintColor: '#052e16' }
 '.tint-emerald-50': { tint: '#ecfdf5', tintColor: '#ecfdf5' }
 '.tint-emerald-100': { tint: '#d1fae5', tintColor: '#d1fae5' }
 '.tint-emerald-200': { tint: '#a7f3d0', tintColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.tint-emerald-700': { tint: '#047857', tintColor: '#047857' }
 '.tint-emerald-800': { tint: '#065f46', tintColor: '#065f46' }
 '.tint-emerald-900': { tint: '#064e3b', tintColor: '#064e3b' }
+'.tint-emerald-950': { tint: '#022c22', tintColor: '#022c22' }
 '.tint-teal-50': { tint: '#f0fdfa', tintColor: '#f0fdfa' }
 '.tint-teal-100': { tint: '#ccfbf1', tintColor: '#ccfbf1' }
 '.tint-teal-200': { tint: '#99f6e4', tintColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.tint-teal-700': { tint: '#0f766e', tintColor: '#0f766e' }
 '.tint-teal-800': { tint: '#115e59', tintColor: '#115e59' }
 '.tint-teal-900': { tint: '#134e4a', tintColor: '#134e4a' }
+'.tint-teal-950': { tint: '#042f2e', tintColor: '#042f2e' }
 '.tint-cyan-50': { tint: '#ecfeff', tintColor: '#ecfeff' }
 '.tint-cyan-100': { tint: '#cffafe', tintColor: '#cffafe' }
 '.tint-cyan-200': { tint: '#a5f3fc', tintColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.tint-cyan-700': { tint: '#0e7490', tintColor: '#0e7490' }
 '.tint-cyan-800': { tint: '#155e75', tintColor: '#155e75' }
 '.tint-cyan-900': { tint: '#164e63', tintColor: '#164e63' }
+'.tint-cyan-950': { tint: '#083344', tintColor: '#083344' }
 '.tint-sky-50': { tint: '#f0f9ff', tintColor: '#f0f9ff' }
 '.tint-sky-100': { tint: '#e0f2fe', tintColor: '#e0f2fe' }
 '.tint-sky-200': { tint: '#bae6fd', tintColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.tint-sky-700': { tint: '#0369a1', tintColor: '#0369a1' }
 '.tint-sky-800': { tint: '#075985', tintColor: '#075985' }
 '.tint-sky-900': { tint: '#0c4a6e', tintColor: '#0c4a6e' }
+'.tint-sky-950': { tint: '#082f49', tintColor: '#082f49' }
 '.tint-blue-50': { tint: '#eff6ff', tintColor: '#eff6ff' }
 '.tint-blue-100': { tint: '#dbeafe', tintColor: '#dbeafe' }
 '.tint-blue-200': { tint: '#bfdbfe', tintColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.tint-blue-700': { tint: '#1d4ed8', tintColor: '#1d4ed8' }
 '.tint-blue-800': { tint: '#1e40af', tintColor: '#1e40af' }
 '.tint-blue-900': { tint: '#1e3a8a', tintColor: '#1e3a8a' }
+'.tint-blue-950': { tint: '#172554', tintColor: '#172554' }
 '.tint-indigo-50': { tint: '#eef2ff', tintColor: '#eef2ff' }
 '.tint-indigo-100': { tint: '#e0e7ff', tintColor: '#e0e7ff' }
 '.tint-indigo-200': { tint: '#c7d2fe', tintColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.tint-indigo-700': { tint: '#4338ca', tintColor: '#4338ca' }
 '.tint-indigo-800': { tint: '#3730a3', tintColor: '#3730a3' }
 '.tint-indigo-900': { tint: '#312e81', tintColor: '#312e81' }
+'.tint-indigo-950': { tint: '#1e1b4b', tintColor: '#1e1b4b' }
 '.tint-violet-50': { tint: '#f5f3ff', tintColor: '#f5f3ff' }
 '.tint-violet-100': { tint: '#ede9fe', tintColor: '#ede9fe' }
 '.tint-violet-200': { tint: '#ddd6fe', tintColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.tint-violet-700': { tint: '#6d28d9', tintColor: '#6d28d9' }
 '.tint-violet-800': { tint: '#5b21b6', tintColor: '#5b21b6' }
 '.tint-violet-900': { tint: '#4c1d95', tintColor: '#4c1d95' }
+'.tint-violet-950': { tint: '#2e1065', tintColor: '#2e1065' }
 '.tint-purple-50': { tint: '#faf5ff', tintColor: '#faf5ff' }
 '.tint-purple-100': { tint: '#f3e8ff', tintColor: '#f3e8ff' }
 '.tint-purple-200': { tint: '#e9d5ff', tintColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.tint-purple-700': { tint: '#7e22ce', tintColor: '#7e22ce' }
 '.tint-purple-800': { tint: '#6b21a8', tintColor: '#6b21a8' }
 '.tint-purple-900': { tint: '#581c87', tintColor: '#581c87' }
+'.tint-purple-950': { tint: '#3b0764', tintColor: '#3b0764' }
 '.tint-fuchsia-50': { tint: '#fdf4ff', tintColor: '#fdf4ff' }
 '.tint-fuchsia-100': { tint: '#fae8ff', tintColor: '#fae8ff' }
 '.tint-fuchsia-200': { tint: '#f5d0fe', tintColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.tint-fuchsia-700': { tint: '#a21caf', tintColor: '#a21caf' }
 '.tint-fuchsia-800': { tint: '#86198f', tintColor: '#86198f' }
 '.tint-fuchsia-900': { tint: '#701a75', tintColor: '#701a75' }
+'.tint-fuchsia-950': { tint: '#4a044e', tintColor: '#4a044e' }
 '.tint-pink-50': { tint: '#fdf2f8', tintColor: '#fdf2f8' }
 '.tint-pink-100': { tint: '#fce7f3', tintColor: '#fce7f3' }
 '.tint-pink-200': { tint: '#fbcfe8', tintColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.tint-pink-700': { tint: '#be185d', tintColor: '#be185d' }
 '.tint-pink-800': { tint: '#9d174d', tintColor: '#9d174d' }
 '.tint-pink-900': { tint: '#831843', tintColor: '#831843' }
+'.tint-pink-950': { tint: '#500724', tintColor: '#500724' }
 '.tint-rose-50': { tint: '#fff1f2', tintColor: '#fff1f2' }
 '.tint-rose-100': { tint: '#ffe4e6', tintColor: '#ffe4e6' }
 '.tint-rose-200': { tint: '#fecdd3', tintColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.tint-rose-700': { tint: '#be123c', tintColor: '#be123c' }
 '.tint-rose-800': { tint: '#9f1239', tintColor: '#9f1239' }
 '.tint-rose-900': { tint: '#881337', tintColor: '#881337' }
+'.tint-rose-950': { tint: '#4c0519', tintColor: '#4c0519' }
 ```

@@ -14,6 +14,7 @@
 '.bg-focused-slate-700[platform=android]': { backgroundFocusedColor: '#334155' }
 '.bg-focused-slate-800[platform=android]': { backgroundFocusedColor: '#1e293b' }
 '.bg-focused-slate-900[platform=android]': { backgroundFocusedColor: '#0f172a' }
+'.bg-focused-slate-950[platform=android]': { backgroundFocusedColor: '#020617' }
 '.bg-focused-gray-50[platform=android]': { backgroundFocusedColor: '#f9fafb' }
 '.bg-focused-gray-100[platform=android]': { backgroundFocusedColor: '#f3f4f6' }
 '.bg-focused-gray-200[platform=android]': { backgroundFocusedColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.bg-focused-gray-700[platform=android]': { backgroundFocusedColor: '#374151' }
 '.bg-focused-gray-800[platform=android]': { backgroundFocusedColor: '#1f2937' }
 '.bg-focused-gray-900[platform=android]': { backgroundFocusedColor: '#111827' }
+'.bg-focused-gray-950[platform=android]': { backgroundFocusedColor: '#030712' }
 '.bg-focused-zinc-50[platform=android]': { backgroundFocusedColor: '#fafafa' }
 '.bg-focused-zinc-100[platform=android]': { backgroundFocusedColor: '#f4f4f5' }
 '.bg-focused-zinc-200[platform=android]': { backgroundFocusedColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.bg-focused-zinc-700[platform=android]': { backgroundFocusedColor: '#3f3f46' }
 '.bg-focused-zinc-800[platform=android]': { backgroundFocusedColor: '#27272a' }
 '.bg-focused-zinc-900[platform=android]': { backgroundFocusedColor: '#18181b' }
+'.bg-focused-zinc-950[platform=android]': { backgroundFocusedColor: '#09090b' }
 '.bg-focused-neutral-50[platform=android]': { backgroundFocusedColor: '#fafafa' }
 '.bg-focused-neutral-100[platform=android]': { backgroundFocusedColor: '#f5f5f5' }
 '.bg-focused-neutral-200[platform=android]': { backgroundFocusedColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.bg-focused-neutral-700[platform=android]': { backgroundFocusedColor: '#404040' }
 '.bg-focused-neutral-800[platform=android]': { backgroundFocusedColor: '#262626' }
 '.bg-focused-neutral-900[platform=android]': { backgroundFocusedColor: '#171717' }
+'.bg-focused-neutral-950[platform=android]': { backgroundFocusedColor: '#0a0a0a' }
 '.bg-focused-stone-50[platform=android]': { backgroundFocusedColor: '#fafaf9' }
 '.bg-focused-stone-100[platform=android]': { backgroundFocusedColor: '#f5f5f4' }
 '.bg-focused-stone-200[platform=android]': { backgroundFocusedColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.bg-focused-stone-700[platform=android]': { backgroundFocusedColor: '#44403c' }
 '.bg-focused-stone-800[platform=android]': { backgroundFocusedColor: '#292524' }
 '.bg-focused-stone-900[platform=android]': { backgroundFocusedColor: '#1c1917' }
+'.bg-focused-stone-950[platform=android]': { backgroundFocusedColor: '#0c0a09' }
 '.bg-focused-red-50[platform=android]': { backgroundFocusedColor: '#fef2f2' }
 '.bg-focused-red-100[platform=android]': { backgroundFocusedColor: '#fee2e2' }
 '.bg-focused-red-200[platform=android]': { backgroundFocusedColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.bg-focused-red-700[platform=android]': { backgroundFocusedColor: '#b91c1c' }
 '.bg-focused-red-800[platform=android]': { backgroundFocusedColor: '#991b1b' }
 '.bg-focused-red-900[platform=android]': { backgroundFocusedColor: '#7f1d1d' }
+'.bg-focused-red-950[platform=android]': { backgroundFocusedColor: '#450a0a' }
 '.bg-focused-orange-50[platform=android]': { backgroundFocusedColor: '#fff7ed' }
 '.bg-focused-orange-100[platform=android]': { backgroundFocusedColor: '#ffedd5' }
 '.bg-focused-orange-200[platform=android]': { backgroundFocusedColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.bg-focused-orange-700[platform=android]': { backgroundFocusedColor: '#c2410c' }
 '.bg-focused-orange-800[platform=android]': { backgroundFocusedColor: '#9a3412' }
 '.bg-focused-orange-900[platform=android]': { backgroundFocusedColor: '#7c2d12' }
+'.bg-focused-orange-950[platform=android]': { backgroundFocusedColor: '#431407' }
 '.bg-focused-amber-50[platform=android]': { backgroundFocusedColor: '#fffbeb' }
 '.bg-focused-amber-100[platform=android]': { backgroundFocusedColor: '#fef3c7' }
 '.bg-focused-amber-200[platform=android]': { backgroundFocusedColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.bg-focused-amber-700[platform=android]': { backgroundFocusedColor: '#b45309' }
 '.bg-focused-amber-800[platform=android]': { backgroundFocusedColor: '#92400e' }
 '.bg-focused-amber-900[platform=android]': { backgroundFocusedColor: '#78350f' }
+'.bg-focused-amber-950[platform=android]': { backgroundFocusedColor: '#451a03' }
 '.bg-focused-yellow-50[platform=android]': { backgroundFocusedColor: '#fefce8' }
 '.bg-focused-yellow-100[platform=android]': { backgroundFocusedColor: '#fef9c3' }
 '.bg-focused-yellow-200[platform=android]': { backgroundFocusedColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.bg-focused-yellow-700[platform=android]': { backgroundFocusedColor: '#a16207' }
 '.bg-focused-yellow-800[platform=android]': { backgroundFocusedColor: '#854d0e' }
 '.bg-focused-yellow-900[platform=android]': { backgroundFocusedColor: '#713f12' }
+'.bg-focused-yellow-950[platform=android]': { backgroundFocusedColor: '#422006' }
 '.bg-focused-lime-50[platform=android]': { backgroundFocusedColor: '#f7fee7' }
 '.bg-focused-lime-100[platform=android]': { backgroundFocusedColor: '#ecfccb' }
 '.bg-focused-lime-200[platform=android]': { backgroundFocusedColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.bg-focused-lime-700[platform=android]': { backgroundFocusedColor: '#4d7c0f' }
 '.bg-focused-lime-800[platform=android]': { backgroundFocusedColor: '#3f6212' }
 '.bg-focused-lime-900[platform=android]': { backgroundFocusedColor: '#365314' }
+'.bg-focused-lime-950[platform=android]': { backgroundFocusedColor: '#1a2e05' }
 '.bg-focused-green-50[platform=android]': { backgroundFocusedColor: '#f0fdf4' }
 '.bg-focused-green-100[platform=android]': { backgroundFocusedColor: '#dcfce7' }
 '.bg-focused-green-200[platform=android]': { backgroundFocusedColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.bg-focused-green-700[platform=android]': { backgroundFocusedColor: '#15803d' }
 '.bg-focused-green-800[platform=android]': { backgroundFocusedColor: '#166534' }
 '.bg-focused-green-900[platform=android]': { backgroundFocusedColor: '#14532d' }
+'.bg-focused-green-950[platform=android]': { backgroundFocusedColor: '#052e16' }
 '.bg-focused-emerald-50[platform=android]': { backgroundFocusedColor: '#ecfdf5' }
 '.bg-focused-emerald-100[platform=android]': { backgroundFocusedColor: '#d1fae5' }
 '.bg-focused-emerald-200[platform=android]': { backgroundFocusedColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.bg-focused-emerald-700[platform=android]': { backgroundFocusedColor: '#047857' }
 '.bg-focused-emerald-800[platform=android]': { backgroundFocusedColor: '#065f46' }
 '.bg-focused-emerald-900[platform=android]': { backgroundFocusedColor: '#064e3b' }
+'.bg-focused-emerald-950[platform=android]': { backgroundFocusedColor: '#022c22' }
 '.bg-focused-teal-50[platform=android]': { backgroundFocusedColor: '#f0fdfa' }
 '.bg-focused-teal-100[platform=android]': { backgroundFocusedColor: '#ccfbf1' }
 '.bg-focused-teal-200[platform=android]': { backgroundFocusedColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.bg-focused-teal-700[platform=android]': { backgroundFocusedColor: '#0f766e' }
 '.bg-focused-teal-800[platform=android]': { backgroundFocusedColor: '#115e59' }
 '.bg-focused-teal-900[platform=android]': { backgroundFocusedColor: '#134e4a' }
+'.bg-focused-teal-950[platform=android]': { backgroundFocusedColor: '#042f2e' }
 '.bg-focused-cyan-50[platform=android]': { backgroundFocusedColor: '#ecfeff' }
 '.bg-focused-cyan-100[platform=android]': { backgroundFocusedColor: '#cffafe' }
 '.bg-focused-cyan-200[platform=android]': { backgroundFocusedColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.bg-focused-cyan-700[platform=android]': { backgroundFocusedColor: '#0e7490' }
 '.bg-focused-cyan-800[platform=android]': { backgroundFocusedColor: '#155e75' }
 '.bg-focused-cyan-900[platform=android]': { backgroundFocusedColor: '#164e63' }
+'.bg-focused-cyan-950[platform=android]': { backgroundFocusedColor: '#083344' }
 '.bg-focused-sky-50[platform=android]': { backgroundFocusedColor: '#f0f9ff' }
 '.bg-focused-sky-100[platform=android]': { backgroundFocusedColor: '#e0f2fe' }
 '.bg-focused-sky-200[platform=android]': { backgroundFocusedColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.bg-focused-sky-700[platform=android]': { backgroundFocusedColor: '#0369a1' }
 '.bg-focused-sky-800[platform=android]': { backgroundFocusedColor: '#075985' }
 '.bg-focused-sky-900[platform=android]': { backgroundFocusedColor: '#0c4a6e' }
+'.bg-focused-sky-950[platform=android]': { backgroundFocusedColor: '#082f49' }
 '.bg-focused-blue-50[platform=android]': { backgroundFocusedColor: '#eff6ff' }
 '.bg-focused-blue-100[platform=android]': { backgroundFocusedColor: '#dbeafe' }
 '.bg-focused-blue-200[platform=android]': { backgroundFocusedColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.bg-focused-blue-700[platform=android]': { backgroundFocusedColor: '#1d4ed8' }
 '.bg-focused-blue-800[platform=android]': { backgroundFocusedColor: '#1e40af' }
 '.bg-focused-blue-900[platform=android]': { backgroundFocusedColor: '#1e3a8a' }
+'.bg-focused-blue-950[platform=android]': { backgroundFocusedColor: '#172554' }
 '.bg-focused-indigo-50[platform=android]': { backgroundFocusedColor: '#eef2ff' }
 '.bg-focused-indigo-100[platform=android]': { backgroundFocusedColor: '#e0e7ff' }
 '.bg-focused-indigo-200[platform=android]': { backgroundFocusedColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.bg-focused-indigo-700[platform=android]': { backgroundFocusedColor: '#4338ca' }
 '.bg-focused-indigo-800[platform=android]': { backgroundFocusedColor: '#3730a3' }
 '.bg-focused-indigo-900[platform=android]': { backgroundFocusedColor: '#312e81' }
+'.bg-focused-indigo-950[platform=android]': { backgroundFocusedColor: '#1e1b4b' }
 '.bg-focused-violet-50[platform=android]': { backgroundFocusedColor: '#f5f3ff' }
 '.bg-focused-violet-100[platform=android]': { backgroundFocusedColor: '#ede9fe' }
 '.bg-focused-violet-200[platform=android]': { backgroundFocusedColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.bg-focused-violet-700[platform=android]': { backgroundFocusedColor: '#6d28d9' }
 '.bg-focused-violet-800[platform=android]': { backgroundFocusedColor: '#5b21b6' }
 '.bg-focused-violet-900[platform=android]': { backgroundFocusedColor: '#4c1d95' }
+'.bg-focused-violet-950[platform=android]': { backgroundFocusedColor: '#2e1065' }
 '.bg-focused-purple-50[platform=android]': { backgroundFocusedColor: '#faf5ff' }
 '.bg-focused-purple-100[platform=android]': { backgroundFocusedColor: '#f3e8ff' }
 '.bg-focused-purple-200[platform=android]': { backgroundFocusedColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.bg-focused-purple-700[platform=android]': { backgroundFocusedColor: '#7e22ce' }
 '.bg-focused-purple-800[platform=android]': { backgroundFocusedColor: '#6b21a8' }
 '.bg-focused-purple-900[platform=android]': { backgroundFocusedColor: '#581c87' }
+'.bg-focused-purple-950[platform=android]': { backgroundFocusedColor: '#3b0764' }
 '.bg-focused-fuchsia-50[platform=android]': { backgroundFocusedColor: '#fdf4ff' }
 '.bg-focused-fuchsia-100[platform=android]': { backgroundFocusedColor: '#fae8ff' }
 '.bg-focused-fuchsia-200[platform=android]': { backgroundFocusedColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.bg-focused-fuchsia-700[platform=android]': { backgroundFocusedColor: '#a21caf' }
 '.bg-focused-fuchsia-800[platform=android]': { backgroundFocusedColor: '#86198f' }
 '.bg-focused-fuchsia-900[platform=android]': { backgroundFocusedColor: '#701a75' }
+'.bg-focused-fuchsia-950[platform=android]': { backgroundFocusedColor: '#4a044e' }
 '.bg-focused-pink-50[platform=android]': { backgroundFocusedColor: '#fdf2f8' }
 '.bg-focused-pink-100[platform=android]': { backgroundFocusedColor: '#fce7f3' }
 '.bg-focused-pink-200[platform=android]': { backgroundFocusedColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.bg-focused-pink-700[platform=android]': { backgroundFocusedColor: '#be185d' }
 '.bg-focused-pink-800[platform=android]': { backgroundFocusedColor: '#9d174d' }
 '.bg-focused-pink-900[platform=android]': { backgroundFocusedColor: '#831843' }
+'.bg-focused-pink-950[platform=android]': { backgroundFocusedColor: '#500724' }
 '.bg-focused-rose-50[platform=android]': { backgroundFocusedColor: '#fff1f2' }
 '.bg-focused-rose-100[platform=android]': { backgroundFocusedColor: '#ffe4e6' }
 '.bg-focused-rose-200[platform=android]': { backgroundFocusedColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.bg-focused-rose-700[platform=android]': { backgroundFocusedColor: '#be123c' }
 '.bg-focused-rose-800[platform=android]': { backgroundFocusedColor: '#9f1239' }
 '.bg-focused-rose-900[platform=android]': { backgroundFocusedColor: '#881337' }
+'.bg-focused-rose-950[platform=android]': { backgroundFocusedColor: '#4c0519' }
 ```

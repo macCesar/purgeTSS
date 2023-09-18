@@ -14,6 +14,7 @@
 '.disabled-slate-700[platform=ios]': { disabledColor: '#334155' }
 '.disabled-slate-800[platform=ios]': { disabledColor: '#1e293b' }
 '.disabled-slate-900[platform=ios]': { disabledColor: '#0f172a' }
+'.disabled-slate-950[platform=ios]': { disabledColor: '#020617' }
 '.disabled-gray-50[platform=ios]': { disabledColor: '#f9fafb' }
 '.disabled-gray-100[platform=ios]': { disabledColor: '#f3f4f6' }
 '.disabled-gray-200[platform=ios]': { disabledColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.disabled-gray-700[platform=ios]': { disabledColor: '#374151' }
 '.disabled-gray-800[platform=ios]': { disabledColor: '#1f2937' }
 '.disabled-gray-900[platform=ios]': { disabledColor: '#111827' }
+'.disabled-gray-950[platform=ios]': { disabledColor: '#030712' }
 '.disabled-zinc-50[platform=ios]': { disabledColor: '#fafafa' }
 '.disabled-zinc-100[platform=ios]': { disabledColor: '#f4f4f5' }
 '.disabled-zinc-200[platform=ios]': { disabledColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.disabled-zinc-700[platform=ios]': { disabledColor: '#3f3f46' }
 '.disabled-zinc-800[platform=ios]': { disabledColor: '#27272a' }
 '.disabled-zinc-900[platform=ios]': { disabledColor: '#18181b' }
+'.disabled-zinc-950[platform=ios]': { disabledColor: '#09090b' }
 '.disabled-neutral-50[platform=ios]': { disabledColor: '#fafafa' }
 '.disabled-neutral-100[platform=ios]': { disabledColor: '#f5f5f5' }
 '.disabled-neutral-200[platform=ios]': { disabledColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.disabled-neutral-700[platform=ios]': { disabledColor: '#404040' }
 '.disabled-neutral-800[platform=ios]': { disabledColor: '#262626' }
 '.disabled-neutral-900[platform=ios]': { disabledColor: '#171717' }
+'.disabled-neutral-950[platform=ios]': { disabledColor: '#0a0a0a' }
 '.disabled-stone-50[platform=ios]': { disabledColor: '#fafaf9' }
 '.disabled-stone-100[platform=ios]': { disabledColor: '#f5f5f4' }
 '.disabled-stone-200[platform=ios]': { disabledColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.disabled-stone-700[platform=ios]': { disabledColor: '#44403c' }
 '.disabled-stone-800[platform=ios]': { disabledColor: '#292524' }
 '.disabled-stone-900[platform=ios]': { disabledColor: '#1c1917' }
+'.disabled-stone-950[platform=ios]': { disabledColor: '#0c0a09' }
 '.disabled-red-50[platform=ios]': { disabledColor: '#fef2f2' }
 '.disabled-red-100[platform=ios]': { disabledColor: '#fee2e2' }
 '.disabled-red-200[platform=ios]': { disabledColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.disabled-red-700[platform=ios]': { disabledColor: '#b91c1c' }
 '.disabled-red-800[platform=ios]': { disabledColor: '#991b1b' }
 '.disabled-red-900[platform=ios]': { disabledColor: '#7f1d1d' }
+'.disabled-red-950[platform=ios]': { disabledColor: '#450a0a' }
 '.disabled-orange-50[platform=ios]': { disabledColor: '#fff7ed' }
 '.disabled-orange-100[platform=ios]': { disabledColor: '#ffedd5' }
 '.disabled-orange-200[platform=ios]': { disabledColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.disabled-orange-700[platform=ios]': { disabledColor: '#c2410c' }
 '.disabled-orange-800[platform=ios]': { disabledColor: '#9a3412' }
 '.disabled-orange-900[platform=ios]': { disabledColor: '#7c2d12' }
+'.disabled-orange-950[platform=ios]': { disabledColor: '#431407' }
 '.disabled-amber-50[platform=ios]': { disabledColor: '#fffbeb' }
 '.disabled-amber-100[platform=ios]': { disabledColor: '#fef3c7' }
 '.disabled-amber-200[platform=ios]': { disabledColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.disabled-amber-700[platform=ios]': { disabledColor: '#b45309' }
 '.disabled-amber-800[platform=ios]': { disabledColor: '#92400e' }
 '.disabled-amber-900[platform=ios]': { disabledColor: '#78350f' }
+'.disabled-amber-950[platform=ios]': { disabledColor: '#451a03' }
 '.disabled-yellow-50[platform=ios]': { disabledColor: '#fefce8' }
 '.disabled-yellow-100[platform=ios]': { disabledColor: '#fef9c3' }
 '.disabled-yellow-200[platform=ios]': { disabledColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.disabled-yellow-700[platform=ios]': { disabledColor: '#a16207' }
 '.disabled-yellow-800[platform=ios]': { disabledColor: '#854d0e' }
 '.disabled-yellow-900[platform=ios]': { disabledColor: '#713f12' }
+'.disabled-yellow-950[platform=ios]': { disabledColor: '#422006' }
 '.disabled-lime-50[platform=ios]': { disabledColor: '#f7fee7' }
 '.disabled-lime-100[platform=ios]': { disabledColor: '#ecfccb' }
 '.disabled-lime-200[platform=ios]': { disabledColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.disabled-lime-700[platform=ios]': { disabledColor: '#4d7c0f' }
 '.disabled-lime-800[platform=ios]': { disabledColor: '#3f6212' }
 '.disabled-lime-900[platform=ios]': { disabledColor: '#365314' }
+'.disabled-lime-950[platform=ios]': { disabledColor: '#1a2e05' }
 '.disabled-green-50[platform=ios]': { disabledColor: '#f0fdf4' }
 '.disabled-green-100[platform=ios]': { disabledColor: '#dcfce7' }
 '.disabled-green-200[platform=ios]': { disabledColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.disabled-green-700[platform=ios]': { disabledColor: '#15803d' }
 '.disabled-green-800[platform=ios]': { disabledColor: '#166534' }
 '.disabled-green-900[platform=ios]': { disabledColor: '#14532d' }
+'.disabled-green-950[platform=ios]': { disabledColor: '#052e16' }
 '.disabled-emerald-50[platform=ios]': { disabledColor: '#ecfdf5' }
 '.disabled-emerald-100[platform=ios]': { disabledColor: '#d1fae5' }
 '.disabled-emerald-200[platform=ios]': { disabledColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.disabled-emerald-700[platform=ios]': { disabledColor: '#047857' }
 '.disabled-emerald-800[platform=ios]': { disabledColor: '#065f46' }
 '.disabled-emerald-900[platform=ios]': { disabledColor: '#064e3b' }
+'.disabled-emerald-950[platform=ios]': { disabledColor: '#022c22' }
 '.disabled-teal-50[platform=ios]': { disabledColor: '#f0fdfa' }
 '.disabled-teal-100[platform=ios]': { disabledColor: '#ccfbf1' }
 '.disabled-teal-200[platform=ios]': { disabledColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.disabled-teal-700[platform=ios]': { disabledColor: '#0f766e' }
 '.disabled-teal-800[platform=ios]': { disabledColor: '#115e59' }
 '.disabled-teal-900[platform=ios]': { disabledColor: '#134e4a' }
+'.disabled-teal-950[platform=ios]': { disabledColor: '#042f2e' }
 '.disabled-cyan-50[platform=ios]': { disabledColor: '#ecfeff' }
 '.disabled-cyan-100[platform=ios]': { disabledColor: '#cffafe' }
 '.disabled-cyan-200[platform=ios]': { disabledColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.disabled-cyan-700[platform=ios]': { disabledColor: '#0e7490' }
 '.disabled-cyan-800[platform=ios]': { disabledColor: '#155e75' }
 '.disabled-cyan-900[platform=ios]': { disabledColor: '#164e63' }
+'.disabled-cyan-950[platform=ios]': { disabledColor: '#083344' }
 '.disabled-sky-50[platform=ios]': { disabledColor: '#f0f9ff' }
 '.disabled-sky-100[platform=ios]': { disabledColor: '#e0f2fe' }
 '.disabled-sky-200[platform=ios]': { disabledColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.disabled-sky-700[platform=ios]': { disabledColor: '#0369a1' }
 '.disabled-sky-800[platform=ios]': { disabledColor: '#075985' }
 '.disabled-sky-900[platform=ios]': { disabledColor: '#0c4a6e' }
+'.disabled-sky-950[platform=ios]': { disabledColor: '#082f49' }
 '.disabled-blue-50[platform=ios]': { disabledColor: '#eff6ff' }
 '.disabled-blue-100[platform=ios]': { disabledColor: '#dbeafe' }
 '.disabled-blue-200[platform=ios]': { disabledColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.disabled-blue-700[platform=ios]': { disabledColor: '#1d4ed8' }
 '.disabled-blue-800[platform=ios]': { disabledColor: '#1e40af' }
 '.disabled-blue-900[platform=ios]': { disabledColor: '#1e3a8a' }
+'.disabled-blue-950[platform=ios]': { disabledColor: '#172554' }
 '.disabled-indigo-50[platform=ios]': { disabledColor: '#eef2ff' }
 '.disabled-indigo-100[platform=ios]': { disabledColor: '#e0e7ff' }
 '.disabled-indigo-200[platform=ios]': { disabledColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.disabled-indigo-700[platform=ios]': { disabledColor: '#4338ca' }
 '.disabled-indigo-800[platform=ios]': { disabledColor: '#3730a3' }
 '.disabled-indigo-900[platform=ios]': { disabledColor: '#312e81' }
+'.disabled-indigo-950[platform=ios]': { disabledColor: '#1e1b4b' }
 '.disabled-violet-50[platform=ios]': { disabledColor: '#f5f3ff' }
 '.disabled-violet-100[platform=ios]': { disabledColor: '#ede9fe' }
 '.disabled-violet-200[platform=ios]': { disabledColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.disabled-violet-700[platform=ios]': { disabledColor: '#6d28d9' }
 '.disabled-violet-800[platform=ios]': { disabledColor: '#5b21b6' }
 '.disabled-violet-900[platform=ios]': { disabledColor: '#4c1d95' }
+'.disabled-violet-950[platform=ios]': { disabledColor: '#2e1065' }
 '.disabled-purple-50[platform=ios]': { disabledColor: '#faf5ff' }
 '.disabled-purple-100[platform=ios]': { disabledColor: '#f3e8ff' }
 '.disabled-purple-200[platform=ios]': { disabledColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.disabled-purple-700[platform=ios]': { disabledColor: '#7e22ce' }
 '.disabled-purple-800[platform=ios]': { disabledColor: '#6b21a8' }
 '.disabled-purple-900[platform=ios]': { disabledColor: '#581c87' }
+'.disabled-purple-950[platform=ios]': { disabledColor: '#3b0764' }
 '.disabled-fuchsia-50[platform=ios]': { disabledColor: '#fdf4ff' }
 '.disabled-fuchsia-100[platform=ios]': { disabledColor: '#fae8ff' }
 '.disabled-fuchsia-200[platform=ios]': { disabledColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.disabled-fuchsia-700[platform=ios]': { disabledColor: '#a21caf' }
 '.disabled-fuchsia-800[platform=ios]': { disabledColor: '#86198f' }
 '.disabled-fuchsia-900[platform=ios]': { disabledColor: '#701a75' }
+'.disabled-fuchsia-950[platform=ios]': { disabledColor: '#4a044e' }
 '.disabled-pink-50[platform=ios]': { disabledColor: '#fdf2f8' }
 '.disabled-pink-100[platform=ios]': { disabledColor: '#fce7f3' }
 '.disabled-pink-200[platform=ios]': { disabledColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.disabled-pink-700[platform=ios]': { disabledColor: '#be185d' }
 '.disabled-pink-800[platform=ios]': { disabledColor: '#9d174d' }
 '.disabled-pink-900[platform=ios]': { disabledColor: '#831843' }
+'.disabled-pink-950[platform=ios]': { disabledColor: '#500724' }
 '.disabled-rose-50[platform=ios]': { disabledColor: '#fff1f2' }
 '.disabled-rose-100[platform=ios]': { disabledColor: '#ffe4e6' }
 '.disabled-rose-200[platform=ios]': { disabledColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.disabled-rose-700[platform=ios]': { disabledColor: '#be123c' }
 '.disabled-rose-800[platform=ios]': { disabledColor: '#9f1239' }
 '.disabled-rose-900[platform=ios]': { disabledColor: '#881337' }
+'.disabled-rose-950[platform=ios]': { disabledColor: '#4c0519' }
 ```

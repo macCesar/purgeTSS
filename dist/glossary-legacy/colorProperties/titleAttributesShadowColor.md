@@ -14,6 +14,7 @@
 '.title-attributes-shadow-slate-700[platform=ios]': { titleAttributes: { shadow: { color: '#334155' } } }
 '.title-attributes-shadow-slate-800[platform=ios]': { titleAttributes: { shadow: { color: '#1e293b' } } }
 '.title-attributes-shadow-slate-900[platform=ios]': { titleAttributes: { shadow: { color: '#0f172a' } } }
+'.title-attributes-shadow-slate-950[platform=ios]': { titleAttributes: { shadow: { color: '#020617' } } }
 '.title-attributes-shadow-gray-50[platform=ios]': { titleAttributes: { shadow: { color: '#f9fafb' } } }
 '.title-attributes-shadow-gray-100[platform=ios]': { titleAttributes: { shadow: { color: '#f3f4f6' } } }
 '.title-attributes-shadow-gray-200[platform=ios]': { titleAttributes: { shadow: { color: '#e5e7eb' } } }
@@ -24,6 +25,7 @@
 '.title-attributes-shadow-gray-700[platform=ios]': { titleAttributes: { shadow: { color: '#374151' } } }
 '.title-attributes-shadow-gray-800[platform=ios]': { titleAttributes: { shadow: { color: '#1f2937' } } }
 '.title-attributes-shadow-gray-900[platform=ios]': { titleAttributes: { shadow: { color: '#111827' } } }
+'.title-attributes-shadow-gray-950[platform=ios]': { titleAttributes: { shadow: { color: '#030712' } } }
 '.title-attributes-shadow-zinc-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafafa' } } }
 '.title-attributes-shadow-zinc-100[platform=ios]': { titleAttributes: { shadow: { color: '#f4f4f5' } } }
 '.title-attributes-shadow-zinc-200[platform=ios]': { titleAttributes: { shadow: { color: '#e4e4e7' } } }
@@ -34,6 +36,7 @@
 '.title-attributes-shadow-zinc-700[platform=ios]': { titleAttributes: { shadow: { color: '#3f3f46' } } }
 '.title-attributes-shadow-zinc-800[platform=ios]': { titleAttributes: { shadow: { color: '#27272a' } } }
 '.title-attributes-shadow-zinc-900[platform=ios]': { titleAttributes: { shadow: { color: '#18181b' } } }
+'.title-attributes-shadow-zinc-950[platform=ios]': { titleAttributes: { shadow: { color: '#09090b' } } }
 '.title-attributes-shadow-neutral-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafafa' } } }
 '.title-attributes-shadow-neutral-100[platform=ios]': { titleAttributes: { shadow: { color: '#f5f5f5' } } }
 '.title-attributes-shadow-neutral-200[platform=ios]': { titleAttributes: { shadow: { color: '#e5e5e5' } } }
@@ -44,6 +47,7 @@
 '.title-attributes-shadow-neutral-700[platform=ios]': { titleAttributes: { shadow: { color: '#404040' } } }
 '.title-attributes-shadow-neutral-800[platform=ios]': { titleAttributes: { shadow: { color: '#262626' } } }
 '.title-attributes-shadow-neutral-900[platform=ios]': { titleAttributes: { shadow: { color: '#171717' } } }
+'.title-attributes-shadow-neutral-950[platform=ios]': { titleAttributes: { shadow: { color: '#0a0a0a' } } }
 '.title-attributes-shadow-stone-50[platform=ios]': { titleAttributes: { shadow: { color: '#fafaf9' } } }
 '.title-attributes-shadow-stone-100[platform=ios]': { titleAttributes: { shadow: { color: '#f5f5f4' } } }
 '.title-attributes-shadow-stone-200[platform=ios]': { titleAttributes: { shadow: { color: '#e7e5e4' } } }
@@ -54,6 +58,7 @@
 '.title-attributes-shadow-stone-700[platform=ios]': { titleAttributes: { shadow: { color: '#44403c' } } }
 '.title-attributes-shadow-stone-800[platform=ios]': { titleAttributes: { shadow: { color: '#292524' } } }
 '.title-attributes-shadow-stone-900[platform=ios]': { titleAttributes: { shadow: { color: '#1c1917' } } }
+'.title-attributes-shadow-stone-950[platform=ios]': { titleAttributes: { shadow: { color: '#0c0a09' } } }
 '.title-attributes-shadow-red-50[platform=ios]': { titleAttributes: { shadow: { color: '#fef2f2' } } }
 '.title-attributes-shadow-red-100[platform=ios]': { titleAttributes: { shadow: { color: '#fee2e2' } } }
 '.title-attributes-shadow-red-200[platform=ios]': { titleAttributes: { shadow: { color: '#fecaca' } } }
@@ -64,6 +69,7 @@
 '.title-attributes-shadow-red-700[platform=ios]': { titleAttributes: { shadow: { color: '#b91c1c' } } }
 '.title-attributes-shadow-red-800[platform=ios]': { titleAttributes: { shadow: { color: '#991b1b' } } }
 '.title-attributes-shadow-red-900[platform=ios]': { titleAttributes: { shadow: { color: '#7f1d1d' } } }
+'.title-attributes-shadow-red-950[platform=ios]': { titleAttributes: { shadow: { color: '#450a0a' } } }
 '.title-attributes-shadow-orange-50[platform=ios]': { titleAttributes: { shadow: { color: '#fff7ed' } } }
 '.title-attributes-shadow-orange-100[platform=ios]': { titleAttributes: { shadow: { color: '#ffedd5' } } }
 '.title-attributes-shadow-orange-200[platform=ios]': { titleAttributes: { shadow: { color: '#fed7aa' } } }
@@ -74,6 +80,7 @@
 '.title-attributes-shadow-orange-700[platform=ios]': { titleAttributes: { shadow: { color: '#c2410c' } } }
 '.title-attributes-shadow-orange-800[platform=ios]': { titleAttributes: { shadow: { color: '#9a3412' } } }
 '.title-attributes-shadow-orange-900[platform=ios]': { titleAttributes: { shadow: { color: '#7c2d12' } } }
+'.title-attributes-shadow-orange-950[platform=ios]': { titleAttributes: { shadow: { color: '#431407' } } }
 '.title-attributes-shadow-amber-50[platform=ios]': { titleAttributes: { shadow: { color: '#fffbeb' } } }
 '.title-attributes-shadow-amber-100[platform=ios]': { titleAttributes: { shadow: { color: '#fef3c7' } } }
 '.title-attributes-shadow-amber-200[platform=ios]': { titleAttributes: { shadow: { color: '#fde68a' } } }
@@ -84,6 +91,7 @@
 '.title-attributes-shadow-amber-700[platform=ios]': { titleAttributes: { shadow: { color: '#b45309' } } }
 '.title-attributes-shadow-amber-800[platform=ios]': { titleAttributes: { shadow: { color: '#92400e' } } }
 '.title-attributes-shadow-amber-900[platform=ios]': { titleAttributes: { shadow: { color: '#78350f' } } }
+'.title-attributes-shadow-amber-950[platform=ios]': { titleAttributes: { shadow: { color: '#451a03' } } }
 '.title-attributes-shadow-yellow-50[platform=ios]': { titleAttributes: { shadow: { color: '#fefce8' } } }
 '.title-attributes-shadow-yellow-100[platform=ios]': { titleAttributes: { shadow: { color: '#fef9c3' } } }
 '.title-attributes-shadow-yellow-200[platform=ios]': { titleAttributes: { shadow: { color: '#fef08a' } } }
@@ -94,6 +102,7 @@
 '.title-attributes-shadow-yellow-700[platform=ios]': { titleAttributes: { shadow: { color: '#a16207' } } }
 '.title-attributes-shadow-yellow-800[platform=ios]': { titleAttributes: { shadow: { color: '#854d0e' } } }
 '.title-attributes-shadow-yellow-900[platform=ios]': { titleAttributes: { shadow: { color: '#713f12' } } }
+'.title-attributes-shadow-yellow-950[platform=ios]': { titleAttributes: { shadow: { color: '#422006' } } }
 '.title-attributes-shadow-lime-50[platform=ios]': { titleAttributes: { shadow: { color: '#f7fee7' } } }
 '.title-attributes-shadow-lime-100[platform=ios]': { titleAttributes: { shadow: { color: '#ecfccb' } } }
 '.title-attributes-shadow-lime-200[platform=ios]': { titleAttributes: { shadow: { color: '#d9f99d' } } }
@@ -104,6 +113,7 @@
 '.title-attributes-shadow-lime-700[platform=ios]': { titleAttributes: { shadow: { color: '#4d7c0f' } } }
 '.title-attributes-shadow-lime-800[platform=ios]': { titleAttributes: { shadow: { color: '#3f6212' } } }
 '.title-attributes-shadow-lime-900[platform=ios]': { titleAttributes: { shadow: { color: '#365314' } } }
+'.title-attributes-shadow-lime-950[platform=ios]': { titleAttributes: { shadow: { color: '#1a2e05' } } }
 '.title-attributes-shadow-green-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0fdf4' } } }
 '.title-attributes-shadow-green-100[platform=ios]': { titleAttributes: { shadow: { color: '#dcfce7' } } }
 '.title-attributes-shadow-green-200[platform=ios]': { titleAttributes: { shadow: { color: '#bbf7d0' } } }
@@ -114,6 +124,7 @@
 '.title-attributes-shadow-green-700[platform=ios]': { titleAttributes: { shadow: { color: '#15803d' } } }
 '.title-attributes-shadow-green-800[platform=ios]': { titleAttributes: { shadow: { color: '#166534' } } }
 '.title-attributes-shadow-green-900[platform=ios]': { titleAttributes: { shadow: { color: '#14532d' } } }
+'.title-attributes-shadow-green-950[platform=ios]': { titleAttributes: { shadow: { color: '#052e16' } } }
 '.title-attributes-shadow-emerald-50[platform=ios]': { titleAttributes: { shadow: { color: '#ecfdf5' } } }
 '.title-attributes-shadow-emerald-100[platform=ios]': { titleAttributes: { shadow: { color: '#d1fae5' } } }
 '.title-attributes-shadow-emerald-200[platform=ios]': { titleAttributes: { shadow: { color: '#a7f3d0' } } }
@@ -124,6 +135,7 @@
 '.title-attributes-shadow-emerald-700[platform=ios]': { titleAttributes: { shadow: { color: '#047857' } } }
 '.title-attributes-shadow-emerald-800[platform=ios]': { titleAttributes: { shadow: { color: '#065f46' } } }
 '.title-attributes-shadow-emerald-900[platform=ios]': { titleAttributes: { shadow: { color: '#064e3b' } } }
+'.title-attributes-shadow-emerald-950[platform=ios]': { titleAttributes: { shadow: { color: '#022c22' } } }
 '.title-attributes-shadow-teal-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0fdfa' } } }
 '.title-attributes-shadow-teal-100[platform=ios]': { titleAttributes: { shadow: { color: '#ccfbf1' } } }
 '.title-attributes-shadow-teal-200[platform=ios]': { titleAttributes: { shadow: { color: '#99f6e4' } } }
@@ -134,6 +146,7 @@
 '.title-attributes-shadow-teal-700[platform=ios]': { titleAttributes: { shadow: { color: '#0f766e' } } }
 '.title-attributes-shadow-teal-800[platform=ios]': { titleAttributes: { shadow: { color: '#115e59' } } }
 '.title-attributes-shadow-teal-900[platform=ios]': { titleAttributes: { shadow: { color: '#134e4a' } } }
+'.title-attributes-shadow-teal-950[platform=ios]': { titleAttributes: { shadow: { color: '#042f2e' } } }
 '.title-attributes-shadow-cyan-50[platform=ios]': { titleAttributes: { shadow: { color: '#ecfeff' } } }
 '.title-attributes-shadow-cyan-100[platform=ios]': { titleAttributes: { shadow: { color: '#cffafe' } } }
 '.title-attributes-shadow-cyan-200[platform=ios]': { titleAttributes: { shadow: { color: '#a5f3fc' } } }
@@ -144,6 +157,7 @@
 '.title-attributes-shadow-cyan-700[platform=ios]': { titleAttributes: { shadow: { color: '#0e7490' } } }
 '.title-attributes-shadow-cyan-800[platform=ios]': { titleAttributes: { shadow: { color: '#155e75' } } }
 '.title-attributes-shadow-cyan-900[platform=ios]': { titleAttributes: { shadow: { color: '#164e63' } } }
+'.title-attributes-shadow-cyan-950[platform=ios]': { titleAttributes: { shadow: { color: '#083344' } } }
 '.title-attributes-shadow-sky-50[platform=ios]': { titleAttributes: { shadow: { color: '#f0f9ff' } } }
 '.title-attributes-shadow-sky-100[platform=ios]': { titleAttributes: { shadow: { color: '#e0f2fe' } } }
 '.title-attributes-shadow-sky-200[platform=ios]': { titleAttributes: { shadow: { color: '#bae6fd' } } }
@@ -154,6 +168,7 @@
 '.title-attributes-shadow-sky-700[platform=ios]': { titleAttributes: { shadow: { color: '#0369a1' } } }
 '.title-attributes-shadow-sky-800[platform=ios]': { titleAttributes: { shadow: { color: '#075985' } } }
 '.title-attributes-shadow-sky-900[platform=ios]': { titleAttributes: { shadow: { color: '#0c4a6e' } } }
+'.title-attributes-shadow-sky-950[platform=ios]': { titleAttributes: { shadow: { color: '#082f49' } } }
 '.title-attributes-shadow-blue-50[platform=ios]': { titleAttributes: { shadow: { color: '#eff6ff' } } }
 '.title-attributes-shadow-blue-100[platform=ios]': { titleAttributes: { shadow: { color: '#dbeafe' } } }
 '.title-attributes-shadow-blue-200[platform=ios]': { titleAttributes: { shadow: { color: '#bfdbfe' } } }
@@ -164,6 +179,7 @@
 '.title-attributes-shadow-blue-700[platform=ios]': { titleAttributes: { shadow: { color: '#1d4ed8' } } }
 '.title-attributes-shadow-blue-800[platform=ios]': { titleAttributes: { shadow: { color: '#1e40af' } } }
 '.title-attributes-shadow-blue-900[platform=ios]': { titleAttributes: { shadow: { color: '#1e3a8a' } } }
+'.title-attributes-shadow-blue-950[platform=ios]': { titleAttributes: { shadow: { color: '#172554' } } }
 '.title-attributes-shadow-indigo-50[platform=ios]': { titleAttributes: { shadow: { color: '#eef2ff' } } }
 '.title-attributes-shadow-indigo-100[platform=ios]': { titleAttributes: { shadow: { color: '#e0e7ff' } } }
 '.title-attributes-shadow-indigo-200[platform=ios]': { titleAttributes: { shadow: { color: '#c7d2fe' } } }
@@ -174,6 +190,7 @@
 '.title-attributes-shadow-indigo-700[platform=ios]': { titleAttributes: { shadow: { color: '#4338ca' } } }
 '.title-attributes-shadow-indigo-800[platform=ios]': { titleAttributes: { shadow: { color: '#3730a3' } } }
 '.title-attributes-shadow-indigo-900[platform=ios]': { titleAttributes: { shadow: { color: '#312e81' } } }
+'.title-attributes-shadow-indigo-950[platform=ios]': { titleAttributes: { shadow: { color: '#1e1b4b' } } }
 '.title-attributes-shadow-violet-50[platform=ios]': { titleAttributes: { shadow: { color: '#f5f3ff' } } }
 '.title-attributes-shadow-violet-100[platform=ios]': { titleAttributes: { shadow: { color: '#ede9fe' } } }
 '.title-attributes-shadow-violet-200[platform=ios]': { titleAttributes: { shadow: { color: '#ddd6fe' } } }
@@ -184,6 +201,7 @@
 '.title-attributes-shadow-violet-700[platform=ios]': { titleAttributes: { shadow: { color: '#6d28d9' } } }
 '.title-attributes-shadow-violet-800[platform=ios]': { titleAttributes: { shadow: { color: '#5b21b6' } } }
 '.title-attributes-shadow-violet-900[platform=ios]': { titleAttributes: { shadow: { color: '#4c1d95' } } }
+'.title-attributes-shadow-violet-950[platform=ios]': { titleAttributes: { shadow: { color: '#2e1065' } } }
 '.title-attributes-shadow-purple-50[platform=ios]': { titleAttributes: { shadow: { color: '#faf5ff' } } }
 '.title-attributes-shadow-purple-100[platform=ios]': { titleAttributes: { shadow: { color: '#f3e8ff' } } }
 '.title-attributes-shadow-purple-200[platform=ios]': { titleAttributes: { shadow: { color: '#e9d5ff' } } }
@@ -194,6 +212,7 @@
 '.title-attributes-shadow-purple-700[platform=ios]': { titleAttributes: { shadow: { color: '#7e22ce' } } }
 '.title-attributes-shadow-purple-800[platform=ios]': { titleAttributes: { shadow: { color: '#6b21a8' } } }
 '.title-attributes-shadow-purple-900[platform=ios]': { titleAttributes: { shadow: { color: '#581c87' } } }
+'.title-attributes-shadow-purple-950[platform=ios]': { titleAttributes: { shadow: { color: '#3b0764' } } }
 '.title-attributes-shadow-fuchsia-50[platform=ios]': { titleAttributes: { shadow: { color: '#fdf4ff' } } }
 '.title-attributes-shadow-fuchsia-100[platform=ios]': { titleAttributes: { shadow: { color: '#fae8ff' } } }
 '.title-attributes-shadow-fuchsia-200[platform=ios]': { titleAttributes: { shadow: { color: '#f5d0fe' } } }
@@ -204,6 +223,7 @@
 '.title-attributes-shadow-fuchsia-700[platform=ios]': { titleAttributes: { shadow: { color: '#a21caf' } } }
 '.title-attributes-shadow-fuchsia-800[platform=ios]': { titleAttributes: { shadow: { color: '#86198f' } } }
 '.title-attributes-shadow-fuchsia-900[platform=ios]': { titleAttributes: { shadow: { color: '#701a75' } } }
+'.title-attributes-shadow-fuchsia-950[platform=ios]': { titleAttributes: { shadow: { color: '#4a044e' } } }
 '.title-attributes-shadow-pink-50[platform=ios]': { titleAttributes: { shadow: { color: '#fdf2f8' } } }
 '.title-attributes-shadow-pink-100[platform=ios]': { titleAttributes: { shadow: { color: '#fce7f3' } } }
 '.title-attributes-shadow-pink-200[platform=ios]': { titleAttributes: { shadow: { color: '#fbcfe8' } } }
@@ -214,6 +234,7 @@
 '.title-attributes-shadow-pink-700[platform=ios]': { titleAttributes: { shadow: { color: '#be185d' } } }
 '.title-attributes-shadow-pink-800[platform=ios]': { titleAttributes: { shadow: { color: '#9d174d' } } }
 '.title-attributes-shadow-pink-900[platform=ios]': { titleAttributes: { shadow: { color: '#831843' } } }
+'.title-attributes-shadow-pink-950[platform=ios]': { titleAttributes: { shadow: { color: '#500724' } } }
 '.title-attributes-shadow-rose-50[platform=ios]': { titleAttributes: { shadow: { color: '#fff1f2' } } }
 '.title-attributes-shadow-rose-100[platform=ios]': { titleAttributes: { shadow: { color: '#ffe4e6' } } }
 '.title-attributes-shadow-rose-200[platform=ios]': { titleAttributes: { shadow: { color: '#fecdd3' } } }
@@ -224,4 +245,5 @@
 '.title-attributes-shadow-rose-700[platform=ios]': { titleAttributes: { shadow: { color: '#be123c' } } }
 '.title-attributes-shadow-rose-800[platform=ios]': { titleAttributes: { shadow: { color: '#9f1239' } } }
 '.title-attributes-shadow-rose-900[platform=ios]': { titleAttributes: { shadow: { color: '#881337' } } }
+'.title-attributes-shadow-rose-950[platform=ios]': { titleAttributes: { shadow: { color: '#4c0519' } } }
 ```

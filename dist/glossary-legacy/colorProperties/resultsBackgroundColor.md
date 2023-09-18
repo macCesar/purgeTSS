@@ -14,6 +14,7 @@
 '.results-bg-slate-700[platform=ios]': { resultsBackgroundColor: '#334155' }
 '.results-bg-slate-800[platform=ios]': { resultsBackgroundColor: '#1e293b' }
 '.results-bg-slate-900[platform=ios]': { resultsBackgroundColor: '#0f172a' }
+'.results-bg-slate-950[platform=ios]': { resultsBackgroundColor: '#020617' }
 '.results-bg-gray-50[platform=ios]': { resultsBackgroundColor: '#f9fafb' }
 '.results-bg-gray-100[platform=ios]': { resultsBackgroundColor: '#f3f4f6' }
 '.results-bg-gray-200[platform=ios]': { resultsBackgroundColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.results-bg-gray-700[platform=ios]': { resultsBackgroundColor: '#374151' }
 '.results-bg-gray-800[platform=ios]': { resultsBackgroundColor: '#1f2937' }
 '.results-bg-gray-900[platform=ios]': { resultsBackgroundColor: '#111827' }
+'.results-bg-gray-950[platform=ios]': { resultsBackgroundColor: '#030712' }
 '.results-bg-zinc-50[platform=ios]': { resultsBackgroundColor: '#fafafa' }
 '.results-bg-zinc-100[platform=ios]': { resultsBackgroundColor: '#f4f4f5' }
 '.results-bg-zinc-200[platform=ios]': { resultsBackgroundColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.results-bg-zinc-700[platform=ios]': { resultsBackgroundColor: '#3f3f46' }
 '.results-bg-zinc-800[platform=ios]': { resultsBackgroundColor: '#27272a' }
 '.results-bg-zinc-900[platform=ios]': { resultsBackgroundColor: '#18181b' }
+'.results-bg-zinc-950[platform=ios]': { resultsBackgroundColor: '#09090b' }
 '.results-bg-neutral-50[platform=ios]': { resultsBackgroundColor: '#fafafa' }
 '.results-bg-neutral-100[platform=ios]': { resultsBackgroundColor: '#f5f5f5' }
 '.results-bg-neutral-200[platform=ios]': { resultsBackgroundColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.results-bg-neutral-700[platform=ios]': { resultsBackgroundColor: '#404040' }
 '.results-bg-neutral-800[platform=ios]': { resultsBackgroundColor: '#262626' }
 '.results-bg-neutral-900[platform=ios]': { resultsBackgroundColor: '#171717' }
+'.results-bg-neutral-950[platform=ios]': { resultsBackgroundColor: '#0a0a0a' }
 '.results-bg-stone-50[platform=ios]': { resultsBackgroundColor: '#fafaf9' }
 '.results-bg-stone-100[platform=ios]': { resultsBackgroundColor: '#f5f5f4' }
 '.results-bg-stone-200[platform=ios]': { resultsBackgroundColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.results-bg-stone-700[platform=ios]': { resultsBackgroundColor: '#44403c' }
 '.results-bg-stone-800[platform=ios]': { resultsBackgroundColor: '#292524' }
 '.results-bg-stone-900[platform=ios]': { resultsBackgroundColor: '#1c1917' }
+'.results-bg-stone-950[platform=ios]': { resultsBackgroundColor: '#0c0a09' }
 '.results-bg-red-50[platform=ios]': { resultsBackgroundColor: '#fef2f2' }
 '.results-bg-red-100[platform=ios]': { resultsBackgroundColor: '#fee2e2' }
 '.results-bg-red-200[platform=ios]': { resultsBackgroundColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.results-bg-red-700[platform=ios]': { resultsBackgroundColor: '#b91c1c' }
 '.results-bg-red-800[platform=ios]': { resultsBackgroundColor: '#991b1b' }
 '.results-bg-red-900[platform=ios]': { resultsBackgroundColor: '#7f1d1d' }
+'.results-bg-red-950[platform=ios]': { resultsBackgroundColor: '#450a0a' }
 '.results-bg-orange-50[platform=ios]': { resultsBackgroundColor: '#fff7ed' }
 '.results-bg-orange-100[platform=ios]': { resultsBackgroundColor: '#ffedd5' }
 '.results-bg-orange-200[platform=ios]': { resultsBackgroundColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.results-bg-orange-700[platform=ios]': { resultsBackgroundColor: '#c2410c' }
 '.results-bg-orange-800[platform=ios]': { resultsBackgroundColor: '#9a3412' }
 '.results-bg-orange-900[platform=ios]': { resultsBackgroundColor: '#7c2d12' }
+'.results-bg-orange-950[platform=ios]': { resultsBackgroundColor: '#431407' }
 '.results-bg-amber-50[platform=ios]': { resultsBackgroundColor: '#fffbeb' }
 '.results-bg-amber-100[platform=ios]': { resultsBackgroundColor: '#fef3c7' }
 '.results-bg-amber-200[platform=ios]': { resultsBackgroundColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.results-bg-amber-700[platform=ios]': { resultsBackgroundColor: '#b45309' }
 '.results-bg-amber-800[platform=ios]': { resultsBackgroundColor: '#92400e' }
 '.results-bg-amber-900[platform=ios]': { resultsBackgroundColor: '#78350f' }
+'.results-bg-amber-950[platform=ios]': { resultsBackgroundColor: '#451a03' }
 '.results-bg-yellow-50[platform=ios]': { resultsBackgroundColor: '#fefce8' }
 '.results-bg-yellow-100[platform=ios]': { resultsBackgroundColor: '#fef9c3' }
 '.results-bg-yellow-200[platform=ios]': { resultsBackgroundColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.results-bg-yellow-700[platform=ios]': { resultsBackgroundColor: '#a16207' }
 '.results-bg-yellow-800[platform=ios]': { resultsBackgroundColor: '#854d0e' }
 '.results-bg-yellow-900[platform=ios]': { resultsBackgroundColor: '#713f12' }
+'.results-bg-yellow-950[platform=ios]': { resultsBackgroundColor: '#422006' }
 '.results-bg-lime-50[platform=ios]': { resultsBackgroundColor: '#f7fee7' }
 '.results-bg-lime-100[platform=ios]': { resultsBackgroundColor: '#ecfccb' }
 '.results-bg-lime-200[platform=ios]': { resultsBackgroundColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.results-bg-lime-700[platform=ios]': { resultsBackgroundColor: '#4d7c0f' }
 '.results-bg-lime-800[platform=ios]': { resultsBackgroundColor: '#3f6212' }
 '.results-bg-lime-900[platform=ios]': { resultsBackgroundColor: '#365314' }
+'.results-bg-lime-950[platform=ios]': { resultsBackgroundColor: '#1a2e05' }
 '.results-bg-green-50[platform=ios]': { resultsBackgroundColor: '#f0fdf4' }
 '.results-bg-green-100[platform=ios]': { resultsBackgroundColor: '#dcfce7' }
 '.results-bg-green-200[platform=ios]': { resultsBackgroundColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.results-bg-green-700[platform=ios]': { resultsBackgroundColor: '#15803d' }
 '.results-bg-green-800[platform=ios]': { resultsBackgroundColor: '#166534' }
 '.results-bg-green-900[platform=ios]': { resultsBackgroundColor: '#14532d' }
+'.results-bg-green-950[platform=ios]': { resultsBackgroundColor: '#052e16' }
 '.results-bg-emerald-50[platform=ios]': { resultsBackgroundColor: '#ecfdf5' }
 '.results-bg-emerald-100[platform=ios]': { resultsBackgroundColor: '#d1fae5' }
 '.results-bg-emerald-200[platform=ios]': { resultsBackgroundColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.results-bg-emerald-700[platform=ios]': { resultsBackgroundColor: '#047857' }
 '.results-bg-emerald-800[platform=ios]': { resultsBackgroundColor: '#065f46' }
 '.results-bg-emerald-900[platform=ios]': { resultsBackgroundColor: '#064e3b' }
+'.results-bg-emerald-950[platform=ios]': { resultsBackgroundColor: '#022c22' }
 '.results-bg-teal-50[platform=ios]': { resultsBackgroundColor: '#f0fdfa' }
 '.results-bg-teal-100[platform=ios]': { resultsBackgroundColor: '#ccfbf1' }
 '.results-bg-teal-200[platform=ios]': { resultsBackgroundColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.results-bg-teal-700[platform=ios]': { resultsBackgroundColor: '#0f766e' }
 '.results-bg-teal-800[platform=ios]': { resultsBackgroundColor: '#115e59' }
 '.results-bg-teal-900[platform=ios]': { resultsBackgroundColor: '#134e4a' }
+'.results-bg-teal-950[platform=ios]': { resultsBackgroundColor: '#042f2e' }
 '.results-bg-cyan-50[platform=ios]': { resultsBackgroundColor: '#ecfeff' }
 '.results-bg-cyan-100[platform=ios]': { resultsBackgroundColor: '#cffafe' }
 '.results-bg-cyan-200[platform=ios]': { resultsBackgroundColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.results-bg-cyan-700[platform=ios]': { resultsBackgroundColor: '#0e7490' }
 '.results-bg-cyan-800[platform=ios]': { resultsBackgroundColor: '#155e75' }
 '.results-bg-cyan-900[platform=ios]': { resultsBackgroundColor: '#164e63' }
+'.results-bg-cyan-950[platform=ios]': { resultsBackgroundColor: '#083344' }
 '.results-bg-sky-50[platform=ios]': { resultsBackgroundColor: '#f0f9ff' }
 '.results-bg-sky-100[platform=ios]': { resultsBackgroundColor: '#e0f2fe' }
 '.results-bg-sky-200[platform=ios]': { resultsBackgroundColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.results-bg-sky-700[platform=ios]': { resultsBackgroundColor: '#0369a1' }
 '.results-bg-sky-800[platform=ios]': { resultsBackgroundColor: '#075985' }
 '.results-bg-sky-900[platform=ios]': { resultsBackgroundColor: '#0c4a6e' }
+'.results-bg-sky-950[platform=ios]': { resultsBackgroundColor: '#082f49' }
 '.results-bg-blue-50[platform=ios]': { resultsBackgroundColor: '#eff6ff' }
 '.results-bg-blue-100[platform=ios]': { resultsBackgroundColor: '#dbeafe' }
 '.results-bg-blue-200[platform=ios]': { resultsBackgroundColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.results-bg-blue-700[platform=ios]': { resultsBackgroundColor: '#1d4ed8' }
 '.results-bg-blue-800[platform=ios]': { resultsBackgroundColor: '#1e40af' }
 '.results-bg-blue-900[platform=ios]': { resultsBackgroundColor: '#1e3a8a' }
+'.results-bg-blue-950[platform=ios]': { resultsBackgroundColor: '#172554' }
 '.results-bg-indigo-50[platform=ios]': { resultsBackgroundColor: '#eef2ff' }
 '.results-bg-indigo-100[platform=ios]': { resultsBackgroundColor: '#e0e7ff' }
 '.results-bg-indigo-200[platform=ios]': { resultsBackgroundColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.results-bg-indigo-700[platform=ios]': { resultsBackgroundColor: '#4338ca' }
 '.results-bg-indigo-800[platform=ios]': { resultsBackgroundColor: '#3730a3' }
 '.results-bg-indigo-900[platform=ios]': { resultsBackgroundColor: '#312e81' }
+'.results-bg-indigo-950[platform=ios]': { resultsBackgroundColor: '#1e1b4b' }
 '.results-bg-violet-50[platform=ios]': { resultsBackgroundColor: '#f5f3ff' }
 '.results-bg-violet-100[platform=ios]': { resultsBackgroundColor: '#ede9fe' }
 '.results-bg-violet-200[platform=ios]': { resultsBackgroundColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.results-bg-violet-700[platform=ios]': { resultsBackgroundColor: '#6d28d9' }
 '.results-bg-violet-800[platform=ios]': { resultsBackgroundColor: '#5b21b6' }
 '.results-bg-violet-900[platform=ios]': { resultsBackgroundColor: '#4c1d95' }
+'.results-bg-violet-950[platform=ios]': { resultsBackgroundColor: '#2e1065' }
 '.results-bg-purple-50[platform=ios]': { resultsBackgroundColor: '#faf5ff' }
 '.results-bg-purple-100[platform=ios]': { resultsBackgroundColor: '#f3e8ff' }
 '.results-bg-purple-200[platform=ios]': { resultsBackgroundColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.results-bg-purple-700[platform=ios]': { resultsBackgroundColor: '#7e22ce' }
 '.results-bg-purple-800[platform=ios]': { resultsBackgroundColor: '#6b21a8' }
 '.results-bg-purple-900[platform=ios]': { resultsBackgroundColor: '#581c87' }
+'.results-bg-purple-950[platform=ios]': { resultsBackgroundColor: '#3b0764' }
 '.results-bg-fuchsia-50[platform=ios]': { resultsBackgroundColor: '#fdf4ff' }
 '.results-bg-fuchsia-100[platform=ios]': { resultsBackgroundColor: '#fae8ff' }
 '.results-bg-fuchsia-200[platform=ios]': { resultsBackgroundColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.results-bg-fuchsia-700[platform=ios]': { resultsBackgroundColor: '#a21caf' }
 '.results-bg-fuchsia-800[platform=ios]': { resultsBackgroundColor: '#86198f' }
 '.results-bg-fuchsia-900[platform=ios]': { resultsBackgroundColor: '#701a75' }
+'.results-bg-fuchsia-950[platform=ios]': { resultsBackgroundColor: '#4a044e' }
 '.results-bg-pink-50[platform=ios]': { resultsBackgroundColor: '#fdf2f8' }
 '.results-bg-pink-100[platform=ios]': { resultsBackgroundColor: '#fce7f3' }
 '.results-bg-pink-200[platform=ios]': { resultsBackgroundColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.results-bg-pink-700[platform=ios]': { resultsBackgroundColor: '#be185d' }
 '.results-bg-pink-800[platform=ios]': { resultsBackgroundColor: '#9d174d' }
 '.results-bg-pink-900[platform=ios]': { resultsBackgroundColor: '#831843' }
+'.results-bg-pink-950[platform=ios]': { resultsBackgroundColor: '#500724' }
 '.results-bg-rose-50[platform=ios]': { resultsBackgroundColor: '#fff1f2' }
 '.results-bg-rose-100[platform=ios]': { resultsBackgroundColor: '#ffe4e6' }
 '.results-bg-rose-200[platform=ios]': { resultsBackgroundColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.results-bg-rose-700[platform=ios]': { resultsBackgroundColor: '#be123c' }
 '.results-bg-rose-800[platform=ios]': { resultsBackgroundColor: '#9f1239' }
 '.results-bg-rose-900[platform=ios]': { resultsBackgroundColor: '#881337' }
+'.results-bg-rose-950[platform=ios]': { resultsBackgroundColor: '#4c0519' }
 ```

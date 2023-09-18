@@ -14,6 +14,7 @@
 '.selected-text-slate-700[platform=ios]': { selectedTextColor: '#334155' }
 '.selected-text-slate-800[platform=ios]': { selectedTextColor: '#1e293b' }
 '.selected-text-slate-900[platform=ios]': { selectedTextColor: '#0f172a' }
+'.selected-text-slate-950[platform=ios]': { selectedTextColor: '#020617' }
 '.selected-text-gray-50[platform=ios]': { selectedTextColor: '#f9fafb' }
 '.selected-text-gray-100[platform=ios]': { selectedTextColor: '#f3f4f6' }
 '.selected-text-gray-200[platform=ios]': { selectedTextColor: '#e5e7eb' }
@@ -24,6 +25,7 @@
 '.selected-text-gray-700[platform=ios]': { selectedTextColor: '#374151' }
 '.selected-text-gray-800[platform=ios]': { selectedTextColor: '#1f2937' }
 '.selected-text-gray-900[platform=ios]': { selectedTextColor: '#111827' }
+'.selected-text-gray-950[platform=ios]': { selectedTextColor: '#030712' }
 '.selected-text-zinc-50[platform=ios]': { selectedTextColor: '#fafafa' }
 '.selected-text-zinc-100[platform=ios]': { selectedTextColor: '#f4f4f5' }
 '.selected-text-zinc-200[platform=ios]': { selectedTextColor: '#e4e4e7' }
@@ -34,6 +36,7 @@
 '.selected-text-zinc-700[platform=ios]': { selectedTextColor: '#3f3f46' }
 '.selected-text-zinc-800[platform=ios]': { selectedTextColor: '#27272a' }
 '.selected-text-zinc-900[platform=ios]': { selectedTextColor: '#18181b' }
+'.selected-text-zinc-950[platform=ios]': { selectedTextColor: '#09090b' }
 '.selected-text-neutral-50[platform=ios]': { selectedTextColor: '#fafafa' }
 '.selected-text-neutral-100[platform=ios]': { selectedTextColor: '#f5f5f5' }
 '.selected-text-neutral-200[platform=ios]': { selectedTextColor: '#e5e5e5' }
@@ -44,6 +47,7 @@
 '.selected-text-neutral-700[platform=ios]': { selectedTextColor: '#404040' }
 '.selected-text-neutral-800[platform=ios]': { selectedTextColor: '#262626' }
 '.selected-text-neutral-900[platform=ios]': { selectedTextColor: '#171717' }
+'.selected-text-neutral-950[platform=ios]': { selectedTextColor: '#0a0a0a' }
 '.selected-text-stone-50[platform=ios]': { selectedTextColor: '#fafaf9' }
 '.selected-text-stone-100[platform=ios]': { selectedTextColor: '#f5f5f4' }
 '.selected-text-stone-200[platform=ios]': { selectedTextColor: '#e7e5e4' }
@@ -54,6 +58,7 @@
 '.selected-text-stone-700[platform=ios]': { selectedTextColor: '#44403c' }
 '.selected-text-stone-800[platform=ios]': { selectedTextColor: '#292524' }
 '.selected-text-stone-900[platform=ios]': { selectedTextColor: '#1c1917' }
+'.selected-text-stone-950[platform=ios]': { selectedTextColor: '#0c0a09' }
 '.selected-text-red-50[platform=ios]': { selectedTextColor: '#fef2f2' }
 '.selected-text-red-100[platform=ios]': { selectedTextColor: '#fee2e2' }
 '.selected-text-red-200[platform=ios]': { selectedTextColor: '#fecaca' }
@@ -64,6 +69,7 @@
 '.selected-text-red-700[platform=ios]': { selectedTextColor: '#b91c1c' }
 '.selected-text-red-800[platform=ios]': { selectedTextColor: '#991b1b' }
 '.selected-text-red-900[platform=ios]': { selectedTextColor: '#7f1d1d' }
+'.selected-text-red-950[platform=ios]': { selectedTextColor: '#450a0a' }
 '.selected-text-orange-50[platform=ios]': { selectedTextColor: '#fff7ed' }
 '.selected-text-orange-100[platform=ios]': { selectedTextColor: '#ffedd5' }
 '.selected-text-orange-200[platform=ios]': { selectedTextColor: '#fed7aa' }
@@ -74,6 +80,7 @@
 '.selected-text-orange-700[platform=ios]': { selectedTextColor: '#c2410c' }
 '.selected-text-orange-800[platform=ios]': { selectedTextColor: '#9a3412' }
 '.selected-text-orange-900[platform=ios]': { selectedTextColor: '#7c2d12' }
+'.selected-text-orange-950[platform=ios]': { selectedTextColor: '#431407' }
 '.selected-text-amber-50[platform=ios]': { selectedTextColor: '#fffbeb' }
 '.selected-text-amber-100[platform=ios]': { selectedTextColor: '#fef3c7' }
 '.selected-text-amber-200[platform=ios]': { selectedTextColor: '#fde68a' }
@@ -84,6 +91,7 @@
 '.selected-text-amber-700[platform=ios]': { selectedTextColor: '#b45309' }
 '.selected-text-amber-800[platform=ios]': { selectedTextColor: '#92400e' }
 '.selected-text-amber-900[platform=ios]': { selectedTextColor: '#78350f' }
+'.selected-text-amber-950[platform=ios]': { selectedTextColor: '#451a03' }
 '.selected-text-yellow-50[platform=ios]': { selectedTextColor: '#fefce8' }
 '.selected-text-yellow-100[platform=ios]': { selectedTextColor: '#fef9c3' }
 '.selected-text-yellow-200[platform=ios]': { selectedTextColor: '#fef08a' }
@@ -94,6 +102,7 @@
 '.selected-text-yellow-700[platform=ios]': { selectedTextColor: '#a16207' }
 '.selected-text-yellow-800[platform=ios]': { selectedTextColor: '#854d0e' }
 '.selected-text-yellow-900[platform=ios]': { selectedTextColor: '#713f12' }
+'.selected-text-yellow-950[platform=ios]': { selectedTextColor: '#422006' }
 '.selected-text-lime-50[platform=ios]': { selectedTextColor: '#f7fee7' }
 '.selected-text-lime-100[platform=ios]': { selectedTextColor: '#ecfccb' }
 '.selected-text-lime-200[platform=ios]': { selectedTextColor: '#d9f99d' }
@@ -104,6 +113,7 @@
 '.selected-text-lime-700[platform=ios]': { selectedTextColor: '#4d7c0f' }
 '.selected-text-lime-800[platform=ios]': { selectedTextColor: '#3f6212' }
 '.selected-text-lime-900[platform=ios]': { selectedTextColor: '#365314' }
+'.selected-text-lime-950[platform=ios]': { selectedTextColor: '#1a2e05' }
 '.selected-text-green-50[platform=ios]': { selectedTextColor: '#f0fdf4' }
 '.selected-text-green-100[platform=ios]': { selectedTextColor: '#dcfce7' }
 '.selected-text-green-200[platform=ios]': { selectedTextColor: '#bbf7d0' }
@@ -114,6 +124,7 @@
 '.selected-text-green-700[platform=ios]': { selectedTextColor: '#15803d' }
 '.selected-text-green-800[platform=ios]': { selectedTextColor: '#166534' }
 '.selected-text-green-900[platform=ios]': { selectedTextColor: '#14532d' }
+'.selected-text-green-950[platform=ios]': { selectedTextColor: '#052e16' }
 '.selected-text-emerald-50[platform=ios]': { selectedTextColor: '#ecfdf5' }
 '.selected-text-emerald-100[platform=ios]': { selectedTextColor: '#d1fae5' }
 '.selected-text-emerald-200[platform=ios]': { selectedTextColor: '#a7f3d0' }
@@ -124,6 +135,7 @@
 '.selected-text-emerald-700[platform=ios]': { selectedTextColor: '#047857' }
 '.selected-text-emerald-800[platform=ios]': { selectedTextColor: '#065f46' }
 '.selected-text-emerald-900[platform=ios]': { selectedTextColor: '#064e3b' }
+'.selected-text-emerald-950[platform=ios]': { selectedTextColor: '#022c22' }
 '.selected-text-teal-50[platform=ios]': { selectedTextColor: '#f0fdfa' }
 '.selected-text-teal-100[platform=ios]': { selectedTextColor: '#ccfbf1' }
 '.selected-text-teal-200[platform=ios]': { selectedTextColor: '#99f6e4' }
@@ -134,6 +146,7 @@
 '.selected-text-teal-700[platform=ios]': { selectedTextColor: '#0f766e' }
 '.selected-text-teal-800[platform=ios]': { selectedTextColor: '#115e59' }
 '.selected-text-teal-900[platform=ios]': { selectedTextColor: '#134e4a' }
+'.selected-text-teal-950[platform=ios]': { selectedTextColor: '#042f2e' }
 '.selected-text-cyan-50[platform=ios]': { selectedTextColor: '#ecfeff' }
 '.selected-text-cyan-100[platform=ios]': { selectedTextColor: '#cffafe' }
 '.selected-text-cyan-200[platform=ios]': { selectedTextColor: '#a5f3fc' }
@@ -144,6 +157,7 @@
 '.selected-text-cyan-700[platform=ios]': { selectedTextColor: '#0e7490' }
 '.selected-text-cyan-800[platform=ios]': { selectedTextColor: '#155e75' }
 '.selected-text-cyan-900[platform=ios]': { selectedTextColor: '#164e63' }
+'.selected-text-cyan-950[platform=ios]': { selectedTextColor: '#083344' }
 '.selected-text-sky-50[platform=ios]': { selectedTextColor: '#f0f9ff' }
 '.selected-text-sky-100[platform=ios]': { selectedTextColor: '#e0f2fe' }
 '.selected-text-sky-200[platform=ios]': { selectedTextColor: '#bae6fd' }
@@ -154,6 +168,7 @@
 '.selected-text-sky-700[platform=ios]': { selectedTextColor: '#0369a1' }
 '.selected-text-sky-800[platform=ios]': { selectedTextColor: '#075985' }
 '.selected-text-sky-900[platform=ios]': { selectedTextColor: '#0c4a6e' }
+'.selected-text-sky-950[platform=ios]': { selectedTextColor: '#082f49' }
 '.selected-text-blue-50[platform=ios]': { selectedTextColor: '#eff6ff' }
 '.selected-text-blue-100[platform=ios]': { selectedTextColor: '#dbeafe' }
 '.selected-text-blue-200[platform=ios]': { selectedTextColor: '#bfdbfe' }
@@ -164,6 +179,7 @@
 '.selected-text-blue-700[platform=ios]': { selectedTextColor: '#1d4ed8' }
 '.selected-text-blue-800[platform=ios]': { selectedTextColor: '#1e40af' }
 '.selected-text-blue-900[platform=ios]': { selectedTextColor: '#1e3a8a' }
+'.selected-text-blue-950[platform=ios]': { selectedTextColor: '#172554' }
 '.selected-text-indigo-50[platform=ios]': { selectedTextColor: '#eef2ff' }
 '.selected-text-indigo-100[platform=ios]': { selectedTextColor: '#e0e7ff' }
 '.selected-text-indigo-200[platform=ios]': { selectedTextColor: '#c7d2fe' }
@@ -174,6 +190,7 @@
 '.selected-text-indigo-700[platform=ios]': { selectedTextColor: '#4338ca' }
 '.selected-text-indigo-800[platform=ios]': { selectedTextColor: '#3730a3' }
 '.selected-text-indigo-900[platform=ios]': { selectedTextColor: '#312e81' }
+'.selected-text-indigo-950[platform=ios]': { selectedTextColor: '#1e1b4b' }
 '.selected-text-violet-50[platform=ios]': { selectedTextColor: '#f5f3ff' }
 '.selected-text-violet-100[platform=ios]': { selectedTextColor: '#ede9fe' }
 '.selected-text-violet-200[platform=ios]': { selectedTextColor: '#ddd6fe' }
@@ -184,6 +201,7 @@
 '.selected-text-violet-700[platform=ios]': { selectedTextColor: '#6d28d9' }
 '.selected-text-violet-800[platform=ios]': { selectedTextColor: '#5b21b6' }
 '.selected-text-violet-900[platform=ios]': { selectedTextColor: '#4c1d95' }
+'.selected-text-violet-950[platform=ios]': { selectedTextColor: '#2e1065' }
 '.selected-text-purple-50[platform=ios]': { selectedTextColor: '#faf5ff' }
 '.selected-text-purple-100[platform=ios]': { selectedTextColor: '#f3e8ff' }
 '.selected-text-purple-200[platform=ios]': { selectedTextColor: '#e9d5ff' }
@@ -194,6 +212,7 @@
 '.selected-text-purple-700[platform=ios]': { selectedTextColor: '#7e22ce' }
 '.selected-text-purple-800[platform=ios]': { selectedTextColor: '#6b21a8' }
 '.selected-text-purple-900[platform=ios]': { selectedTextColor: '#581c87' }
+'.selected-text-purple-950[platform=ios]': { selectedTextColor: '#3b0764' }
 '.selected-text-fuchsia-50[platform=ios]': { selectedTextColor: '#fdf4ff' }
 '.selected-text-fuchsia-100[platform=ios]': { selectedTextColor: '#fae8ff' }
 '.selected-text-fuchsia-200[platform=ios]': { selectedTextColor: '#f5d0fe' }
@@ -204,6 +223,7 @@
 '.selected-text-fuchsia-700[platform=ios]': { selectedTextColor: '#a21caf' }
 '.selected-text-fuchsia-800[platform=ios]': { selectedTextColor: '#86198f' }
 '.selected-text-fuchsia-900[platform=ios]': { selectedTextColor: '#701a75' }
+'.selected-text-fuchsia-950[platform=ios]': { selectedTextColor: '#4a044e' }
 '.selected-text-pink-50[platform=ios]': { selectedTextColor: '#fdf2f8' }
 '.selected-text-pink-100[platform=ios]': { selectedTextColor: '#fce7f3' }
 '.selected-text-pink-200[platform=ios]': { selectedTextColor: '#fbcfe8' }
@@ -214,6 +234,7 @@
 '.selected-text-pink-700[platform=ios]': { selectedTextColor: '#be185d' }
 '.selected-text-pink-800[platform=ios]': { selectedTextColor: '#9d174d' }
 '.selected-text-pink-900[platform=ios]': { selectedTextColor: '#831843' }
+'.selected-text-pink-950[platform=ios]': { selectedTextColor: '#500724' }
 '.selected-text-rose-50[platform=ios]': { selectedTextColor: '#fff1f2' }
 '.selected-text-rose-100[platform=ios]': { selectedTextColor: '#ffe4e6' }
 '.selected-text-rose-200[platform=ios]': { selectedTextColor: '#fecdd3' }
@@ -224,4 +245,5 @@
 '.selected-text-rose-700[platform=ios]': { selectedTextColor: '#be123c' }
 '.selected-text-rose-800[platform=ios]': { selectedTextColor: '#9f1239' }
 '.selected-text-rose-900[platform=ios]': { selectedTextColor: '#881337' }
+'.selected-text-rose-950[platform=ios]': { selectedTextColor: '#4c0519' }
 ```
