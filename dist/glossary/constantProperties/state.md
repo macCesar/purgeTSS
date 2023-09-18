@@ -15,7 +15,6 @@
 '.state-audio-stopped': { state: Ti.Media.AUDIO_STATE_STOPPED }
 '.state-audio-stopping': { state: Ti.Media.AUDIO_STATE_STOPPING }
 '.state-audio-waiting-for-data': { state: Ti.Media.AUDIO_STATE_WAITING_FOR_DATA }
-'.state-audio-waiting-for-queue': { state: Ti.Media.AUDIO_STATE_WAITING_FOR_QUEUE }
 '.state-network-socket-initialized': { state: Ti.Network.Socket.INITIALIZED }
 '.state-network-socket-connected': { state: Ti.Network.Socket.CONNECTED }
 '.state-network-socket-listening': { state: Ti.Network.Socket.LISTENING }
