@@ -1,6 +1,6 @@
 ```scss
 // Property: duration
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Media.AudioPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, AnimatedWithDurationOptions, Ti.UI.Animation, Ti.UI.ImageView, Ti.UI.Notification, Ti.UI.iOS.TransitionAnimation
+// Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Media.AudioPlayer, CameraRecordingCallback, Ti.Media.Sound, Ti.Media.VideoPlayer, AnimatedWithDurationOptions, Ti.UI.Animation, Ti.UI.ImageView, Ti.UI.Notification, Ti.UI.iOS.TransitionAnimation
 '.duration-0': { duration: 0 }
 '.duration-25': { duration: 25 }
 '.duration-50': { duration: 50 }
