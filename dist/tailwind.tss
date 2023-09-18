@@ -6654,7 +6654,7 @@
 '.focusable-false': { focusable: false }
 
 // Property: height
-// Component(s): Ti.UI.View, Ti.Blob, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
+// Component(s): Ti.UI.View, Ti.Blob, CameraOpen, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
 '.h-0': { height: 0 }
 '.h-1': { height: 4 }
 '.h-2': { height: 8 }
@@ -7181,254 +7181,6 @@
 '.soft-keyboard-on-focus[platform=android]': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS }
 '.soft-keyboard-on-focus-hide[platform=android]': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS }
 '.soft-keyboard-on-focus-show[platform=android]': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_SHOW_ON_FOCUS }
-
-// Property: tintColor
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.AlertDialog, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
-'.tint-transparent': { tintColor: 'transparent' }
-'.tint-black': { tintColor: '#000000' }
-'.tint-white': { tintColor: '#ffffff' }
-'.tint-slate-50': { tintColor: '#f8fafc' }
-'.tint-slate-100': { tintColor: '#f1f5f9' }
-'.tint-slate-200': { tintColor: '#e2e8f0' }
-'.tint-slate-300': { tintColor: '#cbd5e1' }
-'.tint-slate-400': { tintColor: '#94a3b8' }
-'.tint-slate-500': { tintColor: '#64748b' }
-'.tint-slate-600': { tintColor: '#475569' }
-'.tint-slate-700': { tintColor: '#334155' }
-'.tint-slate-800': { tintColor: '#1e293b' }
-'.tint-slate-900': { tintColor: '#0f172a' }
-'.tint-slate-950': { tintColor: '#020617' }
-'.tint-gray-50': { tintColor: '#f9fafb' }
-'.tint-gray-100': { tintColor: '#f3f4f6' }
-'.tint-gray-200': { tintColor: '#e5e7eb' }
-'.tint-gray-300': { tintColor: '#d1d5db' }
-'.tint-gray-400': { tintColor: '#9ca3af' }
-'.tint-gray-500': { tintColor: '#6b7280' }
-'.tint-gray-600': { tintColor: '#4b5563' }
-'.tint-gray-700': { tintColor: '#374151' }
-'.tint-gray-800': { tintColor: '#1f2937' }
-'.tint-gray-900': { tintColor: '#111827' }
-'.tint-gray-950': { tintColor: '#030712' }
-'.tint-zinc-50': { tintColor: '#fafafa' }
-'.tint-zinc-100': { tintColor: '#f4f4f5' }
-'.tint-zinc-200': { tintColor: '#e4e4e7' }
-'.tint-zinc-300': { tintColor: '#d4d4d8' }
-'.tint-zinc-400': { tintColor: '#a1a1aa' }
-'.tint-zinc-500': { tintColor: '#71717a' }
-'.tint-zinc-600': { tintColor: '#52525b' }
-'.tint-zinc-700': { tintColor: '#3f3f46' }
-'.tint-zinc-800': { tintColor: '#27272a' }
-'.tint-zinc-900': { tintColor: '#18181b' }
-'.tint-zinc-950': { tintColor: '#09090b' }
-'.tint-neutral-50': { tintColor: '#fafafa' }
-'.tint-neutral-100': { tintColor: '#f5f5f5' }
-'.tint-neutral-200': { tintColor: '#e5e5e5' }
-'.tint-neutral-300': { tintColor: '#d4d4d4' }
-'.tint-neutral-400': { tintColor: '#a3a3a3' }
-'.tint-neutral-500': { tintColor: '#737373' }
-'.tint-neutral-600': { tintColor: '#525252' }
-'.tint-neutral-700': { tintColor: '#404040' }
-'.tint-neutral-800': { tintColor: '#262626' }
-'.tint-neutral-900': { tintColor: '#171717' }
-'.tint-neutral-950': { tintColor: '#0a0a0a' }
-'.tint-stone-50': { tintColor: '#fafaf9' }
-'.tint-stone-100': { tintColor: '#f5f5f4' }
-'.tint-stone-200': { tintColor: '#e7e5e4' }
-'.tint-stone-300': { tintColor: '#d6d3d1' }
-'.tint-stone-400': { tintColor: '#a8a29e' }
-'.tint-stone-500': { tintColor: '#78716c' }
-'.tint-stone-600': { tintColor: '#57534e' }
-'.tint-stone-700': { tintColor: '#44403c' }
-'.tint-stone-800': { tintColor: '#292524' }
-'.tint-stone-900': { tintColor: '#1c1917' }
-'.tint-stone-950': { tintColor: '#0c0a09' }
-'.tint-red-50': { tintColor: '#fef2f2' }
-'.tint-red-100': { tintColor: '#fee2e2' }
-'.tint-red-200': { tintColor: '#fecaca' }
-'.tint-red-300': { tintColor: '#fca5a5' }
-'.tint-red-400': { tintColor: '#f87171' }
-'.tint-red-500': { tintColor: '#ef4444' }
-'.tint-red-600': { tintColor: '#dc2626' }
-'.tint-red-700': { tintColor: '#b91c1c' }
-'.tint-red-800': { tintColor: '#991b1b' }
-'.tint-red-900': { tintColor: '#7f1d1d' }
-'.tint-red-950': { tintColor: '#450a0a' }
-'.tint-orange-50': { tintColor: '#fff7ed' }
-'.tint-orange-100': { tintColor: '#ffedd5' }
-'.tint-orange-200': { tintColor: '#fed7aa' }
-'.tint-orange-300': { tintColor: '#fdba74' }
-'.tint-orange-400': { tintColor: '#fb923c' }
-'.tint-orange-500': { tintColor: '#f97316' }
-'.tint-orange-600': { tintColor: '#ea580c' }
-'.tint-orange-700': { tintColor: '#c2410c' }
-'.tint-orange-800': { tintColor: '#9a3412' }
-'.tint-orange-900': { tintColor: '#7c2d12' }
-'.tint-orange-950': { tintColor: '#431407' }
-'.tint-amber-50': { tintColor: '#fffbeb' }
-'.tint-amber-100': { tintColor: '#fef3c7' }
-'.tint-amber-200': { tintColor: '#fde68a' }
-'.tint-amber-300': { tintColor: '#fcd34d' }
-'.tint-amber-400': { tintColor: '#fbbf24' }
-'.tint-amber-500': { tintColor: '#f59e0b' }
-'.tint-amber-600': { tintColor: '#d97706' }
-'.tint-amber-700': { tintColor: '#b45309' }
-'.tint-amber-800': { tintColor: '#92400e' }
-'.tint-amber-900': { tintColor: '#78350f' }
-'.tint-amber-950': { tintColor: '#451a03' }
-'.tint-yellow-50': { tintColor: '#fefce8' }
-'.tint-yellow-100': { tintColor: '#fef9c3' }
-'.tint-yellow-200': { tintColor: '#fef08a' }
-'.tint-yellow-300': { tintColor: '#fde047' }
-'.tint-yellow-400': { tintColor: '#facc15' }
-'.tint-yellow-500': { tintColor: '#eab308' }
-'.tint-yellow-600': { tintColor: '#ca8a04' }
-'.tint-yellow-700': { tintColor: '#a16207' }
-'.tint-yellow-800': { tintColor: '#854d0e' }
-'.tint-yellow-900': { tintColor: '#713f12' }
-'.tint-yellow-950': { tintColor: '#422006' }
-'.tint-lime-50': { tintColor: '#f7fee7' }
-'.tint-lime-100': { tintColor: '#ecfccb' }
-'.tint-lime-200': { tintColor: '#d9f99d' }
-'.tint-lime-300': { tintColor: '#bef264' }
-'.tint-lime-400': { tintColor: '#a3e635' }
-'.tint-lime-500': { tintColor: '#84cc16' }
-'.tint-lime-600': { tintColor: '#65a30d' }
-'.tint-lime-700': { tintColor: '#4d7c0f' }
-'.tint-lime-800': { tintColor: '#3f6212' }
-'.tint-lime-900': { tintColor: '#365314' }
-'.tint-lime-950': { tintColor: '#1a2e05' }
-'.tint-green-50': { tintColor: '#f0fdf4' }
-'.tint-green-100': { tintColor: '#dcfce7' }
-'.tint-green-200': { tintColor: '#bbf7d0' }
-'.tint-green-300': { tintColor: '#86efac' }
-'.tint-green-400': { tintColor: '#4ade80' }
-'.tint-green-500': { tintColor: '#22c55e' }
-'.tint-green-600': { tintColor: '#16a34a' }
-'.tint-green-700': { tintColor: '#15803d' }
-'.tint-green-800': { tintColor: '#166534' }
-'.tint-green-900': { tintColor: '#14532d' }
-'.tint-green-950': { tintColor: '#052e16' }
-'.tint-emerald-50': { tintColor: '#ecfdf5' }
-'.tint-emerald-100': { tintColor: '#d1fae5' }
-'.tint-emerald-200': { tintColor: '#a7f3d0' }
-'.tint-emerald-300': { tintColor: '#6ee7b7' }
-'.tint-emerald-400': { tintColor: '#34d399' }
-'.tint-emerald-500': { tintColor: '#10b981' }
-'.tint-emerald-600': { tintColor: '#059669' }
-'.tint-emerald-700': { tintColor: '#047857' }
-'.tint-emerald-800': { tintColor: '#065f46' }
-'.tint-emerald-900': { tintColor: '#064e3b' }
-'.tint-emerald-950': { tintColor: '#022c22' }
-'.tint-teal-50': { tintColor: '#f0fdfa' }
-'.tint-teal-100': { tintColor: '#ccfbf1' }
-'.tint-teal-200': { tintColor: '#99f6e4' }
-'.tint-teal-300': { tintColor: '#5eead4' }
-'.tint-teal-400': { tintColor: '#2dd4bf' }
-'.tint-teal-500': { tintColor: '#14b8a6' }
-'.tint-teal-600': { tintColor: '#0d9488' }
-'.tint-teal-700': { tintColor: '#0f766e' }
-'.tint-teal-800': { tintColor: '#115e59' }
-'.tint-teal-900': { tintColor: '#134e4a' }
-'.tint-teal-950': { tintColor: '#042f2e' }
-'.tint-cyan-50': { tintColor: '#ecfeff' }
-'.tint-cyan-100': { tintColor: '#cffafe' }
-'.tint-cyan-200': { tintColor: '#a5f3fc' }
-'.tint-cyan-300': { tintColor: '#67e8f9' }
-'.tint-cyan-400': { tintColor: '#22d3ee' }
-'.tint-cyan-500': { tintColor: '#06b6d4' }
-'.tint-cyan-600': { tintColor: '#0891b2' }
-'.tint-cyan-700': { tintColor: '#0e7490' }
-'.tint-cyan-800': { tintColor: '#155e75' }
-'.tint-cyan-900': { tintColor: '#164e63' }
-'.tint-cyan-950': { tintColor: '#083344' }
-'.tint-sky-50': { tintColor: '#f0f9ff' }
-'.tint-sky-100': { tintColor: '#e0f2fe' }
-'.tint-sky-200': { tintColor: '#bae6fd' }
-'.tint-sky-300': { tintColor: '#7dd3fc' }
-'.tint-sky-400': { tintColor: '#38bdf8' }
-'.tint-sky-500': { tintColor: '#0ea5e9' }
-'.tint-sky-600': { tintColor: '#0284c7' }
-'.tint-sky-700': { tintColor: '#0369a1' }
-'.tint-sky-800': { tintColor: '#075985' }
-'.tint-sky-900': { tintColor: '#0c4a6e' }
-'.tint-sky-950': { tintColor: '#082f49' }
-'.tint-blue-50': { tintColor: '#eff6ff' }
-'.tint-blue-100': { tintColor: '#dbeafe' }
-'.tint-blue-200': { tintColor: '#bfdbfe' }
-'.tint-blue-300': { tintColor: '#93c5fd' }
-'.tint-blue-400': { tintColor: '#60a5fa' }
-'.tint-blue-500': { tintColor: '#3b82f6' }
-'.tint-blue-600': { tintColor: '#2563eb' }
-'.tint-blue-700': { tintColor: '#1d4ed8' }
-'.tint-blue-800': { tintColor: '#1e40af' }
-'.tint-blue-900': { tintColor: '#1e3a8a' }
-'.tint-blue-950': { tintColor: '#172554' }
-'.tint-indigo-50': { tintColor: '#eef2ff' }
-'.tint-indigo-100': { tintColor: '#e0e7ff' }
-'.tint-indigo-200': { tintColor: '#c7d2fe' }
-'.tint-indigo-300': { tintColor: '#a5b4fc' }
-'.tint-indigo-400': { tintColor: '#818cf8' }
-'.tint-indigo-500': { tintColor: '#6366f1' }
-'.tint-indigo-600': { tintColor: '#4f46e5' }
-'.tint-indigo-700': { tintColor: '#4338ca' }
-'.tint-indigo-800': { tintColor: '#3730a3' }
-'.tint-indigo-900': { tintColor: '#312e81' }
-'.tint-indigo-950': { tintColor: '#1e1b4b' }
-'.tint-violet-50': { tintColor: '#f5f3ff' }
-'.tint-violet-100': { tintColor: '#ede9fe' }
-'.tint-violet-200': { tintColor: '#ddd6fe' }
-'.tint-violet-300': { tintColor: '#c4b5fd' }
-'.tint-violet-400': { tintColor: '#a78bfa' }
-'.tint-violet-500': { tintColor: '#8b5cf6' }
-'.tint-violet-600': { tintColor: '#7c3aed' }
-'.tint-violet-700': { tintColor: '#6d28d9' }
-'.tint-violet-800': { tintColor: '#5b21b6' }
-'.tint-violet-900': { tintColor: '#4c1d95' }
-'.tint-violet-950': { tintColor: '#2e1065' }
-'.tint-purple-50': { tintColor: '#faf5ff' }
-'.tint-purple-100': { tintColor: '#f3e8ff' }
-'.tint-purple-200': { tintColor: '#e9d5ff' }
-'.tint-purple-300': { tintColor: '#d8b4fe' }
-'.tint-purple-400': { tintColor: '#c084fc' }
-'.tint-purple-500': { tintColor: '#a855f7' }
-'.tint-purple-600': { tintColor: '#9333ea' }
-'.tint-purple-700': { tintColor: '#7e22ce' }
-'.tint-purple-800': { tintColor: '#6b21a8' }
-'.tint-purple-900': { tintColor: '#581c87' }
-'.tint-purple-950': { tintColor: '#3b0764' }
-'.tint-fuchsia-50': { tintColor: '#fdf4ff' }
-'.tint-fuchsia-100': { tintColor: '#fae8ff' }
-'.tint-fuchsia-200': { tintColor: '#f5d0fe' }
-'.tint-fuchsia-300': { tintColor: '#f0abfc' }
-'.tint-fuchsia-400': { tintColor: '#e879f9' }
-'.tint-fuchsia-500': { tintColor: '#d946ef' }
-'.tint-fuchsia-600': { tintColor: '#c026d3' }
-'.tint-fuchsia-700': { tintColor: '#a21caf' }
-'.tint-fuchsia-800': { tintColor: '#86198f' }
-'.tint-fuchsia-900': { tintColor: '#701a75' }
-'.tint-fuchsia-950': { tintColor: '#4a044e' }
-'.tint-pink-50': { tintColor: '#fdf2f8' }
-'.tint-pink-100': { tintColor: '#fce7f3' }
-'.tint-pink-200': { tintColor: '#fbcfe8' }
-'.tint-pink-300': { tintColor: '#f9a8d4' }
-'.tint-pink-400': { tintColor: '#f472b6' }
-'.tint-pink-500': { tintColor: '#ec4899' }
-'.tint-pink-600': { tintColor: '#db2777' }
-'.tint-pink-700': { tintColor: '#be185d' }
-'.tint-pink-800': { tintColor: '#9d174d' }
-'.tint-pink-900': { tintColor: '#831843' }
-'.tint-pink-950': { tintColor: '#500724' }
-'.tint-rose-50': { tintColor: '#fff1f2' }
-'.tint-rose-100': { tintColor: '#ffe4e6' }
-'.tint-rose-200': { tintColor: '#fecdd3' }
-'.tint-rose-300': { tintColor: '#fda4af' }
-'.tint-rose-400': { tintColor: '#fb7185' }
-'.tint-rose-500': { tintColor: '#f43f5e' }
-'.tint-rose-600': { tintColor: '#e11d48' }
-'.tint-rose-700': { tintColor: '#be123c' }
-'.tint-rose-800': { tintColor: '#9f1239' }
-'.tint-rose-900': { tintColor: '#881337' }
-'.tint-rose-950': { tintColor: '#4c0519' }
 
 // Property: top
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, TabIconInsets, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
@@ -8012,7 +7764,7 @@
 '.visible-false': { visible: false }
 
 // Property: width
-// Component(s): Ti.UI.View, Ti.Blob, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, BarItemType, Ti.UI.iPad.Popover
+// Component(s): Ti.UI.View, Ti.Blob, CameraOpen, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, BarItemType, Ti.UI.iPad.Popover
 '.w-0': { width: 0 }
 '.w-1': { width: 4 }
 '.w-2': { width: 8 }
@@ -9341,7 +9093,6 @@
 '.state-audio-stopped': { state: Ti.Media.AUDIO_STATE_STOPPED }
 '.state-audio-stopping': { state: Ti.Media.AUDIO_STATE_STOPPING }
 '.state-audio-waiting-for-data': { state: Ti.Media.AUDIO_STATE_WAITING_FOR_DATA }
-'.state-audio-waiting-for-queue': { state: Ti.Media.AUDIO_STATE_WAITING_FOR_QUEUE }
 '.state-network-socket-initialized': { state: Ti.Network.Socket.INITIALIZED }
 '.state-network-socket-connected': { state: Ti.Network.Socket.CONNECTED }
 '.state-network-socket-listening': { state: Ti.Network.Socket.LISTENING }
@@ -9536,7 +9287,7 @@
 '.kind-contacts-person': { kind: Ti.Contacts.CONTACTS_KIND_PERSON }
 
 // Property: duration
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Media.AudioPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, AnimatedWithDurationOptions, Ti.UI.Animation, Ti.UI.ImageView, Ti.UI.Notification, Ti.UI.iOS.TransitionAnimation
+// Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Media.AudioPlayer, CameraRecordingCallback, Ti.Media.Sound, Ti.Media.VideoPlayer, AnimatedWithDurationOptions, Ti.UI.Animation, Ti.UI.ImageView, Ti.UI.Notification, Ti.UI.iOS.TransitionAnimation
 '.duration-0': { duration: 0 }
 '.duration-25': { duration: 25 }
 '.duration-50': { duration: 50 }
@@ -10115,8 +9866,7 @@
 '.format-audio-fileformat-wave': { format: Ti.Media.AUDIO_FILEFORMAT_WAVE }
 
 // Property: recording
-// Description: Indicates if the audio recorder is recording.
-// Component(s): Ti.Media.AudioRecorder
+// Component(s): Ti.Media.AudioRecorder, CameraOptionsType
 '.recording': { recording: true }
 '.recording-false': { recording: false }
 
@@ -10176,6 +9926,38 @@
 '.available-cameras-camera-front': { availableCameras: Ti.Media.CAMERA_FRONT }
 '.available-cameras-camera-rear': { availableCameras: Ti.Media.CAMERA_REAR }
 
+// Property: aspectRatio
+// Description: Aspect ratio of the image.
+// Component(s): Ti.Media
+'.aspect-ratio-4-3': { aspectRatio: Ti.Media.ASPECT_RATIO_4_3 }
+'.aspect-ratio-16-9': { aspectRatio: Ti.Media.ASPECT_RATIO_16_9 }
+
+// Property: scalingMode
+// Component(s): Ti.Media, Ti.Media.VideoPlayer, Ti.UI.ImageView
+'.scaling-mode-image-aspect-fit': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
+'.scaling-mode-image-aspect-fill': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
+'.scaling-mode-video-resize': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE }
+'.scaling-mode-video-resize-aspect': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT }
+'.scaling-mode-video-resize-aspect-fill': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT_FILL }
+'.scaling-mode-image-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
+'.scaling-mode-image-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
+'.scaling-mode-image-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
+
+// Property: verticalAlign
+// Component(s): Ti.Media, Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
+'.vertical-align-center': { verticalAlign: Ti.Media.VERTICAL_ALIGN_CENTER }
+'.vertical-align-top': { verticalAlign: Ti.Media.VERTICAL_ALIGN_TOP }
+'.vertical-align-bottom': { verticalAlign: Ti.Media.VERTICAL_ALIGN_BOTTOM }
+'.vertical-align-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
+'.vertical-align-center': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
+'.vertical-align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
+
+// Property: useCameraX
+// Description: To use the new CameraX classes for &quot;camera with overlay&quot; set useCameraX to true
+// Component(s): Ti.Media
+'.use-camera-x': { useCameraX: true }
+'.use-camera-x-false': { useCameraX: false }
+
 // Property: availableCameraMediaTypes
 // Description: Array of media type constants supported for the camera.
 // Component(s): Ti.Media
@@ -10224,6 +10006,12 @@
 '.camera-authorization-restricted': { cameraAuthorization: Ti.Media.CAMERA_AUTHORIZATION_RESTRICTED }
 '.camera-authorization-unknown': { cameraAuthorization: Ti.Media.CAMERA_AUTHORIZATION_UNKNOWN }
 
+// Property: torch
+// Description: Enable or disable the camera torch.
+// Component(s): Ti.Media
+'.torch': { torch: true }
+'.torch-false': { torch: false }
+
 // Property: autohide
 // Component(s): MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType
 '.autohide': { autohide: true }
@@ -10265,9 +10053,155 @@
 '.allow-editing': { allowEditing: true }
 '.allow-editing-false': { allowEditing: false }
 
+// Property: zoomEnabled
+// Description: Specifies if pinch to zoom is enabled or not.
+// Component(s): CameraOptionsType
+'.zoom-enabled': { zoomEnabled: true }
+'.zoom-enabled-false': { zoomEnabled: false }
+
+// Property: targetImageWidth
+// Description: Maximum width of the saved image. Depending on your phone and your value this might not be exactly the value you specify. Check Ti.Media.cameraOutputSizes first.
+// Component(s): CameraOptionsType
+'.target-image-w-0': { targetImageWidth: 0 }
+'.target-image-w-1': { targetImageWidth: 4 }
+'.target-image-w-2': { targetImageWidth: 8 }
+'.target-image-w-3': { targetImageWidth: 12 }
+'.target-image-w-4': { targetImageWidth: 16 }
+'.target-image-w-5': { targetImageWidth: 20 }
+'.target-image-w-6': { targetImageWidth: 24 }
+'.target-image-w-7': { targetImageWidth: 28 }
+'.target-image-w-8': { targetImageWidth: 32 }
+'.target-image-w-9': { targetImageWidth: 36 }
+'.target-image-w-10': { targetImageWidth: 40 }
+'.target-image-w-11': { targetImageWidth: 44 }
+'.target-image-w-12': { targetImageWidth: 48 }
+'.target-image-w-14': { targetImageWidth: 56 }
+'.target-image-w-16': { targetImageWidth: 64 }
+'.target-image-w-20': { targetImageWidth: 80 }
+'.target-image-w-24': { targetImageWidth: 96 }
+'.target-image-w-28': { targetImageWidth: 112 }
+'.target-image-w-32': { targetImageWidth: 128 }
+'.target-image-w-36': { targetImageWidth: 144 }
+'.target-image-w-40': { targetImageWidth: 160 }
+'.target-image-w-44': { targetImageWidth: 176 }
+'.target-image-w-48': { targetImageWidth: 192 }
+'.target-image-w-52': { targetImageWidth: 208 }
+'.target-image-w-56': { targetImageWidth: 224 }
+'.target-image-w-60': { targetImageWidth: 240 }
+'.target-image-w-64': { targetImageWidth: 256 }
+'.target-image-w-72': { targetImageWidth: 288 }
+'.target-image-w-80': { targetImageWidth: 320 }
+'.target-image-w-96': { targetImageWidth: 384 }
+'.target-image-w-auto': { targetImageWidth: Ti.UI.SIZE }
+'.target-image-w-px': { targetImageWidth: '1px' }
+'.target-image-w-0.5': { targetImageWidth: 2 }
+'.target-image-w-1.5': { targetImageWidth: 6 }
+'.target-image-w-2.5': { targetImageWidth: 10 }
+'.target-image-w-3.5': { targetImageWidth: 14 }
+'.target-image-w-1/2': { targetImageWidth: '50%' }
+'.target-image-w-1/3': { targetImageWidth: '33.333334%' }
+'.target-image-w-2/3': { targetImageWidth: '66.666667%' }
+'.target-image-w-1/4': { targetImageWidth: '25%' }
+'.target-image-w-2/4': { targetImageWidth: '50%' }
+'.target-image-w-3/4': { targetImageWidth: '75%' }
+'.target-image-w-1/5': { targetImageWidth: '20%' }
+'.target-image-w-2/5': { targetImageWidth: '40%' }
+'.target-image-w-3/5': { targetImageWidth: '60%' }
+'.target-image-w-4/5': { targetImageWidth: '80%' }
+'.target-image-w-1/6': { targetImageWidth: '16.666667%' }
+'.target-image-w-2/6': { targetImageWidth: '33.333334%' }
+'.target-image-w-3/6': { targetImageWidth: '50%' }
+'.target-image-w-4/6': { targetImageWidth: '66.666667%' }
+'.target-image-w-5/6': { targetImageWidth: '83.333334%' }
+'.target-image-w-1/12': { targetImageWidth: '8.333334%' }
+'.target-image-w-2/12': { targetImageWidth: '16.666667%' }
+'.target-image-w-3/12': { targetImageWidth: '25%' }
+'.target-image-w-4/12': { targetImageWidth: '33.333334%' }
+'.target-image-w-5/12': { targetImageWidth: '41.666667%' }
+'.target-image-w-6/12': { targetImageWidth: '50%' }
+'.target-image-w-7/12': { targetImageWidth: '58.333334%' }
+'.target-image-w-8/12': { targetImageWidth: '66.666667%' }
+'.target-image-w-9/12': { targetImageWidth: '75%' }
+'.target-image-w-10/12': { targetImageWidth: '83.333334%' }
+'.target-image-w-11/12': { targetImageWidth: '91.666667%' }
+'.target-image-w-full': { targetImageWidth: '100%' }
+'.target-image-w-screen': { targetImageWidth: Ti.UI.FILL }
+
+// Property: targetImageHeight
+// Description: Maximum height of the saved image. Depending on your phone and your value this might not be exactly the value you specify. Check Ti.Media.cameraOutputSizes first.
+// Component(s): CameraOptionsType
+'.target-image-h-0': { targetImageHeight: 0 }
+'.target-image-h-1': { targetImageHeight: 4 }
+'.target-image-h-2': { targetImageHeight: 8 }
+'.target-image-h-3': { targetImageHeight: 12 }
+'.target-image-h-4': { targetImageHeight: 16 }
+'.target-image-h-5': { targetImageHeight: 20 }
+'.target-image-h-6': { targetImageHeight: 24 }
+'.target-image-h-7': { targetImageHeight: 28 }
+'.target-image-h-8': { targetImageHeight: 32 }
+'.target-image-h-9': { targetImageHeight: 36 }
+'.target-image-h-10': { targetImageHeight: 40 }
+'.target-image-h-11': { targetImageHeight: 44 }
+'.target-image-h-12': { targetImageHeight: 48 }
+'.target-image-h-14': { targetImageHeight: 56 }
+'.target-image-h-16': { targetImageHeight: 64 }
+'.target-image-h-20': { targetImageHeight: 80 }
+'.target-image-h-24': { targetImageHeight: 96 }
+'.target-image-h-28': { targetImageHeight: 112 }
+'.target-image-h-32': { targetImageHeight: 128 }
+'.target-image-h-36': { targetImageHeight: 144 }
+'.target-image-h-40': { targetImageHeight: 160 }
+'.target-image-h-44': { targetImageHeight: 176 }
+'.target-image-h-48': { targetImageHeight: 192 }
+'.target-image-h-52': { targetImageHeight: 208 }
+'.target-image-h-56': { targetImageHeight: 224 }
+'.target-image-h-60': { targetImageHeight: 240 }
+'.target-image-h-64': { targetImageHeight: 256 }
+'.target-image-h-72': { targetImageHeight: 288 }
+'.target-image-h-80': { targetImageHeight: 320 }
+'.target-image-h-96': { targetImageHeight: 384 }
+'.target-image-h-auto': { targetImageHeight: Ti.UI.SIZE }
+'.target-image-h-px': { targetImageHeight: '1px' }
+'.target-image-h-0.5': { targetImageHeight: 2 }
+'.target-image-h-1.5': { targetImageHeight: 6 }
+'.target-image-h-2.5': { targetImageHeight: 10 }
+'.target-image-h-3.5': { targetImageHeight: 14 }
+'.target-image-h-1/2': { targetImageHeight: '50%' }
+'.target-image-h-1/3': { targetImageHeight: '33.333334%' }
+'.target-image-h-2/3': { targetImageHeight: '66.666667%' }
+'.target-image-h-1/4': { targetImageHeight: '25%' }
+'.target-image-h-2/4': { targetImageHeight: '50%' }
+'.target-image-h-3/4': { targetImageHeight: '75%' }
+'.target-image-h-1/5': { targetImageHeight: '20%' }
+'.target-image-h-2/5': { targetImageHeight: '40%' }
+'.target-image-h-3/5': { targetImageHeight: '60%' }
+'.target-image-h-4/5': { targetImageHeight: '80%' }
+'.target-image-h-1/6': { targetImageHeight: '16.666667%' }
+'.target-image-h-2/6': { targetImageHeight: '33.333334%' }
+'.target-image-h-3/6': { targetImageHeight: '50%' }
+'.target-image-h-4/6': { targetImageHeight: '66.666667%' }
+'.target-image-h-5/6': { targetImageHeight: '83.333334%' }
+'.target-image-h-1/12': { targetImageHeight: '8.333334%' }
+'.target-image-h-2/12': { targetImageHeight: '16.666667%' }
+'.target-image-h-3/12': { targetImageHeight: '25%' }
+'.target-image-h-4/12': { targetImageHeight: '33.333334%' }
+'.target-image-h-5/12': { targetImageHeight: '41.666667%' }
+'.target-image-h-6/12': { targetImageHeight: '50%' }
+'.target-image-h-7/12': { targetImageHeight: '58.333334%' }
+'.target-image-h-8/12': { targetImageHeight: '66.666667%' }
+'.target-image-h-9/12': { targetImageHeight: '75%' }
+'.target-image-h-10/12': { targetImageHeight: '83.333334%' }
+'.target-image-h-11/12': { targetImageHeight: '91.666667%' }
+'.target-image-h-full': { targetImageHeight: '100%' }
+'.target-image-h-screen': { targetImageHeight: Ti.UI.FILL }
+
 // Property: videoQuality
 // Description: Constant to indicate the video quality during capture.
 // Component(s): CameraOptionsType
+'.video-quality-sd': { videoQuality: Ti.Media.QUALITY_SD }
+'.video-quality-hd': { videoQuality: Ti.Media.QUALITY_HD }
+'.video-quality-fhd': { videoQuality: Ti.Media.QUALITY_FHD }
+'.video-quality-uhd': { videoQuality: Ti.Media.QUALITY_UHD }
 '.video-quality-high': { videoQuality: Ti.Media.QUALITY_HIGH }
 '.video-quality-low': { videoQuality: Ti.Media.QUALITY_LOW }
 '.video-quality-medium': { videoQuality: Ti.Media.QUALITY_MEDIUM }
@@ -10437,17 +10371,6 @@
 '.picture-in-enabled': { pictureInPictureEnabled: true }
 '.picture-in-enabled-false': { pictureInPictureEnabled: false }
 
-// Property: scalingMode
-// Component(s): Ti.Media.VideoPlayer, Ti.UI.ImageView
-'.scaling-mode-video-resize': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE }
-'.scaling-mode-video-resize-aspect': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT }
-'.scaling-mode-video-resize-aspect-fill': { scalingMode: Ti.Media.VIDEO_SCALING_RESIZE_ASPECT_FILL }
-'.scaling-mode-image-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
-'.scaling-mode-image-none': { scalingMode: Ti.Media.IMAGE_SCALING_NONE }
-'.scaling-mode-image-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
-'.scaling-mode-image-aspect-fill': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
-'.scaling-mode-image-aspect-fit': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
-
 // Property: showsControls
 // Description: Whether or not the receiver shows playback controls. Default is true.
 // Component(s): Ti.Media.VideoPlayer
@@ -10473,7 +10396,7 @@
 '.httponly-false': { httponly: false }
 
 // Property: secure
-// Component(s): Ti.Network.Cookie, Ti.UI.WebView
+// Component(s): Ti.Network.Cookie, Ti.Network.Socket.TCP, Ti.UI.WebView
 '.secure': { secure: true }
 '.secure-false': { secure: false }
 
@@ -13820,12 +13743,6 @@
 '.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
 '.text-right': { textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT }
 
-// Property: verticalAlign
-// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
-'.vertical-align-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
-'.vertical-align-center': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
-'.vertical-align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
-
 // Property: selectedTextColor
 // Component(s): Ti.UI.ButtonBar, Ti.UI.TabbedBar
 '.selected-text-transparent': { selectedTextColor: 'transparent' }
@@ -16062,6 +15979,12 @@
 '.continuous-update': { continuousUpdate: true }
 '.continuous-update-false': { continuousUpdate: false }
 
+// Property: forceUpdates
+// Description: Optimize the continuousUpdate scrolling event.
+// Component(s): Ti.UI.ListView
+'.force-updates': { forceUpdates: true }
+'.force-updates-false': { forceUpdates: false }
+
 // Property: keepSectionsInSearch
 // Description: Determines if the section information is displayed in the search results when using the searchText property.
 // Component(s): Ti.UI.ListView
@@ -16069,7 +15992,7 @@
 '.keep-sections-in-search-false': { keepSectionsInSearch: false }
 
 // Property: keyboardDismissMode
-// Component(s): Ti.UI.ListView, Ti.UI.ScrollView
+// Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
 '.keyboard-dismiss-mode-none[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }
 '.keyboard-dismiss-mode-on-drag[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG }
 '.keyboard-dismiss-mode-interactive[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_INTERACTIVE }
@@ -19843,7 +19766,7 @@
 '.active-false': { active: false }
 
 // Property: badgeColor
-// Description: If this item displays a badge, this color will be used for the badge's background. If set to null, the default background color will be used instead.
+// Description: If this item displays a badge, this color will be used for the badge's background. If set to null, the default background color will be used instead. Deprecated since 12.2.0. Use Titanium.UI.Tab.badgeBackgroundColor instead.
 // Component(s): Ti.UI.Tab
 '.badge-transparent': { badgeColor: 'transparent' }
 '.badge-black': { badgeColor: '#000000' }
@@ -20090,6 +20013,504 @@
 '.badge-rose-800': { badgeColor: '#9f1239' }
 '.badge-rose-900': { badgeColor: '#881337' }
 '.badge-rose-950': { badgeColor: '#4c0519' }
+
+// Property: badgeBackgroundColor
+// Description: If this item displays a badge, this color will be used for the badge's background. If set to null, the default background color will be used instead.
+// Component(s): Ti.UI.Tab
+'.badge-bg-transparent': { badgeBackgroundColor: 'transparent' }
+'.badge-bg-black': { badgeBackgroundColor: '#000000' }
+'.badge-bg-white': { badgeBackgroundColor: '#ffffff' }
+'.badge-bg-slate-50': { badgeBackgroundColor: '#f8fafc' }
+'.badge-bg-slate-100': { badgeBackgroundColor: '#f1f5f9' }
+'.badge-bg-slate-200': { badgeBackgroundColor: '#e2e8f0' }
+'.badge-bg-slate-300': { badgeBackgroundColor: '#cbd5e1' }
+'.badge-bg-slate-400': { badgeBackgroundColor: '#94a3b8' }
+'.badge-bg-slate-500': { badgeBackgroundColor: '#64748b' }
+'.badge-bg-slate-600': { badgeBackgroundColor: '#475569' }
+'.badge-bg-slate-700': { badgeBackgroundColor: '#334155' }
+'.badge-bg-slate-800': { badgeBackgroundColor: '#1e293b' }
+'.badge-bg-slate-900': { badgeBackgroundColor: '#0f172a' }
+'.badge-bg-slate-950': { badgeBackgroundColor: '#020617' }
+'.badge-bg-gray-50': { badgeBackgroundColor: '#f9fafb' }
+'.badge-bg-gray-100': { badgeBackgroundColor: '#f3f4f6' }
+'.badge-bg-gray-200': { badgeBackgroundColor: '#e5e7eb' }
+'.badge-bg-gray-300': { badgeBackgroundColor: '#d1d5db' }
+'.badge-bg-gray-400': { badgeBackgroundColor: '#9ca3af' }
+'.badge-bg-gray-500': { badgeBackgroundColor: '#6b7280' }
+'.badge-bg-gray-600': { badgeBackgroundColor: '#4b5563' }
+'.badge-bg-gray-700': { badgeBackgroundColor: '#374151' }
+'.badge-bg-gray-800': { badgeBackgroundColor: '#1f2937' }
+'.badge-bg-gray-900': { badgeBackgroundColor: '#111827' }
+'.badge-bg-gray-950': { badgeBackgroundColor: '#030712' }
+'.badge-bg-zinc-50': { badgeBackgroundColor: '#fafafa' }
+'.badge-bg-zinc-100': { badgeBackgroundColor: '#f4f4f5' }
+'.badge-bg-zinc-200': { badgeBackgroundColor: '#e4e4e7' }
+'.badge-bg-zinc-300': { badgeBackgroundColor: '#d4d4d8' }
+'.badge-bg-zinc-400': { badgeBackgroundColor: '#a1a1aa' }
+'.badge-bg-zinc-500': { badgeBackgroundColor: '#71717a' }
+'.badge-bg-zinc-600': { badgeBackgroundColor: '#52525b' }
+'.badge-bg-zinc-700': { badgeBackgroundColor: '#3f3f46' }
+'.badge-bg-zinc-800': { badgeBackgroundColor: '#27272a' }
+'.badge-bg-zinc-900': { badgeBackgroundColor: '#18181b' }
+'.badge-bg-zinc-950': { badgeBackgroundColor: '#09090b' }
+'.badge-bg-neutral-50': { badgeBackgroundColor: '#fafafa' }
+'.badge-bg-neutral-100': { badgeBackgroundColor: '#f5f5f5' }
+'.badge-bg-neutral-200': { badgeBackgroundColor: '#e5e5e5' }
+'.badge-bg-neutral-300': { badgeBackgroundColor: '#d4d4d4' }
+'.badge-bg-neutral-400': { badgeBackgroundColor: '#a3a3a3' }
+'.badge-bg-neutral-500': { badgeBackgroundColor: '#737373' }
+'.badge-bg-neutral-600': { badgeBackgroundColor: '#525252' }
+'.badge-bg-neutral-700': { badgeBackgroundColor: '#404040' }
+'.badge-bg-neutral-800': { badgeBackgroundColor: '#262626' }
+'.badge-bg-neutral-900': { badgeBackgroundColor: '#171717' }
+'.badge-bg-neutral-950': { badgeBackgroundColor: '#0a0a0a' }
+'.badge-bg-stone-50': { badgeBackgroundColor: '#fafaf9' }
+'.badge-bg-stone-100': { badgeBackgroundColor: '#f5f5f4' }
+'.badge-bg-stone-200': { badgeBackgroundColor: '#e7e5e4' }
+'.badge-bg-stone-300': { badgeBackgroundColor: '#d6d3d1' }
+'.badge-bg-stone-400': { badgeBackgroundColor: '#a8a29e' }
+'.badge-bg-stone-500': { badgeBackgroundColor: '#78716c' }
+'.badge-bg-stone-600': { badgeBackgroundColor: '#57534e' }
+'.badge-bg-stone-700': { badgeBackgroundColor: '#44403c' }
+'.badge-bg-stone-800': { badgeBackgroundColor: '#292524' }
+'.badge-bg-stone-900': { badgeBackgroundColor: '#1c1917' }
+'.badge-bg-stone-950': { badgeBackgroundColor: '#0c0a09' }
+'.badge-bg-red-50': { badgeBackgroundColor: '#fef2f2' }
+'.badge-bg-red-100': { badgeBackgroundColor: '#fee2e2' }
+'.badge-bg-red-200': { badgeBackgroundColor: '#fecaca' }
+'.badge-bg-red-300': { badgeBackgroundColor: '#fca5a5' }
+'.badge-bg-red-400': { badgeBackgroundColor: '#f87171' }
+'.badge-bg-red-500': { badgeBackgroundColor: '#ef4444' }
+'.badge-bg-red-600': { badgeBackgroundColor: '#dc2626' }
+'.badge-bg-red-700': { badgeBackgroundColor: '#b91c1c' }
+'.badge-bg-red-800': { badgeBackgroundColor: '#991b1b' }
+'.badge-bg-red-900': { badgeBackgroundColor: '#7f1d1d' }
+'.badge-bg-red-950': { badgeBackgroundColor: '#450a0a' }
+'.badge-bg-orange-50': { badgeBackgroundColor: '#fff7ed' }
+'.badge-bg-orange-100': { badgeBackgroundColor: '#ffedd5' }
+'.badge-bg-orange-200': { badgeBackgroundColor: '#fed7aa' }
+'.badge-bg-orange-300': { badgeBackgroundColor: '#fdba74' }
+'.badge-bg-orange-400': { badgeBackgroundColor: '#fb923c' }
+'.badge-bg-orange-500': { badgeBackgroundColor: '#f97316' }
+'.badge-bg-orange-600': { badgeBackgroundColor: '#ea580c' }
+'.badge-bg-orange-700': { badgeBackgroundColor: '#c2410c' }
+'.badge-bg-orange-800': { badgeBackgroundColor: '#9a3412' }
+'.badge-bg-orange-900': { badgeBackgroundColor: '#7c2d12' }
+'.badge-bg-orange-950': { badgeBackgroundColor: '#431407' }
+'.badge-bg-amber-50': { badgeBackgroundColor: '#fffbeb' }
+'.badge-bg-amber-100': { badgeBackgroundColor: '#fef3c7' }
+'.badge-bg-amber-200': { badgeBackgroundColor: '#fde68a' }
+'.badge-bg-amber-300': { badgeBackgroundColor: '#fcd34d' }
+'.badge-bg-amber-400': { badgeBackgroundColor: '#fbbf24' }
+'.badge-bg-amber-500': { badgeBackgroundColor: '#f59e0b' }
+'.badge-bg-amber-600': { badgeBackgroundColor: '#d97706' }
+'.badge-bg-amber-700': { badgeBackgroundColor: '#b45309' }
+'.badge-bg-amber-800': { badgeBackgroundColor: '#92400e' }
+'.badge-bg-amber-900': { badgeBackgroundColor: '#78350f' }
+'.badge-bg-amber-950': { badgeBackgroundColor: '#451a03' }
+'.badge-bg-yellow-50': { badgeBackgroundColor: '#fefce8' }
+'.badge-bg-yellow-100': { badgeBackgroundColor: '#fef9c3' }
+'.badge-bg-yellow-200': { badgeBackgroundColor: '#fef08a' }
+'.badge-bg-yellow-300': { badgeBackgroundColor: '#fde047' }
+'.badge-bg-yellow-400': { badgeBackgroundColor: '#facc15' }
+'.badge-bg-yellow-500': { badgeBackgroundColor: '#eab308' }
+'.badge-bg-yellow-600': { badgeBackgroundColor: '#ca8a04' }
+'.badge-bg-yellow-700': { badgeBackgroundColor: '#a16207' }
+'.badge-bg-yellow-800': { badgeBackgroundColor: '#854d0e' }
+'.badge-bg-yellow-900': { badgeBackgroundColor: '#713f12' }
+'.badge-bg-yellow-950': { badgeBackgroundColor: '#422006' }
+'.badge-bg-lime-50': { badgeBackgroundColor: '#f7fee7' }
+'.badge-bg-lime-100': { badgeBackgroundColor: '#ecfccb' }
+'.badge-bg-lime-200': { badgeBackgroundColor: '#d9f99d' }
+'.badge-bg-lime-300': { badgeBackgroundColor: '#bef264' }
+'.badge-bg-lime-400': { badgeBackgroundColor: '#a3e635' }
+'.badge-bg-lime-500': { badgeBackgroundColor: '#84cc16' }
+'.badge-bg-lime-600': { badgeBackgroundColor: '#65a30d' }
+'.badge-bg-lime-700': { badgeBackgroundColor: '#4d7c0f' }
+'.badge-bg-lime-800': { badgeBackgroundColor: '#3f6212' }
+'.badge-bg-lime-900': { badgeBackgroundColor: '#365314' }
+'.badge-bg-lime-950': { badgeBackgroundColor: '#1a2e05' }
+'.badge-bg-green-50': { badgeBackgroundColor: '#f0fdf4' }
+'.badge-bg-green-100': { badgeBackgroundColor: '#dcfce7' }
+'.badge-bg-green-200': { badgeBackgroundColor: '#bbf7d0' }
+'.badge-bg-green-300': { badgeBackgroundColor: '#86efac' }
+'.badge-bg-green-400': { badgeBackgroundColor: '#4ade80' }
+'.badge-bg-green-500': { badgeBackgroundColor: '#22c55e' }
+'.badge-bg-green-600': { badgeBackgroundColor: '#16a34a' }
+'.badge-bg-green-700': { badgeBackgroundColor: '#15803d' }
+'.badge-bg-green-800': { badgeBackgroundColor: '#166534' }
+'.badge-bg-green-900': { badgeBackgroundColor: '#14532d' }
+'.badge-bg-green-950': { badgeBackgroundColor: '#052e16' }
+'.badge-bg-emerald-50': { badgeBackgroundColor: '#ecfdf5' }
+'.badge-bg-emerald-100': { badgeBackgroundColor: '#d1fae5' }
+'.badge-bg-emerald-200': { badgeBackgroundColor: '#a7f3d0' }
+'.badge-bg-emerald-300': { badgeBackgroundColor: '#6ee7b7' }
+'.badge-bg-emerald-400': { badgeBackgroundColor: '#34d399' }
+'.badge-bg-emerald-500': { badgeBackgroundColor: '#10b981' }
+'.badge-bg-emerald-600': { badgeBackgroundColor: '#059669' }
+'.badge-bg-emerald-700': { badgeBackgroundColor: '#047857' }
+'.badge-bg-emerald-800': { badgeBackgroundColor: '#065f46' }
+'.badge-bg-emerald-900': { badgeBackgroundColor: '#064e3b' }
+'.badge-bg-emerald-950': { badgeBackgroundColor: '#022c22' }
+'.badge-bg-teal-50': { badgeBackgroundColor: '#f0fdfa' }
+'.badge-bg-teal-100': { badgeBackgroundColor: '#ccfbf1' }
+'.badge-bg-teal-200': { badgeBackgroundColor: '#99f6e4' }
+'.badge-bg-teal-300': { badgeBackgroundColor: '#5eead4' }
+'.badge-bg-teal-400': { badgeBackgroundColor: '#2dd4bf' }
+'.badge-bg-teal-500': { badgeBackgroundColor: '#14b8a6' }
+'.badge-bg-teal-600': { badgeBackgroundColor: '#0d9488' }
+'.badge-bg-teal-700': { badgeBackgroundColor: '#0f766e' }
+'.badge-bg-teal-800': { badgeBackgroundColor: '#115e59' }
+'.badge-bg-teal-900': { badgeBackgroundColor: '#134e4a' }
+'.badge-bg-teal-950': { badgeBackgroundColor: '#042f2e' }
+'.badge-bg-cyan-50': { badgeBackgroundColor: '#ecfeff' }
+'.badge-bg-cyan-100': { badgeBackgroundColor: '#cffafe' }
+'.badge-bg-cyan-200': { badgeBackgroundColor: '#a5f3fc' }
+'.badge-bg-cyan-300': { badgeBackgroundColor: '#67e8f9' }
+'.badge-bg-cyan-400': { badgeBackgroundColor: '#22d3ee' }
+'.badge-bg-cyan-500': { badgeBackgroundColor: '#06b6d4' }
+'.badge-bg-cyan-600': { badgeBackgroundColor: '#0891b2' }
+'.badge-bg-cyan-700': { badgeBackgroundColor: '#0e7490' }
+'.badge-bg-cyan-800': { badgeBackgroundColor: '#155e75' }
+'.badge-bg-cyan-900': { badgeBackgroundColor: '#164e63' }
+'.badge-bg-cyan-950': { badgeBackgroundColor: '#083344' }
+'.badge-bg-sky-50': { badgeBackgroundColor: '#f0f9ff' }
+'.badge-bg-sky-100': { badgeBackgroundColor: '#e0f2fe' }
+'.badge-bg-sky-200': { badgeBackgroundColor: '#bae6fd' }
+'.badge-bg-sky-300': { badgeBackgroundColor: '#7dd3fc' }
+'.badge-bg-sky-400': { badgeBackgroundColor: '#38bdf8' }
+'.badge-bg-sky-500': { badgeBackgroundColor: '#0ea5e9' }
+'.badge-bg-sky-600': { badgeBackgroundColor: '#0284c7' }
+'.badge-bg-sky-700': { badgeBackgroundColor: '#0369a1' }
+'.badge-bg-sky-800': { badgeBackgroundColor: '#075985' }
+'.badge-bg-sky-900': { badgeBackgroundColor: '#0c4a6e' }
+'.badge-bg-sky-950': { badgeBackgroundColor: '#082f49' }
+'.badge-bg-blue-50': { badgeBackgroundColor: '#eff6ff' }
+'.badge-bg-blue-100': { badgeBackgroundColor: '#dbeafe' }
+'.badge-bg-blue-200': { badgeBackgroundColor: '#bfdbfe' }
+'.badge-bg-blue-300': { badgeBackgroundColor: '#93c5fd' }
+'.badge-bg-blue-400': { badgeBackgroundColor: '#60a5fa' }
+'.badge-bg-blue-500': { badgeBackgroundColor: '#3b82f6' }
+'.badge-bg-blue-600': { badgeBackgroundColor: '#2563eb' }
+'.badge-bg-blue-700': { badgeBackgroundColor: '#1d4ed8' }
+'.badge-bg-blue-800': { badgeBackgroundColor: '#1e40af' }
+'.badge-bg-blue-900': { badgeBackgroundColor: '#1e3a8a' }
+'.badge-bg-blue-950': { badgeBackgroundColor: '#172554' }
+'.badge-bg-indigo-50': { badgeBackgroundColor: '#eef2ff' }
+'.badge-bg-indigo-100': { badgeBackgroundColor: '#e0e7ff' }
+'.badge-bg-indigo-200': { badgeBackgroundColor: '#c7d2fe' }
+'.badge-bg-indigo-300': { badgeBackgroundColor: '#a5b4fc' }
+'.badge-bg-indigo-400': { badgeBackgroundColor: '#818cf8' }
+'.badge-bg-indigo-500': { badgeBackgroundColor: '#6366f1' }
+'.badge-bg-indigo-600': { badgeBackgroundColor: '#4f46e5' }
+'.badge-bg-indigo-700': { badgeBackgroundColor: '#4338ca' }
+'.badge-bg-indigo-800': { badgeBackgroundColor: '#3730a3' }
+'.badge-bg-indigo-900': { badgeBackgroundColor: '#312e81' }
+'.badge-bg-indigo-950': { badgeBackgroundColor: '#1e1b4b' }
+'.badge-bg-violet-50': { badgeBackgroundColor: '#f5f3ff' }
+'.badge-bg-violet-100': { badgeBackgroundColor: '#ede9fe' }
+'.badge-bg-violet-200': { badgeBackgroundColor: '#ddd6fe' }
+'.badge-bg-violet-300': { badgeBackgroundColor: '#c4b5fd' }
+'.badge-bg-violet-400': { badgeBackgroundColor: '#a78bfa' }
+'.badge-bg-violet-500': { badgeBackgroundColor: '#8b5cf6' }
+'.badge-bg-violet-600': { badgeBackgroundColor: '#7c3aed' }
+'.badge-bg-violet-700': { badgeBackgroundColor: '#6d28d9' }
+'.badge-bg-violet-800': { badgeBackgroundColor: '#5b21b6' }
+'.badge-bg-violet-900': { badgeBackgroundColor: '#4c1d95' }
+'.badge-bg-violet-950': { badgeBackgroundColor: '#2e1065' }
+'.badge-bg-purple-50': { badgeBackgroundColor: '#faf5ff' }
+'.badge-bg-purple-100': { badgeBackgroundColor: '#f3e8ff' }
+'.badge-bg-purple-200': { badgeBackgroundColor: '#e9d5ff' }
+'.badge-bg-purple-300': { badgeBackgroundColor: '#d8b4fe' }
+'.badge-bg-purple-400': { badgeBackgroundColor: '#c084fc' }
+'.badge-bg-purple-500': { badgeBackgroundColor: '#a855f7' }
+'.badge-bg-purple-600': { badgeBackgroundColor: '#9333ea' }
+'.badge-bg-purple-700': { badgeBackgroundColor: '#7e22ce' }
+'.badge-bg-purple-800': { badgeBackgroundColor: '#6b21a8' }
+'.badge-bg-purple-900': { badgeBackgroundColor: '#581c87' }
+'.badge-bg-purple-950': { badgeBackgroundColor: '#3b0764' }
+'.badge-bg-fuchsia-50': { badgeBackgroundColor: '#fdf4ff' }
+'.badge-bg-fuchsia-100': { badgeBackgroundColor: '#fae8ff' }
+'.badge-bg-fuchsia-200': { badgeBackgroundColor: '#f5d0fe' }
+'.badge-bg-fuchsia-300': { badgeBackgroundColor: '#f0abfc' }
+'.badge-bg-fuchsia-400': { badgeBackgroundColor: '#e879f9' }
+'.badge-bg-fuchsia-500': { badgeBackgroundColor: '#d946ef' }
+'.badge-bg-fuchsia-600': { badgeBackgroundColor: '#c026d3' }
+'.badge-bg-fuchsia-700': { badgeBackgroundColor: '#a21caf' }
+'.badge-bg-fuchsia-800': { badgeBackgroundColor: '#86198f' }
+'.badge-bg-fuchsia-900': { badgeBackgroundColor: '#701a75' }
+'.badge-bg-fuchsia-950': { badgeBackgroundColor: '#4a044e' }
+'.badge-bg-pink-50': { badgeBackgroundColor: '#fdf2f8' }
+'.badge-bg-pink-100': { badgeBackgroundColor: '#fce7f3' }
+'.badge-bg-pink-200': { badgeBackgroundColor: '#fbcfe8' }
+'.badge-bg-pink-300': { badgeBackgroundColor: '#f9a8d4' }
+'.badge-bg-pink-400': { badgeBackgroundColor: '#f472b6' }
+'.badge-bg-pink-500': { badgeBackgroundColor: '#ec4899' }
+'.badge-bg-pink-600': { badgeBackgroundColor: '#db2777' }
+'.badge-bg-pink-700': { badgeBackgroundColor: '#be185d' }
+'.badge-bg-pink-800': { badgeBackgroundColor: '#9d174d' }
+'.badge-bg-pink-900': { badgeBackgroundColor: '#831843' }
+'.badge-bg-pink-950': { badgeBackgroundColor: '#500724' }
+'.badge-bg-rose-50': { badgeBackgroundColor: '#fff1f2' }
+'.badge-bg-rose-100': { badgeBackgroundColor: '#ffe4e6' }
+'.badge-bg-rose-200': { badgeBackgroundColor: '#fecdd3' }
+'.badge-bg-rose-300': { badgeBackgroundColor: '#fda4af' }
+'.badge-bg-rose-400': { badgeBackgroundColor: '#fb7185' }
+'.badge-bg-rose-500': { badgeBackgroundColor: '#f43f5e' }
+'.badge-bg-rose-600': { badgeBackgroundColor: '#e11d48' }
+'.badge-bg-rose-700': { badgeBackgroundColor: '#be123c' }
+'.badge-bg-rose-800': { badgeBackgroundColor: '#9f1239' }
+'.badge-bg-rose-900': { badgeBackgroundColor: '#881337' }
+'.badge-bg-rose-950': { badgeBackgroundColor: '#4c0519' }
+
+// Property: badgeTextColor
+// Description: Set the text color of the badge.
+// Component(s): Ti.UI.Tab
+'.badge-text-transparent': { badgeTextColor: 'transparent' }
+'.badge-text-black': { badgeTextColor: '#000000' }
+'.badge-text-white': { badgeTextColor: '#ffffff' }
+'.badge-text-slate-50': { badgeTextColor: '#f8fafc' }
+'.badge-text-slate-100': { badgeTextColor: '#f1f5f9' }
+'.badge-text-slate-200': { badgeTextColor: '#e2e8f0' }
+'.badge-text-slate-300': { badgeTextColor: '#cbd5e1' }
+'.badge-text-slate-400': { badgeTextColor: '#94a3b8' }
+'.badge-text-slate-500': { badgeTextColor: '#64748b' }
+'.badge-text-slate-600': { badgeTextColor: '#475569' }
+'.badge-text-slate-700': { badgeTextColor: '#334155' }
+'.badge-text-slate-800': { badgeTextColor: '#1e293b' }
+'.badge-text-slate-900': { badgeTextColor: '#0f172a' }
+'.badge-text-slate-950': { badgeTextColor: '#020617' }
+'.badge-text-gray-50': { badgeTextColor: '#f9fafb' }
+'.badge-text-gray-100': { badgeTextColor: '#f3f4f6' }
+'.badge-text-gray-200': { badgeTextColor: '#e5e7eb' }
+'.badge-text-gray-300': { badgeTextColor: '#d1d5db' }
+'.badge-text-gray-400': { badgeTextColor: '#9ca3af' }
+'.badge-text-gray-500': { badgeTextColor: '#6b7280' }
+'.badge-text-gray-600': { badgeTextColor: '#4b5563' }
+'.badge-text-gray-700': { badgeTextColor: '#374151' }
+'.badge-text-gray-800': { badgeTextColor: '#1f2937' }
+'.badge-text-gray-900': { badgeTextColor: '#111827' }
+'.badge-text-gray-950': { badgeTextColor: '#030712' }
+'.badge-text-zinc-50': { badgeTextColor: '#fafafa' }
+'.badge-text-zinc-100': { badgeTextColor: '#f4f4f5' }
+'.badge-text-zinc-200': { badgeTextColor: '#e4e4e7' }
+'.badge-text-zinc-300': { badgeTextColor: '#d4d4d8' }
+'.badge-text-zinc-400': { badgeTextColor: '#a1a1aa' }
+'.badge-text-zinc-500': { badgeTextColor: '#71717a' }
+'.badge-text-zinc-600': { badgeTextColor: '#52525b' }
+'.badge-text-zinc-700': { badgeTextColor: '#3f3f46' }
+'.badge-text-zinc-800': { badgeTextColor: '#27272a' }
+'.badge-text-zinc-900': { badgeTextColor: '#18181b' }
+'.badge-text-zinc-950': { badgeTextColor: '#09090b' }
+'.badge-text-neutral-50': { badgeTextColor: '#fafafa' }
+'.badge-text-neutral-100': { badgeTextColor: '#f5f5f5' }
+'.badge-text-neutral-200': { badgeTextColor: '#e5e5e5' }
+'.badge-text-neutral-300': { badgeTextColor: '#d4d4d4' }
+'.badge-text-neutral-400': { badgeTextColor: '#a3a3a3' }
+'.badge-text-neutral-500': { badgeTextColor: '#737373' }
+'.badge-text-neutral-600': { badgeTextColor: '#525252' }
+'.badge-text-neutral-700': { badgeTextColor: '#404040' }
+'.badge-text-neutral-800': { badgeTextColor: '#262626' }
+'.badge-text-neutral-900': { badgeTextColor: '#171717' }
+'.badge-text-neutral-950': { badgeTextColor: '#0a0a0a' }
+'.badge-text-stone-50': { badgeTextColor: '#fafaf9' }
+'.badge-text-stone-100': { badgeTextColor: '#f5f5f4' }
+'.badge-text-stone-200': { badgeTextColor: '#e7e5e4' }
+'.badge-text-stone-300': { badgeTextColor: '#d6d3d1' }
+'.badge-text-stone-400': { badgeTextColor: '#a8a29e' }
+'.badge-text-stone-500': { badgeTextColor: '#78716c' }
+'.badge-text-stone-600': { badgeTextColor: '#57534e' }
+'.badge-text-stone-700': { badgeTextColor: '#44403c' }
+'.badge-text-stone-800': { badgeTextColor: '#292524' }
+'.badge-text-stone-900': { badgeTextColor: '#1c1917' }
+'.badge-text-stone-950': { badgeTextColor: '#0c0a09' }
+'.badge-text-red-50': { badgeTextColor: '#fef2f2' }
+'.badge-text-red-100': { badgeTextColor: '#fee2e2' }
+'.badge-text-red-200': { badgeTextColor: '#fecaca' }
+'.badge-text-red-300': { badgeTextColor: '#fca5a5' }
+'.badge-text-red-400': { badgeTextColor: '#f87171' }
+'.badge-text-red-500': { badgeTextColor: '#ef4444' }
+'.badge-text-red-600': { badgeTextColor: '#dc2626' }
+'.badge-text-red-700': { badgeTextColor: '#b91c1c' }
+'.badge-text-red-800': { badgeTextColor: '#991b1b' }
+'.badge-text-red-900': { badgeTextColor: '#7f1d1d' }
+'.badge-text-red-950': { badgeTextColor: '#450a0a' }
+'.badge-text-orange-50': { badgeTextColor: '#fff7ed' }
+'.badge-text-orange-100': { badgeTextColor: '#ffedd5' }
+'.badge-text-orange-200': { badgeTextColor: '#fed7aa' }
+'.badge-text-orange-300': { badgeTextColor: '#fdba74' }
+'.badge-text-orange-400': { badgeTextColor: '#fb923c' }
+'.badge-text-orange-500': { badgeTextColor: '#f97316' }
+'.badge-text-orange-600': { badgeTextColor: '#ea580c' }
+'.badge-text-orange-700': { badgeTextColor: '#c2410c' }
+'.badge-text-orange-800': { badgeTextColor: '#9a3412' }
+'.badge-text-orange-900': { badgeTextColor: '#7c2d12' }
+'.badge-text-orange-950': { badgeTextColor: '#431407' }
+'.badge-text-amber-50': { badgeTextColor: '#fffbeb' }
+'.badge-text-amber-100': { badgeTextColor: '#fef3c7' }
+'.badge-text-amber-200': { badgeTextColor: '#fde68a' }
+'.badge-text-amber-300': { badgeTextColor: '#fcd34d' }
+'.badge-text-amber-400': { badgeTextColor: '#fbbf24' }
+'.badge-text-amber-500': { badgeTextColor: '#f59e0b' }
+'.badge-text-amber-600': { badgeTextColor: '#d97706' }
+'.badge-text-amber-700': { badgeTextColor: '#b45309' }
+'.badge-text-amber-800': { badgeTextColor: '#92400e' }
+'.badge-text-amber-900': { badgeTextColor: '#78350f' }
+'.badge-text-amber-950': { badgeTextColor: '#451a03' }
+'.badge-text-yellow-50': { badgeTextColor: '#fefce8' }
+'.badge-text-yellow-100': { badgeTextColor: '#fef9c3' }
+'.badge-text-yellow-200': { badgeTextColor: '#fef08a' }
+'.badge-text-yellow-300': { badgeTextColor: '#fde047' }
+'.badge-text-yellow-400': { badgeTextColor: '#facc15' }
+'.badge-text-yellow-500': { badgeTextColor: '#eab308' }
+'.badge-text-yellow-600': { badgeTextColor: '#ca8a04' }
+'.badge-text-yellow-700': { badgeTextColor: '#a16207' }
+'.badge-text-yellow-800': { badgeTextColor: '#854d0e' }
+'.badge-text-yellow-900': { badgeTextColor: '#713f12' }
+'.badge-text-yellow-950': { badgeTextColor: '#422006' }
+'.badge-text-lime-50': { badgeTextColor: '#f7fee7' }
+'.badge-text-lime-100': { badgeTextColor: '#ecfccb' }
+'.badge-text-lime-200': { badgeTextColor: '#d9f99d' }
+'.badge-text-lime-300': { badgeTextColor: '#bef264' }
+'.badge-text-lime-400': { badgeTextColor: '#a3e635' }
+'.badge-text-lime-500': { badgeTextColor: '#84cc16' }
+'.badge-text-lime-600': { badgeTextColor: '#65a30d' }
+'.badge-text-lime-700': { badgeTextColor: '#4d7c0f' }
+'.badge-text-lime-800': { badgeTextColor: '#3f6212' }
+'.badge-text-lime-900': { badgeTextColor: '#365314' }
+'.badge-text-lime-950': { badgeTextColor: '#1a2e05' }
+'.badge-text-green-50': { badgeTextColor: '#f0fdf4' }
+'.badge-text-green-100': { badgeTextColor: '#dcfce7' }
+'.badge-text-green-200': { badgeTextColor: '#bbf7d0' }
+'.badge-text-green-300': { badgeTextColor: '#86efac' }
+'.badge-text-green-400': { badgeTextColor: '#4ade80' }
+'.badge-text-green-500': { badgeTextColor: '#22c55e' }
+'.badge-text-green-600': { badgeTextColor: '#16a34a' }
+'.badge-text-green-700': { badgeTextColor: '#15803d' }
+'.badge-text-green-800': { badgeTextColor: '#166534' }
+'.badge-text-green-900': { badgeTextColor: '#14532d' }
+'.badge-text-green-950': { badgeTextColor: '#052e16' }
+'.badge-text-emerald-50': { badgeTextColor: '#ecfdf5' }
+'.badge-text-emerald-100': { badgeTextColor: '#d1fae5' }
+'.badge-text-emerald-200': { badgeTextColor: '#a7f3d0' }
+'.badge-text-emerald-300': { badgeTextColor: '#6ee7b7' }
+'.badge-text-emerald-400': { badgeTextColor: '#34d399' }
+'.badge-text-emerald-500': { badgeTextColor: '#10b981' }
+'.badge-text-emerald-600': { badgeTextColor: '#059669' }
+'.badge-text-emerald-700': { badgeTextColor: '#047857' }
+'.badge-text-emerald-800': { badgeTextColor: '#065f46' }
+'.badge-text-emerald-900': { badgeTextColor: '#064e3b' }
+'.badge-text-emerald-950': { badgeTextColor: '#022c22' }
+'.badge-text-teal-50': { badgeTextColor: '#f0fdfa' }
+'.badge-text-teal-100': { badgeTextColor: '#ccfbf1' }
+'.badge-text-teal-200': { badgeTextColor: '#99f6e4' }
+'.badge-text-teal-300': { badgeTextColor: '#5eead4' }
+'.badge-text-teal-400': { badgeTextColor: '#2dd4bf' }
+'.badge-text-teal-500': { badgeTextColor: '#14b8a6' }
+'.badge-text-teal-600': { badgeTextColor: '#0d9488' }
+'.badge-text-teal-700': { badgeTextColor: '#0f766e' }
+'.badge-text-teal-800': { badgeTextColor: '#115e59' }
+'.badge-text-teal-900': { badgeTextColor: '#134e4a' }
+'.badge-text-teal-950': { badgeTextColor: '#042f2e' }
+'.badge-text-cyan-50': { badgeTextColor: '#ecfeff' }
+'.badge-text-cyan-100': { badgeTextColor: '#cffafe' }
+'.badge-text-cyan-200': { badgeTextColor: '#a5f3fc' }
+'.badge-text-cyan-300': { badgeTextColor: '#67e8f9' }
+'.badge-text-cyan-400': { badgeTextColor: '#22d3ee' }
+'.badge-text-cyan-500': { badgeTextColor: '#06b6d4' }
+'.badge-text-cyan-600': { badgeTextColor: '#0891b2' }
+'.badge-text-cyan-700': { badgeTextColor: '#0e7490' }
+'.badge-text-cyan-800': { badgeTextColor: '#155e75' }
+'.badge-text-cyan-900': { badgeTextColor: '#164e63' }
+'.badge-text-cyan-950': { badgeTextColor: '#083344' }
+'.badge-text-sky-50': { badgeTextColor: '#f0f9ff' }
+'.badge-text-sky-100': { badgeTextColor: '#e0f2fe' }
+'.badge-text-sky-200': { badgeTextColor: '#bae6fd' }
+'.badge-text-sky-300': { badgeTextColor: '#7dd3fc' }
+'.badge-text-sky-400': { badgeTextColor: '#38bdf8' }
+'.badge-text-sky-500': { badgeTextColor: '#0ea5e9' }
+'.badge-text-sky-600': { badgeTextColor: '#0284c7' }
+'.badge-text-sky-700': { badgeTextColor: '#0369a1' }
+'.badge-text-sky-800': { badgeTextColor: '#075985' }
+'.badge-text-sky-900': { badgeTextColor: '#0c4a6e' }
+'.badge-text-sky-950': { badgeTextColor: '#082f49' }
+'.badge-text-blue-50': { badgeTextColor: '#eff6ff' }
+'.badge-text-blue-100': { badgeTextColor: '#dbeafe' }
+'.badge-text-blue-200': { badgeTextColor: '#bfdbfe' }
+'.badge-text-blue-300': { badgeTextColor: '#93c5fd' }
+'.badge-text-blue-400': { badgeTextColor: '#60a5fa' }
+'.badge-text-blue-500': { badgeTextColor: '#3b82f6' }
+'.badge-text-blue-600': { badgeTextColor: '#2563eb' }
+'.badge-text-blue-700': { badgeTextColor: '#1d4ed8' }
+'.badge-text-blue-800': { badgeTextColor: '#1e40af' }
+'.badge-text-blue-900': { badgeTextColor: '#1e3a8a' }
+'.badge-text-blue-950': { badgeTextColor: '#172554' }
+'.badge-text-indigo-50': { badgeTextColor: '#eef2ff' }
+'.badge-text-indigo-100': { badgeTextColor: '#e0e7ff' }
+'.badge-text-indigo-200': { badgeTextColor: '#c7d2fe' }
+'.badge-text-indigo-300': { badgeTextColor: '#a5b4fc' }
+'.badge-text-indigo-400': { badgeTextColor: '#818cf8' }
+'.badge-text-indigo-500': { badgeTextColor: '#6366f1' }
+'.badge-text-indigo-600': { badgeTextColor: '#4f46e5' }
+'.badge-text-indigo-700': { badgeTextColor: '#4338ca' }
+'.badge-text-indigo-800': { badgeTextColor: '#3730a3' }
+'.badge-text-indigo-900': { badgeTextColor: '#312e81' }
+'.badge-text-indigo-950': { badgeTextColor: '#1e1b4b' }
+'.badge-text-violet-50': { badgeTextColor: '#f5f3ff' }
+'.badge-text-violet-100': { badgeTextColor: '#ede9fe' }
+'.badge-text-violet-200': { badgeTextColor: '#ddd6fe' }
+'.badge-text-violet-300': { badgeTextColor: '#c4b5fd' }
+'.badge-text-violet-400': { badgeTextColor: '#a78bfa' }
+'.badge-text-violet-500': { badgeTextColor: '#8b5cf6' }
+'.badge-text-violet-600': { badgeTextColor: '#7c3aed' }
+'.badge-text-violet-700': { badgeTextColor: '#6d28d9' }
+'.badge-text-violet-800': { badgeTextColor: '#5b21b6' }
+'.badge-text-violet-900': { badgeTextColor: '#4c1d95' }
+'.badge-text-violet-950': { badgeTextColor: '#2e1065' }
+'.badge-text-purple-50': { badgeTextColor: '#faf5ff' }
+'.badge-text-purple-100': { badgeTextColor: '#f3e8ff' }
+'.badge-text-purple-200': { badgeTextColor: '#e9d5ff' }
+'.badge-text-purple-300': { badgeTextColor: '#d8b4fe' }
+'.badge-text-purple-400': { badgeTextColor: '#c084fc' }
+'.badge-text-purple-500': { badgeTextColor: '#a855f7' }
+'.badge-text-purple-600': { badgeTextColor: '#9333ea' }
+'.badge-text-purple-700': { badgeTextColor: '#7e22ce' }
+'.badge-text-purple-800': { badgeTextColor: '#6b21a8' }
+'.badge-text-purple-900': { badgeTextColor: '#581c87' }
+'.badge-text-purple-950': { badgeTextColor: '#3b0764' }
+'.badge-text-fuchsia-50': { badgeTextColor: '#fdf4ff' }
+'.badge-text-fuchsia-100': { badgeTextColor: '#fae8ff' }
+'.badge-text-fuchsia-200': { badgeTextColor: '#f5d0fe' }
+'.badge-text-fuchsia-300': { badgeTextColor: '#f0abfc' }
+'.badge-text-fuchsia-400': { badgeTextColor: '#e879f9' }
+'.badge-text-fuchsia-500': { badgeTextColor: '#d946ef' }
+'.badge-text-fuchsia-600': { badgeTextColor: '#c026d3' }
+'.badge-text-fuchsia-700': { badgeTextColor: '#a21caf' }
+'.badge-text-fuchsia-800': { badgeTextColor: '#86198f' }
+'.badge-text-fuchsia-900': { badgeTextColor: '#701a75' }
+'.badge-text-fuchsia-950': { badgeTextColor: '#4a044e' }
+'.badge-text-pink-50': { badgeTextColor: '#fdf2f8' }
+'.badge-text-pink-100': { badgeTextColor: '#fce7f3' }
+'.badge-text-pink-200': { badgeTextColor: '#fbcfe8' }
+'.badge-text-pink-300': { badgeTextColor: '#f9a8d4' }
+'.badge-text-pink-400': { badgeTextColor: '#f472b6' }
+'.badge-text-pink-500': { badgeTextColor: '#ec4899' }
+'.badge-text-pink-600': { badgeTextColor: '#db2777' }
+'.badge-text-pink-700': { badgeTextColor: '#be185d' }
+'.badge-text-pink-800': { badgeTextColor: '#9d174d' }
+'.badge-text-pink-900': { badgeTextColor: '#831843' }
+'.badge-text-pink-950': { badgeTextColor: '#500724' }
+'.badge-text-rose-50': { badgeTextColor: '#fff1f2' }
+'.badge-text-rose-100': { badgeTextColor: '#ffe4e6' }
+'.badge-text-rose-200': { badgeTextColor: '#fecdd3' }
+'.badge-text-rose-300': { badgeTextColor: '#fda4af' }
+'.badge-text-rose-400': { badgeTextColor: '#fb7185' }
+'.badge-text-rose-500': { badgeTextColor: '#f43f5e' }
+'.badge-text-rose-600': { badgeTextColor: '#e11d48' }
+'.badge-text-rose-700': { badgeTextColor: '#be123c' }
+'.badge-text-rose-800': { badgeTextColor: '#9f1239' }
+'.badge-text-rose-900': { badgeTextColor: '#881337' }
+'.badge-text-rose-950': { badgeTextColor: '#4c0519' }
 
 // Property: iconIsMask
 // Description: Defines if the icon property of the tab must be used as a mask.
@@ -21422,6 +21843,12 @@
 '.tabs-bg-rose-900': { tabsBackgroundColor: '#881337' }
 '.tabs-bg-rose-950': { tabsBackgroundColor: '#4c0519' }
 
+// Property: tabMode
+// Description: Property defining which tabMode is used for the TabGroup.
+// Component(s): Ti.UI.TabGroup
+'.tab-mode-fixed[platform=android]': { tabMode: Ti.UI.Android.TAB_MODE_FIXED }
+'.tab-mode-scrollable[platform=android]': { tabMode: Ti.UI.Android.TAB_MODE_SCROLLABLE }
+
 // Property: tabsTranslucent
 // Description: A Boolean value that indicates whether the tab bar is translucent.
 // Component(s): Ti.UI.TabGroup
@@ -21845,6 +22272,12 @@
 // Component(s): Ti.UI.TableView
 '.search-hidden': { searchHidden: true }
 '.search-hidden-false': { searchHidden: false }
+
+// Property: filterAlwaysInclude
+// Description: This row will always be visible when you filter your content.
+// Component(s): Ti.UI.TableViewRow
+'.filter-always-include': { filterAlwaysInclude: true }
+'.filter-always-include-false': { filterAlwaysInclude: false }
 
 // Property: hasCheck
 // Description: Determines whether a system-provided checkmark is displayed on the right-hand side of the row.

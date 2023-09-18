@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "12.1.2.GA",
+	"sdkVersion": "12.2.0.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -664,6 +664,18 @@
 		},
 		"API_LEVEL": {
 			"description": "Android API level identifier of the Operating System.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"ASPECT_RATIO_16_9": {
+			"description": "Aspect ratio 16:9",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"ASPECT_RATIO_4_3": {
+			"description": "Aspect ratio 4:3",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -1354,12 +1366,6 @@
 		},
 		"AUDIO_STATE_WAITING_FOR_DATA": {
 			"description": "Player is waiting for audio data from the network.",
-			"type": "Number",
-			"readOnly": false,
-			"values": []
-		},
-		"AUDIO_STATE_WAITING_FOR_QUEUE": {
-			"description": "Player is waiting for audio data to fill the queue.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -5219,6 +5225,18 @@
 			"readOnly": false,
 			"values": []
 		},
+		"QUALITY_FHD": {
+			"description": "Media type constant for FHD video recording.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"QUALITY_HD": {
+			"description": "Media type constant for HD video recording.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
 		"QUALITY_HIGH": {
 			"description": "Media type constant for high-quality video recording.",
 			"type": "Number",
@@ -5245,6 +5263,18 @@
 		},
 		"QUALITY_MEDIUM": {
 			"description": "Media type constant for medium-quality video recording.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"QUALITY_SD": {
+			"description": "Media type constant for SD video recording.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"QUALITY_UHD": {
+			"description": "Media type constant for UHD video recording.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -6329,6 +6359,18 @@
 			"readOnly": false,
 			"values": []
 		},
+		"TAB_MODE_FIXED": {
+			"description": "Set the TabGroup tab mode to fixed (default).",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
+		"TAB_MODE_SCROLLABLE": {
+			"description": "Set the TabGroup tab mode to scrollable.",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
 		"TEXT_ALIGNMENT_CENTER": {
 			"description": "Center align text.",
 			"type": "Number",
@@ -7215,6 +7257,24 @@
 			"description": "alias for <code>COPYFILE_EXCL</code>?",
 			"type": "Number",
 			"readOnly": true,
+			"values": []
+		},
+		"VERTICAL_ALIGN_BOTTOM": {
+			"description": "Vertical align center",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"VERTICAL_ALIGN_CENTER": {
+			"description": "Vertical align center",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"VERTICAL_ALIGN_TOP": {
+			"description": "Vertical align center",
+			"type": "Number",
+			"readOnly": false,
 			"values": []
 		},
 		"VIDEO_CONTROL_DEFAULT": {
@@ -8660,6 +8720,15 @@
 			"readOnly": false,
 			"values": []
 		},
+		"aspectRatio": {
+			"description": "Aspect ratio of the image.",
+			"type": "Number",
+			"readOnly": false,
+			"values": [
+				"Ti.Media.ASPECT_RATIO_4_3",
+				"Ti.Media.ASPECT_RATIO_16_9"
+			]
+		},
 		"assetURL": {
 			"description": "A URL pointing to the media item.",
 			"type": "String",
@@ -9365,8 +9434,39 @@
 			"readOnly": true,
 			"values": []
 		},
-		"badgeColor": {
+		"badgeBackgroundColor": {
 			"description": "If this item displays a badge, this color will be used for the badge's background.\nIf set to null, the default background color will be used instead.",
+			"type": "String",
+			"readOnly": true,
+			"values": [
+				"'transparent'",
+				"'aqua'",
+				"'black'",
+				"'blue'",
+				"'brown'",
+				"'cyan'",
+				"'darkgray'",
+				"'fuchsia'",
+				"'gray'",
+				"'green'",
+				"'lightgray'",
+				"'lime'",
+				"'magenta'",
+				"'maroon'",
+				"'navy'",
+				"'olive'",
+				"'orange'",
+				"'pink'",
+				"'purple'",
+				"'red'",
+				"'silver'",
+				"'teal'",
+				"'white'",
+				"'yellow'"
+			]
+		},
+		"badgeColor": {
+			"description": "If this item displays a badge, this color will be used for the badge's background.\nIf set to null, the default background color will be used instead.\n<strong>Deprecated since 12.2.0. Use <a href=\"Titanium.UI.Tab.badgeBackgroundColor\">Titanium.UI.Tab.badgeBackgroundColor</a> instead.</strong>",
 			"type": "String",
 			"readOnly": true,
 			"values": [
@@ -9404,6 +9504,37 @@
 				"Ti.App.iOS.USER_NOTIFICATION_SETTING_NOT_SUPPORTED",
 				"Ti.App.iOS.USER_NOTIFICATION_SETTING_ENABLED",
 				"Ti.App.iOS.USER_NOTIFICATION_SETTING_DISABLED"
+			]
+		},
+		"badgeTextColor": {
+			"description": "Set the text color of the badge.",
+			"type": "String",
+			"readOnly": true,
+			"values": [
+				"'transparent'",
+				"'aqua'",
+				"'black'",
+				"'blue'",
+				"'brown'",
+				"'cyan'",
+				"'darkgray'",
+				"'fuchsia'",
+				"'gray'",
+				"'green'",
+				"'lightgray'",
+				"'lime'",
+				"'magenta'",
+				"'maroon'",
+				"'navy'",
+				"'olive'",
+				"'orange'",
+				"'pink'",
+				"'purple'",
+				"'red'",
+				"'silver'",
+				"'teal'",
+				"'white'",
+				"'yellow'"
 			]
 		},
 		"barColor": {
@@ -9873,6 +10004,12 @@
 				"Ti.Media.CAMERA_FLASH_ON"
 			]
 		},
+		"cameraOutputSizes": {
+			"description": "Returns an object of possible <code>targetImageWidth</code> and <code>targetImageHeight</code> values. The output\ncontains a <code>cameraType</code> (front or back) and object of width/height values. You have to set\n<code>targetImageWidth</code> and <code>targetImageHeight</code> if you want to change the camera image output size.\nNote: depeneding on your phone and camera the values won't be used or can be different.",
+			"type": "Object",
+			"readOnly": false,
+			"values": []
+		},
 		"canCancelEvents": {
 			"description": "Determines whether this scroll view can cancel subview touches in order to scroll instead.",
 			"type": "Boolean",
@@ -10073,6 +10210,12 @@
 		"centerView": {
 			"description": "Get or set the center view",
 			"type": "Titanium.UI.View",
+			"readOnly": true,
+			"values": []
+		},
+		"certificate": {
+			"description": "The FairPlay Streaming public certificate to authenticate the content key request.",
+			"type": "Titanium.Blob",
 			"readOnly": true,
 			"values": []
 		},
@@ -11716,6 +11859,12 @@
 			"readOnly": true,
 			"values": []
 		},
+		"fairPlayConfiguration": {
+			"description": "Handle DRM-encrypted video assets using the <a href=\"https://developer.apple.com/streaming/fps/\">Apple FairPlay Streaming API</a>.",
+			"type": "FairPlayConfiguration",
+			"readOnly": true,
+			"values": []
+		},
 		"fastScroll": {
 			"description": "Sets the fastScroll mode on Android ListViews.",
 			"type": "Boolean",
@@ -11760,6 +11909,15 @@
 			"type": "Number",
 			"readOnly": true,
 			"values": []
+		},
+		"filterAlwaysInclude": {
+			"description": "This row will always be visible when you filter your content.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
 		},
 		"filterAnchored": {
 			"description": "Determines whether the search is limited to the start of the string",
@@ -12018,6 +12176,15 @@
 			"description": "Determines if the 3D-Touch capability &quot;Force Touch&quot; is supported (<code>true</code>) or not (<code>false</code>) by the device.",
 			"type": "Boolean",
 			"readOnly": false,
+			"values": [
+				"true",
+				"false"
+			]
+		},
+		"forceUpdates": {
+			"description": "Optimize the <code>continuousUpdate</code> scrolling event.",
+			"type": "Boolean",
+			"readOnly": true,
 			"values": [
 				"true",
 				"false"
@@ -13898,6 +14065,12 @@
 			"readOnly": true,
 			"values": []
 		},
+		"licenseURL": {
+			"description": "The FairPlay Streaming license URL to handle the server-side authentication flow.",
+			"type": "String",
+			"readOnly": true,
+			"values": []
+		},
 		"lifecycleContainer": {
 			"description": "The Window or TabGroup whose Activity lifecycle should be triggered on the proxy.",
 			"type": "Titanium.UI.Window",
@@ -14453,6 +14626,12 @@
 			"readOnly": true,
 			"values": []
 		},
+		"maxZoomLevel": {
+			"description": "Returns the max zoom level of the camera.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
 		"maxZoomScale": {
 			"description": "Maximum scaling factor of the scrollable region and its content.",
 			"type": "Number",
@@ -14648,6 +14827,12 @@
 			"description": "Limits the frequency of location updates to no more than one per <code>minUpdateTime</code> seconds.",
 			"type": "Number",
 			"readOnly": true,
+			"values": []
+		},
+		"minZoomLevel": {
+			"description": "Returns the min zoom level of the camera.",
+			"type": "Number",
+			"readOnly": false,
 			"values": []
 		},
 		"minZoomScale": {
@@ -15361,6 +15546,12 @@
 				"true",
 				"false"
 			]
+		},
+		"open": {
+			"description": "Function to call when the camera is shown",
+			"type": "Function",
+			"readOnly": true,
+			"values": []
 		},
 		"operator": {
 			"description": "",
@@ -16412,7 +16603,7 @@
 			"values": []
 		},
 		"recording": {
-			"description": "Indicates if the audio recorder is recording.",
+			"description": "",
 			"type": "Boolean",
 			"readOnly": false,
 			"values": [
@@ -16911,19 +17102,19 @@
 			"values": []
 		},
 		"rotation": {
-			"description": "Clockwise 2D rotation of the view in degrees.",
+			"description": "",
 			"type": "Number",
 			"readOnly": true,
 			"values": []
 		},
 		"rotationX": {
-			"description": "Clockwise rotation of the view in degrees (x-axis).",
+			"description": "",
 			"type": "Number",
 			"readOnly": true,
 			"values": []
 		},
 		"rotationY": {
-			"description": "Clockwise rotation of the view in degrees (y-axis).",
+			"description": "",
 			"type": "Number",
 			"readOnly": true,
 			"values": []
@@ -17030,8 +17221,10 @@
 		"scalingMode": {
 			"description": "",
 			"type": "Number",
-			"readOnly": true,
+			"readOnly": false,
 			"values": [
+				"Ti.Media.IMAGE_SCALING_ASPECT_FIT",
+				"Ti.Media.IMAGE_SCALING_ASPECT_FILL",
 				"Ti.Media.VIDEO_SCALING_ASPECT_FILL|deprecated",
 				"Ti.Media.VIDEO_SCALING_ASPECT_FIT|deprecated",
 				"Ti.Media.VIDEO_SCALING_MODE_FILL|deprecated",
@@ -17041,9 +17234,7 @@
 				"Ti.Media.VIDEO_SCALING_RESIZE_ASPECT_FILL",
 				"Ti.Media.IMAGE_SCALING_AUTO",
 				"Ti.Media.IMAGE_SCALING_NONE",
-				"Ti.Media.IMAGE_SCALING_FILL",
-				"Ti.Media.IMAGE_SCALING_ASPECT_FILL",
-				"Ti.Media.IMAGE_SCALING_ASPECT_FIT"
+				"Ti.Media.IMAGE_SCALING_FILL"
 			]
 		},
 		"scrollIndicatorStyle": {
@@ -18035,7 +18226,6 @@
 				"Ti.Media.AUDIO_STATE_STOPPED",
 				"Ti.Media.AUDIO_STATE_STOPPING",
 				"Ti.Media.AUDIO_STATE_WAITING_FOR_DATA",
-				"Ti.Media.AUDIO_STATE_WAITING_FOR_QUEUE",
 				"Ti.Network.Socket.INITIALIZED",
 				"Ti.Network.Socket.CONNECTED",
 				"Ti.Network.Socket.LISTENING",
@@ -18507,6 +18697,15 @@
 				"false"
 			]
 		},
+		"tabMode": {
+			"description": "Property defining which tabMode is used for the TabGroup.",
+			"type": "Number",
+			"readOnly": true,
+			"values": [
+				"Ti.UI.Android.TAB_MODE_FIXED",
+				"Ti.UI.Android.TAB_MODE_SCROLLABLE"
+			]
+		},
 		"tableSeparatorInsets": {
 			"description": "",
 			"type": "HorizontalInsets",
@@ -18643,6 +18842,18 @@
 			"description": "Retrieve the target of this processing instruction. XML defines this as being the first token following the markup that begins the processing instruction.",
 			"type": "String",
 			"readOnly": false,
+			"values": []
+		},
+		"targetImageHeight": {
+			"description": "Maximum height of the saved image. Depending on your phone and your value this might not be\nexactly the value you specify. Check <code>Ti.Media.cameraOutputSizes</code> first.",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
+		"targetImageWidth": {
+			"description": "Maximum width of the saved image. Depending on your phone and your value this might not be\nexactly the value you specify. Check <code>Ti.Media.cameraOutputSizes</code> first.",
+			"type": "Number",
+			"readOnly": true,
 			"values": []
 		},
 		"tempDirectory": {
@@ -19098,6 +19309,15 @@
 			"readOnly": true,
 			"values": []
 		},
+		"torch": {
+			"description": "Enable or disable the camera torch.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
+		},
 		"totalBitRate": {
 			"description": "The total bit rate (audio and video combined) of the media.",
 			"type": "Number",
@@ -19486,6 +19706,15 @@
 			"readOnly": true,
 			"values": []
 		},
+		"useCameraX": {
+			"description": "To use the new CameraX classes for &quot;camera with overlay&quot; set <code>useCameraX</code> to <code>true</code>",
+			"type": "Boolean",
+			"readOnly": false,
+			"values": [
+				"true",
+				"false"
+			]
+		},
 		"useCompatPadding": {
 			"description": "Add padding on API level 21 and above to have the same measurements with previous versions.",
 			"type": "Boolean",
@@ -19624,8 +19853,11 @@
 		"verticalAlign": {
 			"description": "",
 			"type": "Number",
-			"readOnly": true,
+			"readOnly": false,
 			"values": [
+				"Ti.Media.VERTICAL_ALIGN_CENTER",
+				"Ti.Media.VERTICAL_ALIGN_TOP",
+				"Ti.Media.VERTICAL_ALIGN_BOTTOM",
 				"Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM",
 				"Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER",
 				"Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP"
@@ -19675,6 +19907,10 @@
 			"type": "Number",
 			"readOnly": true,
 			"values": [
+				"Ti.Media.QUALITY_SD",
+				"Ti.Media.QUALITY_HD",
+				"Ti.Media.QUALITY_FHD",
+				"Ti.Media.QUALITY_UHD",
 				"Ti.Media.QUALITY_HIGH",
 				"Ti.Media.QUALITY_LOW",
 				"Ti.Media.QUALITY_MEDIUM"
@@ -20032,8 +20268,17 @@
 			"readOnly": true,
 			"values": []
 		},
+		"zoomEnabled": {
+			"description": "Specifies if pinch to zoom is enabled or not.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
+		},
 		"zoomLevel": {
-			"description": "Manage the zoom-level of the current page.",
+			"description": "",
 			"type": "Number",
 			"readOnly": true,
 			"values": []
@@ -22725,7 +22970,8 @@
 				"width",
 				"uprightWidth",
 				"nativePath",
-				"size"
+				"size",
+				"rotation"
 			],
 			"events": []
 		},
@@ -24085,6 +24331,8 @@
 				"takePicture",
 				"startVideoCapture",
 				"stopVideoCapture",
+				"pauseVideoCapture",
+				"resumeVideoCapture",
 				"switchCamera",
 				"hasCameraPermissions",
 				"requestCameraPermissions",
@@ -24150,7 +24398,11 @@
 				"AUDIO_STATE_STOPPED",
 				"AUDIO_STATE_STOPPING",
 				"AUDIO_STATE_WAITING_FOR_DATA",
-				"AUDIO_STATE_WAITING_FOR_QUEUE",
+				"VERTICAL_ALIGN_CENTER",
+				"VERTICAL_ALIGN_TOP",
+				"VERTICAL_ALIGN_BOTTOM",
+				"ASPECT_RATIO_4_3",
+				"ASPECT_RATIO_16_9",
 				"CAMERA_FLASH_AUTO",
 				"CAMERA_FLASH_OFF",
 				"CAMERA_FLASH_ON",
@@ -24198,6 +24450,10 @@
 				"MUSIC_PLAYER_STATE_STOPPED",
 				"NO_CAMERA",
 				"NO_VIDEO",
+				"QUALITY_SD",
+				"QUALITY_HD",
+				"QUALITY_FHD",
+				"QUALITY_UHD",
 				"QUALITY_HIGH",
 				"QUALITY_LOW",
 				"QUALITY_MEDIUM",
@@ -24250,6 +24506,10 @@
 				"audioPlaying",
 				"audioSessionCategory",
 				"availableCameras",
+				"aspectRatio",
+				"scalingMode",
+				"verticalAlign",
+				"useCameraX",
 				"availableCameraMediaTypes",
 				"availablePhotoGalleryMediaTypes",
 				"availablePhotoMediaTypes",
@@ -24259,9 +24519,14 @@
 				"currentRoute",
 				"isCameraSupported",
 				"cameraAuthorization",
+				"cameraOutputSizes",
+				"maxZoomLevel",
+				"minZoomLevel",
 				"peakMicrophonePower",
 				"systemMusicPlayer",
-				"volume"
+				"volume",
+				"torch",
+				"zoomLevel"
 			],
 			"events": [
 				"cameraready",
@@ -24333,13 +24598,18 @@
 			"functions": [],
 			"properties": [
 				"success",
+				"open",
 				"error",
 				"cancel",
+				"recording",
 				"androidback",
 				"autohide",
 				"animated",
 				"saveToPhotoGallery",
 				"allowEditing",
+				"zoomEnabled",
+				"targetImageWidth",
+				"targetImageHeight",
 				"mediaTypes",
 				"videoMaximumDuration",
 				"videoQuality",
@@ -24398,6 +24668,15 @@
 				"cropRect",
 				"previewRect",
 				"livePhoto"
+			],
+			"events": []
+		},
+		"CameraOpen": {
+			"description": "Parameters of the open callback",
+			"functions": [],
+			"properties": [
+				"width",
+				"height"
 			],
 			"events": []
 		},
@@ -24476,6 +24755,15 @@
 			"properties": [
 				"inputs",
 				"outputs"
+			],
+			"events": []
+		},
+		"CameraRecordingCallback": {
+			"description": "Infos about the current video recording",
+			"functions": [],
+			"properties": [
+				"duration",
+				"size"
 			],
 			"events": []
 		},
@@ -24673,6 +24961,7 @@
 				"currentPlaybackTime",
 				"duration",
 				"endPlaybackTime",
+				"fairPlayConfiguration",
 				"fullscreen",
 				"initialPlaybackTime",
 				"loadState",
@@ -24735,6 +25024,15 @@
 			"properties": [
 				"width",
 				"height"
+			],
+			"events": []
+		},
+		"FairPlayConfiguration": {
+			"description": "An object representing a FairPlay Streaming configuration.",
+			"functions": [],
+			"properties": [
+				"licenseURL",
+				"certificate"
 			],
 			"events": []
 		},
@@ -25038,6 +25336,7 @@
 				"lifecycleContainer",
 				"host",
 				"port",
+				"secure",
 				"listenQueueSize",
 				"timeout",
 				"connected",
@@ -25605,6 +25904,8 @@
 				"TRANSITION_NONE",
 				"TABS_STYLE_DEFAULT",
 				"TABS_STYLE_BOTTOM_NAVIGATION",
+				"TAB_MODE_FIXED",
+				"TAB_MODE_SCROLLABLE",
 				"SCROLL_FLAG_ENTER_ALWAYS",
 				"SCROLL_FLAG_ENTER_ALWAYS_COLLAPSED",
 				"SCROLL_FLAG_EXIT_UNTIL_COLLAPSED",
@@ -26177,6 +26478,8 @@
 				"dampingRatio",
 				"delay",
 				"duration",
+				"rotationY",
+				"rotationX",
 				"elevation",
 				"height",
 				"left",
@@ -27253,6 +27556,7 @@
 				"searchText",
 				"caseInsensitiveSearch",
 				"continuousUpdate",
+				"forceUpdates",
 				"keepSectionsInSearch",
 				"keyboardDismissMode",
 				"sectionIndexTitles",
@@ -29151,6 +29455,8 @@
 				"activeIcon",
 				"badge",
 				"badgeColor",
+				"badgeBackgroundColor",
+				"badgeTextColor",
 				"icon",
 				"iconInsets",
 				"iconIsMask",
@@ -29338,6 +29644,7 @@
 				"shiftMode",
 				"style",
 				"tabsBackgroundColor",
+				"tabMode",
 				"tabsTintColor",
 				"tabsTranslucent",
 				"activeTintColor",
@@ -29612,6 +29919,7 @@
 				"scrollsToTop",
 				"search",
 				"dimBackgroundForSearch",
+				"keyboardDismissMode",
 				"showSearchBarInNavBar",
 				"searchAsChild",
 				"searchHidden",
@@ -29784,6 +30092,7 @@
 				"color",
 				"deleteButtonTitle",
 				"editable",
+				"filterAlwaysInclude",
 				"font",
 				"footer",
 				"footerTitle",
