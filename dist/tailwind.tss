@@ -9948,9 +9948,9 @@
 '.vertical-align-center': { verticalAlign: Ti.Media.VERTICAL_ALIGN_CENTER }
 '.vertical-align-top': { verticalAlign: Ti.Media.VERTICAL_ALIGN_TOP }
 '.vertical-align-bottom': { verticalAlign: Ti.Media.VERTICAL_ALIGN_BOTTOM }
-'.vertical-align-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
-'.vertical-align-center': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
-'.vertical-align-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
+'.vertical-align-text-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
+'.vertical-align-text-center': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
+'.vertical-align-text-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
 
 // Property: useCameraX
 // Description: To use the new CameraX classes for &quot;camera with overlay&quot; set useCameraX to true
@@ -23473,21 +23473,8 @@
 // Property: scalesPageToFit
 // Description: If true, scale contents to fit the web view.
 // Component(s): Ti.UI.WebView
-'.scales-page-to-fit-0': { scalesPageToFit: 0 }
-'.scales-page-to-fit-1': { scalesPageToFit: 0.01 }
-'.scales-page-to-fit-5': { scalesPageToFit: 0.05 }
-'.scales-page-to-fit-10': { scalesPageToFit: 0.10 }
-'.scales-page-to-fit-25': { scalesPageToFit: 0.25 }
-'.scales-page-to-fit-50': { scalesPageToFit: 0.5 }
-'.scales-page-to-fit-75': { scalesPageToFit: 0.75 }
-'.scales-page-to-fit-90': { scalesPageToFit: 0.9 }
-'.scales-page-to-fit-95': { scalesPageToFit: 0.95 }
-'.scales-page-to-fit-100': { scalesPageToFit: 1 }
-'.scales-page-to-fit-105': { scalesPageToFit: 1.05 }
-'.scales-page-to-fit-110': { scalesPageToFit: 1.1 }
-'.scales-page-to-fit-125': { scalesPageToFit: 1.25 }
-'.scales-page-to-fit-150': { scalesPageToFit: 1.5 }
-'.scales-page-to-fit-200': { scalesPageToFit: 2 }
+'.scales-page-to-fit': { scalesPageToFit: true }
+'.scales-page-to-fit-false': { scalesPageToFit: false }
 
 // Property: willHandleTouches
 // Description: Explicitly specifies if this web view handles touches.
