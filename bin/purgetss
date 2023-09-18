@@ -1,199 +1,199 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk');
-const program = require('caporal');
-const pkg = require('../package.json');
-const purgetss = require('../index.js');
-const updateNotifier = require('update-notifier');
+const chalk = require('chalk')
+const program = require('caporal')
+const pkg = require('../package.json')
+const purgetss = require('../index.js')
+const updateNotifier = require('update-notifier')
 
 // check if a new version of PurgeTSS is available and print an update notification
-const notifier = updateNotifier({ pkg });
+const notifier = updateNotifier({ pkg })
 if (notifier.update && notifier.update.latest !== pkg.version) {
-	notifier.notify({ defer: false, isGlobal: true });
+  notifier.notify({ defer: false, isGlobal: true })
 }
 
 program
-	.version(pkg.version)
-	.description(`${pkg.description}\n                     For more information, visit ${chalk.green('https://purgetss.com')}`)
-	.argument('[command]', 'See the list of available commands below')
-	.help(chalk.green(`Generate a clean ${chalk.yellow('app.tss')} file containing the classes from your XML files\nThe original classes from ${chalk.yellow('app.tss')} are backed up in ${chalk.yellow('_app.tss')}\nYou can create your own custom classes by editing ${chalk.yellow('./purgetss/config.js')}`))
-	.option('-d, --debug', 'Display execution time for each process')
-	.option('-a, --all', `Run these 3 commands: ${chalk.green('build')}, ${chalk.green('build-fonts')} and ${chalk.green('purgetss')}`)
-	.action((args, options, logger) => {
-		purgetss.purgeClasses(options);
-	});
+  .version(pkg.version)
+  .description(`${pkg.description}\n                     For more information, visit ${chalk.green('https://purgetss.com')}`)
+  .argument('[command]', 'See the list of available commands below')
+  .help(chalk.green(`Generate a clean ${chalk.yellow('app.tss')} file containing the classes from your XML files\nThe original classes from ${chalk.yellow('app.tss')} are backed up in ${chalk.yellow('_app.tss')}\nYou can create your own custom classes by editing ${chalk.yellow('./purgetss/config.js')}`))
+  .option('-d, --debug', 'Display execution time for each process')
+  .option('-a, --all', `Run these 3 commands: ${chalk.green('build')}, ${chalk.green('build-fonts')} and ${chalk.green('purgetss')}`)
+  .action((args, options, logger) => {
+    purgetss.purgeClasses(options)
+  })
 
 program
-	.command('init')
-	.alias('i')
-	.description(`Create a ${chalk.yellow('config.js')} file for your project`)
-	.help(`Create a minimal ${chalk.yellow('./purgetss/config.js')} file, allowing you to define customizations for new or existing classes`)
-	.action((args, options, logger) => {
-		purgetss.init(options);
-	});
+  .command('init')
+  .alias('i')
+  .description(`Create a ${chalk.yellow('config.js')} file for your project`)
+  .help(`Create a minimal ${chalk.yellow('./purgetss/config.js')} file, allowing you to define customizations for new or existing classes`)
+  .action((args, options, logger) => {
+    purgetss.init(options)
+  })
 
 program
-	.command('create')
-	.alias('c')
-	.description(`Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured`)
-	.help(`Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured. You’ll need to have ${chalk.yellow('app.idprefix')} and ${chalk.yellow('app.workspace')} already configured.`)
-	.option('-f, --force', 'Force create even if the project already exists')
-	.option('-t, --tailwind', `Install ${chalk.green('Tailwind CSS')} for Tailwind CSS Intellisense VS Code extension`)
-	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
-	.argument('<name>', 'The name of the project')
-	.action((args, options, logger) => {
-		purgetss.create(args, options);
-	});
+  .command('create')
+  .alias('c')
+  .description(`Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured`)
+  .help(`Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured. You’ll need to have ${chalk.yellow('app.idprefix')} and ${chalk.yellow('app.workspace')} already configured.`)
+  .option('-f, --force', 'Force create even if the project already exists')
+  .option('-t, --tailwind', `Install ${chalk.green('Tailwind CSS')} for Tailwind CSS Intellisense VS Code extension`)
+  .option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
+  .argument('<name>', 'The name of the project')
+  .action((args, options, logger) => {
+    purgetss.create(args, options)
+  })
 
 program
-	.command('build')
-	.alias('b')
-	.description(`Generate a new ${chalk.yellow('tailwind.tss')} file`)
-	.option('--glossary', 'Create a glossary folder with all generated classes')
-	.help(`Generate a ${chalk.yellow('tailwind.tss')} file based on the attributes defined in ${chalk.yellow('./purgetss/config.js')}\nIf you have installed FontAwesome Beta or FontAwesome Pro, it will also generate a custom ${chalk.yellow('fontawesome.tss')} file`)
-	.action((args, options, logger) => {
-		purgetss.build(options);
-	});
+  .command('build')
+  .alias('b')
+  .description(`Generate a new ${chalk.yellow('tailwind.tss')} file`)
+  .option('--glossary', 'Create a glossary folder with all generated classes')
+  .help(`Generate a ${chalk.yellow('tailwind.tss')} file based on the attributes defined in ${chalk.yellow('./purgetss/config.js')}\nIf you have installed FontAwesome Beta or FontAwesome Pro, it will also generate a custom ${chalk.yellow('fontawesome.tss')} file`)
+  .action((args, options, logger) => {
+    purgetss.build(options)
+  })
 
 program
-	.command('build-legacy')
-	.alias('bl')
-	.description(`Generate a Legacy ${chalk.yellow('tailwind.tss')} file`)
-	.help(`Generate a Legacy ${chalk.yellow('tailwind.tss')} file based on the attributes defined in ${chalk.yellow('./purgetss/config.js')}\nIf you have installed FontAwesome Beta or FontAwesome Pro, it will also generate a custom ${chalk.yellow('fontawesome.tss')} file`)
-	.action((args, options, logger) => {
-		purgetss.buildLegacy();
-	});
+  .command('build-legacy')
+  .alias('bl')
+  .description(`Generate a Legacy ${chalk.yellow('tailwind.tss')} file`)
+  .help(`Generate a Legacy ${chalk.yellow('tailwind.tss')} file based on the attributes defined in ${chalk.yellow('./purgetss/config.js')}\nIf you have installed FontAwesome Beta or FontAwesome Pro, it will also generate a custom ${chalk.yellow('fontawesome.tss')} file`)
+  .action((args, options, logger) => {
+    purgetss.buildLegacy()
+  })
 
 program
-	.command('shades')
-	.alias('s')
-	.argument('[hexcode]', 'The base hexcode value')
-	.argument('[name]', 'Name of the color')
-	.option('-n, --name', 'Specify the name of the color')
-	.option('-q, --quotes', `Keep double quotes in the ${chalk.yellow('config.js')} file`)
-	.option('-r, --random', 'Generate shades from a random color')
-	.option('-s, --single', 'Generate a single color definition')
-	.option('-t, --tailwind', `Log the generated shades with a ${chalk.yellow('tailwind.config.js')} compatible structure`)
-	.option('-l, --log', 'Log the generated shades instead of saving them')
-	.option('-j, --json', `Log a JSON compatible structure, which can be used in ${chalk.yellow('app/config.json')}`)
-	.description(`Color shades generator from a given hexcolor`)
-	.help(`Generate color shades from a given hexcolor to use in your project`)
-	.action((args, options, logger) => {
-		purgetss.shades(args, options);
-	});
+  .command('shades')
+  .alias('s')
+  .argument('[hexcode]', 'The base hexcode value')
+  .argument('[name]', 'Name of the color')
+  .option('-n, --name', 'Specify the name of the color')
+  .option('-q, --quotes', `Keep double quotes in the ${chalk.yellow('config.js')} file`)
+  .option('-r, --random', 'Generate shades from a random color')
+  .option('-s, --single', 'Generate a single color definition')
+  .option('-t, --tailwind', `Log the generated shades with a ${chalk.yellow('tailwind.config.js')} compatible structure`)
+  .option('-l, --log', 'Log the generated shades instead of saving them')
+  .option('-j, --json', `Log a JSON compatible structure, which can be used in ${chalk.yellow('app/config.json')}`)
+  .description('Color shades generator from a given hexcolor')
+  .help('Generate color shades from a given hexcolor to use in your project')
+  .action((args, options, logger) => {
+    purgetss.shades(args, options)
+  })
 
 program
-	.command('color-module')
-	.alias('cm')
-	.description(`Copy all colors from ${chalk.yellow('config.js')} to your ${chalk.yellow('lib')} folder`)
-	.help(`Copy all colors from ${chalk.yellow('./purgetss/config.js')} into a CommonJS module within your project's ${chalk.yellow('lib')} folder`)
-	.action((args, options, logger) => {
-		purgetss.colorModule();
-	});
+  .command('color-module')
+  .alias('cm')
+  .description(`Copy all colors from ${chalk.yellow('config.js')} to your ${chalk.yellow('lib')} folder`)
+  .help(`Copy all colors from ${chalk.yellow('./purgetss/config.js')} into a CommonJS module within your project's ${chalk.yellow('lib')} folder`)
+  .action((args, options, logger) => {
+    purgetss.colorModule()
+  })
 
 program
-	.command('watch')
-	.alias('w')
-	.description(`Automatically run ${chalk.green('PurgeTSS')} every time you compile your project`)
-	.help(`Automatically run ${chalk.green('PurgeTSS')} every time you compile your project\nEspecially helpful with ${chalk.green('LiveView')} as it purges your files with each change you make`)
-	.option('-o, --off', 'To turn off watch mode')
-	.option('-d, --delete', 'To completely delete the Auto-Purging hook')
-	.action((args, options, logger) => {
-		purgetss.watchMode(options);
-	});
+  .command('watch')
+  .alias('w')
+  .description(`Automatically run ${chalk.green('PurgeTSS')} every time you compile your project`)
+  .help(`Automatically run ${chalk.green('PurgeTSS')} every time you compile your project\nEspecially helpful with ${chalk.green('LiveView')} as it purges your files with each change you make`)
+  .option('-o, --off', 'To turn off watch mode')
+  .option('-d, --delete', 'To completely delete the Auto-Purging hook')
+  .action((args, options, logger) => {
+    purgetss.watchMode(options)
+  })
 
 program
-	.command('copy-fonts')
-	.alias('cf')
-	.description(`<deprecated>, use ${chalk.yellow('icon-library')} instead!`)
-	.help(`<deprecated>, use ${chalk.yellow('icon-library')} instead!`)
-	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
-	.option('-m, --module', `To also copy the corresponding CommonJS modules in ${chalk.yellow('./app/lib/')} folder`)
-	.option('-s, --styles', `Copy the corresponding ${chalk.yellow('.tss')} files into ${chalk.yellow('./purgetss/styles/')} folder`)
-	.action((args, options, logger) => {
-		purgetss.copyFonts(options);
-	});
+  .command('copy-fonts')
+  .alias('cf')
+  .description(`<deprecated>, use ${chalk.yellow('icon-library')} instead!`)
+  .help(`<deprecated>, use ${chalk.yellow('icon-library')} instead!`)
+  .option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
+  .option('-m, --module', `To also copy the corresponding CommonJS modules in ${chalk.yellow('./app/lib/')} folder`)
+  .option('-s, --styles', `Copy the corresponding ${chalk.yellow('.tss')} files into ${chalk.yellow('./purgetss/styles/')} folder`)
+  .action((args, options, logger) => {
+    purgetss.copyFonts(options)
+  })
 
 program
-	.command('icon-library')
-	.alias('il')
-	.description('Copy default icon font libraries to your project')
-	.help(`Copy Font Awesome, Material Icons, Material Symbols or Framework 7 icons to your project's ${chalk.yellow('./app/assets/fonts/')} folder`)
-	.option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
-	.option('-m, --module', `To also copy the corresponding CommonJS modules in ${chalk.yellow('./app/lib/')} folder`)
-	.option('-s, --styles', `Copy the corresponding ${chalk.yellow('.tss')} files into ${chalk.yellow('./purgetss/styles/')} folder`)
-	.action((args, options, logger) => {
-		purgetss.copyFonts(options);
-	});
+  .command('icon-library')
+  .alias('il')
+  .description('Copy default icon font libraries to your project')
+  .help(`Copy Font Awesome, Material Icons, Material Symbols or Framework 7 icons to your project's ${chalk.yellow('./app/assets/fonts/')} folder`)
+  .option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
+  .option('-m, --module', `To also copy the corresponding CommonJS modules in ${chalk.yellow('./app/lib/')} folder`)
+  .option('-s, --styles', `Copy the corresponding ${chalk.yellow('.tss')} files into ${chalk.yellow('./purgetss/styles/')} folder`)
+  .action((args, options, logger) => {
+    purgetss.copyFonts(options)
+  })
 
 program
-	.command('build-fonts')
-	.alias('bf')
-	.description(`Generate a ${chalk.yellow('fonts.tss')} file based on the font and css files located in ${chalk.yellow('./purgetss/fonts')}`)
-	.help(`Generate a ${chalk.yellow('./purgetss/styles/fonts.tss')} file based on the font and css files located in ${chalk.yellow('./purgetss/fonts')} folder`)
-	.option('-m, --module', `To also generate a CommonJS module in ${chalk.yellow('./app/lib/')} folder called ${chalk.yellow('purgetss-fonts.js')}`)
-	.action((args, options, logger) => {
-		purgetss.buildFonts(options);
-	});
+  .command('build-fonts')
+  .alias('bf')
+  .description(`Generate a ${chalk.yellow('fonts.tss')} file based on the font and css files located in ${chalk.yellow('./purgetss/fonts')}`)
+  .help(`Generate a ${chalk.yellow('./purgetss/styles/fonts.tss')} file based on the font and css files located in ${chalk.yellow('./purgetss/fonts')} folder`)
+  .option('-m, --module', `To also generate a CommonJS module in ${chalk.yellow('./app/lib/')} folder called ${chalk.yellow('purgetss-fonts.js')}`)
+  .action((args, options, logger) => {
+    purgetss.buildFonts(options)
+  })
 
 program
-	.command('module')
-	.alias('m')
-	.description(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('lib')} folder`)
-	.help(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('./app/lib/')} folder. This file contains the Animation module`)
-	.action((args, options, logger) => {
-		purgetss.copyModulesLibrary();
-	});
+  .command('module')
+  .alias('m')
+  .description(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('lib')} folder`)
+  .help(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('./app/lib/')} folder. This file contains the Animation module`)
+  .action((args, options, logger) => {
+    purgetss.copyModulesLibrary()
+  })
 
 program
-	.command('update')
-	.alias('u')
-	.description(`Update ${chalk.green('PurgeTSS')} to the latest version`)
-	.help(`Update ${chalk.green('PurgeTSS')} to the latest version\nWe constantly update ${chalk.green('PurgeTSS')} to add new features and bug fixes`)
-	.action((args, options, logger) => {
-		logger.info(`${purgetss.colores.purgeLabel} Updating ${chalk.green('PurgeTSS')} to the latest version...`);
+  .command('update')
+  .alias('u')
+  .description(`Update ${chalk.green('PurgeTSS')} to the latest version`)
+  .help(`Update ${chalk.green('PurgeTSS')} to the latest version\nWe constantly update ${chalk.green('PurgeTSS')} to add new features and bug fixes`)
+  .action((args, options, logger) => {
+    logger.info(`${purgetss.colores.purgeLabel} Updating ${chalk.green('PurgeTSS')} to the latest version...`)
 
-		const { exec } = require('child_process');
+    const { exec } = require('child_process')
 
-		exec('npm update -g purgetss', (error, stdout, stderr) => {
-			if (error) {
-				logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`);
-				return;
-			}
+    exec('npm update -g purgetss', (error, stdout, stderr) => {
+      if (error) {
+        logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`)
+        return
+      }
 
-			if (stderr) {
-				logger.info(`${purgetss.colores.purgeLabel} stderr: ${stderr}`);
-				return;
-			}
+      if (stderr) {
+        logger.info(`${purgetss.colores.purgeLabel} stderr: ${stderr}`)
+        return
+      }
 
-			logger.info(`${purgetss.colores.purgeLabel} Done!`);
-		});
-	});
-
-program
-	.command('sudo-update')
-	.alias('su')
-	.description(`Update ${chalk.green('PurgeTSS')} to the latest version using the ${chalk.yellow('sudo')} command`)
-	.help(`Update ${chalk.green('PurgeTSS')} to the latest version using the ${chalk.yellow('sudo')} command\nWe constantly update ${chalk.green('PurgeTSS')} to add new features and bug fixes`)
-	.action((args, options, logger) => {
-		logger.info(`${purgetss.colores.purgeLabel} Updating ${chalk.green('PurgeTSS')} to the latest version using sudo...`);
-
-		const { exec } = require('child_process');
-
-		exec('sudo npm update -g purgetss', (error, stdout, stderr) => {
-			if (error) {
-				logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`);
-				return;
-			}
-
-			if (stderr) {
-				logger.info(`${purgetss.colores.purgeLabel} stderr: ${stderr}`);
-				return;
-			}
-
-			logger.info(`${purgetss.colores.purgeLabel} Done!`);
-		});
-	});
+      logger.info(`${purgetss.colores.purgeLabel} Done!`)
+    })
+  })
 
 program
-	.parse(process.argv);
+  .command('sudo-update')
+  .alias('su')
+  .description(`Update ${chalk.green('PurgeTSS')} to the latest version using the ${chalk.yellow('sudo')} command`)
+  .help(`Update ${chalk.green('PurgeTSS')} to the latest version using the ${chalk.yellow('sudo')} command\nWe constantly update ${chalk.green('PurgeTSS')} to add new features and bug fixes`)
+  .action((args, options, logger) => {
+    logger.info(`${purgetss.colores.purgeLabel} Updating ${chalk.green('PurgeTSS')} to the latest version using sudo...`)
+
+    const { exec } = require('child_process')
+
+    exec('sudo npm update -g purgetss', (error, stdout, stderr) => {
+      if (error) {
+        logger.info(`${purgetss.colores.purgeLabel} error: ${error.message}`)
+        return
+      }
+
+      if (stderr) {
+        logger.info(`${purgetss.colores.purgeLabel} stderr: ${stderr}`)
+        return
+      }
+
+      logger.info(`${purgetss.colores.purgeLabel} Done!`)
+    })
+  })
+
+program
+  .parse(process.argv)
