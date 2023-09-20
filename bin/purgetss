@@ -14,7 +14,7 @@ if (notifier.update && notifier.update.latest !== pkg.version) {
 
 program
   .version(pkg.version)
-  .description(`${pkg.description}\n                     For more information, visit ${chalk.green('https://purgetss.com')}`)
+  .description(`${chalk.green(pkg.description)}\n                     For more information, visit ${chalk.green('https://purgetss.com')}`)
   .argument('[command]', 'See the list of available commands below')
   .help(chalk.green(`Generate a clean ${chalk.yellow('app.tss')} file containing the classes from your XML files\nThe original classes from ${chalk.yellow('app.tss')} are backed up in ${chalk.yellow('_app.tss')}\nYou can create your own custom classes by editing ${chalk.yellow('./purgetss/config.js')}`))
   .option('-d, --debug', 'Display execution time for each process')

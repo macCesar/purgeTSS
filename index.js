@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+/* eslint-disable no-useless-escape */
 /* eslint-disable space-before-function-paren */
 const fs = require('fs')
 const cwd = process.cwd()
@@ -415,7 +416,7 @@ exports.create = create
 function shades(args, options) {
   const chroma = require('chroma-js')
   const generateColorShades = require('./lib/color-shades/generateColorShades')
-  const referenceColorFamilies = require('./lib/color-shades/tailwind').filter((item) => {
+  const referenceColorFamilies = require('./lib/color-shades/tailwindColors').filter((item) => {
     return item.name !== 'warmGray' &&
       item.name !== 'trueGray' &&
       item.name !== 'gray' &&
@@ -463,6 +464,7 @@ function checkIfColorModule() {
 }
 
 function cleanDoubleQuotes(configFile, options) {
+  // eslint-disable-next-line no-control-regex
   const regexUnicode = /[^\u0000-\u00FF]/g
 
   if (options.quotes) return JSON.stringify(configFile, null, 2).replace(regexUnicode, match => `\\u${match.charCodeAt(0).toString(16)}`)
