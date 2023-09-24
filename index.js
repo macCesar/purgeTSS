@@ -415,14 +415,8 @@ exports.create = create
 // ! Command: shades
 function shades(args, options) {
   const chroma = require('chroma-js')
+  const referenceColorFamilies = require('./lib/color-shades/tailwindColors')
   const generateColorShades = require('./lib/color-shades/generateColorShades')
-  const referenceColorFamilies = require('./lib/color-shades/tailwindColors').filter((item) => {
-    return item.name !== 'warmGray' &&
-      item.name !== 'trueGray' &&
-      item.name !== 'gray' &&
-      item.name !== 'coolGray' &&
-      item.name !== 'blueGray'
-  })
 
   const colorFamily = (options.random || !args.hexcode) ? generateColorShades(chroma.random(), referenceColorFamilies) : generateColorShades(args.hexcode, referenceColorFamilies)
 
