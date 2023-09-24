@@ -429,8 +429,24 @@ function shades(args, options) {
 
   const silent = options.tailwind || options.json || options.log
   if (alloyProject(silent) && !silent) {
-    if (!configFile.theme.extend.colors) configFile.theme.extend.colors = {}
-    configFile.theme.extend.colors[colorObject.name] = colorObject.shades
+    if (options.override) {
+      if (!configFile.theme.colors) configFile.theme.colors = {}
+      configFile.theme.colors[colorObject.name] = colorObject.shades
+
+      if (configFile.theme.extend.colors) {
+        if (configFile.theme.extend.colors[colorObject.name]) delete configFile.theme.extend.colors[colorObject.name]
+        if (Object.keys(configFile.theme.extend.colors).length === 0) delete configFile.theme.extend.colors
+      }
+    } else {
+      if (!configFile.theme.extend.colors) configFile.theme.extend.colors = {}
+      configFile.theme.extend.colors[colorObject.name] = colorObject.shades
+
+      if (configFile.theme.colors) {
+        if (configFile.theme.colors[colorObject.name]) delete configFile.theme.colors[colorObject.name]
+        if (Object.keys(configFile.theme.colors).length === 0) delete configFile.theme.colors
+      }
+    }
+
     fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err })
     checkIfColorModule()
     logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)}) saved in`, chalk.yellow('config.js'))
