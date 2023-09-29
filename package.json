@@ -1,73 +1,73 @@
 {
-	"name": "purgetss",
-	"version": "6.2.34",
-	"description": "A package that simplifies mobile app creation for Titanium developers.",
-	"main": "index.js",
-	"bin": {
-		"purgetss": "bin/purgetss"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"scripts": {
-		"build": "npm run build:all",
-		"notifier": "node ./lib/test-function",
-		"build:tailwind": "node ./lib/build-tailwind",
-		"build:tailwind-legacy": "node ./lib/build-tailwind-legacy",
-		"build:fonts": "node ./lib/build-fonts-folder",
-		"build:fa": "node ./lib/build-fontawesome-free-tss",
-		"build:fa-js": "node ./lib/build-fontawesome-free-js",
-		"build:material": "node ./lib/build-material-icons-tss",
-		"build:material-js": "node ./lib/build-material-icons-js",
-		"build:symbols": "node ./lib/build-material-symbols-tss",
-		"build:symbols-js": "node ./lib/build-material-symbols-js",
-		"build:framework7": "node ./lib/build-framework7-icons-tss",
-		"build:framework7-js": "node ./lib/build-framework7-icons-js",
-		"build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:material && npm run build:material-js && npm run build:symbols && npm run build:symbols-js && npm run build:framework7 && npm run build:framework7-js && npm run build:fonts"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/macCesar/purgeTSS.git"
-	},
-	"keywords": [
-		"Appcelerator",
-		"Titanium",
-		"tailwind.tss",
-		"fontawesome.tss",
-		"cli"
-	],
-	"author": "César Estrada",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/macCesar/purgeTSS/issues"
-	},
-	"homepage": "https://github.com/macCesar/purgeTSS#readme",
-	"dependencies": {
-		"@fortawesome/fontawesome-free": "^6.4.2",
-		"caporal": "^1.4.0",
-		"chalk": "^4.1.2",
-		"chroma-js": "2.1.2",
-		"command-exists": "^1.2.9",
-		"fontname": "^1.0.1",
-		"framework7-icons": "^5.0.5",
-		"glob": "^7.2.0",
-		"inquirer": "^8.2.4",
-		"junk": "3.1.0",
-		"lodash": "^4.17.21",
-		"ntcjs": "^1.1.3",
-		"path": "^0.12.7",
-		"prompts": "^2.4.2",
-		"read-css": "^0.3.0",
-		"tailwindcss": "^3.3.3",
-		"traverse": "^0.6.7",
-		"update-notifier": "^5.1.0",
-		"uuid": "^9.0.1",
-		"xml-js": "^1.6.11"
-	},
-	"devDependencies": {
-		"eslint": "^8.49.0",
-		"eslint-config-standard": "^17.1.0",
-		"eslint-plugin-import": "^2.28.1",
-		"eslint-plugin-n": "^15.7.0"
-	}
+  "name": "purgetss",
+  "version": "6.2.34",
+  "description": "A package that simplifies mobile app creation for Titanium developers.",
+  "main": "index.js",
+  "bin": {
+    "purgetss": "bin/purgetss"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "npm run build:all",
+    "notifier": "node ./lib/test-function",
+    "build:tailwind": "node ./lib/build-tailwind",
+    "build:tailwind-legacy": "node ./lib/build-tailwind-legacy",
+    "build:fonts": "node ./lib/build-fonts-folder",
+    "build:fa": "node ./lib/build-fontawesome-free-tss",
+    "build:fa-js": "node ./lib/build-fontawesome-free-js",
+    "build:material": "node ./lib/build-material-icons-tss",
+    "build:material-js": "node ./lib/build-material-icons-js",
+    "build:symbols": "node ./lib/build-material-symbols-tss",
+    "build:symbols-js": "node ./lib/build-material-symbols-js",
+    "build:framework7": "node ./lib/build-framework7-icons-tss",
+    "build:framework7-js": "node ./lib/build-framework7-icons-js",
+    "build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:material && npm run build:material-js && npm run build:symbols && npm run build:symbols-js && npm run build:framework7 && npm run build:framework7-js && npm run build:fonts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macCesar/purgeTSS.git"
+  },
+  "keywords": [
+    "Appcelerator",
+    "Titanium",
+    "tailwind.tss",
+    "fontawesome.tss",
+    "cli"
+  ],
+  "author": "César Estrada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/macCesar/purgeTSS/issues"
+  },
+  "homepage": "https://github.com/macCesar/purgeTSS#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "caporal": "^1.4.0",
+    "chalk": "^4.1.2",
+    "chroma-js": "^2.4.2",
+    "command-exists": "^1.2.9",
+    "fontname": "^1.0.1",
+    "framework7-icons": "^5.0.5",
+    "glob": "^7.2.0",
+    "inquirer": "^8.2.4",
+    "junk": "3.1.0",
+    "lodash": "^4.17.21",
+    "ntcjs": "^1.1.3",
+    "path": "^0.12.7",
+    "prompts": "^2.4.2",
+    "read-css": "^0.3.0",
+    "tailwindcss": "^3.3.3",
+    "traverse": "^0.6.7",
+    "update-notifier": "^5.1.0",
+    "uuid": "^9.0.1",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-n": "^15.7.0"
+  }
 }
