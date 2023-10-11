@@ -2240,7 +2240,7 @@ function extractClasses(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::PurgeTSS:: Error processing: “${currentFile}”`)
+    throw chalk.red(`::PurgeTSS:: Error processing: “${currentFile}”\n`, error)
   }
 }
 
@@ -2253,7 +2253,7 @@ function extractClassesOnly(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::PurgeTSS:: Error processing: “${currentFile}”`)
+    throw chalk.red(`::PurgeTSS:: Error processing: “${currentFile}”\n`, error)
   }
 }
 
