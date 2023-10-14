@@ -1257,9 +1257,15 @@ function getUniqueClasses() {
 }
 
 function filterCharacters(uniqueClass) {
-  return isNaN(uniqueClass.charAt(0)) &&
+  if (uniqueClass.length === 1 && !/^[a-zA-Z_]/.test(uniqueClass)) {
+    return false
+  }
+
+  return uniqueClass !== '(' && isNaN(uniqueClass.charAt(0)) &&
     !uniqueClass.startsWith('--') &&
+    !uniqueClass.startsWith(',') &&
     !uniqueClass.startsWith('!') &&
+    !uniqueClass.startsWith('(') &&
     !uniqueClass.startsWith('[') &&
     !uniqueClass.startsWith('{') &&
     !uniqueClass.startsWith('/') &&
@@ -1267,12 +1273,12 @@ function filterCharacters(uniqueClass) {
     !uniqueClass.startsWith('#') &&
     !uniqueClass.startsWith('$') &&
     !uniqueClass.startsWith('Ti.') &&
-    !uniqueClass.startsWith(',') &&
+    !uniqueClass.includes('\\n') &&
+    !uniqueClass.includes('=') &&
     !uniqueClass.includes('http') &&
+    !uniqueClass.includes('L(') &&
     !uniqueClass.includes('www') &&
     // !uniqueClass.includes(')') &&
-    !uniqueClass.includes('=') &&
-    !uniqueClass.includes('L(') &&
     !uniqueClass.endsWith(',') &&
     !uniqueClass.endsWith('.') &&
     !uniqueClass.endsWith('/')
