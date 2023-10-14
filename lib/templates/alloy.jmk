@@ -1,2 +1,2 @@
 task('pre:compile', function(event, logger) {
-});
+})

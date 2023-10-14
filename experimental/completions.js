@@ -6,23 +6,22 @@ const _ = require('lodash')
 const path = require('path')
 const chalk = require('chalk')
 const colores = require('../lib/colores').colores
-const isInstalledGlobally = require('is-installed-globally')
 module.exports.colores = colores
 const purgeLabel = colores.purgeLabel
 
 const projectConfigJS = cwd + '/purgetss/config.js'
 
 const logger = {
-  info: function (...args) {
+  info: function(...args) {
     console.log(purgeLabel, args.join(' '))
   },
-  warn: function (...args) {
+  warn: function(...args) {
     console.log(purgeLabel, chalk.yellow(args.join(' ')))
   },
-  error: function (...args) {
+  error: function(...args) {
     console.log(purgeLabel, chalk.red(args.join(' ')))
   },
-  file: function (...args) {
+  file: function(...args) {
     console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!')
   }
 }
@@ -46,7 +45,7 @@ if (configOptions) {
 
 completions()
 
-function completions (message = 'file created!') {
+function completions(message = 'file created!') {
   const allValuesCombined = combineDefaultThemeWithConfigFile()
 
   if (fs.existsSync(projectConfigJS)) {
@@ -59,7 +58,7 @@ function completions (message = 'file created!') {
 }
 exports.completions = completions
 
-function combineDefaultThemeWithConfigFile () {
+function combineDefaultThemeWithConfigFile() {
   const defaultColors = require('tailwindcss/colors')
   const defaultTheme = require('tailwindcss/defaultTheme')
   const defaultThemeWidth = defaultTheme.width({ theme: () => (defaultTheme.spacing) })
@@ -130,7 +129,7 @@ function combineDefaultThemeWithConfigFile () {
   return mergeWithConfigFile(configThemeFile, base, configFile, defaultTheme)
 }
 
-function mergeWithConfigFile (configThemeFile, base, _configFile, defaultTheme) {
+function mergeWithConfigFile(configThemeFile, base, _configFile, defaultTheme) {
   const defaultBorderRadius = helpers.integersInHalf(helpers.removeFractions((_configFile.theme.spacing || _configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, ['full', 'auto', 'screen']))
 
   // ! Width, height and margin properties
@@ -454,7 +453,7 @@ function mergeWithConfigFile (configThemeFile, base, _configFile, defaultTheme) 
 }
 
 // ! Helper Functions
-function removeDeprecatedColors (theObject) {
+function removeDeprecatedColors(theObject) {
   delete theObject.blueGray
   delete theObject.coolGray
   delete theObject.current
@@ -464,7 +463,7 @@ function removeDeprecatedColors (theObject) {
   delete theObject.warmGray
 }
 
-function removeUnnecesaryValues (theObject) {
+function removeUnnecesaryValues(theObject) {
   delete theObject.width.fit
   delete theObject.width.max
   delete theObject.width.min
@@ -476,7 +475,7 @@ function removeUnnecesaryValues (theObject) {
   delete theObject.spacing.min
 }
 
-function fixPercentages (theObject) {
+function fixPercentages(theObject) {
   _.each(theObject, (value, key) => {
     if (value.toString().includes('.333333%')) {
       theObject[key] = value.replace('.333333%', '.333334%')
@@ -484,11 +483,11 @@ function fixPercentages (theObject) {
   })
 }
 
-function combineKeys (values, base, key) {
+function combineKeys(values, base, key) {
   return (values[key]) ? { ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] }
 }
 
-function createPurgeTi (configThemeFile) {
+function createPurgeTi(configThemeFile) {
   let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/template.tss'), 'utf8')
   tailwindStyles += fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8')
   tailwindStyles += (fs.existsSync(projectConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectConfigJS)}\n` : '// default config.js file\n'
@@ -496,7 +495,7 @@ function createPurgeTi (configThemeFile) {
   return tailwindStyles
 }
 
-function getProperties (tiCompletionTypesOnly) {
+function getProperties(tiCompletionTypesOnly) {
   const propertiesOnly = {}
   _.each(tiCompletionTypesOnly, (value, key) => {
     _.each(value.properties, property => {
@@ -515,7 +514,7 @@ function getProperties (tiCompletionTypesOnly) {
   return propertiesOnly
 }
 
-function processProperties (tiCompletionsFileProperties, configThemeFile) {
+function processProperties(tiCompletionsFileProperties, configThemeFile) {
   let heights = ''
   let widths = ''
   let margins = helpers.margin({ ...configThemeFile.margin })
@@ -624,17 +623,17 @@ function processProperties (tiCompletionsFileProperties, configThemeFile) {
   return generatedClasses
 }
 
-function getFileUpdatedDate (_path) {
+function getFileUpdatedDate(_path) {
   return fs.statSync(_path).mtime
 }
 
-function saveFile (file, data) {
+function saveFile(file, data) {
   fs.writeFileSync(file, data, err => {
     throw err
   })
 }
 
-function hasValidValues (key) {
+function hasValidValues(key) {
   key = key.toLowerCase()
   return !key.includes('_') &&
 		!key.includes('apiname') &&
@@ -661,7 +660,7 @@ function hasValidValues (key) {
 		!key.includes('value')
 }
 
-function validTypesOnly (property) {
+function validTypesOnly(property) {
   return tiCompletionsFile.properties[property].type === 'Boolean' ||
 		tiCompletionsFile.properties[property].type === 'Point' ||
 		tiCompletionsFile.properties[property].type === 'Number' ||
@@ -669,7 +668,7 @@ function validTypesOnly (property) {
 		tiCompletionsFile.properties[property].type === 'String'
 }
 
-function validType (data) {
+function validType(data) {
   return data.type === 'Boolean' ||
 		data.type === 'Point' ||
 		data.type === 'Number' ||
@@ -677,7 +676,7 @@ function validType (data) {
 		data.type === 'String'
 }
 
-function generateClasses (key, data) {
+function generateClasses(key, data) {
   let myClasses = ''
   const comments = processComments(key, data)
 
@@ -694,7 +693,7 @@ function generateClasses (key, data) {
   return false
 }
 
-function processComments (key, data) {
+function processComments(key, data) {
   let myClasses = `\n// Type: ${data.type}`
   myClasses += `\n// Property: ${key}`
   if (data.description) myClasses += `\n// Description: ${data.description.replace(/\n/g, ' ')}`
@@ -703,7 +702,7 @@ function processComments (key, data) {
   return myClasses
 }
 
-function generateCombinedClasses (key, data, values) {
+function generateCombinedClasses(key, data, values) {
   let myClasses = processComments(key, data)
 
   _.each(values, (value, _key) => {
@@ -721,7 +720,7 @@ function generateCombinedClasses (key, data, values) {
   return myClasses
 }
 
-function saveAutoTSS (key, classes) {
+function saveAutoTSS(key, classes) {
   if (fs.existsSync(projectConfigJS)) {
     saveFile(cwd + `/purgetss/tailwind-auto/${key}-auto.tss`, classes)
   } else {
@@ -729,15 +728,15 @@ function saveAutoTSS (key, classes) {
   }
 }
 
-function formatClass (key, value) {
+function formatClass(key, value) {
   return `'.${formatClassName(key, value)}': { ${key}: ${value} }\n`
 }
 
-function formatClassName (property, value) {
+function formatClassName(property, value) {
   return removeUneededVariables(camelCaseToDash(`${property}-${removeModuleName(value, property)}`))
 }
 
-function removeUneededVariables (property) {
+function removeUneededVariables(property) {
   return Array.from(new Set(property.split('-')))
     .join('-')
     .replace('-android', '')
@@ -764,11 +763,11 @@ function removeUneededVariables (property) {
     .replace(/--/g, '-')
 }
 
-function camelCaseToDash (str) {
+function camelCaseToDash(str) {
   return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
-function removeModuleName (value, property) {
+function removeModuleName(value, property) {
   return camelCaseToDash(value
     .replace(/^Ti.UI.iOS./, '')
     .replace(/^Ti.UI.iPad./, '')
@@ -785,7 +784,7 @@ function removeModuleName (value, property) {
     .replace(/\./g, '-'))
 }
 
-function makeSureFolderExists (folder) {
+function makeSureFolderExists(folder) {
   if (!fs.existsSync(folder)) {
     fs.mkdirSync(folder)
   }

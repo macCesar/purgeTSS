@@ -34,7 +34,7 @@ if (configOptions) {
   configOptions.widgets = configOptions.widgets ?? false
 }
 
-function autoBuildTailwindTSS (options = {}) {
+function autoBuildTailwindTSS(options = {}) {
   saveGlossary = options.glossary ?? false
   let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/template.tss'), 'utf8')
   tailwindStyles += fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8')
@@ -62,7 +62,7 @@ function autoBuildTailwindTSS (options = {}) {
 }
 exports.autoBuildTailwindTSS = autoBuildTailwindTSS
 
-function processCustomClasses () {
+function processCustomClasses() {
   let tailwindStyles = ''
 
   if (Object.keys(configFile.theme).length) {
@@ -79,7 +79,7 @@ function processCustomClasses () {
   return ''
 }
 
-function processTitaniumRules (_propertiesOnly) {
+function processTitaniumRules(_propertiesOnly) {
   const currentLegacyOption = helpers.globalOptions.legacy
   helpers.globalOptions.legacy = true
   let customRules = '\n// Ti Elements'
@@ -96,7 +96,7 @@ function processTitaniumRules (_propertiesOnly) {
   return ''
 }
 
-function processCompletionsClasses (_completionsWithBaseValues) {
+function processCompletionsClasses(_completionsWithBaseValues) {
   let processedClasses = ''
 
   _.each(_completionsWithBaseValues, (data, key) => {
@@ -110,7 +110,7 @@ function processCompletionsClasses (_completionsWithBaseValues) {
   return processedClasses
 }
 
-function generateGlossary (_key, _theClasses, _keyName = null) {
+function generateGlossary(_key, _theClasses, _keyName = null) {
   let baseDestinationFolder = ''
   if (!fs.existsSync(projectsConfigJS)) baseDestinationFolder = path.resolve(__dirname, '../dist/glossary/')
   else if (saveGlossary) baseDestinationFolder = cwd + '/purgetss/glossary/'
@@ -145,7 +145,7 @@ function generateGlossary (_key, _theClasses, _keyName = null) {
   return _theClasses
 }
 
-function setBaseValuesToProperties (_allProperties, _base) {
+function setBaseValuesToProperties(_allProperties, _base) {
   let allKeys = ''
   _.each(_allProperties, (data, key) => {
     const activeKey = findBaseKey(key, data)
@@ -156,7 +156,7 @@ function setBaseValuesToProperties (_allProperties, _base) {
   return _allProperties
 }
 
-function getTiUIComponents (_base) {
+function getTiUIComponents(_base) {
   const propertiesOnly = {}
   _.each(tiCompletionsFile.types, (value, key) => {
     if (key.includes('Ti.UI.') || key.includes('Ti.Android.')) {
@@ -177,7 +177,7 @@ function getTiUIComponents (_base) {
   return propertiesOnly
 }
 
-function processCompoundClasses ({ ..._base }) {
+function processCompoundClasses({ ..._base }) {
   let compoundClasses = ''
   const compoundTemplate = require('../lib/templates/tailwind/compoundTemplate.json')
 
@@ -247,7 +247,7 @@ function processCompoundClasses ({ ..._base }) {
   return compoundClasses
 }
 
-function findBaseKey (_key, _data) {
+function findBaseKey(_key, _data) {
   if (_key.includes('color') || _key.includes('Color')) {
     return 'colors'
   } else if (_key.includes('spacing') || _key.includes('Spacing')) {
@@ -277,7 +277,7 @@ function findBaseKey (_key, _data) {
   return _key
 }
 
-function combineDefaultThemeWithConfigFile () {
+function combineDefaultThemeWithConfigFile() {
   const defaultColors = require('tailwindcss/colors')
   const defaultTheme = require('tailwindcss/defaultTheme')
   const defaultThemeWidth = defaultTheme.width({ theme: () => (defaultTheme.spacing) })
@@ -385,13 +385,13 @@ function combineDefaultThemeWithConfigFile () {
   return base
 }
 
-function checkDeletePlugins () {
+function checkDeletePlugins() {
   const deletePlugins = configFile.plugins ?? configOptions.plugins
   return Array.isArray(deletePlugins) ? deletePlugins : Object.keys(deletePlugins).map(key => key)
 }
 
 // ! Helper Functions
-function removeDeprecatedColors (theObject) {
+function removeDeprecatedColors(theObject) {
   delete theObject.blueGray
   delete theObject.coolGray
   delete theObject.current
@@ -401,7 +401,7 @@ function removeDeprecatedColors (theObject) {
   delete theObject.warmGray
 }
 
-function removeUnnecesaryValues (theObject) {
+function removeUnnecesaryValues(theObject) {
   delete theObject.width.fit
   delete theObject.width.max
   delete theObject.width.min
@@ -413,13 +413,13 @@ function removeUnnecesaryValues (theObject) {
   delete theObject.spacing.min
 }
 
-function fixPercentages (theObject) {
+function fixPercentages(theObject) {
   _.each(theObject, (value, key) => {
     if (value.toString().includes('.333333%')) theObject[key] = value.replace('.333333%', '.333334%')
   })
 }
 
-function removePxFromDefaultTheme (theObject) {
+function removePxFromDefaultTheme(theObject) {
   _.each(theObject, (value, key) => {
     if (value.toString().includes('px')) theObject[key] = value.replace('px', '')
   })
@@ -427,17 +427,17 @@ function removePxFromDefaultTheme (theObject) {
   return theObject
 }
 
-function fixfontSize (theObject) {
+function fixfontSize(theObject) {
   _.each(theObject, value => {
     if (value.length > 1) value.pop()
   })
 }
 
-function combineKeys (values, base, key) {
+function combineKeys(values, base, key) {
   return (values[key]) ? { ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] }
 }
 
-function getPropertiesFromTiCompletionsFile () {
+function getPropertiesFromTiCompletionsFile() {
   const propertiesOnly = {}
 
   const properties = [
@@ -523,17 +523,17 @@ function getPropertiesFromTiCompletionsFile () {
   return propertiesOnly
 }
 
-function getFileUpdatedDate (_path) {
+function getFileUpdatedDate(_path) {
   return fs.statSync(_path).mtime
 }
 
-function saveFile (file, data) {
+function saveFile(file, data) {
   fs.writeFileSync(file, data, err => {
     throw err
   })
 }
 
-function validTypesOnly (property, key) {
+function validTypesOnly(property, key) {
   return key.includes('Ti.UI.') ||
     tiCompletionsFile.properties[property].type === 'Boolean' ||
     tiCompletionsFile.properties[property].type === 'Point' ||
@@ -542,7 +542,7 @@ function validTypesOnly (property, key) {
     tiCompletionsFile.properties[property].type === 'String'
 }
 
-function fixDefaultScale (values) {
+function fixDefaultScale(values) {
   _.each(values, (value, key) => {
     if (value.startsWith('.')) values[key] = '0' + value
   })
@@ -550,7 +550,7 @@ function fixDefaultScale (values) {
   return values
 }
 
-function processComments (key, data) {
+function processComments(key, data) {
   let myComments = ''
 
   myComments += `\n// Property: ${key}`
@@ -562,7 +562,7 @@ function processComments (key, data) {
   return myComments
 }
 
-function generateCombinedClasses (key, data) {
+function generateCombinedClasses(key, data) {
   let myClasses = ''
   const comments = processComments(key, data)
 
@@ -587,22 +587,22 @@ function generateCombinedClasses (key, data) {
   return false
 }
 
-function saveAutoTSS (key, classes) {
+function saveAutoTSS(key, classes) {
   if (fs.existsSync(projectsConfigJS) && saveGlossary) {
     makeSureFolderExists(cwd + '/purgetss/experimental/tailwind-classes/')
     saveFile(cwd + `/purgetss/experimental/tailwind-classes/${key}.tss`, classes)
   }
 }
 
-function formatClass (key, value) {
+function formatClass(key, value) {
   return `'.${formatClassName(key, value)}': { ${key}: ${value} }\n`
 }
 
-function formatClassName (property, value) {
+function formatClassName(property, value) {
   return setModifier(removeUneededVariablesFromPropertyName(camelCaseToDash(`${property}-${removeModuleName(value, property)}`)))
 }
 
-function removeUneededVariablesFromPropertyName (property) {
+function removeUneededVariablesFromPropertyName(property) {
   return Array.from(new Set(property.split('-')))
     .join('-')
     // .replace('-ti-platform-android', '')
@@ -638,7 +638,7 @@ function removeUneededVariablesFromPropertyName (property) {
     .replace(/--/g, '-')
 }
 
-function setModifier (_modifier) {
+function setModifier(_modifier) {
   if (_modifier.includes('-i-os')) {
     // some classes ended up with '-i-os' in their names after processing, this is to clear it.
     _modifier = _modifier.replace('-i-os', '') + '[platform=ios]'
@@ -660,19 +660,19 @@ function setModifier (_modifier) {
   return _modifier
 }
 
-function defaultModifier (modifier) {
+function defaultModifier(modifier) {
   return modifier === '' || modifier === null || modifier === 'global' || modifier === 'default' || modifier === 'DEFAULT'
 }
 
-function notDefaultRules (rule) {
+function notDefaultRules(rule) {
   return rule !== '' && rule !== null && rule !== 'global' && rule !== 'default' && rule !== 'DEFAULT' && rule !== 'ios' && rule !== 'android' && rule !== 'android' && rule !== 'handheld' && rule !== 'tablet' && !rule.startsWith('[if=')
 }
 
-function camelCaseToDash (str) {
+function camelCaseToDash(str) {
   return (str.includes('[')) ? str : str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
 }
 
-function removeModuleName (value, property) {
+function removeModuleName(value, property) {
   return camelCaseToDash(value
   // .replace(/^Ti.UI.iOS./, '')
     .replace(/^Ti.UI.iPad./, '')
@@ -689,6 +689,6 @@ function removeModuleName (value, property) {
     .replace(/\./g, '-'))
 }
 
-function makeSureFolderExists (folder) {
+function makeSureFolderExists(folder) {
   if (!fs.existsSync(folder)) fs.mkdirSync(folder)
 }
