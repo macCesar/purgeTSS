@@ -162,7 +162,7 @@ function getTiUIComponents(_base) {
     if (key.includes('Ti.UI.') || key.includes('Ti.Android.')) {
       const _key = key.replace('Ti.UI.', '').replace('Ti.Android.', '')
       const combinedKeys = combineKeys(configFile.theme, _base[_key], _key)
-      if (combinedKeys !== {}) {
+      if (combinedKeys) {
         delete configFile.theme[_key]
         if (!propertiesOnly[_key] && Object.keys(combinedKeys).length) {
           propertiesOnly[_key] = {
