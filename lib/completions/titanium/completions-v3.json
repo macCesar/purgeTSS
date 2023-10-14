@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "12.2.0.GA",
+	"sdkVersion": "12.2.1.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -4657,6 +4657,12 @@
 		},
 		"NO_CAMERA": {
 			"description": "Constant for media no camera error.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"NO_FOCUS": {
+			"description": "Constant for camera didn't focus when taking a trying to take a picture.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -10343,7 +10349,8 @@
 			"values": [
 				"Ti.Media.DEVICE_BUSY",
 				"Ti.Media.NO_CAMERA",
-				"Ti.Media.UNKNOWN_ERROR"
+				"Ti.Media.UNKNOWN_ERROR",
+				"Ti.Media.NO_FOCUS"
 			]
 		},
 		"codecs": {
@@ -24461,6 +24468,7 @@
 				"QUALITY_IFRAME_1280x720",
 				"QUALITY_IFRAME_960x540",
 				"UNKNOWN_ERROR",
+				"NO_FOCUS",
 				"VIDEO_CONTROL_DEFAULT",
 				"VIDEO_CONTROL_EMBEDDED",
 				"VIDEO_CONTROL_FULLSCREEN",
