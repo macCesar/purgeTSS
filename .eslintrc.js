@@ -22,6 +22,10 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   rules: {
-    'spaced-comment': ['error', 'always']
+    'spaced-comment': ['error', 'always'],
+    'space-before-function-paren': [
+      'error',
+      'never'
+    ]
   }
 }
