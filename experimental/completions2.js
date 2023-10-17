@@ -121,7 +121,7 @@ function generateGlossary(_key, _theClasses, _keyName = null) {
     let destinationFolder = ''
 
     if (_keyName) {
-      if (_key.includes('color') || _key.includes('Color') || _key.includes('colors')) {
+      if (_key.includes('color') || _key.includes('Color') || _key.includes('colors') || _key === 'tint') {
         destinationFolder = baseDestinationFolder + '/colorProperties'
       } else if (Object.entries(_keyName.base).length) {
         destinationFolder = baseDestinationFolder + '/configurableProperties'
@@ -240,6 +240,7 @@ function processCompoundClasses({ ..._base }) {
   compoundClasses += generateGlossary('backgroundSelectedGradient', helpers.backgroundSelectedGradient(combineKeys(configFile.theme, _base.colors, 'backgroundSelectedGradient')))
   compoundClasses += generateGlossary('color-alternative', helpers.textColor(_base.textColor))
   compoundClasses += generateGlossary('hintTextColor', helpers.placeholder(combineKeys(configFile.theme, _base.colors, 'hintTextColor')))
+  // compoundClasses += generateGlossary('tint', helpers.tint(combineKeys(configFile.theme, _base.colors, 'tint')))
   compoundClasses += generateGlossary('tintColor', helpers.tintColor(combineKeys(configFile.theme, _base.colors, 'tintColor')))
   compoundClasses += generateGlossary('titleAttributes-color', helpers.titleAttributesColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesColor')))
   compoundClasses += generateGlossary('titleAttributes-shadow-color', helpers.titleAttributesShadowColor(combineKeys(configFile.theme, _base.colors, 'titleAttributesShadowColor')))
@@ -248,7 +249,7 @@ function processCompoundClasses({ ..._base }) {
 }
 
 function findBaseKey(_key, _data) {
-  if (_key.includes('color') || _key.includes('Color')) {
+  if (_key.includes('color') || _key.includes('Color') || _key === 'tint') {
     return 'colors'
   } else if (_key.includes('spacing') || _key.includes('Spacing')) {
     return 'spacing'
@@ -441,10 +442,10 @@ function getPropertiesFromTiCompletionsFile() {
   const propertiesOnly = {}
 
   const properties = [
-    // ! Deprecated
+    // ! Deprecated or Custom Process
     'handlePlatformUrl',
     'hidden',
-    'selectionIndicator',
+    // 'selectionIndicator',
     'semanticColorType',
     'splitActionBar',
     'supported',
