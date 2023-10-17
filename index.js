@@ -2517,7 +2517,7 @@ function purgeTailwind(uniqueClasses) {
       // if (tailwindClass.includes('color') || tailwindClass.includes('Color')) colorClasses++;
       // else restOfClasses++;
 
-      const cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '')}`
+      const cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '').replace(/^#/, '')}`
 
       const classIndex = cleanUniqueClasses.indexOf(cleanTailwindClass)
       if (classIndex > -1) {
