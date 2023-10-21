@@ -5,6 +5,13 @@ module.exports = {
     es2021: true
   },
   extends: 'standard',
+  globals: {
+    _: true,
+    Ti: true,
+    Alloy: true,
+    $model: true,
+    OS_ANDROID: true
+  },
   overrides: [
     {
       env: {
