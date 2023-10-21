@@ -46,6 +46,15 @@ program
   })
 
 program
+  .command('dependencies')
+  .alias('d')
+  .description(`Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} for a better development experience`)
+  .help('Installing ESLint and Tailwind CSS can help improve your development workflow with PurgeTSS by enabling code linting and enhancing the UI development capabilities.')
+  .action((args, options, logger) => {
+    purgetss.dependencies(args, options)
+  })
+
+program
   .command('build')
   .alias('b')
   .description(`Generate a new ${chalk.yellow('tailwind.tss')} file`)
