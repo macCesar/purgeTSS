@@ -367,7 +367,7 @@ function create(args, options) {
     const workspace = results[1]
 
     if (idPrefix !== 'app.idprefix not found' && workspace !== '') {
-      const projectID = `${idPrefix}.${args.name.replace(/ /g, '').replace(/-/g, '').replace(/_/g, '').toLowerCase()}`
+      const projectID = `${idPrefix}.${args.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/ |-|_/).join('').toLowerCase()}`
       console.log('')
 
       if (fs.existsSync(`${workspace}/${args.name}`)) {
@@ -392,7 +392,7 @@ function create(args, options) {
               })
             } else {
               console.log('')
-              logger.warn(chalk.yellow('Project creation aborted!'))
+              logger.warn(chalk.yellow('Project creation has been canceled!'))
             }
           })
         }
@@ -516,59 +516,78 @@ function createColorObject(family, hexcode, options) {
 
 function createProject(workspace, argsName, projectID, options) {
   const projectName = `"${argsName}"`
-  const { exec } = require('child_process')
+  const { execSync } = require('child_process')
+  const projectDirectory = `${workspace}/${projectName}`
   const commandExistsSync = require('command-exists').sync
 
   logger.info('Creating a new Titanium project')
+  execSync(`ti create -t app -p all -n ${projectName} --no-prompt --id ${projectID}`)
+  execSync(`cd ${projectDirectory} && alloy new && purgetss w && purgetss b`)
 
-  const tiCreateCmd = `ti create -t app -p all -n ${projectName} --no-prompt --id ${projectID}`
-  exec(tiCreateCmd, (error) => {
-    if (error) return logger.error(error)
+  if (options.vendor) {
+    logger.info('Installing Fonts')
+    execSync(`cd ${projectDirectory} && purgetss il -m -v=${options.vendor}`)
+  }
 
-    const theFontsCmd = (options.vendor) ? `&& purgetss il -m -v=${options.vendor}` : ''
+  if (options.dependencies) {
+    logger.info(`Creating a new ${chalk.yellow('package.json')} file`)
+    execSync(`cd ${projectDirectory} && npm init -y`)
+    execSync(`cd ${projectDirectory} && echo "/node_modules" >>.gitignore`)
+    if (commandExistsSync('code')) {
+      execSync(`cp -R ${path.resolve(__dirname)}/dist/configs/vscode/ ${projectDirectory}/.vscode`)
+    }
+    execSync(`cp ${path.resolve(__dirname)}/dist/configs/invisible/.editorconfig ${projectDirectory}`)
 
-    if (options.vendor) {
-      logger.info('Installing requested fonts')
+    logger.info(`Installing ${chalk.green('ESLint')}`)
+    execSync(`cd ${projectDirectory} && npm i -D eslint eslint-config-axway eslint-plugin-alloy`)
+    execSync(`cp ${path.resolve(__dirname)}/dist/configs/invisible/.eslintrc.js ${projectDirectory}`)
+
+    logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
+    execSync(`cd ${projectDirectory} && npm i -D tailwindcss && npx tailwindcss init`)
+  }
+
+  finish(`The ${chalk.yellow(`‘${argsName}’`)} project was created successfully in`)
+
+  if (commandExistsSync('code')) {
+    execSync(`cd ${projectDirectory} && code .`)
+  } else if (commandExistsSync('subl')) {
+    execSync(`cd ${projectDirectory} && subl .`)
+  } else {
+    execSync(`cd ${projectDirectory} && open .`)
+  }
+}
+
+// ! Command: dependencies
+function dependencies(options) {
+  if (alloyProject()) {
+    const { execSync } = require('child_process')
+    const commandExistsSync = require('command-exists').sync
+
+    if (!fs.existsSync(cwd + '/package.json')) {
+      logger.info(`Creating a new ${chalk.yellow('package.json')} file`)
+      execSync(`cd "${cwd}" && npm init -y`)
     }
 
-    const cdToProjectCmd = `cd ${workspace}/${projectName} && alloy new && purgetss w && purgetss b ${theFontsCmd}`
-    exec(cdToProjectCmd, (error) => {
-      if (error) return logger.error(error)
+    if (fs.existsSync(cwd + '/.gitignore') && !fs.readFileSync(cwd + '/.gitignore').includes('/node_modules')) {
+      execSync('echo "/node_modules" >>.gitignore')
+    }
 
-      let theOpenCmd
-      if (commandExistsSync('code')) {
-        theOpenCmd = `cd ${workspace}/${projectName} && code .`
-      } else if (commandExistsSync('subl')) {
-        theOpenCmd = `cd ${workspace}/${projectName} && subl .`
-      } else {
-        theOpenCmd = `cd ${workspace}/${projectName} && open .`
-      }
+    if (commandExistsSync('code')) {
+      execSync(`cp -R ${path.resolve(__dirname)}/dist/configs/vscode/ "${cwd}"/.vscode`)
+    }
+    execSync(`cp ${path.resolve(__dirname)}/dist/configs/invisible/.editorconfig "${cwd}"`)
 
-      if (options.tailwind) {
-        logger.info('Installing Tailwind CSS')
+    logger.info(`Installing ${chalk.green('ESLint')}`)
+    execSync(`cd "${cwd}" && npm i -D eslint eslint-config-axway eslint-plugin-alloy`)
+    execSync(`cp ${path.resolve(__dirname)}/dist/configs/invisible/.eslintrc.js "${cwd}"`)
 
-        fs.writeFileSync(`${workspace}/${argsName}/package.json`, JSON.stringify({ name: `${argsName.replace(/ /g, '-').toLowerCase()}`, private: true }))
+    logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
+    execSync(`cd "${cwd}" && npm i -D tailwindcss && npx tailwindcss init`)
 
-        const installTailwindCmd = `cd ${workspace}/${projectName} && npm init -y && npm i tailwindcss -D && npx tailwindcss init`
-        exec(installTailwindCmd, (error) => {
-          if (error) return logger.error(error)
-
-          finish(chalk.yellow(`‘${argsName}’`) + ' project created successfully in')
-
-          exec(theOpenCmd, (error) => {
-            if (error) return logger.error(error)
-          })
-        })
-      } else {
-        finish(chalk.yellow(`‘${argsName}’`) + ' project created successfully in')
-
-        exec(theOpenCmd, (error) => {
-          if (error) return logger.error(error)
-        })
-      }
-    })
-  })
+    logger.info('The dependencies and config files have been installed successfully!')
+  }
 }
+module.exports.dependencies = dependencies
 
 // ! Command: build
 function build(options) {
@@ -2386,7 +2405,7 @@ function copyFontStyle(vendor) {
 function alloyProject(silent = false) {
   if (!fs.existsSync(cwd + '/app/views')) {
     if (!silent) {
-      logger.info('Please make sure you are running `purgetss` within an Alloy Project.')
+      logger.info(`Please make sure you are running ${chalk.green('purgetss')} within an Alloy Project.`)
       logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
     }
 
