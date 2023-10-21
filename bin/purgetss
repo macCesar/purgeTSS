@@ -38,7 +38,7 @@ program
   .description(`Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured`)
   .help(`Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured. You’ll need to have ${chalk.yellow('app.idprefix')} and ${chalk.yellow('app.workspace')} already configured.`)
   .option('-f, --force', 'Force create even if the project already exists')
-  .option('-t, --tailwind', `Install ${chalk.green('Tailwind CSS')} for Tailwind CSS Intellisense VS Code extension`)
+  .option('-d, --dependencies', `Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} for a better development experience using PurgeTSS`)
   .option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
   .argument('<name>', 'The name of the project')
   .action((args, options, logger) => {
