@@ -1447,6 +1447,13 @@
 '.inverted-platform-h[platform=ios]': { height: Ti.Platform.displayCaps.platformWidth }
 '.inverted-platform-w[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
 '.inverted-platform-h[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
+'.platform-wh': { width: Ti.Platform.displayCaps.platformWidth, height: Ti.Platform.displayCaps.platformHeight }
+'.platform-w-inverted[platform=ios]': { width: Ti.Platform.displayCaps.platformHeight }
+'.platform-h-inverted[platform=ios]': { height: Ti.Platform.displayCaps.platformWidth }
+'.platform-wh-inverted[platform=ios]': { width: Ti.Platform.displayCaps.platformHeight, height: Ti.Platform.displayCaps.platformWidth }
+'.platform-w-inverted[platform=android]': { width: Ti.Platform.displayCaps.platformWidth }
+'.platform-h-inverted[platform=android]': { height: Ti.Platform.displayCaps.platformHeight }
+'.platform-wh-inverted[platform=android]': { width: Ti.Platform.displayCaps.platformWidth, height: Ti.Platform.displayCaps.platformHeight }
 
 // Property(ies): draggingType
 // Component(s): For the Animation Component
@@ -17740,6 +17747,12 @@
 // Component(s): Ti.UI.Picker
 '.format24': { format24: true }
 '.format24-false': { format24: false }
+
+// Property: selectionIndicator
+// Description: Determines whether the visual selection indicator is shown. Deprecated since 10.0.1. This property is ignored as of Titanium 10.0.1.
+// Component(s): Ti.UI.Picker
+'.selection-indicator': { selectionIndicator: true }
+'.selection-indicator-false': { selectionIndicator: false }
 
 // Property: selectionOpens
 // Description: Determines whether calling the method setSelectedRow opens when called
