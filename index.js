@@ -660,8 +660,10 @@ function buildFonts(options) {
     // ! Process styles files
     _.each(files, file => {
       if (file.endsWith('.css') || file.endsWith('.CSS')) {
+        const cssFile = readCSS(file)
         const theFile = file.split('/')
         const theCSSFile = theFile.pop()
+        const prefix = options.prefix ? theCSSFile.split('.').shift() : null
         let theFolder = theFile.pop() + '/'
         if (theFolder === 'fonts/') {
           theFolder = ''
@@ -672,12 +674,12 @@ function buildFonts(options) {
         tssClasses += oneTimeMessage + `\n// ${theCSSFileName}\n`
         oneTimeMessage = ''
 
-        tssClasses += processFontsCSS(readCSS(file))
+        tssClasses += processFontsCSS(cssFile, prefix)
 
         // ! JavaScript Module
         if (options.module) {
-          fontJS += processFontsJS(readCSS(file), `\n\t// ${theCSSFileName}`)
-          fontFamiliesJS += processFontFamilyNamesJS(readCSS(file), `\n\t// ${theCSSFileName}`)
+          fontJS += processFontsJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
+          fontFamiliesJS += processFontFamilyNamesJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
         }
 
         // !Done processing stylesheet
@@ -689,7 +691,7 @@ function buildFonts(options) {
       makeSureFolderExists(projectsPurgeTSSFolder)
       makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
 
-      fs.writeFileSync(cwd + '/purgetss/styles/fonts.tss', tssClasses, err => {
+      fs.writeFileSync(`${cwd}/purgetss/styles/fonts.tss`, tssClasses, { encoding: 'utf8' }, err => {
         throw err
       })
     }
@@ -700,16 +702,18 @@ function buildFonts(options) {
       let exportIcons = 'const icons = {'
       exportIcons += fontJS.slice(0, -1)
       exportIcons += '\n};\n'
+      exportIcons += 'exports.icon = icons;\n'
       exportIcons += 'exports.icons = icons;\n'
 
       exportIcons += '\nconst families = {'
       exportIcons += fontFamiliesJS.slice(0, -1)
       exportIcons += '\n};\n'
+      exportIcons += 'exports.family = families;\n'
       exportIcons += 'exports.families = families;\n'
 
       exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8')
 
-      fs.writeFileSync(`${projectsLibFolder}/purgetss.fonts.js`, exportIcons, err => {
+      fs.writeFileSync(`${projectsLibFolder}/purgetss.fonts.js`, exportIcons, { encoding: 'utf8' }, err => {
         throw err
       })
 
@@ -890,50 +894,56 @@ function copyFramework7IconsFonts() {
   logger.warn(' - Framework 7')
 }
 
-function processFontsCSS(data) {
+function processFontsCSS(data, prefix) {
   const rules = getRules(data)
+  const fontsPrefix = findPrefix(rules)
 
   let processedRules = ''
-
   _.each(rules, rule => {
     if (rule) {
-      processedRules += `'${rule.selector}': { text: '\\u${rule.property}', title: '\\u${rule.property}' }\n`
+      if (prefix) {
+        processedRules += `'${rule.selector.replace(fontsPrefix, prefix)}': { text: '\\u${rule.property}', title: '\\u${rule.property}' }\n`
+      } else {
+        processedRules += `'${rule.selector}': { text: '\\u${rule.property}', title: '\\u${rule.property}' }\n`
+      }
     }
   })
 
   return processedRules
 }
 
-function processFontsJS(data, fontFamily = '') {
+function processFontsJS(data, fontFamily = '', prefix) {
   const rules = getRules(data)
 
   let exportIcons = '\n'
 
-  let thePrefix = findPrefix(rules)
+  let fontsPrefix = findPrefix(rules)
 
   _.each(rules, rule => {
     if (rule) {
-      exportIcons += `\t\t'${prettifyFontName(rule.selector.replace('.', ''), thePrefix)}': '\\u${rule.property}',\n`
+      exportIcons += `\t\t'${prettifyFontName(rule.selector.replace('.', ''), fontsPrefix)}': '\\u${rule.property}',\n`
     }
   })
 
-  if (thePrefix === undefined) {
-    thePrefix = fontFamily
+  if (prefix) {
+    fontsPrefix = prefix
+  } else if (fontsPrefix === undefined) {
+    fontsPrefix = fontFamily
   }
 
-  return `${fontFamily}\n\t'${_.camelCase(thePrefix)}': {${exportIcons}\t},`
+  return `${fontFamily}\n\t'${_.camelCase(fontsPrefix)}': {${exportIcons}\t},`
 }
 
-function processFontFamilyNamesJS(data, fontFamily = '') {
+function processFontFamilyNamesJS(data, fontFamily = '', prefix) {
   const rules = getRules(data)
 
-  let thePrefix = findPrefix(rules)
+  let fontsPrefix = prefix ?? findPrefix(rules)
 
-  if (thePrefix === undefined) {
-    thePrefix = fontFamily
+  if (fontsPrefix === undefined) {
+    fontsPrefix = fontFamily
   }
 
-  return `${fontFamily}\n\t'${_.camelCase(thePrefix)}': '${getFontFamily(data)}',`
+  return `${fontFamily}\n\t'${_.camelCase(fontsPrefix)}': '${getFontFamily(data)}',`
 }
 
 function processFontMeta(fontMeta) {
