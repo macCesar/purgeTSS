@@ -626,7 +626,7 @@ function buildFonts(options) {
     let fontJS = ''
     let fontFamiliesJS = ''
     const FontName = require('fontname')
-    let tssClasses = '// Fonts TSS file generated with PurgeTSS\n// https://github.com/macCesar/purgeTSS\n'
+    let tssClasses = '// Fonts TSS file generated with PurgeTSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
 
     // ! Process font files
     _.each(files, file => {
