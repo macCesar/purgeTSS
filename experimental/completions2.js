@@ -234,6 +234,7 @@ function processCompoundClasses({ ..._base }) {
   compoundClasses += generateGlossary('rotate-negative-values', helpers.negativeRotate(_base.rotate))
   compoundClasses += generateGlossary('zoom-in-out', helpers.zoomIn(_base.scale))
   compoundClasses += generateGlossary('widthHeight', helpers.widthHeight(_base.widthHeight))
+  compoundClasses += generateGlossary('size', helpers.size(_base.size))
 
   // ! colors
   compoundClasses += generateGlossary('backgroundGradient', helpers.backgroundGradient(combineKeys(configFile.theme, _base.colors, 'backgroundGradient')))
@@ -283,6 +284,7 @@ function combineDefaultThemeWithConfigFile() {
   const defaultTheme = require('tailwindcss/defaultTheme')
   const defaultThemeWidth = defaultTheme.width({ theme: () => (defaultTheme.spacing) })
   const defaultThemeHeight = defaultTheme.height({ theme: () => (defaultTheme.spacing) })
+  const defaultThemeSize = defaultTheme.size({ theme: () => (defaultTheme.spacing) })
 
   removeDeprecatedColors(defaultColors)
 
@@ -290,11 +292,13 @@ function combineDefaultThemeWithConfigFile() {
   const allWidthsCombined = (configFile.theme.spacing) ? { ...configFile.theme.spacing, ...tiResets } : { ...defaultThemeWidth }
   const allHeightsCombined = (configFile.theme.spacing) ? { ...configFile.theme.spacing, ...tiResets } : { ...defaultThemeHeight }
   const allSpacingCombined = (configFile.theme.spacing) ? { ...configFile.theme.spacing, ...tiResets } : { ...defaultThemeWidth, ...defaultThemeHeight }
+  const allSizesCombined = (configFile.theme.spacing) ? { ...configFile.theme.spacing, ...tiResets } : { ...defaultThemeSize }
 
   const themeOrDefaultValues = {
     width: configFile.theme.width ?? allWidthsCombined,
     height: configFile.theme.height ?? allHeightsCombined,
     spacing: configFile.theme.spacing ?? allSpacingCombined,
+    size: configFile.theme.spacing ?? allSizesCombined,
     fontSize: configFile.theme.spacing ?? defaultTheme.fontSize,
     minimumFontSize: configFile.theme.spacing ?? defaultTheme.minimumFontSize,
     colors: configFile.theme.colors ?? { transparent: 'transparent', ...defaultColors }
@@ -306,6 +310,7 @@ function combineDefaultThemeWithConfigFile() {
   const base = {
     colors: {},
     spacing: {},
+    size: {},
     width: {},
     height: {},
     widthHeight: {},
@@ -328,11 +333,14 @@ function combineDefaultThemeWithConfigFile() {
   }
 
   _.merge(base.colors, themeOrDefaultValues.colors, configFile.theme.extend.colors)
+  _.merge(base.size, themeOrDefaultValues.spacing, configFile.theme.extend.spacing)
   _.merge(base.spacing, themeOrDefaultValues.spacing, configFile.theme.extend.spacing)
+
   _.merge(base.width, themeOrDefaultValues.spacing, configFile.theme.extend.spacing, themeOrDefaultValues.width, configFile.theme.extend.width)
   _.merge(base.height, themeOrDefaultValues.spacing, configFile.theme.extend.spacing, themeOrDefaultValues.height, configFile.theme.extend.height)
   _.merge(base.widthHeight, base.width, base.height)
 
+  fixPercentages(base.size)
   fixPercentages(base.width)
   fixPercentages(base.height)
   fixPercentages(base.spacing)
@@ -406,12 +414,26 @@ function removeUnnecesaryValues(theObject) {
   delete theObject.width.fit
   delete theObject.width.max
   delete theObject.width.min
+  delete theObject.width.svw
+  delete theObject.width.lvw
+  delete theObject.width.dvw
+
   delete theObject.height.fit
   delete theObject.height.max
   delete theObject.height.min
+  delete theObject.height.svh
+  delete theObject.height.lvh
+  delete theObject.height.dvh
+
   delete theObject.spacing.fit
   delete theObject.spacing.max
   delete theObject.spacing.min
+  delete theObject.spacing.svw
+  delete theObject.spacing.lvw
+  delete theObject.spacing.dvw
+  delete theObject.spacing.svh
+  delete theObject.spacing.lvh
+  delete theObject.spacing.dvh
 }
 
 function fixPercentages(theObject) {
@@ -506,6 +528,7 @@ function getPropertiesFromTiCompletionsFile() {
     'fontWeight',
     'minimumFontSize',
     'orientationModes',
+    'size',
     'textColor'
   ]
 
