@@ -12,6 +12,7 @@
   "scripts": {
     "build": "npm run build:all",
     "notifier": "node ./lib/test-function",
+    "build:module": "node ./lib/build-module",
     "build:tailwind": "node ./lib/build-tailwind",
     "build:tailwind-legacy": "node ./lib/build-tailwind-legacy",
     "build:fonts": "node ./lib/build-fonts-folder",
@@ -23,7 +24,7 @@
     "build:symbols-js": "node ./lib/build-material-symbols-js",
     "build:framework7": "node ./lib/build-framework7-icons-tss",
     "build:framework7-js": "node ./lib/build-framework7-icons-js",
-    "build:all": "npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:material && npm run build:material-js && npm run build:symbols && npm run build:symbols-js && npm run build:framework7 && npm run build:framework7-js && npm run build:fonts"
+    "build:all": "npm run build:module && npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:material && npm run build:material-js && npm run build:symbols && npm run build:symbols-js && npm run build:framework7 && npm run build:framework7-js && npm run build:fonts"
   },
   "repository": {
     "type": "git",
