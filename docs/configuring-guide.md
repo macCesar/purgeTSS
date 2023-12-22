@@ -35,7 +35,7 @@
     - [Border Colors](#border-colors)
     - [Border Radius](#border-radius)
     - [Border Width](#border-width)
-    - [Content Width & Height](#content-width--height)
+    - [Content Width \& Height](#content-width--height)
     - [Display](#display)
     - [Font Family](#font-family)
     - [Font Size](#font-size)
@@ -1346,7 +1346,7 @@ You can use any of the supported units depending of the property you are generat
 ```css
 // PurgeTSS
 // Created by César Estrada
-// https://github.com/macCesar/purgeTSS
+// https://purgetss.com
 
 // ...
 
@@ -1411,7 +1411,7 @@ You can use any of the supported units depending of the property you are generat
 ```css
 // PurgeTSS
 // Created by César Estrada
-// https://github.com/macCesar/purgeTSS
+// https://purgetss.com
 
 // Styles from _app.tss
 // Empty _app.tss
@@ -1501,7 +1501,7 @@ You can use any of the supported units depending of the property you are generat
 ```css
 // PurgeTSS
 // Created by César Estrada
-// https://github.com/macCesar/purgeTSS
+// https://purgetss.com
 
 // Styles from _app.tss
 // Empty _app.tss
@@ -1569,7 +1569,7 @@ Lets say that you want to have different background color and font sizes, depend
 ```css
 // PurgeTSS
 // Created by César Estrada
-// https://github.com/macCesar/purgeTSS
+// https://purgetss.com
 
 // Main styles
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
