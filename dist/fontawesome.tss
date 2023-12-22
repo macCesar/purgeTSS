@@ -1,4 +1,4 @@
-// Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -1860,7 +1860,6 @@
 '.fa-warning': { text: '\uf071', title: '\uf071' }
 '.fa-database': { text: '\uf1c0', title: '\uf1c0' }
 '.fa-share': { text: '\uf064', title: '\uf064' }
-'.fa-arrow-turn-right': { text: '\uf064', title: '\uf064' }
 '.fa-mail-forward': { text: '\uf064', title: '\uf064' }
 '.fa-bottle-droplet': { text: '\ue4c4', title: '\ue4c4' }
 '.fa-mask-face': { text: '\ue1d7', title: '\ue1d7' }
@@ -1998,6 +1997,7 @@
 '.fa-yoast': { text: '\uf2b1', title: '\uf2b1' }
 '.fa-cloudflare': { text: '\ue07d', title: '\ue07d' }
 '.fa-ups': { text: '\uf7e0', title: '\uf7e0' }
+'.fa-pixiv': { text: '\ue640', title: '\ue640' }
 '.fa-wpexplorer': { text: '\uf2de', title: '\uf2de' }
 '.fa-dyalog': { text: '\uf399', title: '\uf399' }
 '.fa-bity': { text: '\uf37a', title: '\uf37a' }
@@ -2033,6 +2033,7 @@
 '.fa-contao': { text: '\uf26d', title: '\uf26d' }
 '.fa-square-font-awesome': { text: '\ue5ad', title: '\ue5ad' }
 '.fa-deskpro': { text: '\uf38f', title: '\uf38f' }
+'.fa-brave': { text: '\ue63c', title: '\ue63c' }
 '.fa-sistrix': { text: '\uf3ee', title: '\uf3ee' }
 '.fa-square-instagram': { text: '\ue055', title: '\ue055' }
 '.fa-instagram-square': { text: '\ue055', title: '\ue055' }
@@ -2089,6 +2090,7 @@
 '.fa-centos': { text: '\uf789', title: '\uf789' }
 '.fa-adn': { text: '\uf170', title: '\uf170' }
 '.fa-cloudsmith': { text: '\uf384', title: '\uf384' }
+'.fa-opensuse': { text: '\ue62b', title: '\ue62b' }
 '.fa-pied-piper-alt': { text: '\uf1a8', title: '\uf1a8' }
 '.fa-square-dribbble': { text: '\uf397', title: '\uf397' }
 '.fa-dribbble-square': { text: '\uf397', title: '\uf397' }
@@ -2137,6 +2139,7 @@
 '.fa-laravel': { text: '\uf3bd', title: '\uf3bd' }
 '.fa-hotjar': { text: '\uf3b1', title: '\uf3b1' }
 '.fa-bluetooth-b': { text: '\uf294', title: '\uf294' }
+'.fa-square-letterboxd': { text: '\ue62e', title: '\ue62e' }
 '.fa-sticker-mule': { text: '\uf3f7', title: '\uf3f7' }
 '.fa-creative-commons-zero': { text: '\uf4f3', title: '\uf4f3' }
 '.fa-hips': { text: '\uf452', title: '\uf452' }
@@ -2148,6 +2151,7 @@
 '.fa-cc-discover': { text: '\uf1f2', title: '\uf1f2' }
 '.fa-wpbeginner': { text: '\uf297', title: '\uf297' }
 '.fa-confluence': { text: '\uf78d', title: '\uf78d' }
+'.fa-shoelace': { text: '\ue60c', title: '\ue60c' }
 '.fa-mdb': { text: '\uf8ca', title: '\uf8ca' }
 '.fa-dochub': { text: '\uf394', title: '\uf394' }
 '.fa-accessible-icon': { text: '\uf368', title: '\uf368' }
@@ -2189,6 +2193,7 @@
 '.fa-y-combinator': { text: '\uf23b', title: '\uf23b' }
 '.fa-empire': { text: '\uf1d1', title: '\uf1d1' }
 '.fa-envira': { text: '\uf299', title: '\uf299' }
+'.fa-google-scholar': { text: '\ue63b', title: '\ue63b' }
 '.fa-square-gitlab': { text: '\ue5ae', title: '\ue5ae' }
 '.fa-gitlab-square': { text: '\ue5ae', title: '\ue5ae' }
 '.fa-studiovinari': { text: '\uf3f8', title: '\uf3f8' }
@@ -2233,6 +2238,7 @@
 '.fa-blogger-b': { text: '\uf37d', title: '\uf37d' }
 '.fa-opencart': { text: '\uf23d', title: '\uf23d' }
 '.fa-vine': { text: '\uf1ca', title: '\uf1ca' }
+'.fa-signal-messenger': { text: '\ue663', title: '\ue663' }
 '.fa-paypal': { text: '\uf1ed', title: '\uf1ed' }
 '.fa-gitlab': { text: '\uf296', title: '\uf296' }
 '.fa-typo3': { text: '\uf42b', title: '\uf42b' }
@@ -2244,6 +2250,7 @@
 '.fa-bootstrap': { text: '\uf836', title: '\uf836' }
 '.fa-odnoklassniki': { text: '\uf263', title: '\uf263' }
 '.fa-nfc-symbol': { text: '\ue531', title: '\ue531' }
+'.fa-mintbit': { text: '\ue62f', title: '\ue62f' }
 '.fa-ethereum': { text: '\uf42e', title: '\uf42e' }
 '.fa-speaker-deck': { text: '\uf83c', title: '\uf83c' }
 '.fa-creative-commons-nc-eu': { text: '\uf4e9', title: '\uf4e9' }
@@ -2252,6 +2259,7 @@
 '.fa-ello': { text: '\uf5f1', title: '\uf5f1' }
 '.fa-gofore': { text: '\uf3a7', title: '\uf3a7' }
 '.fa-bimobject': { text: '\uf378', title: '\uf378' }
+'.fa-brave-reverse': { text: '\ue63d', title: '\ue63d' }
 '.fa-facebook-f': { text: '\uf39e', title: '\uf39e' }
 '.fa-square-google-plus': { text: '\uf0d4', title: '\uf0d4' }
 '.fa-google-plus-square': { text: '\uf0d4', title: '\uf0d4' }
@@ -2286,6 +2294,7 @@
 '.fa-soundcloud': { text: '\uf1be', title: '\uf1be' }
 '.fa-digg': { text: '\uf1a6', title: '\uf1a6' }
 '.fa-tencent-weibo': { text: '\uf1d5', title: '\uf1d5' }
+'.fa-letterboxd': { text: '\ue62d', title: '\ue62d' }
 '.fa-symfony': { text: '\uf83d', title: '\uf83d' }
 '.fa-maxcdn': { text: '\uf136', title: '\uf136' }
 '.fa-etsy': { text: '\uf2d7', title: '\uf2d7' }
@@ -2332,6 +2341,7 @@
 '.fa-dropbox': { text: '\uf16b', title: '\uf16b' }
 '.fa-instagram': { text: '\uf16d', title: '\uf16d' }
 '.fa-cmplid': { text: '\ue360', title: '\ue360' }
+'.fa-upwork': { text: '\ue641', title: '\ue641' }
 '.fa-facebook': { text: '\uf09a', title: '\uf09a' }
 '.fa-gripfire': { text: '\uf3ac', title: '\uf3ac' }
 '.fa-jedi-order': { text: '\uf50e', title: '\uf50e' }
@@ -2390,6 +2400,7 @@
 '.fa-square-behance': { text: '\uf1b5', title: '\uf1b5' }
 '.fa-behance-square': { text: '\uf1b5', title: '\uf1b5' }
 '.fa-supple': { text: '\uf3f9', title: '\uf3f9' }
+'.fa-webflow': { text: '\ue65c', title: '\ue65c' }
 '.fa-rebel': { text: '\uf1d0', title: '\uf1d0' }
 '.fa-css3': { text: '\uf13c', title: '\uf13c' }
 '.fa-staylinked': { text: '\uf3f5', title: '\uf3f5' }
