@@ -10,6 +10,7 @@ module.exports = {
     Ti: true,
     Alloy: true,
     $model: true,
+    OS_IOS: true,
     OS_ANDROID: true
   },
   overrides: [
