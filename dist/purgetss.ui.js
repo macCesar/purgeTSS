@@ -102,7 +102,6 @@ function Animation(args) {
         offsetY = event.y
 
         param.draggables.push(param.draggables.splice(realSourceView(event.source).zIndex, 1)[0])
-
         param.draggables.forEach((draggable, key) => { draggable.zIndex = key })
 
         checkDraggable(draggableView, 'drag')
