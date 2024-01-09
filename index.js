@@ -35,6 +35,7 @@ const logger = {
 }
 
 const projectsLibFolder = cwd + '/app/lib'
+const classicProjectLibFolder = cwd + '/Resources/lib'
 const projectsAppTSS = cwd + '/app/styles/app.tss'
 const projects_AppTSS = cwd + '/app/styles/_app.tss'
 const projectsAlloyJMKFile = cwd + '/app/alloy.jmk'
@@ -318,11 +319,19 @@ function copyFontStyles(options) {
 }
 
 function copyModulesLibrary() {
-  if (alloyProject()) {
+  if (alloyProject(true)) {
     makeSureFolderExists(projectsLibFolder)
 
     fs.copyFileSync(srcPurgeTSSLibrary, projectsLibFolder + '/purgetss.ui.js')
     logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./app/lib'), 'folder')
+  } else if (classicProject(true)) {
+    makeSureFolderExists(classicProjectLibFolder)
+
+    fs.copyFileSync(srcPurgeTSSLibrary, classicProjectLibFolder + '/purgetss.ui.js')
+    logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./Resources/lib'), 'folder')
+  } else {
+    logger.info(`Please make sure you are running ${chalk.green('purgetss')} within an Alloy or Classic Project.`)
+    logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
   }
 }
 module.exports.copyModulesLibrary = copyModulesLibrary
@@ -2416,6 +2425,19 @@ function alloyProject(silent = false) {
   if (!fs.existsSync(cwd + '/app/views')) {
     if (!silent) {
       logger.info(`Please make sure you are running ${chalk.green('purgetss')} within an Alloy Project.`)
+      logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
+    }
+
+    return false
+  }
+
+  return true
+}
+
+function classicProject(silent = false) {
+  if (!fs.existsSync(cwd + '/Resources')) {
+    if (!silent) {
+      logger.info(`Please make sure you are running ${chalk.green('purgetss')} within a Titanium's Classic Project.`)
       logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
     }
 
