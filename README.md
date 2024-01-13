@@ -10,22 +10,33 @@
 
 </div>
 
-**PurgeTSS** is a powerful package designed to enhance the process of developing visually captivating mobile applications for **[Titanium developers](https://tidev.io/)**.
+**PurgeTSS** is a toolkit designed to enhance the development of mobile applications using the **[Titanium framework](https://titaniumsdk.com)**. It introduces several key features to streamline the app development process, making it simpler and more efficient for developers.
 
-It offers a range of tools such as customizable utility classes, support for icon fonts, a user-friendly Animation module, a straightforward grid system, and the added convenience of the `shades` command for crafting personalized colors. With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes more accessible and efficient.
+It offers a range of tools such as customizable utility classes, support for icon fonts, a user-friendly Animation module, a straightforward grid system, and the added convenience of the `shades` command for crafting personalized colors.
+
+With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes more accessible and efficient.
 
 ---
 
-Now, let's delve into the key features that make **PurgeTSS** a game-changer for developers:
+Here are its main functionalities:
 
-- Provides more than 21,000 **[Tailwind-like](https://tailwindcss.com/)** utility classes ready to use in your projects.
-- Creates a clean **app.tss** file with only the classes used in your project by parsing all your XML files.
-- You can customize any of the default classes via a simple configuration file, or create **just-in-time** classes with **arbitrary values** within your Views.
-- You can easily use icon fonts from **Font Awesome**, **Material Icons**, **Material Symbols**, and **Framework7-Icons** on Buttons and Labels.
-- Generates a **fonts.tss** file with all class definitions and `fontFamily` selectors for any icon, serif, sans-serif, italic, fancy, or monospace font.
-- Use the `shades` command to generate custom color shades from the given hex color to use in your projects. No need for a separate online tool.
-- Includes an **Animation module** to apply basic 2D Matrix animations or transform to any element or array of elements.
-- Includes a simple two-dimensional **Grid System** to align and distribute elements in your Views.
+- **Tailwind-like Utility Classes**: PurgeTSS offers over 21,000 utility classes similar to Tailwind CSS, providing a vast array of styling options for your projects.
+
+- **Efficient Style Management**: It parses all your XML files to create a clean `app.tss` file, containing only the classes actually used in your project. This helps in reducing file size and improving performance.
+
+- **Customization and JIT Classes**: Developers can customize default classes via a simple configuration file. It also supports just-in-time (JIT) classes, allowing the creation of arbitrary values within views for tailored styling.
+
+- **Icon Fonts Integration**: PurgeTSS facilitates the use of popular icon fonts such as Font Awesome, Material Icons, Material Symbols, and Framework7-Icons in Buttons and Labels.
+
+- **Fonts.tss Generation**: It generates a `fonts.tss` file that includes all class definitions and fontFamily selectors for various font types like icon, serif, sans-serif, italic, fancy, or monospace fonts.
+
+- **Shades Command**: The toolkit includes a 'shades' command that enables developers to generate custom color shades from a specified hex color, eliminating the need for external tools.
+
+- **Animation Module**: PurgeTSS comes with an Animation module to apply basic 2D Matrix animations or transformations to elements or arrays of elements.
+
+- **Grid System**: It includes a simple yet effective two-dimensional grid system to align and distribute elements within views.
+
+Overall, PurgeTSS aims to simplify the mobile app development process, offering tools and features that enhance productivity and creativity in designing user interfaces.
 
 ### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more.
 
