@@ -211,7 +211,6 @@ function processCompoundClasses({ ..._base }) {
   compoundClasses += generateGlossary('placement', helpers.placement())
   compoundClasses += generateGlossary('progressBarStyle', helpers.progressBarStyle())
   compoundClasses += generateGlossary('scrollType', helpers.scrollType())
-  compoundClasses += generateGlossary('selectionStyle', helpers.selectionStyle())
   compoundClasses += generateGlossary('showScrollIndicators', helpers.scrollIndicators())
   compoundClasses += generateGlossary('statusBarStyle-alternative', helpers.statusBarStyle())
   compoundClasses += generateGlossary('theme', helpers.theme())
