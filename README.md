@@ -28,7 +28,7 @@ Here are its main functionalities:
 
 - **Icon Fonts Integration**: PurgeTSS facilitates the use of popular icon fonts such as Font Awesome, Material Icons, Material Symbols, and Framework7-Icons in Buttons and Labels.
 
-- **Fonts.tss Generation**: It generates a `fonts.tss` file that includes all class definitions and fontFamily selectors for various font types like icon, serif, sans-serif, italic, fancy, or monospace fonts.
+- **Fonts.tss Generation**: This process creates a `fonts.tss` file with class definitions and fontFamily selectors for various font types, making it easy to add custom fonts, including icon fonts, to a project.
 
 - **Shades Command**: The toolkit includes a 'shades' command that enables developers to generate custom color shades from a specified hex color, eliminating the need for external tools.
 
