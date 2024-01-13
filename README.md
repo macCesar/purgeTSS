@@ -30,7 +30,7 @@ Here are its main functionalities:
 
 - **Fonts.tss Generation**: This process creates a `fonts.tss` file with class definitions and fontFamily selectors for various font types, making it easy to add custom fonts, including icon fonts, to a project.
 
-- **Shades Command**: The toolkit includes a 'shades' command that enables developers to generate custom color shades from a specified hex color, eliminating the need for external tools.
+- **Shades Command**: The toolkit includes a `shades` command that enables developers to generate custom color shades from a specified hex color, eliminating the need for external tools.
 
 - **Animation Module**: PurgeTSS comes with an Animation module to apply basic 2D Matrix animations or transformations to elements or arrays of elements.
 
