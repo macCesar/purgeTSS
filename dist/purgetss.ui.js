@@ -411,4 +411,12 @@ function deviceInfo() {
 }
 exports.deviceInfo = deviceInfo
 
+function saveComponent({ source, directory = Ti.Filesystem.tempDirectory }) {
+  const componentImage = source.toImage()
+  const md5 = Ti.Utils.md5HexDigest(componentImage) + '.png'
+  Ti.Filesystem.getFile(directory, md5).write(componentImage)
+  Ti.Media.saveToPhotoGallery(componentImage)
+}
+exports.saveComponent = saveComponent
+
 exports.createAnimation = args => new Animation(args)
