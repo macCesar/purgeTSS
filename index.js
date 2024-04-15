@@ -572,13 +572,13 @@ function dependencies(options) {
     const { execSync } = require('child_process')
     const commandExistsSync = require('command-exists').sync
 
+    if (fs.existsSync(cwd + '/.gitignore') && !fs.readFileSync(cwd + '/.gitignore').includes('/node_modules')) {
+      execSync('echo "/node_modules" >>.gitignore')
+    }
+
     if (!fs.existsSync(cwd + '/package.json')) {
       logger.info(`Creating a new ${chalk.yellow('package.json')} file`)
       execSync(`cd "${cwd}" && npm init -y`)
-    }
-
-    if (fs.existsSync(cwd + '/.gitignore') && !fs.readFileSync(cwd + '/.gitignore').includes('/node_modules')) {
-      execSync('echo "/node_modules" >>.gitignore')
     }
 
     if (commandExistsSync('code')) {
