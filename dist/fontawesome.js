@@ -1,5 +1,5 @@
 /**
- * Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 */
 
@@ -785,6 +785,7 @@ const icons = {
   couch: '\uf4b8',
   cediSign: '\ue0df',
   italic: '\uf033',
+  tableCellsColumnLock: '\ue678',
   church: '\uf51d',
   commentsDollar: '\uf653',
   democrat: '\uf747',
@@ -1509,6 +1510,7 @@ const icons = {
   treeCity: '\ue587',
   play: '\uf04b',
   font: '\uf031',
+  tableCellsRowLock: '\ue67a',
   rupiahSign: '\ue23d',
   magnifyingGlass: '\uf002',
   search: '\uf002',
@@ -2010,6 +2012,7 @@ const icons = {
   centercode: '\uf380',
   glideG: '\uf2a6',
   drupal: '\uf1a9',
+  jxl: '\ue67b',
   hireAHelper: '\uf3b0',
   creativeCommonsBy: '\uf4e7',
   unity: '\ue049',
@@ -2111,6 +2114,7 @@ const icons = {
   itunesNote: '\uf3b5',
   golang: '\ue40f',
   kickstarter: '\uf3bb',
+  squareKickstarter: '\uf3bb',
   grav: '\uf2d6',
   weibo: '\uf18a',
   uncharted: '\ue084',
@@ -2255,6 +2259,7 @@ const icons = {
   facebookF: '\uf39e',
   squareGooglePlus: '\uf0d4',
   googlePlusSquare: '\uf0d4',
+  webAwesome: '\ue682',
   mandalorian: '\uf50f',
   firstOrderAlt: '\uf50a',
   osi: '\uf41a',
@@ -2309,6 +2314,7 @@ const icons = {
   superpowers: '\uf2dd',
   resolving: '\uf3e7',
   xbox: '\uf412',
+  squareWebAwesomeStroke: '\ue684',
   searchengin: '\uf3eb',
   tiktok: '\ue07b',
   squareFacebook: '\uf082',
@@ -2345,6 +2351,7 @@ const icons = {
   tradeFederation: '\uf513',
   autoprefixer: '\uf41c',
   whatsapp: '\uf232',
+  squareUpwork: '\ue67c',
   slideshare: '\uf1e7',
   googlePlay: '\uf3ab',
   viadeo: '\uf2a9',
@@ -2371,6 +2378,7 @@ const icons = {
   readme: '\uf4d5',
   html5: '\uf13b',
   sellsy: '\uf213',
+  squareWebAwesome: '\ue683',
   sass: '\uf41e',
   wirsindhandwerk: '\ue2d0',
   wsh: '\ue2d0',
@@ -2383,6 +2391,7 @@ const icons = {
   apper: '\uf371',
   fortAwesome: '\uf286',
   waze: '\uf83f',
+  bluesky: '\ue671',
   ccJcb: '\uf24b',
   snapchat: '\uf2ab',
   snapchatGhost: '\uf2ab',

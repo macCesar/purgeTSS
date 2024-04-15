@@ -1,4 +1,4 @@
-// Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -793,6 +793,7 @@
 '.fa-couch': { text: '\uf4b8', title: '\uf4b8' }
 '.fa-cedi-sign': { text: '\ue0df', title: '\ue0df' }
 '.fa-italic': { text: '\uf033', title: '\uf033' }
+'.fa-table-cells-column-lock': { text: '\ue678', title: '\ue678' }
 '.fa-church': { text: '\uf51d', title: '\uf51d' }
 '.fa-comments-dollar': { text: '\uf653', title: '\uf653' }
 '.fa-democrat': { text: '\uf747', title: '\uf747' }
@@ -1517,6 +1518,7 @@
 '.fa-tree-city': { text: '\ue587', title: '\ue587' }
 '.fa-play': { text: '\uf04b', title: '\uf04b' }
 '.fa-font': { text: '\uf031', title: '\uf031' }
+'.fa-table-cells-row-lock': { text: '\ue67a', title: '\ue67a' }
 '.fa-rupiah-sign': { text: '\ue23d', title: '\ue23d' }
 '.fa-magnifying-glass': { text: '\uf002', title: '\uf002' }
 '.fa-search': { text: '\uf002', title: '\uf002' }
@@ -2018,6 +2020,7 @@
 '.fa-centercode': { text: '\uf380', title: '\uf380' }
 '.fa-glide-g': { text: '\uf2a6', title: '\uf2a6' }
 '.fa-drupal': { text: '\uf1a9', title: '\uf1a9' }
+'.fa-jxl': { text: '\ue67b', title: '\ue67b' }
 '.fa-hire-a-helper': { text: '\uf3b0', title: '\uf3b0' }
 '.fa-creative-commons-by': { text: '\uf4e7', title: '\uf4e7' }
 '.fa-unity': { text: '\ue049', title: '\ue049' }
@@ -2119,6 +2122,7 @@
 '.fa-itunes-note': { text: '\uf3b5', title: '\uf3b5' }
 '.fa-golang': { text: '\ue40f', title: '\ue40f' }
 '.fa-kickstarter': { text: '\uf3bb', title: '\uf3bb' }
+'.fa-square-kickstarter': { text: '\uf3bb', title: '\uf3bb' }
 '.fa-grav': { text: '\uf2d6', title: '\uf2d6' }
 '.fa-weibo': { text: '\uf18a', title: '\uf18a' }
 '.fa-uncharted': { text: '\ue084', title: '\ue084' }
@@ -2263,6 +2267,7 @@
 '.fa-facebook-f': { text: '\uf39e', title: '\uf39e' }
 '.fa-square-google-plus': { text: '\uf0d4', title: '\uf0d4' }
 '.fa-google-plus-square': { text: '\uf0d4', title: '\uf0d4' }
+'.fa-web-awesome': { text: '\ue682', title: '\ue682' }
 '.fa-mandalorian': { text: '\uf50f', title: '\uf50f' }
 '.fa-first-order-alt': { text: '\uf50a', title: '\uf50a' }
 '.fa-osi': { text: '\uf41a', title: '\uf41a' }
@@ -2317,6 +2322,7 @@
 '.fa-superpowers': { text: '\uf2dd', title: '\uf2dd' }
 '.fa-resolving': { text: '\uf3e7', title: '\uf3e7' }
 '.fa-xbox': { text: '\uf412', title: '\uf412' }
+'.fa-square-web-awesome-stroke': { text: '\ue684', title: '\ue684' }
 '.fa-searchengin': { text: '\uf3eb', title: '\uf3eb' }
 '.fa-tiktok': { text: '\ue07b', title: '\ue07b' }
 '.fa-square-facebook': { text: '\uf082', title: '\uf082' }
@@ -2353,6 +2359,7 @@
 '.fa-trade-federation': { text: '\uf513', title: '\uf513' }
 '.fa-autoprefixer': { text: '\uf41c', title: '\uf41c' }
 '.fa-whatsapp': { text: '\uf232', title: '\uf232' }
+'.fa-square-upwork': { text: '\ue67c', title: '\ue67c' }
 '.fa-slideshare': { text: '\uf1e7', title: '\uf1e7' }
 '.fa-google-play': { text: '\uf3ab', title: '\uf3ab' }
 '.fa-viadeo': { text: '\uf2a9', title: '\uf2a9' }
@@ -2379,6 +2386,7 @@
 '.fa-readme': { text: '\uf4d5', title: '\uf4d5' }
 '.fa-html5': { text: '\uf13b', title: '\uf13b' }
 '.fa-sellsy': { text: '\uf213', title: '\uf213' }
+'.fa-square-web-awesome': { text: '\ue683', title: '\ue683' }
 '.fa-sass': { text: '\uf41e', title: '\uf41e' }
 '.fa-wirsindhandwerk': { text: '\ue2d0', title: '\ue2d0' }
 '.fa-wsh': { text: '\ue2d0', title: '\ue2d0' }
@@ -2391,6 +2399,7 @@
 '.fa-apper': { text: '\uf371', title: '\uf371' }
 '.fa-fort-awesome': { text: '\uf286', title: '\uf286' }
 '.fa-waze': { text: '\uf83f', title: '\uf83f' }
+'.fa-bluesky': { text: '\ue671', title: '\ue671' }
 '.fa-cc-jcb': { text: '\uf24b', title: '\uf24b' }
 '.fa-snapchat': { text: '\uf2ab', title: '\uf2ab' }
 '.fa-snapchat-ghost': { text: '\uf2ab', title: '\uf2ab' }
