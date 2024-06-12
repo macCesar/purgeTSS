@@ -1,6 +1,6 @@
 {
   "name": "purgetss",
-  "version": "6.2.44",
+  "version": "6.2.45",
   "description": "A package that simplifies mobile app creation for Titanium developers.",
   "main": "index.js",
   "bin": {
