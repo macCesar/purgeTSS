@@ -10603,41 +10603,6 @@
 '.is-translated-binary-on-apple-silicon': { isTranslatedBinaryOnAppleSilicon: true }
 '.is-translated-binary-on-apple-silicon-false': { isTranslatedBinaryOnAppleSilicon: false }
 
-// Property: scale
-// Component(s): MatrixCreationDict, Matrix2DCreationDict, Matrix3DCreationDict
-'.scale-0': { scale: 0 }
-'.scale-1': { scale: 0.01 }
-'.scale-5': { scale: 0.05 }
-'.scale-10': { scale: 0.10 }
-'.scale-25': { scale: 0.25 }
-'.scale-50': { scale: 0.5 }
-'.scale-75': { scale: 0.75 }
-'.scale-90': { scale: 0.9 }
-'.scale-95': { scale: 0.95 }
-'.scale-100': { scale: 1 }
-'.scale-105': { scale: 1.05 }
-'.scale-110': { scale: 1.1 }
-'.scale-125': { scale: 1.25 }
-'.scale-150': { scale: 1.5 }
-'.scale-200': { scale: 2 }
-
-// Property: rotate
-// Component(s): MatrixCreationDict, Matrix2DCreationDict
-'.rotate-0': { rotate: 0 }
-'.rotate-1': { rotate: 1 }
-'.rotate-2': { rotate: 2 }
-'.rotate-3': { rotate: 3 }
-'.rotate-6': { rotate: 6 }
-'.rotate-12': { rotate: 12 }
-'.rotate-45': { rotate: 45 }
-'.rotate-90': { rotate: 90 }
-'.rotate-135': { rotate: 135 }
-'.rotate-180': { rotate: 180 }
-'.rotate-225': { rotate: 225 }
-'.rotate-270': { rotate: 270 }
-'.rotate-315': { rotate: 315 }
-'.rotate-360': { rotate: 360 }
-
 // Property: indicatorColor
 // Description: Color of the animated indicator.
 // Component(s): Ti.UI.ActivityIndicator
@@ -15114,6 +15079,22 @@
 '.highlighted-rose-900': { highlightedColor: '#881337' }
 '.highlighted-rose-950': { highlightedColor: '#4c0519' }
 
+// Property: breakStrategy
+// Description: Break strategy (control over paragraph layout). Check Android breakStrategy for more infos.
+// Component(s): Ti.UI.Label
+'.break-strategy-simple': { breakStrategy: Ti.UI.BREAK_SIMPLE }
+'.break-strategy-high-quality': { breakStrategy: Ti.UI.BREAK_HIGH_QUALITY }
+'.break-strategy-balanced': { breakStrategy: Ti.UI.BREAK_BALANCED }
+
+// Property: hyphenationFrequency
+// Description: Frequency of automatic hyphenation. Check Android hyphenationFrequency for more infos.
+// Component(s): Ti.UI.Label
+'.hyphenation-frequency-hyphen-none': { hyphenationFrequency: Ti.UI.HYPHEN_NONE }
+'.hyphenation-frequency-hyphen-normal': { hyphenationFrequency: Ti.UI.HYPHEN_NORMAL }
+'.hyphenation-frequency-hyphen-full': { hyphenationFrequency: Ti.UI.HYPHEN_FULL }
+'.hyphenation-frequency-hyphen-normal-fast': { hyphenationFrequency: Ti.UI.HYPHEN_NORMAL_FAST }
+'.hyphenation-frequency-hyphen-full-fast': { hyphenationFrequency: Ti.UI.HYPHEN_FULL_FAST }
+
 // Property: includeFontPadding
 // Description: Includes extra top and bottom padding to make room for accents that go above normal ascent and descent.
 // Component(s): Ti.UI.Label
@@ -17172,6 +17153,42 @@
 '.tint-rose-800': { tint: '#9f1239' }
 '.tint-rose-900': { tint: '#881337' }
 '.tint-rose-950': { tint: '#4c0519' }
+
+// Property: scale
+// Component(s): Matrix2DCreationDict, Matrix3DCreationDict
+'.scale-0': { scale: 0 }
+'.scale-1': { scale: 0.01 }
+'.scale-5': { scale: 0.05 }
+'.scale-10': { scale: 0.10 }
+'.scale-25': { scale: 0.25 }
+'.scale-50': { scale: 0.5 }
+'.scale-75': { scale: 0.75 }
+'.scale-90': { scale: 0.9 }
+'.scale-95': { scale: 0.95 }
+'.scale-100': { scale: 1 }
+'.scale-105': { scale: 1.05 }
+'.scale-110': { scale: 1.1 }
+'.scale-125': { scale: 1.25 }
+'.scale-150': { scale: 1.5 }
+'.scale-200': { scale: 2 }
+
+// Property: rotate
+// Description: Rotation angle, in degrees. See the rotate method for a discussion of rotation.
+// Component(s): Matrix2DCreationDict
+'.rotate-0': { rotate: 0 }
+'.rotate-1': { rotate: 1 }
+'.rotate-2': { rotate: 2 }
+'.rotate-3': { rotate: 3 }
+'.rotate-6': { rotate: 6 }
+'.rotate-12': { rotate: 12 }
+'.rotate-45': { rotate: 45 }
+'.rotate-90': { rotate: 90 }
+'.rotate-135': { rotate: 135 }
+'.rotate-180': { rotate: 180 }
+'.rotate-225': { rotate: 225 }
+'.rotate-270': { rotate: 270 }
+'.rotate-315': { rotate: 315 }
+'.rotate-360': { rotate: 360 }
 
 // Property: closed
 // Description: Determines whether this Window is closed.

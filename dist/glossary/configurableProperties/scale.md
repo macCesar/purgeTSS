@@ -1,6 +1,6 @@
 ```scss
 // Property: scale
-// Component(s): MatrixCreationDict, Matrix2DCreationDict, Matrix3DCreationDict
+// Component(s): Matrix2DCreationDict, Matrix3DCreationDict
 '.scale-0': { scale: 0 }
 '.scale-1': { scale: 0.01 }
 '.scale-5': { scale: 0.05 }

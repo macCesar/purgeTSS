@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "12.2.1.GA",
+	"sdkVersion": "12.3.1.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -2108,6 +2108,24 @@
 			"readOnly": false,
 			"values": []
 		},
+		"BREAK_BALANCED": {
+			"description": "Line breaking strategy balances line lengths.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"BREAK_HIGH_QUALITY": {
+			"description": "Line breaking uses high-quality strategy, including hyphenation.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"BREAK_SIMPLE": {
+			"description": "Line breaking uses simple strategy.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
 		"BUTTON_STYLE_FILLED": {
 			"description": "Use with <a href=\"Titanium.UI.Button.style\">Button.style</a> to show a solid filled button.",
 			"type": "Number",
@@ -3733,6 +3751,36 @@
 		},
 		"HISTORY": {
 			"description": "History style icon",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"HYPHEN_FULL": {
+			"description": "Standard amount of hyphenation, useful for running text and for screens with limited space for text.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"HYPHEN_FULL_FAST": {
+			"description": "Same to hyphenationFrequency=&quot;full&quot; but using faster algorithm for measuring hyphenation break points.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"HYPHEN_NONE": {
+			"description": "No hyphenation.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"HYPHEN_NORMAL": {
+			"description": "Less frequent hyphenation, useful for informal use cases, such as chat messages.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"HYPHEN_NORMAL_FAST": {
+			"description": "Same to hyphenationFrequency=&quot;normal&quot; but using faster algorithm for measuring hyphenation break points.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -9818,6 +9866,12 @@
 			"readOnly": true,
 			"values": []
 		},
+		"bounce": {
+			"description": "The animation bounce. If set, the animation uses the iOS 17+ spring animation.",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
 		"boundaryIdentifiers": {
 			"description": "Boundary identfiers added to this behavior.",
 			"type": "Array",
@@ -9829,6 +9883,16 @@
 			"type": "Number",
 			"readOnly": true,
 			"values": []
+		},
+		"breakStrategy": {
+			"description": "Break strategy (control over paragraph layout). Check <a href=\"https://developer.android.com/reference/android/widget/TextView#attr_android:breakStrategy\">Android breakStrategy</a> for more infos.",
+			"type": "Number",
+			"readOnly": true,
+			"values": [
+				"Ti.UI.BREAK_SIMPLE",
+				"Ti.UI.BREAK_HIGH_QUALITY",
+				"Ti.UI.BREAK_BALANCED"
+			]
 		},
 		"bubbleParent": {
 			"description": "Indicates if the proxy will bubble an event to its parent.",
@@ -12896,6 +12960,18 @@
 			"readOnly": true,
 			"values": []
 		},
+		"hyphenationFrequency": {
+			"description": "Frequency of automatic hyphenation. Check <a href=\"https://developer.android.com/reference/android/widget/TextView#attr_android:hyphenationFrequency\">Android hyphenationFrequency</a> for more infos.",
+			"type": "Number",
+			"readOnly": true,
+			"values": [
+				"Ti.UI.HYPHEN_NONE",
+				"Ti.UI.HYPHEN_NORMAL",
+				"Ti.UI.HYPHEN_FULL",
+				"Ti.UI.HYPHEN_NORMAL_FAST",
+				"Ti.UI.HYPHEN_FULL_FAST"
+			]
+		},
 		"icon": {
 			"description": "",
 			"type": "String",
@@ -14136,6 +14212,12 @@
 				"Ti.UI.ATTRIBUTE_LINE_BREAK_BY_TRUNCATING_MIDDLE",
 				"Ti.UI.ATTRIBUTE_LINE_BREAK_BY_TRUNCATING_TAIL"
 			]
+		},
+		"lineCount": {
+			"description": "Returns the amount of lines the content is acually using. Is equal or lower than <code>maxLines</code>.",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
 		},
 		"lineEnding": {
 			"description": "Platform-specific line ending constant.",
@@ -17103,7 +17185,7 @@
 			"values": []
 		},
 		"rotate": {
-			"description": "",
+			"description": "Rotation angle, in degrees. See the <a href=\"Titanium.UI.Matrix2D.rotate\">rotate</a> method\nfor a discussion of rotation.",
 			"type": "Number",
 			"readOnly": true,
 			"values": []
@@ -20013,6 +20095,12 @@
 			"readOnly": true,
 			"values": []
 		},
+		"visibleText": {
+			"description": "Returns the actual text seen on the screen. If the text is ellipsized it will be different to the normal <code>text</code>.",
+			"type": "String",
+			"readOnly": false,
+			"values": []
+		},
 		"volume": {
 			"description": "",
 			"type": "Number",
@@ -22657,7 +22745,7 @@
 			]
 		},
 		"Ti.App.iOS.UserDefaults": {
-			"description": "The UserDefaults module is used for storing application-related data in property/value pairs\nthat persist beyond application sessions and device power cycles. UserDefaults allows the suiteName\nof the UserDefaults to be specified at creation time.",
+			"description": "The UserDefaults module is used for storing application-related data in property/value pairs\nthat persist beyond application sessions and device power cycles. UserDefaults allows the suiteName\nof the UserDefaults to be specified at creation time.\n<strong>Important</strong>: Using this API requires the <code>NSPrivacyAccessedAPICategoryUserDefaults</code> property set in the\nprivacy manifest that was introduced in iOS 17. You can learn more about it <a href=\"https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api\">here</a>.",
 			"functions": [
 				"addEventListener",
 				"removeEventListener",
@@ -25638,16 +25726,6 @@
 			],
 			"events": []
 		},
-		"MatrixCreationDict": {
-			"description": "Simple object passed to <a href=\"Titanium.UI.create2DMatrix\">Titanium.UI.create2DMatrix</a> to initialize a matrix.",
-			"functions": [],
-			"properties": [
-				"scale",
-				"rotate",
-				"anchorPoint"
-			],
-			"events": []
-		},
 		"Ti.UI.ActivityIndicator": {
 			"description": "An activity indicator that lets the user know an action is taking place.",
 			"functions": [
@@ -26496,6 +26574,7 @@
 				"repeat",
 				"right",
 				"springVelocity",
+				"bounce",
 				"top",
 				"transform",
 				"transition",
@@ -26920,6 +26999,7 @@
 				"previewContext",
 				"right",
 				"rect",
+				"rotation",
 				"size",
 				"tintColor",
 				"tooltip",
@@ -27292,8 +27372,11 @@
 				"font",
 				"highlightedColor",
 				"html",
+				"breakStrategy",
+				"hyphenationFrequency",
 				"includeFontPadding",
 				"lines",
+				"lineCount",
 				"lineSpacing",
 				"maxLines",
 				"minimumFontSize",
@@ -27303,6 +27386,7 @@
 				"text",
 				"textAlign",
 				"textid",
+				"visibleText",
 				"wordWrap",
 				"verticalAlign"
 			],
@@ -30284,6 +30368,7 @@
 				"font",
 				"fullscreen",
 				"hintText",
+				"hinttextid",
 				"hintTextColor",
 				"hintType",
 				"handleLinks",
@@ -30651,9 +30736,7 @@
 				"removeEventListener",
 				"fireEvent",
 				"applyProperties",
-				"create2DMatrix|deprecated",
 				"createMatrix2D",
-				"create3DMatrix|deprecated",
 				"createMatrix3D",
 				"convertUnits",
 				"fetchSemanticColor",
@@ -30837,6 +30920,14 @@
 				"DATE_PICKER_STYLE_INLINE",
 				"HINT_TYPE_STATIC",
 				"HINT_TYPE_ANIMATED",
+				"HYPHEN_NONE",
+				"HYPHEN_NORMAL",
+				"HYPHEN_FULL",
+				"HYPHEN_NORMAL_FAST",
+				"HYPHEN_FULL_FAST",
+				"BREAK_SIMPLE",
+				"BREAK_HIGH_QUALITY",
+				"BREAK_BALANCED",
 				"TEXT_ELLIPSIZE_TRUNCATE_WORD_WRAP",
 				"TEXT_ELLIPSIZE_TRUNCATE_CHAR_WRAP",
 				"TEXT_ELLIPSIZE_TRUNCATE_CLIP",
@@ -31741,6 +31832,7 @@
 				"previewContext",
 				"right",
 				"rect",
+				"rotation",
 				"size",
 				"tintColor",
 				"tooltip",
@@ -31861,6 +31953,7 @@
 				"previewContext",
 				"right",
 				"rect",
+				"rotation",
 				"size",
 				"tintColor",
 				"tooltip",
@@ -32076,6 +32169,7 @@
 				"previewContext",
 				"right",
 				"rect",
+				"rotation",
 				"size",
 				"tintColor",
 				"tooltip",
@@ -32339,6 +32433,7 @@
 				"previewContext",
 				"right",
 				"rect",
+				"rotation",
 				"size",
 				"tintColor",
 				"tooltip",
@@ -32496,6 +32591,7 @@
 				"previewContext",
 				"right",
 				"rect",
+				"rotation",
 				"size",
 				"tintColor",
 				"tooltip",
@@ -32930,6 +33026,7 @@
 				"height",
 				"horizontalMotionEffect",
 				"id",
+				"rotation",
 				"tooltip",
 				"verticalMotionEffect",
 				"width",

@@ -1,6 +1,7 @@
 ```scss
 // Property: rotate
-// Component(s): MatrixCreationDict, Matrix2DCreationDict
+// Description: Rotation angle, in degrees. See the rotate method for a discussion of rotation.
+// Component(s): Matrix2DCreationDict
 '.rotate-0': { rotate: 0 }
 '.rotate-1': { rotate: 1 }
 '.rotate-2': { rotate: 2 }
