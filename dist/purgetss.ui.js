@@ -1,4 +1,4 @@
-// PurgeTSS v6.2.46
+// PurgeTSS v6.2.47
 // Created by César Estrada
 // https://purgetss.com
 
@@ -155,6 +155,7 @@ function Animation(args = {}) {
     let left = Math.round(convertedPoint.x - offsetX)
 
     const parentViewRect = draggableView.parent.rect
+
     if (draggableView.bounds) {
       if (draggableView.bounds.top !== undefined && top < draggableView.bounds.top) {
         top = draggableView.bounds.top
