@@ -381,7 +381,7 @@ function create(args, options) {
 
       if (fs.existsSync(`${workspace}/${args.name}`)) {
         if (options.force) {
-          logger.info('Deleting existing project folder')
+          logger.info('Deleting existing project’s folder')
           exec(`chown -R $USER "${workspace}/${args.name}" && rm -rf "${workspace}/${args.name}"`, error => {
             if (error) return logger.error(error)
             createProject(workspace, args.name, projectID, options)
@@ -394,7 +394,7 @@ function create(args, options) {
             default: false
           }]).then(answers => {
             if (answers.delete) {
-              logger.info('Deleting existing project folder')
+              logger.info('Deleting existing project’s folder')
               exec(`chown -R $USER "${workspace}/${args.name}" && rm -rf "${workspace}/${args.name}"`, error => {
                 if (error) return logger.error(error)
                 createProject(workspace, args.name, projectID, options)
@@ -536,6 +536,11 @@ function createProject(workspace, argsName, projectID, options) {
   if (options.vendor) {
     logger.info('Installing Fonts')
     execSync(`cd ${projectDirectory} && purgetss il -m -v=${options.vendor}`)
+  }
+
+  if (options.module) {
+    logger.info(`Installing ${chalk.green('purgetss.ui')}`)
+    execSync(`cd ${projectDirectory} && purgetss m`)
   }
 
   if (options.dependencies) {
