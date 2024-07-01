@@ -732,6 +732,8 @@ function buildFonts(options) {
       })
 
       logger.info(`${chalk.yellow('./app/lib/purgetss.fonts.js')} file created!`)
+    } else if (fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
+      fs.unlinkSync(`${projectsLibFolder}/purgetss.fonts.js`)
     }
 
     if (files.length > 0) {
