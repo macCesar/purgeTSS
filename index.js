@@ -691,7 +691,7 @@ function buildFonts(options) {
         tssClasses += processFontsCSS(cssFile, prefix)
 
         // ! JavaScript Module
-        if (options.module) {
+        if (options.module || fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
           fontJS += processFontsJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
           fontFamiliesJS += processFontFamilyNamesJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
         }
@@ -732,10 +732,6 @@ function buildFonts(options) {
       })
 
       logger.info(`${chalk.yellow('./app/lib/purgetss.fonts.js')} file created!`)
-    } else {
-      if (fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
-        fs.unlinkSync(`${projectsLibFolder}/purgetss.fonts.js`)
-      }
     }
 
     if (files.length > 0) {
