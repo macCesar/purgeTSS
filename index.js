@@ -1106,14 +1106,14 @@ function findMissingClasses(tempPurged) {
     tempPurged += '\n' + fs.readFileSync(file, 'utf8')
   })
 
-  // ! Get Styles from Widgets  ( Experimental )
+  // ! Get Styles from Widgets
   if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
     _.each(getFiles(cwd + '/app/widgets').filter(file => file.endsWith('.tss')), file => {
       tempPurged += '\n' + fs.readFileSync(file, 'utf8')
     })
   }
 
-  // ! Get Views from Themes  ( Experimental )
+  // ! Get Views from Themes
   if (fs.existsSync(cwd + '/app/themes/')) {
     _.each(getFiles(cwd + '/app/themes').filter(file => file.endsWith('.tss')), file => {
       tempPurged += '\n' + fs.readFileSync(file, 'utf8')
@@ -1126,7 +1126,20 @@ function findMissingClasses(tempPurged) {
     })
   }
 
-  return getClassesOnlyFromXMLFiles().filter(item => !tempPurged.includes(item))
+  const classesFromXmlFiles = getClassesOnlyFromXMLFiles().filter(item => !tempPurged.includes(item))
+
+  let classesFromJsFiles = []
+  const controllerPaths = getControllerPaths()
+  _.each(controllerPaths, controllerPath => {
+    const data = fs.readFileSync(controllerPath, 'utf8')
+    if (data) classesFromJsFiles.push(processControllers(data))
+  })
+  const reservedWords = 'Alloy.isTablet Alloy.isHandheld ? ,'
+  classesFromJsFiles = [...new Set([...classesFromJsFiles.flat().filter(item => !reservedWords.includes(item))])]
+
+  classesFromJsFiles = classesFromJsFiles.filter(item => !reservedWords.includes(item))
+
+  return [...new Set([...classesFromJsFiles.filter(item => !tempPurged.includes(item)), ...classesFromXmlFiles])]
 }
 
 function addHook() {
@@ -1249,17 +1262,36 @@ function getViewPaths() {
   // ! Parse Views from App
   viewPaths.push(...glob.sync(cwd + '/app/views/**/*.xml'))
 
-  // ! Parse Views from Widgets  ( Experimental )
+  // ! Parse Views from Widgets
   if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
     viewPaths.push(...glob.sync(cwd + '/app/widgets/**/views/*.xml'))
   }
 
-  // ! Parse Views from Themes  ( Experimental )
+  // ! Parse Views from Themes
   if (fs.existsSync(cwd + '/app/themes/')) {
     viewPaths.push(...glob.sync(cwd + '/app/themes/**/views/*.xml'))
   }
 
   return viewPaths
+}
+
+function getControllerPaths() {
+  const controllerPaths = []
+
+  // ! Parse Controllers from App
+  controllerPaths.push(...glob.sync(cwd + '/app/controllers/**/*.js'))
+
+  // ! Parse Controllers from Widgets
+  if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
+    controllerPaths.push(...glob.sync(cwd + '/app/widgets/**/controllers/*.js'))
+  }
+
+  // ! Parse Controllers from Themes
+  if (fs.existsSync(cwd + '/app/themes/')) {
+    controllerPaths.push(...glob.sync(cwd + '/app/themes/**/controllers/*.js'))
+  }
+
+  return controllerPaths
 }
 
 function getClassesOnlyFromXMLFiles() {
@@ -1285,6 +1317,12 @@ function getUniqueClasses() {
     if (file) allClasses.push((configFile.purge.mode === 'all') ? file.match(/[^<>"'`\s]*[^<>"'`\s:]/g) : extractClasses(file, viewPath))
   })
 
+  const controllerPaths = getControllerPaths()
+  _.each(controllerPaths, controllerPath => {
+    const data = fs.readFileSync(controllerPath, 'utf8')
+    if (data) allClasses.push(processControllers(data))
+  })
+
   if (configOptions.safelist) _.each(configOptions.safelist, safe => allClasses.push(safe))
 
   const uniqueClasses = []
@@ -1295,6 +1333,44 @@ function getUniqueClasses() {
   localFinish('Get Unique Classes')
 
   return uniqueClasses.sort()
+}
+
+function extractWordsFromLine(line) {
+  let words = []
+  const applyRegex = /apply:\s*'([^']+)'/
+  const classesRegex = /classes:\s*\[([^\]]+)\]/
+
+  const applyMatch = applyRegex.exec(line)
+  if (applyMatch) {
+    const applyContent = applyMatch[1]
+    words = words.concat(applyContent.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [])
+  }
+
+  const classesMatch = classesRegex.exec(line)
+  if (classesMatch) {
+    const classesContent = classesMatch[1]
+    words = words.concat(classesContent.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [])
+  }
+
+  return words
+}
+
+function processControllers(data) {
+  try {
+    const allWords = []
+    const lines = data.split(/\r?\n/)
+
+    lines.forEach(line => {
+      const words = extractWordsFromLine(line)
+      if (words.length > 0) {
+        allWords.push(...words)
+      }
+    })
+
+    return allWords.length > 0 ? allWords : ''
+  } catch (err) {
+    return []
+  }
 }
 
 function filterCharacters(uniqueClass) {
@@ -1893,7 +1969,7 @@ function createDefinitionsFile() {
     })
   }
 
-  // ! Get Styles from Themes  ( Experimental )
+  // ! Get Styles from Themes
   if (fs.existsSync(cwd + '/app/themes/')) {
     _.each(getFiles(cwd + '/app/themes').filter(file => file.endsWith('.tss')), file => {
       classDefinitions += fs.readFileSync(file, 'utf8')
@@ -2296,7 +2372,7 @@ function extractClassesOnly(currentText, currentFile) {
     const jsontext = convert.xml2json(encodeHTML(currentText), { compact: true })
 
     return traverse(JSON.parse(jsontext)).reduce(function (acc, value) {
-      if (this.key === 'class' || this.key === 'classes' || this.key === 'icon') acc.push(value.split(' '))
+      if (this.key === 'class' || this.key === 'classes' || this.key === 'icon' || this.key === 'activeIcon') acc.push(value.split(' '))
       return acc
     }, [])
   } catch (error) {
