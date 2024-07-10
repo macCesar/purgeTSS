@@ -1338,17 +1338,27 @@ function getUniqueClasses() {
 function extractWordsFromLine(line) {
   let words = []
   const applyRegex = /apply:\s*'([^']+)'/
-  const classesRegex = /classes:\s*\[([^\]]+)\]/
+  const classesArrayRegex = /classes:\s*\[([^\]]+)\]/
+  const classesStringRegex = /classes:\s*'([^']+)'/
 
+  // Matching apply
   const applyMatch = applyRegex.exec(line)
   if (applyMatch) {
     const applyContent = applyMatch[1]
     words = words.concat(applyContent.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [])
   }
 
-  const classesMatch = classesRegex.exec(line)
-  if (classesMatch) {
-    const classesContent = classesMatch[1]
+  // Matching classes as array
+  const classesArrayMatch = classesArrayRegex.exec(line)
+  if (classesArrayMatch) {
+    const classesContent = classesArrayMatch[1]
+    words = words.concat(classesContent.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [])
+  }
+
+  // Matching classes as string
+  const classesStringMatch = classesStringRegex.exec(line)
+  if (classesStringMatch) {
+    const classesContent = classesStringMatch[1]
     words = words.concat(classesContent.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [])
   }
 
