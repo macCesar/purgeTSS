@@ -1,4 +1,4 @@
-// PurgeTSS v6.2.48
+// PurgeTSS v6.3.4
 // Created by César Estrada
 // https://purgetss.com
 
@@ -277,14 +277,19 @@ function Animation(args = {}) {
 
   function checkDraggable(_view, _action) {
     logger('Check Draggable')
-    logger(`   -> '${_action}'`)
-    const draggingType = _view.draggingType ?? args.draggingType
-    const handleDragDrop = (properties) => ((draggingType === 'apply') ? _view.applyProperties(properties) : _view.animate(Ti.UI.createAnimation(properties)))
+    logger('   -> `' + _action + '`')
 
-    if (_action === 'drag') {
-      handleDragDrop(args.draggable?.drag ? { ...args.draggable.drag, ..._view.draggable?.drag } : _view.draggable?.drag)
-    } else if (_action === 'drop') {
-      handleDragDrop(args.draggable?.drop ? { ...args.draggable.drop, ..._view.draggable?.drop } : _view.draggable?.drop)
+    const draggingType = _view.draggingType ?? args.draggingType
+    const argsActions = args.draggable ? args.draggable[_action] : null
+    const draggableActions = _view.draggable ? _view.draggable[_action] : null
+    const theArgs = draggableActions ? { ...argsActions, ...draggableActions } : argsActions
+
+    if (theArgs) {
+      if (draggingType === 'apply') {
+        _view.applyProperties(theArgs)
+      } else {
+        _view.animate(Ti.UI.createAnimation(theArgs))
+      }
     }
   }
 
