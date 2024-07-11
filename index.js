@@ -1363,12 +1363,19 @@ function extractWordsFromLine(line) {
     words = words.concat(classesContent.split(/\s+/))
   }
 
-  // Matching addClass, removeClass, resetClass
-  const classFunctionRegex = /(?:\.\w+Class|resetClass)\([^,]+,\s*'([^']+)'/g
+  // Matching addClass, removeClass, resetClass with string or array of strings
+  const classFunctionRegex = /(?:\.\w+Class|resetClass)\([^,]+,\s*(?:'([^']+)'|\[([^\]]+)\])/g
   let classFunctionMatch
   while ((classFunctionMatch = classFunctionRegex.exec(line)) !== null) {
-    const classFunctionContent = classFunctionMatch[1]
-    words = words.concat(classFunctionContent.split(/\s+/))
+    const classFunctionContent = classFunctionMatch[1] || classFunctionMatch[2]
+    if (classFunctionContent) {
+      if (classFunctionContent.includes(',')) {
+        const classArray = classFunctionContent.split(',').map(item => item.trim().replace(/['"]/g, ''))
+        words = words.concat(classArray)
+      } else {
+        words = words.concat(classFunctionContent.replace(/['"]/g, '').split(/\s+/))
+      }
+    }
   }
 
   // Matching generic arrays
