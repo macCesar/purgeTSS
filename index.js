@@ -1337,50 +1337,64 @@ function getUniqueClasses() {
 
 function extractWordsFromLine(line) {
   let words = []
-  const applyRegex = /apply:\s*'([^']+)'/
-  const classesArrayRegex = /classes:\s*\[([^\]]+)\]/
-  const classesStringRegex = /classes:\s*'([^']+)'/
 
   // Matching apply
+  const applyRegex = /apply:\s*'([^']+)'/
   const applyMatch = applyRegex.exec(line)
   if (applyMatch) {
     const applyContent = applyMatch[1]
-    words = words.concat(applyContent.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [])
+    words = words.concat(applyContent.split(/\s+/))
   }
 
   // Matching classes as array
+  const classesArrayRegex = /classes:\s*\[([^\]]+)\]/
   const classesArrayMatch = classesArrayRegex.exec(line)
   if (classesArrayMatch) {
     const classesContent = classesArrayMatch[1]
-    words = words.concat(classesContent.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [])
+    const classesArray = classesContent.split(',').map(item => item.trim().replace(/['"]/g, ''))
+    words = words.concat(classesArray)
   }
 
   // Matching classes as string
+  const classesStringRegex = /classes:\s*'([^']+)'/
   const classesStringMatch = classesStringRegex.exec(line)
   if (classesStringMatch) {
     const classesContent = classesStringMatch[1]
-    words = words.concat(classesContent.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [])
+    words = words.concat(classesContent.split(/\s+/))
   }
+
+  // Matching addClass, removeClass, resetClass
+  const classFunctionRegex = /(?:\.\w+Class|resetClass)\([^,]+,\s*'([^']+)'/g
+  let classFunctionMatch
+  while ((classFunctionMatch = classFunctionRegex.exec(line)) !== null) {
+    const classFunctionContent = classFunctionMatch[1]
+    words = words.concat(classFunctionContent.split(/\s+/))
+  }
+
+  // Matching generic arrays
+  // const genericArrayRegex = /(\w+:\s*\[([^\]]+)\])/g
+  // let genericArrayMatch
+  // while ((genericArrayMatch = genericArrayRegex.exec(line)) !== null) {
+  //   const genericArrayContent = genericArrayMatch[2]
+  //   const genericArray = genericArrayContent.split(',').map(item => item.trim().replace(/['"]/g, ''))
+  //   words = words.concat(genericArray)
+  // }
 
   return words
 }
 
 function processControllers(data) {
-  try {
-    const allWords = []
-    const lines = data.split(/\r?\n/)
+  const allWords = []
+  const lines = data.split(/\r?\n/)
 
-    lines.forEach(line => {
-      const words = extractWordsFromLine(line)
-      if (words.length > 0) {
-        allWords.push(...words)
-      }
-    })
+  lines.forEach(line => {
+    const words = extractWordsFromLine(line)
+    if (words.length > 0) {
+      allWords.push(...words)
+    }
+  })
 
-    return allWords.length > 0 ? allWords : ''
-  } catch (err) {
-    return []
-  }
+  return allWords
 }
 
 function filterCharacters(uniqueClass) {
