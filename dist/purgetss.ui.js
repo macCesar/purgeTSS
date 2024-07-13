@@ -1,4 +1,4 @@
-// PurgeTSS v6.3.4
+// PurgeTSS v6.3.3
 // Created by César Estrada
 // https://purgetss.com
 
@@ -10,6 +10,7 @@ function Animation(args = {}) {
     playing: false,
     delay: args.delay ?? 0,
     debug: args.debug ?? false,
+    moveByAnimation: args.moveByAnimation ?? false,
     moveByProperties: args.moveByProperties ?? false,
     hasTransformation: (args.scale !== undefined || args.rotate !== undefined)
   }
@@ -133,15 +134,11 @@ function Animation(args = {}) {
         checkDraggable(draggableView, 'drag')
       })
 
-      draggableView.addEventListener('touchend', () => {
-        checkDraggable(draggableView, 'drop')
-      })
+      draggableView.addEventListener('touchend', () => checkDraggable(draggableView, 'drop'))
 
       draggableView.addEventListener('touchmove', (event) => handleTouchMove(event, draggableView, offsetX, offsetY))
 
-      Ti.Gesture.addEventListener('orientationchange', () => {
-        checkBoundaries(draggableView)
-      })
+      Ti.Gesture.addEventListener('orientationchange', () => checkBoundaries(draggableView))
 
       param.draggables.push(draggableView)
     } else {
@@ -175,6 +172,8 @@ function Animation(args = {}) {
 
     if (param.moveByProperties) {
       draggableView.applyProperties({ duration: 0, transform: Ti.UI.createMatrix2D().translate(x, y) })
+    } else if (param.moveByAnimation) {
+      draggableView.animate(Ti.UI.createAnimation({ top, left, duration: 0 }))
     } else {
       draggableView.animate({ top, left, duration: 0 })
     }

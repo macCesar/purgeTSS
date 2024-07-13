@@ -1332,9 +1332,17 @@
 '.alert-dialog-style-plain-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT }
 '.alert-dialog-style-secure-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.SECURE_TEXT_INPUT }
 
-// To use the `applyProperties` method instead of the `animate` method when dragging objects using the PurgeTSS Animation Module.
+// To use the `applyProperties` method when dragging objects using the PurgeTSS Animation Module.
 '.move-by-properties': { moveByProperties: true }
 '.move-by-properties-false': { moveByProperties: false }
+
+// To use the `animate` method when dragging objects using the PurgeTSS Animation Module.
+'.move-by-animate': { moveByAnimate: true }
+'.move-by-animate-false': { moveByAnimate: false }
+
+// To use the `Ti.UI.createAnimation` inside the `animate` method when dragging objects using the PurgeTSS Animation Module.
+'.move-by-animation': { moveByAnimation: true }
+'.move-by-animation-false': { moveByAnimation: false }
 
 // Property(ies): anchorPoint
 // Component(s): Ti.UI.Animation, Ti.UI.View
@@ -1589,6 +1597,7 @@
 '.orientation-portrait': { orientationModes: [ Ti.UI.PORTRAIT ] }
 '.orientation-upside-portrait': { orientationModes: [ Ti.UI.UPSIDE_PORTRAIT ] }
 '.orientation-landscape': { orientationModes: [ Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
+'.orientation-all': { orientationModes: [ Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT, Ti.UI.LANDSCAPE_LEFT, Ti.UI.LANDSCAPE_RIGHT ] }
 
 // Property(ies): orientationModes (Alternative)
 // Description: Array of supported orientation modes, specified using the orientation constants defined in Titanium.UI.
