@@ -37,17 +37,17 @@ const logger = {
 const projectsLibFolder = cwd + '/app/lib'
 const classicProjectLibFolder = cwd + '/Resources/lib'
 const projectsAppTSS = cwd + '/app/styles/app.tss'
-const projects_AppTSS = cwd + '/app/styles/_app.tss'
+const projectsUnderscoreAppTSS = cwd + '/app/styles/_app.tss'
 const projectsAlloyJMKFile = cwd + '/app/alloy.jmk'
 const projectsFontsFolder = cwd + '/app/assets/fonts'
 const projectsFontAwesomeJS = cwd + '/app/lib/fontawesome.js'
 
 const projectsPurgeTSSFolder = cwd + '/purgetss'
 const projectsConfigJS = cwd + '/purgetss/config.js'
-const projectsTailwind_TSS = cwd + '/purgetss/styles/tailwind.tss'
-const projectsPurge_TSS_Fonts_Folder = cwd + '/purgetss/fonts'
-const projectsPurge_TSS_Styles_Folder = cwd + '/purgetss/styles'
-const projectsFA_TSS_File = cwd + '/purgetss/styles/fontawesome.tss'
+const projectsTailwindTSS = cwd + '/purgetss/styles/tailwind.tss'
+const projectsPurgeTSSFontsFolder = cwd + '/purgetss/fonts'
+const projectsPurgeTSSStylesFolder = cwd + '/purgetss/styles'
+const projectsFATSSFile = cwd + '/purgetss/styles/fontawesome.tss'
 
 // js icon modules
 const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js')
@@ -61,15 +61,15 @@ const srcTailwindTSS = path.resolve(__dirname, './dist/tailwind.tss')
 //
 
 // PRO
-const srcFA_Pro_CSS = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css'
-const srcFA_Pro_Web_Fonts_Folder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/'
+const srcFAProCSS = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css'
+const srcFAProWebFontsFolder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/'
 // Alternate location
-const srcFA_Pro_CSS_Alt = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/css/all.css'
-const srcFA_Pro_Web_Fonts_Folder_Alt = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/webfonts/'
+const srcFAProCSSAlt = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/css/all.css'
+const srcFAProWebFontsFolderAlt = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/webfonts/'
 
-const srcFA_ProReset_TSS_File = './lib/templates/fontawesome/pro-reset.tss'
-const srcFA_ProTemplateTSS_File = './lib/templates/fontawesome/pro-template.tss'
-const srcFA_ProFontFamilies = {
+const srcFAProResetTSSFile = './lib/templates/fontawesome/pro-reset.tss'
+const srcFAProTemplateTSSFile = './lib/templates/fontawesome/pro-template.tss'
+const srcFAProFontFamilies = {
   'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
   'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
   'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
@@ -78,11 +78,11 @@ const srcFA_ProFontFamilies = {
 }
 
 // BETA
-const srcFA_Beta_CSSFile = cwd + '/purgetss/fontawesome-beta/css/all.css'
-const srcFA_Beta_Web_Fonts_Folder = cwd + '/purgetss/fontawesome-beta/webfonts/'
-const srcFA_Beta_ResetTSS = './lib/templates/fontawesome/beta-reset.tss'
-const srcFA_Beta_TemplateTSS = './lib/templates/fontawesome/beta-template.tss'
-const srcFA_Beta_FontFamilies = {
+const srcFABetaCSSFile = cwd + '/purgetss/fontawesome-beta/css/all.css'
+const srcFABetaWebFontsFolder = cwd + '/purgetss/fontawesome-beta/webfonts/'
+const srcFABetaResetTSS = './lib/templates/fontawesome/beta-reset.tss'
+const srcFABetaTemplateTSS = './lib/templates/fontawesome/beta-template.tss'
+const srcFABetaFontFamilies = {
   'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
   'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
   'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
@@ -90,8 +90,8 @@ const srcFA_Beta_FontFamilies = {
   'fa-solid-900.ttf': 'FontAwesome6Pro-Solid.ttf'
 }
 //
-const srcFonts_Folder = path.resolve(__dirname, './assets/fonts')
-const srcReset_TSS_File = path.resolve(__dirname, './dist/reset.tss')
+const srcFontsFolder = path.resolve(__dirname, './assets/fonts')
+const srcResetTSSFile = path.resolve(__dirname, './dist/reset.tss')
 const PurgeTSSPackageJSON = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json'), 'utf8'))
 
 const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss')
@@ -179,7 +179,7 @@ function init(options) {
   }
 
   // tailwind.tss
-  if (!fs.existsSync(projectsTailwind_TSS) || options.all) {
+  if (!fs.existsSync(projectsTailwindTSS) || options.all) {
     buildTailwindBasedOnConfigOptions(options)
   }
 
@@ -302,7 +302,7 @@ function copyFontStyles(options) {
   if (alloyProject()) {
     makeSureFolderExists(projectsPurgeTSSFolder)
 
-    makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
+    makeSureFolderExists(projectsPurgeTSSStylesFolder)
 
     if (options.vendor && typeof options.vendor === 'string') {
       const selected = _.uniq(options.vendor.replace(/ /g, '').split(','))
@@ -354,7 +354,7 @@ function createConfigFile() {
   if (alloyProject()) {
     makeSureFolderExists(projectsPurgeTSSFolder)
 
-    makeSureFolderExists(projectsPurge_TSS_Fonts_Folder)
+    makeSureFolderExists(projectsPurgeTSSFontsFolder)
 
     if (fs.existsSync(projectsConfigJS)) {
       logger.warn('./purgetss/config.js', chalk.red('file already exists!'))
@@ -422,50 +422,7 @@ function create(args, options) {
 module.exports.create = create
 
 // ! Command: shades
-function shades(args, options) {
-  const chroma = require('chroma-js')
-  const referenceColorFamilies = require('./lib/color-shades/tailwindColors')
-  const generateColorShades = require('./lib/color-shades/generateColorShades')
-
-  const colorFamily = (options.random || !args.hexcode) ? generateColorShades(chroma.random(), referenceColorFamilies) : generateColorShades(args.hexcode, referenceColorFamilies)
-
-  if (args.name) colorFamily.name = args.name
-  else if (options.name) colorFamily.name = options.name
-
-  colorFamily.name = colorFamily.name.replace(/'/g, '').replace(/\//g, '').replace(/\s+/g, ' ')
-
-  const colorObject = createColorObject(colorFamily, colorFamily.hexcode, options)
-
-  const silent = options.tailwind || options.json || options.log
-  if (alloyProject(silent) && !silent) {
-    if (options.override) {
-      if (!configFile.theme.colors) configFile.theme.colors = {}
-      configFile.theme.colors[colorObject.name] = colorObject.shades
-
-      if (configFile.theme.extend.colors) {
-        if (configFile.theme.extend.colors[colorObject.name]) delete configFile.theme.extend.colors[colorObject.name]
-        if (Object.keys(configFile.theme.extend.colors).length === 0) delete configFile.theme.extend.colors
-      }
-    } else {
-      if (!configFile.theme.extend.colors) configFile.theme.extend.colors = {}
-      configFile.theme.extend.colors[colorObject.name] = colorObject.shades
-
-      if (configFile.theme.colors) {
-        if (configFile.theme.colors[colorObject.name]) delete configFile.theme.colors[colorObject.name]
-        if (Object.keys(configFile.theme.colors).length === 0) delete configFile.theme.colors
-      }
-    }
-
-    fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err })
-    checkIfColorModule()
-    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)}) saved in`, chalk.yellow('config.js'))
-  } else if (options.json) {
-    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)})\n${JSON.stringify(colorObject, null, 2)}`)
-  } else {
-    if (options.tailwind) delete colorObject.shades.default
-    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)})\n${cleanDoubleQuotes({ colors: { [colorObject.name]: colorObject.shades } }, options)}`)
-  }
-}
+const { shades } = require('./src/core/shades')
 module.exports.shades = shades
 
 function colorModule() {
@@ -629,10 +586,10 @@ module.exports.buildLegacy = buildLegacy
 
 // ! Command: Build fonts.tss
 function buildFonts(options) {
-  if (fs.existsSync(projectsPurge_TSS_Fonts_Folder)) {
+  if (fs.existsSync(projectsPurgeTSSFontsFolder)) {
     start()
 
-    const files = getFiles(projectsPurge_TSS_Fonts_Folder).filter(file => {
+    const files = getFiles(projectsPurgeTSSFontsFolder).filter(file => {
       return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css') || file.endsWith('.TTF') || file.endsWith('.OTF') || file.endsWith('.CSS')
     })
 
@@ -703,7 +660,7 @@ function buildFonts(options) {
 
     if (files.length > 0) {
       makeSureFolderExists(projectsPurgeTSSFolder)
-      makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
+      makeSureFolderExists(projectsPurgeTSSStylesFolder)
 
       fs.writeFileSync(`${cwd}/purgetss/styles/fonts.tss`, tssClasses, { encoding: 'utf8' }, err => {
         throw err
@@ -750,12 +707,12 @@ function buildFonts(options) {
 module.exports.buildFonts = buildFonts
 
 function buildFontAwesome() {
-  if (fs.existsSync(srcFA_Beta_CSSFile)) {
-    processFontAwesomeTSS(srcFA_Beta_CSSFile, srcFA_Beta_TemplateTSS, srcFA_Beta_ResetTSS, srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder)
-  } else if (fs.existsSync(srcFA_Pro_CSS)) {
-    processFontAwesomeTSS(srcFA_Pro_CSS, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder)
-  } else if (fs.existsSync(srcFA_Pro_CSS_Alt)) {
-    processFontAwesomeTSS(srcFA_Pro_CSS_Alt, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder_Alt)
+  if (fs.existsSync(srcFABetaCSSFile)) {
+    processFontAwesomeTSS(srcFABetaCSSFile, srcFABetaTemplateTSS, srcFABetaResetTSS, srcFABetaFontFamilies, srcFABetaWebFontsFolder)
+  } else if (fs.existsSync(srcFAProCSS)) {
+    processFontAwesomeTSS(srcFAProCSS, srcFAProTemplateTSSFile, srcFAProResetTSSFile, srcFAProFontFamilies, srcFAProWebFontsFolder)
+  } else if (fs.existsSync(srcFAProCSSAlt)) {
+    processFontAwesomeTSS(srcFAProCSSAlt, srcFAProTemplateTSSFile, srcFAProResetTSSFile, srcFAProFontFamilies, srcFAProWebFontsFolderAlt)
   }
 }
 
@@ -769,7 +726,7 @@ function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilies, web
 
     tssClasses += processFontawesomeStyles(data)
 
-    fs.writeFileSync(projectsFA_TSS_File, tssClasses, err2 => {
+    fs.writeFileSync(projectsFATSSFile, tssClasses, err2 => {
       throw err2
     })
 
@@ -782,10 +739,10 @@ function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilies, web
 }
 
 function buildFontAwesomeJS() {
-  if (fs.existsSync(srcFA_Beta_CSSFile)) {
-    processFontAwesomeJS(srcFA_Beta_CSSFile, './lib/templates/fontawesome/beta-template.js')
-  } else if (fs.existsSync(srcFA_Pro_CSS)) {
-    processFontAwesomeJS(srcFA_Pro_CSS, './lib/templates/fontawesome/pro-template.js')
+  if (fs.existsSync(srcFABetaCSSFile)) {
+    processFontAwesomeJS(srcFABetaCSSFile, './lib/templates/fontawesome/beta-template.js')
+  } else if (fs.existsSync(srcFAProCSS)) {
+    processFontAwesomeJS(srcFAProCSS, './lib/templates/fontawesome/pro-template.js')
   }
 }
 
@@ -853,9 +810,9 @@ function processFontAwesomeJS(CSSFile, faJS) {
 }
 
 function copyFreeFonts() {
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Regular.ttf', projectsFontsFolder + '/FontAwesome6Free-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Solid.ttf', projectsFontsFolder + '/FontAwesome6Free-Solid.ttf', callback)
+  fs.copyFile(srcFontsFolder + '/FontAwesome6Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback)
+  fs.copyFile(srcFontsFolder + '/FontAwesome6Free-Regular.ttf', projectsFontsFolder + '/FontAwesome6Free-Regular.ttf', callback)
+  fs.copyFile(srcFontsFolder + '/FontAwesome6Free-Solid.ttf', projectsFontsFolder + '/FontAwesome6Free-Solid.ttf', callback)
 
   logger.warn(' - Font Awesome Free')
 }
@@ -879,7 +836,7 @@ function copyMaterialIconsFonts() {
   ]
 
   _.each(fontFamilies, familyName => {
-    copyFile(`${srcFonts_Folder}/${familyName}`, familyName)
+    copyFile(`${srcFontsFolder}/${familyName}`, familyName)
   })
 
   logger.warn(' - Material Icons')
@@ -894,7 +851,7 @@ function copyMaterialSymbolsFonts() {
   ]
 
   _.each(fontFamilies, familyName => {
-    copyFile(`${srcFonts_Folder}/${familyName}`, familyName)
+    copyFile(`${srcFontsFolder}/${familyName}`, familyName)
   })
 
   logger.warn(' - Material Symbols')
@@ -902,7 +859,7 @@ function copyMaterialSymbolsFonts() {
 
 function copyFramework7IconsFonts() {
   // Framework7 Font
-  copyFile(srcFonts_Folder + '/Framework7-Icons.ttf', 'Framework7-Icons.ttf')
+  copyFile(srcFontsFolder + '/Framework7-Icons.ttf', 'Framework7-Icons.ttf')
   logger.warn(' - Framework 7')
 }
 
@@ -1933,8 +1890,8 @@ function buildTailwindLegacy() {
   const finalTailwindStyles = helpers.compileApplyDirectives(tailwindStyles)
 
   if (fs.existsSync(projectsConfigJS)) {
-    makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
-    fs.writeFileSync(projectsTailwind_TSS, finalTailwindStyles)
+    makeSureFolderExists(projectsPurgeTSSStylesFolder)
+    fs.writeFileSync(projectsTailwindTSS, finalTailwindStyles)
     logger.file('./purgetss/styles/tailwind.tss', '( Legacy )')
   } else {
     fs.writeFileSync(srcTailwindTSS, finalTailwindStyles)
@@ -1988,8 +1945,8 @@ function createDefinitionsFile() {
     classDefinitions += fs.readFileSync(file, 'utf8')
   })
 
-  if (fs.existsSync(projectsTailwind_TSS)) {
-    classDefinitions += fs.readFileSync(projectsTailwind_TSS, 'utf8')
+  if (fs.existsSync(projectsTailwindTSS)) {
+    classDefinitions += fs.readFileSync(projectsTailwindTSS, 'utf8')
   }
 
   if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
@@ -2009,7 +1966,7 @@ function createDefinitionsFile() {
     classDefinitions += fs.readFileSync(cwd + '/purgetss/styles/fonts.tss', 'utf8')
   }
 
-  classDefinitions += (fs.existsSync(projectsFA_TSS_File)) ? fs.readFileSync(projectsFA_TSS_File, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8')
+  classDefinitions += (fs.existsSync(projectsFATSSFile)) ? fs.readFileSync(projectsFATSSFile, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8')
 
   classDefinitions += fs.readFileSync(srcFramework7FontTSSFile, 'utf8')
 
@@ -2445,10 +2402,10 @@ function copyFont(vendor) {
   switch (vendor) {
     case 'fa':
     case 'fontawesome':
-      if (fs.existsSync(srcFA_Beta_CSSFile)) {
-        copyProFonts(srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder)
-      } else if (fs.existsSync(srcFA_Pro_CSS)) {
-        copyProFonts(srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder)
+      if (fs.existsSync(srcFABetaCSSFile)) {
+        copyProFonts(srcFABetaFontFamilies, srcFABetaWebFontsFolder)
+      } else if (fs.existsSync(srcFAProCSS)) {
+        copyProFonts(srcFAProFontFamilies, srcFAProWebFontsFolder)
       } else {
         copyFreeFonts()
       }
@@ -2473,7 +2430,7 @@ function copyFontLibrary(vendor) {
   switch (vendor) {
     case 'fa':
     case 'fontawesome':
-      if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
+      if (fs.existsSync(srcFABetaCSSFile) || fs.existsSync(srcFAProCSS)) {
         buildFontAwesomeJS()
       } else {
         fs.copyFileSync(srcLibFA, projectsLibFolder + '/fontawesome.js')
@@ -2503,26 +2460,26 @@ function copyFontStyle(vendor) {
   switch (vendor) {
     case 'fa':
     case 'fontawesome':
-      if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
+      if (fs.existsSync(srcFABetaCSSFile) || fs.existsSync(srcFAProCSS)) {
         buildFontAwesomeJS()
       } else {
-        fs.copyFileSync(srcFontAwesomeTSSFile, projectsPurge_TSS_Styles_Folder + '/fontawesome.tss')
+        fs.copyFileSync(srcFontAwesomeTSSFile, projectsPurgeTSSStylesFolder + '/fontawesome.tss')
         logger.warn(' - fontawesome.tss')
       }
       break
     case 'mi':
     case 'materialicons':
-      fs.copyFileSync(srcMaterialIconsTSSFile, projectsPurge_TSS_Styles_Folder + '/materialicons.tss')
+      fs.copyFileSync(srcMaterialIconsTSSFile, projectsPurgeTSSStylesFolder + '/materialicons.tss')
       logger.warn(' - materialicons.tss')
       break
     case 'ms':
     case 'materialsymbol':
-      fs.copyFileSync(srcMaterialSymbolsTSSFile, projectsPurge_TSS_Styles_Folder + '/materialsymbols.tss')
+      fs.copyFileSync(srcMaterialSymbolsTSSFile, projectsPurgeTSSStylesFolder + '/materialsymbols.tss')
       logger.warn(' - materialsymbols.tss')
       break
     case 'f7':
     case 'framework7':
-      fs.copyFileSync(srcFramework7FontTSSFile, projectsPurge_TSS_Styles_Folder + '/framework7icons.tss')
+      fs.copyFileSync(srcFramework7FontTSSFile, projectsPurgeTSSStylesFolder + '/framework7icons.tss')
       logger.warn(' - framework7icons.tss')
       break
   }
@@ -2557,11 +2514,11 @@ function classicProject(silent = false) {
 
 // ! FIRST: Backup original app.tss
 function backupOriginalAppTss() {
-  if (!fs.existsSync(projects_AppTSS) && fs.existsSync(projectsAppTSS)) {
+  if (!fs.existsSync(projectsUnderscoreAppTSS) && fs.existsSync(projectsAppTSS)) {
     logger.warn('Backing up app.tss into _app.tss\n             FROM NOW ON, add, update or delete your original classes in _app.tss')
-    fs.copyFileSync(projectsAppTSS, projects_AppTSS)
-  } else if (!fs.existsSync(projects_AppTSS)) {
-    fs.appendFileSync(projects_AppTSS, '// Empty _app.tss\n')
+    fs.copyFileSync(projectsAppTSS, projectsUnderscoreAppTSS)
+  } else if (!fs.existsSync(projectsUnderscoreAppTSS)) {
+    fs.appendFileSync(projectsUnderscoreAppTSS, '// Empty _app.tss\n')
   }
 }
 
@@ -2571,10 +2528,10 @@ function copyResetTemplateAnd_appTSS() {
 
   logger.info('Copying Reset styles...')
 
-  let tempPurged = `// PurgeTSS v${PurgeTSSPackageJSON.version}\n` + fs.readFileSync(srcReset_TSS_File, 'utf8')
+  let tempPurged = `// PurgeTSS v${PurgeTSSPackageJSON.version}\n` + fs.readFileSync(srcResetTSSFile, 'utf8')
 
-  if (fs.existsSync(projects_AppTSS)) {
-    const appTSSContent = fs.readFileSync(projects_AppTSS, 'utf8')
+  if (fs.existsSync(projectsUnderscoreAppTSS)) {
+    const appTSSContent = fs.readFileSync(projectsUnderscoreAppTSS, 'utf8')
 
     if (appTSSContent.length) {
       logger.info('Copying', chalk.yellow('_app.tss'), 'styles...')
@@ -2616,14 +2573,14 @@ function purgeTailwind(uniqueClasses) {
   logger.info('Purging', chalk.yellow('Tailwind'), 'styles...')
 
   let purgedClasses = ''
-  let tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/)
+  let tailwindClasses = fs.readFileSync(projectsTailwindTSS, 'utf8').split(/\r?\n/)
 
   if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[6]) {
     logger.info(chalk.yellow('config.js'), 'file changed!, rebuilding tailwind.tss...')
     checkIfColorModule()
     buildTailwindBasedOnConfigOptions()
     createDefinitionsFile()
-    tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/)
+    tailwindClasses = fs.readFileSync(projectsTailwindTSS, 'utf8').split(/\r?\n/)
   }
 
   // let complexClasses = [];
@@ -2812,8 +2769,8 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
     let purgedClasses = ''
     let purgingMessage = ''
 
-    if (fs.existsSync(projectsFA_TSS_File)) {
-      sourceFolder = projectsFA_TSS_File
+    if (fs.existsSync(projectsFATSSFile)) {
+      sourceFolder = projectsFATSSFile
       purgedClasses = '\n// Pro/Beta Font Awesome\n'
       purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...')`
     } else {
