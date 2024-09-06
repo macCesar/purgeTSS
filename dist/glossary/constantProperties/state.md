@@ -1,6 +1,6 @@
 ```scss
 // Property: state
-// Component(s): Ti.Android.QuickSettingsService, Ti.Calendar.Alert, GeocodedAddress, Ti.Media.AudioPlayer, Ti.Network.Socket.TCP
+// Component(s): Ti.Android.QuickSettingsService, Ti.Calendar.Alert, GeocodedAddress, Ti.Media.AudioPlayer, Ti.Network.Socket.TCP, RowActionType
 '.state-tile-unavailable[platform=android]': { state: Ti.Android.TILE_STATE_UNAVAILABLE }
 '.state-tile-inactive[platform=android]': { state: Ti.Android.TILE_STATE_INACTIVE }
 '.state-tile-active[platform=android]': { state: Ti.Android.TILE_STATE_ACTIVE }

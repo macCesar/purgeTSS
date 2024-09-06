@@ -5227,8 +5227,14 @@
 '.accessibility-hidden': { accessibilityHidden: true }
 '.accessibility-hidden-false': { accessibilityHidden: false }
 
+// Property: accessibilityDisableLongPress
+// Description: Boolean value to remove the long press notification for the device's accessibility service.
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+'.accessibility-disable-long-press': { accessibilityDisableLongPress: true }
+'.accessibility-disable-long-press-false': { accessibilityDisableLongPress: false }
+
 // Property: backgroundColor
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
 '.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000000' }
 '.bg-white': { backgroundColor: '#ffffff' }
@@ -8058,7 +8064,7 @@
 '.generated-message-false': { generatedMessage: false }
 
 // Property: code
-// Component(s): assert.AssertionError, EmitWarningOptions, RequestPermissionAccessResult, EventsAuthorizationResponse, ContactsAuthorizationResponse, ErrorResponse, SuccessResponse, FailureResponse, RequestStorageAccessResult, LocationResults, ForwardGeocodeResponse, HeadingResponse, ReverseGeocodeResponse, LocationAuthorizationResponse, LocationAccuracyAuthorizationResponse, CameraMediaMultipleItemsType, CameraMediaItemType, PreviewImageError, MediaAuthorizationResponse, RequestCameraAccessResult, RequestMusicLibraryAccessResult, RequestPhotoGalleryAccessResult, ThumbnailResponse, PushNotificationSuccessArg, PushNotificationErrorArg, ErrorCallbackArgs, ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs, MessageReply, YQLResponse
+// Component(s): assert.AssertionError, EmitWarningOptions, RequestPermissionAccessResult, EventsAuthorizationResponse, ContactsAuthorizationResponse, ErrorResponse, SuccessResponse, FailureResponse, RequestStorageAccessResult, LocationResults, ForwardGeocodeResponse, HeadingResponse, ReverseGeocodeResponse, LocationAuthorizationResponse, LocationAccuracyAuthorizationResponse, CameraMediaMultipleItemsType, CameraMediaItemType, PreviewImageError, MediaAuthorizationResponse, RequestCameraAccessResult, RequestMusicLibraryAccessResult, RequestPhotoGalleryAccessResult, ThumbnailResponse, PushNotificationSuccessArg, PushNotificationErrorArg, ErrorCallbackArgs, ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs, MessageReply
 '.code-device-busy': { code: Ti.Media.DEVICE_BUSY }
 '.code-no-camera': { code: Ti.Media.NO_CAMERA }
 '.code-unknown-error': { code: Ti.Media.UNKNOWN_ERROR }
@@ -8467,7 +8473,7 @@
 '.start-mode-redeliver-intent[platform=android]': { startMode: Ti.Android.START_REDELIVER_INTENT }
 
 // Property: success
-// Component(s): RequestPermissionAccessResult, EventsAuthorizationResponse, ContactsAuthorizationResponse, ErrorResponse, SuccessResponse, FailureResponse, RequestStorageAccessResult, LocationResults, ForwardGeocodeResponse, HeadingResponse, ReverseGeocodeResponse, LocationAuthorizationResponse, LocationAccuracyAuthorizationResponse, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, CameraMediaMultipleItemsType, CameraMediaItemType, PreviewImageOptions, PreviewImageError, MediaAuthorizationResponse, RequestCameraAccessResult, RequestMusicLibraryAccessResult, RequestPhotoGalleryAccessResult, ThumbnailResponse, PushNotificationConfig, PushNotificationSuccessArg, PushNotificationErrorArg, ErrorCallbackArgs, ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs, SnapshotResult, DataCreationResult, SearchResult, MessageReply, YQLResponse
+// Component(s): RequestPermissionAccessResult, EventsAuthorizationResponse, ContactsAuthorizationResponse, ErrorResponse, SuccessResponse, FailureResponse, RequestStorageAccessResult, LocationResults, ForwardGeocodeResponse, HeadingResponse, ReverseGeocodeResponse, LocationAuthorizationResponse, LocationAccuracyAuthorizationResponse, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, CameraMediaMultipleItemsType, CameraMediaItemType, PreviewImageOptions, PreviewImageError, MediaAuthorizationResponse, RequestCameraAccessResult, RequestMusicLibraryAccessResult, RequestPhotoGalleryAccessResult, ThumbnailResponse, PushNotificationConfig, PushNotificationSuccessArg, PushNotificationErrorArg, ErrorCallbackArgs, ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs, SnapshotResult, DataCreationResult, SearchResult, MessageReply
 '.success': { success: true }
 '.success-false': { success: false }
 
@@ -8610,7 +8616,7 @@
 '.group-summary-false': { groupSummary: false }
 
 // Property: color
-// Component(s): Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, RowActionType, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, GradientColorRef, titleAttributesParams, shadowDict
+// Component(s): Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, RowActionType, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, GradientColorRef, titleAttributesParams, shadowDict
 '.transparent': { color: 'transparent' }
 '.black': { color: '#000000' }
 '.white': { color: '#ffffff' }
@@ -9165,7 +9171,7 @@
 '.update-current-intent-false': { updateCurrentIntent: false }
 
 // Property: state
-// Component(s): Ti.Android.QuickSettingsService, Ti.Calendar.Alert, GeocodedAddress, Ti.Media.AudioPlayer, Ti.Network.Socket.TCP
+// Component(s): Ti.Android.QuickSettingsService, Ti.Calendar.Alert, GeocodedAddress, Ti.Media.AudioPlayer, Ti.Network.Socket.TCP, RowActionType
 '.state-tile-unavailable[platform=android]': { state: Ti.Android.TILE_STATE_UNAVAILABLE }
 '.state-tile-inactive[platform=android]': { state: Ti.Android.TILE_STATE_INACTIVE }
 '.state-tile-active[platform=android]': { state: Ti.Android.TILE_STATE_ACTIVE }
@@ -13789,14 +13795,14 @@
 '.system-button-trash[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.TRASH }
 
 // Property: textAlign
-// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
+// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Picker, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
 '.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
 '.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
 '.text-right': { textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT }
 
 // Property: selectedTextColor
-// Component(s): Ti.UI.ButtonBar, Ti.UI.TabbedBar
+// Component(s): Ti.UI.ButtonBar, Ti.UI.OptionBar, Ti.UI.TabbedBar
 '.selected-text-transparent': { selectedTextColor: 'transparent' }
 '.selected-text-black': { selectedTextColor: '#000000' }
 '.selected-text-white': { selectedTextColor: '#ffffff' }
@@ -15149,7 +15155,7 @@
 '.accessory-type-list-disclosure': { accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_DISCLOSURE }
 
 // Property: selectedBackgroundColor
-// Component(s): Ti.UI.ListItem, Ti.UI.TableViewRow
+// Component(s): Ti.UI.ListItem, Ti.UI.OptionBar, Ti.UI.TabbedBar, Ti.UI.TableViewRow
 '.selected-bg-transparent': { selectedBackgroundColor: 'transparent' }
 '.selected-bg-black': { selectedBackgroundColor: '#000000' }
 '.selected-bg-white': { selectedBackgroundColor: '#ffffff' }
@@ -17547,6 +17553,255 @@
 '.vertical-margin-bottom': { verticalMargin: 0.5 }
 '.vertical-margin-middle': { verticalMargin: 0 }
 
+// Property: selectedBorderColor
+// Description: Border color of the selected button
+// Component(s): Ti.UI.OptionBar
+'.selected-border-transparent': { selectedBorderColor: 'transparent' }
+'.selected-border-black': { selectedBorderColor: '#000000' }
+'.selected-border-white': { selectedBorderColor: '#ffffff' }
+'.selected-border-slate-50': { selectedBorderColor: '#f8fafc' }
+'.selected-border-slate-100': { selectedBorderColor: '#f1f5f9' }
+'.selected-border-slate-200': { selectedBorderColor: '#e2e8f0' }
+'.selected-border-slate-300': { selectedBorderColor: '#cbd5e1' }
+'.selected-border-slate-400': { selectedBorderColor: '#94a3b8' }
+'.selected-border-slate-500': { selectedBorderColor: '#64748b' }
+'.selected-border-slate-600': { selectedBorderColor: '#475569' }
+'.selected-border-slate-700': { selectedBorderColor: '#334155' }
+'.selected-border-slate-800': { selectedBorderColor: '#1e293b' }
+'.selected-border-slate-900': { selectedBorderColor: '#0f172a' }
+'.selected-border-slate-950': { selectedBorderColor: '#020617' }
+'.selected-border-gray-50': { selectedBorderColor: '#f9fafb' }
+'.selected-border-gray-100': { selectedBorderColor: '#f3f4f6' }
+'.selected-border-gray-200': { selectedBorderColor: '#e5e7eb' }
+'.selected-border-gray-300': { selectedBorderColor: '#d1d5db' }
+'.selected-border-gray-400': { selectedBorderColor: '#9ca3af' }
+'.selected-border-gray-500': { selectedBorderColor: '#6b7280' }
+'.selected-border-gray-600': { selectedBorderColor: '#4b5563' }
+'.selected-border-gray-700': { selectedBorderColor: '#374151' }
+'.selected-border-gray-800': { selectedBorderColor: '#1f2937' }
+'.selected-border-gray-900': { selectedBorderColor: '#111827' }
+'.selected-border-gray-950': { selectedBorderColor: '#030712' }
+'.selected-border-zinc-50': { selectedBorderColor: '#fafafa' }
+'.selected-border-zinc-100': { selectedBorderColor: '#f4f4f5' }
+'.selected-border-zinc-200': { selectedBorderColor: '#e4e4e7' }
+'.selected-border-zinc-300': { selectedBorderColor: '#d4d4d8' }
+'.selected-border-zinc-400': { selectedBorderColor: '#a1a1aa' }
+'.selected-border-zinc-500': { selectedBorderColor: '#71717a' }
+'.selected-border-zinc-600': { selectedBorderColor: '#52525b' }
+'.selected-border-zinc-700': { selectedBorderColor: '#3f3f46' }
+'.selected-border-zinc-800': { selectedBorderColor: '#27272a' }
+'.selected-border-zinc-900': { selectedBorderColor: '#18181b' }
+'.selected-border-zinc-950': { selectedBorderColor: '#09090b' }
+'.selected-border-neutral-50': { selectedBorderColor: '#fafafa' }
+'.selected-border-neutral-100': { selectedBorderColor: '#f5f5f5' }
+'.selected-border-neutral-200': { selectedBorderColor: '#e5e5e5' }
+'.selected-border-neutral-300': { selectedBorderColor: '#d4d4d4' }
+'.selected-border-neutral-400': { selectedBorderColor: '#a3a3a3' }
+'.selected-border-neutral-500': { selectedBorderColor: '#737373' }
+'.selected-border-neutral-600': { selectedBorderColor: '#525252' }
+'.selected-border-neutral-700': { selectedBorderColor: '#404040' }
+'.selected-border-neutral-800': { selectedBorderColor: '#262626' }
+'.selected-border-neutral-900': { selectedBorderColor: '#171717' }
+'.selected-border-neutral-950': { selectedBorderColor: '#0a0a0a' }
+'.selected-border-stone-50': { selectedBorderColor: '#fafaf9' }
+'.selected-border-stone-100': { selectedBorderColor: '#f5f5f4' }
+'.selected-border-stone-200': { selectedBorderColor: '#e7e5e4' }
+'.selected-border-stone-300': { selectedBorderColor: '#d6d3d1' }
+'.selected-border-stone-400': { selectedBorderColor: '#a8a29e' }
+'.selected-border-stone-500': { selectedBorderColor: '#78716c' }
+'.selected-border-stone-600': { selectedBorderColor: '#57534e' }
+'.selected-border-stone-700': { selectedBorderColor: '#44403c' }
+'.selected-border-stone-800': { selectedBorderColor: '#292524' }
+'.selected-border-stone-900': { selectedBorderColor: '#1c1917' }
+'.selected-border-stone-950': { selectedBorderColor: '#0c0a09' }
+'.selected-border-red-50': { selectedBorderColor: '#fef2f2' }
+'.selected-border-red-100': { selectedBorderColor: '#fee2e2' }
+'.selected-border-red-200': { selectedBorderColor: '#fecaca' }
+'.selected-border-red-300': { selectedBorderColor: '#fca5a5' }
+'.selected-border-red-400': { selectedBorderColor: '#f87171' }
+'.selected-border-red-500': { selectedBorderColor: '#ef4444' }
+'.selected-border-red-600': { selectedBorderColor: '#dc2626' }
+'.selected-border-red-700': { selectedBorderColor: '#b91c1c' }
+'.selected-border-red-800': { selectedBorderColor: '#991b1b' }
+'.selected-border-red-900': { selectedBorderColor: '#7f1d1d' }
+'.selected-border-red-950': { selectedBorderColor: '#450a0a' }
+'.selected-border-orange-50': { selectedBorderColor: '#fff7ed' }
+'.selected-border-orange-100': { selectedBorderColor: '#ffedd5' }
+'.selected-border-orange-200': { selectedBorderColor: '#fed7aa' }
+'.selected-border-orange-300': { selectedBorderColor: '#fdba74' }
+'.selected-border-orange-400': { selectedBorderColor: '#fb923c' }
+'.selected-border-orange-500': { selectedBorderColor: '#f97316' }
+'.selected-border-orange-600': { selectedBorderColor: '#ea580c' }
+'.selected-border-orange-700': { selectedBorderColor: '#c2410c' }
+'.selected-border-orange-800': { selectedBorderColor: '#9a3412' }
+'.selected-border-orange-900': { selectedBorderColor: '#7c2d12' }
+'.selected-border-orange-950': { selectedBorderColor: '#431407' }
+'.selected-border-amber-50': { selectedBorderColor: '#fffbeb' }
+'.selected-border-amber-100': { selectedBorderColor: '#fef3c7' }
+'.selected-border-amber-200': { selectedBorderColor: '#fde68a' }
+'.selected-border-amber-300': { selectedBorderColor: '#fcd34d' }
+'.selected-border-amber-400': { selectedBorderColor: '#fbbf24' }
+'.selected-border-amber-500': { selectedBorderColor: '#f59e0b' }
+'.selected-border-amber-600': { selectedBorderColor: '#d97706' }
+'.selected-border-amber-700': { selectedBorderColor: '#b45309' }
+'.selected-border-amber-800': { selectedBorderColor: '#92400e' }
+'.selected-border-amber-900': { selectedBorderColor: '#78350f' }
+'.selected-border-amber-950': { selectedBorderColor: '#451a03' }
+'.selected-border-yellow-50': { selectedBorderColor: '#fefce8' }
+'.selected-border-yellow-100': { selectedBorderColor: '#fef9c3' }
+'.selected-border-yellow-200': { selectedBorderColor: '#fef08a' }
+'.selected-border-yellow-300': { selectedBorderColor: '#fde047' }
+'.selected-border-yellow-400': { selectedBorderColor: '#facc15' }
+'.selected-border-yellow-500': { selectedBorderColor: '#eab308' }
+'.selected-border-yellow-600': { selectedBorderColor: '#ca8a04' }
+'.selected-border-yellow-700': { selectedBorderColor: '#a16207' }
+'.selected-border-yellow-800': { selectedBorderColor: '#854d0e' }
+'.selected-border-yellow-900': { selectedBorderColor: '#713f12' }
+'.selected-border-yellow-950': { selectedBorderColor: '#422006' }
+'.selected-border-lime-50': { selectedBorderColor: '#f7fee7' }
+'.selected-border-lime-100': { selectedBorderColor: '#ecfccb' }
+'.selected-border-lime-200': { selectedBorderColor: '#d9f99d' }
+'.selected-border-lime-300': { selectedBorderColor: '#bef264' }
+'.selected-border-lime-400': { selectedBorderColor: '#a3e635' }
+'.selected-border-lime-500': { selectedBorderColor: '#84cc16' }
+'.selected-border-lime-600': { selectedBorderColor: '#65a30d' }
+'.selected-border-lime-700': { selectedBorderColor: '#4d7c0f' }
+'.selected-border-lime-800': { selectedBorderColor: '#3f6212' }
+'.selected-border-lime-900': { selectedBorderColor: '#365314' }
+'.selected-border-lime-950': { selectedBorderColor: '#1a2e05' }
+'.selected-border-green-50': { selectedBorderColor: '#f0fdf4' }
+'.selected-border-green-100': { selectedBorderColor: '#dcfce7' }
+'.selected-border-green-200': { selectedBorderColor: '#bbf7d0' }
+'.selected-border-green-300': { selectedBorderColor: '#86efac' }
+'.selected-border-green-400': { selectedBorderColor: '#4ade80' }
+'.selected-border-green-500': { selectedBorderColor: '#22c55e' }
+'.selected-border-green-600': { selectedBorderColor: '#16a34a' }
+'.selected-border-green-700': { selectedBorderColor: '#15803d' }
+'.selected-border-green-800': { selectedBorderColor: '#166534' }
+'.selected-border-green-900': { selectedBorderColor: '#14532d' }
+'.selected-border-green-950': { selectedBorderColor: '#052e16' }
+'.selected-border-emerald-50': { selectedBorderColor: '#ecfdf5' }
+'.selected-border-emerald-100': { selectedBorderColor: '#d1fae5' }
+'.selected-border-emerald-200': { selectedBorderColor: '#a7f3d0' }
+'.selected-border-emerald-300': { selectedBorderColor: '#6ee7b7' }
+'.selected-border-emerald-400': { selectedBorderColor: '#34d399' }
+'.selected-border-emerald-500': { selectedBorderColor: '#10b981' }
+'.selected-border-emerald-600': { selectedBorderColor: '#059669' }
+'.selected-border-emerald-700': { selectedBorderColor: '#047857' }
+'.selected-border-emerald-800': { selectedBorderColor: '#065f46' }
+'.selected-border-emerald-900': { selectedBorderColor: '#064e3b' }
+'.selected-border-emerald-950': { selectedBorderColor: '#022c22' }
+'.selected-border-teal-50': { selectedBorderColor: '#f0fdfa' }
+'.selected-border-teal-100': { selectedBorderColor: '#ccfbf1' }
+'.selected-border-teal-200': { selectedBorderColor: '#99f6e4' }
+'.selected-border-teal-300': { selectedBorderColor: '#5eead4' }
+'.selected-border-teal-400': { selectedBorderColor: '#2dd4bf' }
+'.selected-border-teal-500': { selectedBorderColor: '#14b8a6' }
+'.selected-border-teal-600': { selectedBorderColor: '#0d9488' }
+'.selected-border-teal-700': { selectedBorderColor: '#0f766e' }
+'.selected-border-teal-800': { selectedBorderColor: '#115e59' }
+'.selected-border-teal-900': { selectedBorderColor: '#134e4a' }
+'.selected-border-teal-950': { selectedBorderColor: '#042f2e' }
+'.selected-border-cyan-50': { selectedBorderColor: '#ecfeff' }
+'.selected-border-cyan-100': { selectedBorderColor: '#cffafe' }
+'.selected-border-cyan-200': { selectedBorderColor: '#a5f3fc' }
+'.selected-border-cyan-300': { selectedBorderColor: '#67e8f9' }
+'.selected-border-cyan-400': { selectedBorderColor: '#22d3ee' }
+'.selected-border-cyan-500': { selectedBorderColor: '#06b6d4' }
+'.selected-border-cyan-600': { selectedBorderColor: '#0891b2' }
+'.selected-border-cyan-700': { selectedBorderColor: '#0e7490' }
+'.selected-border-cyan-800': { selectedBorderColor: '#155e75' }
+'.selected-border-cyan-900': { selectedBorderColor: '#164e63' }
+'.selected-border-cyan-950': { selectedBorderColor: '#083344' }
+'.selected-border-sky-50': { selectedBorderColor: '#f0f9ff' }
+'.selected-border-sky-100': { selectedBorderColor: '#e0f2fe' }
+'.selected-border-sky-200': { selectedBorderColor: '#bae6fd' }
+'.selected-border-sky-300': { selectedBorderColor: '#7dd3fc' }
+'.selected-border-sky-400': { selectedBorderColor: '#38bdf8' }
+'.selected-border-sky-500': { selectedBorderColor: '#0ea5e9' }
+'.selected-border-sky-600': { selectedBorderColor: '#0284c7' }
+'.selected-border-sky-700': { selectedBorderColor: '#0369a1' }
+'.selected-border-sky-800': { selectedBorderColor: '#075985' }
+'.selected-border-sky-900': { selectedBorderColor: '#0c4a6e' }
+'.selected-border-sky-950': { selectedBorderColor: '#082f49' }
+'.selected-border-blue-50': { selectedBorderColor: '#eff6ff' }
+'.selected-border-blue-100': { selectedBorderColor: '#dbeafe' }
+'.selected-border-blue-200': { selectedBorderColor: '#bfdbfe' }
+'.selected-border-blue-300': { selectedBorderColor: '#93c5fd' }
+'.selected-border-blue-400': { selectedBorderColor: '#60a5fa' }
+'.selected-border-blue-500': { selectedBorderColor: '#3b82f6' }
+'.selected-border-blue-600': { selectedBorderColor: '#2563eb' }
+'.selected-border-blue-700': { selectedBorderColor: '#1d4ed8' }
+'.selected-border-blue-800': { selectedBorderColor: '#1e40af' }
+'.selected-border-blue-900': { selectedBorderColor: '#1e3a8a' }
+'.selected-border-blue-950': { selectedBorderColor: '#172554' }
+'.selected-border-indigo-50': { selectedBorderColor: '#eef2ff' }
+'.selected-border-indigo-100': { selectedBorderColor: '#e0e7ff' }
+'.selected-border-indigo-200': { selectedBorderColor: '#c7d2fe' }
+'.selected-border-indigo-300': { selectedBorderColor: '#a5b4fc' }
+'.selected-border-indigo-400': { selectedBorderColor: '#818cf8' }
+'.selected-border-indigo-500': { selectedBorderColor: '#6366f1' }
+'.selected-border-indigo-600': { selectedBorderColor: '#4f46e5' }
+'.selected-border-indigo-700': { selectedBorderColor: '#4338ca' }
+'.selected-border-indigo-800': { selectedBorderColor: '#3730a3' }
+'.selected-border-indigo-900': { selectedBorderColor: '#312e81' }
+'.selected-border-indigo-950': { selectedBorderColor: '#1e1b4b' }
+'.selected-border-violet-50': { selectedBorderColor: '#f5f3ff' }
+'.selected-border-violet-100': { selectedBorderColor: '#ede9fe' }
+'.selected-border-violet-200': { selectedBorderColor: '#ddd6fe' }
+'.selected-border-violet-300': { selectedBorderColor: '#c4b5fd' }
+'.selected-border-violet-400': { selectedBorderColor: '#a78bfa' }
+'.selected-border-violet-500': { selectedBorderColor: '#8b5cf6' }
+'.selected-border-violet-600': { selectedBorderColor: '#7c3aed' }
+'.selected-border-violet-700': { selectedBorderColor: '#6d28d9' }
+'.selected-border-violet-800': { selectedBorderColor: '#5b21b6' }
+'.selected-border-violet-900': { selectedBorderColor: '#4c1d95' }
+'.selected-border-violet-950': { selectedBorderColor: '#2e1065' }
+'.selected-border-purple-50': { selectedBorderColor: '#faf5ff' }
+'.selected-border-purple-100': { selectedBorderColor: '#f3e8ff' }
+'.selected-border-purple-200': { selectedBorderColor: '#e9d5ff' }
+'.selected-border-purple-300': { selectedBorderColor: '#d8b4fe' }
+'.selected-border-purple-400': { selectedBorderColor: '#c084fc' }
+'.selected-border-purple-500': { selectedBorderColor: '#a855f7' }
+'.selected-border-purple-600': { selectedBorderColor: '#9333ea' }
+'.selected-border-purple-700': { selectedBorderColor: '#7e22ce' }
+'.selected-border-purple-800': { selectedBorderColor: '#6b21a8' }
+'.selected-border-purple-900': { selectedBorderColor: '#581c87' }
+'.selected-border-purple-950': { selectedBorderColor: '#3b0764' }
+'.selected-border-fuchsia-50': { selectedBorderColor: '#fdf4ff' }
+'.selected-border-fuchsia-100': { selectedBorderColor: '#fae8ff' }
+'.selected-border-fuchsia-200': { selectedBorderColor: '#f5d0fe' }
+'.selected-border-fuchsia-300': { selectedBorderColor: '#f0abfc' }
+'.selected-border-fuchsia-400': { selectedBorderColor: '#e879f9' }
+'.selected-border-fuchsia-500': { selectedBorderColor: '#d946ef' }
+'.selected-border-fuchsia-600': { selectedBorderColor: '#c026d3' }
+'.selected-border-fuchsia-700': { selectedBorderColor: '#a21caf' }
+'.selected-border-fuchsia-800': { selectedBorderColor: '#86198f' }
+'.selected-border-fuchsia-900': { selectedBorderColor: '#701a75' }
+'.selected-border-fuchsia-950': { selectedBorderColor: '#4a044e' }
+'.selected-border-pink-50': { selectedBorderColor: '#fdf2f8' }
+'.selected-border-pink-100': { selectedBorderColor: '#fce7f3' }
+'.selected-border-pink-200': { selectedBorderColor: '#fbcfe8' }
+'.selected-border-pink-300': { selectedBorderColor: '#f9a8d4' }
+'.selected-border-pink-400': { selectedBorderColor: '#f472b6' }
+'.selected-border-pink-500': { selectedBorderColor: '#ec4899' }
+'.selected-border-pink-600': { selectedBorderColor: '#db2777' }
+'.selected-border-pink-700': { selectedBorderColor: '#be185d' }
+'.selected-border-pink-800': { selectedBorderColor: '#9d174d' }
+'.selected-border-pink-900': { selectedBorderColor: '#831843' }
+'.selected-border-pink-950': { selectedBorderColor: '#500724' }
+'.selected-border-rose-50': { selectedBorderColor: '#fff1f2' }
+'.selected-border-rose-100': { selectedBorderColor: '#ffe4e6' }
+'.selected-border-rose-200': { selectedBorderColor: '#fecdd3' }
+'.selected-border-rose-300': { selectedBorderColor: '#fda4af' }
+'.selected-border-rose-400': { selectedBorderColor: '#fb7185' }
+'.selected-border-rose-500': { selectedBorderColor: '#f43f5e' }
+'.selected-border-rose-600': { selectedBorderColor: '#e11d48' }
+'.selected-border-rose-700': { selectedBorderColor: '#be123c' }
+'.selected-border-rose-800': { selectedBorderColor: '#9f1239' }
+'.selected-border-rose-900': { selectedBorderColor: '#881337' }
+'.selected-border-rose-950': { selectedBorderColor: '#4c0519' }
+
 // Property: opaquebackground
 // Description: Boolean value indicating if the option dialog should have an opaque background.
 // Component(s): Ti.UI.OptionDialog
@@ -17837,6 +18092,13 @@
 '.date-time-rose-800': { dateTimeColor: '#9f1239' }
 '.date-time-rose-900': { dateTimeColor: '#881337' }
 '.date-time-rose-950': { dateTimeColor: '#4c0519' }
+
+// Property: overrideUserInterfaceStyle
+// Description: Forces the app to used assigned theme instead of the system theme.
+// Component(s): Ti.UI.Picker, Ti.UI
+'.override-user-interface-style-unspecified': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_UNSPECIFIED }
+'.override-user-interface-style-light': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_LIGHT }
+'.override-user-interface-style-dark': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_DARK }
 
 // Property: format24
 // Description: Determines whether the Time pickers display in 24-hour or 12-hour clock format.
@@ -19626,6 +19888,502 @@
 // Component(s): Ti.UI.Slider
 '.split-track': { splitTrack: true }
 '.split-track-false': { splitTrack: false }
+
+// Property: onThumbColor
+// Component(s): Ti.UI.Switch
+'.on-thumb-transparent': { onThumbColor: 'transparent' }
+'.on-thumb-black': { onThumbColor: '#000000' }
+'.on-thumb-white': { onThumbColor: '#ffffff' }
+'.on-thumb-slate-50': { onThumbColor: '#f8fafc' }
+'.on-thumb-slate-100': { onThumbColor: '#f1f5f9' }
+'.on-thumb-slate-200': { onThumbColor: '#e2e8f0' }
+'.on-thumb-slate-300': { onThumbColor: '#cbd5e1' }
+'.on-thumb-slate-400': { onThumbColor: '#94a3b8' }
+'.on-thumb-slate-500': { onThumbColor: '#64748b' }
+'.on-thumb-slate-600': { onThumbColor: '#475569' }
+'.on-thumb-slate-700': { onThumbColor: '#334155' }
+'.on-thumb-slate-800': { onThumbColor: '#1e293b' }
+'.on-thumb-slate-900': { onThumbColor: '#0f172a' }
+'.on-thumb-slate-950': { onThumbColor: '#020617' }
+'.on-thumb-gray-50': { onThumbColor: '#f9fafb' }
+'.on-thumb-gray-100': { onThumbColor: '#f3f4f6' }
+'.on-thumb-gray-200': { onThumbColor: '#e5e7eb' }
+'.on-thumb-gray-300': { onThumbColor: '#d1d5db' }
+'.on-thumb-gray-400': { onThumbColor: '#9ca3af' }
+'.on-thumb-gray-500': { onThumbColor: '#6b7280' }
+'.on-thumb-gray-600': { onThumbColor: '#4b5563' }
+'.on-thumb-gray-700': { onThumbColor: '#374151' }
+'.on-thumb-gray-800': { onThumbColor: '#1f2937' }
+'.on-thumb-gray-900': { onThumbColor: '#111827' }
+'.on-thumb-gray-950': { onThumbColor: '#030712' }
+'.on-thumb-zinc-50': { onThumbColor: '#fafafa' }
+'.on-thumb-zinc-100': { onThumbColor: '#f4f4f5' }
+'.on-thumb-zinc-200': { onThumbColor: '#e4e4e7' }
+'.on-thumb-zinc-300': { onThumbColor: '#d4d4d8' }
+'.on-thumb-zinc-400': { onThumbColor: '#a1a1aa' }
+'.on-thumb-zinc-500': { onThumbColor: '#71717a' }
+'.on-thumb-zinc-600': { onThumbColor: '#52525b' }
+'.on-thumb-zinc-700': { onThumbColor: '#3f3f46' }
+'.on-thumb-zinc-800': { onThumbColor: '#27272a' }
+'.on-thumb-zinc-900': { onThumbColor: '#18181b' }
+'.on-thumb-zinc-950': { onThumbColor: '#09090b' }
+'.on-thumb-neutral-50': { onThumbColor: '#fafafa' }
+'.on-thumb-neutral-100': { onThumbColor: '#f5f5f5' }
+'.on-thumb-neutral-200': { onThumbColor: '#e5e5e5' }
+'.on-thumb-neutral-300': { onThumbColor: '#d4d4d4' }
+'.on-thumb-neutral-400': { onThumbColor: '#a3a3a3' }
+'.on-thumb-neutral-500': { onThumbColor: '#737373' }
+'.on-thumb-neutral-600': { onThumbColor: '#525252' }
+'.on-thumb-neutral-700': { onThumbColor: '#404040' }
+'.on-thumb-neutral-800': { onThumbColor: '#262626' }
+'.on-thumb-neutral-900': { onThumbColor: '#171717' }
+'.on-thumb-neutral-950': { onThumbColor: '#0a0a0a' }
+'.on-thumb-stone-50': { onThumbColor: '#fafaf9' }
+'.on-thumb-stone-100': { onThumbColor: '#f5f5f4' }
+'.on-thumb-stone-200': { onThumbColor: '#e7e5e4' }
+'.on-thumb-stone-300': { onThumbColor: '#d6d3d1' }
+'.on-thumb-stone-400': { onThumbColor: '#a8a29e' }
+'.on-thumb-stone-500': { onThumbColor: '#78716c' }
+'.on-thumb-stone-600': { onThumbColor: '#57534e' }
+'.on-thumb-stone-700': { onThumbColor: '#44403c' }
+'.on-thumb-stone-800': { onThumbColor: '#292524' }
+'.on-thumb-stone-900': { onThumbColor: '#1c1917' }
+'.on-thumb-stone-950': { onThumbColor: '#0c0a09' }
+'.on-thumb-red-50': { onThumbColor: '#fef2f2' }
+'.on-thumb-red-100': { onThumbColor: '#fee2e2' }
+'.on-thumb-red-200': { onThumbColor: '#fecaca' }
+'.on-thumb-red-300': { onThumbColor: '#fca5a5' }
+'.on-thumb-red-400': { onThumbColor: '#f87171' }
+'.on-thumb-red-500': { onThumbColor: '#ef4444' }
+'.on-thumb-red-600': { onThumbColor: '#dc2626' }
+'.on-thumb-red-700': { onThumbColor: '#b91c1c' }
+'.on-thumb-red-800': { onThumbColor: '#991b1b' }
+'.on-thumb-red-900': { onThumbColor: '#7f1d1d' }
+'.on-thumb-red-950': { onThumbColor: '#450a0a' }
+'.on-thumb-orange-50': { onThumbColor: '#fff7ed' }
+'.on-thumb-orange-100': { onThumbColor: '#ffedd5' }
+'.on-thumb-orange-200': { onThumbColor: '#fed7aa' }
+'.on-thumb-orange-300': { onThumbColor: '#fdba74' }
+'.on-thumb-orange-400': { onThumbColor: '#fb923c' }
+'.on-thumb-orange-500': { onThumbColor: '#f97316' }
+'.on-thumb-orange-600': { onThumbColor: '#ea580c' }
+'.on-thumb-orange-700': { onThumbColor: '#c2410c' }
+'.on-thumb-orange-800': { onThumbColor: '#9a3412' }
+'.on-thumb-orange-900': { onThumbColor: '#7c2d12' }
+'.on-thumb-orange-950': { onThumbColor: '#431407' }
+'.on-thumb-amber-50': { onThumbColor: '#fffbeb' }
+'.on-thumb-amber-100': { onThumbColor: '#fef3c7' }
+'.on-thumb-amber-200': { onThumbColor: '#fde68a' }
+'.on-thumb-amber-300': { onThumbColor: '#fcd34d' }
+'.on-thumb-amber-400': { onThumbColor: '#fbbf24' }
+'.on-thumb-amber-500': { onThumbColor: '#f59e0b' }
+'.on-thumb-amber-600': { onThumbColor: '#d97706' }
+'.on-thumb-amber-700': { onThumbColor: '#b45309' }
+'.on-thumb-amber-800': { onThumbColor: '#92400e' }
+'.on-thumb-amber-900': { onThumbColor: '#78350f' }
+'.on-thumb-amber-950': { onThumbColor: '#451a03' }
+'.on-thumb-yellow-50': { onThumbColor: '#fefce8' }
+'.on-thumb-yellow-100': { onThumbColor: '#fef9c3' }
+'.on-thumb-yellow-200': { onThumbColor: '#fef08a' }
+'.on-thumb-yellow-300': { onThumbColor: '#fde047' }
+'.on-thumb-yellow-400': { onThumbColor: '#facc15' }
+'.on-thumb-yellow-500': { onThumbColor: '#eab308' }
+'.on-thumb-yellow-600': { onThumbColor: '#ca8a04' }
+'.on-thumb-yellow-700': { onThumbColor: '#a16207' }
+'.on-thumb-yellow-800': { onThumbColor: '#854d0e' }
+'.on-thumb-yellow-900': { onThumbColor: '#713f12' }
+'.on-thumb-yellow-950': { onThumbColor: '#422006' }
+'.on-thumb-lime-50': { onThumbColor: '#f7fee7' }
+'.on-thumb-lime-100': { onThumbColor: '#ecfccb' }
+'.on-thumb-lime-200': { onThumbColor: '#d9f99d' }
+'.on-thumb-lime-300': { onThumbColor: '#bef264' }
+'.on-thumb-lime-400': { onThumbColor: '#a3e635' }
+'.on-thumb-lime-500': { onThumbColor: '#84cc16' }
+'.on-thumb-lime-600': { onThumbColor: '#65a30d' }
+'.on-thumb-lime-700': { onThumbColor: '#4d7c0f' }
+'.on-thumb-lime-800': { onThumbColor: '#3f6212' }
+'.on-thumb-lime-900': { onThumbColor: '#365314' }
+'.on-thumb-lime-950': { onThumbColor: '#1a2e05' }
+'.on-thumb-green-50': { onThumbColor: '#f0fdf4' }
+'.on-thumb-green-100': { onThumbColor: '#dcfce7' }
+'.on-thumb-green-200': { onThumbColor: '#bbf7d0' }
+'.on-thumb-green-300': { onThumbColor: '#86efac' }
+'.on-thumb-green-400': { onThumbColor: '#4ade80' }
+'.on-thumb-green-500': { onThumbColor: '#22c55e' }
+'.on-thumb-green-600': { onThumbColor: '#16a34a' }
+'.on-thumb-green-700': { onThumbColor: '#15803d' }
+'.on-thumb-green-800': { onThumbColor: '#166534' }
+'.on-thumb-green-900': { onThumbColor: '#14532d' }
+'.on-thumb-green-950': { onThumbColor: '#052e16' }
+'.on-thumb-emerald-50': { onThumbColor: '#ecfdf5' }
+'.on-thumb-emerald-100': { onThumbColor: '#d1fae5' }
+'.on-thumb-emerald-200': { onThumbColor: '#a7f3d0' }
+'.on-thumb-emerald-300': { onThumbColor: '#6ee7b7' }
+'.on-thumb-emerald-400': { onThumbColor: '#34d399' }
+'.on-thumb-emerald-500': { onThumbColor: '#10b981' }
+'.on-thumb-emerald-600': { onThumbColor: '#059669' }
+'.on-thumb-emerald-700': { onThumbColor: '#047857' }
+'.on-thumb-emerald-800': { onThumbColor: '#065f46' }
+'.on-thumb-emerald-900': { onThumbColor: '#064e3b' }
+'.on-thumb-emerald-950': { onThumbColor: '#022c22' }
+'.on-thumb-teal-50': { onThumbColor: '#f0fdfa' }
+'.on-thumb-teal-100': { onThumbColor: '#ccfbf1' }
+'.on-thumb-teal-200': { onThumbColor: '#99f6e4' }
+'.on-thumb-teal-300': { onThumbColor: '#5eead4' }
+'.on-thumb-teal-400': { onThumbColor: '#2dd4bf' }
+'.on-thumb-teal-500': { onThumbColor: '#14b8a6' }
+'.on-thumb-teal-600': { onThumbColor: '#0d9488' }
+'.on-thumb-teal-700': { onThumbColor: '#0f766e' }
+'.on-thumb-teal-800': { onThumbColor: '#115e59' }
+'.on-thumb-teal-900': { onThumbColor: '#134e4a' }
+'.on-thumb-teal-950': { onThumbColor: '#042f2e' }
+'.on-thumb-cyan-50': { onThumbColor: '#ecfeff' }
+'.on-thumb-cyan-100': { onThumbColor: '#cffafe' }
+'.on-thumb-cyan-200': { onThumbColor: '#a5f3fc' }
+'.on-thumb-cyan-300': { onThumbColor: '#67e8f9' }
+'.on-thumb-cyan-400': { onThumbColor: '#22d3ee' }
+'.on-thumb-cyan-500': { onThumbColor: '#06b6d4' }
+'.on-thumb-cyan-600': { onThumbColor: '#0891b2' }
+'.on-thumb-cyan-700': { onThumbColor: '#0e7490' }
+'.on-thumb-cyan-800': { onThumbColor: '#155e75' }
+'.on-thumb-cyan-900': { onThumbColor: '#164e63' }
+'.on-thumb-cyan-950': { onThumbColor: '#083344' }
+'.on-thumb-sky-50': { onThumbColor: '#f0f9ff' }
+'.on-thumb-sky-100': { onThumbColor: '#e0f2fe' }
+'.on-thumb-sky-200': { onThumbColor: '#bae6fd' }
+'.on-thumb-sky-300': { onThumbColor: '#7dd3fc' }
+'.on-thumb-sky-400': { onThumbColor: '#38bdf8' }
+'.on-thumb-sky-500': { onThumbColor: '#0ea5e9' }
+'.on-thumb-sky-600': { onThumbColor: '#0284c7' }
+'.on-thumb-sky-700': { onThumbColor: '#0369a1' }
+'.on-thumb-sky-800': { onThumbColor: '#075985' }
+'.on-thumb-sky-900': { onThumbColor: '#0c4a6e' }
+'.on-thumb-sky-950': { onThumbColor: '#082f49' }
+'.on-thumb-blue-50': { onThumbColor: '#eff6ff' }
+'.on-thumb-blue-100': { onThumbColor: '#dbeafe' }
+'.on-thumb-blue-200': { onThumbColor: '#bfdbfe' }
+'.on-thumb-blue-300': { onThumbColor: '#93c5fd' }
+'.on-thumb-blue-400': { onThumbColor: '#60a5fa' }
+'.on-thumb-blue-500': { onThumbColor: '#3b82f6' }
+'.on-thumb-blue-600': { onThumbColor: '#2563eb' }
+'.on-thumb-blue-700': { onThumbColor: '#1d4ed8' }
+'.on-thumb-blue-800': { onThumbColor: '#1e40af' }
+'.on-thumb-blue-900': { onThumbColor: '#1e3a8a' }
+'.on-thumb-blue-950': { onThumbColor: '#172554' }
+'.on-thumb-indigo-50': { onThumbColor: '#eef2ff' }
+'.on-thumb-indigo-100': { onThumbColor: '#e0e7ff' }
+'.on-thumb-indigo-200': { onThumbColor: '#c7d2fe' }
+'.on-thumb-indigo-300': { onThumbColor: '#a5b4fc' }
+'.on-thumb-indigo-400': { onThumbColor: '#818cf8' }
+'.on-thumb-indigo-500': { onThumbColor: '#6366f1' }
+'.on-thumb-indigo-600': { onThumbColor: '#4f46e5' }
+'.on-thumb-indigo-700': { onThumbColor: '#4338ca' }
+'.on-thumb-indigo-800': { onThumbColor: '#3730a3' }
+'.on-thumb-indigo-900': { onThumbColor: '#312e81' }
+'.on-thumb-indigo-950': { onThumbColor: '#1e1b4b' }
+'.on-thumb-violet-50': { onThumbColor: '#f5f3ff' }
+'.on-thumb-violet-100': { onThumbColor: '#ede9fe' }
+'.on-thumb-violet-200': { onThumbColor: '#ddd6fe' }
+'.on-thumb-violet-300': { onThumbColor: '#c4b5fd' }
+'.on-thumb-violet-400': { onThumbColor: '#a78bfa' }
+'.on-thumb-violet-500': { onThumbColor: '#8b5cf6' }
+'.on-thumb-violet-600': { onThumbColor: '#7c3aed' }
+'.on-thumb-violet-700': { onThumbColor: '#6d28d9' }
+'.on-thumb-violet-800': { onThumbColor: '#5b21b6' }
+'.on-thumb-violet-900': { onThumbColor: '#4c1d95' }
+'.on-thumb-violet-950': { onThumbColor: '#2e1065' }
+'.on-thumb-purple-50': { onThumbColor: '#faf5ff' }
+'.on-thumb-purple-100': { onThumbColor: '#f3e8ff' }
+'.on-thumb-purple-200': { onThumbColor: '#e9d5ff' }
+'.on-thumb-purple-300': { onThumbColor: '#d8b4fe' }
+'.on-thumb-purple-400': { onThumbColor: '#c084fc' }
+'.on-thumb-purple-500': { onThumbColor: '#a855f7' }
+'.on-thumb-purple-600': { onThumbColor: '#9333ea' }
+'.on-thumb-purple-700': { onThumbColor: '#7e22ce' }
+'.on-thumb-purple-800': { onThumbColor: '#6b21a8' }
+'.on-thumb-purple-900': { onThumbColor: '#581c87' }
+'.on-thumb-purple-950': { onThumbColor: '#3b0764' }
+'.on-thumb-fuchsia-50': { onThumbColor: '#fdf4ff' }
+'.on-thumb-fuchsia-100': { onThumbColor: '#fae8ff' }
+'.on-thumb-fuchsia-200': { onThumbColor: '#f5d0fe' }
+'.on-thumb-fuchsia-300': { onThumbColor: '#f0abfc' }
+'.on-thumb-fuchsia-400': { onThumbColor: '#e879f9' }
+'.on-thumb-fuchsia-500': { onThumbColor: '#d946ef' }
+'.on-thumb-fuchsia-600': { onThumbColor: '#c026d3' }
+'.on-thumb-fuchsia-700': { onThumbColor: '#a21caf' }
+'.on-thumb-fuchsia-800': { onThumbColor: '#86198f' }
+'.on-thumb-fuchsia-900': { onThumbColor: '#701a75' }
+'.on-thumb-fuchsia-950': { onThumbColor: '#4a044e' }
+'.on-thumb-pink-50': { onThumbColor: '#fdf2f8' }
+'.on-thumb-pink-100': { onThumbColor: '#fce7f3' }
+'.on-thumb-pink-200': { onThumbColor: '#fbcfe8' }
+'.on-thumb-pink-300': { onThumbColor: '#f9a8d4' }
+'.on-thumb-pink-400': { onThumbColor: '#f472b6' }
+'.on-thumb-pink-500': { onThumbColor: '#ec4899' }
+'.on-thumb-pink-600': { onThumbColor: '#db2777' }
+'.on-thumb-pink-700': { onThumbColor: '#be185d' }
+'.on-thumb-pink-800': { onThumbColor: '#9d174d' }
+'.on-thumb-pink-900': { onThumbColor: '#831843' }
+'.on-thumb-pink-950': { onThumbColor: '#500724' }
+'.on-thumb-rose-50': { onThumbColor: '#fff1f2' }
+'.on-thumb-rose-100': { onThumbColor: '#ffe4e6' }
+'.on-thumb-rose-200': { onThumbColor: '#fecdd3' }
+'.on-thumb-rose-300': { onThumbColor: '#fda4af' }
+'.on-thumb-rose-400': { onThumbColor: '#fb7185' }
+'.on-thumb-rose-500': { onThumbColor: '#f43f5e' }
+'.on-thumb-rose-600': { onThumbColor: '#e11d48' }
+'.on-thumb-rose-700': { onThumbColor: '#be123c' }
+'.on-thumb-rose-800': { onThumbColor: '#9f1239' }
+'.on-thumb-rose-900': { onThumbColor: '#881337' }
+'.on-thumb-rose-950': { onThumbColor: '#4c0519' }
+
+// Property: thumbColor
+// Component(s): Ti.UI.Switch
+'.thumb-transparent': { thumbColor: 'transparent' }
+'.thumb-black': { thumbColor: '#000000' }
+'.thumb-white': { thumbColor: '#ffffff' }
+'.thumb-slate-50': { thumbColor: '#f8fafc' }
+'.thumb-slate-100': { thumbColor: '#f1f5f9' }
+'.thumb-slate-200': { thumbColor: '#e2e8f0' }
+'.thumb-slate-300': { thumbColor: '#cbd5e1' }
+'.thumb-slate-400': { thumbColor: '#94a3b8' }
+'.thumb-slate-500': { thumbColor: '#64748b' }
+'.thumb-slate-600': { thumbColor: '#475569' }
+'.thumb-slate-700': { thumbColor: '#334155' }
+'.thumb-slate-800': { thumbColor: '#1e293b' }
+'.thumb-slate-900': { thumbColor: '#0f172a' }
+'.thumb-slate-950': { thumbColor: '#020617' }
+'.thumb-gray-50': { thumbColor: '#f9fafb' }
+'.thumb-gray-100': { thumbColor: '#f3f4f6' }
+'.thumb-gray-200': { thumbColor: '#e5e7eb' }
+'.thumb-gray-300': { thumbColor: '#d1d5db' }
+'.thumb-gray-400': { thumbColor: '#9ca3af' }
+'.thumb-gray-500': { thumbColor: '#6b7280' }
+'.thumb-gray-600': { thumbColor: '#4b5563' }
+'.thumb-gray-700': { thumbColor: '#374151' }
+'.thumb-gray-800': { thumbColor: '#1f2937' }
+'.thumb-gray-900': { thumbColor: '#111827' }
+'.thumb-gray-950': { thumbColor: '#030712' }
+'.thumb-zinc-50': { thumbColor: '#fafafa' }
+'.thumb-zinc-100': { thumbColor: '#f4f4f5' }
+'.thumb-zinc-200': { thumbColor: '#e4e4e7' }
+'.thumb-zinc-300': { thumbColor: '#d4d4d8' }
+'.thumb-zinc-400': { thumbColor: '#a1a1aa' }
+'.thumb-zinc-500': { thumbColor: '#71717a' }
+'.thumb-zinc-600': { thumbColor: '#52525b' }
+'.thumb-zinc-700': { thumbColor: '#3f3f46' }
+'.thumb-zinc-800': { thumbColor: '#27272a' }
+'.thumb-zinc-900': { thumbColor: '#18181b' }
+'.thumb-zinc-950': { thumbColor: '#09090b' }
+'.thumb-neutral-50': { thumbColor: '#fafafa' }
+'.thumb-neutral-100': { thumbColor: '#f5f5f5' }
+'.thumb-neutral-200': { thumbColor: '#e5e5e5' }
+'.thumb-neutral-300': { thumbColor: '#d4d4d4' }
+'.thumb-neutral-400': { thumbColor: '#a3a3a3' }
+'.thumb-neutral-500': { thumbColor: '#737373' }
+'.thumb-neutral-600': { thumbColor: '#525252' }
+'.thumb-neutral-700': { thumbColor: '#404040' }
+'.thumb-neutral-800': { thumbColor: '#262626' }
+'.thumb-neutral-900': { thumbColor: '#171717' }
+'.thumb-neutral-950': { thumbColor: '#0a0a0a' }
+'.thumb-stone-50': { thumbColor: '#fafaf9' }
+'.thumb-stone-100': { thumbColor: '#f5f5f4' }
+'.thumb-stone-200': { thumbColor: '#e7e5e4' }
+'.thumb-stone-300': { thumbColor: '#d6d3d1' }
+'.thumb-stone-400': { thumbColor: '#a8a29e' }
+'.thumb-stone-500': { thumbColor: '#78716c' }
+'.thumb-stone-600': { thumbColor: '#57534e' }
+'.thumb-stone-700': { thumbColor: '#44403c' }
+'.thumb-stone-800': { thumbColor: '#292524' }
+'.thumb-stone-900': { thumbColor: '#1c1917' }
+'.thumb-stone-950': { thumbColor: '#0c0a09' }
+'.thumb-red-50': { thumbColor: '#fef2f2' }
+'.thumb-red-100': { thumbColor: '#fee2e2' }
+'.thumb-red-200': { thumbColor: '#fecaca' }
+'.thumb-red-300': { thumbColor: '#fca5a5' }
+'.thumb-red-400': { thumbColor: '#f87171' }
+'.thumb-red-500': { thumbColor: '#ef4444' }
+'.thumb-red-600': { thumbColor: '#dc2626' }
+'.thumb-red-700': { thumbColor: '#b91c1c' }
+'.thumb-red-800': { thumbColor: '#991b1b' }
+'.thumb-red-900': { thumbColor: '#7f1d1d' }
+'.thumb-red-950': { thumbColor: '#450a0a' }
+'.thumb-orange-50': { thumbColor: '#fff7ed' }
+'.thumb-orange-100': { thumbColor: '#ffedd5' }
+'.thumb-orange-200': { thumbColor: '#fed7aa' }
+'.thumb-orange-300': { thumbColor: '#fdba74' }
+'.thumb-orange-400': { thumbColor: '#fb923c' }
+'.thumb-orange-500': { thumbColor: '#f97316' }
+'.thumb-orange-600': { thumbColor: '#ea580c' }
+'.thumb-orange-700': { thumbColor: '#c2410c' }
+'.thumb-orange-800': { thumbColor: '#9a3412' }
+'.thumb-orange-900': { thumbColor: '#7c2d12' }
+'.thumb-orange-950': { thumbColor: '#431407' }
+'.thumb-amber-50': { thumbColor: '#fffbeb' }
+'.thumb-amber-100': { thumbColor: '#fef3c7' }
+'.thumb-amber-200': { thumbColor: '#fde68a' }
+'.thumb-amber-300': { thumbColor: '#fcd34d' }
+'.thumb-amber-400': { thumbColor: '#fbbf24' }
+'.thumb-amber-500': { thumbColor: '#f59e0b' }
+'.thumb-amber-600': { thumbColor: '#d97706' }
+'.thumb-amber-700': { thumbColor: '#b45309' }
+'.thumb-amber-800': { thumbColor: '#92400e' }
+'.thumb-amber-900': { thumbColor: '#78350f' }
+'.thumb-amber-950': { thumbColor: '#451a03' }
+'.thumb-yellow-50': { thumbColor: '#fefce8' }
+'.thumb-yellow-100': { thumbColor: '#fef9c3' }
+'.thumb-yellow-200': { thumbColor: '#fef08a' }
+'.thumb-yellow-300': { thumbColor: '#fde047' }
+'.thumb-yellow-400': { thumbColor: '#facc15' }
+'.thumb-yellow-500': { thumbColor: '#eab308' }
+'.thumb-yellow-600': { thumbColor: '#ca8a04' }
+'.thumb-yellow-700': { thumbColor: '#a16207' }
+'.thumb-yellow-800': { thumbColor: '#854d0e' }
+'.thumb-yellow-900': { thumbColor: '#713f12' }
+'.thumb-yellow-950': { thumbColor: '#422006' }
+'.thumb-lime-50': { thumbColor: '#f7fee7' }
+'.thumb-lime-100': { thumbColor: '#ecfccb' }
+'.thumb-lime-200': { thumbColor: '#d9f99d' }
+'.thumb-lime-300': { thumbColor: '#bef264' }
+'.thumb-lime-400': { thumbColor: '#a3e635' }
+'.thumb-lime-500': { thumbColor: '#84cc16' }
+'.thumb-lime-600': { thumbColor: '#65a30d' }
+'.thumb-lime-700': { thumbColor: '#4d7c0f' }
+'.thumb-lime-800': { thumbColor: '#3f6212' }
+'.thumb-lime-900': { thumbColor: '#365314' }
+'.thumb-lime-950': { thumbColor: '#1a2e05' }
+'.thumb-green-50': { thumbColor: '#f0fdf4' }
+'.thumb-green-100': { thumbColor: '#dcfce7' }
+'.thumb-green-200': { thumbColor: '#bbf7d0' }
+'.thumb-green-300': { thumbColor: '#86efac' }
+'.thumb-green-400': { thumbColor: '#4ade80' }
+'.thumb-green-500': { thumbColor: '#22c55e' }
+'.thumb-green-600': { thumbColor: '#16a34a' }
+'.thumb-green-700': { thumbColor: '#15803d' }
+'.thumb-green-800': { thumbColor: '#166534' }
+'.thumb-green-900': { thumbColor: '#14532d' }
+'.thumb-green-950': { thumbColor: '#052e16' }
+'.thumb-emerald-50': { thumbColor: '#ecfdf5' }
+'.thumb-emerald-100': { thumbColor: '#d1fae5' }
+'.thumb-emerald-200': { thumbColor: '#a7f3d0' }
+'.thumb-emerald-300': { thumbColor: '#6ee7b7' }
+'.thumb-emerald-400': { thumbColor: '#34d399' }
+'.thumb-emerald-500': { thumbColor: '#10b981' }
+'.thumb-emerald-600': { thumbColor: '#059669' }
+'.thumb-emerald-700': { thumbColor: '#047857' }
+'.thumb-emerald-800': { thumbColor: '#065f46' }
+'.thumb-emerald-900': { thumbColor: '#064e3b' }
+'.thumb-emerald-950': { thumbColor: '#022c22' }
+'.thumb-teal-50': { thumbColor: '#f0fdfa' }
+'.thumb-teal-100': { thumbColor: '#ccfbf1' }
+'.thumb-teal-200': { thumbColor: '#99f6e4' }
+'.thumb-teal-300': { thumbColor: '#5eead4' }
+'.thumb-teal-400': { thumbColor: '#2dd4bf' }
+'.thumb-teal-500': { thumbColor: '#14b8a6' }
+'.thumb-teal-600': { thumbColor: '#0d9488' }
+'.thumb-teal-700': { thumbColor: '#0f766e' }
+'.thumb-teal-800': { thumbColor: '#115e59' }
+'.thumb-teal-900': { thumbColor: '#134e4a' }
+'.thumb-teal-950': { thumbColor: '#042f2e' }
+'.thumb-cyan-50': { thumbColor: '#ecfeff' }
+'.thumb-cyan-100': { thumbColor: '#cffafe' }
+'.thumb-cyan-200': { thumbColor: '#a5f3fc' }
+'.thumb-cyan-300': { thumbColor: '#67e8f9' }
+'.thumb-cyan-400': { thumbColor: '#22d3ee' }
+'.thumb-cyan-500': { thumbColor: '#06b6d4' }
+'.thumb-cyan-600': { thumbColor: '#0891b2' }
+'.thumb-cyan-700': { thumbColor: '#0e7490' }
+'.thumb-cyan-800': { thumbColor: '#155e75' }
+'.thumb-cyan-900': { thumbColor: '#164e63' }
+'.thumb-cyan-950': { thumbColor: '#083344' }
+'.thumb-sky-50': { thumbColor: '#f0f9ff' }
+'.thumb-sky-100': { thumbColor: '#e0f2fe' }
+'.thumb-sky-200': { thumbColor: '#bae6fd' }
+'.thumb-sky-300': { thumbColor: '#7dd3fc' }
+'.thumb-sky-400': { thumbColor: '#38bdf8' }
+'.thumb-sky-500': { thumbColor: '#0ea5e9' }
+'.thumb-sky-600': { thumbColor: '#0284c7' }
+'.thumb-sky-700': { thumbColor: '#0369a1' }
+'.thumb-sky-800': { thumbColor: '#075985' }
+'.thumb-sky-900': { thumbColor: '#0c4a6e' }
+'.thumb-sky-950': { thumbColor: '#082f49' }
+'.thumb-blue-50': { thumbColor: '#eff6ff' }
+'.thumb-blue-100': { thumbColor: '#dbeafe' }
+'.thumb-blue-200': { thumbColor: '#bfdbfe' }
+'.thumb-blue-300': { thumbColor: '#93c5fd' }
+'.thumb-blue-400': { thumbColor: '#60a5fa' }
+'.thumb-blue-500': { thumbColor: '#3b82f6' }
+'.thumb-blue-600': { thumbColor: '#2563eb' }
+'.thumb-blue-700': { thumbColor: '#1d4ed8' }
+'.thumb-blue-800': { thumbColor: '#1e40af' }
+'.thumb-blue-900': { thumbColor: '#1e3a8a' }
+'.thumb-blue-950': { thumbColor: '#172554' }
+'.thumb-indigo-50': { thumbColor: '#eef2ff' }
+'.thumb-indigo-100': { thumbColor: '#e0e7ff' }
+'.thumb-indigo-200': { thumbColor: '#c7d2fe' }
+'.thumb-indigo-300': { thumbColor: '#a5b4fc' }
+'.thumb-indigo-400': { thumbColor: '#818cf8' }
+'.thumb-indigo-500': { thumbColor: '#6366f1' }
+'.thumb-indigo-600': { thumbColor: '#4f46e5' }
+'.thumb-indigo-700': { thumbColor: '#4338ca' }
+'.thumb-indigo-800': { thumbColor: '#3730a3' }
+'.thumb-indigo-900': { thumbColor: '#312e81' }
+'.thumb-indigo-950': { thumbColor: '#1e1b4b' }
+'.thumb-violet-50': { thumbColor: '#f5f3ff' }
+'.thumb-violet-100': { thumbColor: '#ede9fe' }
+'.thumb-violet-200': { thumbColor: '#ddd6fe' }
+'.thumb-violet-300': { thumbColor: '#c4b5fd' }
+'.thumb-violet-400': { thumbColor: '#a78bfa' }
+'.thumb-violet-500': { thumbColor: '#8b5cf6' }
+'.thumb-violet-600': { thumbColor: '#7c3aed' }
+'.thumb-violet-700': { thumbColor: '#6d28d9' }
+'.thumb-violet-800': { thumbColor: '#5b21b6' }
+'.thumb-violet-900': { thumbColor: '#4c1d95' }
+'.thumb-violet-950': { thumbColor: '#2e1065' }
+'.thumb-purple-50': { thumbColor: '#faf5ff' }
+'.thumb-purple-100': { thumbColor: '#f3e8ff' }
+'.thumb-purple-200': { thumbColor: '#e9d5ff' }
+'.thumb-purple-300': { thumbColor: '#d8b4fe' }
+'.thumb-purple-400': { thumbColor: '#c084fc' }
+'.thumb-purple-500': { thumbColor: '#a855f7' }
+'.thumb-purple-600': { thumbColor: '#9333ea' }
+'.thumb-purple-700': { thumbColor: '#7e22ce' }
+'.thumb-purple-800': { thumbColor: '#6b21a8' }
+'.thumb-purple-900': { thumbColor: '#581c87' }
+'.thumb-purple-950': { thumbColor: '#3b0764' }
+'.thumb-fuchsia-50': { thumbColor: '#fdf4ff' }
+'.thumb-fuchsia-100': { thumbColor: '#fae8ff' }
+'.thumb-fuchsia-200': { thumbColor: '#f5d0fe' }
+'.thumb-fuchsia-300': { thumbColor: '#f0abfc' }
+'.thumb-fuchsia-400': { thumbColor: '#e879f9' }
+'.thumb-fuchsia-500': { thumbColor: '#d946ef' }
+'.thumb-fuchsia-600': { thumbColor: '#c026d3' }
+'.thumb-fuchsia-700': { thumbColor: '#a21caf' }
+'.thumb-fuchsia-800': { thumbColor: '#86198f' }
+'.thumb-fuchsia-900': { thumbColor: '#701a75' }
+'.thumb-fuchsia-950': { thumbColor: '#4a044e' }
+'.thumb-pink-50': { thumbColor: '#fdf2f8' }
+'.thumb-pink-100': { thumbColor: '#fce7f3' }
+'.thumb-pink-200': { thumbColor: '#fbcfe8' }
+'.thumb-pink-300': { thumbColor: '#f9a8d4' }
+'.thumb-pink-400': { thumbColor: '#f472b6' }
+'.thumb-pink-500': { thumbColor: '#ec4899' }
+'.thumb-pink-600': { thumbColor: '#db2777' }
+'.thumb-pink-700': { thumbColor: '#be185d' }
+'.thumb-pink-800': { thumbColor: '#9d174d' }
+'.thumb-pink-900': { thumbColor: '#831843' }
+'.thumb-pink-950': { thumbColor: '#500724' }
+'.thumb-rose-50': { thumbColor: '#fff1f2' }
+'.thumb-rose-100': { thumbColor: '#ffe4e6' }
+'.thumb-rose-200': { thumbColor: '#fecdd3' }
+'.thumb-rose-300': { thumbColor: '#fda4af' }
+'.thumb-rose-400': { thumbColor: '#fb7185' }
+'.thumb-rose-500': { thumbColor: '#f43f5e' }
+'.thumb-rose-600': { thumbColor: '#e11d48' }
+'.thumb-rose-700': { thumbColor: '#be123c' }
+'.thumb-rose-800': { thumbColor: '#9f1239' }
+'.thumb-rose-900': { thumbColor: '#881337' }
+'.thumb-rose-950': { thumbColor: '#4c0519' }
 
 // Property: onTintColor
 // Description: The color used to tint the appearance of the switch when it is turned on.
@@ -23679,13 +24437,6 @@
 '.title-text-rose-900': { titleTextColor: '#881337' }
 '.title-text-rose-950': { titleTextColor: '#4c0519' }
 
-// Property: overrideUserInterfaceStyle
-// Description: Forces the app to used assigned theme instead of the system theme.
-// Component(s): Ti.UI
-'.override-user-interface-style-unspecified': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_UNSPECIFIED }
-'.override-user-interface-style-light': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_LIGHT }
-'.override-user-interface-style-dark': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_DARK }
-
 // Property: statusBarHeight
 // Description: The total height of the status bar including safe area padding.
 // Component(s): Ti.UI
@@ -23852,6 +24603,14 @@
 // Component(s): Ti.UI.WebView
 '.light-touch-enabled': { lightTouchEnabled: true }
 '.light-touch-enabled-false': { lightTouchEnabled: false }
+
+// Property: scrollbars
+// Description: Enable or disable horizontal/vertical scrollbars in a WebView.
+// Component(s): Ti.UI.WebView
+'.scrollbars-webview[platform=android]': { scrollbars: Ti.UI.Android.WEBVIEW_SCROLLBARS_DEFAULT }
+'.scrollbars-webview-hide-vertical[platform=android]': { scrollbars: Ti.UI.Android.WEBVIEW_SCROLLBARS_HIDE_VERTICAL }
+'.scrollbars-webview-hide-horizontal[platform=android]': { scrollbars: Ti.UI.Android.WEBVIEW_SCROLLBARS_HIDE_HORIZONTAL }
+'.scrollbars-webview-hide-all[platform=android]': { scrollbars: Ti.UI.Android.WEBVIEW_SCROLLBARS_HIDE_ALL }
 
 // Property: allowsBackForwardNavigationGestures
 // Description: A Boolean value indicating whether horizontal swipe gestures will trigger back-forward list navigations.
