@@ -2417,6 +2417,7 @@ function encodeHTML(str) {
   }
   return str.replace(/&/gm, i => code[i])
 }
+module.exports.encodeHTML = encodeHTML
 
 function callback(err) {
   if (err) throw err
