@@ -419,7 +419,7 @@ function create(args, options) {
     }
   })
 }
-exports.create = create
+module.exports.create = create
 
 // ! Command: shades
 function shades(args, options) {
@@ -466,7 +466,7 @@ function shades(args, options) {
     logger.info(`${chalk.hex(colorFamily.hexcode).bold(`“${colorFamily.name}”`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)})\n${cleanDoubleQuotes({ colors: { [colorObject.name]: colorObject.shades } }, options)}`)
   }
 }
-exports.shades = shades
+module.exports.shades = shades
 
 function colorModule() {
   initIfNotConfig()
@@ -476,7 +476,7 @@ function colorModule() {
   fs.writeFileSync(`${projectsLibFolder}/purgetss.colors.js`, 'module.exports = ' + cleanDoubleQuotes(mainColors, {}), 'utf8', err => { throw err })
   logger.info(`All colors copied to ${chalk.yellow('lib/purgetss.colors.js')}`)
 }
-exports.colorModule = colorModule
+module.exports.colorModule = colorModule
 
 function checkIfColorModule() {
   if (fs.existsSync(`${projectsLibFolder}/purgetss.colors.js`)) colorModule()
@@ -1880,7 +1880,6 @@ function buildTailwind(options) {
   helpers.globalOptions.legacy = configOptions.legacy
   require('./experimental/completions2').autoBuildTailwindTSS(options)
 }
-module.exports.buildTailwind = buildTailwind
 
 // ! Build Tailwind ( LEGACY )
 function buildTailwindLegacy() {
@@ -1942,7 +1941,6 @@ function buildTailwindLegacy() {
     logger.file('./dist/tailwind.tss', '( Legacy )')
   }
 }
-module.exports.buildTailwindLegacy = buildTailwindLegacy
 
 function buildTailwindBasedOnConfigOptions(options = {}) {
   if (configOptions.legacy) {
