@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "12.4.0.GA",
+	"sdkVersion": "12.5.0.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -13454,6 +13454,15 @@
 			"readOnly": true,
 			"values": []
 		},
+		"interactiveDismissModeEnabled": {
+			"description": "",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
+		},
 		"internalSubset": {
 			"description": "The internal subset as a string.",
 			"type": "String",
@@ -14711,6 +14720,15 @@
 			"type": "Number",
 			"readOnly": true,
 			"values": []
+		},
+		"maxImages": {
+			"description": "Specifies the number of images a user can select at maximum.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
 		},
 		"maxLength": {
 			"description": "Maximum length of text field input.",
@@ -16152,6 +16170,15 @@
 			"type": "String",
 			"readOnly": true,
 			"values": []
+		},
+		"pathOnly": {
+			"description": "Do not include the blob in the result",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
 		},
 		"pauseLocationUpdateAutomatically": {
 			"description": "Indicates whether the location updates may be paused.",
@@ -18463,6 +18490,37 @@
 		"statusBarBackgroundColor": {
 			"description": "Sets the global status bar background color for the application. Android does not support setting instances of <a href=\"Titanium.UI.Color\">Titanium.UI.Color</a>",
 			"type": "String",
+			"readOnly": true,
+			"values": [
+				"'transparent'",
+				"'aqua'",
+				"'black'",
+				"'blue'",
+				"'brown'",
+				"'cyan'",
+				"'darkgray'",
+				"'fuchsia'",
+				"'gray'",
+				"'green'",
+				"'lightgray'",
+				"'lime'",
+				"'magenta'",
+				"'maroon'",
+				"'navy'",
+				"'olive'",
+				"'orange'",
+				"'pink'",
+				"'purple'",
+				"'red'",
+				"'silver'",
+				"'teal'",
+				"'white'",
+				"'yellow'"
+			]
+		},
+		"statusBarColor": {
+			"description": "The color of the status bar (top bar) for this window.",
+			"type": "Number",
 			"readOnly": true,
 			"values": [
 				"'transparent'",
@@ -24884,6 +24942,8 @@
 				"popoverView",
 				"arrowDirection",
 				"allowMultiple",
+				"maxImages",
+				"pathOnly",
 				"selectionLimit",
 				"allowTranscoding"
 			],
@@ -24910,6 +24970,7 @@
 				"error",
 				"code",
 				"media",
+				"path",
 				"mediaType",
 				"cropRect",
 				"previewRect",
@@ -28223,6 +28284,7 @@
 				"safeAreaPadding",
 				"splitActionBar",
 				"statusBarStyle",
+				"statusBarColor",
 				"sustainedPerformanceMode",
 				"theme",
 				"titleAttributes",
@@ -28237,7 +28299,8 @@
 				"activitySharedElementEnterTransition",
 				"activitySharedElementReturnTransition",
 				"activitySharedElementReenterTransition",
-				"window"
+				"window",
+				"interactiveDismissModeEnabled"
 			],
 			"events": [
 				"click",
@@ -29834,6 +29897,7 @@
 				"shadowImage",
 				"splitActionBar",
 				"statusBarStyle",
+				"statusBarColor",
 				"sustainedPerformanceMode",
 				"swipeToClose",
 				"tabBarHidden",
@@ -29883,7 +29947,8 @@
 				"activeTabIconTint",
 				"tabsBackgroundSelectedColor",
 				"activeTabBackgroundImage",
-				"tabBarVisible"
+				"tabBarVisible",
+				"interactiveDismissModeEnabled"
 			],
 			"events": [
 				"focus",
@@ -30000,6 +30065,7 @@
 				"textColor",
 				"selectedBackgroundColor",
 				"selectedTextColor",
+				"activeTintColor",
 				"style"
 			],
 			"events": [
@@ -31698,6 +31764,7 @@
 				"shadowImage",
 				"splitActionBar",
 				"statusBarStyle",
+				"statusBarColor",
 				"sustainedPerformanceMode",
 				"swipeToClose",
 				"tabBarHidden",
