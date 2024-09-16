@@ -168,9 +168,8 @@ function Animation(args = {}) {
       }
     }
 
-    const { x, y } = calculateTranslation(draggableView, parentViewRect, left, top)
-
     if (param.moveByProperties) {
+      const { x, y } = calculateTranslation(draggableView, parentViewRect, left, top)
       draggableView.applyProperties({ duration: 0, transform: Ti.UI.createMatrix2D().translate(x, y) })
     } else if (param.moveByAnimation) {
       draggableView.animate(Ti.UI.createAnimation({ top, left, duration: 0 }))
