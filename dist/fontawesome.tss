@@ -1,4 +1,4 @@
-// Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -501,6 +501,8 @@
 '.fa-sign-in-alt': { text: '\uf2f6', title: '\uf2f6' }
 '.fa-venus': { text: '\uf221', title: '\uf221' }
 '.fa-passport': { text: '\uf5ab', title: '\uf5ab' }
+'.fa-thumbtack-slash': { text: '\ue68f', title: '\ue68f' }
+'.fa-thumb-tack-slash': { text: '\ue68f', title: '\ue68f' }
 '.fa-heart-pulse': { text: '\uf21e', title: '\uf21e' }
 '.fa-heartbeat': { text: '\uf21e', title: '\uf21e' }
 '.fa-people-carry-box': { text: '\uf4ce', title: '\uf4ce' }
@@ -1938,6 +1940,7 @@
 '.fa-bug-slash': { text: '\ue490', title: '\ue490' }
 '.fa-arrow-up-from-water-pump': { text: '\ue4b6', title: '\ue4b6' }
 '.fa-bone': { text: '\uf5d7', title: '\uf5d7' }
+'.fa-table-cells-row-unlock': { text: '\ue691', title: '\ue691' }
 '.fa-user-injured': { text: '\uf728', title: '\uf728' }
 '.fa-face-sad-tear': { text: '\uf5b4', title: '\uf5b4' }
 '.fa-sad-tear': { text: '\uf5b4', title: '\uf5b4' }
@@ -2021,6 +2024,7 @@
 '.fa-glide-g': { text: '\uf2a6', title: '\uf2a6' }
 '.fa-drupal': { text: '\uf1a9', title: '\uf1a9' }
 '.fa-jxl': { text: '\ue67b', title: '\ue67b' }
+'.fa-dart-lang': { text: '\ue693', title: '\ue693' }
 '.fa-hire-a-helper': { text: '\uf3b0', title: '\uf3b0' }
 '.fa-creative-commons-by': { text: '\uf4e7', title: '\uf4e7' }
 '.fa-unity': { text: '\ue049', title: '\ue049' }
@@ -2334,6 +2338,7 @@
 '.fa-hubspot': { text: '\uf3b2', title: '\uf3b2' }
 '.fa-deploydog': { text: '\uf38e', title: '\uf38e' }
 '.fa-twitch': { text: '\uf1e8', title: '\uf1e8' }
+'.fa-flutter': { text: '\ue694', title: '\ue694' }
 '.fa-ravelry': { text: '\uf2d9', title: '\uf2d9' }
 '.fa-mixer': { text: '\ue056', title: '\ue056' }
 '.fa-square-lastfm': { text: '\uf203', title: '\uf203' }

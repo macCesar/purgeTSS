@@ -1,5 +1,5 @@
 /**
- * Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 */
 
@@ -493,6 +493,8 @@ const icons = {
   signInAlt: '\uf2f6',
   venus: '\uf221',
   passport: '\uf5ab',
+  thumbtackSlash: '\ue68f',
+  thumbTackSlash: '\ue68f',
   heartPulse: '\uf21e',
   heartbeat: '\uf21e',
   peopleCarryBox: '\uf4ce',
@@ -1930,6 +1932,7 @@ const icons = {
   bugSlash: '\ue490',
   arrowUpFromWaterPump: '\ue4b6',
   bone: '\uf5d7',
+  tableCellsRowUnlock: '\ue691',
   userInjured: '\uf728',
   faceSadTear: '\uf5b4',
   sadTear: '\uf5b4',
@@ -2013,6 +2016,7 @@ const icons = {
   glideG: '\uf2a6',
   drupal: '\uf1a9',
   jxl: '\ue67b',
+  dartLang: '\ue693',
   hireAHelper: '\uf3b0',
   creativeCommonsBy: '\uf4e7',
   unity: '\ue049',
@@ -2326,6 +2330,7 @@ const icons = {
   hubspot: '\uf3b2',
   deploydog: '\uf38e',
   twitch: '\uf1e8',
+  flutter: '\ue694',
   ravelry: '\uf2d9',
   mixer: '\ue056',
   squareLastfm: '\uf203',
