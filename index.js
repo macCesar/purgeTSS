@@ -50,14 +50,15 @@ const projectsPurge_TSS_Styles_Folder = cwd + '/purgetss/styles'
 const projectsFA_TSS_File = cwd + '/purgetss/styles/fontawesome.tss'
 
 // js icon modules
-const srcLibFA = path.resolve(__dirname, './dist/fontawesome.js')
-const srcLibMI = path.resolve(__dirname, './dist/materialicons.js')
-const srcLibMS = path.resolve(__dirname, './dist/materialsymbols.js')
-const srcLibF7 = path.resolve(__dirname, './dist/framework7icons.js')
-const srcPurgeTSSLibrary = path.resolve(__dirname, './dist/purgetss.ui.js')
+const projectRoot = path.resolve(__dirname)
+const srcLibFA = path.resolve(projectRoot, './dist/fontawesome.js')
+const srcLibMI = path.resolve(projectRoot, './dist/materialicons.js')
+const srcLibMS = path.resolve(projectRoot, './dist/materialsymbols.js')
+const srcLibF7 = path.resolve(projectRoot, './dist/framework7icons.js')
+const srcPurgeTSSLibrary = path.resolve(projectRoot, './dist/purgetss.ui.js')
 
 //
-const srcTailwindTSS = path.resolve(__dirname, './dist/tailwind.tss')
+const srcTailwindTSS = path.resolve(projectRoot, './dist/tailwind.tss')
 //
 
 // PRO
@@ -90,16 +91,16 @@ const srcFA_Beta_FontFamilies = {
   'fa-solid-900.ttf': 'FontAwesome6Pro-Solid.ttf'
 }
 //
-const srcFonts_Folder = path.resolve(__dirname, './assets/fonts')
-const srcReset_TSS_File = path.resolve(__dirname, './dist/reset.tss')
-const PurgeTSSPackageJSON = JSON.parse(fs.readFileSync(path.resolve(__dirname, './package.json'), 'utf8'))
+const srcFonts_Folder = path.resolve(projectRoot, './assets/fonts')
+const srcReset_TSS_File = path.resolve(projectRoot, './dist/reset.tss')
+const PurgeTSSPackageJSON = JSON.parse(fs.readFileSync(path.resolve(projectRoot, './package.json'), 'utf8'))
 
-const srcFontAwesomeTSSFile = path.resolve(__dirname, './dist/fontawesome.tss')
-const srcFramework7FontTSSFile = path.resolve(__dirname, './dist/framework7icons.tss')
-const srcMaterialIconsTSSFile = path.resolve(__dirname, './dist/materialicons.tss')
-const srcMaterialSymbolsTSSFile = path.resolve(__dirname, './dist/materialsymbols.tss')
+const srcFontAwesomeTSSFile = path.resolve(projectRoot, './dist/fontawesome.tss')
+const srcFramework7FontTSSFile = path.resolve(projectRoot, './dist/framework7icons.tss')
+const srcMaterialIconsTSSFile = path.resolve(projectRoot, './dist/materialicons.tss')
+const srcMaterialSymbolsTSSFile = path.resolve(projectRoot, './dist/materialsymbols.tss')
 
-const srcConfigFile = path.resolve(__dirname, './lib/templates/purgetss.config.js')
+const srcConfigFile = path.resolve(projectRoot, './lib/templates/purgetss.config.js')
 
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile)
 configFile.purge = configFile.purge ?? { mode: 'all', method: 'sync' }
@@ -123,7 +124,7 @@ if (configFile.purge.method === 'sync' || configFile.purge.method === '') {
   oppositeCommand = "require('child_process').execSync('purgetss"
   methodCommand = "\trequire('child_process').exec('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));"
 }
-const srcJMKFile = path.resolve(__dirname, './lib/templates/alloy.jmk')
+const srcJMKFile = path.resolve(projectRoot, './lib/templates/alloy.jmk')
 
 // ! Interfase
 // ! Command: purgetss
@@ -548,13 +549,13 @@ function createProject(workspace, argsName, projectID, options) {
     execSync(`cd ${projectDirectory} && npm init -y`)
     execSync(`cd ${projectDirectory} && echo "/node_modules" >>.gitignore`)
     if (commandExistsSync('code')) {
-      execSync(`cp -R ${path.resolve(__dirname)}/dist/configs/vscode/ ${projectDirectory}/.vscode`)
+      execSync(`cp -R ${path.resolve(projectRoot)}/dist/configs/vscode/ ${projectDirectory}/.vscode`)
     }
-    execSync(`cp ${path.resolve(__dirname)}/dist/configs/invisible/.editorconfig ${projectDirectory}`)
+    execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.editorconfig ${projectDirectory}`)
 
     logger.info(`Installing ${chalk.green('ESLint')}`)
     execSync(`cd ${projectDirectory} && npm i -D eslint eslint-config-axway eslint-plugin-alloy`)
-    execSync(`cp ${path.resolve(__dirname)}/dist/configs/invisible/.eslintrc.js ${projectDirectory}`)
+    execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.eslintrc.js ${projectDirectory}`)
 
     logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
     execSync(`cd ${projectDirectory} && npm i -D tailwindcss && npx tailwindcss init`)
@@ -587,13 +588,13 @@ function dependencies(options) {
     }
 
     if (commandExistsSync('code')) {
-      execSync(`cp -R ${path.resolve(__dirname)}/dist/configs/vscode/ "${cwd}"/.vscode`)
+      execSync(`cp -R ${path.resolve(projectRoot)}/dist/configs/vscode/ "${cwd}"/.vscode`)
     }
-    execSync(`cp ${path.resolve(__dirname)}/dist/configs/invisible/.editorconfig "${cwd}"`)
+    execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.editorconfig "${cwd}"`)
 
     logger.info(`Installing ${chalk.green('ESLint')}`)
     execSync(`cd "${cwd}" && npm i -D eslint eslint-config-axway eslint-plugin-alloy`)
-    execSync(`cp ${path.resolve(__dirname)}/dist/configs/invisible/.eslintrc.js "${cwd}"`)
+    execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.eslintrc.js "${cwd}"`)
 
     logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
     execSync(`cd "${cwd}" && npm i -D tailwindcss && npx tailwindcss init`)
@@ -725,7 +726,7 @@ function buildFonts(options) {
       exportIcons += 'exports.family = families;\n'
       exportIcons += 'exports.families = families;\n'
 
-      exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js'), 'utf8')
+      exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js'), 'utf8')
 
       fs.writeFileSync(`${projectsLibFolder}/purgetss.fonts.js`, exportIcons, { encoding: 'utf8' }, err => {
         throw err
@@ -763,9 +764,9 @@ function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilies, web
   readCSS(CSSFile, (err, data) => {
     if (err) throw err
 
-    let tssClasses = fs.readFileSync(path.resolve(__dirname, templateTSS), 'utf8') + '\n'
+    let tssClasses = fs.readFileSync(path.resolve(projectRoot, templateTSS), 'utf8') + '\n'
 
-    tssClasses += fs.readFileSync(path.resolve(__dirname, resetTSS), 'utf8') + '\n'
+    tssClasses += fs.readFileSync(path.resolve(projectRoot, resetTSS), 'utf8') + '\n'
 
     tssClasses += processFontawesomeStyles(data)
 
@@ -1889,8 +1890,8 @@ function buildTailwindLegacy() {
 
   const allValuesCombined = combineAllValues(getBaseValues(defaultTheme), defaultTheme)
 
-  let tailwindStyles = fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/template.tss'), 'utf8')
-  tailwindStyles += fs.readFileSync(path.resolve(__dirname, './lib/templates/tailwind/custom-template.tss'), 'utf8')
+  let tailwindStyles = fs.readFileSync(path.resolve(projectRoot, './lib/templates/tailwind/template.tss'), 'utf8')
+  tailwindStyles += fs.readFileSync(path.resolve(projectRoot, './lib/templates/tailwind/custom-template.tss'), 'utf8')
   tailwindStyles += (fs.existsSync(projectsConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}\n` : '// default config.js file\n'
 
   if (Object.keys(configFile.theme).length) {
@@ -1907,14 +1908,14 @@ function buildTailwindLegacy() {
 
   let destinationFolder
   if (distributionFolder) {
-    destinationFolder = path.resolve(__dirname, './dist/glossary-legacy/')
+    destinationFolder = path.resolve(projectRoot, './dist/glossary-legacy/')
     makeSureFolderExists(destinationFolder)
   }
 
   let menuPosition = 1
   _.each(allValuesCombined, (value, key) => {
     if (key.includes('Properties') && distributionFolder) {
-      destinationFolder = path.resolve(__dirname, './dist/glossary-legacy/' + key)
+      destinationFolder = path.resolve(projectRoot, './dist/glossary-legacy/' + key)
       makeSureFolderExists(destinationFolder)
       fs.writeFileSync(destinationFolder + '/_category_.json', `{ "label": "${key}", "position": ${menuPosition} }`)
       menuPosition++
