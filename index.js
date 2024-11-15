@@ -34,20 +34,20 @@ const logger = {
   }
 }
 
-const projectsLibFolder = cwd + '/app/lib'
-const classicProjectLibFolder = cwd + '/Resources/lib'
-const projectsAppTSS = cwd + '/app/styles/app.tss'
-const projects_AppTSS = cwd + '/app/styles/_app.tss'
-const projectsAlloyJMKFile = cwd + '/app/alloy.jmk'
-const projectsFontsFolder = cwd + '/app/assets/fonts'
-const projectsFontAwesomeJS = cwd + '/app/lib/fontawesome.js'
+const projectsLibFolder = `${cwd}/app/lib`
+const classicProjectLibFolder = `${cwd}/Resources/lib`
+const projectsAppTSS = `${cwd}/app/styles/app.tss`
+const projects_AppTSS = `${cwd}/app/styles/_app.tss`
+const projectsAlloyJMKFile = `${cwd}/app/alloy.jmk`
+const projectsFontsFolder = `${cwd}/app/assets/fonts`
+const projectsFontAwesomeJS = `${cwd}/app/lib/fontawesome.js`
 
-const projectsPurgeTSSFolder = cwd + '/purgetss'
-const projectsConfigJS = cwd + '/purgetss/config.js'
-const projectsTailwind_TSS = cwd + '/purgetss/styles/tailwind.tss'
-const projectsPurge_TSS_Fonts_Folder = cwd + '/purgetss/fonts'
-const projectsPurge_TSS_Styles_Folder = cwd + '/purgetss/styles'
-const projectsFA_TSS_File = cwd + '/purgetss/styles/fontawesome.tss'
+const projectsPurgeTSSFolder = `${cwd}/purgetss`
+const projectsConfigJS = `${cwd}/purgetss/config.js`
+const projectsTailwind_TSS = `${cwd}/purgetss/styles/tailwind.tss`
+const projectsPurge_TSS_Fonts_Folder = `${cwd}/purgetss/fonts`
+const projectsPurge_TSS_Styles_Folder = `${cwd}/purgetss/styles`
+const projectsFA_TSS_File = `${cwd}/purgetss/styles/fontawesome.tss`
 
 // js icon modules
 const projectRoot = path.resolve(__dirname)
@@ -62,11 +62,11 @@ const srcTailwindTSS = path.resolve(projectRoot, './dist/tailwind.tss')
 //
 
 // PRO
-const srcFA_Pro_CSS = cwd + '/node_modules/@fortawesome/fontawesome-pro/css/all.css'
-const srcFA_Pro_Web_Fonts_Folder = cwd + '/node_modules/@fortawesome/fontawesome-pro/webfonts/'
+const srcFA_Pro_CSS = `${cwd}/node_modules/@fortawesome/fontawesome-pro/css/all.css`
+const srcFA_Pro_Web_Fonts_Folder = `${cwd}/node_modules/@fortawesome/fontawesome-pro/webfonts/`
 // Alternate location
-const srcFA_Pro_CSS_Alt = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/css/all.css'
-const srcFA_Pro_Web_Fonts_Folder_Alt = cwd + '/app/lib/node_modules/@fortawesome/fontawesome-pro/webfonts/'
+const srcFA_Pro_CSS_Alt = `${cwd}/app/lib/node_modules/@fortawesome/fontawesome-pro/css/all.css`
+const srcFA_Pro_Web_Fonts_Folder_Alt = `${cwd}/app/lib/node_modules/@fortawesome/fontawesome-pro/webfonts/`
 
 const srcFA_ProReset_TSS_File = './lib/templates/fontawesome/pro-reset.tss'
 const srcFA_ProTemplateTSS_File = './lib/templates/fontawesome/pro-template.tss'
@@ -79,8 +79,8 @@ const srcFA_ProFontFamilies = {
 }
 
 // BETA
-const srcFA_Beta_CSSFile = cwd + '/purgetss/fontawesome-beta/css/all.css'
-const srcFA_Beta_Web_Fonts_Folder = cwd + '/purgetss/fontawesome-beta/webfonts/'
+const srcFA_Beta_CSSFile = `${cwd}/purgetss/fontawesome-beta/css/all.css`
+const srcFA_Beta_Web_Fonts_Folder = `${cwd}/purgetss/fontawesome-beta/webfonts/`
 const srcFA_Beta_ResetTSS = './lib/templates/fontawesome/beta-reset.tss'
 const srcFA_Beta_TemplateTSS = './lib/templates/fontawesome/beta-template.tss'
 const srcFA_Beta_FontFamilies = {
@@ -185,7 +185,7 @@ function init(options) {
   }
 
   // definitios file
-  if (!fs.existsSync(cwd + '/purgetss/styles/definitions.css') || options.all) {
+  if (!fs.existsSync(`${cwd}/purgetss/styles/definitions.css`) || options.all) {
     createDefinitionsFile()
   }
 
@@ -578,11 +578,11 @@ function dependencies(options) {
     const { execSync } = require('child_process')
     const commandExistsSync = require('command-exists').sync
 
-    if (fs.existsSync(cwd + '/.gitignore') && !fs.readFileSync(cwd + '/.gitignore').includes('/node_modules')) {
+    if (fs.existsSync(`${cwd}/.gitignore`) && !fs.readFileSync(`${cwd}/.gitignore`).includes('/node_modules')) {
       execSync('echo "/node_modules" >>.gitignore')
     }
 
-    if (!fs.existsSync(cwd + '/package.json')) {
+    if (!fs.existsSync(`${cwd}/package.json`)) {
       logger.info(`Creating a new ${chalk.yellow('package.json')} file`)
       execSync(`cd "${cwd}" && npm init -y`)
     }
@@ -1073,9 +1073,9 @@ function findPrefix(rules) {
 
 // ! Purge Fonts
 function purgeFonts(uniqueClasses, cleanUniqueClasses) {
-  if (fs.existsSync(cwd + '/purgetss/styles/fonts.tss')) {
+  if (fs.existsSync(`${cwd}/purgetss/styles/fonts.tss`)) {
     let purgedClasses = '\n// Font Styles\n'
-    purgedClasses += purgeFontIcons(cwd + '/purgetss/styles/fonts.tss', uniqueClasses, 'Purging Font styles...', cleanUniqueClasses, [])
+    purgedClasses += purgeFontIcons(`${cwd}/purgetss/styles/fonts.tss`, uniqueClasses, 'Purging Font styles...', cleanUniqueClasses, [])
     return (purgedClasses === '\n// Font Styles\n') ? '' : purgedClasses
   }
 
@@ -1103,20 +1103,20 @@ function prettifyFontName(str, prefix) {
 // ! Helper Functions
 function findMissingClasses(tempPurged) {
   // ! Get Styles from App - Minus `app.tss`
-  _.each(getFiles(cwd + '/app/styles').filter(file => file.endsWith('.tss') && !file.endsWith('app.tss') && !file.endsWith('_app.tss')), file => {
+  _.each(getFiles(`${cwd}/app/styles`).filter(file => file.endsWith('.tss') && !file.endsWith('app.tss') && !file.endsWith('_app.tss')), file => {
     tempPurged += '\n' + fs.readFileSync(file, 'utf8')
   })
 
   // ! Get Styles from Widgets
-  if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
-    _.each(getFiles(cwd + '/app/widgets').filter(file => file.endsWith('.tss')), file => {
+  if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
+    _.each(getFiles(`${cwd}/app/widgets`).filter(file => file.endsWith('.tss')), file => {
       tempPurged += '\n' + fs.readFileSync(file, 'utf8')
     })
   }
 
   // ! Get Views from Themes
-  if (fs.existsSync(cwd + '/app/themes/')) {
-    _.each(getFiles(cwd + '/app/themes').filter(file => file.endsWith('.tss')), file => {
+  if (fs.existsSync(`${cwd}/app/themes/`)) {
+    _.each(getFiles(`${cwd}/app/themes`).filter(file => file.endsWith('.tss')), file => {
       tempPurged += '\n' + fs.readFileSync(file, 'utf8')
     })
   }
@@ -1261,16 +1261,16 @@ function getViewPaths() {
   const viewPaths = []
 
   // ! Parse Views from App
-  viewPaths.push(...glob.sync(cwd + '/app/views/**/*.xml'))
+  viewPaths.push(...glob.sync(`${cwd}/app/views/**/*.xml`))
 
   // ! Parse Views from Widgets
-  if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
-    viewPaths.push(...glob.sync(cwd + '/app/widgets/**/views/*.xml'))
+  if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
+    viewPaths.push(...glob.sync(`${cwd}/app/widgets/**/views/*.xml`))
   }
 
   // ! Parse Views from Themes
-  if (fs.existsSync(cwd + '/app/themes/')) {
-    viewPaths.push(...glob.sync(cwd + '/app/themes/**/views/*.xml'))
+  if (fs.existsSync(`${cwd}/app/themes/`)) {
+    viewPaths.push(...glob.sync(`${cwd}/app/themes/**/views/*.xml`))
   }
 
   return viewPaths
@@ -1280,16 +1280,16 @@ function getControllerPaths() {
   const controllerPaths = []
 
   // ! Parse Controllers from App
-  controllerPaths.push(...glob.sync(cwd + '/app/controllers/**/*.js'))
+  controllerPaths.push(...glob.sync(`${cwd}/app/controllers/**/*.js`))
 
   // ! Parse Controllers from Widgets
-  if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
-    controllerPaths.push(...glob.sync(cwd + '/app/widgets/**/controllers/*.js'))
+  if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
+    controllerPaths.push(...glob.sync(`${cwd}/app/widgets/**/controllers/*.js`))
   }
 
   // ! Parse Controllers from Themes
-  if (fs.existsSync(cwd + '/app/themes/')) {
-    controllerPaths.push(...glob.sync(cwd + '/app/themes/**/controllers/*.js'))
+  if (fs.existsSync(`${cwd}/app/themes/`)) {
+    controllerPaths.push(...glob.sync(`${cwd}/app/themes/**/controllers/*.js`))
   }
 
   return controllerPaths
@@ -1987,7 +1987,7 @@ function createDefinitionsFile() {
   let classDefinitions = ''
 
   // read classes from _app.tss file
-  _.each(getFiles(cwd + '/app/styles').filter(file => file.endsWith('.tss') && file.endsWith('_app.tss')), file => {
+  _.each(getFiles(`${cwd}/app/styles`).filter(file => file.endsWith('.tss') && file.endsWith('_app.tss')), file => {
     classDefinitions += fs.readFileSync(file, 'utf8')
   })
 
@@ -1995,21 +1995,21 @@ function createDefinitionsFile() {
     classDefinitions += fs.readFileSync(projectsTailwind_TSS, 'utf8')
   }
 
-  if (configOptions.widgets && fs.existsSync(cwd + '/app/widgets/')) {
-    _.each(getFiles(cwd + '/app/widgets').filter(file => file.endsWith('.tss')), file => {
+  if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
+    _.each(getFiles(`${cwd}/app/widgets`).filter(file => file.endsWith('.tss')), file => {
       classDefinitions += fs.readFileSync(file, 'utf8')
     })
   }
 
   // ! Get Styles from Themes
-  if (fs.existsSync(cwd + '/app/themes/')) {
-    _.each(getFiles(cwd + '/app/themes').filter(file => file.endsWith('.tss')), file => {
+  if (fs.existsSync(`${cwd}/app/themes/`)) {
+    _.each(getFiles(`${cwd}/app/themes`).filter(file => file.endsWith('.tss')), file => {
       classDefinitions += fs.readFileSync(file, 'utf8')
     })
   }
 
-  if (fs.existsSync(cwd + '/purgetss/styles/fonts.tss')) {
-    classDefinitions += fs.readFileSync(cwd + '/purgetss/styles/fonts.tss', 'utf8')
+  if (fs.existsSync(`${cwd}/purgetss/styles/fonts.tss`)) {
+    classDefinitions += fs.readFileSync(`${cwd}/purgetss/styles/fonts.tss`, 'utf8')
   }
 
   classDefinitions += (fs.existsSync(projectsFA_TSS_File)) ? fs.readFileSync(projectsFA_TSS_File, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8')
@@ -2032,7 +2032,7 @@ function createDefinitionsFile() {
 
   classDefinitions += '.ios{}.android{}.handheld{}.tablet{}.open{}.close{}.complete{}.drag{}.drop{}.bounds{}'
 
-  fs.writeFileSync(cwd + '/purgetss/styles/definitions.css', `/* Class definitions (v6.x) */${classDefinitions}`)
+  fs.writeFileSync(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v6.x) */${classDefinitions}`)
 
   logger.file('./purgetss/styles/definitions.css')
 }
@@ -2534,7 +2534,7 @@ function copyFontStyle(vendor) {
 
 // ! Check if running inside an Alloy Project
 function alloyProject(silent = false) {
-  if (!fs.existsSync(cwd + '/app/views')) {
+  if (!fs.existsSync(`${cwd}/app/views`)) {
     if (!silent) {
       logger.info(`Please make sure you are running ${chalk.green('purgetss')} within an Alloy Project.`)
       logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
@@ -2547,7 +2547,7 @@ function alloyProject(silent = false) {
 }
 
 function classicProject(silent = false) {
-  if (!fs.existsSync(cwd + '/Resources')) {
+  if (!fs.existsSync(`${cwd}/Resources`)) {
     if (!silent) {
       logger.info(`Please make sure you are running ${chalk.green('purgetss')} within a Titanium's Classic Project.`)
       logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
@@ -2806,8 +2806,8 @@ function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
   let fontAwesome = false
 
   // check if fonts.tss exists and if it includes Font Awesome
-  if (fs.existsSync(cwd + '/purgetss/styles/fonts.tss')) {
-    const fontsTSS = fs.readFileSync(cwd + '/purgetss/styles/fonts.tss', 'utf8')
+  if (fs.existsSync(`${cwd}/purgetss/styles/fonts.tss`)) {
+    const fontsTSS = fs.readFileSync(`${cwd}/purgetss/styles/fonts.tss`, 'utf8')
     fontAwesome = fontsTSS.includes('Font Awesome')
   }
 
