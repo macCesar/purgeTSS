@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "12.5.0.GA",
+	"sdkVersion": "12.6.1.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -17016,6 +17016,12 @@
 			"readOnly": false,
 			"values": []
 		},
+		"responseDictionary": {
+			"description": "Response as JSON object.",
+			"type": "String",
+			"readOnly": false,
+			"values": []
+		},
 		"responseHeaders": {
 			"description": "Returns all the response headers returned with the request.",
 			"type": "Object",
@@ -23497,7 +23503,10 @@
 				"fireEvent",
 				"applyProperties",
 				"createEvent",
+				"createEvents",
 				"getEventById",
+				"getEventsById",
+				"deleteEvents",
 				"getEventsBetweenDates",
 				"getEventsInDate|deprecated",
 				"getEventsInMonth|deprecated",
@@ -25461,6 +25470,7 @@
 				"readyState",
 				"responseData",
 				"responseText",
+				"responseDictionary",
 				"responseXML",
 				"securityManager",
 				"status",
