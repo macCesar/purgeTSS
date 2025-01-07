@@ -219,21 +219,21 @@
   },
   "moveByProperties": {
     "prop": "moveByProperties",
-    "description": "To use the `applyProperties` method when dragging objects using the PurgeTSS Animation Module.",
+    "description": "To use the `applyProperties` method when dragging objects using the Animation Module.",
     "template": {
       "move-by-properties": "{ moveByProperties: {value} }"
     }
   },
   "moveByAnimate": {
     "prop": "moveByAnimate",
-    "description": "To use the `animate` method when dragging objects using the PurgeTSS Animation Module.",
+    "description": "To use the `animate` method when dragging objects using the Animation Module.",
     "template": {
       "move-by-animate": "{ moveByAnimate: {value} }"
     }
   },
   "moveByAnimation": {
     "prop": "moveByAnimation",
-    "description": "To use the `Ti.UI.createAnimation` inside the `animate` method when dragging objects using the PurgeTSS Animation Module.",
+    "description": "To use the `Ti.UI.createAnimation` inside the `animate` method when dragging objects using the Animation Module.",
     "template": {
       "move-by-animation": "{ moveByAnimation: {value} }"
     }
