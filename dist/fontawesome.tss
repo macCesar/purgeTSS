@@ -1,4 +1,4 @@
-// Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -623,6 +623,7 @@
 '.fa-arrow-up-from-ground-water': { text: '\ue4b5', title: '\ue4b5' }
 '.fa-martini-glass': { text: '\uf57b', title: '\uf57b' }
 '.fa-glass-martini-alt': { text: '\uf57b', title: '\uf57b' }
+'.fa-square-binary': { text: '\ue69b', title: '\ue69b' }
 '.fa-rotate-left': { text: '\uf2ea', title: '\uf2ea' }
 '.fa-rotate-back': { text: '\uf2ea', title: '\uf2ea' }
 '.fa-rotate-backward': { text: '\uf2ea', title: '\uf2ea' }
@@ -1042,6 +1043,7 @@
 '.fa-grin-squint': { text: '\uf585', title: '\uf585' }
 '.fa-hand-holding-dollar': { text: '\uf4c0', title: '\uf4c0' }
 '.fa-hand-holding-usd': { text: '\uf4c0', title: '\uf4c0' }
+'.fa-chart-diagram': { text: '\ue695', title: '\ue695' }
 '.fa-bacterium': { text: '\ue05a', title: '\ue05a' }
 '.fa-hand-pointer': { text: '\uf25a', title: '\uf25a' }
 '.fa-drum-steelpan': { text: '\uf56a', title: '\uf56a' }
@@ -1074,6 +1076,7 @@
 '.fa-shield-virus': { text: '\ue06c', title: '\ue06c' }
 '.fa-dice-six': { text: '\uf526', title: '\uf526' }
 '.fa-mosquito-net': { text: '\ue52c', title: '\ue52c' }
+'.fa-file-fragment': { text: '\ue697', title: '\ue697' }
 '.fa-bridge-water': { text: '\ue4ce', title: '\ue4ce' }
 '.fa-person-booth': { text: '\uf756', title: '\uf756' }
 '.fa-text-width': { text: '\uf035', title: '\uf035' }
@@ -1255,6 +1258,7 @@
 '.fa-plug-circle-plus': { text: '\ue55f', title: '\ue55f' }
 '.fa-place-of-worship': { text: '\uf67f', title: '\uf67f' }
 '.fa-grip-vertical': { text: '\uf58e', title: '\uf58e' }
+'.fa-hexagon-nodes': { text: '\ue699', title: '\ue699' }
 '.fa-arrow-turn-up': { text: '\uf148', title: '\uf148' }
 '.fa-level-up': { text: '\uf148', title: '\uf148' }
 '.fa-u': { text: '\u0055', title: '\u0055' }
@@ -1644,6 +1648,7 @@
 '.fa-photo-film': { text: '\uf87c', title: '\uf87c' }
 '.fa-photo-video': { text: '\uf87c', title: '\uf87c' }
 '.fa-folder-minus': { text: '\uf65d', title: '\uf65d' }
+'.fa-hexagon-nodes-bolt': { text: '\ue69a', title: '\ue69a' }
 '.fa-store': { text: '\uf54e', title: '\uf54e' }
 '.fa-arrow-trend-up': { text: '\ue098', title: '\ue098' }
 '.fa-plug-circle-minus': { text: '\ue55e', title: '\ue55e' }
@@ -1731,6 +1736,7 @@
 '.fa-shield-blank': { text: '\uf132', title: '\uf132' }
 '.fa-arrow-up-short-wide': { text: '\uf885', title: '\uf885' }
 '.fa-sort-amount-up-alt': { text: '\uf885', title: '\uf885' }
+'.fa-comment-nodes': { text: '\ue696', title: '\ue696' }
 '.fa-house-medical': { text: '\ue3b2', title: '\ue3b2' }
 '.fa-golf-ball-tee': { text: '\uf450', title: '\uf450' }
 '.fa-golf-ball': { text: '\uf450', title: '\uf450' }
@@ -1921,6 +1927,7 @@
 '.fa-mug-saucer': { text: '\uf0f4', title: '\uf0f4' }
 '.fa-coffee': { text: '\uf0f4', title: '\uf0f4' }
 '.fa-brush': { text: '\uf55d', title: '\uf55d' }
+'.fa-file-half-dashed': { text: '\ue698', title: '\ue698' }
 '.fa-mask': { text: '\uf6fa', title: '\uf6fa' }
 '.fa-magnifying-glass-minus': { text: '\uf010', title: '\uf010' }
 '.fa-search-minus': { text: '\uf010', title: '\uf010' }
@@ -2110,6 +2117,7 @@
 '.fa-debian': { text: '\ue60b', title: '\ue60b' }
 '.fa-openid': { text: '\uf19b', title: '\uf19b' }
 '.fa-instalod': { text: '\ue081', title: '\ue081' }
+'.fa-files-pinwheel': { text: '\ue69f', title: '\ue69f' }
 '.fa-expeditedssl': { text: '\uf23e', title: '\uf23e' }
 '.fa-sellcast': { text: '\uf2da', title: '\uf2da' }
 '.fa-square-twitter': { text: '\uf081', title: '\uf081' }
@@ -2151,6 +2159,7 @@
 '.fa-sticker-mule': { text: '\uf3f7', title: '\uf3f7' }
 '.fa-creative-commons-zero': { text: '\uf4f3', title: '\uf4f3' }
 '.fa-hips': { text: '\uf452', title: '\uf452' }
+'.fa-css': { text: '\ue6a2', title: '\ue6a2' }
 '.fa-behance': { text: '\uf1b4', title: '\uf1b4' }
 '.fa-reddit': { text: '\uf1a1', title: '\uf1a1' }
 '.fa-discord': { text: '\uf392', title: '\uf392' }
@@ -2294,6 +2303,7 @@
 '.fa-spotify': { text: '\uf1bc', title: '\uf1bc' }
 '.fa-optin-monster': { text: '\uf23c', title: '\uf23c' }
 '.fa-fly': { text: '\uf417', title: '\uf417' }
+'.fa-square-bluesky': { text: '\ue6a3', title: '\ue6a3' }
 '.fa-aviato': { text: '\uf421', title: '\uf421' }
 '.fa-itunes': { text: '\uf3b4', title: '\uf3b4' }
 '.fa-cuttlefish': { text: '\uf38c', title: '\uf38c' }

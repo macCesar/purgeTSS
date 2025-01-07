@@ -1,5 +1,5 @@
 /**
- * Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 */
 
@@ -615,6 +615,7 @@ const icons = {
   arrowUpFromGroundWater: '\ue4b5',
   martiniGlass: '\uf57b',
   glassMartiniAlt: '\uf57b',
+  squareBinary: '\ue69b',
   rotateLeft: '\uf2ea',
   rotateBack: '\uf2ea',
   rotateBackward: '\uf2ea',
@@ -1034,6 +1035,7 @@ const icons = {
   grinSquint: '\uf585',
   handHoldingDollar: '\uf4c0',
   handHoldingUsd: '\uf4c0',
+  chartDiagram: '\ue695',
   bacterium: '\ue05a',
   handPointer: '\uf25a',
   drumSteelpan: '\uf56a',
@@ -1066,6 +1068,7 @@ const icons = {
   shieldVirus: '\ue06c',
   diceSix: '\uf526',
   mosquitoNet: '\ue52c',
+  fileFragment: '\ue697',
   bridgeWater: '\ue4ce',
   personBooth: '\uf756',
   textWidth: '\uf035',
@@ -1247,6 +1250,7 @@ const icons = {
   plugCirclePlus: '\ue55f',
   placeOfWorship: '\uf67f',
   gripVertical: '\uf58e',
+  hexagonNodes: '\ue699',
   arrowTurnUp: '\uf148',
   levelUp: '\uf148',
   u: '\u0055',
@@ -1636,6 +1640,7 @@ const icons = {
   photoFilm: '\uf87c',
   photoVideo: '\uf87c',
   folderMinus: '\uf65d',
+  hexagonNodesBolt: '\ue69a',
   store: '\uf54e',
   arrowTrendUp: '\ue098',
   plugCircleMinus: '\ue55e',
@@ -1723,6 +1728,7 @@ const icons = {
   shieldBlank: '\uf132',
   arrowUpShortWide: '\uf885',
   sortAmountUpAlt: '\uf885',
+  commentNodes: '\ue696',
   houseMedical: '\ue3b2',
   golfBallTee: '\uf450',
   golfBall: '\uf450',
@@ -1913,6 +1919,7 @@ const icons = {
   mugSaucer: '\uf0f4',
   coffee: '\uf0f4',
   brush: '\uf55d',
+  fileHalfDashed: '\ue698',
   mask: '\uf6fa',
   magnifyingGlassMinus: '\uf010',
   searchMinus: '\uf010',
@@ -2102,6 +2109,7 @@ const icons = {
   debian: '\ue60b',
   openid: '\uf19b',
   instalod: '\ue081',
+  filesPinwheel: '\ue69f',
   expeditedssl: '\uf23e',
   sellcast: '\uf2da',
   squareTwitter: '\uf081',
@@ -2143,6 +2151,7 @@ const icons = {
   stickerMule: '\uf3f7',
   creativeCommonsZero: '\uf4f3',
   hips: '\uf452',
+  css: '\ue6a2',
   behance: '\uf1b4',
   reddit: '\uf1a1',
   discord: '\uf392',
@@ -2286,6 +2295,7 @@ const icons = {
   spotify: '\uf1bc',
   optinMonster: '\uf23c',
   fly: '\uf417',
+  squareBluesky: '\ue6a3',
   aviato: '\uf421',
   itunes: '\uf3b4',
   cuttlefish: '\uf38c',
