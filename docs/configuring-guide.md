@@ -60,7 +60,7 @@ By default, `purgetss` will look for an optional `./purgetss/config.js` file whe
 Every section of the config file is optional, so you only specify what you'd like to change. Any missing sections will fall back to the default configuration.
 
 ## Creating your configuration file
-To create a PurgeTSS configuration file for your project, run this command:
+To create a Purge TSS configuration file for your project, run this command:
 
 ```bash
 > purgetss init
@@ -76,7 +76,7 @@ module.exports = {
   'purge': {
     'mode': 'all',
 
-    // These options are passed through directly to PurgeTSS
+    // These options are passed through directly to Purge TSS
     'options': {
       'safelist': [],
     }
@@ -100,7 +100,7 @@ To generate your custom `./purgetss/tailwind.tss` file use the following command
 
 It will generate a new `tailwind.tss` file with every attribute defined in `./purgetss/config.js`.
 
-**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `PurgeTSS` will use this file instead of Tailwind's default file.**
+**After generating your custom `tailwind.tss` file. You can use any of the generated classes, `Purge TSS` will use this file instead of Tailwind's default file.**
 
 ## Configuration file example
 - **For the modifier keys, you can use any name or convention you want. For example: '.my-custom-class', or '.anotherCustomClassName'**.
@@ -242,7 +242,7 @@ module.exports = {
 ### Shared colors
 All colors defined in the `colors` section are automatically shared with `textColor`, `backgroundColor`, `borderColor`, `placeholderColor`, `gradientColorStops` and `hintTextColor`  properties.
 
-> **When you include the `colors` section, `PurgeTSS` will automatically generate all color-related properties and merge them with any other color-related properties present in the configuration file.**
+> **When you include the `colors` section, `Purge TSS` will automatically generate all color-related properties and merge them with any other color-related properties present in the configuration file.**
 
 ```javascript
 // ./purgetss/config.js
@@ -367,7 +367,7 @@ module.exports = {
 ### Shared spacing
 The `spacing` section is shared by the `padding`, `margin`, `width`, and `height` properties.
 
-> **When you include the `spacing` section, `PurgeTSS` will automatically generate all spacing-related properties and merge them with any other spacing-related properties present in the configuration file.**
+> **When you include the `spacing` section, `Purge TSS` will automatically generate all spacing-related properties and merge them with any other spacing-related properties present in the configuration file.**
 
 ```javascript
 // ./purgetss/config.js
@@ -481,7 +481,7 @@ The example `borderRadius` configuration above would generate the following TSS 
 
 You'll notice that using a key of `default` in the theme configuration created the class `.rounded` with no suffix.
 
-This is a common convention in `PurgeTSS` supported by many (although not all) of the properties.
+This is a common convention in `Purge TSS` supported by many (although not all) of the properties.
 
 ## The `apply` directive
 Starting with **`v2.3.5`**, you can `apply` a set of classes to create more complex classes, or when you find a repetitive pattern in your code and you’d like to extract it to a new class component.
@@ -681,7 +681,7 @@ module.exports = {
   'purge': {
     'mode': 'all',
 
-    // These options are passed through directly to PurgeTSS
+    // These options are passed through directly to Purge TSS
     'options': {
       'safelist': [],
     }
@@ -689,7 +689,7 @@ module.exports = {
 }
 ```
 
-- `purge.mode.all` by default, `PurgeTSS` will look everywhere inside your XML files, like in comments, attributes, classes, ids, Ti Element, and even the actual written content in your markup. **This mode is necessary if you want `purgetss` to parse any Ti Element that you've styled in `config.js`**.
+- `purge.mode.all` by default, `Purge TSS` will look everywhere inside your XML files, like in comments, attributes, classes, ids, Ti Element, and even the actual written content in your markup. **This mode is necessary if you want `purgetss` to parse any Ti Element that you've styled in `config.js`**.
 - `purge.mode.class` Use `class` to search only in `class` and `id` attributes in your XML files.
 - `purge.mode.options.safelist` List of classes and Ti Elements that you want to keep regardless of the purge mode or whether or not they are included in your XML files.
 
@@ -702,7 +702,7 @@ module.exports = {
   'purge': {
     'mode': 'all',
 
-    // These options are passed through directly to PurgeTSS
+    // These options are passed through directly to Purge TSS
     'options': require('./safelist'),
   },
 }
@@ -1344,7 +1344,7 @@ You can use any of the supported units depending of the property you are generat
 
 `app.tss` *Showing only the arbitraty values styles*
 ```css
-// PurgeTSS
+// Purge TSS
 // Created by César Estrada
 // https://purgetss.com
 
@@ -1409,14 +1409,14 @@ You can use any of the supported units depending of the property you are generat
 
 `app.tss`
 ```css
-// PurgeTSS
+// Purge TSS
 // Created by César Estrada
 // https://purgetss.com
 
 // Styles from _app.tss
 // Empty _app.tss
 
-// PurgeTSS styles
+// Purge TSS styles
 'ImageView[platform=ios]': { hires: true }
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
@@ -1499,14 +1499,14 @@ You can use any of the supported units depending of the property you are generat
 
 `app.tss`
 ```css
-// PurgeTSS
+// Purge TSS
 // Created by César Estrada
 // https://purgetss.com
 
 // Styles from _app.tss
 // Empty _app.tss
 
-// PurgeTSS styles
+// Purge TSS styles
 'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#ffffff' }
 '.bg-transparent': { backgroundColor: 'transparent' }
@@ -1567,7 +1567,7 @@ Lets say that you want to have different background color and font sizes, depend
 
 `app.tss`
 ```css
-// PurgeTSS
+// Purge TSS
 // Created by César Estrada
 // https://purgetss.com
 

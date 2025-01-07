@@ -523,7 +523,7 @@ function getPropertiesFromTiCompletionsFile() {
     'UIApplicationOpenURLOptionsOpenInPlaceKey',
     'UIApplicationOpenURLOptionUniversalLinksOnly',
 
-    // ! Handled by PurgeTSS
+    // ! Handled by Purge TSS
     'fontFamily',
     'fontSize',
     'fontWeight',

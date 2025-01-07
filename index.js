@@ -412,7 +412,7 @@ function create(args, options) {
     } else {
       console.log('')
       logger.error('::Can’t create a Titanium project::')
-      logger.info('You must have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a project with', chalk.green('`PurgeTSS`'))
+      logger.info('You must have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a project with', chalk.green('`Purge TSS`'))
       console.log('')
       logger.info('Please, set them like this:')
       logger.info(chalk.green('ti config app.idprefix'), chalk.yellow("'com.your.reverse.domain'"))
@@ -641,7 +641,7 @@ function buildFonts(options) {
     let fontJS = ''
     let fontFamiliesJS = ''
     const FontName = require('fontname')
-    let tssClasses = '// Fonts TSS file generated with PurgeTSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
+    let tssClasses = '// Fonts TSS file generated with Purge TSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
 
     // ! Process font files
     _.each(files, file => {
@@ -2395,7 +2395,7 @@ function extractClasses(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::PurgeTSS:: Error processing: “${currentFile}”\n`, error)
+    throw chalk.red(`::Purge TSS:: Error processing: “${currentFile}”\n`, error)
   }
 }
 
@@ -2408,7 +2408,7 @@ function extractClassesOnly(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::PurgeTSS:: Error processing: “${currentFile}”\n`, error)
+    throw chalk.red(`::Purge TSS:: Error processing: “${currentFile}”\n`, error)
   }
 }
 
@@ -2575,7 +2575,7 @@ function copyResetTemplateAnd_appTSS() {
 
   logger.info('Copying Reset styles...')
 
-  let tempPurged = `// PurgeTSS v${PurgeTSSPackageJSON.version}\n` + fs.readFileSync(srcReset_TSS_File, 'utf8')
+  let tempPurged = `// Purge TSS v${PurgeTSSPackageJSON.version}\n` + fs.readFileSync(srcReset_TSS_File, 'utf8')
 
   if (fs.existsSync(projects_AppTSS)) {
     const appTSSContent = fs.readFileSync(projects_AppTSS, 'utf8')

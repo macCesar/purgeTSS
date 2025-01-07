@@ -6,7 +6,7 @@ const pkg = require('../package.json')
 const purgetss = require('../index.js')
 const updateNotifier = require('update-notifier')
 
-// check if a new version of PurgeTSS is available and print an update notification
+// check if a new version of Purge TSS is available and print an update notification
 const notifier = updateNotifier({ pkg })
 if (notifier.update && notifier.update.latest !== pkg.version) {
   notifier.notify({ defer: false, isGlobal: true })
@@ -35,10 +35,10 @@ program
 program
   .command('create')
   .alias('c')
-  .description(`Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured`)
-  .help(`Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured. You’ll need to have ${chalk.yellow('app.idprefix')} and ${chalk.yellow('app.workspace')} already configured.`)
+  .description(`Create a new Alloy Project with ${chalk.green('Purge TSS')} configured`)
+  .help(`Create a new Alloy Project with ${chalk.green('Purge TSS')} configured. You’ll need to have ${chalk.yellow('app.idprefix')} and ${chalk.yellow('app.workspace')} already configured.`)
   .option('-f, --force', 'Force create even if the project already exists')
-  .option('-d, --dependencies', `Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} for a better development experience using PurgeTSS`)
+  .option('-d, --dependencies', `Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} for a better development experience using Purge TSS`)
   .option('-m, --module', `Install ${chalk.yellow('purgetss.ui.js')} module to the project's ${chalk.yellow('lib')} folder`)
   .option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:\n   ${chalk.yellow('fa')} = Font Awesome Icons\n   ${chalk.yellow('mi')} = Material Icons\n   ${chalk.yellow('ms')} = Material Symbols\n   ${chalk.yellow('f7')} = Framework7 Icons`)
   .argument('<name>', 'The name of the project')
@@ -50,7 +50,7 @@ program
   .command('install-dependencies')
   .alias('id')
   .description(`Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} to an existing project`)
-  .help('Installing ESLint and Tailwind CSS can help improve your development workflow with PurgeTSS by enabling code linting and enhancing the UI development capabilities.')
+  .help('Installing ESLint and Tailwind CSS can help improve your development workflow with Purge TSS by enabling code linting and enhancing the UI development capabilities.')
   .action((args, options, logger) => {
     purgetss.dependencies(args, options)
   })
@@ -105,8 +105,8 @@ program
 program
   .command('watch')
   .alias('w')
-  .description(`Automatically run ${chalk.green('PurgeTSS')} every time you compile your project`)
-  .help(`Automatically run ${chalk.green('PurgeTSS')} every time you compile your project\nEspecially helpful with ${chalk.green('LiveView')} as it purges your files with each change you make`)
+  .description(`Automatically run ${chalk.green('Purge TSS')} every time you compile your project`)
+  .help(`Automatically run ${chalk.green('Purge TSS')} every time you compile your project\nEspecially helpful with ${chalk.green('LiveView')} as it purges your files with each change you make`)
   .option('-o, --off', 'To turn off watch mode')
   .option('-d, --delete', 'To completely delete the Auto-Purging hook')
   .action((args, options, logger) => {
@@ -160,10 +160,10 @@ program
 program
   .command('update')
   .alias('u')
-  .description(`Update ${chalk.green('PurgeTSS')} to the latest version`)
-  .help(`Update ${chalk.green('PurgeTSS')} to the latest version\nWe constantly update ${chalk.green('PurgeTSS')} to add new features and bug fixes`)
+  .description(`Update ${chalk.green('Purge TSS')} to the latest version`)
+  .help(`Update ${chalk.green('Purge TSS')} to the latest version\nWe constantly update ${chalk.green('Purge TSS')} to add new features and bug fixes`)
   .action((args, options, logger) => {
-    logger.info(`${purgetss.colores.purgeLabel} Updating ${chalk.green('PurgeTSS')} to the latest version...`)
+    logger.info(`${purgetss.colores.purgeLabel} Updating ${chalk.green('Purge TSS')} to the latest version...`)
 
     const { exec } = require('child_process')
 
@@ -185,10 +185,10 @@ program
 program
   .command('sudo-update')
   .alias('su')
-  .description(`Update ${chalk.green('PurgeTSS')} to the latest version using the ${chalk.yellow('sudo')} command`)
-  .help(`Update ${chalk.green('PurgeTSS')} to the latest version using the ${chalk.yellow('sudo')} command\nWe constantly update ${chalk.green('PurgeTSS')} to add new features and bug fixes`)
+  .description(`Update ${chalk.green('Purge TSS')} to the latest version using the ${chalk.yellow('sudo')} command`)
+  .help(`Update ${chalk.green('Purge TSS')} to the latest version using the ${chalk.yellow('sudo')} command\nWe constantly update ${chalk.green('Purge TSS')} to add new features and bug fixes`)
   .action((args, options, logger) => {
-    logger.info(`${purgetss.colores.purgeLabel} Updating ${chalk.green('PurgeTSS')} to the latest version using sudo...`)
+    logger.info(`${purgetss.colores.purgeLabel} Updating ${chalk.green('Purge TSS')} to the latest version using sudo...`)
 
     const { exec } = require('child_process')
 

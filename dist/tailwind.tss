@@ -2,7 +2,7 @@
 // Created by Adam Wathan ( https://twitter.com/adamwathan ).
 
 // Tailwind-like styles
-// Generated with PurgeTSS
+// Generated with Purge TSS
 // https://purgetss.com
 // default config.js file
 
@@ -1332,15 +1332,15 @@
 '.alert-dialog-style-plain-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.PLAIN_TEXT_INPUT }
 '.alert-dialog-style-secure-text-input[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.SECURE_TEXT_INPUT }
 
-// To use the `applyProperties` method when dragging objects using the PurgeTSS Animation Module.
+// To use the `applyProperties` method when dragging objects using the Animation Module.
 '.move-by-properties': { moveByProperties: true }
 '.move-by-properties-false': { moveByProperties: false }
 
-// To use the `animate` method when dragging objects using the PurgeTSS Animation Module.
+// To use the `animate` method when dragging objects using the Animation Module.
 '.move-by-animate': { moveByAnimate: true }
 '.move-by-animate-false': { moveByAnimate: false }
 
-// To use the `Ti.UI.createAnimation` inside the `animate` method when dragging objects using the PurgeTSS Animation Module.
+// To use the `Ti.UI.createAnimation` inside the `animate` method when dragging objects using the Animation Module.
 '.move-by-animation': { moveByAnimation: true }
 '.move-by-animation-false': { moveByAnimation: false }
 
