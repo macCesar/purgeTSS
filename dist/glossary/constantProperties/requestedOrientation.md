@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: requestedOrientation
 // Description: Specifies a specific orientation for this activity.
 // Component(s): Ti.Android.Activity

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: paragraphSpacingBefore
 // Description: The distance between the top of paragraph and the beginning of its text content.
 // Component(s): ParagraphAttribute

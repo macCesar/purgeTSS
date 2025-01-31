@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: availableCameras
 // Description: Array indicating which cameras are available, CAMERA_FRONT, CAMERA_REAR or both.
 // Component(s): Ti.Media

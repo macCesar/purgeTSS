@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): anchorPoint
 // Component(s): Ti.UI.Animation, Ti.UI.View
 '.origin-center': { anchorPoint: { x: 0.5, y: 0.5 } }

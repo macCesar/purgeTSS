@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: zoomScale
 // Description: Scaling factor of the scroll view's content.
 // Component(s): Ti.UI.ScrollView

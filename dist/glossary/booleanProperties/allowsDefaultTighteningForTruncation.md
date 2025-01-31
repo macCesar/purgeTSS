@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: allowsDefaultTighteningForTruncation
 // Description: A Boolean value indicating whether the system may tighten inter-character spacing before truncating text.
 // Component(s): ParagraphAttribute

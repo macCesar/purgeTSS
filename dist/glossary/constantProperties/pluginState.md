@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pluginState
 // Description: Determines how to treat content that requires plugins in this web view.
 // Component(s): Ti.UI.WebView

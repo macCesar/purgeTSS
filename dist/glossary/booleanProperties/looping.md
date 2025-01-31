@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: looping
 // Description: Determines whether the audio should loop upon completion.
 // Component(s): Ti.Media.Sound

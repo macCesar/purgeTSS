@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: showMasterInPortrait
 // Description: Determines whether to show the master view in portrait orientation.
 // Component(s): Ti.UI.iOS.SplitWindow

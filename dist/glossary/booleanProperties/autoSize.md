@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: autoSize
 // Description: Automatically scales the label into its size.
 // Component(s): Ti.UI.Label

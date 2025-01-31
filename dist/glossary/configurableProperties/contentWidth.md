@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: contentWidth
 // Description: Width of the scrollable region.
 // Component(s): Ti.UI.ScrollView

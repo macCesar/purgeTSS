@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: maximumLineHeight
 // Description: The maximum line height of receiver.
 // Component(s): ParagraphAttribute

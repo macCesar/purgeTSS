@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: checked
 // Description: Determines if the item is checked.
 // Component(s): Ti.Android.MenuItem

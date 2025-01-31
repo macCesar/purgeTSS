@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: lockscreenVisibility
 // Description: Whether or not notifications posted to this channel are shown on the lockscreen in full or redacted form.
 // Component(s): Ti.Android.NotificationChannel

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: injectionTime
 // Description: The time when the script should be injected into the webpage.
 // Component(s): UserScriptParams

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: cameraAuthorization
 // Description: Returns the authorization status for the camera.
 // Component(s): Ti.Media

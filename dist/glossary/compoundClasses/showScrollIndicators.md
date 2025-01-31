@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): showHorizontalScrollIndicator, showVerticalScrollIndicator
 // Component(s): Ti.UI.ScrollView
 '.overflow-x-scroll': { showHorizontalScrollIndicator: true }

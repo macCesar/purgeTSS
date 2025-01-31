@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: visibility
 // Component(s): Ti.Android.Notification, Ti.Calendar.Event
 '.visibility-private[platform=android]': { visibility: Ti.Android.VISIBILITY_PRIVATE }

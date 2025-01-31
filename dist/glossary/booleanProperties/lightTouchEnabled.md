@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: lightTouchEnabled
 // Description: Enables using light touches to make a selection and activate mouseovers.
 // Component(s): Ti.UI.WebView

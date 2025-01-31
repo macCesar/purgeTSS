@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: compression
 // Description: Audio compression to be used for the recording.
 // Component(s): Ti.Media.AudioRecorder

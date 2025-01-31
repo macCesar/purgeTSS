@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: lineBreakMode
 // Description: The mode that should be used to break lines in the receiver.
 // Component(s): ParagraphAttribute

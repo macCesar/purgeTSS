@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: carPlaySetting
 // Description: The current CarPlay settings.
 // Component(s): GetUserNotificationSettings

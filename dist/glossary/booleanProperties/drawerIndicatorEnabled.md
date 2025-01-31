@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: drawerIndicatorEnabled
 // Description: Determine the drawer indicator status
 // Component(s): Ti.UI.Android.DrawerLayout

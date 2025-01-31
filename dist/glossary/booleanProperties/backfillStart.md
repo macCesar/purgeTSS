@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: backfillStart
 // Description: Set to true to continue filling with the starting color beyond the startPoint.
 // Component(s): Gradient

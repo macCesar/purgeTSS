@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: paddingBottom
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
 '.padding-bottom-0': { paddingBottom: 0 }

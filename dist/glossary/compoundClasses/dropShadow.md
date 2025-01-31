@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): shadowOffset, shadowRadius, shadowColor - Drop Shadow in Tailwind
 // Component(s): Ti.UI.Button, Ti.UI.Label
 '.drop-shadow-xs': { shadowOffset: { x: 0, y: 0 }, shadowRadius: 1, shadowColor: '#80000000' }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: headerDividersEnabled
 // Description: When set to false, the ListView will not draw the divider after the header view.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView

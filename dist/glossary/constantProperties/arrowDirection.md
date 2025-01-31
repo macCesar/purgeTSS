@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: arrowDirection
 // Component(s): CameraOptionsType, PhotoGalleryOptionsType, MenuPopupShowParams, Ti.UI.iPad.Popover
 '.arrow-direction-popover-any': { arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_ANY }

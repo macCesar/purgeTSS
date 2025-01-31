@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: charset
 // Component(s): EncodeStringDict, DecodeStringDict
 '.charset-codec-ascii': { charset: Ti.Codec.CHARSET_ASCII }

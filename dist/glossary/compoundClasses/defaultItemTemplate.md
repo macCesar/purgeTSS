@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): defaultItemTemplate
 // Component(s): Ti.UI.ListView
 '.list-item-template': { defaultItemTemplate: Ti.UI.LIST_ITEM_TEMPLATE_DEFAULT }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pagingControlTimeout
 // Description: Number of milliseconds to wait before hiding the paging control.
 // Component(s): Ti.UI.ScrollableView

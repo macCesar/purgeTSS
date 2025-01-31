@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): top, right, bottom, left - Gap for Grid System
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.gap-0': { top: 0, right: 0, bottom: 0, left: 0 }

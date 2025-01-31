@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: isCloudItem
 // Component(s): Ti.Media.Item, MediaQueryType
 '.is-cloud-item': { isCloudItem: true }

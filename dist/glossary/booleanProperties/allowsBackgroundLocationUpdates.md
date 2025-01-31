@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: allowsBackgroundLocationUpdates
 // Description: Determines if the app can do background location updates.
 // Component(s): Ti.Geolocation

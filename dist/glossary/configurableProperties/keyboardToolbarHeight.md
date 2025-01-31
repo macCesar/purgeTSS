@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: keyboardToolbarHeight
 // Description: Height of the keyboard toolbar if keyboardToolbar is an array.
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField

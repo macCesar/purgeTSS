@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: mediaTypesRequiringUserActionForPlayback
 // Description: Determines which media types require a user gesture to begin playing.
 // Component(s): Ti.UI.iOS.WebViewConfiguration

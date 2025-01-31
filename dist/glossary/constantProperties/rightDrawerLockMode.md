@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: rightDrawerLockMode
 // Description: Get or set lock mode for the right drawer
 // Component(s): Ti.UI.Android.DrawerLayout

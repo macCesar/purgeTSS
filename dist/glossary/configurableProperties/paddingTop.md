@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: paddingTop
 // Description: Inner padding between the top edge of the Card and children of the CardView.
 // Component(s): Ti.UI.Android.CardView

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: paddingLeft
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
 '.padding-left-0': { paddingLeft: 0 }

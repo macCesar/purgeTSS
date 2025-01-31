@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: transition
 // Component(s): Ti.UI.Animation
 '.transition-animation-style-curl-down[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }

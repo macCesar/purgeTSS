@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: canceledOnTouchOutside
 // Component(s): Ti.UI.AlertDialog, Ti.UI.Android.ProgressIndicator
 '.canceled-on-touch-outside': { canceledOnTouchOutside: true }

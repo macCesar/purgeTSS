@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: accuracy
 // Component(s): Ti.Geolocation.Android.LocationRule, Ti.Geolocation, LocationCoordinates, ForwardGeocodeResponse, HeadingData, LocationProviderDict
 '.accuracy-high': { accuracy: Ti.Geolocation.ACCURACY_HIGH }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: itemContentType
 // Description: Content type of the attribute set.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet

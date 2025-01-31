@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: indentionLevel
 // Description: Indention level for the row.
 // Component(s): Ti.UI.TableViewRow

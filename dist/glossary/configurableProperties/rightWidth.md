@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: rightWidth
 // Description: Get or set the width of the right drawer
 // Component(s): Ti.UI.Android.DrawerLayout

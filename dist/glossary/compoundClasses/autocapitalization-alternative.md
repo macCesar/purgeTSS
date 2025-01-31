@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): autocapitalization
 // Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.uppercase': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_ALL }

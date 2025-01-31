@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: hideSearchOnSelection
 // Description: Determines whether the search field should hide on completion.
 // Component(s): Ti.UI.TableView

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: scrollbars
 // Description: Enable or disable horizontal/vertical scrollbars in a WebView.
 // Component(s): Ti.UI.WebView

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: minZoomScale
 // Description: Minimum scaling factor of the scrollable region and its content.
 // Component(s): Ti.UI.ScrollView

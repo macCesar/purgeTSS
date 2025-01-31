@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: hideLoadIndicator
 // Description: Hides activity indicator when loading remote URL.
 // Component(s): Ti.UI.WebView

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: tint
 // Description: Color to combine with the image, as a color name or hex triplet.
 // Component(s): Ti.UI.MaskedImage

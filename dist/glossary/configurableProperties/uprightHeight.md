@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: uprightHeight
 // Description: If the blob references an image, this provides the height in pixels after factoring in EXIF orientation.
 // Component(s): Ti.Blob

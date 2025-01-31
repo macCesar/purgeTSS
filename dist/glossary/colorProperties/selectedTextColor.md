@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: selectedTextColor
 // Component(s): Ti.UI.ButtonBar, Ti.UI.OptionBar, Ti.UI.TabbedBar
 '.selected-text-transparent': { selectedTextColor: 'transparent' }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: enabled
 // Component(s): Ti.Android.MenuItem, Ti.UI.Button, Ti.UI.Slider, Ti.UI.Switch, disableTabOptions, Ti.UI.iOS.Stepper, BarItemType
 '.enabled': { enabled: true }

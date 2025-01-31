@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: rightButtonMode
 // Description: Determines when to display the right button view.
 // Component(s): Ti.UI.TextField

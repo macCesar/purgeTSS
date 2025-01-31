@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: homeIndicatorAutoHidden
 // Description: Boolean value indicating whether the system is allowed to hide the visual indicator for returning to the Home screen.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow

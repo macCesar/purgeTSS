@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pictureInPictureEnabled
 // Description: Whether or not the receiver allows Picture in Picture playback.
 // Component(s): Ti.Media.VideoPlayer

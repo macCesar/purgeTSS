@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: whichCamera
 // Description: Opens the camera with the specified camera direction.
 // Component(s): CameraOptionsType

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: generatedMessage
 // Description: Indicates if the message was auto-generated (true) or not.
 // Component(s): assert.AssertionError

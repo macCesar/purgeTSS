@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: extendBackground
 // Description: If true, the background of the toolbar extends upwards.
 // Component(s): Ti.UI.Toolbar

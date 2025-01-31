@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: isCompilation
 // Component(s): Ti.Media.Item, MediaQueryType
 '.is-compilation': { isCompilation: true }

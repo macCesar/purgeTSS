@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: tabsBackgroundColor
 // Description: Default background color for inactive tabs, as a color name or hex triplet.
 // Component(s): Ti.UI.TabGroup

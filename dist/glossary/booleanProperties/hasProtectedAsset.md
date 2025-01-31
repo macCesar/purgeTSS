@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: hasProtectedAsset
 // Component(s): Ti.Media.Item, MediaQueryType
 '.has-protected-asset': { hasProtectedAsset: true }

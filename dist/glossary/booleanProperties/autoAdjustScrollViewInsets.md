@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: autoAdjustScrollViewInsets
 // Description: Specifies whether or not the view controller should automatically adjust its scroll view insets.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow

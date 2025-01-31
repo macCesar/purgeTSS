@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: resultsSeparatorColor
 // Description: Separator line color between rows inside search results, as a color name or hex triplet (iOS-only).
 // Component(s): Ti.UI.ListView, Ti.UI.TableView

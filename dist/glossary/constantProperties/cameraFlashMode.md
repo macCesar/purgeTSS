@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: cameraFlashMode
 // Description: Determines how the flash is fired when using the device's camera.
 // Component(s): Ti.Media

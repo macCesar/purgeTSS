@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: actionViewExpanded
 // Description: True if this menu item's action view has been expanded.
 // Component(s): Ti.Android.MenuItem

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: autorotate
 // Component(s): CameraOptionsType, Ti.UI.ImageView
 '.autorotate': { autorotate: true }

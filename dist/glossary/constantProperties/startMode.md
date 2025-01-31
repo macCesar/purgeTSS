@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: startMode
 // Description: One of the START_* constants from Titanium.Android to specify the &quot;stickiness&quot; of the Service when Android shuts down the host application.
 // Component(s): ServiceIntentOptions

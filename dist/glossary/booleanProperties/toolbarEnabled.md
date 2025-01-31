@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: toolbarEnabled
 // Description: Determine whether to enable the toolbar.
 // Component(s): Ti.UI.Android.DrawerLayout

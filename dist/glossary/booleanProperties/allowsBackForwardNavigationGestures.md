@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: allowsBackForwardNavigationGestures
 // Description: A Boolean value indicating whether horizontal swipe gestures will trigger back-forward list navigations.
 // Component(s): Ti.UI.WebView

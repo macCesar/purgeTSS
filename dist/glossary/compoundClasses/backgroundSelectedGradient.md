@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): backgroundSelectedGradient: colors - From Color - iOS Only
 // Component(s): Ti.UI.ListItem, Ti.UI.View
 '.bg-selected-from-transparent': { backgroundSelectedGradient: { colors: [ 'transparent', 'transparent' ] } }

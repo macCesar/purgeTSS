@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): animationProperties - scales the view (in or out) and resets it to 100% when the animation completes
 // Component(s): Animation
 '.zoom-in-0': { animationProperties: { open: { scale: 0 }, complete: { scale: 1 } } }

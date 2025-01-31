@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: shadowRadius
 // Component(s): Ti.UI.Button, Ti.UI.Label
 '.shadow-radius-0': { shadowRadius: 0 }

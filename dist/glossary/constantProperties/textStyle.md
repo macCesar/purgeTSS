@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: textStyle
 // Description: The text style for the font.
 // Component(s): Font

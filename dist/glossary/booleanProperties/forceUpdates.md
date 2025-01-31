@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: forceUpdates
 // Description: Optimize the continuousUpdate scrolling event.
 // Component(s): Ti.UI.ListView

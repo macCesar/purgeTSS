@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: audioFocus
 // Description: Focuses on the current audio player and stops other audio playing.
 // Component(s): Ti.Media.AudioPlayer

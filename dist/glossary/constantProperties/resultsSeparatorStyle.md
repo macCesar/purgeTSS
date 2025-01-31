@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: resultsSeparatorStyle
 // Description: The separator style of the search results (iOS-only).
 // Component(s): Ti.UI.ListView, Ti.UI.TableView

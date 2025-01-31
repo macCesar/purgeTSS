@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: lineHeightMultiple
 // Description: The line height multiple.
 // Component(s): ParagraphAttribute

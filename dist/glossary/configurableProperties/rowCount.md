@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: rowCount
 // Component(s): Ti.Database.ResultSet, Ti.UI.DashboardView, Ti.UI.PickerColumn, Ti.UI.TableViewSection
 '.row-count-1': { rowCount: 1 }

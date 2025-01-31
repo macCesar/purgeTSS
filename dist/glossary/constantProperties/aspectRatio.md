@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: aspectRatio
 // Description: Aspect ratio of the image.
 // Component(s): Ti.Media

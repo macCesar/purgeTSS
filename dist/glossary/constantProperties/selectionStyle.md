@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: selectionStyle
 // Description: Selection style constant to control the selection color.
 // Component(s): Ti.UI.ListItem, Ti.UI.TableViewRow

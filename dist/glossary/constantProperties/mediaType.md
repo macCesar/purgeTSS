@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: mediaType
 // Component(s): Ti.Media.Item, MediaQueryType, CameraMediaItemType
 '.media-type-music-all': { mediaType: Ti.Media.MUSIC_MEDIA_TYPE_ALL }

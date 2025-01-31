@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: showBackgroundLocationIndicator
 // Description: Specifies that an indicator be shown when the app makes use of continuous background location updates.
 // Component(s): Ti.Geolocation

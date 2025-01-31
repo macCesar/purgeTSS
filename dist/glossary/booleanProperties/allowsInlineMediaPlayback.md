@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: allowsInlineMediaPlayback
 // Description: A Boolean value indicating whether HTML5 videos play inline or use the native full-screen controller.
 // Component(s): Ti.UI.iOS.WebViewConfiguration

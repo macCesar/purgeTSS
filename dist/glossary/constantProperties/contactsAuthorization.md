@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: contactsAuthorization
 // Description: Returns an authorization constant indicating if the application has access to the address book.
 // Component(s): Ti.Contacts

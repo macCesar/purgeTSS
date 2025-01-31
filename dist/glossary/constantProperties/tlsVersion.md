@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: tlsVersion
 // Description: Sets the TLS version to use for handshakes.
 // Component(s): Ti.Network.HTTPClient

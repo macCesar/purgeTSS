@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: leftButtonMode
 // Description: Determines when to display the left button view.
 // Component(s): Ti.UI.TextField

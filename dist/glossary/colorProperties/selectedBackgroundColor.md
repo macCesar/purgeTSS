@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: selectedBackgroundColor
 // Component(s): Ti.UI.ListItem, Ti.UI.OptionBar, Ti.UI.TabbedBar, Ti.UI.TableViewRow
 '.selected-bg-transparent': { selectedBackgroundColor: 'transparent' }

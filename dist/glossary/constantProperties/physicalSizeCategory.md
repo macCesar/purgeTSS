@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: physicalSizeCategory
 // Description: The physical size category of the Android device or emulator.
 // Component(s): Ti.Platform.Android

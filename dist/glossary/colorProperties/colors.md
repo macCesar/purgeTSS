@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: colors
 // Component(s): UtilInspectOptions, Gradient
 '.colors-transparent': { colors: 'transparent' }

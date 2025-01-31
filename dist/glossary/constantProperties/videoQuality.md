@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: videoQuality
 // Description: Constant to indicate the video quality during capture.
 // Component(s): CameraOptionsType

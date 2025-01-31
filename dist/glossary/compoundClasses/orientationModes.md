@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): orientationModes
 // Description: Array of supported orientation modes, specified using the orientation constants defined in Titanium.UI.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow

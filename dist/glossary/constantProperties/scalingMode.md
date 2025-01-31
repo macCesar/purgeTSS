@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: scalingMode
 // Component(s): Ti.Media, Ti.Media.VideoPlayer, Ti.UI.ImageView
 '.scaling-mode-image-aspect-fit': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }

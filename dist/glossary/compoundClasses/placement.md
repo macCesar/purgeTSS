@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): top, right, bottom, left
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.View, Ti.UI.Window
 '.top-auto': { top: Ti.UI.SIZE }

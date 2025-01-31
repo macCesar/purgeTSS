@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: contentHeight
 // Component(s): Ti.UI.ScrollView, Ti.UI.iOS.PreviewContext
 '.content-h-0': { contentHeight: 0 }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: statusBarHeight
 // Description: The total height of the status bar including safe area padding.
 // Component(s): Ti.UI

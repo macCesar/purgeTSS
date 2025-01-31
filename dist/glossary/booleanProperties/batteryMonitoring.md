@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: batteryMonitoring
 // Description: Determines whether battery monitoring is enabled.
 // Component(s): Ti.Platform

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: scrollable
 // Component(s): Ti.UI.TableView, Ti.UI.TextArea
 '.scrollable': { scrollable: true }

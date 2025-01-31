@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: activitySharedElementExitTransition
 // Description: The type of exit transition used when animating shared elements between two activities.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window

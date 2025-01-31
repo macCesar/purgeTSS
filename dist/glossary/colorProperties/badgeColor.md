@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: badgeColor
 // Description: If this item displays a badge, this color will be used for the badge's background. If set to null, the default background color will be used instead. Deprecated since 12.2.0. Use Titanium.UI.Tab.badgeBackgroundColor instead.
 // Component(s): Ti.UI.Tab

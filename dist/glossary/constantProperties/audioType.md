@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: audioType
 // Description: Changes the audio-stream-type.
 // Component(s): Ti.Media.AudioPlayer, Ti.Media.Sound

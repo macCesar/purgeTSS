@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: hour12
 // Description: Indicates if formatter should output to either 12-hour or 24-hour time.
 // Component(s): DateTimeFormatOptions

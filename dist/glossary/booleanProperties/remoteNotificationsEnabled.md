@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: remoteNotificationsEnabled
 // Description: Indicates whether push  notifications have been enabled using registerForPushNotifications.
 // Component(s): Ti.Network

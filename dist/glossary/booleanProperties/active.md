@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: active
 // Component(s): Ti.UI.Tab, Ti.UI.iOS.PushBehavior
 '.active': { active: true }

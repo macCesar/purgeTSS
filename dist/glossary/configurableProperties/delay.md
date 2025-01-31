@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: delay
 // Description: Delay, in milliseconds before starting the animation.
 // Component(s): Ti.UI.Animation

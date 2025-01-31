@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: accuracyAuthorization
 // Description: The level of location accuracy the app has granted.
 // Component(s): LocationAccuracyAuthorizationResponse

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pruneSectionsOnEdit
 // Description: Determines if empty sections are retained when the user completes editing the list view.
 // Component(s): Ti.UI.ListView

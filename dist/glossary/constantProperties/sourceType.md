@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: sourceType
 // Description: Displays the source type.
 // Component(s): Ti.Calendar.Calendar

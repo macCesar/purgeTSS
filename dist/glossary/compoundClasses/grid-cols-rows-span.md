@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): width - For Grid Column Start/End
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.col-span-1': { width: '8.333334%' }

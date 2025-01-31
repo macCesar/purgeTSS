@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: activityType
 // Component(s): Ti.App.iOS.UserActivity, Ti.Geolocation
 '.activity-type-activitytype-other': { activityType: Ti.Geolocation.ACTIVITYTYPE_OTHER }

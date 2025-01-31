@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: activeTab
 // Description: Active tab.
 // Component(s): Ti.UI.TabGroup

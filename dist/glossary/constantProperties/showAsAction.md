@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: showAsAction
 // Description: A set of flags that controls how this item appears in the action bar.
 // Component(s): Ti.Android.MenuItem

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: activationMode
 // Description: Selects how to activate the application.
 // Component(s): Ti.App.iOS.UserNotificationAction

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: customInspect
 // Description: If false, [util.inspect.custom](depth, opts) functions are not invoked.
 // Component(s): UtilInspectOptions

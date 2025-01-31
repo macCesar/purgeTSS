@@ -1,4 +1,4 @@
-```scss
+```css
 // Utilities for controlling an element's margin.
 '.m-0': { top: 0, right: 0, bottom: 0, left: 0 }
 '.m-1': { top: 4, right: 4, bottom: 4, left: 4 }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: breakStrategy
 // Description: Break strategy (control over paragraph layout). Check Android breakStrategy for more infos.
 // Component(s): Ti.UI.Label

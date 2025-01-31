@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: readyState
 // Component(s): Ti.Network.HTTPClient, ReadyStatePayload
 '.ready-state-network-httpclient-unsent': { readyState: Ti.Network.HTTPClient.UNSENT }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: onTintColor
 // Description: The color used to tint the appearance of the switch when it is turned on.
 // Component(s): Ti.UI.Switch

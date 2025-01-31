@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: passwordMask
 // Description: Obscure the input text from the user.
 // Component(s): Ti.UI.TextField

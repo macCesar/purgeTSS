@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: lightColor
 // Description: The notification light color for notifications posted to this channel.
 // Component(s): Ti.Android.NotificationChannel

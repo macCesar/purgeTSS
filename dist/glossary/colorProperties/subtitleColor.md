@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: subtitleColor
 // Description: Default text color of the subtitle, as a color name or hex triplet.
 // Component(s): Ti.UI.ListItem

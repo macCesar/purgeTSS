@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: returnKeyType
 // Component(s): Ti.UI.AlertDialog, Ti.UI.TextArea, Ti.UI.TextField
 '.return-key-type-continue': { returnKeyType: Ti.UI.RETURNKEY_CONTINUE }

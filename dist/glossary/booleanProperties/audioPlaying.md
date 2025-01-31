@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: audioPlaying
 // Description: Returns true if the device is playing audio.
 // Component(s): Ti.Media

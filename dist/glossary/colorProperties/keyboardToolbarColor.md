@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: keyboardToolbarColor
 // Description: Color of the keyboard toolbar if keyboardToolbar is an array, as a color name or hex triplet.
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField

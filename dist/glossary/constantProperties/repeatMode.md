@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: repeatMode
 // Component(s): Ti.Media.MusicPlayer, Ti.Media.VideoPlayer
 '.repeat-mode-music-player-all': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_ALL }

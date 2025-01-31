@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: tabsBackgroundSelectedColor
 // Description: Default background selected color for tabs, as a color name or hex triplet.
 // Component(s): Ti.UI.TabGroup

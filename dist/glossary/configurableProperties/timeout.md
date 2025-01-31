@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: timeout
 // Component(s): Ti.Network.HTTPClient, Ti.Network.Socket.TCP, AcceptDict, Ti.UI.WebView
 '.timeout-0': { timeout: 0 }

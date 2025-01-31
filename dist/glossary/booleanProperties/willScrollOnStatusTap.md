@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: willScrollOnStatusTap
 // Description: Controls the scroll-to-top gesture.
 // Component(s): Ti.UI.ListView

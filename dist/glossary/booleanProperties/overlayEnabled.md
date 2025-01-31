@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: overlayEnabled
 // Description: Determines whether the paging control is added as an overlay to the view.
 // Component(s): Ti.UI.ScrollableView

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: autoLink
 // Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
 '.auto-link-map-addresses': { autoLink: Ti.UI.AUTOLINK_MAP_ADDRESSES }

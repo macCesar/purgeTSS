@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: autofillType
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.autofill-type-username': { autofillType: Ti.UI.AUTOFILL_TYPE_USERNAME }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: availablePhotoMediaTypes
 // Description: Array of media type constants supported for the photo library.
 // Component(s): Ti.Media

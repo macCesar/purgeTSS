@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: keyboardDismissMode
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
 '.keyboard-dismiss-mode-none[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): padding - Android Only
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField
 '.p-0': { padding: { top: 0, right: 0, bottom: 0, left: 0 } }

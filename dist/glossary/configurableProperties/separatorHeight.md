@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: separatorHeight
 // Description: height of the ListView separator.
 // Component(s): Ti.UI.ListView

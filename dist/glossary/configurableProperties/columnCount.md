@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: columnCount
 // Description: The number of columns of items in the view.
 // Component(s): Ti.UI.DashboardView

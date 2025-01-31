@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: yOffset
 // Description: Y offset from the default position, in pixels.
 // Component(s): Ti.UI.Notification

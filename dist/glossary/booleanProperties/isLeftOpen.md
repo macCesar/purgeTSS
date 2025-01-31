@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: isLeftOpen
 // Description: Determine whether the left drawer is open
 // Component(s): Ti.UI.Android.DrawerLayout

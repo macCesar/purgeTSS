@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: modalStyle
 // Description: Presentation style of this modal window.
 // Component(s): openWindowParams

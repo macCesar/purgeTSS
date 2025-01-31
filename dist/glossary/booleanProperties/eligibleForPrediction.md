@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: eligibleForPrediction
 // Description: A Boolean value that determines whether Siri can suggest the user activity as a shortcut to the user.
 // Component(s): Ti.App.iOS.UserActivity

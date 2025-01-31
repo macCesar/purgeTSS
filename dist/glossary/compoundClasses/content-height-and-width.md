@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): contentWidth, contentHeight
 // Component(s): Ti.UI.ScrollView
 '.content-w-auto': { contentWidth: Ti.UI.SIZE }

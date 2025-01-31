@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): width - For Grid Template Columns
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View, Ti.UI.Window
 '.grid-cols-1': { width: '100%' }

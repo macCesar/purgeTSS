@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: currentPageIndicatorColor
 // Description: Color for the current page of the paging control, as a color name or hex triplet.
 // Component(s): Ti.UI.ScrollableView

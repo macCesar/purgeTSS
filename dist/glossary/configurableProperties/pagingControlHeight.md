@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pagingControlHeight
 // Description: Height of the paging control, in pixels.
 // Component(s): Ti.UI.ScrollableView

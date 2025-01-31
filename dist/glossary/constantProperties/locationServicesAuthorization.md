@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: locationServicesAuthorization
 // Description: Returns an authorization constant indicating if the application has access to location services.
 // Component(s): Ti.Geolocation

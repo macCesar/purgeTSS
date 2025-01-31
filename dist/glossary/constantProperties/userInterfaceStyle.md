@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: userInterfaceStyle
 // Component(s): Ti.App.iOS, Ti.UI
 '.user-interface-style-unspecified': { userInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_UNSPECIFIED }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: systemButton
 // Description: Specifies an iOS system button appearance, as defined in Titanium.UI.iOS.SystemButton.
 // Component(s): Ti.UI.Button

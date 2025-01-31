@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: statusBarBackgroundColor
 // Description: Sets the global status bar background color for the application. Android does not support setting instances of Titanium.UI.Color
 // Component(s): Ti.UI.iOS

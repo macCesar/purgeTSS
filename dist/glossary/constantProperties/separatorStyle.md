@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: separatorStyle
 // Description: Separator style constant.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView

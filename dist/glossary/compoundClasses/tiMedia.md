@@ -1,4 +1,4 @@
-```scss
+```css
 // Ti.Media
 // Property(ies): scalingMode - ( Alternative )
 // Description: Background Size for compatibility with Tailwind classes

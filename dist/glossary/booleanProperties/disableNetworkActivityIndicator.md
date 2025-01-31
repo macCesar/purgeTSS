@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: disableNetworkActivityIndicator
 // Description: Prevents network activity indicator from being displayed.
 // Component(s): Ti.App

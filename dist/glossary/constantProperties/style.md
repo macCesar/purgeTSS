@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: style
 // Component(s): NumberFormatOptions, Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Button, RowActionType, Ti.UI.ListView, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
 '.style-activity-indicator-big': { style: Ti.UI.ActivityIndicatorStyle.BIG }

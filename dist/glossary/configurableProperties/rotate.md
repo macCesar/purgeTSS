@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: rotate
 // Description: Rotation angle, in degrees. See the rotate method for a discussion of rotation.
 // Component(s): Matrix2DCreationDict

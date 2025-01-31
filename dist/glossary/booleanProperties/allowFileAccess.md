@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: allowFileAccess
 // Description: A Boolean value indicating file access within WebView.
 // Component(s): Ti.UI.WebView

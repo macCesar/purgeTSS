@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): ellipsize
 // Component(s): Ti.UI.Label
 '.ellipsize-end': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_END }

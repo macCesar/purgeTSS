@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: padding
 // Component(s): Ti.UI.Android.CardView, Ti.UI.ScrollableView, Ti.UI.TextArea, Ti.UI.TextField
 '.padding-0': { padding: 0 }

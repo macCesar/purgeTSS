@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: cancelBubble
 // Description: Set to true to stop the event from bubbling.
 // Component(s): Ti.Event

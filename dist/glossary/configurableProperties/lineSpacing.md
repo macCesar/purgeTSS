@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: lineSpacing
 // Component(s): ParagraphAttribute, Ti.UI.Label
 '.line-spacing-0': { lineSpacing: 0 }

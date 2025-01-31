@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: shuffleMode
 // Description: Shuffle setting.
 // Component(s): Ti.Media.MusicPlayer

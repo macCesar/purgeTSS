@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: alertStyle
 // Description: The current alert style used to display notifications.
 // Component(s): GetUserNotificationSettings

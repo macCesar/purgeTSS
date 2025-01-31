@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: mode
 // Component(s): fs.Stats, fs.appendFile.options, fs.mkdir.options, fs.writeFile.options, CreateStreamArgs, Ti.UI.MaskedImage
 '.mode-stream-read': { mode: Ti.Stream.MODE_READ }

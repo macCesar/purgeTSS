@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: selectedBorderColor
 // Description: Border color of the selected button
 // Component(s): Ti.UI.OptionBar

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): titleAttributes: color - iOS Only
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.title-attributes-transparent': { titleAttributes: { color: 'transparent' } }

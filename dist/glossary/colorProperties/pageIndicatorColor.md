@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pageIndicatorColor
 // Description: Color of the paging control, as a color name or hex triplet.
 // Component(s): Ti.UI.ScrollableView

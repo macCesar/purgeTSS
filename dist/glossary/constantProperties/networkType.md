@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: networkType
 // Description: Network type value as a constant.
 // Component(s): Ti.Network

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: iconColor
 // Description: Color of the search and close icon. Search icon will only work for iconified:false.
 // Component(s): Ti.UI.SearchBar

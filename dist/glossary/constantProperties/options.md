@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: options
 // Component(s): showParams, Ti.App.iOS.UserNotificationCategory, UserNotificationAttachment, ClipboardItemsType, Ti.UI.OptionDialog
 '.options-category-none[platform=ios]': { options: Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_NONE }

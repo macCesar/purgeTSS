@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: role
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Calendar.Attendee
 '.role-calendar-attendee-unknown': { role: Ti.Calendar.ATTENDEE_ROLE_UNKNOWN }

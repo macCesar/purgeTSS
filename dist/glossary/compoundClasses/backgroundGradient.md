@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): backgroundGradient: colors - From Color
 // Component(s): Ti.UI.ListItem, Ti.UI.View
 '.from-transparent': { backgroundGradient: { colors: [ 'transparent', 'transparent' ] } }

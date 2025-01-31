@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: autoplay
 // Description: Indicates if a movie should automatically start playback.
 // Component(s): Ti.Media.VideoPlayer

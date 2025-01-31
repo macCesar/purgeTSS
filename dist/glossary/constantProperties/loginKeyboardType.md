@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: loginKeyboardType
 // Description: Keyboard type to display when this text field inside the dialog is focused.
 // Component(s): Ti.UI.AlertDialog

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: curve
 // Description: Animation curve or easing function to apply to the animation.
 // Component(s): Ti.UI.Animation

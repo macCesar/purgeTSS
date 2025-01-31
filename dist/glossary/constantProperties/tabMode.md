@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: tabMode
 // Description: Property defining which tabMode is used for the TabGroup.
 // Component(s): Ti.UI.TabGroup

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: format
 // Description: Audio format to be used for the recording.
 // Component(s): Ti.Media.AudioRecorder

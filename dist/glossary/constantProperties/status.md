@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: status
 // Component(s): Ti.Calendar.Attendee, Ti.Calendar.Event, Ti.Network.HTTPClient
 '.status-calendar-attendee-unknown': { status: Ti.Calendar.ATTENDEE_STATUS_UNKNOWN }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: imageTouchFeedbackColor
 // Description: Optional touch feedback ripple color. This has no effect unless imageTouchFeedback is true.
 // Component(s): Ti.UI.ImageView

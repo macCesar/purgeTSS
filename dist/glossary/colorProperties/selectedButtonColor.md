@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: selectedButtonColor
 // Description: Color of selected button, as a color name or hex triplet.
 // Component(s): Ti.UI.ButtonBar

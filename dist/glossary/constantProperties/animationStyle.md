@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: animationStyle
 // Component(s): ListViewAnimationProperties, TableViewAnimationProperties, closeWindowParams
 '.animation-style-row-bottom[platform=ios]': { animationStyle: Ti.UI.iOS.RowAnimationStyle.BOTTOM }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: availability
 // Description: Availability of this event.
 // Component(s): Ti.Calendar.Event

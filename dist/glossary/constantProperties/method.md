@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: method
 // Description: Method by which this reminder will be delivered.
 // Component(s): Ti.Calendar.Reminder

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: appSupportsShakeToEdit
 // Description: Determines whether the shake to edit system-wide capability is enabled.
 // Component(s): Ti.UI.iOS

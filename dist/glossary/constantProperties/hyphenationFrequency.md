@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: hyphenationFrequency
 // Description: Frequency of automatic hyphenation. Check Android hyphenationFrequency for more infos.
 // Component(s): Ti.UI.Label

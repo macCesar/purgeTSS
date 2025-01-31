@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: badgeSetting
 // Description: The current badge settings.
 // Component(s): GetUserNotificationSettings

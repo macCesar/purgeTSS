@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: alertSetting
 // Description: The current alert settings.
 // Component(s): GetUserNotificationSettings

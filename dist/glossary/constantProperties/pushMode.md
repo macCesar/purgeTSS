@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pushMode
 // Description: Specifies the push mode.
 // Component(s): Ti.UI.iOS.PushBehavior

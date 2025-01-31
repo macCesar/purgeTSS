@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: inputType
 // Description: Input type to accept in the text field. Also influences the Keyboard type to display.
 // Component(s): Ti.UI.TextField

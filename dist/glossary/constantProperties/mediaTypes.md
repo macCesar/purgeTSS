@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: mediaTypes
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, Ti.Media.VideoPlayer
 '.media-types-music-type-all': { mediaTypes: Ti.Media.MUSIC_MEDIA_TYPE_ALL }

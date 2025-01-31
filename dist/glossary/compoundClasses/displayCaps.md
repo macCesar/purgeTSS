@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): width, height
 // Component(s): Ti.UI.ActivityIndicator, Ti.UI.Animation, Ti.UI.iPad.Popover, Ti.UI.View
 // Description: width and height properties using Ti.Platform.displayCaps platformWidth and platformHeight values

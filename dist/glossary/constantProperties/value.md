@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: value
 // Component(s): DateTimeFormattedPart, NumberFormattedPart, Ti.Buffer, TiMetadataItemType, MediaQueryInfoType, Ti.Network.Cookie, CreateBufferArgs, Ti.UI.AlertDialog, Ti.UI.Android.SearchView, Attribute, Ti.UI.Picker, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.iOS.Stepper, Ti.XML.Attr
 '.value-attribute-underline-style-none': { value: Ti.UI.ATTRIBUTE_UNDERLINE_STYLE_NONE }

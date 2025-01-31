@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: scale
 // Component(s): Matrix2DCreationDict, Matrix3DCreationDict
 '.scale-0': { scale: 0 }

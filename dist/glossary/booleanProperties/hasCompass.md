@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: hasCompass
 // Description: Indicates whether the current device supports a compass.
 // Component(s): Ti.Geolocation

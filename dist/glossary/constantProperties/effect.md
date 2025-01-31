@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: effect
 // Description: The effect you provide for the view.
 // Component(s): Ti.UI.iOS.BlurView

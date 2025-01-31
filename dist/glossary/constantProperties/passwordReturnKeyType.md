@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: passwordReturnKeyType
 // Description: Specifies the text to display on the keyboard Return key when this field is focused.
 // Component(s): Ti.UI.AlertDialog

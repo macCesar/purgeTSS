@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: idleTimerDisabled
 // Description: Determines whether the screen is locked when the device is idle.
 // Component(s): Ti.App

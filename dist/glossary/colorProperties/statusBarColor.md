@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: statusBarColor
 // Description: The color of the status bar (top bar) for this window.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window

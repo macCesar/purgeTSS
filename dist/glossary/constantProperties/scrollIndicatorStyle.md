@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: scrollIndicatorStyle
 // Description: Style of the scrollbar.
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView

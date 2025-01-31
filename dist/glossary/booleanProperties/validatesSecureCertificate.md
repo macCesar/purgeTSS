@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: validatesSecureCertificate
 // Description: Determines how SSL certification validation is performed on connection.
 // Component(s): Ti.Network.HTTPClient

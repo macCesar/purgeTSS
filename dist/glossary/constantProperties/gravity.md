@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: gravity
 // Description: Determines the location at which the notification should appear on the screen.
 // Component(s): Ti.UI.Notification

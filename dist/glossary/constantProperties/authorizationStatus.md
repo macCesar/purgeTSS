@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: authorizationStatus
 // Description: The current authorization status for using notifications.
 // Component(s): GetUserNotificationSettings

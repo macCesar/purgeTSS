@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: navTintColor
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 '.nav-tint-transparent': { navTintColor: 'transparent' }

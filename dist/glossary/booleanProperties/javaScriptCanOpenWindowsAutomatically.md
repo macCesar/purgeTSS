@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: javaScriptCanOpenWindowsAutomatically
 // Description: A Boolean value indicating whether JavaScript can open windows without user interaction.
 // Component(s): WebViewPreferencesObject

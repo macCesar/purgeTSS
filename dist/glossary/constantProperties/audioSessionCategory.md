@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: audioSessionCategory
 // Description: A constant for the audio session category to be used.
 // Component(s): Ti.Media

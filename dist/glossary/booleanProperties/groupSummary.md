@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: groupSummary
 // Description: Specifies if this is a group summary notification.
 // Component(s): Ti.Android.Notification

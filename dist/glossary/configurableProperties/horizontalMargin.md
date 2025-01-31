@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: horizontalMargin
 // Description: Horizontal placement of the notification, as a fraction of the screen width.
 // Component(s): Ti.UI.Notification

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: contentScrimColor
 // Description: Background color of the small toolbar when the content is scrolled up.
 // Component(s): Ti.UI.Android.CollapseToolbar

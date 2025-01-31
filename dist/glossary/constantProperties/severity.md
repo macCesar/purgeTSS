@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: severity
 // Description: Indicates the severity of the alert in apps built with Mac Catalyst.
 // Component(s): Ti.UI.AlertDialog

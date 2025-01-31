@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: clearButtonMode
 // Description: Determines when the clear button is displayed.
 // Component(s): Ti.UI.TextField

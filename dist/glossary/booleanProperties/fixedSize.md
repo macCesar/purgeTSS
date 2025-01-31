@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: fixedSize
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.fixed-size': { fixedSize: true }

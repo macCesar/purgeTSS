@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: allowsExternalPlayback
 // Description: Indicates whether the player allows switching to &quot;external playback&quot; mode.
 // Component(s): Ti.Media.AudioPlayer

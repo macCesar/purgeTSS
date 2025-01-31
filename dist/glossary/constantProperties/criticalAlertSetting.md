@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: criticalAlertSetting
 // Description: The authorization status to play sounds for critical alerts. Available in Titanium SDK 7.4.0 and later.
 // Component(s): GetUserNotificationSettings

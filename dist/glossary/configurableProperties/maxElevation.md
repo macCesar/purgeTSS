@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: maxElevation
 // Description: Maximum Elevation for CardView.
 // Component(s): Ti.UI.Android.CardView

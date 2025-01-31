@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: maxRowHeight
 // Description: Maximum row height for table view rows.
 // Component(s): Ti.UI.TableView

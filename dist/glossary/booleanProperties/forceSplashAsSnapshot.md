@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: forceSplashAsSnapshot
 // Description: Shows the application's splash screen on app resume.
 // Component(s): Ti.App

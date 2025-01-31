@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: windowPixelFormat
 // Description: Set the pixel format for the Activity's Window.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window

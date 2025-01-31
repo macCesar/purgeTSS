@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: datePickerStyle
 // Description: Determines how a date or time picker should appear.
 // Component(s): Ti.UI.Picker

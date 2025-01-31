@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: inputs
 // Description: An Array of current input ports for the session. See the AUDIO_SESSION_PORT constants.
 // Component(s): RouteDescription

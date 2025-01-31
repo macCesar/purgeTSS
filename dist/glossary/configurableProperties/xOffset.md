@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: xOffset
 // Description: X offset from the default position, in pixels.
 // Component(s): Ti.UI.Notification

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pathOnly
 // Description: Do not include the blob in the result
 // Component(s): PhotoGalleryOptionsType

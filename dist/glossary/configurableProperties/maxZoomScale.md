@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: maxZoomScale
 // Description: Maximum scaling factor of the scrollable region and its content.
 // Component(s): Ti.UI.ScrollView

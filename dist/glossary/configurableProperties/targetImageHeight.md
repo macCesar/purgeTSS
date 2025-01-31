@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: targetImageHeight
 // Description: Maximum height of the saved image. Depending on your phone and your value this might not be exactly the value you specify. Check Ti.Media.cameraOutputSizes first.
 // Component(s): CameraOptionsType

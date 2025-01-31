@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: selectionLimit
 // Description: Specifies number of media item that can be selected.
 // Component(s): PhotoGalleryOptionsType

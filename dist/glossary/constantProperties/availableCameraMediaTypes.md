@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: availableCameraMediaTypes
 // Description: Array of media type constants supported for the camera.
 // Component(s): Ti.Media

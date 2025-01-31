@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: resultsBackgroundColor
 // Description: The background color of the search results (iOS-only).
 // Component(s): Ti.UI.ListView, Ti.UI.TableView

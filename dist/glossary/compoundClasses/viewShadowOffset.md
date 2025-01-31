@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): iOS: viewShadowOffset, viewShadowRadius, viewShadowColor, Android: elevation - Box Shadow Effect in Tailwind
 // Component(s): iOS: Ti.UI.View, Android: Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 '.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000', elevation: 4 }

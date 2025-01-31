@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: enableKeepAlive
 // Description: Determines whether the client should attempt to keep a persistent connection.
 // Component(s): Ti.Network.HTTPClient

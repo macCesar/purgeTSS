@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: defaults
 // Description: Specifies which values should be taken from the defaults.
 // Component(s): Ti.Android.Notification

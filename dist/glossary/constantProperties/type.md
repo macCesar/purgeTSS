@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: type
 // Component(s): DateTimeFormattedPart, NumberFormattedPart, EmitWarningOptions, Ti.Android.Intent, Ti.Buffer, Ti.Calendar.Attendee, EncodeNumberDict, DecodeNumberDict, Ti.Event, Ti.Network.BonjourService, PushNotificationSuccessArg, PushNotificationErrorArg, CreateBufferArgs, Ti.UI.Android.ProgressIndicator, Attribute, ViewTemplate, Ti.UI.Picker, Gradient, Ti.UI.iOS.FeedbackGenerator
 '.type-calendar-attendee-unknown': { type: Ti.Calendar.ATTENDEE_TYPE_UNKNOWN }

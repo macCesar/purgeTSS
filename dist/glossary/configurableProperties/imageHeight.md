@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: imageHeight
 // Description: Height of the image. Use height for the height of the extended toolbar.
 // Component(s): Ti.UI.Android.CollapseToolbar

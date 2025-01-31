@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: showBookmark
 // Description: Determines whether the bookmark button is displayed.
 // Component(s): Ti.UI.SearchBar

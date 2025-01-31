@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: verticalAlign
 // Component(s): Ti.Media, Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
 '.vertical-align-center': { verticalAlign: Ti.Media.VERTICAL_ALIGN_CENTER }

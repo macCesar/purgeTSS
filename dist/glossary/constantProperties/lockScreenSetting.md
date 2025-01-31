@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: lockScreenSetting
 // Description: The current lock-screen settings.
 // Component(s): GetUserNotificationSettings

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: showHorizontalScrollIndicator
 // Description: Determines whether the horizontal scroll indicator is visible.
 // Component(s): Ti.UI.ScrollView

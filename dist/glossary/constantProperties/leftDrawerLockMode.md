@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: leftDrawerLockMode
 // Description: Get or set lock mode for the left drawer
 // Component(s): Ti.UI.Android.DrawerLayout

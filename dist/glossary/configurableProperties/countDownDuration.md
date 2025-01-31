@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: countDownDuration
 // Description: Duration in milliseconds used for a Countdown Timer picker.
 // Component(s): Ti.UI.Picker

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: statusBarStyle
 // Description: The status bar style associated with this window.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pauseLocationUpdateAutomatically
 // Description: Indicates whether the location updates may be paused.
 // Component(s): Ti.Geolocation

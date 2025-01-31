@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: hasAlarm
 // Description: Indicates whether an alarm is scheduled for this event.
 // Component(s): Ti.Calendar.Event

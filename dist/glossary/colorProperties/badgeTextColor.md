@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: badgeTextColor
 // Description: Set the text color of the badge.
 // Component(s): Ti.UI.Tab

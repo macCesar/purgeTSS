@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): titleAttributes: shadow, color, blurRadius, offset - iOS Only
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window
 '.title-attributes-shadow-xs': { titleAttributes: { shadow: { color: '#80000000', blurRadius: 1, offset: { width: 0, height: 0 } } } }

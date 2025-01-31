@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: ignoreSslError
 // Description: Controls whether to ignore invalid SSL certificates or not.
 // Component(s): Ti.UI.WebView

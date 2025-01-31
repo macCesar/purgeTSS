@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: separatorColor
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.separator-transparent': { separatorColor: 'transparent' }

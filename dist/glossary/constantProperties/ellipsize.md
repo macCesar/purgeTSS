@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: ellipsize
 // Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
 '.ellipsize-text-truncate-word-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_WORD_WRAP }

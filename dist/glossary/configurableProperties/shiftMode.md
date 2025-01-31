@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: shiftMode
 // Description: Determines whether the TABS_STYLE_BOTTOM_NAVIGATION uses shiftMode.
 // Component(s): Ti.UI.TabGroup

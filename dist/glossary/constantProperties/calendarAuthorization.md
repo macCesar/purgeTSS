@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: calendarAuthorization
 // Description: Returns an authorization constant indicating if the application has access to the events in the EventKit.
 // Component(s): Ti.Calendar

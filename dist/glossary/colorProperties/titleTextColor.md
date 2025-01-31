@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: titleTextColor
 // Description: Color string with any Titanium supported format
 // Component(s): Ti.UI.Toolbar

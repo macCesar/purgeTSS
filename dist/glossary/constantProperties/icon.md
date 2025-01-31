@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: icon
 // Component(s): Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.QuickSettingsService, Ti.UI.ShortcutItem, Ti.UI.Tab, ShortcutParams
 '.icon-shortcut-type-compose[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_COMPOSE }

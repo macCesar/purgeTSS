@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: leftWidth
 // Description: Get or set the width of the left drawer
 // Component(s): Ti.UI.Android.DrawerLayout

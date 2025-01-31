@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: dateTimeColor
 // Description: Sets the text color of date- and time-pickers.
 // Component(s): Ti.UI.Picker

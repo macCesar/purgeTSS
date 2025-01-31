@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: activitySharedElementReenterTransition
 // Description: The type of reenter transition used when animating shared elements between two activities.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window

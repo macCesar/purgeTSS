@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: paragraphSpacingAfter
 // Description: The space after the end of the paragraph.
 // Component(s): ParagraphAttribute

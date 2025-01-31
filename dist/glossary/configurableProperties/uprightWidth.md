@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: uprightWidth
 // Description: If the blob references an image, this provides the width in pixels after factoring in EXIF orientation.
 // Component(s): Ti.Blob

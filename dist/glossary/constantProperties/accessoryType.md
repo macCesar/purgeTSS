@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: accessoryType
 // Description: Sets an accessory on the right side of an item.
 // Component(s): Ti.UI.ListItem

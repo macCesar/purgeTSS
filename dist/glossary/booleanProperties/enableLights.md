@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: enableLights
 // Description: Whether notifications posted to this channel should display notification lights
 // Component(s): Ti.Android.NotificationChannel

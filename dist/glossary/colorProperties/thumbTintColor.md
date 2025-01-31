@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: thumbTintColor
 // Description: The color used to tint the appearance of the thumb.
 // Component(s): Ti.UI.Switch

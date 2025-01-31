@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: soundSetting
 // Description: The current sound settings.
 // Component(s): GetUserNotificationSettings

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: moviePlayerStatus
 // Description: Returns the status of the movie player.
 // Component(s): Ti.Media.VideoPlayer

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: modalTransitionStyle
 // Description: Transition style of this modal window.
 // Component(s): openWindowParams

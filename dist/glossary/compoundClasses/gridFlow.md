@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): layout
 // Description: Grid Flow - layout
 // Component(s): Ti.UI.View

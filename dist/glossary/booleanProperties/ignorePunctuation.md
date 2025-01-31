@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: ignorePunctuation
 // Description: Indicates if punctuation characters should be ignored during the compare.
 // Component(s): CollatorOptions

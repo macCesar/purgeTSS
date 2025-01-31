@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: caseInsensitiveSearch
 // Description: Determines if the search performed is case insensitive.
 // Component(s): Ti.UI.ListView

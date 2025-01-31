@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: isRightVisible
 // Description: Determine whether the right drawer is visible
 // Component(s): Ti.UI.Android.DrawerLayout

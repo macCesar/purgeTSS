@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: grouping
 // Description: A constant that specifies the ordering of the result array.
 // Component(s): MediaQueryType

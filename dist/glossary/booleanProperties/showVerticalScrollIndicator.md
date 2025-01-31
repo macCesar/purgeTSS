@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: showVerticalScrollIndicator
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
 '.show-vertical-scroll-indicator': { showVerticalScrollIndicator: true }

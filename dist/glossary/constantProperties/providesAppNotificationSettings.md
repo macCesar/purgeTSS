@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: providesAppNotificationSettings
 // Description: A Boolean value indicating the system displays a button for in-app notification settings. Available in Titanium SDK 7.4.0 and later.
 // Component(s): GetUserNotificationSettings

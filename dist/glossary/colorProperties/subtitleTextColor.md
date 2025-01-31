@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: subtitleTextColor
 // Description: Color for toolbar's subtitle
 // Component(s): Ti.UI.Toolbar

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: code
 // Component(s): assert.AssertionError, EmitWarningOptions, RequestPermissionAccessResult, EventsAuthorizationResponse, ContactsAuthorizationResponse, ErrorResponse, SuccessResponse, FailureResponse, RequestStorageAccessResult, LocationResults, ForwardGeocodeResponse, HeadingResponse, ReverseGeocodeResponse, LocationAuthorizationResponse, LocationAccuracyAuthorizationResponse, CameraMediaMultipleItemsType, CameraMediaItemType, PreviewImageError, MediaAuthorizationResponse, RequestCameraAccessResult, RequestMusicLibraryAccessResult, RequestPhotoGalleryAccessResult, ThumbnailResponse, PushNotificationSuccessArg, PushNotificationErrorArg, ErrorCallbackArgs, ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs, MessageReply
 '.code-device-busy': { code: Ti.Media.DEVICE_BUSY }

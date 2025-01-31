@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): toggle - For the Animation module
 // Component(s): Animation
 '.opacity-to-0': { opacity: 1, animationProperties: { open: { opacity: 0 }, close: { opacity: 1 } } }

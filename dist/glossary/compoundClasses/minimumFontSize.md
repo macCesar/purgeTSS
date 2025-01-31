@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): minimumFontSize
 // Component(s): Ti.UI.label, Ti.UI.TextField
 '.minimum-text-xs': { minimumFontSize: 12 }

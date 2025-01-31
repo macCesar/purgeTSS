@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: verticalMargin
 // Description: Vertical placement of the notifcation, as a fraction of the screen height.
 // Component(s): Ti.UI.Notification

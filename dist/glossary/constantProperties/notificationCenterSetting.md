@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: notificationCenterSetting
 // Description: The current notication-center settings.
 // Component(s): GetUserNotificationSettings

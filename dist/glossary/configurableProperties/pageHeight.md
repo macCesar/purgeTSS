@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pageHeight
 // Description: Height in points (72 points per inch) of the document page.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet

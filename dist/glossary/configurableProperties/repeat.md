@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: repeat
 // Component(s): NotificationParams, Ti.UI.Animation
 '.repeat-0': { repeat: 0 }

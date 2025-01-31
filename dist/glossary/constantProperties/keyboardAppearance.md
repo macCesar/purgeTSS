@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: keyboardAppearance
 // Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-appearance': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }

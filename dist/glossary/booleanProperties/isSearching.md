@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: isSearching
 // Description: Whether or not the browser is currently searching
 // Component(s): Ti.Network.BonjourBrowser

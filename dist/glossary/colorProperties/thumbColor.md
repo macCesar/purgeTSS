@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: thumbColor
 // Component(s): Ti.UI.Switch
 '.thumb-transparent': { thumbColor: 'transparent' }

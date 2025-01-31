@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: navigationIconColor
 // Component(s): Ti.UI.Android.CollapseToolbar, Ti.UI.Toolbar
 '.navigation-icon-transparent': { navigationIconColor: 'transparent' }

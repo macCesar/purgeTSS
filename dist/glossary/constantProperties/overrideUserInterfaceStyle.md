@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: overrideUserInterfaceStyle
 // Description: Forces the app to used assigned theme instead of the system theme.
 // Component(s): Ti.UI.Picker, Ti.UI

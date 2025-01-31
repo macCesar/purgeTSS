@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: disabledColor
 // Description: Text color of the button in its disabled state, as a color name or hex triplet.
 // Component(s): Ti.UI.Button

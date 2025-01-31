@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: canCancelEvents
 // Description: Determines whether this scroll view can cancel subview touches in order to scroll instead.
 // Component(s): Ti.UI.ScrollView

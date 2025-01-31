@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: selectedColor
 // Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow
 '.selected-transparent': { selectedColor: 'transparent' }

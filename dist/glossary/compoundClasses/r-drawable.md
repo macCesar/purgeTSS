@@ -1,4 +1,4 @@
-```scss
+```css
 // The Titanium binding of the native Android `R` class, giving access to Android system-wide resources or application resources.
 '.r-drawable-alert-dark-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_dark_frame }
 '.r-drawable-alert-light-frame[platform=android]': { icon: Ti.Android.R.drawable.alert_light_frame }

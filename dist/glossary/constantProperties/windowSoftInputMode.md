@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: windowSoftInputMode
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
 '.window-soft-input-mode-state-always-hidden[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_HIDDEN }

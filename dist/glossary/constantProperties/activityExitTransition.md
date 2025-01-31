@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: activityExitTransition
 // Description: The type of transition used when activity is exiting.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window

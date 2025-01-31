@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: backgroundPaddingRight
 // Description: Number of pixels to extend the background image past the label on the right.
 // Component(s): Ti.UI.Label

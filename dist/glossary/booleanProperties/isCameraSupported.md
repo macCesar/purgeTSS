@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: isCameraSupported
 // Description: true if the device has camera support.
 // Component(s): Ti.Media

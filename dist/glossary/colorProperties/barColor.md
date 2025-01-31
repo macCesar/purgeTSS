@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: barColor
 // Component(s): Ti.UI.Android.CollapseToolbar, Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.SplitWindow
 '.bar-transparent': { barColor: 'transparent' }

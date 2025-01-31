@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: sectionHeaderTopPadding
 // Description: Padding above each section header.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView

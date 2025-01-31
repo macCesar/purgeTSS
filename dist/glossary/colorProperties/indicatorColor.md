@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: indicatorColor
 // Description: Color of the animated indicator.
 // Component(s): Ti.UI.ActivityIndicator

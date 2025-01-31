@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: saveToPhotoGallery
 // Description: Specifies if the media should be saved to the photo gallery upon successful capture.
 // Component(s): CameraOptionsType

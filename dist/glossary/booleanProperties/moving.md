@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: moving
 // Description: Determines whether row moving mode is active.
 // Component(s): Ti.UI.TableView

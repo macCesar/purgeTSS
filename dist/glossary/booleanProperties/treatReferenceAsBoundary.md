@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: treatReferenceAsBoundary
 // Description: Use the animator's reference view as the boundary.
 // Component(s): Ti.UI.iOS.CollisionBehavior

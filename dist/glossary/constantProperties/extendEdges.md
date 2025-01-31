@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: extendEdges
 // Description: An array of supported values specified using the EXTEND_EDGE constants in Titanium.UI.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow

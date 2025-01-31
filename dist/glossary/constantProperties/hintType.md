@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: hintType
 // Description: Hint type to display on the text field.
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField

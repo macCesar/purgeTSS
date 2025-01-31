@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: showPagingControl
 // Description: Determines whether the paging control is visible.
 // Component(s): Ti.UI.ScrollableView

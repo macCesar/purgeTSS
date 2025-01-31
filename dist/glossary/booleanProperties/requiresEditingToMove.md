@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: requiresEditingToMove
 // Description: Determines if the list view should allow drag-and-drop even without going into the editing mode
 // Component(s): Ti.UI.ListView

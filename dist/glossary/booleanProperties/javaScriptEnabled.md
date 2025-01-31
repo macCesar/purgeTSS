@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: javaScriptEnabled
 // Description: A Boolean value indicating whether JavaScript is enabled.
 // Component(s): WebViewPreferencesObject

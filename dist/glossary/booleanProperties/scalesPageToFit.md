@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: scalesPageToFit
 // Description: If true, scale contents to fit the web view.
 // Component(s): Ti.UI.WebView

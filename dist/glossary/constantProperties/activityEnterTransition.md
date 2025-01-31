@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: activityEnterTransition
 // Description: The type of transition used when activity is entering.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window

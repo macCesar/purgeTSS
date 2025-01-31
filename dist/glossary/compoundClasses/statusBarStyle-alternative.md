@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): statusBarStyle - iOS Only
 // Component(s): Ti.UI.Window
 '.status-bar[platform=ios]': { statusBarStyle: Ti.UI.iOS.StatusBar.DEFAULT }

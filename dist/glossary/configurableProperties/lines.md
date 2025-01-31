@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: lines
 // Component(s): Ti.UI.Label, Ti.UI.TextArea
 '.lines-1': { lines: 1 }

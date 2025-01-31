@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: activityReenterTransition
 // Description: The type of transition used when reentering to a previously started activity.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: behavior
 // Description: Custom behavior the user notification supports.
 // Component(s): Ti.App.iOS.UserNotificationAction

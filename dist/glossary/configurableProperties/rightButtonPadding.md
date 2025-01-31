@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: rightButtonPadding
 // Description: Padding between the right button and the edge of the field.
 // Component(s): Ti.UI.TextField

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: autocapitalization
 // Description: Determines how text is capitalized during typing.
 // Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: showProxy
 // Description: If true, Proxy inspection includes the target and handler objects.
 // Component(s): UtilInspectOptions

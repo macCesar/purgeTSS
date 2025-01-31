@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: position
 // Component(s): EncodeNumberDict, DecodeNumberDict, DecodeStringDict, ListViewAnimationProperties, TableViewAnimationProperties, ViewPositionOptions
 '.position-list-view-scroll-bottom[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.BOTTOM }

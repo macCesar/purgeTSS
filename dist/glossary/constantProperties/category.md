@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: category
 // Component(s): Ti.Android.Notification, UserNotificationDictionary, NotificationParams
 '.category-alternative[platform=android]': { category: Ti.Android.CATEGORY_ALTERNATIVE }

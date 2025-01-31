@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: autoEncodeUrl
 // Description: Determines whether automatic encoding is enabled for the specified URL.
 // Component(s): Ti.Network.HTTPClient

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: cachePolicy
 // Description: The cache policy for the request.
 // Component(s): Ti.UI.WebView

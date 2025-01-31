@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): rotate ( Negative values )
 // Component(s): For the Animation Component
 '.-rotate-0': { rotate: 0 }

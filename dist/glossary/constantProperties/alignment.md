@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: alignment
 // Description: The text alignment of the receiver.
 // Component(s): ParagraphAttribute

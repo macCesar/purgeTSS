@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: backgroundPaddingTop
 // Description: Number of pixels to extend the background image past the label on the top.
 // Component(s): Ti.UI.Label

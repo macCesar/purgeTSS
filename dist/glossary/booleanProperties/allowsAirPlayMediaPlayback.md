@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: allowsAirPlayMediaPlayback
 // Description: A Boolean value indicating whether AirPlay is allowed.
 // Component(s): Ti.UI.iOS.WebViewConfiguration

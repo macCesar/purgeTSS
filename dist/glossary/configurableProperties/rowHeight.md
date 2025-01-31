@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: rowHeight
 // Description: Default row height for table view rows.
 // Component(s): Ti.UI.TableView

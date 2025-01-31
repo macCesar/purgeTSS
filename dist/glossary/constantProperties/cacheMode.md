@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: cacheMode
 // Description: Determines how a cache is used in this web view.
 // Component(s): Ti.UI.WebView

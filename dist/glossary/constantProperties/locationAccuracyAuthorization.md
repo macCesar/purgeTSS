@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: locationAccuracyAuthorization
 // Description: A value that indicates the level of location accuracy the app has permission to use.
 // Component(s): Ti.Geolocation

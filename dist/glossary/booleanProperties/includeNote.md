@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: includeNote
 // Description: A boolean value that indicates whether to fetch the notes stored in contacts or not.
 // Component(s): Ti.Contacts

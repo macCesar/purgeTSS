@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pageWidth
 // Description: Width in points (72 points per inch) of the document page.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet

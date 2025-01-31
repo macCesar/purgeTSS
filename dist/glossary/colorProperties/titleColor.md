@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: titleColor
 // Description: Defines the color of the title of tab when it's inactive.
 // Component(s): Ti.UI.Tab, Ti.UI.TabGroup

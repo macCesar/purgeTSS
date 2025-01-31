@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: decelerationRate
 // Description: The deceleration rate of the ScrollView.
 // Component(s): Ti.UI.ScrollView

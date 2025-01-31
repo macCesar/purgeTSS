@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: selectedSubtitleColor
 // Description: Color to use for the item subtitle when the item is selected, as a color name or hex triplet.
 // Component(s): Ti.UI.ListItem

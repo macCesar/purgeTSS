@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: trackTintColor
 // Description: The color shown for the portion of the progress bar that is not filled.
 // Component(s): Ti.UI.ProgressBar, Ti.UI.Slider

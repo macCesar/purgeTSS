@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: maxLines
 // Component(s): Ti.UI.Label, Ti.UI.TextArea
 '.max-lines-1': { maxLines: 1 }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: minRowHeight
 // Description: Minimum row height for table view rows.
 // Component(s): Ti.UI.TableView

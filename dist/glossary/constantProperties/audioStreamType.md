@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: audioStreamType
 // Description: The audio stream type to use when playing the sound.
 // Component(s): Ti.Android.Notification

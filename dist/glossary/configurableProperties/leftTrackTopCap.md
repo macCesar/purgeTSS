@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: leftTrackTopCap
 // Description: Size of the top end cap for the leftTrackImage, disabledLeftTrackImage, highlightedLeftTrackImage and selectedLeftTrackImage properties.
 // Component(s): Ti.UI.Slider

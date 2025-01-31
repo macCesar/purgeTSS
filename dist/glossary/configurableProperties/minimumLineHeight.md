@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: minimumLineHeight
 // Description: The minimum height of receiver.
 // Component(s): ParagraphAttribute

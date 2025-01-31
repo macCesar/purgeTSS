@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: forceModal
 // Description: Indicates whether the window enforces modal behaviour.
 // Component(s): openWindowParams

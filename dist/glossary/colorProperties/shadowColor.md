@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: shadowColor
 // Component(s): Ti.UI.Button, Ti.UI.Label
 '.shadow-transparent': { shadowColor: 'transparent' }

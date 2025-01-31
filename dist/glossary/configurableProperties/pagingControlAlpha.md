@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: pagingControlAlpha
 // Description: Alpha value of the paging control.
 // Component(s): Ti.UI.ScrollableView

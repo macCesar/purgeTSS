@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: enableReturnKey
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.enable-return-key': { enableReturnKey: true }

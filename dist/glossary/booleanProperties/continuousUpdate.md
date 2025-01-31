@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: continuousUpdate
 // Description: Determines if the scrolling event should fire every time there is a new visible item.
 // Component(s): Ti.UI.ListView

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: overScrollMode
 // Component(s): Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.TableView, Ti.UI.WebView
 '.over-scroll-mode-always[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_ALWAYS }

@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: collisionMode
 // Description: Specifies the collision behavior.
 // Component(s): Ti.UI.iOS.CollisionBehavior

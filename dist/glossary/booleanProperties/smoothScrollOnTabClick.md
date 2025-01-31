@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: smoothScrollOnTabClick
 // Description: Boolean value indicating if changing pages by tab clicks is animated.
 // Component(s): Ti.UI.TabGroup

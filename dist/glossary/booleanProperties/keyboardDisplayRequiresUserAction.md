@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: keyboardDisplayRequiresUserAction
 // Description: A Boolean value indicating whether web content can programmatically display the keyboard.
 // Component(s): Ti.UI.WebView

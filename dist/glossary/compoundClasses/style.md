@@ -1,4 +1,4 @@
-```scss
+```css
 // This is a set of constants that can be used as styles for the style property of the Titanium.UI.AlertDialog.
 '.alert-dialog-style[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.DEFAULT }
 '.alert-dialog-style-login-and-password[platform=ios]': { style: Ti.UI.iOS.AlertDialogStyle.LOGIN_AND_PASSWORD_INPUT }

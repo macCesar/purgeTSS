@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: scrollsToTop
 // Description: Controls whether the scroll-to-top gesture is effective.
 // Component(s): Ti.UI.ScrollView, Ti.UI.TableView, Ti.UI.TextArea, Ti.UI.WebView

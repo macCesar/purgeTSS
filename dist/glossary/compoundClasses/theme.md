@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): theme - Android Only
 // Component(s): Ti.UI.Window
 '.theme-titanium': { theme: 'Theme.Titanium' }

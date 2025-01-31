@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: showControls
 // Description: Indicates if the built-in camera controls should be displayed.
 // Component(s): CameraOptionsType

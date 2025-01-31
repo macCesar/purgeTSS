@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: activeIconIsMask
 // Description: Defines if the active icon property of the tab must be used as a mask.
 // Component(s): Ti.UI.Tab

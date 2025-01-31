@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: inPopOver
 // Description: Show the camera in a popover.
 // Component(s): CameraOptionsType

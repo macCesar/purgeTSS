@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): backgroundGradient - Linear
 // Component(s): Ti.UI.MaskedImage
 '.bg-linear': { backgroundGradient: { type: 'linear', backfillStart: true, startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '0%' } } }

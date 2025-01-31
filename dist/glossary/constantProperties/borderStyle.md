@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: borderStyle
 // Component(s): Ti.UI.Picker, Ti.UI.TextArea, Ti.UI.TextField
 '.border-style-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }

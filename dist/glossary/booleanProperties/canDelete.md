@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: canDelete
 // Description: Determines whether this item can be deleted when it edit mode.
 // Component(s): Ti.UI.DashboardItem

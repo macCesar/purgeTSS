@@ -1,4 +1,4 @@
-```scss
+```css
 // Property(ies): curve
 // Component(s): Ti.UI.Animation
 '.ease-in': { curve: Ti.UI.ANIMATION_CURVE_EASE_IN }

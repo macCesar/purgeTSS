@@ -1,4 +1,4 @@
-```scss
+```css
 // Property: useGrouping
 // Description: Indicates if grouping separators should be displayed.
 // Component(s): NumberFormatOptions
