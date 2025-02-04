@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "12.6.1.GA",
+	"sdkVersion": "12.6.2.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -19905,6 +19905,12 @@
 				"Ti.Network.NOTIFICATION_TYPE_NEWSSTAND"
 			]
 		},
+		"uiFlags": {
+			"description": "Additional UI flags to set on the Activity Window.",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
 		"uid": {
 			"description": "",
 			"type": "Number",
@@ -28299,6 +28305,7 @@
 				"theme",
 				"titleAttributes",
 				"windowFlags",
+				"uiFlags",
 				"windowSoftInputMode",
 				"windowPixelFormat",
 				"activityExitTransition",
@@ -29923,6 +29930,7 @@
 				"transitionAnimation",
 				"translucent",
 				"windowFlags",
+				"uiFlags",
 				"windowSoftInputMode",
 				"windowPixelFormat",
 				"activityExitTransition",
@@ -31790,6 +31798,7 @@
 				"transitionAnimation",
 				"translucent",
 				"windowFlags",
+				"uiFlags",
 				"windowSoftInputMode",
 				"windowPixelFormat",
 				"activityExitTransition",
