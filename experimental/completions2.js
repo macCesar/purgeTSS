@@ -139,7 +139,7 @@ function generateGlossary(_key, _theClasses, _keyName = null) {
     }
 
     makeSureFolderExists(destinationFolder)
-    saveFile(`${destinationFolder}/${_key}.md`, '```scss' + _theClasses + '```')
+    saveFile(`${destinationFolder}/${_key}.md`, '```css' + _theClasses + '```')
   }
 
   return _theClasses
@@ -699,12 +699,12 @@ function camelCaseToDash(str) {
 
 function removeModuleName(value, property) {
   return camelCaseToDash(value
-  // .replace(/^Ti.UI.iOS./, '')
+    // .replace(/^Ti.UI.iOS./, '')
     .replace(/^Ti.UI.iPad./, '')
     .replace(/^Ti.App./, '')
-  // .replace(/^Ti.Geolocation.Android./, '')g
+    // .replace(/^Ti.Geolocation.Android./, '')g
     .replace(/^Ti.Geolocation./, '')
-  // .replace(/^Ti.UI.Android./, '')
+    // .replace(/^Ti.UI.Android./, '')
     .replace(/^Ti.UI./, '')
     .replace(/^Ti.Media.Sound./, '')
     .replace(/^Ti.Media./, '')
