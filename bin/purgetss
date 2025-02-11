@@ -142,8 +142,9 @@ program
   .alias('bf')
   .description(`Generate ${chalk.yellow('fonts.tss')} from font and CSS files in ${chalk.yellow('./purgetss/fonts')}`)
   .help(`Generate a ${chalk.yellow('./purgetss/styles/fonts.tss')} file based on the font and css files located in ${chalk.yellow('./purgetss/fonts')} folder`)
-  .option('-m, --module', `To also generate a CommonJS module in ${chalk.yellow('./app/lib/')} folder called ${chalk.yellow('purgetss-fonts.js')}`)
-  .option('-p, --prefix', "Apply the style's filename as the prefix in icon fonts for both the `fonts.tss` and `purgetss.fonts.js` files.")
+  .option('-f, --font-class-from-filename', 'Use the font’s filename as the name of the font class instead of the font family’s name.')
+  .option('-p, --icon-prefix-from-filename', `Apply the style’s filename as a prefix in font icons for both the ${chalk.yellow('font.tss')} and ${chalk.yellow('purgetss.fonts.js')} files.`)
+  .option('-m, --module', `Generate a CommonJS module in the ${chalk.yellow('./app/lib/')} folder called ${chalk.yellow('purgetss-fonts.js')} containing all font classes for both regular fonts and font icons.`)
   .action((args, options, logger) => {
     purgetss.buildFonts(options)
   })

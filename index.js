@@ -651,11 +651,10 @@ function buildFonts(options) {
         tssClasses += processFontMeta(fontMeta)
 
         const fontFamilyName = fontMeta.postScriptName.replace(/\//g, '')
-        // ! Maybe this is deprecated
-        if (configFile.fonts && (configFile.fonts.mode.toLowerCase() === 'postscriptname' || configFile.fonts.mode.toLowerCase() === 'postscript' || configFile.fonts.mode.toLowerCase() === 'ps')) {
-          tssClasses += `\n'.${fontFamilyName.toLowerCase()}': { font: { fontFamily: '${fontFamilyName}' } }\n`
-        } else {
+        if (options.fontClassFromFilename) {
           tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontFamilyName}' } }\n`
+        } else {
+          tssClasses += `\n'.${fontFamilyName.toLowerCase()}': { font: { fontFamily: '${fontFamilyName}' } }\n`
         }
 
         // ! Copy Font File
@@ -678,7 +677,7 @@ function buildFonts(options) {
         const cssFile = readCSS(file)
         const theFile = file.split('/')
         const theCSSFile = theFile.pop()
-        const prefix = options.prefix ? theCSSFile.split('.').shift() : null
+        const prefix = options.iconPrefixFromFilename ? theCSSFile.split('.').shift() : null
         let theFolder = theFile.pop() + '/'
         if (theFolder === 'fonts/') {
           theFolder = ''
