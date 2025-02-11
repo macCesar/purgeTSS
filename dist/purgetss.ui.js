@@ -1,4 +1,4 @@
-// Purge TSS v6.3.10
+// Purge TSS v6.3.11
 // Created by César Estrada
 // https://purgetss.com
 
