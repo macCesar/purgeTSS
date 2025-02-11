@@ -716,15 +716,17 @@ function buildFonts(options) {
 
       let exportIcons = 'const icons = {'
       exportIcons += fontJS.slice(0, -1)
-      exportIcons += '\n};\n'
-      exportIcons += 'exports.icon = icons;\n'
-      exportIcons += 'exports.icons = icons;\n'
+      exportIcons += '\n}\n'
+      exportIcons += 'exports.icon = icons\n'
+      exportIcons += 'exports.icons = icons\n'
+
+      exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
       exportIcons += '\nconst families = {'
       exportIcons += fontFamiliesJS.slice(0, -1)
-      exportIcons += '\n};\n'
-      exportIcons += 'exports.family = families;\n'
-      exportIcons += 'exports.families = families;\n'
+      exportIcons += '\n}\n'
+      exportIcons += 'exports.family = families\n'
+      exportIcons += 'exports.families = families\n'
 
       exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js'), 'utf8')
 
@@ -837,9 +839,11 @@ function processFontAwesomeJS(CSSFile, faJS) {
       }
     })
 
-    exportIcons += '};\n'
+    exportIcons += '}\n'
 
-    exportIcons += 'exports.icons = icons;\n'
+    exportIcons += 'exports.icons = icons\n'
+
+    exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
     fontAwesomeContent += exportIcons
 
