@@ -558,7 +558,7 @@ function createProject(workspace, argsName, projectID, options) {
     execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.eslintrc.js ${projectDirectory}`)
 
     logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
-    execSync(`cd ${projectDirectory} && npm i -D tailwindcss && npx tailwindcss init`)
+    execSync(`cd ${projectDirectory} && npm i -D tailwindcss@3 && npx tailwindcss init`)
   }
 
   finish(`The ${chalk.yellow(`‘${argsName}’`)} project was created successfully in`)
@@ -1337,45 +1337,40 @@ function getUniqueClasses() {
 }
 
 function extractWordsFromLine(line) {
-  let words = []
+  const patterns = [
+    {
+      // apply: 'classes'
+      regex: /apply:\s*'([^']+)'/,
+      process: match => match[1].split(/\s+/)
+    },
+    {
+      // classes: ['class1', 'class2'] o classes: ['class1 class2']
+      regex: /classes:\s*\[([^\]]+)\]/,
+      process: match => match[1].split(',').map(item => item.trim().replace(/['"]/g, ''))
+    },
+    {
+      // classes: 'class1 class2'
+      regex: /classes:\s*'([^']+)'/,
+      process: match => match[1].split(/\s+/)
+    }
+  ]
 
-  // Matching apply
-  const applyRegex = /apply:\s*'([^']+)'/
-  const applyMatch = applyRegex.exec(line)
-  if (applyMatch) {
-    const applyContent = applyMatch[1]
-    words = words.concat(applyContent.split(/\s+/))
-  }
+  // Process simple patterns
+  const words = patterns.reduce((acc, { regex, process }) => {
+    const match = regex.exec(line)
+    return match ? [...acc, ...process(match)] : acc
+  }, [])
 
-  // Matching classes as array
-  const classesArrayRegex = /classes:\s*\[([^\]]+)\]/
-  const classesArrayMatch = classesArrayRegex.exec(line)
-  if (classesArrayMatch) {
-    const classesContent = classesArrayMatch[1]
-    const classesArray = classesContent.split(',').map(item => item.trim().replace(/['"]/g, ''))
-    words = words.concat(classesArray)
-  }
-
-  // Matching classes as string
-  const classesStringRegex = /classes:\s*'([^']+)'/
-  const classesStringMatch = classesStringRegex.exec(line)
-  if (classesStringMatch) {
-    const classesContent = classesStringMatch[1]
-    words = words.concat(classesContent.split(/\s+/))
-  }
-
-  // Matching addClass, removeClass, resetClass with string or array of strings
+  // Process addClass, removeClass, resetClass
   const classFunctionRegex = /(?:\.\w+Class|resetClass)\([^,]+,\s*(?:'([^']+)'|\[([^\]]+)\])/g
   let classFunctionMatch
   while ((classFunctionMatch = classFunctionRegex.exec(line)) !== null) {
-    const classFunctionContent = classFunctionMatch[1] || classFunctionMatch[2]
-    if (classFunctionContent) {
-      if (classFunctionContent.includes(',')) {
-        const classArray = classFunctionContent.split(',').map(item => item.trim().replace(/['"]/g, ''))
-        words = words.concat(classArray)
-      } else {
-        words = words.concat(classFunctionContent.replace(/['"]/g, '').split(/\s+/))
-      }
+    const content = classFunctionMatch[1] || classFunctionMatch[2]
+    if (content) {
+      const classes = content.includes(',')
+        ? content.split(',').map(item => item.trim().replace(/['"]/g, ''))
+        : content.replace(/['"]/g, '').split(/\s+/)
+      words.push(...classes)
     }
   }
 
