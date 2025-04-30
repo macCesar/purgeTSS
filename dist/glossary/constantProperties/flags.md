@@ -1,6 +1,6 @@
 ```css
 // Property: flags
-// Component(s): Ti.Android.Intent, Ti.Android.Notification, wakeLockOptions, Ti.Android.PendingIntent, Ti.UI.Android.CollapseToolbar
+// Component(s): Ti.Android.Intent, Ti.Android.Notification, wakeLockOptions, Ti.Android.PendingIntent, Ti.UI.Android.CollapseToolbar, Ti.UI.TabGroup
 '.flags-activity-brought-to-front[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
 '.flags-activity-clear-top[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
 '.flags-activity-clear-when-task-reset[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET }

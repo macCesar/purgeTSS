@@ -1,6 +1,6 @@
 {
 	"version": 3,
-	"sdkVersion": "12.6.2.GA",
+	"sdkVersion": "12.7.0.GA",
 	"properties": {
 		"ACCURACY_AUTHORIZATION_FULL": {
 			"description": "The user authorized the app to access location data with full accuracy.",
@@ -4127,6 +4127,24 @@
 			"readOnly": false,
 			"values": []
 		},
+		"LAYER_TYPE_HARDWARE": {
+			"description": "Hardware rendering mode",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"LAYER_TYPE_NONE": {
+			"description": "Default rendering mode",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"LAYER_TYPE_SOFTWARE": {
+			"description": "Software rendering mode",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
 		"LEFT": {
 			"description": "The inserted row or rows slides in from the left; the deleted row or rows slides out to the\nleft.",
 			"type": "Number",
@@ -6139,6 +6157,12 @@
 		},
 		"STATE_WAITING_FOR_QUEUE": {
 			"description": "",
+			"type": "Number",
+			"readOnly": false,
+			"values": []
+		},
+		"STATUS_BAR_LIGHT": {
+			"description": "Sets the color of the status bar to light mode. Needs Android API level 23.",
 			"type": "Number",
 			"readOnly": false,
 			"values": []
@@ -11881,6 +11905,15 @@
 			"readOnly": true,
 			"values": []
 		},
+		"experimental": {
+			"description": "Only used for a BottomNavigation setup. If set to <code>true</code> it will use an optimized BottomNavigation\nsetup with fixes for Material 3 layouts and new properties: <code>indicatorColor</code> and <code>iconFamily</code>.\nThe new BottomNavigation will only load the active Activity and doesn't support <code>swipeable</code>.",
+			"type": "Boolean",
+			"readOnly": true,
+			"values": [
+				"true",
+				"false"
+			]
+		},
 		"expirationDate": {
 			"description": "",
 			"type": "String",
@@ -13072,6 +13105,12 @@
 				"'yellow'"
 			]
 		},
+		"iconFamily": {
+			"description": "Specifies the font family or specific font to use.",
+			"type": "String",
+			"readOnly": true,
+			"values": []
+		},
 		"iconInsets": {
 			"description": "The icon inset or outset for each edge.",
 			"type": "TabIconInsets",
@@ -14047,6 +14086,16 @@
 				"false"
 			]
 		},
+		"layerType": {
+			"description": "A value indicating the render mode of the WebView",
+			"type": "Number",
+			"readOnly": true,
+			"values": [
+				"Ti.UI.WebView.LAYER_TYPE_NONE",
+				"Ti.UI.WebView.LAYER_TYPE_SOFTWARE",
+				"Ti.UI.WebView.LAYER_TYPE_HARDWARE"
+			]
+		},
 		"layout": {
 			"description": "",
 			"type": "String",
@@ -14180,6 +14229,12 @@
 		},
 		"length": {
 			"description": "",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
+		"letterSpacing": {
+			"description": "Letter spacing of the <a href=\"Titanium.UI.Label.text\">text</a> as a float value.",
 			"type": "Number",
 			"readOnly": true,
 			"values": []
@@ -15493,7 +15548,7 @@
 		},
 		"offset": {
 			"description": "",
-			"type": "Number",
+			"type": "RefreshControlOffset",
 			"readOnly": true,
 			"values": []
 		},
@@ -18420,6 +18475,12 @@
 			"readOnly": true,
 			"values": []
 		},
+		"start": {
+			"description": "The offset from the top of this view at which the progress spinner should appear.",
+			"type": "Number",
+			"readOnly": true,
+			"values": []
+		},
 		"startMode": {
 			"description": "One of the <code>START_*</code> constants from <a href=\"Titanium.Android\">Titanium.Android</a> to specify the &quot;stickiness&quot; of the Service when Android shuts down the host application.",
 			"type": "Number",
@@ -19216,6 +19277,12 @@
 				"Ti.UI.TEXT_STYLE_TITLE3",
 				"Ti.UI.TEXT_STYLE_LARGE_TITLE"
 			]
+		},
+		"textTransform": {
+			"description": "Property that specifies how to capitialize the text. Can be <code>lowercase</code>, <code>uppercase</code> or <code>none</code> (default)",
+			"type": "String",
+			"readOnly": true,
+			"values": []
 		},
 		"textid": {
 			"description": "Key identifying a string from the locale file to use for the label text.",
@@ -20733,6 +20800,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -25310,6 +25378,7 @@
 				"keypressed",
 				"longpress",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -26004,7 +26073,9 @@
 				"messageid",
 				"style"
 			],
-			"events": []
+			"events": [
+				"rotate"
+			]
 		},
 		"Ti.UI.ActivityIndicatorStyle": {
 			"description": "A set of constants for the styles available for <a href=\"Titanium.UI.ActivityIndicator\">Titanium.UI.ActivityIndicator</a> objects.",
@@ -26102,7 +26173,8 @@
 				"value"
 			],
 			"events": [
-				"click"
+				"click",
+				"rotate"
 			]
 		},
 		"Ti.UI.Android": {
@@ -26192,6 +26264,7 @@
 				"SOFT_KEYBOARD_DEFAULT_ON_FOCUS",
 				"SOFT_KEYBOARD_HIDE_ON_FOCUS",
 				"SOFT_KEYBOARD_SHOW_ON_FOCUS",
+				"STATUS_BAR_LIGHT",
 				"SWITCH_STYLE_CHECKBOX",
 				"SWITCH_STYLE_TOGGLEBUTTON",
 				"SWITCH_STYLE_SWITCH",
@@ -26328,6 +26401,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -26361,7 +26435,9 @@
 				"flags",
 				"onHomeIconItemSelected"
 			],
-			"events": []
+			"events": [
+				"rotate"
+			]
 		},
 		"Ti.UI.Android.DrawerLayout": {
 			"description": "A panel that displays the app's main navigation options on the left edge of the screen.",
@@ -26481,6 +26557,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -26540,7 +26617,8 @@
 				"iconSize"
 			],
 			"events": [
-				"click"
+				"click",
+				"rotate"
 			]
 		},
 		"Ti.UI.Android.ProgressIndicator": {
@@ -26588,6 +26666,7 @@
 				"type"
 			],
 			"events": [
+				"rotate",
 				"cancel"
 			]
 		},
@@ -26691,6 +26770,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -26747,7 +26827,8 @@
 				"message"
 			],
 			"events": [
-				"click"
+				"click",
+				"rotate"
 			]
 		},
 		"AnimatedOptions": {
@@ -26978,6 +27059,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -27088,7 +27170,8 @@
 				"keypressed",
 				"longpress",
 				"pinch",
-				"postlayout"
+				"postlayout",
+				"rotate"
 			]
 		},
 		"Ti.UI.Clipboard": {
@@ -27249,6 +27332,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"twofingertap",
@@ -27340,6 +27424,7 @@
 				"toRecipients"
 			],
 			"events": [
+				"rotate",
 				"complete"
 			]
 		},
@@ -27476,6 +27561,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -27596,6 +27682,7 @@
 				"includeFontPadding",
 				"lines",
 				"lineCount",
+				"letterSpacing",
 				"lineSpacing",
 				"maxLines",
 				"minimumFontSize",
@@ -27603,6 +27690,7 @@
 				"shadowOffset",
 				"shadowRadius",
 				"text",
+				"textTransform",
 				"textAlign",
 				"textid",
 				"visibleText",
@@ -27619,6 +27707,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -27894,6 +27983,7 @@
 				"selectedItems"
 			],
 			"events": [
+				"rotate",
 				"indexclick",
 				"itemclick",
 				"itemsselected",
@@ -28081,6 +28171,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -28191,9 +28282,11 @@
 				"addSharedElement",
 				"close",
 				"hideNavBar",
+				"hideTabBar|deprecated",
 				"open",
 				"removeAllSharedElements",
 				"showNavBar",
+				"showTabBar|deprecated",
 				"showToolbar",
 				"hideToolbar",
 				"closeWindow",
@@ -28329,6 +28422,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -28471,7 +28565,8 @@
 				"keypressed",
 				"longpress",
 				"pinch",
-				"postlayout"
+				"postlayout",
+				"rotate"
 			]
 		},
 		"Ti.UI.OptionDialog": {
@@ -28525,7 +28620,8 @@
 				"titleid"
 			],
 			"events": [
-				"click"
+				"click",
+				"rotate"
 			]
 		},
 		"hideParams": {
@@ -28669,6 +28765,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -28705,7 +28802,8 @@
 			"events": [
 				"focus",
 				"longclick",
-				"postlayout"
+				"postlayout",
+				"rotate"
 			]
 		},
 		"Ti.UI.PickerRow": {
@@ -28815,6 +28913,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -28932,6 +29031,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -28957,12 +29057,22 @@
 				"lifecycleContainer",
 				"title",
 				"tintColor",
+				"offset",
 				"backgroundColor"
 			],
 			"events": [
 				"refreshstart",
 				"refreshend"
 			]
+		},
+		"RefreshControlOffset": {
+			"description": "Offset of the refresh control view.",
+			"functions": [],
+			"properties": [
+				"start",
+				"end"
+			],
+			"events": []
 		},
 		"Ti.UI.ScrollView": {
 			"description": "A view that contains a horizontally and/or vertically-scrollable region of content.",
@@ -29093,6 +29203,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -29230,6 +29341,7 @@
 				"keypressed",
 				"longpress",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"touchcancel",
 				"touchstart",
@@ -29367,6 +29479,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -29569,6 +29682,7 @@
 				"longclick",
 				"longpress",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -29695,6 +29809,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -29770,6 +29885,7 @@
 				"badgeBackgroundColor",
 				"badgeTextColor",
 				"icon",
+				"iconFamily",
 				"iconInsets",
 				"iconIsMask",
 				"activeIconIsMask",
@@ -29787,6 +29903,7 @@
 				"focus",
 				"longpress",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -29825,14 +29942,15 @@
 				"addSharedElement",
 				"close",
 				"hideNavBar",
-				"hideTabBar",
+				"hideTabBar|deprecated",
 				"open",
 				"removeAllSharedElements",
 				"showNavBar",
+				"showTabBar|deprecated",
 				"showToolbar",
 				"hideToolbar",
 				"addTab",
-				"disableTabNavigation",
+				"disableTabNavigation|deprecated",
 				"getActiveTab|deprecated",
 				"removeTab",
 				"setActiveTab|deprecated",
@@ -29944,6 +30062,7 @@
 				"activeTab",
 				"allowUserCustomization",
 				"autoTabTitle",
+				"enabled",
 				"paddingLeft",
 				"paddingRight",
 				"paddingBottom",
@@ -29959,6 +30078,7 @@
 				"tabMode",
 				"tabsTintColor",
 				"tabsTranslucent",
+				"flags",
 				"activeTintColor",
 				"tabsBackgroundImage",
 				"unselectedItemTintColor",
@@ -29966,10 +30086,12 @@
 				"tabsBackgroundSelectedColor",
 				"activeTabBackgroundImage",
 				"tabBarVisible",
-				"interactiveDismissModeEnabled"
+				"interactiveDismissModeEnabled",
+				"experimental"
 			],
 			"events": [
 				"focus",
+				"rotate",
 				"androidback",
 				"androidcamera",
 				"androidfocus",
@@ -30092,7 +30214,8 @@
 				"keypressed",
 				"longpress",
 				"pinch",
-				"postlayout"
+				"postlayout",
+				"rotate"
 			]
 		},
 		"Ti.UI.TableView": {
@@ -30262,6 +30385,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -30431,6 +30555,7 @@
 				"keypressed",
 				"longclick",
 				"postlayout",
+				"rotate",
 				"swipe",
 				"touchcancel",
 				"touchend",
@@ -30594,6 +30719,7 @@
 				"hintTextColor",
 				"hintType",
 				"handleLinks",
+				"html",
 				"keyboardToolbar",
 				"keyboardToolbarColor",
 				"keyboardToolbarHeight",
@@ -30622,6 +30748,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -30793,6 +30920,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -30942,6 +31070,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -31493,6 +31622,7 @@
 				"cacheMode",
 				"pluginState",
 				"scrollsToTop",
+				"layerType",
 				"enableZoomControls",
 				"mixedContentMode",
 				"scalesPageToFit",
@@ -31510,6 +31640,9 @@
 				"timeout",
 				"selectionGranularity",
 				"secure",
+				"LAYER_TYPE_NONE",
+				"LAYER_TYPE_SOFTWARE",
+				"LAYER_TYPE_HARDWARE",
 				"PDF_PAGE_DIN_A5",
 				"PDF_PAGE_DIN_A4",
 				"PDF_PAGE_DIN_A3",
@@ -31526,6 +31659,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -31664,11 +31798,12 @@
 				"addSharedElement",
 				"close",
 				"hideNavBar",
-				"hideTabBar",
+				"hideTabBar|deprecated",
 				"open",
 				"removeAllSharedElements",
 				"setToolbar",
 				"showNavBar",
+				"showTabBar|deprecated",
 				"showToolbar",
 				"hideToolbar"
 			],
@@ -31820,6 +31955,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -32079,6 +32215,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -32195,6 +32332,7 @@
 				"click",
 				"keypressed",
 				"postlayout",
+				"rotate",
 				"change"
 			]
 		},
@@ -32223,7 +32361,8 @@
 				"apiName",
 				"name",
 				"url",
-				"annotation"
+				"annotation",
+				"title"
 			],
 			"events": [
 				"load",
@@ -32407,6 +32546,7 @@
 			],
 			"events": [
 				"keypressed",
+				"rotate",
 				"start",
 				"stop"
 			]
@@ -32609,9 +32749,10 @@
 				"getViewById",
 				"close",
 				"hideNavBar",
-				"hideTabBar",
+				"hideTabBar|deprecated",
 				"open",
 				"showNavBar",
+				"showTabBar|deprecated",
 				"showToolbar",
 				"hideToolbar",
 				"setShowMasterInPortrait",
@@ -32724,6 +32865,7 @@
 				"longpress",
 				"pinch",
 				"postlayout",
+				"rotate",
 				"singletap",
 				"swipe",
 				"touchcancel",
@@ -32836,6 +32978,7 @@
 			"events": [
 				"click",
 				"dblclick",
+				"rotate",
 				"touchcancel",
 				"touchend",
 				"touchmove",
@@ -33247,6 +33390,7 @@
 				"passthroughViews"
 			],
 			"events": [
+				"rotate",
 				"hide"
 			]
 		},
