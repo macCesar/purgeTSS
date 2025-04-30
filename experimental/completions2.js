@@ -139,7 +139,7 @@ function generateGlossary(_key, _theClasses, _keyName = null) {
     }
 
     makeSureFolderExists(destinationFolder)
-    saveFile(`${destinationFolder}/${_key}.md`, '```css' + _theClasses + '```')
+    saveFile(`${destinationFolder}/${_key}.md`, '```css' + _theClasses + '```\n')
   }
 
   return _theClasses
