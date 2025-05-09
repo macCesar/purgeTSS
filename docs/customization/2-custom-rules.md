@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 slug: custom-rules
+title: Custom Rules
 ---
 
 Custom rules in **Purge TSS** allow developers to style **Titanium elements**, **IDs**, and **classes** with flexibility and precision. These rules can be configured in the `config.js` file. Additionally, you can target specific platforms, devices, or conditional blocks using global variables.

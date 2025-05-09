@@ -40,18 +40,18 @@ Overall, *Purge TSS* aims to simplify the mobile app development process, offeri
 
 ## Table of Content
 
-- [Installation](./Installation.md)
-- [Commands](./Commands.md)
+- [Installation](./installation.md)
+- [Commands](./commands.md)
 - Customization
-  - [config file](./customization/1-Configuring%20Guide.md)
-  - [Custom rules](./customization/2-Custom%20rules.md)
-  - [apply directive](./customization/3-The%20apply%20directive.md)
-  - [opacity modifier](./customization/4-Opacity.md)
-  - [Arbitrary values in XMLs](./customization/5-Arbitrary%20Values.md)
-  - [Platform and Device modifiers](./customization/6-Platform%20and%20Device%20modifiers.md)
-  - [Icon Fonts Libraries](./customization/7-Icon%20Fonts%20Libraries.md)
+  - [config file](./customization/1-configuring-guide.md)
+  - [Custom rules](./customization/2-custom-rules.md)
+  - [apply directive](./customization/3-the-apply-directive.md)
+  - [opacity modifier](./customization/4-opacity.md)
+  - [Arbitrary values in XMLs](./customization/5-arbitrary-values.md)
+  - [Platform and Device modifiers](./customization/6-platform-and-device-modifiers.md)
+  - [Icon Fonts Libraries](./customization/7-icon-fonts-libraries.md)
 - Animation module
-  - [Introduction](./animation-module/1.%20Introduction.md)
-  - [Available utilities](./animation-module/7.%20Available%20Utilities.md)
-  - [Complex UI elements](./animation-module/6.%20Complex%20UI%20Elements.md)
-- [Grid System](./Grid%20System.md)
+  - [Introduction](./animation-module/1-introduction.md)
+  - [Available utilities](./animation-module/7-available-utilities.md)
+  - [Complex UI elements](./animation-module/6-complex-ui-elements.md)
+- [Grid System](./grid-system.md)

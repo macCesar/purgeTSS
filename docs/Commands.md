@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 slug: commands
+title: Commands
 ---
 
 The following is a description of the various commands that can be used with **Purge TSS**:

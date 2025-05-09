@@ -1,6 +1,7 @@
 ---
 sidebar_position: 2
 slug: the-play-method
+title: The `play` Method
 ---
 
 - The `play` method is used to reproduce the animation for a single view or an array of views.

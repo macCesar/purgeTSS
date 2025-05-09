@@ -1,6 +1,7 @@
 ---
 sidebar_position: 5
 slug: the-draggable-method
+title: The `draggable` Method
 ---
 
 - The `draggable` method allows you to convert any view or an array of views into draggable elements.

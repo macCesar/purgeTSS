@@ -1,6 +1,7 @@
 ---
 sidebar_position: 7
 slug: icon-fonts-libraries
+title: Icon Fonts Libraries
 ---
 
 :::info Official Icon Fonts for **Purge TSS**

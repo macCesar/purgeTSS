@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 slug: the-config-file
+title: The Config File
 ---
 
 By default, **Purge TSS** will look for a `./purgetss/config.js` file where you can define customizations.

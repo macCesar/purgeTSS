@@ -1,6 +1,7 @@
 ---
 sidebar_position: 3
 slug: the-apply-directive
+title: The `apply` Directive
 ---
 
 ## Create Complex Classes and IDs

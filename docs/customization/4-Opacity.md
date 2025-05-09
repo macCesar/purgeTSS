@@ -1,6 +1,7 @@
 ---
 sidebar_position: 4
 slug: the-opacity-modifier
+title: The `opacity` Modifier
 ---
 
 :::info

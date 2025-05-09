@@ -1,6 +1,7 @@
 ---
 sidebar_position: 1
 slug: introduction
+title: Introduction
 ---
 
 ## The Animation Module

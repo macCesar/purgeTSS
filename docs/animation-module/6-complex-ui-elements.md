@@ -1,6 +1,7 @@
 ---
 sidebar_position: 6
 slug: complex-ui-elements
+title: Complex UI Elements
 ---
 
 Here is an example of the Animation module with a more complex UI.
