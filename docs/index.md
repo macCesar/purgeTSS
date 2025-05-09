@@ -9,9 +9,9 @@ title: Home
 
 <div align="center">
 
-![npm](https://img.shields.io/npm/dm/purgetss)
-![npm](https://img.shields.io/npm/v/purgetss)
-![NPM](https://img.shields.io/npm/l/purgetss)
+[npm](https://img.shields.io/npm/dm/purgetss)
+[npm](https://img.shields.io/npm/v/purgetss)
+[NPM](https://img.shields.io/npm/l/purgetss)
 
 </div>
 
