@@ -1,8 +1,3 @@
----
-sidebar_position: 5
-slug: grid-system
----
-
 # Grid System
 
 The grid system is a simple but useful layout tool with utilities to lay out columns and rows.

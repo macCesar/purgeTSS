@@ -1,14 +1,9 @@
----
-sidebar_position: 3
-slug: the-apply-directive
-title: The `apply` Directive
----
-
 ## Create Complex Classes and IDs
 
-:::info
-You can apply a set of classes to create more complex classes or when you find a repetitive pattern in your code and want to extract it into a new class component.
-:::
+> ℹ️ **INFO**
+>
+> You can apply a set of classes to create more complex classes or when you find a repetitive pattern in your code and want to extract it into a new class component.
+
 
 - Set any ID, class, or Ti Element.
 - Use any of the default classes.
@@ -19,7 +14,8 @@ You can apply a set of classes to create more complex classes or when you find a
 
 ## Set Any ID, Class, or Ti Element
 
-```javascript title="./purgetss/config.js"
+// ./purgetss/config.js
+```javascript
 // ...
 theme: {
   extend: {},
@@ -42,7 +38,8 @@ theme: {
 // ...
 ```
 
-```css title="./purgetss/styles/tailwind.tss"
+// ./purgetss/styles/tailwind.tss
+```css
 'Label': { color: '#374151', textColor: '#374151', font: { fontSize: 16, fontWeight: 'bold' } }
 
 /* Custom Classes */
@@ -54,7 +51,8 @@ theme: {
 
 ## Use Any of the Default Classes
 
-```javascript title="./purgetss/config.js"
+// ./purgetss/config.js
+```javascript
 // ...
 theme: {
   '.btn': {
@@ -67,7 +65,8 @@ theme: {
 // ...
 ```
 
-```css title="./purgetss/styles/tailwind.tss"
+// ./purgetss/styles/tailwind.tss
+```css
 /* Custom Classes */
 '.btn': { borderRadius: 4, borderWidth: 2, top: 2, bottom: 2, width: Ti.UI.SIZE, height: Ti.UI.SIZE, font: { fontFamily: 'SairaCondensed-Regular', fontWeight: 'bold' } }
 '.btn-primary': { backgroundColor: '#22c55e', borderColor: '#bbf7d0', color: '#dcfce7', textColor: '#dcfce7' }
@@ -77,7 +76,8 @@ theme: {
 
 You can use [**Arbitrary Values**](arbitrary-values) to define your custom classes.
 
-```javascript title="./purgetss/config.js"
+// ./purgetss/config.js
+```javascript
 // ...
 theme: {
   extend: {},
@@ -88,7 +88,8 @@ theme: {
 // ...
 ```
 
-```css title="./purgetss/styles/tailwind.tss"
+// ./purgetss/styles/tailwind.tss
+```css
 /* Custom Classes */
 '.progress': { backgroundColor: '#e9ecef', borderRadius: 4, height: 16, layout: 'horizontal', font: { fontSize: 12 } }
 // ...
@@ -120,7 +121,8 @@ theme: {
 // ...
 ```
 
-```css title="./purgetss/styles/tailwind.tss"
+// ./purgetss/styles/tailwind.tss
+```css
 /* Custom Classes */
 '.btn': { borderRadius: 4, borderWidth: 2, top: 2, bottom: 2, width: Ti.UI.SIZE, height: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
 '.btn-corporate': { backgroundColor: '#53606b', borderColor: '#babfc4', color: '#dddfe1', textColor: '#dddfe1' }
@@ -168,7 +170,8 @@ theme: {
 // ...
 ```
 
-```css title="./purgetss/styles/tailwind.tss"
+// ./purgetss/styles/tailwind.tss
+```css
 /* Custom Classes */
 '.btn': { borderRadius: 4, borderWidth: 2, top: 2, bottom: 2, width: Ti.UI.SIZE, height: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
 '.btn-corporate': { backgroundColor: '#53606b', borderColor: '#babfc4', color: '#dddfe1', textColor: '#dddfe1' }
@@ -177,7 +180,8 @@ theme: {
 
 ## Combine with Any Platform, Device, or Conditional-Block Properties
 
-```javascript title="./purgetss/config.js"
+// ./purgetss/config.js
+```javascript
 // ...
 theme: {
   '.btn': {
@@ -203,7 +207,8 @@ theme: {
 // ...
 ```
 
-```css title="./purgetss/styles/tailwind.tss"
+// ./purgetss/styles/tailwind.tss
+```css
 /* Custom Classes */
 '.btn': { borderRadius: 4, borderWidth: 2, top: 2, bottom: 2, width: Ti.UI.SIZE, height: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
 '.btn[platform=ios]': { right: 16, left: 16, width: Ti.UI.FILL }
@@ -216,12 +221,14 @@ theme: {
 
 Several classes in `tailwind.tss` are platform-specific to prevent polluting objects with properties that are not specific to a particular platform.
 
-:::caution IMPORTANT!
+> ⚠️ **CAUTION**
+>
+> IMPORTANT!
+> 
+> To properly apply these platform styles when creating custom rules, you must specify the platform variant in the `apply` directive.
+> 
+> **Even if you are not targeting a specific platform, you must specify the platform variant.**
 
-To properly apply these platform styles when creating custom rules, you must specify the platform variant in the `apply` directive.
-
-**Even if you are not targeting a specific platform, you must specify the platform variant.**
-:::
 
 ```javascript {15} title="./purgetss/config.js"
 module.exports = {
@@ -236,7 +243,8 @@ module.exports = {
 };
 ```
 
-```css title="./purgetss/styles/tailwind.tss"
+// ./purgetss/styles/tailwind.tss
+```css
 /* Custom Classes */
 '.my-view[platform=ios]': { backgroundColor: '#22c55e', clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED, width: 128, height: 128 }
 ```
@@ -257,7 +265,8 @@ module.exports = {
 };
 ```
 
-```css title="./purgetss/styles/tailwind.tss"
+// ./purgetss/styles/tailwind.tss
+```css
 /* Omitting the platform variant in `config.js` will not generate the corresponding property. */
 /* Missing the property related to `clip-enabled`. */
 '.my-view': { backgroundColor: '#22c55e', width: 128, height: 128 }

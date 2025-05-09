@@ -1,9 +1,3 @@
----
-sidebar_position: 4
-slug: the-open-and-close-methods
-title: The `open` and `close` Methods
----
-
 The `open` and `close` methods provide a clear and straightforward way to manage the opening and closing animations of your views, utilizing the predefined classes with the `open` and `close` modifiers.
 
 By using these methods, you can ensure consistent and manageable animation behavior across your application, as opposed to using the `play` or `toggle` methods, which alternate between the `open` and `close` states based on the current state of the view.
@@ -25,7 +19,8 @@ $.myAnimation.open(views, callback);
 
 ### Example
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window>
     <Animation module="purgetss.ui" id="myAnimation" class="close:opacity-0 open:opacity-100" />
@@ -34,7 +29,8 @@ $.myAnimation.open(views, callback);
 </Alloy>
 ```
 
-```javascript title="index.js"
+// index.js
+```javascript
 $.myAnimation.open($.myView, () => {
   console.log('Open animation complete');
 });
@@ -57,7 +53,8 @@ $.myAnimation.close(views, callback);
 
 ### Example
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window>
     <Animation module="purgetss.ui" id="myAnimation" class="close:opacity-0 open:opacity-100" />
@@ -66,7 +63,8 @@ $.myAnimation.close(views, callback);
 </Alloy>
 ```
 
-```javascript title="index.js"
+// index.js
+```javascript
 $.myAnimation.close($.myView, () => {
   console.log('Close animation complete');
 });

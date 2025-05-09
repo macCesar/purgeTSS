@@ -1,9 +1,3 @@
----
-sidebar_position: 2
-slug: the-play-method
-title: The `play` Method
----
-
 - The `play` method is used to reproduce the animation for a single view or an array of views.
 - You can chain multiple Animation objects with callback functions to create a sequence of animations.
 
@@ -14,7 +8,8 @@ $.myAnimation.play($.myView)
 ### Play Example 1
 Create an Animation element and the view you want to animate, and set the desired properties.
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window>
     <View id="square" class="wh-16 bg-blue-500" />
@@ -25,7 +20,8 @@ Create an Animation element and the view you want to animate, and set the desire
 
 In the controller, pass the element that you want to animate - in this case, the `square` view.
 
-```javascript title="index.js"
+// index.js
+```javascript
 $.index.open()
 
 $.myAnimation.play($.square)
@@ -43,7 +39,8 @@ You can create more complex animations by combining properties for different `st
 
 ### Play Example 2
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="keep-screen-on">
     <View class="vertical">
@@ -82,7 +79,8 @@ You can create more complex animations by combining properties for different `st
 </Alloy>
 ```
 
-```javascript title="index.js"
+// index.js
+```javascript
 function transparencyFn() {
   $.changeTransparency.play($.blueSquareView)
 }
@@ -114,7 +112,8 @@ To apply additional properties after an `open` animation is finished, use the `c
 
 For example, in the following code, the `open` animation reduces the children of the `letters` view to a size of 1%. After completion, the `complete` modifier will set the background color to green and the scaling back to 100%.
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window title="App Wordle" class="bg-(#181e2d)">
     <View class="vertical">
@@ -139,7 +138,8 @@ For example, in the following code, the `open` animation reduces the children of
 </Alloy>
 ```
 
-```javascript title="index.js"
+// index.js
+```javascript
 $.index.open()
 
 function doAnimate() {

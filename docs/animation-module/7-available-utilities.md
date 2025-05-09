@@ -1,9 +1,3 @@
----
-sidebar_position: 7
-slug: available-utilities
-title: Available Utilities
----
-
 Along with the regular utilities like color, widths, and heights, you can set the following utilities on your animations:
 
 ## anchorPoint

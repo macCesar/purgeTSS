@@ -1,9 +1,3 @@
----
-sidebar_position: 6
-slug: complex-ui-elements
-title: Complex UI Elements
----
-
 Here is an example of the Animation module with a more complex UI.
 
 To use this example, you'll need to install the FontAwesome fonts in your project by running:
@@ -14,7 +8,8 @@ To use this example, you'll need to install the FontAwesome fonts in your projec
 
 And copy the following code:
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="exit-on-close-false portrait bg-purple-700">
     <!-- Sidebar -->
@@ -145,7 +140,8 @@ And copy the following code:
 </Alloy>
 ```
 
-```javascript title="index.js"
+// index.js
+```javascript
 $.index.open()
 
 $.draggableAnimation.draggable($.myCard)

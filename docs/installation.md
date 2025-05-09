@@ -1,8 +1,3 @@
----
-sidebar_position: 1
-slug: installation
----
-
 # Installation
 
 **Install Purge TSS globally on your machine using [NPM](https://www.npmjs.com/).**
@@ -11,19 +6,21 @@ slug: installation
 > [sudo] npm install -g purgetss
 ```
 
-:::caution Maximum Node.js Version
+> ⚠️ **CAUTION**
+>
+> Maximum Node.js Version
+> 
+> Purge TSS has been thoroughly tested and proven to be compatible with Node version 20.x.x.
 
-Purge TSS has been thoroughly tested and proven to be compatible with Node version 20.x.x.
-
-:::
 
 ## Running Purge TSS for the First Time
 
-:::info
-**You only need to execute `purgetss` once within your project to automatically generate the required files and folders.**
+> ℹ️ **INFO**
+>
+> **You only need to execute `purgetss` once within your project to automatically generate the required files and folders.**
+> 
+> Subsequently, whenever you build your application, **Purge TSS** will parse all your XML files and generate a clean `app.tss` file containing only the classes used in your project.
 
-Subsequently, whenever you build your application, **Purge TSS** will parse all your XML files and generate a clean `app.tss` file containing only the classes used in your project.
-:::
 
 When you run `purgetss` for the first time in your project, it will perform the following tasks:
 
@@ -37,7 +34,8 @@ When you run `purgetss` for the first time in your project, it will perform the 
 
 Upon execution, **Purge TSS** creates a `purgetss` folder at the root of your project containing the following files and folders:
 
-```bash title="./purgetss"
+// ./purgetss
+```bash
 purgetss
 └─ fonts
 └─ styles
@@ -66,16 +64,18 @@ purgetss
 
   Here, you can add various font types such as Icons, Serif, Sans-Serif, Cursive, Fantasy, or Monospace fonts, all applicable to your app. Step-by-step instructions are available in the [**build-fonts command**](commands#build-fonts-command) section.
 
-:::caution IMPORTANT NOTICE!!!
+> ⚠️ **CAUTION**
+>
+> IMPORTANT NOTICE!!!
+> 
+> **Purge TSS will OVERWRITE your existing `app.tss` file.**
+> 
+> Upon the initial execution of **Purge TSS**, your `app.tss` file is backed up to `_app.tss`.
+> 
+> From this point forward, you have the option to add, delete, or update your custom classes in `_app.tss`.
+> 
+> Alternatively, a better approach is to include your custom values in `config.js`. Further information is available in the [Configuration Section](customization/the-config-file).
 
-**Purge TSS will OVERWRITE your existing `app.tss` file.**
-
-Upon the initial execution of **Purge TSS**, your `app.tss` file is backed up to `_app.tss`.
-
-From this point forward, you have the option to add, delete, or update your custom classes in `_app.tss`.
-
-Alternatively, a better approach is to include your custom values in `config.js`. Further information is available in the [Configuration Section](customization/the-config-file).
-:::
 
 ## Example Files
 
@@ -115,23 +115,24 @@ Alternatively, a better approach is to include your custom values in `config.js`
 </Alloy>
 ```
 
-```css title="app.tss"
+// app.tss
+```css
 '.bg-primary': {
   backgroundColor: '#002359'
 }
 ```
 
-:::info
+> ℹ️ **INFO**
+>
+> **After running `purgetss`, you will have a new `app.tss` file with only the classes used in the XML files.**
+> 
+> Your original `app.tss` file is backed up in `_app.tss`. You can use this file to add, delete, or update any of your original styles.
+> 
+> Every time `purgetss` runs, it will copy the content of `_app.tss` to `app.tss`.
 
-**After running `purgetss`, you will have a new `app.tss` file with only the classes used in the XML files.**
 
-Your original `app.tss` file is backed up in `_app.tss`. You can use this file to add, delete, or update any of your original styles.
-
-Every time `purgetss` runs, it will copy the content of `_app.tss` to `app.tss`.
-
-:::
-
-```css title="app.tss after purging"
+// app.tss after purging
+```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */
 /* https://github.com/macCesar/purgeTSS */
@@ -195,7 +196,8 @@ It provides class name completion for the `XML` class attribute based on the `de
 
 After installing the extension, you'll need to add the `xml` language to the `"HTMLLanguages"` setting and exclude any `css/html` files from the caching process by pointing `"excludeGlobPattern"` to the `./purgetss/fonts/` folder.
 
-```json title="VS Code ‘settings.json’ file"
+// VS Code ‘settings.json’ file
+```json
 {
   "html-css-class-completion.HTMLLanguages": [
     "html",

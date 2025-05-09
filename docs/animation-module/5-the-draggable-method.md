@@ -1,9 +1,3 @@
----
-sidebar_position: 5
-slug: the-draggable-method
-title: The `draggable` Method
----
-
 - The `draggable` method allows you to convert any view or an array of views into draggable elements.
 - You can set **basic animations** when dragging or dropping elements using the `drag:` and `drop:` modifiers.
 - You can `apply` or `animate` the properties either globally or locally using the `drag-apply` or `drag-animate` classes.
@@ -14,14 +8,16 @@ title: The `draggable` Method
 $.draggableAnimation.draggable('A View or an array of Views')
 ```
 
-:::info
-**You can create a blank `Animation` object or use an existing one to call the `draggable` method to convert a view or array of views into 'draggable' objects.**
+> ℹ️ **INFO**
+>
+> **You can create a blank `Animation` object or use an existing one to call the `draggable` method to convert a view or array of views into 'draggable' objects.**
+> 
+> **When using an Animation object on an array of views, it will handle the zIndex of each draggable element.**
 
-**When using an Animation object on an array of views, it will handle the zIndex of each draggable element.**
-:::
 
 ### Draggable Example
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false">
     <Label text="Draggable Example" class="mt-16 text-center" />
@@ -37,7 +33,8 @@ $.draggableAnimation.draggable('A View or an array of Views')
 </Alloy>
 ```
 
-```javascript title="index.js"
+// index.js
+```javascript
 $.index.open()
 
 $.draggableAnimation.draggable([$.red, $.green, $.blue])
@@ -52,14 +49,16 @@ $.draggableAnimation.draggable([$.red, $.green, $.blue])
 - You can set 'global' modifiers in the `Animation` object, or you can set individual modifiers for each view.
 - Local modifiers will overwrite any global modifier.
 
-:::info
-To simplify things, we are restricting the types of animations that can be applied while dragging (or dropping).
+> ℹ️ **INFO**
+>
+> To simplify things, we are restricting the types of animations that can be applied while dragging (or dropping).
+> 
+> **Mainly, we are not applying any `size`, `scale`, or `anchorPoint` transformation.**
 
-**Mainly, we are not applying any `size`, `scale`, or `anchorPoint` transformation.**
-:::
 
 ### Drag & Drop Example
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false">
     <Label text="Global Modifiers:\ndrag:duration-100 drag:opacity-50 drop:opacity-100" class="mt-16 text-center" />
@@ -86,7 +85,8 @@ To simplify things, we are restricting the types of animations that can be appli
 ## `draggingType` Property
 To control how `drag:` and `drop:` modifiers are applied, you can use either the `drag-animate` (default) or `drag-apply` class. The `drag-animate` class will animate the properties, while the `drag-apply` class will apply them immediately.
 
-```css title="tailwind.tss"
+// tailwind.tss
+```css
 /* Component(s): For the Animation Component */
 /* Property(ies): draggingType */
 .drag-apply { draggingType: 'apply' }
@@ -96,7 +96,8 @@ To control how `drag:` and `drop:` modifiers are applied, you can use either the
 ### Dragging Type Example
 In the following example, the `Animation` element sets the global dragging type to `drag-apply`, but the green square overwrites it to `drag-animate`.
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false">
     <Label text="draggingType Example:\ndrag-apply drag:duration-500 drag:opacity-50 drop:opacity-100" class="mt-16 text-center" />
@@ -128,7 +129,8 @@ In the following example, the `Animation` element sets the global dragging type 
 ### Bounds Example 1
 The `card` view has a boundary of `m-4` and a bottom boundary of `mb-16`.
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false bg-green-50">
     <View class="mx-6 mb-6 mt-10 h-screen w-screen rounded-lg bg-green-200">
@@ -151,7 +153,8 @@ The `card` view has a boundary of `m-4` and a bottom boundary of `mb-16`.
 </Alloy>
 ```
 
-```javascript title="index.js"
+// index.js
+```javascript
 $.index.open()
 
 $.draggableAnimation.draggable($.card)
@@ -166,7 +169,8 @@ In this example, the boundaries are set globally in the `draggableAnimation` vie
 
 Every card view will use these global values.
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false bg-green-50">
     <View class="wh-screen mx-6 mb-6 mt-10 rounded-lg bg-green-200">
@@ -211,7 +215,8 @@ Every card view will use these global values.
 </Alloy>
 ```
 
-```javascript title="index.js"
+// index.js
+```javascript
 $.index.open()
 
 $.draggableAnimation.draggable([$.card, $.card2, $.card3])
@@ -234,7 +239,8 @@ To add a vertical and horizontal constraint to any `dragging` element, set the `
 ### Constraint Example
 In this example, the `card` view will move only from side to side.
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false">
     <View id="card" class="horizontal-constraint h-24 w-64 shadow-lg">
@@ -253,7 +259,8 @@ In this example, the `card` view will move only from side to side.
 </Alloy>
 ```
 
-```javascript title="index.js"
+// index.js
+```javascript
 $.index.open()
 
 $.draggableAnimation.draggable($.card)

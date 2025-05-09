@@ -1,13 +1,8 @@
----
-sidebar_position: 1
-slug: introduction
-title: Introduction
----
-
 ## The Animation Module
-:::info
-**Purge TSS** includes an Animation module to apply simple 2D Matrix animations and transformations to any element, an array of elements, or even to individual children of an element.
-:::
+> ℹ️ **INFO**
+>
+> **Purge TSS** includes an Animation module to apply simple 2D Matrix animations and transformations to any element, an array of elements, or even to individual children of an element.
+
 
 The Animation object describes the properties of an animation. It represents:
 - A single-phase animation with an end state

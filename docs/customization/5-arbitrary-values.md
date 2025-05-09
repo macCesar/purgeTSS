@@ -1,21 +1,17 @@
----
-sidebar_position: 5
-slug: arbitrary-values
-title: Arbitrary Values
----
-
 Sometimes, you may need a specific value that is not included among the default values, or that you only need to use once in your project and do not want to include in the `config.js` file. In these cases, you can use arbitrary values.
 
-:::info
-**To generate an arbitrary style, you can use *parenthesis notation* with almost any default utility classes.**
+> ℹ️ **INFO**
+>
+> **To generate an arbitrary style, you can use *parenthesis notation* with almost any default utility classes.**
+> 
+> Unfortunately, you cannot use square bracket notation like in Tailwind, because Titanium handles platform and conditional statements in `.tss` files differently.
 
-Unfortunately, you cannot use square bracket notation like in Tailwind, because Titanium handles platform and conditional statements in `.tss` files differently.
-:::
 
 ## Color Properties
 You can set arbitrary color values **to ALL available color properties**, using `hex`, `rgb` or `rgba` color values, directly in `xml` files or in the `config.js` file.
 
-```xml title="Arbitrary values for color properties"
+// Arbitrary values for color properties
+```xml
 <Alloy>
   <Window class="from-(#4C61E4) to-(#804C61E4)">
     <Label class="text-center w-(250) h-8 bg-(rgba(100,200,50)) text-(#4C61E4) text-(15) rounded-4" text="Green Label" />
@@ -23,7 +19,8 @@ You can set arbitrary color values **to ALL available color properties**, using 
 </Alloy>
 ```
 
-```css title="Generated classes"
+// Generated classes
+```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */
 /* https://github.com/macCesar/purgeTSS */
@@ -98,7 +95,8 @@ You can set an arbitrary value to any of the following color properties:
 ## Spacing Properties
 You can set arbitrary values **to MOST of the size and dimension properties**, using `rem`, `px` or `pt` values, directly in `xml` files or in the `config.js` file.
 
-```xml title="Arbitrary values for spacing properties"
+// Arbitrary values for spacing properties
+```xml
 <Alloy>
   <Window>
     <Label class="text-center w-(10rem) h-(1.75rem) text-(15) rounded-(5) text-white bg-blue-800" text="My custom Label" />
@@ -106,7 +104,8 @@ You can set arbitrary values **to MOST of the size and dimension properties**, u
 </Alloy>
 ```
 
-```css title="Generated classes"
+// Generated classes
+```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */
 /* https://github.com/macCesar/purgeTSS */
@@ -263,7 +262,8 @@ You can use any supported units depending on the property you are generating. Yo
 
 ### Credit Card
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="bg-(#53606b)">
     <View class="w-(2in) h-(3.5in) bg-(#4C61E4) rounded-(20)">
@@ -286,7 +286,8 @@ You can use any supported units depending on the property you are generating. Yo
 </Alloy>
 ```
 
-```css title="app.tss"
+// app.tss
+```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */
 /* https://github.com/macCesar/purgeTSS */
@@ -336,7 +337,8 @@ You can use any supported units depending on the property you are generating. Yo
 ### Front Cover
 Try this example on an iPad or tablet.
 
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="bg-white">
     <View class="bg-(#1B6F3F) mt-0 ml-0 w-(2300px) h-(1600px)">
@@ -369,7 +371,8 @@ Try this example on an iPad or tablet.
 </Alloy>
 ```
 
-```css title="app.tss"
+// app.tss
+```css
 // Purge TSS v6.2.27
 // Created by César Estrada
 // https://github.com/macCesar/purgeTSS
@@ -436,7 +439,8 @@ Try this example on an iPad or tablet.
 ![zultys](../images/zultys.png)
 
 ### Menu Bar
-```xml title="index.xml"
+// index.xml
+```xml
 <Alloy>
   <Window class="bg-(#53606b)" backgroundImage="https://i.pinimg.com/originals/ab/70/a1/ab70a19f087cc9ba2b03e3bee71acc3e.jpg">
     <View class="mt-0 w-full h-(150px) bg-(#53A500) horizontal">
@@ -456,7 +460,8 @@ Try this example on an iPad or tablet.
 </Alloy>
 ```
 
-```css title="app.tss"
+// app.tss
+```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */
 /* https://github.com/macCesar/purgeTSS */
