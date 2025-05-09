@@ -1,3 +1,5 @@
+# The `draggable` Method
+
 - The `draggable` method allows you to convert any view or an array of views into draggable elements.
 - You can set **basic animations** when dragging or dropping elements using the `drag:` and `drop:` modifiers.
 - You can `apply` or `animate` the properties either globally or locally using the `drag-apply` or `drag-animate` classes.

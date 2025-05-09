@@ -1,3 +1,5 @@
+# Introduction
+
 ## The Animation Module
 > ℹ️ **INFO**
 >

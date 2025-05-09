@@ -1,3 +1,5 @@
+# Arbitrary Values
+
 Sometimes, you may need a specific value that is not included among the default values, or that you only need to use once in your project and do not want to include in the `config.js` file. In these cases, you can use arbitrary values.
 
 > ℹ️ **INFO**

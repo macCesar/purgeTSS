@@ -1,3 +1,5 @@
+# The `apply` Method
+
 - Use the `apply` method when you need to immediately apply the properties and transformations to a view without any animation.
 
 `index.js`

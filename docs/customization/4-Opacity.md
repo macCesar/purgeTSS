@@ -1,3 +1,5 @@
+# The `opacity` Modifier
+
 > ℹ️ **INFO**
 >
 > You can add an **opacity modifier to ANY of the available color properties** by adding an **opacity value** between 0 and 100 to the end of the color name separated by a slash ( / ).

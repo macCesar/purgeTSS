@@ -1,3 +1,5 @@
+# The `play` Method
+
 - The `play` method is used to reproduce the animation for a single view or an array of views.
 - You can chain multiple Animation objects with callback functions to create a sequence of animations.
 

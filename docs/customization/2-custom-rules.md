@@ -1,3 +1,5 @@
+# Custom Rules
+
 Custom rules in **Purge TSS** allow developers to style **Titanium elements**, **IDs**, and **classes** with flexibility and precision. These rules can be configured in the `config.js` file. Additionally, you can target specific platforms, devices, or conditional blocks using global variables.
 
 This feature is particularly useful for meeting visual and design requirements in mobile projects that span multiple platforms, such as iOS and Android. By leveraging custom rules, you ensure that every element in your application can be tailored to deliver the best possible user experience.

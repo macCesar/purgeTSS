@@ -1,3 +1,5 @@
+# The Config File
+
 By default, **Purge TSS** will look for a `./purgetss/config.js` file where you can define customizations.
 
 ## Creating the `config.js` file
