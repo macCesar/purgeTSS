@@ -9,7 +9,7 @@ The grid system is a simple but useful layout tool with utilities to lay out col
 
 This is the most basic layout for using the grid system. Of course, you can create a more complex layout by mixing different columns and rows.
 
-```xml {4,11} title="index.xml"
+```xml
 <Alloy>
   <View class='grid'>
     <View class="grid-cols-4">
