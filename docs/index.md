@@ -15,7 +15,7 @@ title: Home
 
 </div>
 
-```info
+```
 **Purge TSS** is a toolkit designed to enhance the development of mobile applications using the **[Titanium framework](https://titaniumsdk.com)**. It introduces several key features to streamline the app development process, making it simpler and more efficient for developers.
 
 It offers a range of tools such as customizable utility classes, support for icon fonts, a user-friendly Animation module, a straightforward grid system, and the added convenience of the `shades` command for crafting personalized colors.
@@ -40,8 +40,8 @@ Overall, *Purge TSS* aims to simplify the mobile app development process, offeri
 
 ## Table of Contents
 
-- [Installation](./installation.md)
-- [Commands](./commands.md)
+- [Installation](installation.md)
+- [Commands](commands.md)
 - Customization
   - [The Config File](./customization/1-configuring-guide.md)
   - [Custom Rules](./customization/2-custom-rules.md)
@@ -58,4 +58,4 @@ Overall, *Purge TSS* aims to simplify the mobile app development process, offeri
   - [The `draggable` Method](./animation-module/5-the-draggable-method.md)
   - [Complex UI Elements](./animation-module/6-complex-ui-elements.md)
   - [Available Utilities](./animation-module/7-available-utilities.md)
-- [Grid System](./grid-system.md)
+- [Grid System](grid-system.md)
