@@ -38,20 +38,24 @@ Here are its main functionalities:
 
 Overall, *Purge TSS* aims to simplify the mobile app development process, offering tools and features that enhance productivity and creativity in designing user interfaces.
 
-## Table of Content
+## Table of Contents
 
 - [Installation](./installation.md)
 - [Commands](./commands.md)
 - Customization
-  - [config file](./customization/1-configuring-guide.md)
-  - [Custom rules](./customization/2-custom-rules.md)
-  - [apply directive](./customization/3-the-apply-directive.md)
-  - [opacity modifier](./customization/4-opacity.md)
-  - [Arbitrary values in XMLs](./customization/5-arbitrary-values.md)
-  - [Platform and Device modifiers](./customization/6-platform-and-device-modifiers.md)
+  - [The Config File](./customization/1-configuring-guide.md)
+  - [Custom Rules](./customization/2-custom-rules.md)
+  - [The `apply` Directive](./customization/3-the-apply-directive.md)
+  - [The `opacity` Modifier](./customization/4-opacity.md)
+  - [Arbitrary Values](./customization/5-arbitrary-values.md)
+  - [Platform and Device Modifiers](./customization/6-platform-and-device-modifiers.md)
   - [Icon Fonts Libraries](./customization/7-icon-fonts-libraries.md)
-- Animation module
+- Animation Module
   - [Introduction](./animation-module/1-introduction.md)
-  - [Available utilities](./animation-module/7-available-utilities.md)
-  - [Complex UI elements](./animation-module/6-complex-ui-elements.md)
+  - [The `play` Method](./animation-module/2-the-play-method.md)
+  - [The `apply` Method](./animation-module/3-the-apply-method.md)
+  - [The `open` and `close` Methods](./animation-module/4-the-open-and-close-methods.md)
+  - [The `draggable` Method](./animation-module/5-the-draggable-method.md)
+  - [Complex UI Elements](./animation-module/6-complex-ui-elements.md)
+  - [Available Utilities](./animation-module/7-available-utilities.md)
 - [Grid System](./grid-system.md)
