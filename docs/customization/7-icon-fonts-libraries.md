@@ -169,6 +169,8 @@ const icons = {
 exports.icons = icons;
 ```
 
-:::danger WARNING
-**Make sure that the new prefix remains unique to avoid conflicts with other class prefixes.**
-:::
+> 🛑 **DANGER**
+>
+> WARNING
+> **Make sure that the new prefix remains unique to avoid conflicts with other class prefixes.**
+

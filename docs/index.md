@@ -50,7 +50,7 @@ Overall, *Purge TSS* aims to simplify the mobile app development process, offeri
   - [Introduction](./animation-module/1-introduction.md)
   - [The `play` Method](./animation-module/2-the-play-method.md)
   - [The `apply` Method](./animation-module/3-the-apply-method.md)
-  - [The `open` and `close` Methods](./animation-module/4-the-open-and-close-methods.md)
+  - [The `open` and `close` Methods](./animation-module/4-the-open-close-methods.md)
   - [The `draggable` Method](./animation-module/5-the-draggable-method.md)
   - [Complex UI Elements](./animation-module/6-complex-ui-elements.md)
   - [Available Utilities](./animation-module/7-available-utilities.md)

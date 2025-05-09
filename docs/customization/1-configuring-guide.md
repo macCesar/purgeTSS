@@ -654,4 +654,4 @@ You can customize any of the following properties individually by adding them in
 - zoomScale
 
 ### Custom Rules & Ti Elements
-- Create your own custom rules and include ANY Ti Element with ANY number of attributes or conditional statements. See the [**Custom Rules section**](../customization/custom-rules) for more information.
+- Create your own custom rules and include ANY Ti Element with ANY number of attributes or conditional statements. See the [**Custom Rules section**](../customization/2-custom-rules.md) for more information.

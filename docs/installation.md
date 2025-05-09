@@ -46,7 +46,7 @@ purgetss
 
 - **`config.js` File**
 
-  This is where you can customize or create new classes with your preferred spacing, colors, margin values, and more. For further details, refer to the **[Customization Section](customization/the-config-file)**.
+  This is where you can customize or create new classes with your preferred spacing, colors, margin values, and more. For further details, refer to the **[Customization Section](./customization/1-configuring-guide.md)**.
 
 - **`styles` Folder**
 
@@ -74,7 +74,7 @@ purgetss
 > 
 > From this point forward, you have the option to add, delete, or update your custom classes in `_app.tss`.
 > 
-> Alternatively, a better approach is to include your custom values in `config.js`. Further information is available in the [Configuration Section](customization/the-config-file).
+> Alternatively, a better approach is to include your custom values in `config.js`. Further information is available in the [Configuration Section](./customization/1-configuring-guide.md).
 
 
 ## Example Files

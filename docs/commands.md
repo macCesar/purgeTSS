@@ -56,7 +56,7 @@ module.exports = {
 > 
 > **Purge TSS** looks for the file `./purgetss/config.js`, where each section is optional and can be customized. Missing sections will use the default configuration.
 > 
-> To learn more and view some examples, refer to the **[Configuration Section](customization/the-config-file)**.
+> To learn more and view some examples, refer to the **[Configuration Section](./customization/1-configuring-guide.md)**.
 
 
 
@@ -963,7 +963,7 @@ The `module` command installs the `purgetss.ui.js` module in the `lib` folder.
 >
 > To learn more
 > 
-> **Refer to the [Animation Module](animation-module/introduction) documentation for more details.**
+> **Refer to the [Animation Module](./animation-module/1-introduction.md) documentation for more details.**
 
 
 

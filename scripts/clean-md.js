@@ -7,12 +7,12 @@ function cleanFrontmatter(content) {
 }
 
 function cleanAdmonitions(content) {
-  // Converts :::tip, :::info, :::caution, :::warning, etc. into quotes with emoji
-  return content.replace(/:::(tip|info|caution|warning)(.*?):::/gs, (match, type, inner) => {
-    const emojis = { tip: '💡', info: 'ℹ️', caution: '⚠️', warning: '🚨' }
+  // Converts :::tip, :::info, :::caution, :::warning, :::danger, etc. into quotes with emoji
+  return content.replace(/:::(tip|info|caution|warning|danger)(.*?):::/gs, (match, type, inner) => {
+    const emojis = { tip: '💡', info: 'ℹ️', caution: '⚠️', warning: '🚨', danger: '🛑' }
     const emoji = emojis[type] || '💬'
     // Cleans extra line breaks
-    const text = inner.replace(/^\s+|\s+$/g, '')
+    const text = inner.replace(/^[\s\n]+|[\s\n]+$/g, '')
     return `> ${emoji} **${type.toUpperCase()}**\n>\n> ${text.split('\n').join('\n> ')}\n`
   })
 }
