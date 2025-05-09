@@ -10,7 +10,7 @@ Sometimes, you may need a specific value that is not included among the default 
 ## Color Properties
 You can set arbitrary color values **to ALL available color properties**, using `hex`, `rgb` or `rgba` color values, directly in `xml` files or in the `config.js` file.
 
-// Arbitrary values for color properties
+`Arbitrary values for color properties`
 ```xml
 <Alloy>
   <Window class="from-(#4C61E4) to-(#804C61E4)">
@@ -19,7 +19,7 @@ You can set arbitrary color values **to ALL available color properties**, using 
 </Alloy>
 ```
 
-// Generated classes
+`Generated classes`
 ```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */
@@ -95,7 +95,7 @@ You can set an arbitrary value to any of the following color properties:
 ## Spacing Properties
 You can set arbitrary values **to MOST of the size and dimension properties**, using `rem`, `px` or `pt` values, directly in `xml` files or in the `config.js` file.
 
-// Arbitrary values for spacing properties
+`Arbitrary values for spacing properties`
 ```xml
 <Alloy>
   <Window>
@@ -104,7 +104,7 @@ You can set arbitrary values **to MOST of the size and dimension properties**, u
 </Alloy>
 ```
 
-// Generated classes
+`Generated classes`
 ```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */
@@ -262,7 +262,7 @@ You can use any supported units depending on the property you are generating. Yo
 
 ### Credit Card
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="bg-(#53606b)">
@@ -286,7 +286,7 @@ You can use any supported units depending on the property you are generating. Yo
 </Alloy>
 ```
 
-// app.tss
+`app.tss`
 ```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */
@@ -337,7 +337,7 @@ You can use any supported units depending on the property you are generating. Yo
 ### Front Cover
 Try this example on an iPad or tablet.
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="bg-white">
@@ -371,7 +371,7 @@ Try this example on an iPad or tablet.
 </Alloy>
 ```
 
-// app.tss
+`app.tss`
 ```css
 // Purge TSS v6.2.27
 // Created by César Estrada
@@ -439,7 +439,7 @@ Try this example on an iPad or tablet.
 ![zultys](../images/zultys.png)
 
 ### Menu Bar
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="bg-(#53606b)" backgroundImage="https://i.pinimg.com/originals/ab/70/a1/ab70a19f087cc9ba2b03e3bee71acc3e.jpg">
@@ -460,7 +460,7 @@ Try this example on an iPad or tablet.
 </Alloy>
 ```
 
-// app.tss
+`app.tss`
 ```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */

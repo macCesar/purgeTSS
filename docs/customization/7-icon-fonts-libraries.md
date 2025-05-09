@@ -31,7 +31,7 @@ Put the desired libraries in the `./purgetss/fonts` folder.
 > You just need to copy the **TrueType** or **OpenType** font files and the `.css` file.
 
 
-// ./purgetss/fonts/
+`./purgetss/fonts/`
 ```bash
 purgetss
 └─ fonts
@@ -56,7 +56,7 @@ $ purgetss bf [-m]
 #### The `fonts.tss` File
 The `build-fonts` command will generate a custom `./purgetss/styles/fonts.tss` file with all the Unicode characters and style rules.
 
-// ./purgetss/styles/fonts.tss
+`./purgetss/styles/fonts.tss`
 ```css
 '.boxicons': { font: { fontFamily: 'boxicons' } }
 '.lineicons': { font: { fontFamily: 'LineIcons' } }
@@ -80,7 +80,7 @@ The `build-fonts` command will generate a custom `./purgetss/styles/fonts.tss` f
 #### Renaming the Style Rule Name
 **Purge TSS** will use the font's file name as the style rule name. **You can change it by renaming the font file**.
 
-// ./purgetss/fonts/
+`./purgetss/fonts/`
 ```bash
 # Root of the project
 purgetss
@@ -90,7 +90,7 @@ purgetss
 ```
 
 New style rule name: `'.bx'`
-// ./purgetss/styles/fonts.tss
+`./purgetss/styles/fonts.tss`
 ```css
 /* new style rule name */
 '.bx': { font: { fontFamily: 'boxicons' } }
@@ -99,7 +99,7 @@ New style rule name: `'.bx'`
 #### The `assets/fonts` Folder
 The `build-fonts` command will copy the font files to `./app/assets/fonts` folder and rename them to their corresponding **PostScript** name to work on both iOS and Android apps.
 
-// ./app/assets/fonts/
+`./app/assets/fonts/`
 ```bash
 app
 └─ assets
@@ -111,7 +111,7 @@ app
 #### The `--modules` Option
 When using the `--modules` option, it will generate a `./app/lib/purgetss.fonts.js` CommonJS module file.
 
-// ./app/lib/purgetss.fonts.js
+`./app/lib/purgetss.fonts.js`
 ```javascript
 const icons = {
   /* boxicons */
@@ -136,7 +136,7 @@ exports.icons = icons;
 
 **Purge TSS** automatically determines the group's prefix for each icon family and class name. However, you can use the `--prefix` option to apply the style's filename as the prefix for class names in `fonts.tss` and property names in `purgetss.fonts.js`.
 
-// ./purgetss/fonts/
+`./purgetss/fonts/`
 ```bash
 purgetss
 └─ fonts
@@ -146,7 +146,7 @@ purgetss
 
 **New group prefix: `li`**
 
-// ./purgetss/styles/fonts.tss
+`./purgetss/styles/fonts.tss`
 ```css
 /* lineicons/li.css */
 '.li-zoom-out': { text: '\uea02', title: '\uea02' }
@@ -155,7 +155,7 @@ purgetss
 /* ... */
 ```
 
-// ./app/lib/purgetss.fonts.js
+`./app/lib/purgetss.fonts.js`
 ```javascript
 const icons = {
   /* lineicons/li.css */

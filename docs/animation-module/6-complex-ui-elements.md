@@ -8,7 +8,7 @@ To use this example, you'll need to install the FontAwesome fonts in your projec
 
 And copy the following code:
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="exit-on-close-false portrait bg-purple-700">
@@ -140,7 +140,7 @@ And copy the following code:
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 $.index.open()
 

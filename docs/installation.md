@@ -34,7 +34,7 @@ When you run `purgetss` for the first time in your project, it will perform the 
 
 Upon execution, **Purge TSS** creates a `purgetss` folder at the root of your project containing the following files and folders:
 
-// ./purgetss
+`./purgetss`
 ```bash
 purgetss
 └─ fonts
@@ -115,7 +115,7 @@ purgetss
 </Alloy>
 ```
 
-// app.tss
+`app.tss`
 ```css
 '.bg-primary': {
   backgroundColor: '#002359'
@@ -131,7 +131,7 @@ purgetss
 > Every time `purgetss` runs, it will copy the content of `_app.tss` to `app.tss`.
 
 
-// app.tss after purging
+`app.tss after purging`
 ```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */
@@ -196,7 +196,7 @@ It provides class name completion for the `XML` class attribute based on the `de
 
 After installing the extension, you'll need to add the `xml` language to the `"HTMLLanguages"` setting and exclude any `css/html` files from the caching process by pointing `"excludeGlobPattern"` to the `./purgetss/fonts/` folder.
 
-// VS Code ‘settings.json’ file
+`VS Code ‘settings.json’ file`
 ```json
 {
   "html-css-class-completion.HTMLLanguages": [

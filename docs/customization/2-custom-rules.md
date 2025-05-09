@@ -37,7 +37,7 @@ Whether you want to style a Ti Element (also known as a markup element), a custo
 
 ## 'config.js' file example
 
-// ./purgetss/config.js
+`./purgetss/config.js`
 ```javascript
 module.exports = {
   theme: {
@@ -85,7 +85,7 @@ module.exports = {
 };
 ```
 
-// Custom ‘./purgetss/styles/tailwind.tss’ file
+`Custom ‘./purgetss/styles/tailwind.tss’ file`
 ```css
 /* Property: TextField */
 /* Description: A single line text field. */

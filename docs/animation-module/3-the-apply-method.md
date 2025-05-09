@@ -1,6 +1,6 @@
 - Use the `apply` method when you need to immediately apply the properties and transformations to a view without any animation.
 
-// index.js
+`index.js`
 ```javascript
 $.myAnimation.apply($.myView)
 ```
@@ -8,7 +8,7 @@ $.myAnimation.apply($.myView)
 ### Apply Example
 The `apply` method sets the properties instantly. In this example, the `ScrollableView` is rotated 90 degrees, and its content is counter-rotated -90 degrees to simulate a **TikTok-like** interface.
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="exit-on-close-false keep-screen-on">
@@ -32,7 +32,7 @@ The `apply` method sets the properties instantly. In this example, the `Scrollab
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 $.rotate.apply($.scrollableView)
 

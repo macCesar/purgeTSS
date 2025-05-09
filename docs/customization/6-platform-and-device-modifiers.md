@@ -10,7 +10,7 @@ Platform and Device modifiers (also called variants or prefixes) allow you to sp
 
 For example, if you want to have different background colors and font sizes depending on the platform and device your app is running on, you can target them separately, and even combine them with arbitrary values. For example: `ios:bg-(#53606b)`, `ios:text-(20px)`, `android:bg-(#8fb63e)`, and `android:text-(24px)`.
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="tablet:bg-green-500 handheld:bg-blue-500">
@@ -21,7 +21,7 @@ For example, if you want to have different background colors and font sizes depe
 </Alloy>
 ```
 
-// app.tss
+`app.tss`
 ```css
 /* Purge TSS v6.2.27 */
 /* Created by César Estrada */

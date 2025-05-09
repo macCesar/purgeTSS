@@ -21,8 +21,6 @@
 > With **Purge TSS**, creating visually appealing and dynamic mobile apps becomes more accessible and efficient.
 
 
----
-
 Here are its main functionalities:
 
 - **Tailwind-like Utility Classes**: *Purge TSS* offers over 21,000 utility classes similar to Tailwind CSS, providing a vast array of styling options for your projects.

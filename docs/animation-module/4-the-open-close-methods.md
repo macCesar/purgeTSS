@@ -19,7 +19,7 @@ $.myAnimation.open(views, callback);
 
 ### Example
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window>
@@ -29,7 +29,7 @@ $.myAnimation.open(views, callback);
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 $.myAnimation.open($.myView, () => {
   console.log('Open animation complete');
@@ -53,7 +53,7 @@ $.myAnimation.close(views, callback);
 
 ### Example
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window>
@@ -63,7 +63,7 @@ $.myAnimation.close(views, callback);
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 $.myAnimation.close($.myView, () => {
   console.log('Close animation complete');

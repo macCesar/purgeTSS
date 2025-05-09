@@ -24,7 +24,7 @@
 ## In the 'apply' Directive
 You can also use color opacity modifiers in the `apply` directive in the `config.js` file.
 
-// ./purgetss/config.js
+`./purgetss/config.js`
 ```js
 module.exports = {
   theme: {
@@ -43,7 +43,7 @@ module.exports = {
 }
 ```
 
-// Generated classes
+`Generated classes`
 ```css
 /* Custom Styles and Resets */
 '.main-banner': { backgroundColor: '#59ce10cc', borderColor: '#bfce10cc' }

@@ -8,7 +8,7 @@ $.myAnimation.play($.myView)
 ### Play Example 1
 Create an Animation element and the view you want to animate, and set the desired properties.
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window>
@@ -20,7 +20,7 @@ Create an Animation element and the view you want to animate, and set the desire
 
 In the controller, pass the element that you want to animate - in this case, the `square` view.
 
-// index.js
+`index.js`
 ```javascript
 $.index.open()
 
@@ -39,7 +39,7 @@ You can create more complex animations by combining properties for different `st
 
 ### Play Example 2
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="keep-screen-on">
@@ -79,7 +79,7 @@ You can create more complex animations by combining properties for different `st
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 function transparencyFn() {
   $.changeTransparency.play($.blueSquareView)
@@ -112,7 +112,7 @@ To apply additional properties after an `open` animation is finished, use the `c
 
 For example, in the following code, the `open` animation reduces the children of the `letters` view to a size of 1%. After completion, the `complete` modifier will set the background color to green and the scaling back to 100%.
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window title="App Wordle" class="bg-(#181e2d)">
@@ -138,7 +138,7 @@ For example, in the following code, the `open` animation reduces the children of
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 $.index.open()
 

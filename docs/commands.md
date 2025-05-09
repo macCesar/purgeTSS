@@ -26,7 +26,7 @@ No arguments or options are needed. The command will create the file inside the 
 > purgetss i
 ```
 
-// ./purgetss/config.js
+`./purgetss/config.js`
 ```javascript
 module.exports = {
   purge: {
@@ -175,7 +175,7 @@ The `icon-library` command simplifies the process of copying free font versions 
   - `-m, --module` to copy the corresponding **CommonJS** module into the `./app/lib/` folder
   - `-s, --styles` to copy the corresponding `tss` files into the `./purgetss/styles/` folder for your review
 
-// ./app/assets/fonts/
+`./app/assets/fonts/`
 ```bash
 FontAwesome6Brands-Regular.ttf
 FontAwesome6Free-Regular.ttf
@@ -281,7 +281,7 @@ To use this file, follow these steps:
 - Compile your app as usual.
 - **We recommend using `liveview` to speed up testing and development time**
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window>
@@ -318,7 +318,7 @@ To use this file, follow these steps:
 </Alloy>
 ```
 
-// app.tss
+`app.tss`
 ```css
 /* Purge TSS v6.2.27
  * Created by César Estrada
@@ -387,7 +387,7 @@ In this example, we are using the [**Bevan and Dancing Script**](https://fonts.g
 
 First, place the `ttf` font files into `./purgetss/fonts/` folder:
 
-// ./purgetss/fonts/
+`./purgetss/fonts/`
 ```bash
 purgetss
 └─ fonts
@@ -401,7 +401,7 @@ purgetss
 
 After running `> purgetss build-fonts` you will have the following classes:
 
-// ./purgetss/styles/fonts.tss
+`./purgetss/styles/fonts.tss`
 ```css
 /* Fonts TSS file generated with Purge TSS
  * https://github.com/macCesar/purgeTSS
@@ -422,7 +422,7 @@ After running `> purgetss build-fonts` you will have the following classes:
 
 For better organization, you can group each font family in subfolders. For example:
 
-// ./purgetss/fonts/
+`./purgetss/fonts/`
 ```bash
 purgetss
 └─ fonts
@@ -448,7 +448,7 @@ By organizing the fonts folder in this way, you will get the same `fonts.tss` fi
 > 
 > For example:
 > 
-> // ./purgetss/fonts/
+> `./purgetss/fonts/`
 ```bash
 > purgetss
 > └─ fonts
@@ -461,7 +461,7 @@ By organizing the fonts folder in this way, you will get the same `fonts.tss` fi
 > 
 > Running `build-fonts` will adjust the class name accordingly:
 > 
-> // ./purgetss/styles/fonts.tss
+> `./purgetss/styles/fonts.tss`
 ```css
 > '.script-bold': { font: { fontFamily: 'DancingScript-Bold' } }
 > '.script-medium': { font: { fontFamily: 'DancingScript-Medium' } }
@@ -476,7 +476,7 @@ You can add **any icon font library** that has either a `.ttf` or `.otf` font fi
 
 In this example, we are using the [**map-icons**](http://map-icons.com) and [**microns**](https://www.s-ings.com/projects/microns-icon-font/) icon font libraries.
 
-// ./purgetss/fonts/
+`./purgetss/fonts/`
 ```bash
 purgetss
 └─ fonts
@@ -495,7 +495,7 @@ purgetss
 > After running `purgetss build-fonts`, you will have all the `fontFamily` class definitions and Unicode characters in `fonts.tss`.
 
 
-// ./purgetss/styles/fonts.tss
+`./purgetss/styles/fonts.tss`
 ```css
 /* Fonts TSS file generated with Purge TSS */
 /* https://github.com/macCesar/purgeTSS */
@@ -539,7 +539,7 @@ To avoid conflicts with other icon libraries that you may be using, **Purge TSS 
 > purgetss bf -m
 ```
 
-// ./app/lib/purgetss.fonts.js
+`./app/lib/purgetss.fonts.js`
 ```javascript
 const icons = {
   // map-icons/map-icons.css
@@ -578,7 +578,7 @@ exports.families = families;
 > 
 > Use the `--prefix` option to apply the style's filename as the prefix for class names in `fonts.tss` and property names in `purgetss.fonts.js`.
 > 
-> // ./purgetss/fonts/
+> `./purgetss/fonts/`
 ```bash
 > purgetss
 > └─ fonts
@@ -590,7 +590,7 @@ exports.families = families;
 >       └─ mc.css
 > ```
 > 
-> // ./purgetss/styles/fonts.tss
+> `./purgetss/styles/fonts.tss`
 ```css
 > /* `fontFamily` classes use the font's filename */
 > '.map': { font: { fontFamily: 'map-icons' } }
@@ -613,7 +613,7 @@ exports.families = families;
 > /* ... */
 > ```
 > 
-> // ./app/lib/purgetss.fonts.js
+> `./app/lib/purgetss.fonts.js`
 ```javascript
 > const icons = {
 >   // map-icons/mp.css
@@ -692,7 +692,7 @@ Basic usage:
 
 The generated color shades will be added to your `config.js` file, which will subsequently generate the `tailwind.tss` file with the newly added colors.
 
-// ./purgetss/config.js
+`./purgetss/config.js`
 ```js
 module.exports = {
   // ...
@@ -841,7 +841,7 @@ This command creates a file named `purgetss.colors.js` in the `lib` folder, whic
 > purgetss cm
 ```
 
-// ./lib/purgetss.colors.js
+`./lib/purgetss.colors.js`
 ```js
 module.exports = {
   harlequin: {

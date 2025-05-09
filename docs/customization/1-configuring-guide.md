@@ -15,7 +15,7 @@ If you need to start with a fresh `config.js` file, you can delete the existing 
 
 This will create a minimal `./purgetss/config.js` file:
 
-// ./purgetss/config.js
+`./purgetss/config.js`
 ```javascript
 module.exports = {
   purge: {
@@ -45,7 +45,7 @@ The config file consists of two main sections: `purge` and `theme`.
 ### `purge` section
 The `purge` section controls how **Purge TSS** will remove unused classes or keep the ones you want.
 
-// The purge section
+`The purge section`
 ```javascript
 module.exports = {
   purge: {
@@ -103,7 +103,7 @@ module.exports = {
 
   If you need to keep a large list of classes and elements, you can create a CommonJS module with an array of all the styles and require it in `config.js` like this:
 
-  // External safelist
+  `External safelist`
 ```javascript
   module.exports = {
     purge: {
@@ -116,7 +116,7 @@ module.exports = {
 
   You should put the safelist inside the `purgetss` folder to keep everything organized:
 
-  // ./purgetss/safelist.js
+  `./purgetss/safelist.js`
 ```javascript
   // ./purgetss/safelist.js
   exports.safelist = [
@@ -145,7 +145,7 @@ module.exports = {
 
   To disable specific classes, provide an array of properties (or plugins) to disable:
 
-  // The plugins section
+  `The plugins section`
 ```javascript
   module.exports = {
     purge: {
@@ -163,7 +163,7 @@ module.exports = {
 
 The `theme` section in `config.js` is where you define and extend your project's color palette, type scale, font stacks, border radius values, and many more properties.
 
-// The theme section
+`The theme section`
 ```javascript
 module.exports = {
   theme: {
@@ -264,7 +264,7 @@ Customize the default color palette for your project.
 
 **Purge TSS** includes Tailwind's default color palette, but you can customize it by configuring your colors under the `colors` key in the `theme` section of your `config.js` file:
 
-// Customizing Colors
+`Customizing Colors`
 ```javascript
 module.exports = {
   theme: {
@@ -279,7 +279,7 @@ module.exports = {
 
 To completely replace the default color palette with your own custom colors, add them directly under the `theme.colors` section of your configuration file:
 
-// Using custom colors
+`Using custom colors`
 ```javascript
 module.exports = {
   theme: {
@@ -304,7 +304,7 @@ By default, these colors will be available everywhere in the framework where you
 
 Colors can be defined as a simple list of key-value pairs or as nested objects. The nested keys are added to the base color name as modifiers.
 
-// Color object syntax
+`Color object syntax`
 ```javascript
 module.exports = {
   theme: {
@@ -339,7 +339,7 @@ If you want to override one of the default colors but preserve the rest, simply 
 
 For example, here we've replaced the default cool grays with a neutral gray palette:
 
-// Overriding a default color
+`Overriding a default color`
 ```javascript
 module.exports = {
   theme: {
@@ -366,7 +366,7 @@ module.exports = {
 ### Extending the default palette
 If you want to extend the default color palette, you can do so using the `theme.extend.colors` section of your `config.js` file.
 
-// Extending the default palette
+`Extending the default palette`
 ```javascript
 module.exports = {
   theme: {
@@ -393,7 +393,7 @@ Customize the default spacing and sizing scale for your project.
 
 The `spacing` section allows you to customize the global spacing and sizing scale values.
 
-// Customizing Spacing
+`Customizing Spacing`
 ```javascript
 module.exports = {
   theme: {
@@ -416,7 +416,7 @@ The `spacing` section is shared by the `padding`, `margin`, `width`, and `height
 
 > **When you include the `spacing` section, Purge TSS will automatically generate all spacing-related properties and merge them with any other spacing-related properties present in the configuration file.**
 
-// Shared spacing
+`Shared spacing`
 ```javascript
 module.exports = {
   theme: {
@@ -467,7 +467,7 @@ module.exports = {
 ### Overriding the default spacing scale
 If you want to override the default spacing scale, you can do so using the `theme.spacing` section of your `config.js` file:
 
-// Overriding the default spacing scale
+`Overriding the default spacing scale`
 ```javascript
 module.exports = {
   theme: {
@@ -486,7 +486,7 @@ This will disable the default spacing scale and generate classes like `p-sm` for
 ### Extending the Default Spacing Scale
 If you want to extend the default spacing scale, you can do so using the `theme.extend.spacing` section of your `config.js` file:
 
-// Extending the default spacing scale
+`Extending the default spacing scale`
 ```javascript
 module.exports = {
   theme: {

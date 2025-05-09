@@ -14,7 +14,7 @@
 
 ## Set Any ID, Class, or Ti Element
 
-// ./purgetss/config.js
+`./purgetss/config.js`
 ```javascript
 // ...
 theme: {
@@ -38,7 +38,7 @@ theme: {
 // ...
 ```
 
-// ./purgetss/styles/tailwind.tss
+`./purgetss/styles/tailwind.tss`
 ```css
 'Label': { color: '#374151', textColor: '#374151', font: { fontSize: 16, fontWeight: 'bold' } }
 
@@ -51,7 +51,7 @@ theme: {
 
 ## Use Any of the Default Classes
 
-// ./purgetss/config.js
+`./purgetss/config.js`
 ```javascript
 // ...
 theme: {
@@ -65,7 +65,7 @@ theme: {
 // ...
 ```
 
-// ./purgetss/styles/tailwind.tss
+`./purgetss/styles/tailwind.tss`
 ```css
 /* Custom Classes */
 '.btn': { borderRadius: 4, borderWidth: 2, top: 2, bottom: 2, width: Ti.UI.SIZE, height: Ti.UI.SIZE, font: { fontFamily: 'SairaCondensed-Regular', fontWeight: 'bold' } }
@@ -76,7 +76,7 @@ theme: {
 
 You can use [**Arbitrary Values**](arbitrary-values) to define your custom classes.
 
-// ./purgetss/config.js
+`./purgetss/config.js`
 ```javascript
 // ...
 theme: {
@@ -88,7 +88,7 @@ theme: {
 // ...
 ```
 
-// ./purgetss/styles/tailwind.tss
+`./purgetss/styles/tailwind.tss`
 ```css
 /* Custom Classes */
 '.progress': { backgroundColor: '#e9ecef', borderRadius: 4, height: 16, layout: 'horizontal', font: { fontSize: 12 } }
@@ -121,7 +121,7 @@ theme: {
 // ...
 ```
 
-// ./purgetss/styles/tailwind.tss
+`./purgetss/styles/tailwind.tss`
 ```css
 /* Custom Classes */
 '.btn': { borderRadius: 4, borderWidth: 2, top: 2, bottom: 2, width: Ti.UI.SIZE, height: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
@@ -170,7 +170,7 @@ theme: {
 // ...
 ```
 
-// ./purgetss/styles/tailwind.tss
+`./purgetss/styles/tailwind.tss`
 ```css
 /* Custom Classes */
 '.btn': { borderRadius: 4, borderWidth: 2, top: 2, bottom: 2, width: Ti.UI.SIZE, height: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
@@ -180,7 +180,7 @@ theme: {
 
 ## Combine with Any Platform, Device, or Conditional-Block Properties
 
-// ./purgetss/config.js
+`./purgetss/config.js`
 ```javascript
 // ...
 theme: {
@@ -207,7 +207,7 @@ theme: {
 // ...
 ```
 
-// ./purgetss/styles/tailwind.tss
+`./purgetss/styles/tailwind.tss`
 ```css
 /* Custom Classes */
 '.btn': { borderRadius: 4, borderWidth: 2, top: 2, bottom: 2, width: Ti.UI.SIZE, height: Ti.UI.SIZE, font: { fontWeight: 'bold' } }
@@ -243,7 +243,7 @@ module.exports = {
 };
 ```
 
-// ./purgetss/styles/tailwind.tss
+`./purgetss/styles/tailwind.tss`
 ```css
 /* Custom Classes */
 '.my-view[platform=ios]': { backgroundColor: '#22c55e', clipMode: Ti.UI.iOS.CLIP_MODE_ENABLED, width: 128, height: 128 }
@@ -265,7 +265,7 @@ module.exports = {
 };
 ```
 
-// ./purgetss/styles/tailwind.tss
+`./purgetss/styles/tailwind.tss`
 ```css
 /* Omitting the platform variant in `config.js` will not generate the corresponding property. */
 /* Missing the property related to `clip-enabled`. */

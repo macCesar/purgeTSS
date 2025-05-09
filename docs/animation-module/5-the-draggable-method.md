@@ -16,7 +16,7 @@ $.draggableAnimation.draggable('A View or an array of Views')
 
 
 ### Draggable Example
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false">
@@ -33,7 +33,7 @@ $.draggableAnimation.draggable('A View or an array of Views')
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 $.index.open()
 
@@ -57,7 +57,7 @@ $.draggableAnimation.draggable([$.red, $.green, $.blue])
 
 
 ### Drag & Drop Example
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false">
@@ -85,7 +85,7 @@ $.draggableAnimation.draggable([$.red, $.green, $.blue])
 ## `draggingType` Property
 To control how `drag:` and `drop:` modifiers are applied, you can use either the `drag-animate` (default) or `drag-apply` class. The `drag-animate` class will animate the properties, while the `drag-apply` class will apply them immediately.
 
-// tailwind.tss
+`tailwind.tss`
 ```css
 /* Component(s): For the Animation Component */
 /* Property(ies): draggingType */
@@ -96,7 +96,7 @@ To control how `drag:` and `drop:` modifiers are applied, you can use either the
 ### Dragging Type Example
 In the following example, the `Animation` element sets the global dragging type to `drag-apply`, but the green square overwrites it to `drag-animate`.
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false">
@@ -129,7 +129,7 @@ In the following example, the `Animation` element sets the global dragging type 
 ### Bounds Example 1
 The `card` view has a boundary of `m-4` and a bottom boundary of `mb-16`.
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false bg-green-50">
@@ -153,7 +153,7 @@ The `card` view has a boundary of `m-4` and a bottom boundary of `mb-16`.
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 $.index.open()
 
@@ -169,7 +169,7 @@ In this example, the boundaries are set globally in the `draggableAnimation` vie
 
 Every card view will use these global values.
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false bg-green-50">
@@ -215,7 +215,7 @@ Every card view will use these global values.
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 $.index.open()
 
@@ -239,7 +239,7 @@ To add a vertical and horizontal constraint to any `dragging` element, set the `
 ### Constraint Example
 In this example, the `card` view will move only from side to side.
 
-// index.xml
+`index.xml`
 ```xml
 <Alloy>
   <Window class="keep-screen-on exit-on-close-false">
@@ -259,7 +259,7 @@ In this example, the `card` view will move only from side to side.
 </Alloy>
 ```
 
-// index.js
+`index.js`
 ```javascript
 $.index.open()
 
