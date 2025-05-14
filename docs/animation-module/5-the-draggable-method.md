@@ -21,6 +21,8 @@ $.draggableAnimation.draggable('A View or an array of Views')
 `index.xml`
 ```xml
 <Alloy>
+  <Animation module="purgetss.ui" id="draggableAnimation" />
+
   <Window class="keep-screen-on exit-on-close-false">
     <Label text="Draggable Example" class="mt-16 text-center" />
 
@@ -30,8 +32,6 @@ $.draggableAnimation.draggable('A View or an array of Views')
 
     <View id="blue" class="ml-16 h-32 w-32 rounded-lg bg-blue-500" />
   </Window>
-
-  <Animation id="draggableAnimation" module="purgetss.ui" />
 </Alloy>
 ```
 
@@ -62,6 +62,9 @@ $.draggableAnimation.draggable([$.red, $.green, $.blue])
 `index.xml`
 ```xml
 <Alloy>
+  <!-- Global set of modifiers -->
+  <Animation id="draggableAnimation" module="purgetss.ui" class="drag:duration-100 drag:opacity-50 drop:opacity-100" />
+
   <Window class="keep-screen-on exit-on-close-false">
     <Label text="Global Modifiers:\ndrag:duration-100 drag:opacity-50 drop:opacity-100" class="mt-16 text-center" />
 
@@ -73,9 +76,6 @@ $.draggableAnimation.draggable([$.red, $.green, $.blue])
 
     <!-- drag:opacity-25 -->
     <Label id="blue" class="drag:opacity-25 ml-16 h-32 w-32 rounded-lg bg-blue-500 text-center text-xs text-white" text="drag:opacity-25" />
-
-    <!-- Global set of modifiers -->
-    <Animation id="draggableAnimation" module="purgetss.ui" class="drag:duration-100 drag:opacity-50 drop:opacity-100" />
   </Window>
 </Alloy>
 ```
@@ -101,6 +101,9 @@ In the following example, the `Animation` element sets the global dragging type 
 `index.xml`
 ```xml
 <Alloy>
+  <!-- Global set of modifiers -->
+  <Animation id="draggableAnimation" module="purgetss.ui" class="drag-apply drag:duration-500 drag:opacity-50 drop:opacity-100" />
+
   <Window class="keep-screen-on exit-on-close-false">
     <Label text="draggingType Example:\ndrag-apply drag:duration-500 drag:opacity-50 drop:opacity-100" class="mt-16 text-center" />
 
@@ -112,9 +115,6 @@ In the following example, the `Animation` element sets the global dragging type 
 
     <!-- drag:opacity-25 -->
     <Label id="blue" class="drag:opacity-25 ml-16 h-32 w-32 rounded-lg bg-blue-500 text-center text-xs text-white" text="drag:opacity-25" />
-
-    <!-- Global set of modifiers -->
-    <Animation id="draggableAnimation" module="purgetss.ui" class="drag-apply drag:duration-500 drag:opacity-50 drop:opacity-100" />
   </Window>
 </Alloy>
 ```
@@ -134,6 +134,8 @@ The `card` view has a boundary of `m-4` and a bottom boundary of `mb-16`.
 `index.xml`
 ```xml
 <Alloy>
+  <Animation id="draggableAnimation" module="purgetss.ui" />
+
   <Window class="keep-screen-on exit-on-close-false bg-green-50">
     <View class="mx-6 mb-6 mt-10 h-screen w-screen rounded-lg bg-green-200">
       <View id="card" class="bounds:m-2 bounds:mb-16 mt-8 h-24 w-64 shadow-lg">
@@ -149,8 +151,6 @@ The `card` view has a boundary of `m-4` and a bottom boundary of `mb-16`.
 
       <Label class="bg-(#80000000) mx-2 mb-2 h-12 w-screen rounded-lg text-center text-white" text="Some Element..." />
     </View>
-
-    <Animation id="draggableAnimation" module="purgetss.ui" />
   </Window>
 </Alloy>
 ```
@@ -174,6 +174,8 @@ Every card view will use these global values.
 `index.xml`
 ```xml
 <Alloy>
+  <Animation id="draggableAnimation" module="purgetss.ui" class="bounds:m-2 bounds:mb-16" />
+
   <Window class="keep-screen-on exit-on-close-false bg-green-50">
     <View class="wh-screen mx-6 mb-6 mt-10 rounded-lg bg-green-200">
       <View id="card" class="mt-8 h-24 w-64 shadow-lg">
@@ -211,8 +213,6 @@ Every card view will use these global values.
 
       <Label class="bg-(#80000000) mx-2 mb-2 h-12 w-screen rounded-lg text-center text-white" text="Some Element..." />
     </View>
-
-    <Animation id="draggableAnimation" module="purgetss.ui" class="bounds:m-2 bounds:mb-16" />
   </Window>
 </Alloy>
 ```
@@ -244,6 +244,8 @@ In this example, the `card` view will move only from side to side.
 `index.xml`
 ```xml
 <Alloy>
+  <Animation id="draggableAnimation" module="purgetss.ui" />
+
   <Window class="keep-screen-on exit-on-close-false">
     <View id="card" class="horizontal-constraint h-24 w-64 shadow-lg">
       <View id="cardInside" class="w-screen rounded-lg border-2 border-purple-700 bg-white">
@@ -255,8 +257,6 @@ In this example, the `card` view will move only from side to side.
         </View>
       </View>
     </View>
-
-    <Animation id="draggableAnimation" module="purgetss.ui" />
   </Window>
 </Alloy>
 ```
