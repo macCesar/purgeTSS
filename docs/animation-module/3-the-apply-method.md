@@ -13,10 +13,10 @@ The `apply` method sets the properties instantly. In this example, the `Scrollab
 `index.xml`
 ```xml
 <Alloy>
-  <Animation module="purgetss.ui" id="rotate" class="platform-wh-inverted rotate-90" />
-  <Animation module="purgetss.ui" id="counterRotate" class="platform-wh -rotate-90" />
-
   <Window class="exit-on-close-false keep-screen-on">
+    <Animation module="purgetss.ui" id="rotate" class="platform-wh-inverted rotate-90" />
+    <Animation module="purgetss.ui" id="counterRotate" class="platform-wh -rotate-90" />
+
     <ScrollableView id="scrollableView" class="overlay-enabled disable-bounce paging-control-alpha-100 scrolling-enabled show-paging-control paging-control-h-14 paging-control-on-top-false paging-control-transparent page-indicator-(rgba(0,0,0,0.24)) current-page-indicator-(rgba(0,0,0,1))">
       <View class="bg-blue-500">
         <Label class="text-center" text="View's Content" />

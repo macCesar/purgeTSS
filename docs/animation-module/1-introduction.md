@@ -56,9 +56,7 @@ Use the **`purgetss module`** command to install the module in the `lib` folder.
 This is the most basic `Animation` object, equipped with a set of **Purge TSS** classes to animate any element. You can create as many `Animation` objects as you want, each with different properties to animate.
 
 ```xml
-<Alloy>
-  <Animation id="myAnimation" module="purgetss.ui" class="a-set-of-purgetss-classes-and-modifiers" />
-</Alloy>
+<Animation id="myAnimation" module="purgetss.ui" class="a-set-of-purgetss-classes-and-modifiers" />
 ```
 
 **You can set any position, size, colors, transformation, and opacity classes from `tailwind.tss`.**

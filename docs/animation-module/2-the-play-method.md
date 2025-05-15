@@ -13,9 +13,9 @@ Create an Animation element and the view you want to animate, and set the desire
 `index.xml`
 ```xml
 <Alloy>
-  <Animation module="purgetss.ui" id="myAnimation" class="wh-32 bg-green-500 duration-1000" />
-
   <Window>
+    <Animation module="purgetss.ui" id="myAnimation" class="wh-32 bg-green-500 duration-1000" />
+
     <View id="square" class="wh-16 bg-blue-500" />
   </Window>
 </Alloy>
@@ -45,12 +45,12 @@ You can create more complex animations by combining properties for different `st
 `index.xml`
 ```xml
 <Alloy>
-  <Animation id="changeWidth" class="close:w-28 debug open:w-11/12" module="purgetss.ui" />
-  <Animation id="changeColor" class="close:bg-blue-700 debug open:bg-purple-500" module="purgetss.ui" />
-  <Animation id="changeTransparency" class="close:duration-300 open:mt-(null) close:mt-8 open:h-11/12 close:w-14 close:h-14 close:opacity-100 open:w-10/12 open:opacity-50 open:duration-150" module="purgetss.ui" />
-  <Animation id="changeRetweet" class="close:duration-150 close:-mb-52 open:-mb-16 open:duration-200" module="purgetss.ui" />
-
   <Window class="keep-screen-on">
+    <Animation id="changeWidth" class="close:w-28 debug open:w-11/12" module="purgetss.ui" />
+    <Animation id="changeColor" class="close:bg-blue-700 debug open:bg-purple-500" module="purgetss.ui" />
+    <Animation id="changeTransparency" class="close:duration-300 open:mt-(null) close:mt-8 open:h-11/12 close:w-14 close:h-14 close:opacity-100 open:w-10/12 open:opacity-50 open:duration-150" module="purgetss.ui" />
+    <Animation id="changeRetweet" class="close:duration-150 close:-mb-52 open:-mb-16 open:duration-200" module="purgetss.ui" />
+
     <View class="vertical">
       <Button class="ios:mt-16 mt-1 w-48 rounded bg-purple-500 text-purple-50" onClick="squaresFn" title="3 Squares" />
       <Button class="mt-2 w-48 rounded bg-purple-500 text-purple-50" onClick="toggleFn" title="Toggle Colors" />
@@ -118,10 +118,10 @@ For example, in the following code, the `open` animation reduces the children of
 `index.xml`
 ```xml
 <Alloy>
-  <Animation module="purgetss.ui" id="myAnimationReset" class="bg-transparent" />
-  <Animation module="purgetss.ui" id="myAnimationOpen" class="open:scale-1 complete:bg-(#008800) complete:scale-100" />
-
   <Window title="App Wordle" class="bg-(#181e2d)">
+    <Animation module="purgetss.ui" id="myAnimationReset" class="bg-transparent" />
+    <Animation module="purgetss.ui" id="myAnimationOpen" class="open:scale-1 complete:bg-(#008800) complete:scale-100" />
+
     <View class="vertical">
       <View id="letters" class="horizontal">
         <Label class="wh-10 mx-1 rounded border-white bg-transparent text-center text-white" text="T" />

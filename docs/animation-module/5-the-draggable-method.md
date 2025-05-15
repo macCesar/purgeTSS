@@ -21,9 +21,9 @@ $.draggableAnimation.draggable('A View or an array of Views')
 `index.xml`
 ```xml
 <Alloy>
-  <Animation module="purgetss.ui" id="draggableAnimation" />
-
   <Window class="keep-screen-on exit-on-close-false">
+    <Animation module="purgetss.ui" id="draggableAnimation" />
+
     <Label text="Draggable Example" class="mt-16 text-center" />
 
     <View id="red" class="ml-4 h-32 w-32 rounded-lg bg-red-500" />
@@ -62,10 +62,10 @@ $.draggableAnimation.draggable([$.red, $.green, $.blue])
 `index.xml`
 ```xml
 <Alloy>
-  <!-- Global set of modifiers -->
-  <Animation id="draggableAnimation" module="purgetss.ui" class="drag:duration-100 drag:opacity-50 drop:opacity-100" />
-
   <Window class="keep-screen-on exit-on-close-false">
+    <!-- Global set of modifiers -->
+    <Animation id="draggableAnimation" module="purgetss.ui" class="drag:duration-100 drag:opacity-50 drop:opacity-100" />
+
     <Label text="Global Modifiers:\ndrag:duration-100 drag:opacity-50 drop:opacity-100" class="mt-16 text-center" />
 
     <!-- No local modifiers -->
@@ -101,10 +101,10 @@ In the following example, the `Animation` element sets the global dragging type 
 `index.xml`
 ```xml
 <Alloy>
-  <!-- Global set of modifiers -->
-  <Animation id="draggableAnimation" module="purgetss.ui" class="drag-apply drag:duration-500 drag:opacity-50 drop:opacity-100" />
-
   <Window class="keep-screen-on exit-on-close-false">
+    <!-- Global set of modifiers -->
+    <Animation id="draggableAnimation" module="purgetss.ui" class="drag-apply drag:duration-500 drag:opacity-50 drop:opacity-100" />
+
     <Label text="draggingType Example:\ndrag-apply drag:duration-500 drag:opacity-50 drop:opacity-100" class="mt-16 text-center" />
 
     <!-- No local modifiers, will be using the global modifiers -->
@@ -134,9 +134,9 @@ The `card` view has a boundary of `m-4` and a bottom boundary of `mb-16`.
 `index.xml`
 ```xml
 <Alloy>
-  <Animation id="draggableAnimation" module="purgetss.ui" />
-
   <Window class="keep-screen-on exit-on-close-false bg-green-50">
+    <Animation id="draggableAnimation" module="purgetss.ui" />
+
     <View class="mx-6 mb-6 mt-10 h-screen w-screen rounded-lg bg-green-200">
       <View id="card" class="bounds:m-2 bounds:mb-16 mt-8 h-24 w-64 shadow-lg">
         <View id="cardInside" class="w-screen rounded-lg border-2 border-purple-700 bg-white">
@@ -174,9 +174,9 @@ Every card view will use these global values.
 `index.xml`
 ```xml
 <Alloy>
-  <Animation id="draggableAnimation" module="purgetss.ui" class="bounds:m-2 bounds:mb-16" />
-
   <Window class="keep-screen-on exit-on-close-false bg-green-50">
+    <Animation id="draggableAnimation" module="purgetss.ui" class="bounds:m-2 bounds:mb-16" />
+
     <View class="wh-screen mx-6 mb-6 mt-10 rounded-lg bg-green-200">
       <View id="card" class="mt-8 h-24 w-64 shadow-lg">
         <View id="cardInside" class="w-screen rounded-lg border-2 border-purple-700 bg-white">
@@ -244,9 +244,9 @@ In this example, the `card` view will move only from side to side.
 `index.xml`
 ```xml
 <Alloy>
-  <Animation id="draggableAnimation" module="purgetss.ui" />
-
   <Window class="keep-screen-on exit-on-close-false">
+    <Animation id="draggableAnimation" module="purgetss.ui" />
+
     <View id="card" class="horizontal-constraint h-24 w-64 shadow-lg">
       <View id="cardInside" class="w-screen rounded-lg border-2 border-purple-700 bg-white">
         <ImageView id="theImage" class="rounded-16 wh-16 m-4 ml-4" image="https://randomuser.me/api/portraits/women/17.jpg" />

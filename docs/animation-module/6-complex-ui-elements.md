@@ -13,9 +13,9 @@ And copy the following code:
 `index.xml`
 ```xml
 <Alloy>
-  <Animation id="draggableAnimation" module="purgetss.ui" class="bounds:m-4 bounds:mb-20" />
-
   <Window class="exit-on-close-false portrait bg-purple-700">
+    <Animation id="draggableAnimation" module="purgetss.ui" class="bounds:m-4 bounds:mb-20" />
+
     <!-- Sidebar -->
     <Animation id="sideBarAnimation" module="purgetss.ui" class="close:w-24 duration-150 open:w-72" />
     <Animation id="sideBarAnimationChevron" module="purgetss.ui" class="close:rotate-0 duration-150 open:rotate-180" />
