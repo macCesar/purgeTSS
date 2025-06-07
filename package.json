@@ -6,6 +6,19 @@
   "bin": {
     "purgetss": "bin/purgetss"
   },
+  "files": [
+    "bin/",
+    "lib/",
+    "LICENSE",
+    "index.js",
+    "README.md",
+    "dist/*.js",
+    "dist/*.tss",
+    "dist/configs/",
+    "assets/fonts/",
+    "experimental/completions.js",
+    "experimental/completions2.js"
+  ],
   "publishConfig": {
     "access": "public"
   },

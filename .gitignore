@@ -2,5 +2,5 @@
 tailwind-auto/
 # Dependency directories
 node_modules/
-
+dev/
 # Core components

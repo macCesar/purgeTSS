@@ -208,5 +208,28 @@ program
     })
   })
 
+// Validate arguments before parsing
+const args = process.argv.slice(2)
+if (args.length > 0) {
+  const validCommands = ['init', 'i', 'create', 'c', 'install-dependencies', 'id', 'build', 'b', 'build-legacy', 'bl', 'shades', 's', 'color-module', 'cm', 'watch', 'w', 'copy-fonts', 'cf', 'icon-library', 'il', 'build-fonts', 'bf', 'module', 'm', 'update', 'u', 'sudo-update', 'su']
+  const validFlags = ['-d', '--debug', '-a', '--all', '-h', '--help', '-V', '--version']
+
+  const firstArg = args[0]
+
+  // Check if it's an unknown flag (starts with - but not in valid flags)
+  if (firstArg.startsWith('-') && !validFlags.includes(firstArg)) {
+    console.log(chalk.red(`\nUnknown option: ${firstArg}`))
+    console.log(chalk.yellow('\nFor help, run: purgetss -h'))
+    process.exit(1)
+  }
+
+  // Check if it's an unknown command (doesn't start with - and not in valid commands)
+  if (!firstArg.startsWith('-') && !validCommands.includes(firstArg)) {
+    console.log(chalk.red(`\nUnknown command: ${firstArg}`))
+    console.log(chalk.yellow('\nFor help, run: purgetss -h'))
+    process.exit(1)
+  }
+}
+
 program
   .parse(process.argv)
