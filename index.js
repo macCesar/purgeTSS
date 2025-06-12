@@ -531,8 +531,8 @@ function createProject(workspace, argsName, projectID, options) {
   const commandExistsSync = require('command-exists').sync
 
   logger.info('Creating a new Titanium project')
-  execSync(`ti create -t app -p all -n ${projectName} --no-prompt --id ${projectID}`)
-  execSync(`cd ${projectDirectory} && alloy new && purgetss w && purgetss b`)
+  execSync(`ti create -n ${projectName} -t app -p all --alloy --no-prompt --id ${projectID}`)
+  execSync(`cd ${projectDirectory} && purgetss w && purgetss b`)
 
   if (options.vendor) {
     logger.info('Installing Fonts')
