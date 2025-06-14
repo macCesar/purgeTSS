@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://codigomovil.mx/images/logotipo-purgetss-gris.svg" height="230" width="230" alt="PurgeCSS logo"/>
+  <img src="https://codigomovil.mx/images/logotipo-purgetss-gris.svg" height="230" width="230" alt="PurgeCSS logo"/>
 </p>
 
 <div align="center">
@@ -11,6 +11,36 @@
 </div>
 
 **Purge TSS** is a toolkit designed to enhance the development of mobile applications using the **[Titanium framework](https://titaniumsdk.com)**. It introduces several key features to streamline the app development process, making it simpler and more efficient for developers.
+
+## 🚀 What's New in v7.0.0-alpha
+
+**Major ESM Migration**: PurgeTSS v7 has been completely migrated to **ES Modules (ESM)** for better performance, modern JavaScript support, and compatibility with the latest dependencies.
+
+### ⚠️ Breaking Changes
+
+- **Node.js 16+** required (ESM support)
+- **Removed deprecated commands**:
+  - `copy-fonts` (use `icon-library` instead)
+  - `build-legacy` (legacy Tailwind build removed)
+- **Updated dependencies** to latest ESM versions (chalk v5+, etc.)
+
+### ✅ What's Maintained
+
+- **100% API compatibility** - All existing commands work the same
+- **Same configuration files** - Your `config.js` files work unchanged
+- **Same CLI interface** - All commands and options preserved
+- **CommonJS config support** - User configuration files remain CommonJS
+
+### 🔧 Migration Guide
+
+For most users, upgrading is seamless:
+```bash
+npm install -g purgetss@7.0.0-alpha.1
+```
+
+Only requirement: **Node.js 16 or higher**
+
+---
 
 It offers a range of tools such as customizable utility classes, support for icon fonts, a user-friendly Animation module, a straightforward grid system, and the added convenience of the `shades` command for crafting personalized colors.
 
@@ -40,8 +70,15 @@ Overall, Purge TSS aims to simplify the mobile app development process, offering
 
 ### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more.
 
+## Requirements
+
+- **Node.js 16+** (required for ESM support)
+- **Titanium SDK** (any recent version)
+- **Alloy Framework** (for most commands)
+
 ## Table of Content
 
+- [What's New in v7](#-whats-new-in-v700-alpha)
 - [Installation](https://purgetss.com/docs/installation)
 - [Commands](https://purgetss.com/docs/commands)
 - Customization

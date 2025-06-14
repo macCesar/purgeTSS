@@ -1,12 +1,21 @@
-'use_strick'
+/**
+ * Completions2 - ESM Migration v7
+ * Migrated from v6 with identical functionality
+ */
 let saveGlossary = false
-const fs = require('fs')
-const cwd = process.cwd()
-const _ = require('lodash')
-const path = require('path')
-const chalk = require('chalk')
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
+import _ from 'lodash';
+import chalk from 'chalk';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const require = createRequire(import.meta.url);
+const cwd = process.cwd();
 const colores = require('../lib/colores').colores
-module.exports.colores = colores
+export { colores };
 const purgeLabel = colores.purgeLabel
 
 const projectsConfigJS = cwd + '/purgetss/config.js'
@@ -20,7 +29,7 @@ const logger = {
 
 const helpers = require('../lib/helpers')
 const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json')
-const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js')
+const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js.cjs')
 
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile)
 configFile.purge = configFile.purge ?? { mode: 'all' }
@@ -60,7 +69,7 @@ function autoBuildTailwindTSS(options = {}) {
     logger.file('./dist/tailwind.tss')
   }
 }
-exports.autoBuildTailwindTSS = autoBuildTailwindTSS
+export { autoBuildTailwindTSS };
 
 function processCustomClasses() {
   let tailwindStyles = ''
