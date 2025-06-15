@@ -7,35 +7,35 @@
  * Main entry point - migrated from v6 maintaining full compatibility
  */
 
-import fs from 'fs';
-import path from 'path';
-import util from 'util';
-import { fileURLToPath } from 'url';
-import { createRequire } from 'module';
-import _ from 'lodash';
-import { isNotJunk } from 'junk';
-import glob from 'glob';
-import chalk from 'chalk';
-import convert from 'xml-js';
-import readCSS from 'read-css';
-import traverse from 'traverse';
-import inquirer from 'inquirer';
-import FontName from 'fontname';
-import commandExists from 'command-exists';
-import { exec, execSync } from 'child_process';
-import defaultColors from 'tailwindcss/colors.js';
-import defaultTheme from 'tailwindcss/defaultTheme.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const require = createRequire(import.meta.url);
-const cwd = process.cwd();
+import fs from 'fs'
+import path from 'path'
+import util from 'util'
+import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
+import _ from 'lodash'
+import { isNotJunk } from 'junk'
+import glob from 'glob'
+import chalk from 'chalk'
+import convert from 'xml-js'
+import readCSS from 'read-css'
+import traverse from 'traverse'
+import inquirer from 'inquirer'
+import FontName from 'fontname'
+import commandExists, { sync as commandExistsSync } from 'command-exists'
+import { exec, execSync } from 'child_process'
+import defaultColors from 'tailwindcss/colors.js'
+import defaultTheme from 'tailwindcss/defaultTheme.js'
 
 // Import local modules
-import * as helpers from '../lib/helpers.js';
-import { colores } from '../lib/colores.js';
-import { autoBuildTailwindTSS } from '../experimental/completions2.js';
-export { colores };
+import * as helpers from '../lib/helpers.js'
+import { colores } from '../lib/colores.js'
+import { autoBuildTailwindTSS } from '../experimental/completions2.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const require = createRequire(import.meta.url)
+const cwd = process.cwd()
+export { colores }
 
 /* eslint-disable no-useless-escape */
 /* eslint-disable space-before-function-paren */
@@ -165,11 +165,11 @@ function getCommands() {
   let methodCommand
   let oppositeCommand
   if (configFile.purge.method === 'sync' || configFile.purge.method === '') {
-    oppositeCommand = "require('child_process').exec('purgetss"
-    methodCommand = "\trequire('child_process').execSync('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));"
+    oppositeCommand = 'require(\'child_process\').exec(\'purgetss'
+    methodCommand = '\trequire(\'child_process\').execSync(\'purgetss\', logger.warn(\'::PurgeTSS:: Auto-Purging \' + event.dir.project));'
   } else {
-    oppositeCommand = "require('child_process').execSync('purgetss"
-    methodCommand = "\trequire('child_process').exec('purgetss', logger.warn('::PurgeTSS:: Auto-Purging ' + event.dir.project));"
+    oppositeCommand = 'require(\'child_process\').execSync(\'purgetss'
+    methodCommand = '\trequire(\'child_process\').exec(\'purgetss\', logger.warn(\'::PurgeTSS:: Auto-Purging \' + event.dir.project));'
   }
   return { methodCommand, oppositeCommand }
 }
@@ -224,11 +224,11 @@ function purgeClasses(options) {
 function init(options) {
   // Check if we're in an Alloy project first
   if (!alloyProject()) {
-    return false;
+    return false
   }
 
   // Get commands when needed
-  const { methodCommand, oppositeCommand } = getCommands();
+  const { methodCommand, oppositeCommand } = getCommands()
 
   // config file
   if (!fs.existsSync(projectsConfigJS)) {
@@ -284,7 +284,7 @@ function watchMode(options) {
   if (alloyProject()) {
     if (fs.existsSync(projectsAlloyJMKFile)) {
       // Get commands when needed
-      const { methodCommand } = getCommands();
+      const { methodCommand } = getCommands()
 
       // ! TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
       if (options.off) {
@@ -299,7 +299,7 @@ function watchMode(options) {
         logger.warn(chalk.yellow('Auto-Purging hook already present!'))
       }
     } else if (!options.off) {
-      const { methodCommand } = getCommands();
+      const { methodCommand } = getCommands()
       createJMKFile(methodCommand)
     }
   }
@@ -472,17 +472,17 @@ function create(args, options) {
       logger.info('You must have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a project with', chalk.green('`Purge TSS`'))
       console.log('')
       logger.info('Please, set them like this:')
-      logger.info(chalk.green('ti config app.idprefix'), chalk.yellow("'com.your.reverse.domain'"))
-      logger.info(chalk.green('ti config app.workspace'), chalk.yellow("'path/to/your/workspace'"))
+      logger.info(chalk.green('ti config app.idprefix'), chalk.yellow('\'com.your.reverse.domain\''))
+      logger.info(chalk.green('ti config app.workspace'), chalk.yellow('\'path/to/your/workspace\''))
     }
   })
 }
 
 // ! Command: shades
 async function shades(args, options) {
-  const chroma = (await import('chroma-js')).default;
-  const referenceColorFamilies = (await import('../lib/color-shades/tailwindColors.js')).default;
-  const generateColorShades = (await import('../lib/color-shades/generateColorShades.js')).default;
+  const chroma = (await import('chroma-js')).default
+  const referenceColorFamilies = (await import('../lib/color-shades/tailwindColors.js')).default
+  const generateColorShades = (await import('../lib/color-shades/generateColorShades.js')).default
 
   const colorFamily = (options.random || !args.hexcode) ? generateColorShades(chroma.random(), referenceColorFamilies) : generateColorShades(args.hexcode, referenceColorFamilies)
 
@@ -2958,4 +2958,4 @@ export {
   copyModulesLibrary,
   colorModule,
   buildFonts
-};
+}

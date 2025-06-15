@@ -2,20 +2,20 @@
  * Completions2 - ESM Migration v7
  * Migrated from v6 with identical functionality
  */
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
+import _ from 'lodash'
+import chalk from 'chalk'
 let saveGlossary = false
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { createRequire } from 'module';
-import _ from 'lodash';
-import chalk from 'chalk';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const require = createRequire(import.meta.url);
-const cwd = process.cwd();
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const require = createRequire(import.meta.url)
+const cwd = process.cwd()
 const colores = require('../lib/colores').colores
-export { colores };
+export { colores }
 const purgeLabel = colores.purgeLabel
 
 const projectsConfigJS = cwd + '/purgetss/config.js'
@@ -69,7 +69,7 @@ function autoBuildTailwindTSS(options = {}) {
     logger.file('./dist/tailwind.tss')
   }
 }
-export { autoBuildTailwindTSS };
+export { autoBuildTailwindTSS }
 
 function processCustomClasses() {
   let tailwindStyles = ''

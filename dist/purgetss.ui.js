@@ -169,7 +169,7 @@ function Animation(args = {}) {
 
     if (params.isIOS) {
       const { x, y } = calculateTranslation(draggableView, draggableView.parent.rect, left, top)
-      draggableView.applyProperties({ duration: 0, transform: Ti.UI.createMatrix2D().translate(x, y) });
+      draggableView.applyProperties({ duration: 0, transform: Ti.UI.createMatrix2D().translate(x, y) })
     } else {
       draggableView.animate(Ti.UI.createAnimation({ top, left, duration: 0 }))
     }
