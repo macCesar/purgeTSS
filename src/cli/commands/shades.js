@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /**
  * PurgeTSS v7.1 - Shades Commands
  *
@@ -62,19 +63,113 @@ export function checkIfColorModule() {
 }
 
 /**
- * Main shades command (placeholder for now)
- * This will be implemented when extracting the full shades functionality
+ * Main shades command - generates color shades from hex codes
+ * Maintains exact same logic as original shades() function
  *
- * @param {Array} args - Command arguments
+ * @param {Object} args - Command arguments
+ * @param {string} args.hexcode - Hex color code
+ * @param {string} args.name - Color name
  * @param {Object} options - Command options
+ * @param {boolean} options.random - Generate random color
+ * @param {string} options.name - Color name from options
+ * @param {boolean} options.override - Override existing colors
+ * @param {boolean} options.tailwind - Tailwind output format
+ * @param {boolean} options.json - JSON output format
+ * @param {boolean} options.log - Log output
+ * @param {boolean} options.quotes - Use quotes in output
+ * @param {boolean} options.single - Single color format
  * @returns {Promise<boolean>} Success status
  */
 export async function shades(args, options) {
-  // TODO: Implement full shades functionality
-  // This function is complex and will need color-shades utilities
-  logger.warn('Shades command not yet implemented in refactored version')
-  return false
+  const chroma = (await import('chroma-js')).default
+  const referenceColorFamilies = (await import('../../../lib/color-shades/tailwindColors.js')).default
+  const generateColorShades = (await import('../../../lib/color-shades/generateColorShades.js')).default
+
+  const colorFamily = (options.random || !args.hexcode)
+    ? generateColorShades(chroma.random(), referenceColorFamilies)
+    : generateColorShades(args.hexcode, referenceColorFamilies)
+
+  if (args.name) colorFamily.name = args.name
+  else if (options.name) colorFamily.name = options.name
+
+  colorFamily.name = colorFamily.name.replace(/'/g, '').replace(/\//g, '').replace(/\s+/g, ' ')
+
+  const colorObject = createColorObject(colorFamily, colorFamily.hexcode, options)
+
+  const silent = options.tailwind || options.json || options.log
+  if (alloyProject(silent) && !silent) {
+    // This functionality requires access to configFile which needs to be imported
+    // TODO: Complete this when config-manager is fully implemented
+
+    if (options.override) {
+      if (!configFile.theme.colors) configFile.theme.colors = {}
+      configFile.theme.colors[colorObject.name] = colorObject.shades
+
+      if (configFile.theme.extend.colors) {
+        if (configFile.theme.extend.colors[colorObject.name]) delete configFile.theme.extend.colors[colorObject.name]
+        if (Object.keys(configFile.theme.extend.colors).length === 0) delete configFile.theme.extend.colors
+      }
+    } else {
+      if (!configFile.theme.extend.colors) configFile.theme.extend.colors = {}
+      configFile.theme.extend.colors[colorObject.name] = colorObject.shades
+
+      if (configFile.theme.colors) {
+        if (configFile.theme.colors[colorObject.name]) delete configFile.theme.colors[colorObject.name]
+        if (Object.keys(configFile.theme.colors).length === 0) delete configFile.theme.colors
+      }
+    }
+
+    fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err })
+    checkIfColorModule()
+    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)}) saved in`, chalk.yellow('config.js'))
+  } else if (options.json) {
+    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)})\n${JSON.stringify(colorObject, null, 2)}`)
+  } else {
+    if (options.tailwind) delete colorObject.shades.default
+    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)})\n${cleanDoubleQuotes({ colors: { [colorObject.name]: colorObject.shades } }, options)}`)
+  }
+
+  return true
 }
+
+/**
+ * Create color object from color family and options
+ * Maintains exact same logic as original createColorObject() function
+ *
+ * @param {Object} family - Color family object
+ * @param {string} hexcode - Hex color code
+ * @param {Object} options - Command options
+ * @returns {Object} Color object
+ */
+function createColorObject(family, hexcode, options) {
+  const colors = {}
+  const name = family.name.toLowerCase().split(' ').join('-')
+
+  if (options.json) {
+    const shades = {}
+    colors.global = {}
+    shades[name] = hexcode
+    family.shades.forEach((shade) => {
+      shades[`${name}-${shade.number}`] = shade.hexcode
+    })
+    colors.global.colors = (options.single) ? { [name]: hexcode } : shades
+  } else if (options.single) {
+    colors.name = name
+    colors.shades = hexcode
+  } else {
+    const shades = { default: hexcode }
+    family.shades.forEach((shade) => {
+      shades[shade.number] = shade.hexcode
+    })
+    colors.name = name
+    colors.shades = shades
+  }
+
+  return colors
+}
+
+// TODO: These variables need to be imported from config-manager when implemented
+let configFile
 
 /**
  * Export for CLI usage

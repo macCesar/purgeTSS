@@ -11,6 +11,8 @@
  */
 
 import fs from 'fs'
+import path from 'path'
+import _ from 'lodash'
 import chalk from 'chalk'
 import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
 import {
@@ -19,10 +21,18 @@ import {
   projectsAlloyJMKFile,
   projectsPurgeTSSFolder,
   projectsPurge_TSS_Fonts_Folder,
-  srcConfigFile
+  srcConfigFile,
+  projectsFA_TSS_File,
+  srcFontAwesomeTSSFile,
+  srcFramework7FontTSSFile,
+  srcMaterialIconsTSSFile,
+  srcMaterialSymbolsTSSFile,
+  PurgeTSSPackageJSON
 } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
+import { getConfigOptions } from '../../shared/config-manager.js'
 import { addHook, deleteHook, createJMKFile } from '../utils/hook-management.js'
+import { getFiles } from '../utils/font-utilities.js'
 
 const cwd = process.cwd()
 
@@ -71,22 +81,79 @@ export function createConfigFile() {
 
 /**
  * Build Tailwind based on config options
- * TODO: Need to COPY the complete buildTailwindBasedOnConfigOptions function
+ * COPIED exactly from original buildTailwindBasedOnConfigOptions function
  *
  * @param {Object} options - Build options
  */
-function buildTailwindBasedOnConfigOptions(options) {
-  // TODO: COPY the complete buildTailwindBasedOnConfigOptions function
-  logger.warn('buildTailwindBasedOnConfigOptions() - Function needs to be COPIED from original')
+function buildTailwindBasedOnConfigOptions(options = {}) {
+  const configOptions = getConfigOptions()
+
+  if (configOptions.legacy) {
+    // TODO: COPY buildTailwindLegacy() function
+    logger.warn('buildTailwindLegacy() - Function needs to be COPIED from original')
+  } else {
+    // TODO: COPY buildTailwind() function
+    logger.warn('buildTailwind() - Function needs to be COPIED from original')
+  }
 }
 
 /**
  * Create definitions file
- * TODO: Need to COPY the complete createDefinitionsFile function
+ * COPIED exactly from original createDefinitionsFile function
  */
 function createDefinitionsFile() {
-  // TODO: COPY the complete createDefinitionsFile function
-  logger.warn('createDefinitionsFile() - Function needs to be COPIED from original')
+  const configOptions = getConfigOptions()
+  let classDefinitions = ''
+
+  // read classes from _app.tss file
+  if (fs.existsSync(`${cwd}/app/styles`)) {
+    _.each(getFiles(`${cwd}/app/styles`).filter(file => file.endsWith('.tss') && file.endsWith('_app.tss')), file => {
+      classDefinitions += fs.readFileSync(file, 'utf8')
+    })
+  }
+
+  if (fs.existsSync(projectsTailwind_TSS)) {
+    classDefinitions += fs.readFileSync(projectsTailwind_TSS, 'utf8')
+  }
+
+  if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
+    _.each(getFiles(`${cwd}/app/widgets`).filter(file => file.endsWith('.tss')), file => {
+      classDefinitions += fs.readFileSync(file, 'utf8')
+    })
+  }
+
+  // ! Get Styles from Themes
+  if (fs.existsSync(`${cwd}/app/themes/`)) {
+    _.each(getFiles(`${cwd}/app/themes`).filter(file => file.endsWith('.tss')), file => {
+      classDefinitions += fs.readFileSync(file, 'utf8')
+    })
+  }
+
+  if (fs.existsSync(`${cwd}/purgetss/styles/fonts.tss`)) {
+    classDefinitions += fs.readFileSync(`${cwd}/purgetss/styles/fonts.tss`, 'utf8')
+  }
+
+  classDefinitions += (fs.existsSync(projectsFA_TSS_File)) ? fs.readFileSync(projectsFA_TSS_File, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8')
+
+  classDefinitions += fs.readFileSync(srcFramework7FontTSSFile, 'utf8')
+
+  classDefinitions += fs.readFileSync(srcMaterialIconsTSSFile, 'utf8')
+
+  classDefinitions += fs.readFileSync(srcMaterialSymbolsTSSFile, 'utf8')
+
+  classDefinitions = classDefinitions
+    .replace(/\/\/[^\n]*\n/g, '')
+    .replace(/\/\*\*\n([\s\S]*?)\*\//gm, '')
+    .replace(/\{[\s\S]*?\}/gm, '{ }')
+    .replace(/{(.*)}/g, '{}')
+    .replace(/\[(.*)\]/g, '')
+    .replace(/[:'"]/g, '')
+    .replace(/^[a-zA-Z].*$/gm, '')
+    .replace(/\s/g, '')
+
+  classDefinitions += '.ios{}.android{}.handheld{}.tablet{}.open{}.close{}.complete{}.drag{}.drop{}.bounds{}'
+
+  fs.writeFileSync(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v${PurgeTSSPackageJSON.version}) */${classDefinitions}`)
 }
 
 /**

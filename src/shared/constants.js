@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /**
  * PurgeTSS v7.1 - Constants and Paths
  *
