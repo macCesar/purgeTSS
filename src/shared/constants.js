@@ -15,7 +15,7 @@ import path from 'path'
 import fs from 'fs'
 
 // Get current working directory
-const cwd = process.cwd()
+export const cwd = process.cwd()
 
 // ============================================================================
 // PROJECT PATHS - Alloy/Titanium Project Structure
