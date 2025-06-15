@@ -226,7 +226,7 @@ function init(options) {
   if (!alloyProject()) {
     return false;
   }
-  
+
   // Get commands when needed
   const { methodCommand, oppositeCommand } = getCommands();
 
@@ -2076,7 +2076,7 @@ function createDefinitionsFile() {
 
   classDefinitions += '.ios{}.android{}.handheld{}.tablet{}.open{}.close{}.complete{}.drag{}.drop{}.bounds{}'
 
-  fs.writeFileSync(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v6.x) */${classDefinitions}`)
+  fs.writeFileSync(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v${PurgeTSSPackageJSON.version}) */${classDefinitions}`)
 
   logger.file('./purgetss/styles/definitions.css')
 }
