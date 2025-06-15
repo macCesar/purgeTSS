@@ -49,23 +49,7 @@ program
     }
   });
 
-// Purge command
-program
-  .command('purge')
-  .alias('p')
-  .description('Purge unused CSS classes and generate optimized app.tss')
-  .option('-d, --debug', 'Show debug information')
-  .action(async (options) => {
-    try {
-      const result = await purgeClasses(options);
-      if (!result) {
-        process.exit(1);
-      }
-    } catch (error) {
-      console.error(chalk.red('Error running purge:'), error.message);
-      process.exit(1);
-    }
-  });
+// === INITIAL SETUP ===
 
 // Init command
 program
@@ -87,7 +71,7 @@ program
 
 // Create command
 program
-  .command('create <name>')
+  .command('create <n>')
   .alias('c')
   .description(`Create a new Alloy Project with ${chalk.green('Purge TSS')} configured`)
   .option('-f, --force', 'Force create even if the project already exists')
@@ -102,7 +86,7 @@ program
 program
   .command('install-dependencies')
   .alias('id')
-  .description(`Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} to an existing project`)
+  .description(`Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} to an existing project\n`)
   .action(async (options) => {
     try {
       await dependencies(options);
@@ -111,6 +95,8 @@ program
       process.exit(1);
     }
   });
+
+// === DAILY DEVELOPMENT ===
 
 // Build command
 program
@@ -130,47 +116,6 @@ program
     }
   });
 
-// Shades command
-program
-  .command('shades [hexcode]')
-  .alias('s')
-  .description('Generate color shades from a hex color')
-  .option('-n, --name <name>', 'Name for the color family')
-  .option('-r, --random', 'Generate random color')
-  .option('-o, --override', 'Override existing color in theme.colors instead of theme.extend.colors')
-  .option('-j, --json', 'Output as JSON')
-  .option('-t, --tailwind', 'Output in Tailwind format')
-  .option('-q, --quotes', 'Use quotes in output')
-  .option('-s, --single', 'Generate single color instead of shades')
-  .action(async (hexcode, options) => {
-    try {
-      const result = await shades({ hexcode, name: options.name }, options);
-      if (!result) {
-        process.exit(1);
-      }
-    } catch (error) {
-      console.error(chalk.red('Error running shades:'), error.message);
-      process.exit(1);
-    }
-  });
-
-// Color Module command
-program
-  .command('color-module')
-  .alias('cm')
-  .description(`Copy all colors from ${chalk.yellow('config.js')} to your ${chalk.yellow('lib')} folder`)
-  .action(async (options) => {
-    try {
-      const result = await colorModule(options);
-      if (!result) {
-        process.exit(1);
-      }
-    } catch (error) {
-      console.error(chalk.red('Error running color-module:'), error.message);
-      process.exit(1);
-    }
-  });
-
 // Watch mode command
 program
   .command('watch')
@@ -186,6 +131,22 @@ program
       process.exit(1);
     }
   });
+
+// Module command
+program
+  .command('module')
+  .alias('m')
+  .description(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('lib')} folder\n`)
+  .action(async (options) => {
+    try {
+      await copyModulesLibrary(options);
+    } catch (error) {
+      console.error(chalk.red('Error copying module:'), error.message);
+      process.exit(1);
+    }
+  });
+
+// === ASSET CONFIGURATION ===
 
 // Icon Library command (alias for copy-fonts)
 program
@@ -224,19 +185,50 @@ program
     }
   });
 
-// Module command
+// Color Module command
 program
-  .command('module')
-  .alias('m')
-  .description(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('lib')} folder`)
+  .command('color-module')
+  .alias('cm')
+  .description(`Copy all colors from ${chalk.yellow('config.js')} to your ${chalk.yellow('lib')} folder\n`)
   .action(async (options) => {
     try {
-      await copyModulesLibrary(options);
+      const result = await colorModule(options);
+      if (!result) {
+        process.exit(1);
+      }
     } catch (error) {
-      console.error(chalk.red('Error copying module:'), error.message);
+      console.error(chalk.red('Error running color-module:'), error.message);
       process.exit(1);
     }
   });
+
+// === UTILITIES ===
+
+// Shades command
+program
+  .command('shades [hexcode]')
+  .alias('s')
+  .description('Generate color shades from a hex color\n')
+  .option('-n, --name <n>', 'Name for the color family')
+  .option('-r, --random', 'Generate random color')
+  .option('-o, --override', 'Override existing color in theme.colors instead of theme.extend.colors')
+  .option('-j, --json', 'Output as JSON')
+  .option('-t, --tailwind', 'Output in Tailwind format')
+  .option('-q, --quotes', 'Use quotes in output')
+  .option('-s, --single', 'Generate single color instead of shades')
+  .action(async (hexcode, options) => {
+    try {
+      const result = await shades({ hexcode, name: options.name }, options);
+      if (!result) {
+        process.exit(1);
+      }
+    } catch (error) {
+      console.error(chalk.red('Error running shades:'), error.message);
+      process.exit(1);
+    }
+  });
+
+// === MAINTENANCE ===
 
 // Update command
 program
