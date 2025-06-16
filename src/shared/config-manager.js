@@ -14,8 +14,11 @@ import fs from 'fs'
 import { createRequire } from 'module'
 import {
   projectsConfigJS,
+  projectsPurgeTSSFolder,
   srcConfigFile
 } from './constants.js'
+import { logger } from './logger.js'
+import { makeSureFolderExists } from './utils.js'
 
 // Create require for ESM compatibility
 const require = createRequire(import.meta.url)
@@ -27,6 +30,14 @@ const require = createRequire(import.meta.url)
  * @returns {Object} Configuration object with defaults applied
  */
 export function getConfigFile() {
+  // Auto-migration: rename config.js to config.cjs for ESM compatibility
+  const oldConfigPath = `${projectsPurgeTSSFolder}/config.js`
+  if (fs.existsSync(oldConfigPath) && !fs.existsSync(projectsConfigJS)) {
+    makeSureFolderExists(projectsPurgeTSSFolder)
+    fs.renameSync(oldConfigPath, projectsConfigJS)
+    logger.info('Migrated config.js to config.cjs for ESM compatibility')
+  }
+
   const configFile = (fs.existsSync(projectsConfigJS))
     ? require(projectsConfigJS)
     : require(srcConfigFile)
@@ -52,7 +63,7 @@ export function getConfigOptions() {
     : {}
 
   if (configOptions) {
-    configOptions.legacy = configOptions.legacy ?? false
+    // Legacy mode removed in v7.1 - always use modern mode
     configOptions.widgets = configOptions.widgets ?? false
     configOptions.missing = configOptions.missing ?? true
     configOptions.plugins = configOptions.plugins ?? []

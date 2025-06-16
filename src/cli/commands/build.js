@@ -11,6 +11,22 @@
  */
 
 import { alloyProject } from '../../shared/utils.js'
+import { initIfNotConfig } from '../utils/file-operations.js'
+import { buildTailwindBasedOnConfigOptions, buildTailwindLegacy } from '../../core/builders/tailwind-builder.js'
+import { createDefinitionsFile } from './init.js'
+
+// Temporary imports from main index.js until functions are extracted
+let buildFontAwesome, buildFontAwesomeJS
+
+// Initialize function imports
+const initFontFunctions = async() => {
+  const indexModule = await import('../../index.js')
+  buildFontAwesome = indexModule.buildFontAwesome
+  buildFontAwesomeJS = indexModule.buildFontAwesomeJS
+}
+
+// Initialize on module load
+await initFontFunctions()
 
 /**
  * Build command - generates all CSS files from Tailwind and icon libraries
@@ -22,12 +38,11 @@ import { alloyProject } from '../../shared/utils.js'
  */
 export function build(options) {
   if (alloyProject()) {
-    // TODO: COPY these functions from src/index.js
-    // initIfNotConfig()
-    // buildTailwindBasedOnConfigOptions(options)
-    // buildFontAwesome()
-    // buildFontAwesomeJS()
-    // createDefinitionsFile()
+    initIfNotConfig()
+    buildTailwindBasedOnConfigOptions(options)
+    buildFontAwesome()
+    buildFontAwesomeJS()
+    createDefinitionsFile()
     return true
   }
   return false
@@ -42,11 +57,10 @@ export function build(options) {
  */
 export function buildLegacy() {
   if (alloyProject()) {
-    // TODO: COPY these functions from src/index.js
-    // initIfNotConfig()
-    // buildTailwindLegacy()
-    // buildFontAwesome()
-    // buildFontAwesomeJS()
-    // createDefinitionsFile()
+    initIfNotConfig()
+    buildTailwindLegacy()
+    buildFontAwesome()
+    buildFontAwesomeJS()
+    createDefinitionsFile()
   }
 }

@@ -25,7 +25,7 @@ import { logger } from './logger.js'
  */
 export function makeSureFolderExists(folder) {
   if (!fs.existsSync(folder)) {
-    fs.mkdirSync(folder)
+    fs.mkdirSync(folder, { recursive: true })
   }
 }
 

@@ -1,0 +1,11 @@
+{
+  "global": {
+    "type": "tab"
+  },
+  "env:development": {
+    "theme": "Classic"
+  },
+  "os:android": {
+    "theme": "Material"
+  }
+}

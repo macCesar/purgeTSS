@@ -1,0 +1,6 @@
+<Alloy>
+  <View class="horizontal mt-4">
+    <Label id="connectionIcon" />
+    <Label id="statusLabel" class="ml-1" />
+  </View>
+</Alloy>

@@ -18,7 +18,7 @@ const colores = require('../lib/colores').colores
 export { colores }
 const purgeLabel = colores.purgeLabel
 
-const projectsConfigJS = cwd + '/purgetss/config.js'
+const projectsConfigJS = cwd + '/purgetss/config.cjs'
 
 const logger = {
   info: (...args) => console.log(purgeLabel, args.join(' ')),

@@ -140,6 +140,9 @@ function createDefinitionsFile() {
 
   classDefinitions += '.ios{}.android{}.handheld{}.tablet{}.open{}.close{}.complete{}.drag{}.drop{}.bounds{}'
 
+  // Ensure styles folder exists before writing
+  makeSureFolderExists(`${cwd}/purgetss/styles`)
+  
   fs.writeFileSync(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v${PurgeTSSPackageJSON.version}) */${classDefinitions}`)
 
   logger.file('./purgetss/styles/definitions.css')
@@ -152,6 +155,11 @@ function createDefinitionsFile() {
  * @param {Object} options - Command options
  * @returns {boolean} Success status
  */
+/**
+ * Export for use in other modules
+ */
+export { createDefinitionsFile }
+
 export function init(options) {
   // Check if we're in an Alloy project first
   if (!alloyProject()) {
@@ -160,14 +168,6 @@ export function init(options) {
 
   // Get commands when needed
   const { methodCommand, oppositeCommand } = getCommands()
-
-  // Auto-migration: rename config.js to config.cjs for ESM compatibility
-  const oldConfigPath = `${projectsPurgeTSSFolder}/config.js`
-  if (fs.existsSync(oldConfigPath) && !fs.existsSync(projectsConfigJS)) {
-    makeSureFolderExists(projectsPurgeTSSFolder)
-    fs.renameSync(oldConfigPath, projectsConfigJS)
-    logger.info('Migrated config.js to config.cjs for ESM compatibility')
-  }
 
   // config file
   if (!fs.existsSync(projectsConfigJS)) {

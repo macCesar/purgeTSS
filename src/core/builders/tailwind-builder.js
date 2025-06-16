@@ -50,7 +50,7 @@ await importFromIndex()
  * @param {Object} options - Build options
  */
 export function buildTailwind(options) {
-  helpers.globalOptions.legacy = configOptions.legacy
+  helpers.globalOptions.legacy = false // Always modern mode in v7.1
   autoBuildTailwindTSS(options)
 }
 
@@ -118,15 +118,13 @@ export function buildTailwindLegacy() {
 }
 
 /**
- * Build Tailwind based on config options (legacy vs auto)
+ * Build Tailwind using modern auto-generation (v7.1)
+ * Legacy mode has been removed in v7.1
  * @param {Object} options - Build options
  */
 export function buildTailwindBasedOnConfigOptions(options = {}) {
-  if (configOptions.legacy) {
-    buildTailwindLegacy()
-  } else {
-    buildTailwind(options)
-  }
+  // Always use modern mode in v7.1 - legacy removed
+  buildTailwind(options)
 }
 
 /**

@@ -6,11 +6,11 @@ import chalk from 'chalk'
 import _ from 'lodash'
 
 import { logger } from '../../shared/logger.js'
-import {
+import { 
   makeSureFolderExists,
   alloyProject,
   classicProject
-} from '../utils/project-detection.js'
+} from '../../shared/utils.js'
 
 // Get current directory info
 const __filename = fileURLToPath(import.meta.url)

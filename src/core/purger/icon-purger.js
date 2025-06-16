@@ -32,7 +32,7 @@ import {
  * @param {Array} cleanUniqueClasses - Array of cleaned unique class names
  * @returns {string} Purged FontAwesome CSS classes as string
  */
-export function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
+export function purgeFontAwesome(uniqueClasses, cleanUniqueClasses, debug = false) {
   let fontAwesome = false
 
   // check if fonts.tss exists and if it includes Font Awesome
@@ -56,7 +56,7 @@ export function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
       purgingMessage = 'Purging Default Font Awesome styles...'
     }
 
-    purgedClasses += purgeFontIcons(sourceFolder, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fat', 'fas', 'fal', 'far', 'fab', 'fa-thin', 'fa-solid', 'fa-light', 'fa-regular', 'fa-brands', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands'])
+    purgedClasses += purgeFontIcons(sourceFolder, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fat', 'fas', 'fal', 'far', 'fab', 'fa-thin', 'fa-solid', 'fa-light', 'fa-regular', 'fa-brands', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands'], debug)
 
     return (purgedClasses === '\n// Pro/Beta Font Awesome\n' || purgedClasses === '\n// Default Font Awesome\n') ? '' : purgedClasses
   }
@@ -72,10 +72,10 @@ export function purgeFontAwesome(uniqueClasses, cleanUniqueClasses) {
  * @param {Array} cleanUniqueClasses - Array of cleaned unique class names
  * @returns {string} Purged Material Icons CSS classes as string
  */
-export function purgeMaterialIcons(uniqueClasses, cleanUniqueClasses) {
+export function purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, debug = false) {
   let purgedClasses = '\n// Material Icons\n'
 
-  purgedClasses += purgeFontIcons(srcMaterialIconsTSSFile, uniqueClasses, 'Purging Material Icons styles...', cleanUniqueClasses, ['mi', 'mio', 'mir', 'mis', 'mit', 'material-icons', 'material-icons-round', 'material-icons-sharp', 'material-icons-two-tone', 'material-icons-outlined'])
+  purgedClasses += purgeFontIcons(srcMaterialIconsTSSFile, uniqueClasses, 'Purging Material Icons styles...', cleanUniqueClasses, ['mi', 'mio', 'mir', 'mis', 'mit', 'material-icons', 'material-icons-round', 'material-icons-sharp', 'material-icons-two-tone', 'material-icons-outlined'], debug)
 
   return (purgedClasses === '\n// Material Icons\n') ? '' : purgedClasses
 }
@@ -88,10 +88,10 @@ export function purgeMaterialIcons(uniqueClasses, cleanUniqueClasses) {
  * @param {Array} cleanUniqueClasses - Array of cleaned unique class names
  * @returns {string} Purged Material Symbols CSS classes as string
  */
-export function purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses) {
+export function purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, debug = false) {
   let purgedClasses = '\n// Material Symbols\n'
 
-  purgedClasses += purgeFontIcons(srcMaterialSymbolsTSSFile, uniqueClasses, 'Purging Material Symbols styles...', cleanUniqueClasses, ['ms', 'msr', 'mss', 'mso', 'materialsymbol', 'materialsymbol-rounded', 'materialsymbol-sharp', 'materialsymbol-outlined', 'material-symbol', 'material-symbol-rounded', 'material-symbol-sharp', 'material-symbol-outlined'])
+  purgedClasses += purgeFontIcons(srcMaterialSymbolsTSSFile, uniqueClasses, 'Purging Material Symbols styles...', cleanUniqueClasses, ['ms', 'msr', 'mss', 'mso', 'materialsymbol', 'materialsymbol-rounded', 'materialsymbol-sharp', 'materialsymbol-outlined', 'material-symbol', 'material-symbol-rounded', 'material-symbol-sharp', 'material-symbol-outlined'], debug)
 
   return (purgedClasses === '\n// Material Symbols\n') ? '' : purgedClasses
 }
@@ -104,7 +104,7 @@ export function purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses) {
  * @param {Array} cleanUniqueClasses - Array of cleaned unique class names
  * @returns {string} Purged Framework7 CSS classes as string
  */
-export function purgeFramework7(uniqueClasses, cleanUniqueClasses) {
+export function purgeFramework7(uniqueClasses, cleanUniqueClasses, debug = false) {
   let purgedClasses = '\n// Framework7\n'
 
   purgedClasses += purgeFontIcons(srcFramework7FontTSSFile, uniqueClasses, 'Purging Framework7 Icons styles...', cleanUniqueClasses, ['f7', 'f7i', 'framework7'])
@@ -123,8 +123,8 @@ export function purgeFramework7(uniqueClasses, cleanUniqueClasses) {
  * @param {Array} _prefixes - Array of icon prefixes (not used in original)
  * @returns {string} Purged icon CSS classes as string
  */
-export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, _prefixes) {
-  localStart()
+export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, _prefixes, debug = false) {
+  if (debug) localStart()
 
   let purgedClasses = ''
   const sourceTSS = fs.readFileSync(sourceFolder, 'utf8')
@@ -141,7 +141,7 @@ export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUnique
     })
   }
 
-  localFinish(message)
+  if (debug) localFinish(message)
 
   return purgedClasses
 }

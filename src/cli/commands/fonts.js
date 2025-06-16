@@ -18,7 +18,8 @@ import _ from 'lodash'
 import chalk from 'chalk'
 import readCSS from 'read-css'
 import util from 'util'
-import { alloyProject, makeSureFolderExists, getFiles, getFileName } from '../../shared/utils.js'
+import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
+import { getFiles, getFileName } from '../utils/font-utilities.js'
 import {
   projectsFontsFolder,
   projectsPurge_TSS_Fonts_Folder,
@@ -40,6 +41,26 @@ import { getConfigOptions } from '../../shared/config-manager.js'
 
 // Get config options
 const configOptions = getConfigOptions()
+
+// Additional constants needed for font operations
+const srcFonts_Folder = path.resolve(projectRoot, './assets/fonts')
+const callback = (err) => { if (err) throw err }
+
+/**
+ * Copy file helper function
+ * COPIED exactly from original
+ */
+function copyFile(src, dest) {
+  try {
+    const fullSrc = path.resolve(src)
+    const fullDest = path.resolve(projectsFontsFolder, dest)
+    fs.copyFileSync(fullSrc, fullDest)
+    return true
+  } catch (error) {
+    logger.error(`Error copying file ${src} to ${dest}:`, error.message)
+    return false
+  }
+}
 
 /**
  * Process font metadata for TSS comments
@@ -322,12 +343,8 @@ function createDefinitionsFile() {
  * @returns {boolean} - Success status
  */
 export function buildFonts(options) {
-  if (!fs.existsSync(projectsPurge_TSS_Fonts_Folder)) {
-    logger.info(`Add font and style files to ${chalk.yellow('./purgetss/fonts')} folder and run this command again!`)
-    return false
-  }
-
-  start()
+  if (fs.existsSync(projectsPurge_TSS_Fonts_Folder)) {
+    start()
 
   const files = getFiles(projectsPurge_TSS_Fonts_Folder).filter(file => {
     return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css') || file.endsWith('.TTF') || file.endsWith('.OTF') || file.endsWith('.CSS')
@@ -433,15 +450,16 @@ export function buildFonts(options) {
     fs.unlinkSync(`${projectsLibFolder}/purgetss.fonts.js`)
   }
 
-  if (files.length > 0) {
-    createDefinitionsFile()
-    console.log()
-    finish(`Finished building ${chalk.yellow('fonts.tss')} in`)
+    if (files.length > 0) {
+      createDefinitionsFile()
+      console.log()
+      finish(`Finished building ${chalk.yellow('fonts.tss')} in`)
+    } else {
+      logger.info('No fonts found in', chalk.yellow('./purgetss/fonts'), 'folder!')
+    }
   } else {
-    logger.info('No fonts found in', chalk.yellow('./purgetss/fonts'), 'folder!')
+    logger.info(`Add font and style files to ${chalk.yellow('./purgetss/fonts')} folder and run this command again!`)
   }
-
-  return true
 }
 
 /**

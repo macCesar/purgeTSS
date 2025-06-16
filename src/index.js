@@ -2968,5 +2968,9 @@ export {
   autoBuildTailwindTSS,
   combineAllValues,
   getBaseValues,
-  getFileUpdatedDate
+  getFileUpdatedDate,
+  // FontAwesome functions needed by build command
+  buildFontAwesome,
+  buildFontAwesomeJS,
+  createDefinitionsFile
 }

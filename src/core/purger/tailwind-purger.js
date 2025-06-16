@@ -66,8 +66,8 @@ function createDefinitionsFile() {
  * @param {Array} uniqueClasses - Array of unique class names found in XML files
  * @returns {string} Purged Tailwind CSS classes as string
  */
-export function purgeTailwind(uniqueClasses) {
-  localStart()
+export function purgeTailwind(uniqueClasses, debug = false) {
+  if (debug) localStart()
 
   logger.info('Purging', chalk.yellow('Tailwind'), 'styles...')
 
@@ -233,7 +233,7 @@ export function purgeTailwind(uniqueClasses) {
   // Add arbitrary values
   purgedClasses += (arbitraryValues !== '\n// Arbitrary Values\n') ? arbitraryValues : ''
 
-  localFinish('Purging ' + chalk.yellow('Tailwind') + ' styles...')
+  if (debug) localFinish('Purging ' + chalk.yellow('Tailwind') + ' styles...')
 
   return purgedClasses
 }

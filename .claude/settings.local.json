@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rg:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(/usr/local/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -A 10 -B 10 \"build-fonts|copyFonts|buildFonts\" /Users/cesar/Developer/openSource/purgeTSS/src/index.js)",
+      "Bash(/usr/local/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -A 5 -B 5 \"program.*command.*build-fonts|program.*command.*copy-fonts\" /Users/cesar/Developer/openSource/purgeTSS/src/index.js)",
+      "Bash(/usr/local/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -A 3 -B 3 \"\\.command\\(\" /Users/cesar/Developer/openSource/purgeTSS/src/index.js)",
+      "Bash(/usr/local/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -n \"build-fonts\" /Users/cesar/Developer/openSource/purgeTSS/src/index.js)",
+      "Bash(/usr/local/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -n \"copy-fonts\" /Users/cesar/Developer/openSource/purgeTSS/src/index.js)",
+      "Bash(node:*)"
+    ],
+    "deny": []
+  }
+}

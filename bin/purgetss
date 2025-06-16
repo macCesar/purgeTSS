@@ -22,12 +22,17 @@ if (notifier.update && notifier.update.latest !== pkg.version) {
   notifier.notify({ defer: false, isGlobal: true });
 }
 
-// Import commands from main index
-import {
-  build, init, create, purgeClasses, watchMode,
-  dependencies, shades, copyFonts, copyModulesLibrary, colorModule, buildFonts
-} from '../src/index.js';
-
+// Import refactored modular commands
+import { build } from '../src/cli/commands/build.js';
+import { create } from '../src/cli/commands/create.js';
+import { watchMode } from '../src/cli/commands/watch.js';
+import { purgeClasses } from '../src/cli/commands/purge.js';
+import { copyModulesLibrary } from '../src/cli/commands/module.js';
+import { dependencies } from '../src/cli/commands/dependencies.js';
+import { init } from '../src/cli/commands/init.js';
+import { shades, colorModule } from '../src/cli/commands/shades.js';
+import { buildFonts } from '../src/cli/commands/fonts.js';
+import { copyFonts } from '../src/cli/commands/icon-library.js';
 const program = new Command();
 
 // Main program setup
@@ -35,7 +40,7 @@ program
   .name('purgetss')
   .version(pkg.version)
   .description(`${chalk.green(pkg.description)}\n                     For more information, visit ${chalk.green('https://purgetss.com')}`)
-  .option('-d, --debug', 'Display execution time for each process')
+  .option('--debug', 'Display execution time for each process')
   .option('-a, --all', `Run these 3 commands: ${chalk.green('build')}, ${chalk.green('build-fonts')} and ${chalk.green('purgetss')}`)
   .action(async (options) => {
     try {
@@ -71,7 +76,7 @@ program
 
 // Create command
 program
-  .command('create <n>')
+  .command('create <name>')
   .alias('c')
   .description(`Create a new Alloy Project with ${chalk.green('Purge TSS')} configured`)
   .option('-f, --force', 'Force create even if the project already exists')

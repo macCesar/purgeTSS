@@ -101,9 +101,11 @@ export async function shades(args, options) {
   const colorObject = createColorObject(colorFamily, colorFamily.hexcode, options)
 
   const silent = options.tailwind || options.json || options.log
+  
+  // Get config file first (this triggers auto-migration if needed)
+  const configFile = getConfigFile()
+  
   if (alloyProject(silent) && !silent) {
-    // This functionality requires access to configFile which needs to be imported
-    // TODO: Complete this when config-manager is fully implemented
 
     if (options.override) {
       if (!configFile.theme.colors) configFile.theme.colors = {}
@@ -172,8 +174,8 @@ function createColorObject(family, hexcode, options) {
   return colors
 }
 
-// TODO: These variables need to be imported from config-manager when implemented
-let configFile
+// Import config manager
+import { getConfigFile } from '../../shared/config-manager.js'
 
 /**
  * Export for CLI usage

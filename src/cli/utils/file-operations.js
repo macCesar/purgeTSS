@@ -13,6 +13,7 @@
 import fs from 'fs'
 import util from 'util'
 import { projectsConfigJS } from '../../shared/constants.js'
+import { createConfigFile } from '../commands/init.js'
 
 /**
  * Initialize config if it doesn't exist
@@ -20,10 +21,7 @@ import { projectsConfigJS } from '../../shared/constants.js'
  */
 export function initIfNotConfig() {
   if (!fs.existsSync(projectsConfigJS)) {
-    // Import createConfigFile dynamically to avoid circular imports
-    import('../commands/init.js').then(({ createConfigFile }) => {
-      createConfigFile()
-    })
+    createConfigFile()
   }
 }
 

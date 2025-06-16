@@ -40,8 +40,9 @@ import {
 } from '../../core/purger/icon-purger.js'
 import { purgeFonts } from '../../core/purger/fonts-purger.js'
 
-// Global config options (will be set dynamically)
+// Global variables (EXACT copies from original src/index.js)
 let configOptions = {}
+let purgingDebug = false
 
 /**
  * Make sure a file exists, create it if it doesn't
@@ -436,16 +437,18 @@ function saveFile(file, data) {
  * @returns {boolean} - Success status
  */
 export function purgeClasses(options) {
-  if (alloyProject()) {
-    setDebugMode(options.debug) // Configure debug mode for timing functions
+  // Initialize configOptions first (includes auto-migration)
+  configOptions = getConfigOptions()
 
-    init(options)
-    configOptions = getConfigOptions()
+  if (alloyProject()) {
+    purgingDebug = options.debug
 
     const recentlyCreated = makeSureFileExists(projectsAppTSS)
 
     if (Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 2000) || recentlyCreated) {
       start()
+
+      init(options)
 
       backupOriginalAppTss()
 
@@ -453,15 +456,19 @@ export function purgeClasses(options) {
 
       let tempPurged = copyResetTemplateAnd_appTSS()
 
-      tempPurged += purgeTailwind(uniqueClasses)
+      tempPurged += purgeTailwind(uniqueClasses, purgingDebug)
 
       const cleanUniqueClasses = cleanClasses(uniqueClasses)
 
-      tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses)
-      tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses)
-      tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses)
-      tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses)
-      tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses)
+      tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses, purgingDebug)
+
+      tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, purgingDebug)
+
+      tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, purgingDebug)
+
+      tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses, purgingDebug)
+
+      tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses, purgingDebug)
 
       tempPurged += processMissingClasses(tempPurged)
 
@@ -474,6 +481,4 @@ export function purgeClasses(options) {
       logger.warn('Project purged less than 2 seconds ago!')
     }
   }
-
-  return true
 }
