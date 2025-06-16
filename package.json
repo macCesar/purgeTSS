@@ -1,6 +1,6 @@
 {
   "name": "purgetss",
-  "version": "7.0.0-alpha.1",
+  "version": "7.1.0",
   "description": "A package that simplifies mobile app creation for Titanium developers.",
   "main": "src/index.js",
   "type": "module",
