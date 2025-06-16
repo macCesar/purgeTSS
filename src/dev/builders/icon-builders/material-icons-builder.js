@@ -15,6 +15,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import _ from 'lodash'
 import { logger } from '../../../shared/logger.js'
+import { processCodePoints } from '../../utils/codepoints-processor.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -49,36 +50,6 @@ export function buildMaterialIcons() {
   })
 
   logger.file('./dist/materialicons.tss')
-}
-
-/**
- * Process codepoints data to TSS format
- * COPIED exactly from original processCodePoints() function - NO CHANGES
- * 
- * @param {Array} data - Codepoints data array
- * @param {string} addSelector - Selector prefix to add
- * @returns {string} Processed TSS classes
- */
-export function processCodePoints(data, addSelector) {
-  const rules = _.map(data, rule => {
-    if (rule !== '') {
-      const separado = rule.split(' ')
-      return {
-        selector: separado[0],
-        property: separado[1]
-      }
-    }
-  })
-
-  let paraTSS = ''
-
-  _.each(rules, rule => {
-    if (rule) {
-      paraTSS += `'.${addSelector}${rule.selector}': { text: '\\u${rule.property}', title: '\\u${rule.property}' }\n`
-    }
-  })
-
-  return paraTSS
 }
 
 // Execute if run directly

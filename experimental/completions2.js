@@ -14,7 +14,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const require = createRequire(import.meta.url)
 const cwd = process.cwd()
-const colores = require('../lib/colores').colores
+import { colores } from '../src/shared/brand-colors.js'
 export { colores }
 const purgeLabel = colores.purgeLabel
 
@@ -27,7 +27,7 @@ const logger = {
   file: (...args) => console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!')
 }
 
-const helpers = require('../lib/helpers')
+import * as helpers from '../src/shared/helpers.js'
 const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json')
 const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js.cjs')
 

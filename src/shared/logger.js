@@ -11,7 +11,7 @@
  */
 
 import chalk from 'chalk'
-import { colores } from '../../lib/colores.js'
+import { colores } from './colores.js'
 
 // Get the purge label from colores
 const purgeLabel = colores.purgeLabel

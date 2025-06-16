@@ -12,7 +12,7 @@
 import fs from 'fs'
 import _ from 'lodash'
 import chalk from 'chalk'
-import * as helpers from '../../../lib/helpers.js'
+import * as helpers from '../../shared/helpers.js'
 import { logger } from '../../shared/logger.js'
 import { localStart, localFinish } from '../../cli/utils/cli-helpers.js'
 import {
