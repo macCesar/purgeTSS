@@ -13,10 +13,14 @@
 
 import fs from 'fs'
 import chalk from 'chalk'
+import { createRequire } from 'module'
 import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
 import { projectsConfigJS, projectsLibFolder } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
 import { initIfNotConfig, cleanDoubleQuotes } from '../utils/file-operations.js'
+
+// Create require for ESM compatibility
+const require = createRequire(import.meta.url)
 
 /**
  * Create color module with all colors from config

@@ -11,10 +11,14 @@
  */
 
 import fs from 'fs'
+import { createRequire } from 'module'
 import {
   projectsConfigJS,
   srcConfigFile
 } from './constants.js'
+
+// Create require for ESM compatibility
+const require = createRequire(import.meta.url)
 
 /**
  * Get configuration file with fallback to default template

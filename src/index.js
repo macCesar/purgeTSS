@@ -2957,5 +2957,16 @@ export {
   copyFonts,
   copyModulesLibrary,
   colorModule,
-  buildFonts
+  buildFonts,
+  // Helper functions needed by extracted modules
+  removeDeprecatedColors,
+  fixPercentages,
+  helpers,
+  configOptions,
+  configFile,
+  defaultTheme,
+  autoBuildTailwindTSS,
+  combineAllValues,
+  getBaseValues,
+  getFileUpdatedDate
 }

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /**
  * PurgeTSS v7.1 - Init Command
  *
@@ -11,9 +12,9 @@
  */
 
 import fs from 'fs'
-import path from 'path'
 import _ from 'lodash'
 import chalk from 'chalk'
+import { createRequire } from 'module'
 import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
 import {
   projectsConfigJS,
@@ -33,8 +34,12 @@ import { logger } from '../../shared/logger.js'
 import { getConfigOptions } from '../../shared/config-manager.js'
 import { addHook, deleteHook, createJMKFile } from '../utils/hook-management.js'
 import { getFiles } from '../utils/font-utilities.js'
+import { buildTailwindBasedOnConfigOptions } from '../../core/builders/tailwind-builder.js'
 
 const cwd = process.cwd()
+
+// Create require for ESM compatibility
+const require = createRequire(import.meta.url)
 
 /**
  * Get command configuration for hooks
@@ -71,38 +76,19 @@ export function createConfigFile() {
     makeSureFolderExists(projectsPurge_TSS_Fonts_Folder)
 
     if (fs.existsSync(projectsConfigJS)) {
-      logger.warn('./purgetss/config.js', chalk.red('file already exists!'))
+      logger.warn('./purgetss/config.cjs', chalk.red('file already exists!'))
     } else {
       fs.copyFileSync(srcConfigFile, projectsConfigJS)
-      logger.file('./purgetss/config.js')
+      logger.file('./purgetss/config.cjs')
     }
   }
 }
 
 /**
- * Build Tailwind based on config options
- * COPIED exactly from original buildTailwindBasedOnConfigOptions function
- *
- * @param {Object} options - Build options
- */
-function buildTailwindBasedOnConfigOptions(options = {}) {
-  const configOptions = getConfigOptions()
-
-  if (configOptions.legacy) {
-    // TODO: COPY buildTailwindLegacy() function
-    logger.warn('buildTailwindLegacy() - Function needs to be COPIED from original')
-  } else {
-    // TODO: COPY buildTailwind() function
-    logger.warn('buildTailwind() - Function needs to be COPIED from original')
-  }
-}
-
-/**
- * Create definitions file
- * COPIED exactly from original createDefinitionsFile function
+ * Create the definitions.css file with all class definitions
+ * COPIED exactly from original createDefinitionsFile() function
  */
 function createDefinitionsFile() {
-  const configOptions = getConfigOptions()
   let classDefinitions = ''
 
   // read classes from _app.tss file
@@ -116,6 +102,7 @@ function createDefinitionsFile() {
     classDefinitions += fs.readFileSync(projectsTailwind_TSS, 'utf8')
   }
 
+  const configOptions = getConfigOptions()
   if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
     _.each(getFiles(`${cwd}/app/widgets`).filter(file => file.endsWith('.tss')), file => {
       classDefinitions += fs.readFileSync(file, 'utf8')
@@ -154,6 +141,8 @@ function createDefinitionsFile() {
   classDefinitions += '.ios{}.android{}.handheld{}.tablet{}.open{}.close{}.complete{}.drag{}.drop{}.bounds{}'
 
   fs.writeFileSync(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v${PurgeTSSPackageJSON.version}) */${classDefinitions}`)
+
+  logger.file('./purgetss/styles/definitions.css')
 }
 
 /**
@@ -171,6 +160,14 @@ export function init(options) {
 
   // Get commands when needed
   const { methodCommand, oppositeCommand } = getCommands()
+
+  // Auto-migration: rename config.js to config.cjs for ESM compatibility
+  const oldConfigPath = `${projectsPurgeTSSFolder}/config.js`
+  if (fs.existsSync(oldConfigPath) && !fs.existsSync(projectsConfigJS)) {
+    makeSureFolderExists(projectsPurgeTSSFolder)
+    fs.renameSync(oldConfigPath, projectsConfigJS)
+    logger.info('Migrated config.js to config.cjs for ESM compatibility')
+  }
 
   // config file
   if (!fs.existsSync(projectsConfigJS)) {
@@ -200,12 +197,4 @@ export function init(options) {
   }
 
   return true
-}
-
-/**
- * Export for CLI usage
- */
-export default {
-  init,
-  createConfigFile
 }

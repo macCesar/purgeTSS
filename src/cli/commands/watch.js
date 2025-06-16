@@ -12,10 +12,14 @@
 
 import fs from 'fs'
 import chalk from 'chalk'
+import { createRequire } from 'module'
 import { alloyProject } from '../../shared/utils.js'
 import { projectsAlloyJMKFile } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
 import { disableHook, deleteHook, addHook, enableHook, createJMKFile } from '../utils/hook-management.js'
+
+// Create require for ESM compatibility
+const require = createRequire(import.meta.url)
 
 /**
  * Get command configuration for hooks

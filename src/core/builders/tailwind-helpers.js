@@ -9,15 +9,17 @@
  */
 
 import _ from 'lodash'
-import { defaultColors, removeDeprecatedColors, fixPercentages } from '../../../lib/colores.js'
+import defaultColors from 'tailwindcss/colors.js'
 
 // TODO: These dependencies need to be resolved during refactoring
-let configFile
+let configFile, removeDeprecatedColors, fixPercentages
 
 // Temporary import from src/index.js until fully modularized
 const importFromIndex = async() => {
   const indexModule = await import('../../index.js')
   configFile = indexModule.configFile
+  removeDeprecatedColors = indexModule.removeDeprecatedColors
+  fixPercentages = indexModule.fixPercentages
 }
 
 await importFromIndex()

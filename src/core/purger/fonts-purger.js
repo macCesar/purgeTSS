@@ -10,6 +10,7 @@
 
 import fs from 'fs'
 import { cwd } from '../../shared/constants.js'
+import { purgeFontIcons } from './icon-purger.js'
 
 /**
  * Purge custom font classes - COPIED exactly from original purgeFonts() function
@@ -27,20 +28,4 @@ export function purgeFonts(uniqueClasses, cleanUniqueClasses) {
   }
 
   return ''
-}
-
-// TODO: These functions need to be imported from other modules when they're extracted
-// For now, they will be available from the main index.js until refactor is complete
-
-// Placeholder imports - these will be replaced with proper imports once modules are extracted
-let purgeFontIcons
-
-/**
- * Initialize function references from main index
- * This is a temporary solution until all modules are extracted
- *
- * @param {Object} functions - Function references from main index
- */
-export function initializeFontsPurgerFunctions(functions) {
-  purgeFontIcons = functions.purgeFontIcons
 }

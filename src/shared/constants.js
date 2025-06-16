@@ -35,7 +35,7 @@ export const projectsFontAwesomeJS = `${cwd}/app/lib/fontawesome.js`
 // ============================================================================
 
 export const projectsPurgeTSSFolder = `${cwd}/purgetss`
-export const projectsConfigJS = `${cwd}/purgetss/config.js`
+export const projectsConfigJS = `${cwd}/purgetss/config.cjs`
 export const projectsTailwind_TSS = `${cwd}/purgetss/styles/tailwind.tss`
 export const projectsPurge_TSS_Fonts_Folder = `${cwd}/purgetss/fonts`
 export const projectsPurge_TSS_Styles_Folder = `${cwd}/purgetss/styles`

@@ -12,7 +12,9 @@
 import fs from 'fs'
 import _ from 'lodash'
 import chalk from 'chalk'
+import * as helpers from '../../../lib/helpers.js'
 import { logger } from '../../shared/logger.js'
+import { localStart, localFinish } from '../../cli/utils/cli-helpers.js'
 import {
   projectsFA_TSS_File,
   srcFontAwesomeTSSFile,
@@ -121,7 +123,7 @@ export function purgeFramework7(uniqueClasses, cleanUniqueClasses) {
  * @param {Array} _prefixes - Array of icon prefixes (not used in original)
  * @returns {string} Purged icon CSS classes as string
  */
-function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, _prefixes) {
+export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, _prefixes) {
   localStart()
 
   let purgedClasses = ''
@@ -147,18 +149,10 @@ function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses
 // TODO: These functions need to be imported from other modules when they're extracted
 // For now, they will be available from the main index.js until refactor is complete
 
-// Placeholder imports - these will be replaced with proper imports once modules are extracted
-let localStart, localFinish, cleanClassNameFn, helpers
-
 /**
- * Initialize function references from main index
- * This is a temporary solution until all modules are extracted
- *
- * @param {Object} functions - Function references from main index
+ * Clean class name by removing platform and modifier prefixes
+ * COPIED exactly from original cleanClassNameFn() function
  */
-export function initializeIconPurgerFunctions(functions) {
-  localStart = functions.localStart
-  localFinish = functions.localFinish
-  cleanClassNameFn = functions.cleanClassNameFn
-  helpers = functions.helpers
+function cleanClassNameFn(className) {
+  return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('children:', '').replace('child:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '')
 }

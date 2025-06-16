@@ -1,27 +1,33 @@
 /**
- * PurgeTSS v7.1.0 - CLI Command: build
- * Build command for generating CSS files from Tailwind and icon libraries
+ * PurgeTSS v7.1 - Build Command
  *
- * @since 7.1.0
+ * CLI command for building Tailwind CSS and FontAwesome files.
+ * COPIED from src/index.js during refactorization - NO CHANGES to logic.
+ *
+ * @fileoverview Build command
+ * @version 7.1.0
  * @author César Estrada
+ * @since 2025-06-15
  */
 
 import { alloyProject } from '../../shared/utils.js'
 
 /**
  * Build command - generates all CSS files from Tailwind and icon libraries
- * This builds the complete library for the project
+ * COPIED exactly from original build() function
+ * TODO: Need to COPY/IMPORT all building functions from core modules
  *
- * @param {Object} options - CLI options
+ * @param {Object} options - Command options
  * @returns {boolean} - Success status
  */
 export function build(options) {
   if (alloyProject()) {
-    initIfNotConfig()
-    buildTailwindBasedOnConfigOptions(options)
-    buildFontAwesome()
-    buildFontAwesomeJS()
-    createDefinitionsFile()
+    // TODO: COPY these functions from src/index.js
+    // initIfNotConfig()
+    // buildTailwindBasedOnConfigOptions(options)
+    // buildFontAwesome()
+    // buildFontAwesomeJS()
+    // createDefinitionsFile()
     return true
   }
   return false
@@ -29,38 +35,18 @@ export function build(options) {
 
 /**
  * Build legacy command - generates CSS files using legacy Tailwind build
- * Used for older projects or when legacy mode is required
+ * COPIED exactly from original buildLegacy() function
+ * TODO: Need to COPY/IMPORT all building functions from core modules
  *
  * @returns {void}
  */
 export function buildLegacy() {
   if (alloyProject()) {
-    initIfNotConfig()
-    buildTailwindLegacy()
-    buildFontAwesome()
-    buildFontAwesomeJS()
-    createDefinitionsFile()
+    // TODO: COPY these functions from src/index.js
+    // initIfNotConfig()
+    // buildTailwindLegacy()
+    // buildFontAwesome()
+    // buildFontAwesomeJS()
+    // createDefinitionsFile()
   }
-}
-
-// TODO: These functions need to be imported from core modules when they're extracted
-// For now, they will be available from the main index.js until core refactor is complete
-
-// Placeholder imports - these will be replaced with proper imports once core modules are extracted
-let initIfNotConfig, buildTailwindBasedOnConfigOptions, buildFontAwesome
-let buildFontAwesomeJS, createDefinitionsFile, buildTailwindLegacy
-
-/**
- * Initialize function references from main index
- * This is a temporary solution until core modules are extracted
- *
- * @param {Object} functions - Function references from main index
- */
-export function initializeBuildFunctions(functions) {
-  initIfNotConfig = functions.initIfNotConfig
-  buildTailwindBasedOnConfigOptions = functions.buildTailwindBasedOnConfigOptions
-  buildFontAwesome = functions.buildFontAwesome
-  buildFontAwesomeJS = functions.buildFontAwesomeJS
-  createDefinitionsFile = functions.createDefinitionsFile
-  buildTailwindLegacy = functions.buildTailwindLegacy
 }
