@@ -26,7 +26,7 @@ const projectRoot = path.resolve(__dirname, '../../../')
 export function buildModule() {
   const PurgeTSSModule = path.resolve(projectRoot, './lib/templates/purgetss.ui.js.cjs')
   const PurgeTSSPackageJSON = JSON.parse(fs.readFileSync(path.resolve(projectRoot, './package.json'), 'utf8'))
-  const PurgeTSSPackageVersion = `// Purge TSS v${PurgeTSSPackageJSON.version}\n`
+  const PurgeTSSPackageVersion = `// PurgeTSS v${PurgeTSSPackageJSON.version}\n`
 
   fs.writeFileSync(path.resolve(projectRoot, './dist/purgetss.ui.js'), PurgeTSSPackageVersion + fs.readFileSync(PurgeTSSModule, 'utf8'), err => {
     throw err

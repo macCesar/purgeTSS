@@ -24,39 +24,17 @@ import { getFileUpdatedDate } from '../../shared/utils.js'
 // Import timing helpers
 import { localStart, localFinish } from '../../cli/utils/cli-helpers.js'
 
+// Import shared functions instead of redefining them
+import { createDefinitionsFile } from '../../cli/commands/init.js'
+import { checkIfColorModule } from '../../cli/commands/shades.js'
+import { buildTailwindBasedOnConfigOptions } from '../../core/builders/tailwind-builder.js'
+
 /**
  * Clean class name by removing platform and modifier prefixes
  * COPIED exactly from original cleanClassNameFn() function
  */
 function cleanClassNameFn(className) {
   return className.replace('ios:', '').replace('android:', '').replace('handheld:', '').replace('tablet:', '').replace('children:', '').replace('child:', '').replace('open:', '').replace('close:', '').replace('complete:', '').replace('drag:', '').replace('drop:', '').replace('bounds:', '')
-}
-
-/**
- * Check if color module exists and initialize if needed
- * COPIED exactly from original checkIfColorModule() function
- */
-function checkIfColorModule() {
-  // TODO: Import colorModule function and projectsLibFolder constant when available
-  // For now, skip color module check to avoid dependencies
-}
-
-/**
- * Build tailwind based on config options
- * COPIED exactly from original buildTailwindBasedOnConfigOptions() function
- */
-function buildTailwindBasedOnConfigOptions(options = {}) {
-  // TODO: Import full implementation when builders are extracted
-  // For now, skip to avoid dependencies
-}
-
-/**
- * Create definitions file
- * COPIED exactly from original createDefinitionsFile() function
- */
-function createDefinitionsFile() {
-  // TODO: Import full implementation when builders are extracted
-  // For now, skip to avoid dependencies
 }
 
 /**

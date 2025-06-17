@@ -66,7 +66,7 @@ export function extractClasses(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::Purge TSS:: Error processing: "${currentFile}"\n`, error)
+    throw chalk.red(`::PurgeTSS:: Error processing: "${currentFile}"\n`, error)
   }
 }
 
@@ -87,7 +87,7 @@ export function extractClassesOnly(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::Purge TSS:: Error processing: "${currentFile}"\n`, error)
+    throw chalk.red(`::PurgeTSS:: Error processing: "${currentFile}"\n`, error)
   }
 }
 

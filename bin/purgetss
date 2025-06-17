@@ -16,7 +16,7 @@ const __dirname = dirname(__filename);
 const packagePath = join(__dirname, '../package.json');
 const pkg = JSON.parse(readFileSync(packagePath, 'utf8'));
 
-// Check if a new version of Purge TSS is available and print an update notification
+// Check if a new version of PurgeTSS is available and print an update notification
 const notifier = updateNotifier({ pkg });
 if (notifier.update && notifier.update.latest !== pkg.version) {
   notifier.notify({ defer: false, isGlobal: true });
@@ -78,7 +78,7 @@ program
 program
   .command('create <name>')
   .alias('c')
-  .description(`Create a new Alloy Project with ${chalk.green('Purge TSS')} configured`)
+  .description(`Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured`)
   .option('-f, --force', 'Force create even if the project already exists')
   .option('-d, --dependencies', `Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')}`)
   .option('-m, --module', `Install ${chalk.yellow('purgetss.ui.js')} module`)
@@ -125,7 +125,7 @@ program
 program
   .command('watch')
   .alias('w')
-  .description(`Automatically run ${chalk.green('Purge TSS')} every time you compile your project`)
+  .description(`Automatically run ${chalk.green('PurgeTSS')} every time you compile your project`)
   .option('-o, --off', 'To turn off watch mode')
   .option('-d, --delete', 'To completely delete the Auto-Purging hook')
   .action((options) => {
@@ -239,22 +239,22 @@ program
 program
   .command('update')
   .alias('u')
-  .description(`Update ${chalk.green('Purge TSS')} to the latest version`)
+  .description(`Update ${chalk.green('PurgeTSS')} to the latest version`)
   .action((options) => {
-    console.log(`${chalk.green('::Purge TSS::')} Updating ${chalk.green('Purge TSS')} to the latest version...`);
+    console.log(`${chalk.green('::PurgeTSS::')} Updating ${chalk.green('PurgeTSS')} to the latest version...`);
 
     exec('npm update -g purgetss', (error, stdout, stderr) => {
       if (error) {
-        console.log(`${chalk.green('::Purge TSS::')} error: ${error.message}`);
+        console.log(`${chalk.green('::PurgeTSS::')} error: ${error.message}`);
         return;
       }
 
       if (stderr) {
-        console.log(`${chalk.green('::Purge TSS::')} stderr: ${stderr}`);
+        console.log(`${chalk.green('::PurgeTSS::')} stderr: ${stderr}`);
         return;
       }
 
-      console.log(`${chalk.green('::Purge TSS::')} Done!`);
+      console.log(`${chalk.green('::PurgeTSS::')} Done!`);
     });
   });
 
@@ -262,22 +262,22 @@ program
 program
   .command('sudo-update')
   .alias('su')
-  .description(`Update ${chalk.green('Purge TSS')} to the latest version using the ${chalk.yellow('sudo')} command`)
+  .description(`Update ${chalk.green('PurgeTSS')} to the latest version using the ${chalk.yellow('sudo')} command`)
   .action((options) => {
-    console.log(`${chalk.green('::Purge TSS::')} Updating ${chalk.green('Purge TSS')} to the latest version using sudo...`);
+    console.log(`${chalk.green('::PurgeTSS::')} Updating ${chalk.green('PurgeTSS')} to the latest version using sudo...`);
 
     exec('sudo npm update -g purgetss', (error, stdout, stderr) => {
       if (error) {
-        console.log(`${chalk.green('::Purge TSS::')} error: ${error.message}`);
+        console.log(`${chalk.green('::PurgeTSS::')} error: ${error.message}`);
         return;
       }
 
       if (stderr) {
-        console.log(`${chalk.green('::Purge TSS::')} stderr: ${stderr}`);
+        console.log(`${chalk.green('::PurgeTSS::')} stderr: ${stderr}`);
         return;
       }
 
-      console.log(`${chalk.green('::Purge TSS::')} Done!`);
+      console.log(`${chalk.green('::PurgeTSS::')} Done!`);
     });
   });
 

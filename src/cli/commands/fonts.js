@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+/* eslint-disable no-useless-escape */
 /**
  * PurgeTSS v7.1 - Fonts Command
  *
@@ -17,7 +18,6 @@ import FontName from 'fontname'
 import _ from 'lodash'
 import chalk from 'chalk'
 import readCSS from 'read-css'
-import util from 'util'
 import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
 import { getFiles, getFileName } from '../utils/font-utilities.js'
 import {
@@ -28,19 +28,24 @@ import {
   projectsLibFolder,
   cwd,
   projectRoot,
-  projectsTailwind_TSS,
-  projectsFA_TSS_File,
-  srcFontAwesomeTSSFile,
-  srcFramework7FontTSSFile,
-  srcMaterialIconsTSSFile,
-  srcMaterialSymbolsTSSFile
+  // FontAwesome Pro constants
+  srcFA_Pro_CSS,
+  srcFA_ProFontFamilies,
+  srcFA_Pro_Web_Fonts_Folder,
+  // FontAwesome Beta constants
+  srcFA_Beta_CSSFile,
+  srcFA_Beta_FontFamilies,
+  srcFA_Beta_Web_Fonts_Folder,
+  // Library files
+  srcLibFA,
+  srcLibMI,
+  srcLibMS,
+  srcLibF7
 } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
 import { start, finish } from '../utils/cli-helpers.js'
-import { getConfigOptions } from '../../shared/config-manager.js'
-
-// Get config options
-const configOptions = getConfigOptions()
+import { createDefinitionsFile } from './init.js'
+import { buildFontAwesomeJS } from '../../dev/builders/fontawesome-builder.js'
 
 // Additional constants needed for font operations
 const srcFonts_Folder = path.resolve(projectRoot, './assets/fonts')
@@ -288,54 +293,6 @@ function processFontFamilyNamesJS(data, fontFamily = '', prefix) {
 }
 
 /**
- * Create TypeScript definitions file
- * COPIED exactly from original createDefinitionsFile() function
- * TODO: Need to COPY getFiles() function or import it
- */
-function createDefinitionsFile() {
-  let classDefinitions = ''
-
-  // read classes from _app.tss file
-  if (fs.existsSync(`${cwd}/app/styles`)) {
-    _.each(getFiles(`${cwd}/app/styles`).filter(file => file.endsWith('.tss') && file.endsWith('_app.tss')), file => {
-      classDefinitions += fs.readFileSync(file, 'utf8')
-    })
-  }
-
-  if (fs.existsSync(projectsTailwind_TSS)) {
-    classDefinitions += fs.readFileSync(projectsTailwind_TSS, 'utf8')
-  }
-
-  if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
-    _.each(getFiles(`${cwd}/app/widgets`).filter(file => file.endsWith('.tss')), file => {
-      classDefinitions += fs.readFileSync(file, 'utf8')
-    })
-  }
-
-  // Get Styles from Themes
-  if (fs.existsSync(`${cwd}/app/themes/`)) {
-    _.each(getFiles(`${cwd}/app/themes`).filter(file => file.endsWith('.tss')), file => {
-      classDefinitions += fs.readFileSync(file, 'utf8')
-    })
-  }
-
-  if (fs.existsSync(`${cwd}/purgetss/styles/fonts.tss`)) {
-    classDefinitions += fs.readFileSync(`${cwd}/purgetss/styles/fonts.tss`, 'utf8')
-  }
-
-  classDefinitions += (fs.existsSync(projectsFA_TSS_File)) ? fs.readFileSync(projectsFA_TSS_File, 'utf8') : fs.readFileSync(srcFontAwesomeTSSFile, 'utf8')
-
-  classDefinitions += fs.readFileSync(srcFramework7FontTSSFile, 'utf8')
-
-  classDefinitions += fs.readFileSync(srcMaterialIconsTSSFile, 'utf8')
-
-  classDefinitions += fs.readFileSync(srcMaterialSymbolsTSSFile, 'utf8')
-
-  // TODO: Complete the rest of createDefinitionsFile function
-  // The function continues but it's quite long...
-}
-
-/**
  * Build fonts TSS file from font and CSS files
  * COPIED exactly from original buildFonts() function
  *
@@ -346,109 +303,109 @@ export function buildFonts(options) {
   if (fs.existsSync(projectsPurge_TSS_Fonts_Folder)) {
     start()
 
-  const files = getFiles(projectsPurge_TSS_Fonts_Folder).filter(file => {
-    return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css') || file.endsWith('.TTF') || file.endsWith('.OTF') || file.endsWith('.CSS')
-  })
+    const files = getFiles(projectsPurge_TSS_Fonts_Folder).filter(file => {
+      return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css') || file.endsWith('.TTF') || file.endsWith('.OTF') || file.endsWith('.CSS')
+    })
 
-  let fontMeta = ''
-  let fontJS = ''
-  let fontFamiliesJS = ''
-  let tssClasses = '// Fonts TSS file generated with Purge TSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
+    let fontMeta = ''
+    let fontJS = ''
+    let fontFamiliesJS = ''
+    let tssClasses = '// Fonts TSS file generated with PurgeTSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
 
-  // Process font files
-  _.each(files, file => {
-    if (file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.TTF') || file.endsWith('.OTF')) {
-      fontMeta = FontName.parse(fs.readFileSync(file))[0]
+    // Process font files
+    _.each(files, file => {
+      if (file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.TTF') || file.endsWith('.OTF')) {
+        fontMeta = FontName.parse(fs.readFileSync(file))[0]
 
-      tssClasses += processFontMeta(fontMeta)
+        tssClasses += processFontMeta(fontMeta)
 
-      const fontFamilyName = fontMeta.postScriptName.replace(/\//g, '')
-      if (options.fontClassFromFilename) {
-        tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontFamilyName}' } }\n`
-      } else {
-        tssClasses += `\n'.${fontFamilyName.toLowerCase()}': { font: { fontFamily: '${fontFamilyName}' } }\n`
-      }
-
-      // Copy Font File
-      makeSureFolderExists(projectsFontsFolder)
-      const fontExtension = file.split('.').pop()
-      fs.copyFile(file, `${projectsFontsFolder}/${fontFamilyName}.${fontExtension}`, err => {
-        if (err) {
-          throw err
+        const fontFamilyName = fontMeta.postScriptName.replace(/\//g, '')
+        if (options.fontClassFromFilename) {
+          tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontFamilyName}' } }\n`
+        } else {
+          tssClasses += `\n'.${fontFamilyName.toLowerCase()}': { font: { fontFamily: '${fontFamilyName}' } }\n`
         }
+
+        // Copy Font File
+        makeSureFolderExists(projectsFontsFolder)
+        const fontExtension = file.split('.').pop()
+        fs.copyFile(file, `${projectsFontsFolder}/${fontFamilyName}.${fontExtension}`, err => {
+          if (err) {
+            throw err
+          }
+        })
+        logger.info('Copying font', `${chalk.yellow(file.split('/').pop())}...`)
+      }
+    })
+
+    let oneTimeMessage = '\n// Unicode Characters\n// To use your Icon Fonts in Buttons AND Labels each class sets \'text\' and \'title\' properties\n'
+
+    // Process styles files
+    _.each(files, file => {
+      if (file.endsWith('.css') || file.endsWith('.CSS')) {
+        const cssFile = readCSS(file)
+        const theFile = file.split('/')
+        const theCSSFile = theFile.pop()
+        const prefix = options.iconPrefixFromFilename ? theCSSFile.split('.').shift() : null
+        let theFolder = theFile.pop() + '/'
+        if (theFolder === 'fonts/') {
+          theFolder = ''
+        }
+
+        const theCSSFileName = theFolder + theCSSFile
+
+        tssClasses += oneTimeMessage + `\n// ${theCSSFileName}\n`
+        oneTimeMessage = ''
+
+        tssClasses += processFontsCSS(cssFile, prefix)
+
+        // JavaScript Module
+        if (options.module || fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
+          fontJS += processFontsJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
+          fontFamiliesJS += processFontFamilyNamesJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
+        }
+
+        // Done processing stylesheet
+        logger.info('Processing', `${chalk.yellow(theCSSFileName)}...`)
+      }
+    })
+
+    if (files.length > 0) {
+      makeSureFolderExists(projectsPurgeTSSFolder)
+      makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
+
+      fs.writeFileSync(`${cwd}/purgetss/styles/fonts.tss`, tssClasses, { encoding: 'utf8' }, err => {
+        throw err
       })
-      logger.info('Copying font', `${chalk.yellow(file.split('/').pop())}...`)
     }
-  })
 
-  let oneTimeMessage = '\n// Unicode Characters\n// To use your Icon Fonts in Buttons AND Labels each class sets \'text\' and \'title\' properties\n'
+    if (fontJS) {
+      makeSureFolderExists(projectsLibFolder)
 
-  // Process styles files
-  _.each(files, file => {
-    if (file.endsWith('.css') || file.endsWith('.CSS')) {
-      const cssFile = readCSS(file)
-      const theFile = file.split('/')
-      const theCSSFile = theFile.pop()
-      const prefix = options.iconPrefixFromFilename ? theCSSFile.split('.').shift() : null
-      let theFolder = theFile.pop() + '/'
-      if (theFolder === 'fonts/') {
-        theFolder = ''
-      }
+      let exportIcons = 'const icons = {'
+      exportIcons += fontJS.slice(0, -1)
+      exportIcons += '\n}\n'
+      exportIcons += 'exports.icon = icons;\n'
+      exportIcons += 'exports.icons = icons;\n'
 
-      const theCSSFileName = theFolder + theCSSFile
+      exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
-      tssClasses += oneTimeMessage + `\n// ${theCSSFileName}\n`
-      oneTimeMessage = ''
+      exportIcons += '\nconst families = {'
+      exportIcons += fontFamiliesJS.slice(0, -1)
+      exportIcons += '\n}\n'
+      exportIcons += 'exports.family = families;\n'
+      exportIcons += 'exports.families = families;\n'
 
-      tssClasses += processFontsCSS(cssFile, prefix)
+      exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 
-      // JavaScript Module
-      if (options.module || fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
-        fontJS += processFontsJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
-        fontFamiliesJS += processFontFamilyNamesJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
-      }
+      fs.writeFileSync(`${projectsLibFolder}/purgetss.fonts.js`, exportIcons, { encoding: 'utf8' }, err => {
+        throw err
+      })
 
-      // Done processing stylesheet
-      logger.info('Processing', `${chalk.yellow(theCSSFileName)}...`)
+      logger.info(`${chalk.yellow('./app/lib/purgetss.fonts.js')} file created!`)
+    } else if (fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
+      fs.unlinkSync(`${projectsLibFolder}/purgetss.fonts.js`)
     }
-  })
-
-  if (files.length > 0) {
-    makeSureFolderExists(projectsPurgeTSSFolder)
-    makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
-
-    fs.writeFileSync(`${cwd}/purgetss/styles/fonts.tss`, tssClasses, { encoding: 'utf8' }, err => {
-      throw err
-    })
-  }
-
-  if (fontJS) {
-    makeSureFolderExists(projectsLibFolder)
-
-    let exportIcons = 'const icons = {'
-    exportIcons += fontJS.slice(0, -1)
-    exportIcons += '\n}\n'
-    exportIcons += 'export { icons as icon };\n'
-    exportIcons += 'export { icons as icons };\n'
-
-    exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
-
-    exportIcons += '\nconst families = {'
-    exportIcons += fontFamiliesJS.slice(0, -1)
-    exportIcons += '\n}\n'
-    exportIcons += 'export { families as family };\n'
-    exportIcons += 'export { families as families };\n'
-
-    exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
-
-    fs.writeFileSync(`${projectsLibFolder}/purgetss.fonts.js`, exportIcons, { encoding: 'utf8' }, err => {
-      throw err
-    })
-
-    logger.info(`${chalk.yellow('./app/lib/purgetss.fonts.js')} file created!`)
-  } else if (fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
-    fs.unlinkSync(`${projectsLibFolder}/purgetss.fonts.js`)
-  }
 
     if (files.length > 0) {
       createDefinitionsFile()
@@ -545,7 +502,7 @@ function copyFramework7IconsFonts() {
  *
  * @param {string} vendor - Font vendor identifier
  */
-function copyFont(vendor) {
+export function copyFont(vendor) {
   makeSureFolderExists(projectsFontsFolder)
 
   switch (vendor) {
@@ -580,7 +537,7 @@ function copyFont(vendor) {
  *
  * @param {Object} options - Copy options
  */
-function copyFontLibraries(options) {
+export function copyFontLibraries(options) {
   if (alloyProject()) {
     makeSureFolderExists(projectsLibFolder)
 

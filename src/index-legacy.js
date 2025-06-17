@@ -466,7 +466,7 @@ function create(args, options) {
     } else {
       console.log('')
       logger.error('::Can’t create a Titanium project::')
-      logger.info('You must have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a project with', chalk.green('`Purge TSS`'))
+      logger.info('You must have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a project with', chalk.green('`PurgeTSS`'))
       console.log('')
       logger.info('Please, set them like this:')
       logger.info(chalk.green('ti config app.idprefix'), chalk.yellow('\'com.your.reverse.domain\''))
@@ -685,7 +685,7 @@ function buildFonts(options) {
     let fontMeta = ''
     let fontJS = ''
     let fontFamiliesJS = ''
-    let tssClasses = '// Fonts TSS file generated with Purge TSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
+    let tssClasses = '// Fonts TSS file generated with PurgeTSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
 
     // ! Process font files
     _.each(files, file => {
@@ -760,16 +760,16 @@ function buildFonts(options) {
       let exportIcons = 'const icons = {'
       exportIcons += fontJS.slice(0, -1)
       exportIcons += '\n}\n'
-      exportIcons += 'export { icons as icon };\n'
-      exportIcons += 'export { icons as icons };\n'
+      exportIcons += 'exports.icon = icons;\n'
+      exportIcons += 'exports.icons = icons;\n'
 
       exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
       exportIcons += '\nconst families = {'
       exportIcons += fontFamiliesJS.slice(0, -1)
       exportIcons += '\n}\n'
-      exportIcons += 'export { families as family };\n'
-      exportIcons += 'export { families as families };\n'
+      exportIcons += 'exports.family = families;\n'
+      exportIcons += 'exports.families = families;\n'
 
       exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 
@@ -883,7 +883,7 @@ function processFontAwesomeJS(CSSFile, faJS) {
 
     exportIcons += '}\n'
 
-    exportIcons += 'export { icons as icons };\n'
+    exportIcons += 'exports.icons = icons;\n'
 
     exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
@@ -2436,7 +2436,7 @@ function extractClasses(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::Purge TSS:: Error processing: “${currentFile}”\n`, error)
+    throw chalk.red(`::PurgeTSS:: Error processing: “${currentFile}”\n`, error)
   }
 }
 
@@ -2449,7 +2449,7 @@ function extractClassesOnly(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::Purge TSS:: Error processing: “${currentFile}”\n`, error)
+    throw chalk.red(`::PurgeTSS:: Error processing: “${currentFile}”\n`, error)
   }
 }
 
@@ -2615,7 +2615,7 @@ function copyResetTemplateAnd_appTSS() {
 
   logger.info('Copying Reset styles...')
 
-  let tempPurged = `// Purge TSS v${PurgeTSSPackageJSON.version}\n` + fs.readFileSync(srcReset_TSS_File, 'utf8')
+  let tempPurged = `// PurgeTSS v${PurgeTSSPackageJSON.version}\n` + fs.readFileSync(srcReset_TSS_File, 'utf8')
 
   if (fs.existsSync(projects_AppTSS)) {
     const appTSSContent = fs.readFileSync(projects_AppTSS, 'utf8')

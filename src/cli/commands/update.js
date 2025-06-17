@@ -7,20 +7,20 @@ import { exec } from 'child_process'
  * @returns {void}
  */
 export function update(options) {
-  console.log(`${chalk.green('::Purge TSS::')} Updating ${chalk.green('Purge TSS')} to the latest version...`)
+  console.log(`${chalk.green('::PurgeTSS::')} Updating ${chalk.green('PurgeTSS')} to the latest version...`)
 
   exec('npm update -g purgetss', (error, stdout, stderr) => {
     if (error) {
-      console.log(`${chalk.green('::Purge TSS::')} error: ${error.message}`)
+      console.log(`${chalk.green('::PurgeTSS::')} error: ${error.message}`)
       return
     }
 
     if (stderr) {
-      console.log(`${chalk.green('::Purge TSS::')} stderr: ${stderr}`)
+      console.log(`${chalk.green('::PurgeTSS::')} stderr: ${stderr}`)
       return
     }
 
-    console.log(`${chalk.green('::Purge TSS::')} Done!`)
+    console.log(`${chalk.green('::PurgeTSS::')} Done!`)
   })
 }
 
@@ -30,19 +30,19 @@ export function update(options) {
  * @returns {void}
  */
 export function sudoUpdate(options) {
-  console.log(`${chalk.green('::Purge TSS::')} Updating ${chalk.green('Purge TSS')} to the latest version using sudo...`)
+  console.log(`${chalk.green('::PurgeTSS::')} Updating ${chalk.green('PurgeTSS')} to the latest version using sudo...`)
 
   exec('sudo npm update -g purgetss', (error, stdout, stderr) => {
     if (error) {
-      console.log(`${chalk.green('::Purge TSS::')} error: ${error.message}`)
+      console.log(`${chalk.green('::PurgeTSS::')} error: ${error.message}`)
       return
     }
 
     if (stderr) {
-      console.log(`${chalk.green('::Purge TSS::')} stderr: ${stderr}`)
+      console.log(`${chalk.green('::PurgeTSS::')} stderr: ${stderr}`)
       return
     }
 
-    console.log(`${chalk.green('::Purge TSS::')} Done!`)
+    console.log(`${chalk.green('::PurgeTSS::')} Done!`)
   })
 }

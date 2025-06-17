@@ -1,11 +1,11 @@
 /**
  * PurgeTSS v7.1 - Material Symbols JS Builder (Development)
- * 
+ *
  * Builds Material Symbols JS functions for development/distribution.
  * COPIED from lib/build-material-symbols-js.js - NO CHANGES to logic.
- * 
+ *
  * Generates: ./dist/materialsymbols.js
- * 
+ *
  * @since 7.1.0 (refactored from lib/)
  * @author César Estrada
  */
@@ -58,7 +58,7 @@ export function buildMaterialSymbolsJS() {
 
   exportIcons += '};\n'
 
-  exportIcons += 'export const icons = icons;\n'
+  exportIcons += 'exports.icons = icons;\n'
 
   exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
@@ -74,7 +74,7 @@ export function buildMaterialSymbolsJS() {
 /**
  * Prettify font name for JS usage (Material Symbols version)
  * COPIED exactly from original prettifyFontName() function - NO CHANGES
- * 
+ *
  * @param {string} str - Font name to prettify
  * @returns {string} Prettified name
  */

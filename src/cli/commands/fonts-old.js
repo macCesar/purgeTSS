@@ -402,7 +402,7 @@ export function buildFonts(options) {
     let fontMeta = ''
     let fontJS = ''
     let fontFamiliesJS = ''
-    let tssClasses = '// Fonts TSS file generated with Purge TSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
+    let tssClasses = '// Fonts TSS file generated with PurgeTSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
 
     // Process font files
     _.each(files, file => {
@@ -477,16 +477,16 @@ export function buildFonts(options) {
       let exportIcons = 'const icons = {'
       exportIcons += fontJS.slice(0, -1)
       exportIcons += '\n}\n'
-      exportIcons += 'export { icons as icon };\n'
-      exportIcons += 'export { icons as icons };\n'
+      exportIcons += 'exports.icon = icons;\n'
+      exportIcons += 'exports.icons = icons;\n'
 
       exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
       exportIcons += '\nconst families = {'
       exportIcons += fontFamiliesJS.slice(0, -1)
       exportIcons += '\n}\n'
-      exportIcons += 'export { families as family };\n'
-      exportIcons += 'export { families as families };\n'
+      exportIcons += 'exports.family = families;\n'
+      exportIcons += 'exports.families = families;\n'
 
       exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 

@@ -6,7 +6,7 @@ import chalk from 'chalk'
 import _ from 'lodash'
 
 import { logger } from '../../shared/logger.js'
-import { 
+import {
   makeSureFolderExists,
   alloyProject,
   classicProject
@@ -75,7 +75,7 @@ const srcMaterialSymbolsTSSFile = path.resolve(projectRoot, './dist/materialsymb
  * @param {Error} err - Error object if operation failed
  */
 function callback(err) {
-  if (err) throw err;
+  if (err) throw err
 }
 
 /**
@@ -86,21 +86,21 @@ function callback(err) {
  */
 function copyFile(src, dest) {
   if (fs.existsSync(src)) {
-    fs.copyFile(src, `${projectsFontsFolder}/${dest}`, callback);
-    return true;
+    fs.copyFile(src, `${projectsFontsFolder}/${dest}`, callback)
+    return true
   }
-  return false;
+  return false
 }
 
 /**
  * Copy Font Awesome Free fonts to project
  */
 function copyFreeFonts() {
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback);
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Regular.ttf', projectsFontsFolder + '/FontAwesome6Free-Regular.ttf', callback);
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Solid.ttf', projectsFontsFolder + '/FontAwesome6Free-Solid.ttf', callback);
+  fs.copyFile(srcFonts_Folder + '/FontAwesome6Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Regular.ttf', projectsFontsFolder + '/FontAwesome6Free-Regular.ttf', callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Solid.ttf', projectsFontsFolder + '/FontAwesome6Free-Solid.ttf', callback)
 
-  logger.warn(' - Font Awesome Free');
+  logger.warn(' - Font Awesome Free')
 }
 
 /**
@@ -111,9 +111,9 @@ function copyFreeFonts() {
 function copyProFonts(fontFamilies, webFonts) {
   _.each(fontFamilies, (dest, src) => {
     if (copyFile(`${webFonts}/${src}`, dest)) {
-      logger.warn(` - ${dest} Font copied to`, chalk.yellow('./app/assets/fonts'), 'folder');
+      logger.warn(` - ${dest} Font copied to`, chalk.yellow('./app/assets/fonts'), 'folder')
     }
-  });
+  })
 }
 
 /**
@@ -127,13 +127,13 @@ function copyMaterialIconsFonts() {
     'MaterialIconsRound-Regular.otf',
     'MaterialIconsSharp-Regular.otf',
     'MaterialIconsTwoTone-Regular.otf'
-  ];
+  ]
 
   _.each(fontFamilies, familyName => {
-    copyFile(`${srcFonts_Folder}/${familyName}`, familyName);
-  });
+    copyFile(`${srcFonts_Folder}/${familyName}`, familyName)
+  })
 
-  logger.warn(' - Material Icons');
+  logger.warn(' - Material Icons')
 }
 
 /**
@@ -145,13 +145,13 @@ function copyMaterialSymbolsFonts() {
     'MaterialSymbolsOutlined-Regular.ttf',
     'MaterialSymbolsRounded-Regular.ttf',
     'MaterialSymbolsSharp-Regular.ttf'
-  ];
+  ]
 
   _.each(fontFamilies, familyName => {
-    copyFile(`${srcFonts_Folder}/${familyName}`, familyName);
-  });
+    copyFile(`${srcFonts_Folder}/${familyName}`, familyName)
+  })
 
-  logger.warn(' - Material Symbols');
+  logger.warn(' - Material Symbols')
 }
 
 /**
@@ -159,8 +159,8 @@ function copyMaterialSymbolsFonts() {
  */
 function copyFramework7IconsFonts() {
   // Framework7 Font
-  copyFile(srcFonts_Folder + '/Framework7-Icons.ttf', 'Framework7-Icons.ttf');
-  logger.warn(' - Framework 7');
+  copyFile(srcFonts_Folder + '/Framework7-Icons.ttf', 'Framework7-Icons.ttf')
+  logger.warn(' - Framework 7')
 }
 
 /**
@@ -170,7 +170,7 @@ function copyFramework7IconsFonts() {
 function buildFontAwesomeJS() {
   // This function should be imported from the fonts module
   // For now, just log that it would be called
-  logger.warn(' - Font Awesome JS module would be built');
+  logger.warn(' - Font Awesome JS module would be built')
 }
 
 /**
@@ -178,31 +178,31 @@ function buildFontAwesomeJS() {
  * @param {string} vendor - Font vendor (fa, mi, ms, f7)
  */
 function copyFont(vendor) {
-  makeSureFolderExists(projectsFontsFolder);
+  makeSureFolderExists(projectsFontsFolder)
 
   switch (vendor) {
     case 'fa':
     case 'fontawesome':
       if (fs.existsSync(srcFA_Beta_CSSFile)) {
-        copyProFonts(srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder);
+        copyProFonts(srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder)
       } else if (fs.existsSync(srcFA_Pro_CSS)) {
-        copyProFonts(srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder);
+        copyProFonts(srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder)
       } else {
-        copyFreeFonts();
+        copyFreeFonts()
       }
-      break;
+      break
     case 'mi':
     case 'materialicons':
-      copyMaterialIconsFonts();
-      break;
+      copyMaterialIconsFonts()
+      break
     case 'ms':
     case 'materialsymbol':
-      copyMaterialSymbolsFonts();
-      break;
+      copyMaterialSymbolsFonts()
+      break
     case 'f7':
     case 'framework7':
-      copyFramework7IconsFonts();
-      break;
+      copyFramework7IconsFonts()
+      break
   }
 }
 
@@ -215,27 +215,27 @@ function copyFontLibrary(vendor) {
     case 'fa':
     case 'fontawesome':
       if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
-        buildFontAwesomeJS();
+        buildFontAwesomeJS()
       } else {
-        fs.copyFileSync(srcLibFA, projectsLibFolder + '/fontawesome.js');
-        logger.warn(' - fontawesome.js');
+        fs.copyFileSync(srcLibFA, projectsLibFolder + '/fontawesome.js')
+        logger.warn(' - fontawesome.js')
       }
-      break;
+      break
     case 'mi':
     case 'materialicons':
-      fs.copyFileSync(srcLibMI, projectsLibFolder + '/materialicons.js');
-      logger.warn(' - materialicons.js');
-      break;
+      fs.copyFileSync(srcLibMI, projectsLibFolder + '/materialicons.js')
+      logger.warn(' - materialicons.js')
+      break
     case 'ms':
     case 'materialsymbol':
-      fs.copyFileSync(srcLibMS, projectsLibFolder + '/materialsymbols.js');
-      logger.warn(' - materialsymbols.js');
-      break;
+      fs.copyFileSync(srcLibMS, projectsLibFolder + '/materialsymbols.js')
+      logger.warn(' - materialsymbols.js')
+      break
     case 'f7':
     case 'framework7':
-      fs.copyFileSync(srcLibF7, projectsLibFolder + '/framework7icons.js');
-      logger.warn(' - framework7icons.js');
-      break;
+      fs.copyFileSync(srcLibF7, projectsLibFolder + '/framework7icons.js')
+      logger.warn(' - framework7icons.js')
+      break
   }
 }
 
@@ -248,7 +248,7 @@ function copyFontStyle(vendor) {
     case 'fa':
     case 'fontawesome':
       if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
-        buildFontAwesomeJS();
+        buildFontAwesomeJS()
       } else {
         fs.copyFileSync(srcFontAwesomeTSSFile, projectsPurge_TSS_Styles_Folder + '/fontawesome.tss')
         logger.warn(' - fontawesome.tss')
@@ -268,7 +268,7 @@ function copyFontStyle(vendor) {
     case 'framework7':
       fs.copyFileSync(srcFramework7FontTSSFile, projectsPurge_TSS_Styles_Folder + '/framework7icons.tss')
       logger.warn(' - framework7icons.tss')
-      break;
+      break
   }
 }
 
@@ -278,18 +278,20 @@ function copyFontStyle(vendor) {
  */
 function copyFontLibraries(options) {
   if (alloyProject()) {
-    makeSureFolderExists(projectsLibFolder);
+    makeSureFolderExists(projectsLibFolder)
 
     if (options.vendor && typeof options.vendor === 'string') {
-      const selected = _.uniq(options.vendor.replace(/ /g, '').split(','));
+      // Clean vendor string - remove leading = and spaces
+      const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
+      const selected = _.uniq(cleanVendor.split(','))
       _.each(selected, vendor => {
-        copyFontLibrary(vendor);
-      });
+        copyFontLibrary(vendor)
+      })
     } else {
-      copyFontLibrary('fa');
-      copyFontLibrary('mi');
-      copyFontLibrary('ms');
-      copyFontLibrary('f7');
+      copyFontLibrary('fa')
+      copyFontLibrary('mi')
+      copyFontLibrary('ms')
+      copyFontLibrary('f7')
     }
   }
 }
@@ -300,19 +302,21 @@ function copyFontLibraries(options) {
  */
 function copyFontStyles(options) {
   if (alloyProject()) {
-    makeSureFolderExists(projectsPurgeTSSFolder);
-    makeSureFolderExists(projectsPurge_TSS_Styles_Folder);
+    makeSureFolderExists(projectsPurgeTSSFolder)
+    makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
 
     if (options.vendor && typeof options.vendor === 'string') {
-      const selected = _.uniq(options.vendor.replace(/ /g, '').split(','));
+      // Clean vendor string - remove leading = and spaces
+      const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
+      const selected = _.uniq(cleanVendor.split(','))
       _.each(selected, vendor => {
-        copyFontStyle(vendor);
-      });
+        copyFontStyle(vendor)
+      })
     } else {
-      copyFontStyle('fa');
-      copyFontStyle('mi');
-      copyFontStyle('ms');
-      copyFontStyle('f7');
+      copyFontStyle('fa')
+      copyFontStyle('mi')
+      copyFontStyle('ms')
+      copyFontStyle('f7')
     }
   }
 }
@@ -328,41 +332,43 @@ function copyFontStyles(options) {
 export async function copyFonts(options = {}) {
   try {
     if (!alloyProject()) {
-      return false;
+      return false
     }
 
-    makeSureFolderExists(projectsFontsFolder);
+    makeSureFolderExists(projectsFontsFolder)
 
     if (options.vendor && typeof options.vendor === 'string') {
-      const selected = _.uniq(options.vendor.replace(/ /g, '').split(','));
-      logger.info('Copying Icon Fonts...');
+      // Clean vendor string - remove leading = and spaces
+      const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
+      const selected = _.uniq(cleanVendor.split(','))
+      logger.info('Copying Icon Fonts...')
       _.each(selected, vendor => {
-        copyFont(vendor);
-      });
+        copyFont(vendor)
+      })
     } else {
-      logger.info('Copying Fonts to', chalk.yellow('./app/assets/fonts'), 'folder');
-      copyFont('fa');
-      copyFont('mi');
-      copyFont('ms');
-      copyFont('f7');
+      logger.info('Copying Fonts to', chalk.yellow('./app/assets/fonts'), 'folder')
+      copyFont('fa')
+      copyFont('mi')
+      copyFont('ms')
+      copyFont('f7')
     }
 
     if (options.module) {
-      console.log();
-      logger.info('Copying Modules to', chalk.yellow('./app/lib'), 'folder');
-      copyFontLibraries(options);
+      console.log()
+      logger.info('Copying Modules to', chalk.yellow('./app/lib'), 'folder')
+      copyFontLibraries(options)
     }
 
     if (options.styles) {
-      console.log();
-      logger.info('Copying Styles to', chalk.yellow('./purgetss/styles'), 'folder');
-      copyFontStyles(options);
+      console.log()
+      logger.info('Copying Styles to', chalk.yellow('./purgetss/styles'), 'folder')
+      copyFontStyles(options)
     }
 
-    return true;
+    return true
   } catch (error) {
-    logger.error('Error in copyFonts:', error.message);
-    return false;
+    logger.error('Error in copyFonts:', error.message)
+    return false
   }
 }
 
@@ -372,25 +378,25 @@ export async function copyFonts(options = {}) {
  */
 export async function copyModulesLibrary() {
   try {
-    const srcPurgeTSSLibrary = path.resolve(projectRoot, './dist/purgetss.ui.js');
+    const srcPurgeTSSLibrary = path.resolve(projectRoot, './dist/purgetss.ui.js')
 
     if (alloyProject(true)) {
-      makeSureFolderExists(projectsLibFolder);
-      fs.copyFileSync(srcPurgeTSSLibrary, projectsLibFolder + '/purgetss.ui.js');
-      logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./app/lib'), 'folder');
-      return true;
+      makeSureFolderExists(projectsLibFolder)
+      fs.copyFileSync(srcPurgeTSSLibrary, projectsLibFolder + '/purgetss.ui.js')
+      logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./app/lib'), 'folder')
+      return true
     } else if (classicProject(true)) {
-      makeSureFolderExists(classicProjectLibFolder);
-      fs.copyFileSync(srcPurgeTSSLibrary, classicProjectLibFolder + '/purgetss.ui.js');
-      logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./Resources/lib'), 'folder');
-      return true;
+      makeSureFolderExists(classicProjectLibFolder)
+      fs.copyFileSync(srcPurgeTSSLibrary, classicProjectLibFolder + '/purgetss.ui.js')
+      logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./Resources/lib'), 'folder')
+      return true
     } else {
-      logger.info(`Please make sure you are running ${chalk.green('purgetss')} within an Alloy or Classic Project.`);
-      logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`);
-      return false;
+      logger.info(`Please make sure you are running ${chalk.green('purgetss')} within an Alloy or Classic Project.`)
+      logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
+      return false
     }
   } catch (error) {
-    logger.error('Error in copyModulesLibrary:', error.message);
-    return false;
+    logger.error('Error in copyModulesLibrary:', error.message)
+    return false
   }
 }

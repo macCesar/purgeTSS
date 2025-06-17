@@ -1312,6 +1312,6 @@ const icons = {
 	'zoomOut': 'zoom_out',
 	'zzz': 'zzz',
 };
-export const icons = icons;
+exports.icons = icons;
 
 const iconKeys = Object.keys(icons)

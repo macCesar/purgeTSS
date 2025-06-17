@@ -1,9 +1,9 @@
 /**
  * PurgeTSS v7.1 - FontAwesome Builder (Development)
- * 
+ *
  * Builds FontAwesome TSS and JS files for development/distribution.
  * Extracted from src/index.js - supports Pro, Beta, and Free versions.
- * 
+ *
  * @since 7.1.0 (extracted from index.js)
  * @author César Estrada
  */
@@ -201,7 +201,7 @@ export function processFontAwesomeJS(CSSFile, faJS) {
 
     exportIcons += '}\n'
 
-    exportIcons += 'export { icons as icons };\n'
+    exportIcons += 'exports.icons = icons;\n'
 
     exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 

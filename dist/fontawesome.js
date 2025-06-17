@@ -2552,6 +2552,6 @@ const icons = {
 	'pix': '\ue43a',
 	'steamSymbol': '\uf3f6',
 };
-export const icons = icons;
+exports.icons = icons;
 
 const iconKeys = Object.keys(icons)

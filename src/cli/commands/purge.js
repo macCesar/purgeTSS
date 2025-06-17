@@ -136,7 +136,7 @@ function extractClasses(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::Purge TSS:: Error processing: "${currentFile}"\n`, error)
+    throw chalk.red(`::PurgeTSS:: Error processing: "${currentFile}"\n`, error)
   }
 }
 
@@ -276,7 +276,7 @@ function copyResetTemplateAnd_appTSS() {
 
   logger.info('Copying Reset styles...')
 
-  let tempPurged = `// Purge TSS v${PurgeTSSPackageJSON.version}\n` + fs.readFileSync(srcReset_TSS_File, 'utf8')
+  let tempPurged = `// PurgeTSS v${PurgeTSSPackageJSON.version}\n` + fs.readFileSync(srcReset_TSS_File, 'utf8')
 
   if (fs.existsSync(projects_AppTSS)) {
     const appTSSContent = fs.readFileSync(projects_AppTSS, 'utf8')
@@ -320,7 +320,7 @@ function extractClassesOnly(currentText, currentFile) {
       return acc
     }, [])
   } catch (error) {
-    throw chalk.red(`::Purge TSS:: Error processing: "${currentFile}"\n`, error)
+    throw chalk.red(`::PurgeTSS:: Error processing: "${currentFile}"\n`, error)
   }
 }
 
@@ -440,45 +440,50 @@ export function purgeClasses(options) {
   // Initialize configOptions first (includes auto-migration)
   configOptions = getConfigOptions()
 
-  if (alloyProject()) {
-    purgingDebug = options.debug
+  if (!alloyProject()) {
+    return false
+  }
 
-    const recentlyCreated = makeSureFileExists(projectsAppTSS)
+  purgingDebug = options.debug
 
-    if (Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 2000) || recentlyCreated) {
-      start()
+  const recentlyCreated = makeSureFileExists(projectsAppTSS)
 
-      init(options)
+  if (Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 2000) || recentlyCreated) {
+    start()
 
-      backupOriginalAppTss()
+    init(options)
 
-      const uniqueClasses = getUniqueClasses()
+    backupOriginalAppTss()
 
-      let tempPurged = copyResetTemplateAnd_appTSS()
+    const uniqueClasses = getUniqueClasses()
 
-      tempPurged += purgeTailwind(uniqueClasses, purgingDebug)
+    let tempPurged = copyResetTemplateAnd_appTSS()
 
-      const cleanUniqueClasses = cleanClasses(uniqueClasses)
+    tempPurged += purgeTailwind(uniqueClasses, purgingDebug)
 
-      tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses, purgingDebug)
+    const cleanUniqueClasses = cleanClasses(uniqueClasses)
 
-      tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, purgingDebug)
+    tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses, purgingDebug)
 
-      tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, purgingDebug)
+    tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, purgingDebug)
 
-      tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses, purgingDebug)
+    tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, purgingDebug)
 
-      tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses, purgingDebug)
+    tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses, purgingDebug)
 
-      tempPurged += processMissingClasses(tempPurged)
+    tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses, purgingDebug)
 
-      saveFile(projectsAppTSS, tempPurged)
+    tempPurged += processMissingClasses(tempPurged)
 
-      logger.file('app.tss')
+    saveFile(projectsAppTSS, tempPurged)
 
-      finish()
-    } else {
-      logger.warn('Project purged less than 2 seconds ago!')
-    }
+    logger.file('app.tss')
+
+    finish()
+
+    return true
+  } else {
+    logger.warn('Project purged less than 2 seconds ago!')
+    return true
   }
 }

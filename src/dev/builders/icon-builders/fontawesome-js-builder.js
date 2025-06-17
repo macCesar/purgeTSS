@@ -1,11 +1,11 @@
 /**
  * PurgeTSS v7.1 - FontAwesome JS Builder (Development)
- * 
+ *
  * Builds FontAwesome JS functions for development/distribution.
  * COPIED from lib/build-fontawesome-free-js.js - NO CHANGES to logic.
- * 
+ *
  * Generates: ./dist/fontawesome.js
- * 
+ *
  * @since 7.1.0 (refactored from lib/)
  * @author César Estrada
  */
@@ -57,7 +57,7 @@ export function buildFontAwesomeJS() {
 
     exportIcons += '};\n'
 
-    exportIcons += 'export const icons = icons;\n'
+    exportIcons += 'exports.icons = icons;\n'
 
     exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
@@ -74,7 +74,7 @@ export function buildFontAwesomeJS() {
 /**
  * Prettify font name for JS usage
  * COPIED exactly from original prettifyFontName() function - NO CHANGES
- * 
+ *
  * @param {string} str - Font name to prettify
  * @returns {string} Prettified name
  */

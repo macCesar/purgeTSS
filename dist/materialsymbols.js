@@ -3084,6 +3084,6 @@ const icons = {
 	'zoomOut': '\ue900',
 	'zoomOutMap': '\ue56b',
 };
-export const icons = icons;
+exports.icons = icons;
 
 const iconKeys = Object.keys(icons)

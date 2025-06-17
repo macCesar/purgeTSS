@@ -1,11 +1,11 @@
 /**
  * PurgeTSS v7.1 - Material Icons JS Builder (Development)
- * 
+ *
  * Builds Material Icons JS functions for development/distribution.
  * COPIED from lib/build-material-icons-js.js - NO CHANGES to logic.
- * 
+ *
  * Generates: ./dist/materialicons.js
- * 
+ *
  * @since 7.1.0 (refactored from lib/)
  * @author César Estrada
  */
@@ -60,7 +60,7 @@ export function buildMaterialIconsJS() {
 
   exportIcons += '};\n'
 
-  exportIcons += 'export const icons = icons;\n'
+  exportIcons += 'exports.icons = icons;\n'
 
   exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
@@ -76,7 +76,7 @@ export function buildMaterialIconsJS() {
 /**
  * Prettify font name for JS usage (Material Icons version)
  * COPIED exactly from original prettifyFontName() function - NO CHANGES
- * 
+ *
  * @param {string} str - Font name to prettify
  * @returns {string} Prettified name
  */
