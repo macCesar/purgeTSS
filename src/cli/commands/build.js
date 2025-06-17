@@ -15,18 +15,8 @@ import { initIfNotConfig } from '../utils/file-operations.js'
 import { buildTailwindBasedOnConfigOptions, buildTailwindLegacy } from '../../core/builders/tailwind-builder.js'
 import { createDefinitionsFile } from './init.js'
 
-// Temporary imports from main index.js until functions are extracted
-let buildFontAwesome, buildFontAwesomeJS
-
-// Initialize function imports
-const initFontFunctions = async() => {
-  const indexModule = await import('../../index.js')
-  buildFontAwesome = indexModule.buildFontAwesome
-  buildFontAwesomeJS = indexModule.buildFontAwesomeJS
-}
-
-// Initialize on module load
-await initFontFunctions()
+// Import FontAwesome functions from their new modular location
+import { buildFontAwesome, buildFontAwesomeJS } from '../../dev/builders/fontawesome-builder.js'
 
 /**
  * Build command - generates all CSS files from Tailwind and icon libraries

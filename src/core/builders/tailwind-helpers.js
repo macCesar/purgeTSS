@@ -12,17 +12,9 @@ import _ from 'lodash'
 import defaultColors from 'tailwindcss/colors.js'
 
 // TODO: These dependencies need to be resolved during refactoring
-let configFile, removeDeprecatedColors, fixPercentages
-
-// Temporary import from src/index.js until fully modularized
-const importFromIndex = async() => {
-  const indexModule = await import('../../index.js')
-  configFile = indexModule.configFile
-  removeDeprecatedColors = indexModule.removeDeprecatedColors
-  fixPercentages = indexModule.fixPercentages
-}
-
-await importFromIndex()
+// Import functions from their new modular locations
+import { configFile } from '../../shared/config-manager.js'
+import { removeDeprecatedColors, fixPercentages } from '../../shared/helpers.js'
 
 /**
  * Remove fit, max, min values from width, height and spacing objects

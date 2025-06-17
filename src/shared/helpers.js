@@ -7360,3 +7360,24 @@ export function expandAnimationApply(className, applyString) {
   return result
 }
 // Exported as function
+
+// Utility functions extracted from index.js
+export function fixPercentages(theObject) {
+  _.each(theObject, (value, key) => {
+    if (value.toString().includes('.333333%')) {
+      theObject[key] = value.replace('.333333%', '.333334%')
+    }
+  })
+}
+// Exported as function
+
+export function removeDeprecatedColors(theObject) {
+  delete theObject.blueGray
+  delete theObject.coolGray
+  delete theObject.current
+  delete theObject.inherit
+  delete theObject.lightBlue
+  delete theObject.trueGray
+  delete theObject.warmGray
+}
+// Exported as function

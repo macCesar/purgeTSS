@@ -12,7 +12,7 @@ import fs from 'fs'
 import path from 'path'
 import _ from 'lodash'
 import { logger } from '../../shared/logger.js'
-import { makeSureFolderExists } from '../../shared/utils.js'
+import { makeSureFolderExists, getFileUpdatedDate } from '../../shared/utils.js'
 import {
   projectRoot,
   projectsConfigJS,
@@ -24,26 +24,10 @@ import {
 } from '../../shared/constants.js'
 import { combineAllValues, getBaseValues } from './tailwind-helpers.js'
 
-// TODO: These dependencies need to be resolved during refactoring
-// These functions are currently in src/index.js and will be modularized
-let helpers, configOptions, configFile, defaultTheme
-let autoBuildTailwindTSS, getFileUpdatedDate
-
-// Temporary import from src/index.js until helpers are fully modularized
-// This is a transitional solution to maintain functionality during refactoring
-const importFromIndex = async() => {
-  const indexModule = await import('../../index.js')
-  // TODO: Extract these dependencies properly when modularizing helpers.js
-  helpers = indexModule.helpers
-  configOptions = indexModule.configOptions
-  configFile = indexModule.configFile
-  defaultTheme = indexModule.defaultTheme
-  autoBuildTailwindTSS = indexModule.autoBuildTailwindTSS
-  getFileUpdatedDate = indexModule.getFileUpdatedDate
-}
-
-// Initialize dependencies
-await importFromIndex()
+// Import functions from their new modular locations
+import * as helpers from '../../shared/helpers.js'
+import { configOptions, configFile, defaultTheme } from '../../shared/config-manager.js'
+import { autoBuildTailwindTSS } from '../../../experimental/completions2.js'
 
 /**
  * Build Tailwind (AUTO mode using experimental completions engine)

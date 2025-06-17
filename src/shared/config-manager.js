@@ -12,6 +12,7 @@
 
 import fs from 'fs'
 import { createRequire } from 'module'
+import defaultTheme from 'tailwindcss/defaultTheme.js'
 import {
   projectsConfigJS,
   projectsPurgeTSSFolder,
@@ -105,6 +106,38 @@ export function loadRawConfig() {
 }
 
 /**
+ * Get the global config file instance (lazy-loaded)
+ * Maintains compatibility with legacy code that expects `configFile` variable
+ *
+ * @returns {Object} Configuration file with defaults applied
+ */
+export const configFile = getConfigFile()
+
+/**
+ * Get the global config options instance (lazy-loaded)
+ * Maintains compatibility with legacy code that expects `configOptions` variable
+ *
+ * @returns {Object} Configuration options with defaults applied
+ */
+export const configOptions = (() => {
+  const file = getConfigFile()
+  const options = (file.purge && file.purge.options) ? file.purge.options : {}
+  
+  if (options) {
+    options.widgets = options.widgets ?? false
+    options.missing = options.missing ?? true
+    options.plugins = options.plugins ?? []
+  }
+  
+  return options
+})()
+
+/**
+ * Export defaultTheme from tailwindcss for backward compatibility
+ */
+export { defaultTheme }
+
+/**
  * Export for backward compatibility
  */
 export default {
@@ -112,5 +145,8 @@ export default {
   getConfigOptions,
   hasProjectConfig,
   getActiveConfigPath,
-  loadRawConfig
+  loadRawConfig,
+  configFile,
+  configOptions,
+  defaultTheme
 }
