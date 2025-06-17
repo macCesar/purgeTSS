@@ -388,7 +388,7 @@ export function copyFonts(options) {
  *
  * @param {Object} options - Command options
  * @param {boolean} options.fontClassFromFilename - Generate class from filename
- * @param {boolean} options.iconPrefixFromFilename - Use filename as icon prefix
+ * @param {boolean} options.fontClassFromFilename - Use filename for both font class and icon prefix
  * @param {boolean} options.module - Generate JavaScript module
  */
 export function buildFonts(options) {
@@ -438,7 +438,7 @@ export function buildFonts(options) {
         const cssFile = readCSS(file)
         const theFile = file.split('/')
         const theCSSFile = theFile.pop()
-        const prefix = options.iconPrefixFromFilename ? theCSSFile.split('.').shift() : null
+        const prefix = options.fontClassFromFilename ? theCSSFile.split('.').shift() : null
         let theFolder = theFile.pop() + '/'
         if (theFolder === 'fonts/') {
           theFolder = ''

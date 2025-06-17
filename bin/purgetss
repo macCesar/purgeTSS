@@ -1,39 +1,39 @@
 #!/usr/bin/env node
 
-import chalk from 'chalk';
-import { readFileSync } from 'fs';
-import { Command } from 'commander';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-import { exec } from 'child_process';
-import updateNotifier from 'update-notifier';
-
-// ESM equivalent of __dirname
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// Load package.json
-const packagePath = join(__dirname, '../package.json');
-const pkg = JSON.parse(readFileSync(packagePath, 'utf8'));
-
-// Check if a new version of PurgeTSS is available and print an update notification
-const notifier = updateNotifier({ pkg });
-if (notifier.update && notifier.update.latest !== pkg.version) {
-  notifier.notify({ defer: false, isGlobal: true });
-}
+import chalk from 'chalk'
+import { readFileSync } from 'fs'
+import { Command } from 'commander'
+import { fileURLToPath } from 'url'
+import { dirname, join } from 'path'
+import { exec } from 'child_process'
+import updateNotifier from 'update-notifier'
 
 // Import refactored modular commands
-import { build } from '../src/cli/commands/build.js';
-import { create } from '../src/cli/commands/create.js';
-import { watchMode } from '../src/cli/commands/watch.js';
-import { purgeClasses } from '../src/cli/commands/purge.js';
-import { copyModulesLibrary } from '../src/cli/commands/module.js';
-import { dependencies } from '../src/cli/commands/dependencies.js';
-import { init } from '../src/cli/commands/init.js';
-import { shades, colorModule } from '../src/cli/commands/shades.js';
-import { buildFonts } from '../src/cli/commands/fonts.js';
-import { copyFonts } from '../src/cli/commands/icon-library.js';
-const program = new Command();
+import { build } from '../src/cli/commands/build.js'
+import { create } from '../src/cli/commands/create.js'
+import { watchMode } from '../src/cli/commands/watch.js'
+import { purgeClasses } from '../src/cli/commands/purge.js'
+import { copyModulesLibrary } from '../src/cli/commands/module.js'
+import { dependencies } from '../src/cli/commands/dependencies.js'
+import { init } from '../src/cli/commands/init.js'
+import { shades, colorModule } from '../src/cli/commands/shades.js'
+import { buildFonts } from '../src/cli/commands/fonts.js'
+import { copyFonts } from '../src/cli/commands/icon-library.js'
+
+// ESM equivalent of __dirname
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+// Load package.json
+const packagePath = join(__dirname, '../package.json')
+const pkg = JSON.parse(readFileSync(packagePath, 'utf8'))
+
+// Check if a new version of PurgeTSS is available and print an update notification
+const notifier = updateNotifier({ pkg })
+if (notifier.update && notifier.update.latest !== pkg.version) {
+  notifier.notify({ defer: false, isGlobal: true })
+}
+const program = new Command()
 
 // Main program setup
 program
@@ -42,17 +42,17 @@ program
   .description(`${chalk.green(pkg.description)}\n                     For more information, visit ${chalk.green('https://purgetss.com')}`)
   .option('--debug', 'Display execution time for each process')
   .option('-a, --all', `Run these 3 commands: ${chalk.green('build')}, ${chalk.green('build-fonts')} and ${chalk.green('purgetss')}`)
-  .action(async (options) => {
+  .action(async(options) => {
     try {
-      const result = await purgeClasses(options);
+      const result = await purgeClasses(options)
       if (!result) {
-        process.exit(1);
+        process.exit(1)
       }
     } catch (error) {
-      console.error(chalk.red('Error running purgeClasses:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error running purgeClasses:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // === INITIAL SETUP ===
 
@@ -62,17 +62,17 @@ program
   .alias('i')
   .description(`Create a ${chalk.yellow('config.js')} file for your project`)
   .option('--all', 'Create all files')
-  .action(async (options) => {
+  .action(async(options) => {
     try {
-      const result = await init(options);
+      const result = await init(options)
       if (!result) {
-        process.exit(1);
+        process.exit(1)
       }
     } catch (error) {
-      console.error(chalk.red('Error running init:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error running init:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // Create command
 program
@@ -84,22 +84,22 @@ program
   .option('-m, --module', `Install ${chalk.yellow('purgetss.ui.js')} module`)
   .option('-v, --vendor <vendor>', 'Install vendor fonts (e.g., fontawesome, materialicons)')
   .action((name, options) => {
-    create({ name }, options);
-  });
+    create({ name }, options)
+  })
 
 // Install Dependencies command
 program
   .command('install-dependencies')
   .alias('id')
   .description(`Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} to an existing project\n`)
-  .action(async (options) => {
+  .action(async(options) => {
     try {
-      await dependencies(options);
+      await dependencies(options)
     } catch (error) {
-      console.error(chalk.red('Error installing dependencies:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error installing dependencies:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // === DAILY DEVELOPMENT ===
 
@@ -109,17 +109,17 @@ program
   .alias('b')
   .description(`Generate a new ${chalk.yellow('tailwind.tss')} file`)
   .option('--glossary', 'Create a glossary folder with all generated classes')
-  .action(async (options) => {
+  .action(async(options) => {
     try {
-      const result = await build(options);
+      const result = await build(options)
       if (!result) {
-        process.exit(1);
+        process.exit(1)
       }
     } catch (error) {
-      console.error(chalk.red('Error running build:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error running build:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // Watch mode command
 program
@@ -130,26 +130,26 @@ program
   .option('-d, --delete', 'To completely delete the Auto-Purging hook')
   .action((options) => {
     try {
-      watchMode(options);
+      watchMode(options)
     } catch (error) {
-      console.error(chalk.red('Error managing watch mode:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error managing watch mode:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // Module command
 program
   .command('module')
   .alias('m')
   .description(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('lib')} folder\n`)
-  .action(async (options) => {
+  .action(async(options) => {
     try {
-      await copyModulesLibrary(options);
+      await copyModulesLibrary(options)
     } catch (error) {
-      console.error(chalk.red('Error copying module:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error copying module:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // === ASSET CONFIGURATION ===
 
@@ -158,54 +158,53 @@ program
   .command('icon-library')
   .alias('il')
   .description('Copy default icon font libraries to your project')
-  .option('-v, --vendor <vendor>', `Copy specific font vendors: fa, mi, ms, f7`)
-  .option('-m, --module', `Copy corresponding CommonJS modules to ./app/lib/ folder`)
-  .option('-s, --styles', `Copy corresponding .tss files to ./purgetss/styles/ folder`)
-  .action(async (options) => {
+  .option('-v, --vendor <vendor>', 'Copy specific font vendors: fa, mi, ms, f7')
+  .option('-m, --module', 'Copy corresponding CommonJS modules to ./app/lib/ folder')
+  .option('-s, --styles', 'Copy corresponding .tss files to ./purgetss/styles/ folder')
+  .action(async(options) => {
     try {
-      await copyFonts(options);
+      await copyFonts(options)
     } catch (error) {
-      console.error(chalk.red('Error copying icon libraries:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error copying icon libraries:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // Build Fonts command
 program
   .command('build-fonts')
   .alias('bf')
   .description(`Generate ${chalk.yellow('fonts.tss')} from font and CSS files in ${chalk.yellow('./purgetss/fonts')}`)
-  .option('-f, --font-class-from-filename', 'Use the font\'s filename as the name of the font class instead of the font family\'s name.')
-  .option('-p, --icon-prefix-from-filename', `Apply the style's filename as a prefix in font icons for both the ${chalk.yellow('font.tss')} and ${chalk.yellow('purgetss.fonts.js')} files.`)
+  .option('-f, --font-class-from-filename', 'Use the font\'s filename as the name of the font class and the CSS filename as prefix for icon classes instead of using font family names.')
   .option('-m, --module', `Generate a CommonJS module in the ${chalk.yellow('./app/lib/')} folder called ${chalk.yellow('purgetss-fonts.js')} containing all font classes for both regular fonts and font icons.`)
-  .action(async (options) => {
+  .action(async(options) => {
     try {
-      const result = await buildFonts(options);
+      const result = await buildFonts(options)
       if (!result) {
-        process.exit(1);
+        process.exit(1)
       }
     } catch (error) {
-      console.error(chalk.red('Error running build-fonts:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error running build-fonts:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // Color Module command
 program
   .command('color-module')
   .alias('cm')
   .description(`Copy all colors from ${chalk.yellow('config.js')} to your ${chalk.yellow('lib')} folder\n`)
-  .action(async (options) => {
+  .action(async(options) => {
     try {
-      const result = await colorModule(options);
+      const result = await colorModule(options)
       if (!result) {
-        process.exit(1);
+        process.exit(1)
       }
     } catch (error) {
-      console.error(chalk.red('Error running color-module:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error running color-module:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // === UTILITIES ===
 
@@ -221,17 +220,17 @@ program
   .option('-t, --tailwind', 'Output in Tailwind format')
   .option('-q, --quotes', 'Use quotes in output')
   .option('-s, --single', 'Generate single color instead of shades')
-  .action(async (hexcode, options) => {
+  .action(async(hexcode, options) => {
     try {
-      const result = await shades({ hexcode, name: options.name }, options);
+      const result = await shades({ hexcode, name: options.name }, options)
       if (!result) {
-        process.exit(1);
+        process.exit(1)
       }
     } catch (error) {
-      console.error(chalk.red('Error running shades:'), error.message);
-      process.exit(1);
+      console.error(chalk.red('Error running shades:'), error.message)
+      process.exit(1)
     }
-  });
+  })
 
 // === MAINTENANCE ===
 
@@ -241,22 +240,22 @@ program
   .alias('u')
   .description(`Update ${chalk.green('PurgeTSS')} to the latest version`)
   .action((options) => {
-    console.log(`${chalk.green('::PurgeTSS::')} Updating ${chalk.green('PurgeTSS')} to the latest version...`);
+    console.log(`${chalk.green('::PurgeTSS::')} Updating ${chalk.green('PurgeTSS')} to the latest version...`)
 
     exec('npm update -g purgetss', (error, stdout, stderr) => {
       if (error) {
-        console.log(`${chalk.green('::PurgeTSS::')} error: ${error.message}`);
-        return;
+        console.log(`${chalk.green('::PurgeTSS::')} error: ${error.message}`)
+        return
       }
 
       if (stderr) {
-        console.log(`${chalk.green('::PurgeTSS::')} stderr: ${stderr}`);
-        return;
+        console.log(`${chalk.green('::PurgeTSS::')} stderr: ${stderr}`)
+        return
       }
 
-      console.log(`${chalk.green('::PurgeTSS::')} Done!`);
-    });
-  });
+      console.log(`${chalk.green('::PurgeTSS::')} Done!`)
+    })
+  })
 
 // Sudo Update command
 program
@@ -264,22 +263,22 @@ program
   .alias('su')
   .description(`Update ${chalk.green('PurgeTSS')} to the latest version using the ${chalk.yellow('sudo')} command`)
   .action((options) => {
-    console.log(`${chalk.green('::PurgeTSS::')} Updating ${chalk.green('PurgeTSS')} to the latest version using sudo...`);
+    console.log(`${chalk.green('::PurgeTSS::')} Updating ${chalk.green('PurgeTSS')} to the latest version using sudo...`)
 
     exec('sudo npm update -g purgetss', (error, stdout, stderr) => {
       if (error) {
-        console.log(`${chalk.green('::PurgeTSS::')} error: ${error.message}`);
-        return;
+        console.log(`${chalk.green('::PurgeTSS::')} error: ${error.message}`)
+        return
       }
 
       if (stderr) {
-        console.log(`${chalk.green('::PurgeTSS::')} stderr: ${stderr}`);
-        return;
+        console.log(`${chalk.green('::PurgeTSS::')} stderr: ${stderr}`)
+        return
       }
 
-      console.log(`${chalk.green('::PurgeTSS::')} Done!`);
-    });
-  });
+      console.log(`${chalk.green('::PurgeTSS::')} Done!`)
+    })
+  })
 
 // Parse arguments
-program.parse();
+program.parse()

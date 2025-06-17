@@ -721,7 +721,7 @@ function buildFonts(options) {
         const cssFile = readCSS(file)
         const theFile = file.split('/')
         const theCSSFile = theFile.pop()
-        const prefix = options.iconPrefixFromFilename ? theCSSFile.split('.').shift() : null
+        const prefix = options.fontClassFromFilename ? theCSSFile.split('.').shift() : null
         let theFolder = theFile.pop() + '/'
         if (theFolder === 'fonts/') {
           theFolder = ''

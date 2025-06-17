@@ -12,33 +12,53 @@
 
 **PurgeTSS** is a toolkit designed to enhance the development of mobile applications using the **[Titanium framework](https://titaniumsdk.com)**. It introduces several key features to streamline the app development process, making it simpler and more efficient for developers.
 
-## 🚀 What's New in v7.0.0-alpha
+##  What's New in v7.1.0
 
-**Major ESM Migration**: PurgeTSS v7 has been completely migrated to **ES Modules (ESM)** for better performance, modern JavaScript support, and compatibility with the latest dependencies.
+**Major Refactoring & ESM Migration**: PurgeTSS v7.1 has been completely refactored with improved code organization, better ESM compatibility, and a more intuitive CLI experience.
 
 ### ⚠️ Breaking Changes
 
 - **Node.js 16+** required (ESM support)
+- **Configuration file**: `config.js` → `config.cjs` (same content, different extension for CommonJS compatibility)
 - **Removed deprecated commands**:
   - `copy-fonts` (use `icon-library` instead)
   - `build-legacy` (legacy Tailwind build removed)
+- **Removed configuration options**:
+  - `purge.options.legacy` (legacy mode no longer supported)
+- **Simplified font generation**:
+  - `build-fonts` `-p` flag removed (now handled by `-f` flag)
+  - `build-fonts` command options simplified for better consistency
 - **Updated dependencies** to latest ESM versions (chalk v5+, etc.)
 
 ### ✅ What's Maintained
 
-- **100% API compatibility** - All existing commands work the same
-- **Same configuration files** - Your `config.js` files work unchanged
 - **Same CLI interface** - All commands and options preserved
-- **CommonJS config support** - User configuration files remain CommonJS
+- **100% API compatibility** - All existing commands work the same
+- **Same configuration structure** - Your existing config content works unchanged
+
+### 🔄 Command Improvements
+
+- **CLI reorganization**: Commands are now organized in logical categories (Setup, Development, Assets, Utilities, Maintenance) for better discoverability
+- **`build-fonts` simplified**:
+  - Removed `-p` (--icon-prefix-from-filename) flag
+  - The `-f` flag now controls both font class names AND icon prefixes using filenames
+  - More consistent and intuitive behavior
+- **Legacy mode removed**: Removed `build-legacy` command and `purge.options.legacy` configuration for cleaner, modern codebase
 
 ### 🔧 Migration Guide
 
 For most users, upgrading is seamless:
 ```bash
-npm install -g purgetss@7.0.0-alpha.1
+npm install -g purgetss@7.1.0
 ```
 
-Only requirement: **Node.js 16 or higher**
+**Key changes to note:**
+- If you used `build-fonts` with the `-p` flag, now use `-f` instead (handles both font classes and icon prefixes)
+- If you had `legacy: true` in your config, remove this option (legacy mode discontinued)
+- If you used the `build-legacy` command, use the regular `build` command instead
+- Only requirement: **Node.js 16 or higher**
+- If you used the `build-legacy` command, use the regular `build` command instead
+- Only requirement: **Node.js 16 or higher**
 
 ---
 
@@ -58,7 +78,7 @@ Here are its main functionalities:
 
 - **Icon Fonts Integration**: PurgeTSS facilitates the use of popular icon fonts such as Font Awesome, Material Icons, Material Symbols, and Framework7-Icons in Buttons and Labels.
 
-- **Fonts.tss Generation**: This process creates a `fonts.tss` file with class definitions and fontFamily selectors for various font types, making it easy to add custom fonts, including icon fonts, to a project.
+- **fonts.tss Generation**: The `build-fonts` command creates a `fonts.tss` file with class definitions and fontFamily selectors for various font types. It supports both regular fonts and icon fonts, with simplified options for using filenames as class names and icon prefixes.
 
 - **Shades Command**: The toolkit includes a `shades` command that enables developers to generate custom color shades from a specified hex color, eliminating the need for external tools.
 
@@ -78,7 +98,7 @@ Overall, PurgeTSS aims to simplify the mobile app development process, offering 
 
 ## Table of Content
 
-- [What's New in v7](#-whats-new-in-v700-alpha)
+- [What's New in v7.1](#-whats-new-in-v710)
 - [Installation](https://purgetss.com/docs/installation)
 - [Commands](https://purgetss.com/docs/commands)
 - Customization
