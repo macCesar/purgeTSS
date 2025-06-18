@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // Test simple de tailwind-purger
-import { purgeTailwind } from './src/core/purger/tailwind-purger.js'
+import { purgeTailwind } from '../src/core/purger/tailwind-purger.js'
 
 console.log('purgeTailwind function:', typeof purgeTailwind)
 

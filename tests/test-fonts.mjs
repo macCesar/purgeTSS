@@ -4,7 +4,7 @@
 console.log('Starting import test...')
 
 try {
-  const fonts = await import('./src/cli/commands/fonts.js')
+  const fonts = await import('../src/cli/commands/fonts.js')
   console.log('✅ fonts.js imported successfully!')
   console.log('Exports:', Object.keys(fonts))
 

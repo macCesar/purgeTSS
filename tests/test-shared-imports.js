@@ -2,14 +2,14 @@
  * Test imports for shared modules
  */
 
-import { logger } from './src/shared/logger.js'
-import { getConfigFile } from './src/shared/config-manager.js'
-import { alloyProject } from './src/shared/utils.js'
+import { logger } from '../src/shared/logger.js'
+import { getConfigFile } from '../src/shared/config-manager.js'
+import { alloyProject } from '../src/shared/utils.js'
 import {
   projectsLibFolder,
   projectsPurgeTSSFolder,
   PurgeTSSPackageJSON
-} from './src/shared/constants.js'
+} from '../src/shared/constants.js'
 
 console.log('Testing shared modules import...')
 console.log('✅ Logger imported:', typeof logger)

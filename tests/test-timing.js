@@ -1,4 +1,4 @@
-import { localStart, localFinish } from './src/cli/utils/cli-helpers.js'
+import { localStart, localFinish } from '../src/cli/utils/cli-helpers.js'
 
 console.log('localStart type:', typeof localStart)
 console.log('localFinish type:', typeof localFinish)
