@@ -1,12 +1,12 @@
 {
+  "type": "module",
   "name": "purgetss",
   "version": "7.1.0",
-  "description": "A package that simplifies mobile app creation for Titanium developers.",
   "main": "src/index.js",
-  "type": "module",
   "bin": {
     "purgetss": "bin/purgetss"
   },
+  "description": "A package that simplifies mobile app creation for Titanium developers.",
   "files": [
     "bin/",
     "lib/",
