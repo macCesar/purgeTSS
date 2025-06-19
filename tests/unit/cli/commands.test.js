@@ -35,11 +35,10 @@ async function testPurgeCommand() {
 
 async function testIconLibrary() {
   try {
-    const { copyFonts, copyFont } = await import('../../../src/cli/commands/icon-library.js')
+    const { copyFonts } = await import('../../../src/cli/commands/icon-library.js')
     
     console.log('✅ Icon Library test:')
     console.log('  copyFonts type:', typeof copyFonts)
-    console.log('  copyFont type:', typeof copyFont)
     
     return true
   } catch (error) {
@@ -50,11 +49,11 @@ async function testIconLibrary() {
 
 async function testProjectDetection() {
   try {
-    const { alloyProject, titaniumProject } = await import('../../../src/cli/utils/project-detection.js')
+    const { alloyProject, classicProject } = await import('../../../src/cli/utils/project-detection.js')
     
     console.log('✅ Project Detection test:')
     console.log('  alloyProject type:', typeof alloyProject)
-    console.log('  titaniumProject type:', typeof titaniumProject)
+    console.log('  classicProject type:', typeof classicProject)
     
     return true
   } catch (error) {
@@ -65,11 +64,11 @@ async function testProjectDetection() {
 
 async function testFileOperations() {
   try {
-    const { makeSureFolderExists, getFiles } = await import('../../../src/cli/utils/file-operations.js')
+    const { initIfNotConfig, makeSureFileExists } = await import('../../../src/cli/utils/file-operations.js')
     
     console.log('✅ File Operations test:')
-    console.log('  makeSureFolderExists type:', typeof makeSureFolderExists)
-    console.log('  getFiles type:', typeof getFiles)
+    console.log('  initIfNotConfig type:', typeof initIfNotConfig)
+    console.log('  makeSureFileExists type:', typeof makeSureFileExists)
     
     return true
   } catch (error) {
@@ -112,11 +111,10 @@ async function testInitCommand() {
 
 async function testCreateCommand() {
   try {
-    const { create, createProject } = await import('../../../src/cli/commands/create.js')
+    const { create } = await import('../../../src/cli/commands/create.js')
     
     console.log('✅ Create Command test:')
     console.log('  create type:', typeof create)
-    console.log('  createProject type:', typeof createProject)
     
     return true
   } catch (error) {

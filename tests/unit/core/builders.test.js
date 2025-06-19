@@ -6,10 +6,10 @@ console.log('🧪 Testing Core Builders and Purgers...')
 
 async function testTailwindBuilder() {
   try {
-    const { buildTailwindCSS } = await import('../../../src/core/builders/tailwind-builder.js')
+    const { buildTailwindBasedOnConfigOptions } = await import('../../../src/core/builders/tailwind-builder.js')
     
     console.log('✅ Tailwind Builder test:')
-    console.log('  buildTailwindCSS type:', typeof buildTailwindCSS)
+    console.log('  buildTailwindBasedOnConfigOptions type:', typeof buildTailwindBasedOnConfigOptions)
     
     return true
   } catch (error) {
@@ -21,15 +21,15 @@ async function testTailwindBuilder() {
 async function testTailwindHelpers() {
   try {
     const { 
-      removeProperties, 
-      fixPercentages, 
-      addVariables 
+      removeFitMaxMin, 
+      combineKeys, 
+      getBaseValues 
     } = await import('../../../src/core/builders/tailwind-helpers.js')
     
     console.log('✅ Tailwind Helpers test:')
-    console.log('  removeProperties type:', typeof removeProperties)
-    console.log('  fixPercentages type:', typeof fixPercentages)
-    console.log('  addVariables type:', typeof addVariables)
+    console.log('  removeFitMaxMin type:', typeof removeFitMaxMin)
+    console.log('  combineKeys type:', typeof combineKeys)
+    console.log('  getBaseValues type:', typeof getBaseValues)
     
     return true
   } catch (error) {
@@ -40,10 +40,10 @@ async function testTailwindHelpers() {
 
 async function testTailwindPurger() {
   try {
-    const { purgeTailwindClasses } = await import('../../../src/core/purger/tailwind-purger.js')
+    const { purgeTailwind } = await import('../../../src/core/purger/tailwind-purger.js')
     
     console.log('✅ Tailwind Purger test:')
-    console.log('  purgeTailwindClasses type:', typeof purgeTailwindClasses)
+    console.log('  purgeTailwind type:', typeof purgeTailwind)
     
     return true
   } catch (error) {
@@ -54,10 +54,10 @@ async function testTailwindPurger() {
 
 async function testIconPurger() {
   try {
-    const { purgeIconClasses } = await import('../../../src/core/purger/icon-purger.js')
+    const { purgeFontAwesome } = await import('../../../src/core/purger/icon-purger.js')
     
     console.log('✅ Icon Purger test:')
-    console.log('  purgeIconClasses type:', typeof purgeIconClasses)
+    console.log('  purgeFontAwesome type:', typeof purgeFontAwesome)
     
     return true
   } catch (error) {
@@ -69,18 +69,18 @@ async function testIconPurger() {
 async function testFunctionalityTests() {
   try {
     // Test basic Tailwind helpers functionality
-    const { removeProperties } = await import('../../../src/core/builders/tailwind-helpers.js')
+    const { removeFitMaxMin } = await import('../../../src/core/builders/tailwind-helpers.js')
     
-    if (typeof removeProperties === 'function') {
-      console.log('✅ Functionality test - removeProperties:')
+    if (typeof removeFitMaxMin === 'function') {
+      console.log('✅ Functionality test - removeFitMaxMin:')
       console.log('  Function is callable')
     }
     
     // Test purger functionality 
-    const { purgeTailwindClasses } = await import('../../../src/core/purger/tailwind-purger.js')
+    const { purgeTailwind } = await import('../../../src/core/purger/tailwind-purger.js')
     
-    if (typeof purgeTailwindClasses === 'function') {
-      console.log('✅ Functionality test - purgeTailwindClasses:')
+    if (typeof purgeTailwind === 'function') {
+      console.log('✅ Functionality test - purgeTailwind:')
       console.log('  Function is callable')
     }
     
