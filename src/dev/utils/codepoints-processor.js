@@ -3,7 +3,7 @@ import _ from 'lodash'
 /**
  * Process codepoints data to TSS format
  * Shared utility for Material Icons and Material Symbols builders
- * 
+ *
  * @param {Array} data - Codepoints data array
  * @param {string} addSelector - Selector prefix to add
  * @returns {string} Processed TSS classes

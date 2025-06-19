@@ -146,9 +146,6 @@ export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUnique
   return purgedClasses
 }
 
-// TODO: These functions need to be imported from other modules when they're extracted
-// For now, they will be available from the main index.js until refactor is complete
-
 /**
  * Clean class name by removing platform and modifier prefixes
  * COPIED exactly from original cleanClassNameFn() function

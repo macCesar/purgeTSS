@@ -1,0 +1,98 @@
+// Fonts TSS file generated with PurgeTSS
+// https://purgetss.com/docs/commands#build-fonts-command
+
+/**
+ * BRUX
+ * Version 1.000;PS 001.000;hotconv 1.0.70;makeotf.lib2.5.58329 DEVELOPMENT
+ * freegoodiesfordesigners.com
+ * Marcelo Reis Melo - freegoodiesfordesigners.com
+ * Marcelo Reis Melo
+ */
+'.brux-regular': { font: { fontFamily: 'BRUX-Regular' } }
+
+/**
+ * Roboto
+ * Version 2.137; 2017
+ * Google.com
+ * Google - Christian Robertson
+ * Copyright 2011 Google Inc. All Rights Reserved.
+ * Roboto is a trademark of Google.
+ * Licensed under the Apache License, Version 2.0 - http://www.apache.org/licenses/LICENSE-2.0
+ */
+'.roboto-regular': { font: { fontFamily: 'Roboto-Regular' } }
+
+/**
+ * Interface-Line-Icon-2
+ * Version 1.0
+ * https://iconfonts.gumroad.com/l/rsvlq
+ * Worawaluns - https://dribbble.com/worawaluns
+ * Copyright 2022. All rights reserved
+ * End User License Agreement (EULA) - https://iconfonts.gumroad.com/l/rsvlq
+ */
+'.interface-line-icon-2': { font: { fontFamily: 'Interface-Line-Icon-2' } }
+
+/**
+ * Liquid-Container-Icons
+ * Version 1.1
+ * https://iconfonts.gumroad.com/l/ftmll
+ * Erix Subyarko - https://twitter.com/erix_arko
+ * Copyright 2022. All rights reserved
+ * End User License Agreement (EULA) - https://iconfonts.gumroad.com/l/ftmll
+ */
+'.liquid-container-icons': { font: { fontFamily: 'Liquid-Container-Icons' } }
+
+// Unicode Characters
+// To use your Icon Fonts in Buttons AND Labels each class sets 'text' and 'title' properties
+
+// interface-line-icon/style.css
+'.ili-archive': { text: '\ue900', title: '\ue900' }
+'.ili-attachment': { text: '\ue901', title: '\ue901' }
+'.ili-calander': { text: '\ue902', title: '\ue902' }
+'.ili-chat': { text: '\ue903', title: '\ue903' }
+'.ili-database': { text: '\ue904', title: '\ue904' }
+'.ili-delete-trash': { text: '\ue905', title: '\ue905' }
+'.ili-download': { text: '\ue906', title: '\ue906' }
+'.ili-edit': { text: '\ue907', title: '\ue907' }
+'.ili-email': { text: '\ue908', title: '\ue908' }
+'.ili-files': { text: '\ue909', title: '\ue909' }
+'.ili-folder': { text: '\ue90a', title: '\ue90a' }
+'.ili-home': { text: '\ue90b', title: '\ue90b' }
+'.ili-image': { text: '\ue90c', title: '\ue90c' }
+'.ili-interface-2': { text: '\ue90d', title: '\ue90d' }
+'.ili-interface': { text: '\ue90e', title: '\ue90e' }
+'.ili-laptop': { text: '\ue90f', title: '\ue90f' }
+'.ili-monitor': { text: '\ue910', title: '\ue910' }
+'.ili-page-scroll': { text: '\ue911', title: '\ue911' }
+'.ili-position': { text: '\ue912', title: '\ue912' }
+'.ili-settings-2': { text: '\ue913', title: '\ue913' }
+'.ili-settings': { text: '\ue914', title: '\ue914' }
+'.ili-share': { text: '\ue915', title: '\ue915' }
+'.ili-stats': { text: '\ue916', title: '\ue916' }
+'.ili-time': { text: '\ue917', title: '\ue917' }
+
+// liquid-container/style.css
+'.lci-aerosol-bottle-chemical': { text: '\ue900', title: '\ue900' }
+'.lci-alcohol-bottle-glass': { text: '\ue901', title: '\ue901' }
+'.lci-baby-bottle': { text: '\ue902', title: '\ue902' }
+'.lci-chemical-gallon-laboratory': { text: '\ue903', title: '\ue903' }
+'.lci-ice-bottle-alcohol': { text: '\ue904', title: '\ue904' }
+'.lci-jam-bottle-food': { text: '\ue905', title: '\ue905' }
+'.lci-juice-bottle-drink': { text: '\ue906', title: '\ue906' }
+'.lci-ketchup-bottle': { text: '\ue907', title: '\ue907' }
+'.lci-lotion-tube-medical': { text: '\ue908', title: '\ue908' }
+'.lci-medicine-bottle-health': { text: '\ue909', title: '\ue909' }
+'.lci-milk-bottle-glass': { text: '\ue90a', title: '\ue90a' }
+'.lci-oil-gallon-fuel': { text: '\ue90b', title: '\ue90b' }
+'.lci-plastic-bottle-drink': { text: '\ue90c', title: '\ue90c' }
+'.lci-poison-bottle-chemical': { text: '\ue90d', title: '\ue90d' }
+'.lci-shampoo-bottle-health': { text: '\ue90e', title: '\ue90e' }
+'.lci-skincare-tube-medical': { text: '\ue90f', title: '\ue90f' }
+'.lci-soap-bottle-medicine': { text: '\ue910', title: '\ue910' }
+'.lci-soda-bottle-drink': { text: '\ue911', title: '\ue911' }
+'.lci-sport-bottle-drink': { text: '\ue912', title: '\ue912' }
+'.lci-spray-bottle-water': { text: '\ue913', title: '\ue913' }
+'.lci-thermo-bottle-glass': { text: '\ue914', title: '\ue914' }
+'.lci-tumbler-bottle-drink': { text: '\ue915', title: '\ue915' }
+'.lci-water-bottle-drink': { text: '\ue916', title: '\ue916' }
+'.lci-water-gallon-drink': { text: '\ue917', title: '\ue917' }
+'.lci-wine-bottle-alcohol': { text: '\ue918', title: '\ue918' }

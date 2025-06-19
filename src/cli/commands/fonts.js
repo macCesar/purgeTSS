@@ -411,11 +411,14 @@ export function buildFonts(options) {
       createDefinitionsFile()
       console.log()
       finish(`Finished building ${chalk.yellow('fonts.tss')} in`)
+      return true
     } else {
       logger.info('No fonts found in', chalk.yellow('./purgetss/fonts'), 'folder!')
+      return false
     }
   } else {
     logger.info(`Add font and style files to ${chalk.yellow('./purgetss/fonts')} folder and run this command again!`)
+    return false
   }
 }
 
@@ -588,17 +591,4 @@ function copyFontLibrary(vendor) {
       logger.warn(' - framework7icons.js')
       break
   }
-}
-
-/**
- * Copy font libraries
- * COPIED exactly from original copyFont() function
- * TODO: Need to COPY all the font copying functions (copyProFonts, copyFreeFonts, etc.)
- *
- * @param {string} vendor - Font vendor identifier
- */
-export function copyFonts(options) {
-  // TODO: Complete copyFonts implementation
-  logger.warn('copyFonts() - Function needs to be completed with all dependencies')
-  return false
 }

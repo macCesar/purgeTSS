@@ -415,7 +415,7 @@ export function titleAttributesColor(modifiersAndValues) {
   }, {
     'title-attributes': '{ titleAttributes: { color: {value} } }'
   }, {
-    [(globalOptions.legacy) ? 'ios' : 'default']: modifiersAndValues
+    default: modifiersAndValues
   })
 }
 
@@ -431,7 +431,7 @@ export function titleAttributesShadowColor(modifiersAndValues) {
   }, {
     'title-attributes-shadow': '{ titleAttributes: { shadow: { color: {value} } } }'
   }, {
-    [(globalOptions.legacy) ? 'ios' : 'default']: modifiersAndValues
+    default: modifiersAndValues
   })
 }
 

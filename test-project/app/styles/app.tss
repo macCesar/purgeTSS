@@ -1,24 +1,13 @@
-// PurgeTSS v7.0.0-alpha.1
+// PurgeTSS v7.1.0
 // Created by César Estrada
 // https://purgetss.com
 
 // Ti Elements
-'View': { width: Ti.UI.SIZE, height: Ti.UI.SIZE }
 'Window': { backgroundColor: '#FFFFFF' }
 
 // Main Styles
 '.bg-blue-500': { backgroundColor: '#3b82f6' }
 '.h-full': { height: '100%' }
-'.horizontal': { layout: 'horizontal' }
-'.ml-1': { left: 4 }
-'.mt-4': { top: 16 }
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
-'.text-green-600': { color: '#16a34a', textColor: '#16a34a' }
-'.text-red-600': { color: '#dc2626', textColor: '#dc2626' }
 '.text-white': { color: '#ffffff', textColor: '#ffffff' }
-'.text-xl': { font: { fontSize: 20 } }
 '.w-full': { width: '100%' }
-
-// Unused or unsupported classes
-// '.lu-wifi': { }
-// '.lu-wifi-off': { }

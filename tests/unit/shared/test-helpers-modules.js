@@ -6,39 +6,39 @@ console.log('Testing helpers modules import...')
 
 try {
   // Test core module
-  const { globalOptions, resetStyles } = await import('../src/shared/helpers/core.js')
+  const { globalOptions, resetStyles } = await import('../../../src/shared/helpers/core.js')
   console.log('✅ Core module imported:', typeof globalOptions, typeof resetStyles)
 
   // Test utils module
-  const { processProperties, parseValue, setModifier2, customRules } = await import('../src/shared/helpers/utils.js')
+  const { processProperties, parseValue, setModifier2, customRules } = await import('../../../src/shared/helpers/utils.js')
   console.log('✅ Utils module imported:', typeof processProperties, typeof parseValue, typeof setModifier2, typeof customRules)
 
   // Test colors module
-  const { backgroundColor, textColor, tintColor } = await import('../src/shared/helpers/colors.js')
+  const { backgroundColor, textColor, tintColor } = await import('../../../src/shared/helpers/colors.js')
   console.log('✅ Colors module imported:', typeof backgroundColor, typeof textColor, typeof tintColor)
 
   // Test layout module
-  const { height, width, margin, padding } = await import('../src/shared/helpers/layout.js')
+  const { height, width, margin, padding } = await import('../../../src/shared/helpers/layout.js')
   console.log('✅ Layout module imported:', typeof height, typeof width, typeof margin, typeof padding)
 
   // Test typography module
-  const { fontFamily, fontSize, ellipsize } = await import('../src/shared/helpers/typography.js')
+  const { fontFamily, fontSize, ellipsize } = await import('../../../src/shared/helpers/typography.js')
   console.log('✅ Typography module imported:', typeof fontFamily, typeof fontSize, typeof ellipsize)
 
   // Test input module (for textAlign)
-  const { textAlign } = await import('../src/shared/helpers/input.js')
+  const { textAlign } = await import('../../../src/shared/helpers/input.js')
   console.log('✅ Input module textAlign imported:', typeof textAlign)
 
   // Test ui-properties module
-  const { visible, enabled, opacity, borderRadius } = await import('../src/shared/helpers/ui-properties.js')
+  const { visible, enabled, opacity, borderRadius } = await import('../../../src/shared/helpers/ui-properties.js')
   console.log('✅ UI Properties module imported:', typeof visible, typeof enabled, typeof opacity, typeof borderRadius)
 
   // Test animation module
-  const { curve, duration, rotate, scale } = await import('../src/shared/helpers/animation.js')
+  const { curve, duration, rotate, scale } = await import('../../../src/shared/helpers/animation.js')
   console.log('✅ Animation module imported:', typeof curve, typeof duration, typeof rotate, typeof scale)
 
   // Test main index
-  const indexModule = await import('../src/shared/helpers.js')
+  const indexModule = await import('../../../src/shared/helpers.js')
   console.log('✅ Main helpers.js imported, exports count:', Object.keys(indexModule).length)
 
   // Test functionality
@@ -77,7 +77,7 @@ try {
 // Test módulo input.js
 console.log('\n--- Testing Input Module ---')
 try {
-  const inputModule = await import('../src/shared/helpers/input.js')
+  const inputModule = await import('../../../src/shared/helpers/input.js')
   const inputFunctions = [
     'autocapitalization', 'autocorrect', 'autofillType', 'autoLink',
     'clearOnEdit', 'editable', 'enableReturnKey', 'keyboardType',
@@ -102,7 +102,7 @@ try {
 // Test módulo scrolling.js
 console.log('\n--- Testing Scrolling Module ---')
 try {
-  const scrollingModule = await import('../src/shared/helpers/scrolling.js')
+  const scrollingModule = await import('../../../src/shared/helpers/scrolling.js')
   const scrollingFunctions = [
     'autoAdjustScrollViewInsets', 'canScroll', 'fastScroll', 'hidesSearchBarWhenScrolling',
     'overScrollMode', 'showPagingControl', 'pagingControlOnTop', 'scrollable',
@@ -127,7 +127,7 @@ try {
 // Test módulo lists.js
 console.log('\n--- Testing Lists Module ---')
 try {
-  const listsModule = await import('../src/shared/helpers/lists.js')
+  const listsModule = await import('../../../src/shared/helpers/lists.js')
   const listsFunctions = [
     'allowsMultipleSelectionDuringEditing', 'allowsMultipleSelectionInteraction',
     'allowsSelection', 'allowsSelectionDuringEditing', 'caseInsensitiveSearch',
@@ -154,7 +154,7 @@ try {
 // Test módulo media.js
 console.log('\n--- Testing Media Module ---')
 try {
-  const mediaModule = await import('../src/shared/helpers/media.js')
+  const mediaModule = await import('../../../src/shared/helpers/media.js')
   const mediaFunctions = [
     'allowsLinkPreview', 'autorotate', 'backgroundBlendMode', 'backgroundLinearGradient',
     'backgroundRadialGradient', 'backgroundRepeat', 'cacheMode', 'cachePolicy',
@@ -178,7 +178,7 @@ try {
 // Test módulo form-controls.js
 console.log('\n--- Testing Form Controls Module ---')
 try {
-  const formControlsModule = await import('../src/shared/helpers/form-controls.js')
+  const formControlsModule = await import('../../../src/shared/helpers/form-controls.js')
   const formControlsFunctions = [
     'activityIndicatorStyle', 'buttonStyle', 'clearButtonMode', 'datePickerStyle',
     'drawerIndicatorEnabled', 'nativeSpinner', 'pickerType', 'progressBarStyle',
@@ -201,7 +201,7 @@ try {
 // Test módulo animation.js
 console.log('\n--- Testing Animation Module ---')
 try {
-  const animationModule = await import('../src/shared/helpers/animation.js')
+  const animationModule = await import('../../../src/shared/helpers/animation.js')
   const animationFunctions = [
     'curve', 'duration', 'rotate', 'scale'
   ]
@@ -222,7 +222,7 @@ try {
 // Test módulo platform.js
 console.log('\n--- Testing Platform Module ---')
 try {
-  const platformModule = await import('../src/shared/helpers/platform.js')
+  const platformModule = await import('../../../src/shared/helpers/platform.js')
   const platformFunctions = [
     'statusBarStyle', 'navigationMode', 'theme', 'orientationModes',
     'windowPixelFormat', 'windowSoftInputMode', 'largeTitleDisplayMode',
@@ -247,7 +247,7 @@ try {
 // Test módulo accessibility.js
 console.log('\n--- Testing Accessibility Module ---')
 try {
-  const accessibilityModule = await import('../src/shared/helpers/accessibility.js')
+  const accessibilityModule = await import('../../../src/shared/helpers/accessibility.js')
   const accessibilityFunctions = [
     'accessibilityHidden', 'allowUserCustomization', 'canCancelEvents', 'enableCopy',
     'enableJavascriptInterface', 'enableZoomControls', 'filterTouchesWhenObscured',

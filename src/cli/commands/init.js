@@ -142,7 +142,7 @@ function createDefinitionsFile() {
 
   // Ensure styles folder exists before writing
   makeSureFolderExists(`${cwd}/purgetss/styles`)
-  
+
   fs.writeFileSync(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v${PurgeTSSPackageJSON.version}) */${classDefinitions}`)
 
   logger.file('./purgetss/styles/definitions.css')

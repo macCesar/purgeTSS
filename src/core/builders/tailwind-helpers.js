@@ -11,7 +11,6 @@
 import _ from 'lodash'
 import defaultColors from 'tailwindcss/colors.js'
 
-// TODO: These dependencies need to be resolved during refactoring
 // Import functions from their new modular locations
 import { configFile } from '../../shared/config-manager.js'
 import { removeDeprecatedColors, fixPercentages } from '../../shared/helpers.js'

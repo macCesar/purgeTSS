@@ -56,9 +56,6 @@ export function getClassesOnlyFromXMLFiles() {
   return uniqueClasses.sort()
 }
 
-// TODO: These functions need to be imported from other modules when they're extracted
-// For now, they will be available from the main index.js until refactor is complete
-
 // Placeholder imports - these will be replaced with proper imports once modules are extracted
 let isNotJunk, getViewPaths, extractClassesOnly, filterCharacters
 

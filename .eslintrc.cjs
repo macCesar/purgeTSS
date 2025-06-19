@@ -3,10 +3,11 @@ module.exports = {
     browser: true,
     commonjs: true,
     es2021: true,
-    jest: true, // Esto le dice a ESLint que estás usando Jest
+    jest: true,
     node: true
   },
-  extends: 'standard',
+  extends: ['eslint:recommended'],
+  plugins: ['import', 'n', 'promise'],
   globals: {
     _: true,
     Ti: true,
@@ -34,11 +35,19 @@ module.exports = {
   },
   rules: {
     'spaced-comment': ['error', 'always'],
-    'space-before-function-paren': [
-      'error',
-      'never'
-    ],
+    'space-before-function-paren': ['error', 'never'],
     'semi': ['error', 'never'],
-    'quotes': ['error', 'single']
+    'quotes': ['error', 'single'],
+    
+    // Reglas de import plugin
+    'import/no-unresolved': 'error',
+    'import/no-duplicates': 'error',
+    
+    // Reglas de Node.js plugin
+    'n/no-deprecated-api': 'error',
+    
+    // Reglas de Promise plugin
+    'promise/always-return': 'error',
+    'promise/catch-or-return': 'error'
   }
 }

@@ -23,7 +23,14 @@
     "access": "public"
   },
   "scripts": {
-    "test": "jest",
+    "test": "node tests/run-tests.js all",
+    "test:e2e": "node tests/run-tests.js e2e",
+    "test:unit": "node tests/run-tests.js unit",
+    "test:cli": "node tests/e2e/cli-commands.test.js",
+    "test:helpers": "node tests/unit/shared/helpers.test.js",
+    "test:integration": "node tests/run-tests.js integration",
+    "test:count": "node tests/unit/shared/function-counter.test.js",
+    "test:cli-realtime": "node tests/e2e/cli-commands-realtime.test.js",
     "build": "npm run build:all",
     "notifier": "node ./lib/test-function",
     "build:module": "node ./src/dev/builders/module-builder.js",
@@ -81,10 +88,10 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "eslint": "^8.57.1",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint": "^9.16.0",
+    "@eslint/js": "^9.16.0",
     "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^7.2.1"
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-import": "^2.31.0"
   }
 }

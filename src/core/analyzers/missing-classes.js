@@ -63,9 +63,6 @@ export function findMissingClasses(tempPurged) {
   return [...new Set([...classesFromJsFiles.filter(item => !tempPurged.includes(item)), ...classesFromXmlFiles])]
 }
 
-// TODO: These functions need to be imported from other modules when they're extracted
-// For now, they will be available from the main index.js until refactor is complete
-
 // Placeholder imports - these will be replaced with proper imports once modules are extracted
 let getFiles, configOptions, getClassesOnlyFromXMLFiles, getControllerPaths, processControllers
 

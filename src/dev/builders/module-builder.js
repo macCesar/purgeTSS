@@ -1,11 +1,11 @@
 /**
  * PurgeTSS v7.1 - Module Builder (Development)
- * 
+ *
  * Builds purgetss.ui.js module for development/distribution.
  * COPIED from lib/build-module.js - NO CHANGES to logic.
- * 
+ *
  * Generates: ./dist/purgetss.ui.js
- * 
+ *
  * @since 7.1.0 (refactored from lib/)
  * @author César Estrada
  */

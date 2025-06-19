@@ -70,7 +70,6 @@ export function getConfigOptions() {
     configOptions.plugins = configOptions.plugins ?? []
 
     // Set global legacy option (requires helpers import)
-    // TODO: Move this to proper place after helpers refactor
     // helpers.globalOptions.legacy = configOptions.legacy
   }
 

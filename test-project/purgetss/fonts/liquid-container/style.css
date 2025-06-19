@@ -1,0 +1,102 @@
+@font-face {
+  font-family: 'Liquid-Container-Icons';
+  src:  url('fonts/Liquid-Container-Icons.eot?jn89di');
+  src:  url('fonts/Liquid-Container-Icons.eot?jn89di#iefix') format('embedded-opentype'),
+    url('fonts/Liquid-Container-Icons.ttf?jn89di') format('truetype'),
+    url('fonts/Liquid-Container-Icons.woff?jn89di') format('woff'),
+    url('fonts/Liquid-Container-Icons.svg?jn89di#Liquid-Container-Icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.lci {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Liquid-Container-Icons' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lci-aerosol-bottle-chemical:before {
+  content: "\e900";
+}
+.lci-alcohol-bottle-glass:before {
+  content: "\e901";
+}
+.lci-baby-bottle:before {
+  content: "\e902";
+}
+.lci-chemical-gallon-laboratory:before {
+  content: "\e903";
+}
+.lci-ice-bottle-alcohol:before {
+  content: "\e904";
+}
+.lci-jam-bottle-food:before {
+  content: "\e905";
+}
+.lci-juice-bottle-drink:before {
+  content: "\e906";
+}
+.lci-ketchup-bottle:before {
+  content: "\e907";
+}
+.lci-lotion-tube-medical:before {
+  content: "\e908";
+}
+.lci-medicine-bottle-health:before {
+  content: "\e909";
+}
+.lci-milk-bottle-glass:before {
+  content: "\e90a";
+}
+.lci-oil-gallon-fuel:before {
+  content: "\e90b";
+}
+.lci-plastic-bottle-drink:before {
+  content: "\e90c";
+}
+.lci-poison-bottle-chemical:before {
+  content: "\e90d";
+}
+.lci-shampoo-bottle-health:before {
+  content: "\e90e";
+}
+.lci-skincare-tube-medical:before {
+  content: "\e90f";
+}
+.lci-soap-bottle-medicine:before {
+  content: "\e910";
+}
+.lci-soda-bottle-drink:before {
+  content: "\e911";
+}
+.lci-sport-bottle-drink:before {
+  content: "\e912";
+}
+.lci-spray-bottle-water:before {
+  content: "\e913";
+}
+.lci-thermo-bottle-glass:before {
+  content: "\e914";
+}
+.lci-tumbler-bottle-drink:before {
+  content: "\e915";
+}
+.lci-water-bottle-drink:before {
+  content: "\e916";
+}
+.lci-water-gallon-drink:before {
+  content: "\e917";
+}
+.lci-wine-bottle-alcohol:before {
+  content: "\e918";
+}

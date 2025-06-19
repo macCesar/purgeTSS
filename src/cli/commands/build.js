@@ -21,7 +21,6 @@ import { buildFontAwesome, buildFontAwesomeJS } from '../../dev/builders/fontawe
 /**
  * Build command - generates all CSS files from Tailwind and icon libraries
  * COPIED exactly from original build() function
- * TODO: Need to COPY/IMPORT all building functions from core modules
  *
  * @param {Object} options - Command options
  * @returns {boolean} - Success status
@@ -41,7 +40,6 @@ export function build(options) {
 /**
  * Build legacy command - generates CSS files using legacy Tailwind build
  * COPIED exactly from original buildLegacy() function
- * TODO: Need to COPY/IMPORT all building functions from core modules
  *
  * @returns {void}
  */

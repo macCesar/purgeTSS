@@ -183,9 +183,6 @@ function encodeHTML(str) {
   return str.replace(/&/gm, i => code[i])
 }
 
-// TODO: These functions need to be imported from other modules when they're extracted
-// For now, they will be available from the main index.js until refactor is complete
-
 // Placeholder imports - these will be replaced with proper imports once modules are extracted
 let localStart, localFinish, getViewPaths, getControllerPaths, configFile, configOptions, filterCharacters
 

@@ -501,14 +501,6 @@ export function rightButtonPadding(modifiersAndValues) {
   })
 }
 
-export function addNegativeValues(modifiersAndValues) {
-  _.each(modifiersAndValues, (value, key) => {
-    modifiersAndValues[key] = '-' + value
-  })
-
-  return modifiersAndValues
-}
-
 export function shadowRadius(modifiersAndValues) {
   modifiersAndValues = removeFractions(modifiersAndValues, ['0', 'auto', 'full', 'screen'])
 

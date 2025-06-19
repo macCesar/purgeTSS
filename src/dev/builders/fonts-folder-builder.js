@@ -1,11 +1,11 @@
 /**
  * PurgeTSS v7.1 - Fonts Folder Builder (Development)
- * 
+ *
  * Copies font files from node_modules to assets folder for development/distribution.
  * COPIED from lib/build-fonts-folder.js - NO CHANGES to logic.
- * 
+ *
  * Copies fonts to: ./assets/fonts/
- * 
+ *
  * @since 7.1.0 (refactored from lib/)
  * @author César Estrada
  */
