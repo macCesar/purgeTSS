@@ -12,9 +12,15 @@
 
 **PurgeTSS** is a toolkit designed to enhance the development of mobile applications using the **[Titanium framework](https://titaniumsdk.com)**. It introduces several key features to streamline the app development process, making it simpler and more efficient for developers.
 
-##  What's New in v7.1.0
+It offers a range of tools such as customizable utility classes, support for icon fonts, a user-friendly Animation module, a straightforward grid system, and the added convenience of the `shades` command for crafting personalized colors.
 
-**Major Refactoring & ESM Migration**: PurgeTSS v7.1 has been completely refactored with improved code organization, better ESM compatibility, and a more intuitive CLI experience.
+With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes more accessible and efficient.
+
+---
+
+## What's New in v7.1.0
+
+**Major Refactoring & ESM Migration**: PurgeTSS v7.1 has been completely refactored with improved code organization, better ESM compatibility, enhanced error handling, and a more intuitive CLI experience.
 
 ### ⚠️ Breaking Changes
 
@@ -23,8 +29,10 @@
 - **Removed deprecated commands**:
   - `copy-fonts` (use `icon-library` instead)
   - `build-legacy` (legacy Tailwind build removed)
-- **Removed configuration options**:
-  - `purge.options.legacy` (legacy mode no longer supported)
+- **Complete legacy mode removal**:
+  - All legacy-related code and conditional checks eliminated
+  - Legacy mode no longer supported anywhere in the codebase
+  - `purge.options.legacy` configuration option completely removed
 - **Simplified font generation**:
   - `build-fonts` `-p` flag removed (now handled by `-f` flag)
   - `build-fonts` command options simplified for better consistency
@@ -38,12 +46,14 @@
 
 ### 🔄 Command Improvements
 
+- **Enhanced CLI error handling**: Improved error messages with command suggestions when unknown commands are entered
 - **CLI reorganization**: Commands are now organized in logical categories (Setup, Development, Assets, Utilities, Maintenance) for better discoverability
 - **`build-fonts` simplified**:
   - Removed `-p` (--icon-prefix-from-filename) flag
   - The `-f` flag now controls both font class names AND icon prefixes using filenames
   - More consistent and intuitive behavior
-- **Legacy mode removed**: Removed `build-legacy` command and `purge.options.legacy` configuration for cleaner, modern codebase
+- **Internal code modularization**: Refactored monolithic helper files into specialized modules for better maintainability
+- **Complete legacy mode removal**: Removed `build-legacy` command and all legacy-related code for cleaner, modern codebase
 
 ### 🔧 Migration Guide
 
@@ -53,48 +63,34 @@ npm install -g purgetss@7.1.0
 ```
 
 **Key changes to note:**
+- Only requirement: **Node.js 16 or higher**
+- If you used the `build-legacy` command, use the regular `build` command instead
+- **Enhanced CLI**: Unknown commands now provide helpful suggestions instead of generic errors
+- If you had `legacy: true` in your config, remove this option (legacy mode completely discontinued)
 - If you used `build-fonts` with the `-p` flag, now use `-f` instead (handles both font classes and icon prefixes)
-- If you had `legacy: true` in your config, remove this option (legacy mode discontinued)
-- If you used the `build-legacy` command, use the regular `build` command instead
-- Only requirement: **Node.js 16 or higher**
-- If you used the `build-legacy` command, use the regular `build` command instead
-- Only requirement: **Node.js 16 or higher**
-
----
-
-It offers a range of tools such as customizable utility classes, support for icon fonts, a user-friendly Animation module, a straightforward grid system, and the added convenience of the `shades` command for crafting personalized colors.
-
-With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes more accessible and efficient.
 
 ---
 
 Here are its main functionalities:
 
-- **Tailwind-like Utility Classes**: PurgeTSS offers over 21,000 utility classes similar to Tailwind CSS, providing a vast array of styling options for your projects.
-
+- **Tailwind-like Utility Classes**: *PurgeTSS* offers over 21,000 utility classes similar to Tailwind CSS, providing a vast array of styling options for your projects.
 - **Efficient Style Management**: It parses all your XML files to create a clean `app.tss` file, containing only the classes actually used in your project. This helps in reducing file size and improving performance.
-
 - **Customization and JIT Classes**: Developers can customize default classes via a simple configuration file. It also supports just-in-time (JIT) classes, allowing the creation of arbitrary values within views for tailored styling.
-
-- **Icon Fonts Integration**: PurgeTSS facilitates the use of popular icon fonts such as Font Awesome, Material Icons, Material Symbols, and Framework7-Icons in Buttons and Labels.
-
+- **Icon Fonts Integration**: *PurgeTSS* facilitates the use of popular icon fonts such as *Font Awesome*, *Material Icons*, *Material Symbols*, and *Framework7-Icons* in Buttons and Labels.
 - **fonts.tss Generation**: The `build-fonts` command creates a `fonts.tss` file with class definitions and fontFamily selectors for various font types. It supports both regular fonts and icon fonts, with simplified options for using filenames as class names and icon prefixes.
-
 - **Shades Command**: The toolkit includes a `shades` command that enables developers to generate custom color shades from a specified hex color, eliminating the need for external tools.
-
-- **Animation Module**: PurgeTSS comes with an Animation module to apply basic 2D Matrix animations or transformations to elements or arrays of elements.
-
+- **Animation Module**: *PurgeTSS* comes with an Animation module to apply basic 2D Matrix animations or transformations to elements or arrays of elements.
 - **Grid System**: It includes a simple yet effective two-dimensional grid system to align and distribute elements within views.
 
-Overall, PurgeTSS aims to simplify the mobile app development process, offering tools and features that enhance productivity and creativity in designing user interfaces.
+Overall, *PurgeTSS* aims to simplify the mobile app development process, offering tools and features that enhance productivity and creativity in designing user interfaces.
 
 ### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more.
 
 ## Requirements
 
-- **Node.js 16+** (required for ESM support)
 - **Titanium SDK** (any recent version)
 - **Alloy Framework** (for most commands)
+- **Node.js 16+** (required for ESM support)
 
 ## Table of Content
 
