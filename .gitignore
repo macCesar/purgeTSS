@@ -2,5 +2,6 @@
 tailwind-auto/
 # Dependency directories
 node_modules/
-dev/
+.dev
 # Core components
+CLAUDE.md
