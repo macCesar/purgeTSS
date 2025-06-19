@@ -42,6 +42,7 @@ program
   .description(`${chalk.cyan('purgetss')} ${chalk.green(pkg.version)} - ${chalk.green(pkg.description)}\n                 For more information, visit ${chalk.green('https://purgetss.com')}`)
   .option('--debug', 'Display execution time for each process')
   .option('-a, --all', `Run these 3 commands: ${chalk.green('build')}, ${chalk.green('build-fonts')} and ${chalk.green('purgetss')}`)
+  .allowUnknownOption(false)
   .action(async (options) => {
     try {
       const result = await purgeClasses(options)
@@ -366,6 +367,42 @@ program
       console.log(`${chalk.green('::PurgeTSS::')} Done!`)
     })
   })
+
+// Handle unknown commands and invalid arguments
+program.configureOutput({
+  outputError: (str, write) => {
+    // Check if it's the "too many arguments" error and if there's a potential command name
+    if (str.includes('too many arguments') && process.argv.length > 2) {
+      const potentialCommand = process.argv[2]
+      if (!potentialCommand.startsWith('-')) {
+        write(chalk.red(`Unknown command: ${potentialCommand}\n`))
+        write(`${chalk.yellow('Did you mean one of these?')}\n`)
+
+        // Get all available commands
+        const availableCommands = program.commands.map(cmd => ({
+          name: cmd.name(),
+          alias: cmd.alias()
+        }))
+
+        // Simple suggestion logic
+        const suggestions = availableCommands.filter(cmd =>
+          cmd.name.startsWith(potentialCommand.charAt(0)) ||
+          (cmd.alias && cmd.alias.startsWith(potentialCommand.charAt(0)))
+        )
+
+        if (suggestions.length > 0) {
+          suggestions.forEach(cmd => {
+            write(`  ${chalk.cyan(cmd.name)}${cmd.alias ? `|${cmd.alias}` : ''}\n`)
+          })
+        } else {
+          write(`  Run ${chalk.cyan('purgetss --help')} to see all available commands\n`)
+        }
+        return
+      }
+    }
+    write(str)
+  }
+})
 
 // Parse arguments
 program.parse()
