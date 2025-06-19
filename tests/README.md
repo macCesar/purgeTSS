@@ -7,19 +7,9 @@
 npm test
 
 # Fast tests (recommended for development)
-npm ---
+npm run test:unit
 
-***�📅 Updated: June 2025*  
-*🎯 Status: All tests working with improved format*  
-*📊 Validated: 381 functions + core functionality*pdated: June 2025*  
-*🎯 Status: All tests working with improved format*  
-*📊 Validated: 381 functions + core functionality*Updated: June 2025*  
-*🎯 Status: All tests working with improved format*  
-*📊 Validated: 381 functions + core functionality*pdated: June 2025*  
-*🎯 Status: All tests working with improved format*  
-*📊 Validated: 381 functions + core functionality* test:unit
-
-# Integration tests  
+# Integration tests
 npm run test:integration
 
 # End-to-end tests (real projects)
@@ -75,10 +65,10 @@ tests/
 - **381 functions** migrated correctly
 
 ### ✅ Tests Passing:
-- **E2E Tests**: 3/3 ✅
+- **E2E Tests**: 5/5 ✅
 - **Unit Tests**: 8/8 ✅
-- **Integration Tests**: 4/4 ✅
-- **Total**: **15/15 tests passing**
+- **Integration Tests**: 5/5 ✅
+- **Total**: **18/18 tests passing**
 
 ### ✅ Improved Format:
 - Much easier to read output
@@ -93,8 +83,8 @@ tests/
 ### Quick validation:
 ```bash
 npm run test:unit        # Most used - fast tests
-npm run test:helpers     # Only specific helpers
 npm run test:count       # Count functions
+npm run test:helpers     # Only specific helpers
 ```
 
 ### Complete validation:
@@ -136,6 +126,6 @@ npm run test:unit 2>&1 | tee test-output.log
 
 ---
 
-*� Actualizado: Junio 2025*  
-*🎯 Status: All tests working with improved format*  
-*📊 Validated: 381 functions + core functionality*
+*📅 Updated: June 2025*  
+*📊 Validated: 381 functions + core functionality*  
+*🎯 Status: All tests working with improved format*

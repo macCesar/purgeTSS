@@ -6,10 +6,10 @@
  * Tests real commands on actual Alloy projects with REAL-TIME OUTPUT
  */
 
-import { spawn, exec } from 'child_process'
-import { promisify } from 'util'
 import fs from 'fs'
 import path from 'path'
+import { promisify } from 'util'
+import { spawn, exec } from 'child_process'
 
 const execAsync = promisify(exec)
 

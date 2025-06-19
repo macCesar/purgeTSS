@@ -68,8 +68,8 @@ tests/
 │   ├── cli/                  # CLI commands (1 file)
 │   ├── core/                 # Core functionality (2 files)
 │   └── test-fonts.mjs        # Font processing
-├── integration/              # 🔄 Integration tests (4 files)
-└── e2e/                      # 🎯 End-to-end tests (3 files)
+├── integration/              # 🔄 Integration tests (5 files)
+└── e2e/                      # 🎯 End-to-end tests (5 files)
 ```
 
 ---
@@ -102,7 +102,7 @@ tests/
 
 ## 🎯 E2E Tests - Technical Details
 
-**Files**: 3 tests  
+**Files**: 5 tests  
 **Total time**: ~2-5 minutes  
 **Project**: Uses `test-project/` with real Alloy project
 
@@ -123,6 +123,14 @@ tests/
 - Real execution of helpers with complex values
 - Dependency validation in real context
 - Tests of functions with responsive, arbitrary values, etc.
+
+#### `fast-cli.test.js`:
+- Essential CLI commands testing
+- Quick validation for development
+
+#### `simple-cli.test.js`:
+- Basic CLI functionality verification
+- Minimal testing for core commands
 
 ---
 
@@ -206,4 +214,4 @@ const indentedOutput = stdout.split('\n').map(line =>
 
 *📅 Updated: June 2025*  
 *🔧 Includes format improvements and EPIPE handling*  
-*📊 Coverage: 15 tests, 381 functions, improved visual format*
+*📊 Coverage: 18 tests, 381 functions, improved visual format*

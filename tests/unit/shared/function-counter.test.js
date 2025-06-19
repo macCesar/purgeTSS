@@ -25,7 +25,7 @@ export async function countHelperFunctions() {
 
   const results = {}
   let total = 0
-  
+
   for (const [path, name] of modules) {
     try {
       const module = await import(path)
@@ -39,7 +39,7 @@ export async function countHelperFunctions() {
       results[name] = { count: 0, functions: [], error: error.message }
     }
   }
-  
+
   console.log(`\n🎯 Total de funciones: ${total}`)
   return { results, total }
 }

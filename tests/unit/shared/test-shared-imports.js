@@ -7,7 +7,6 @@ import { getConfigFile } from '../../../src/shared/config-manager.js'
 import { alloyProject } from '../../../src/shared/utils.js'
 import {
   projectsLibFolder,
-  projectsPurgeTSSFolder,
   PurgeTSSPackageJSON
 } from '../../../src/shared/constants.js'
 

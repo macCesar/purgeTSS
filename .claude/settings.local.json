@@ -10,7 +10,8 @@
       "Bash(/usr/local/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -n \"build-fonts\" /Users/cesar/Developer/openSource/purgeTSS/src/index.js)",
       "Bash(/usr/local/lib/node_modules/@anthropic-ai/claude-code/vendor/ripgrep/arm64-darwin/rg -n \"copy-fonts\" /Users/cesar/Developer/openSource/purgeTSS/src/index.js)",
       "Bash(node:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(npm test:*)"
     ],
     "deny": []
   }
