@@ -4,3 +4,4 @@ tailwind-auto/
 node_modules/
 .dev
 # Core components
+CLAUDE.md
