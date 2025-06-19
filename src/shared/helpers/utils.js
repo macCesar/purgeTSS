@@ -1,6 +1,5 @@
 import fs from 'fs'
 import _ from 'lodash'
-import { globalOptions } from './core.js'
 
 // Internal variables and constants
 const _applyClasses = {}
@@ -184,9 +183,7 @@ export function setModifier2(modifier, rule = null) {
     modifier = `${modifier}-`
   }
 
-  if (!globalOptions.legacy) {
-    modifier = camelCaseToDash(modifier)
-  }
+  // modifier = camelCaseToDash(modifier)
 
   return modifier
 }

@@ -68,9 +68,6 @@ export function getConfigOptions() {
     configOptions.widgets = configOptions.widgets ?? false
     configOptions.missing = configOptions.missing ?? true
     configOptions.plugins = configOptions.plugins ?? []
-
-    // Set global legacy option (requires helpers import)
-    // helpers.globalOptions.legacy = configOptions.legacy
   }
 
   return configOptions
@@ -121,13 +118,13 @@ export const configFile = getConfigFile()
 export const configOptions = (() => {
   const file = getConfigFile()
   const options = (file.purge && file.purge.options) ? file.purge.options : {}
-  
+
   if (options) {
     options.widgets = options.widgets ?? false
     options.missing = options.missing ?? true
     options.plugins = options.plugins ?? []
   }
-  
+
   return options
 })()
 

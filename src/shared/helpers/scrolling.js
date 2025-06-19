@@ -9,7 +9,6 @@
 
 // Importar utilidades compartidas
 import { processProperties, processComments } from './utils.js'
-import { globalOptions } from './core.js'
 
 /**
  * Auto-ajuste de insets en ScrollView (iOS)
@@ -224,9 +223,9 @@ export function scrollsToTop() {
   }, {
     default: '{ scrollsToTop: {value} }'
   }, {
-    [(globalOptions.legacy) ? 'ios' : 'default']: {
+    default: {
       'scrolls-to-top': true,
-      [(globalOptions.legacy) ? 'dont-scrolls-to-top' : 'scrolls-to-top-false']: false
+      'scrolls-to-top-false': false
     }
   })
 }
@@ -242,7 +241,7 @@ export function scrollType() {
   }, {
     'scroll-type': '{ scrollType: {value} }'
   }, {
-    [(globalOptions.legacy) ? 'android' : 'default']: {
+    default: {
       horizontal: 'horizontal',
       vertical: 'vertical'
     }

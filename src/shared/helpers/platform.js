@@ -1,5 +1,4 @@
 import { processProperties } from './utils.js'
-import { globalOptions } from './core.js'
 
 /**
  * Status bar style (iOS only)
@@ -49,7 +48,7 @@ export function theme() {
   }, {
     theme: '{ theme: \'{value}\' }'
   }, {
-    [(globalOptions.legacy) ? 'android' : 'default']: {
+    default: {
       titanium: {
         default: 'Theme.Titanium',
         'day-night': 'Theme.Titanium.DayNight',

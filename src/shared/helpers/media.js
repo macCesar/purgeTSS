@@ -1,6 +1,5 @@
 import _ from 'lodash'
 import { processProperties, processComments, removeFractions, parseValue } from './utils.js'
-import { globalOptions } from './core.js'
 
 /**
  * PurgeTSS Media Module
@@ -54,37 +53,7 @@ export function autorotate() {
  * @returns {object} Configuración CSS
  */
 export function backgroundBlendMode() {
-  if (globalOptions.legacy) {
-    return processProperties({
-      prop: 'mode ( Background Blend Mode )',
-      modules: 'Ti.UI.MaskedImage'
-    }, {
-      'bg-blend': '{ mode: {value} }'
-    }, {
-      default: {
-        clear: 'Ti.UI.BLEND_MODE_CLEAR',
-        copy: 'Ti.UI.BLEND_MODE_COPY',
-        darken: 'Ti.UI.BLEND_MODE_DARKEN',
-        'destination-atop': 'Ti.UI.BLEND_MODE_DESTINATION_ATOP',
-        'destination-in': 'Ti.UI.BLEND_MODE_DESTINATION_IN',
-        'destination-out': 'Ti.UI.BLEND_MODE_DESTINATION_OUT',
-        'destination-over': 'Ti.UI.BLEND_MODE_DESTINATION_OVER',
-        lighten: 'Ti.UI.BLEND_MODE_LIGHTEN',
-        multiply: 'Ti.UI.BLEND_MODE_MULTIPLY',
-        normal: 'Ti.UI.BLEND_MODE_NORMAL',
-        overlay: 'Ti.UI.BLEND_MODE_OVERLAY',
-        'plus-darker': 'Ti.UI.BLEND_MODE_PLUS_DARKER',
-        'plus-lighter': 'Ti.UI.BLEND_MODE_PLUS_LIGHTER',
-        screen: 'Ti.UI.BLEND_MODE_SCREEN',
-        'source-atop': 'Ti.UI.BLEND_MODE_SOURCE_ATOP',
-        'source-in': 'Ti.UI.BLEND_MODE_SOURCE_IN',
-        'source-out': 'Ti.UI.BLEND_MODE_SOURCE_OUT',
-        xor: 'Ti.UI.BLEND_MODE_XOR'
-      }
-    })
-  } else {
-    return ''
-  }
+  return ''
 }
 
 /**
@@ -135,16 +104,15 @@ export function backgroundRadialGradient() {
     modules: 'Ti.UI.ListItem, Ti.UI.View'
   })
 
-  const legacy = (globalOptions.legacy) ? '[platform=ios]' : ''
-  convertedStyles += `'.bg-radial${legacy}': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '125%', endRadius: '0%' } }\n`
-  convertedStyles += `'.bg-radial-to-b${legacy}': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '0%' }, endPoint: { x: '50%', y: '0%' } } }\n`
-  convertedStyles += `'.bg-radial-to-bl${legacy}': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '100%', y: '0%' } } }\n`
-  convertedStyles += `'.bg-radial-to-l${legacy}': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '50%' }, endPoint: { x: '100%', y: '50%' } } }\n`
-  convertedStyles += `'.bg-radial-to-tl${legacy}': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '100%', y: '100%' } } }\n`
-  convertedStyles += `'.bg-radial-to-t${legacy}': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '100%' } } }\n`
-  convertedStyles += `'.bg-radial-to-tr${legacy}': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '0%', y: '100%' } } }\n`
-  convertedStyles += `'.bg-radial-to-r${legacy}': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '50%' }, endPoint: { x: '0%', y: '50%' } } }\n`
-  convertedStyles += `'.bg-radial-to-br${legacy}': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' } } }\n`
+  convertedStyles += `'.bg-radial': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '125%', endRadius: '0%' } }\n`
+  convertedStyles += `'.bg-radial-to-b': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '0%' }, endPoint: { x: '50%', y: '0%' } } }\n`
+  convertedStyles += `'.bg-radial-to-bl': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '0%' }, endPoint: { x: '100%', y: '0%' } } }\n`
+  convertedStyles += `'.bg-radial-to-l': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '50%' }, endPoint: { x: '100%', y: '50%' } } }\n`
+  convertedStyles += `'.bg-radial-to-tl': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '100%', y: '100%' }, endPoint: { x: '100%', y: '100%' } } }\n`
+  convertedStyles += `'.bg-radial-to-t': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '50%', y: '100%' }, endPoint: { x: '50%', y: '100%' } } }\n`
+  convertedStyles += `'.bg-radial-to-tr': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '100%' }, endPoint: { x: '0%', y: '100%' } } }\n`
+  convertedStyles += `'.bg-radial-to-r': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '50%' }, endPoint: { x: '0%', y: '50%' } } }\n`
+  convertedStyles += `'.bg-radial-to-br': { backgroundGradient: { type: 'radial', backfillStart: true, backfillEnd: true, startRadius: '150%', endRadius: '0%', startPoint: { x: '0%', y: '0%' }, endPoint: { x: '0%', y: '0%' } } }\n`
 
   return convertedStyles
 }

@@ -2,9 +2,7 @@
 import { customRules } from './utils.js'
 
 // Global configurations
-export const globalOptions = {
-  legacy: false
-}
+export const globalOptions = {}
 
 /**
  * Reset styles for common Titanium components

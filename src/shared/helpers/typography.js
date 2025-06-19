@@ -1,6 +1,5 @@
 import _ from 'lodash'
 import { processProperties, fixInvalidValues, processComments } from './utils.js'
-import { globalOptions } from './core.js'
 
 /**
  * Remove fractions from modifiers and values
@@ -140,7 +139,7 @@ export function ellipsize() {
   }, {
     default: {
       ellipsize: true,
-      [(globalOptions.legacy) ? 'no-ellipsize' : 'ellipsize-false']: false
+      'ellipsize-false': false
     }
   })
 
@@ -245,15 +244,14 @@ export function titleAttributesShadow() {
     modules: 'Ti.UI.TabGroup, Ti.UI.Window'
   })
 
-  const legacy = (globalOptions.legacy) ? '[platform=ios]' : ''
-  convertedStyles += `'.title-attributes-shadow-xs${legacy}': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 1, offset: { width: 0, height: 0 } } } }\n`
-  convertedStyles += `'.title-attributes-shadow-sm${legacy}': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 2, offset: { width: 0, height: 1 } } } }\n`
-  convertedStyles += `'.title-attributes-shadow${legacy}': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 4, offset: { width: 0, height: 2 } } } }\n`
-  convertedStyles += `'.title-attributes-shadow-md${legacy}': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 6, offset: { width: 0, height: 3 } } } }\n`
-  convertedStyles += `'.title-attributes-shadow-lg${legacy}': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 8, offset: { width: 0, height: 4 } } } }\n`
-  convertedStyles += `'.title-attributes-shadow-xl${legacy}': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 12, offset: { width: 0, height: 6 } } } }\n`
-  convertedStyles += `'.title-attributes-shadow-2xl${legacy}': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 14, offset: { width: 0, height: 8 } } } }\n`
-  convertedStyles += `'.title-attributes-shadow-none${legacy}': { titleAttributes: { shadow: { color: null, blurRadius: null, offset: { width: 0, height: 0 } } } }\n`
+  convertedStyles += `'.title-attributes-shadow-xs': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 1, offset: { width: 0, height: 0 } } } }\n`
+  convertedStyles += `'.title-attributes-shadow-sm': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 2, offset: { width: 0, height: 1 } } } }\n`
+  convertedStyles += `'.title-attributes-shadow': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 4, offset: { width: 0, height: 2 } } } }\n`
+  convertedStyles += `'.title-attributes-shadow-md': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 6, offset: { width: 0, height: 3 } } } }\n`
+  convertedStyles += `'.title-attributes-shadow-lg': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 8, offset: { width: 0, height: 4 } } } }\n`
+  convertedStyles += `'.title-attributes-shadow-xl': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 12, offset: { width: 0, height: 6 } } } }\n`
+  convertedStyles += `'.title-attributes-shadow-2xl': { titleAttributes: { shadow: { color: '${shadowValue}', blurRadius: 14, offset: { width: 0, height: 8 } } } }\n`
+  convertedStyles += '\'.title-attributes-shadow-none\': { titleAttributes: { shadow: { color: null, blurRadius: null, offset: { width: 0, height: 0 } } } }\n'
 
   return convertedStyles
 }

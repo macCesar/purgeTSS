@@ -1,8 +1,5 @@
 import _ from 'lodash'
 import { processProperties, processComments, parseValue, setModifier2, removeLastDash, addTransparencyToValue } from './utils.js'
-const globalOptions = {
-  legacy: false
-}
 /**
  * Active tint color for tabs
  * @param {Object} modifiersAndValues - Modifier and value pairs

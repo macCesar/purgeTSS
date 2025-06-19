@@ -9,7 +9,6 @@
 
 // Importar utilidades compartidas
 import { processProperties } from './utils.js'
-import { globalOptions } from './core.js'
 
 /**
  * Configuración de autocapitalización para campos de texto
@@ -151,7 +150,7 @@ export function editable() {
   }, {
     default: {
       editable: true,
-      [(globalOptions.legacy) ? 'non-editable' : 'editable-false']: false
+      'editable-false': false
     }
   })
 }
@@ -392,7 +391,7 @@ export function filterAttribute() {
   }, {
     default: {
       'filter-attribute': true,
-      [(globalOptions.legacy) ? 'dont-filter-attribute' : 'filter-attribute-false']: false
+      'filter-attribute-false': false
     }
   })
 }

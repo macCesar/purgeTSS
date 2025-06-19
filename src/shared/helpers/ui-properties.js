@@ -1,5 +1,4 @@
 import _ from 'lodash'
-import { globalOptions } from './core.js'
 import { processProperties, processComments } from './utils.js'
 
 /**
@@ -7,33 +6,17 @@ import { processProperties, processComments } from './utils.js'
  * @returns {string} Generated styles
  */
 export function visible() {
-  if (globalOptions.legacy) {
-    return processProperties({
-      prop: 'visible',
-      modules: 'Ti.UI.View, Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper'
-    }, {
-      default: '{ visible: {value} }'
-    }, {
-      default: {
-        block: true,
-        hidden: false,
-        visible: true,
-        invisible: false
-      }
-    })
-  } else {
-    return processProperties({
-      prop: 'visible (Alternative)',
-      modules: 'Ti.UI.View, Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper'
-    }, {
-      default: '{ visible: {value} }'
-    }, {
-      default: {
-        block: true,
-        hidden: false
-      }
-    })
-  }
+  return processProperties({
+    prop: 'visible (Alternative)',
+    modules: 'Ti.UI.View, Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper'
+  }, {
+    default: '{ visible: {value} }'
+  }, {
+    default: {
+      block: true,
+      hidden: false
+    }
+  })
 }
 
 /**
@@ -77,33 +60,17 @@ export function focusable() {
  * @returns {string} Generated styles
  */
 export function touchEnabled() {
-  if (globalOptions.legacy) {
-    return processProperties({
-      prop: 'touchEnabled',
-      modules: 'Ti.UI.View'
-    }, {
-      default: '{ touchEnabled: {value} }'
-    }, {
-      default: {
-        'touch-enabled': true,
-        'touch-disabled': false,
-        'pointer-events-auto': true,
-        'pointer-events-none': false
-      }
-    })
-  } else {
-    return processProperties({
-      prop: 'touchEnabled ( Alternative )',
-      modules: 'Ti.UI.View'
-    }, {
-      default: '{ touchEnabled: {value} }'
-    }, {
-      default: {
-        'pointer-events-auto': true,
-        'pointer-events-none': false
-      }
-    })
-  }
+  return processProperties({
+    prop: 'touchEnabled ( Alternative )',
+    modules: 'Ti.UI.View'
+  }, {
+    default: '{ touchEnabled: {value} }'
+  }, {
+    default: {
+      'pointer-events-auto': true,
+      'pointer-events-none': false
+    }
+  })
 }
 
 /**
@@ -440,7 +407,7 @@ export function defaultItemTemplate() {
   }, {
     'list-item-template': '{ defaultItemTemplate: {value} }'
   }, {
-    [(globalOptions.legacy) ? 'ios' : 'default']: {
+    default: {
       default: 'Ti.UI.LIST_ITEM_TEMPLATE_DEFAULT',
       contacts: 'Ti.UI.LIST_ITEM_TEMPLATE_CONTACTS',
       settings: 'Ti.UI.LIST_ITEM_TEMPLATE_SETTINGS',

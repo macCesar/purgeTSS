@@ -12,7 +12,7 @@
 
 import { alloyProject } from '../../shared/utils.js'
 import { initIfNotConfig } from '../utils/file-operations.js'
-import { buildTailwindBasedOnConfigOptions, buildTailwindLegacy } from '../../core/builders/tailwind-builder.js'
+import { buildTailwindBasedOnConfigOptions } from '../../core/builders/tailwind-builder.js'
 import { createDefinitionsFile } from './init.js'
 
 // Import FontAwesome functions from their new modular location
@@ -35,20 +35,4 @@ export function build(options) {
     return true
   }
   return false
-}
-
-/**
- * Build legacy command - generates CSS files using legacy Tailwind build
- * COPIED exactly from original buildLegacy() function
- *
- * @returns {void}
- */
-export function buildLegacy() {
-  if (alloyProject()) {
-    initIfNotConfig()
-    buildTailwindLegacy()
-    buildFontAwesome()
-    buildFontAwesomeJS()
-    createDefinitionsFile()
-  }
 }
