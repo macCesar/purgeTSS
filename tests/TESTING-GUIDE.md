@@ -1,224 +1,209 @@
-# PurgeTSS Testing Guide
+# PurgeTSS Testing Guide - Technical Reference
 
-## Overview
+## 📋 Detailed Technical Information
 
-This document provides a comprehensive guide to all tests in the PurgeTSS project. The testing suite is organized into three main categories: **Unit Tests**, **Integration Tests**, and **End-to-End Tests**.
+This is the complete technical documentation. For daily use, see **README.md**.
 
-## 📁 Test Structure
+## 🎨 Improved Output Format
+
+Tests now have a much better visual format:
+
+### Main Headers:
+```
+════════════════════════════════════════════════════════════════════
+🚀 End-to-End Tests
+📋 Full workflow tests with real projects
+════════════════════════════════════════════════════════════════════
+```
+
+### Test Files:
+```
+  ═════════════════════════════════════════════════════════════════
+  🧪 Running cli-commands.test.js
+  ═════════════════════════════════════════════════════════════════
+```
+
+### Individual Tests:
+```
+     ══════════════════════════════════════════════════════════════
+     🧪 Testing: Basic purgetss command (build)
+     💻 Command: ../bin/purgetss
+     ══════════════════════════════════════════════════════════════
+     ⏳ Executing...
+
+     ::PurgeTSS:: ./purgetss/config.cjs file created!
+     # ... correctly indented output
+```
+
+### 4 Indentation Levels:
+1. **Main category** (no indentation)
+2. **Test file** (2 spaces)
+3. **Individual test** (5 spaces)
+4. **Test details** (8+ spaces)
+
+## 🔧 Technical Improvements Implemented
+
+### ✅ EPIPE Error Handling:
+- Global handling of stdout/stderr errors
+- Don't crash with errors when pipe closes
+- Tests now work correctly with `| head -80`
+
+### ✅ Visual Format:
+- Visual separators for better reading
+- Headers with open format (more readable)
+- Clear hierarchy with progressive indentation
+
+### ✅ Compatibility:
+- Works in all terminals
+- Compatible with output redirection
+- Doesn't require problematic special characters
+
+## 📁 Complete Technical Structure
 
 ```
 tests/
-├── run-tests.js              # 🚀 Main test runner (run all categories)
-├── unit/                     # ⚡ Fast isolated component tests
-├── integration/              # 🔄 Component interaction tests
-├── e2e/                      # 🎯 Real-world workflow tests
-└── README.md                 # 📖 This documentation
+├── run-tests.js              # 🚀 Main script with improved EPIPE handling
+├── unit/                     # ⚡ Unit tests (8 files)
+│   ├── shared/               # Shared modules (4 files)
+│   ├── cli/                  # CLI commands (1 file)
+│   ├── core/                 # Core functionality (2 files)
+│   └── test-fonts.mjs        # Font processing
+├── integration/              # 🔄 Integration tests (4 files)
+└── e2e/                      # 🎯 End-to-end tests (3 files)
 ```
 
 ---
 
-## ⚡ Unit Tests (`tests/unit/`)
+## ⚡ Unit Tests - Technical Details
 
-**Purpose**: Fast, isolated tests for individual components and modules.
-**Run with**: `npm run test:unit`
+**Files**: 8 tests  
+**Total time**: ~5-10 seconds  
+**Coverage**: 381 functions + core functionality
 
-### 📂 `tests/unit/shared/`
+### Validated modules:
 
-Tests for shared modules and helpers migration:
+#### `tests/unit/shared/` (4 files):
+- **`helpers.test.js`** → 381 functions across 14 modules
+- **`function-counter.test.js`** → Exact count per module
+- **`test-helpers-modules.js`** → Module imports
+- **`test-shared-imports.js`** → Logger, config, utils, constants
 
-| File                       | Purpose                                | What it tests                                                                         |
-| -------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------- |
-| `helpers.test.js`          | 🧪 **Comprehensive helpers validation** | Validates all 381 functions across 14 helper modules. Ensures migration completeness. |
-| `function-counter.test.js` | 📊 **Function counter**                 | Counts exported functions in each helper module for validation                        |
-| `test-helpers-modules.js`  | 🔗 **Module imports**                   | Tests that all helper modules can be imported and work correctly                      |
-| `test-shared-imports.js`   | 📦 **Shared modules**                   | Tests core shared modules (logger, config, utils, constants)                          |
+#### `tests/unit/cli/` (1 file):
+- **`commands.test.js`** → Build, init, purge, create, update, etc.
 
-### 📂 `tests/unit/cli/`
+#### `tests/unit/core/` (2 files):
+- **`analyzers.test.js`** → Class extraction, scanning
+- **`builders.test.js`** → CSS building, purging, helpers
 
-Tests for CLI commands and utilities:
-
-| File               | Purpose            | What it tests                                                    |
-| ------------------ | ------------------ | ---------------------------------------------------------------- |
-| `commands.test.js` | 🔧 **CLI commands** | Tests all CLI command modules (build, init, purge, create, etc.) |
-
-### 📂 `tests/unit/core/`
-
-Tests for core PurgeTSS functionality:
-
-| File                | Purpose              | What it tests                                                        |
-| ------------------- | -------------------- | -------------------------------------------------------------------- |
-| `analyzers.test.js` | 🔍 **Core analyzers** | Tests class extraction, file scanning, and missing classes detection |
-| `builders.test.js`  | 🏗️ **Core builders**  | Tests Tailwind CSS building, purging, and helper functions           |
-
-### 📂 `tests/unit/` (root level)
-
-| File             | Purpose               | What it tests                                      |
-| ---------------- | --------------------- | -------------------------------------------------- |
-| `test-fonts.mjs` | 🔤 **Font processing** | Tests font building and icon library functionality |
+#### `tests/unit/` (1 file):
+- **`test-fonts.mjs`** → Font building, icon libraries
 
 ---
 
-## 🔄 Integration Tests (`tests/integration/`)
+## 🎯 E2E Tests - Technical Details
 
-**Purpose**: Tests for component interactions and workflows.
-**Run with**: `npm run test:integration`
+**Files**: 3 tests  
+**Total time**: ~2-5 minutes  
+**Project**: Uses `test-project/` with real Alloy project
 
-| File                    | Purpose                   | What it tests                                |
-| ----------------------- | ------------------------- | -------------------------------------------- |
-| `test-timing.js`        | ⏱️ **Performance timing**  | Tests execution time of core operations      |
-| `test-timing-direct.js` | ⏱️ **Direct timing**       | Direct performance measurements              |
-| `test-purge.js`         | 🧹 **Purging workflow**    | Tests the complete purging process           |
-| `test-tailwind.js`      | 🎨 **Tailwind processing** | Tests Tailwind CSS generation and processing |
+### Implemented tests:
+
+#### `cli-commands.test.js`:
+- Real commands: `purgetss`, `purgetss build`, `purgetss build-fonts`
+- Validation of created files
+- Real-time output with indentation
+- Error handling and timeouts
+
+#### `configuration-options.test.js`:
+- Configurations: default, custom paths, fonts, colors, modules
+- File generation validation
+- Safelist and content paths tests
+
+#### `test-real-usage.js`:
+- Real execution of helpers with complex values
+- Dependency validation in real context
+- Tests of functions with responsive, arbitrary values, etc.
 
 ---
 
-## 🎯 End-to-End Tests (`tests/e2e/`)
+## 📊 Technical Metrics
 
-**Purpose**: Real-world workflow tests with actual Alloy projects.
-**Run with**: `npm run test:e2e`
+### Helper Migration:
+- ✅ **381 functions** validated individually
+- ✅ **14 modules** reorganized correctly  
+- ✅ **0 duplicates** (removed during migration)
+- ✅ **100% imports** working correctly
 
-| File                            | Purpose                | What it tests                                                                  |
-| ------------------------------- | ---------------------- | ------------------------------------------------------------------------------ |
-| `cli-commands.test.js`          | 🚀 **Real CLI testing** | Tests actual CLI commands on test-project (`purgetss --build`, `--init`, etc.) |
-| `configuration-options.test.js` | ⚙️ **Config testing**   | Tests different configuration scenarios and options                            |
-| `test-real-usage.js`            | 🌍 **Real usage**       | Tests real-world usage scenarios                                               |
+### Performance:
+- ⚡ **Unit Tests**: 5-10 seconds (quick validation)
+- 🔄 **Integration**: 30-60 seconds (workflows)  
+- 🎯 **E2E Tests**: 2-5 minutes (real project)
+
+### Compatibility:
+- ✅ **macOS, Linux, Windows** (correct relative paths)
+- ✅ **Node.js v16+** (ESM modules)
+- ✅ **Terminal pipes** (head, tee, redirection)
 
 ---
 
-## 🚀 Test Runner (`tests/run-tests.js`)
+## 🔧 Advanced Technical Commands
 
-The centralized test runner allows you to run tests by category:
-
+### Individual execution:
 ```bash
-# Run specific test categories
-node tests/run-tests.js unit         # Fast unit tests only
-node tests/run-tests.js integration  # Integration tests only  
-node tests/run-tests.js e2e          # End-to-end tests only
-node tests/run-tests.js all          # All tests (default)
-```
-
-### Example output:
-```
-🚀 Unit Tests
-📋 Fast isolated tests for individual components
-
-📊 Unit Tests Results: 8/8 passed
-```
-
----
-
-## 📊 Key Test Metrics
-
-### Helpers Migration Validation:
-- ✅ **381 functions** across 14 modules
-- ✅ **100% migration coverage**
-- ✅ **0 duplicates** (cleaned during migration)
-- ✅ **All imports working** correctly
-
-### Test Categories Performance:
-- ⚡ **Unit Tests**: ~5-10 seconds (fast validation)
-- 🔄 **Integration Tests**: ~30-60 seconds (workflow testing)
-- 🎯 **E2E Tests**: ~2-5 minutes (real project testing)
-
----
-
-## 🧪 Quick Test Commands
-
-### Fast Validation (Recommended for development):
-```bash
-node tests/run-tests.js unit
-```
-
-### Comprehensive Testing:
-```bash
-node tests/run-tests.js all
-```
-
-### Specific Module Testing:
-```bash
-# Test helpers migration
+# Specific test
 node tests/unit/shared/helpers.test.js
 
-# Test function counting
-node tests/unit/shared/function-counter.test.js
+# With custom timeout  
+timeout 30s node tests/e2e/cli-commands.test.js
 
-# Test CLI commands on real project
-node tests/e2e/cli-commands.test.js
+# With complete redirection
+node tests/run-tests.js e2e 2>&1 | tee full-output.log
+
+# Only first lines
+node tests/run-tests.js e2e | head -100
 ```
 
----
-
-## 📝 Adding New Tests
-
-When adding new tests, follow this structure:
-
-### For Unit Tests:
-1. Create test in appropriate subfolder (`shared/`, `cli/`, `core/`)
-2. Test individual functions/modules in isolation
-3. Keep tests fast (< 1 second each)
-
-### For Integration Tests:
-1. Test interactions between components
-2. Focus on workflows and data flow
-3. Medium execution time acceptable
-
-### For E2E Tests:
-1. Test real commands on actual projects
-2. Validate complete user workflows
-3. Longer execution time expected
-
----
-
-## 🎯 Test Development Guidelines
-
-### ✅ Good Test Practices:
-- Clear test names describing what's being tested
-- Isolated tests that don't depend on external state
-- Good error messages for debugging
-- Fast execution for unit tests
-
-### 📋 Test Checklist:
-- [ ] Test has clear purpose and description
-- [ ] Test is in correct category folder
-- [ ] Test cleans up after itself
-- [ ] Test provides useful output/logging
-- [ ] Test handles errors gracefully
-
----
-
-## 🔧 Troubleshooting
-
-### Common Issues:
-
-1. **Import path errors**: Check relative paths (`../../../src/...`)
-2. **Missing dependencies**: Ensure all required modules are available
-3. **Test timeouts**: Check for infinite loops or blocking operations
-4. **File not found**: Verify test-project exists for E2E tests
-
-### Debug Commands:
+### Advanced debugging:
 ```bash
-# Run single test file
-node tests/unit/shared/helpers.test.js
+# With complete stack traces
+NODE_OPTIONS="--trace-warnings" node tests/run-tests.js unit
 
-# Run with verbose output
-node tests/run-tests.js unit 2>&1 | tee test-output.log
+# With memory profiling
+node --inspect tests/run-tests.js unit
+
+# With performance timing
+time node tests/run-tests.js all
 ```
 
 ---
 
-## 📈 Future Test Plans
+## 🚀 Test Runner Architecture
 
-Areas for test expansion:
+### `run-tests.js` - Technical features:
 
-- [ ] Performance benchmarking tests
-- [ ] Cross-platform compatibility tests
-- [ ] Memory usage validation
-- [ ] Error handling scenarios
-- [ ] Configuration edge cases
-- [ ] Large project scalability tests
+#### EPIPE error handling:
+```javascript
+// Global EPIPE handling for pipes
+process.stdout.on('error', (err) => {
+  if (err.code === 'EPIPE') process.exit(0)
+})
+```
+
+#### Smart indentation:
+```javascript
+// 4 levels of automatic indentation
+const indentedOutput = stdout.split('\n').map(line => 
+  line.trim() ? `     ${line}` : line
+).join('\n')
+```
+
+#### Improved visual format:
+- Separators per category
+- Headers with box characters (`═══`)
+- Colors and emojis for better readability
 
 ---
 
-*Last updated: June 18, 2025*
-*Total test files: 12 across 3 categories*
-*Functions validated: 381 helpers + core functionality*
+*📅 Updated: June 2025*  
+*🔧 Includes format improvements and EPIPE handling*  
+*📊 Coverage: 15 tests, 381 functions, improved visual format*

@@ -1,5 +1,8 @@
 /**
- * E2E Tests for PurgeTSS CLI Commands
+ * E2E Tests f  console.log('     ┌──────────────────────────────────────────────────────╮')
+  console.log(`     │ 🧪 Testing: ${description.padEnd(32)} │`)
+  console.log(`     │ 💻 Command: ${command.padEnd(32)} │`)
+  console.log('     └──────────────────────────────────────────────────────┘')urgeTSS CLI Commands
  * Tests real commands on actual Alloy projects with REAL-TIME OUTPUT
  */
 
@@ -16,9 +19,11 @@ const PROJECT_PATH = 'test-project'
 const PURGETSS_BIN = '../bin/purgetss'
 
 async function testCommandRealTime(command, description, expectedFiles = []) {
-  console.log(`\n🧪 Testing: ${description}`)
-  console.log(`💻 Command: ${command}`)
-  console.log('⏳ Executing...\n')
+  console.log('\n     ══════════════════════════════════════════════════════════════')
+  console.log(`     🧪 Testing: ${description}`)
+  console.log(`     💻 Command: ${command}`)
+  console.log('     ══════════════════════════════════════════════════════════════')
+  console.log('     ⏳ Executing...\n')
 
   return new Promise((resolve, reject) => {
     // Split command and args
@@ -31,41 +36,44 @@ async function testCommandRealTime(command, description, expectedFiles = []) {
       stdio: ['pipe', 'pipe', 'pipe']
     })
 
-    // Show output in real-time
+    // Show output in real-time with proper indentation
     child.stdout.on('data', (data) => {
       const output = data.toString()
-      process.stdout.write(output) // Real-time output!
+      const indentedOutput = output.split('\n').map(line =>
+        line.trim() ? `     ${line}` : line
+      ).join('\n')
+      process.stdout.write(indentedOutput)
     })
 
     child.stderr.on('data', (data) => {
       const output = data.toString()
       if (output.trim()) {
-        console.log(`⚠️  ${output.trim()}`)
+        console.log(`     ⚠️  ${output.trim()}`)
       }
     })
 
     child.on('close', (code) => {
-      console.log('\n📁 Checking created files:')
+      console.log('\n     📁 Checking created files:')
 
       // Check if expected files were created
       let filesCreated = 0
       for (const filePath of expectedFiles) {
         const fullPath = path.join(PROJECT_PATH, filePath)
         if (fs.existsSync(fullPath)) {
-          console.log(`✅ Created: ${filePath}`)
+          console.log(`     ✅ Created: ${filePath}`)
           filesCreated++
         } else {
-          console.log(`❌ Missing: ${filePath}`)
+          console.log(`     ❌ Missing: ${filePath}`)
         }
       }
 
       if (expectedFiles.length > 0) {
-        console.log(`\n📊 Files: ${filesCreated}/${expectedFiles.length} created`)
+        console.log(`\n     📊 Files: ${filesCreated}/${expectedFiles.length} created`)
       }
 
       const success = code === 0
-      console.log(`${success ? '✅' : '❌'} Command ${success ? 'completed' : 'failed'} (exit code: ${code})`)
-      console.log('─'.repeat(60))
+      console.log(`     ${success ? '✅' : '❌'} Command ${success ? 'completed' : 'failed'} (exit code: ${code})`)
+      console.log('     ' + '─'.repeat(58))
 
       if (success) {
         resolve(true)
@@ -75,17 +83,17 @@ async function testCommandRealTime(command, description, expectedFiles = []) {
     })
 
     child.on('error', (error) => {
-      console.error(`\n❌ Command failed: ${error.message}`)
-      console.log('─'.repeat(60))
+      console.error(`\n     ❌ Command failed: ${error.message}`)
+      console.log('     ' + '─'.repeat(58))
       reject(error)
     })
   })
 }
 
 async function runAllCommandTests() {
-  console.log('\n🎯 Running SAFE CLI command tests (REAL-TIME)...\n')
-  console.log('⚠️  NOTE: Excluded system-modifying commands (update, create, dependencies)\n')
-  console.log('='.repeat(80))
+  console.log('     🎯 Running SAFE CLI command tests (REAL-TIME)...\n')
+  console.log('     ⚠️  NOTE: Excluded system-modifying commands (update, create, dependencies)\n')
+  console.log('     ' + '='.repeat(58))
 
   const tests = [
     {
@@ -140,23 +148,23 @@ async function runAllCommandTests() {
   }
 
   // Summary
-  console.log('\n' + '='.repeat(80))
-  console.log('📊 CLI TESTS SUMMARY')
-  console.log('='.repeat(80))
+  console.log('\n     ' + '='.repeat(58))
+  console.log('     📊 CLI TESTS SUMMARY')
+  console.log('     ' + '='.repeat(58))
 
   const passed = results.filter(r => r.success).length
   const total = results.length
 
   results.forEach(({ description, success, error }) => {
-    console.log(`${success ? '✅' : '❌'} ${description}${error ? ` (${error})` : ''}`)
+    console.log(`     ${success ? '✅' : '❌'} ${description}${error ? ` (${error})` : ''}`)
   })
 
-  console.log(`\n🎯 Results: ${passed}/${total} tests passed`)
+  console.log(`\n     🎯 Results: ${passed}/${total} tests passed`)
 
   if (passed === total) {
-    console.log('🎉 ALL CLI TESTS PASSED!')
+    console.log('     🎉 ALL CLI TESTS PASSED!')
   } else {
-    console.log('⚠️  Some CLI tests failed')
+    console.log('     ⚠️  Some CLI tests failed')
   }
 
   return passed === total
@@ -172,20 +180,20 @@ function checkTestProject() {
     throw new Error(`Invalid Alloy project: tiapp.xml not found in ${PROJECT_PATH}`)
   }
 
-  console.log(`✅ Test project found: ${PROJECT_PATH}`)
+  console.log(`     ✅ Test project found: ${PROJECT_PATH}`)
 }
 
 // Main execution
 async function main() {
   checkTestProject()
 
-  console.log('🔧 Setting up test environment...\n')
+  console.log('     🔧 Setting up test environment...\n')
 
   // Clean previous artifacts (preserve purgetss/fonts/ for build-fonts test)
   try {
     await execAsync('rm -f purgetss/styles/tailwind.tss purgetss/styles/fonts.tss purgetss/styles/definitions.css purgetss/config.cjs app/lib/purgetss.ui.js', { cwd: PROJECT_PATH })
     await execAsync('rm -f app/assets/fonts/*', { cwd: PROJECT_PATH })
-    console.log('🧹 Cleaned previous test artifacts (preserved purgetss/fonts/)\n')
+    console.log('     🧹 Cleaned previous test artifacts (preserved purgetss/fonts/)\n')
   } catch (error) {
     // Ignore cleanup errors
   }

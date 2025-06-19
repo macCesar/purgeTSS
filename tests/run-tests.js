@@ -10,6 +10,19 @@ import path from 'path'
 
 const execAsync = promisify(exec)
 
+// Handle EPIPE errors globally (when output is piped to head, etc.)
+process.stdout.on('error', (err) => {
+  if (err.code === 'EPIPE') {
+    process.exit(0)
+  }
+})
+
+process.stderr.on('error', (err) => {
+  if (err.code === 'EPIPE') {
+    process.exit(0)
+  }
+})
+
 const TEST_CATEGORIES = {
   unit: {
     dir: 'tests/unit',
@@ -49,13 +62,31 @@ async function findTestFiles(dir) {
 
 async function runTestFile(filePath) {
   try {
-    console.log(`  🧪 Running ${path.basename(filePath)}...`)
+    console.log('\n  ═════════════════════════════════════════════════════════════════')
+    console.log(`  🧪 Running ${path.basename(filePath)}`)
+    console.log('  ═════════════════════════════════════════════════════════════════')
+
     const { stdout, stderr } = await execAsync(`node ${filePath}`)
-    if (stdout) console.log(stdout)
-    if (stderr) console.error(stderr)
+
+    // Indent all output from the test file
+    if (stdout) {
+      const indentedOutput = stdout.split('\n').map(line =>
+        line.trim() ? `     ${line}` : line
+      ).join('\n')
+      console.log(indentedOutput)
+    }
+
+    if (stderr) {
+      const indentedError = stderr.split('\n').map(line =>
+        line.trim() ? `     ⚠️  ${line}` : line
+      ).join('\n')
+      console.error(indentedError)
+    }
+
+    console.log('  ✅ Test file completed successfully')
     return { success: true, file: filePath }
   } catch (error) {
-    console.error(`  ❌ Failed ${path.basename(filePath)}:`, error.message)
+    console.error(`  ❌ Test file failed: ${error.message}`)
     return { success: false, file: filePath, error: error.message }
   }
 }
@@ -67,8 +98,10 @@ async function runTestCategory(category) {
     return false
   }
 
-  console.log(`\n🚀 ${config.name}`)
-  console.log(`📋 ${config.description}\n`)
+  console.log('\n════════════════════════════════════════════════════════════════════')
+  console.log(`🚀 ${config.name}`)
+  console.log(`📋 ${config.description}`)
+  console.log('════════════════════════════════════════════════════════════════════')
 
   const testFiles = await findTestFiles(config.dir)
   if (testFiles.length === 0) {
@@ -85,7 +118,10 @@ async function runTestCategory(category) {
   const passed = results.filter(r => r.success).length
   const total = results.length
 
-  console.log(`\n📊 ${config.name} Results: ${passed}/${total} passed`)
+  console.log('\n' + '═'.repeat(68))
+  console.log(`📊 ${config.name} Results: ${passed}/${total} passed`)
+  console.log('═'.repeat(68))
+
   return passed === total
 }
 

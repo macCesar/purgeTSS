@@ -1,5 +1,8 @@
 /**
- * E2E Tests for PurgeTSS Configuration Options
+ * E2E Tests for PurgeTSS Con  console.log('     ┌──────────────────────────────────────────────────────╮')
+  console.log(`     │ 🧪 Testing Configuration: ${configName.padEnd(23)} │`)
+  console.log(`     │ 📋 ${testDescription.padEnd(38)} │`)
+  console.log('     └──────────────────────────────────────────────────────┘\n')ration Options
  * Tests different configuration scenarios
  */
 
@@ -19,65 +22,77 @@ async function createConfigFile(configOptions) {
   const configContent = `
 module.exports = ${JSON.stringify(configOptions, null, 2)}
 `
-  
+
   // Ensure purgetss directory exists
   const purgetssDir = path.dirname(CONFIG_PATH)
   if (!fs.existsSync(purgetssDir)) {
     fs.mkdirSync(purgetssDir, { recursive: true })
   }
-  
+
   fs.writeFileSync(CONFIG_PATH, configContent)
-  console.log('📝 Created config with options:', configOptions)
+  console.log('     📝 Created config with options:', configOptions)
 }
 
 async function testConfiguration(configName, configOptions, testDescription) {
-  console.log(`\n🧪 Testing Configuration: ${configName}`)
-  console.log(`📋 ${testDescription}\n`)
-  
+  console.log('\n     ══════════════════════════════════════════════════════════════')
+  console.log(`     🧪 Testing Configuration: ${configName}`)
+  console.log(`     📋 ${testDescription}`)
+  console.log('     ══════════════════════════════════════════════════════════════\n')
+
   try {
     // Create config file
     await createConfigFile(configOptions)
-    
+
     // Run PurgeTSS
     const { stdout, stderr } = await execAsync('../bin/purgetss build', { cwd: PROJECT_PATH })
-    
-    console.log('📄 Build Output:')
-    if (stdout) console.log(stdout)
-    if (stderr) console.log('⚠️  Stderr:', stderr)
-    
+
+    console.log('     📄 Build Output:')
+    if (stdout) {
+      const indentedOutput = stdout.split('\n').map(line =>
+        line.trim() ? `     ${line}` : line
+      ).join('\n')
+      console.log(indentedOutput)
+    }
+    if (stderr) {
+      console.log('     ⚠️  Stderr:', stderr)
+    }
+
     // Check if tailwind.tss was created in the correct location
     const tailwindPath = `${PROJECT_PATH}/purgetss/styles/tailwind.tss`
     if (fs.existsSync(tailwindPath)) {
       const content = fs.readFileSync(tailwindPath, 'utf8')
       const linesCount = content.split('\n').length
-      console.log(`✅ Generated tailwind.tss (${linesCount} lines)`)
-      
+      console.log(`     ✅ Generated tailwind.tss (${linesCount} lines)`)
+
       // Log first few lines for verification
       const firstLines = content.split('\n').slice(0, 3).join('\n')
-      console.log('📝 First lines preview:')
-      console.log(firstLines)
-      
-      console.log(`✅ Configuration ${configName} test passed\n`)
+      console.log('     📝 First lines preview:')
+      const indentedPreview = firstLines.split('\n').map(line =>
+        `     ${line}`
+      ).join('\n')
+      console.log(indentedPreview)
+
+      console.log(`\n     ✅ Configuration ${configName} test passed\n`)
       return true
     } else {
-      console.log('❌ tailwind.tss not generated in purgetss/styles/')
-      
+      console.log('     ❌ tailwind.tss not generated in purgetss/styles/')
+
       // Check if it was generated elsewhere
       const altPath = `${PROJECT_PATH}/app/assets/tailwind.tss`
       if (fs.existsSync(altPath)) {
-        console.log('⚠️  Found in app/assets/ instead')
+        console.log('     ⚠️  Found in app/assets/ instead')
       }
       return false
     }
   } catch (error) {
-    console.error(`❌ Configuration ${configName} test failed:`, error.message)
+    console.error(`     ❌ Configuration ${configName} test failed:`, error.message)
     return false
   }
 }
 
 async function runConfigurationTests() {
-  console.log('🎯 Running configuration tests...\n')
-  
+  console.log('     🎯 Running configuration tests...\n')
+
   const tests = [
     {
       name: 'Default Config',
@@ -132,44 +147,44 @@ async function runConfigurationTests() {
       description: 'Test with safelist to preserve specific classes'
     }
   ]
-  
+
   const results = []
-  
+
   for (const test of tests) {
     const success = await testConfiguration(test.name, test.options, test.description)
     results.push({ ...test, success })
-    
+
     // Clean up between tests
     try {
       await execAsync('rm -f app/assets/tailwind.tss', { cwd: PROJECT_PATH })
     } catch (error) {
       // Ignore cleanup errors
     }
-    
+
     // Small delay between tests
     await new Promise(resolve => setTimeout(resolve, 1000))
   }
-  
+
   // Summary
-  console.log('='.repeat(60))
-  console.log('📊 CONFIGURATION TESTS SUMMARY')
-  console.log('='.repeat(60))
-  
+  console.log('     ' + '='.repeat(58))
+  console.log('     📊 CONFIGURATION TESTS SUMMARY')
+  console.log('     ' + '='.repeat(58))
+
   const passed = results.filter(r => r.success).length
   const total = results.length
-  
+
   results.forEach(({ name, success }) => {
-    console.log(`${success ? '✅' : '❌'} ${name}`)
+    console.log(`     ${success ? '✅' : '❌'} ${name}`)
   })
-  
-  console.log(`\n🎯 Results: ${passed}/${total} configuration tests passed`)
-  
+
+  console.log(`\n     🎯 Results: ${passed}/${total} configuration tests passed`)
+
   if (passed === total) {
-    console.log('🎉 ALL CONFIGURATION TESTS PASSED!')
+    console.log('     🎉 ALL CONFIGURATION TESTS PASSED!')
   } else {
-    console.log('⚠️  Some configuration tests failed')
+    console.log('     ⚠️  Some configuration tests failed')
   }
-  
+
   return passed === total
 }
 
@@ -178,30 +193,29 @@ async function main() {
   if (!fs.existsSync(PROJECT_PATH)) {
     throw new Error(`Test project not found at: ${PROJECT_PATH}`)
   }
-  
-  console.log('🔧 Setting up configuration test environment...\n')
-  
+  console.log('     🔧 Setting up configuration test environment...\n')
+
   // Clean previous artifacts
   try {
     await execAsync('rm -rf app/assets/tailwind.tss purgetss/config.js', { cwd: PROJECT_PATH })
-    console.log('🧹 Cleaned previous test artifacts\n')
+    console.log('     🧹 Cleaned previous test artifacts\n')
   } catch (error) {
     // Ignore cleanup errors
   }
-  
+
   const success = await runConfigurationTests()
-  
+
   // Final cleanup
   try {
     await execAsync('rm -rf purgetss/config.js app/assets/tailwind.tss', { cwd: PROJECT_PATH })
   } catch (error) {
     // Ignore cleanup errors
   }
-  
+
   if (!success) {
     throw new Error('Some configuration tests failed')
   }
-  
+
   return success
 }
 

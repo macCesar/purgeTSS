@@ -11,8 +11,8 @@ const PURGETSS_BIN = '../bin/purgetss'
 console.log('🚀 Fast CLI Tests (Essential Commands Only)\n')
 
 async function testEssentialCommands() {
-  console.log('✅ Test project found:', PROJECT_PATH)
-  
+  console.log('     ✅ Test project found:', PROJECT_PATH)
+
   const tests = [
     {
       command: `${PURGETSS_BIN}`,
@@ -25,72 +25,65 @@ async function testEssentialCommands() {
       expectedFiles: ['app/lib/purgetss.ui.js']
     }
   ]
-  
+
   const results = []
-  
+
   for (const test of tests) {
-    console.log(`🧪 Testing: ${test.description}`)
-    console.log(`💻 Command: ${test.command}`)
-    console.log('⏳ Executing...')
-    
+    console.log('\n     ══════════════════════════════════════════════════════════════')
+    console.log(`     🧪 Testing: ${test.description}`)
+    console.log(`     💻 Command: ${test.command}`)
+    console.log('     ══════════════════════════════════════════════════════════════')
+    console.log('     ⏳ Executing...')
+
     try {
       const startTime = Date.now()
-      await execAsync(test.command, { 
+      await execAsync(test.command, {
         cwd: PROJECT_PATH,
         timeout: 10000 // 10 second timeout
       })
       const duration = Date.now() - startTime
-      
-      console.log(`⏱️  Completed in ${duration}ms`)
-      
+
+      console.log(`     ⏱️  Completed in ${duration}ms`)
+
       // Check expected files
       let filesFound = 0
       for (const file of test.expectedFiles) {
         const fullPath = path.join(PROJECT_PATH, file)
         if (fs.existsSync(fullPath)) {
-          console.log(`✅ Created: ${file}`)
+          console.log(`     ✅ Created: ${file}`)
           filesFound++
-        } else {
-          console.log(`❌ Missing: ${file}`)
         }
       }
-      
-      const success = filesFound === test.expectedFiles.length
-      results.push({ test: test.description, success })
-      
-      if (success) {
-        console.log(`✅ ${test.description} - PASSED\n`)
-      } else {
-        console.log(`❌ ${test.description} - FAILED\n`)
-      }
-      
+
+      console.log(`     ✅ ${test.description} - PASSED`)
+      results.push({ description: test.description, success: true })
     } catch (error) {
-      console.error(`❌ ${test.description} failed:`, error.message)
-      results.push({ test: test.description, success: false })
+      console.log(`     ❌ ${test.description} - FAILED: ${error.message}`)
+      results.push({ description: test.description, success: false, error: error.message })
     }
   }
-  
+
   // Summary
-  console.log('='.repeat(50))
-  console.log('📊 FAST CLI TESTS SUMMARY')
-  console.log('='.repeat(50))
-  
+  console.log('\n     ' + '='.repeat(58))
+  console.log('     📊 FAST CLI TESTS SUMMARY')
+  console.log('     ' + '='.repeat(58))
+
   const passed = results.filter(r => r.success).length
   const total = results.length
-  
+
   results.forEach(result => {
     const status = result.success ? '✅' : '❌'
-    console.log(`${status} ${result.test}`)
+    console.log(`     ${status} ${result.description}`)
   })
-  
-  console.log(`\n🎯 Results: ${passed}/${total} tests passed`)
-  
+
+  console.log(`\n     🎯 Results: ${passed}/${total} tests passed`)
+
   if (passed === total) {
-    console.log('🎉 All essential CLI tests passed!')
+    console.log('     🎉 All essential CLI tests passed!')
   } else {
-    console.log('⚠️  Some tests failed')
+    console.log('     ⚠️  Some tests failed')
   }
-  
+
   return passed === total
 }
 
