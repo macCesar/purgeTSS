@@ -39,10 +39,10 @@ const program = new Command()
 program
   .name('purgetss')
   .version(pkg.version)
-  .description(`${chalk.green(pkg.description)}\n                     For more information, visit ${chalk.green('https://purgetss.com')}`)
+  .description(`${chalk.cyan('purgetss')} ${chalk.green(pkg.version)} - ${chalk.green(pkg.description)}\n                 For more information, visit ${chalk.green('https://purgetss.com')}`)
   .option('--debug', 'Display execution time for each process')
   .option('-a, --all', `Run these 3 commands: ${chalk.green('build')}, ${chalk.green('build-fonts')} and ${chalk.green('purgetss')}`)
-  .action(async(options) => {
+  .action(async (options) => {
     try {
       const result = await purgeClasses(options)
       if (!result) {
@@ -54,6 +54,93 @@ program
     }
   })
 
+// Add custom help text to organize commands like Caporal V6
+program.addHelpText('before', `
+${chalk.yellow('USAGE')}
+  ${chalk.cyan('purgetss')} ${chalk.gray('[command]')}
+
+  Generate a clean app.tss file containing the classes from your XML files
+  The original classes from app.tss are backed up in _app.tss
+  You can create your own custom classes by editing ./purgetss/config.js
+
+${chalk.yellow('ARGUMENTS')}
+  ${chalk.gray('[command]')}      See the list of available commands below        ${chalk.gray('optional')}
+
+${chalk.yellow('OPTIONS')}`)
+
+program.addHelpText('after', `
+
+${chalk.yellow('COMMANDS')}
+  ${chalk.cyan('init|i')} ${chalk.gray('[options]')}                Create a ${chalk.yellow('config.js')} file for your project
+  ${chalk.cyan('create|c')} ${chalk.gray('[options]')} ${chalk.gray('<name>')}       Create a new Alloy Project with ${chalk.green('PurgeTSS')} configured
+  ${chalk.cyan('install-dependencies|id')}         Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} to an existing project
+
+  ${chalk.cyan('build|b')} ${chalk.gray('[options]')}               Generate a new ${chalk.yellow('tailwind.tss')} file
+  ${chalk.cyan('watch|w')} ${chalk.gray('[options]')}               Automatically run ${chalk.green('PurgeTSS')} every time you compile your project
+  ${chalk.cyan('module|m')}                        Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('lib')} folder
+
+  ${chalk.cyan('icon-library|il')} ${chalk.gray('[options]')}       Copy default icon font libraries to your project
+  ${chalk.cyan('build-fonts|bf')} ${chalk.gray('[options]')}        Generate ${chalk.yellow('fonts.tss')} from font and CSS files in ${chalk.yellow('./purgetss/fonts')}
+  ${chalk.cyan('color-module|cm')}                 Copy all colors from ${chalk.yellow('config.js')} to your ${chalk.yellow('lib')} folder
+
+  ${chalk.cyan('shades|s')} ${chalk.gray('[options]')} ${chalk.gray('[hexcode]')}    Generate color shades from a hex color
+
+  ${chalk.cyan('update|u')}                        Update ${chalk.green('PurgeTSS')} to the latest version
+  ${chalk.cyan('sudo-update|su')}                  Update ${chalk.green('PurgeTSS')} to the latest version using the ${chalk.red('sudo')} command
+`)
+
+program.addHelpText('afterAll', `
+${chalk.yellow('GLOBAL OPTIONS')}
+  ${chalk.cyan('-h, --help')}       Display help
+  ${chalk.cyan('-V, --version')}    Display version
+  ${chalk.cyan('--no-color')}       Disable colors
+  ${chalk.cyan('--quiet')}          Quiet mode — only displays warn and error messages
+  ${chalk.cyan('-v, --verbose')}    Verbose mode — will also output debug messages
+`)
+
+// Configure command groups for better organization
+program.configureHelp({
+  sortSubcommands: true,
+  subcommandTerm: (cmd) => cmd.name() + (cmd.alias() ? `|${cmd.alias()}` : ''),
+  argumentTerm: (arg) => `${arg.name()}`,
+  optionTerm: (option) => option.flags,
+  showGlobalOptions: false,
+  formatHelp: (cmd, helper) => {
+    // Custom help format to hide the default Commands section
+    const termWidth = helper.padWidth(cmd, helper);
+    const helpWidth = helper.helpWidth || 80;
+
+    let output = [];
+
+    // Usage
+    output.push('Usage: ' + helper.commandUsage(cmd));
+
+    // Description
+    const commandDescription = helper.commandDescription(cmd);
+    if (commandDescription.length > 0) {
+      output.push('');
+      output.push(commandDescription);
+    }
+
+    // Options
+    const optionList = helper.visibleOptions(cmd).map((option) => {
+      const flags = option.flags.padEnd(termWidth);
+      return `${flags}${option.description}`;
+    });
+    if (optionList.length > 0) {
+      output.push('');
+      output.push('Options:');
+      optionList.forEach((optionHelp) => {
+        output.push(`  ${optionHelp}`);
+      });
+    }
+
+    // Skip the Commands section - we'll use our custom one
+
+    return output.join('\n');
+  }
+})
+
 // === INITIAL SETUP ===
 
 // Init command
@@ -62,7 +149,7 @@ program
   .alias('i')
   .description(`Create a ${chalk.yellow('config.js')} file for your project`)
   .option('--all', 'Create all files')
-  .action(async(options) => {
+  .action(async (options) => {
     try {
       const result = await init(options)
       if (!result) {
@@ -92,7 +179,7 @@ program
   .command('install-dependencies')
   .alias('id')
   .description(`Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} to an existing project\n`)
-  .action(async(options) => {
+  .action(async (options) => {
     try {
       await dependencies(options)
     } catch (error) {
@@ -109,7 +196,7 @@ program
   .alias('b')
   .description(`Generate a new ${chalk.yellow('tailwind.tss')} file`)
   .option('--glossary', 'Create a glossary folder with all generated classes')
-  .action(async(options) => {
+  .action(async (options) => {
     try {
       const result = await build(options)
       if (!result) {
@@ -142,7 +229,7 @@ program
   .command('module')
   .alias('m')
   .description(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('lib')} folder\n`)
-  .action(async(options) => {
+  .action(async (options) => {
     try {
       await copyModulesLibrary(options)
     } catch (error) {
@@ -161,7 +248,7 @@ program
   .option('-v, --vendor <vendor>', 'Copy specific font vendors: fa, mi, ms, f7')
   .option('-m, --module', 'Copy corresponding CommonJS modules to ./app/lib/ folder')
   .option('-s, --styles', 'Copy corresponding .tss files to ./purgetss/styles/ folder')
-  .action(async(options) => {
+  .action(async (options) => {
     try {
       await copyFonts(options)
     } catch (error) {
@@ -177,7 +264,7 @@ program
   .description(`Generate ${chalk.yellow('fonts.tss')} from font and CSS files in ${chalk.yellow('./purgetss/fonts')}`)
   .option('-f, --font-class-from-filename', 'Use the font\'s filename as the name of the font class and the CSS filename as prefix for icon classes instead of using font family names.')
   .option('-m, --module', `Generate a CommonJS module in the ${chalk.yellow('./app/lib/')} folder called ${chalk.yellow('purgetss-fonts.js')} containing all font classes for both regular fonts and font icons.`)
-  .action(async(options) => {
+  .action(async (options) => {
     try {
       const result = await buildFonts(options)
       if (!result) {
@@ -194,7 +281,7 @@ program
   .command('color-module')
   .alias('cm')
   .description(`Copy all colors from ${chalk.yellow('config.js')} to your ${chalk.yellow('lib')} folder\n`)
-  .action(async(options) => {
+  .action(async (options) => {
     try {
       const result = await colorModule(options)
       if (!result) {
@@ -220,7 +307,7 @@ program
   .option('-t, --tailwind', 'Output in Tailwind format')
   .option('-q, --quotes', 'Use quotes in output')
   .option('-s, --single', 'Generate single color instead of shades')
-  .action(async(hexcode, options) => {
+  .action(async (hexcode, options) => {
     try {
       const result = await shades({ hexcode, name: options.name }, options)
       if (!result) {
