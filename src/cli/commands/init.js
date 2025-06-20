@@ -156,20 +156,21 @@ function createDefinitionsFile() {
  */
 export { createDefinitionsFile }
 
-export function init(options) {
+export function init(options = {}) {
   // Check if we're in an Alloy project first
   if (!alloyProject()) {
     return false
   }
 
-  // Check if config.cjs already exists to show appropriate message
-  const configExisted = fs.existsSync(projectsConfigJS)
+  // Only show warning for explicit init command (not when called from other commands)
+  const isExplicitInitCommand = options.isExplicitInit === true
+  const configExisted = isExplicitInitCommand ? fs.existsSync(projectsConfigJS) : false
 
   // SUPER SIMPLE: Ensure config exists (migrate or create)
   ensureConfig()
 
-  // Show warning if config already existed (for init command specifically)
-  if (configExisted) {
+  // Show warning ONLY if this is an explicit init command AND config already existed
+  if (isExplicitInitCommand && configExisted) {
     logger.warn('./purgetss/config.cjs', chalk.red('file already exists!'))
   }
 

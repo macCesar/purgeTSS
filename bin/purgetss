@@ -45,12 +45,34 @@ program
   .allowUnknownOption(false)
   .action(async (options) => {
     try {
-      const result = await purgeClasses(options)
-      if (!result) {
-        process.exit(1)
+      if (options.all) {
+        // When --all is specified, run the 3 commands in sequence
+        console.log(chalk.yellow('Running all commands: build, build-fonts, and purge...'))
+        
+        // Run commands in sequence to avoid race conditions
+        console.log(chalk.cyan('\n1. Running build command...'))
+        await build(options)
+        
+        console.log(chalk.cyan('\n2. Running build-fonts command...'))
+        await buildFonts(options)
+        
+        console.log(chalk.cyan('\n3. Running purge command...'))
+        const result = await purgeClasses(options)
+        
+        if (!result) {
+          process.exit(1)
+        }
+        
+        console.log(chalk.green('\n✅ All commands completed successfully!'))
+      } else {
+        // Default behavior: just run purgeClasses
+        const result = await purgeClasses(options)
+        if (!result) {
+          process.exit(1)
+        }
       }
     } catch (error) {
-      console.error(chalk.red('Error running purgeClasses:'), error.message)
+      console.error(chalk.red('Error running command:'), error.message)
       process.exit(1)
     }
   })
@@ -182,7 +204,8 @@ program
   .option('--all', 'Create all files')
   .action(async (options) => {
     try {
-      const result = await init(options)
+      // Pass flag to indicate this is an explicit init command
+      const result = await init({ ...options, isExplicitInit: true })
       if (!result) {
         process.exit(1)
       }
