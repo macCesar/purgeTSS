@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'Interface-Line-Icon-2';
+  src:  url('fonts/Interface-Line-Icon-2.eot?z0oebf');
+  src:  url('fonts/Interface-Line-Icon-2.eot?z0oebf#iefix') format('embedded-opentype'),
+    url('fonts/Interface-Line-Icon-2.ttf?z0oebf') format('truetype'),
+    url('fonts/Interface-Line-Icon-2.woff?z0oebf') format('woff'),
+    url('fonts/Interface-Line-Icon-2.svg?z0oebf#Interface-Line-Icon-2') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.ili {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Interface-Line-Icon-2' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ili-archive:before {
+  content: "\e900";
+}
+.ili-attachment:before {
+  content: "\e901";
+}
+.ili-calander:before {
+  content: "\e902";
+}
+.ili-chat:before {
+  content: "\e903";
+}
+.ili-database:before {
+  content: "\e904";
+}
+.ili-delete-trash:before {
+  content: "\e905";
+}
+.ili-download:before {
+  content: "\e906";
+}
+.ili-edit:before {
+  content: "\e907";
+}
+.ili-email:before {
+  content: "\e908";
+}
+.ili-files:before {
+  content: "\e909";
+}
+.ili-folder:before {
+  content: "\e90a";
+}
+.ili-home:before {
+  content: "\e90b";
+}
+.ili-image:before {
+  content: "\e90c";
+}
+.ili-interface-2:before {
+  content: "\e90d";
+}
+.ili-interface:before {
+  content: "\e90e";
+}
+.ili-laptop:before {
+  content: "\e90f";
+}
+.ili-monitor:before {
+  content: "\e910";
+}
+.ili-page-scroll:before {
+  content: "\e911";
+}
+.ili-position:before {
+  content: "\e912";
+}
+.ili-settings-2:before {
+  content: "\e913";
+}
+.ili-settings:before {
+  content: "\e914";
+}
+.ili-share:before {
+  content: "\e915";
+}
+.ili-stats:before {
+  content: "\e916";
+}
+.ili-time:before {
+  content: "\e917";
+}

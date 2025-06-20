@@ -1,5 +1,4 @@
 {
-  "git.ignoreLimitWarning": true,
   "files.exclude": {
     "node_modules/": true,
     "package-lock.json": true
@@ -11,15 +10,5 @@
   "files.watcherExclude": {
     "node_modules/": true,
     "package-lock.json": true
-  },
-  //
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "editor.formatOnPaste": true,
-  //
-  "eslint.format.enable": true,
-  //
-  "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
+  }
 }

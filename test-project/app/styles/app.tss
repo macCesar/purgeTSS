@@ -1,0 +1,13 @@
+// PurgeTSS v7.1.0
+// Created by César Estrada
+// https://purgetss.com
+
+// Ti Elements
+'Window': { backgroundColor: '#FFFFFF' }
+
+// Main Styles
+'.bg-blue-500': { backgroundColor: '#3b82f6' }
+'.h-full': { height: '100%' }
+'.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
+'.text-white': { color: '#ffffff', textColor: '#ffffff' }
+'.w-full': { width: '100%' }

@@ -1,15 +1,24 @@
-'use_strick'
+/**
+ * Completions2 - ESM Migration v7
+ * Migrated from v6 with identical functionality
+ */
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
+import _ from 'lodash'
+import chalk from 'chalk'
 let saveGlossary = false
-const fs = require('fs')
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const require = createRequire(import.meta.url)
 const cwd = process.cwd()
-const _ = require('lodash')
-const path = require('path')
-const chalk = require('chalk')
-const colores = require('../lib/colores').colores
-module.exports.colores = colores
+import { colores } from '../src/shared/brand-colors.js'
+export { colores }
 const purgeLabel = colores.purgeLabel
 
-const projectsConfigJS = cwd + '/purgetss/config.js'
+const projectsConfigJS = cwd + '/purgetss/config.cjs'
 
 const logger = {
   info: (...args) => console.log(purgeLabel, args.join(' ')),
@@ -18,9 +27,9 @@ const logger = {
   file: (...args) => console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!')
 }
 
-const helpers = require('../lib/helpers')
+import * as helpers from '../src/shared/helpers.js'
 const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json')
-const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js')
+const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js.cjs')
 
 const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile)
 configFile.purge = configFile.purge ?? { mode: 'all' }
@@ -60,7 +69,7 @@ function autoBuildTailwindTSS(options = {}) {
     logger.file('./dist/tailwind.tss')
   }
 }
-exports.autoBuildTailwindTSS = autoBuildTailwindTSS
+export { autoBuildTailwindTSS }
 
 function processCustomClasses() {
   let tailwindStyles = ''
@@ -523,7 +532,7 @@ function getPropertiesFromTiCompletionsFile() {
     'UIApplicationOpenURLOptionsOpenInPlaceKey',
     'UIApplicationOpenURLOptionUniversalLinksOnly',
 
-    // ! Handled by Purge TSS
+    // ! Handled by PurgeTSS
     'fontFamily',
     'fontSize',
     'fontWeight',

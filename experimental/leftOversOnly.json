@@ -1,1433 +1,1433 @@
 {
-	"lifecycleContainer": {
-		"description": "The Window or TabGroup whose Activity lifecycle should be triggered on the proxy.",
-		"type": "Titanium.UI.Window",
-		"readOnly": true,
-		"values": []
-	},
-	"backgroundGradient": {
-		"description": "",
-		"type": "Gradient",
-		"readOnly": true,
-		"values": []
-	},
-	"horizontalMotionEffect": {
-		"description": "Adds a horizontal parallax effect to the view",
-		"type": "MinMaxOptions",
-		"readOnly": true,
-		"values": []
-	},
-	"previewContext": {
-		"description": "The preview context used in the 3D-Touch feature &quot;Peek and Pop&quot;.",
-		"type": "Titanium.UI.iOS.PreviewContext",
-		"readOnly": true,
-		"values": []
-	},
-	"rect": {
-		"description": "",
-		"type": "DimensionWithAbsolutes",
-		"readOnly": false,
-		"values": []
-	},
-	"size": {
-		"description": "",
-		"type": "Dimension",
-		"readOnly": false,
-		"values": []
-	},
-	"transform": {
-		"description": "",
-		"type": "Titanium.UI.Matrix2D",
-		"readOnly": true,
-		"values": []
-	},
-	"verticalMotionEffect": {
-		"description": "Adds a vertical parallax effect to the view",
-		"type": "MinMaxOptions",
-		"readOnly": true,
-		"values": []
-	},
-	"console": {
-		"description": "Console logging facilities.",
-		"type": "Global.Console",
-		"readOnly": true,
-		"values": []
-	},
-	"global": {
-		"description": "Reference to the global object itself.",
-		"type": "Global",
-		"readOnly": true,
-		"values": []
-	},
-	"Buffer": {
-		"description": "a global reference to the <a href=\"buffer.Buffer\">Buffer</a> class.",
-		"type": "buffer.Buffer",
-		"readOnly": true,
-		"values": []
-	},
-	"process": {
-		"description": "Reference to the global <code>process</code> object.",
-		"type": "process",
-		"readOnly": true,
-		"values": []
-	},
-	"strict": {
-		"description": "an alias of <code>assert</code> that enforces strict version of comparison methods",
-		"type": "assert.strict",
-		"readOnly": true,
-		"values": []
-	},
-	"AssertionError": {
-		"description": "extension of <code>Error</code>",
-		"type": "assert.AssertionError",
-		"readOnly": true,
-		"values": []
-	},
-	"actual": {
-		"description": "",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"expected": {
-		"description": "",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"stackStartFn": {
-		"description": "If provided, the generated stack trace omits frames before this function.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"buffer": {
-		"description": "",
-		"type": "ArrayBuffer",
-		"readOnly": true,
-		"values": []
-	},
-	"EventEmitter": {
-		"description": "The <code>EventEmitter</code> class is defined and exposed by the <code>events</code> module:\n<pre><code class=\"language-javascript\">const EventEmitter = require('events');\n</code></pre>\nAll <code>EventEmitter</code>s emit the event <code>'newListener'</code> when new listeners are added and <code>'removeListener'</code> when existing listeners are removed.",
-		"type": "EventEmitter",
-		"readOnly": true,
-		"values": []
-	},
-	"constants": {
-		"description": "",
-		"type": "fs.constants",
-		"readOnly": true,
-		"values": []
-	},
-	"Stats": {
-		"description": "The class <code>fs.Stats</code>",
-		"type": "fs.Stats",
-		"readOnly": true,
-		"values": []
-	},
-	"ReadStream": {
-		"description": "The class <code>fs.ReadStream</code>",
-		"type": "fs.ReadStream",
-		"readOnly": true,
-		"values": []
-	},
-	"WriteStream": {
-		"description": "The class <code>fs.WriteStream</code>",
-		"type": "fs.WriteStream",
-		"readOnly": true,
-		"values": []
-	},
-	"atime": {
-		"description": "The timestamp indicating the last time this file was accessed.",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"mtime": {
-		"description": "The timestamp indicating the last time this file was modified.",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"ctime": {
-		"description": "The timestamp indicating the last time the file status was changed.",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"birthtime": {
-		"description": "The timestamp indicating the creation time of this file.",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"signals": {
-		"description": "Signal constants",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"priority": {
-		"description": "",
-		"type": "os.constants.priority",
-		"readOnly": true,
-		"values": [
-			"Ti.Android.PRIORITY_MAX",
-			"Ti.Android.PRIORITY_HIGH",
-			"Ti.Android.PRIORITY_DEFAULT",
-			"Ti.Android.PRIORITY_LOW",
-			"Ti.Android.PRIORITY_MIN"
-		]
-	},
-	"errno": {
-		"description": "Error constants",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"times": {
-		"description": "",
-		"type": "CPUInfoTimes",
-		"readOnly": true,
-		"values": []
-	},
-	"posix": {
-		"description": "The <code>path.posix</code> property provides access to POSIX specific implementations of the <code>path</code> methods.",
-		"type": "path",
-		"readOnly": true,
-		"values": []
-	},
-	"win32": {
-		"description": "The <code>path.win32</code> property provides access to Windows-specific implementations of the <code>path</code> methods.",
-		"type": "path",
-		"readOnly": true,
-		"values": []
-	},
-	"channel": {
-		"description": "Always <code>undefined</code> in Titanium.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"config": {
-		"description": "Always <code>{}</code> in Titanium.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"env": {
-		"description": "This is an object whose keys are environment variable names and whose values are the related environmnet variable values.\nIn Titanium, we will pass along environment variables from the system/CLI to the app for <code>'development'</code> builds,\n<em>but will not do so for <code>'production'</code> builds!</em>",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"stderr": {
-		"description": "The <code>process.stderr</code> property returns a stream connected to <code>stderr</code>.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"stdout": {
-		"description": "The <code>process.stdout</code> property returns a stream connected to <code>stdout</code>.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"versions": {
-		"description": "An object containing version information for included dependencies",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"ctor": {
-		"description": "When <code>warning</code> is a <code>String</code>, <code>ctor</code> is an optional function used to limit the generated stack trace.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"StringDecoder": {
-		"description": "The class/constructor method for <code>StringDecoder</code> instances.",
-		"type": "StringDecoder",
-		"readOnly": true,
-		"values": []
-	},
-	"types": {
-		"description": "",
-		"type": "util.types",
-		"readOnly": true,
-		"values": [
-			"Ti.App.iOS.USER_NOTIFICATION_TYPE_NONE",
-			"Ti.App.iOS.USER_NOTIFICATION_TYPE_BADGE",
-			"Ti.App.iOS.USER_NOTIFICATION_TYPE_SOUND",
-			"Ti.App.iOS.USER_NOTIFICATION_TYPE_ALERT",
-			"Ti.App.iOS.USER_NOTIFICATION_TYPE_CRITICAL_ALERT",
-			"Ti.App.iOS.USER_NOTIFICATION_TYPE_PROVISIONAL",
-			"Ti.App.iOS.USER_NOTIFICATION_TYPE_PROVIDES_APP_NOTIFICATION_SETTINGS",
-			"Ti.Network.NOTIFICATION_TYPE_ALERT",
-			"Ti.Network.NOTIFICATION_TYPE_BADGE",
-			"Ti.Network.NOTIFICATION_TYPE_SOUND",
-			"Ti.Network.NOTIFICATION_TYPE_NEWSSTAND"
-		]
-	},
-	"onHomeIconItemSelected": {
-		"description": "Callback function called when the home icon is clicked.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"customView": {
-		"description": "Sets a view to be used for a custom navigation mode.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"actionBar": {
-		"description": "The action bar for this activity.",
-		"type": "Titanium.Android.ActionBar",
-		"readOnly": false,
-		"values": []
-	},
-	"intent": {
-		"description": "",
-		"type": "Titanium.Android.Intent",
-		"readOnly": false,
-		"values": []
-	},
-	"onCreate": {
-		"description": "Callback function called when the Android activity is created.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onCreateOptionsMenu": {
-		"description": "Callback function called to initially create an Android options menu\nfor this Activity when the user presses the <strong>Menu</strong> button.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onDestroy": {
-		"description": "Callback function called when the Android activity is destroyed.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onPause": {
-		"description": "Callback function called when the Android activity is paused.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onPrepareOptionsMenu": {
-		"description": "Callback function called to prepare an options menu for display when the user presses\nthe <strong>Menu</strong> button.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onRestart": {
-		"description": "Callback function called when the Android activity is restarted.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onResume": {
-		"description": "Callback function called when the Android activity is resumed.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onStart": {
-		"description": "Callback function called when the Android activity is started.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onStop": {
-		"description": "Callback function called when the Android activity is stopped.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"supportToolbar": {
-		"description": "Toolbar instance that serves as ActionBar",
-		"type": "Titanium.UI.Toolbar",
-		"readOnly": true,
-		"values": []
-	},
-	"source": {
-		"description": "",
-		"type": "Titanium.Android.Activity",
-		"readOnly": true,
-		"values": []
-	},
-	"menu": {
-		"description": "",
-		"type": "Titanium.Android.Menu",
-		"readOnly": true,
-		"values": []
-	},
-	"R": {
-		"description": "",
-		"type": "Titanium.Android.R",
-		"readOnly": false,
-		"values": []
-	},
-	"currentActivity": {
-		"description": "References the top-most window's activity.",
-		"type": "Titanium.Android.Activity",
-		"readOnly": false,
-		"values": []
-	},
-	"currentService": {
-		"description": "",
-		"type": "Titanium.Android.Service",
-		"readOnly": false,
-		"values": []
-	},
-	"rootActivity": {
-		"description": "The first activity launched by the application.",
-		"type": "Titanium.Android.Activity",
-		"readOnly": false,
-		"values": []
-	},
-	"onReceived": {
-		"description": "The function called when a broadcast is received.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"actionView": {
-		"description": "Custom view that replaces the default menu item button.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"contentIntent": {
-		"description": "The <code>PendingIntent</code> to execute when the expanded status entry is clicked.",
-		"type": "Titanium.Android.PendingIntent",
-		"readOnly": true,
-		"values": []
-	},
-	"contentView": {
-		"description": "",
-		"type": "Titanium.Android.RemoteViews",
-		"readOnly": true,
-		"values": []
-	},
-	"deleteIntent": {
-		"description": "The <code>PendingIntent</code> to execute when the status entry is deleted by the user with the &quot;Clear All Notifications&quot; button.",
-		"type": "Titanium.Android.PendingIntent",
-		"readOnly": true,
-		"values": []
-	},
-	"wakeLock": {
-		"description": "Will wake up the device for the given time (in milliseconds) when the notification is shown.\nThe application needs to also set the <code>android.permission.WAKE_LOCK</code> permission\nin the Android manifest section of the <code>tiapp.xml</code> file.\n<pre><code class=\"language-xml\">&lt;ti:app&gt;\n    &lt;android&gt;\n        &lt;manifest&gt;\n            &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;\n        &lt;/manifest&gt;\n    &lt;/android&gt;\n&lt;/ti:app&gt;\n</code></pre>",
-		"type": "wakeLockOptions",
-		"readOnly": true,
-		"values": []
-	},
-	"when": {
-		"description": "The timestamp for the notification (defaults to the current time).",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"view": {
-		"description": "",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"anim": {
-		"description": "Animation resources. See\n<a href=\"https://developer.android.com/reference/android/R.anim.html\">R.anim</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"animator": {
-		"description": "Animator resources. See\n<a href=\"https://developer.android.com/reference/android/R.animator.html\">R.animator</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"array": {
-		"description": "Array resources. See <a href=\"https://developer.android.com/reference/android/R.array.html\">R.array</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"attr": {
-		"description": "Attribute resources. See\n<a href=\"https://developer.android.com/reference/android/R.attr.html\">R.attr</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"bool": {
-		"description": "Boolean resources. See\n<a href=\"https://developer.android.com/reference/android/R.bool.html\">R.bool</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"dimen": {
-		"description": "Dimension resources.  See\n<a href=\"https://developer.android.com/reference/android/R.dimen.html\">https://developer.android.com/reference/android/R.dimen.html</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"drawable": {
-		"description": "Drawable resources. See\n<a href=\"https://developer.android.com/reference/android/R.drawable.html\">R.drawable</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"fraction": {
-		"description": "Fraction resources. See\n<a href=\"https://developer.android.com/reference/android/R.fraction.html\">R.fraction</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"integer": {
-		"description": "Integer resources. See\n<a href=\"https://developer.android.com/reference/android/R.integer.html\">R.integer</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"interpolator": {
-		"description": "Interpolator resources. See\n<a href=\"https://developer.android.com/reference/android/R.interpolator.html\">R.fraction</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"mipmap": {
-		"description": "Mipmap resources. See\n<a href=\"https://developer.android.com/reference/android/R.mipmap.html\">R.mipmap</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"plurals": {
-		"description": "Plurals resources. See\n<a href=\"https://developer.android.com/reference/android/R.plurals.html\">R.plurals</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"raw": {
-		"description": "Raw resources. See\n<a href=\"https://developer.android.com/reference/android/R.raw.html\">R.raw</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"string": {
-		"description": "String resources. See\n<a href=\"https://developer.android.com/reference/android/R.string.html\">R.string</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"styleable": {
-		"description": "Styleable resources. See\n<a href=\"https://developer.android.com/reference/android/R.styleable.html\">R.styleable</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"transition": {
-		"description": "",
-		"type": "Object",
-		"readOnly": false,
-		"values": [
-			"Ti.UI.iOS.AnimationStyle.CURL_DOWN",
-			"Ti.UI.iOS.AnimationStyle.CURL_UP",
-			"Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT",
-			"Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT",
-			"Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP",
-			"Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM",
-			"Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE",
-			"Ti.UI.iOS.AnimationStyle.NONE"
-		]
-	},
-	"xml": {
-		"description": "XML resources. See\n<a href=\"https://developer.android.com/reference/android/R.xml.html\">R.xml</a>\nin the Android Developer Reference.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"launchIntent": {
-		"description": "Return the intent that was used to launch the application.",
-		"type": "Titanium.Android.Intent",
-		"readOnly": false,
-		"values": []
-	},
-	"arguments": {
-		"description": "The arguments passed to the application on startup.",
-		"type": "launchOptions",
-		"readOnly": true,
-		"values": []
-	},
-	"attributeSet": {
-		"description": "Set of metadata properties to display for the item.",
-		"type": "Titanium.App.iOS.SearchableItemAttributeSet",
-		"readOnly": true,
-		"values": []
-	},
-	"userInfo": {
-		"description": "",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"date": {
-		"description": "",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"region": {
-		"description": "",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"currentUserNotificationSettings": {
-		"description": "Notification types and user notification categories the application is registered to use.\n<strong>Deprecated since 7.3.0. Use <a href=\"Titanium.App.iOS.UserNotificationCenter.requestUserNotificationSettings\">Titanium.App.iOS.UserNotificationCenter.requestUserNotificationSettings</a> instead.</strong>",
-		"type": "UserNotificationSettings",
-		"readOnly": false,
-		"values": []
-	},
-	"file": {
-		"description": "",
-		"type": "Titanium.Filesystem.File",
-		"readOnly": false,
-		"values": []
-	},
-	"absoluteDate": {
-		"description": "The absolute date for the alarm.",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"alarmTime": {
-		"description": "Date/time at which this alert alarm is set to trigger.",
-		"type": "Date",
-		"readOnly": false,
-		"values": []
-	},
-	"begin": {
-		"description": "",
-		"type": "Date",
-		"readOnly": false,
-		"values": []
-	},
-	"end": {
-		"description": "",
-		"type": "Date",
-		"readOnly": false,
-		"values": []
-	},
-	"defaultCalendar": {
-		"description": "Calendar that events are added to by default, as specified by user settings.",
-		"type": "Titanium.Calendar.Calendar",
-		"readOnly": false,
-		"values": []
-	},
-	"extendedProperties": {
-		"description": "Extended properties of this event.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"endDate": {
-		"description": "End date of the recurrence end, or undefined if the recurrence end is count-based.",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"dest": {
-		"description": "Destination buffer.",
-		"type": "Titanium.Buffer",
-		"readOnly": true,
-		"values": []
-	},
-	"cancel": {
-		"description": "",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"selectedPerson": {
-		"description": "Function to call when a person is selected. Must not be used with <code>selectedProperty</code> property.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"selectedProperty": {
-		"description": "Function to call when a property is selected. Must not be used with <code>selectedPerson</code>\nproperty.\nNote: If ringtone or texttone is selected, null values are returned, since these are unsupported\nby Apple.\nSince iOS 9.0, there is a native apple issue whereby it may return null if the birthday property\nis selected on certain device models.\nThe callback contains the selected property and a 'person' object of type <a href=\"Titanium.Contacts.Person\">Titanium.Contacts.Person</a>.\nSince iOS 9.0, apple only returns the person object with partial information. Currently it is known to\nat least contain the selected property and fullName.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"address": {
-		"description": "",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"alternateBirthday": {
-		"description": "Alternate birthday of the person. Single Dictionary.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"image": {
-		"description": "",
-		"type": "Titanium.Blob",
-		"readOnly": true,
-		"values": []
-	},
-	"instantMessage": {
-		"description": "Instant messenger information of the person. Multi-value.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"socialProfile": {
-		"description": "Social profile information of the person. Multi-value.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"phone": {
-		"description": "Phone numbers for the person. Multi-value. Read-only on Android.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"relatedNames": {
-		"description": "Names of people to which the person is related. Multi-value.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"parent": {
-		"description": "A <code>File</code> object representing the parent directory of the file identified by this object.",
-		"type": "Titanium.Filesystem.File",
-		"readOnly": false,
-		"values": []
-	},
-	"provider": {
-		"description": "If <code>success</code> is true, object describing the location provider generating this update.",
-		"type": "LocationProviderDict",
-		"readOnly": true,
-		"values": []
-	},
-	"coords": {
-		"description": "If <code>success</code> is true, actual location data for this update.",
-		"type": "LocationCoordinates",
-		"readOnly": true,
-		"values": []
-	},
-	"floor": {
-		"description": "The floor of the building on which the user is located.",
-		"type": "LocationCoordinatesFloor",
-		"readOnly": true,
-		"values": []
-	},
-	"extraAttributes": {
-		"description": "A dictionary of the additional attributes.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"artwork": {
-		"description": "Image for the item's artwork as a <code>Blob</code> object,  or <code>null</code> if no artwork is\navailable.",
-		"type": "Titanium.Blob",
-		"readOnly": false,
-		"values": []
-	},
-	"dateAdded": {
-		"description": "Date when the item was added to the music library.",
-		"type": "Date",
-		"readOnly": false,
-		"values": []
-	},
-	"lastPlayedDate": {
-		"description": "The most recent calendar date on which the user played the media item.",
-		"type": "Date",
-		"readOnly": false,
-		"values": []
-	},
-	"releaseDate": {
-		"description": "Date when this this item was released.",
-		"type": "Date",
-		"readOnly": false,
-		"values": []
-	},
-	"appMusicPlayer": {
-		"description": "An instance of <a href=\"Titanium.Media.MusicPlayer\">Titanium.Media.MusicPlayer</a> representing the app-specific music player.",
-		"type": "Titanium.Media.MusicPlayer",
-		"readOnly": false,
-		"values": []
-	},
-	"currentRoute": {
-		"description": "Returns a description of the current route, consisting of zero or more input ports and zero or more output ports.",
-		"type": "RouteDescription",
-		"readOnly": false,
-		"values": []
-	},
-	"systemMusicPlayer": {
-		"description": "An instance of <a href=\"Titanium.Media.MusicPlayer\">Titanium.Media.MusicPlayer</a> representing the system-wide music player.",
-		"type": "Titanium.Media.MusicPlayer",
-		"readOnly": false,
-		"values": []
-	},
-	"representative": {
-		"description": "A single representative of the selected items.",
-		"type": "Titanium.Media.Item",
-		"readOnly": true,
-		"values": []
-	},
-	"composerPersistentID": {
-		"description": "The composer persistent ID to filter on. Value should be a Number.",
-		"type": "MediaQueryInfoType",
-		"readOnly": true,
-		"values": []
-	},
-	"androidback": {
-		"description": "Function to call if the user presses the back button.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"overlay": {
-		"description": "View to added as an overlay to the camera UI (on top).",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"popoverView": {
-		"description": "",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"media": {
-		"description": "",
-		"type": "Titanium.Blob",
-		"readOnly": true,
-		"values": []
-	},
-	"cropRect": {
-		"description": "Simple object defining the user's selected crop rectangle, or <code>null</code> if the user has not edited the photo. <code>width</code>/<code>height</code> values are assumed to be in pixels.",
-		"type": "Dimension",
-		"readOnly": true,
-		"values": []
-	},
-	"previewRect": {
-		"description": "Simple object defining the preview image size. This will be undefined when custom camera overlay is not used. Values are assumed to be in pixels.",
-		"type": "Size",
-		"readOnly": true,
-		"values": []
-	},
-	"livePhoto": {
-		"description": "",
-		"type": "Titanium.UI.iOS.LivePhoto",
-		"readOnly": true,
-		"values": []
-	},
-	"nowPlaying": {
-		"description": "An <code>Item</code> object representing the currently playing media item.",
-		"type": "Titanium.Media.Item",
-		"readOnly": false,
-		"values": []
-	},
-	"backgroundView": {
-		"description": "Sets the background view for customization which is always displayed behind movie content. <strong>Deprecated since 7.0.0. Use <a href=\"Titanium.Media.VideoPlayer.overlayView\">Titanium.Media.VideoPlayer.overlayView</a> instead.</strong>",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"naturalSize": {
-		"description": "Returns the natural size of the movie.",
-		"type": "MovieSize",
-		"readOnly": true,
-		"values": []
-	},
-	"overlayView": {
-		"description": "Use the overlay view to add additional custom views between the video content and the controls.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"socket": {
-		"description": "",
-		"type": "Titanium.Network.Socket.TCP",
-		"readOnly": true,
-		"values": []
-	},
-	"responseHeaders": {
-		"description": "Returns all the response headers returned with the request.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"ondatastream": {
-		"description": "Function to be called at regular intervals as the request data is being received.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onerror": {
-		"description": "Function to be called upon a error response.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onload": {
-		"description": "Function to be called upon a successful response.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onreadystatechange": {
-		"description": "Function to be called for each <a href=\"Titanium.Network.HTTPClient.readyState\">readyState</a> change.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onsendstream": {
-		"description": "Function to be called at regular intervals as the request data is being transmitted.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"responseData": {
-		"description": "Response data as a <code>Blob</code> object.",
-		"type": "Titanium.Blob",
-		"readOnly": false,
-		"values": []
-	},
-	"responseXML": {
-		"description": "Response object as an XML DOM Document object.",
-		"type": "Titanium.XML.Document",
-		"readOnly": false,
-		"values": []
-	},
-	"securityManager": {
-		"description": "The Security Manager for this client.",
-		"type": "SecurityManagerProtocol",
-		"readOnly": true,
-		"values": []
-	},
-	"callback": {
-		"description": "Callback function invoked upon receiving a new push notification.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"accepted": {
-		"description": "Callback to be fired when a listener accepts a connection.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"inbound": {
-		"description": "Socket which represents the inbound connection.",
-		"type": "Titanium.Network.Socket.TCP",
-		"readOnly": true,
-		"values": []
-	},
-	"displayCaps": {
-		"description": "Returns the DisplayCaps object.",
-		"type": "Titanium.Platform.DisplayCaps",
-		"readOnly": false,
-		"values": []
-	},
-	"fromStream": {
-		"description": "Stream being read from.",
-		"type": "Titanium.IOStream",
-		"readOnly": true,
-		"values": []
-	},
-	"toStream": {
-		"description": "Stream being written to.",
-		"type": "Titanium.IOStream",
-		"readOnly": true,
-		"values": []
-	},
-	"font": {
-		"description": "",
-		"type": "Font",
-		"readOnly": true,
-		"values": []
-	},
-	"androidView": {
-		"description": "View to load inside the message area, to create a custom layout.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"leftView": {
-		"description": "Get or set the view of the left drawer",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"rightView": {
-		"description": "Get or set the view of the right drawer",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"centerView": {
-		"description": "Get or set the center view",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"toolbar": {
-		"description": "",
-		"type": "Titanium.UI.Toolbar",
-		"readOnly": true,
-		"values": []
-	},
-	"attributedString": {
-		"description": "",
-		"type": "Titanium.UI.AttributedString",
-		"readOnly": true,
-		"values": []
-	},
-	"backgroundSelectedGradient": {
-		"description": "Background gradient to render when the item is selected.",
-		"type": "Gradient",
-		"readOnly": true,
-		"values": []
-	},
-	"selectedBackgroundGradient": {
-		"description": "Background gradient to render when the item is selected. <strong>Deprecated since 10.0.0. This property has been deprecated in favor of <a href=\"Titanium.UI.ListItem.backgroundSelectedGradient\">Titanium.UI.ListItem.backgroundSelectedGradient</a>.</strong>",
-		"type": "Gradient",
-		"readOnly": true,
-		"values": []
-	},
-	"properties": {
-		"description": "",
-		"type": "Titanium.UI.ListItem",
-		"readOnly": true,
-		"values": []
-	},
-	"events": {
-		"description": "",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"footerView": {
-		"description": "",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"headerView": {
-		"description": "",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"templates": {
-		"description": "Contain key-value pairs mapping a style name (key) to an <a href=\"ItemTemplate\">ItemTemplate</a> (value).",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"pullView": {
-		"description": "View positioned above the first row that is only revealed when the user drags the list view contents down.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"refreshControl": {
-		"description": "",
-		"type": "Titanium.UI.RefreshControl",
-		"readOnly": true,
-		"values": []
-	},
-	"searchView": {
-		"description": "Search field to use for the list view.",
-		"type": "Titanium.UI.SearchBar",
-		"readOnly": true,
-		"values": []
-	},
-	"separatorInsets": {
-		"description": "",
-		"type": "HorizontalInsets",
-		"readOnly": true,
-		"values": []
-	},
-	"tableSeparatorInsets": {
-		"description": "",
-		"type": "HorizontalInsets",
-		"readOnly": true,
-		"values": []
-	},
-	"listSeparatorInsets": {
-		"description": "The insets for the list view header and footer.",
-		"type": "HorizontalInsets",
-		"readOnly": true,
-		"values": []
-	},
-	"rowSeparatorInsets": {
-		"description": "",
-		"type": "HorizontalInsets",
-		"readOnly": true,
-		"values": []
-	},
-	"resultsSeparatorInsets": {
-		"description": "The insets for search results separators (applies to all cells &amp; iOS-only).",
-		"type": "HorizontalInsets",
-		"readOnly": true,
-		"values": []
-	},
-	"section": {
-		"description": "",
-		"type": "Titanium.UI.ListSection",
-		"readOnly": true,
-		"values": []
-	},
-	"activity": {
-		"description": "",
-		"type": "Titanium.Android.Activity",
-		"readOnly": false,
-		"values": []
-	},
-	"navigationWindow": {
-		"description": "The <a href=\"Titanium.UI.NavigationWindow\">Titanium.UI.NavigationWindow</a> instance hosting this window.",
-		"type": "Titanium.UI.NavigationWindow",
-		"readOnly": false,
-		"values": []
-	},
-	"onBack": {
-		"description": "Callback function that overrides the default behavior when the user presses the <strong>Back</strong>\nbutton.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"safeAreaPadding": {
-		"description": "The padding needed to safely display content without it being overlapped by the screen insets and notches.",
-		"type": "Padding",
-		"readOnly": false,
-		"values": []
-	},
-	"titleAttributes": {
-		"description": "",
-		"type": "titleAttributesParams",
-		"readOnly": true,
-		"values": []
-	},
-	"window": {
-		"description": "",
-		"type": "Titanium.UI.Window",
-		"readOnly": true,
-		"values": []
-	},
-	"maxDate": {
-		"description": "Maximum date displayed when a Date picker is in use.",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"minDate": {
-		"description": "Minimum date displayed when a Date picker is in use.",
-		"type": "Date",
-		"readOnly": true,
-		"values": []
-	},
-	"hitRect": {
-		"description": "Sets the region where this view responds to gestures.",
-		"type": "Dimension",
-		"readOnly": true,
-		"values": []
-	},
-	"iconInsets": {
-		"description": "The icon inset or outset for each edge.",
-		"type": "TabIconInsets",
-		"readOnly": true,
-		"values": []
-	},
-	"leftNavButton": {
-		"description": "View to show in the left nav bar area.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"rightNavButton": {
-		"description": "View to show in the right nav bar area.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"titleControl": {
-		"description": "View to show in the title area of the nav bar.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"transitionAnimation": {
-		"description": "Use a transition animation when opening or closing windows in a\n<a href=\"Titanium.UI.NavigationWindow\">Titanium.UI.NavigationWindow</a> or <a href=\"Titanium.UI.Tab\">Titanium.UI.Tab</a>.",
-		"type": "Titanium.Proxy",
-		"readOnly": true,
-		"values": []
-	},
-	"headerPullView": {
-		"description": "View positioned above the first row that is only revealed when the user drags the table\ncontents down.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"search": {
-		"description": "Search field to use for the table view.",
-		"type": "Titanium.UI.SearchBar",
-		"readOnly": true,
-		"values": []
-	},
-	"row": {
-		"description": "Table view row object.",
-		"type": "Titanium.UI.TableViewRow",
-		"readOnly": true,
-		"values": []
-	},
-	"rowData": {
-		"description": "Properties of the row. Use this property rather than <code>row</code> to access any custom row properties.",
-		"type": "Titanium.UI.TableViewRow",
-		"readOnly": true,
-		"values": []
-	},
-	"attributedHintText": {
-		"description": "Hint text attributed string.",
-		"type": "Titanium.UI.AttributedString",
-		"readOnly": true,
-		"values": []
-	},
-	"selection": {
-		"description": "",
-		"type": "textAreaSelectedParams",
-		"readOnly": false,
-		"values": []
-	},
-	"leftButton": {
-		"description": "Left button view to display in the <code>TextField</code>.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"rightButton": {
-		"description": "Right button view.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"configuration": {
-		"description": "The configuration for the new web view.",
-		"type": "Titanium.UI.iOS.WebViewConfiguration",
-		"readOnly": true,
-		"values": []
-	},
-	"onCreateWindow": {
-		"description": "Callback function called when there is a request for the application to create a new window\nto host new content.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"onlink": {
-		"description": "Fired before navigating to a link.",
-		"type": "Function",
-		"readOnly": true,
-		"values": []
-	},
-	"requestHeaders": {
-		"description": "Sets extra request headers for this web view to use on subsequent URL requests.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"snapshot": {
-		"description": "The snapshot image.",
-		"type": "Titanium.Blob",
-		"readOnly": true,
-		"values": []
-	},
-	"currentItem": {
-		"description": "The current item.",
-		"type": "BackForwardListItem",
-		"readOnly": true,
-		"values": []
-	},
-	"backItem": {
-		"description": "The item immediately preceding the current item.",
-		"type": "BackForwardListItem",
-		"readOnly": true,
-		"values": []
-	},
-	"forwardItem": {
-		"description": "The item immediately following the current item.",
-		"type": "BackForwardListItem",
-		"readOnly": true,
-		"values": []
-	},
-	"shadow": {
-		"description": "Shadow color and offset for the window title.",
-		"type": "shadowDict",
-		"readOnly": true,
-		"values": []
-	},
-	"item": {
-		"description": "",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"referenceView": {
-		"description": "Titanium View object to initialize as the reference view for the animator.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"referenceInsets": {
-		"description": "Insets to apply when using the animator's reference view as the boundary.",
-		"type": "Padding",
-		"readOnly": true,
-		"values": []
-	},
-	"annotation": {
-		"description": "Custom property list information for the target file.",
-		"type": "Object",
-		"readOnly": true,
-		"values": []
-	},
-	"preview": {
-		"description": "The preview view.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"detailView": {
-		"description": "Window for the detail view section of the SplitWindow.",
-		"type": "Titanium.UI.Window",
-		"readOnly": true,
-		"values": []
-	},
-	"masterView": {
-		"description": "Window for the master view section of the SplitWindow.",
-		"type": "Titanium.UI.Window",
-		"readOnly": true,
-		"values": []
-	},
-	"transitionFrom": {
-		"description": "Animation to hide the current window.",
-		"type": "Titanium.UI.Animation",
-		"readOnly": true,
-		"values": []
-	},
-	"transitionTo": {
-		"description": "Animation to show the new window.",
-		"type": "Titanium.UI.Animation",
-		"readOnly": true,
-		"values": []
-	},
-	"anchorItem": {
-		"description": "Item to use as the anchor in this behavior.",
-		"type": "Titanium.UI.View",
-		"readOnly": true,
-		"values": []
-	},
-	"preferences": {
-		"description": "The preference settings to be used by the web view.",
-		"type": "WebViewPreferencesObject",
-		"readOnly": true,
-		"values": []
-	},
-	"processPool": {
-		"description": "The process pool from which to obtain the  Web Content process of view.",
-		"type": "Titanium.UI.iOS.WebViewProcessPool",
-		"readOnly": true,
-		"values": []
-	},
-	"recentApplicationContext": {
-		"description": "The most recent application context sent to the watch app.",
-		"type": "Object",
-		"readOnly": false,
-		"values": []
-	},
-	"parentNode": {
-		"description": "This node's parent node.",
-		"type": "Titanium.XML.Node",
-		"readOnly": false,
-		"values": []
-	},
-	"childNodes": {
-		"description": "A <a href=\"Titanium.XML.NodeList\">Titanium.XML.NodeList</a> of this node's children.",
-		"type": "Titanium.XML.NodeList",
-		"readOnly": false,
-		"values": []
-	},
-	"firstChild": {
-		"description": "This node's first child.",
-		"type": "Titanium.XML.Node",
-		"readOnly": false,
-		"values": []
-	},
-	"lastChild": {
-		"description": "This node's last child.",
-		"type": "Titanium.XML.Node",
-		"readOnly": false,
-		"values": []
-	},
-	"previousSibling": {
-		"description": "This node's previous sibling.",
-		"type": "Titanium.XML.Node",
-		"readOnly": false,
-		"values": []
-	},
-	"nextSibling": {
-		"description": "This node's next sibling.",
-		"type": "Titanium.XML.Node",
-		"readOnly": false,
-		"values": []
-	},
-	"ownerDocument": {
-		"description": "This node's owning document.",
-		"type": "Titanium.XML.Document",
-		"readOnly": false,
-		"values": []
-	},
-	"ownerElement": {
-		"description": "The <a href=\"Titanium.XML.Element\">Titanium.XML.Element</a> to which the attribute belongs.",
-		"type": "Titanium.XML.Element",
-		"readOnly": false,
-		"values": []
-	},
-	"doctype": {
-		"description": "An interface to the list of entities that are defined for the document, such as via a Document Type Definition (DTD).",
-		"type": "Titanium.XML.DocumentType",
-		"readOnly": false,
-		"values": []
-	},
-	"documentElement": {
-		"description": "Root element of this document.",
-		"type": "Titanium.XML.Element",
-		"readOnly": false,
-		"values": []
-	},
-	"implementation": {
-		"description": "<a href=\"Titanium.XML.DOMImplementation\">DOMImplementation</a> object associated with this\ndocument.",
-		"type": "Titanium.XML.DOMImplementation",
-		"readOnly": false,
-		"values": []
-	},
-	"entities": {
-		"description": "A <a href=\"Titanium.XML.NamedNodeMap\">Titanium.XML.NamedNodeMap</a> containing the general entities, both external and internal, declared in the DTD. Parameter entities are not contained. Duplicates are discarded.",
-		"type": "Titanium.XML.NamedNodeMap",
-		"readOnly": false,
-		"values": []
-	},
-	"notations": {
-		"description": "A <a href=\"Titanium.XML.NamedNodeMap\">Titanium.XML.NamedNodeMap</a> containing the notations declared in the DTD. Duplicates are discarded. Every node in this map also implements the <a href=\"Titanium.XML.Notation\">Titanium.XML.Notation</a> interface.",
-		"type": "Titanium.XML.NamedNodeMap",
-		"readOnly": false,
-		"values": []
-	}
+  "lifecycleContainer": {
+    "description": "The Window or TabGroup whose Activity lifecycle should be triggered on the proxy.",
+    "type": "Titanium.UI.Window",
+    "readOnly": true,
+    "values": []
+  },
+  "backgroundGradient": {
+    "description": "",
+    "type": "Gradient",
+    "readOnly": true,
+    "values": []
+  },
+  "horizontalMotionEffect": {
+    "description": "Adds a horizontal parallax effect to the view",
+    "type": "MinMaxOptions",
+    "readOnly": true,
+    "values": []
+  },
+  "previewContext": {
+    "description": "The preview context used in the 3D-Touch feature &quot;Peek and Pop&quot;.",
+    "type": "Titanium.UI.iOS.PreviewContext",
+    "readOnly": true,
+    "values": []
+  },
+  "rect": {
+    "description": "",
+    "type": "DimensionWithAbsolutes",
+    "readOnly": false,
+    "values": []
+  },
+  "size": {
+    "description": "",
+    "type": "Dimension",
+    "readOnly": false,
+    "values": []
+  },
+  "transform": {
+    "description": "",
+    "type": "Titanium.UI.Matrix2D",
+    "readOnly": true,
+    "values": []
+  },
+  "verticalMotionEffect": {
+    "description": "Adds a vertical parallax effect to the view",
+    "type": "MinMaxOptions",
+    "readOnly": true,
+    "values": []
+  },
+  "console": {
+    "description": "Console logging facilities.",
+    "type": "Global.Console",
+    "readOnly": true,
+    "values": []
+  },
+  "global": {
+    "description": "Reference to the global object itself.",
+    "type": "Global",
+    "readOnly": true,
+    "values": []
+  },
+  "Buffer": {
+    "description": "a global reference to the <a href=\"buffer.Buffer\">Buffer</a> class.",
+    "type": "buffer.Buffer",
+    "readOnly": true,
+    "values": []
+  },
+  "process": {
+    "description": "Reference to the global <code>process</code> object.",
+    "type": "process",
+    "readOnly": true,
+    "values": []
+  },
+  "strict": {
+    "description": "an alias of <code>assert</code> that enforces strict version of comparison methods",
+    "type": "assert.strict",
+    "readOnly": true,
+    "values": []
+  },
+  "AssertionError": {
+    "description": "extension of <code>Error</code>",
+    "type": "assert.AssertionError",
+    "readOnly": true,
+    "values": []
+  },
+  "actual": {
+    "description": "",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "expected": {
+    "description": "",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "stackStartFn": {
+    "description": "If provided, the generated stack trace omits frames before this function.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "buffer": {
+    "description": "",
+    "type": "ArrayBuffer",
+    "readOnly": true,
+    "values": []
+  },
+  "EventEmitter": {
+    "description": "The <code>EventEmitter</code> class is defined and exposed by the <code>events</code> module:\n<pre><code class=\"language-javascript\">const EventEmitter = require('events');\n</code></pre>\nAll <code>EventEmitter</code>s emit the event <code>'newListener'</code> when new listeners are added and <code>'removeListener'</code> when existing listeners are removed.",
+    "type": "EventEmitter",
+    "readOnly": true,
+    "values": []
+  },
+  "constants": {
+    "description": "",
+    "type": "fs.constants",
+    "readOnly": true,
+    "values": []
+  },
+  "Stats": {
+    "description": "The class <code>fs.Stats</code>",
+    "type": "fs.Stats",
+    "readOnly": true,
+    "values": []
+  },
+  "ReadStream": {
+    "description": "The class <code>fs.ReadStream</code>",
+    "type": "fs.ReadStream",
+    "readOnly": true,
+    "values": []
+  },
+  "WriteStream": {
+    "description": "The class <code>fs.WriteStream</code>",
+    "type": "fs.WriteStream",
+    "readOnly": true,
+    "values": []
+  },
+  "atime": {
+    "description": "The timestamp indicating the last time this file was accessed.",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "mtime": {
+    "description": "The timestamp indicating the last time this file was modified.",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "ctime": {
+    "description": "The timestamp indicating the last time the file status was changed.",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "birthtime": {
+    "description": "The timestamp indicating the creation time of this file.",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "signals": {
+    "description": "Signal constants",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "priority": {
+    "description": "",
+    "type": "os.constants.priority",
+    "readOnly": true,
+    "values": [
+      "Ti.Android.PRIORITY_MAX",
+      "Ti.Android.PRIORITY_HIGH",
+      "Ti.Android.PRIORITY_DEFAULT",
+      "Ti.Android.PRIORITY_LOW",
+      "Ti.Android.PRIORITY_MIN"
+    ]
+  },
+  "errno": {
+    "description": "Error constants",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "times": {
+    "description": "",
+    "type": "CPUInfoTimes",
+    "readOnly": true,
+    "values": []
+  },
+  "posix": {
+    "description": "The <code>path.posix</code> property provides access to POSIX specific implementations of the <code>path</code> methods.",
+    "type": "path",
+    "readOnly": true,
+    "values": []
+  },
+  "win32": {
+    "description": "The <code>path.win32</code> property provides access to Windows-specific implementations of the <code>path</code> methods.",
+    "type": "path",
+    "readOnly": true,
+    "values": []
+  },
+  "channel": {
+    "description": "Always <code>undefined</code> in Titanium.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "config": {
+    "description": "Always <code>{}</code> in Titanium.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "env": {
+    "description": "This is an object whose keys are environment variable names and whose values are the related environmnet variable values.\nIn Titanium, we will pass along environment variables from the system/CLI to the app for <code>'development'</code> builds,\n<em>but will not do so for <code>'production'</code> builds!</em>",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "stderr": {
+    "description": "The <code>process.stderr</code> property returns a stream connected to <code>stderr</code>.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "stdout": {
+    "description": "The <code>process.stdout</code> property returns a stream connected to <code>stdout</code>.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "versions": {
+    "description": "An object containing version information for included dependencies",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "ctor": {
+    "description": "When <code>warning</code> is a <code>String</code>, <code>ctor</code> is an optional function used to limit the generated stack trace.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "StringDecoder": {
+    "description": "The class/constructor method for <code>StringDecoder</code> instances.",
+    "type": "StringDecoder",
+    "readOnly": true,
+    "values": []
+  },
+  "types": {
+    "description": "",
+    "type": "util.types",
+    "readOnly": true,
+    "values": [
+      "Ti.App.iOS.USER_NOTIFICATION_TYPE_NONE",
+      "Ti.App.iOS.USER_NOTIFICATION_TYPE_BADGE",
+      "Ti.App.iOS.USER_NOTIFICATION_TYPE_SOUND",
+      "Ti.App.iOS.USER_NOTIFICATION_TYPE_ALERT",
+      "Ti.App.iOS.USER_NOTIFICATION_TYPE_CRITICAL_ALERT",
+      "Ti.App.iOS.USER_NOTIFICATION_TYPE_PROVISIONAL",
+      "Ti.App.iOS.USER_NOTIFICATION_TYPE_PROVIDES_APP_NOTIFICATION_SETTINGS",
+      "Ti.Network.NOTIFICATION_TYPE_ALERT",
+      "Ti.Network.NOTIFICATION_TYPE_BADGE",
+      "Ti.Network.NOTIFICATION_TYPE_SOUND",
+      "Ti.Network.NOTIFICATION_TYPE_NEWSSTAND"
+    ]
+  },
+  "onHomeIconItemSelected": {
+    "description": "Callback function called when the home icon is clicked.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "customView": {
+    "description": "Sets a view to be used for a custom navigation mode.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "actionBar": {
+    "description": "The action bar for this activity.",
+    "type": "Titanium.Android.ActionBar",
+    "readOnly": false,
+    "values": []
+  },
+  "intent": {
+    "description": "",
+    "type": "Titanium.Android.Intent",
+    "readOnly": false,
+    "values": []
+  },
+  "onCreate": {
+    "description": "Callback function called when the Android activity is created.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onCreateOptionsMenu": {
+    "description": "Callback function called to initially create an Android options menu\nfor this Activity when the user presses the <strong>Menu</strong> button.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onDestroy": {
+    "description": "Callback function called when the Android activity is destroyed.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onPause": {
+    "description": "Callback function called when the Android activity is paused.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onPrepareOptionsMenu": {
+    "description": "Callback function called to prepare an options menu for display when the user presses\nthe <strong>Menu</strong> button.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onRestart": {
+    "description": "Callback function called when the Android activity is restarted.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onResume": {
+    "description": "Callback function called when the Android activity is resumed.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onStart": {
+    "description": "Callback function called when the Android activity is started.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onStop": {
+    "description": "Callback function called when the Android activity is stopped.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "supportToolbar": {
+    "description": "Toolbar instance that serves as ActionBar",
+    "type": "Titanium.UI.Toolbar",
+    "readOnly": true,
+    "values": []
+  },
+  "source": {
+    "description": "",
+    "type": "Titanium.Android.Activity",
+    "readOnly": true,
+    "values": []
+  },
+  "menu": {
+    "description": "",
+    "type": "Titanium.Android.Menu",
+    "readOnly": true,
+    "values": []
+  },
+  "R": {
+    "description": "",
+    "type": "Titanium.Android.R",
+    "readOnly": false,
+    "values": []
+  },
+  "currentActivity": {
+    "description": "References the top-most window's activity.",
+    "type": "Titanium.Android.Activity",
+    "readOnly": false,
+    "values": []
+  },
+  "currentService": {
+    "description": "",
+    "type": "Titanium.Android.Service",
+    "readOnly": false,
+    "values": []
+  },
+  "rootActivity": {
+    "description": "The first activity launched by the application.",
+    "type": "Titanium.Android.Activity",
+    "readOnly": false,
+    "values": []
+  },
+  "onReceived": {
+    "description": "The function called when a broadcast is received.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "actionView": {
+    "description": "Custom view that replaces the default menu item button.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "contentIntent": {
+    "description": "The <code>PendingIntent</code> to execute when the expanded status entry is clicked.",
+    "type": "Titanium.Android.PendingIntent",
+    "readOnly": true,
+    "values": []
+  },
+  "contentView": {
+    "description": "",
+    "type": "Titanium.Android.RemoteViews",
+    "readOnly": true,
+    "values": []
+  },
+  "deleteIntent": {
+    "description": "The <code>PendingIntent</code> to execute when the status entry is deleted by the user with the &quot;Clear All Notifications&quot; button.",
+    "type": "Titanium.Android.PendingIntent",
+    "readOnly": true,
+    "values": []
+  },
+  "wakeLock": {
+    "description": "Will wake up the device for the given time (in milliseconds) when the notification is shown.\nThe application needs to also set the <code>android.permission.WAKE_LOCK</code> permission\nin the Android manifest section of the <code>tiapp.xml</code> file.\n<pre><code class=\"language-xml\">&lt;ti:app&gt;\n    &lt;android&gt;\n        &lt;manifest&gt;\n            &lt;uses-permission android:name=&quot;android.permission.WAKE_LOCK&quot; /&gt;\n        &lt;/manifest&gt;\n    &lt;/android&gt;\n&lt;/ti:app&gt;\n</code></pre>",
+    "type": "wakeLockOptions",
+    "readOnly": true,
+    "values": []
+  },
+  "when": {
+    "description": "The timestamp for the notification (defaults to the current time).",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "view": {
+    "description": "",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "anim": {
+    "description": "Animation resources. See\n<a href=\"https://developer.android.com/reference/android/R.anim.html\">R.anim</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "animator": {
+    "description": "Animator resources. See\n<a href=\"https://developer.android.com/reference/android/R.animator.html\">R.animator</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "array": {
+    "description": "Array resources. See <a href=\"https://developer.android.com/reference/android/R.array.html\">R.array</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "attr": {
+    "description": "Attribute resources. See\n<a href=\"https://developer.android.com/reference/android/R.attr.html\">R.attr</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "bool": {
+    "description": "Boolean resources. See\n<a href=\"https://developer.android.com/reference/android/R.bool.html\">R.bool</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "dimen": {
+    "description": "Dimension resources.  See\n<a href=\"https://developer.android.com/reference/android/R.dimen.html\">https://developer.android.com/reference/android/R.dimen.html</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "drawable": {
+    "description": "Drawable resources. See\n<a href=\"https://developer.android.com/reference/android/R.drawable.html\">R.drawable</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "fraction": {
+    "description": "Fraction resources. See\n<a href=\"https://developer.android.com/reference/android/R.fraction.html\">R.fraction</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "integer": {
+    "description": "Integer resources. See\n<a href=\"https://developer.android.com/reference/android/R.integer.html\">R.integer</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "interpolator": {
+    "description": "Interpolator resources. See\n<a href=\"https://developer.android.com/reference/android/R.interpolator.html\">R.fraction</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "mipmap": {
+    "description": "Mipmap resources. See\n<a href=\"https://developer.android.com/reference/android/R.mipmap.html\">R.mipmap</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "plurals": {
+    "description": "Plurals resources. See\n<a href=\"https://developer.android.com/reference/android/R.plurals.html\">R.plurals</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "raw": {
+    "description": "Raw resources. See\n<a href=\"https://developer.android.com/reference/android/R.raw.html\">R.raw</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "string": {
+    "description": "String resources. See\n<a href=\"https://developer.android.com/reference/android/R.string.html\">R.string</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "styleable": {
+    "description": "Styleable resources. See\n<a href=\"https://developer.android.com/reference/android/R.styleable.html\">R.styleable</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "transition": {
+    "description": "",
+    "type": "Object",
+    "readOnly": false,
+    "values": [
+      "Ti.UI.iOS.AnimationStyle.CURL_DOWN",
+      "Ti.UI.iOS.AnimationStyle.CURL_UP",
+      "Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT",
+      "Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT",
+      "Ti.UI.iOS.AnimationStyle.FLIP_FROM_TOP",
+      "Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM",
+      "Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE",
+      "Ti.UI.iOS.AnimationStyle.NONE"
+    ]
+  },
+  "xml": {
+    "description": "XML resources. See\n<a href=\"https://developer.android.com/reference/android/R.xml.html\">R.xml</a>\nin the Android Developer Reference.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "launchIntent": {
+    "description": "Return the intent that was used to launch the application.",
+    "type": "Titanium.Android.Intent",
+    "readOnly": false,
+    "values": []
+  },
+  "arguments": {
+    "description": "The arguments passed to the application on startup.",
+    "type": "launchOptions",
+    "readOnly": true,
+    "values": []
+  },
+  "attributeSet": {
+    "description": "Set of metadata properties to display for the item.",
+    "type": "Titanium.App.iOS.SearchableItemAttributeSet",
+    "readOnly": true,
+    "values": []
+  },
+  "userInfo": {
+    "description": "",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "date": {
+    "description": "",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "region": {
+    "description": "",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "currentUserNotificationSettings": {
+    "description": "Notification types and user notification categories the application is registered to use.\n<strong>Deprecated since 7.3.0. Use <a href=\"Titanium.App.iOS.UserNotificationCenter.requestUserNotificationSettings\">Titanium.App.iOS.UserNotificationCenter.requestUserNotificationSettings</a> instead.</strong>",
+    "type": "UserNotificationSettings",
+    "readOnly": false,
+    "values": []
+  },
+  "file": {
+    "description": "",
+    "type": "Titanium.Filesystem.File",
+    "readOnly": false,
+    "values": []
+  },
+  "absoluteDate": {
+    "description": "The absolute date for the alarm.",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "alarmTime": {
+    "description": "Date/time at which this alert alarm is set to trigger.",
+    "type": "Date",
+    "readOnly": false,
+    "values": []
+  },
+  "begin": {
+    "description": "",
+    "type": "Date",
+    "readOnly": false,
+    "values": []
+  },
+  "end": {
+    "description": "",
+    "type": "Date",
+    "readOnly": false,
+    "values": []
+  },
+  "defaultCalendar": {
+    "description": "Calendar that events are added to by default, as specified by user settings.",
+    "type": "Titanium.Calendar.Calendar",
+    "readOnly": false,
+    "values": []
+  },
+  "extendedProperties": {
+    "description": "Extended properties of this event.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "endDate": {
+    "description": "End date of the recurrence end, or undefined if the recurrence end is count-based.",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "dest": {
+    "description": "Destination buffer.",
+    "type": "Titanium.Buffer",
+    "readOnly": true,
+    "values": []
+  },
+  "cancel": {
+    "description": "",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "selectedPerson": {
+    "description": "Function to call when a person is selected. Must not be used with <code>selectedProperty</code> property.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "selectedProperty": {
+    "description": "Function to call when a property is selected. Must not be used with <code>selectedPerson</code>\nproperty.\nNote: If ringtone or texttone is selected, null values are returned, since these are unsupported\nby Apple.\nSince iOS 9.0, there is a native apple issue whereby it may return null if the birthday property\nis selected on certain device models.\nThe callback contains the selected property and a 'person' object of type <a href=\"Titanium.Contacts.Person\">Titanium.Contacts.Person</a>.\nSince iOS 9.0, apple only returns the person object with partial information. Currently it is known to\nat least contain the selected property and fullName.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "address": {
+    "description": "",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "alternateBirthday": {
+    "description": "Alternate birthday of the person. Single Dictionary.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "image": {
+    "description": "",
+    "type": "Titanium.Blob",
+    "readOnly": true,
+    "values": []
+  },
+  "instantMessage": {
+    "description": "Instant messenger information of the person. Multi-value.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "socialProfile": {
+    "description": "Social profile information of the person. Multi-value.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "phone": {
+    "description": "Phone numbers for the person. Multi-value. Read-only on Android.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "relatedNames": {
+    "description": "Names of people to which the person is related. Multi-value.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "parent": {
+    "description": "A <code>File</code> object representing the parent directory of the file identified by this object.",
+    "type": "Titanium.Filesystem.File",
+    "readOnly": false,
+    "values": []
+  },
+  "provider": {
+    "description": "If <code>success</code> is true, object describing the location provider generating this update.",
+    "type": "LocationProviderDict",
+    "readOnly": true,
+    "values": []
+  },
+  "coords": {
+    "description": "If <code>success</code> is true, actual location data for this update.",
+    "type": "LocationCoordinates",
+    "readOnly": true,
+    "values": []
+  },
+  "floor": {
+    "description": "The floor of the building on which the user is located.",
+    "type": "LocationCoordinatesFloor",
+    "readOnly": true,
+    "values": []
+  },
+  "extraAttributes": {
+    "description": "A dictionary of the additional attributes.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "artwork": {
+    "description": "Image for the item's artwork as a <code>Blob</code> object,  or <code>null</code> if no artwork is\navailable.",
+    "type": "Titanium.Blob",
+    "readOnly": false,
+    "values": []
+  },
+  "dateAdded": {
+    "description": "Date when the item was added to the music library.",
+    "type": "Date",
+    "readOnly": false,
+    "values": []
+  },
+  "lastPlayedDate": {
+    "description": "The most recent calendar date on which the user played the media item.",
+    "type": "Date",
+    "readOnly": false,
+    "values": []
+  },
+  "releaseDate": {
+    "description": "Date when this this item was released.",
+    "type": "Date",
+    "readOnly": false,
+    "values": []
+  },
+  "appMusicPlayer": {
+    "description": "An instance of <a href=\"Titanium.Media.MusicPlayer\">Titanium.Media.MusicPlayer</a> representing the app-specific music player.",
+    "type": "Titanium.Media.MusicPlayer",
+    "readOnly": false,
+    "values": []
+  },
+  "currentRoute": {
+    "description": "Returns a description of the current route, consisting of zero or more input ports and zero or more output ports.",
+    "type": "RouteDescription",
+    "readOnly": false,
+    "values": []
+  },
+  "systemMusicPlayer": {
+    "description": "An instance of <a href=\"Titanium.Media.MusicPlayer\">Titanium.Media.MusicPlayer</a> representing the system-wide music player.",
+    "type": "Titanium.Media.MusicPlayer",
+    "readOnly": false,
+    "values": []
+  },
+  "representative": {
+    "description": "A single representative of the selected items.",
+    "type": "Titanium.Media.Item",
+    "readOnly": true,
+    "values": []
+  },
+  "composerPersistentID": {
+    "description": "The composer persistent ID to filter on. Value should be a Number.",
+    "type": "MediaQueryInfoType",
+    "readOnly": true,
+    "values": []
+  },
+  "androidback": {
+    "description": "Function to call if the user presses the back button.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "overlay": {
+    "description": "View to added as an overlay to the camera UI (on top).",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "popoverView": {
+    "description": "",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "media": {
+    "description": "",
+    "type": "Titanium.Blob",
+    "readOnly": true,
+    "values": []
+  },
+  "cropRect": {
+    "description": "Simple object defining the user's selected crop rectangle, or <code>null</code> if the user has not edited the photo. <code>width</code>/<code>height</code> values are assumed to be in pixels.",
+    "type": "Dimension",
+    "readOnly": true,
+    "values": []
+  },
+  "previewRect": {
+    "description": "Simple object defining the preview image size. This will be undefined when custom camera overlay is not used. Values are assumed to be in pixels.",
+    "type": "Size",
+    "readOnly": true,
+    "values": []
+  },
+  "livePhoto": {
+    "description": "",
+    "type": "Titanium.UI.iOS.LivePhoto",
+    "readOnly": true,
+    "values": []
+  },
+  "nowPlaying": {
+    "description": "An <code>Item</code> object representing the currently playing media item.",
+    "type": "Titanium.Media.Item",
+    "readOnly": false,
+    "values": []
+  },
+  "backgroundView": {
+    "description": "Sets the background view for customization which is always displayed behind movie content. <strong>Deprecated since 7.0.0. Use <a href=\"Titanium.Media.VideoPlayer.overlayView\">Titanium.Media.VideoPlayer.overlayView</a> instead.</strong>",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "naturalSize": {
+    "description": "Returns the natural size of the movie.",
+    "type": "MovieSize",
+    "readOnly": true,
+    "values": []
+  },
+  "overlayView": {
+    "description": "Use the overlay view to add additional custom views between the video content and the controls.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "socket": {
+    "description": "",
+    "type": "Titanium.Network.Socket.TCP",
+    "readOnly": true,
+    "values": []
+  },
+  "responseHeaders": {
+    "description": "Returns all the response headers returned with the request.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "ondatastream": {
+    "description": "Function to be called at regular intervals as the request data is being received.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onerror": {
+    "description": "Function to be called upon a error response.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onload": {
+    "description": "Function to be called upon a successful response.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onreadystatechange": {
+    "description": "Function to be called for each <a href=\"Titanium.Network.HTTPClient.readyState\">readyState</a> change.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onsendstream": {
+    "description": "Function to be called at regular intervals as the request data is being transmitted.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "responseData": {
+    "description": "Response data as a <code>Blob</code> object.",
+    "type": "Titanium.Blob",
+    "readOnly": false,
+    "values": []
+  },
+  "responseXML": {
+    "description": "Response object as an XML DOM Document object.",
+    "type": "Titanium.XML.Document",
+    "readOnly": false,
+    "values": []
+  },
+  "securityManager": {
+    "description": "The Security Manager for this client.",
+    "type": "SecurityManagerProtocol",
+    "readOnly": true,
+    "values": []
+  },
+  "callback": {
+    "description": "Callback function invoked upon receiving a new push notification.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "accepted": {
+    "description": "Callback to be fired when a listener accepts a connection.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "inbound": {
+    "description": "Socket which represents the inbound connection.",
+    "type": "Titanium.Network.Socket.TCP",
+    "readOnly": true,
+    "values": []
+  },
+  "displayCaps": {
+    "description": "Returns the DisplayCaps object.",
+    "type": "Titanium.Platform.DisplayCaps",
+    "readOnly": false,
+    "values": []
+  },
+  "fromStream": {
+    "description": "Stream being read from.",
+    "type": "Titanium.IOStream",
+    "readOnly": true,
+    "values": []
+  },
+  "toStream": {
+    "description": "Stream being written to.",
+    "type": "Titanium.IOStream",
+    "readOnly": true,
+    "values": []
+  },
+  "font": {
+    "description": "",
+    "type": "Font",
+    "readOnly": true,
+    "values": []
+  },
+  "androidView": {
+    "description": "View to load inside the message area, to create a custom layout.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "leftView": {
+    "description": "Get or set the view of the left drawer",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "rightView": {
+    "description": "Get or set the view of the right drawer",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "centerView": {
+    "description": "Get or set the center view",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "toolbar": {
+    "description": "",
+    "type": "Titanium.UI.Toolbar",
+    "readOnly": true,
+    "values": []
+  },
+  "attributedString": {
+    "description": "",
+    "type": "Titanium.UI.AttributedString",
+    "readOnly": true,
+    "values": []
+  },
+  "backgroundSelectedGradient": {
+    "description": "Background gradient to render when the item is selected.",
+    "type": "Gradient",
+    "readOnly": true,
+    "values": []
+  },
+  "selectedBackgroundGradient": {
+    "description": "Background gradient to render when the item is selected. <strong>Deprecated since 10.0.0. This property has been deprecated in favor of <a href=\"Titanium.UI.ListItem.backgroundSelectedGradient\">Titanium.UI.ListItem.backgroundSelectedGradient</a>.</strong>",
+    "type": "Gradient",
+    "readOnly": true,
+    "values": []
+  },
+  "properties": {
+    "description": "",
+    "type": "Titanium.UI.ListItem",
+    "readOnly": true,
+    "values": []
+  },
+  "events": {
+    "description": "",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "footerView": {
+    "description": "",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "headerView": {
+    "description": "",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "templates": {
+    "description": "Contain key-value pairs mapping a style name (key) to an <a href=\"ItemTemplate\">ItemTemplate</a> (value).",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "pullView": {
+    "description": "View positioned above the first row that is only revealed when the user drags the list view contents down.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "refreshControl": {
+    "description": "",
+    "type": "Titanium.UI.RefreshControl",
+    "readOnly": true,
+    "values": []
+  },
+  "searchView": {
+    "description": "Search field to use for the list view.",
+    "type": "Titanium.UI.SearchBar",
+    "readOnly": true,
+    "values": []
+  },
+  "separatorInsets": {
+    "description": "",
+    "type": "HorizontalInsets",
+    "readOnly": true,
+    "values": []
+  },
+  "tableSeparatorInsets": {
+    "description": "",
+    "type": "HorizontalInsets",
+    "readOnly": true,
+    "values": []
+  },
+  "listSeparatorInsets": {
+    "description": "The insets for the list view header and footer.",
+    "type": "HorizontalInsets",
+    "readOnly": true,
+    "values": []
+  },
+  "rowSeparatorInsets": {
+    "description": "",
+    "type": "HorizontalInsets",
+    "readOnly": true,
+    "values": []
+  },
+  "resultsSeparatorInsets": {
+    "description": "The insets for search results separators (applies to all cells &amp; iOS-only).",
+    "type": "HorizontalInsets",
+    "readOnly": true,
+    "values": []
+  },
+  "section": {
+    "description": "",
+    "type": "Titanium.UI.ListSection",
+    "readOnly": true,
+    "values": []
+  },
+  "activity": {
+    "description": "",
+    "type": "Titanium.Android.Activity",
+    "readOnly": false,
+    "values": []
+  },
+  "navigationWindow": {
+    "description": "The <a href=\"Titanium.UI.NavigationWindow\">Titanium.UI.NavigationWindow</a> instance hosting this window.",
+    "type": "Titanium.UI.NavigationWindow",
+    "readOnly": false,
+    "values": []
+  },
+  "onBack": {
+    "description": "Callback function that overrides the default behavior when the user presses the <strong>Back</strong>\nbutton.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "safeAreaPadding": {
+    "description": "The padding needed to safely display content without it being overlapped by the screen insets and notches.",
+    "type": "Padding",
+    "readOnly": false,
+    "values": []
+  },
+  "titleAttributes": {
+    "description": "",
+    "type": "titleAttributesParams",
+    "readOnly": true,
+    "values": []
+  },
+  "window": {
+    "description": "",
+    "type": "Titanium.UI.Window",
+    "readOnly": true,
+    "values": []
+  },
+  "maxDate": {
+    "description": "Maximum date displayed when a Date picker is in use.",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "minDate": {
+    "description": "Minimum date displayed when a Date picker is in use.",
+    "type": "Date",
+    "readOnly": true,
+    "values": []
+  },
+  "hitRect": {
+    "description": "Sets the region where this view responds to gestures.",
+    "type": "Dimension",
+    "readOnly": true,
+    "values": []
+  },
+  "iconInsets": {
+    "description": "The icon inset or outset for each edge.",
+    "type": "TabIconInsets",
+    "readOnly": true,
+    "values": []
+  },
+  "leftNavButton": {
+    "description": "View to show in the left nav bar area.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "rightNavButton": {
+    "description": "View to show in the right nav bar area.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "titleControl": {
+    "description": "View to show in the title area of the nav bar.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "transitionAnimation": {
+    "description": "Use a transition animation when opening or closing windows in a\n<a href=\"Titanium.UI.NavigationWindow\">Titanium.UI.NavigationWindow</a> or <a href=\"Titanium.UI.Tab\">Titanium.UI.Tab</a>.",
+    "type": "Titanium.Proxy",
+    "readOnly": true,
+    "values": []
+  },
+  "headerPullView": {
+    "description": "View positioned above the first row that is only revealed when the user drags the table\ncontents down.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "search": {
+    "description": "Search field to use for the table view.",
+    "type": "Titanium.UI.SearchBar",
+    "readOnly": true,
+    "values": []
+  },
+  "row": {
+    "description": "Table view row object.",
+    "type": "Titanium.UI.TableViewRow",
+    "readOnly": true,
+    "values": []
+  },
+  "rowData": {
+    "description": "Properties of the row. Use this property rather than <code>row</code> to access any custom row properties.",
+    "type": "Titanium.UI.TableViewRow",
+    "readOnly": true,
+    "values": []
+  },
+  "attributedHintText": {
+    "description": "Hint text attributed string.",
+    "type": "Titanium.UI.AttributedString",
+    "readOnly": true,
+    "values": []
+  },
+  "selection": {
+    "description": "",
+    "type": "textAreaSelectedParams",
+    "readOnly": false,
+    "values": []
+  },
+  "leftButton": {
+    "description": "Left button view to display in the <code>TextField</code>.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "rightButton": {
+    "description": "Right button view.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "configuration": {
+    "description": "The configuration for the new web view.",
+    "type": "Titanium.UI.iOS.WebViewConfiguration",
+    "readOnly": true,
+    "values": []
+  },
+  "onCreateWindow": {
+    "description": "Callback function called when there is a request for the application to create a new window\nto host new content.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "onlink": {
+    "description": "Fired before navigating to a link.",
+    "type": "Function",
+    "readOnly": true,
+    "values": []
+  },
+  "requestHeaders": {
+    "description": "Sets extra request headers for this web view to use on subsequent URL requests.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "snapshot": {
+    "description": "The snapshot image.",
+    "type": "Titanium.Blob",
+    "readOnly": true,
+    "values": []
+  },
+  "currentItem": {
+    "description": "The current item.",
+    "type": "BackForwardListItem",
+    "readOnly": true,
+    "values": []
+  },
+  "backItem": {
+    "description": "The item immediately preceding the current item.",
+    "type": "BackForwardListItem",
+    "readOnly": true,
+    "values": []
+  },
+  "forwardItem": {
+    "description": "The item immediately following the current item.",
+    "type": "BackForwardListItem",
+    "readOnly": true,
+    "values": []
+  },
+  "shadow": {
+    "description": "Shadow color and offset for the window title.",
+    "type": "shadowDict",
+    "readOnly": true,
+    "values": []
+  },
+  "item": {
+    "description": "",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "referenceView": {
+    "description": "Titanium View object to initialize as the reference view for the animator.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "referenceInsets": {
+    "description": "Insets to apply when using the animator's reference view as the boundary.",
+    "type": "Padding",
+    "readOnly": true,
+    "values": []
+  },
+  "annotation": {
+    "description": "Custom property list information for the target file.",
+    "type": "Object",
+    "readOnly": true,
+    "values": []
+  },
+  "preview": {
+    "description": "The preview view.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "detailView": {
+    "description": "Window for the detail view section of the SplitWindow.",
+    "type": "Titanium.UI.Window",
+    "readOnly": true,
+    "values": []
+  },
+  "masterView": {
+    "description": "Window for the master view section of the SplitWindow.",
+    "type": "Titanium.UI.Window",
+    "readOnly": true,
+    "values": []
+  },
+  "transitionFrom": {
+    "description": "Animation to hide the current window.",
+    "type": "Titanium.UI.Animation",
+    "readOnly": true,
+    "values": []
+  },
+  "transitionTo": {
+    "description": "Animation to show the new window.",
+    "type": "Titanium.UI.Animation",
+    "readOnly": true,
+    "values": []
+  },
+  "anchorItem": {
+    "description": "Item to use as the anchor in this behavior.",
+    "type": "Titanium.UI.View",
+    "readOnly": true,
+    "values": []
+  },
+  "preferences": {
+    "description": "The preference settings to be used by the web view.",
+    "type": "WebViewPreferencesObject",
+    "readOnly": true,
+    "values": []
+  },
+  "processPool": {
+    "description": "The process pool from which to obtain the  Web Content process of view.",
+    "type": "Titanium.UI.iOS.WebViewProcessPool",
+    "readOnly": true,
+    "values": []
+  },
+  "recentApplicationContext": {
+    "description": "The most recent application context sent to the watch app.",
+    "type": "Object",
+    "readOnly": false,
+    "values": []
+  },
+  "parentNode": {
+    "description": "This node's parent node.",
+    "type": "Titanium.XML.Node",
+    "readOnly": false,
+    "values": []
+  },
+  "childNodes": {
+    "description": "A <a href=\"Titanium.XML.NodeList\">Titanium.XML.NodeList</a> of this node's children.",
+    "type": "Titanium.XML.NodeList",
+    "readOnly": false,
+    "values": []
+  },
+  "firstChild": {
+    "description": "This node's first child.",
+    "type": "Titanium.XML.Node",
+    "readOnly": false,
+    "values": []
+  },
+  "lastChild": {
+    "description": "This node's last child.",
+    "type": "Titanium.XML.Node",
+    "readOnly": false,
+    "values": []
+  },
+  "previousSibling": {
+    "description": "This node's previous sibling.",
+    "type": "Titanium.XML.Node",
+    "readOnly": false,
+    "values": []
+  },
+  "nextSibling": {
+    "description": "This node's next sibling.",
+    "type": "Titanium.XML.Node",
+    "readOnly": false,
+    "values": []
+  },
+  "ownerDocument": {
+    "description": "This node's owning document.",
+    "type": "Titanium.XML.Document",
+    "readOnly": false,
+    "values": []
+  },
+  "ownerElement": {
+    "description": "The <a href=\"Titanium.XML.Element\">Titanium.XML.Element</a> to which the attribute belongs.",
+    "type": "Titanium.XML.Element",
+    "readOnly": false,
+    "values": []
+  },
+  "doctype": {
+    "description": "An interface to the list of entities that are defined for the document, such as via a Document Type Definition (DTD).",
+    "type": "Titanium.XML.DocumentType",
+    "readOnly": false,
+    "values": []
+  },
+  "documentElement": {
+    "description": "Root element of this document.",
+    "type": "Titanium.XML.Element",
+    "readOnly": false,
+    "values": []
+  },
+  "implementation": {
+    "description": "<a href=\"Titanium.XML.DOMImplementation\">DOMImplementation</a> object associated with this\ndocument.",
+    "type": "Titanium.XML.DOMImplementation",
+    "readOnly": false,
+    "values": []
+  },
+  "entities": {
+    "description": "A <a href=\"Titanium.XML.NamedNodeMap\">Titanium.XML.NamedNodeMap</a> containing the general entities, both external and internal, declared in the DTD. Parameter entities are not contained. Duplicates are discarded.",
+    "type": "Titanium.XML.NamedNodeMap",
+    "readOnly": false,
+    "values": []
+  },
+  "notations": {
+    "description": "A <a href=\"Titanium.XML.NamedNodeMap\">Titanium.XML.NamedNodeMap</a> containing the notations declared in the DTD. Duplicates are discarded. Every node in this map also implements the <a href=\"Titanium.XML.Notation\">Titanium.XML.Notation</a> interface.",
+    "type": "Titanium.XML.NamedNodeMap",
+    "readOnly": false,
+    "values": []
+  }
 }
