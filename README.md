@@ -94,7 +94,7 @@ Overall, *PurgeTSS* aims to simplify the mobile app development process, offerin
 
 ## Table of Content
 
-- [What's New in v7.1](#-whats-new-in-v710)
+- [What's New in v7.1](https://purgetss.com/#whats-new-in-v71x)
 - [Installation](https://purgetss.com/docs/installation)
 - [Commands](https://purgetss.com/docs/commands)
 - Customization
