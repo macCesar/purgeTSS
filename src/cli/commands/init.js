@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+ 
 /**
  * PurgeTSS v7.1 - Init Command
  *
@@ -30,7 +30,7 @@ import {
   PurgeTSSPackageJSON
 } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
-import { getConfigOptions, getConfigFile } from '../../shared/config-manager.js'
+import { getConfigOptions, getConfigFile, ensureConfig } from '../../shared/config-manager.js'
 import { addHook, deleteHook, createJMKFile } from '../utils/hook-management.js'
 import { getFiles } from '../utils/font-utilities.js'
 import { buildTailwindBasedOnConfigOptions } from '../../core/builders/tailwind-builder.js'
@@ -162,13 +162,19 @@ export function init(options) {
     return false
   }
 
+  // Check if config.cjs already exists to show appropriate message
+  const configExisted = fs.existsSync(projectsConfigJS)
+
+  // SUPER SIMPLE: Ensure config exists (migrate or create)
+  ensureConfig()
+
+  // Show warning if config already existed (for init command specifically)
+  if (configExisted) {
+    logger.warn('./purgetss/config.cjs', chalk.red('file already exists!'))
+  }
+
   // Get commands when needed
   const { methodCommand, oppositeCommand } = getCommands()
-
-  // config file
-  if (!fs.existsSync(projectsConfigJS)) {
-    createConfigFile()
-  }
 
   // tailwind.tss
   if (!fs.existsSync(projectsTailwind_TSS) || options.all) {

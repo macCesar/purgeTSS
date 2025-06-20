@@ -25,6 +25,34 @@ import { makeSureFolderExists } from './utils.js'
 const require = createRequire(import.meta.url)
 
 /**
+ * Ensure config file exists - SIMPLE logic
+ * 1. If config.cjs exists → use it
+ * 2. If config.js exists → rename to config.cjs
+ * 3. If nothing exists → create config.cjs
+ */
+export function ensureConfig() {
+  // 1. ¿Existe config.cjs? → Úsalo
+  if (fs.existsSync(projectsConfigJS)) {
+    return
+  }
+
+  // 2. ¿Existe config.js? → Renómbralo
+  const oldConfigPath = `${projectsPurgeTSSFolder}/config.js`
+  if (fs.existsSync(oldConfigPath)) {
+    makeSureFolderExists(projectsPurgeTSSFolder)
+    fs.renameSync(oldConfigPath, projectsConfigJS)
+    logger.info('Migrated config.js to config.cjs for ESM compatibility')
+    return
+  }
+
+  // 3. No existe nada → Crear config.cjs
+  makeSureFolderExists(projectsPurgeTSSFolder)
+  fs.copyFileSync(srcConfigFile, projectsConfigJS)
+  logger.file('./purgetss/config.cjs')
+}
+
+/**
+ * @deprecated Use ensureConfig() instead
  * Migrate config.js to config.cjs for ESM compatibility
  * This must be called BEFORE any config file creation
  */

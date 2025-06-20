@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+ 
 /**
  * PurgeTSS v7.1 - Shades Commands
  *
@@ -17,7 +17,8 @@ import { createRequire } from 'module'
 import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
 import { projectsConfigJS, projectsLibFolder } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
-import { initIfNotConfig, cleanDoubleQuotes } from '../utils/file-operations.js'
+import { ensureConfig, getConfigFile } from '../../shared/config-manager.js'
+import { cleanDoubleQuotes } from '../utils/file-operations.js'
 
 // Create require for ESM compatibility
 const require = createRequire(import.meta.url)
@@ -33,7 +34,7 @@ export function colorModule() {
     return false
   }
 
-  initIfNotConfig()
+  ensureConfig()
 
   const colorModuleConfigFile = require(projectsConfigJS)
 
@@ -101,10 +102,15 @@ export async function shades(args, options) {
   const colorObject = createColorObject(colorFamily, colorFamily.hexcode, options)
 
   const silent = options.tailwind || options.json || options.log
-  
-  // Get config file first (this triggers auto-migration if needed)
+
+  // Ensure config migration happens before getting config file
+  if (alloyProject(silent) && !silent) {
+    ensureConfig()
+  }
+
+  // Get config file (after potential migration)
   const configFile = getConfigFile()
-  
+
   if (alloyProject(silent) && !silent) {
 
     if (options.override) {
@@ -173,9 +179,6 @@ function createColorObject(family, hexcode, options) {
 
   return colors
 }
-
-// Import config manager
-import { getConfigFile } from '../../shared/config-manager.js'
 
 /**
  * Export for CLI usage

@@ -6,6 +6,19 @@
  * Status: Migration COMPLETE + Duplicates cleaned
  */
 
+// Handle EPIPE errors globally (when output is piped to head, etc.)
+process.stdout.on('error', (err) => {
+  if (err.code === 'EPIPE') {
+    process.exit(0)
+  }
+})
+
+process.stderr.on('error', (err) => {
+  if (err.code === 'EPIPE') {
+    process.exit(0)
+  }
+})
+
 console.log('🧪 Testing ALL Shared Helpers (Complete Migration Audit)...')
 
 async function testAccessibilityModule() {
@@ -247,14 +260,20 @@ async function testUtilsModule() {
 async function testConfigManager() {
   try {
     const configManager = await import('../../../src/shared/config-manager.js')
-    const { configFile, configOptions } = configManager
+    const { getConfigFile, getConfigOptions, ensureConfig } = configManager
 
     console.log('✅ Config Manager test:')
-    console.log('   configFile type:', typeof configFile)
-    console.log('   configOptions type:', typeof configOptions)
+    console.log('   getConfigFile type:', typeof getConfigFile)
+    console.log('   getConfigOptions type:', typeof getConfigOptions)
+    console.log('   ensureConfig type:', typeof ensureConfig)
     console.log('   Module exports:', Object.keys(configManager).length, 'items')
 
-    return typeof configFile === 'object' && typeof configOptions === 'object'
+    // Test that functions are available and work
+    const hasValidFunctions = typeof getConfigFile === 'function' &&
+      typeof getConfigOptions === 'function' &&
+      typeof ensureConfig === 'function'
+
+    return hasValidFunctions
   } catch (error) {
     console.error('❌ Error in config manager test:', error.message)
     return false

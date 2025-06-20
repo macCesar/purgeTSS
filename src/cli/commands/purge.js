@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+
 /**
  * PurgeTSS v7.1 - Purge Command
  *
@@ -28,7 +28,7 @@ import {
 import { logger, setDebugMode } from '../../shared/logger.js'
 import { start, finish, localStart, localFinish } from '../utils/cli-helpers.js'
 import { init } from './init.js'
-import { getConfigOptions, getConfigFile } from '../../shared/config-manager.js'
+import { getConfigOptions, getConfigFile, ensureConfig } from '../../shared/config-manager.js'
 
 // Import purger functions from core modules
 import { purgeTailwind } from '../../core/purger/tailwind-purger.js'

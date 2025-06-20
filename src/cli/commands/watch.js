@@ -15,7 +15,7 @@ import chalk from 'chalk'
 import { alloyProject } from '../../shared/utils.js'
 import { projectsAlloyJMKFile } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
-import { getConfigFile } from '../../shared/config-manager.js'
+import { getConfigFile, ensureConfig } from '../../shared/config-manager.js'
 import { disableHook, deleteHook, addHook, enableHook, createJMKFile } from '../utils/hook-management.js'
 
 /**
@@ -57,6 +57,9 @@ export function watchMode(options) {
   if (!alloyProject()) {
     return false
   }
+
+  // Ensure config exists before accessing it
+  ensureConfig()
 
   if (fs.existsSync(projectsAlloyJMKFile)) {
     // Get commands when needed

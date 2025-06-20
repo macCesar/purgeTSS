@@ -16,7 +16,7 @@ import { createRequire } from 'module'
 import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
 import { projectsConfigJS, projectsLibFolder } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
-import { initIfNotConfig } from '../utils/file-operations.js'
+import { ensureConfig } from '../../shared/config-manager.js'
 import { cleanDoubleQuotes } from '../utils/file-operations.js'
 
 // Create require for ESM compatibility
@@ -34,7 +34,7 @@ export function colorModule(options) {
     return false
   }
 
-  initIfNotConfig()
+  ensureConfig()
   const colorModuleConfigFile = require(projectsConfigJS)
   makeSureFolderExists(projectsLibFolder)
   const mainColors = { ...colorModuleConfigFile.theme.colors, ...colorModuleConfigFile.theme.extend.colors }

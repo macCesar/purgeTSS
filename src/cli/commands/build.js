@@ -11,7 +11,7 @@
  */
 
 import { alloyProject } from '../../shared/utils.js'
-import { initIfNotConfig } from '../utils/file-operations.js'
+import { ensureConfig } from '../../shared/config-manager.js'
 import { buildTailwindBasedOnConfigOptions } from '../../core/builders/tailwind-builder.js'
 import { createDefinitionsFile } from './init.js'
 
@@ -27,7 +27,7 @@ import { buildFontAwesome, buildFontAwesomeJS } from '../../dev/builders/fontawe
  */
 export function build(options) {
   if (alloyProject()) {
-    initIfNotConfig()
+    ensureConfig()
     buildTailwindBasedOnConfigOptions(options)
     buildFontAwesome()
     buildFontAwesomeJS()
