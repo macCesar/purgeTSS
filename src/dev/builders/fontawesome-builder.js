@@ -12,7 +12,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import _ from 'lodash'
-import readCSS from 'read-css'
+import css from 'css'
 import { logger } from '../../shared/logger.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -148,25 +148,24 @@ export function processFontawesomeStyles(data) {
  * @param {string} webFonts - Web fonts folder path
  */
 export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilies, webFonts) {
-  readCSS(CSSFile, (err, data) => {
-    if (err) throw err
+  const cssContent = fs.readFileSync(CSSFile, 'utf8')
+  const data = css.parse(cssContent)
 
-    let tssClasses = fs.readFileSync(path.resolve(projectRoot, templateTSS), 'utf8') + '\n'
+  let tssClasses = fs.readFileSync(path.resolve(projectRoot, templateTSS), 'utf8') + '\n'
 
-    tssClasses += fs.readFileSync(path.resolve(projectRoot, resetTSS), 'utf8') + '\n'
+  tssClasses += fs.readFileSync(path.resolve(projectRoot, resetTSS), 'utf8') + '\n'
 
-    tssClasses += processFontawesomeStyles(data)
+  tssClasses += processFontawesomeStyles(data)
 
-    fs.writeFileSync(projectsFA_TSS_File, tssClasses, err2 => {
-      throw err2
-    })
-
-    logger.file('./purgetss/styles/fontawesome.tss')
-
-    makeSureFolderExists(projectsFontsFolder)
-
-    copyProFonts(fontFamilies, webFonts)
+  fs.writeFileSync(projectsFA_TSS_File, tssClasses, err2 => {
+    throw err2
   })
+
+  logger.file('./purgetss/styles/fontawesome.tss')
+
+  makeSureFolderExists(projectsFontsFolder)
+
+  copyProFonts(fontFamilies, webFonts)
 }
 
 /**
@@ -175,8 +174,9 @@ export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamili
  * @param {string} faJS - Path to FontAwesome JS template
  */
 export function processFontAwesomeJS(CSSFile, faJS) {
-  readCSS(CSSFile, (err, data) => {
-    if (err) throw err
+  try {
+    const cssContent = fs.readFileSync(CSSFile, 'utf8')
+    const data = css.parse(cssContent)
 
     const rules = _.map(data.stylesheet.rules, rule => {
       if (rule.type === 'rule' && rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
@@ -214,7 +214,9 @@ export function processFontAwesomeJS(CSSFile, faJS) {
     })
 
     logger.file('./app/lib/fontawesome.js')
-  })
+  } catch (err) {
+    throw err
+  }
 }
 
 /**

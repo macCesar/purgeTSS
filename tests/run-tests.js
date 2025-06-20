@@ -46,12 +46,21 @@ async function findTestFiles(dir) {
     const files = []
     const entries = fs.readdirSync(dir, { withFileTypes: true })
 
+    // Files to exclude from regular test runs
+    const excludeFiles = [
+      'installation-simulation.test.js',
+      'global-installation-simulation.test.js'
+    ]
+
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name)
       if (entry.isDirectory()) {
         files.push(...await findTestFiles(fullPath))
       } else if (entry.name.endsWith('.js') || entry.name.endsWith('.mjs') || entry.name.endsWith('.test.js')) {
-        files.push(fullPath)
+        // Skip installation simulation tests from regular runs
+        if (!excludeFiles.includes(entry.name)) {
+          files.push(fullPath)
+        }
       }
     }
     return files

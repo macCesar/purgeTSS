@@ -14,7 +14,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import _ from 'lodash'
-import readCSS from 'read-css'
+import css from 'css'
 import { logger } from '../../../shared/logger.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -31,27 +31,26 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * COPIED exactly from original constructor() function
  */
 export function buildFontAwesome() {
-  readCSS(path.resolve(projectRoot, './node_modules/@fortawesome/fontawesome-free/css/all.css'), (err, data) => {
-    if (err) throw err
+  const cssContent = fs.readFileSync(path.resolve(projectRoot, './node_modules/@fortawesome/fontawesome-free/css/all.css'), 'utf8')
+  const data = css.parse(cssContent)
 
-    let tssClasses = fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-template.tss'), 'utf8') + '\n'
+  let tssClasses = fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-template.tss'), 'utf8') + '\n'
 
-    tssClasses += fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-reset.tss'), 'utf8')
+  tssClasses += fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-reset.tss'), 'utf8')
 
-    tssClasses += processCSS(data)
+  tssClasses += processCSS(data)
 
-    fs.writeFileSync(path.resolve(projectRoot, './dist/fontawesome.tss'), tssClasses, _err => {
-      throw _err
-    })
-
-    logger.file('./dist/fontawesome.tss')
+  fs.writeFileSync(path.resolve(projectRoot, './dist/fontawesome.tss'), tssClasses, _err => {
+    throw _err
   })
+
+  logger.file('./dist/fontawesome.tss')
 }
 
 /**
  * Process CSS data to TSS format
  * COPIED exactly from original processCSS() function - NO CHANGES
- * 
+ *
  * @param {Object} data - CSS data from readCSS
  * @returns {string} Processed TSS classes
  */

@@ -17,7 +17,7 @@ import { isNotJunk } from 'junk'
 import glob from 'glob'
 import chalk from 'chalk'
 import convert from 'xml-js'
-import readCSS from 'read-css'
+import css from 'css'
 import traverse from 'traverse'
 import inquirer from 'inquirer'
 import FontName from 'fontname'
@@ -718,7 +718,7 @@ function buildFonts(options) {
     // ! Process styles files
     _.each(files, file => {
       if (file.endsWith('.css') || file.endsWith('.CSS')) {
-        const cssFile = readCSS(file)
+        const cssFile = css.parse(fs.readFileSync(file, 'utf8'))
         const theFile = file.split('/')
         const theCSSFile = theFile.pop()
         const prefix = options.fontClassFromFilename ? theCSSFile.split('.').shift() : null

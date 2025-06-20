@@ -31,6 +31,9 @@
     "test:integration": "node tests/run-tests.js integration",
     "test:count": "node tests/unit/shared/function-counter.test.js",
     "test:cli-realtime": "node tests/e2e/cli-commands-realtime.test.js",
+    "test:install-local": "node tests/e2e/installation-simulation.test.js",
+    "test:install-global": "node tests/e2e/global-installation-simulation.test.js",
+    "test:install": "npm run test:install-local && npm run test:install-global",
     "build": "npm run build:all",
     "notifier": "node ./lib/test-function",
     "build:module": "node ./src/dev/builders/module-builder.js",
@@ -70,6 +73,7 @@
     "chroma-js": "^3.1.2",
     "command-exists": "^1.2.9",
     "commander": "^14.0.0",
+    "css": "^3.0.0",
     "fontname": "^1.0.1",
     "framework7-icons": "^5.0.5",
     "glob": "^9.3.5",
@@ -79,7 +83,6 @@
     "ntcjs": "^1.1.3",
     "path": "^0.12.7",
     "prompts": "^2.4.2",
-    "read-css": "^0.3.0",
     "tailwindcss": "^3.4.17",
     "traverse": "^0.6.11",
     "update-notifier": "^7.3.1",
@@ -87,10 +90,12 @@
     "xml-js": "^1.6.11"
   },
   "devDependencies": {
-    "eslint": "^9.16.0",
     "@eslint/js": "^9.16.0",
+    "css-tree": "^3.1.0",
+    "eslint": "^9.16.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^7.2.1",
-    "eslint-plugin-import": "^2.31.0"
+    "read-css": "^0.3.0"
   }
 }

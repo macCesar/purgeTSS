@@ -6,11 +6,10 @@ console.log('🧪 Testing CLI Commands...')
 
 async function testBuildCommand() {
   try {
-    const { build, buildLegacy } = await import('../../../src/cli/commands/build.js')
+    const { build } = await import('../../../src/cli/commands/build.js')
 
     console.log('✅ Build Command test:')
     console.log('   build type:', typeof build)
-    console.log('   buildLegacy type:', typeof buildLegacy)
 
     return true
   } catch (error) {

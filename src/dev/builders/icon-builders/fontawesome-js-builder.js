@@ -14,7 +14,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import _ from 'lodash'
-import read from 'read-css'
+import css from 'css'
 import { logger } from '../../../shared/logger.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -31,44 +31,43 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * COPIED exactly from original constructor() function
  */
 export function buildFontAwesomeJS() {
-  read(path.resolve(projectRoot, './node_modules/@fortawesome/fontawesome-free/css/all.css'), (err, data) => {
-    if (err) throw err
+  const cssContent = fs.readFileSync(path.resolve(projectRoot, './node_modules/@fortawesome/fontawesome-free/css/all.css'), 'utf8')
+  const data = css.parse(cssContent)
 
-    const rules = _.map(data.stylesheet.rules, rule => {
-      if (rule.type === 'rule' && rule.selectors && rule.declarations[0].value.includes('"\\')) {
-        return {
-          selector: rule.selectors[0].replace('::before', '').replace(':before', '').replace('.', ''),
-          property: ('0000' + rule.declarations[0].value.replace('\"\\', '').replace('\"', '')).slice(-4)
-        }
+  const rules = _.map(data.stylesheet.rules, rule => {
+    if (rule.type === 'rule' && rule.selectors && rule.declarations[0].value.includes('"\\')) {
+      return {
+        selector: rule.selectors[0].replace('::before', '').replace(':before', '').replace('.', ''),
+        property: ('0000' + rule.declarations[0].value.replace('\"\\', '').replace('\"', '')).slice(-4)
       }
-    })
-
-    let fontawesome = fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-template.js.cjs'), 'utf8')
-
-    fontawesome += '\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
-
-    let exportIcons = '\nconst icons = {\n'
-
-    _.each(rules, rule => {
-      if (rule) {
-        exportIcons += `\t'${prettifyFontName(rule.selector)}': '\\u${rule.property}',\n`
-      }
-    })
-
-    exportIcons += '};\n'
-
-    exportIcons += 'exports.icons = icons;\n'
-
-    exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
-
-    fontawesome += exportIcons
-
-    fs.writeFileSync(path.resolve(projectRoot, './dist/fontawesome.js'), fontawesome, _err => {
-      throw _err
-    })
-
-    logger.file('./dist/fontawesome.js')
+    }
   })
+
+  let fontawesome = fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-template.js.cjs'), 'utf8')
+
+  fontawesome += '\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
+
+  let exportIcons = '\nconst icons = {\n'
+
+  _.each(rules, rule => {
+    if (rule) {
+      exportIcons += `\t'${prettifyFontName(rule.selector)}': '\\u${rule.property}',\n`
+    }
+  })
+
+  exportIcons += '};\n'
+
+  exportIcons += 'exports.icons = icons;\n'
+
+  exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
+
+  fontawesome += exportIcons
+
+  fs.writeFileSync(path.resolve(projectRoot, './dist/fontawesome.js'), fontawesome, _err => {
+    throw _err
+  })
+
+  logger.file('./dist/fontawesome.js')
 }
 
 /**

@@ -17,7 +17,7 @@ import path from 'path'
 import FontName from 'fontname'
 import _ from 'lodash'
 import chalk from 'chalk'
-import readCSS from 'read-css'
+import css from 'css'
 import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
 import { getFiles, getFileName } from '../utils/font-utilities.js'
 import {
@@ -343,7 +343,7 @@ export function buildFonts(options) {
     // Process styles files
     _.each(files, file => {
       if (file.endsWith('.css') || file.endsWith('.CSS')) {
-        const cssFile = readCSS(file)
+        const cssFile = css.parse(fs.readFileSync(file, 'utf8'))
         const theFile = file.split('/')
         const theCSSFile = theFile.pop()
         const prefix = options.fontClassFromFilename ? theCSSFile.split('.').shift() : null
