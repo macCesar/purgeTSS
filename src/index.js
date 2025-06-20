@@ -1,22 +1,23 @@
 /**
- * PurgeTSS v7.1.0 - Library Entry Point
+ * PurgeTSS v7.1.0 - CLI Tool Entry Point
  *
- * This file serves as the main entry point when PurgeTSS is used as a library.
- * For CLI usage, use the `purgetss` command directly.
+ * PurgeTSS is designed as a CLI-only tool for Titanium Alloy projects.
+ * All functionality is accessed through CLI commands:
  *
- * @fileoverview Library entry point for programmatic usage
+ * - purgetss              (initialize and purge)
+ * - purgetss build        (build tailwind.tss)
+ * - purgetss build-fonts  (build fonts)
+ * - purgetss module       (install UI modules)
+ * - purgetss watch        (setup auto-purging)
+ *
+ * For programmatic usage, PurgeTSS is not designed as a library.
+ * Use the CLI commands from your build scripts instead.
+ *
+ * @fileoverview CLI tool - not intended for programmatic usage
  * @version 7.1.0
  * @author César Estrada
  * @since 2025-06-17
  */
 
-// Export only the most commonly used functions for programmatic usage
-export { build } from './cli/commands/build.js'
-export { purgeClasses } from './cli/commands/purge.js'
-export { buildFonts } from './cli/commands/fonts.js'
-export { shades } from './cli/commands/shades.js'
-
-// Export utilities that might be useful for external tools
-export { colores } from './shared/brand-colors.js'
-export * as helpers from './shared/helpers.js'
-export { configFile, configOptions } from './shared/config-manager.js'
+// No exports - PurgeTSS is a CLI-only tool
+// Use: purgetss <command> instead of importing functions

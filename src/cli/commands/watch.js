@@ -12,14 +12,11 @@
 
 import fs from 'fs'
 import chalk from 'chalk'
-import { createRequire } from 'module'
 import { alloyProject } from '../../shared/utils.js'
 import { projectsAlloyJMKFile } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
+import { getConfigFile } from '../../shared/config-manager.js'
 import { disableHook, deleteHook, addHook, enableHook, createJMKFile } from '../utils/hook-management.js'
-
-// Create require for ESM compatibility
-const require = createRequire(import.meta.url)
 
 /**
  * Get command configuration for hooks
@@ -29,8 +26,7 @@ const require = createRequire(import.meta.url)
  * @returns {Object} Command configuration object
  */
 function getCommands() {
-  // Import config manager dynamically to avoid circular imports
-  const { getConfigFile } = require('../../shared/config-manager.js')
+  // Use the already imported getConfigFile function
   const configFile = getConfigFile()
 
   let methodCommand

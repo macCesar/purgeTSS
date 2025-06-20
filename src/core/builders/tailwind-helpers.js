@@ -12,8 +12,11 @@ import _ from 'lodash'
 import defaultColors from 'tailwindcss/colors.js'
 
 // Import functions from their new modular locations
-import { configFile } from '../../shared/config-manager.js'
+import { getConfigFile } from '../../shared/config-manager.js'
 import { removeDeprecatedColors, fixPercentages } from '../../shared/helpers.js'
+
+// Get config once for this module
+const configFile = getConfigFile()
 
 /**
  * Remove fit, max, min values from width, height and spacing objects

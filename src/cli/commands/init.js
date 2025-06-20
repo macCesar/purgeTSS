@@ -14,7 +14,6 @@
 import fs from 'fs'
 import _ from 'lodash'
 import chalk from 'chalk'
-import { createRequire } from 'module'
 import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
 import {
   projectsConfigJS,
@@ -31,15 +30,13 @@ import {
   PurgeTSSPackageJSON
 } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
-import { getConfigOptions } from '../../shared/config-manager.js'
+import { getConfigOptions, getConfigFile } from '../../shared/config-manager.js'
 import { addHook, deleteHook, createJMKFile } from '../utils/hook-management.js'
 import { getFiles } from '../utils/font-utilities.js'
 import { buildTailwindBasedOnConfigOptions } from '../../core/builders/tailwind-builder.js'
 
 const cwd = process.cwd()
 
-// Create require for ESM compatibility
-const require = createRequire(import.meta.url)
 
 /**
  * Get command configuration for hooks
@@ -48,8 +45,7 @@ const require = createRequire(import.meta.url)
  * @returns {Object} Command configuration object
  */
 function getCommands() {
-  // Import config manager dynamically to avoid circular imports
-  const { getConfigFile } = require('../../shared/config-manager.js')
+  // Use the already imported getConfigFile function
   const configFile = getConfigFile()
 
   let methodCommand

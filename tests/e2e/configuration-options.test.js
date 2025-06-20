@@ -16,7 +16,8 @@ const execAsync = promisify(exec)
 console.log('🔧 Testing PurgeTSS Configuration Options\n')
 
 const PROJECT_PATH = 'test-project'
-const CONFIG_PATH = `${PROJECT_PATH}/purgetss/config.js`
+const CONFIG_JS_PATH = `${PROJECT_PATH}/purgetss/config.js`
+const CONFIG_CJS_PATH = `${PROJECT_PATH}/purgetss/config.cjs`
 
 async function createConfigFile(configOptions) {
   const configContent = `
@@ -24,13 +25,16 @@ module.exports = ${JSON.stringify(configOptions, null, 2)}
 `
 
   // Ensure purgetss directory exists
-  const purgetssDir = path.dirname(CONFIG_PATH)
+  const purgetssDir = path.dirname(CONFIG_JS_PATH)
   if (!fs.existsSync(purgetssDir)) {
     fs.mkdirSync(purgetssDir, { recursive: true })
   }
 
-  fs.writeFileSync(CONFIG_PATH, configContent)
-  console.log('     📝 Created config with options:', configOptions)
+  // Check if config.cjs already exists (after migration)
+  const configPath = fs.existsSync(CONFIG_CJS_PATH) ? CONFIG_CJS_PATH : CONFIG_JS_PATH
+  
+  fs.writeFileSync(configPath, configContent)
+  console.log(`     📝 Created config with options (${path.basename(configPath)}):`, configOptions)
 }
 
 async function testConfiguration(configName, configOptions, testDescription) {
@@ -142,7 +146,11 @@ async function runConfigurationTests() {
     {
       name: 'Safelist Classes',
       options: {
-        safelist: ['text-red-500', 'bg-blue-600', /^text-green-/]
+        purge: {
+          options: {
+            safelist: ['text-red-500', 'bg-blue-600']
+          }
+        }
       },
       description: 'Test with safelist to preserve specific classes'
     }
@@ -197,7 +205,7 @@ async function main() {
 
   // Clean previous artifacts
   try {
-    await execAsync('rm -rf app/assets/tailwind.tss purgetss/config.js', { cwd: PROJECT_PATH })
+    await execAsync('rm -rf app/assets/tailwind.tss purgetss/config.js purgetss/config.cjs', { cwd: PROJECT_PATH })
     console.log('     🧹 Cleaned previous test artifacts\n')
   } catch (error) {
     // Ignore cleanup errors
@@ -207,7 +215,7 @@ async function main() {
 
   // Final cleanup
   try {
-    await execAsync('rm -rf purgetss/config.js app/assets/tailwind.tss', { cwd: PROJECT_PATH })
+    await execAsync('rm -rf purgetss/config.js purgetss/config.cjs app/assets/tailwind.tss', { cwd: PROJECT_PATH })
   } catch (error) {
     // Ignore cleanup errors
   }

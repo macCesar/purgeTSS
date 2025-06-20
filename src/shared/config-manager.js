@@ -37,15 +37,27 @@ export function getConfigFile() {
     makeSureFolderExists(projectsPurgeTSSFolder)
     fs.renameSync(oldConfigPath, projectsConfigJS)
     logger.info('Migrated config.js to config.cjs for ESM compatibility')
+  } else if (fs.existsSync(oldConfigPath) && fs.existsSync(projectsConfigJS)) {
+    // Remove old config.js if both exist
+    fs.unlinkSync(oldConfigPath)
+    logger.info('Removed duplicate config.js file')
   }
 
   const configFile = (fs.existsSync(projectsConfigJS))
     ? require(projectsConfigJS)
     : require(srcConfigFile)
 
-  // Apply default values
-  configFile.purge = configFile.purge ?? { mode: 'all', method: 'sync' }
+  // Apply default values following template structure
+  configFile.purge = configFile.purge ?? {}
+  configFile.purge.mode = configFile.purge.mode ?? 'all'
   configFile.purge.method = configFile.purge.method ?? 'sync'
+  configFile.purge.options = configFile.purge.options ?? {}
+  configFile.purge.options.missing = configFile.purge.options.missing ?? true
+  configFile.purge.options.widgets = configFile.purge.options.widgets ?? false
+  configFile.purge.options.safelist = configFile.purge.options.safelist ?? []
+  configFile.purge.options.plugins = configFile.purge.options.plugins ?? []
+  
+  configFile.theme = configFile.theme ?? {}
   configFile.theme.extend = configFile.theme.extend ?? {}
 
   return configFile
@@ -107,7 +119,9 @@ export function loadRawConfig() {
  *
  * @returns {Object} Configuration file with defaults applied
  */
-export const configFile = getConfigFile()
+export function getGlobalConfigFile() {
+  return getConfigFile()
+}
 
 /**
  * Get the global config options instance (lazy-loaded)
@@ -115,7 +129,7 @@ export const configFile = getConfigFile()
  *
  * @returns {Object} Configuration options with defaults applied
  */
-export const configOptions = (() => {
+export function getGlobalConfigOptions() {
   const file = getConfigFile()
   const options = (file.purge && file.purge.options) ? file.purge.options : {}
 
@@ -126,7 +140,9 @@ export const configOptions = (() => {
   }
 
   return options
-})()
+}
+
+// Legacy exports removed - use getConfigFile() and getConfigOptions() functions instead
 
 /**
  * Export defaultTheme from tailwindcss for backward compatibility
@@ -142,7 +158,7 @@ export default {
   hasProjectConfig,
   getActiveConfigPath,
   loadRawConfig,
-  configFile,
-  configOptions,
+  getGlobalConfigFile,
+  getGlobalConfigOptions,
   defaultTheme
 }
