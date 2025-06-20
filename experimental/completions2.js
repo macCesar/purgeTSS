@@ -18,7 +18,10 @@ import { colores } from '../src/shared/brand-colors.js'
 export { colores }
 const purgeLabel = colores.purgeLabel
 
-const projectsConfigJS = cwd + '/purgetss/config.cjs'
+import * as helpers from '../src/shared/helpers.js'
+import { getConfigFile } from '../src/shared/config-manager.js'
+import { projectsConfigJS } from '../src/shared/constants.js'
+const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json')
 
 const logger = {
   info: (...args) => console.log(purgeLabel, args.join(' ')),
@@ -27,11 +30,7 @@ const logger = {
   file: (...args) => console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!')
 }
 
-import * as helpers from '../src/shared/helpers.js'
-const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json')
-const srcConfigFile = path.resolve(__dirname, '../lib/templates/purgetss.config.js.cjs')
-
-const configFile = (fs.existsSync(projectsConfigJS)) ? require(projectsConfigJS) : require(srcConfigFile)
+const configFile = getConfigFile()
 configFile.purge = configFile.purge ?? { mode: 'all' }
 configFile.theme = configFile.theme ?? {}
 configFile.theme.extend = configFile.theme.extend ?? {}

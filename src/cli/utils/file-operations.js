@@ -14,12 +14,17 @@ import fs from 'fs'
 import util from 'util'
 import { projectsConfigJS } from '../../shared/constants.js'
 import { createConfigFile } from '../commands/init.js'
+import { migrateConfigIfNeeded } from '../../shared/config-manager.js'
 
 /**
  * Initialize config if it doesn't exist
- * Maintains exact same logic as original initIfNotConfig() function
+ * FIRST migrates any existing config.js, THEN creates default if needed
  */
 export function initIfNotConfig() {
+  // CRITICAL: Migrate config.js to config.cjs BEFORE checking if file exists
+  migrateConfigIfNeeded()
+  
+  // Now check if we need to create default config
   if (!fs.existsSync(projectsConfigJS)) {
     createConfigFile()
   }

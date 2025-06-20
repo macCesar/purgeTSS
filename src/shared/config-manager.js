@@ -25,23 +25,31 @@ import { makeSureFolderExists } from './utils.js'
 const require = createRequire(import.meta.url)
 
 /**
+ * Migrate config.js to config.cjs for ESM compatibility
+ * This must be called BEFORE any config file creation
+ */
+export function migrateConfigIfNeeded() {
+  const oldConfigPath = `${projectsPurgeTSSFolder}/config.js`
+
+  // If only config.js exists, migrate it directly
+  if (fs.existsSync(oldConfigPath) && !fs.existsSync(projectsConfigJS)) {
+    makeSureFolderExists(projectsPurgeTSSFolder)
+    fs.renameSync(oldConfigPath, projectsConfigJS)
+    logger.info('Migrated config.js to config.cjs for ESM compatibility')
+  }
+  // If both exist, preserve config.js (let the user decide)
+  else if (fs.existsSync(oldConfigPath) && fs.existsSync(projectsConfigJS)) {
+    logger.warn('Both config.js and config.cjs exist. Please manually merge and remove config.js')
+  }
+}
+
+/**
  * Get configuration file with fallback to default template
  * Maintains exact same logic as original getConfigFile()
  *
  * @returns {Object} Configuration object with defaults applied
  */
 export function getConfigFile() {
-  // Auto-migration: rename config.js to config.cjs for ESM compatibility
-  const oldConfigPath = `${projectsPurgeTSSFolder}/config.js`
-  if (fs.existsSync(oldConfigPath) && !fs.existsSync(projectsConfigJS)) {
-    makeSureFolderExists(projectsPurgeTSSFolder)
-    fs.renameSync(oldConfigPath, projectsConfigJS)
-    logger.info('Migrated config.js to config.cjs for ESM compatibility')
-  } else if (fs.existsSync(oldConfigPath) && fs.existsSync(projectsConfigJS)) {
-    // Remove old config.js if both exist
-    fs.unlinkSync(oldConfigPath)
-    logger.info('Removed duplicate config.js file')
-  }
 
   const configFile = (fs.existsSync(projectsConfigJS))
     ? require(projectsConfigJS)
@@ -56,7 +64,7 @@ export function getConfigFile() {
   configFile.purge.options.widgets = configFile.purge.options.widgets ?? false
   configFile.purge.options.safelist = configFile.purge.options.safelist ?? []
   configFile.purge.options.plugins = configFile.purge.options.plugins ?? []
-  
+
   configFile.theme = configFile.theme ?? {}
   configFile.theme.extend = configFile.theme.extend ?? {}
 
@@ -160,5 +168,6 @@ export default {
   loadRawConfig,
   getGlobalConfigFile,
   getGlobalConfigOptions,
+  migrateConfigIfNeeded,
   defaultTheme
 }
