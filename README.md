@@ -18,7 +18,7 @@ With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes m
 
 ---
 
-## What's New in v7.1.1
+## What's New in v7.1.x
 
 **Major Refactoring & ESM Migration**: PurgeTSS v7.1 has been completely refactored with improved code organization, better ESM compatibility, enhanced error handling, and a more intuitive CLI experience.
 
