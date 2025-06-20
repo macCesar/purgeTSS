@@ -48,21 +48,21 @@ program
       if (options.all) {
         // When --all is specified, run the 3 commands in sequence
         console.log(chalk.yellow('Running all commands: build, build-fonts, and purge...'))
-        
+
         // Run commands in sequence to avoid race conditions
         console.log(chalk.cyan('\n1. Running build command...'))
         await build(options)
-        
+
         console.log(chalk.cyan('\n2. Running build-fonts command...'))
         await buildFonts(options)
-        
+
         console.log(chalk.cyan('\n3. Running purge command...'))
         const result = await purgeClasses(options)
-        
+
         if (!result) {
           process.exit(1)
         }
-        
+
         console.log(chalk.green('\n✅ All commands completed successfully!'))
       } else {
         // Default behavior: just run purgeClasses
@@ -444,16 +444,16 @@ program
 // Function to calculate string similarity (Levenshtein distance)
 function calculateSimilarity(str1, str2) {
   const matrix = []
-  
+
   // Create distance matrix
   for (let i = 0; i <= str2.length; i++) {
     matrix[i] = [i]
   }
-  
+
   for (let j = 0; j <= str1.length; j++) {
     matrix[0][j] = j
   }
-  
+
   // Fill the matrix
   for (let i = 1; i <= str2.length; i++) {
     for (let j = 1; j <= str1.length; j++) {
@@ -468,24 +468,24 @@ function calculateSimilarity(str1, str2) {
       }
     }
   }
-  
+
   return matrix[str2.length][str1.length]
 }
 
 // Function to find similar commands
 function findSimilarCommands(input, validCommands) {
   const suggestions = []
-  
+
   validCommands.forEach(cmd => {
     const distance = calculateSimilarity(input.toLowerCase(), cmd.toLowerCase())
     const similarity = 1 - (distance / Math.max(input.length, cmd.length))
-    
+
     // Suggest commands with similarity > 0.4 or that start with the same letter
     if (similarity > 0.4 || cmd.toLowerCase().startsWith(input.toLowerCase().charAt(0))) {
       suggestions.push({ command: cmd, similarity })
     }
   })
-  
+
   // Sort by similarity and return top 3
   return suggestions
     .sort((a, b) => b.similarity - a.similarity)
@@ -511,20 +511,20 @@ if (args.length > 0) {
   // Check if it's an unknown command (doesn't start with - and not in valid commands)
   if (!firstArg.startsWith('-') && !validCommands.includes(firstArg)) {
     console.log(chalk.red(`\nUnknown command: ${firstArg}`))
-    
+
     // Find similar commands and suggest them
     const suggestions = findSimilarCommands(firstArg, validCommands)
     if (suggestions.length > 0) {
       console.log(chalk.yellow('Did you mean one of these?'))
       suggestions.forEach(suggestion => {
         // Get the command info to show alias if available
-        const commandInfo = program.commands.find(cmd => 
+        const commandInfo = program.commands.find(cmd =>
           cmd.name() === suggestion || cmd.alias() === suggestion
         )
-        
+
         if (commandInfo) {
-          const displayName = commandInfo.alias() 
-            ? `${commandInfo.name()}|${commandInfo.alias()}` 
+          const displayName = commandInfo.alias()
+            ? `${commandInfo.name()}|${commandInfo.alias()}`
             : commandInfo.name()
           console.log(`  ${chalk.cyan(displayName)}`)
         } else {

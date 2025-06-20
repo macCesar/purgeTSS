@@ -30,12 +30,12 @@ const logger = {
   file: (...args) => console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!')
 }
 
-const configFile = getConfigFile()
+let configFile = getConfigFile()
 configFile.purge = configFile.purge ?? { mode: 'all' }
 configFile.theme = configFile.theme ?? {}
 configFile.theme.extend = configFile.theme.extend ?? {}
 
-const configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : {}
+let configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : {}
 if (configOptions) {
   configOptions.plugins = configOptions.plugins ?? []
   configOptions.safelist = configOptions.safelist ?? []
@@ -44,6 +44,20 @@ if (configOptions) {
 }
 
 function autoBuildTailwindTSS(options = {}) {
+  // Refresh config at the start of the function to ensure it's up-to-date
+  configFile = getConfigFile()
+  configFile.purge = configFile.purge ?? { mode: 'all' }
+  configFile.theme = configFile.theme ?? {}
+  configFile.theme.extend = configFile.theme.extend ?? {}
+
+  configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : {}
+  if (configOptions) {
+    configOptions.plugins = configOptions.plugins ?? []
+    configOptions.safelist = configOptions.safelist ?? []
+    configOptions.missing = configOptions.missing ?? true
+    configOptions.widgets = configOptions.widgets ?? false
+  }
+
   saveGlossary = options.glossary ?? false
   let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/template.tss'), 'utf8')
   tailwindStyles += fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8')

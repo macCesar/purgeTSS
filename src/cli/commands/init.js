@@ -1,4 +1,4 @@
- 
+
 /**
  * PurgeTSS v7.1 - Init Command
  *
@@ -178,12 +178,12 @@ export function init(options = {}) {
   const { methodCommand, oppositeCommand } = getCommands()
 
   // tailwind.tss
-  if (!fs.existsSync(projectsTailwind_TSS) || options.all) {
+  if (!fs.existsSync(projectsTailwind_TSS)) {
     buildTailwindBasedOnConfigOptions(options)
   }
 
   // definitions file
-  if (!fs.existsSync(`${cwd}/purgetss/styles/definitions.css`) || options.all) {
+  if (!fs.existsSync(`${cwd}/purgetss/styles/definitions.css`)) {
     createDefinitionsFile()
   }
 
