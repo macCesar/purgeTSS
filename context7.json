@@ -1,0 +1,61 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "PurgeTSS",
+  "description": "A CLI tool that simplifies mobile app creation for Titanium developers by generating clean, optimized CSS files using Tailwind CSS methodology for Alloy projects.",
+  "folders": [
+    "assets",
+    "lib/templates"
+  ],
+  "excludeFolders": [
+    "src",
+    "bin",
+    "test-project",
+    "tests",
+    "experimental",
+    ".dev",
+    "node_modules",
+    "dist/glossary"
+  ],
+  "excludeFiles": [
+    "CLAUDE.md",
+    "test-format.js",
+    "test-simple-cli.js",
+    "eslint.config.js",
+    "package-lock.json"
+  ],
+  "rules": [
+    "Always run PurgeTSS commands from the root directory of a Titanium Alloy project",
+    "Use 'purgetss init' to create the initial configuration file before using other commands",
+    "The config.cjs file should be placed in './purgetss/' directory for project-specific configurations",
+    "Use 'purgetss --all' to run build, build-fonts, and purge commands in the correct sequence",
+    "Custom classes and theme extensions should be defined in the config.cjs file under purge.options",
+    "Font files should be placed in './purgetss/fonts/' directory before running 'purgetss build-fonts'",
+    "Always backup your original app.tss file before running purge operations"
+  ],
+  "previousVersions": [
+    {
+      "tag": "v7.1.7",
+      "title": "version 7.1.7"
+    },
+    {
+      "tag": "v7.1.6",
+      "title": "version 7.1.6"
+    },
+    {
+      "tag": "v7.1.5",
+      "title": "version 7.1.5"
+    },
+    {
+      "tag": "v7.1.4",
+      "title": "version 7.1.4"
+    },
+    {
+      "tag": "v7.0.0",
+      "title": "version 7.0.0"
+    },
+    {
+      "tag": "v6.3.13",
+      "title": "version 6.3.13"
+    }
+  ]
+}
