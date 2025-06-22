@@ -5,3 +5,5 @@ node_modules/
 .dev
 # Core components
 CLAUDE.md
+# Generated documentation that shouldn't be versioned
+dist/glossary/
