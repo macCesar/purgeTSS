@@ -109,7 +109,7 @@ function processTitaniumRules(_propertiesOnly) {
   _.each(_propertiesOnly, (value, key) => {
     const property = `\n// Property: ${key}\n`
     const description = `// Description: ${value.description.replace(/\n/g, ' ')}\n`
-    customRules += property + description + helpers.customRules(value.base, key)
+    customRules += property + description + helpers.customRules(value.base, key, false)
   })
 
   helpers.globalOptions.legacy = currentLegacyOption

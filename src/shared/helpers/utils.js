@@ -166,7 +166,7 @@ export function parseValue(value, sign = '') {
  * @param {string} rule - Optional rule parameter
  * @returns {string} Modified class name
  */
-export function setModifier2(modifier, rule = null) {
+export function setModifier2(modifier, rule = null, changeToDash = true) {
   if (defaultModifier(modifier)) {
     modifier = ''
   } else if (modifier === 'ios') {
@@ -183,7 +183,9 @@ export function setModifier2(modifier, rule = null) {
     modifier = `${modifier}-`
   }
 
-  // modifier = camelCaseToDash(modifier)
+  if (changeToDash) {
+    modifier = camelCaseToDash(modifier)
+  }
 
   return modifier
 }
@@ -378,22 +380,22 @@ export function fixInvalidValues(invalidValues, currentValue) {
  * @param {string} _key - Key for the rule
  * @returns {string} Generated styles string
  */
-export function customRules(_value, _key) {
+export function customRules(_value, _key, changeToDash = false) {
   // ! Want to refactor
   let convertedStyles = ''
 
   _.each(_value, (value, modifier) => {
     if (modifier === 'apply') {
-      _applyClasses[setModifier2(_key)] = new Set(Array.isArray(_value[modifier]) ? _value[modifier] : _value[modifier].split(' '))
+      _applyClasses[setModifier2(_key, null, changeToDash)] = new Set(Array.isArray(_value[modifier]) ? _value[modifier] : _value[modifier].split(' '))
 
-      convertedStyles += `'${setModifier2(_key)}': { {_applyProperties_} }\n`
+      convertedStyles += `'${setModifier2(_key, null, changeToDash)}': { {_applyProperties_} }\n`
     } else {
       let customProperties = ''
 
       _.each(value, (theValue, theModifier) => {
         if (typeof (theValue) === 'object' && theValue !== null) {
           if (theModifier === 'apply') {
-            _applyClasses[`${setModifier2(_key, modifier)}`] = new Set(Array.isArray(theValue) ? theValue : theValue.split(' '))
+            _applyClasses[`${setModifier2(_key, modifier, changeToDash)}`] = new Set(Array.isArray(theValue) ? theValue : theValue.split(' '))
 
             customProperties += ' {_applyProperties_},'
           } else {
@@ -421,7 +423,7 @@ export function customRules(_value, _key) {
           }
         } else {
           if (theModifier === 'apply') {
-            _applyClasses[`${setModifier2(_key, modifier)}${setModifier2(modifier)}`] = new Set(Array.isArray(theValue) ? theValue : theValue.split(' '))
+            _applyClasses[`${setModifier2(_key, modifier, changeToDash)}${setModifier2(modifier, null, changeToDash)}`] = new Set(Array.isArray(theValue) ? theValue : theValue.split(' '))
 
             customProperties += ' {_applyProperties_},'
           } else {
@@ -430,7 +432,7 @@ export function customRules(_value, _key) {
         }
       })
 
-      convertedStyles += `'${setModifier2(_key, modifier)}${setModifier2(modifier)}': {${removeLastCharacter(customProperties)} }\n`
+      convertedStyles += `'${setModifier2(_key, modifier, changeToDash)}${setModifier2(modifier, null, changeToDash)}': {${removeLastCharacter(customProperties)} }\n`
     }
   })
 
