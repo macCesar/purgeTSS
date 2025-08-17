@@ -578,7 +578,15 @@ export function formatArbitraryValues(arbitraryValue, fromXMLs = false) {
 
     if (properties) {
       if (splitedContent[0] === 'rounded') {
-        properties = _.replace(properties, /{value1}/g, parseValue(parseValue(value) / 2, sign))
+        if (!value.includes(',')) {
+          properties = _.replace(properties, /{value1}/g, parseValue(parseValue(value) / 2, sign))
+        } else {
+          const values = value.split(',')
+          properties = _.replace(properties, /{value}/g, parseValue(values[0], sign))
+          properties = _.replace(properties, /{value1}/g, parseValue(values[1], sign))
+          properties = _.replace(properties, /{value2}/g, parseValue(values[2], sign))
+          properties = _.replace(properties, /{value3}/g, parseValue(values[3], sign))
+        }
       }
       return (fromXMLs)
         ? `'.${arbitraryValue}': { ` + _.replace(properties, /{value}/g, parseValue(value, sign)) + ' }'
@@ -932,16 +940,17 @@ const arbitraryValuesTable = {
   'right-button-padding': 'rightButtonPadding: {value}',
   'right-w': 'rightWidth: {value}',
   right: 'right: {value}',
+  rounded: 'borderRadius: {value}',
   'rounded-b': 'borderRadius: [0, 0, {value}, {value}]',
   'rounded-bl': 'borderRadius: [0, 0, 0, {value}]',
   'rounded-br': 'borderRadius: [0, 0, {value}, 0]',
-  'rounded-full': 'width: {value}, height: {value}, borderRadius: {value1}',
   'rounded-l': 'borderRadius: [{value}, 0, 0, {value}]',
   'rounded-r': 'borderRadius: [0, {value}, {value}, 0]',
   'rounded-t': 'borderRadius: [{value}, {value}, 0, 0]',
   'rounded-tl': 'borderRadius: [{value}, 0, 0, 0]',
   'rounded-tr': 'borderRadius: [0, {value}, 0, 0]',
-  rounded: 'borderRadius: {value}',
+  'rounded-corners': 'borderRadius: [{value}, {value1}, {value2}, {value3}]',
+  'rounded-full': 'width: {value}, height: {value}, borderRadius: {value1}',
   'row-h': 'rowHeight: {value}',
   rw: 'rightWidth: {value}',
   'section-header-top-padding': 'sectionHeaderTopPadding: {value}',
