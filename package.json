@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "purgetss",
-  "version": "7.1.10",
+  "version": "7.2.0",
   "main": "src/index.js",
   "bin": {
     "purgetss": "bin/purgetss"
