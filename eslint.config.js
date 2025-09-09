@@ -29,6 +29,18 @@ export default [
     }
   },
   {
+    files: ['dist/**'],
+    languageOptions: {
+      sourceType: 'script',
+      globals: {
+        exports: 'writable',
+        module: 'writable',
+        require: 'readonly'
+      }
+    },
+    rules: {}
+  },
+  {
     files: ['eslint.config.js'],
     languageOptions: {
       sourceType: 'module'
