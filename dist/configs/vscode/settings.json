@@ -49,7 +49,7 @@
     "activeIcon"
   ],
   "tailwindCSS.experimental.configFile": {
-    "purgetss/config.js": [
+    "purgetss/config.cjs": [
       "app/views/**"
     ]
   },
