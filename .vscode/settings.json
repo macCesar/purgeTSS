@@ -1,14 +1,14 @@
 {
   "files.exclude": {
-    "node_modules/": true,
+    "node_modules/": false,
     "package-lock.json": true
   },
   "search.exclude": {
-    "node_modules/": true,
+    "node_modules/": false,
     "package-lock.json": true
   },
   "files.watcherExclude": {
-    "node_modules/": true,
+    "node_modules/": false,
     "package-lock.json": true
   }
 }

@@ -46,22 +46,22 @@ const srcFA_Pro_Web_Fonts_Folder = `${cwd}/node_modules/@fortawesome/fontawesome
 
 // eslint-disable-next-line camelcase
 const srcFA_ProFontFamilies = {
-  'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
-  'fa-brands-400.woff2': 'FontAwesome6Brands-Regular.woff2',
-  'fa-regular-400.ttf': 'FontAwesome6Pro-Regular.ttf',
-  'fa-regular-400.woff2': 'FontAwesome6Pro-Regular.woff2',
-  'fa-solid-900.ttf': 'FontAwesome6Pro-Solid.ttf',
-  'fa-solid-900.woff2': 'FontAwesome6Pro-Solid.woff2'
+  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
+  'fa-brands-400.woff2': 'FontAwesome7Brands-Regular.woff2',
+  'fa-regular-400.ttf': 'FontAwesome7Pro-Regular.ttf',
+  'fa-regular-400.woff2': 'FontAwesome7Pro-Regular.woff2',
+  'fa-solid-900.ttf': 'FontAwesome7Pro-Solid.ttf',
+  'fa-solid-900.woff2': 'FontAwesome7Pro-Solid.woff2'
 }
 
 // eslint-disable-next-line camelcase
 const srcFA_Beta_FontFamilies = {
-  'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
-  'fa-brands-400.woff2': 'FontAwesome6Brands-Regular.woff2',
-  'fa-regular-400.ttf': 'FontAwesome6Beta-Regular.ttf',
-  'fa-regular-400.woff2': 'FontAwesome6Beta-Regular.woff2',
-  'fa-solid-900.ttf': 'FontAwesome6Beta-Solid.ttf',
-  'fa-solid-900.woff2': 'FontAwesome6Beta-Solid.woff2'
+  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
+  'fa-brands-400.woff2': 'FontAwesome7Brands-Regular.woff2',
+  'fa-regular-400.ttf': 'FontAwesome7Beta-Regular.ttf',
+  'fa-regular-400.woff2': 'FontAwesome7Beta-Regular.woff2',
+  'fa-solid-900.ttf': 'FontAwesome7Beta-Solid.ttf',
+  'fa-solid-900.woff2': 'FontAwesome7Beta-Solid.woff2'
 }
 
 // TSS file paths
@@ -96,9 +96,9 @@ function copyFile(src, dest) {
  * Copy Font Awesome Free fonts to project
  */
 function copyFreeFonts() {
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Regular.ttf', projectsFontsFolder + '/FontAwesome6Free-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Solid.ttf', projectsFontsFolder + '/FontAwesome6Free-Solid.ttf', callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome7Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome7Brands-Regular.ttf', callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Regular.ttf', projectsFontsFolder + '/FontAwesome7Free-Regular.ttf', callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Solid.ttf', projectsFontsFolder + '/FontAwesome7Free-Solid.ttf', callback)
 
   logger.warn(' - Font Awesome Free')
 }

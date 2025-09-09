@@ -16,6 +16,7 @@ import { fileURLToPath } from 'url'
 import _ from 'lodash'
 import css from 'css'
 import { logger } from '../../../shared/logger.js'
+import { extractUnicodeValue } from '../../../shared/utils.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -35,10 +36,19 @@ export function buildFontAwesomeJS() {
   const data = css.parse(cssContent)
 
   const rules = _.map(data.stylesheet.rules, rule => {
-    if (rule.type === 'rule' && rule.selectors && rule.declarations[0].value.includes('"\\')) {
-      return {
-        selector: rule.selectors[0].replace('::before', '').replace(':before', '').replace('.', ''),
-        property: ('0000' + rule.declarations[0].value.replace('\"\\', '').replace('\"', '')).slice(-4)
+    if (rule.type === 'rule' && rule.selectors && rule.declarations && rule.declarations.length > 0) {
+      // Look for --fa CSS custom property
+      const faDeclaration = rule.declarations.find(decl => decl.property === '--fa')
+      if (faDeclaration && faDeclaration.value) {
+        const selector = rule.selectors[0].replace('::before', '').replace(':before', '').replace('.', '')
+        const unicodeValue = extractUnicodeValue(faDeclaration.value)
+
+        if (unicodeValue) {
+          return {
+            selector: selector,
+            property: unicodeValue
+          }
+        }
       }
     }
   })
@@ -69,6 +79,7 @@ export function buildFontAwesomeJS() {
 
   logger.file('./dist/fontawesome.js')
 }
+
 
 /**
  * Prettify font name for JS usage

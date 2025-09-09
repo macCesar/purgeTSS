@@ -8,7 +8,7 @@
  * @fileoverview Central constants configuration
  * @version 7.1.0
  * @author César Estrada
- * @since 2025-06-15
+ * @since 2025-07-15
  */
 
 import path from 'path'
@@ -85,11 +85,11 @@ export const srcFA_ProTemplateTSS_File = './lib/templates/fontawesome/pro-templa
 
 // Pro - Font Family Mappings
 export const srcFA_ProFontFamilies = {
-  'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
-  'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
-  'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
-  'fa-regular-400.ttf': 'FontAwesome6Pro-Regular.ttf',
-  'fa-solid-900.ttf': 'FontAwesome6Pro-Solid.ttf'
+  'fa-thin-100.ttf': 'FontAwesome7Pro-Thin.ttf',
+  'fa-light-300.ttf': 'FontAwesome7Pro-Light.ttf',
+  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
+  'fa-regular-400.ttf': 'FontAwesome7Pro-Regular.ttf',
+  'fa-solid-900.ttf': 'FontAwesome7Pro-Solid.ttf'
 }
 
 // ============================================================================
@@ -103,11 +103,11 @@ export const srcFA_Beta_TemplateTSS = './lib/templates/fontawesome/beta-template
 
 // Beta - Font Family Mappings
 export const srcFA_Beta_FontFamilies = {
-  'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
-  'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
-  'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
-  'fa-regular-400.ttf': 'FontAwesome6Pro-Regular.ttf',
-  'fa-solid-900.ttf': 'FontAwesome6Pro-Solid.ttf'
+  'fa-thin-100.ttf': 'FontAwesome7Pro-Thin.ttf',
+  'fa-light-300.ttf': 'FontAwesome7Pro-Light.ttf',
+  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
+  'fa-regular-400.ttf': 'FontAwesome7Pro-Regular.ttf',
+  'fa-solid-900.ttf': 'FontAwesome7Pro-Solid.ttf'
 }
 
 // ============================================================================

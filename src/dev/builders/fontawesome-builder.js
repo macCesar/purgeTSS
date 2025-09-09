@@ -14,6 +14,7 @@ import { fileURLToPath } from 'url'
 import _ from 'lodash'
 import css from 'css'
 import { logger } from '../../shared/logger.js'
+import { extractUnicodeValue } from '../../shared/utils.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -38,11 +39,11 @@ const srcFA_Pro_Web_Fonts_Folder_Alt = `${cwd}/app/lib/node_modules/@fortawesome
 const srcFA_ProReset_TSS_File = './lib/templates/fontawesome/pro-reset.tss'
 const srcFA_ProTemplateTSS_File = './lib/templates/fontawesome/pro-template.tss'
 const srcFA_ProFontFamilies = {
-  'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
-  'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
-  'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
-  'fa-regular-400.ttf': 'FontAwesome6Pro-Regular.ttf',
-  'fa-solid-900.ttf': 'FontAwesome6Pro-Solid.ttf'
+  'fa-thin-100.ttf': 'FontAwesome7Pro-Thin.ttf',
+  'fa-light-300.ttf': 'FontAwesome7Pro-Light.ttf',
+  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
+  'fa-regular-400.ttf': 'FontAwesome7Pro-Regular.ttf',
+  'fa-solid-900.ttf': 'FontAwesome7Pro-Solid.ttf'
 }
 
 // FontAwesome Beta paths
@@ -51,11 +52,11 @@ const srcFA_Beta_Web_Fonts_Folder = `${cwd}/purgetss/fontawesome-beta/webfonts/`
 const srcFA_Beta_ResetTSS = './lib/templates/fontawesome/beta-reset.tss'
 const srcFA_Beta_TemplateTSS = './lib/templates/fontawesome/beta-template.tss'
 const srcFA_Beta_FontFamilies = {
-  'fa-thin-100.ttf': 'FontAwesome6Pro-Thin.ttf',
-  'fa-light-300.ttf': 'FontAwesome6Pro-Light.ttf',
-  'fa-brands-400.ttf': 'FontAwesome6Brands-Regular.ttf',
-  'fa-regular-400.ttf': 'FontAwesome6Pro-Regular.ttf',
-  'fa-solid-900.ttf': 'FontAwesome6Pro-Solid.ttf'
+  'fa-thin-100.ttf': 'FontAwesome7Pro-Thin.ttf',
+  'fa-light-300.ttf': 'FontAwesome7Pro-Light.ttf',
+  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
+  'fa-regular-400.ttf': 'FontAwesome7Pro-Regular.ttf',
+  'fa-solid-900.ttf': 'FontAwesome7Pro-Solid.ttf'
 }
 
 /**
@@ -114,6 +115,7 @@ export function prettifyFontName(str, prefix) {
 
 /**
  * Process FontAwesome CSS data to TSS format
+ * Updated to handle both FontAwesome 6 (:before with content:) and FontAwesome 7 (CSS custom properties --fa:)
  * @param {Object} data - CSS data from readCSS
  * @returns {string} Processed TSS classes
  */
@@ -121,11 +123,35 @@ export function processFontawesomeStyles(data) {
   let convertedTSSClasses = ''
 
   const rules = _.map(data.stylesheet.rules, rule => {
-    // Without Duotones
-    if (rule.type === 'rule' && rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
-      return {
-        selector: rule.selectors[0].replace(':before', '').replace(':', ''),
-        property: ('0000' + rule.declarations[0].value.replace('\"\\', '').replace('\"', '')).slice(-4)
+    if (rule.type === 'rule' && rule.selectors && rule.declarations && rule.declarations.length > 0) {
+      // FontAwesome 7: CSS custom properties (--fa:)
+      const faDeclaration = rule.declarations.find(decl => decl.property === '--fa')
+      if (faDeclaration && faDeclaration.value) {
+        const selector = rule.selectors[0].replace('::before', '').replace(':before', '').replace(':', '')
+        const unicodeValue = extractUnicodeValue(faDeclaration.value)
+        
+        if (unicodeValue) {
+          return {
+            selector: selector,
+            property: unicodeValue
+          }
+        }
+      }
+      
+      // FontAwesome 6: Traditional :before with content: (fallback)
+      if (rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
+        const contentDecl = rule.declarations.find(decl => decl.property === 'content')
+        if (contentDecl && contentDecl.value) {
+          const selector = rule.selectors[0].replace(':before', '').replace(':', '')
+          const unicodeValue = extractUnicodeValue(contentDecl.value)
+          
+          if (unicodeValue) {
+            return {
+              selector: selector,
+              property: unicodeValue
+            }
+          }
+        }
       }
     }
   })
@@ -179,10 +205,35 @@ export function processFontAwesomeJS(CSSFile, faJS) {
     const data = css.parse(cssContent)
 
     const rules = _.map(data.stylesheet.rules, rule => {
-      if (rule.type === 'rule' && rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
-        return {
-          selector: rule.selectors[0].replace(':before', '').replace('.', '').replace(':', ''),
-          property: ('0000' + rule.declarations[0].value.replace('\"\\', '').replace('\"', '')).slice(-4)
+      if (rule.type === 'rule' && rule.selectors && rule.declarations && rule.declarations.length > 0) {
+        // FontAwesome 7: CSS custom properties (--fa:)
+        const faDeclaration = rule.declarations.find(decl => decl.property === '--fa')
+        if (faDeclaration && faDeclaration.value) {
+          const selector = rule.selectors[0].replace('::before', '').replace(':before', '').replace('.', '').replace(':', '')
+          const unicodeValue = extractUnicodeValue(faDeclaration.value)
+          
+          if (unicodeValue) {
+            return {
+              selector: selector,
+              property: unicodeValue
+            }
+          }
+        }
+        
+        // FontAwesome 6: Traditional :before with content: (fallback)
+        if (rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
+          const contentDecl = rule.declarations.find(decl => decl.property === 'content')
+          if (contentDecl && contentDecl.value) {
+            const selector = rule.selectors[0].replace(':before', '').replace('.', '').replace(':', '')
+            const unicodeValue = extractUnicodeValue(contentDecl.value)
+            
+            if (unicodeValue) {
+              return {
+                selector: selector,
+                property: unicodeValue
+              }
+            }
+          }
         }
       }
     })
