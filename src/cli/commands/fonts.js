@@ -153,7 +153,7 @@ function getFontFamily(data) {
  * @returns {string} - Common prefix
  */
 function findPrefix(rules) {
-  const arrayOfRules = rules.map(function(item) {
+  const arrayOfRules = rules.map(function (item) {
     return item.selector.replace('.', '').split('-')
   })
 
@@ -427,9 +427,9 @@ export function buildFonts(options) {
  * COPIED exactly from original copyFreeFonts() function
  */
 function copyFreeFonts() {
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Regular.ttf', projectsFontsFolder + '/FontAwesome6Free-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome6Free-Solid.ttf', projectsFontsFolder + '/FontAwesome6Free-Solid.ttf', callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome7Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome7Brands-Regular.ttf', callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Regular.ttf', projectsFontsFolder + '/FontAwesome7Free-Regular.ttf', callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Solid.ttf', projectsFontsFolder + '/FontAwesome7Free-Solid.ttf', callback)
 
   logger.warn(' - Font Awesome Free')
 }

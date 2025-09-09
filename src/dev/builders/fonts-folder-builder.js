@@ -37,15 +37,15 @@ export function buildFontsFolder() {
   const detinationFontsFolder = path.resolve(projectRoot, './assets/fonts')
 
   // FontAwesome
-  let sourceFontsFolder = path.resolve(projectRoot, './node_modules/@fortawesome/fontawesome-free/webfonts')
+  let sourceFontsFolder = path.resolve(projectRoot, './src/fonts')
 
   if (!fs.existsSync(detinationFontsFolder)) {
     fs.mkdirSync(detinationFontsFolder)
   }
 
-  fs.copyFile(sourceFontsFolder + '/fa-brands-400.ttf', detinationFontsFolder + '/FontAwesome6Brands-Regular.ttf', callback)
-  fs.copyFile(sourceFontsFolder + '/fa-regular-400.ttf', detinationFontsFolder + '/FontAwesome6Free-Regular.ttf', callback)
-  fs.copyFile(sourceFontsFolder + '/fa-solid-900.ttf', detinationFontsFolder + '/FontAwesome6Free-Solid.ttf', callback)
+  fs.copyFile(sourceFontsFolder + '/Font Awesome 7 Brands-Regular-400.otf', detinationFontsFolder + '/FontAwesome7Brands-Regular.ttf', callback)
+  fs.copyFile(sourceFontsFolder + '/Font Awesome 7 Free-Regular-400.otf', detinationFontsFolder + '/FontAwesome7Free-Regular.ttf', callback)
+  fs.copyFile(sourceFontsFolder + '/Font Awesome 7 Free-Solid-900.otf', detinationFontsFolder + '/FontAwesome7Free-Solid.ttf', callback)
 
   console.log(`${purgeLabel} Font Awesome Free copied to './assets/fonts'`)
 

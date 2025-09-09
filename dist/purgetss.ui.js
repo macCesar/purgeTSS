@@ -1,4 +1,4 @@
-// PurgeTSS v7.1.9
+// PurgeTSS v7.1.10
 // Created by César Estrada
 // https://purgetss.com
 
@@ -92,18 +92,18 @@ function Animation(args = {}) {
 
     chooseAnimationBasedOnState(action)
 
-    const applyOrPlayView = (view) => {
-      action === 'play' ? playView(view, _cb, action) : applyView(view, _cb, action)
+    const applyOrPlayView = (view, index = 0, total = 1) => {
+      action === 'play' ? playView(view, _cb, action, index, total) : applyView(view, _cb, action, index, total)
     }
 
     if (Array.isArray(_views)) {
       args.delay = params.delay
-      _views.forEach((view) => {
-        applyOrPlayView(view)
+      _views.forEach((view, index) => {
+        applyOrPlayView(view, index, _views.length)
         args.delay += params.delay
       })
     } else {
-      applyOrPlayView(_views)
+      applyOrPlayView(_views, 0, 1)
     }
   }
 
@@ -288,7 +288,7 @@ function Animation(args = {}) {
     }
   }
 
-  function playView(view, _cb, action) {
+  function playView(view, _cb, action, index = 0, total = 1) {
     if (view) {
       logger('   -> `animate` View')
       params.view = view
@@ -297,12 +297,27 @@ function Animation(args = {}) {
       const animation = Ti.UI.createAnimation(args)
       const onComplete = (event) => {
         checkComplete(view, action)
+        params.playing = false
         if (typeof _cb === 'function') {
-          _cb(event)
+          const enrichedEvent = {
+            // Solo propiedades seguras del event original
+            type: event.type,
+            bubbles: event.bubbles,
+            cancelBubble: event.cancelBubble,
+            // Nuestras propiedades añadidas (solo primitivos)
+            action,                             // 'play'
+            state: params.open ? 'open' : 'close',
+            id: params.id,
+            targetId: view.id || 'unknown',     // Solo el ID del view, no el objeto
+            index,
+            total,
+            // Método helper para obtener el view
+            getTarget: () => view
+          }
+          _cb(enrichedEvent)
         } else {
           logger('Animation complete on object: ' + JSON.stringify(args))
         }
-        params.playing = false
       }
 
       animation.addEventListener('complete', onComplete)
@@ -314,13 +329,30 @@ function Animation(args = {}) {
     }
   }
 
-  function applyView(view, _cb, action) {
+  function applyView(view, _cb, action, index = 0, total = 1) {
     if (view) {
       logger('   -> `apply` View')
       view.applyProperties(args)
       innerAnimations(view, action)
       checkComplete(view, action)
-      if (typeof _cb === 'function') { _cb() }
+      params.playing = false
+      if (typeof _cb === 'function') {
+        const enrichedEvent = {
+          type: 'applied',
+          bubbles: false,
+          cancelBubble: false,
+          // Nuestras propiedades (solo primitivos)
+          action,                             // 'apply'
+          state: params.open ? 'open' : 'close',
+          id: params.id,
+          targetId: view.id || 'unknown',     // Solo el ID del view
+          index,
+          total,
+          // Método helper para obtener el view
+          getTarget: () => view
+        }
+        _cb(enrichedEvent)
+      }
     } else {
       notFound()
     }

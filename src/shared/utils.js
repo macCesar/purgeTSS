@@ -113,6 +113,49 @@ export function cleanClasses(uniqueClasses) {
 }
 
 /**
+ * Extract Unicode value from FontAwesome 7 CSS custom property value
+ * Handles both traditional hex codes and new ASCII symbols from FA7+
+ * Supports CSS custom properties (--fa:) and traditional content: properties
+ * 
+ * @param {string} value - CSS value (e.g., '"\f015"', '"\$"', '"\30 "', '"\\f015"')
+ * @returns {string|null} - 4-digit hex Unicode value or null
+ */
+export function extractUnicodeValue(value) {
+  // Remove quotes and trim
+  const cleanValue = value.replace(/"/g, '').trim()
+  
+  // Handle traditional hex Unicode with backslash (e.g., "\f015", "\\f015")
+  if (cleanValue.startsWith('\\')) {
+    // Remove leading backslashes (could be single or double)
+    const withoutSlash = cleanValue.replace(/^\\+/, '')
+    
+    // If it's a proper hex code (3+ characters)
+    if (/^[0-9a-fA-F]{3,}$/.test(withoutSlash)) {
+      return ('0000' + withoutSlash).slice(-4)
+    }
+    
+    // Handle ASCII hex codes like "\30" (for "0")
+    if (/^[0-9a-fA-F]{1,2}$/.test(withoutSlash)) {
+      return ('0000' + withoutSlash).slice(-4)
+    }
+    
+    // Handle direct ASCII symbols (e.g., "\$", "\!", "\%")
+    if (withoutSlash.length === 1) {
+      const charCode = withoutSlash.charCodeAt(0)
+      return ('0000' + charCode.toString(16)).slice(-4)
+    }
+  }
+  
+  // Handle single characters without backslash (e.g., "A", "$")
+  if (cleanValue.length === 1) {
+    const charCode = cleanValue.charCodeAt(0)
+    return ('0000' + charCode.toString(16)).slice(-4)
+  }
+  
+  return null
+}
+
+/**
  * Project type detection utilities
  */
 export const projectDetection = {
@@ -145,6 +188,7 @@ export default {
   alloyProject,
   classicProject,
   cleanClasses,
+  extractUnicodeValue,
   projectDetection,
   fileUtils
 }

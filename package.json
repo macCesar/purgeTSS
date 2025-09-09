@@ -68,7 +68,7 @@
   },
   "homepage": "https://github.com/macCesar/purgeTSS#readme",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@fortawesome/fontawesome-free": "^7.0.1",
     "chalk": "^5.4.1",
     "chroma-js": "^3.1.2",
     "command-exists": "^1.2.9",

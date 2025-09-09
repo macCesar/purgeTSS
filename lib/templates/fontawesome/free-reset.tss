@@ -1,16 +1,16 @@
 // Font Families
-'.fa':{ font: { fontFamily: 'FontAwesome6Free-Solid' } }
-'.fas': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
-'.far': { font: { fontFamily: 'FontAwesome6Free-Regular' } }
+'.fa':{ font: { fontFamily: 'FontAwesome7Free-Solid' } }
+'.fas': { font: { fontFamily: 'FontAwesome7Free-Solid' } }
+'.far': { font: { fontFamily: 'FontAwesome7Free-Regular' } }
 '.fab': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
 
-'.fa-solid': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
-'.fa-regular': { font: { fontFamily: 'FontAwesome6Free-Regular' } }
+'.fa-solid': { font: { fontFamily: 'FontAwesome7Free-Solid' } }
+'.fa-regular': { font: { fontFamily: 'FontAwesome7Free-Regular' } }
 '.fa-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
 
-'.fontawesome': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
-'.fontawesome-solid': { font: { fontFamily: 'FontAwesome6Free-Solid' } }
-'.fontawesome-regular': { font: { fontFamily: 'FontAwesome6Free-Regular' } }
+'.fontawesome': { font: { fontFamily: 'FontAwesome7Free-Solid' } }
+'.fontawesome-solid': { font: { fontFamily: 'FontAwesome7Free-Solid' } }
+'.fontawesome-regular': { font: { fontFamily: 'FontAwesome7Free-Regular' } }
 '.fontawesome-brands': { font: { fontFamily: 'FontAwesome6Brands-Regular' } }
 
 // Font Sizes
