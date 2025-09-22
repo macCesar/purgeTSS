@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "sdkVersion": "12.7.1.GA",
+  "sdkVersion": "13.0.0.GA",
   "properties": {
     "ACCURACY_AUTHORIZATION_FULL": {
       "description": "The user authorized the app to access location data with full accuracy.",
@@ -3539,6 +3539,18 @@
       "readOnly": true,
       "values": []
     },
+    "GLASS_EFFECT_STYLE_CLEAR": {
+      "description": "Use with <a href=\"Titanium.UI.iOS.BlurView.glassEffect\">BlurView.glassEffect</a> to specify a clear glass effect style.",
+      "type": "Number",
+      "readOnly": false,
+      "values": []
+    },
+    "GLASS_EFFECT_STYLE_REGULAR": {
+      "description": "Use with <a href=\"Titanium.UI.iOS.BlurView.glassEffect\">BlurView.glassEffect</a> to specify a regular glass effect style.",
+      "type": "Number",
+      "readOnly": false,
+      "values": []
+    },
     "GRAVITY_AXIS_CLIP": {
       "description": "Raw bit controlling whether the right/bottom edge is clipped to its container, based on the gravity direction being applied.",
       "type": "Number",
@@ -6433,6 +6445,30 @@
     },
     "TABS_STYLE_DEFAULT": {
       "description": "The default TabGroup style that places the Tabs bellow the ActionBar and above the Window content.",
+      "type": "Number",
+      "readOnly": false,
+      "values": []
+    },
+    "TAB_GROUP_MINIMIZE_BEHAVIOR_AUTOMATIC": {
+      "description": "Automatically determine when the tab group minimizes.",
+      "type": "Number",
+      "readOnly": false,
+      "values": []
+    },
+    "TAB_GROUP_MINIMIZE_BEHAVIOR_NEVER": {
+      "description": "Do not minimize the tab group.",
+      "type": "Number",
+      "readOnly": false,
+      "values": []
+    },
+    "TAB_GROUP_MINIMIZE_BEHAVIOR_ON_SCROLL_DOWN": {
+      "description": "Minimize the tab group when scrolling down.",
+      "type": "Number",
+      "readOnly": false,
+      "values": []
+    },
+    "TAB_GROUP_MINIMIZE_BEHAVIOR_ON_SCROLL_UP": {
+      "description": "Minimize the tab group when scrolling up.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -9923,6 +9959,12 @@
       "readOnly": true,
       "values": []
     },
+    "bottomAccessoryView": {
+      "description": "View shown as a bottom accessory attached to the tab group.",
+      "type": "Titanium.UI.View",
+      "readOnly": true,
+      "values": []
+    },
     "bounce": {
       "description": "The animation bounce. If set, the animation uses the iOS 17+ spring animation.",
       "type": "Number",
@@ -10596,8 +10638,8 @@
       "values": []
     },
     "configuration": {
-      "description": "The configuration for the new web view.",
-      "type": "Titanium.UI.iOS.WebViewConfiguration",
+      "description": "",
+      "type": "Titanium.UI.iOS.ButtonConfiguration",
       "readOnly": true,
       "values": []
     },
@@ -11603,7 +11645,7 @@
       "values": []
     },
     "effect": {
-      "description": "The effect you provide for the view.",
+      "description": "The blur effect to apply to the effect view.",
       "type": "Number",
       "readOnly": true,
       "values": [
@@ -12468,6 +12510,12 @@
       "readOnly": true,
       "values": []
     },
+    "glassEffect": {
+      "description": "The glass effect configuration to apply to the effect view.",
+      "type": "GlassEffectConfiguration",
+      "readOnly": true,
+      "values": []
+    },
     "global": {
       "description": "Reference to the global object itself.",
       "type": "Global",
@@ -13228,6 +13276,18 @@
         "false"
       ]
     },
+    "imagePadding": {
+      "description": "The spacing between the image and title.",
+      "type": "Number",
+      "readOnly": true,
+      "values": []
+    },
+    "imagePlacement": {
+      "description": "The placement of the image relative to the title.",
+      "type": "String",
+      "readOnly": true,
+      "values": []
+    },
     "imageTouchFeedback": {
       "description": "Enables a ripple effect when the foreground image is touched.",
       "type": "Boolean",
@@ -13492,6 +13552,15 @@
       "type": "Array",
       "readOnly": true,
       "values": []
+    },
+    "interactive": {
+      "description": "Whether the glass effect responds to user interaction.",
+      "type": "Boolean",
+      "readOnly": true,
+      "values": [
+        "true",
+        "false"
+      ]
     },
     "interactiveDismissModeEnabled": {
       "description": "",
@@ -15035,6 +15104,17 @@
       "type": "Number",
       "readOnly": true,
       "values": []
+    },
+    "minimizeBehavior": {
+      "description": "Defines the minimize behavior for the tab group, if it is supported.",
+      "type": "Number",
+      "readOnly": true,
+      "values": [
+        "Ti.UI.iOS.TAB_GROUP_MINIMIZE_BEHAVIOR_AUTOMATIC",
+        "Ti.UI.iOS.TAB_GROUP_MINIMIZE_BEHAVIOR_NEVER",
+        "Ti.UI.iOS.TAB_GROUP_MINIMIZE_BEHAVIOR_ON_SCROLL_UP",
+        "Ti.UI.iOS.TAB_GROUP_MINIMIZE_BEHAVIOR_ON_SCROLL_DOWN"
+      ]
     },
     "minimum": {
       "description": "The minimum value the stepper will be set to, the value must be smaller than the maximum value.\nIf you attempt to set a value equal to or greater than maximum, the system will default the\nvalue to 0.",
@@ -18725,6 +18805,8 @@
         "Ti.UI.iOS.TableViewStyle.GROUPED",
         "Ti.UI.iOS.TableViewStyle.PLAIN",
         "Ti.UI.iOS.TableViewStyle.INSET_GROUPED",
+        "Ti.UI.iOS.GLASS_EFFECT_STYLE_REGULAR",
+        "Ti.UI.iOS.GLASS_EFFECT_STYLE_CLEAR",
         "Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_LIGHT",
         "Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_MEDIUM",
         "Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_HEAVY",
@@ -19015,7 +19097,7 @@
       ]
     },
     "tabBarVisible": {
-      "description": "Programmatically shows / hides the bottom tab bar of the tab group.",
+      "description": "Programmatically shows / hides the bottom tab group of the tab group.",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -19144,7 +19226,7 @@
       ]
     },
     "tabsTranslucent": {
-      "description": "A Boolean value that indicates whether the tab bar is translucent.",
+      "description": "A Boolean value that indicates whether the tab group is translucent.",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -19564,6 +19646,12 @@
     "titleOn": {
       "description": "Text to display on the switch in its &quot;on&quot; state, when the toggle button style is in use.",
       "type": "String",
+      "readOnly": true,
+      "values": []
+    },
+    "titlePadding": {
+      "description": "The spacing between the title and subtitle.",
+      "type": "Number",
       "readOnly": true,
       "values": []
     },
@@ -27034,6 +27122,7 @@
         "attributedString",
         "color",
         "disabledColor",
+        "configuration",
         "enabled",
         "font",
         "image",
@@ -30062,6 +30151,8 @@
         "activeTab",
         "allowUserCustomization",
         "autoTabTitle",
+        "bottomAccessoryView",
+        "minimizeBehavior",
         "enabled",
         "paddingLeft",
         "paddingRight",
@@ -32139,7 +32230,7 @@
       "events": []
     },
     "Ti.UI.iOS.BlurView": {
-      "description": "A <a href=\"Titanium.UI.iOS.BlurView\">Titanium.UI.iOS.BlurView</a> object gives you an easy way implement some complex visual effects.\nThe blur effect is applied to every view the blur view is added to by default. You can also place the\nblur view above other views and all visible views layered under the blur view are blurred as well.\nFor more information on BlurView, please refer to the official <a href=\"https://developer.apple.com/documentation/uikit/uivisualeffectview\">Apple documentation</a>.\nNote: Apple introduced two new constants <a href=\"Titanium.UI.iOS.BLUR_EFFECT_STYLE_REGULAR\">Titanium.UI.iOS.BLUR_EFFECT_STYLE_REGULAR</a> and <a href=\"Titanium.UI.iOS.BLUR_EFFECT_STYLE_PROMINENT\">Titanium.UI.iOS.BLUR_EFFECT_STYLE_PROMINENT</a> in\niOS 10. These are internally mapped to <a href=\"Titanium.UI.iOS.BLUR_EFFECT_STYLE_LIGHT\">Titanium.UI.iOS.BLUR_EFFECT_STYLE_LIGHT</a> and <a href=\"Titanium.UI.iOS.BLUR_EFFECT_STYLE_EXTRA_LIGHT\">Titanium.UI.iOS.BLUR_EFFECT_STYLE_EXTRA_LIGHT</a>.",
+      "description": "A <a href=\"Titanium.UI.iOS.BlurView\">Titanium.UI.iOS.BlurView</a> object gives you an easy way implement some complex visual effects.\nThe blur effect is applied to every view the blur view is added to by default. You can also place the\nblur view above other views and all visible views layered under the blur view are blurred as well.\nFor more information on BlurView, please refer to the official <a href=\"https://developer.apple.com/documentation/uikit/uivisualeffectview\">Apple documentation</a>.\nNote: In iOS 26, Apple introduced the <code>UIGlassEffectView</code>, an alternative to classic blur views. See the <a href=\"Titanium.UI.iOS.BlurView.glassEffect\">Titanium.UI.iOS.BlurView.glassEffect</a> property for more details.",
       "functions": [
         "addEventListener",
         "removeEventListener",
@@ -32205,7 +32296,8 @@
         "width",
         "horizontalWrap",
         "zIndex",
-        "effect"
+        "effect",
+        "glassEffect"
       ],
       "events": [
         "click",
@@ -32224,6 +32316,44 @@
         "touchstart",
         "twofingertap"
       ]
+    },
+    "GlassEffectConfiguration": {
+      "description": "Object of options for configuring the glass effect on a <a href=\"Titanium.UI.iOS.BlurView\">Titanium.UI.iOS.BlurView</a>.",
+      "functions": [],
+      "properties": [
+        "style",
+        "interactive",
+        "tintColor"
+      ],
+      "events": []
+    },
+    "Ti.UI.iOS.ButtonConfiguration": {
+      "description": "A configuration object for customizing the appearance and behavior of a button.",
+      "functions": [
+        "addEventListener",
+        "removeEventListener",
+        "fireEvent",
+        "applyProperties"
+      ],
+      "properties": [
+        "bubbleParent",
+        "apiName",
+        "style",
+        "title",
+        "subtitle",
+        "backgroundColor",
+        "color",
+        "image",
+        "padding",
+        "imagePlacement",
+        "imagePadding",
+        "titlePadding",
+        "font",
+        "textAlign",
+        "attributedString",
+        "backgroundSelectedColor"
+      ],
+      "events": []
     },
     "Ti.UI.iOS.CollisionBehavior": {
       "description": "Dynamic behavior to support collisions between items and boundaries.",
@@ -33188,6 +33318,7 @@
         "fireEvent",
         "applyProperties",
         "createLivePhotoBadge",
+        "createButtonConfiguration",
         "systemImage",
         "createAnchorAttachmentBehavior",
         "createAnimator",
@@ -33246,6 +33377,8 @@
         "BLUR_EFFECT_STYLE_SYSTEM_MATERIAL_DARK",
         "BLUR_EFFECT_STYLE_SYSTEM_THICK_MATERIAL_DARK",
         "BLUR_EFFECT_STYLE_SYSTEM_CHROME_MATERIAL_DARK",
+        "GLASS_EFFECT_STYLE_REGULAR",
+        "GLASS_EFFECT_STYLE_CLEAR",
         "CLIP_MODE_DEFAULT",
         "CLIP_MODE_DISABLED",
         "CLIP_MODE_ENABLED",
@@ -33348,7 +33481,11 @@
         "ACTION_POLICY_CANCEL",
         "ACTION_POLICY_ALLOW",
         "INJECTION_TIME_DOCUMENT_START",
-        "INJECTION_TIME_DOCUMENT_END"
+        "INJECTION_TIME_DOCUMENT_END",
+        "TAB_GROUP_MINIMIZE_BEHAVIOR_AUTOMATIC",
+        "TAB_GROUP_MINIMIZE_BEHAVIOR_NEVER",
+        "TAB_GROUP_MINIMIZE_BEHAVIOR_ON_SCROLL_UP",
+        "TAB_GROUP_MINIMIZE_BEHAVIOR_ON_SCROLL_DOWN"
       ],
       "events": []
     },

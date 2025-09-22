@@ -559,8 +559,14 @@ function getPropertiesFromTiCompletionsFile() {
   _.each(tiCompletionsFile.types, (value, key) => {
     _.each(value.properties, property => {
       if (validTypesOnly(property, key) && !properties.includes(property)) {
+        // Guard: some properties referenced in `types[].properties` may be missing
+        // from `tiCompletionsFile.properties`. Skip those to avoid setting
+        // propertiesOnly[property] to undefined.
+        const propDef = tiCompletionsFile.properties[property]
+        if (!propDef) return
+
         if (!propertiesOnly[property]) {
-          propertiesOnly[property] = tiCompletionsFile.properties[property]
+          propertiesOnly[property] = propDef
           propertiesOnly[property].modules = []
         }
         propertiesOnly[property].modules.push(key)

@@ -5217,7 +5217,7 @@
 
 // Property: bubbleParent
 // Description: Indicates if the proxy will bubble an event to its parent.
-// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewScrollPosition, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
+// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewScrollPosition, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.ButtonConfiguration, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
 '.bubble-parent': { bubbleParent: true }
 '.bubble-parent-false': { bubbleParent: false }
 
@@ -5234,7 +5234,7 @@
 '.accessibility-disable-long-press-false': { accessibilityDisableLongPress: false }
 
 // Property: backgroundColor
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.ButtonConfiguration, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
 '.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000000' }
 '.bg-white': { backgroundColor: '#ffffff' }
@@ -6024,7 +6024,7 @@
 '.bg-left-cap-3.5': { backgroundLeftCap: 14 }
 
 // Property: backgroundSelectedColor
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabbedBar, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.WebView, Ti.UI.Window
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabbedBar, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.ButtonConfiguration
 '.bg-selected-transparent': { backgroundSelectedColor: 'transparent' }
 '.bg-selected-black': { backgroundSelectedColor: '#000000' }
 '.bg-selected-white': { backgroundSelectedColor: '#ffffff' }
@@ -8019,7 +8019,7 @@
 '.value-attribute-letterpress-style': { value: Ti.UI.ATTRIBUTE_LETTERPRESS_STYLE }
 
 // Property: style
-// Component(s): NumberFormatOptions, Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Button, RowActionType, Ti.UI.ListView, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
+// Component(s): NumberFormatOptions, Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Button, RowActionType, Ti.UI.ListView, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, GlassEffectConfiguration, Ti.UI.iOS.ButtonConfiguration, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
 '.style-activity-indicator-big': { style: Ti.UI.ActivityIndicatorStyle.BIG }
 '.style-activity-indicator-dark': { style: Ti.UI.ActivityIndicatorStyle.DARK }
 '.style-activity-indicator-big-dark': { style: Ti.UI.ActivityIndicatorStyle.BIG_DARK }
@@ -8044,6 +8044,8 @@
 '.style-table-view-grouped[platform=ios]': { style: Ti.UI.iOS.TableViewStyle.GROUPED }
 '.style-table-view-plain[platform=ios]': { style: Ti.UI.iOS.TableViewStyle.PLAIN }
 '.style-table-view-inset-grouped[platform=ios]': { style: Ti.UI.iOS.TableViewStyle.INSET_GROUPED }
+'.style-glass-effect-regular[platform=ios]': { style: Ti.UI.iOS.GLASS_EFFECT_STYLE_REGULAR }
+'.style-glass-effect-clear[platform=ios]': { style: Ti.UI.iOS.GLASS_EFFECT_STYLE_CLEAR }
 '.style-feedback-generator-impact-light[platform=ios]': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_LIGHT }
 '.style-feedback-generator-impact-medium[platform=ios]': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_MEDIUM }
 '.style-feedback-generator-impact-heavy[platform=ios]': { style: Ti.UI.iOS.FEEDBACK_GENERATOR_IMPACT_STYLE_HEAVY }
@@ -8616,7 +8618,7 @@
 '.group-summary-false': { groupSummary: false }
 
 // Property: color
-// Component(s): Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, RowActionType, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, GradientColorRef, titleAttributesParams, shadowDict
+// Component(s): Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, RowActionType, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, GradientColorRef, titleAttributesParams, shadowDict, Ti.UI.iOS.ButtonConfiguration
 '.transparent': { color: 'transparent' }
 '.black': { color: '#000000' }
 '.white': { color: '#ffffff' }
@@ -11059,7 +11061,7 @@
 '.use-compat-padding-false': { useCompatPadding: false }
 
 // Property: padding
-// Component(s): Ti.UI.Android.CardView, Ti.UI.ScrollableView, Ti.UI.TextArea, Ti.UI.TextField
+// Component(s): Ti.UI.Android.CardView, Ti.UI.ScrollableView, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.iOS.ButtonConfiguration
 '.padding-0': { padding: 0 }
 '.padding-1': { padding: 4 }
 '.padding-2': { padding: 8 }
@@ -13807,7 +13809,7 @@
 '.system-button-trash[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.TRASH }
 
 // Property: textAlign
-// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Picker, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
+// Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Picker, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.iOS.ButtonConfiguration
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
 '.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
 '.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
@@ -23032,6 +23034,14 @@
 '.auto-tab-title': { autoTabTitle: true }
 '.auto-tab-title-false': { autoTabTitle: false }
 
+// Property: minimizeBehavior
+// Description: Defines the minimize behavior for the tab group, if it is supported.
+// Component(s): Ti.UI.TabGroup
+'.minimize-behavior-tab-group-automatic[platform=ios]': { minimizeBehavior: Ti.UI.iOS.TAB_GROUP_MINIMIZE_BEHAVIOR_AUTOMATIC }
+'.minimize-behavior-tab-group-never[platform=ios]': { minimizeBehavior: Ti.UI.iOS.TAB_GROUP_MINIMIZE_BEHAVIOR_NEVER }
+'.minimize-behavior-tab-group-on-scroll-up[platform=ios]': { minimizeBehavior: Ti.UI.iOS.TAB_GROUP_MINIMIZE_BEHAVIOR_ON_SCROLL_UP }
+'.minimize-behavior-tab-group-on-scroll-down[platform=ios]': { minimizeBehavior: Ti.UI.iOS.TAB_GROUP_MINIMIZE_BEHAVIOR_ON_SCROLL_DOWN }
+
 // Property: swipeable
 // Description: Boolean value indicating if tab navigation can be done by swipes, in addition to tab clicks.
 // Component(s): Ti.UI.TabGroup
@@ -23307,7 +23317,7 @@
 '.tab-mode-scrollable[platform=android]': { tabMode: Ti.UI.Android.TAB_MODE_SCROLLABLE }
 
 // Property: tabsTranslucent
-// Description: A Boolean value that indicates whether the tab bar is translucent.
+// Description: A Boolean value that indicates whether the tab group is translucent.
 // Component(s): Ti.UI.TabGroup
 '.tabs-translucent': { tabsTranslucent: true }
 '.tabs-translucent-false': { tabsTranslucent: false }
@@ -23562,7 +23572,7 @@
 '.tabs-bg-selected-rose-950': { tabsBackgroundSelectedColor: '#4c0519' }
 
 // Property: tabBarVisible
-// Description: Programmatically shows / hides the bottom tab bar of the tab group.
+// Description: Programmatically shows / hides the bottom tab group of the tab group.
 // Component(s): Ti.UI.TabGroup
 '.tab-bar-visible': { tabBarVisible: true }
 '.tab-bar-visible-false': { tabBarVisible: false }
@@ -25039,7 +25049,7 @@
 '.running-false': { running: false }
 
 // Property: effect
-// Description: The effect you provide for the view.
+// Description: The blur effect to apply to the effect view.
 // Component(s): Ti.UI.iOS.BlurView
 '.effect-blur-style-extra-light[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_EXTRA_LIGHT }
 '.effect-blur-style-light[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_LIGHT }
@@ -25061,6 +25071,90 @@
 '.effect-blur-style-system-material-dark[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_MATERIAL_DARK }
 '.effect-blur-style-system-thick-material-dark[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_THICK_MATERIAL_DARK }
 '.effect-blur-style-system-chrome-material-dark[platform=ios]': { effect: Ti.UI.iOS.BLUR_EFFECT_STYLE_SYSTEM_CHROME_MATERIAL_DARK }
+
+// Property: interactive
+// Description: Whether the glass effect responds to user interaction.
+// Component(s): GlassEffectConfiguration
+'.interactive': { interactive: true }
+'.interactive-false': { interactive: false }
+
+// Property: imagePadding
+// Description: The spacing between the image and title.
+// Component(s): Ti.UI.iOS.ButtonConfiguration
+'.image-padding-0': { imagePadding: 0 }
+'.image-padding-1': { imagePadding: 4 }
+'.image-padding-2': { imagePadding: 8 }
+'.image-padding-3': { imagePadding: 12 }
+'.image-padding-4': { imagePadding: 16 }
+'.image-padding-5': { imagePadding: 20 }
+'.image-padding-6': { imagePadding: 24 }
+'.image-padding-7': { imagePadding: 28 }
+'.image-padding-8': { imagePadding: 32 }
+'.image-padding-9': { imagePadding: 36 }
+'.image-padding-10': { imagePadding: 40 }
+'.image-padding-11': { imagePadding: 44 }
+'.image-padding-12': { imagePadding: 48 }
+'.image-padding-14': { imagePadding: 56 }
+'.image-padding-16': { imagePadding: 64 }
+'.image-padding-20': { imagePadding: 80 }
+'.image-padding-24': { imagePadding: 96 }
+'.image-padding-28': { imagePadding: 112 }
+'.image-padding-32': { imagePadding: 128 }
+'.image-padding-36': { imagePadding: 144 }
+'.image-padding-40': { imagePadding: 160 }
+'.image-padding-44': { imagePadding: 176 }
+'.image-padding-48': { imagePadding: 192 }
+'.image-padding-52': { imagePadding: 208 }
+'.image-padding-56': { imagePadding: 224 }
+'.image-padding-60': { imagePadding: 240 }
+'.image-padding-64': { imagePadding: 256 }
+'.image-padding-72': { imagePadding: 288 }
+'.image-padding-80': { imagePadding: 320 }
+'.image-padding-96': { imagePadding: 384 }
+'.image-padding-px': { imagePadding: '1px' }
+'.image-padding-0.5': { imagePadding: 2 }
+'.image-padding-1.5': { imagePadding: 6 }
+'.image-padding-2.5': { imagePadding: 10 }
+'.image-padding-3.5': { imagePadding: 14 }
+
+// Property: titlePadding
+// Description: The spacing between the title and subtitle.
+// Component(s): Ti.UI.iOS.ButtonConfiguration
+'.title-padding-0': { titlePadding: 0 }
+'.title-padding-1': { titlePadding: 4 }
+'.title-padding-2': { titlePadding: 8 }
+'.title-padding-3': { titlePadding: 12 }
+'.title-padding-4': { titlePadding: 16 }
+'.title-padding-5': { titlePadding: 20 }
+'.title-padding-6': { titlePadding: 24 }
+'.title-padding-7': { titlePadding: 28 }
+'.title-padding-8': { titlePadding: 32 }
+'.title-padding-9': { titlePadding: 36 }
+'.title-padding-10': { titlePadding: 40 }
+'.title-padding-11': { titlePadding: 44 }
+'.title-padding-12': { titlePadding: 48 }
+'.title-padding-14': { titlePadding: 56 }
+'.title-padding-16': { titlePadding: 64 }
+'.title-padding-20': { titlePadding: 80 }
+'.title-padding-24': { titlePadding: 96 }
+'.title-padding-28': { titlePadding: 112 }
+'.title-padding-32': { titlePadding: 128 }
+'.title-padding-36': { titlePadding: 144 }
+'.title-padding-40': { titlePadding: 160 }
+'.title-padding-44': { titlePadding: 176 }
+'.title-padding-48': { titlePadding: 192 }
+'.title-padding-52': { titlePadding: 208 }
+'.title-padding-56': { titlePadding: 224 }
+'.title-padding-60': { titlePadding: 240 }
+'.title-padding-64': { titlePadding: 256 }
+'.title-padding-72': { titlePadding: 288 }
+'.title-padding-80': { titlePadding: 320 }
+'.title-padding-96': { titlePadding: 384 }
+'.title-padding-px': { titlePadding: '1px' }
+'.title-padding-0.5': { titlePadding: 2 }
+'.title-padding-1.5': { titlePadding: 6 }
+'.title-padding-2.5': { titlePadding: 10 }
+'.title-padding-3.5': { titlePadding: 14 }
 
 // Property: collisionMode
 // Description: Specifies the collision behavior.
