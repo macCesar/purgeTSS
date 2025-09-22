@@ -13,6 +13,7 @@
 
 import path from 'path'
 import fs from 'fs'
+import { fileURLToPath } from 'url'
 
 // Get current working directory
 export const cwd = process.cwd()
@@ -46,7 +47,7 @@ export const projectsFA_TSS_File = `${cwd}/purgetss/styles/fontawesome.tss`
 // ============================================================================
 
 // Get project root (one level up from src/)
-export const projectRoot = path.resolve(import.meta.url.replace('file://', '').replace('/src/shared/constants.js', ''))
+export const projectRoot = path.resolve(fileURLToPath(import.meta.url), '../../..')
 
 // JavaScript Icon Modules (generated)
 export const srcLibFA = path.resolve(projectRoot, './dist/fontawesome.js')
