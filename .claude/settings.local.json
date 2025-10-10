@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(node:*)",
-      "Bash(npm run test:unit:*)"
+      "Bash(npm run test:unit:*)",
+      "Read(//Users/cesar/Library/Application Support/Herd/**)",
+      "Read(//Users/cesar/Library/**)",
+      "Read(//Applications/**)",
+      "Read(//usr/local/bin/**)",
+      "Bash(herd:*)",
+      "Bash(echo $PATH)",
+      "Bash(printenv:*)",
+      "Read(//Users/cesar/**)",
+      "Bash(brew list:*)",
+      "Bash(/opt/homebrew/bin/brew list)",
+      "Read(//opt/homebrew/bin/**)"
     ],
     "deny": [],
     "ask": []
