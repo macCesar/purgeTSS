@@ -1,4 +1,4 @@
-// Font Families Pro 6
+// Font Families Pro 7
 '.fa':{ font: { fontFamily: 'FontAwesome6Pro-Solid' } }
 '.fat': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
 '.fas': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }

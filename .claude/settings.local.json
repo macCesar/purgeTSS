@@ -13,7 +13,15 @@
       "Read(//Users/cesar/**)",
       "Bash(brew list:*)",
       "Bash(/opt/homebrew/bin/brew list)",
-      "Read(//opt/homebrew/bin/**)"
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(cat:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:fontawesome.com)",
+      "Bash(npm run build:fa:*)",
+      "Bash(npm view:*)",
+      "Bash(npm info:*)",
+      "Read(//private/tmp/fa-test/**)"
     ],
     "deny": [],
     "ask": []
