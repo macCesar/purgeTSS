@@ -88,7 +88,7 @@ function createProject(workspace, argsName, projectID, options) {
     execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.eslintrc.js ${projectDirectory}`)
 
     logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
-    execSync(`cd ${projectDirectory} && npm i -D tailwindcss@3 --silent && npx tailwindcss init --silent`)
+    execSync(`cd ${projectDirectory} && npm i -D tailwindcss@3 --silent && npx tailwindcss init`)
   }
 
   finish(`The ${chalk.yellow(`'${argsName}'`)} project was created successfully in`)
