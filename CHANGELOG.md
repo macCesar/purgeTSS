@@ -7,6 +7,72 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Security
+- Fixed 2 security vulnerabilities in dependencies
+  - `glob` (via tailwindcss/sucrase): 10.2.0-10.4.5 → 10.5.0 (HIGH - command injection)
+  - `js-yaml` (via eslint): 4.0.0-4.1.0 → 4.1.1 (MODERATE - prototype pollution)
+
+### Changed
+- Updated `glob` from v9 to v13 with ESM compatibility fixes
+  - Changed imports from `import glob from 'glob'` to `import { globSync } from 'glob'`
+  - Updated all `glob.sync()` calls to `globSync()`
+- Updated `inquirer` from v12.6.3 to v13.0.1
+  - Node.js 20+ now required
+  - ESM-only (CommonJS no longer supported)
+  - Compatible with existing code
+
+### Removed
+- Removed unused dependency `uuid` (not used in codebase)
+- Removed unused dependency `prompts` (replaced by `inquirer`)
+- Removed unused devDependency `css-tree` (replaced by `css` package)
+
+### Fixed
+- Fixed ESM import syntax for `glob` package in `src/cli/commands/purge.js`
+
+### Technical Details
+- Package count reduced from 424 to 420 packages
+- All tests passing (10/10 unit tests)
+- CLI verified working with updated dependencies
+
+## [7.2.6] - 2025-11-20
+
+### Changed
+- Updated Font Awesome to version 7.1.0
+
+### Added
+- Added AGENTS.md file for agent documentation
+
+### Fixed
+- Removed silent flag from tailwind init command
+- Simplified and renamed flag properties in tailwind.tss for consistency
+- Fixed flag property name replacement in `removeUneededVariablesFromPropertyName` function
+
+## [7.2.2] - 2025-09-22
+
+### Added
+- Added clean-md script for processing markdown files
+
+### Fixed
+- Updated projectRoot path resolution to use fileURLToPath for ESM compatibility
+- Fixed handling of missing properties in tiCompletionsFile
+- Updated sdkVersion to 13.0.0.GA
+
+## [7.2.1] - 2025-09-09
+
+### Changed
+- Updated Font Awesome and PurgeTSS versions
+- Bumped version in purgetss.ui.js
+
+### Removed
+- Removed legacy .eslintrc.cjs (migrated to eslint.config.js)
+
+## [7.2.0] - 2025-09-09
+
+### Changed
+- **MAJOR REFACTOR**: Restructured entire codebase for improved readability and maintainability
+- Merged FontAwesome 7 support branch into main
+- Migrated ESLint configuration from .eslintrc.cjs to modern flat config (eslint.config.js)
+
 ### Added
 - FontAwesome 7 support for CSS custom properties format
 - Shared `extractUnicodeValue()` helper function in `src/shared/utils.js`
@@ -34,27 +100,42 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced CSS parsing to detect CSS custom properties (`--fa:`) alongside traditional `content:` properties
 - Improved Unicode extraction with better error handling and format support
 
-## [7.1.10] - 2025-01-XX
+## [7.1.10] - 2025-08-17
 
 ### Fixed
-- Update tailwindCSS experimental config file path from config.js to config.cjs
+- Updated tailwindCSS experimental config file path from config.js to config.cjs
 
-## [7.1.9] - Previous Release
+## [7.1.9] - 2025-06-23
 
 ### Added
 - Enhanced playView and applyView functions to support index and total parameters
 - Enhanced formatArbitraryValues to handle multiple rounded corner values
+- Added changeToDash parameter to setModifier2 and customRules functions
 
 ### Changed
 - Version update to 7.1.9
 
 ---
 
-## Migration Guide for FontAwesome 7
+## Migration Guides
 
-If you're upgrading from FontAwesome 6 to FontAwesome 7:
+### Migrating to v7.2.7 (Unreleased)
 
-1. **No action required** - PurgeTSS now automatically detects and handles both formats
+If you're upgrading from v7.2.6 or earlier:
+
+1. **Node.js version**: Ensure you're using Node.js 20+ (required by inquirer v13)
+2. **Clean reinstall recommended**: For best results, reinstall PurgeTSS:
+   ```bash
+   npm uninstall -g purgetss
+   npm install -g purgetss
+   ```
+3. **Security fixes**: This version includes important security patches for transitive dependencies
+
+### Migrating to v7.2.0+ (FontAwesome 7)
+
+If you're upgrading from v7.1.x to v7.2.0+:
+
+1. **No action required** - PurgeTSS now automatically detects and handles both FontAwesome 6 and 7 formats
 2. **FontAwesome 7 features**:
    - CSS custom properties (`--fa:`) are fully supported
    - Short Unicode values (numbers, symbols) work correctly
