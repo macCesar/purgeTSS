@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "sdkVersion": "13.0.0.GA",
+  "sdkVersion": "13.1.0.GA",
   "properties": {
     "ACCURACY_AUTHORIZATION_FULL": {
       "description": "The user authorized the app to access location data with full accuracy.",
@@ -111,7 +111,7 @@
       "values": []
     },
     "ACTION_BATTERY_OKAY": {
-      "description": "Inidicates the battery is now okay after being low.",
+      "description": "Indicates the battery is now okay after being low.",
       "type": "String",
       "readOnly": false,
       "values": []
@@ -1257,7 +1257,7 @@
       "values": []
     },
     "AUDIO_SESSION_PORT_BLUETOOTHLE": {
-      "description": "Constant for output on a Bluetooth Low Energy device. This is an output port. This is available on iOS7 and later.",
+      "description": "Constant for output on a Bluetooth Low Energy device. This is an output port. This is available on iOS 7 and later.",
       "type": "String",
       "readOnly": false,
       "values": []
@@ -1281,7 +1281,7 @@
       "values": []
     },
     "AUDIO_SESSION_PORT_CARAUDIO": {
-      "description": "Constant for Input or output via Car Audio. This can be both an input and output port. This is available on iOS7 and later.",
+      "description": "Constant for Input or output via Car Audio. This can be both an input and output port. This is available on iOS 7 and later.",
       "type": "String",
       "readOnly": false,
       "values": []
@@ -2199,25 +2199,25 @@
       "values": []
     },
     "CAMERA_AUTHORIZATION_AUTHORIZED": {
-      "description": "Constant specifying that app is authorized to use camera. This is available on iOS7 and later.",
+      "description": "Constant specifying that app is authorized to use camera. This is available on iOS 7 and later.",
       "type": "Number",
       "readOnly": false,
       "values": []
     },
     "CAMERA_AUTHORIZATION_DENIED": {
-      "description": "Constant specifying that app is denied usage of camera. This is available on iOS7 and later.",
+      "description": "Constant specifying that app is denied usage of camera. This is available on iOS 7 and later.",
       "type": "Number",
       "readOnly": false,
       "values": []
     },
     "CAMERA_AUTHORIZATION_RESTRICTED": {
-      "description": "Constant specifying that app is restricted from using camera. This is available on iOS7 and later.",
+      "description": "Constant specifying that app is restricted from using camera. This is available on iOS 7 and later.",
       "type": "Number",
       "readOnly": false,
       "values": []
     },
     "CAMERA_AUTHORIZATION_UNKNOWN": {
-      "description": "Constant specifying that app is not yet authorized to use camera. This is available on iOS7 and later.",
+      "description": "Constant specifying that app is not yet authorized to use camera. This is available on iOS 7 and later.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -4722,7 +4722,7 @@
       "values": []
     },
     "NOTIFICATION_TYPE_NEWSSTAND": {
-      "description": "Constant value for a Newsstand style push notification. Only available on iOS5 and later",
+      "description": "Constant value for a Newsstand style push notification. Only available on iOS 5 and later",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -4860,7 +4860,7 @@
       "values": []
     },
     "O_NONBLOCK": {
-      "description": "Flag indicating to open the file in nonblocking mode when possible.",
+      "description": "Flag indicating to open the file in non-blocking mode when possible.",
       "type": "Number",
       "readOnly": true,
       "values": []
@@ -5376,25 +5376,25 @@
       "values": []
     },
     "RECURRENCEFREQUENCY_DAILY": {
-      "description": "Indicates a daily recurrence rule for a events reccurance frequency.",
+      "description": "Indicates a daily recurrence rule for a events recurrence frequency.",
       "type": "Number",
       "readOnly": false,
       "values": []
     },
     "RECURRENCEFREQUENCY_MONTHLY": {
-      "description": "Indicates a monthly recurrence rule for a events reccurance frequency.",
+      "description": "Indicates a monthly recurrence rule for a events recurrence frequency.",
       "type": "Number",
       "readOnly": false,
       "values": []
     },
     "RECURRENCEFREQUENCY_WEEKLY": {
-      "description": "Indicates a weekly recurrence rule for a events reccurance frequency.",
+      "description": "Indicates a weekly recurrence rule for a events recurrence frequency.",
       "type": "Number",
       "readOnly": false,
       "values": []
     },
     "RECURRENCEFREQUENCY_YEARLY": {
-      "description": "Indicates a yearly recurrence rule for a events reccurance frequency.",
+      "description": "Indicates a yearly recurrence rule for a events recurrence frequency.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -5683,6 +5683,24 @@
     },
     "SCROLL_FLAG_SNAP_MARGINS": {
       "description": "An additional flag to be used with 'snap'. If set, the view will be snapped to its top and bottom margins, as opposed to the edges of the view itself.",
+      "type": "Number",
+      "readOnly": false,
+      "values": []
+    },
+    "SCROLL_VIEW_EDGE_EFFECT_STYLE_AUTOMATIC": {
+      "description": "Use with <a href=\"Titanium.UI.ScrollView.edgeEffect\">Titanium.UI.ScrollView.edgeEffect</a> to apply the system default edge effect style.",
+      "type": "Number",
+      "readOnly": false,
+      "values": []
+    },
+    "SCROLL_VIEW_EDGE_EFFECT_STYLE_HARD": {
+      "description": "Use with <a href=\"Titanium.UI.ScrollView.edgeEffect\">Titanium.UI.ScrollView.edgeEffect</a> to apply a scroll edge effect with a hard cutoff and dividing line.",
+      "type": "Number",
+      "readOnly": false,
+      "values": []
+    },
+    "SCROLL_VIEW_EDGE_EFFECT_STYLE_SOFT": {
+      "description": "Use with <a href=\"Titanium.UI.ScrollView.edgeEffect\">Titanium.UI.ScrollView.edgeEffect</a> to apply a soft-edged scroll edge effect.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -6534,7 +6552,7 @@
       "values": []
     },
     "TEXT_ELLIPSIZE_TRUNCATE_CHAR_WRAP": {
-      "description": "Add ellipses before the first character that doesnt fit.",
+      "description": "Add ellipses before the first character that doesn't fit.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -6684,7 +6702,7 @@
       "values": []
     },
     "TILE_STATE_UNAVAILABLE": {
-      "description": "QuickSettings tile is unavailble.",
+      "description": "QuickSettings tile is unavailable.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -6918,7 +6936,7 @@
       "values": []
     },
     "UPSIDE_PORTRAIT": {
-      "description": "Orientation constant for inverted portait orientation.",
+      "description": "Orientation constant for inverted portrait orientation.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -6936,7 +6954,7 @@
       "values": []
     },
     "URL_ERROR_BAD_URL": {
-      "description": "Bad url error code reported via <a href=\"Titanium.UI.WebView.error\">Titanium.UI.WebView.error</a>.",
+      "description": "Bad URL error code reported via <a href=\"Titanium.UI.WebView.error\">Titanium.UI.WebView.error</a>.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -6990,7 +7008,7 @@
       "values": []
     },
     "URL_ERROR_UNSUPPORTED_SCHEME": {
-      "description": "Error code reported via <a href=\"Titanium.UI.WebView.error\">Titanium.UI.WebView.error</a> when a url contains an unsupported scheme.",
+      "description": "Error code reported via <a href=\"Titanium.UI.WebView.error\">Titanium.UI.WebView.error</a> when a URL contains an unsupported scheme.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -7170,13 +7188,13 @@
       "values": []
     },
     "UTTYPE_APPLE_ICNS": {
-      "description": "Uniform type identifier for Mac OS icon images.",
+      "description": "Uniform type identifier for macOS icon images.",
       "type": "String",
       "readOnly": false,
       "values": []
     },
     "UTTYPE_APPLE_PROTECTED_MPEG4_AUDIO": {
-      "description": "Uniform type identifier for protected MPEG-4 audio (iTunes music store format).",
+      "description": "Uniform type identifier for Apple-protected MPEG-4 audio.",
       "type": "String",
       "readOnly": false,
       "values": []
@@ -7560,7 +7578,7 @@
       "values": []
     },
     "VIDEO_REPEAT_MODE_ONE": {
-      "description": "Constant for repeating one video (i.e., the one video will repeat constantly) during playback.",
+      "description": "Constant for repeating one video (e.g., the one video will repeat constantly) during playback.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -7662,7 +7680,7 @@
       "values": []
     },
     "VISIBILITY_SECRET": {
-      "description": "Shows the most minimal information of the notification on the lockscreen.",
+      "description": "Shows the most minimal information of the notification on the lock screen.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -8484,7 +8502,7 @@
       ]
     },
     "allowsBackForwardNavigationGestures": {
-      "description": "A Boolean value indicating whether horizontal swipe gestures will trigger back-forward list navigations.",
+      "description": "A Boolean value indicating whether horizontal swipe gestures will trigger back-forward list navigation.",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -9722,7 +9740,7 @@
       "values": []
     },
     "base": {
-      "description": "file basename, i.e. <code>'file.txt'</code>",
+      "description": "file basename, e.g. <code>'file.txt'</code>",
       "type": "String",
       "readOnly": true,
       "values": []
@@ -9766,7 +9784,7 @@
       "values": []
     },
     "beatsPerMinute": {
-      "description": "The number of musical beats per minute for the media item, corresponding\nto the &quot;BPM&quot; field in the Info tab in the &quot;Get Info&quot; dialog in iTunes.",
+      "description": "The number of musical beats per minute for the media item.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -9856,7 +9874,7 @@
       "values": []
     },
     "blacklistedURLs": {
-      "description": "An array of url strings to blacklist.\n<strong>Deprecated since 9.2.0. Use the <a href=\"Titanium.UI.WebView.blockedURLs\">Titanium.UI.WebView.blockedURLs</a> property instead.</strong>",
+      "description": "An array of URL strings to blacklist.\n<strong>Deprecated since 9.2.0. Use the <a href=\"Titanium.UI.WebView.blockedURLs\">Titanium.UI.WebView.blockedURLs</a> property instead.</strong>",
       "type": "Array",
       "readOnly": true,
       "values": []
@@ -9868,7 +9886,7 @@
       "values": []
     },
     "blockedURLs": {
-      "description": "An array of url strings to be blocked.",
+      "description": "An array of URL strings to be blocked.",
       "type": "Array",
       "readOnly": true,
       "values": []
@@ -10174,7 +10192,7 @@
       ]
     },
     "cameraOutputSizes": {
-      "description": "Returns an object of possible <code>targetImageWidth</code> and <code>targetImageHeight</code> values. The output\ncontains a <code>cameraType</code> (front or back) and object of width/height values. You have to set\n<code>targetImageWidth</code> and <code>targetImageHeight</code> if you want to change the camera image output size.\nNote: depeneding on your phone and camera the values won't be used or can be different.",
+      "description": "Returns an object of possible <code>targetImageWidth</code> and <code>targetImageHeight</code> values. The output\ncontains a <code>cameraType</code> (front or back) and object of width/height values. You have to set\n<code>targetImageWidth</code> and <code>targetImageHeight</code> if you want to change the camera image output size.\nNote: depending on your phone and camera the values won't be used or can be different.",
       "type": "Object",
       "readOnly": false,
       "values": []
@@ -10316,7 +10334,7 @@
       ]
     },
     "categories": {
-      "description": "Set of categories of user notification actions required by the applicaiton to use.",
+      "description": "Set of categories of user notification actions required by the application to use.",
       "type": "Array",
       "readOnly": true,
       "values": []
@@ -10591,7 +10609,7 @@
       "values": []
     },
     "comments": {
-      "description": "Textual information about the media item, corresponding to the &quot;Comments&quot;\nfield in in the Info tab in the Get Info dialog in iTunes.",
+      "description": "Textual information about the media item.",
       "type": "String",
       "readOnly": false,
       "values": []
@@ -10639,7 +10657,7 @@
     },
     "configuration": {
       "description": "",
-      "type": "Titanium.UI.iOS.ButtonConfiguration",
+      "type": "Object",
       "readOnly": true,
       "values": []
     },
@@ -10968,7 +10986,7 @@
       "values": []
     },
     "currentCountry": {
-      "description": "Country of the current system locale, as an ISO 2-letter code.",
+      "description": "Country of the app's current locale, as an ISO 2-letter code.",
       "type": "String",
       "readOnly": false,
       "values": []
@@ -10980,13 +10998,13 @@
       "values": []
     },
     "currentLanguage": {
-      "description": "Language of the current system locale, as an ISO 2-letter code.",
+      "description": "Language of the app's current locale, as an ISO 2-letter code.",
       "type": "String",
       "readOnly": false,
       "values": []
     },
     "currentLocale": {
-      "description": "Current system locale, as a combination of ISO 2-letter language and country codes.",
+      "description": "Current app locale, as a combination of ISO 2-letter language and country codes.",
       "type": "String",
       "readOnly": false,
       "values": []
@@ -11608,6 +11626,12 @@
         "Ti.UI.NOTIFICATION_DURATION_SHORT"
       ]
     },
+    "edgeEffect": {
+      "description": "Configures the edge effects displayed when the scroll view hits its bounds.",
+      "type": "Object",
+      "readOnly": true,
+      "values": []
+    },
     "editActions": {
       "description": "Specifies custom action items to be shown when when a list item is edited.",
       "type": "Array",
@@ -11750,7 +11774,7 @@
       ]
     },
     "enableJavascriptInterface": {
-      "description": "Enable adding javascript interfaces internally to webview prior to JELLY_BEAN_MR1 (Android 4.2)",
+      "description": "Enable adding JavaScript interfaces internally to webview prior to JELLY_BEAN_MR1 (Android 4.2)",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -11861,7 +11885,7 @@
       "values": []
     },
     "env": {
-      "description": "This is an object whose keys are environment variable names and whose values are the related environmnet variable values.\nIn Titanium, we will pass along environment variables from the system/CLI to the app for <code>'development'</code> builds,\n<em>but will not do so for <code>'production'</code> builds!</em>",
+      "description": "This is an object whose keys are environment variable names and whose values are the related environment variable values.\nIn Titanium, we will pass along environment variables from the system/CLI to the app for <code>'development'</code> builds,\n<em>but will not do so for <code>'production'</code> builds!</em>",
       "type": "Object",
       "readOnly": true,
       "values": []
@@ -11969,7 +11993,7 @@
       "values": []
     },
     "ext": {
-      "description": "file extension, i.e. <code>'.txt'</code>. Ignored if <code>pathObject.base</code> exists",
+      "description": "file extension, e.g. <code>'.txt'</code>. Ignored if <code>pathObject.base</code> exists",
       "type": "String",
       "readOnly": true,
       "values": []
@@ -12333,6 +12357,15 @@
         "false"
       ]
     },
+    "forceBottomPosition": {
+      "description": "Force tab bar to bottom position.",
+      "type": "Boolean",
+      "readOnly": true,
+      "values": [
+        "true",
+        "false"
+      ]
+    },
     "forceModal": {
       "description": "Indicates whether the window enforces modal behaviour.",
       "type": "Boolean",
@@ -12614,7 +12647,7 @@
       ]
     },
     "handlePlatformUrl": {
-      "description": "Lets the webview handle platform supported urls <strong>Deprecated since 8.0.0. This property in no more supported in Titanium SDK 8.0.0+. Use property <a href=\"Titanium.UI.WebView.allowedURLSchemes\">Titanium.UI.WebView.allowedURLSchemes</a>\nin conjuction with <a href=\"Titanium.UI.WebView.handleurl\">Titanium.UI.WebView.handleurl</a>. See the example section\n&quot;Usage of allowedURLSchemes and handleurl in iOS&quot;.</strong>",
+      "description": "Lets the webview handle platform supported urls <strong>Deprecated since 8.0.0. This property in no more supported in Titanium SDK 8.0.0+. Use property <a href=\"Titanium.UI.WebView.allowedURLSchemes\">Titanium.UI.WebView.allowedURLSchemes</a>\nin conjunction with <a href=\"Titanium.UI.WebView.handleurl\">Titanium.UI.WebView.handleurl</a>. See the example section\n&quot;Usage of allowedURLSchemes and handleurl in iOS&quot;.</strong>",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -14380,7 +14413,7 @@
       ]
     },
     "lineCount": {
-      "description": "Returns the amount of lines the content is acually using. Is equal or lower than <code>maxLines</code>.",
+      "description": "Returns the amount of lines the content is actually using. Is equal or lower than <code>maxLines</code>.",
       "type": "Number",
       "readOnly": false,
       "values": []
@@ -14523,7 +14556,7 @@
       ]
     },
     "lockscreenVisibility": {
-      "description": "Whether or not notifications posted to this channel are shown on the lockscreen in full or redacted form.",
+      "description": "Whether or not notifications posted to this channel are shown on the lock screen in full or redacted form.",
       "type": "Number",
       "readOnly": true,
       "values": [
@@ -15308,6 +15341,15 @@
       "readOnly": true,
       "values": []
     },
+    "multipleWindows": {
+      "description": "If set to <code>false</code> it will prevent the WebView from opening new windows/tabs.",
+      "type": "Boolean",
+      "readOnly": true,
+      "values": [
+        "true",
+        "false"
+      ]
+    },
     "multiply": {
       "description": "The value by which each line height other than the last line will be multiplied by",
       "type": "Number",
@@ -15360,7 +15402,7 @@
       "values": []
     },
     "nativeSpinner": {
-      "description": "Determines if a multicolumn spinner or single column drop-down picker should be used.",
+      "description": "Determines if a multi-column spinner or single column drop-down picker should be used.",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -15373,6 +15415,37 @@
       "type": "MovieSize",
       "readOnly": true,
       "values": []
+    },
+    "navBarColor": {
+      "description": "The color of the navigation bar (bottom bar) for this window.",
+      "type": "Number",
+      "readOnly": true,
+      "values": [
+        "'transparent'",
+        "'aqua'",
+        "'black'",
+        "'blue'",
+        "'brown'",
+        "'cyan'",
+        "'darkgray'",
+        "'fuchsia'",
+        "'gray'",
+        "'green'",
+        "'lightgray'",
+        "'lime'",
+        "'magenta'",
+        "'maroon'",
+        "'navy'",
+        "'olive'",
+        "'orange'",
+        "'pink'",
+        "'purple'",
+        "'red'",
+        "'silver'",
+        "'teal'",
+        "'white'",
+        "'yellow'"
+      ]
     },
     "navBarHidden": {
       "description": "",
@@ -15464,7 +15537,7 @@
       "values": []
     },
     "needsSave": {
-      "description": "Set to true everytime you have updated the user activity and need the changes to be saved before handing it off to another device.",
+      "description": "Set to true every time you have updated the user activity and need the changes to be saved before handing it off to another device.",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -15578,7 +15651,7 @@
       "values": []
     },
     "notificationCenterSetting": {
-      "description": "The current notication-center settings.",
+      "description": "The current notification-center settings.",
       "type": "Number",
       "readOnly": true,
       "values": [
@@ -15930,13 +16003,13 @@
       "values": []
     },
     "originalUrl": {
-      "description": "The origual url attribute of the cookie.",
+      "description": "The original URL attribute of the cookie.",
       "type": "String",
       "readOnly": true,
       "values": []
     },
     "osname": {
-      "description": "Short name of the system's Operating System. Returns <code>android</code> for the Android platfrom,\n<code>iphone</code> for the iPhone or iPod Touch, <code>ipad</code> for the iPad, <code>windowsphone</code> for Windows Phone, and <code>windowsstore</code> for Windows Store\nplatform.",
+      "description": "Short name of the system's Operating System. Returns <code>android</code> for the Android platform,\n<code>iphone</code> for the iPhone or iPod Touch, <code>ipad</code> for the iPad, <code>windowsphone</code> for Windows Phone, and <code>windowsstore</code> for Windows Store\nplatform.",
       "type": "String",
       "readOnly": false,
       "values": []
@@ -17405,7 +17478,7 @@
       ]
     },
     "root": {
-      "description": "Root filesystem path, i.e. <code>'/'</code> or <code>'C:\\\\'</code>. Ignored if <code>pathObject.dir</code> is provided",
+      "description": "Root filesystem path, e.g. <code>'/'</code> or <code>'C:\\\\'</code>. Ignored if <code>pathObject.dir</code> is provided",
       "type": "String",
       "readOnly": true,
       "values": []
@@ -18292,7 +18365,7 @@
         "false"
       ]
     },
-    "showInForground": {
+    "showInForeground": {
       "description": "Show notification if app is in foreground",
       "type": "Number",
       "readOnly": true,
@@ -18526,7 +18599,7 @@
       "values": []
     },
     "splitActionBar": {
-      "description": "Boolean value to enable split action bar. <strong>Deprecated since 6.2.0. Deprecated in AppCompat theme. The same behaviour can be achived by using Toolbar.</strong>",
+      "description": "Boolean value to enable split action bar. <strong>Deprecated since 6.2.0. Deprecated in AppCompat theme. The same behaviour can be achieved by using Toolbar.</strong>",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -19361,7 +19434,7 @@
       ]
     },
     "textTransform": {
-      "description": "Property that specifies how to capitialize the text. Can be <code>lowercase</code>, <code>uppercase</code> or <code>none</code> (default)",
+      "description": "Property that specifies how to capitalize the text. Can be <code>lowercase</code>, <code>uppercase</code> or <code>none</code> (default)",
       "type": "String",
       "readOnly": true,
       "values": []
@@ -19886,7 +19959,7 @@
       ]
     },
     "trackUserInteraction": {
-      "description": "Indicates whether or not the user interaction shoud be tracked.",
+      "description": "Indicates whether or not the user interaction should be tracked.",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -20191,7 +20264,7 @@
       ]
     },
     "useSpinner": {
-      "description": "Determines if a multicolumn spinner or single column drop-down picker should be used.",
+      "description": "Determines if a multi-column spinner or single column drop-down picker should be used.",
       "type": "Boolean",
       "readOnly": true,
       "values": [
@@ -20212,7 +20285,7 @@
       "values": []
     },
     "userGrouping": {
-      "description": "Corresponds to the &quot;Grouping&quot; field in the Info tab in the &quot;Get Info&quot;\ndialog in iTunes.",
+      "description": "Grouping information for the media item.",
       "type": "String",
       "readOnly": false,
       "values": []
@@ -20330,7 +20403,7 @@
       ]
     },
     "verticalMargin": {
-      "description": "Vertical placement of the notifcation, <em>as a fraction of the screen height</em>.",
+      "description": "Vertical placement of the notification, <em>as a fraction of the screen height</em>.",
       "type": "Number",
       "readOnly": true,
       "values": []
@@ -22753,7 +22826,8 @@
         "addEventListener",
         "removeEventListener",
         "fireEvent",
-        "applyProperties"
+        "applyProperties",
+        "clearUserCache"
       ],
       "properties": [
         "bubbleParent",
@@ -22813,6 +22887,7 @@
         "pause",
         "paused",
         "proximity",
+        "screenshotcaptured",
         "uncaughtException",
         "resume",
         "resumed",
@@ -22938,7 +23013,7 @@
         "isSupported",
         "addToDefaultSearchableIndex",
         "deleteAllSearchableItems",
-        "deleteAllSearchableItemByDomainIdenifiers",
+        "deleteAllSearchableItemByDomainIdentifiers",
         "deleteSearchableItemsByIdentifiers"
       ],
       "properties": [
@@ -23220,7 +23295,7 @@
       "description": "Dictionary object of parameters.",
       "functions": [],
       "properties": [
-        "showInForground"
+        "showInForeground"
       ],
       "events": []
     },
@@ -23354,7 +23429,7 @@
         "shortcutitemclick",
         "handleurl",
         "traitcollectionchange",
-        "screenshotcaptured"
+        "screenshotcaptured|deprecated"
       ]
     },
     "NotificationParams": {
@@ -25973,7 +26048,7 @@
       "events": []
     },
     "CPUTimes": {
-      "description": "Simple object holding the data for a logical cpu execution times.",
+      "description": "Simple object holding the data for a logical CPU execution times.",
       "functions": [],
       "properties": [
         "user",
@@ -26928,7 +27003,7 @@
       "events": []
     },
     "AnimatedWithDurationOptions": {
-      "description": "A JavaScript object holding <code>animated</code> and <code>duration</code> properties. Used on iOS For <a href=\"Titanium.UI.TableView\">TablewView</a> and <a href=\"Titanium.UI.ListView\">ListView</a> content offset transitions.",
+      "description": "A JavaScript object holding <code>animated</code> and <code>duration</code> properties. Used on iOS For <a href=\"Titanium.UI.TableView\">TableView</a> and <a href=\"Titanium.UI.ListView\">ListView</a> content offset transitions.",
       "functions": [],
       "properties": [
         "animated",
@@ -28483,6 +28558,7 @@
         "splitActionBar",
         "statusBarStyle",
         "statusBarColor",
+        "navBarColor",
         "sustainedPerformanceMode",
         "theme",
         "titleAttributes",
@@ -29266,6 +29342,7 @@
         "contentOffset",
         "contentWidth",
         "decelerationRate",
+        "edgeEffect",
         "disableBounce",
         "horizontalBounce",
         "keyboardDismissMode",
@@ -30122,6 +30199,7 @@
         "splitActionBar",
         "statusBarStyle",
         "statusBarColor",
+        "navBarColor",
         "sustainedPerformanceMode",
         "swipeToClose",
         "tabBarHidden",
@@ -30160,6 +30238,7 @@
         "titleColor",
         "activeTitleColor",
         "editButtonTitle",
+        "forceBottomPosition",
         "swipeable",
         "smoothScrollOnTabClick",
         "tabs",
@@ -31570,7 +31649,7 @@
       "events": []
     },
     "ViewPositionOptions": {
-      "description": "Pass an object with the following key-value pairs:\n<ul>\n<li><code>view</code> (Titanium.UI.View): View to insert</li>\n<li><code>position</code> (Number): Position in the <a href=\"Titanium.UI.View.children\">children</a> array of\nthe view elment to replace.</li>\n</ul>",
+      "description": "Pass an object with the following key-value pairs:\n<ul>\n<li><code>view</code> (Titanium.UI.View): View to insert</li>\n<li><code>position</code> (Number): Position in the <a href=\"Titanium.UI.View.children\">children</a> array of\nthe view element to replace.</li>\n</ul>",
       "functions": [],
       "properties": [
         "view",
@@ -31716,6 +31795,7 @@
         "layerType",
         "enableZoomControls",
         "mixedContentMode",
+        "multipleWindows",
         "scalesPageToFit",
         "url",
         "userAgent",
@@ -32009,6 +32089,7 @@
         "splitActionBar",
         "statusBarStyle",
         "statusBarColor",
+        "navBarColor",
         "sustainedPerformanceMode",
         "swipeToClose",
         "tabBarHidden",
@@ -32263,6 +32344,7 @@
         "backgroundImage",
         "backgroundRepeat",
         "backgroundLeftCap",
+        "backgroundSelectedColor",
         "backgroundTopCap",
         "borderColor",
         "borderRadius",
@@ -32344,6 +32426,7 @@
         "backgroundColor",
         "color",
         "image",
+        "loading",
         "padding",
         "imagePlacement",
         "imagePadding",
@@ -32393,7 +32476,7 @@
       "events": []
     },
     "Ti.UI.iOS.CoverFlowView": {
-      "description": "The cover flow view is a container showing animated three-dimensional images in a style\nconsistent with the cover flow presentation style used for iPod, iTunes, and file browsing.",
+      "description": "The cover flow view is a container showing animated three-dimensional images in a style\nconsistent with the former cover flow presentation style used for iPod, iTunes, and Finder.",
       "functions": [
         "addEventListener",
         "removeEventListener",
@@ -32423,6 +32506,7 @@
         "backgroundImage",
         "backgroundRepeat",
         "backgroundLeftCap",
+        "backgroundSelectedColor",
         "backgroundTopCap",
         "borderColor",
         "borderRadius",
@@ -32638,6 +32722,7 @@
         "backgroundImage",
         "backgroundRepeat",
         "backgroundLeftCap",
+        "backgroundSelectedColor",
         "backgroundTopCap",
         "borderColor",
         "borderRadius",
@@ -32730,7 +32815,7 @@
       ]
     },
     "Ti.UI.iOS.PreviewActionGroup": {
-      "description": "A PreviewActionGroup provides options to configure a group of actions used by the iOS9 3D-Touch\nfeature &quot;Peek and Pop&quot;.",
+      "description": "A PreviewActionGroup provides options to configure a group of actions used by the iOS 9 3D-Touch\nfeature &quot;Peek and Pop&quot;.",
       "functions": [
         "addEventListener",
         "removeEventListener",
@@ -32902,6 +32987,7 @@
         "backgroundImage",
         "backgroundRepeat",
         "backgroundLeftCap",
+        "backgroundSelectedColor",
         "backgroundTopCap",
         "borderColor",
         "borderRadius",
@@ -33060,6 +33146,7 @@
         "backgroundImage",
         "backgroundRepeat",
         "backgroundLeftCap",
+        "backgroundSelectedColor",
         "backgroundTopCap",
         "borderColor",
         "borderRadius",
@@ -33426,6 +33513,9 @@
         "ROW_ACTION_STYLE_NORMAL",
         "SCROLL_DECELERATION_RATE_FAST",
         "SCROLL_DECELERATION_RATE_NORMAL",
+        "SCROLL_VIEW_EDGE_EFFECT_STYLE_AUTOMATIC",
+        "SCROLL_VIEW_EDGE_EFFECT_STYLE_HARD",
+        "SCROLL_VIEW_EDGE_EFFECT_STYLE_SOFT",
         "KEYBOARD_DISMISS_MODE_NONE",
         "KEYBOARD_DISMISS_MODE_ON_DRAG",
         "KEYBOARD_DISMISS_MODE_INTERACTIVE",
@@ -33758,7 +33848,7 @@
       "events": []
     },
     "Ti.XML.CharacterData": {
-      "description": "An interface extending <a href=\"Titanium.XML.Node\">Titanium.XML.Node</a> with a set of attributes and methods for accessing character data in the DOM.\nImplements the <a href=\"https://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-FF21A306\">DOM Level 2 API</a> on Android and iOS. For reasons of compatibility with the javascript engine, text is represented by UTF-8 instead of UTF-16 on Android and iOS.",
+      "description": "An interface extending <a href=\"Titanium.XML.Node\">Titanium.XML.Node</a> with a set of attributes and methods for accessing character data in the DOM.\nImplements the <a href=\"https://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-FF21A306\">DOM Level 2 API</a> on Android and iOS. For reasons of compatibility with the JavaScript engine, text is represented by UTF-8 instead of UTF-16 on Android and iOS.",
       "functions": [
         "addEventListener",
         "removeEventListener",
