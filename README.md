@@ -39,6 +39,8 @@ With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes m
 - **Improved Unicode Extraction**: Enhanced support for various Unicode formats, including short hex codes, ASCII symbols, and direct character mappings.
 - **Optimized Internal Structure**: Entire codebase restructured into specialized modules for improved readability and faster execution.
 - **Enhanced CLI Experience**: Reorganized commands into logical categories with improved error handling and intelligent command suggestions.
+- **Titanium SDK 13.1 Support**: Updated definitions to support new properties in Titanium SDK 13.1.0.GA while maintaining full compatibility with previous SDK versions.
+- **New Utility Classes**: Added support for properties like `navBarColor`, `forceBottomPosition`, and `multipleWindows` (available in latest SDKs).
 
 ### 🔄 Command Improvements
 
@@ -60,18 +62,19 @@ npm install -g purgetss@latest
 - **Node.js 20 or higher** is now required.
 - **FontAwesome 7**: If you use FA7, PurgeTSS will automatically handle the new `--fa:` properties.
 - **VS Code Extension**: We now recommend using `KevinYouu.tailwind-raw-reorder-tw4` for better compatibility with modern Tailwind versions and XML reordering.
+- **Clean reinstall**: If you experience issues, try a clean reinstall: `npm uninstall -g purgetss && npm install -g purgetss`.
 
 ---
 
 Here are its main functionalities:
 
-- **Tailwind-like Utility Classes**: *PurgeTSS* offers over 21,000 utility classes similar to Tailwind CSS, providing a vast array of styling options for your projects.
+- **Tailwind-like Utility Classes**: **PurgeTSS** offers over 21,000 utility classes similar to Tailwind CSS, providing a vast array of styling options for your projects.
 - **Efficient Style Management**: It parses all your XML files to create a clean `app.tss` file, containing only the classes actually used in your project. This helps in reducing file size and improving performance.
 - **Customization and JIT Classes**: Developers can customize default classes via a simple configuration file. It also supports just-in-time (JIT) classes, allowing the creation of arbitrary values within views for tailored styling.
-- **Icon Fonts Integration**: *PurgeTSS* facilitates the use of popular icon fonts such as *Font Awesome*, *Material Icons*, *Material Symbols*, and *Framework7-Icons* in Buttons and Labels.
+- **Icon Fonts Integration**: **PurgeTSS** facilitates the use of popular icon fonts such as *Font Awesome*, *Material Icons*, *Material Symbols*, and *Framework7-Icons* in Buttons and Labels.
 - **fonts.tss Generation**: The `build-fonts` command creates a `fonts.tss` file with class definitions and fontFamily selectors for various font types. It supports both regular fonts and icon fonts, with simplified options for using filenames as class names and icon prefixes.
 - **Shades Command**: The toolkit includes a `shades` command that enables developers to generate custom color shades from a specified hex color, eliminating the need for external tools.
-- **Animation Module**: *PurgeTSS* comes with an Animation module to apply basic 2D Matrix animations or transformations to elements or arrays of elements.
+- **Animation Module**: **PurgeTSS** comes with an Animation module to apply basic 2D Matrix animations or transformations to elements or arrays of elements.
 - **Grid System**: It includes a simple yet effective two-dimensional grid system to align and distribute elements within views.
 
 Overall, *PurgeTSS* aims to simplify the mobile app development process, offering tools and features that enhance productivity and creativity in designing user interfaces.
@@ -80,9 +83,9 @@ Overall, *PurgeTSS* aims to simplify the mobile app development process, offerin
 
 ## Requirements
 
-- **Titanium SDK** (13.0.0.GA recommended)
+- **Titanium SDK** (Compatible with all versions; 13.1.0.GA recommended for full property support)
 - **Alloy Framework** (for most commands)
-- **Node.js 20+** (required)
+- **Node.js 20+** (required for the CLI tool)
 
 ## Table of Content
 
