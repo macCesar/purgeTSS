@@ -4,6 +4,8 @@ tailwind-auto/
 node_modules/
 .dev
 # Core components
+AGENTS.md
 CLAUDE.md
+GEMINI.md
 # Generated documentation that shouldn't be versioned
 dist/glossary/
