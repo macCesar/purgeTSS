@@ -18,42 +18,36 @@ With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes m
 
 ---
 
-## What's New in v7.1.x
+## What's New in v7.2.x
 
-**Major Refactoring & ESM Migration**: PurgeTSS v7.1 has been completely refactored with improved code organization, better ESM compatibility, enhanced error handling, and a more intuitive CLI experience.
+**FontAwesome 7 & Major Optimization**: **PurgeTSS v7.2** introduces full support for **FontAwesome 7**, including the new CSS custom properties format. This version also features a significant reduction in installation size and a complete internal restructuring for better performance and maintainability.
 
 ### ⚠️ Breaking Changes
 
-- **Node.js 16+** required (ESM support)
-- **Configuration file**: `config.js` → `config.cjs` (same content, different extension for CommonJS compatibility)
+- **Node.js 20+** required (due to `inquirer` v13 upgrade)
 - **Removed deprecated commands**:
   - `copy-fonts` (use `icon-library` instead)
   - `build-legacy` (legacy Tailwind build removed)
 - **Complete legacy mode removal**:
   - All legacy-related code and conditional checks eliminated
   - Legacy mode no longer supported anywhere in the codebase
-  - `purge.options.legacy` configuration option completely removed
-- **Simplified font generation**:
-  - `build-fonts` `-p` flag removed (now handled by `-f` flag)
-  - `build-fonts` command options simplified for better consistency
-- **Updated dependencies** to latest ESM versions (chalk v5+, etc.)
 
-### ✅ What's Maintained
+### ✅ Major Improvements
 
-- **Same CLI interface** - All commands and options preserved
-- **100% API compatibility** - All existing commands work the same
-- **Same configuration structure** - Your existing config content works unchanged
+- **FontAwesome 7 Support**: Full compatibility with FontAwesome 7's new CSS custom properties (`--fa:`) format, while maintaining backward compatibility with version 6.
+- **Reduced Installation Size**: Installation size has been reduced by approximately **45MB** by moving non-essential assets to development dependencies.
+- **Improved Unicode Extraction**: Enhanced support for various Unicode formats, including short hex codes, ASCII symbols, and direct character mappings.
+- **Optimized Internal Structure**: Entire codebase restructured into specialized modules for improved readability and faster execution.
+- **Enhanced CLI Experience**: Reorganized commands into logical categories with improved error handling and intelligent command suggestions.
 
 ### 🔄 Command Improvements
 
-- **Enhanced CLI error handling**: Improved error messages with command suggestions when unknown commands are entered
-- **CLI reorganization**: Commands are now organized in logical categories (Setup, Development, Assets, Utilities, Maintenance) for better discoverability
 - **`build-fonts` simplified**:
-  - Removed `-p` (--icon-prefix-from-filename) flag
-  - The `-f` flag now controls both font class names AND icon prefixes using filenames
-  - More consistent and intuitive behavior
-- **Internal code modularization**: Refactored monolithic helper files into specialized modules for better maintainability
-- **Complete legacy mode removal**: Removed `build-legacy` command and all legacy-related code for cleaner, modern codebase
+  - Automatically detects and handles both FontAwesome 6 and 7 formats.
+  - The `-f` flag now controls both font class names AND icon prefixes using filenames.
+- **`tailwind init`**: Removed redundant flags for a cleaner initialization process.
+- **`shades` command**: Improved precision in generating custom color shades.
+- **CLI Categories**: Commands are now grouped by purpose: Setup, Development, Assets, Utilities, and Maintenance.
 
 ### 🔧 Migration Guide
 
@@ -63,11 +57,9 @@ npm install -g purgetss@latest
 ```
 
 **Key changes to note:**
-- Only requirement: **Node.js 16 or higher**
-- If you used the `build-legacy` command, use the regular `build` command instead
-- **Enhanced CLI**: Unknown commands now provide helpful suggestions instead of generic errors
-- If you had `legacy: true` in your config, remove this option (legacy mode completely discontinued)
-- If you used `build-fonts` with the `-p` flag, now use `-f` instead (handles both font classes and icon prefixes)
+- **Node.js 20 or higher** is now required.
+- **FontAwesome 7**: If you use FA7, PurgeTSS will automatically handle the new `--fa:` properties.
+- **VS Code Extension**: We now recommend using `KevinYouu.tailwind-raw-reorder-tw4` for better compatibility with modern Tailwind versions and XML reordering.
 
 ---
 
@@ -88,13 +80,13 @@ Overall, *PurgeTSS* aims to simplify the mobile app development process, offerin
 
 ## Requirements
 
-- **Titanium SDK** (any recent version)
+- **Titanium SDK** (13.0.0.GA recommended)
 - **Alloy Framework** (for most commands)
-- **Node.js 16+** (required for ESM support)
+- **Node.js 20+** (required)
 
 ## Table of Content
 
-- [What's New in v7.1](https://purgetss.com/#whats-new-in-v71x)
+- [What's New in v7.2](https://purgetss.com/#whats-new-in-v72x)
 - [Installation](https://purgetss.com/docs/installation)
 - [Commands](https://purgetss.com/docs/commands)
 - Customization

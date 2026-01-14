@@ -1,37 +1,34 @@
 # Repository Guidelines
 
-This project builds and ships the PurgeTSS CLI for Titanium/Alloy apps. Use this guide to stay aligned with the existing layout, commands, and style decisions.
+This repository builds and ships the PurgeTSS CLI for Titanium/Alloy projects. Follow the sections below to keep changes consistent with the current layout and workflows.
 
 ## Project Structure & Module Organization
-- `bin/purgetss`: CLI entry; runs the commands defined under `src/cli/`.
-- `src/cli/commands`: User-facing commands (build, fonts, purge, shades, etc.); `src/cli/utils` for CLI-only helpers.
-- `src/core`: Core processors (builders, parsers) used by the CLI; `src/dev` holds asset/icon/tailwind builders invoked by build scripts; `src/shared` holds cross-cutting utilities and config management; `src/fonts` packages font metadata.
-- `dist/`: Published bundles (CommonJS where needed); regenerate via build scripts instead of editing directly.
-- `assets/fonts/`: Distributed font assets; `test-project/` and `tests/` supply fixtures for integration/e2e runs.
+- `bin/purgetss` is the CLI entry point; command implementations live in `src/cli/`.
+- `src/core/` contains builders and analyzers used by the CLI; `src/shared/` holds shared config, utils, and constants.
+- `src/dev/` contains build-time generators (tailwind, icons, fonts) invoked by npm scripts.
+- `dist/` contains generated outputs for publishing; update it via build scripts rather than hand edits.
+- `assets/fonts/` stores distributed font assets; `tests/` and `test-project/` provide fixtures.
 
 ## Build, Test, and Development Commands
-- `npm run build`: Full pipeline (module + tailwind + icon/font builders); produces updated `dist/` and assets.
-- Targeted builds: `npm run build:module`, `build:tailwind`, `build:fa`, `build:material`, `build:symbols`, `build:framework7`, and their `*-js` variants; `build:fonts` builds `fonts.tss`.
-- Local CLI check: `node bin/purgetss --help` or `node bin/purgetss build`.
-- Tests: `npm test` (all categories), `npm run test:unit`, `npm run test:integration`, `npm run test:e2e`, `npm run test:cli`, `npm run test:install`, `npm run test:install-local`, `npm run test:install-global`.
-- Housekeeping: `npm run clean:md` cleans Markdown formatting artifacts.
+- `npm run build` runs the full build pipeline (module, tailwind, icon/font builders).
+- Targeted builds: `npm run build:module`, `build:tailwind`, `build:fa`, `build:material`, `build:symbols`, `build:framework7`, plus `*-js` variants and `build:fonts`.
+- `npm test` runs all tests; faster options include `npm run test:unit`, `npm run test:integration`, and `npm run test:e2e`.
+- `node bin/purgetss --help` is a quick local CLI smoke check.
 
 ## Coding Style & Naming Conventions
-- ESM by default; use named exports unless a file is clearly a module entry point. `dist/` may use CommonJS for compatibility.
-- Lint rules (see `eslint.config.js`): 2-space indent, single quotes, no semicolons, no space before function parentheses, spaced comments. Globals for Alloy/Titanium are predefined—avoid re-declaring.
-- File naming favors action-oriented command files (e.g., `build.js`, `shades.js`) and lowerCamelCase helpers. Keep modules small and composable.
-- Run `npx eslint .` before submitting to catch style issues.
+- ESM modules by default; keep CommonJS only where already used for compatibility.
+- Follow the eslint rules in `eslint.config.js`: 2-space indent, single quotes, no semicolons.
+- File naming favors clear action-based names (e.g., `build.js`, `shades.js`) and lowerCamelCase helpers.
 
 ## Testing Guidelines
-- Tests live in `tests/<category>` (unit, integration, e2e); prefer `*.test.js` suffix. The runner accepts `.js` and `.mjs`, but stay consistent with existing naming.
-- Use `tests/run-tests.js <category>` when iterating; `installation` simulations are heavier—run them before releases or when touching install flows.
-- Add or adjust fixtures in `test-project/` when e2e coverage is needed. Keep tests deterministic and avoid network calls.
+- Tests live under `tests/<category>` with `*.test.js` naming; `tests/run-tests.js <category>` is the main runner.
+- Use `test-project/` for real-project fixtures in e2e tests and keep tests deterministic (no network calls).
 
 ## Commit & Pull Request Guidelines
-- Follow Conventional Commits (`feat:`, `fix:`, `chore:`, etc.). Release bumps use the pure version number (e.g., `7.2.5`).
-- For PRs, include: scope/intent, key changes, how to reproduce, and test commands run. Attach relevant CLI output or screenshots when UX or generated assets change.
-- Update `CHANGELOG.md` and `README.md` when behavior, commands, or outputs change. Note when regenerated `dist/` files or large assets are included.
+- Prefer Conventional Commit prefixes (`feat:`, `fix:`, `chore:`); release commits may be a plain version number (e.g., `7.2.6`).
+- PRs should include: scope summary, test commands run, and relevant output/screenshots for CLI or generated-asset changes.
+- Update `CHANGELOG.md` and `README.md` when user-facing behavior or commands change.
 
 ## Configuration Notes
-- Requires Node.js 16+; runtime usage expects a Titanium SDK + Alloy project. Prefer editing `src/` and regenerating `dist/` via build scripts instead of hand-editing built files.
-- When adding new icon/font sources, keep generated assets under `assets/fonts/` and document any new flags or options in the CLI help and README.
+- Requires Node.js 16+ and a Titanium/Alloy project for most CLI workflows.
+- Regenerate `dist/` via build scripts when changing `src/` logic.
