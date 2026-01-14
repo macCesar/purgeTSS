@@ -1,6 +1,14 @@
-const fs = require('fs')
-const path = require('path')
-const DOCS_DIR = path.join(__dirname, '../docs')
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const currentFile = fileURLToPath(import.meta.url)
+const currentDir = path.dirname(currentFile)
+const DEFAULT_DOCS_DIR = path.join(currentDir, '../docs')
+const DEFAULT_GLOSSARY_DIR = path.join(currentDir, '../dist/glossary')
+const DOCS_DIR = process.argv[2]
+  ? path.resolve(process.argv[2])
+  : (fs.existsSync(DEFAULT_GLOSSARY_DIR) ? DEFAULT_GLOSSARY_DIR : DEFAULT_DOCS_DIR)
 
 function cleanFrontmatter(content) {
   return content.replace(/^---[\s\S]*?---\n+/, '')
@@ -51,6 +59,12 @@ function walk(dir) {
       cleanAll(fullPath)
     }
   })
+}
+
+if (!fs.existsSync(DOCS_DIR)) {
+  console.error(`Docs directory not found: ${DOCS_DIR}`)
+  console.error('Pass a path explicitly: node scripts/clean-md.js ./path/to/docs')
+  process.exit(1)
 }
 
 walk(DOCS_DIR)
