@@ -20,6 +20,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Node.js 20+ now required
   - ESM-only (CommonJS no longer supported)
   - Compatible with existing code
+- Moved `@fortawesome/fontawesome-free`, `framework7-icons`, and `junk` to devDependencies
+  - Reduces installation size by ~45MB for end users
+  - These packages are only needed for building distribution files (`npm run build:*`)
+  - Font files are bundled in `/assets/fonts/` and shipped with the package
+  - Users receive pre-built fonts and don't need source packages
+  - FontAwesome PRO users install it separately in their own projects
+- Recommended VS Code extension for class reordering
+  - Now recommending `KevinYouu.tailwind-raw-reorder-tw4` instead of `Trapfether.tailwind-raw-reorder`
+  - Trapfether extension has not been updated for Tailwind CSS 4 compatibility
+  - New extension works with both TW3 and TW4, and reorders classes in XML views correctly
 
 ### Removed
 - Removed unused dependency `uuid` (not used in codebase)

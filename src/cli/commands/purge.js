@@ -14,7 +14,7 @@
 import fs from 'fs'
 import _ from 'lodash'
 import chalk from 'chalk'
-import glob from 'glob'
+import { globSync } from 'glob'
 import convert from 'xml-js'
 import traverse from 'traverse'
 import { alloyProject, cleanClasses } from '../../shared/utils.js'
@@ -79,16 +79,16 @@ function getViewPaths() {
   const viewPaths = []
 
   // ! Parse Views from App
-  viewPaths.push(...glob.sync(`${cwd}/app/views/**/*.xml`))
+  viewPaths.push(...globSync(`${cwd}/app/views/**/*.xml`))
 
   // ! Parse Views from Widgets
   if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
-    viewPaths.push(...glob.sync(`${cwd}/app/widgets/**/views/*.xml`))
+    viewPaths.push(...globSync(`${cwd}/app/widgets/**/views/*.xml`))
   }
 
   // ! Parse Views from Themes
   if (fs.existsSync(`${cwd}/app/themes/`)) {
-    viewPaths.push(...glob.sync(`${cwd}/app/themes/**/views/*.xml`))
+    viewPaths.push(...globSync(`${cwd}/app/themes/**/views/*.xml`))
   }
 
   return viewPaths
@@ -102,11 +102,11 @@ function getControllerPaths() {
   const controllerPaths = []
 
   // ! Parse Controllers from App
-  controllerPaths.push(...glob.sync(`${cwd}/app/controllers/**/*.js`))
+  controllerPaths.push(...globSync(`${cwd}/app/controllers/**/*.js`))
 
   // ! Parse Controllers from Widgets
   if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
-    controllerPaths.push(...glob.sync(`${cwd}/app/widgets/**/controllers/*.js`))
+    controllerPaths.push(...globSync(`${cwd}/app/widgets/**/controllers/*.js`))
   }
 
   return controllerPaths
