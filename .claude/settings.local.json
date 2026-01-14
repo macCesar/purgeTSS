@@ -21,7 +21,9 @@
       "Bash(npm run build:fa:*)",
       "Bash(npm view:*)",
       "Bash(npm info:*)",
-      "Read(//private/tmp/fa-test/**)"
+      "Read(//private/tmp/fa-test/**)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(npm uninstall:*)"
     ],
     "deny": [],
     "ask": []
