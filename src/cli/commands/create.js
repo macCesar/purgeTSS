@@ -27,7 +27,7 @@ import { start, finish } from '../utils/cli-helpers.js'
  */
 function robustDelete(folderPath, callback) {
   const deleteCommand = `chown -R $USER "${folderPath}" 2>/dev/null; rm -rf "${folderPath}"`
-  
+
   exec(deleteCommand, (error) => {
     if (error) {
       // Retry once after a brief delay for stubborn node_modules
@@ -63,6 +63,31 @@ function createProject(workspace, argsName, projectID, options) {
   logger.info('Creating a new Titanium project')
   execSync(`ti create -n ${projectName} -t app -p all --alloy --no-prompt --id ${projectID}`)
   execSync(`cd ${projectDirectory} && purgetss w && purgetss b`)
+
+  // Remove default index.tss file (not needed with PurgeTSS - app.tss is auto-generated)
+  // Use argsName instead of projectName because projectName includes quotes for shell commands
+  const indexTssPath = `${workspace}/${argsName}/app/styles/index.tss`
+
+  if (fs.existsSync(indexTssPath)) {
+    try {
+      fs.unlinkSync(indexTssPath)
+    } catch (error) {
+      logger.error(`Failed to remove index.tss: ${error.message}`)
+    }
+  }
+
+  // Copy PurgeTSS welcome screen (index.xml and index.js)
+  const templatesDir = path.resolve(projectRoot, 'lib/templates/create')
+  const viewsDir = `${workspace}/${argsName}/app/views`
+  const controllersDir = `${workspace}/${argsName}/app/controllers`
+
+  try {
+    fs.copyFileSync(`${templatesDir}/index.xml`, `${viewsDir}/index.xml`)
+    fs.copyFileSync(`${templatesDir}/index.js`, `${controllersDir}/index.js`)
+    logger.info('PurgeTSS welcome screen installed')
+  } catch (error) {
+    logger.error(`Failed to copy PurgeTSS templates: ${error.message}`)
+  }
 
   if (options.vendor) {
     logger.info('Installing Fonts')
@@ -148,6 +173,9 @@ export function create(args, options) {
               console.log('')
               logger.warn(chalk.yellow('Project creation has been canceled!'))
             }
+            return null
+          }).catch(error => {
+            logger.error(error)
           })
         }
       } else {
@@ -159,8 +187,8 @@ export function create(args, options) {
       logger.info('You must have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a project with', chalk.green('`PurgeTSS`'))
       console.log('')
       logger.info('Please, set them like this:')
-      logger.info(chalk.green('ti config app.idprefix'), chalk.yellow("'com.your.reverse.domain'"))
-      logger.info(chalk.green('ti config app.workspace'), chalk.yellow("'path/to/your/workspace'"))
+      logger.info(chalk.green('ti config app.idprefix'), chalk.yellow(`'com.your.reverse.domain'`))
+      logger.info(chalk.green('ti config app.workspace'), chalk.yellow(`'path/to/your/workspace'`))
     }
   })
 }
