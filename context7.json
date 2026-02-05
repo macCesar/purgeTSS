@@ -1,7 +1,7 @@
 {
   "$schema": "https://context7.com/schema/context7.json",
   "projectTitle": "PurgeTSS",
-  "description": "A CLI tool that simplifies mobile app creation for Titanium developers by generating clean, optimized TTS files using Tailwind CSS methodology for Alloy projects.",
+  "description": "A CLI tool that simplifies mobile app creation for Titanium developers by generating clean, optimized TTS files using Utility classes for Alloy projects.",
   "folders": [
     "assets",
     "lib/templates"
