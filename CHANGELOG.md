@@ -59,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Removed silent flag from tailwind init command
-- Simplified and renamed flag properties in tailwind.tss for consistency
+- Simplified and renamed flag properties in utilities.tss for consistency
 - Fixed flag property name replacement in `removeUneededVariablesFromPropertyName` function
 
 ## [7.2.2] - 2025-09-22
