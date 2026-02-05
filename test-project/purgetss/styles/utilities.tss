@@ -1,7 +1,4 @@
-// Based on Tailwind CSS v3.4.11: A utility-first CSS framework for rapidly building custom designs. ( https://tailwindcss.com )
-// Created by Adam Wathan ( https://twitter.com/adamwathan ).
-
-// Tailwind-like styles
+// Utility classes for Titanium
 // Generated with PurgeTSS
 // https://purgetss.com
 // default config.js file
@@ -1468,7 +1465,7 @@
 '.drag-apply': { draggingType: 'apply' }
 '.drag-animate': { draggingType: 'animate' }
 
-// Property(ies): shadowOffset, shadowRadius, shadowColor - Drop Shadow in Tailwind
+// Property(ies): shadowOffset, shadowRadius, shadowColor
 // Component(s): Ti.UI.Button, Ti.UI.Label
 '.drop-shadow-xs': { shadowOffset: { x: 0, y: 0 }, shadowRadius: 1, shadowColor: '#80000000' }
 '.drop-shadow-sm': { shadowOffset: { x: 0, y: 1 }, shadowRadius: 2, shadowColor: '#80000000' }
@@ -1676,7 +1673,7 @@
 
 // Ti.Media
 // Property(ies): scalingMode - ( Alternative )
-// Description: Background Size for compatibility with Tailwind classes
+// Description: Background Size for compatibility
 // Component(s): Ti.UI.ImageView
 '.bg-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
 '.bg-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
@@ -1685,7 +1682,7 @@
 '.bg-contain': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 
 // Property(ies): scalingMode - ( Alternative )
-// Description: Object Fit for compatibility with Tailwind classes
+// Description: Object Fit for compatibility
 // Component(s): Ti.UI.ImageView
 '.object-auto': { scalingMode: Ti.Media.IMAGE_SCALING_AUTO }
 '.object-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
@@ -1715,7 +1712,7 @@
 '.pointer-events-auto': { touchEnabled: true }
 '.pointer-events-none': { touchEnabled: false }
 
-// Property(ies): iOS: viewShadowOffset, viewShadowRadius, viewShadowColor, Android: elevation - Box Shadow Effect in Tailwind
+// Property(ies): iOS: viewShadowOffset, viewShadowRadius, viewShadowColor, Android: elevation
 // Component(s): iOS: Ti.UI.View, Android: Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View
 '.shadow-xs': { viewShadowOffset: { x: 0, y: 0 }, viewShadowRadius: 1, viewShadowColor: '#80000000', elevation: 4 }
 '.shadow-sm': { viewShadowOffset: { x: 0, y: 1 }, viewShadowRadius: 2, viewShadowColor: '#80000000', elevation: 8 }
