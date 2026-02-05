@@ -177,7 +177,7 @@ export function init(options = {}) {
   // Get commands when needed
   const { methodCommand, oppositeCommand } = getCommands()
 
-  // tailwind.tss
+  // utilities.tss
   if (!fs.existsSync(projectsTailwind_TSS)) {
     buildTailwindBasedOnConfigOptions(options)
   }

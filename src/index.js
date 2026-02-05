@@ -5,7 +5,7 @@
  * All functionality is accessed through CLI commands:
  *
  * - purgetss              (initialize and purge)
- * - purgetss build        (build tailwind.tss)
+ * - purgetss build        (build utilities.tss)
  * - purgetss build-fonts  (build fonts)
  * - purgetss module       (install UI modules)
  * - purgetss watch        (setup auto-purging)

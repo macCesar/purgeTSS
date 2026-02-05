@@ -115,7 +115,7 @@ program.helpInformation = function () {
     output.push(`  ${chalk.cyan('install-dependencies|id')}         Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')}`)
     output.push('')
     output.push(`  ${chalk.green('Daily Development:')}`)
-    output.push(`  ${chalk.cyan('build|b')} ${chalk.gray('[options]')}               Generate ${chalk.yellow('tailwind.tss')} file`)
+    output.push(`  ${chalk.cyan('build|b')} ${chalk.gray('[options]')}               Generate ${chalk.yellow('utilities.tss')} file`)
     output.push(`  ${chalk.cyan('watch|w')} ${chalk.gray('[options]')}               Auto-run ${chalk.green('PurgeTSS')} on project compilation`)
     output.push(`  ${chalk.cyan('module|m')}                        Copy ${chalk.yellow('purgetss.ui.js')} module to your ${chalk.yellow('lib')} folder`)
     output.push('')
@@ -254,8 +254,8 @@ program
 program
   .command('build')
   .alias('b')
-  .description(`Generate ${chalk.yellow('tailwind.tss')} file`)
-  .addHelpText('after', `\nGenerates ${chalk.yellow('tailwind.tss')} file based on attributes in ${chalk.yellow('./purgetss/config.cjs')}\nAlso generates custom ${chalk.yellow('fontawesome.tss')} file if FontAwesome Beta/Pro is installed`)
+  .description(`Generate ${chalk.yellow('utilities.tss')} file`)
+  .addHelpText('after', `\nGenerates ${chalk.yellow('utilities.tss')} file based on attributes in ${chalk.yellow('./purgetss/config.cjs')}\nAlso generates custom ${chalk.yellow('fontawesome.tss')} file if FontAwesome Beta/Pro is installed`)
   .option('--glossary', 'Create a glossary folder with all generated classes')
   .action(async (options) => {
     try {
@@ -378,7 +378,7 @@ program
   .option('-s, --single', 'Generate a single color definition')
   .option('-l, --log', 'Log shades instead of saving them')
   .option('-j, --json', `Log shades in ${chalk.yellow('app/config.json')} format`)
-  .option('-t, --tailwind', `Log shades in ${chalk.yellow('tailwind.config.js')} format`)
+  .option('-t, --tailwind', `Log shades in ${chalk.yellow('utilities.tss.config.js')} format`)
   .action(async (hexcode, name, options) => {
     try {
       const result = await shades({ hexcode, name }, options)
