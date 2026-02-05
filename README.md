@@ -10,80 +10,78 @@
 
 </div>
 
-**PurgeTSS** is a toolkit designed to enhance the development of mobile applications using the **[Titanium framework](https://titaniumsdk.com)**. It introduces several key features to streamline the app development process, making it simpler and more efficient for developers.
+**PurgeTSS** is a toolkit for building mobile apps with the [Titanium framework](https://titaniumsdk.com). It adds practical utilities to speed up styling and reduce repeated setup work.
 
-It offers a range of tools such as customizable utility classes, support for icon fonts, a user-friendly Animation module, a straightforward grid system, and the added convenience of the `shades` command for crafting personalized colors.
+It includes utility classes, icon font support, an Animation module, a simple grid system, and the `shades` command for generating custom colors.
 
-With **PurgeTSS**, creating visually appealing and dynamic mobile apps becomes more accessible and efficient.
+If you build UI-heavy screens, PurgeTSS helps you move faster without hand-writing long TSS files.
 
 ---
 
 ## What's New in v7.2.x
 
-**FontAwesome 7 & Major Optimization**: **PurgeTSS v7.2** introduces full support for **FontAwesome 7**, including the new CSS custom properties format. This version also features a significant reduction in installation size and a complete internal restructuring for better performance and maintainability.
+FontAwesome 7 support and major internal cleanup. PurgeTSS v7.2 adds full support for FontAwesome 7, including the new CSS custom properties format. It also reduces installation size and reorganizes the codebase for better performance and maintainability.
 
-### ⚠️ Breaking Changes
+### Breaking changes
 
-- **Node.js 20+** required (due to `inquirer` v13 upgrade)
-- **Removed deprecated commands**:
+- Node.js 20+ required (due to the `inquirer` v13 upgrade)
+- Removed deprecated commands:
   - `copy-fonts` (use `icon-library` instead)
   - `build-legacy` (legacy Tailwind build removed)
-- **Complete legacy mode removal**:
+- Complete legacy mode removal:
   - All legacy-related code and conditional checks eliminated
   - Legacy mode no longer supported anywhere in the codebase
 
-### ✅ Major Improvements
+### Major improvements
 
-- **FontAwesome 7 Support**: Full compatibility with FontAwesome 7's new CSS custom properties (`--fa:`) format, while maintaining backward compatibility with version 6.
-- **Reduced Installation Size**: Installation size has been reduced by approximately **45MB** by moving non-essential assets to development dependencies.
-- **Improved Unicode Extraction**: Enhanced support for various Unicode formats, including short hex codes, ASCII symbols, and direct character mappings.
-- **Optimized Internal Structure**: Entire codebase restructured into specialized modules for improved readability and faster execution.
-- **Enhanced CLI Experience**: Reorganized commands into logical categories with improved error handling and intelligent command suggestions.
-- **Titanium SDK 13.1 Support**: Updated definitions to support new properties in Titanium SDK 13.1.0.GA while maintaining full compatibility with previous SDK versions.
-- **New Utility Classes**: Added support for properties like `navBarColor`, `forceBottomPosition`, and `multipleWindows` (available in latest SDKs).
+- FontAwesome 7 support: Works with the new `--fa:` custom properties while staying compatible with version 6.
+- Reduced installation size: About 45MB smaller by moving non-essential assets to dev dependencies.
+- Improved Unicode extraction: Better handling of short hex codes, ASCII symbols, and direct character mappings.
+- Optimized internal structure: Codebase split into focused modules for readability and speed.
+- Enhanced CLI experience: Commands grouped by purpose, with better error handling and smarter suggestions.
 
-### 🔄 Command Improvements
+### Command improvements
 
-- **`build-fonts` simplified**:
+- `build-fonts` simplified:
   - Automatically detects and handles both FontAwesome 6 and 7 formats.
-  - The `-f` flag now controls both font class names AND icon prefixes using filenames.
-- **`tailwind init`**: Removed redundant flags for a cleaner initialization process.
-- **`shades` command**: Improved precision in generating custom color shades.
-- **CLI Categories**: Commands are now grouped by purpose: Setup, Development, Assets, Utilities, and Maintenance.
+  - The `-f` flag now controls both font class names and icon prefixes using filenames.
+- `tailwind init`: Removed redundant flags for a cleaner initialization process.
+- `shades` command: Better precision when generating custom color shades.
+- CLI categories: Commands grouped by purpose: Setup, Development, Assets, Utilities, and Maintenance.
 
-### 🔧 Migration Guide
+### Migration guide
 
-For most users, upgrading is seamless:
+For most users, upgrading is straightforward:
 ```bash
 npm install -g purgetss@latest
 ```
 
-**Key changes to note:**
-- **Node.js 20 or higher** is now required.
-- **FontAwesome 7**: If you use FA7, PurgeTSS will automatically handle the new `--fa:` properties.
-- **VS Code Extension**: We now recommend using `KevinYouu.tailwind-raw-reorder-tw4` for better compatibility with modern Tailwind versions and XML reordering.
-- **Clean reinstall**: If you experience issues, try a clean reinstall: `npm uninstall -g purgetss && npm install -g purgetss`.
+Key changes to note:
+- Node.js 20 or higher is now required.
+- FontAwesome 7: If you use FA7, PurgeTSS will automatically handle the new `--fa:` properties.
+- VS Code extension: We recommend `KevinYouu.tailwind-raw-reorder-tw4` for better compatibility with modern Tailwind versions and XML reordering.
+- Clean reinstall: If you run into issues, try `npm uninstall -g purgetss && npm install -g purgetss`.
 
 ---
 
 Here are its main functionalities:
 
-- **Tailwind-like Utility Classes**: **PurgeTSS** offers over 21,000 utility classes similar to Tailwind CSS, providing a vast array of styling options for your projects.
-- **Efficient Style Management**: It parses all your XML files to create a clean `app.tss` file, containing only the classes actually used in your project. This helps in reducing file size and improving performance.
-- **Customization and JIT Classes**: Developers can customize default classes via a simple configuration file. It also supports just-in-time (JIT) classes, allowing the creation of arbitrary values within views for tailored styling.
-- **Icon Fonts Integration**: **PurgeTSS** facilitates the use of popular icon fonts such as *Font Awesome*, *Material Icons*, *Material Symbols*, and *Framework7-Icons* in Buttons and Labels.
-- **fonts.tss Generation**: The `build-fonts` command creates a `fonts.tss` file with class definitions and fontFamily selectors for various font types. It supports both regular fonts and icon fonts, with simplified options for using filenames as class names and icon prefixes.
-- **Shades Command**: The toolkit includes a `shades` command that enables developers to generate custom color shades from a specified hex color, eliminating the need for external tools.
-- **Animation Module**: **PurgeTSS** comes with an Animation module to apply basic 2D Matrix animations or transformations to elements or arrays of elements.
-- **Grid System**: It includes a simple yet effective two-dimensional grid system to align and distribute elements within views.
+- **Utility-First Classes**: PurgeTSS ships with 21,000+ utility classes, so you get a lot of styling options out of the box.
+- **Efficient style management**: It parses all XML files to create a clean `app.tss` containing only the classes used in your project, reducing size and improving performance.
+- **Customization and JIT classes**: You can customize default classes via a config file and use JIT classes for arbitrary values inside views.
+- **Icon fonts integration**: Use icon fonts such as Font Awesome, Material Icons, Material Symbols, and Framework7-Icons in Buttons and Labels.
+- **`fonts.tss` generation**: The `build-fonts` command creates a `fonts.tss` file with class definitions and fontFamily selectors for regular and icon fonts, with simplified options for filenames and icon prefixes.
+- **`shades` command**: Generate custom color shades from a hex color without external tools.
+- **Animation module**: Apply basic 2D matrix animations or transformations to elements or arrays of elements.
+- **Grid system**: A two-dimensional grid system to align and distribute elements within views.
 
-Overall, *PurgeTSS* aims to simplify the mobile app development process, offering tools and features that enhance productivity and creativity in designing user interfaces.
+In short, PurgeTSS keeps styling consistent and removes a lot of repetitive UI setup work.
 
 ### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more.
 
 ## Requirements
 
-- **Titanium SDK** (Compatible with all versions; 13.1.0.GA recommended for full property support)
+- **Titanium SDK** (Compatible with all versions; 13.1.1.GA recommended for full property support)
 - **Alloy Framework** (for most commands)
 - **Node.js 20+** (required for the CLI tool)
 
