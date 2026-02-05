@@ -43,7 +43,7 @@ if (configOptions) {
   configOptions.widgets = configOptions.widgets ?? false
 }
 
-function autoBuildTailwindTSS(options = {}) {
+function autoBuildUtilitiesTSS(options = {}) {
   // Refresh config at the start of the function to ensure it's up-to-date
   configFile = getConfigFile()
   configFile.purge = configFile.purge ?? { mode: 'all' }
@@ -59,8 +59,7 @@ function autoBuildTailwindTSS(options = {}) {
   }
 
   saveGlossary = options.glossary ?? false
-  let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/template.tss'), 'utf8')
-  tailwindStyles += fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8')
+  let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8')
   tailwindStyles += (fs.existsSync(projectsConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}\n` : '// default config.js file\n'
 
   const baseValues = combineDefaultThemeWithConfigFile()
@@ -76,14 +75,14 @@ function autoBuildTailwindTSS(options = {}) {
 
   if (fs.existsSync(projectsConfigJS)) {
     makeSureFolderExists(cwd + '/purgetss/styles/')
-    saveFile(cwd + '/purgetss/styles/tailwind.tss', tailwindStyles)
-    logger.file('./purgetss/styles/tailwind.tss')
+    saveFile(cwd + '/purgetss/styles/utilities.tss', tailwindStyles)
+    logger.file('./purgetss/styles/utilities.tss')
   } else {
-    saveFile(path.resolve(__dirname, '../dist/tailwind.tss'), tailwindStyles)
-    logger.file('./dist/tailwind.tss')
+    saveFile(path.resolve(__dirname, '../dist/utilities.tss'), tailwindStyles)
+    logger.file('./dist/utilities.tss')
   }
 }
-export { autoBuildTailwindTSS }
+export { autoBuildUtilitiesTSS }
 
 function processCustomClasses() {
   let tailwindStyles = ''

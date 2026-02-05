@@ -8,7 +8,7 @@
 
 // Import functions from their new modular locations
 import * as helpers from '../../shared/helpers.js'
-import { autoBuildTailwindTSS } from '../../../experimental/completions2.js'
+import { autoBuildUtilitiesTSS } from '../../../experimental/completions2.js'
 
 /**
  * Build Tailwind (AUTO mode using experimental completions engine)
@@ -16,7 +16,7 @@ import { autoBuildTailwindTSS } from '../../../experimental/completions2.js'
  */
 export function buildTailwind(options) {
   // Always modern mode in v7.1 - legacy removed completely
-  autoBuildTailwindTSS(options)
+  autoBuildUtilitiesTSS(options)
 }
 
 /**
