@@ -124,6 +124,112 @@ function encodeHTML(str) {
 }
 
 /**
+ * Validate XML syntax before processing
+ * Returns true if valid, throws error if invalid
+ */
+function validateXML(xmlText, filePath) {
+  // Pre-validate: check for common Alloy XML malformations
+  // preValidateXML will throw a special error that should be caught at a higher level
+  const preValidationError = preValidateXML(xmlText, filePath)
+  if (preValidationError) {
+    throw preValidationError
+  }
+
+  try {
+    convert.xml2json(encodeHTML(xmlText), { compact: true })
+    return true
+  } catch (error) {
+    // Parse line/column from error message
+    const lineMatch = error.message.match(/Line:\s*(\d+)/)
+    const columnMatch = error.message.match(/Column:\s*(\d+)/)
+    const charMatch = error.message.match(/Char:\s*(.+)/)
+
+    let errorMessage = chalk.red(`\n::PurgeTSS:: XML Syntax Error\n`) +
+      chalk.yellow(`File: "${filePath}"\n`)
+
+    if (lineMatch || columnMatch) {
+      const lineNum = lineMatch ? parseInt(lineMatch[1]) : '?'
+      const colNum = columnMatch ? parseInt(columnMatch[1]) : '?'
+      const badChar = charMatch ? charMatch[1] : '?'
+
+      errorMessage += chalk.yellow(`Error near line: ${lineNum}\n\n`)
+
+      // Extract and show context: line before, error line, and line after
+      const lines = xmlText.split('\n')
+      const startLine = Math.max(0, lineNum - 2)
+      const endLine = Math.min(lines.length, lineNum + 2)
+
+      errorMessage += chalk.gray('Context:\n')
+      for (let i = startLine; i < endLine; i++) {
+        const lineNumDisplay = i + 1
+        const isTargetLine = (lineNumDisplay === lineNum)
+        const prefix = isTargetLine ? chalk.red('>>>') : chalk.gray('   ')
+        const lineContent = lines[i] || ''
+
+        errorMessage += `${prefix} ${chalk.gray(String(lineNumDisplay).padStart(3, ' '))}: ${lineContent}\n`
+      }
+      errorMessage += '\n'
+
+      errorMessage += chalk.red(`Error: Unmatched or malformed tag (missing < or >)\n`)
+    } else {
+      errorMessage += chalk.yellow(`Error details: ${error.message}\n`)
+    }
+
+    errorMessage += chalk.gray('\nTip: Check for tags missing opening < or closing >\n')
+
+    throw new Error(errorMessage)
+  }
+}
+
+/**
+ * Pre-validate XML for common Alloy malformations
+ * Returns Error if problem found, null if OK
+ */
+function preValidateXML(xmlText, filePath) {
+  const lines = xmlText.split('\n')
+
+  // Check for tags without opening < (common mistake: Label, View, etc. without <)
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i]
+    const trimmed = line.trim()
+
+    // Skip empty lines, comments, and closing tags
+    if (!trimmed || trimmed.startsWith('<!--') || trimmed.startsWith('</') || trimmed.startsWith('<Alloy') || trimmed.startsWith('</')) {
+      continue
+    }
+
+    // Check for line starting with uppercase letter followed by space and common Alloy attributes
+    // Pattern: "Label id=", "View class=","Button onClick=", etc. WITHOUT opening <
+    const tagWithoutOpening = trimmed.match(/^[A-Z][a-zA-Z0-9_]+\s+(id|class|onClick|onOpen|onClose|height|width|backgroundColor|color|font|text|hintText|imageUrl)=/)
+
+    if (tagWithoutOpening) {
+      const tagName = trimmed.split(/\s+|[>=]/)[0]
+      const relativePath = filePath.replace(process.cwd() + '/', '')
+
+      // Create a custom error with details for the caller to handle
+      const error = new Error(`XML Syntax Error in ${relativePath}:${i + 1}`)
+      error.isPreValidationError = true
+      error.filePath = relativePath
+      error.lineNumber = i + 1
+      error.lineContent = line.trim()
+      error.tagName = tagName
+
+      // Print error using logger (still throw, but caller can catch and handle)
+      logger.error('XML Syntax Error')
+      logger.warn(`File: "${relativePath}"`)
+      logger.warn(`Line: ${i + 1}`)
+      logger.warn(`Content: "${line.trim()}"`)
+      logger.warn(`Error: Tag "<${tagName}>" is missing opening "<"`)
+      logger.warn(`Fix: Change "${tagName}" to "<${tagName}>"`)
+
+      throw error
+    }
+  }
+
+  return false
+}
+
+/**
  * Extract classes from file content
  * COPIED exactly from original extractClasses() function
  */
@@ -131,7 +237,7 @@ function extractClasses(currentText, currentFile) {
   try {
     const jsontext = convert.xml2json(encodeHTML(currentText), { compact: true })
 
-    return traverse(JSON.parse(jsontext)).reduce(function(acc, value) {
+    return traverse(JSON.parse(jsontext)).reduce(function (acc, value) {
       if (this.key === 'class' || this.key === 'id') acc.push(value.split(' '))
       return acc
     }, [])
@@ -246,7 +352,17 @@ function getUniqueClasses() {
   const configFile = getConfigFile()
   _.each(viewPaths, viewPath => {
     const file = fs.readFileSync(viewPath, 'utf8')
-    if (file) allClasses.push((configFile.purge.mode === 'all') ? file.match(/[^<>"'`\s]*[^<>"'`\s:]/g) : extractClasses(file, viewPath))
+    if (file) {
+      // Validate XML syntax first, regardless of mode
+      validateXML(file, viewPath)
+
+      // Then extract classes based on mode
+      if (configFile.purge.mode === 'all') {
+        allClasses.push(file.match(/[^<>"'`\s]*[^<>"'`\s:]/g))
+      } else {
+        allClasses.push(extractClasses(file, viewPath))
+      }
+    }
   })
 
   const controllerPaths = getControllerPaths()
@@ -315,7 +431,7 @@ function extractClassesOnly(currentText, currentFile) {
   try {
     const jsontext = convert.xml2json(encodeHTML(currentText), { compact: true })
 
-    return traverse(JSON.parse(jsontext)).reduce(function(acc, value) {
+    return traverse(JSON.parse(jsontext)).reduce(function (acc, value) {
       if (this.key === 'class' || this.key === 'classes' || this.key === 'icon' || this.key === 'activeIcon') acc.push(value.split(' '))
       return acc
     }, [])
@@ -331,7 +447,12 @@ function extractClassesOnly(currentText, currentFile) {
 function getClassesOnlyFromXMLFiles() {
   const allClasses = []
   const viewPaths = getViewPaths()
-  _.each(viewPaths, viewPath => allClasses.push(extractClassesOnly(fs.readFileSync(viewPath, 'utf8'), viewPath)))
+  _.each(viewPaths, viewPath => {
+    const file = fs.readFileSync(viewPath, 'utf8')
+    // Validate XML before processing
+    validateXML(file, viewPath)
+    allClasses.push(extractClassesOnly(file, viewPath))
+  })
 
   const uniqueClasses = []
   _.each(_.uniq(_.flattenDeep(allClasses)).sort(), uniqueClass => {
@@ -455,7 +576,20 @@ export function purgeClasses(options) {
 
     backupOriginalAppTss()
 
-    const uniqueClasses = getUniqueClasses()
+    let uniqueClasses
+
+    try {
+      uniqueClasses = getUniqueClasses()
+    } catch (error) {
+      // Handle pre-validation errors (XML syntax errors detected before parsing)
+      if (error.isPreValidationError) {
+        // Error already printed by preValidateXML, exit cleanly
+        // eslint-disable-next-line n/no-process-exit
+        process.exit(1)
+      }
+      // Re-throw other errors
+      throw error
+    }
 
     let tempPurged = copyResetTemplateAnd_appTSS()
 
