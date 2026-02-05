@@ -433,7 +433,7 @@ export function displayHomeAsUp() {
 export function dropShadow() {
   const shadowValue = '#80000000'
   let convertedStyles = processComments({
-    prop: 'shadowOffset, shadowRadius, shadowColor - Drop Shadow in Tailwind',
+    prop: 'shadowOffset, shadowRadius, shadowColor',
     modules: 'Ti.UI.Button, Ti.UI.Label'
   })
   convertedStyles += `'.drop-shadow-xs': { shadowOffset: { x: 0, y: 0 }, shadowRadius: 1, shadowColor: '${shadowValue}' }\n`

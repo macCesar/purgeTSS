@@ -37,7 +37,7 @@ export const projectsFontAwesomeJS = `${cwd}/app/lib/fontawesome.js`
 
 export const projectsPurgeTSSFolder = `${cwd}/purgetss`
 export const projectsConfigJS = `${cwd}/purgetss/config.cjs`
-export const projectsTailwind_TSS = `${cwd}/purgetss/styles/tailwind.tss`
+export const projectsTailwind_TSS = `${cwd}/purgetss/styles/utilities.tss`
 export const projectsPurge_TSS_Fonts_Folder = `${cwd}/purgetss/fonts`
 export const projectsPurge_TSS_Styles_Folder = `${cwd}/purgetss/styles`
 export const projectsFA_TSS_File = `${cwd}/purgetss/styles/fontawesome.tss`
@@ -57,7 +57,7 @@ export const srcLibF7 = path.resolve(projectRoot, './dist/framework7icons.js')
 export const srcPurgeTSSLibrary = path.resolve(projectRoot, './dist/purgetss.ui.js')
 
 // TSS Files (generated)
-export const srcTailwindTSS = path.resolve(projectRoot, './dist/tailwind.tss')
+export const srcTailwindTSS = path.resolve(projectRoot, './dist/utilities.tss')
 export const srcFontAwesomeTSSFile = path.resolve(projectRoot, './dist/fontawesome.tss')
 export const srcFramework7FontTSSFile = path.resolve(projectRoot, './dist/framework7icons.tss')
 export const srcMaterialIconsTSSFile = path.resolve(projectRoot, './dist/materialicons.tss')

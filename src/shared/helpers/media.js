@@ -627,7 +627,7 @@ export function tiMedia(legacy = true) {
   convertedStyles += processProperties({
     prop: 'scalingMode - ( Alternative )',
     modules: 'Ti.UI.ImageView',
-    description: 'Background Size for compatibility with Tailwind classes'
+    description: 'Background Size for compatibility'
   }, {
     bg: '{ scalingMode: {value} }'
   }, {
@@ -643,7 +643,7 @@ export function tiMedia(legacy = true) {
   convertedStyles += processProperties({
     prop: 'scalingMode - ( Alternative )',
     modules: 'Ti.UI.ImageView',
-    description: 'Object Fit for compatibility with Tailwind classes'
+    description: 'Object Fit for compatibility'
   }, {
     object: '{ scalingMode: {value} }'
   }, {

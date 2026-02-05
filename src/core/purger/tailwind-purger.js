@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 /**
  * PurgeTSS v7.1.0 - Core Purger: Tailwind
- * Tailwind CSS purging engine - removes unused Tailwind classes
+ * utilities.tss purging engine - removes unused classes
  *
  * COPIED from src/index.js during refactorization - NO CHANGES to logic.
  *
@@ -42,18 +42,18 @@ function cleanClassNameFn(className) {
  * NO CHANGES to logic, preserving 100% of original functionality
  *
  * @param {Array} uniqueClasses - Array of unique class names found in XML files
- * @returns {string} Purged Tailwind CSS classes as string
+ * @returns {string} Purged utilities.tss classes as string
  */
 export function purgeTailwind(uniqueClasses, debug = false) {
   if (debug) localStart()
 
-  logger.info('Purging', chalk.yellow('Tailwind'), 'styles...')
+  logger.info('Purging', chalk.yellow('utilities.tss'), 'styles...')
 
   let purgedClasses = ''
   let tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/)
 
-  if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[6]) {
-    logger.info(chalk.yellow('config.js'), 'file changed!, rebuilding tailwind.tss...')
+  if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[3]) {
+    logger.info(chalk.yellow('config.js'), 'file changed!, rebuilding utilities.tss...')
     checkIfColorModule()
     buildTailwindBasedOnConfigOptions()
     createDefinitionsFile()
@@ -211,7 +211,7 @@ export function purgeTailwind(uniqueClasses, debug = false) {
   // Add arbitrary values
   purgedClasses += (arbitraryValues !== '\n// Arbitrary Values\n') ? arbitraryValues : ''
 
-  if (debug) localFinish('Purging ' + chalk.yellow('Tailwind') + ' styles...')
+  if (debug) localFinish('Purging ' + chalk.yellow('utilities.tss') + ' styles...')
 
   return purgedClasses
 }

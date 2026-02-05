@@ -314,7 +314,7 @@ export function viewShadowAndroid() {
  */
 export function viewShadowIos(shadowValue = '#80000000') {
   let convertedStyles = processComments({
-    prop: 'viewShadowOffset, viewShadowRadius, viewShadowColor - Box Shadow Effect in Tailwind - iOS Only',
+    prop: 'viewShadowOffset, viewShadowRadius, viewShadowColor - iOS Only',
     modules: 'Ti.UI.View'
   })
 
@@ -504,7 +504,7 @@ export function activitySharedElementReturnTransition() {
 }
 export function viewShadowV6(shadowValue = '#80000000') {
   let convertedStyles = processComments({
-    prop: 'iOS: viewShadowOffset, viewShadowRadius, viewShadowColor, Android: elevation - Box Shadow Effect in Tailwind',
+    prop: 'iOS: viewShadowOffset, viewShadowRadius, viewShadowColor, Android: elevation',
     modules: 'iOS: Ti.UI.View, Android: Ti.UI.Android.CardView, Ti.UI.Animation, Ti.UI.View'
   })
 
