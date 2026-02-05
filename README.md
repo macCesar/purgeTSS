@@ -18,6 +18,44 @@ If you build UI-heavy screens, PurgeTSS helps you move faster without hand-writi
 
 ---
 
+## What's New in v7.3.x
+
+**File rename and improved error handling.** PurgeTSS v7.3 renames `tailwind.tss` to `utilities.tss` to reflect the project's standalone identity, and adds XML syntax validation to catch errors early.
+
+### Breaking changes
+
+- **File rename**: Output file is now `utilities.tss` instead of `tailwind.tss`
+  - Generated file: `purgetss/styles/utilities.tss` (was `purgetss/styles/tailwind.tss`)
+  - Distribution file: `dist/utilities.tss` (was `dist/tailwind.tss`)
+
+### Major improvements
+
+- **XML syntax validation**: Catches common Alloy XML malformations before processing
+  - Detects missing opening `<` brackets (e.g., `Label id=` instead of `<Label id=`)
+  - Shows detailed error messages with line numbers, context preview, and fix suggestions
+  - Saves debugging time by catching errors early in the build process
+
+- **Classic Titanium compatibility**: `deviceInfo()` function now works in both Alloy and Classic projects
+  - Removed dependency on `Alloy.isTablet`/`Alloy.isHandheld`
+  - Uses platform-based detection instead
+
+### Migration guide
+
+If you have references to `tailwind.tss` in your project, update them to `utilities.tss`:
+
+```bash
+# Update any custom scripts or paths
+# From: purgetss/styles/tailwind.tss
+# To:   purgetss/styles/utilities.tss
+```
+
+For most users, upgrading is straightforward:
+```bash
+npm install -g purgetss@latest
+```
+
+---
+
 ## What's New in v7.2.x
 
 FontAwesome 7 support and major internal cleanup. PurgeTSS v7.2 adds full support for FontAwesome 7, including the new CSS custom properties format. It also reduces installation size and reorganizes the codebase for better performance and maintainability.

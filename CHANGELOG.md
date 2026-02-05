@@ -5,6 +5,35 @@ All notable changes to PurgeTSS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.3.0] - 2026-02-04
+
+### Changed
+- **BREAKING**: Renamed `tailwind.tss` to `utilities.tss` throughout the codebase
+  - Output file is now `purgetss/styles/utilities.tss` instead of `purgetss/styles/tailwind.tss`
+  - Distribution file is now `dist/utilities.tss` instead of `dist/tailwind.tss`
+  - This rename reflects PurgeTSS's identity as a standalone utility-first styling toolkit
+- Internal function renamed: `autoBuildTailwindTSS()` → `autoBuildUtilitiesTSS()`
+
+### Added
+- **XML syntax validation**: New pre-validation system for Alloy XML files
+  - Detects common malformations like missing opening `<` brackets (e.g., `Label id=` instead of `<Label id=`)
+  - Provides detailed error messages with line numbers, context preview, and suggested fixes
+  - Runs before processing to catch errors early in the build pipeline
+
+### Fixed
+- **Classic Titanium compatibility**: `deviceInfo()` function no longer depends on `Alloy.isTablet`/`Alloy.isHandheld`
+  - Now uses `platform.osname`-based detection for tablet/handheld identification
+  - Works in both Alloy and Classic Titanium projects without errors
+
+### Removed
+- Removed `lib/templates/tailwind/template.tss` reference (consolidated into `custom-template.tss`)
+
+### Internal
+- Updated all code comments and documentation references from "Tailwind" to "utilities.tss"
+- Simplified template header comments
+- Updated CLI help text and command descriptions
+- All E2E tests updated to expect `utilities.tss` output
+
 ## [7.2.7] - 2026-01-13
 
 ### Security
