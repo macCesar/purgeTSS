@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "purgetss",
-  "version": "7.2.7",
+  "version": "7.3.0",
   "main": "src/index.js",
   "bin": {
     "purgetss": "bin/purgetss"
@@ -57,7 +57,7 @@
   "keywords": [
     "Appcelerator",
     "Titanium",
-    "tailwind.tss",
+    "utilities.tss",
     "fontawesome.tss",
     "cli"
   ],
