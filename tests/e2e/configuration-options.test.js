@@ -32,7 +32,7 @@ module.exports = ${JSON.stringify(configOptions, null, 2)}
 
   // Check if config.cjs already exists (after migration)
   const configPath = fs.existsSync(CONFIG_CJS_PATH) ? CONFIG_CJS_PATH : CONFIG_JS_PATH
-  
+
   fs.writeFileSync(configPath, configContent)
   console.log(`     📝 Created config with options (${path.basename(configPath)}):`, configOptions)
 }
@@ -61,12 +61,12 @@ async function testConfiguration(configName, configOptions, testDescription) {
       console.log('     ⚠️  Stderr:', stderr)
     }
 
-    // Check if tailwind.tss was created in the correct location
-    const tailwindPath = `${PROJECT_PATH}/purgetss/styles/tailwind.tss`
+    // Check if utilities.tss was created in the correct location
+    const tailwindPath = `${PROJECT_PATH}/purgetss/styles/utilities.tss`
     if (fs.existsSync(tailwindPath)) {
       const content = fs.readFileSync(tailwindPath, 'utf8')
       const linesCount = content.split('\n').length
-      console.log(`     ✅ Generated tailwind.tss (${linesCount} lines)`)
+      console.log(`     ✅ Generated utilities.tss (${linesCount} lines)`)
 
       // Log first few lines for verification
       const firstLines = content.split('\n').slice(0, 3).join('\n')
@@ -79,10 +79,10 @@ async function testConfiguration(configName, configOptions, testDescription) {
       console.log(`\n     ✅ Configuration ${configName} test passed\n`)
       return true
     } else {
-      console.log('     ❌ tailwind.tss not generated in purgetss/styles/')
+      console.log('     ❌ utilities.tss not generated in purgetss/styles/')
 
       // Check if it was generated elsewhere
-      const altPath = `${PROJECT_PATH}/app/assets/tailwind.tss`
+      const altPath = `${PROJECT_PATH}/app/assets/utilities.tss`
       if (fs.existsSync(altPath)) {
         console.log('     ⚠️  Found in app/assets/ instead')
       }
@@ -164,7 +164,7 @@ async function runConfigurationTests() {
 
     // Clean up between tests
     try {
-      await execAsync('rm -f app/assets/tailwind.tss', { cwd: PROJECT_PATH })
+      await execAsync('rm -f app/assets/utilities.tss', { cwd: PROJECT_PATH })
     } catch (error) {
       // Ignore cleanup errors
     }
@@ -205,7 +205,7 @@ async function main() {
 
   // Clean previous artifacts
   try {
-    await execAsync('rm -rf app/assets/tailwind.tss purgetss/config.js purgetss/config.cjs', { cwd: PROJECT_PATH })
+    await execAsync('rm -rf app/assets/utilities.tss purgetss/config.js purgetss/config.cjs', { cwd: PROJECT_PATH })
     console.log('     🧹 Cleaned previous test artifacts\n')
   } catch (error) {
     // Ignore cleanup errors
@@ -215,7 +215,7 @@ async function main() {
 
   // Final cleanup
   try {
-    await execAsync('rm -rf purgetss/config.js purgetss/config.cjs app/assets/tailwind.tss', { cwd: PROJECT_PATH })
+    await execAsync('rm -rf purgetss/config.js purgetss/config.cjs app/assets/utilities.tss', { cwd: PROJECT_PATH })
   } catch (error) {
     // Ignore cleanup errors
   }

@@ -17,7 +17,7 @@ async function testEssentialCommands() {
     {
       command: `${PURGETSS_BIN}`,
       description: 'Basic build command',
-      expectedFiles: ['purgetss/styles/tailwind.tss']
+      expectedFiles: ['purgetss/styles/utilities.tss']
     },
     {
       command: `${PURGETSS_BIN} module`,

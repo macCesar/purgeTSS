@@ -100,7 +100,7 @@ async function runAllCommandTests() {
       command: `${PURGETSS_BIN}`,
       description: 'Basic purgetss command (build)',
       expectedFiles: [
-        'purgetss/styles/tailwind.tss',
+        'purgetss/styles/utilities.tss',
         'purgetss/styles/definitions.css'
       ]
     },
@@ -108,7 +108,7 @@ async function runAllCommandTests() {
       command: `${PURGETSS_BIN} build`,
       description: 'Explicit build command',
       expectedFiles: [
-        'purgetss/styles/tailwind.tss',
+        'purgetss/styles/utilities.tss',
         'purgetss/styles/definitions.css'
       ]
     },
@@ -122,7 +122,7 @@ async function runAllCommandTests() {
       description: 'Initialize PurgeTSS in project',
       expectedFiles: [
         'purgetss/config.cjs',
-        'purgetss/styles/tailwind.tss',
+        'purgetss/styles/utilities.tss',
         'purgetss/styles/definitions.css'
       ]
     },
@@ -191,7 +191,7 @@ async function main() {
 
   // Clean previous artifacts (preserve purgetss/fonts/ for build-fonts test)
   try {
-    await execAsync('rm -f purgetss/styles/tailwind.tss purgetss/styles/fonts.tss purgetss/styles/definitions.css purgetss/config.cjs app/lib/purgetss.ui.js', { cwd: PROJECT_PATH })
+    await execAsync('rm -f purgetss/styles/utilities.tss purgetss/styles/fonts.tss purgetss/styles/definitions.css purgetss/config.cjs app/lib/purgetss.ui.js', { cwd: PROJECT_PATH })
     await execAsync('rm -f app/assets/fonts/*', { cwd: PROJECT_PATH })
     console.log('     🧹 Cleaned previous test artifacts (preserved purgetss/fonts/)\n')
   } catch (error) {
