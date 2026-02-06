@@ -59,7 +59,7 @@ export function dependencies(options) {
 
   // Install Tailwind CSS
   logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
-  execSync(`cd "${cwd}" && npm i -D tailwindcss && npx tailwindcss init`)
+  execSync(`cd "${cwd}" && npm i -D tailwindcss@3 && npx tailwindcss init`)
 
   logger.info('The dependencies and config files have been installed successfully!')
 
