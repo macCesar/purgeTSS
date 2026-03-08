@@ -1,4 +1,4 @@
-// PurgeTSS v7.3.1
+// PurgeTSS v7.4.0
 // Created by César Estrada
 // https://purgetss.com
 
@@ -300,18 +300,18 @@ function Animation(args = {}) {
         params.playing = false
         if (typeof _cb === 'function') {
           const enrichedEvent = {
-            // Solo propiedades seguras del event original
+            // Safe properties from the original event
             type: event.type,
             bubbles: event.bubbles,
             cancelBubble: event.cancelBubble,
-            // Nuestras propiedades añadidas (solo primitivos)
+            // Added properties (primitives only)
             action,                             // 'play'
             state: params.open ? 'open' : 'close',
             id: params.id,
-            targetId: view.id || 'unknown',     // Solo el ID del view, no el objeto
+            targetId: view.id || 'unknown',     // View ID only, not the object
             index,
             total,
-            // Método helper para obtener el view
+            // Helper method to get the view
             getTarget: () => view
           }
           _cb(enrichedEvent)
@@ -341,14 +341,14 @@ function Animation(args = {}) {
           type: 'applied',
           bubbles: false,
           cancelBubble: false,
-          // Nuestras propiedades (solo primitivos)
+          // Added properties (primitives only)
           action,                             // 'apply'
           state: params.open ? 'open' : 'close',
           id: params.id,
-          targetId: view.id || 'unknown',     // Solo el ID del view
+          targetId: view.id || 'unknown',     // View ID only, not the object
           index,
           total,
-          // Método helper para obtener el view
+          // Helper method to get the view
           getTarget: () => view
         }
         _cb(enrichedEvent)
