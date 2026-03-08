@@ -375,6 +375,26 @@ export function fixInvalidValues(invalidValues, currentValue) {
 }
 
 /**
+ * Recursively serialize a value for TSS output.
+ * Handles primitives, plain objects, and arrays of objects.
+ * @param {*} val - Value to serialize
+ * @returns {string} TSS-compatible string representation
+ */
+function serializeValue(val) {
+  if (Array.isArray(val)) {
+    const items = val.map(item => serializeValue(item))
+    return `[ ${items.join(', ')} ]`
+  }
+  if (typeof val === 'object' && val !== null) {
+    const entries = Object.entries(val)
+      .map(([k, v]) => `${k}: ${serializeValue(v)}`)
+      .join(', ')
+    return `{ ${entries} }`
+  }
+  return parseValue(val)
+}
+
+/**
  * Generate custom rules for Titanium styles
  * @param {Object} _value - Value object containing rules
  * @param {string} _key - Key for the rule
@@ -399,27 +419,7 @@ export function customRules(_value, _key, changeToDash = false) {
 
             customProperties += ' {_applyProperties_},'
           } else {
-            customProperties += ` ${theModifier}: {`
-
-            let extraCustomProperties = ''
-
-            _.each(theValue, (extraValue, extraModifier) => {
-              if (typeof (extraValue) === 'object' && extraValue !== null) {
-                customProperties += ` ${extraModifier}: {`
-
-                let moreExtraCustomProperties = ''
-
-                _.each(extraValue, (moreExtraValue, moreModifier) => {
-                  moreExtraCustomProperties += ` ${moreModifier}: ${parseValue(moreExtraValue)},`
-                })
-
-                customProperties += `${removeLastCharacter(moreExtraCustomProperties)} },`
-              } else {
-                extraCustomProperties += ` ${extraModifier}: ${parseValue(extraValue)},`
-              }
-            })
-
-            customProperties += `${removeLastCharacter(extraCustomProperties)} },`
+            customProperties += ` ${theModifier}: ${serializeValue(theValue)},`
           }
         } else {
           if (theModifier === 'apply') {
