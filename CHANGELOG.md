@@ -93,3 +93,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [7.2.2] - 2025-09-22
 ...
+
+## [7.1.10] - 2025-08-17
+
+### Changed
+- **Animation module**: `play` and `apply` callbacks now receive an enriched event object instead of the raw native event
+  - Provides safe, serializable properties: `type`, `bubbles`, `cancelBubble`
+  - Adds context properties: `action` (`'play'` or `'apply'`), `state` (`'open'` or `'close'`), `id`, `targetId`, `index`, `total`
+  - Adds `getTarget()` helper method to retrieve the animated view
+  - When animating an array of views, `index` (zero-based position) and `total` (array length) are passed to each callback invocation

@@ -67,6 +67,106 @@ Here are its main functionalities:
 - **Animation module**: Apply basic 2D matrix animations or transformations to elements or arrays of elements.
 - **Grid system**: A two-dimensional grid system to align and distribute elements within views.
 
+---
+
+## Animation Module (`purgetss.ui.js`)
+
+Install with `purgetss module` (or `purgetss m`). This places `purgetss.ui.js` in your project's `lib` folder.
+
+### Declaring an Animation object
+
+```xml
+<Animation id="myAnimation" module="purgetss.ui" class="opacity-0 duration-300 ease-in" />
+```
+
+You can use any position, size, color, opacity, or transformation class from `utilities.tss`.
+
+### Available methods
+
+| Method                                  | Description                                                                                   |
+| --------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `play(views, cb)` / `toggle(views, cb)` | Animate views from current state to the animation state. Toggles `open`/`close` on each call. |
+| `open(views, cb)`                       | Explicitly run the `open` state animation.                                                    |
+| `close(views, cb)`                      | Explicitly run the `close` state animation.                                                   |
+| `apply(views, cb)`                      | Apply properties instantly without animation.                                                 |
+| `draggable(views)`                      | Make a view or array of views draggable inside their parent.                                  |
+
+### Callback event object
+
+All callbacks (`play`, `open`, `close`, `apply`) receive an enriched event object:
+
+```js
+{
+  type: String,         // event type ('complete' or 'applied')
+  bubbles: Boolean,
+  cancelBubble: Boolean,
+  action: String,       // 'play' or 'apply'
+  state: String,        // 'open' or 'close'
+  id: String,           // Animation object ID
+  targetId: String,     // ID of the animated view
+  index: Number,        // position in array (0-based)
+  total: Number,        // total views in array
+  getTarget: Function   // returns the animated view object
+}
+```
+
+When animating an **array of views**, the callback is called once per view with the corresponding `index` and `total` values.
+
+```js
+$.myAnimation.play([$.card1, $.card2, $.card3], (e) => {
+  console.log(`Animated ${e.index + 1} of ${e.total}`) // "Animated 1 of 3", etc.
+  if (e.index === e.total - 1) {
+    console.log('All done!')
+  }
+})
+```
+
+### Multi-state animations
+
+Use `open`, `close`, and `complete` modifiers inside `animationProperties` to define different states:
+
+```xml
+<Animation id="fadeToggle" module="purgetss.ui" class="duration-300"
+  animationProperties="{
+    open: { opacity: 1 },
+    close: { opacity: 0 }
+  }"
+/>
+```
+
+### Draggable views
+
+```js
+$.myAnimation.draggable($.myView)
+// or with constraints:
+$.myAnimation.draggable([$.card1, $.card2])
+```
+
+Use `bounds` to restrict movement, and `drag`/`drop` modifiers for drag-state animations. Use `vertical-constraint` or `horizontal-constraint` classes to limit the drag axis.
+
+### Utility classes for animations
+
+| Class pattern                                       | Description                   |
+| --------------------------------------------------- | ----------------------------- |
+| `duration-{n}`                                      | Animation duration in ms      |
+| `delay-{n}`                                         | Delay before animation starts |
+| `rotate-{n}`                                        | 2D rotation in degrees        |
+| `scale-{n}`                                         | Scale factor                  |
+| `repeat-{n}`                                        | Number of repeats             |
+| `ease-in`, `ease-out`, `ease-linear`, `ease-in-out` | Timing curve                  |
+| `zoom-in-{n}`, `zoom-out-{n}`                       | Zoom animations               |
+| `drag-apply`, `drag-animate`                        | Drag interaction style        |
+| `vertical-constraint`, `horizontal-constraint`      | Constrain drag axis           |
+
+### Utility functions
+
+| Function                               | Description                                                                                              |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `deviceInfo()`                         | Logs detailed platform and display information to the console. Works in both Alloy and Classic projects. |
+| `saveComponent({ source, directory })` | Saves a view snapshot as PNG to the photo gallery.                                                       |
+
+See the full documentation at [purgetss.com/docs/animation-module/introduction](https://purgetss.com/docs/animation-module/introduction).
+
 In short, PurgeTSS keeps styling consistent and removes a lot of repetitive UI setup work.
 
 ### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more.
