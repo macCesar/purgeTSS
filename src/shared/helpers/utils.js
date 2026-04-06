@@ -470,6 +470,10 @@ export function compileApplyDirectives(twClasses) {
       const compoundClasses = []
       const classesWithOpacityValues = []
 
+      // Extract platform from the target class (e.g., 'Window[platform=ios]' → 'ios')
+      const platformMatch = className.match(/\[platform=(\w+)\]/)
+      const targetPlatform = platformMatch ? platformMatch[1] : null
+
       _.each([...values], searchClass => {
         if (searchClass.includes('ios:')) {
           searchClass = `${searchClass.replace('ios:', '')}[platform=ios]`
@@ -496,14 +500,27 @@ export function compileApplyDirectives(twClasses) {
 
           classesWithOpacityValues.push({ decimalValue, transparency, originalClass, classNameWithTransparency })
         } else {
-          const className = `'.${searchClass}':`
-          let foundClass = twClassesArray[findIndexOfClassName(className, twClassesArray)]
+          let foundClass = null
+
+          // If the target has a platform, try platform-specific class first
+          if (targetPlatform && !searchClass.includes('[platform=')) {
+            const platformClassName = `'.${searchClass}[platform=${targetPlatform}]':`
+            foundClass = twClassesArray[findIndexOfClassName(platformClassName, twClassesArray)]
+            if (!foundClass && fontsClassesArray) {
+              foundClass = fontsClassesArray[findIndexOfClassName(platformClassName, fontsClassesArray)]
+            }
+          }
+
+          // Fall back to generic class (no platform suffix)
+          if (!foundClass) {
+            const genericClassName = `'.${searchClass}':`
+            foundClass = twClassesArray[findIndexOfClassName(genericClassName, twClassesArray)]
+            if (!foundClass && fontsClassesArray) {
+              foundClass = fontsClassesArray[findIndexOfClassName(genericClassName, fontsClassesArray)]
+            }
+          }
 
           if (foundClass) compoundClasses.push(justProperties(foundClass))
-          else if (fontsClassesArray) {
-            foundClass = fontsClassesArray[findIndexOfClassName(className, fontsClassesArray)]
-            if (foundClass) compoundClasses.push(justProperties(foundClass))
-          }
         }
       })
 
@@ -522,10 +539,52 @@ export function compileApplyDirectives(twClasses) {
       }
 
       twClassesArray[indexOfModifier] = _.replace(twClassesArray[indexOfModifier], /{_applyProperties_}/, fixDuplicateKeys(compoundClasses).join(', '))
+      twClassesArray[indexOfModifier] = deduplicateLineProperties(twClassesArray[indexOfModifier])
     }
   })
 
   return twClassesArray.join('\n')
+}
+
+/**
+ * Remove duplicate property keys in a TSS line, keeping the last occurrence.
+ * This ensures apply directives override static defaults (e.g. backgroundColor).
+ */
+function deduplicateLineProperties(line) {
+  const match = line.match(/^(.*?\{)\s*(.*)\s*(\})$/)
+  if (!match) return line
+
+  const prefix = match[1]
+  const propsStr = match[2]
+  const suffix = match[3]
+
+  // Split by comma respecting nested braces
+  const props = []
+  let depth = 0
+  let current = ''
+  for (const char of propsStr) {
+    if (char === '{') depth++
+    else if (char === '}') depth--
+    else if (char === ',' && depth === 0) {
+      if (current.trim()) props.push(current.trim())
+      current = ''
+      continue
+    }
+    current += char
+  }
+  if (current.trim()) props.push(current.trim())
+
+  // Keep last occurrence of each key
+  const seen = new Map()
+  props.forEach(prop => {
+    const colonIdx = prop.indexOf(':')
+    if (colonIdx > -1) {
+      const key = prop.substring(0, colonIdx).trim()
+      seen.set(key, prop)
+    }
+  })
+
+  return prefix + ' ' + [...seen.values()].join(', ') + ' ' + suffix
 }
 
 export function justProperties(_foundClass) {

@@ -238,6 +238,7 @@ function processCompoundClasses({ ..._base }) {
   compoundClasses += generateGlossary('theme', helpers.theme())
   compoundClasses += generateGlossary('tiMedia', helpers.tiMedia(false))
   compoundClasses += generateGlossary('titleAttributesShadow-alternative', helpers.titleAttributesShadow())
+  compoundClasses += generateGlossary('snap', helpers.snap())
   compoundClasses += generateGlossary('toggle', helpers.toggle())
   compoundClasses += generateGlossary('touchEnabled-alternative', helpers.touchEnabled())
   compoundClasses += generateGlossary('viewShadowOffset', helpers.viewShadowV6())
@@ -394,17 +395,27 @@ function combineDefaultThemeWithConfigFile() {
   delete base.zIndex.auto
 
   // ! Process custom Window, View and ImageView
-  base.Window = (configFile.theme.Window && configFile.theme.Window.apply)
-    ? _.merge({ apply: configFile.theme.Window.apply }, configFile.theme.Window)
-    : _.merge({ default: { backgroundColor: '#FFFFFF' } }, configFile.theme.Window)
+  // Merge extend values into theme (same as colors, spacing, etc.)
+  _.each(['Window', 'View', 'ImageView'], comp => {
+    if (configFile.theme.extend[comp]) {
+      configFile.theme[comp] = _.merge({}, configFile.theme[comp], configFile.theme.extend[comp])
+      delete configFile.theme.extend[comp]
+    }
+    // Normalize shorthand: { apply: '...' } → { default: { apply: '...' } }
+    if (configFile.theme[comp] && configFile.theme[comp].apply && !configFile.theme[comp].default) {
+      configFile.theme[comp] = { default: configFile.theme[comp] }
+    }
+  })
 
-  base.ImageView = (configFile.theme.ImageView && configFile.theme.ImageView.apply)
-    ? _.merge({ apply: configFile.theme.ImageView.apply }, { ios: { hires: true } }, configFile.theme.ImageView)
-    : _.merge({ ios: { hires: true } }, configFile.theme.ImageView)
+  // Merge user config WITH defaults, then write back to configFile.theme
+  // so that getTiUIComponents/combineKeys picks up the full merged object
+  configFile.theme.Window = _.merge({ default: { backgroundColor: '#FFFFFF' } }, configFile.theme.Window)
+  configFile.theme.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView)
+  configFile.theme.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View)
 
-  base.View = (configFile.theme.View && configFile.theme.View.apply)
-    ? _.merge({ apply: configFile.theme.View.apply }, configFile.theme.View)
-    : _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View)
+  base.Window = configFile.theme.Window
+  base.ImageView = configFile.theme.ImageView
+  base.View = configFile.theme.View
 
   // !Delete plugins specified in the config file
   const deletePlugins = checkDeletePlugins()
@@ -631,7 +642,7 @@ function generateCombinedClasses(key, data) {
     })
   } else {
     _.each(data.values, (_value, _key) => {
-      if (!_value.includes('deprecated')) myClasses += formatClass(key, _value)
+      if (!_value.includes('deprecated')) myClasses += formatClass(key, _value, data.type === 'Array')
     })
   }
 
@@ -647,8 +658,12 @@ function saveAutoTSS(key, classes) {
   }
 }
 
-function formatClass(key, value) {
-  return `'.${formatClassName(key, value)}': { ${key}: ${value} }\n`
+// inputType is marked as Array in completions but accepts a single value
+const nonArrayOverrides = new Set(['inputType'])
+
+function formatClass(key, value, isArray = false) {
+  const formattedValue = (isArray && !nonArrayOverrides.has(key)) ? `[ ${value} ]` : value
+  return `'.${formatClassName(key, value)}': { ${key}: ${formattedValue} }\n`
 }
 
 function formatClassName(property, value) {

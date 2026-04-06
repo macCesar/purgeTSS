@@ -103,17 +103,27 @@ export function combineAllValues(base, defaultTheme) {
   const allValues = {}
 
   // ! Custom Window, View and ImageView
-  allValues.Window = (configFile.theme.Window && configFile.theme.Window.apply)
-    ? _.merge({ apply: configFile.theme.Window.apply }, configFile.theme.Window)
-    : _.merge({ default: { backgroundColor: '#FFFFFF' } }, configFile.theme.Window)
+  // Merge extend values into theme (same as colors, spacing, etc.)
+  _.each(['Window', 'View', 'ImageView'], comp => {
+    if (configFile.theme.extend[comp]) {
+      configFile.theme[comp] = _.merge({}, configFile.theme[comp], configFile.theme.extend[comp])
+      delete configFile.theme.extend[comp]
+    }
+    // Normalize shorthand: { apply: '...' } → { default: { apply: '...' } }
+    if (configFile.theme[comp] && configFile.theme[comp].apply && !configFile.theme[comp].default) {
+      configFile.theme[comp] = { default: configFile.theme[comp] }
+    }
+  })
 
-  allValues.ImageView = (configFile.theme.ImageView && configFile.theme.ImageView.apply)
-    ? _.merge({ apply: configFile.theme.ImageView.apply }, { ios: { hires: true } }, configFile.theme.ImageView)
-    : _.merge({ ios: { hires: true } }, configFile.theme.ImageView)
+  // Merge user config WITH defaults, then write back to configFile.theme
+  // so that downstream functions pick up the full merged object
+  configFile.theme.Window = _.merge({ default: { backgroundColor: '#FFFFFF' } }, configFile.theme.Window)
+  configFile.theme.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView)
+  configFile.theme.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View)
 
-  allValues.View = (configFile.theme.View && configFile.theme.View.apply)
-    ? _.merge({ apply: configFile.theme.View.apply }, configFile.theme.View)
-    : _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View)
+  allValues.Window = configFile.theme.Window
+  allValues.ImageView = configFile.theme.ImageView
+  allValues.View = configFile.theme.View
 
   // ! Width, height and margin properties
   // INFO: sizingProperties: For glossary generator only... Do not move from this position.
