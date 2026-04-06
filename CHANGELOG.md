@@ -5,6 +5,140 @@ All notable changes to PurgeTSS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.5.0] - 2026-04-05
+
+### Added
+- **`extend` support for Window, View, and ImageView** -- you can now customize component defaults from `theme.extend` in `config.cjs`, same as `extend.colors` or `extend.spacing`
+  ```js
+  extend: {
+    Window: { apply: 'exit-on-close-false bg-blue-500' }
+    // or with the explicit default wrapper:
+    Window: { default: { apply: 'exit-on-close-false bg-blue-500' } }
+  }
+  ```
+- **Shorthand `apply` for Window, View, and ImageView** -- `{ apply: '...' }` is automatically normalized to `{ default: { apply: '...' } }`, so the `default` wrapper is now optional
+- **Apply directive property deduplication** -- if an apply class sets a property that already exists as a static default (e.g., `bg-blue-500` vs the default `backgroundColor: '#FFFFFF'`), the applied value wins instead of duplicating it
+  ```
+  // Before: 'Window': { backgroundColor: '#FFFFFF', backgroundColor: '#3b82f6' }
+  // Now:    'Window': { backgroundColor: '#3b82f6', exitOnClose: false }
+  ```
+
+- **Automatic platform resolution in apply directives** -- classes inside platform blocks (`ios:`, `android:`) now automatically find their platform-specific version in `utilities.tss`. No need to prefix with `ios:` or `android:` when you're already inside a platform block
+  ```js
+  Window: {
+    ios: {
+      // Before: had to write 'ios:status-bar-style-light-content'
+      // Now: just write the class name, the ios block handles it
+      apply: 'status-bar-style-light-content extend-edges-all'
+    }
+  }
+  ```
+
+### Changed
+- Updated Font Awesome to version 7.2.0
+
+### Fixed
+- **`extend.Window` was silently ignored** -- putting Window, View, or ImageView inside `theme.extend` had no effect; only `theme.Window` (without extend) worked. Both locations work now, and `extend` merges into defaults as expected
+- **Duplicate `font` properties in apply directives** -- when multiple apply classes resolved to `font: { ... }` objects, they could appear as separate entries. The deduplication now keeps the last occurrence
+- **Array-type properties missing bracket notation in `utilities.tss`** -- properties like `extendEdges`, `mediaTypes`, `orientationModes`, and other Array-type Titanium properties were generated as plain strings instead of arrays. Now correctly wrapped in `[ ]` notation
+  ```
+  // Before: '.extend-edges-all': { extendEdges: Ti.UI.EXTEND_EDGE_ALL }
+  // Now:    '.extend-edges-all': { extendEdges: [ Ti.UI.EXTEND_EDGE_ALL ] }
+  ```
+  - Exception: `inputType` is excluded from bracket wrapping (accepts a single value per Ti SDK docs despite being marked as Array in the schema)
+
+## [7.4.0] - 2026-03-31
+
+### Added
+- **Animation module: `transition(views, layouts)`** — multi-view layout transitions using GPU-accelerated `Matrix2D.translate().rotate().scale()`
+  - Animates an array of views simultaneously to positions defined by layout objects
+  - Each layout object accepts `translation: {x, y}`, `rotate`, `scale`, `zIndex`, `width`, `height`, and `opacity`
+  - Property names match TiDesigner's mockup preset format — presets can be shared directly
+  - Layouts are positional arrays — `layouts[i]` maps to `views[i]`, enabling reusable presets across different view groups
+  - Views without a corresponding layout entry automatically fade out; views returning from fade-out automatically fade back in
+  - Inherits `duration`, `delay`, and `curve` from the `<Animation />` object
+  - Single `view.animate()` call per view (no concurrent animation conflicts on Android)
+  - **Mac Catalyst note**: parent containers should use fixed dimensions — resizable containers with `Ti.UI.FILL` cause UIKit re-layout distortion on views with rotated transforms
+- **Animation module: `pulse(view, count)`** — scale-up-and-back pulse animation using native `autoreverse` + `repeat`
+  - Scale value inherited from the `<Animation />` object's `scale` class (e.g., `scale-(1.3)`); defaults to 1.2x
+  - `count` parameter controls number of pulses (default 1)
+  - No timers or callbacks needed for multiple pulses — uses Titanium's native `repeat` property
+- **Animation module: `shake` fix** — now oscillates bidirectionally (left-right) instead of only moving right
+- **Animation module: `keep-z-index` class** — prevents drag from reordering z-indices, preserving layout preset order during drag
+- **Animation module: delta-based drag for transformed views** — views with `rotate`/`scale` (from `transition`) now drag smoothly using TiDesigner's delta approach instead of `convertPointToView`, preserving rotation and scale during drag
+- **Animation module: `detectCollisions(views, dragCB, dropCB)`** — enables collision detection on draggable views
+  - Calls `dragCB(source, target)` during drag when the source view hovers over another registered view
+  - Calls `dragCB(source, null)` when the source leaves all targets
+  - Calls `dropCB(source, target)` on drop when a collision target is found
+  - Automatic snap-back animation (200ms) when dropped outside any target
+  - Collision is based on center-point hit testing against each view's `rect` bounds
+- **Animation module: `swap(view1, view2, duration)`** — animates two views exchanging positions
+  - Handles iOS transform reset (`Ti.UI.createMatrix2D()`) during the swap animation
+  - Temporarily elevates z-index of both views so the animation renders above siblings
+  - Restores original z-index order after animation completes
+  - Default duration: 200ms
+- **Animation module: `sequence(views, cb)`** — animates views one after another
+  - Each view completes before the next starts (unlike `play(array)` which runs in parallel)
+  - Callback fires once after the last view finishes
+  - Respects `open`/`close` state toggling
+- **Animation module: `shake(view, intensity, duration)`** — error/feedback shake animation
+  - Uses native `autoreverse` + `repeat` for smooth performance (no callback chaining)
+  - Default: intensity 10px, duration 400ms
+- **Animation module: `snapTo(view, targets, duration)`** — snap to nearest target
+  - Finds closest target by center-to-center distance and animates to its position
+  - Returns the matched target view, or `null` if no targets
+  - Handles iOS transform reset automatically
+- **Animation module: `reorder(views, newOrder, duration)`** — animated reordering
+  - Accepts an index array mapping current positions to new positions
+  - All views animate simultaneously to their new positions
+  - Default duration: 200ms
+- **Animation module: position normalization for `swap`, `reorder`, and `snapTo`** — views no longer require explicit `top`/`left` properties
+  - Automatically resolves position from `_origin*`, then `top`/`left`, then `view.rect` (rendered position)
+  - Normalizes views to `top`/`left` positioning on first use (clears `right`/`bottom`)
+  - Views positioned with margins (`ml-`, `mr-`, `mt-`), `right`, or centered layout now work correctly
+- **Animation module: `undraggable(views)`** — removes draggable behavior
+  - Cleans up all touch listeners and orientation change listener
+  - Removes views from collision detection registry
+  - Cleans up internal tracking properties
+
+### Fixed
+- **Animation module: `swap` race condition with bounce-back animations** — when dropping a view onto a target that had a bounce-back animation in progress, both views could end up overlapping at the same position. `swap` now cancels any pending bounce-back on both views before starting the swap animation
+- **Animation module: snap not triggering on fast drag release** — when releasing a dragged view while still in motion, `checkCollision` could miss the target because the center-point had already exited the target bounds. Now tracks the last known collision target during drag and uses it as fallback on drop
+- **Animation module: snap animation not applying on Android** — on Android, the async `animate({ duration: 0 })` used during drag could conflict with the snap animation on drop. Now consolidates the drag position with `applyProperties` before starting snap, same as bounce-back already did
+
+### Changed
+- **Animation module: `swap`, `reorder`, `shake`, `snapTo` now inherit properties from the Animation object**
+  - Follows the same pattern as existing methods (`play`, `open`, `close`, etc.) — no explicit `duration` parameter
+  - **`duration`**: inherits from `duration-*` class; fallbacks: 200ms (swap/reorder/snapTo), 400ms (shake)
+  - **`delay`**: inherits from `delay-*` class; fallback: 0ms
+  - **`curve`**: inherits from `curve-*` class; fallback: `EASE_IN_OUT` (swap/reorder/snapTo). Shake keeps its own `EASE_IN_OUT` internally
+  - **Note**: `shake` retains `intensity` as its only parameter (not an Animation property). Does NOT inherit `autoreverse` or `repeat` — uses fixed internal values required for the shake effect
+- **Animation module: snap system — `snap-back` and `snap-center` classes**
+  - Both OFF by default — opt-in via classes on the `<Animation>` object
+  - `snap-back`: view returns to origin when dropped outside a collision target
+  - `snap-center`: view auto-centers on the target when dropped on it (uses `snapTo` internally)
+  - `snap-magnet`: (planned) magnetic attraction while dragging near a target
+- **Animation module: `snapTo` now centers the view on the target**
+  - Previously snapped to the target's `top`/`left`, causing misalignment when source and target have different sizes
+  - Now calculates the center offset: `target.position + (target.size - view.size) / 2`
+  - When source and target are the same size, behavior is unchanged
+- **Animation module: bounce-back now inherits from the Animation object and handles Android race conditions**
+  - Uses `...args` instead of hardcoded `duration: 200` — follows the same inheritance rules as all other methods
+  - On Android, consolidates drag position with `applyProperties` before starting bounce-back animation to prevent animation conflicts
+  - Added `_bouncingBack` flag to handle rapid drag-drop on the same view — if a bounce-back is in progress when a new drag starts, it completes immediately via `applyProperties` before capturing the new origin
+- **Animation module: `makeDraggable` refactored** to store listener references on views
+  - Enables proper cleanup via `undraggable()`
+  - Listeners stored in `view._dragListeners` object
+
+## [7.3.1] - 2026-03-31
+
+### Fixed
+- **Animation module: draggable views with `left: 0` or `top: 0` jumped on drag start**
+  - `calculateTranslation()` used truthiness checks (`if (draggableView.left)`) which treated `0` as falsy
+  - Views positioned at `left: 0` or `top: 0` fell through to the centered-positioning fallback, causing an incorrect offset on drag
+  - Fixed by using `!= null` checks to properly distinguish between "not set" (`undefined`) and "explicitly set to 0"
+  - Affects `right` and `bottom` properties as well
+
 ## [7.3.0] - 2026-02-04
 
 ### Changed

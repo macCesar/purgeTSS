@@ -10,62 +10,18 @@
 
 </div>
 
-**PurgeTSS** is a toolkit for building mobile apps with the [Titanium framework](https://titaniumsdk.com). It adds practical utilities to speed up styling and reduce repeated setup work.
-
-It includes utility classes, icon font support, an Animation module, a simple grid system, and the `shades` command for generating custom colors.
-
-If you build UI-heavy screens, PurgeTSS helps you move faster without hand-writing long TSS files.
+**PurgeTSS** is a toolkit for building mobile apps with the [Titanium framework](https://titaniumsdk.com). It provides utility classes, icon font support, an Animation module, a grid system, and the `shades` command for generating custom colors.
 
 ---
 
-## What's New in v7.3.x
-
-**File rename and improved error handling.** PurgeTSS v7.3 renames `tailwind.tss` to `utilities.tss` to reflect the project's standalone identity, and adds XML syntax validation to catch errors early.
-
-### Breaking changes
-
-- **File rename**: Output file is now `utilities.tss` instead of `tailwind.tss`
-  - Generated file: `purgetss/styles/utilities.tss` (was `purgetss/styles/tailwind.tss`)
-  - Distribution file: `dist/utilities.tss` (was `dist/tailwind.tss`)
-
-### Major improvements
-
-- **XML syntax validation**: Catches common Alloy XML malformations before processing
-  - Detects missing opening `<` brackets (e.g., `Label id=` instead of `<Label id=`)
-  - Shows detailed error messages with line numbers, context preview, and fix suggestions
-  - Saves debugging time by catching errors early in the build process
-
-- **Classic Titanium compatibility**: `deviceInfo()` function now works in both Alloy and Classic projects
-  - Removed dependency on `Alloy.isTablet`/`Alloy.isHandheld`
-  - Uses platform-based detection instead
-
-### Migration guide
-
-If you have references to `tailwind.tss` in your project, update them to `utilities.tss`:
-
-```bash
-# Update any custom scripts or paths
-# From: purgetss/styles/tailwind.tss
-# To:   purgetss/styles/utilities.tss
-```
-
-For most users, upgrading is straightforward:
-```bash
-npm install -g purgetss@latest
-```
-
----
-
-Here are its main functionalities:
-
-- **Utility-First Classes**: PurgeTSS ships with 21,000+ utility classes, so you get a lot of styling options out of the box.
-- **Efficient style management**: It parses all XML files to create a clean `app.tss` containing only the classes used in your project, reducing size and improving performance.
-- **Customization and JIT classes**: You can customize default classes via a config file and use JIT classes for arbitrary values inside views.
-- **Icon fonts integration**: Use icon fonts such as Font Awesome, Material Icons, Material Symbols, and Framework7-Icons in Buttons and Labels.
-- **`fonts.tss` generation**: The `build-fonts` command creates a `fonts.tss` file with class definitions and fontFamily selectors for regular and icon fonts, with simplified options for filenames and icon prefixes.
-- **`shades` command**: Generate custom color shades from a hex color without external tools.
-- **Animation module**: Apply basic 2D matrix animations or transformations to elements or arrays of elements.
-- **Grid system**: A two-dimensional grid system to align and distribute elements within views.
+- 21,000+ utility classes for styling Titanium views
+- Parses XML files to generate a clean `app.tss` with only the classes your project uses
+- Customizable defaults via `config.cjs`, with JIT classes for arbitrary values
+- Icon font support: Font Awesome, Material Icons, Material Symbols, Framework7-Icons
+- `build-fonts` command generates `fonts.tss` with class definitions and fontFamily selectors
+- `shades` command generates color shades from any hex color
+- Animation module for 2D matrix animations on views or arrays of views
+- Grid system for aligning and distributing elements within views
 
 ---
 
@@ -83,13 +39,22 @@ You can use any position, size, color, opacity, or transformation class from `ut
 
 ### Available methods
 
-| Method                                  | Description                                                                                   |
-| --------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `play(views, cb)` / `toggle(views, cb)` | Animate views from current state to the animation state. Toggles `open`/`close` on each call. |
-| `open(views, cb)`                       | Explicitly run the `open` state animation.                                                    |
-| `close(views, cb)`                      | Explicitly run the `close` state animation.                                                   |
-| `apply(views, cb)`                      | Apply properties instantly without animation.                                                 |
-| `draggable(views)`                      | Make a view or array of views draggable inside their parent.                                  |
+| Method                                    | Description                                                                                                                                                                                                                                     |
+| ----------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `play(views, cb)` / `toggle(views, cb)`   | Animate views from current state to the animation state. Toggles `open`/`close` on each call.                                                                                                                                                   |
+| `open(views, cb)`                         | Explicitly run the `open` state animation.                                                                                                                                                                                                      |
+| `close(views, cb)`                        | Explicitly run the `close` state animation.                                                                                                                                                                                                     |
+| `apply(views, cb)`                        | Apply properties instantly without animation.                                                                                                                                                                                                   |
+| `draggable(views)`                        | Make a view or array of views draggable inside their parent.                                                                                                                                                                                    |
+| `undraggable(views)`                      | Remove draggable behavior and clean up all listeners.                                                                                                                                                                                           |
+| `detectCollisions(views, dragCB, dropCB)` | Enable collision detection on draggable views with hover and drop callbacks.                                                                                                                                                                    |
+| `swap(view1, view2)`                      | Animate two views exchanging positions. Auto-normalizes position from margins/right/center via `view.rect`. Inherits `duration`, `delay`, `curve`; fallback: 200ms.                                                                             |
+| `sequence(views, cb)`                     | Animate views one after another. Callback fires after the last view.                                                                                                                                                                            |
+| `shake(view, intensity)`                  | Bidirectional shake animation for error feedback. Inherits `duration`, `delay`; fallback: 400ms. Default intensity: 10px.                                                                                                                       |
+| `pulse(view, count)`                      | Scale-up-and-back pulse animation. Scale from Animation object (default 1.2x). Count: number of pulses (default 1).                                                                                                                             |
+| `snapTo(view, targets)`                   | Snap a view to the nearest target by center distance. Auto-normalizes target position. Inherits `duration`, `delay`, `curve`; fallback: 200ms.                                                                                                  |
+| `reorder(views, newOrder)`                | Animate views to new positions based on index mapping. Auto-normalizes positions. Inherits `duration`, `delay`, `curve`; fallback: 200ms.                                                                                                       |
+| `transition(views, layouts)`              | Multi-view layout transitions using `Matrix2D.translate().rotate().scale()`. Layout properties: `translation`, `rotate`, `scale`, `zIndex`. Compatible with TiDesigner presets. Views without a layout entry fade out; returning views fade in. |
 
 ### Callback event object
 
@@ -144,6 +109,114 @@ $.myAnimation.draggable([$.card1, $.card2])
 
 Use `bounds` to restrict movement, and `drag`/`drop` modifiers for drag-state animations. Use `vertical-constraint` or `horizontal-constraint` classes to limit the drag axis.
 
+### Collision detection
+
+After calling `draggable()`, you can enable collision detection to know when a dragged view overlaps another:
+
+```js
+$.myAnimation.draggable(views)
+$.myAnimation.detectCollisions(views, onHover, onDrop)
+```
+
+**`dragCB(source, target)`** is called during drag:
+- `target` is the view under the drag center, or `null` when leaving all targets
+- Use this to show visual feedback (highlights, borders, scaling)
+
+**`dropCB(source, target)`** is called on drop:
+- `target` is the view where the source was released
+- If no target is found, the source automatically snaps back to its original position with a 200ms animation
+
+### Swap animation
+
+Animate two views exchanging positions:
+
+```js
+$.myAnimation.swap(view1, view2)
+```
+
+- Inherits `duration`, `delay`, and `curve` from the Animation object's classes
+- Falls back to 200ms duration, 0ms delay, and ease-in-out curve if not set
+- Handles iOS transform reset automatically
+- Temporarily raises z-index so views animate above siblings
+- Updates internal `_originLeft`/`_originTop` for subsequent drag operations
+
+### Sequence animation
+
+Animate views one after another (unlike `play(array)` which runs them in parallel):
+
+```js
+$.fadeIn.sequence([$.title, $.subtitle, $.button], () => {
+  console.log('All views animated')
+})
+```
+
+- Each view fully completes before the next starts
+- Callback fires once after the last view
+- Respects `open`/`close` state (set once for the entire sequence)
+
+### Shake animation
+
+Quick horizontal shake for error feedback, using native `autoreverse` + `repeat` for smooth performance:
+
+```js
+$.myAnimation.shake($.loginButton)        // default intensity: 10px
+$.myAnimation.shake($.input, 6)           // subtle: 6px
+$.myAnimation.shake($.errorLabel, 20)     // strong: 20px
+```
+
+### Snap to nearest target
+
+After dragging, snap a view to the closest target by center-to-center distance:
+
+```js
+const matched = $.myAnimation.snapTo(draggedView, slotViews)
+if (matched) {
+  console.log('Snapped to:', matched.id)
+}
+```
+
+### Reorder animation
+
+Animate an array of views to new positions based on index mapping:
+
+```js
+// Reverse order: view[0] goes to position of view[2], view[2] to position of view[0]
+$.myAnimation.reorder(cardViews, [2, 1, 0])
+```
+
+- All views animate simultaneously
+- Captures positions before animating to avoid conflicts
+
+### Removing draggable behavior
+
+Remove draggable behavior and clean up all event listeners:
+
+```js
+$.myAnimation.undraggable(cardViews)
+```
+
+### Property inheritance
+
+The `swap`, `reorder`, `snapTo`, and `shake` methods inherit animation properties from the `<Animation>` object's classes. This means you can configure behavior declaratively in XML:
+
+```xml
+<Animation id="myAnim" module="purgetss.ui" class="curve-animation-ease-out delay-100 duration-150" />
+```
+
+| Property      | `play`/`toggle`/`open`/`close`/`sequence` | `swap`/`reorder`/`snapTo` |       `shake`       |
+| ------------- | :---------------------------------------: | :-----------------------: | :-----------------: |
+| `duration`    |                     ✅                     |             ✅             |       ✅ (÷6)        |
+| `delay`       |                     ✅                     |             ✅             |          ✅          |
+| `curve`       |                     ✅                     |             ✅             | fixed `EASE_IN_OUT` |
+| `autoreverse` |                     ✅                     |             —             |    fixed `true`     |
+| `repeat`      |                     ✅                     |             —             |      fixed `3`      |
+
+Fallback defaults when not set: `swap`/`reorder`/`snapTo` → 200ms; `shake` → 400ms. All animation timing is controlled declaratively via the `<Animation>` object's classes.
+
+- Removes touch and orientation listeners
+- Removes views from collision detection registry
+- Cleans up internal tracking properties
+
 ### Utility classes for animations
 
 | Class pattern                                       | Description                   |
@@ -167,7 +240,57 @@ Use `bounds` to restrict movement, and `drag`/`drop` modifiers for drag-state an
 
 See the full documentation at [purgetss.com/docs/animation-module/introduction](https://purgetss.com/docs/animation-module/introduction).
 
-In short, PurgeTSS keeps styling consistent and removes a lot of repetitive UI setup work.
+---
+
+## Customizing default components
+
+PurgeTSS sets defaults for three components out of the box:
+
+| Component   | Default                                 |
+| ----------- | --------------------------------------- |
+| `Window`    | `backgroundColor: '#FFFFFF'`            |
+| `View`      | `width: Ti.UI.SIZE, height: Ti.UI.SIZE` |
+| `ImageView` | `hires: true` (iOS only)                |
+
+Override or extend them in `config.cjs` with `theme.extend`:
+
+```js
+module.exports = {
+  theme: {
+    extend: {
+      Window: {
+        apply: 'exit-on-close-false bg-surface'
+      }
+    }
+  }
+}
+```
+
+If an applied class sets a property that already exists in the defaults (e.g., `bg-surface` vs `backgroundColor: '#FFFFFF'`), the applied value wins. Array-type properties like `extendEdges` and `orientationModes` use bracket notation (`[ ]`) in the generated output.
+
+### Shorthand and explicit forms
+
+Both are equivalent:
+
+```js
+// Shorthand
+Window: { apply: 'exit-on-close-false' }
+
+// Explicit
+Window: { default: { apply: 'exit-on-close-false' } }
+```
+
+Use the explicit form when you need platform-specific variants:
+
+```js
+Button: {
+  default: { apply: 'text-xl' },
+  ios: { apply: 'font-bold' },
+  android: { apply: 'text-2xl font-semibold', color: 'red' }
+}
+```
+
+---
 
 ### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more.
 
