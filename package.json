@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "purgetss",
-  "version": "7.4.0",
+  "version": "7.5.0",
   "main": "src/index.js",
   "bin": {
     "purgetss": "bin/purgetss"
@@ -87,7 +87,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
-    "@fortawesome/fontawesome-free": "^7.1.0",
+    "@fortawesome/fontawesome-free": "^7.2.0",
     "eslint": "^9.39.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-n": "^17.23.1",
