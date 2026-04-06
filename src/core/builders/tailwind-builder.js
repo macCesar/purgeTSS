@@ -324,6 +324,7 @@ export function helperToBuildTailwindClasses(key, value) {
     case 'showUndoRedoActions':
     case 'showVerticalScrollIndicator':
     case 'size':
+    case 'snap':
     case 'softKeyboardOnFocus':
     case 'sound':
     case 'splitActionBar':

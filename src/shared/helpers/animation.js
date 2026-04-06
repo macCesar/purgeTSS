@@ -244,6 +244,28 @@ export function toggle() {
 }
 
 /**
+ * Snap properties for the Animation module
+ * @returns {string} Generated styles
+ */
+export function snap() {
+  let convertedStyles = processComments({
+    prop: 'snap - For the Animation module',
+    modules: 'Animation'
+  })
+
+  convertedStyles += '\'.snap-back\': { animationProperties: { snap: { back: true } } }\n'
+  convertedStyles += '\'.snap-back-false\': { animationProperties: { snap: { back: false } } }\n'
+  convertedStyles += '\'.snap-center\': { animationProperties: { snap: { center: true } } }\n'
+  convertedStyles += '\'.snap-center-false\': { animationProperties: { snap: { center: false } } }\n'
+  convertedStyles += '\'.snap-magnet\': { animationProperties: { snap: { magnet: true } } }\n'
+  convertedStyles += '\'.snap-magnet-false\': { animationProperties: { snap: { magnet: false } } }\n'
+  convertedStyles += '\'.keep-z-index\': { animationProperties: { keepZIndex: true } }\n'
+  convertedStyles += '\'.keep-z-index-false\': { animationProperties: { keepZIndex: false } }\n'
+
+  return convertedStyles
+}
+
+/**
  * Dragging type property
  * @returns {string} Generated styles
  */
