@@ -2,13 +2,12 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const currentFile = fileURLToPath(import.meta.url)
-const currentDir = path.dirname(currentFile)
-const DEFAULT_DOCS_DIR = path.join(currentDir, '../docs')
-const DEFAULT_GLOSSARY_DIR = path.join(currentDir, '../dist/glossary')
-const DOCS_DIR = process.argv[2]
-  ? path.resolve(process.argv[2])
-  : (fs.existsSync(DEFAULT_GLOSSARY_DIR) ? DEFAULT_GLOSSARY_DIR : DEFAULT_DOCS_DIR)
+const currentDir = path.dirname(fileURLToPath(import.meta.url))
+const PROJECT_ROOT = path.join(currentDir, '..')
+
+const DOCS_SRC = '/Users/cesar/Developer/openSource/purgetss-docs/docs'
+const PAGES_SRC = '/Users/cesar/Developer/openSource/purgetss-docs/src/pages'
+const OUTPUT_DIR = path.join(PROJECT_ROOT, '.dev/docs')
 
 function cleanFrontmatter(content) {
   return content.replace(/^---[\s\S]*?---\n+/, '')
@@ -47,24 +46,50 @@ function cleanAll(filePath) {
   content = cleanCodeTitles(content)
   content = cleanCodeBlockAttrs(content)
   fs.writeFileSync(filePath, content, 'utf8')
-  console.log(`Cleaned: ${filePath}`)
 }
 
-function walk(dir) {
-  fs.readdirSync(dir).forEach(file => {
-    const fullPath = path.join(dir, file)
+function walkAndClean(dir) {
+  let count = 0
+  for (const entry of fs.readdirSync(dir)) {
+    const fullPath = path.join(dir, entry)
     if (fs.statSync(fullPath).isDirectory()) {
-      walk(fullPath)
-    } else if (file.endsWith('.md')) {
+      count += walkAndClean(fullPath)
+    } else if (entry.endsWith('.md')) {
       cleanAll(fullPath)
+      count++
     }
-  })
+  }
+  return count
 }
 
-if (!fs.existsSync(DOCS_DIR)) {
-  console.error(`Docs directory not found: ${DOCS_DIR}`)
-  console.error('Pass a path explicitly: node scripts/clean-md.js ./path/to/docs')
-  process.exit(1)
+// Validate sources exist
+for (const src of [DOCS_SRC, PAGES_SRC]) {
+  if (!fs.existsSync(src)) {
+    console.error(`Source not found: ${src}`)
+    process.exit(1)
+  }
 }
 
-walk(DOCS_DIR)
+// Fresh copy: only remove the generated docs/ dir, preserve README.md and CHANGELOG.md
+if (fs.existsSync(OUTPUT_DIR)) {
+  fs.rmSync(OUTPUT_DIR, { recursive: true })
+}
+
+// Copy docs/ (full tree with assets)
+fs.cpSync(DOCS_SRC, OUTPUT_DIR, { recursive: true })
+
+// Copy pages/ .md files directly into the same output dir
+for (const file of fs.readdirSync(PAGES_SRC)) {
+  if (file.endsWith('.md')) {
+    fs.copyFileSync(path.join(PAGES_SRC, file), path.join(OUTPUT_DIR, file))
+  }
+}
+
+const totalCopied = fs.readdirSync(OUTPUT_DIR, { recursive: true }).filter(f => {
+  return fs.statSync(path.join(OUTPUT_DIR, f)).isFile()
+}).length
+
+const totalCleaned = walkAndClean(OUTPUT_DIR)
+
+console.log(`${totalCopied} files copied, ${totalCleaned} .md files cleaned`)
+console.log(`Output: ${OUTPUT_DIR}`)
