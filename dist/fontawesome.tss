@@ -1,4 +1,4 @@
-// Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -145,6 +145,7 @@
 '.fa-chart-column': { text: '\ue0e3', title: '\ue0e3' }
 '.fa-chart-gantt': { text: '\ue0e4', title: '\ue0e4' }
 '.fa-clapperboard': { text: '\ue131', title: '\ue131' }
+'.fa-closed-captioning-slash': { text: '\ue135', title: '\ue135' }
 '.fa-clover': { text: '\ue139', title: '\ue139' }
 '.fa-code-compare': { text: '\ue13a', title: '\ue13a' }
 '.fa-code-fork': { text: '\ue13b', title: '\ue13b' }
@@ -465,12 +466,25 @@
 '.fa-pentagon': { text: '\ue790', title: '\ue790' }
 '.fa-non-binary': { text: '\ue807', title: '\ue807' }
 '.fa-spiral': { text: '\ue80a', title: '\ue80a' }
+'.fa-picture-in-picture': { text: '\ue80b', title: '\ue80b' }
 '.fa-mobile-vibrate': { text: '\ue816', title: '\ue816' }
 '.fa-single-quote-left': { text: '\ue81b', title: '\ue81b' }
 '.fa-single-quote-right': { text: '\ue81c', title: '\ue81c' }
 '.fa-bus-side': { text: '\ue81d', title: '\ue81d' }
 '.fa-septagon': { text: '\ue820', title: '\ue820' }
 '.fa-heptagon': { text: '\ue820', title: '\ue820' }
+'.fa-aquarius': { text: '\ue845', title: '\ue845' }
+'.fa-aries': { text: '\ue846', title: '\ue846' }
+'.fa-cancer': { text: '\ue847', title: '\ue847' }
+'.fa-capricorn': { text: '\ue848', title: '\ue848' }
+'.fa-gemini': { text: '\ue849', title: '\ue849' }
+'.fa-leo': { text: '\ue84a', title: '\ue84a' }
+'.fa-libra': { text: '\ue84b', title: '\ue84b' }
+'.fa-pisces': { text: '\ue84c', title: '\ue84c' }
+'.fa-sagittarius': { text: '\ue84d', title: '\ue84d' }
+'.fa-scorpio': { text: '\ue84e', title: '\ue84e' }
+'.fa-taurus': { text: '\ue84f', title: '\ue84f' }
+'.fa-virgo': { text: '\ue850', title: '\ue850' }
 '.fa-martini-glass-empty': { text: '\uf000', title: '\uf000' }
 '.fa-glass-martini': { text: '\uf000', title: '\uf000' }
 '.fa-music': { text: '\uf001', title: '\uf001' }
@@ -1796,6 +1810,8 @@
 '.fa-torah': { text: '\uf6a0', title: '\uf6a0' }
 '.fa-torii-gate': { text: '\uf6a1', title: '\uf6a1' }
 '.fa-vihara': { text: '\uf6a7', title: '\uf6a7' }
+'.fa-volume': { text: '\uf6a8', title: '\uf6a8' }
+'.fa-volume-medium': { text: '\uf6a8', title: '\uf6a8' }
 '.fa-volume-xmark': { text: '\uf6a9', title: '\uf6a9' }
 '.fa-volume-mute': { text: '\uf6a9', title: '\uf6a9' }
 '.fa-volume-times': { text: '\uf6a9', title: '\uf6a9' }
@@ -2114,6 +2130,44 @@
 '.fa-square-figma': { text: '\ue7e4', title: '\ue7e4' }
 '.fa-tex': { text: '\ue7ff', title: '\ue7ff' }
 '.fa-duolingo': { text: '\ue812', title: '\ue812' }
+'.fa-supportnow': { text: '\ue833', title: '\ue833' }
+'.fa-tor-browser': { text: '\ue838', title: '\ue838' }
+'.fa-typescript': { text: '\ue840', title: '\ue840' }
+'.fa-square-deskpro': { text: '\ue844', title: '\ue844' }
+'.fa-circle-zulip': { text: '\ue851', title: '\ue851' }
+'.fa-julia': { text: '\ue852', title: '\ue852' }
+'.fa-zulip': { text: '\ue853', title: '\ue853' }
+'.fa-unison': { text: '\ue854', title: '\ue854' }
+'.fa-board-game-geek': { text: '\ue855', title: '\ue855' }
+'.fa-bgg': { text: '\ue855', title: '\ue855' }
+'.fa-ko-fi': { text: '\ue856', title: '\ue856' }
+'.fa-kubernetes': { text: '\ue857', title: '\ue857' }
+'.fa-postgresql': { text: '\ue858', title: '\ue858' }
+'.fa-scaleway': { text: '\ue859', title: '\ue859' }
+'.fa-venmo': { text: '\ue85a', title: '\ue85a' }
+'.fa-venmo-v': { text: '\ue85b', title: '\ue85b' }
+'.fa-unreal-engine': { text: '\ue85c', title: '\ue85c' }
+'.fa-globaleaks': { text: '\ue85d', title: '\ue85d' }
+'.fa-solana': { text: '\ue85e', title: '\ue85e' }
+'.fa-threema': { text: '\ue85f', title: '\ue85f' }
+'.fa-forgejo': { text: '\ue860', title: '\ue860' }
+'.fa-claude': { text: '\ue861', title: '\ue861' }
+'.fa-gitee': { text: '\ue863', title: '\ue863' }
+'.fa-xmpp': { text: '\ue864', title: '\ue864' }
+'.fa-fediverse': { text: '\ue865', title: '\ue865' }
+'.fa-tailwind-css': { text: '\ue866', title: '\ue866' }
+'.fa-arch-linux': { text: '\ue867', title: '\ue867' }
+'.fa-svelte': { text: '\ue868', title: '\ue868' }
+'.fa-hugging-face': { text: '\ue869', title: '\ue869' }
+'.fa-leetcode': { text: '\ue86a', title: '\ue86a' }
+'.fa-openstreetmap': { text: '\ue86b', title: '\ue86b' }
+'.fa-ultralytics': { text: '\ue86d', title: '\ue86d' }
+'.fa-ultralytics-hub': { text: '\ue86e', title: '\ue86e' }
+'.fa-ultralytics-yolo': { text: '\ue86f', title: '\ue86f' }
+'.fa-obsidian': { text: '\ue879', title: '\ue879' }
+'.fa-zoom': { text: '\ue87b', title: '\ue87b' }
+'.fa-vim': { text: '\ue88a', title: '\ue88a' }
+'.fa-symfonycasts': { text: '\ue8ab', title: '\ue8ab' }
 '.fa-square-twitter': { text: '\uf081', title: '\uf081' }
 '.fa-twitter-square': { text: '\uf081', title: '\uf081' }
 '.fa-square-facebook': { text: '\uf082', title: '\uf082' }
