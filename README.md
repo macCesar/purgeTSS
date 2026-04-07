@@ -14,7 +14,7 @@
 
 ---
 
-- 21,000+ utility classes for styling Titanium views
+- 23,300+ utility classes for styling Titanium views
 - Parses XML files to generate a clean `app.tss` with only the classes your project uses
 - Customizable defaults via `config.cjs`, with JIT classes for arbitrary values
 - Icon font support: Font Awesome, Material Icons, Material Symbols, Framework7-Icons
@@ -302,19 +302,24 @@ Button: {
 
 ## Table of Content
 
-- [What's New in v7.2](https://purgetss.com/#whats-new-in-v72x)
 - [Installation](https://purgetss.com/docs/installation)
 - [Commands](https://purgetss.com/docs/commands)
 - Customization
-  - [config file](https://purgetss.com/docs/customization/the-config-file)
-  - [Custom rules](https://purgetss.com/docs/customization/custom-rules)
-  - [apply directive](https://purgetss.com/docs/customization/the-apply-directive)
-  - [opacity modifier](https://purgetss.com/docs/customization/the-opacity-modifier)
-  - [Arbitrary values in XMLs](https://purgetss.com/docs/customization/arbitrary-values)
-  - [Platform and Device modifiers](https://purgetss.com/docs/customization/platform-and-device-modifiers)
+  - [The Config File](https://purgetss.com/docs/customization/the-config-file)
+  - [Custom Rules](https://purgetss.com/docs/customization/custom-rules)
+  - [The `apply` Directive](https://purgetss.com/docs/customization/the-apply-directive)
+  - [The `opacity` Modifier](https://purgetss.com/docs/customization/the-opacity-modifier)
+  - [Arbitrary Values](https://purgetss.com/docs/customization/arbitrary-values)
+  - [Platform and Device Modifiers](https://purgetss.com/docs/customization/platform-and-device-modifiers)
   - [Icon Fonts Libraries](https://purgetss.com/docs/customization/icon-fonts-libraries)
-- Animation module
+- Animation Module
   - [Introduction](https://purgetss.com/docs/animation-module/introduction)
-  - [Available utilities](https://purgetss.com/docs/animation-module/available-utilities)
-  - [Complex UI elements](https://purgetss.com/docs/animation-module/complex-ui-elements)
+  - [The `play` Method](https://purgetss.com/docs/animation-module/the-play-method)
+  - [The `apply` Method](https://purgetss.com/docs/animation-module/the-apply-method)
+  - [The `open` and `close` Methods](https://purgetss.com/docs/animation-module/the-open-and-close-methods)
+  - [The `draggable` Method](https://purgetss.com/docs/animation-module/the-draggable-method)
+  - [Complex UI Elements](https://purgetss.com/docs/animation-module/complex-ui-elements)
+  - [Additional Methods](https://purgetss.com/docs/animation-module/additional-methods)
+  - [Available Utilities](https://purgetss.com/docs/animation-module/available-utilities)
+  - [Implementation Rules](https://purgetss.com/docs/animation-module/implementation-rules)
 - [Grid System](https://purgetss.com/docs/grid-system)
