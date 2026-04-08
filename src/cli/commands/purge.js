@@ -144,25 +144,30 @@ function validateXML(xmlText, filePath) {
     const columnMatch = error.message.match(/Column:\s*(\d+)/)
     const charMatch = error.message.match(/Char:\s*(.+)/)
 
+    const lines = xmlText.split('\n')
+    const parserLine = lineMatch ? parseInt(lineMatch[1]) : null
+
+    // Try to find the real source of the error by scanning for suspicious tags.
+    // xml2json often reports errors far from the actual problem (e.g. at EOF)
+    // because it only notices the mismatch when nesting fails to close.
+    const suspectLine = findSuspectLine(lines)
+
+    const reportLine = suspectLine || parserLine
+
     let errorMessage = chalk.red(`\n::PurgeTSS:: XML Syntax Error\n`) +
       chalk.yellow(`File: "${filePath}"\n`)
 
-    if (lineMatch || columnMatch) {
-      const lineNum = lineMatch ? parseInt(lineMatch[1]) : '?'
-      const colNum = columnMatch ? parseInt(columnMatch[1]) : '?'
-      const badChar = charMatch ? charMatch[1] : '?'
-
-      errorMessage += chalk.yellow(`Error near line: ${lineNum}\n\n`)
+    if (reportLine) {
+      errorMessage += chalk.yellow(`Error near line: ${reportLine}\n\n`)
 
       // Extract and show context: line before, error line, and line after
-      const lines = xmlText.split('\n')
-      const startLine = Math.max(0, lineNum - 2)
-      const endLine = Math.min(lines.length, lineNum + 2)
+      const startLine = Math.max(0, reportLine - 2)
+      const endLine = Math.min(lines.length, reportLine + 2)
 
       errorMessage += chalk.gray('Context:\n')
       for (let i = startLine; i < endLine; i++) {
         const lineNumDisplay = i + 1
-        const isTargetLine = (lineNumDisplay === lineNum)
+        const isTargetLine = (lineNumDisplay === reportLine)
         const prefix = isTargetLine ? chalk.red('>>>') : chalk.gray('   ')
         const lineContent = lines[i] || ''
 
@@ -181,52 +186,187 @@ function validateXML(xmlText, filePath) {
   }
 }
 
+// Scan XML lines for common malformations that xml2json can't pinpoint.
+// Returns the 1-based line number of the first suspect, or null.
+function findSuspectLine(lines) {
+  for (let i = 0; i < lines.length; i++) {
+    const trimmed = lines[i].trim()
+    if (!trimmed || trimmed.startsWith('<!--')) continue
+
+    // Opening tag without tag name: "< class=..."
+    if (/^<\s+\w+=/.test(trimmed)) return i + 1
+
+    // Double slash in closing tag: "<//View>"
+    if (/^<\/\/\w+>/.test(trimmed)) return i + 1
+
+    // Closing tag with extra characters: "</View/>" or "</View >>" etc.
+    if (/^<\/[a-zA-Z0-9_]+[^>]+>/.test(trimmed) && !/^<\/[a-zA-Z0-9_:]+\s*>/.test(trimmed)) return i + 1
+
+    // Opening < immediately followed by non-alpha, non-slash, non-! (e.g. "< >" or "<=>")
+    if (/^<[^a-zA-Z/!?\s]/.test(trimmed)) return i + 1
+
+    // Space between < and tag name: "< View"
+    if (/^<\s+[A-Z]/.test(trimmed)) return i + 1
+
+    // Backslash instead of forward slash: \>
+    if (/\\>/.test(trimmed)) return i + 1
+
+    // Double closing bracket: >>
+    if (/>>/.test(trimmed)) return i + 1
+
+    // Unclosed tag: starts with < but doesn't end with > and next line starts a new tag
+    if (trimmed.startsWith('<') && !trimmed.startsWith('</') && !trimmed.endsWith('>')) {
+      const nextTrimmed = (lines[i + 1] || '').trim()
+      if (nextTrimmed.startsWith('<')) return i + 1
+    }
+  }
+  return null
+}
+
 /**
  * Pre-validate XML for common Alloy malformations
  * Returns Error if problem found, null if OK
  */
 function preValidateXML(xmlText, filePath) {
   const lines = xmlText.split('\n')
+  const relativePath = filePath.replace(process.cwd() + '/', '')
 
-  // Check for tags without opening < (common mistake: Label, View, etc. without <)
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i]
     const trimmed = line.trim()
 
-    // Skip empty lines, comments, and closing tags
-    if (!trimmed || trimmed.startsWith('<!--') || trimmed.startsWith('</') || trimmed.startsWith('<Alloy') || trimmed.startsWith('</')) {
+    // Skip empty lines and comments
+    if (!trimmed || trimmed.startsWith('<!--') || trimmed.startsWith('<Alloy')) {
       continue
     }
 
-    // Check for line starting with uppercase letter followed by space and common Alloy attributes
+    // Check for opening tag without tag name: "< class=..." or "< id=..."
+    if (/^<\s+(class|id|onClick|onOpen|onClose|height|width|backgroundColor|color|font|text|hintText|imageUrl)=/.test(trimmed)) {
+      throwPreValidationError({
+        relativePath,
+        lineNumber: i + 1,
+        lineContent: trimmed,
+        message: 'Opening tag is missing its tag name',
+        fix: `Add the tag name after "<", e.g. "<View ${trimmed.slice(1).trim()}"`
+      })
+    }
+
+    // Check for double slash in closing tags: "<//View>"
+    const doubleSlash = trimmed.match(/^<\/\/([a-zA-Z0-9_]+)>/)
+    if (doubleSlash) {
+      throwPreValidationError({
+        relativePath,
+        lineNumber: i + 1,
+        lineContent: trimmed,
+        message: `Closing tag "</${doubleSlash[1]}>" has an extra "/"`,
+        fix: `Change "${trimmed}" to "</${doubleSlash[1]}>"`
+      })
+    }
+
+    // Check for tags without opening < (common mistake: Label, View, etc. without <)
     // Pattern: "Label id=", "View class=","Button onClick=", etc. WITHOUT opening <
-    const tagWithoutOpening = trimmed.match(/^[A-Z][a-zA-Z0-9_]+\s+(id|class|onClick|onOpen|onClose|height|width|backgroundColor|color|font|text|hintText|imageUrl)=/)
-
-    if (tagWithoutOpening) {
+    if (/^[A-Z][a-zA-Z0-9_]+\s+(id|class|onClick|onOpen|onClose|height|width|backgroundColor|color|font|text|hintText|imageUrl)=/.test(trimmed)) {
       const tagName = trimmed.split(/\s+|[>=]/)[0]
-      const relativePath = filePath.replace(process.cwd() + '/', '')
+      throwPreValidationError({
+        relativePath,
+        lineNumber: i + 1,
+        lineContent: trimmed,
+        message: `Tag "<${tagName}>" is missing opening "<"`,
+        fix: `Change "${tagName}" to "<${tagName}>"`
+      })
+    }
 
-      // Create a custom error with details for the caller to handle
-      const error = new Error(`XML Syntax Error in ${relativePath}:${i + 1}`)
-      error.isPreValidationError = true
-      error.filePath = relativePath
-      error.lineNumber = i + 1
-      error.lineContent = line.trim()
-      error.tagName = tagName
+    // Check for closing tag with extra slash: "</View/>"
+    const closingExtraSlash = trimmed.match(/^<\/([a-zA-Z0-9_]+)\/>/)
+    if (closingExtraSlash) {
+      throwPreValidationError({
+        relativePath,
+        lineNumber: i + 1,
+        lineContent: trimmed,
+        message: `Closing tag "</${closingExtraSlash[1]}>" has an extra "/" at the end`,
+        fix: `Change "${trimmed}" to "</${closingExtraSlash[1]}>"`
+      })
+    }
 
-      // Print error using logger (still throw, but caller can catch and handle)
-      logger.error('XML Syntax Error')
-      logger.warn(`File: "${relativePath}"`)
-      logger.warn(`Line: ${i + 1}`)
-      logger.warn(`Content: "${line.trim()}"`)
-      logger.warn(`Error: Tag "<${tagName}>" is missing opening "<"`)
-      logger.warn(`Fix: Change "${tagName}" to "<${tagName}>"`)
+    // Check for space between < and tag name: "< View class=..."
+    const spaceBeforeName = trimmed.match(/^<\s+([A-Z][a-zA-Z0-9_]+)\s/)
+    if (spaceBeforeName) {
+      throwPreValidationError({
+        relativePath,
+        lineNumber: i + 1,
+        lineContent: trimmed,
+        message: `Extra space between "<" and tag name "${spaceBeforeName[1]}"`,
+        fix: `Change "< ${spaceBeforeName[1]}" to "<${spaceBeforeName[1]}"`
+      })
+    }
 
-      throw error
+    // Check for attribute without = sign: <View class"foo">
+    const attrNoEquals = trimmed.match(/^<([a-zA-Z0-9_]+)\s+[a-zA-Z]+"/)
+    if (attrNoEquals && !trimmed.includes('=')) {
+      throwPreValidationError({
+        relativePath,
+        lineNumber: i + 1,
+        lineContent: trimmed,
+        message: `Attribute is missing "=" sign`,
+        fix: `Check attributes in this tag — each one needs an "=" before its value`
+      })
+    }
+
+    // Check for backslash in self-closing tag: <Label text="hi" \>
+    if (/\\>/.test(trimmed)) {
+      throwPreValidationError({
+        relativePath,
+        lineNumber: i + 1,
+        lineContent: trimmed,
+        message: `Tag has a backslash "\\>" instead of forward slash "/>"`,
+        fix: `Change "\\>" to "/>"`
+      })
+    }
+
+    // Check for double closing bracket: <View class="foo">>
+    if (/>>/.test(trimmed) && !trimmed.includes('<!--')) {
+      throwPreValidationError({
+        relativePath,
+        lineNumber: i + 1,
+        lineContent: trimmed,
+        message: `Tag has a double ">>" closing bracket`,
+        fix: `Remove the extra ">"`
+      })
+    }
+
+    // Check for unclosed opening tag (line ends without > and next line starts a new tag)
+    if (trimmed.startsWith('<') && !trimmed.startsWith('</') && !trimmed.startsWith('<!--') && !trimmed.endsWith('>') && !trimmed.endsWith('-->')) {
+      const nextTrimmed = (lines[i + 1] || '').trim()
+      if (nextTrimmed.startsWith('<')) {
+        throwPreValidationError({
+          relativePath,
+          lineNumber: i + 1,
+          lineContent: trimmed,
+          message: `Tag is missing its closing ">"`,
+          fix: `Add ">" at the end of this tag`
+        })
+      }
     }
   }
 
   return false
+}
+
+function throwPreValidationError({ relativePath, lineNumber, lineContent, message, fix }) {
+  const error = new Error(`XML Syntax Error in ${relativePath}:${lineNumber}`)
+  error.isPreValidationError = true
+  error.filePath = relativePath
+  error.lineNumber = lineNumber
+  error.lineContent = lineContent
+
+  logger.error('XML Syntax Error\n')
+  logger.info(`File: "${relativePath}"`)
+  logger.info(`Line: ${lineNumber}`)
+  logger.info(`Content: "${lineContent}"\n`)
+  logger.error(message)
+  logger.info(chalk.green(`Fix: ${fix}\n`))
+
+  throw error
 }
 
 /**
