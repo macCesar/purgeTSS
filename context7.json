@@ -1,4 +1,6 @@
 {
+  "url": "https://context7.com/maccesar/purgetss",
+  "public_key": "pk_Bj5TCnMJNNrkrGsnKo25X",
   "$schema": "https://context7.com/schema/context7.json",
   "projectTitle": "PurgeTSS",
   "description": "A CLI tool that simplifies mobile app creation for Titanium developers by generating clean, optimized TTS files using Utility classes for Alloy projects.",
