@@ -26,18 +26,53 @@ function removeFractions(modifiersAndValues, extras = []) {
 
 /**
  * Font family property for text components
+ *
+ * Built-in platform defaults:
+ *   - font-sans → Android: 'sans-serif', iOS: 'Helvetica Neue'
+ *   - font-serif → Android: 'serif', iOS: 'Georgia'
+ *   - font-mono → 'monospace' (both platforms)
+ *
+ * User values from config.cjs override defaults cross-platform.
+ *
  * @param {Object} modifiersAndValues - Modifier and value pairs
  * @returns {string} Generated styles
  */
 export function fontFamily(modifiersAndValues) {
+  const platformDefaults = {
+    sans: { ios: 'Helvetica Neue', android: 'sans-serif' },
+    serif: { ios: 'Georgia', android: 'serif' }
+  }
+
+  const crossPlatformDefaults = { mono: 'monospace' }
+
+  const defaults = { ...modifiersAndValues }
+  const ios = {}
+  const android = {}
+
+  _.each(crossPlatformDefaults, (value, key) => {
+    if (!(key in defaults)) {
+      defaults[key] = value
+    }
+  })
+
+  _.each(platformDefaults, (platforms, key) => {
+    if (!(key in defaults)) {
+      ios[key] = platforms.ios
+      android[key] = platforms.android
+    }
+  })
+
+  const selectorsAndValues = {}
+  if (!_.isEmpty(defaults)) selectorsAndValues.default = defaults
+  if (!_.isEmpty(ios)) selectorsAndValues.ios = ios
+  if (!_.isEmpty(android)) selectorsAndValues.android = android
+
   return processProperties({
     prop: 'fontFamily',
     modules: 'Ti.UI.ActivityIndicator, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField'
   }, {
     font: '{ font: { fontFamily: {value} } }'
-  }, {
-    default: modifiersAndValues
-  })
+  }, selectorsAndValues)
 }
 
 /**

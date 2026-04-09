@@ -383,7 +383,7 @@ export function combineAllValues(base, defaultTheme) {
   allValues.contentWidth = combineKeys(configFile.theme, base.width, 'contentWidth')
   allValues.countDownDuration = combineKeys(configFile.theme, base.spacing, 'countDownDuration')
   allValues.elevation = combineKeys(configFile.theme, base.spacing, 'elevation')
-  allValues.fontFamily = combineKeys(configFile.theme, defaultTheme.fontFamily, 'fontFamily')
+  allValues.fontFamily = combineKeys(configFile.theme, {}, 'fontFamily')
   allValues.fontSize = combineKeys(configFile.theme, base.fontSize, 'fontSize')
   allValues.fontWeight = combineKeys(configFile.theme, defaultTheme.fontWeight, 'fontWeight')
   allValues.gap = combineKeys(configFile.theme, base.spacing, 'gap')
