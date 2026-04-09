@@ -5,6 +5,26 @@ All notable changes to PurgeTSS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.5.3] - 2026-04-09
+
+### Added
+- **Appearance management** — new `Appearance` export in `purgetss.ui.js` for Light/Dark/System mode switching with persistence. Methods: `init()`, `set(mode)`, `get()`, `toggle()`. Requires `semantic.colors.json` for automatic theme switching
+  ```js
+  const { Appearance } = require('purgetss.ui')
+  Appearance.init()        // restore saved mode
+  Appearance.get()         // returns current mode
+  Appearance.set('dark')   // 'system' | 'light' | 'dark'
+  Appearance.toggle()      // switch between light and dark
+  ```
+- **Default `fontFamily` utility classes** — `font-sans`, `font-serif`, and `font-mono` are now generated automatically with platform-appropriate values:
+  - `font-mono` → `monospace` (both platforms)
+  - `font-sans` → `Helvetica Neue` (iOS) / `sans-serif` (Android)
+  - `font-serif` → `Georgia` (iOS) / `serif` (Android)
+  - User values from `config.cjs` (`theme.fontFamily` or `theme.extend.fontFamily`) override defaults cross-platform
+
+### Fixed
+- **XML validation now detects illegal `--` inside comments** — `<!-- section: --flag -->` is invalid XML (double dashes are only allowed in `<!--` and `-->`). PurgeTSS now catches this during pre-validation with a clear error message and fix suggestion
+
 ## [7.5.1] - 2026-04-07
 
 ### Fixed

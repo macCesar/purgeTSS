@@ -240,6 +240,67 @@ Fallback defaults when not set: `swap`/`reorder`/`snapTo` → 200ms; `shake` →
 
 See the full documentation at [purgetss.com/docs/animation-module/introduction](https://purgetss.com/docs/animation-module/introduction).
 
+### Appearance management
+
+Switch between Light, Dark, and System modes with automatic persistence:
+
+```js
+const { Appearance } = require('purgetss.ui')
+
+// Call once at app startup (e.g., in index.js before opening the first window)
+Appearance.init()
+```
+
+| Method      | Description                                                  |
+| ----------- | ------------------------------------------------------------ |
+| `init()`    | Restore the saved mode from `Ti.App.Properties`              |
+| `get()`     | Returns the current mode string                              |
+| `set(mode)` | Apply and persist a mode: `'system'`, `'light'`, or `'dark'` |
+| `toggle()`  | Switch between `'light'` and `'dark'`                        |
+
+Use it from any controller to respond to user actions:
+
+```js
+const { Appearance } = require('purgetss.ui')
+
+function selectDark() { Appearance.set('dark') }
+function selectLight() { Appearance.set('light') }
+function selectSystem() { Appearance.set('system') }
+```
+
+Requires `semantic.colors.json` in `app/assets/` for views to respond to mode changes. See the [Titanium docs on semantic colors](https://titaniumsdk.com/guide/Titanium_SDK/Titanium_SDK_How-tos/User_Interface_Deep_Dives/iOS_Dark_Mode.html) for the file format.
+
+### Default font families
+
+PurgeTSS generates `font-sans`, `font-serif`, and `font-mono` classes automatically with platform-appropriate values:
+
+| Class        | iOS                | Android       |
+| ------------ | ------------------ | ------------- |
+| `font-sans`  | `Helvetica Neue`   | `sans-serif`  |
+| `font-serif` | `Georgia`          | `serif`       |
+| `font-mono`  | `monospace`        | `monospace`   |
+
+Override or add families in `config.cjs`:
+
+```js
+// theme.extend.fontFamily → adds to defaults
+extend: {
+  fontFamily: {
+    display: 'AlfaSlabOne-Regular',
+    body: 'BarlowSemiCondensed-Regular'
+  }
+}
+
+// theme.fontFamily → replaces defaults entirely
+theme: {
+  fontFamily: {
+    sans: 'System',
+    mono: 'Courier',
+    display: 'AlfaSlabOne-Regular'
+  }
+}
+```
+
 ---
 
 ## Customizing default components
