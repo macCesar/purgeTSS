@@ -191,7 +191,15 @@ function validateXML(xmlText, filePath) {
 function findSuspectLine(lines) {
   for (let i = 0; i < lines.length; i++) {
     const trimmed = lines[i].trim()
-    if (!trimmed || trimmed.startsWith('<!--')) continue
+    if (!trimmed) continue
+
+    // "--" inside XML comments (illegal in XML spec)
+    if (trimmed.includes('<!--')) {
+      const commentBody = trimmed.replace(/<!--/, '').replace(/-->.*$/, '')
+      if (/--/.test(commentBody)) return i + 1
+    }
+
+    if (trimmed.startsWith('<!--')) continue
 
     // Opening tag without tag name: "< class=..."
     if (/^<\s+\w+=/.test(trimmed)) return i + 1
@@ -235,8 +243,26 @@ function preValidateXML(xmlText, filePath) {
     const line = lines[i]
     const trimmed = line.trim()
 
-    // Skip empty lines and comments
-    if (!trimmed || trimmed.startsWith('<!--') || trimmed.startsWith('<Alloy')) {
+    // Skip empty lines and Alloy root tag
+    if (!trimmed || trimmed.startsWith('<Alloy')) {
+      continue
+    }
+
+    // Check for "--" inside XML comments (illegal in XML spec)
+    // e.g. <!-- Section: --modules Option --> is invalid because of the "--" before "modules"
+    if (trimmed.includes('<!--')) {
+      const commentBody = trimmed.replace(/<!--/, '').replace(/-->.*$/, '')
+      if (/--/.test(commentBody)) {
+        const dashMatch = commentBody.match(/--(\S*)/)
+        const offender = dashMatch ? `--${dashMatch[1]}` : '--'
+        throwPreValidationError({
+          relativePath,
+          lineNumber: i + 1,
+          lineContent: trimmed,
+          message: `XML comment contains illegal "--" sequence ("${offender}")`,
+          fix: `Replace "--" with "—" (em-dash) or reword the comment to avoid double dashes`
+        })
+      }
       continue
     }
 
