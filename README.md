@@ -274,11 +274,11 @@ Requires `semantic.colors.json` in `app/assets/` for views to respond to mode ch
 
 PurgeTSS generates `font-sans`, `font-serif`, and `font-mono` classes automatically with platform-appropriate values:
 
-| Class        | iOS                | Android       |
-| ------------ | ------------------ | ------------- |
-| `font-sans`  | `Helvetica Neue`   | `sans-serif`  |
-| `font-serif` | `Georgia`          | `serif`       |
-| `font-mono`  | `monospace`        | `monospace`   |
+| Class        | iOS              | Android      |
+| ------------ | ---------------- | ------------ |
+| `font-sans`  | `Helvetica Neue` | `sans-serif` |
+| `font-serif` | `Georgia`        | `serif`      |
+| `font-mono`  | `monospace`      | `monospace`  |
 
 Override or add families in `config.cjs`:
 
@@ -373,14 +373,19 @@ Button: {
   - [Arbitrary Values](https://purgetss.com/docs/customization/arbitrary-values)
   - [Platform and Device Modifiers](https://purgetss.com/docs/customization/platform-and-device-modifiers)
   - [Icon Fonts Libraries](https://purgetss.com/docs/customization/icon-fonts-libraries)
-- Animation Module
-  - [Introduction](https://purgetss.com/docs/animation-module/introduction)
-  - [The `play` Method](https://purgetss.com/docs/animation-module/the-play-method)
-  - [The `apply` Method](https://purgetss.com/docs/animation-module/the-apply-method)
-  - [The `open` and `close` Methods](https://purgetss.com/docs/animation-module/the-open-and-close-methods)
-  - [The `draggable` Method](https://purgetss.com/docs/animation-module/the-draggable-method)
-  - [Complex UI Elements](https://purgetss.com/docs/animation-module/complex-ui-elements)
-  - [Additional Methods](https://purgetss.com/docs/animation-module/additional-methods)
-  - [Available Utilities](https://purgetss.com/docs/animation-module/available-utilities)
-  - [Implementation Rules](https://purgetss.com/docs/animation-module/implementation-rules)
+- The UI Module
+  - [Introduction](https://purgetss.com/docs/purgetss-ui/introduction)
+  - [The `play` Method](https://purgetss.com/docs/purgetss-ui/the-play-method)
+  - [The `apply` Method](https://purgetss.com/docs/purgetss-ui/the-apply-method)
+  - [The `open` and `close` Methods](https://purgetss.com/docs/purgetss-ui/the-open-and-close-methods)
+  - [The `draggable` Method](https://purgetss.com/docs/purgetss-ui/the-draggable-method)
+  - [Complex UI Elements](https://purgetss.com/docs/purgetss-ui/complex-ui-elements)
+  - [Additional Methods](https://purgetss.com/docs/purgetss-ui/additional-methods)
+  - [Available Utilities](https://purgetss.com/docs/purgetss-ui/available-utilities)
+  - [Implementation Rules](https://purgetss.com/docs/purgetss-ui/implementation-rules)
+  - [Appearance](https://purgetss.com/docs/purgetss-ui/appearance)
+- Recommendations
+  - [Window Defaults](https://purgetss.com/docs/recommendations/window-defaults)
+  - [Semantic Colors](https://purgetss.com/docs/recommendations/semantic-colors)
+  - [Appearance Setup](https://purgetss.com/docs/recommendations/appearance-setup)
 - [Grid System](https://purgetss.com/docs/grid-system)
