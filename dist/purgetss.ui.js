@@ -1,4 +1,4 @@
-// PurgeTSS v7.5.2
+// PurgeTSS v7.5.3
 // Created by César Estrada
 // https://purgetss.com
 
@@ -906,3 +906,45 @@ function saveComponent({ source, directory = Ti.Filesystem.tempDirectory }) {
 exports.saveComponent = saveComponent
 
 exports.createAnimation = (args) => new Animation(args)
+
+// --- Appearance Management (Light/Dark/System) ---
+function Appearance() {
+  const PROP_KEY = 'userInterfaceStyle'
+  const STYLES = {
+    dark: Ti.UI.USER_INTERFACE_STYLE_DARK,
+    light: Ti.UI.USER_INTERFACE_STYLE_LIGHT,
+    system: Ti.UI.USER_INTERFACE_STYLE_UNSPECIFIED
+  }
+
+  let currentMode = 'system'
+
+  function applyMode(mode) {
+    currentMode = mode
+    Ti.UI.overrideUserInterfaceStyle = STYLES[mode]
+    Ti.App.Properties.setInt(PROP_KEY, STYLES[mode])
+  }
+
+  return {
+    init() {
+      const saved = Ti.App.Properties.getInt(PROP_KEY, STYLES.system)
+      currentMode = Object.keys(STYLES).find(key => STYLES[key] === saved) || 'system'
+      Ti.UI.overrideUserInterfaceStyle = saved
+    },
+
+    set(mode) {
+      if (!STYLES.hasOwnProperty(mode)) return
+      applyMode(mode)
+    },
+
+    get() {
+      return currentMode
+    },
+
+    toggle() {
+      const next = (currentMode === 'dark') ? 'light' : 'dark'
+      applyMode(next)
+    }
+  }
+}
+
+exports.Appearance = Appearance()
