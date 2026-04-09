@@ -39,8 +39,50 @@ function cleanCodeBlockAttrs(content) {
   })
 }
 
-function cleanAll(filePath) {
+function buildSlugMap(dir, baseDir = dir) {
+  const map = {}
+  for (const entry of fs.readdirSync(dir)) {
+    const fullPath = path.join(dir, entry)
+    if (fs.statSync(fullPath).isDirectory()) {
+      Object.assign(map, buildSlugMap(fullPath, baseDir))
+    } else if (entry.endsWith('.md')) {
+      const content = fs.readFileSync(fullPath, 'utf8')
+      const slugMatch = content.match(/^---[\s\S]*?slug:\s*(.+?)[\s\n][\s\S]*?---/m)
+      if (slugMatch) {
+        const slug = slugMatch[1].trim()
+        const relativeFile = path.relative(baseDir, fullPath)
+        const dirPart = path.dirname(relativeFile)
+        const slugPath = dirPart === '.' ? slug : `${dirPart}/${slug}`
+        map[slugPath] = relativeFile
+      }
+    }
+  }
+  return map
+}
+
+function fixDocusaurusLinks(content, filePath, slugMap, baseDir) {
+  const fileDir = path.relative(baseDir, path.dirname(filePath))
+
+  return content.replace(/\]\(\/?docs\/([^)#]+)(#[^)]+)?\)/g, (match, linkPath, anchor) => {
+    const realFile = slugMap[linkPath]
+    if (!realFile) return match
+    anchor = anchor || ''
+
+    const fromDir = fileDir === '' ? '.' : fileDir
+    let relativePath = path.relative(fromDir, realFile)
+
+    // Ensure ./ prefix for same-directory links
+    if (!relativePath.startsWith('.')) {
+      relativePath = './' + relativePath
+    }
+
+    return `](${relativePath}${anchor})`
+  })
+}
+
+function cleanAll(filePath, slugMap, baseDir) {
   let content = fs.readFileSync(filePath, 'utf8')
+  content = fixDocusaurusLinks(content, filePath, slugMap, baseDir)
   content = cleanFrontmatter(content)
   content = cleanAdmonitions(content)
   content = cleanCodeTitles(content)
@@ -48,14 +90,14 @@ function cleanAll(filePath) {
   fs.writeFileSync(filePath, content, 'utf8')
 }
 
-function walkAndClean(dir) {
+function walkAndClean(dir, slugMap, baseDir) {
   let count = 0
   for (const entry of fs.readdirSync(dir)) {
     const fullPath = path.join(dir, entry)
     if (fs.statSync(fullPath).isDirectory()) {
-      count += walkAndClean(fullPath)
+      count += walkAndClean(fullPath, slugMap, baseDir)
     } else if (entry.endsWith('.md')) {
-      cleanAll(fullPath)
+      cleanAll(fullPath, slugMap, baseDir)
       count++
     }
   }
@@ -89,7 +131,22 @@ const totalCopied = fs.readdirSync(OUTPUT_DIR, { recursive: true }).filter(f => 
   return fs.statSync(path.join(OUTPUT_DIR, f)).isFile()
 }).length
 
-const totalCleaned = walkAndClean(OUTPUT_DIR)
+// Build slug map before cleaning (frontmatter is still intact)
+const slugMap = buildSlugMap(OUTPUT_DIR)
+const totalCleaned = walkAndClean(OUTPUT_DIR, slugMap, OUTPUT_DIR)
 
-console.log(`${totalCopied} files copied, ${totalCleaned} .md files cleaned`)
-console.log(`Output: ${OUTPUT_DIR}`)
+// Copy cleaned docs to context7 repo
+const CONTEXT7_DIR = '/Users/cesar/Developer/openSource/purgetss-docs-context7/docs'
+if (fs.existsSync(path.dirname(CONTEXT7_DIR))) {
+  if (fs.existsSync(CONTEXT7_DIR)) {
+    fs.rmSync(CONTEXT7_DIR, { recursive: true })
+  }
+  fs.cpSync(OUTPUT_DIR, CONTEXT7_DIR, { recursive: true })
+  console.log(`${totalCopied} files copied, ${totalCleaned} .md files cleaned`)
+  console.log(`Output: ${OUTPUT_DIR}`)
+  console.log(`Synced: ${CONTEXT7_DIR}`)
+} else {
+  console.log(`${totalCopied} files copied, ${totalCleaned} .md files cleaned`)
+  console.log(`Output: ${OUTPUT_DIR}`)
+  console.warn(`Skipped sync: ${path.dirname(CONTEXT7_DIR)} not found`)
+}
