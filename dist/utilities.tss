@@ -6891,6 +6891,12 @@
 '.left-11/12': { left: '91.666667%' }
 '.left-full': { left: '100%' }
 
+// Property: keepHardwareMode
+// Description: A value indicating the render mode of the View
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
+'.keep-hardware-mode': { keepHardwareMode: true }
+'.keep-hardware-mode-false': { keepHardwareMode: false }
+
 // Property: layout
 // Component(s): Ti.UI.View, Ti.Android.R, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.vertical': { layout: 'vertical' }
@@ -17335,7 +17341,7 @@
 
 // Property: autoAdjustScrollViewInsets
 // Description: Specifies whether or not the view controller should automatically adjust its scroll view insets.
-// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
+// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 '.auto-adjust-scroll-view-insets': { autoAdjustScrollViewInsets: true }
 '.auto-adjust-scroll-view-insets-false': { autoAdjustScrollViewInsets: false }
 
@@ -25170,6 +25176,12 @@
 // Component(s): Ti.UI.WebView
 '.keyboard-display-requires-user-action': { keyboardDisplayRequiresUserAction: true }
 '.keyboard-display-requires-user-action-false': { keyboardDisplayRequiresUserAction: false }
+
+// Property: hideKeyboardAccessoryView
+// Description: A Boolean value indicating whether to hide the keyboard accessory bar.
+// Component(s): Ti.UI.WebView
+'.hide-keyboard-accessory-view': { hideKeyboardAccessoryView: true }
+'.hide-keyboard-accessory-view-false': { hideKeyboardAccessoryView: false }
 
 // Property: ignoreSslError
 // Description: Controls whether to ignore invalid SSL certificates or not.
