@@ -474,13 +474,6 @@ function Animation(args = {}) {
           const target = directTarget ?? params.lastKnownTarget
           logger(`   -> collision check: ${draggableView.id} | direct: ${directTarget?.id ?? 'null'} | lastKnown: ${params.lastKnownTarget?.id ?? 'null'} | final: ${target?.id ?? 'null'}`)
           if (target) {
-            // On Android, consolidate drag position before snap to avoid animation conflict
-            if (!params.isIOS) {
-              draggableView.applyProperties({
-                top: draggableView._visualTop ?? draggableView.top,
-                left: draggableView._visualLeft ?? draggableView.left
-              })
-            }
             if (args.animationProperties?.snap?.center) {
               logger(`   -> snap-center: ${draggableView.id} to ${target.id}`)
               animationView.snapTo(draggableView, [target])
@@ -491,14 +484,6 @@ function Animation(args = {}) {
             }
           } else if (!target && args.animationProperties?.snap?.back) {
             logger(`   -> bounce-back: ${draggableView.id} to (${draggableView._originTop}, ${draggableView._originLeft})`)
-
-            // On Android, consolidate drag position before bounce-back to avoid animation conflict
-            if (!params.isIOS) {
-              draggableView.applyProperties({
-                top: draggableView._visualTop ?? draggableView.top,
-                left: draggableView._visualLeft ?? draggableView.left
-              })
-            }
 
             draggableView._bouncingBack = true
 
@@ -588,8 +573,8 @@ function Animation(args = {}) {
         draggableView.applyProperties({ duration: 0, transform: Ti.UI.createMatrix2D().translate(x, y) })
       }
     } else {
-      const r = draggableView.rotate ?? 0
       const s = draggableView.scale ?? 1
+      const r = draggableView.rotate ?? 0
 
       if (r !== 0 || s !== 1) {
         // Delta-based drag for transformed views on Android
@@ -599,18 +584,17 @@ function Animation(args = {}) {
         translation.x += deltaX
         translation.y += deltaY
         draggableView.animate(Ti.UI.createAnimation({
-          transform: Ti.UI.createMatrix2D().translate(translation.x, translation.y).rotate(r).scale(s),
-          duration: 0
-        }))
-        draggableView.translation = translation
-        draggableView.rotate = r
-        draggableView.scale = s
+          duration: 0,
+          transform: Ti.UI.createMatrix2D().translate(translation.x, translation.y).rotate(r).scale(s)
+        }), () => {
+          draggableView.applyProperties({ translation: translation, rotate: r, scale: s })
+        })
       } else {
         // Transform-based (mirror of iOS Rama B) — keeps top/left untouched so snapTo/transition stay coherent
         const { x, y } = calculateTranslation(draggableView, draggableView.parent.rect, left, top)
         draggableView.animate(Ti.UI.createAnimation({
-          transform: Ti.UI.createMatrix2D().translate(x, y),
-          duration: 0
+          duration: 0,
+          transform: Ti.UI.createMatrix2D().translate(x, y)
         }), () => {
           draggableView.applyProperties({ translation: { x, y }, rotate: 0, scale: 1 })
         })
