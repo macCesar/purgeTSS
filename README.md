@@ -378,6 +378,9 @@ Button: {
 
 - [Installation](https://purgetss.com/docs/installation)
 - [Commands](https://purgetss.com/docs/commands)
+- App Assets
+  - [App icons and branding](https://purgetss.com/docs/app-assets/app-icons-and-branding)
+  - [Multi-density images](https://purgetss.com/docs/app-assets/multi-density-images)
 - Customization
   - [The Config File](https://purgetss.com/docs/customization/the-config-file)
   - [Custom Rules](https://purgetss.com/docs/customization/custom-rules)
