@@ -10,7 +10,7 @@
 
 </div>
 
-**PurgeTSS** is a toolkit for building mobile apps with the [Titanium framework](https://titaniumsdk.com). It provides utility classes, icon font support, an Animation module, a grid system, and the `shades` command for generating custom colors.
+**PurgeTSS** is a toolkit for building mobile apps with the [Titanium framework](https://titaniumsdk.com). It provides utility classes, icon font support, an Animation module, a grid system, and color generation commands (`shades` for tonal palettes, `semantic` for Light/Dark mode semantic colors).
 
 ---
 
@@ -20,6 +20,7 @@
 - Icon font support: Font Awesome, Material Icons, Material Symbols, Framework7-Icons
 - `build-fonts` command generates `fonts.tss` with class definitions and fontFamily selectors
 - `shades` command generates color shades from any hex color
+- `semantic` command generates Titanium semantic colors (Light/Dark mode) — tonal palettes with mirror inversion, or single purpose-based colors with optional alpha
 - Animation module for 2D matrix animations on views or arrays of views
 - Grid system for aligning and distributing elements within views
 
@@ -268,7 +269,19 @@ function selectLight() { Appearance.set('light') }
 function selectSystem() { Appearance.set('system') }
 ```
 
-Requires `semantic.colors.json` in `app/assets/` for views to respond to mode changes. See the [Titanium docs on semantic colors](https://titaniumsdk.com/guide/Titanium_SDK/Titanium_SDK_How-tos/User_Interface_Deep_Dives/iOS_Dark_Mode.html) for the file format.
+Requires `semantic.colors.json` in `app/assets/` for views to respond to mode changes. Generate it with the `semantic` command instead of writing it by hand:
+
+```bash
+# Tonal palette (11 shades with mirror-by-index Light/Dark inversion)
+purgetss semantic '#15803d' amazon
+
+# Purpose-based single colors (auto-mapped to classes in config.cjs)
+purgetss semantic --single '#F9FAFB' surfaceColor --dark '#0f172a'
+purgetss semantic --single '#111827' textColor    --dark '#f1f5f9'
+purgetss semantic --single '#000000' overlayColor --alpha 50
+```
+
+See the [Semantic Colors guide](https://purgetss.com/docs/best-practices/semantic-colors) for the full workflow.
 
 ### Default font families
 
@@ -384,8 +397,8 @@ Button: {
   - [Available Utilities](https://purgetss.com/docs/purgetss-ui/available-utilities)
   - [Implementation Rules](https://purgetss.com/docs/purgetss-ui/implementation-rules)
   - [Appearance](https://purgetss.com/docs/purgetss-ui/appearance)
-- Recommendations
-  - [Window Defaults](https://purgetss.com/docs/recommendations/window-defaults)
-  - [Semantic Colors](https://purgetss.com/docs/recommendations/semantic-colors)
-  - [Appearance Setup](https://purgetss.com/docs/recommendations/appearance-setup)
+- Best Practices
+  - [Appearance Setup](https://purgetss.com/docs/best-practices/appearance-setup)
+  - [Semantic Colors](https://purgetss.com/docs/best-practices/semantic-colors)
+  - [Large Titles on iOS](https://purgetss.com/docs/best-practices/large-titles-on-ios)
 - [Grid System](https://purgetss.com/docs/grid-system)

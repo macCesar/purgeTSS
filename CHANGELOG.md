@@ -5,6 +5,150 @@ All notable changes to PurgeTSS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.6.1] - 2026-04-21
+
+### Added
+- **Confirmation prompt for destructive writes** in `brand` and `images`. The interactive prompt `Continue? [y/N/a]` appears before overwriting project files:
+  - `y` / `yes` → proceed this time
+  - `N` / `no` / Enter → abort cleanly
+  - `a` / `always` → proceed and persist `confirmOverwrites: false` into the matching section of `purgetss/config.cjs` so the prompt is suppressed on future runs
+
+  The prompt auto-skips when `stdin` is not a TTY (alloy.jmk hook, CI, pipes), when `-y` / `--yes` is passed, or when `PURGETSS_YES=1` is set in the environment.
+- **`confirmOverwrites` flag** on the `brand:` and `images:` config sections. Defaults to `true` (prompt). Set to `false` to silence the prompt permanently.
+- **`-y` / `--yes` CLI flag** on `brand` and `images` to skip the prompt for a single invocation.
+- **Disproportionate-viewBox warning** for SVG logos and images. Common Affinity/Illustrator exports bake transforms into the viewBox and can end up at 29559×13542 pt or larger, tripping Sharp's pixel limit. PurgeTSS now detects viewBoxes above 4096 pt on any side and emits a warning with the actual dimensions; rasterization uses an adaptive density so the output pixel count stays bounded regardless of the input size. The warning also suggests re-exporting from the vector editor with a canvas-sized viewBox.
+- **Auto-created `purgetss/` subfolder layout** on init. `purgetss/{fonts,brand,images}/` now exist from the first build — previously they only appeared lazily when you first ran the matching command. Makes the directory structure self-documenting.
+- **Logger helpers** for grouped multi-line output:
+  - `logger.block(header, ...lines)` — single signed header + 3-space indented continuation lines
+  - `logger.item(...args)` — indented continuation without the prefix, for sequential flows
+  - `logger.startSection()` / `logger.endSection()` — section mode where the first `info/warn/error/file` call becomes the header and subsequent calls auto-indent
+
+### Changed
+- **Multi-line console output is now grouped** under a single `::PurgeTSS::` header with indented continuation lines. Applies to the "Please make sure…" warnings from `module` / `icon-library` / `utils` / `project-detection`, the `create` error for missing `ti config`, the XML syntax error from `purge`, the `[dry-run] Would generate:` listing from `brand`, and the `missingHexMessage` from `shades` / `semantic`.
+- **`purgetss` run header** now reads `::PurgeTSS:: Purging /path/to/project` — surfaces the target project up front, mirroring the `Auto-Purging` line emitted by the `alloy.jmk` hook. Every downstream status (`Copying Reset styles…`, `Purging utilities.tss styles…`, `app.tss file created!`, `Finished purging in …`) is indented under it.
+- **`fonts` and `icon-library`** emit one signed section header per operation (`Copying Icon Fonts...`, `Copying Modules to …`, `Copying Styles to …`); each per-file status is an indented item under its section.
+- **`brand` and `images`** now start with a `::PurgeTSS:: Generating …` signed line before the existing `▸/•` structured output, so every command in the CLI opens with a signed header.
+- **`brand` in-place warning rewritten** to describe the action before it happens (`⚠  In-place mode will OVERWRITE files in <path>. Commit first if you want a rollback.`) and is followed by the new confirmation prompt — giving the user a real chance to react instead of seeing the warning after writes have already started.
+- **`brand` temp files moved to the OS temp directory** (`os.tmpdir()/pt-branding-<pid>-<ts>/`). The project tree (and VSCode's file explorer) stays clean — no more flashing `.ti-branding/` folder appearing and disappearing during a brand run.
+- **Reordered defaults** in the `brand:` section of both the config template and `ensureBrandSection`: `splash, padding, iosPadding, darkBgColor, bgColor, notification, confirmOverwrites`.
+
+### Fixed
+- `brand` no longer crashes with `Input image exceeds pixel limit` on SVGs exported by Affinity or Illustrator with oversized viewBoxes — the adaptive density computation caps actual pixel output regardless of intrinsic SVG dimensions.
+- `pt create` no longer produces a project whose `purgetss/` folder is missing the `brand/` and `images/` subfolders. All three asset subfolders (`fonts/`, `brand/`, `images/`) are created by `ensureConfig()` on every init.
+
+### Internal
+- Shared helpers extracted to deduplicate code previously copy-pasted between `prepare-master.js` (brand) and `gen-scales.js` (images):
+  - `src/shared/svg-utils.js` — `computeSvgDensity()`, `readSvgSafely()`, `VIEWBOX_WARN_THRESHOLD`
+  - `src/shared/prompt.js` — `confirm()`, `confirmWithAlways()`
+  - `src/shared/config-writer.js` — `setConfigProperty()` (non-destructive single-property patcher for `config.cjs`)
+- Added `tests/unit/shared/logger.test.js` covering `block` and `item` behavior.
+
+## [7.6.0] - 2026-04-20
+
+### Added
+- **`brand` command** — generate complete Titanium branding assets (launcher icons, adaptive icons, iOS 18+ Dark/Tinted variants, marketplace artwork, optional notification + splash icons) from logos auto-discovered inside the project. Works on both Alloy and Classic projects — auto-detects layout and routes Android assets to the correct `res/` path.
+
+  **Logo auto-discovery** — drop logo files in `./purgetss/brand/`:
+  ```
+  purgetss/brand/
+  ├── logo.svg              required — main logo (or logo.png)
+  ├── logo-mono.svg         optional — monochrome layer + notifications
+  ├── logo-dark.svg         optional — iOS 18+ dark variant
+  └── logo-tinted.svg       optional — iOS 18+ tinted variant
+  ```
+
+  **Config-driven defaults** — add a `brand:` section to `purgetss/config.cjs`. Values are percentages and accept either numbers (`15`) or strings (`'15%'`) for self-documenting clarity:
+  ```js
+  brand: {
+    bgColor: '#FFFFFF',      // Android adaptive bg + iOS/marketplace flatten
+    splash: false,           // also generate splash_icon.png × 5
+    padding: '15%',          // Android safe-zone. Range: 12% tight (mature logos) — 20% conservative. Spec floor 19.44%.
+    iosPadding: '4%',        // iOS aesthetic. Range: 2% bold — 8% conservative. No launcher mask.
+    darkBgColor: null,       // opaque dark bg for DefaultIcon-Dark.png (null = transparent per Apple HIG)
+    notification: false      // also generate ic_stat_notify.png × 5
+  }
+  ```
+
+  **Padding defaults** — the Android default is `15%`, matching real-world apps like Gmail and Chrome (range `12-20%`). The spec floor is `19.44%` but modern launchers are more permissive; `15%` gives logos better visual presence while staying safe on circular-mask launchers like Pixel and Oppo. See [App icons and branding — Padding guidance](https://purgetss.com/app-icons-and-branding) in the docs for the "corners" heuristic.
+
+  **Usage** — most invocations are just:
+  ```bash
+  purgetss brand                            # uses logos + config
+  purgetss brand --bg-color "#0B1326"       # override config value
+  purgetss brand --no-tinted                # skip iOS tinted variant
+  purgetss brand --dry-run                  # preview without writing
+  purgetss brand --cleanup-legacy           # remove obsolete branding artifacts
+  ```
+
+  **Writes in place by default** — since purgetss commands always operate on the current project, `brand` writes directly to the project paths. Use `--output <dir>` to stage elsewhere, or `--dry-run` to preview.
+
+  Other notes:
+  - iOS 18+ `DefaultIcon-Dark.png` defaults to transparent per Apple HIG (system paints its own dark gradient). Use `--dark-bg-color <hex>` for opaque flatten.
+  - iOS 18+ `DefaultIcon-Tinted.png` is grayscale on black per Apple HIG.
+  - Android dark/light mode is handled automatically by the `ic_launcher_monochrome.png` adaptive layer — Android has no separate "dark icon" file; the system tints the monochrome from wallpaper + theme.
+  - `--cleanup-legacy` removes obsolete branding artifacts (legacy launch PNGs, `long`/`notlong` qualifiers, etc.) with context-aware rules that read `tiapp.xml`.
+- **`brand:` section** in `purgetss/config.cjs` — placed between `purge:` and `theme:` (so `theme:` can grow without pushing brand defaults far from the top of the file).
+- **`sharp` dependency** — added to support the branding pipeline's image processing.
+- **`images` command** — generate Titanium multi-density UI images (launcher screens, buttons, illustrations) from sources in `./purgetss/images/`. Writes directly to the project (auto-detects Alloy vs Classic).
+
+  **Source auto-discovery** — drop any supported image (`.svg`, `.png`, `.jpg`, `.jpeg`, `.webp`, `.gif`) into `./purgetss/images/`. Subdirectories are preserved in the output. Source images are treated as 4× (xxxhdpi / @4x) sources; all other scales are derived from them.
+
+  **Output layout (auto-detected):**
+  ```
+  Alloy    → app/assets/android/images/res-{mdpi,hdpi,xhdpi,xxhdpi,xxxhdpi}/
+             app/assets/iphone/images/                         (with @2x, @3x suffixes)
+  Classic  → Resources/android/images/res-{...}/
+             Resources/iphone/images/
+  ```
+
+  **Config-driven defaults** — add an `images:` section to `purgetss/config.cjs`:
+  ```js
+  images: {
+    quality: 85,         // JPEG/WebP/AVIF quality 0-100
+    format: null         // null = keep original; 'webp' | 'jpeg' | 'png' to convert every image
+  }
+  ```
+
+  **Scope targeting** — you can re-process a single file or subfolder without regenerating everything. Short paths auto-resolve against `purgetss/images/` (convention-first), falling back to cwd-relative for sources outside the convention. Subdirectory structure is always preserved, so re-processing one file produces the exact same output path as a full run.
+
+  **Usage:**
+  ```bash
+  purgetss images                               # auto-discovers purgetss/images/
+  purgetss images background/pink-texture.png   # short path → purgetss/images/background/pink-texture.png
+  purgetss images background/                   # re-process just one subfolder
+  purgetss images ./docs/screenshots            # source outside convention (cwd-relative)
+  purgetss images --android                     # only Android densities (skip iPhone)
+  purgetss images --ios                         # only iPhone scales (skip Android)
+  purgetss images --format webp                 # convert every output to WebP
+  purgetss images --format png --quality 95
+  purgetss images --dry-run                     # preview without writing
+  ```
+
+  Convention-consistent with the rest of purgetss: inputs live under `./purgetss/<category>/` (fonts, brand, images), outputs land in `app/assets/` (Alloy) or `Resources/` (Classic).
+- **`semantic` command** — generate Titanium semantic colors (`app/assets/semantic.colors.json`) with automatic Light/Dark mode. Two modes dispatched by `--single`:
+
+  **Palette mode** — one base hex → 11-step tonal palette with mirror-by-index inversion (anchored at `500`). Writes the JSON + updates `config.cjs` to map the family to the semantic keys, so classes like `bg-amazon-50` and `text-amazon-950` flip tonal contrast automatically with the system appearance.
+  ```bash
+  purgetss semantic "#15803d" amazon          # 11-shade palette
+  purgetss semantic --random --name brand     # random base color
+  purgetss semantic "#15803d" amazon --log    # preview JSON without writing
+  purgetss semantic "#15803d" amazon -o       # place mapping in theme.colors (override)
+  ```
+
+  **Single mode (`--single`)** — explicit light + optional dark + optional alpha → one purpose-based semantic color (`surfaceColor`, `textColor`, `overlayColor`, etc.). Writes the JSON entry **and** auto-maps a class in `config.cjs` by stripping the conventional `Color` suffix (`surfaceColor` → class `surface`, `surfaceHighColor` → class `surface-high`). If your design system uses different class names, edit `config.cjs` after — overriding one mapping is faster than typing the whole structure.
+  ```bash
+  purgetss semantic --single "#F9FAFB" surfaceColor --dark "#0f172a"
+  purgetss semantic --single "#111827" textColor    --dark "#f1f5f9"
+  purgetss semantic --single "#3B82F6" accentColor  --dark "#60a5fa" --alpha 80
+  purgetss semantic --single "#000000" overlayColor --alpha 50          # dark defaults to light
+  ```
+
+  **Smart in-place updates** — if the `--single` name matches an existing palette shade (e.g. `amazon500` while palette `amazon` exists), the entry is updated in place in the JSON (preserving its position) and `config.cjs` is left untouched. The palette already maps to that key, so the operation is interpreted as "edit one shade", not "create a duplicate top-level color".
+
+  **Per-family clean replacement** — re-running on the same family fully replaces it: prior keys (`name` + `name50…name950`) are stripped before the new entries are merged in. Other palettes and manually-defined entries (`textSecondaryColor`, etc.) survive untouched.
+
+  Alpha follows the Titanium spec: range `0.0–100.0`, stored as a string, wrapped per-mode as `{ color, alpha }`. Without `--alpha`, values stay as bare hex strings.
+
 ## [7.5.3] - 2026-04-09
 
 ### Added
