@@ -17,8 +17,11 @@ import { copyModulesLibrary } from '../src/cli/commands/module.js'
 import { dependencies } from '../src/cli/commands/dependencies.js'
 import { init } from '../src/cli/commands/init.js'
 import { shades, colorModule } from '../src/cli/commands/shades.js'
+import { semantic } from '../src/cli/commands/semantic.js'
 import { buildFonts } from '../src/cli/commands/fonts.js'
 import { copyFonts } from '../src/cli/commands/icon-library.js'
+import { brand } from '../src/cli/commands/brand.js'
+import { images } from '../src/cli/commands/images.js'
 
 // ESM equivalent of __dirname
 const __filename = fileURLToPath(import.meta.url)
@@ -113,6 +116,8 @@ program.helpInformation = function () {
     output.push(`  ${chalk.cyan('init|i')} ${chalk.gray('[options]')}                Create a ${chalk.yellow('config.cjs')} file for your project`)
     output.push(`  ${chalk.cyan('create|c')} ${chalk.gray('[options]')} ${chalk.gray('<name>')}       Create a new Alloy project with ${chalk.green('PurgeTSS')}`)
     output.push(`  ${chalk.cyan('install-dependencies|id')}         Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')}`)
+    output.push(`  ${chalk.cyan('brand')} ${chalk.gray('[options]')} ${chalk.gray('<logo>')}          Generate Titanium app icons & splash from a logo SVG/PNG`)
+    output.push(`  ${chalk.cyan('images')} ${chalk.gray('[options]')} ${chalk.gray('[source]')}       Generate Titanium multi-density UI images (Alloy + Classic)`)
     output.push('')
     output.push(`  ${chalk.green('Daily Development:')}`)
     output.push(`  ${chalk.cyan('build|b')} ${chalk.gray('[options]')}               Generate ${chalk.yellow('utilities.tss')} file`)
@@ -126,6 +131,7 @@ program.helpInformation = function () {
     output.push('')
     output.push(`  ${chalk.green('Utilities:')}`)
     output.push(`  ${chalk.cyan('shades|s')} ${chalk.gray('[options]')} ${chalk.gray('[hexcode]')}    Generate color shades from a hex color`)
+    output.push(`  ${chalk.cyan('semantic')} ${chalk.gray('[options]')} ${chalk.gray('[hexcode]')}    Generate Titanium semantic colors (Light/Dark)`)
     output.push('')
     output.push(`  ${chalk.green('Maintenance:')}`)
     output.push(`  ${chalk.cyan('update|u')}                        Update ${chalk.green('PurgeTSS')} to the latest version`)
@@ -244,6 +250,114 @@ program
       await dependencies(options)
     } catch (error) {
       console.error(chalk.red('Error installing dependencies:'), error.message)
+      process.exit(1)
+    }
+  })
+
+// Brand command — generate Titanium app icons and splash assets
+program
+  .command('brand [logo]')
+  .description(`Generate Titanium app icons & branding assets from a logo SVG/PNG`)
+  .addHelpText('after', `
+Writes directly into the current project (Alloy or Classic — auto-detected).
+Logos auto-discovered from ${chalk.cyan('purgetss/brand/')}:
+  ${chalk.yellow('logo.{svg,png}')}          required — main logo
+  ${chalk.yellow('logo-mono.{svg,png}')}     optional — monochrome layer + notifications
+  ${chalk.yellow('logo-dark.{svg,png}')}     optional — iOS 18+ dark variant
+  ${chalk.yellow('logo-tinted.{svg,png}')}   optional — iOS 18+ tinted variant
+
+Defaults come from the ${chalk.cyan('brand:')} section in ${chalk.cyan('purgetss/config.cjs')}.
+CLI flags always win over config values.
+
+Generates:
+  ${chalk.yellow('DefaultIcon.png')} / ${chalk.yellow('DefaultIcon-ios.png')}              Root icons (alpha + flattened)
+  ${chalk.yellow('DefaultIcon-Dark.png')} / ${chalk.yellow('DefaultIcon-Tinted.png')}     iOS 18+ variants (Apple HIG specs)
+  ${chalk.yellow('iTunesConnect.png')} / ${chalk.yellow('MarketplaceArtwork.png')}       App Store + Play Store artwork
+  ${chalk.yellow('mipmap-*/ic_launcher_{foreground,background,monochrome}.png')}  Android adaptive × 5
+  ${chalk.yellow('mipmap-*/ic_launcher.png')}                           Android legacy × 5
+  ${chalk.yellow('mipmap-anydpi-v26/ic_launcher.xml')}                  Adaptive icon binder
+
+Android dark/light mode is handled by the ${chalk.yellow('monochrome')} adaptive layer
+(Android 13+ tints it from the wallpaper + theme). No separate dark file exists.
+
+Examples:
+  ${chalk.cyan('purgetss brand')}                                           # uses purgetss/brand/logo.svg + config
+  ${chalk.cyan('purgetss brand')} logo.svg                                  # explicit logo path
+  ${chalk.cyan('purgetss brand')} --bg-color "#0B1326"                      # override config bg
+  ${chalk.cyan('purgetss brand')} --dark-bg-color "#1C1C1E" --no-tinted     # customize dark, skip tinted
+  ${chalk.cyan('purgetss brand')} --dry-run                                 # preview without writing
+  ${chalk.cyan('purgetss brand')} --cleanup-legacy --dry-run                # preview legacy cleanup
+`)
+  .option('--bg-color <hex>', 'Background color for Android adaptive + iOS flatten (default: #FFFFFF)')
+  .option('--padding <n>', 'Android safe-zone % (range 12-20, default: 15)', (v) => parseInt(v, 10))
+  .option('--ios-padding <n>', 'iOS aesthetic % (typical 2-6, default: 4)', (v) => parseInt(v, 10))
+  .option('--notification', 'Also generate ic_stat_notify.png × 5 densities')
+  .option('--splash', 'Also generate Android 12+ splash_icon.png × 5 densities')
+  .option('--monochrome-logo <path>', 'Override the monochrome logo (otherwise purgetss/brand/logo-mono.{svg,png})')
+  .option('--dark-bg-color <hex>', 'Opt into opaque dark bg for DefaultIcon-Dark.png (default: transparent per Apple HIG)')
+  .option('--dark-logo <path>', 'Override the dark logo (otherwise purgetss/brand/logo-dark.{svg,png})')
+  .option('--tinted-logo <path>', 'Override the tinted logo (otherwise purgetss/brand/logo-tinted.{svg,png})')
+  .option('--no-dark', 'Skip DefaultIcon-Dark.png generation')
+  .option('--no-tinted', 'Skip DefaultIcon-Tinted.png generation')
+  .option('--project <path>', 'Project root (default: cwd)')
+  .option('-o, --output <dir>', 'Stage to <dir> instead of writing in-place')
+  .option('--notes', 'Print full tiapp.xml snippets + tuning guide')
+  .option('--dry-run', 'Preview without writing any files')
+  .option('--cleanup-legacy', 'Remove legacy branding artifacts (reads tiapp.xml)')
+  .option('--aggressive', 'With --cleanup-legacy: also remove ldpi folders')
+  .option('-y, --yes', 'Skip the in-place confirmation prompt')
+  .option('--debug', 'Debug mode')
+  .action(async (logo, options) => {
+    try {
+      await brand(logo, options)
+    } catch (error) {
+      console.error(chalk.red('Error running brand:'), error.message)
+      process.exit(1)
+    }
+  })
+
+// Images command — generate Titanium multi-density UI assets
+program
+  .command('images [source]')
+  .description(`Generate Titanium multi-density UI images (Alloy & Classic)`)
+  .addHelpText('after', `
+Scales UI images into all Titanium density variants in one pass:
+  ${chalk.yellow('Android')}  → ${chalk.gray('res-mdpi, res-hdpi, res-xhdpi, res-xxhdpi, res-xxxhdpi')} (5 densities)
+  ${chalk.yellow('iPhone')}   → ${chalk.gray('@1x, @2x, @3x')} (3 scales via filename suffix)
+
+Sources auto-discovered from ${chalk.cyan('purgetss/images/')} (subdirectories preserved).
+Pass a file or directory path to override auto-discovery.
+
+Writes directly to the project (auto-detects Alloy vs Classic):
+  ${chalk.yellow('Alloy')}    → ${chalk.gray('app/assets/{android,iphone}/images/')}
+  ${chalk.yellow('Classic')}  → ${chalk.gray('Resources/{android,iphone}/images/')}
+
+Defaults come from the ${chalk.cyan('images:')} section in ${chalk.cyan('purgetss/config.cjs')}.
+CLI flags always win over config values.
+
+Examples:
+  ${chalk.cyan('purgetss images')}                                  # uses purgetss/images/ + config
+  ${chalk.cyan('purgetss images')} ./docs/screenshots               # scope to one folder
+  ${chalk.cyan('purgetss images')} logo.png                         # scope to one file
+  ${chalk.cyan('purgetss images')} --android                        # Android densities only
+  ${chalk.cyan('purgetss images')} --ios                            # iPhone scales only
+  ${chalk.cyan('purgetss images')} --format webp                    # convert all outputs to WebP
+  ${chalk.cyan('purgetss images')} --format png --quality 95
+  ${chalk.cyan('purgetss images')} --dry-run
+`)
+  .option('--android', 'Generate only Android density variants (skip iPhone)')
+  .option('--ios', 'Generate only iPhone scale variants (skip Android)')
+  .option('--format <ext>', 'Convert all outputs to this format: webp|jpeg|png|avif|gif|tiff')
+  .option('--quality <n>', 'JPEG/WebP/AVIF quality 0-100 (default: 85)', (v) => parseInt(v, 10))
+  .option('--project <path>', 'Project root (default: cwd)')
+  .option('--dry-run', 'Preview without writing any files')
+  .option('-y, --yes', 'Skip the overwrite confirmation prompt')
+  .option('--debug', 'Debug mode')
+  .action(async (source, options) => {
+    try {
+      await images(source, options)
+    } catch (error) {
+      console.error(chalk.red('Error running images:'), error.message)
       process.exit(1)
     }
   })
@@ -391,6 +505,31 @@ program
     }
   })
 
+// Semantic command — generates Titanium semantic colors (Light/Dark mode)
+program
+  .command('semantic [hexcode] [name]')
+  .description(`Generate Titanium semantic colors in ${chalk.yellow('app/assets/semantic.colors.json')}`)
+  .addHelpText('after', `\nWithout ${chalk.yellow('--single')}: one hex → 11-shade palette with Light/Dark inversion.\nWith ${chalk.yellow('--single')}: explicit light + dark + optional alpha → one purpose-based color.`)
+  .option('-s, --single', 'Generate a single purpose-based semantic color (requires explicit per-mode hex values)')
+  .option('-d, --dark <hex>', `With ${chalk.yellow('--single')}: dark-mode hex (defaults to the light value)`)
+  .option('-a, --alpha <value>', `With ${chalk.yellow('--single')}: wrap values as ${chalk.yellow('{ color, alpha }')} (range ${chalk.yellow('0-100')}, integer or float)`)
+  .option('-n, --name <name>', 'Specify the name of the color')
+  .option('-r, --random', 'Palette mode: use a random base color')
+  .option('-o, --override', `Place the mapping in ${chalk.yellow('theme.colors')} instead of ${chalk.yellow('theme.extend.colors')}`)
+  .option('-q, --quotes', `Keep double quotes in ${chalk.yellow('config.cjs')}`)
+  .option('-l, --log', 'Preview the JSON without writing any files')
+  .action(async (hexcode, name, options) => {
+    try {
+      const result = await semantic({ hexcode, name }, options)
+      if (!result) {
+        process.exit(1)
+      }
+    } catch (error) {
+      console.error(chalk.red('Error running semantic:'), error.message)
+      process.exit(1)
+    }
+  })
+
 // === MAINTENANCE ===
 
 // Update command
@@ -496,7 +635,7 @@ function findSimilarCommands(input, validCommands) {
 // Validate arguments before parsing
 const args = process.argv.slice(2)
 if (args.length > 0) {
-  const validCommands = ['init', 'i', 'create', 'c', 'install-dependencies', 'id', 'build', 'b', 'watch', 'w', 'icon-library', 'il', 'build-fonts', 'bf', 'color-module', 'cm', 'shades', 's', 'module', 'm', 'update', 'u', 'sudo-update', 'su']
+  const validCommands = ['init', 'i', 'create', 'c', 'install-dependencies', 'id', 'brand', 'images', 'build', 'b', 'watch', 'w', 'icon-library', 'il', 'build-fonts', 'bf', 'color-module', 'cm', 'shades', 's', 'semantic', 'module', 'm', 'update', 'u', 'sudo-update', 'su']
   const validFlags = ['-h', '--help', '-V', '--version', '--debug', '-a', '--all']
 
   const firstArg = args[0]

@@ -14,6 +14,7 @@ import _ from 'lodash'
 import chalk from 'chalk'
 import convert from 'xml-js'
 import traverse from 'traverse'
+import * as acorn from 'acorn'
 
 /**
  * Get unique classes from all XML and controller files - COPIED exactly from original getUniqueClasses() function
@@ -98,7 +99,7 @@ export function extractClassesOnly(currentText, currentFile) {
  * @param {string} line - Line of code from controller file
  * @returns {Array} Array of class names found in line
  */
-function extractWordsFromLine(line) {
+function extractWordsFromLineRegex(line) {
   const patterns = [
     {
       // apply: 'classes'
@@ -155,18 +156,124 @@ function extractWordsFromLine(line) {
  * @param {string} data - Controller file content
  * @returns {Array} Array of class names found in controller
  */
-function processControllers(data) {
+function processControllersRegex(data) {
   const allWords = []
   const lines = data.split(/\r?\n/)
 
   lines.forEach(line => {
-    const words = extractWordsFromLine(line)
+    const words = extractWordsFromLineRegex(line)
     if (words.length > 0) {
       allWords.push(...words)
     }
   })
 
   return allWords
+}
+
+const AST_META_KEYS = new Set(['type', 'loc', 'range', 'start', 'end', 'sourceType', 'comments'])
+
+function collectLiterals(node, out) {
+  if (!node || typeof node !== 'object' || !node.type) return
+
+  switch (node.type) {
+    case 'Literal':
+      if (typeof node.value === 'string') {
+        node.value.split(/\s+/).forEach(token => { if (token) out.push(token) })
+      }
+      return
+
+    case 'TemplateLiteral':
+      if (node.expressions.length === 0 && node.quasis.length > 0) {
+        const cooked = node.quasis[0].value.cooked
+        if (typeof cooked === 'string') {
+          cooked.split(/\s+/).forEach(token => { if (token) out.push(token) })
+        }
+      }
+      return
+
+    case 'ArrayExpression':
+      for (const element of node.elements) {
+        if (element && element.type !== 'SpreadElement') collectLiterals(element, out)
+      }
+      return
+
+    case 'ConditionalExpression':
+      collectLiterals(node.consequent, out)
+      collectLiterals(node.alternate, out)
+      return
+
+    default:
+      return
+  }
+}
+
+function walkAST(node, out) {
+  if (!node || typeof node !== 'object') return
+
+  if (Array.isArray(node)) {
+    for (const child of node) walkAST(child, out)
+    return
+  }
+
+  if (!node.type) return
+
+  if (node.type === 'Property' && !node.computed && !node.shorthand && node.key) {
+    const keyName = node.key.type === 'Identifier'
+      ? node.key.name
+      : (node.key.type === 'Literal' ? node.key.value : undefined)
+    if (keyName === 'classes' || keyName === 'apply') {
+      collectLiterals(node.value, out)
+    }
+  }
+
+  if (node.type === 'CallExpression' && node.callee && node.arguments.length >= 2) {
+    const callee = node.callee
+    let match = false
+    if (
+      callee.type === 'MemberExpression' &&
+      !callee.computed &&
+      callee.property &&
+      callee.property.type === 'Identifier' &&
+      /Class$/.test(callee.property.name)
+    ) {
+      match = true
+    } else if (callee.type === 'Identifier' && callee.name === 'resetClass') {
+      match = true
+    }
+    if (match) collectLiterals(node.arguments[1], out)
+  }
+
+  for (const key of Object.keys(node)) {
+    if (AST_META_KEYS.has(key)) continue
+    walkAST(node[key], out)
+  }
+}
+
+/**
+ * Process a controller file's source and return utility classes referenced by
+ * the whitelisted expression shapes (`classes:`, `apply:`, `.xxxClass(target, value)`,
+ * `resetClass(target, value)`). Falls back to the per-line regex scanner when
+ * the parser rejects the source.
+ *
+ * @param {string} data - Controller file content
+ * @returns {Array} Array of class name tokens
+ */
+export function processControllers(data) {
+  try {
+    const ast = acorn.parse(data, {
+      ecmaVersion: 'latest',
+      sourceType: 'script',
+      allowReturnOutsideFunction: true,
+      allowAwaitOutsideFunction: true,
+      allowImportExportEverywhere: true,
+      allowHashBang: true
+    })
+    const out = []
+    walkAST(ast, out)
+    return out
+  } catch {
+    return processControllersRegex(data)
+  }
 }
 
 /**

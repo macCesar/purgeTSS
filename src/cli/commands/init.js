@@ -21,6 +21,8 @@ import {
   projectsAlloyJMKFile,
   projectsPurgeTSSFolder,
   projectsPurge_TSS_Fonts_Folder,
+  projectsPurge_TSS_Brand_Folder,
+  projectsPurge_TSS_Images_Folder,
   srcConfigFile,
   projectsFA_TSS_File,
   srcFontAwesomeTSSFile,
@@ -70,6 +72,8 @@ export function createConfigFile() {
   if (alloyProject()) {
     makeSureFolderExists(projectsPurgeTSSFolder)
     makeSureFolderExists(projectsPurge_TSS_Fonts_Folder)
+    makeSureFolderExists(projectsPurge_TSS_Brand_Folder)
+    makeSureFolderExists(projectsPurge_TSS_Images_Folder)
 
     if (fs.existsSync(projectsConfigJS)) {
       logger.warn('./purgetss/config.cjs', chalk.red('file already exists!'))

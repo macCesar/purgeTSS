@@ -29,6 +29,7 @@ export const projectsAppTSS = `${cwd}/app/styles/app.tss`
 export const projects_AppTSS = `${cwd}/app/styles/_app.tss`
 export const projectsAlloyJMKFile = `${cwd}/app/alloy.jmk`
 export const projectsFontsFolder = `${cwd}/app/assets/fonts`
+export const projectsSemanticColorsJSON = `${cwd}/app/assets/semantic.colors.json`
 export const projectsFontAwesomeJS = `${cwd}/app/lib/fontawesome.js`
 
 // ============================================================================
@@ -39,6 +40,8 @@ export const projectsPurgeTSSFolder = `${cwd}/purgetss`
 export const projectsConfigJS = `${cwd}/purgetss/config.cjs`
 export const projectsTailwind_TSS = `${cwd}/purgetss/styles/utilities.tss`
 export const projectsPurge_TSS_Fonts_Folder = `${cwd}/purgetss/fonts`
+export const projectsPurge_TSS_Brand_Folder = `${cwd}/purgetss/brand`
+export const projectsPurge_TSS_Images_Folder = `${cwd}/purgetss/images`
 export const projectsPurge_TSS_Styles_Folder = `${cwd}/purgetss/styles`
 export const projectsFA_TSS_File = `${cwd}/purgetss/styles/fontawesome.tss`
 
