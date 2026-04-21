@@ -11,6 +11,7 @@
  */
 
 import fs from 'fs'
+import path from 'path'
 import { alloyProject, classicProject } from '../../shared/utils.js'
 import { projectsConfigJS } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
@@ -42,6 +43,40 @@ export function detectProjectType() {
   if (alloyProject(true)) return 'alloy'
   if (classicProject(true)) return 'classic'
   return 'unknown'
+}
+
+/**
+ * Resolve the absolute path to `semantic.colors.json` for the current project.
+ *
+ * Titanium SDK convention:
+ *   - Alloy   → app/assets/semantic.colors.json
+ *   - Classic → Resources/semantic.colors.json
+ *
+ * Defaults to the Alloy path when the project type can't be detected so callers
+ * that failed the earlier validateProject() guard still get a deterministic
+ * value back.
+ *
+ * @returns {string} Absolute path
+ */
+export function getSemanticColorsPath() {
+  const projectType = detectProjectType()
+  if (projectType === 'classic') {
+    return path.join(process.cwd(), 'Resources', 'semantic.colors.json')
+  }
+  return path.join(process.cwd(), 'app', 'assets', 'semantic.colors.json')
+}
+
+/**
+ * Display-friendly relative path for `semantic.colors.json` (used in logger
+ * output so Classic users see `Resources/...` instead of `app/assets/...`).
+ *
+ * @returns {string} Relative path from cwd
+ */
+export function getSemanticColorsRelPath() {
+  const projectType = detectProjectType()
+  return projectType === 'classic'
+    ? 'Resources/semantic.colors.json'
+    : 'app/assets/semantic.colors.json'
 }
 
 /**
@@ -93,6 +128,8 @@ export default {
   alloyProject,
   classicProject,
   detectProjectType,
+  getSemanticColorsPath,
+  getSemanticColorsRelPath,
   hasProjectConfig,
   validateProject,
   projectUtils

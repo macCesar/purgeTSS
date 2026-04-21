@@ -12,10 +12,12 @@
  */
 
 import fs from 'fs'
+import path from 'path'
 import chalk from 'chalk'
 import { createRequire } from 'module'
 import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
-import { projectsConfigJS, projectsLibFolder, projectsSemanticColorsJSON } from '../../shared/constants.js'
+import { projectsConfigJS, projectsLibFolder } from '../../shared/constants.js'
+import { getSemanticColorsPath, getSemanticColorsRelPath } from '../utils/project-detection.js'
 import { logger } from '../../shared/logger.js'
 import { ensureConfig, getConfigFile } from '../../shared/config-manager.js'
 import { cleanDoubleQuotes } from '../utils/file-operations.js'
@@ -382,25 +384,27 @@ export function wrapHexWithAlpha(hex, alpha) {
  * Rethrows on invalid JSON after logging, to protect user data.
  */
 function readSemanticJSON() {
-  if (!fs.existsSync(projectsSemanticColorsJSON)) return {}
-  const raw = fs.readFileSync(projectsSemanticColorsJSON, 'utf8')
+  const semanticPath = getSemanticColorsPath()
+  if (!fs.existsSync(semanticPath)) return {}
+  const raw = fs.readFileSync(semanticPath, 'utf8')
   if (!raw.trim()) return {}
   try {
     return JSON.parse(raw)
   } catch (err) {
-    logger.info(`${chalk.red('Warning:')} ${chalk.yellow('app/assets/semantic.colors.json')} is not valid JSON. Aborting to avoid data loss.`)
+    logger.info(`${chalk.red('Warning:')} ${chalk.yellow(getSemanticColorsRelPath())} is not valid JSON. Aborting to avoid data loss.`)
     throw err
   }
 }
 
 /**
  * Write the semantic-colors JSON (caller provides the fully-merged object).
- * Ensures app/assets/ exists first.
+ * Ensures the parent folder (app/assets/ for Alloy, Resources/ for Classic)
+ * exists first.
  */
 function persistSemanticJSON(data) {
-  const assetsFolder = projectsSemanticColorsJSON.replace(/\/semantic\.colors\.json$/, '')
-  makeSureFolderExists(assetsFolder)
-  fs.writeFileSync(projectsSemanticColorsJSON, JSON.stringify(data, null, 2) + '\n', 'utf8')
+  const semanticPath = getSemanticColorsPath()
+  makeSureFolderExists(path.dirname(semanticPath))
+  fs.writeFileSync(semanticPath, JSON.stringify(data, null, 2) + '\n', 'utf8')
 }
 
 /**

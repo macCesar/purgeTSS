@@ -5,6 +5,16 @@ All notable changes to PurgeTSS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.6.2] - 2026-04-21
+
+### Fixed
+- **`semantic` command now works in Classic Titanium projects.** The command previously aborted in Classic with a misleading "Please make sure you are running purgetss within an Alloy Project" message. PurgeTSS now detects the project layout and writes `semantic.colors.json` to the correct location per TiDev convention:
+  - Alloy   → `app/assets/semantic.colors.json`
+  - Classic → `Resources/semantic.colors.json`
+
+  Applies to all three code paths: palette mode, single-fresh mode, and the in-place shade conflict update. Existing unrelated entries (e.g., the default `backgroundColor` / `textColor` that ship with Classic templates) are preserved — the command only replaces keys that belong to the family being written.
+- **Duplicated preview output after Classic error.** In 7.6.1 the "not an Alloy project" warning was immediately followed by the palette preview JSON, making it look like the command half-succeeded. Preview output is now exclusive to `--log` / silent invocations; real runs either write the file or emit the error, never both.
+
 ## [7.6.1] - 2026-04-21
 
 ### Added

@@ -1,8 +1,9 @@
 /**
  * PurgeTSS - `semantic` command
  *
- * Generates Titanium semantic colors (app/assets/semantic.colors.json) in two
- * modes, dispatched by --single:
+ * Generates Titanium semantic colors (app/assets/semantic.colors.json for
+ * Alloy, Resources/semantic.colors.json for Classic) in two modes, dispatched
+ * by --single:
  *
  *   Palette mode (no --single):
  *     One base hex → 11-step tonal palette with mirror-by-index Light/Dark
@@ -26,9 +27,9 @@
  */
 
 import chalk from 'chalk'
-import { alloyProject } from '../../shared/utils.js'
 import { logger } from '../../shared/logger.js'
 import { ensureConfig, getConfigFile } from '../../shared/config-manager.js'
+import { validateProject, getSemanticColorsRelPath } from '../utils/project-detection.js'
 import {
   toCamelCase,
   buildSemanticPalette,
@@ -99,13 +100,16 @@ async function runPalette(args, options, silent) {
   const { kebab: kebabName } = parseName(colorFamily.name)
   const { semanticEntries, configMapping } = buildSemanticPalette(colorFamily, kebabName)
 
-  if (alloyProject(silent) && !silent) {
-    ensureConfig()
-    writeSemanticColors(semanticEntries, kebabName, configMapping, options)
-    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} palette (11 shades) saved to`, chalk.yellow('app/assets/semantic.colors.json'))
-  } else {
+  // Preview mode: log the JSON, no writes, no project check
+  if (silent) {
     logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} palette preview:\n${JSON.stringify(semanticEntries, null, 2)}`)
+    return true
   }
+
+  if (!validateProject(silent)) return false
+  ensureConfig()
+  writeSemanticColors(semanticEntries, kebabName, configMapping, options)
+  logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} palette (11 shades) saved to`, chalk.yellow(getSemanticColorsRelPath()))
 
   return true
 }
@@ -133,7 +137,7 @@ function runSingle(args, options, silent) {
     return true
   }
 
-  if (!alloyProject(silent)) return false
+  if (!validateProject(silent)) return false
   ensureConfig()
 
   // If the name matches an existing palette shade (e.g. `amazon50` when palette
@@ -147,7 +151,7 @@ function runSingle(args, options, silent) {
     }
     updateSemanticEntry(conflict.camelKey, value)
     checkIfColorModule()
-    logger.info(`${chalk.hex(lightHex).bold(conflict.camelKey)} updated in ${chalk.yellow('app/assets/semantic.colors.json')} — palette ${chalk.yellow(conflict.parentName)} already references this key, config.cjs left unchanged.`)
+    logger.info(`${chalk.hex(lightHex).bold(conflict.camelKey)} updated in ${chalk.yellow(getSemanticColorsRelPath())} — palette ${chalk.yellow(conflict.parentName)} already references this key, config.cjs left unchanged.`)
     return true
   }
 
@@ -160,7 +164,7 @@ function runSingle(args, options, silent) {
   const className = suggestClassName(camelName)
   writeSemanticJSON(semanticEntries, camelName)
   writeConfigMapping(className, camelName, options)
-  logger.info(`${chalk.hex(lightHex).bold(`"${camelName}"`)} saved to ${chalk.yellow('app/assets/semantic.colors.json')} and mapped to class ${chalk.green(className)} in ${chalk.yellow('config.cjs')}.`)
+  logger.info(`${chalk.hex(lightHex).bold(`"${camelName}"`)} saved to ${chalk.yellow(getSemanticColorsRelPath())} and mapped to class ${chalk.green(className)} in ${chalk.yellow('config.cjs')}.`)
   return true
 }
 
