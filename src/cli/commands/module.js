@@ -41,8 +41,10 @@ export function copyModulesLibrary() {
     return true
   } else {
     // Not in a valid project
-    logger.info(`Please make sure you are running ${chalk.green('purgetss')} within an Alloy or Classic Project.`)
-    logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
+    logger.block(
+      `Please make sure you are running ${chalk.green('purgetss')} within an Alloy or Classic Project.`,
+      `For more information, visit ${chalk.green('https://purgetss.com')}`
+    )
     return false
   }
 }

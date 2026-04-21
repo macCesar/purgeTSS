@@ -431,7 +431,7 @@ function copyFreeFonts() {
   fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Regular.ttf', projectsFontsFolder + '/FontAwesome7Free-Regular.ttf', callback)
   fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Solid.ttf', projectsFontsFolder + '/FontAwesome7Free-Solid.ttf', callback)
 
-  logger.warn(' - Font Awesome Free')
+  logger.item(chalk.green('Font Awesome Free'))
 }
 
 /**
@@ -444,7 +444,7 @@ function copyFreeFonts() {
 function copyProFonts(fontFamilies, webFonts) {
   _.each(fontFamilies, (dest, src) => {
     if (copyFile(`${webFonts}/${src}`, dest)) {
-      logger.warn(` - ${dest} Font copied to`, chalk.yellow('./app/assets/fonts'), 'folder')
+      logger.item(`${dest} copied to ${chalk.yellow('./app/assets/fonts')}`)
     }
   })
 }
@@ -467,7 +467,7 @@ function copyMaterialIconsFonts() {
     copyFile(`${srcFonts_Folder}/${familyName}`, familyName)
   })
 
-  logger.warn(' - Material Icons')
+  logger.item(chalk.green('Material Icons'))
 }
 
 /**
@@ -486,7 +486,7 @@ function copyMaterialSymbolsFonts() {
     copyFile(`${srcFonts_Folder}/${familyName}`, familyName)
   })
 
-  logger.warn(' - Material Symbols')
+  logger.item(chalk.green('Material Symbols'))
 }
 
 /**
@@ -496,7 +496,7 @@ function copyMaterialSymbolsFonts() {
 function copyFramework7IconsFonts() {
   // Framework7 Font
   copyFile(srcFonts_Folder + '/Framework7-Icons.ttf', 'Framework7-Icons.ttf')
-  logger.warn(' - Framework 7')
+  logger.item(chalk.green('Framework 7'))
 }
 
 /**
@@ -572,23 +572,23 @@ function copyFontLibrary(vendor) {
         buildFontAwesomeJS()
       } else {
         fs.copyFileSync(srcLibFA, projectsLibFolder + '/fontawesome.js')
-        logger.warn(' - fontawesome.js')
+        logger.item(chalk.yellow('fontawesome.js'))
       }
       break
     case 'mi':
     case 'materialicons':
       fs.copyFileSync(srcLibMI, projectsLibFolder + '/materialicons.js')
-      logger.warn(' - materialicons.js')
+      logger.item(chalk.yellow('materialicons.js'))
       break
     case 'ms':
     case 'materialsymbol':
       fs.copyFileSync(srcLibMS, projectsLibFolder + '/materialsymbols.js')
-      logger.warn(' - materialsymbols.js')
+      logger.item(chalk.yellow('materialsymbols.js'))
       break
     case 'f7':
     case 'framework7':
       fs.copyFileSync(srcLibF7, projectsLibFolder + '/framework7icons.js')
-      logger.warn(' - framework7icons.js')
+      logger.item(chalk.yellow('framework7icons.js'))
       break
   }
 }

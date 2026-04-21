@@ -64,8 +64,10 @@ export function validateProject(silent = false) {
 
   if (projectType === 'unknown') {
     if (!silent) {
-      logger.info('Please make sure you are running purgetss within an Alloy or Classic Project.')
-      logger.info('For more information, visit https://purgetss.com')
+      logger.block(
+        'Please make sure you are running purgetss within an Alloy or Classic Project.',
+        'For more information, visit https://purgetss.com'
+      )
     }
     return false
   }

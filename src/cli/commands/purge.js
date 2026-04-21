@@ -31,6 +31,7 @@ import { init } from './init.js'
 import { getConfigOptions, getConfigFile, ensureConfig } from '../../shared/config-manager.js'
 
 // Import purger functions from core modules
+import { processControllers } from '../../core/analyzers/class-extractor.js'
 import { purgeTailwind } from '../../core/purger/tailwind-purger.js'
 import {
   purgeFontAwesome,
@@ -385,12 +386,16 @@ function throwPreValidationError({ relativePath, lineNumber, lineContent, messag
   error.lineNumber = lineNumber
   error.lineContent = lineContent
 
-  logger.error('XML Syntax Error\n')
-  logger.info(`File: "${relativePath}"`)
-  logger.info(`Line: ${lineNumber}`)
-  logger.info(`Content: "${lineContent}"\n`)
-  logger.error(message)
-  logger.info(chalk.green(`Fix: ${fix}\n`))
+  logger.block(
+    chalk.red('XML Syntax Error'),
+    `File: ${chalk.yellow(`"${relativePath}"`)}`,
+    `Line: ${chalk.yellow(lineNumber)}`,
+    `Content: ${chalk.yellow(`"${lineContent}"`)}`,
+    '',
+    chalk.red(message),
+    '',
+    `${chalk.green('Fix:')} ${fix}`
+  )
 
   throw error
 }
@@ -410,69 +415,6 @@ function extractClasses(currentText, currentFile) {
   } catch (error) {
     throw chalk.red(`::PurgeTSS:: Error processing: "${currentFile}"\n`, error)
   }
-}
-
-/**
- * Process controller files for classes
- * COPIED exactly from original processControllers() function
- */
-function processControllers(data) {
-  const allWords = []
-  const lines = data.split(/\r?\n/)
-
-  lines.forEach(line => {
-    const words = extractWordsFromLine(line)
-    if (words.length > 0) {
-      allWords.push(...words)
-    }
-  })
-
-  return allWords
-}
-
-/**
- * Extract words from a line of controller code
- * COPIED exactly from original extractWordsFromLine() function
- */
-function extractWordsFromLine(line) {
-  const patterns = [
-    {
-      // apply: 'classes'
-      regex: /apply:\s*'([^']+)'/,
-      process: match => match[1].split(/\s+/)
-    },
-    {
-      // classes: ['class1', 'class2'] o classes: ['class1 class2']
-      regex: /classes:\s*\[([^\]]+)\]/,
-      process: match => match[1].split(',').map(item => item.trim().replace(/['"]/g, ''))
-    },
-    {
-      // classes: 'class1 class2'
-      regex: /classes:\s*'([^']+)'/,
-      process: match => match[1].split(/\s+/)
-    }
-  ]
-
-  // Process simple patterns
-  const words = patterns.reduce((acc, { regex, process }) => {
-    const match = regex.exec(line)
-    return match ? [...acc, ...process(match)] : acc
-  }, [])
-
-  // Process addClass, removeClass, resetClass
-  const classFunctionRegex = /(?:\.\w+Class|resetClass)\([^,]+,\s*(?:'([^']+)'|\[([^\]]+)\])/g
-  let classFunctionMatch
-  while ((classFunctionMatch = classFunctionRegex.exec(line)) !== null) {
-    const content = classFunctionMatch[1] || classFunctionMatch[2]
-    if (content) {
-      const classes = content.includes(',')
-        ? content.split(',').map(item => item.trim().replace(/['"]/g, ''))
-        : content.replace(/['"]/g, '').split(/\s+/)
-      words.push(...classes)
-    }
-  }
-
-  return words
 }
 
 /**
@@ -737,49 +679,57 @@ export function purgeClasses(options) {
 
   if (Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 2000) || recentlyCreated) {
     start()
-
-    init(options)
-
-    backupOriginalAppTss()
-
-    let uniqueClasses
-
+    logger.startSection()
     try {
-      uniqueClasses = getUniqueClasses()
-    } catch (error) {
-      // Handle pre-validation errors (XML syntax errors detected before parsing)
-      if (error.isPreValidationError) {
-        // Error already printed by preValidateXML, exit cleanly
-        // eslint-disable-next-line n/no-process-exit
-        process.exit(1)
+      // Explicit header so every purge run shows which project is being
+      // processed — mirrors the Auto-Purging line emitted by the alloy.jmk hook.
+      logger.info('Purging', chalk.yellow(cwd))
+
+      init(options)
+
+      backupOriginalAppTss()
+
+      let uniqueClasses
+
+      try {
+        uniqueClasses = getUniqueClasses()
+      } catch (error) {
+        // Handle pre-validation errors (XML syntax errors detected before parsing)
+        if (error.isPreValidationError) {
+          // Error already printed by preValidateXML, exit cleanly
+          // eslint-disable-next-line n/no-process-exit
+          process.exit(1)
+        }
+        // Re-throw other errors
+        throw error
       }
-      // Re-throw other errors
-      throw error
+
+      let tempPurged = copyResetTemplateAnd_appTSS()
+
+      tempPurged += purgeTailwind(uniqueClasses, purgingDebug)
+
+      const cleanUniqueClasses = cleanClasses(uniqueClasses)
+
+      tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses, purgingDebug)
+
+      tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, purgingDebug)
+
+      tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, purgingDebug)
+
+      tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses, purgingDebug)
+
+      tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses, purgingDebug)
+
+      tempPurged += processMissingClasses(tempPurged)
+
+      saveFile(projectsAppTSS, tempPurged)
+
+      logger.file('app.tss')
+
+      finish()
+    } finally {
+      logger.endSection()
     }
-
-    let tempPurged = copyResetTemplateAnd_appTSS()
-
-    tempPurged += purgeTailwind(uniqueClasses, purgingDebug)
-
-    const cleanUniqueClasses = cleanClasses(uniqueClasses)
-
-    tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses, purgingDebug)
-
-    tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, purgingDebug)
-
-    tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, purgingDebug)
-
-    tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses, purgingDebug)
-
-    tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses, purgingDebug)
-
-    tempPurged += processMissingClasses(tempPurged)
-
-    saveFile(projectsAppTSS, tempPurged)
-
-    logger.file('app.tss')
-
-    finish()
 
     return true
   } else {

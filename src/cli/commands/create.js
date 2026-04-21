@@ -60,7 +60,8 @@ function createProject(workspace, argsName, projectID, options) {
   const projectName = `"${argsName}"`
   const projectDirectory = `${workspace}/${projectName}`
 
-  logger.info('Creating a new Titanium project')
+  logger.startSection()
+  logger.info('Creating Titanium project', chalk.yellow(`'${argsName}'`), 'in', chalk.yellow(workspace))
   execSync(`ti create -n ${projectName} -t app -p all --alloy --no-prompt --id ${projectID}`)
   execSync(`cd ${projectDirectory} && purgetss w && purgetss b`)
 
@@ -117,6 +118,7 @@ function createProject(workspace, argsName, projectID, options) {
   }
 
   finish(`The ${chalk.yellow(`'${argsName}'`)} project was created successfully in`)
+  logger.endSection()
 
   // Auto-open editor like original v6
   if (commandExistsSync.sync('code')) {
@@ -183,12 +185,14 @@ export function create(args, options) {
       }
     } else {
       console.log('')
-      logger.error('::Can\'t create a Titanium project::')
-      logger.info('You must have', chalk.green('`app.idprefix`'), 'and', chalk.green('`app.workspace`'), 'configured to create a project with', chalk.green('`PurgeTSS`'))
-      console.log('')
-      logger.info('Please, set them like this:')
-      logger.info(chalk.green('ti config app.idprefix'), chalk.yellow(`'com.your.reverse.domain'`))
-      logger.info(chalk.green('ti config app.workspace'), chalk.yellow(`'path/to/your/workspace'`))
+      logger.block(
+        chalk.red("Can't create a Titanium project"),
+        `You must have ${chalk.green('`app.idprefix`')} and ${chalk.green('`app.workspace`')} configured to create a project with ${chalk.green('`PurgeTSS`')}`,
+        '',
+        'Please, set them like this:',
+        `  ${chalk.green('ti config app.idprefix')} ${chalk.yellow(`'com.your.reverse.domain'`)}`,
+        `  ${chalk.green('ti config app.workspace')} ${chalk.yellow(`'path/to/your/workspace'`)}`
+      )
     }
   })
 }

@@ -73,8 +73,10 @@ export function alloyProject(silent = false) {
 
   if (!fs.existsSync(`${cwd}/app/views`)) {
     if (!silent) {
-      logger.info(`Please make sure you are running ${chalk.green('purgetss')} within an Alloy Project.`)
-      logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
+      logger.block(
+        `Please make sure you are running ${chalk.green('purgetss')} within an Alloy Project.`,
+        `For more information, visit ${chalk.green('https://purgetss.com')}`
+      )
     }
     return false
   }
@@ -93,8 +95,10 @@ export function classicProject(silent = false) {
 
   if (!fs.existsSync(`${cwd}/Resources`)) {
     if (!silent) {
-      logger.info(`Please make sure you are running ${chalk.green('purgetss')} within a Titanium's Classic Project.`)
-      logger.info(`For more information, visit ${chalk.green('https://purgetss.com')}`)
+      logger.block(
+        `Please make sure you are running ${chalk.green('purgetss')} within a Titanium's Classic Project.`,
+        `For more information, visit ${chalk.green('https://purgetss.com')}`
+      )
     }
     return false
   }
