@@ -1,0 +1,78 @@
+{
+  "amazon50": {
+    "light": "#052e14",
+    "dark": "#f0fdf5"
+  },
+  "amazon100": {
+    "light": "#14532c",
+    "dark": "#dcfce8"
+  },
+  "amazon200": {
+    "light": "#166534",
+    "dark": "#bbf7d1"
+  },
+  "amazon300": {
+    "light": "#15803d",
+    "dark": "#86efad"
+  },
+  "amazon400": {
+    "light": "#16a34b",
+    "dark": "#4ade81"
+  },
+  "amazon500": {
+    "light": {
+      "color": "#ff0000",
+      "alpha": "80"
+    },
+    "dark": {
+      "color": "#ff0000",
+      "alpha": "80"
+    }
+  },
+  "amazon600": {
+    "light": "#4ade81",
+    "dark": "#16a34b"
+  },
+  "amazon700": {
+    "light": "#86efad",
+    "dark": "#15803d"
+  },
+  "amazon800": {
+    "light": "#bbf7d1",
+    "dark": "#166534"
+  },
+  "amazon900": {
+    "light": "#dcfce8",
+    "dark": "#14532c"
+  },
+  "amazon950": {
+    "light": "#f0fdf5",
+    "dark": "#052e14"
+  },
+  "surfaceColor": {
+    "light": "#F9FAFB",
+    "dark": "#0f172a"
+  },
+  "surfaceHighColor": {
+    "light": "#FFFFFF",
+    "dark": "#1e293b"
+  },
+  "textColor": {
+    "light": "#111827",
+    "dark": "#f1f5f9"
+  },
+  "accentColor": {
+    "light": "#3B82F6",
+    "dark": "#60a5fa"
+  },
+  "overlayColor": {
+    "light": {
+      "color": "#000000",
+      "alpha": "50"
+    },
+    "dark": {
+      "color": "#000000",
+      "alpha": "50"
+    }
+  }
+}
