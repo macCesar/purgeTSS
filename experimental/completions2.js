@@ -30,6 +30,182 @@ const logger = {
   file: (...args) => console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!')
 }
 
+// Keys whose numeric values are interpreted with `ti.ui.defaultunit` from tiapp.xml.
+// The glossary .md files for these keys receive an inline "// Unit: ..." note
+// so Context7 (and humans) always retrieve the unit clarification alongside the values.
+// Keep this list in sync with `docs/best-practices/4-values-and-units.md` in purgetss-docs.
+const UNIT_DEPENDENT_KEYS = new Set([
+  // configurableProperties (Ti.UI.* native dimensional properties)
+  'backgroundLeftCap', 'backgroundPaddingBottom', 'backgroundPaddingLeft',
+  'backgroundPaddingRight', 'backgroundPaddingTop', 'backgroundTopCap',
+  'borderRadius', 'borderWidth', 'bottom', 'contentHeight', 'contentWidth',
+  'elevation', 'height', 'imageHeight', 'imagePadding', 'keyboardToolbarHeight',
+  'left', 'leftButtonPadding', 'leftTrackLeftCap', 'leftTrackTopCap', 'leftWidth',
+  'letterSpacing', 'lineSpacing', 'maxElevation', 'maximumLineHeight',
+  'maxRowHeight', 'minimumLineHeight', 'minRowHeight', 'padding', 'paddingBottom',
+  'paddingLeft', 'paddingRight', 'paddingTop', 'pageHeight', 'pageWidth',
+  'pagingControlHeight', 'paragraphSpacingAfter', 'paragraphSpacingBefore',
+  'right', 'rightButtonPadding', 'rightTrackLeftCap', 'rightTrackTopCap',
+  'rightWidth', 'rowHeight', 'sectionHeaderTopPadding', 'separatorHeight',
+  'shadowRadius', 'statusBarHeight', 'targetImageHeight', 'targetImageWidth',
+  'titlePadding', 'top', 'uprightHeight', 'uprightWidth', 'width',
+  'xOffset', 'yOffset',
+  // compoundClasses that bundle dimensional properties
+  'borderRadius-alternative', 'borderRadius-full', 'content-height-and-width',
+  'dropShadow', 'fontSize', 'margin', 'margin-alternative', 'minimumFontSize',
+  'padding-alternative', 'size', 'titleAttributesShadow-alternative',
+  'viewShadowOffset', 'widthHeight'
+])
+
+const UNIT_NOTE_LINES = [
+  '// Unit: numeric values are unitless. Titanium interprets them using ti.ui.defaultunit in tiapp.xml (Alloy template default: dp, not pixels).',
+  '// Docs: /docs/best-practices/values-and-units'
+]
+
+function injectUnitNote(key, classes) {
+  if (!UNIT_DEPENDENT_KEYS.has(key)) return classes
+  const lines = classes.split('\n')
+  let lastCommentIdx = -1
+  for (let i = 0; i < lines.length; i++) {
+    const trimmed = lines[i].trim()
+    if (trimmed.startsWith('//')) {
+      lastCommentIdx = i
+    } else if (trimmed !== '' && lastCommentIdx !== -1) {
+      break
+    }
+  }
+  if (lastCommentIdx === -1) return classes
+  lines.splice(lastCommentIdx + 1, 0, ...UNIT_NOTE_LINES)
+  return lines.join('\n')
+}
+
+// Scaffolding metadata for the glossary subfolders. Every field here drives
+// what the generator writes for each category — update this array and rerun
+// the build to refresh both the subfolder `index.md` and its entry in the
+// root `index.md`.
+//
+// Fields:
+//   id              folder name (matches purgetss-docs/glossary/<id>/)
+//   label           Sidebar label (used in `_category_.json` and subfolder H1)
+//   intro           Paragraph shown at the top of the subfolder's own index.md
+//   rootDescription Longer paragraph shown under the category in the root index.md
+//   rootLinkText    (optional) Override for the link text in the root index.md
+//                   — use this when the link text on the landing page differs
+//                   from the sidebar label. Falls back to `label` when absent.
+//   unitsCallout    (optional) If present, adds a `:::info Units` admonition
+//                   to the subfolder's index.md pointing at the canonical
+//                   values-and-units page.
+const GLOSSARY_SUBFOLDERS = [
+  {
+    id: 'booleanProperties',
+    label: 'Boolean Properties',
+    intro: 'Use these properties when a setting is strictly true/false. Entries cover accessibility flags, UI state toggles, media permissions, and similar binary behaviors. Browse the list in the sidebar for the complete catalog.',
+    rootDescription: 'Properties that can only have two values: true or false. These properties are fundamental for controlling the behavior and appearance of elements in your application. Includes over 200 properties organized into categories such as accessibility, interface controls, media, and security.'
+  },
+  {
+    id: 'colorProperties',
+    label: 'Color Properties',
+    intro: 'Color properties control text, backgrounds, borders, icons, and state colors. Values accept hex, RGB, named colors, and platform-supported formats. Use the sidebar list to jump to a specific property.',
+    rootDescription: 'Properties that allow you to customize your application\'s colors. Accepts various color formats (hex, RGB, predefined names) and covers everything from basic element colors to complex visual effects, including backgrounds, borders, text, icons, and element states.'
+  },
+  {
+    id: 'compoundClasses',
+    label: 'Compound Properties',
+    rootLinkText: 'Compound Classes',
+    intro: 'Compound classes bundle multiple style attributes into one utility for faster styling. They cover layout, typography, spacing, and effects with alternative syntaxes where supported. See the sidebar for each entry.',
+    rootDescription: 'Advanced classes that combine multiple style attributes into a single property. These classes provide sophisticated styling capabilities for layout, positioning, typography, and visual effects, with multiple variations and alternative syntaxes.',
+    unitsCallout: 'Many compound classes on this page produce dimensional values (margins, paddings, sizes, radii, shadow offsets, font sizes, translations). Those numbers are **unitless** — Titanium resolves them using `ti.ui.defaultunit` in `tiapp.xml`. The Alloy template default is `dp` (density-independent pixels), **not raw pixels**. See [Values and Units](/docs/best-practices/values-and-units) for the full rules and exceptions.'
+  },
+  {
+    id: 'configurableProperties',
+    label: 'Configurable Properties',
+    intro: 'These properties accept numeric or measurable values such as sizes, spacing, opacity, durations, and weights. Use them to fine-tune UI details with precise values. The sidebar lists all available properties.',
+    rootDescription: 'Numeric or measurable properties that allow you to fine-tune the appearance and behavior of UI elements. Includes dimensions, spacing, visual effects, typography, and animations, all accepting specific values like numbers, dimensions, or durations.',
+    unitsCallout: 'Dimensional values on this page (sizes, spacing, radii, font sizes, shadow radii, elevation, offsets, line heights, letter spacing) are **unitless**. Titanium resolves them at runtime using `ti.ui.defaultunit` in `tiapp.xml`. The Alloy template default is `dp` (density-independent pixels), **not raw pixels**. See [Values and Units](/docs/best-practices/values-and-units) for the full rules and exceptions.'
+  },
+  {
+    id: 'constantProperties',
+    label: 'Constant Properties',
+    intro: 'Constant properties accept predefined values or enumerations (e.g., modes, types, categories). Use them to enforce valid states and platform-specific options. Browse the sidebar for the full list.',
+    rootDescription: 'Predefined values or enumerations that determine specific behaviors, styles, or states of UI elements. These properties only accept predefined values to ensure consistency and functionality, covering interface states, user input, media, authorizations, and notifications.'
+  }
+]
+
+// Header + global units callout for the root `glossary/index.md`. The list of
+// categories below `## Categories` is derived from GLOSSARY_SUBFOLDERS by
+// `buildRootIndex()` — add a subfolder to the array and it will appear here.
+const GLOSSARY_ROOT_HEADER = `---
+sidebar_position: 1
+---
+
+# Glossary of Terms
+
+Welcome to the PurgeTSS glossary. Here you'll find a complete list of terms, properties, and concepts used throughout our documentation, organized into categories for easy reference.
+
+:::info Units — read this first
+Numeric values shown in the property pages below are **unitless**. Titanium interprets them using \`ti.ui.defaultunit\` in \`tiapp.xml\` — the Alloy template ships with \`dp\` (density-independent pixels), **not raw pixels**. See [Values and Units](/docs/best-practices/values-and-units) for the full explanation.
+:::
+
+## Categories
+`
+
+function buildRootIndex() {
+  let content = GLOSSARY_ROOT_HEADER
+  for (const folder of GLOSSARY_SUBFOLDERS) {
+    const linkText = folder.rootLinkText ?? folder.label
+    content += `\n### [${linkText}](./${folder.id}/index.md)\n`
+    content += `${folder.rootDescription}\n`
+  }
+  return content
+}
+
+function buildSubfolderIndex(folder) {
+  let content = '---\n'
+  content += `title: ${folder.label}\n`
+  content += `slug: /glossary/${folder.id}\n`
+  content += '---\n\n'
+  content += folder.intro + '\n'
+  if (folder.unitsCallout) {
+    content += '\n:::info Units — important\n'
+    content += folder.unitsCallout + '\n'
+    content += ':::\n'
+  }
+  return content
+}
+
+function glossaryBaseFolder() {
+  if (!fs.existsSync(projectsConfigJS)) return path.resolve(__dirname, '../dist/glossary/')
+  if (saveGlossary) return cwd + '/purgetss/glossary/'
+  return ''
+}
+
+function scaffoldGlossary() {
+  const baseFolder = glossaryBaseFolder()
+  if (!baseFolder) return
+
+  // Wipe the output tree so stale property files from prior runs don't linger.
+  if (fs.existsSync(baseFolder)) fs.rmSync(baseFolder, { recursive: true })
+  makeSureFolderExists(baseFolder)
+
+  // Root-level files
+  saveFile(path.join(baseFolder, '_category_.json'), JSON.stringify({
+    label: 'Glossary of Terms',
+    position: 1
+  }, null, 2) + '\n')
+  saveFile(path.join(baseFolder, 'index.md'), buildRootIndex())
+
+  // Subfolders with their _category_.json and index.md
+  for (const folder of GLOSSARY_SUBFOLDERS) {
+    const sub = path.join(baseFolder, folder.id)
+    makeSureFolderExists(sub)
+    saveFile(path.join(sub, '_category_.json'), JSON.stringify({
+      label: folder.label,
+      link: { type: 'doc', id: `${folder.id}/index` }
+    }, null, 2) + '\n')
+    saveFile(path.join(sub, 'index.md'), buildSubfolderIndex(folder))
+  }
+}
+
 let configFile = getConfigFile()
 configFile.purge = configFile.purge ?? { mode: 'all' }
 configFile.theme = configFile.theme ?? {}
@@ -59,6 +235,7 @@ function autoBuildUtilitiesTSS(options = {}) {
   }
 
   saveGlossary = options.glossary ?? false
+  scaffoldGlossary()
   let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8')
   tailwindStyles += (fs.existsSync(projectsConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}\n` : '// default config.js file\n'
 
@@ -161,7 +338,7 @@ function generateGlossary(_key, _theClasses, _keyName = null) {
     }
 
     makeSureFolderExists(destinationFolder)
-    saveFile(`${destinationFolder}/${_key}.md`, '```css' + _theClasses + '```\n')
+    saveFile(`${destinationFolder}/${_key}.md`, '```css' + injectUnitNote(_key, _theClasses) + '```\n')
   }
 
   return _theClasses
