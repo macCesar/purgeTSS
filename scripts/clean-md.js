@@ -5,8 +5,9 @@ import { fileURLToPath } from 'node:url'
 const currentDir = path.dirname(fileURLToPath(import.meta.url))
 const PROJECT_ROOT = path.join(currentDir, '..')
 
-const DOCS_SRC = '/Users/cesar/Developer/openSource/purgetss-docs/docs'
-const PAGES_SRC = '/Users/cesar/Developer/openSource/purgetss-docs/src/pages'
+const SOURCE_ROOT = '/Users/cesar/Developer/openSource/purgetss-docs'
+const DOCS_SRC = path.join(SOURCE_ROOT, 'docs')
+const PAGES_SRC = path.join(SOURCE_ROOT, 'src/pages')
 const OUTPUT_DIR = path.join(PROJECT_ROOT, '.dev/docs')
 
 function cleanFrontmatter(content) {
@@ -143,10 +144,12 @@ if (fs.existsSync(path.dirname(CONTEXT7_DIR))) {
   }
   fs.cpSync(OUTPUT_DIR, CONTEXT7_DIR, { recursive: true })
   console.log(`${totalCopied} files copied, ${totalCleaned} .md files cleaned`)
+  console.log(`Source: ${SOURCE_ROOT}`)
   console.log(`Output: ${OUTPUT_DIR}`)
   console.log(`Synced: ${CONTEXT7_DIR}`)
 } else {
   console.log(`${totalCopied} files copied, ${totalCleaned} .md files cleaned`)
+  console.log(`Source: ${SOURCE_ROOT}`)
   console.log(`Output: ${OUTPUT_DIR}`)
   console.warn(`Skipped sync: ${path.dirname(CONTEXT7_DIR)} not found`)
 }
