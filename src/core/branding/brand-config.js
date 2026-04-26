@@ -9,9 +9,11 @@
  * Also auto-discovers logo images inside `./purgetss/brand/` following the
  * project convention:
  *   logo.{svg,png}          → required (main logo)
+ *   logo-icon.{svg,png}     → optional (square launcher/splash mark for Android)
  *   logo-mono.{svg,png}     → optional (monochrome layer + notifications)
  *   logo-dark.{svg,png}     → optional (iOS 18+ dark variant)
  *   logo-tinted.{svg,png}   → optional (iOS 18+ tinted variant)
+ *   logo-splash.{svg,png}   → optional (Android 12+ splash icon override)
  *
  * CLI --monochrome-logo / --dark-logo / --tinted-logo always override
  * discovery, and the positional argument overrides the main logo.
@@ -52,26 +54,55 @@ function findLogoFile(baseDir, baseName) {
 export function resolveBrandConfig(cliOptions, cliLogo, projectRoot) {
   const brandConfig = loadBrandSection()
   const brandDir = path.join(projectRoot, BRAND_DIR)
+  const logos = brandConfig.logos || {}
+  const padding = brandConfig.padding || {}
+  const android = brandConfig.android || {}
+  const ios = brandConfig.ios || {}
+  const colors = brandConfig.colors || {}
+
+  const androidAdaptivePadding = cliOptions.androidAdaptivePadding
+    ?? cliOptions.padding
+    ?? padding.androidAdaptive
+    ?? 19
+
+  const androidLegacyPadding = cliOptions.androidLegacyPadding
+    ?? padding.androidLegacy
+    ?? 10
+
+  const iosPadding = cliOptions.iosPadding
+    ?? padding.ios
+    ?? 4
+
+  const bgColor = cliOptions.bgColor
+    ?? colors.background
+    ?? '#FFFFFF'
+
+  const darkBgColor = cliOptions.darkBgColor
+    ?? ios.darkBackground
+    ?? null
 
   const resolved = {
-    logo: pickLogo(cliLogo, brandConfig.logo, brandDir, 'logo', projectRoot),
-    monochromeLogo: pickLogo(cliOptions.monochromeLogo, brandConfig.monochromeLogo, brandDir, 'logo-mono', projectRoot),
-    darkLogo: pickLogo(cliOptions.darkLogo, brandConfig.darkLogo, brandDir, 'logo-dark', projectRoot),
-    tintedLogo: pickLogo(cliOptions.tintedLogo, brandConfig.tintedLogo, brandDir, 'logo-tinted', projectRoot),
+    logo: pickLogo(cliLogo, logos.primary, brandDir, 'logo', projectRoot),
+    iconLogo: pickLogo(cliOptions.iconLogo, logos.androidLauncher, brandDir, 'logo-icon', projectRoot),
+    monochromeLogo: pickLogo(cliOptions.monochromeLogo, logos.monochrome, brandDir, 'logo-mono', projectRoot),
+    darkLogo: pickLogo(cliOptions.darkLogo, logos.iosDark, brandDir, 'logo-dark', projectRoot),
+    tintedLogo: pickLogo(cliOptions.tintedLogo, logos.iosTinted, brandDir, 'logo-tinted', projectRoot),
+    splashLogo: pickLogo(cliOptions.splashLogo, logos.androidSplash, brandDir, 'logo-splash', projectRoot),
 
-    bgColor: cliOptions.bgColor ?? brandConfig.bgColor ?? '#FFFFFF',
-    bgColorExplicit: Boolean(cliOptions.bgColor ?? brandConfig.bgColor),
-    darkBgColor: cliOptions.darkBgColor ?? brandConfig.darkBgColor ?? null,
-    padding: cliOptions.padding ?? brandConfig.padding ?? 15,
-    iosPadding: cliOptions.iosPadding ?? brandConfig.iosPadding ?? 4,
+    bgColor,
+    bgColorExplicit: Boolean(cliOptions.bgColor ?? colors.background),
+    darkBgColor,
+    androidAdaptivePadding,
+    androidLegacyPadding,
+    iosPadding,
 
     // Kitchen-sink defaults: adaptive + marketplace are always generated; only
     // notification and splash are opt-in. Config can pre-enable them.
-    notification: Boolean(cliOptions.notification ?? brandConfig.notification ?? false),
-    splash: Boolean(cliOptions.splash ?? brandConfig.splash ?? false),
+    notification: Boolean(cliOptions.notification ?? android.notification ?? false),
+    splash: Boolean(cliOptions.splash ?? android.splash ?? false),
 
-    withDark: cliOptions.dark !== false && (brandConfig.dark ?? true),
-    withTinted: cliOptions.tinted !== false && (brandConfig.tinted ?? true),
+    withDark: cliOptions.dark !== false && (ios.dark ?? true),
+    withTinted: cliOptions.tinted !== false && (ios.tinted ?? true),
 
     cleanupLegacy: Boolean(cliOptions.cleanupLegacy),
     aggressive: Boolean(cliOptions.aggressive),

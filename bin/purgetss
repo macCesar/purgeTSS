@@ -262,11 +262,14 @@ program
 Writes directly into the current project (Alloy or Classic — auto-detected).
 Logos auto-discovered from ${chalk.cyan('purgetss/brand/')}:
   ${chalk.yellow('logo.{svg,png}')}          required — main logo
+  ${chalk.yellow('logo-icon.{svg,png}')}     optional — square Android launcher mark
   ${chalk.yellow('logo-mono.{svg,png}')}     optional — monochrome layer + notifications
   ${chalk.yellow('logo-dark.{svg,png}')}     optional — iOS 18+ dark variant
   ${chalk.yellow('logo-tinted.{svg,png}')}   optional — iOS 18+ tinted variant
+  ${chalk.yellow('logo-splash.{svg,png}')}   optional — Android 12+ splash icon override
 
 Defaults come from the ${chalk.cyan('brand:')} section in ${chalk.cyan('purgetss/config.cjs')}.
+The recommended workflow is: put files in ${chalk.cyan('purgetss/brand/')}, then only use config/CLI for overrides.
 CLI flags always win over config values.
 
 Generates:
@@ -276,6 +279,8 @@ Generates:
   ${chalk.yellow('mipmap-*/ic_launcher_{foreground,background,monochrome}.png')}  Android adaptive × 5
   ${chalk.yellow('mipmap-*/ic_launcher.png')}                           Android legacy × 5
   ${chalk.yellow('mipmap-anydpi-v26/ic_launcher.xml')}                  Adaptive icon binder
+  ${chalk.yellow('drawable-*/splash_icon.png')}                         Android 12+ splash icon (with ${chalk.cyan('--splash')})
+  ${chalk.yellow('app/assets/android/default.png')}                     Android <12 legacy splash fallback
 
 Android dark/light mode is handled by the ${chalk.yellow('monochrome')} adaptive layer
 (Android 13+ tints it from the wallpaper + theme). No separate dark file exists.
@@ -284,16 +289,22 @@ Examples:
   ${chalk.cyan('purgetss brand')}                                           # uses purgetss/brand/logo.svg + config
   ${chalk.cyan('purgetss brand')} logo.svg                                  # explicit logo path
   ${chalk.cyan('purgetss brand')} --bg-color "#0B1326"                      # override config bg
+  ${chalk.cyan('purgetss brand')} --android-adaptive-padding 22             # more breathing room for adaptive icons
+  ${chalk.cyan('purgetss brand')} --icon-logo app-icon.svg                  # separate square Android icon
   ${chalk.cyan('purgetss brand')} --dark-bg-color "#1C1C1E" --no-tinted     # customize dark, skip tinted
   ${chalk.cyan('purgetss brand')} --dry-run                                 # preview without writing
   ${chalk.cyan('purgetss brand')} --cleanup-legacy --dry-run                # preview legacy cleanup
 `)
   .option('--bg-color <hex>', 'Background color for Android adaptive + iOS flatten (default: #FFFFFF)')
-  .option('--padding <n>', 'Android safe-zone % (range 12-20, default: 15)', (v) => parseInt(v, 10))
+  .option('--padding <n>', 'Shortcut: sets both Android paddings to the same value', (v) => parseInt(v, 10))
+  .option('--android-adaptive-padding <n>', 'Adaptive icon safe-zone % (default: 19)', (v) => parseInt(v, 10))
+  .option('--android-legacy-padding <n>', 'Legacy ic_launcher.png padding % (default: 10)', (v) => parseInt(v, 10))
   .option('--ios-padding <n>', 'iOS aesthetic % (typical 2-6, default: 4)', (v) => parseInt(v, 10))
   .option('--notification', 'Also generate ic_stat_notify.png × 5 densities')
   .option('--splash', 'Also generate Android 12+ splash_icon.png × 5 densities')
+  .option('--icon-logo <path>', 'Override the Android launcher icon logo (otherwise purgetss/brand/logo-icon.{svg,png})')
   .option('--monochrome-logo <path>', 'Override the monochrome logo (otherwise purgetss/brand/logo-mono.{svg,png})')
+  .option('--splash-logo <path>', 'Override the Android 12+ splash icon logo (otherwise purgetss/brand/logo-splash.{svg,png})')
   .option('--dark-bg-color <hex>', 'Opt into opaque dark bg for DefaultIcon-Dark.png (default: transparent per Apple HIG)')
   .option('--dark-logo <path>', 'Override the dark logo (otherwise purgetss/brand/logo-dark.{svg,png})')
   .option('--tinted-logo <path>', 'Override the tinted logo (otherwise purgetss/brand/logo-tinted.{svg,png})')

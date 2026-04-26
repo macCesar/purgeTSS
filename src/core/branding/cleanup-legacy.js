@@ -57,13 +57,6 @@ export async function cleanupLegacy({ projectRoot, projectType, aggressive = fal
   }
 
   if (adaptive && layout.androidAssets) {
-    const defaultPng = path.join(layout.androidAssets, 'default.png')
-    if (fs.existsSync(defaultPng)) {
-      conditional.push({
-        path: defaultPng,
-        reason: 'Legacy Android splash PNG (adaptive launcher handles splash now)'
-      })
-    }
     const appicon = path.join(layout.androidAssets, 'appicon.png')
     if (fs.existsSync(appicon)) {
       conditional.push({

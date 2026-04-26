@@ -64,6 +64,6 @@ function printMissingLogoHelp(projectRoot) {
   console.log()
   console.log('  Alternatives:')
   console.log(`    ${chalk.gray('•')} Pass the logo explicitly:       ${chalk.cyan('purgetss brand path/to/logo.svg')}`)
-  console.log(`    ${chalk.gray('•')} Point to it from config.cjs:    ${chalk.gray('brand: { logo: \'./docs/logo.svg\' }')}`)
+  console.log(`    ${chalk.gray('•')} Point to it from config.cjs:    ${chalk.gray('brand: { logos: { primary: \'./docs/logo.svg\' } }')}`)
   console.log()
 }

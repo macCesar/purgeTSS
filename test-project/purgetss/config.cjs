@@ -13,12 +13,18 @@ module.exports = {
     }
   },
   brand: {
-    splash: false,           // also generate splash_icon.png × 5
-    padding: '15%',          // Android safe-zone. Range: 12% tight (mature logos) — 20% conservative. Spec floor 19.44%.
-    iosPadding: '4%',        // iOS aesthetic. Range: 2% bold — 8% conservative. No launcher mask.
-    darkBgColor: null,       // opaque dark bg for DefaultIcon-Dark.png (null = transparent per Apple HIG)
-    bgColor: '#FFFFFF',      // Android adaptive bg + iOS/marketplace flatten
-    notification: false,     // also generate ic_stat_notify.png × 5
+    padding: {
+      ios: '4%',
+      androidLegacy: '10%',
+      androidAdaptive: '19%'
+    },
+    android: {
+      splash: false,
+      notification: false
+    },
+    colors: {
+      background: '#FFFFFF'
+    },
     confirmOverwrites: true  // prompt before overwriting files (set false to skip)
   },
   images: {

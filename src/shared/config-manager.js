@@ -34,11 +34,11 @@ const require = createRequire(import.meta.url)
  *   '20'   → 20
  *   '20%'  → 20
  *
- * Used for `brand.padding` and `brand.iosPadding` so users can write
- * self-documenting values like `padding: '25%'` in their config.
+ * Used for the `brand.padding.*` values so users can write
+ * self-documenting values like `androidAdaptive: '19%'` in their config.
  *
  * @param {number|string} value
- * @param {string} fieldName - Config path for error messages (e.g. 'brand.padding')
+ * @param {string} fieldName - Config path for error messages (e.g. 'brand.padding.androidAdaptive')
  * @returns {number} Integer 0-40
  */
 function parsePadding(value, fieldName) {
@@ -128,12 +128,20 @@ export function getConfigFile() {
   configFile.purge.options.plugins = configFile.purge.options.plugins ?? []
 
   configFile.brand = configFile.brand ?? {}
-  configFile.brand.bgColor = configFile.brand.bgColor ?? '#FFFFFF'
-  configFile.brand.padding = parsePadding(configFile.brand.padding ?? 15, 'brand.padding')
-  configFile.brand.iosPadding = parsePadding(configFile.brand.iosPadding ?? 4, 'brand.iosPadding')
-  configFile.brand.darkBgColor = configFile.brand.darkBgColor ?? null
-  configFile.brand.notification = configFile.brand.notification ?? false
-  configFile.brand.splash = configFile.brand.splash ?? false
+  configFile.brand.logos = configFile.brand.logos ?? {}
+  configFile.brand.padding = configFile.brand.padding ?? {}
+  configFile.brand.padding.ios = parsePadding(configFile.brand.padding.ios ?? 4, 'brand.padding.ios')
+  configFile.brand.padding.androidLegacy = parsePadding(configFile.brand.padding.androidLegacy ?? 10, 'brand.padding.androidLegacy')
+  configFile.brand.padding.androidAdaptive = parsePadding(configFile.brand.padding.androidAdaptive ?? 19, 'brand.padding.androidAdaptive')
+  configFile.brand.android = configFile.brand.android ?? {}
+  configFile.brand.android.notification = configFile.brand.android.notification ?? false
+  configFile.brand.android.splash = configFile.brand.android.splash ?? false
+  configFile.brand.ios = configFile.brand.ios ?? {}
+  configFile.brand.ios.dark = configFile.brand.ios.dark ?? true
+  configFile.brand.ios.tinted = configFile.brand.ios.tinted ?? true
+  configFile.brand.ios.darkBackground = configFile.brand.ios.darkBackground ?? null
+  configFile.brand.colors = configFile.brand.colors ?? {}
+  configFile.brand.colors.background = configFile.brand.colors.background ?? '#FFFFFF'
 
   configFile.images = configFile.images ?? {}
   configFile.images.quality = configFile.images.quality ?? 85

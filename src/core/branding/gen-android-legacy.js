@@ -22,7 +22,7 @@ export const LEGACY_DENSITIES = [
   { name: 'xxxhdpi', size: 192 }
 ]
 
-export async function genAndroidLegacy(tightMaster, bgColor, paddingPct, resRoot) {
+export async function genAndroidLegacy(masterPng, bgColor, paddingPct, resRoot) {
   const generated = []
   // Legacy icons have no adaptive mask — they render as drawn. Use ~60% of
   // the adaptive padding so the logo fills more of the canvas.
@@ -35,7 +35,7 @@ export async function genAndroidLegacy(tightMaster, bgColor, paddingPct, resRoot
 
     const outPath = path.join(dir, 'ic_launcher.png')
 
-    const innerLogo = await sharp(tightMaster)
+    const innerLogo = await sharp(masterPng)
       .resize({
         width: inner,
         height: inner,

@@ -26,7 +26,7 @@ export const SPLASH_DENSITIES = [
   { name: 'xxxhdpi', size: 1152 }
 ]
 
-export async function genSplash(tightMaster, resRoot) {
+export async function genSplash(masterPng, resRoot) {
   const generated = []
 
   for (const { name, size } of SPLASH_DENSITIES) {
@@ -36,7 +36,7 @@ export async function genSplash(tightMaster, resRoot) {
 
     const outPath = path.join(dir, 'splash_icon.png')
 
-    const innerLogo = await sharp(tightMaster)
+    const innerLogo = await sharp(masterPng)
       .resize({
         width: inner,
         height: inner,

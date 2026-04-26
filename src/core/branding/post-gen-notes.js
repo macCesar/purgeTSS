@@ -23,11 +23,11 @@ export function printPostGenNotes(opts) {
 }
 
 function printCompactSummary(opts) {
-  const { projectType, projectRoot, stagingRoot, bgColor, padding, iosPadding, inPlace } = opts
+  const { projectType, projectRoot, stagingRoot, bgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, inPlace } = opts
 
   logger.section('Summary')
   logger.bullet(`Background: ${chalk.cyan(bgColor)}`)
-  logger.bullet(`Padding: Android ${chalk.cyan(padding + '%')} / iOS ${chalk.cyan(iosPadding + '%')}`)
+  logger.bullet(`Padding: Android adaptive ${chalk.cyan(androidAdaptivePadding + '%')} / Android legacy ${chalk.cyan(androidLegacyPadding + '%')} / iOS ${chalk.cyan(iosPadding + '%')}`)
   logger.bullet(`${inPlace ? 'Written in place to' : 'Staged at'}: ${chalk.cyan(inPlace ? projectRoot : stagingRoot)}`)
 
   logger.section('Next steps')
@@ -56,7 +56,7 @@ function printCompactSummary(opts) {
 function printFullNotes(opts) {
   const {
     projectType, projectRoot, stagingRoot,
-    bgColor, padding, iosPadding, withSplash, withNotification, inPlace
+    bgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, withSplash, withNotification, inPlace
   } = opts
 
   const code = (s) => chalk.gray(s)
@@ -66,17 +66,20 @@ function printFullNotes(opts) {
   logger.section('Notes on what was generated')
   logger.bullet(`Brand color ${chalk.cyan(bgColor)} was baked into Android adaptive background layer`)
   console.log('    and iOS/marketplace flattened masters (Apple rejects alpha).')
-  logger.bullet(`Android padding:  ${chalk.cyan(padding + '%')}  (logo fills ${100 - 2 * padding}% of each mipmap canvas)`)
-  logger.bullet(`iOS padding:      ${chalk.cyan(iosPadding + '%')}  (logo fills ${100 - 2 * iosPadding}% of DefaultIcon-ios and marketplace art)`)
+  logger.bullet(`Android adaptive padding: ${chalk.cyan(androidAdaptivePadding + '%')}  (logo fills ${100 - 2 * androidAdaptivePadding}% of each adaptive foreground canvas)`)
+  logger.bullet(`Android legacy padding:   ${chalk.cyan(androidLegacyPadding + '%')}  (logo fills ${100 - 2 * androidLegacyPadding}% of each legacy launcher canvas)`)
+  logger.bullet(`iOS padding:              ${chalk.cyan(iosPadding + '%')}  (logo fills ${100 - 2 * iosPadding}% of DefaultIcon-ios and marketplace art)`)
 
   console.log()
   console.log('  If the logo looks cramped: re-run with higher padding')
-  console.log(`      ${flag('--padding 25-30')}       (Android)`)
-  console.log(`      ${flag('--ios-padding 10-14')}   (iOS)`)
+  console.log(`      ${flag('--android-adaptive-padding 25-30')}   (adaptive icon)`)
+  console.log(`      ${flag('--android-legacy-padding 14-18')}     (legacy icon)`)
+  console.log(`      ${flag('--ios-padding 10-14')}                (iOS)`)
   console.log()
   console.log('  If the logo looks too small: re-run with lower padding')
-  console.log(`      ${flag('--padding 19')}          (Android spec floor)`)
-  console.log(`      ${flag('--ios-padding 2-3')}     (matches first-party apps like Mail, Safari)`)
+  console.log(`      ${flag('--android-adaptive-padding 19')}      (adaptive spec floor)`)
+  console.log(`      ${flag('--android-legacy-padding 8-12')}      (legacy icon)`)
+  console.log(`      ${flag('--ios-padding 2-3')}                  (matches first-party apps like Mail, Safari)`)
 
   logger.section('Configuration reminders')
   console.log('  The tool does NOT auto-edit tiapp.xml. Snippets below are optional —')
@@ -105,9 +108,20 @@ function printFullNotes(opts) {
     console.log()
     console.log(`  ${num('3.')} ${chalk.cyan('Android 12+ splash screen')} — ${chalk.yellow('OPTIONAL, advanced')}`)
     console.log()
+    console.log('     Generated files: @drawable/splash_icon.png across densities.')
     console.log('     Titanium SDK 13.x shows a system splash automatically using your')
-    console.log('     launcher icon. For most apps THE DEFAULT IS ENOUGH — do nothing.')
+    console.log('     launcher icon unless you wire a custom splash theme.')
+    console.log('     If you want the Android 12+ splash to use splash_icon instead of')
+    console.log('     ic_launcher, add a custom theme and point')
+    console.log(code('       <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>'))
   }
+
+  console.log()
+  console.log(`  ${num(withSplash ? '4.' : '3.')} ${chalk.cyan('Android <12 legacy splash')}`)
+  console.log('     PurgeTSS brand now regenerates app/assets/android/default.png as')
+  console.log('     a legacy fallback splash for Titanium projects.')
+  console.log('     If your app uses a custom windowBackground / background.9.png theme,')
+  console.log('     that custom theme still takes precedence.')
 
   if (withNotification) {
     const colorsDir = projectType === 'classic'
@@ -115,7 +129,7 @@ function printFullNotes(opts) {
       : 'app/platform/android/res/values'
 
     console.log()
-    console.log(`  ${num('4.')} ${chalk.cyan('FCM notification icon + tint')}`)
+    console.log(`  ${num(withSplash ? '5.' : '4.')} ${chalk.cyan('FCM notification icon + tint')}`)
     console.log('     Only needed if you use firebase.cloudmessaging for push.')
     console.log()
     console.log(`     Create ${flag(colorsDir + '/colors.xml')} (or merge):`)

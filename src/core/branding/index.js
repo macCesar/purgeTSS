@@ -35,6 +35,7 @@
 import fs from 'fs'
 import os from 'os'
 import path from 'path'
+import sharp from 'sharp'
 import { logger } from './branding-logger.js'
 import { logger as mainLogger } from '../../shared/logger.js'
 import { confirmWithAlways } from '../../shared/prompt.js'
@@ -45,6 +46,7 @@ import { genIosDark } from './gen-ios-dark.js'
 import { genIosTinted } from './gen-ios-tinted.js'
 import { genAndroidAdaptive } from './gen-android-adaptive.js'
 import { genAndroidLegacy } from './gen-android-legacy.js'
+import { genAndroidDefault } from './gen-android-default.js'
 import { genMarketplace } from './gen-marketplace.js'
 import { genNotification } from './gen-notification.js'
 import { genSplash } from './gen-splash.js'
@@ -56,6 +58,8 @@ import { printPostGenNotes } from './post-gen-notes.js'
 export async function runBranding(opts) {
   const {
     logo,
+    iconLogo = null,
+    splashLogo = null,
     monochromeLogo = null,
     darkLogo = null,
     darkBgColor = null,
@@ -64,7 +68,8 @@ export async function runBranding(opts) {
     tintedLogo = null,
     bgColor = '#FFFFFF',
     bgColorExplicit = false,
-    padding = 15,
+    androidAdaptivePadding = 19,
+    androidLegacyPadding = 10,
     iosPadding = 4,
     notification = false,
     splash = false,
@@ -79,7 +84,7 @@ export async function runBranding(opts) {
     confirmOverwrites = true
   } = opts
 
-  validateOptions({ logo, bgColor, darkBgColor, padding, iosPadding, cleanupLegacy: runCleanup })
+  validateOptions({ logo, bgColor, darkBgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, cleanupLegacy: runCleanup })
 
   const projectType = detectProjectType(projectRoot)
   const isInPlace = inPlace && !output
@@ -92,7 +97,7 @@ export async function runBranding(opts) {
   if (logo) {
     logger.property('Logo:       ', logo)
     logger.property('Background: ', bgColor)
-    logger.property('Padding:    ', `Android ${padding}% / iOS ${iosPadding}% per side`)
+    logger.property('Padding:    ', `Android adaptive ${androidAdaptivePadding}% / Android legacy ${androidLegacyPadding}% / iOS ${iosPadding}% per side`)
     console.log()
     logger.property(isInPlace ? 'Writing IN PLACE to: ' : 'Staging:    ', isInPlace ? projectRoot : stagingRoot)
   }
@@ -157,6 +162,8 @@ export async function runBranding(opts) {
     lines.push(`${androidResStaging}/mipmap-{mdpi,hdpi,xhdpi,xxhdpi,xxxhdpi}/ic_launcher_{foreground,background,monochrome}.png`)
     lines.push(`${androidResStaging}/mipmap-{...}/ic_launcher.png (legacy)`)
     lines.push(`${androidResStaging}/mipmap-anydpi-v26/ic_launcher.xml`)
+    const androidAssetsStaging = getStagingAndroidAssetsRoot(stagingRoot, projectType)
+    if (androidAssetsStaging) lines.push(`${androidAssetsStaging}/default.png (Android <12 legacy splash fallback)`)
     if (notification) lines.push(`${androidResStaging}/drawable-*/ic_stat_notify.png × 5`)
     if (splash) lines.push(`${androidResStaging}/drawable-*/splash_icon.png × 5`)
     mainLogger.block('[dry-run] Would generate:', ...lines)
@@ -179,9 +186,32 @@ export async function runBranding(opts) {
   logger.section('Logos')
   logger.bullet('Dual logos (square + tight)')
   const logoBase = path.join(tempDir, '_logo')
-  const { tight } = await prepareMaster(logo, logoBase)
+  const { square, tight } = await prepareMaster(logo, logoBase)
 
-  let monoTight = null
+  let iconMaster = square
+  if (iconLogo) {
+    if (!fs.existsSync(iconLogo)) {
+      throw new Error(`Android icon logo not found: ${iconLogo}`)
+    }
+    logger.bullet(`Android icon logo: ${iconLogo}`)
+    const iconBase = path.join(tempDir, '_logo_icon')
+    const iconResult = await prepareMaster(iconLogo, iconBase)
+    iconMaster = iconResult.square
+  }
+  await warnIfLogoAspectIsUnsafeForLauncher(tight)
+
+  let splashMaster = iconMaster
+  if (splashLogo) {
+    if (!fs.existsSync(splashLogo)) {
+      throw new Error(`Android splash logo not found: ${splashLogo}`)
+    }
+    logger.bullet(`Android splash logo: ${splashLogo}`)
+    const splashBase = path.join(tempDir, '_logo_splash')
+    const splashResult = await prepareMaster(splashLogo, splashBase)
+    splashMaster = splashResult.square
+  }
+
+  let monoMaster = null
   if (monochromeLogo) {
     if (!fs.existsSync(monochromeLogo)) {
       throw new Error(`Monochrome logo not found: ${monochromeLogo}`)
@@ -189,13 +219,13 @@ export async function runBranding(opts) {
     logger.bullet(`Monochrome logo: ${monochromeLogo}`)
     const monoBase = path.join(tempDir, '_logo_mono')
     const monoResult = await prepareMaster(monochromeLogo, monoBase)
-    monoTight = monoResult.tight
+    monoMaster = monoResult.square
   }
 
   // ---- Section: iOS & marketplace ----------------------------------------
   logger.section('iOS & marketplace')
-  logger.bullet(`DefaultIcon.png (Android-safe padding ${padding}%) + DefaultIcon-ios.png (iOS padding ${iosPadding}%)`)
-  const ios = await genIos(tight, bgColor, padding, iosPadding, stagingRoot)
+  logger.bullet(`DefaultIcon.png (Android-safe padding ${androidAdaptivePadding}%) + DefaultIcon-ios.png (iOS padding ${iosPadding}%)`)
+  const ios = await genIos(tight, bgColor, androidAdaptivePadding, iosPadding, stagingRoot)
   generated.push(ios.defaultIcon, ios.defaultIconIos)
 
   if (withDark) {
@@ -238,29 +268,36 @@ export async function runBranding(opts) {
   // ---- Section: Android --------------------------------------------------
   logger.section('Android')
 
-  const monoLabel = monoTight ? ', monochrome from --monochrome-logo' : ''
-  logger.bullet(`Adaptive icons (foreground + background + monochrome${monoLabel}) × 5`)
-  const adaptiveFiles = await genAndroidAdaptive(tight, bgColor, padding, androidResStaging, { monoTight })
+  const monoLabel = monoMaster ? ', monochrome from --monochrome-logo' : ''
+  logger.bullet(`Adaptive icons (foreground + background + monochrome${monoLabel}, padding ${androidAdaptivePadding}%) × 5`)
+  const adaptiveFiles = await genAndroidAdaptive(iconMaster, bgColor, androidAdaptivePadding, androidResStaging, { monoMaster })
   generated.push(...adaptiveFiles)
 
-  logger.bullet('Legacy ic_launcher.png × 5')
-  const legacyFiles = await genAndroidLegacy(tight, bgColor, padding, androidResStaging)
+  logger.bullet(`Legacy ic_launcher.png × 5 (padding ${androidLegacyPadding}%)`)
+  const legacyFiles = await genAndroidLegacy(iconMaster, bgColor, androidLegacyPadding, androidResStaging)
   generated.push(...legacyFiles)
 
   const xmlPath = genIcLauncherXml(androidResStaging)
   generated.push(xmlPath)
   logger.bullet(`Adaptive icon XML: ${xmlPath}`)
 
+  const androidDefaultDir = getStagingAndroidAssetsRoot(stagingRoot, projectType)
+  if (androidDefaultDir) {
+    logger.bullet('Legacy Android default.png splash fallback')
+    const defaultSplashPath = await genAndroidDefault(splashMaster, bgColor, androidDefaultDir)
+    generated.push(defaultSplashPath)
+  }
+
   if (notification) {
-    const monoLabelNotif = monoTight ? ' from --monochrome-logo' : ' whitened from logo'
+    const monoLabelNotif = monoMaster ? ' from --monochrome-logo' : ' whitened from logo'
     logger.bullet(`Notification icons (white+alpha, edge-to-edge${monoLabelNotif}) × 5`)
-    const notifFiles = await genNotification(monoTight || tight, androidResStaging)
+    const notifFiles = await genNotification(monoMaster || iconMaster, androidResStaging)
     generated.push(...notifFiles)
   }
 
   if (splash) {
     logger.bullet('Splash icons × 5')
-    const splashFiles = await genSplash(tight, androidResStaging)
+    const splashFiles = await genSplash(splashMaster, androidResStaging)
     generated.push(...splashFiles)
   }
 
@@ -277,12 +314,16 @@ export async function runBranding(opts) {
       const tmpFiles = [
         path.join(tempDir, '_logo_square.png'),
         path.join(tempDir, '_logo_tight.png'),
+        path.join(tempDir, '_logo_icon_square.png'),
+        path.join(tempDir, '_logo_icon_tight.png'),
         path.join(tempDir, '_logo_mono_square.png'),
         path.join(tempDir, '_logo_mono_tight.png'),
         path.join(tempDir, '_logo_dark_square.png'),
         path.join(tempDir, '_logo_dark_tight.png'),
         path.join(tempDir, '_logo_tinted_square.png'),
-        path.join(tempDir, '_logo_tinted_tight.png')
+        path.join(tempDir, '_logo_tinted_tight.png'),
+        path.join(tempDir, '_logo_splash_square.png'),
+        path.join(tempDir, '_logo_splash_tight.png')
       ]
       for (const tmp of tmpFiles) {
         if (fs.existsSync(tmp)) fs.unlinkSync(tmp)
@@ -300,7 +341,8 @@ export async function runBranding(opts) {
     projectRoot,
     stagingRoot,
     bgColor,
-    padding,
+    androidAdaptivePadding,
+    androidLegacyPadding,
     iosPadding,
     withSplash: splash,
     withNotification: notification,
@@ -311,13 +353,39 @@ export async function runBranding(opts) {
   return { stagingRoot, generated }
 }
 
+async function warnIfLogoAspectIsUnsafeForLauncher(tightLogoPath) {
+  const meta = await sharp(tightLogoPath).metadata()
+  const width = meta.width || 0
+  const height = meta.height || 0
+
+  if (!width || !height) return
+
+  const aspect = width / height
+  const isWideWordmark = aspect > 1.25
+  const isTallWordmark = aspect < 0.8
+
+  if (!isWideWordmark && !isTallWordmark) return
+
+  logger.warning('The source logo is not close to square.')
+  logger.warning(`Aspect ratio detected: ${width}×${height} (${aspect.toFixed(2)}:1).`)
+  logger.warning('Launcher icons and Android 12+ system splash screens work best with a square mark.')
+  logger.warning('A wide/tall wordmark can look cramped or cropped once centered inside icon masks.')
+  logger.warning('Recommendation: use a dedicated square app-icon source for `purgetss brand`.')
+}
+
 function getStagingAndroidResRoot(stagingRoot, projectType) {
   if (projectType === 'alloy') return path.join(stagingRoot, 'app', 'platform', 'android', 'res')
   if (projectType === 'classic') return path.join(stagingRoot, 'platform', 'android', 'res')
   return path.join(stagingRoot, 'standalone', 'platform', 'android', 'res')
 }
 
-function validateOptions({ logo, bgColor, darkBgColor, padding, iosPadding, cleanupLegacy }) {
+function getStagingAndroidAssetsRoot(stagingRoot, projectType) {
+  if (projectType === 'alloy') return path.join(stagingRoot, 'app', 'assets', 'android')
+  if (projectType === 'classic') return path.join(stagingRoot, 'Resources', 'android')
+  return null
+}
+
+function validateOptions({ logo, bgColor, darkBgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, cleanupLegacy }) {
   if (!logo && !cleanupLegacy) {
     throw new Error('Logo image path is required (unless using --cleanup-legacy alone).')
   }
@@ -327,8 +395,11 @@ function validateOptions({ logo, bgColor, darkBgColor, padding, iosPadding, clea
   if (darkBgColor && !/^#[0-9A-Fa-f]{6}$/.test(darkBgColor)) {
     throw new Error(`--dark-bg-color must be a 6-digit hex like #1C1C1E (got: ${darkBgColor}).`)
   }
-  if (padding < 0 || padding > 40) {
-    throw new Error(`--padding must be between 0 and 40 (got: ${padding}).`)
+  if (androidAdaptivePadding < 0 || androidAdaptivePadding > 40) {
+    throw new Error(`--android-adaptive-padding must be between 0 and 40 (got: ${androidAdaptivePadding}).`)
+  }
+  if (androidLegacyPadding < 0 || androidLegacyPadding > 40) {
+    throw new Error(`--android-legacy-padding must be between 0 and 40 (got: ${androidLegacyPadding}).`)
   }
   if (iosPadding < 0 || iosPadding > 40) {
     throw new Error(`--ios-padding must be between 0 and 40 (got: ${iosPadding}).`)

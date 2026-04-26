@@ -28,8 +28,8 @@ export const DENSITIES = [
   { name: 'xxxhdpi', size: 432 }
 ]
 
-export async function genAndroidAdaptive(tightMaster, bgColor, paddingPct, resRoot, opts = {}) {
-  const { monoTight = null } = opts
+export async function genAndroidAdaptive(masterPng, bgColor, paddingPct, resRoot, opts = {}) {
+  const { monoMaster = null } = opts
   const generated = []
 
   for (const { name, size } of DENSITIES) {
@@ -42,7 +42,7 @@ export async function genAndroidAdaptive(tightMaster, bgColor, paddingPct, resRo
     const monochromePath = path.join(dir, 'ic_launcher_monochrome.png')
 
     // Foreground: logo sized to inner, centered on transparent canvas
-    const innerLogo = await sharp(tightMaster)
+    const innerLogo = await sharp(masterPng)
       .resize({
         width: inner,
         height: inner,
@@ -76,8 +76,8 @@ export async function genAndroidAdaptive(tightMaster, bgColor, paddingPct, resRo
       .toFile(backgroundPath)
 
     // Monochrome: white silhouette with preserved alpha.
-    if (monoTight) {
-      const innerMono = await sharp(monoTight)
+    if (monoMaster) {
+      const innerMono = await sharp(monoMaster)
         .resize({
           width: inner,
           height: inner,
