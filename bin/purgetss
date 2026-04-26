@@ -280,10 +280,17 @@ Generates:
   ${chalk.yellow('mipmap-*/ic_launcher.png')}                                     Android legacy × 5
   ${chalk.yellow('mipmap-anydpi-v26/ic_launcher.xml')}                            Adaptive icon binder
   ${chalk.yellow('drawable-*/splash_icon.png')}                                   Android 12+ splash icon (with ${chalk.cyan('--splash')})
-  ${chalk.yellow('app/assets/android/default.png')}                               Android <12 legacy splash fallback
+  ${chalk.yellow('app/assets/android/default.png')}                               Android <12 compatibility fallback
 
 Android dark/light mode is handled by the ${chalk.yellow('monochrome')} adaptive layer
 (Android 13+ tints it from the wallpaper + theme). No separate dark file exists.
+
+Scope:
+  ${chalk.green('brand')} targets the modern Titanium icon pipeline: iOS app icons,
+  Android adaptive icons, and optional Android 12+ splash artwork.
+  Older Android splash themes such as ${chalk.yellow('background.png')} / ${chalk.yellow('background.9.png')}
+  are outside the normal scope of this command and should be managed manually
+  if a project still depends on them.
 
 Examples:
   ${chalk.cyan('purgetss brand')}                                           # uses purgetss/brand/logo.svg + config

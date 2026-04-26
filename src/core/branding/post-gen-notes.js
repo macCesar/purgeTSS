@@ -84,6 +84,10 @@ function printFullNotes(opts) {
   logger.section('Configuration reminders')
   console.log('  The tool does NOT auto-edit tiapp.xml. Snippets below are optional —')
   console.log('  paste only what you need, after reviewing.')
+  console.log('  If your app already uses a custom Android theme, merge these changes')
+  console.log('  into that theme instead of replacing it blindly.')
+  console.log('  brand is designed around the modern Titanium icon pipeline, not around')
+  console.log('  older Android splash themes such as background.png / background.9.png.')
   console.log()
   console.log(`  ${chalk.yellow('⚠')}  ${chalk.yellow('tiapp.xml <application> tag may be self-closing')}`)
   console.log('     If yours looks like:')
@@ -114,14 +118,18 @@ function printFullNotes(opts) {
     console.log('     If you want the Android 12+ splash to use splash_icon instead of')
     console.log('     ic_launcher, add a custom theme and point')
     console.log(code('       <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>'))
+    console.log('     If you still see a brief flash during splash exit, the artifact may')
+    console.log('     come from Titanium or the system splash transition rather than from')
+    console.log('     the generated PNG assets themselves.')
   }
 
   console.log()
   console.log(`  ${num(withSplash ? '4.' : '3.')} ${chalk.cyan('Android <12 legacy splash')}`)
-  console.log('     PurgeTSS brand now regenerates app/assets/android/default.png as')
-  console.log('     a legacy fallback splash for Titanium projects.')
-  console.log('     If your app uses a custom windowBackground / background.9.png theme,')
-  console.log('     that custom theme still takes precedence.')
+  console.log('     PurgeTSS brand still regenerates app/assets/android/default.png as')
+  console.log('     a compatibility fallback while Titanium continues to recognize it.')
+  console.log('     It is not the primary modern path. If your app uses a custom')
+  console.log('     windowBackground / background.9.png theme, that custom theme still')
+  console.log('     takes precedence and should be managed manually.')
 
   if (withNotification) {
     const colorsDir = projectType === 'classic'

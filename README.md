@@ -17,7 +17,7 @@
 - 23,300+ utility classes for styling Titanium views
 - Parses XML files to generate a clean `app.tss` with only the classes your project uses
 - Customizable defaults via `config.cjs`, with JIT classes for arbitrary values
-- `brand` command for Titanium icons and branding assets, including Android launcher variants, optional Android 12+ splash artwork, and legacy `default.png` fallback generation
+- `brand` command for Titanium icons and branding assets, focused on the modern Titanium icon pipeline: Android adaptive icons, iOS icon variants, optional Android 12+ splash artwork, and a minimal `default.png` compatibility fallback
 - Icon font support: Font Awesome, Material Icons, Material Symbols, Framework7-Icons
 - `build-fonts` command generates `fonts.tss` with class definitions and fontFamily selectors
 - `shades` command generates color shades from any hex color
@@ -384,6 +384,8 @@ Button: {
 - `brand` regenerates `app/assets/android/default.png` in Alloy projects, or `Resources/android/default.png` in Classic projects, so older Android splash paths still have a fallback.
 - `cleanup-legacy` no longer removes `default.png`.
 - Branding help and docs now spell out the difference between Android launcher icons, Android 12+ `splash_icon.png`, and legacy Android splash assets.
+- `--notes` is explicit that `tiapp.xml` is not auto-edited and that apps with an existing custom Android theme should merge splash snippets into that theme instead of replacing it.
+- `brand` does not try to manage older Android splash theme assets such as `background.png` or `background.9.png`; if a project still depends on them, that remains manual by design.
 
 See the full release notes in [CHANGELOG.md](./CHANGELOG.md).
 
