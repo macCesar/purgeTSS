@@ -273,14 +273,14 @@ The recommended workflow is: put files in ${chalk.cyan('purgetss/brand/')}, then
 CLI flags always win over config values.
 
 Generates:
-  ${chalk.yellow('DefaultIcon.png')} / ${chalk.yellow('DefaultIcon-ios.png')}              Root icons (alpha + flattened)
-  ${chalk.yellow('DefaultIcon-Dark.png')} / ${chalk.yellow('DefaultIcon-Tinted.png')}     iOS 18+ variants (Apple HIG specs)
-  ${chalk.yellow('iTunesConnect.png')} / ${chalk.yellow('MarketplaceArtwork.png')}       App Store + Play Store artwork
+  ${chalk.yellow('DefaultIcon.png')}/${chalk.yellow('DefaultIcon-ios.png')}                          Root icons (alpha + flattened)
+  ${chalk.yellow('DefaultIcon-Dark.png')}/${chalk.yellow('DefaultIcon-Tinted.png')}                  iOS 18+ variants (Apple HIG specs)
+  ${chalk.yellow('iTunesConnect.png')}/${chalk.yellow('MarketplaceArtwork.png')}                     App Store + Play Store artwork
   ${chalk.yellow('mipmap-*/ic_launcher_{foreground,background,monochrome}.png')}  Android adaptive × 5
-  ${chalk.yellow('mipmap-*/ic_launcher.png')}                           Android legacy × 5
-  ${chalk.yellow('mipmap-anydpi-v26/ic_launcher.xml')}                  Adaptive icon binder
-  ${chalk.yellow('drawable-*/splash_icon.png')}                         Android 12+ splash icon (with ${chalk.cyan('--splash')})
-  ${chalk.yellow('app/assets/android/default.png')}                     Android <12 legacy splash fallback
+  ${chalk.yellow('mipmap-*/ic_launcher.png')}                                     Android legacy × 5
+  ${chalk.yellow('mipmap-anydpi-v26/ic_launcher.xml')}                            Adaptive icon binder
+  ${chalk.yellow('drawable-*/splash_icon.png')}                                   Android 12+ splash icon (with ${chalk.cyan('--splash')})
+  ${chalk.yellow('app/assets/android/default.png')}                               Android <12 legacy splash fallback
 
 Android dark/light mode is handled by the ${chalk.yellow('monochrome')} adaptive layer
 (Android 13+ tints it from the wallpaper + theme). No separate dark file exists.
