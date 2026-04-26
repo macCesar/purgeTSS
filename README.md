@@ -10,13 +10,14 @@
 
 </div>
 
-**PurgeTSS** is a toolkit for building mobile apps with the [Titanium framework](https://titaniumsdk.com). It provides utility classes, icon font support, an Animation module, a grid system, and color generation commands (`shades` for tonal palettes, `semantic` for Light/Dark mode semantic colors).
+**PurgeTSS** is a toolkit for building mobile apps with the [Titanium framework](https://titaniumsdk.com). It gives you utility classes, icon font support, an Animation module, a grid system, and color generation commands (`shades` for tonal palettes, `semantic` for Light/Dark mode semantic colors).
 
 ---
 
 - 23,300+ utility classes for styling Titanium views
 - Parses XML files to generate a clean `app.tss` with only the classes your project uses
 - Customizable defaults via `config.cjs`, with JIT classes for arbitrary values
+- `brand` command for Titanium icons and branding assets, including Android launcher variants, optional Android 12+ splash artwork, and legacy `default.png` fallback generation
 - Icon font support: Font Awesome, Material Icons, Material Symbols, Framework7-Icons
 - `build-fonts` command generates `fonts.tss` with class definitions and fontFamily selectors
 - `shades` command generates color shades from any hex color
@@ -373,6 +374,18 @@ Button: {
 - **Titanium SDK** (Compatible with all versions; 13.1.1.GA recommended for full property support)
 - **Alloy Framework** (for most commands)
 - **Node.js 20+** (required for the CLI tool)
+
+## Recent changes
+
+### v7.7.0
+
+- `brand` now uses grouped config sections: `brand.logos`, `brand.padding`, `brand.android`, `brand.ios`, and `brand.colors`.
+- `brand` supports separate Android artwork through `brand.logos.androidLauncher` / `--icon-logo` and `brand.logos.androidSplash` / `--splash-logo`.
+- `brand` regenerates `app/assets/android/default.png` in Alloy projects, or `Resources/android/default.png` in Classic projects, so older Android splash paths still have a fallback.
+- `cleanup-legacy` no longer removes `default.png`.
+- Branding help and docs now spell out the difference between Android launcher icons, Android 12+ `splash_icon.png`, and legacy Android splash assets.
+
+See the full release notes in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Table of Content
 
