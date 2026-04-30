@@ -40,6 +40,7 @@ import {
   purgeFramework7
 } from '../../core/purger/icon-purger.js'
 import { purgeFonts } from '../../core/purger/fonts-purger.js'
+import { validateClassSyntax } from '../utils/unsupported-class-reporter.js'
 
 // Global variables (EXACT copies from original src/index.js)
 let configOptions = {}
@@ -693,10 +694,21 @@ export function purgeClasses(options) {
 
       try {
         uniqueClasses = getUniqueClasses()
+
+        // Pre-validate class syntax. Halts on inverted negatives, Tailwind
+        // brackets, empty parens, etc. — but NOT on generic unknown classes
+        // (those fall through silently to "// Unused or unsupported classes").
+        validateClassSyntax({
+          classes: uniqueClasses,
+          viewPaths: getViewPaths(),
+          controllerPaths: getControllerPaths()
+        })
       } catch (error) {
-        // Handle pre-validation errors (XML syntax errors detected before parsing)
-        if (error.isPreValidationError) {
-          // Error already printed by preValidateXML, exit cleanly
+        // Handle pre-validation errors (XML syntax errors detected before
+        // parsing) and class-syntax errors (authoring mistakes detected
+        // before purging). In both cases the error block was already
+        // printed; just exit cleanly.
+        if (error.isPreValidationError || error.isClassSyntaxError) {
           // eslint-disable-next-line n/no-process-exit
           process.exit(1)
         }
