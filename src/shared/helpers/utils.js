@@ -593,13 +593,20 @@ export function justProperties(_foundClass) {
 
 export function formatArbitraryValues(arbitraryValue, fromXMLs = false) {
   const sign = (arbitraryValue.startsWith('-')) ? '-' : ''
-  const splitedContent = (arbitraryValue.startsWith('-')) ? arbitraryValue.substring(1).split('-') : arbitraryValue.split('-')
+  const stripped = sign ? arbitraryValue.substring(1) : arbitraryValue
 
-  if (splitedContent.length === 1) {
-    return ''
-  } else if (splitedContent.length === 2) {
-    let rule = splitedContent.slice(0, 1).join('-')
-    let value = splitedContent[1].match(/(?<=\().*(?=\))/).pop()
+  // Extract the value inside the last (...) so a negative value like top-(-10)
+  // is not mis-split by the hyphen inside the parentheses.
+  const parenMatch = stripped.match(/^(.+)-\(([^()]*)\)$/)
+  if (!parenMatch || parenMatch[2].trim() === '') {
+    return (fromXMLs) ? `// Property not yet supported: ${arbitraryValue}` : null
+  }
+
+  const ruleParts = parenMatch[1].split('-')
+  let value = parenMatch[2]
+
+  if (ruleParts.length === 1) {
+    let rule = ruleParts[0]
 
     if (rule === 'text') {
       rule = (value.includes('#') || value.includes('rgb')) ? 'text-color' : 'text-size'
@@ -630,13 +637,12 @@ export function formatArbitraryValues(arbitraryValue, fromXMLs = false) {
         ? `'.${arbitraryValue}': { ` + _.replace(properties, /{value}/g, parseValue(value, sign)) + ' }'
         : _.replace(properties, /{value}/g, parseValue(value, sign))
     }
-  } else if (splitedContent.length === 3) {
-    const rule = splitedContent.slice(0, 2).join('-')
-    const value = splitedContent[2].match(/(?<=\().*(?=\))/).pop()
+  } else if (ruleParts.length === 2) {
+    const rule = ruleParts.join('-')
     let properties = arbitraryValuesTable[rule]
 
     if (properties) {
-      if (splitedContent[0] === 'rounded') {
+      if (ruleParts[0] === 'rounded') {
         if (!value.includes(',')) {
           properties = _.replace(properties, /{value1}/g, parseValue(parseValue(value) / 2, sign))
         } else {
@@ -651,9 +657,8 @@ export function formatArbitraryValues(arbitraryValue, fromXMLs = false) {
         ? `'.${arbitraryValue}': { ` + _.replace(properties, /{value}/g, parseValue(value, sign)) + ' }'
         : _.replace(properties, /{value}/g, parseValue(value, sign))
     }
-  } else if (splitedContent.length === 4) {
-    const rule = splitedContent.slice(0, 3).join('-')
-    const value = splitedContent[3].match(/(?<=\().*(?=\))/).pop()
+  } else if (ruleParts.length === 3) {
+    const rule = ruleParts.join('-')
     let properties = arbitraryValuesTable[rule]
 
     if (properties) {
@@ -665,9 +670,8 @@ export function formatArbitraryValues(arbitraryValue, fromXMLs = false) {
         ? `'.${arbitraryValue}': { ` + _.replace(properties, /{value}/g, parseValue(value, sign)) + ' }'
         : _.replace(properties, /{value}/g, parseValue(value, sign))
     }
-  } else if (splitedContent.length === 5) {
-    const rule = splitedContent.slice(0, 4).join('-')
-    const value = splitedContent[4].match(/(?<=\().*(?=\))/).pop()
+  } else if (ruleParts.length === 4) {
+    const rule = ruleParts.join('-')
     const properties = arbitraryValuesTable[rule]
 
     if (properties) {
