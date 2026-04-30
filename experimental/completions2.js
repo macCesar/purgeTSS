@@ -7,7 +7,6 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { createRequire } from 'module'
 import _ from 'lodash'
-import chalk from 'chalk'
 let saveGlossary = false
 
 const __filename = fileURLToPath(import.meta.url)
@@ -16,19 +15,12 @@ const require = createRequire(import.meta.url)
 const cwd = process.cwd()
 import { colores } from '../src/shared/brand-colors.js'
 export { colores }
-const purgeLabel = colores.purgeLabel
 
 import * as helpers from '../src/shared/helpers.js'
 import { getConfigFile } from '../src/shared/config-manager.js'
 import { projectsConfigJS } from '../src/shared/constants.js'
+import { logger } from '../src/shared/logger.js'
 const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json')
-
-const logger = {
-  info: (...args) => console.log(purgeLabel, args.join(' ')),
-  warn: (...args) => console.log(purgeLabel, chalk.yellow(args.join(' '))),
-  error: (...args) => console.log(purgeLabel, chalk.red(args.join(' '))),
-  file: (...args) => console.log(purgeLabel, chalk.yellow(args.join(' ')), 'file created!')
-}
 
 // Keys whose numeric values are interpreted with `ti.ui.defaultunit` from tiapp.xml.
 // The glossary .md files for these keys receive an inline "// Unit: ..." note
