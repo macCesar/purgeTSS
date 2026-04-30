@@ -5,6 +5,23 @@ All notable changes to PurgeTSS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.8.0] - 2026-04-28
+
+### Added
+- **`--width <n>` flag for `images`.** Pins Android `mdpi` (= iPhone `@1x`) to a specific width in pixels; the larger scales derive deterministically as ×1.5, ×2, ×3, ×4, with height staying proportional to the source's aspect ratio. Recommended for SVG sources from vector editors with disproportionate viewBoxes (e.g. an Affinity Designer export with a 29559×13542 viewBox), where the legacy 4× master convention produces unpredictable output sizes. When the source is an SVG and `--width` is omitted, the command now prints a one-time hint pointing at the new flag — no abort, the legacy behavior still runs. Validated to integers in `[1, 8192]`; out-of-range or non-integer values exit with `Invalid --width '...'`. CLI-only by design — there is no matching `images:` config property because the right width is per-asset, not a project-wide default.
+- **Class syntax pre-validation.** `purgetss` now scans every class name pulled from XML views and JS controllers for known authoring mistakes BEFORE running the purge. When it spots one it halts with a structured `Class Syntax Error` block — file, line, the offending line content, and a concrete `Fix:` suggestion — mirroring the existing `XML Syntax Error` block emitted by `preValidateXML`. If multiple offenders exist, all of them are reported in a single run so the dev can fix them in one pass instead of re-running per error. Five patterns are detected today:
+  - **Inverted negative sign** — `top-(-10)` → `-top-(10)`. PurgeTSS expects the `-` prefix BEFORE the rule, not inside the value.
+  - **Tailwind-style brackets** — `top-[10px]` → `top-(10px)`. PurgeTSS uses parentheses for arbitrary values.
+  - **Empty parentheses** — `wh-()` → add a value, e.g. `wh-(10)`.
+  - **Whitespace inside parentheses** — `wh-( 200 )` → `wh-(200)`.
+  - **Redundant `px` unit** — `top-(10px)` → `top-(10)`. PurgeTSS treats unit-less arbitrary values as pixels.
+
+  Generic unknown classes (typos, custom utilities not yet declared, vendor classes not enabled in `config.cjs`) are intentionally NOT flagged by this validator — they continue to flow silently into the `// Unused or unsupported classes` comment block in `app.tss` exactly as before. The validator is reserved for narrowly defined, actionable mistakes; it does not add noise to projects with in-progress class names.
+
+### Fixed
+- **`utilities.tss file created!` no longer breaks the grouped console output.** When `config.cjs` is touched and PurgeTSS rebuilds `utilities.tss`, the "file created!" line used to print its own `::PurgeTSS::` header in the middle of the section instead of indenting as a continuation line. The cause was a stray local `logger` definition in `experimental/completions2.js` that bypassed the shared section-mode logger. The local logger was removed in favor of `src/shared/logger.js`, so all rebuild-related output now stays under a single `::PurgeTSS:: Purging …` header alongside the rest of the per-step lines.
+- **Arbitrary-value parser no longer crashes on negative values inside parentheses.** Classes like `top-(-10)`, `mt-(-5)`, `rotate-(-45)`, or `origin-(-10,-20)` previously triggered an unhandled `Cannot read properties of null (reading 'pop')` exception in `formatArbitraryValues` because the parser split the class name by hyphen — and a hyphen inside the value broke the split. The parser was rewritten to extract the `(...)` portion first via an anchored regex and only then split the rule prefix, so the value can contain any characters (including a leading `-`) without affecting rule detection. As a side effect, classes with empty values (`wh-()`) or unbalanced parentheses (`wh-(`) now return a "not yet supported" comment instead of producing invalid TSS — and any class that matches the new validator's patterns is caught at the pre-validation step instead of leaking through.
+
 ## [7.7.0] - 2026-04-25
 
 ### Added

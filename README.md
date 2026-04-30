@@ -377,6 +377,14 @@ Button: {
 
 ## Recent changes
 
+### v7.8.0
+
+- **`--width <n>` flag for `images`.** Pin Android `mdpi` / iPhone `@1x` to a specific width in pixels (e.g. `purgetss images logo.svg --width 256`); larger scales derive at ×1.5, ×2, ×3, ×4 with height staying proportional. Recommended when the source is an SVG export from Affinity / Illustrator with a disproportionate viewBox — the legacy 4× master convention produces unpredictable sizes there, and the new flag pins the result exactly. When you pass an SVG without `--width`, `images` now prints a one-time hint suggesting the flag, then falls back to the legacy behavior.
+- **Class syntax pre-validation.** `purgetss` now halts with a structured `Class Syntax Error` block (file + line + suggested fix) when it detects known authoring mistakes in your class names: inverted negative sign (`top-(-10)` → `-top-(10)`), Tailwind-style brackets (`top-[10px]` → `top-(10px)`), empty parentheses (`wh-()`), whitespace inside parentheses (`wh-( 200 )`), and redundant `px` unit (`top-(10px)` → `top-(10)`).
+- All offenders are reported in a single run, so you can fix them in one pass.
+- Generic unknown classes (typos, vendor utilities not enabled, custom classes not yet declared) are NOT flagged by the validator — they continue to flow silently into the `// Unused or unsupported classes` block in `app.tss`, exactly as in previous versions.
+- **Arbitrary-value parser no longer crashes on negative values inside parentheses.** Classes like `top-(-10)`, `mt-(-5)`, or `origin-(-10,-20)` used to trigger a `Cannot read properties of null (reading 'pop')` exception. The parser was rewritten to extract the `(...)` portion first, so a `-` inside the value never breaks the split — and the new pre-validator catches the inverted-sign form before it gets that far.
+
 ### v7.7.0
 
 - `brand` now uses grouped config sections: `brand.logos`, `brand.padding`, `brand.android`, `brand.ios`, and `brand.colors`.
