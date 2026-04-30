@@ -353,6 +353,13 @@ Writes directly to the project (auto-detects Alloy vs Classic):
 Defaults come from the ${chalk.cyan('images:')} section in ${chalk.cyan('purgetss/config.cjs')}.
 CLI flags always win over config values.
 
+Sizing:
+  By default, sources are treated as 4× masters (xxxhdpi/@4x); all other
+  scales derive at 1/4, 1.5/4, 2/4, 3/4 of the source's natural pixels.
+  Pass ${chalk.cyan('--width <n>')} to pin Android mdpi (= iPhone @1x) to a specific width;
+  larger scales derive as ×1.5, ×2, ×3, ×4 (height stays proportional).
+  Recommended for SVGs from vector editors with oversized viewBoxes.
+
 Examples:
   ${chalk.cyan('purgetss images')}                                  # uses purgetss/images/ + config
   ${chalk.cyan('purgetss images')} ./docs/screenshots               # scope to one folder
@@ -361,12 +368,15 @@ Examples:
   ${chalk.cyan('purgetss images')} --ios                            # iPhone scales only
   ${chalk.cyan('purgetss images')} --format webp                    # convert all outputs to WebP
   ${chalk.cyan('purgetss images')} --format png --quality 95
+  ${chalk.cyan('purgetss images')} logo.svg --width 256             # pin @1x/mdpi to 256 px wide
+  ${chalk.cyan('purgetss images')} banner.svg --width 512 --format webp
   ${chalk.cyan('purgetss images')} --dry-run
 `)
   .option('--android', 'Generate only Android density variants (skip iPhone)')
   .option('--ios', 'Generate only iPhone scale variants (skip Android)')
   .option('--format <ext>', 'Convert all outputs to this format: webp|jpeg|png|avif|gif|tiff')
   .option('--quality <n>', 'JPEG/WebP/AVIF quality 0-100 (default: 85)', (v) => parseInt(v, 10))
+  .option('--width <n>', 'Target width in px for @1x/mdpi (other scales derive: ×1.5, ×2, ×3, ×4)', (v) => parseInt(v, 10))
   .option('--project <path>', 'Project root (default: cwd)')
   .option('--dry-run', 'Preview without writing any files')
   .option('-y, --yes', 'Skip the overwrite confirmation prompt')

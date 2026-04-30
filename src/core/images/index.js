@@ -35,6 +35,7 @@ export async function runImages(opts) {
     iphoneOnly = false,
     format = null,
     quality = 85,
+    baseWidth = null,
     dryRun = false,
     yes = false,
     confirmOverwrites = true
@@ -49,6 +50,11 @@ export async function runImages(opts) {
 
   const files = collectImageFiles(source)
 
+  if (baseWidth == null && files.some(f => path.extname(f).toLowerCase() === '.svg')) {
+    logger.warning('⚠  SVG source detected without --width. Output sizes will be derived from each SVG\'s viewBox (treated as a 4× master).')
+    logger.warning('   For SVGs from vector editors with disproportionate viewBoxes, pass --width <n> (e.g. --width 256) to pin the @1x/mdpi width.')
+  }
+
   console.log()
   mainLogger.info('Generating multi-density image variants...')
   console.log()
@@ -60,6 +66,7 @@ export async function runImages(opts) {
   if (!androidOnly) platforms.push('iPhone (@1x, @2x, @3x)')
   logger.property('Platforms:  ', platforms.join(' + '))
   if (format) logger.property('Format:     ', `convert all to ${format}`)
+  if (baseWidth != null) logger.property('Width:      ', `${baseWidth} px @1x/mdpi`)
   if (dryRun) logger.warning('DRY RUN — no files will be written')
 
   if (files.length === 0) {
@@ -115,11 +122,11 @@ export async function runImages(opts) {
     if (dryRun) continue
 
     if (!iphoneOnly) {
-      const androidFiles = await genAndroidScales(file, relPath, androidBaseDir, { format, quality })
+      const androidFiles = await genAndroidScales(file, relPath, androidBaseDir, { format, quality, baseWidth })
       written.push(...androidFiles)
     }
     if (!androidOnly) {
-      const iphoneFiles = await genIphoneScales(file, relPath, iphoneBaseDir, { format, quality })
+      const iphoneFiles = await genIphoneScales(file, relPath, iphoneBaseDir, { format, quality, baseWidth })
       written.push(...iphoneFiles)
     }
   }

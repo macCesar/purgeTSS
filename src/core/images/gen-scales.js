@@ -73,6 +73,26 @@ export const IPHONE_SCALES = Object.freeze([
   { suffix: '@3x', factor: 3 / 4 }
 ])
 
+// Resolve target dimensions for a single scale.
+// `factor * 4` recovers the integer multiplier (1, 1.5, 2, 3, 4 for Android;
+// 1, 2, 3 for iPhone) only because every entry in *_SCALES is normalized to
+// n/4 with the largest scale (xxxhdpi/@4x) at 4/4. If a future density is
+// added beyond xxxhdpi, this conversion factor needs to be revisited.
+function computeScaleTarget(srcMeta, factor, baseWidth) {
+  if (baseWidth == null) {
+    return {
+      targetWidth: Math.max(1, Math.round(srcMeta.width * factor)),
+      targetHeight: Math.max(1, Math.round(srcMeta.height * factor))
+    }
+  }
+  const multiplier = factor * 4
+  const aspect = srcMeta.width > 0 ? (srcMeta.height / srcMeta.width) : 1
+  return {
+    targetWidth: Math.max(1, Math.round(baseWidth * multiplier)),
+    targetHeight: Math.max(1, Math.round(baseWidth * multiplier * aspect))
+  }
+}
+
 /**
  * Scale a source image into all Android density variants.
  *
@@ -85,13 +105,12 @@ export const IPHONE_SCALES = Object.freeze([
  * @returns {Promise<string[]>} Paths written
  */
 export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts = {}) {
-  const { format = null, quality = 85 } = opts
+  const { format = null, quality = 85, baseWidth = null } = opts
   const src = await readSource(sourceFile)
   const written = []
 
   for (const { name, factor } of ANDROID_SCALES) {
-    const targetWidth = Math.max(1, Math.round(src.meta.width * factor))
-    const targetHeight = Math.max(1, Math.round(src.meta.height * factor))
+    const { targetWidth, targetHeight } = computeScaleTarget(src.meta, factor, baseWidth)
 
     const outDir = path.join(androidBaseDir, name, path.dirname(relPath))
     fs.mkdirSync(outDir, { recursive: true })
@@ -113,7 +132,7 @@ export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts
  * @returns {Promise<string[]>} Paths written
  */
 export async function genIphoneScales(sourceFile, relPath, iphoneBaseDir, opts = {}) {
-  const { format = null, quality = 85 } = opts
+  const { format = null, quality = 85, baseWidth = null } = opts
   const src = await readSource(sourceFile)
   const written = []
 
@@ -122,8 +141,7 @@ export async function genIphoneScales(sourceFile, relPath, iphoneBaseDir, opts =
   fs.mkdirSync(outDir, { recursive: true })
 
   for (const { suffix, factor } of IPHONE_SCALES) {
-    const targetWidth = Math.max(1, Math.round(src.meta.width * factor))
-    const targetHeight = Math.max(1, Math.round(src.meta.height * factor))
+    const { targetWidth, targetHeight } = computeScaleTarget(src.meta, factor, baseWidth)
 
     // SVG sources can't be written as SVG by Sharp — fall back to PNG if the
     // user didn't specify an explicit output format.

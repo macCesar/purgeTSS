@@ -37,6 +37,13 @@ export async function images(cliSource, options = {}) {
     process.exit(1)
   }
 
+  if (options.width !== undefined) {
+    if (!Number.isFinite(options.width) || !Number.isInteger(options.width) || options.width < 1 || options.width > 8192) {
+      logger.error(`Invalid --width '${options.width}'. Must be an integer between 1 and 8192.`)
+      process.exit(1)
+    }
+  }
+
   const format = options.format ?? cfg.format ?? null
   if (format && !VALID_FORMATS.has(format.toLowerCase())) {
     logger.error(`Invalid --format '${format}'. Valid: ${[...VALID_FORMATS].join(', ')}`)
@@ -57,6 +64,7 @@ export async function images(cliSource, options = {}) {
       iphoneOnly: Boolean(options.ios),
       format: format ? format.toLowerCase() : null,
       quality: options.quality ?? cfg.quality ?? 85,
+      baseWidth: options.width ?? null,
       dryRun: Boolean(options.dryRun),
       yes: Boolean(options.yes),
       confirmOverwrites: cfg.confirmOverwrites !== false
