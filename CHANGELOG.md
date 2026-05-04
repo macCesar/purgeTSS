@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - **`semantic` tonal palette: Light/Dark mapping was inverted.** `buildSemanticPalette` was assigning the mirrored hex to `light` and the original hex to `dark`, so generated tonal palettes rendered the dark-mode color in light mode and vice-versa. The two values are now in their natural slots (`light = shade.hexcode`, `dark = mirror.hexcode`).
+- **Opacity modifier on semantic colors no longer crashes or silently disappears.** Applying `/N` to a class whose generated TSS uses a semantic name (e.g. `bg-surface/65`) used to either crash `apply` directives with `Cannot read properties of null (reading 'pop')` or be dropped without any feedback in direct XML usage:
+  - `tailwind-purger.js` (direct usage in XML) now skips the opacity blend and prints a yellow warning naming the offending class plus three concrete next steps — switch to a built-in color, use an arbitrary `bg-(#AARRGGBB)` value, or generate the alpha variant via `purgetss semantic --single ... --alpha N`.
+  - `compileApplyDirectives` (opacity inside an `apply:` string in `config.cjs`) now throws a descriptive `Error` with the same three suggestions instead of dereferencing a null regex match.
+  - The same `compileApplyDirectives` path now wraps the merge step (`fixDuplicateKeys(...).join(', ')`) so unsupported combinations inside an apply (e.g. `bg-gradient-to-X` together with `from-X to-Y`) report which class and which child classes failed, instead of bubbling up an unattributed `TypeError`.
 
 ## [7.8.0] - 2026-04-28
 

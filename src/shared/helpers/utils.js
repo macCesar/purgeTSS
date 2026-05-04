@@ -530,8 +530,17 @@ export function compileApplyDirectives(twClasses) {
           const opacityIndex = findIndexOfClassName(`'.${opacityValue.classNameWithTransparency}`, twClassesArray)
 
           if (opacityIndex > -1) {
-            const defaultHexValue = (twClassesArray[opacityIndex].includes('from')) ? twClassesArray[opacityIndex].match(/#[0-9a-f]{6}/g)[1] : twClassesArray[opacityIndex].match(/#[0-9a-f]{6}/i)[0]
-            const classWithoutDecimalOpacity = `${twClassesArray[opacityIndex].replace(new RegExp(defaultHexValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`
+            const targetLine = twClassesArray[opacityIndex]
+            const hexMatches = targetLine.match(/#[0-9a-f]{6}/gi)
+
+            if (!hexMatches || (targetLine.includes('from') && hexMatches.length < 2)) {
+              throw new Error(
+                `Opacity "/${opacityValue.decimalValue}" can't apply to semantic color ".${opacityValue.classNameWithTransparency}" (in apply of "${className}"). Use a PurgeTSS built-in color, an arbitrary value bg-(#AARRGGBB), or set alpha via "purgetss semantic --single ... --alpha ${opacityValue.decimalValue}".`
+              )
+            }
+
+            const defaultHexValue = targetLine.includes('from') ? hexMatches[1] : hexMatches[0]
+            const classWithoutDecimalOpacity = `${targetLine.replace(new RegExp(defaultHexValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`
 
             compoundClasses.push(justProperties(classWithoutDecimalOpacity))
           }

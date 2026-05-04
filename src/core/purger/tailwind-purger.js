@@ -191,10 +191,15 @@ export function purgeTailwind(uniqueClasses, debug = false) {
       const opacityIndex = _.findIndex(tailwindClasses, line => line.startsWith(`'.${opacityValue.className}'`))
 
       const classProperties = tailwindClasses[opacityIndex]
-      if (opacityIndex > -1 && classProperties.includes('#')) {
-        // ! TODO: Check if color value is a hex value!! (if not, they are using rbg, rgba or semantic colors)
-        // ! In other words, we need to validate the color value, before we can alter its opacity.
-        const defaultHexValue = (classProperties.includes('from')) ? classProperties.match(/#[0-9a-f]{6}/g)[1] : classProperties.match(/#[0-9a-f]{6}/i)[0]
+      if (opacityIndex > -1 && classProperties && !classProperties.includes('#')) {
+        console.warn('')
+        console.warn(chalk.yellow(`   Skipping ".${opacityValue.className}/${opacityValue.decimalValue}" — semantic color, no hex to blend.`))
+        console.warn(chalk.yellow(`   Use a PurgeTSS built-in color, bg-(#AARRGGBB), or "purgetss semantic --single ... --alpha ${opacityValue.decimalValue}".`))
+        console.warn('')
+      }
+      if (opacityIndex > -1 && classProperties && classProperties.includes('#')) {
+        const hexMatches = classProperties.match(/#[0-9a-f]{6}/gi)
+        const defaultHexValue = (classProperties.includes('from')) ? hexMatches[1] : hexMatches[0]
         let classWithoutDecimalOpacity = `${classProperties.replace(new RegExp(defaultHexValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), `#${opacityValue.transparency}${defaultHexValue.substring(1)}`)}`
         // Special case: #000000
         if (classProperties.includes('from') && defaultHexValue === '#000000') classWithoutDecimalOpacity = classWithoutDecimalOpacity.replace('00000000', '000000')
