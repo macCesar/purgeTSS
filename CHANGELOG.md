@@ -5,6 +5,11 @@ All notable changes to PurgeTSS will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+- **`semantic` tonal palette: Light/Dark mapping was inverted.** `buildSemanticPalette` was assigning the mirrored hex to `light` and the original hex to `dark`, so generated tonal palettes rendered the dark-mode color in light mode and vice-versa. The two values are now in their natural slots (`light = shade.hexcode`, `dark = mirror.hexcode`).
+
 ## [7.8.0] - 2026-04-28
 
 ### Added

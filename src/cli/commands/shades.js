@@ -329,8 +329,8 @@ export function buildSemanticPalette(family, kebabName, alpha) {
     const mirror = sorted[sorted.length - 1 - i]
     const key = `${camelName}${shade.number}`
     semanticEntries[key] = {
-      light: wrapValue(mirror.hexcode, alpha),
-      dark: wrapValue(shade.hexcode, alpha)
+      light: wrapValue(shade.hexcode, alpha),
+      dark: wrapValue(mirror.hexcode, alpha)
     }
     configMapping[shade.number] = key
   })
