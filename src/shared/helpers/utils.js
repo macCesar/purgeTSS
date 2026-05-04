@@ -547,7 +547,16 @@ export function compileApplyDirectives(twClasses) {
         })
       }
 
-      twClassesArray[indexOfModifier] = _.replace(twClassesArray[indexOfModifier], /{_applyProperties_}/, fixDuplicateKeys(compoundClasses).join(', '))
+      let mergedProperties
+      try {
+        mergedProperties = fixDuplicateKeys(compoundClasses).join(', ')
+      } catch (mergeError) {
+        const classList = [...values].join(' ')
+        throw new Error(
+          `Failed to merge apply directive of "${className}".\n   Classes: "${classList}".\n   Hint: this usually means an unsupported combination — e.g. "bg-gradient-to-X" together with "from-X to-Y" in the same apply (gradient direction is dropped on merge), or two utilities that map to the same property in incompatible shapes. Try splitting the rule or removing one of the conflicting classes.\n   Internal: ${mergeError.message}`
+        )
+      }
+      twClassesArray[indexOfModifier] = _.replace(twClassesArray[indexOfModifier], /{_applyProperties_}/, mergedProperties)
       twClassesArray[indexOfModifier] = deduplicateLineProperties(twClassesArray[indexOfModifier])
     }
   })
@@ -779,10 +788,14 @@ export function fixDuplicateKeys(compoundClasses) {
   if (backgroundGradientObject.length === 1) {
     cleanedStyles.push(`backgroundGradient: { ${backgroundGradientObject} }`)
   } else if (backgroundGradientObject.length === 2) {
-    const toColor = backgroundGradientObject[1].replace('colors: ', '').replace(/[[\]']+/g, '').trim().split(',')
-    const fromToColors = backgroundGradientObject[0].replace('colors: ', '').replace(/[[\]']+/g, '').trim().split(',')
-    fromToColors[0] = toColor[0]
-    cleanedStyles.push(`backgroundGradient: { colors: [ '${fromToColors[0]}', '${fromToColors[1].trim()}' ] }`)
+    // from-X emits 2 colors (placeholder + actual), to-X emits 1.
+    // After sort() above, indices may swap depending on color name ordering,
+    // so identify by array length instead of position.
+    const colorsA = backgroundGradientObject[0].replace('colors: ', '').replace(/[[\]']+/g, '').trim().split(',').map(c => c.trim())
+    const colorsB = backgroundGradientObject[1].replace('colors: ', '').replace(/[[\]']+/g, '').trim().split(',').map(c => c.trim())
+    const fromEntry = colorsA.length === 2 ? colorsA : colorsB
+    const toEntry = colorsA.length === 1 ? colorsA : colorsB
+    cleanedStyles.push(`backgroundGradient: { colors: [ '${toEntry[0]}', '${fromEntry[1]}' ] }`)
   }
 
   // Missing properties to process
