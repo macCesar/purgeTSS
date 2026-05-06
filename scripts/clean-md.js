@@ -137,19 +137,31 @@ const slugMap = buildSlugMap(OUTPUT_DIR)
 const totalCleaned = walkAndClean(OUTPUT_DIR, slugMap, OUTPUT_DIR)
 
 // Copy cleaned docs to context7 repo
-const CONTEXT7_DIR = '/Users/cesar/Developer/openSource/purgetss-docs-context7/docs'
-if (fs.existsSync(path.dirname(CONTEXT7_DIR))) {
+const CONTEXT7_ROOT = '/Users/cesar/Developer/openSource/purgetss-docs-context7'
+const CONTEXT7_DIR = path.join(CONTEXT7_ROOT, 'docs')
+if (fs.existsSync(CONTEXT7_ROOT)) {
   if (fs.existsSync(CONTEXT7_DIR)) {
     fs.rmSync(CONTEXT7_DIR, { recursive: true })
   }
   fs.cpSync(OUTPUT_DIR, CONTEXT7_DIR, { recursive: true })
+
+  // Regenerate root README.md from cleaned index.md, rewriting relative links
+  // so they resolve from the repo root instead of inside docs/
+  const indexPath = path.join(OUTPUT_DIR, 'index.md')
+  if (fs.existsSync(indexPath)) {
+    const indexContent = fs.readFileSync(indexPath, 'utf8')
+    const readmeContent = indexContent.replace(/\]\(\.\//g, '](./docs/')
+    fs.writeFileSync(path.join(CONTEXT7_ROOT, 'README.md'), readmeContent, 'utf8')
+  }
+
   console.log(`${totalCopied} files copied, ${totalCleaned} .md files cleaned`)
   console.log(`Source: ${SOURCE_ROOT}`)
   console.log(`Output: ${OUTPUT_DIR}`)
   console.log(`Synced: ${CONTEXT7_DIR}`)
+  console.log(`Updated: ${path.join(CONTEXT7_ROOT, 'README.md')}`)
 } else {
   console.log(`${totalCopied} files copied, ${totalCleaned} .md files cleaned`)
   console.log(`Source: ${SOURCE_ROOT}`)
   console.log(`Output: ${OUTPUT_DIR}`)
-  console.warn(`Skipped sync: ${path.dirname(CONTEXT7_DIR)} not found`)
+  console.warn(`Skipped sync: ${CONTEXT7_ROOT} not found`)
 }
