@@ -13,17 +13,23 @@ module.exports = {
     }
   },
   brand: {
+    logos: {},               // empty = auto-discovers from purgetss/brand/
     padding: {
-      ios: '4%',
-      androidLegacy: '10%',
-      androidAdaptive: '19%'
+      ios: '4%',             // iOS aesthetic. Range: 2% bold — 8% conservative. No launcher mask.
+      androidLegacy: '10%',  // legacy ic_launcher.png padding
+      androidAdaptive: '19%' // adaptive foreground padding near the Android safe-zone
     },
     android: {
-      splash: false,
-      notification: false
+      splash: false,         // also generate splash_icon.png × 5
+      notification: false    // also generate ic_stat_notify.png × 5
+    },
+    ios: {
+      dark: true,            // generate iOS 18+ Dark appearance icon
+      tinted: true,          // generate iOS 18+ Tinted appearance icon
+      darkBackground: null   // null = transparent per Apple HIG
     },
     colors: {
-      background: '#FFFFFF'
+      background: '#FFFFFF'  // Android adaptive bg + iOS/marketplace flatten
     },
     confirmOverwrites: true  // prompt before overwriting files (set false to skip)
   },
