@@ -13,14 +13,15 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const require = createRequire(import.meta.url)
 const cwd = process.cwd()
-import { colores } from '../src/shared/brand-colors.js'
+import { colores } from '../../shared/brand-colors.js'
 export { colores }
 
-import * as helpers from '../src/shared/helpers.js'
-import { getConfigFile } from '../src/shared/config-manager.js'
-import { projectsConfigJS } from '../src/shared/constants.js'
-import { logger } from '../src/shared/logger.js'
-const tiCompletionsFile = require('../lib/completions/titanium/completions-v3.json')
+import * as helpers from '../../shared/helpers.js'
+import { getConfigFile } from '../../shared/config-manager.js'
+import { projectsConfigJS } from '../../shared/constants.js'
+import { logger } from '../../shared/logger.js'
+import { registerSemanticName } from '../../shared/semantic-helpers.js'
+const tiCompletionsFile = require('../../../lib/completions/titanium/completions-v3.json')
 
 // Keys whose numeric values are interpreted with `ti.ui.defaultunit` from tiapp.xml.
 // The glossary .md files for these keys receive an inline "// Unit: ..." note
@@ -166,7 +167,7 @@ function buildSubfolderIndex(folder) {
 }
 
 function glossaryBaseFolder() {
-  if (!fs.existsSync(projectsConfigJS)) return path.resolve(__dirname, '../dist/glossary/')
+  if (!fs.existsSync(projectsConfigJS)) return path.resolve(__dirname, '../../../dist/glossary/')
   if (saveGlossary) return cwd + '/purgetss/glossary/'
   return ''
 }
@@ -228,7 +229,7 @@ function autoBuildUtilitiesTSS(options = {}) {
 
   saveGlossary = options.glossary ?? false
   scaffoldGlossary()
-  let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../lib/templates/tailwind/custom-template.tss'), 'utf8')
+  let tailwindStyles = fs.readFileSync(path.resolve(__dirname, '../../../lib/templates/tailwind/custom-template.tss'), 'utf8')
   tailwindStyles += (fs.existsSync(projectsConfigJS)) ? `// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}\n` : '// default config.js file\n'
 
   const baseValues = combineDefaultThemeWithConfigFile()
@@ -247,7 +248,7 @@ function autoBuildUtilitiesTSS(options = {}) {
     saveFile(cwd + '/purgetss/styles/utilities.tss', tailwindStyles)
     logger.file('./purgetss/styles/utilities.tss')
   } else {
-    saveFile(path.resolve(__dirname, '../dist/utilities.tss'), tailwindStyles)
+    saveFile(path.resolve(__dirname, '../../../dist/utilities.tss'), tailwindStyles)
     logger.file('./dist/utilities.tss')
   }
 }
@@ -303,7 +304,7 @@ function processCompletionsClasses(_completionsWithBaseValues) {
 
 function generateGlossary(_key, _theClasses, _keyName = null) {
   let baseDestinationFolder = ''
-  if (!fs.existsSync(projectsConfigJS)) baseDestinationFolder = path.resolve(__dirname, '../dist/glossary/')
+  if (!fs.existsSync(projectsConfigJS)) baseDestinationFolder = path.resolve(__dirname, '../../../dist/glossary/')
   else if (saveGlossary) baseDestinationFolder = cwd + '/purgetss/glossary/'
 
   if (baseDestinationFolder !== '') {
@@ -370,7 +371,7 @@ function getTiUIComponents(_base) {
 
 function processCompoundClasses({ ..._base }) {
   let compoundClasses = ''
-  const compoundTemplate = require('../lib/templates/tailwind/compoundTemplate.json')
+  const compoundTemplate = require('../../../lib/templates/tailwind/compoundTemplate.json')
 
   _.each(compoundTemplate, (value, key) => {
     compoundClasses += generateGlossary(key, helpers.processProperties(value.description, value.template, value.base ?? { default: _base[key] }))
@@ -526,6 +527,11 @@ function combineDefaultThemeWithConfigFile() {
   }
 
   _.merge(base.colors, themeOrDefaultValues.colors, configFile.theme.extend.colors)
+  // Track semantic color names so opacity modifiers (bg-X/65) can later
+  // auto-derive an alpha-applied entry in semantic.colors.json. A value is
+  // "semantic" when it's a string that isn't a hex literal or a Ti reserved
+  // keyword.
+  _.each(base.colors, value => collectSemanticReferences(value))
   _.merge(base.size, themeOrDefaultValues.spacing, configFile.theme.extend.spacing)
   _.merge(base.spacing, themeOrDefaultValues.spacing, configFile.theme.extend.spacing)
 
@@ -564,8 +570,16 @@ function combineDefaultThemeWithConfigFile() {
   delete base.zIndex.auto
 
   // ! Process custom Window, View and ImageView
-  // Merge extend values into theme (same as colors, spacing, etc.)
+  // Track whether the user defined each Ti Element at the theme.X (replace) level
+  // BEFORE merging extend into theme. This mirrors the Tailwind convention:
+  //   theme.X         → REPLACE the framework's defaults entirely
+  //   theme.extend.X  → MERGE with the framework's defaults
+  // Without this distinction, presets (like Window's backgroundColor: '#FFFFFF')
+  // leak into a strict-replace config and surface as ghost properties in app.tss.
+  const userReplaced = {}
   _.each(['Window', 'View', 'ImageView'], comp => {
+    userReplaced[comp] = !!configFile.theme[comp] && !configFile.theme.extend[comp]
+
     if (configFile.theme.extend[comp]) {
       configFile.theme[comp] = _.merge({}, configFile.theme[comp], configFile.theme.extend[comp])
       delete configFile.theme.extend[comp]
@@ -576,11 +590,18 @@ function combineDefaultThemeWithConfigFile() {
     }
   })
 
-  // Merge user config WITH defaults, then write back to configFile.theme
-  // so that getTiUIComponents/combineKeys picks up the full merged object
-  configFile.theme.Window = _.merge({ default: { backgroundColor: '#FFFFFF' } }, configFile.theme.Window)
-  configFile.theme.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView)
-  configFile.theme.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View)
+  // Apply framework defaults only when NOT in strict-replace mode. In replace
+  // mode the user's config is the single source of truth — presets must not be
+  // silently re-injected.
+  if (!userReplaced.Window) {
+    configFile.theme.Window = _.merge({ default: { backgroundColor: '#FFFFFF' } }, configFile.theme.Window)
+  }
+  if (!userReplaced.ImageView) {
+    configFile.theme.ImageView = _.merge({ ios: { hires: true } }, configFile.theme.ImageView)
+  }
+  if (!userReplaced.View) {
+    configFile.theme.View = _.merge({ default: { width: 'Ti.UI.SIZE', height: 'Ti.UI.SIZE' } }, configFile.theme.View)
+  }
 
   base.Window = configFile.theme.Window
   base.ImageView = configFile.theme.ImageView
@@ -600,6 +621,22 @@ function combineDefaultThemeWithConfigFile() {
 function checkDeletePlugins() {
   const deletePlugins = configFile.plugins ?? configOptions.plugins
   return Array.isArray(deletePlugins) ? deletePlugins : Object.keys(deletePlugins).map(key => key)
+}
+
+// Walk a color config value (possibly nested object of shades) and register
+// any leaf string that points to a semantic color name in
+// `semantic.colors.json` (e.g. `surface: 'surfaceColor'`,
+// `brand: { DEFAULT: 'brandColor' }`).
+const _semanticReservedValues = new Set(['transparent', 'currentColor', 'inherit'])
+function collectSemanticReferences(value) {
+  if (typeof value === 'string') {
+    if (value.startsWith('#') || _semanticReservedValues.has(value)) return
+    registerSemanticName(value)
+    return
+  }
+  if (value && typeof value === 'object') {
+    _.each(value, v => collectSemanticReferences(v))
+  }
 }
 
 // ! Helper Functions
@@ -822,8 +859,8 @@ function generateCombinedClasses(key, data) {
 
 function saveAutoTSS(key, classes) {
   if (fs.existsSync(projectsConfigJS) && saveGlossary) {
-    makeSureFolderExists(cwd + '/purgetss/experimental/tailwind-classes/')
-    saveFile(cwd + `/purgetss/experimental/tailwind-classes/${key}.tss`, classes)
+    makeSureFolderExists(cwd + '/purgetss/glossary/tailwind-classes/')
+    saveFile(cwd + `/purgetss/glossary/tailwind-classes/${key}.tss`, classes)
   }
 }
 

@@ -20,16 +20,10 @@ async function testTailwindBuilder() {
 
 async function testTailwindHelpers() {
   try {
-    const {
-      removeFitMaxMin,
-      combineKeys,
-      getBaseValues
-    } = await import('../../../src/core/builders/tailwind-helpers.js')
+    const { combineKeys } = await import('../../../src/core/builders/tailwind-helpers.js')
 
     console.log('✅ Tailwind Helpers test:')
-    console.log('   removeFitMaxMin type:', typeof removeFitMaxMin)
     console.log('   combineKeys type:', typeof combineKeys)
-    console.log('   getBaseValues type:', typeof getBaseValues)
 
     return true
   } catch (error) {
@@ -68,15 +62,6 @@ async function testIconPurger() {
 
 async function testFunctionalityTests() {
   try {
-    // Test basic Tailwind helpers functionality
-    const { removeFitMaxMin } = await import('../../../src/core/builders/tailwind-helpers.js')
-
-    if (typeof removeFitMaxMin === 'function') {
-      console.log('✅ Functionality test - removeFitMaxMin:')
-      console.log('   Function is callable')
-    }
-
-    // Test purger functionality 
     const { purgeTailwind } = await import('../../../src/core/purger/tailwind-purger.js')
 
     if (typeof purgeTailwind === 'function') {

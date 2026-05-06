@@ -6,8 +6,8 @@ console.log('Testing helpers modules import...')
 
 try {
   // Test core module
-  const { globalOptions, resetStyles } = await import('../../../src/shared/helpers/core.js')
-  console.log('✅ Core module imported:', typeof globalOptions, typeof resetStyles)
+  const { globalOptions } = await import('../../../src/shared/helpers/core.js')
+  console.log('✅ Core module imported:', typeof globalOptions)
 
   // Test utils module
   const { processProperties, parseValue, setModifier2, customRules } = await import('../../../src/shared/helpers/utils.js')
@@ -43,10 +43,6 @@ try {
 
   // Test functionality
   console.log('\nTesting functionality...')
-
-  // Test resetStyles
-  const resetResult = resetStyles()
-  console.log('✅ resetStyles() works:', typeof resetResult === 'string' && resetResult.length > 0)
 
   // Test backgroundColor function
   const bgResult = backgroundColor({ 'red-500': '#ef4444' })

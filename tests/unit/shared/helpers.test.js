@@ -81,11 +81,10 @@ async function testCoreModule() {
     const functions = Object.keys(core)
 
     console.log('✅ Core Module test:')
-    console.log(`   Functions found: ${functions.length}/2 expected`)
+    console.log(`   Functions found: ${functions.length}/1 expected`)
     console.log(`   globalOptions type: ${typeof core.globalOptions}`)
-    console.log(`   resetStyles type: ${typeof core.resetStyles}`)
 
-    return functions.length === 2  // Updated to actual count (globalOptions + resetStyles)
+    return functions.length === 1
   } catch (error) {
     console.error('❌ Error in core module test:', error.message)
     return false
@@ -304,7 +303,7 @@ async function runTests() {
     testAccessibilityModule(),      // 11 functions
     testAnimationModule(),          // 27 functions  
     testColorsModule(),             // 46 functions
-    testCoreModule(),               // 2 functions (globalOptions + resetStyles)
+    testCoreModule(),               // 1 export (globalOptions)
     testFormControlsModule(),       // 11 functions
     testInputModule(),              // 25 functions
     testLayoutModule(),             // 32 functions
@@ -326,7 +325,7 @@ async function runTests() {
   console.log('📈 Migration Status: COMPLETE - All functions correctly distributed')
   console.log('📋 Summary:')
   console.log('   • All module counts match actual implementation')
-  console.log('   • Core module: globalOptions + resetStyles (2 items)')
+  console.log('   • Core module: globalOptions (1 item)')
   console.log('   • Utils module: 33 functions (post-migration actual count)')
   console.log('   • Media module: 31 functions (duplicate addNegativeValues cleaned!)')
   console.log('   • Total functions: 381 across 14 helper modules')

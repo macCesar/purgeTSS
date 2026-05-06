@@ -17,7 +17,7 @@
     "dist/*.tss",
     "dist/configs/",
     "assets/fonts/",
-    "experimental/completions2.js"
+    "src/core/builders/auto-utilities-builder.js"
   ],
   "publishConfig": {
     "access": "public"

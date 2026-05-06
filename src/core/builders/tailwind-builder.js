@@ -8,10 +8,10 @@
 
 // Import functions from their new modular locations
 import * as helpers from '../../shared/helpers.js'
-import { autoBuildUtilitiesTSS } from '../../../experimental/completions2.js'
+import { autoBuildUtilitiesTSS } from './auto-utilities-builder.js'
 
 /**
- * Build Tailwind (AUTO mode using experimental completions engine)
+ * Build Tailwind (Auto-builds utilities.tss from config.cjs (active production path))
  * @param {Object} options - Build options
  */
 export function buildTailwind(options) {
