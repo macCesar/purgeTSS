@@ -1,5 +1,6 @@
 import fs from 'fs'
 import _ from 'lodash'
+import { deriveAlphaKey } from '../semantic-helpers.js'
 
 // Internal variables and constants
 const _applyClasses = {}
@@ -534,6 +535,11 @@ export function compileApplyDirectives(twClasses) {
             const hexMatches = targetLine.match(/#[0-9a-f]{6}/gi)
 
             if (!hexMatches || (targetLine.includes('from') && hexMatches.length < 2)) {
+              const derivedLine = tryDeriveSemanticOpacity(targetLine, opacityValue.decimalValue)
+              if (derivedLine) {
+                compoundClasses.push(justProperties(derivedLine))
+                return
+              }
               throw new Error(
                 `Opacity "/${opacityValue.decimalValue}" can't apply to semantic color ".${opacityValue.classNameWithTransparency}" (in apply of "${className}"). Use a PurgeTSS built-in color, an arbitrary value bg-(#AARRGGBB), or set alpha via "purgetss semantic --single ... --alpha ${opacityValue.decimalValue}".`
               )
@@ -562,6 +568,26 @@ export function compileApplyDirectives(twClasses) {
   })
 
   return twClassesArray.join('\n')
+}
+
+// Attempt to derive an alpha-applied semantic key from a TSS line whose value
+// is a semantic name (e.g. `'.bg-surface': { backgroundColor: 'surfaceColor' }`).
+// Returns the rewritten line with the derived key in place of the base name,
+// or `null` when no candidate matches an entry in semantic.colors.json.
+// Conflict errors from `deriveAlphaKey` propagate naturally.
+function tryDeriveSemanticOpacity(targetLine, alphaPercent) {
+  const bodyMatch = targetLine.match(/\{([^}]*)\}/)
+  if (!bodyMatch) return null
+  const candidates = (bodyMatch[1].match(/'([^']+)'/g) || [])
+    .map(m => m.slice(1, -1))
+    .filter(v => !v.startsWith('#'))
+  for (const candidate of candidates) {
+    const derivedKey = deriveAlphaKey(candidate, alphaPercent)
+    if (derivedKey) {
+      return targetLine.replace(new RegExp(`'${candidate}'`, 'g'), `'${derivedKey}'`)
+    }
+  }
+  return null
 }
 
 /**
@@ -748,13 +774,22 @@ export function fixDuplicateKeys(compoundClasses) {
   const cleanedStyles = []
   const paddingObject = []
   const backgroundGradientObject = []
+  const backgroundGradientDirection = []
 
   _.each(compoundClasses, value => {
     if (compoundClasses.length > 1) {
       if (value.includes('font:')) {
         fontObject.push(value.replace('font: ', '').replace(/{(.*)}/, '$1').trim())
-      } else if (value.includes('backgroundGradient: { colors')) {
-        backgroundGradientObject.push(value.replace('backgroundGradient: ', '').replace(/{(.*)}/, '$1').trim())
+      } else if (value.includes('backgroundGradient:')) {
+        // Split into 2 buckets: colors (from-X/to-X) vs direction (bg-gradient-to-X with type/startPoint/endPoint).
+        // Both share the same property name `backgroundGradient` so they MUST be merged into a single object,
+        // otherwise the later one overwrites the earlier one in the emitted JS object literal.
+        const inner = value.replace('backgroundGradient: ', '').replace(/{(.*)}/, '$1').trim()
+        if (inner.startsWith('colors')) {
+          backgroundGradientObject.push(inner)
+        } else {
+          backgroundGradientDirection.push(inner)
+        }
       } else if (value.includes('padding:')) {
         paddingObject.push(value.replace('padding: ', '').replace(/{(.*)}/, '$1').trim())
       } else {
@@ -785,17 +820,28 @@ export function fixDuplicateKeys(compoundClasses) {
     cleanedStyles.push(`font: { ${fontObject.sort().join(', ')} }`)
   }
 
-  if (backgroundGradientObject.length === 1) {
-    cleanedStyles.push(`backgroundGradient: { ${backgroundGradientObject} }`)
-  } else if (backgroundGradientObject.length === 2) {
-    // from-X emits 2 colors (placeholder + actual), to-X emits 1.
-    // After sort() above, indices may swap depending on color name ordering,
-    // so identify by array length instead of position.
-    const colorsA = backgroundGradientObject[0].replace('colors: ', '').replace(/[[\]']+/g, '').trim().split(',').map(c => c.trim())
-    const colorsB = backgroundGradientObject[1].replace('colors: ', '').replace(/[[\]']+/g, '').trim().split(',').map(c => c.trim())
-    const fromEntry = colorsA.length === 2 ? colorsA : colorsB
-    const toEntry = colorsA.length === 1 ? colorsA : colorsB
-    cleanedStyles.push(`backgroundGradient: { colors: [ '${toEntry[0]}', '${fromEntry[1]}' ] }`)
+  // Merge gradient direction (bg-gradient-to-X) and gradient colors (from-X/to-X)
+  // into a single backgroundGradient object. They share the same property name,
+  // so emitting them as separate entries causes the later one to overwrite the earlier.
+  if (backgroundGradientDirection.length || backgroundGradientObject.length) {
+    let colorsPart = ''
+    if (backgroundGradientObject.length === 1) {
+      colorsPart = backgroundGradientObject[0]
+    } else if (backgroundGradientObject.length === 2) {
+      // from-X emits 2 colors (placeholder + actual), to-X emits 1.
+      // After sort() above, indices may swap depending on color name ordering,
+      // so identify by array length instead of position.
+      const colorsA = backgroundGradientObject[0].replace('colors: ', '').replace(/[[\]']+/g, '').trim().split(',').map(c => c.trim())
+      const colorsB = backgroundGradientObject[1].replace('colors: ', '').replace(/[[\]']+/g, '').trim().split(',').map(c => c.trim())
+      const fromEntry = colorsA.length === 2 ? colorsA : colorsB
+      const toEntry = colorsA.length === 1 ? colorsA : colorsB
+      colorsPart = `colors: [ '${toEntry[0]}', '${fromEntry[1]}' ]`
+    }
+
+    const parts = []
+    if (backgroundGradientDirection.length) parts.push(backgroundGradientDirection[0])
+    if (colorsPart) parts.push(colorsPart)
+    cleanedStyles.push(`backgroundGradient: { ${parts.join(', ')} }`)
   }
 
   // Missing properties to process

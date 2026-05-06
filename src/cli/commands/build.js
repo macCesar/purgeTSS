@@ -14,6 +14,7 @@ import { alloyProject } from '../../shared/utils.js'
 import { ensureConfig } from '../../shared/config-manager.js'
 import { buildTailwindBasedOnConfigOptions } from '../../core/builders/tailwind-builder.js'
 import { createDefinitionsFile } from './init.js'
+import { flushSemanticColors } from '../../shared/semantic-helpers.js'
 
 // Import FontAwesome functions from their new modular location
 import { buildFontAwesome, buildFontAwesomeJS } from '../../dev/builders/fontawesome-builder.js'
@@ -28,10 +29,14 @@ import { buildFontAwesome, buildFontAwesomeJS } from '../../dev/builders/fontawe
 export function build(options) {
   if (alloyProject()) {
     ensureConfig()
-    buildTailwindBasedOnConfigOptions(options)
-    buildFontAwesome()
-    buildFontAwesomeJS()
-    createDefinitionsFile()
+    try {
+      buildTailwindBasedOnConfigOptions(options)
+      buildFontAwesome()
+      buildFontAwesomeJS()
+      createDefinitionsFile()
+    } finally {
+      flushSemanticColors()
+    }
     return true
   }
   return false

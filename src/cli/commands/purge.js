@@ -33,6 +33,7 @@ import { getConfigOptions, getConfigFile, ensureConfig } from '../../shared/conf
 // Import purger functions from core modules
 import { processControllers } from '../../core/analyzers/class-extractor.js'
 import { purgeTailwind } from '../../core/purger/tailwind-purger.js'
+import { flushSemanticColors } from '../../shared/semantic-helpers.js'
 import {
   purgeFontAwesome,
   purgeMaterialIcons,
@@ -740,6 +741,7 @@ export function purgeClasses(options) {
 
       finish()
     } finally {
+      flushSemanticColors()
       logger.endSection()
     }
 

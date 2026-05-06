@@ -14,6 +14,7 @@ import _ from 'lodash'
 import chalk from 'chalk'
 import * as helpers from '../../shared/helpers.js'
 import { logger } from '../../shared/logger.js'
+import { deriveAlphaKey } from '../../shared/semantic-helpers.js'
 import {
   // eslint-disable-next-line camelcase
   projectsTailwind_TSS,
@@ -192,10 +193,15 @@ export function purgeTailwind(uniqueClasses, debug = false) {
 
       const classProperties = tailwindClasses[opacityIndex]
       if (opacityIndex > -1 && classProperties && !classProperties.includes('#')) {
-        console.warn('')
-        console.warn(chalk.yellow(`   Skipping ".${opacityValue.className}/${opacityValue.decimalValue}" — semantic color, no hex to blend.`))
-        console.warn(chalk.yellow(`   Use a PurgeTSS built-in color, bg-(#AARRGGBB), or "purgetss semantic --single ... --alpha ${opacityValue.decimalValue}".`))
-        console.warn('')
+        const derivedLine = tryDeriveSemanticOpacityLine(classProperties, opacityValue)
+        if (derivedLine) {
+          purgedClasses += switchPlatform(helpers.checkPlatformAndDevice(derivedLine, opacityValue.classNameWithTransparency))
+        } else {
+          console.warn('')
+          console.warn(chalk.yellow(`   Skipping ".${opacityValue.className}/${opacityValue.decimalValue}" — semantic color, no hex to blend.`))
+          console.warn(chalk.yellow(`   Use a PurgeTSS built-in color, bg-(#AARRGGBB), or "purgetss semantic --single ... --alpha ${opacityValue.decimalValue}".`))
+          console.warn('')
+        }
       }
       if (opacityIndex > -1 && classProperties && classProperties.includes('#')) {
         const hexMatches = classProperties.match(/#[0-9a-f]{6}/gi)
@@ -219,6 +225,31 @@ export function purgeTailwind(uniqueClasses, debug = false) {
   if (debug) localFinish('Purging ' + chalk.yellow('utilities.tss') + ' styles...')
 
   return purgedClasses
+}
+
+// Auto-derive a semantic key with applied alpha and emit a TSS line for the
+// `class/N` form. Returns the rewritten line (with selector renamed to include
+// `/N` and the semantic value swapped for the derived key), or `null` when no
+// candidate matches an entry in semantic.colors.json. Conflict errors from
+// `deriveAlphaKey` propagate naturally.
+function tryDeriveSemanticOpacityLine(classProperties, opacityValue) {
+  const bodyMatch = classProperties.match(/\{([^}]*)\}/)
+  if (!bodyMatch) return null
+  const candidates = (bodyMatch[1].match(/'([^']+)'/g) || [])
+    .map(m => m.slice(1, -1))
+    .filter(v => !v.startsWith('#'))
+  for (const candidate of candidates) {
+    const derivedKey = deriveAlphaKey(candidate, opacityValue.decimalValue)
+    if (derivedKey) {
+      let line = classProperties.replace(new RegExp(`'${candidate}'`, 'g'), `'${derivedKey}'`)
+      line = line.replace(
+        `'.${opacityValue.className}'`,
+        `'.${opacityValue.className}/${opacityValue.decimalValue}'`
+      )
+      return line
+    }
+  }
+  return null
 }
 
 /**
