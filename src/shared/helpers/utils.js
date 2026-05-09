@@ -30,14 +30,25 @@ export function processProperties(info, selectorAndDeclarationBlock, selectorsAn
       _.each(rulesAndValuesPair, (value, rule) => {
         if (debug) console.log('rule:', rule, 'value:', value)
         if (typeof value === 'object') {
-          _.each(value, (_value, key) => {
-            if (debug) console.log('key:', key, '_value:', _value)
-            let processedProperties = _.replace(declarationBlock, /{value}/g, parseValue(_value, minusSigns))
+          const emitLeaf = (leafValue, key, suffix) => {
+            if (debug) console.log('key:', key, 'leafValue:', leafValue, 'suffix:', suffix)
+            let processedProperties = _.replace(declarationBlock, /{value}/g, parseValue(leafValue, minusSigns))
             if (declarationBlock.includes('double')) {
-              processedProperties = _.replace(processedProperties, /{double}/g, parseValue(_value, minusSigns) * 2)
+              processedProperties = _.replace(processedProperties, /{double}/g, parseValue(leafValue, minusSigns) * 2)
             }
-            convertedStyles += defaultModifier(key) ? `'.${setModifier2(mainSelector, rule)}${setModifier2(rule)}${setModifier2(selector)}': ${processedProperties}\n` : `'.${setModifier2(mainSelector, rule)}${setModifier2(rule, key)}${setModifier2(key)}${setModifier2(selector)}': ${processedProperties}\n`
-          })
+            convertedStyles += defaultModifier(key) ? `'.${setModifier2(mainSelector, rule)}${setModifier2(rule)}${suffix}${setModifier2(selector)}': ${processedProperties}\n` : `'.${setModifier2(mainSelector, rule)}${setModifier2(rule, key)}${setModifier2(key)}${suffix}${setModifier2(selector)}': ${processedProperties}\n`
+          }
+          const walk = (val, key, suffix) => {
+            if (val && typeof val === 'object') {
+              _.each(val, (childVal, childKey) => {
+                const newSuffix = defaultModifier(childKey) ? suffix : `${suffix}-${camelCaseToDash(String(childKey))}`
+                walk(childVal, key, newSuffix)
+              })
+            } else {
+              emitLeaf(val, key, suffix)
+            }
+          }
+          _.each(value, (_value, key) => walk(_value, key, ''))
         } else {
           let processedProperties = _.replace(declarationBlock, /{value}/g, parseValue(value, minusSigns))
           if (declarationBlock.includes('double')) {

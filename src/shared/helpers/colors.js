@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import { processProperties, processComments, parseValue, setModifier2, removeLastDash, addTransparencyToValue } from './utils.js'
+import { processProperties, processComments, parseValue, setModifier2, removeLastDash, addTransparencyToValue, defaultModifier, camelCaseToDash } from './utils.js'
 /**
  * Active tint color for tabs
  * @param {Object} modifiersAndValues - Modifier and value pairs
@@ -646,9 +646,20 @@ export function backgroundGradient(modifiersAndValues) {
   _.each(objectPosition, (properties, rule) => {
     _.each(modifiersAndValues, (value, modifier) => {
       if (typeof value === 'object') {
-        _.each(value, (_value, _modifier) => {
-          convertedStyles += `'.${removeLastDash(`${rule}-${setModifier2(modifier, rule)}${setModifier2(_modifier)}`)}': ` + _.replace(_.replace(properties, /{transparentValue}/g, `${addTransparencyToValue(parseValue(_value))}`), /{value}/g, parseValue(_value)) + '\n'
-        })
+        const emitLeaf = (leafValue, _modifier, suffix) => {
+          convertedStyles += `'.${removeLastDash(`${rule}-${setModifier2(modifier, rule)}${setModifier2(_modifier)}${suffix}`)}': ` + _.replace(_.replace(properties, /{transparentValue}/g, `${addTransparencyToValue(parseValue(leafValue))}`), /{value}/g, parseValue(leafValue)) + '\n'
+        }
+        const walk = (val, _modifier, suffix) => {
+          if (val && typeof val === 'object') {
+            _.each(val, (childVal, childKey) => {
+              const newSuffix = defaultModifier(childKey) ? suffix : `${suffix}-${camelCaseToDash(String(childKey))}`
+              walk(childVal, _modifier, newSuffix)
+            })
+          } else {
+            emitLeaf(val, _modifier, suffix)
+          }
+        }
+        _.each(value, (_value, _modifier) => walk(_value, _modifier, ''))
       } else {
         convertedStyles += `'.${setModifier2(rule, modifier)}${setModifier2(modifier)}': ` + _.replace(_.replace(properties, /{value}/g, parseValue(value)), /{transparentValue}/g, `${addTransparencyToValue(parseValue(value))}`) + '\n'
       }
@@ -665,9 +676,20 @@ export function backgroundGradient(modifiersAndValues) {
   _.each(objectPosition, (properties, rule) => {
     _.each(modifiersAndValues, (value, modifier) => {
       if (typeof value === 'object') {
-        _.each(value, (_value, _modifier) => {
-          convertedStyles += `'.${removeLastDash(`${rule}-${setModifier2(modifier, rule)}${setModifier2(_modifier)}`)}': ` + _.replace(properties, /{value}/g, parseValue(_value)) + '\n'
-        })
+        const emitLeaf = (leafValue, _modifier, suffix) => {
+          convertedStyles += `'.${removeLastDash(`${rule}-${setModifier2(modifier, rule)}${setModifier2(_modifier)}${suffix}`)}': ` + _.replace(properties, /{value}/g, parseValue(leafValue)) + '\n'
+        }
+        const walk = (val, _modifier, suffix) => {
+          if (val && typeof val === 'object') {
+            _.each(val, (childVal, childKey) => {
+              const newSuffix = defaultModifier(childKey) ? suffix : `${suffix}-${camelCaseToDash(String(childKey))}`
+              walk(childVal, _modifier, newSuffix)
+            })
+          } else {
+            emitLeaf(val, _modifier, suffix)
+          }
+        }
+        _.each(value, (_value, _modifier) => walk(_value, _modifier, ''))
       } else {
         convertedStyles += `'.${setModifier2(rule, modifier)}${setModifier2(modifier)}': ` + _.replace(properties, /{value}/g, parseValue(value)) + '\n'
       }
@@ -688,9 +710,20 @@ export function backgroundSelectedGradient(modifiersAndValues) {
   _.each(objectPosition, (properties, rule) => {
     _.each(modifiersAndValues, (value, modifier) => {
       if (typeof value === 'object') {
-        _.each(value, (_value, _modifier) => {
-          convertedStyles += `'.${removeLastDash(`${rule}-${setModifier2(modifier, rule)}${setModifier2(_modifier)}`)}': ` + _.replace(_.replace(properties, /{transparentValue}/g, `${addTransparencyToValue(parseValue(_value))}`), /{value}/g, parseValue(_value)) + '\n'
-        })
+        const emitLeaf = (leafValue, _modifier, suffix) => {
+          convertedStyles += `'.${removeLastDash(`${rule}-${setModifier2(modifier, rule)}${setModifier2(_modifier)}${suffix}`)}': ` + _.replace(_.replace(properties, /{transparentValue}/g, `${addTransparencyToValue(parseValue(leafValue))}`), /{value}/g, parseValue(leafValue)) + '\n'
+        }
+        const walk = (val, _modifier, suffix) => {
+          if (val && typeof val === 'object') {
+            _.each(val, (childVal, childKey) => {
+              const newSuffix = defaultModifier(childKey) ? suffix : `${suffix}-${camelCaseToDash(String(childKey))}`
+              walk(childVal, _modifier, newSuffix)
+            })
+          } else {
+            emitLeaf(val, _modifier, suffix)
+          }
+        }
+        _.each(value, (_value, _modifier) => walk(_value, _modifier, ''))
       } else {
         convertedStyles += `'.${setModifier2(rule, modifier)}${setModifier2(modifier)}': ` + _.replace(_.replace(properties, /{value}/g, parseValue(value)), /{transparentValue}/g, `${addTransparencyToValue(parseValue(value))}`) + '\n'
       }
@@ -707,9 +740,20 @@ export function backgroundSelectedGradient(modifiersAndValues) {
   _.each(objectPosition, (properties, rule) => {
     _.each(modifiersAndValues, (value, modifier) => {
       if (typeof value === 'object') {
-        _.each(value, (_value, _modifier) => {
-          convertedStyles += `'.${removeLastDash(`${rule}-${setModifier2(modifier, rule)}${setModifier2(_modifier)}`)}': ` + _.replace(properties, /{value}/g, parseValue(_value)) + '\n'
-        })
+        const emitLeaf = (leafValue, _modifier, suffix) => {
+          convertedStyles += `'.${removeLastDash(`${rule}-${setModifier2(modifier, rule)}${setModifier2(_modifier)}${suffix}`)}': ` + _.replace(properties, /{value}/g, parseValue(leafValue)) + '\n'
+        }
+        const walk = (val, _modifier, suffix) => {
+          if (val && typeof val === 'object') {
+            _.each(val, (childVal, childKey) => {
+              const newSuffix = defaultModifier(childKey) ? suffix : `${suffix}-${camelCaseToDash(String(childKey))}`
+              walk(childVal, _modifier, newSuffix)
+            })
+          } else {
+            emitLeaf(val, _modifier, suffix)
+          }
+        }
+        _.each(value, (_value, _modifier) => walk(_value, _modifier, ''))
       } else {
         convertedStyles += `'.${setModifier2(rule, modifier)}${setModifier2(modifier)}': ` + _.replace(properties, /{value}/g, parseValue(value)) + '\n'
       }

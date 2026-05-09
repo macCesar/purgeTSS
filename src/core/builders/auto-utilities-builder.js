@@ -837,15 +837,14 @@ function generateCombinedClasses(key, data) {
   const comments = processComments(key, data)
 
   if (Object.entries(data.base).length) {
-    _.each(data.base, (value, _key) => {
-      if (typeof value === 'object') {
-        _.each(value, (_value, __key) => {
-          myClasses += `'.${setModifier(removeUneededVariablesFromPropertyName(camelCaseToDash(key + '-' + _key + '-' + __key)))}': { ${key}: ${helpers.parseValue(_value)} }\n`
-        })
+    const walk = (value, segments) => {
+      if (value && typeof value === 'object') {
+        _.each(value, (childValue, childKey) => walk(childValue, [...segments, childKey]))
       } else {
-        myClasses += `'.${setModifier(removeUneededVariablesFromPropertyName(camelCaseToDash(key + '-' + _key)))}': { ${key}: ${helpers.parseValue(value)} }\n`
+        myClasses += `'.${setModifier(removeUneededVariablesFromPropertyName(camelCaseToDash(segments.join('-'))))}': { ${key}: ${helpers.parseValue(value)} }\n`
       }
-    })
+    }
+    walk(data.base, [key])
   } else {
     _.each(data.values, (_value, _key) => {
       if (!_value.includes('deprecated')) myClasses += formatClass(key, _value, data.type === 'Array')
