@@ -1,6 +1,13 @@
 import fs from 'fs'
 import _ from 'lodash'
 import { deriveAlphaKey } from '../semantic-helpers.js'
+import {
+  projectsFA_TSS_File,
+  srcFontAwesomeTSSFile,
+  srcMaterialIconsTSSFile,
+  srcMaterialSymbolsTSSFile,
+  srcFramework7FontTSSFile
+} from '../constants.js'
 
 // Internal variables and constants
 const _applyClasses = {}
@@ -475,6 +482,18 @@ export function compileApplyDirectives(twClasses) {
   const twClassesArray = twClasses.split(/\r?\n/)
   const fontsClassesArray = (fs.existsSync(cwd + '/purgetss/styles/fonts.tss')) ? fs.readFileSync(cwd + '/purgetss/styles/fonts.tss', 'utf8').split(/\r?\n/) : null
 
+  // Default icon font sources (FontAwesome, Material Icons/Symbols, Framework7).
+  // Project-level fontawesome.tss (Pro/Beta) takes precedence over the bundled default,
+  // matching the precedence used by purgeFontAwesome().
+  const iconClassesArrays = [
+    fs.existsSync(projectsFA_TSS_File) ? projectsFA_TSS_File : srcFontAwesomeTSSFile,
+    srcMaterialIconsTSSFile,
+    srcMaterialSymbolsTSSFile,
+    srcFramework7FontTSSFile
+  ]
+    .filter(p => fs.existsSync(p))
+    .map(p => fs.readFileSync(p, 'utf8').split(/\r?\n/))
+
   _.each(_applyClasses, (values, className) => {
     const indexOfModifier = findIndexOfClassName(`'${className}':`, twClassesArray)
 
@@ -529,6 +548,14 @@ export function compileApplyDirectives(twClasses) {
             foundClass = twClassesArray[findIndexOfClassName(genericClassName, twClassesArray)]
             if (!foundClass && fontsClassesArray) {
               foundClass = fontsClassesArray[findIndexOfClassName(genericClassName, fontsClassesArray)]
+            }
+            // Last resort: search default icon font sources (FontAwesome, Material Icons/Symbols, Framework7)
+            // so apply: directives can use fas, fa-*, mi-*, ms-*, f7-* without requiring fonts.tss
+            if (!foundClass) {
+              for (const arr of iconClassesArrays) {
+                const idx = findIndexOfClassName(genericClassName, arr)
+                if (idx !== -1) { foundClass = arr[idx]; break }
+              }
             }
           }
 
@@ -618,8 +645,8 @@ function deduplicateLineProperties(line) {
   let depth = 0
   let current = ''
   for (const char of propsStr) {
-    if (char === '{') depth++
-    else if (char === '}') depth--
+    if (char === '{' || char === '[') depth++
+    else if (char === '}' || char === ']') depth--
     else if (char === ',' && depth === 0) {
       if (current.trim()) props.push(current.trim())
       current = ''
