@@ -105,7 +105,7 @@ function computeScaleTarget(srcMeta, factor, baseWidth) {
  * @returns {Promise<string[]>} Paths written
  */
 export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts = {}) {
-  const { format = null, quality = 85, baseWidth = null } = opts
+  const { format = null, quality = 85, baseWidth = null, opacity = null, padding = null } = opts
   const src = await readSource(sourceFile)
   const written = []
 
@@ -116,7 +116,7 @@ export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts
     fs.mkdirSync(outDir, { recursive: true })
 
     const outPath = path.join(outDir, renameWithFormat(path.basename(relPath), format, src.isSvg))
-    await writeScaled(src, outPath, targetWidth, targetHeight, format, quality)
+    await writeScaled(src, outPath, targetWidth, targetHeight, format, quality, opacity, padding)
     written.push(outPath)
   }
   return written
@@ -132,7 +132,7 @@ export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts
  * @returns {Promise<string[]>} Paths written
  */
 export async function genIphoneScales(sourceFile, relPath, iphoneBaseDir, opts = {}) {
-  const { format = null, quality = 85, baseWidth = null } = opts
+  const { format = null, quality = 85, baseWidth = null, opacity = null, padding = null } = opts
   const src = await readSource(sourceFile)
   const written = []
 
@@ -149,7 +149,7 @@ export async function genIphoneScales(sourceFile, relPath, iphoneBaseDir, opts =
     const outName = `${parsed.name}${suffix}${ext}`
     const outPath = path.join(outDir, outName)
 
-    await writeScaled(src, outPath, targetWidth, targetHeight, format, quality)
+    await writeScaled(src, outPath, targetWidth, targetHeight, format, quality, opacity, padding)
     written.push(outPath)
   }
   return written
@@ -168,14 +168,45 @@ function renameWithFormat(filename, format, isSvg = false) {
   return filename
 }
 
-async function writeScaled(src, outPath, width, height, format, quality) {
-  const targetMax = Math.max(width, height)
+async function writeScaled(src, outPath, width, height, format, quality, opacity, paddingPct) {
+  // Padding shrinks the rendered image inside the same canvas so each density
+  // gets symmetric transparent borders. Computed from the canvas dimensions so
+  // the visual ratio (e.g. 15%) is identical across every density variant.
+  const padX = paddingPct ? Math.floor(width * paddingPct / 100) : 0
+  const padY = paddingPct ? Math.floor(height * paddingPct / 100) : 0
+  const innerW = Math.max(1, width - 2 * padX)
+  const innerH = Math.max(1, height - 2 * padY)
+  const targetMax = Math.max(innerW, innerH)
+
   let pipeline = buildScalePipeline(src, targetMax).resize({
-    width,
-    height,
+    width: innerW,
+    height: innerH,
     fit: 'contain',
     background: { r: 0, g: 0, b: 0, alpha: 0 }
   })
+
+  if (padX > 0 || padY > 0) {
+    pipeline = pipeline.extend({
+      top: padY,
+      bottom: padY,
+      left: padX,
+      right: padX,
+      background: { r: 0, g: 0, b: 0, alpha: 0 }
+    })
+  }
+
+  // Apply opacity by multiplying the dest alpha against a uniform-alpha tile.
+  // `dest-in` keeps RGB and multiplies dest alpha by source alpha (opacity/100).
+  if (opacity != null && opacity < 100) {
+    pipeline = pipeline
+      .ensureAlpha()
+      .composite([{
+        input: Buffer.from([255, 255, 255, Math.round(255 * opacity / 100)]),
+        raw: { width: 1, height: 1, channels: 4 },
+        tile: true,
+        blend: 'dest-in'
+      }])
+  }
 
   // For SVG sources without an explicit format, coerce output to PNG
   // (Sharp cannot write SVG).

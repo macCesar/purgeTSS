@@ -376,6 +376,9 @@ Examples:
   ${chalk.cyan('purgetss images')} --format png --quality 95
   ${chalk.cyan('purgetss images')} logo.svg --width 256             # pin @1x/mdpi to 256 px wide
   ${chalk.cyan('purgetss images')} banner.svg --width 512 --format webp
+  ${chalk.cyan('purgetss images')} logo.svg --opacity 50 --format png  # semi-transparent placeholder, all densities
+  ${chalk.cyan('purgetss images')} purgetss/brand/logo.svg --opacity 40 --output 'logos/loading' --format png
+  ${chalk.cyan('purgetss images')} purgetss/brand/logo.png --opacity 30 --padding 15 --output 'logos/default' --format png
   ${chalk.cyan('purgetss images')} --dry-run
 `)
   .option('--android', 'Generate only Android density variants (skip iPhone)')
@@ -383,6 +386,9 @@ Examples:
   .option('--format <ext>', 'Convert all outputs to this format: webp|jpeg|png|avif|gif|tiff')
   .option('--quality <n>', 'JPEG/WebP/AVIF quality 0-100 (default: 85)', (v) => parseInt(v, 10))
   .option('--width <n>', 'Target width in px for @1x/mdpi (other scales derive: ×1.5, ×2, ×3, ×4)', (v) => parseInt(v, 10))
+  .option('--opacity <n>', 'Apply alpha 0-100 to all generated densities (e.g. 50 = 50% transparent)', (v) => parseInt(v, 10))
+  .option('--padding <n>', 'Symmetric padding 0-40% inside each density canvas (shrinks the logo, adds transparent borders)', (v) => parseInt(v, 10))
+  .option('--output <relpath>', 'Override basename + subfolder relative to images/ (single source only, no extension; --format decides ext)')
   .option('--project <path>', 'Project root (default: cwd)')
   .option('--dry-run', 'Preview without writing any files')
   .option('-y, --yes', 'Skip the overwrite confirmation prompt')

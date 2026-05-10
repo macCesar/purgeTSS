@@ -44,6 +44,41 @@ export async function images(cliSource, options = {}) {
     }
   }
 
+  let opacity = null
+  if (options.opacity !== undefined) {
+    if (!Number.isFinite(options.opacity) || !Number.isInteger(options.opacity) || options.opacity < 0 || options.opacity > 100) {
+      logger.error(`Invalid --opacity '${options.opacity}'. Must be an integer between 0 and 100.`)
+      process.exit(1)
+    }
+    opacity = options.opacity
+  }
+
+  let padding = null
+  if (options.padding !== undefined) {
+    if (!Number.isFinite(options.padding) || !Number.isInteger(options.padding) || options.padding < 0 || options.padding > 40) {
+      logger.error(`Invalid --padding '${options.padding}'. Must be an integer between 0 and 40.`)
+      process.exit(1)
+    }
+    padding = options.padding
+  }
+
+  let outputRelpath = null
+  if (options.output !== undefined && options.output !== null && options.output !== '') {
+    const raw = String(options.output)
+    if (path.isAbsolute(raw)) {
+      logger.error(`Invalid --output '${raw}'. Must be a relative path inside the project images folder, not absolute.`)
+      process.exit(1)
+    }
+    const segments = raw.split(/[\\/]/)
+    if (segments.includes('..')) {
+      logger.error(`Invalid --output '${raw}'. '..' segments are not allowed (must stay inside the project images folder).`)
+      process.exit(1)
+    }
+    // Strip any trailing extension — --format (or source ext) decides actual extension.
+    const parsed = path.parse(raw)
+    outputRelpath = parsed.dir ? path.join(parsed.dir, parsed.name) : parsed.name
+  }
+
   const format = options.format ?? cfg.format ?? null
   if (format && !VALID_FORMATS.has(format.toLowerCase())) {
     logger.error(`Invalid --format '${format}'. Valid: ${[...VALID_FORMATS].join(', ')}`)
@@ -65,6 +100,9 @@ export async function images(cliSource, options = {}) {
       format: format ? format.toLowerCase() : null,
       quality: options.quality ?? cfg.quality ?? 85,
       baseWidth: options.width ?? null,
+      opacity,
+      padding,
+      outputRelpath,
       dryRun: Boolean(options.dryRun),
       yes: Boolean(options.yes),
       confirmOverwrites: cfg.confirmOverwrites !== false

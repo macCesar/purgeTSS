@@ -36,6 +36,9 @@ export async function runImages(opts) {
     format = null,
     quality = 85,
     baseWidth = null,
+    opacity = null,     // 0-100 or null
+    padding = null,     // 0-40 (per side, %) or null
+    outputRelpath = null, // basename + subfolder relative to images root, no extension
     dryRun = false,
     yes = false,
     confirmOverwrites = true
@@ -43,6 +46,10 @@ export async function runImages(opts) {
 
   if (!fs.existsSync(source)) {
     throw new Error(`Source not found: ${source}`)
+  }
+
+  if (outputRelpath != null && fs.statSync(source).isDirectory()) {
+    throw new Error('--output is incompatible with directory sources (one basename cannot apply to multiple files). Pass a single file as the source, or drop --output.')
   }
 
   const projectType = detectProjectType(projectRoot)
@@ -67,6 +74,9 @@ export async function runImages(opts) {
   logger.property('Platforms:  ', platforms.join(' + '))
   if (format) logger.property('Format:     ', `convert all to ${format}`)
   if (baseWidth != null) logger.property('Width:      ', `${baseWidth} px @1x/mdpi`)
+  if (opacity != null) logger.property('Opacity:    ', `${opacity}%`)
+  if (padding != null) logger.property('Padding:    ', `${padding}% per side`)
+  if (outputRelpath != null) logger.property('Output:     ', `images/${outputRelpath}.<ext>`)
   if (dryRun) logger.warning('DRY RUN — no files will be written')
 
   if (files.length === 0) {
@@ -116,17 +126,22 @@ export async function runImages(opts) {
 
   logger.section('Scaling')
   for (const file of files) {
-    const relPath = path.relative(sourceRoot, file)
+    // When --output is set, override the computed relPath with the user's
+    // basename + subfolder. Append the source extension so downstream
+    // path.parse / renameWithFormat behave the same as for natural sources.
+    const relPath = outputRelpath != null
+      ? outputRelpath + path.extname(file)
+      : path.relative(sourceRoot, file)
     logger.bullet(relPath)
 
     if (dryRun) continue
 
     if (!iphoneOnly) {
-      const androidFiles = await genAndroidScales(file, relPath, androidBaseDir, { format, quality, baseWidth })
+      const androidFiles = await genAndroidScales(file, relPath, androidBaseDir, { format, quality, baseWidth, opacity, padding })
       written.push(...androidFiles)
     }
     if (!androidOnly) {
-      const iphoneFiles = await genIphoneScales(file, relPath, iphoneBaseDir, { format, quality, baseWidth })
+      const iphoneFiles = await genIphoneScales(file, relPath, iphoneBaseDir, { format, quality, baseWidth, opacity, padding })
       written.push(...iphoneFiles)
     }
   }
