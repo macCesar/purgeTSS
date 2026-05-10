@@ -856,13 +856,6 @@ function generateCombinedClasses(key, data) {
   return false
 }
 
-function saveAutoTSS(key, classes) {
-  if (fs.existsSync(projectsConfigJS) && saveGlossary) {
-    makeSureFolderExists(cwd + '/purgetss/glossary/tailwind-classes/')
-    saveFile(cwd + `/purgetss/glossary/tailwind-classes/${key}.tss`, classes)
-  }
-}
-
 // inputType is marked as Array in completions but accepts a single value
 const nonArrayOverrides = new Set(['inputType'])
 
