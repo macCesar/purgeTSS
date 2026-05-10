@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.10.1] - 2026-05-10
+
+### Changed
+- **User-visible "Tailwind" comparative references dropped from copy that did not document functional integration.** The Class Syntax Error block printed by `unsupported-class-reporter.js` now reports `'Square brackets "[ ]" are not supported'` instead of `'Tailwind-style brackets "[ ]" are not supported'`; the matching detector was renamed `detectTailwindBrackets` → `detectSquareBrackets` (single internal call site, no API impact); the v7.8.0 entry in `README.md` was updated to use `square brackets` to match. The promotional `<Label>` injected into new projects by `purgetss create` (`lib/templates/create/index.xml`) changed from `"Tailwind-inspired utility classes for Titanium/Alloy"` to `"Utility-first styling for Titanium/Alloy"`. Companion comment updated in `src/cli/commands/purge.js`. All functional references stay: the `tailwindcss@3` dependency installed by `install-dependencies` (drives both the `defaultColors`/`defaultTheme` palette base AND the VSCode IntelliSense extension), the `--tailwind` flag on `purgetss shades` (emits a `tailwind.config.js`-compatible color object), and the recommended `Tailwind CSS IntelliSense` / `Tailwind Raw Reorder (v4)` VSCode extensions.
+
 ## [7.10.0] - 2026-05-10
 
 ### Added
