@@ -66,6 +66,7 @@ export function resolveBrandConfig(cliOptions, cliLogo, projectRoot) {
     ?? 19
 
   const androidLegacyPadding = cliOptions.androidLegacyPadding
+    ?? cliOptions.padding
     ?? padding.androidLegacy
     ?? 10
 
