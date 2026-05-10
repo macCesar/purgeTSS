@@ -696,7 +696,7 @@ export function purgeClasses(options) {
       try {
         uniqueClasses = getUniqueClasses()
 
-        // Pre-validate class syntax. Halts on inverted negatives, Tailwind
+        // Pre-validate class syntax. Halts on inverted negatives, square
         // brackets, empty parens, etc. — but NOT on generic unknown classes
         // (those fall through silently to "// Unused or unsupported classes").
         validateClassSyntax({

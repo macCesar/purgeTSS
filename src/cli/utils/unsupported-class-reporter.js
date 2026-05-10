@@ -6,7 +6,7 @@
  * authoring mistakes:
  *
  *   - Inverted negative sign:  top-(-10)   → -top-(10)
- *   - Tailwind-style brackets: top-[10px]  → top-(10px)
+ *   - Square brackets:         top-[10px]  → top-(10px)
  *   - Empty parentheses:       wh-()       → wh-(<value>)
  *   - Whitespace in parens:    wh-( 200 )  → wh-(200)
  *   - Redundant px units:      top-(10px)  → top-(10)
@@ -47,11 +47,11 @@ const detectors = [
   },
 
   // top-[10px] → top-(10)
-  function detectTailwindBrackets(className) {
+  function detectSquareBrackets(className) {
     if (!className.includes('[') && !className.includes(']')) return null
     const fixed = className.replace(/\[/g, '(').replace(/\]/g, ')')
     return {
-      issue: 'Tailwind-style brackets "[ ]" are not supported',
+      issue: 'Square brackets "[ ]" are not supported',
       suggestion: `Use parentheses instead: ${chalk.green(`"${fixed}"`)}`
     }
   },

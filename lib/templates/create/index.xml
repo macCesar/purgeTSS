@@ -3,7 +3,7 @@
     <ScrollView class="vertical mx-4">
       <!-- Header -->
       <Label class="text-center text-3xl font-bold text-white">Welcome to PurgeTSS</Label>
-      <Label class="text-center text-sm text-white">Tailwind-inspired utility classes for Titanium/Alloy</Label>
+      <Label class="text-center text-sm text-white">Utility-first styling for Titanium/Alloy</Label>
 
       <!-- Typography Examples -->
       <Label class="mt-4 text-center text-xl font-semibold text-white">Typography</Label>
