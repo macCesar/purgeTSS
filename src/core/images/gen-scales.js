@@ -188,7 +188,7 @@ async function writeScaled(src, outPath, width, height, format, quality) {
 
 function applyFormat(pipeline, format, quality) {
   switch (format) {
-    case 'png':  return pipeline.png({ quality, compressionLevel: 9 })
+    case 'png':  return pipeline.png({ compressionLevel: 9 })
     case 'webp': return pipeline.webp({ quality })
     case 'avif': return pipeline.avif({ quality })
     case 'tiff': return pipeline.tiff({ quality, compression: 'lzw' })
