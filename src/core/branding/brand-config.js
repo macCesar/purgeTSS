@@ -73,6 +73,10 @@ export function resolveBrandConfig(cliOptions, cliLogo, projectRoot) {
     ?? padding.ios
     ?? 4
 
+  const featureGraphicPadding = cliOptions.featureGraphicPadding
+    ?? padding.featureGraphic
+    ?? 12
+
   const bgColor = cliOptions.bgColor
     ?? colors.background
     ?? '#FFFFFF'
@@ -88,6 +92,7 @@ export function resolveBrandConfig(cliOptions, cliLogo, projectRoot) {
     darkLogo: pickLogo(cliOptions.darkLogo, logos.iosDark, brandDir, 'logo-dark', projectRoot),
     tintedLogo: pickLogo(cliOptions.tintedLogo, logos.iosTinted, brandDir, 'logo-tinted', projectRoot),
     splashLogo: pickLogo(cliOptions.splashLogo, logos.androidSplash, brandDir, 'logo-splash', projectRoot),
+    featureLogo: pickLogo(cliOptions.featureLogo, logos.featureGraphic, brandDir, 'logo-feature', projectRoot),
 
     bgColor,
     bgColorExplicit: Boolean(cliOptions.bgColor ?? colors.background),
@@ -95,6 +100,7 @@ export function resolveBrandConfig(cliOptions, cliLogo, projectRoot) {
     androidAdaptivePadding,
     androidLegacyPadding,
     iosPadding,
+    featureGraphicPadding,
 
     // Kitchen-sink defaults: adaptive + marketplace are always generated; only
     // notification and splash are opt-in. Config can pre-enable them.

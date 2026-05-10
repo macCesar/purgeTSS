@@ -133,6 +133,7 @@ export function getConfigFile() {
   configFile.brand.padding.ios = parsePadding(configFile.brand.padding.ios ?? 4, 'brand.padding.ios')
   configFile.brand.padding.androidLegacy = parsePadding(configFile.brand.padding.androidLegacy ?? 10, 'brand.padding.androidLegacy')
   configFile.brand.padding.androidAdaptive = parsePadding(configFile.brand.padding.androidAdaptive ?? 19, 'brand.padding.androidAdaptive')
+  configFile.brand.padding.featureGraphic = parsePadding(configFile.brand.padding.featureGraphic ?? 12, 'brand.padding.featureGraphic')
   configFile.brand.android = configFile.brand.android ?? {}
   configFile.brand.android.notification = configFile.brand.android.notification ?? false
   configFile.brand.android.splash = configFile.brand.android.splash ?? false

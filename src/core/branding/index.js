@@ -48,6 +48,7 @@ import { genAndroidAdaptive } from './gen-android-adaptive.js'
 import { genAndroidLegacy } from './gen-android-legacy.js'
 import { genAndroidDefault } from './gen-android-default.js'
 import { genMarketplace } from './gen-marketplace.js'
+import { genFeatureGraphic } from './gen-feature-graphic.js'
 import { genNotification } from './gen-notification.js'
 import { genSplash } from './gen-splash.js'
 import { genIcLauncherXml } from './gen-ic-launcher-xml.js'
@@ -60,6 +61,7 @@ export async function runBranding(opts) {
     logo,
     iconLogo = null,
     splashLogo = null,
+    featureLogo = null,
     monochromeLogo = null,
     darkLogo = null,
     darkBgColor = null,
@@ -71,6 +73,7 @@ export async function runBranding(opts) {
     androidAdaptivePadding = 19,
     androidLegacyPadding = 10,
     iosPadding = 4,
+    featureGraphicPadding = 12,
     notification = false,
     splash = false,
     cleanupLegacy: runCleanup = false,
@@ -84,7 +87,7 @@ export async function runBranding(opts) {
     confirmOverwrites = true
   } = opts
 
-  validateOptions({ logo, bgColor, darkBgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, cleanupLegacy: runCleanup })
+  validateOptions({ logo, bgColor, darkBgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, featureGraphicPadding, cleanupLegacy: runCleanup })
 
   const projectType = detectProjectType(projectRoot)
   const isInPlace = inPlace && !output
@@ -97,7 +100,7 @@ export async function runBranding(opts) {
   if (logo) {
     logger.property('Logo:       ', logo)
     logger.property('Background: ', bgColor)
-    logger.property('Padding:    ', `Android adaptive ${androidAdaptivePadding}% / Android legacy ${androidLegacyPadding}% / iOS ${iosPadding}% per side`)
+    logger.property('Padding:    ', `Android adaptive ${androidAdaptivePadding}% / Android legacy ${androidLegacyPadding}% / iOS ${iosPadding}% per side / Feature Graphic ${featureGraphicPadding}% vertical`)
     console.log()
     logger.property(isInPlace ? 'Writing IN PLACE to: ' : 'Staging:    ', isInPlace ? projectRoot : stagingRoot)
   }
@@ -159,6 +162,8 @@ export async function runBranding(opts) {
       lines.push(`${stagingRoot}/DefaultIcon-Tinted.png (${tintedSrc})`)
     }
     lines.push(`${stagingRoot}/iTunesConnect.png + MarketplaceArtwork.png`)
+    const featureSrc = featureLogo ? `from ${featureLogo}` : 'from main logo'
+    lines.push(`${stagingRoot}/MarketplaceArtworkFeature.png (${featureSrc}, ${featureGraphicPadding}% vertical padding)`)
     lines.push(`${androidResStaging}/mipmap-{mdpi,hdpi,xhdpi,xxhdpi,xxxhdpi}/ic_launcher_{foreground,background,monochrome}.png`)
     lines.push(`${androidResStaging}/mipmap-{...}/ic_launcher.png (legacy)`)
     lines.push(`${androidResStaging}/mipmap-anydpi-v26/ic_launcher.xml`)
@@ -265,6 +270,20 @@ export async function runBranding(opts) {
   })
   generated.push(mkt.itunesConnect, mkt.marketplaceArtwork)
 
+  let featureMaster = tight
+  if (featureLogo) {
+    if (!fs.existsSync(featureLogo)) {
+      throw new Error(`Feature Graphic logo not found: ${featureLogo}`)
+    }
+    const featureBase = path.join(tempDir, '_logo_feature')
+    const featureResult = await prepareMaster(featureLogo, featureBase)
+    featureMaster = featureResult.tight
+  }
+  const featureSrcLabel = featureLogo ? 'from --feature-logo' : 'from main logo'
+  logger.bullet(`MarketplaceArtworkFeature.png (1024×500, ${featureSrcLabel}, ${featureGraphicPadding}% vertical padding, flattened on ${bgColor})`)
+  const featurePath = await genFeatureGraphic(featureMaster, featureGraphicPadding, stagingRoot, { bgColor })
+  generated.push(featurePath)
+
   // ---- Section: Android --------------------------------------------------
   logger.section('Android')
 
@@ -323,7 +342,9 @@ export async function runBranding(opts) {
         path.join(tempDir, '_logo_tinted_square.png'),
         path.join(tempDir, '_logo_tinted_tight.png'),
         path.join(tempDir, '_logo_splash_square.png'),
-        path.join(tempDir, '_logo_splash_tight.png')
+        path.join(tempDir, '_logo_splash_tight.png'),
+        path.join(tempDir, '_logo_feature_square.png'),
+        path.join(tempDir, '_logo_feature_tight.png')
       ]
       for (const tmp of tmpFiles) {
         if (fs.existsSync(tmp)) fs.unlinkSync(tmp)
@@ -385,7 +406,7 @@ function getStagingAndroidAssetsRoot(stagingRoot, projectType) {
   return null
 }
 
-function validateOptions({ logo, bgColor, darkBgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, cleanupLegacy }) {
+function validateOptions({ logo, bgColor, darkBgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, featureGraphicPadding, cleanupLegacy }) {
   if (!logo && !cleanupLegacy) {
     throw new Error('Logo image path is required (unless using --cleanup-legacy alone).')
   }
@@ -403,5 +424,8 @@ function validateOptions({ logo, bgColor, darkBgColor, androidAdaptivePadding, a
   }
   if (iosPadding < 0 || iosPadding > 40) {
     throw new Error(`--ios-padding must be between 0 and 40 (got: ${iosPadding}).`)
+  }
+  if (featureGraphicPadding < 0 || featureGraphicPadding > 40) {
+    throw new Error(`--feature-graphic-padding must be between 0 and 40 (got: ${featureGraphicPadding}).`)
   }
 }

@@ -37,12 +37,12 @@ function printCompactSummary(opts) {
     logger.bullet(`Rebuild: ${chalk.gray('ti clean && ti build -p android -T emulator')}`)
   } else if (projectType === 'alloy') {
     logger.bullet(`Preview in ${chalk.yellow('Preview.app')}, then copy to project:`)
-    console.log(chalk.gray(`      cp ${stagingRoot}/{DefaultIcon,DefaultIcon-ios,DefaultIcon-Dark,DefaultIcon-Tinted,iTunesConnect,MarketplaceArtwork}.png ${projectRoot}/`))
+    console.log(chalk.gray(`      cp ${stagingRoot}/{DefaultIcon,DefaultIcon-ios,DefaultIcon-Dark,DefaultIcon-Tinted,iTunesConnect,MarketplaceArtwork,MarketplaceArtworkFeature}.png ${projectRoot}/`))
     console.log(chalk.gray(`      cp -R ${stagingRoot}/app/platform/android/res/. ${projectRoot}/app/platform/android/res/`))
     logger.bullet(`Cleanup staging: ${chalk.gray('rm -rf ' + stagingRoot)}`)
   } else if (projectType === 'classic') {
     logger.bullet(`Preview in ${chalk.yellow('Preview.app')}, then copy to project:`)
-    console.log(chalk.gray(`      cp ${stagingRoot}/{DefaultIcon,DefaultIcon-ios,DefaultIcon-Dark,DefaultIcon-Tinted,iTunesConnect,MarketplaceArtwork}.png ${projectRoot}/`))
+    console.log(chalk.gray(`      cp ${stagingRoot}/{DefaultIcon,DefaultIcon-ios,DefaultIcon-Dark,DefaultIcon-Tinted,iTunesConnect,MarketplaceArtwork,MarketplaceArtworkFeature}.png ${projectRoot}/`))
     console.log(chalk.gray(`      cp -R ${stagingRoot}/platform/android/res/. ${projectRoot}/platform/android/res/`))
     logger.bullet(`Cleanup staging: ${chalk.gray('rm -rf ' + stagingRoot)}`)
   } else {

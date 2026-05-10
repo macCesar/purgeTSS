@@ -25,9 +25,10 @@ import { logger } from './branding-logger.js'
 const BRAND_BLOCK = `  brand: {
     logos: {},               // empty = auto-discovers from purgetss/brand/
     padding: {
-      ios: '4%',             // iOS aesthetic. Range: 2% bold — 8% conservative. No launcher mask.
-      androidLegacy: '10%',  // legacy ic_launcher.png padding
-      androidAdaptive: '19%' // adaptive foreground padding near the Android safe-zone
+      ios: '4%',              // iOS aesthetic. Range: 2% bold — 8% conservative. No launcher mask.
+      androidLegacy: '10%',   // legacy ic_launcher.png padding
+      androidAdaptive: '19%', // adaptive foreground padding near the Android safe-zone
+      featureGraphic: '12%'   // Google Play Feature Graphic vertical padding (1024×500)
     },
     android: {
       splash: false,         // also generate splash_icon.png × 5
