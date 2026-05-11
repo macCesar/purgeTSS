@@ -78,6 +78,14 @@ export const logger = {
   },
 
   /**
+   * Log success messages in green
+   * @param {...any} args - Arguments to log
+   */
+  success: function(...args) {
+    _emit(chalk.green(args.join(' ')))
+  },
+
+  /**
    * Enable section mode. The next info/warn/error/file call becomes the
    * ::PurgeTSS:: header; subsequent calls print indented without prefix.
    * MUST be paired with endSection() via try/finally to avoid state leaks.
@@ -121,6 +129,10 @@ export const logger = {
     console.log('   ' + args.join(' '))
   }
 }
+
+// Aliases: long-form `warning` matches the semantic of `warn`. Multiple
+// callsites across branding/images/svg flows expect this name.
+logger.warning = logger.warn
 
 /**
  * Get current debug mode status
