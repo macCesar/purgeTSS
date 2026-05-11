@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.10.2] - 2026-05-11
+
+### Fixed
+- **Legacy flat `brand:` config schema auto-migrates to the grouped layout.** Configs written before the 7cb5890 regroup used flat keys (`brand.padding: 15`, `brand.iosPadding`, `brand.bgColor`, `brand.darkBgColor`, top-level `brand.notification`/`brand.splash`) and crashed auto-purge with `TypeError: Cannot create property 'ios' on number '15'`. `getConfigFile()` now normalizes them in memory to the grouped schema (`brand.padding.{ios, androidLegacy, androidAdaptive}`, `brand.android.{notification, splash}`, `brand.ios.darkBackground`, `brand.colors.background`) before applying defaults. When both legacy and new keys coexist, the new key wins. A single deprecation warning prints per config path per session — useful when running `purgetss` standalone; Alloy auto-purge will keep working silently either way.
+- **`logger.success` and `logger.warning` now exist.** ~30 callsites of `logger.warning` and ~10 of `logger.success` across `brand`, `images`, `cleanup-legacy`, and `svg-utils` referenced methods that were never defined on the logger object — only `warn`/`info`/`error`/`file`/`block`/`item` existed. Any opt-in command that hit one of those calls would throw `TypeError: logger.warning is not a function` (or `.success`). The auto-purge entry point that most users invoke does not reach those callsites, so the bug stayed latent until commands like `purgetss brand` or `purgetss images` were run. `success` emits in green via `chalk.green` and routes through `_emit()` so section-mode indentation works; `warning` is aliased by reference to `warn` so both names stay in sync if the impl ever changes.
+
 ## [7.10.1] - 2026-05-10
 
 ### Changed
