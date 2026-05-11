@@ -105,6 +105,71 @@ export function migrateConfigIfNeeded() {
   }
 }
 
+// Tracks configs already warned about in this process so the deprecation
+// notice prints once per session even if getConfigFile() is called many times.
+const _warnedLegacyBrand = new Set()
+
+/**
+ * Migrate the flat pre-7cb5890 `brand:` schema (padding as number, iosPadding,
+ * bgColor, darkBgColor, top-level notification/splash) into the grouped
+ * schema downstream code expects. Mutates in place; if both legacy and new
+ * keys coexist, the new key wins. Emits ONE warning per config path per session.
+ */
+function normalizeLegacyBrand(configFile, sourcePath) {
+  const brand = configFile.brand
+  if (!brand || typeof brand !== 'object') return
+
+  const hits = []
+
+  if (brand.padding != null && typeof brand.padding !== 'object') {
+    const value = brand.padding
+    brand.padding = { androidLegacy: value, androidAdaptive: value }
+    hits.push(`brand.padding: ${JSON.stringify(value)} → brand.padding.androidLegacy + brand.padding.androidAdaptive`)
+  }
+
+  if ('iosPadding' in brand) {
+    brand.padding = (brand.padding && typeof brand.padding === 'object') ? brand.padding : {}
+    brand.padding.ios = brand.padding.ios ?? brand.iosPadding
+    hits.push('brand.iosPadding → brand.padding.ios')
+    delete brand.iosPadding
+  }
+
+  if ('bgColor' in brand) {
+    brand.colors = brand.colors ?? {}
+    brand.colors.background = brand.colors.background ?? brand.bgColor
+    hits.push('brand.bgColor → brand.colors.background')
+    delete brand.bgColor
+  }
+
+  if ('darkBgColor' in brand) {
+    brand.ios = brand.ios ?? {}
+    brand.ios.darkBackground = brand.ios.darkBackground ?? brand.darkBgColor
+    hits.push('brand.darkBgColor → brand.ios.darkBackground')
+    delete brand.darkBgColor
+  }
+
+  if ('notification' in brand) {
+    brand.android = brand.android ?? {}
+    brand.android.notification = brand.android.notification ?? brand.notification
+    hits.push('brand.notification → brand.android.notification')
+    delete brand.notification
+  }
+
+  if ('splash' in brand) {
+    brand.android = brand.android ?? {}
+    brand.android.splash = brand.android.splash ?? brand.splash
+    hits.push('brand.splash → brand.android.splash')
+    delete brand.splash
+  }
+
+  if (hits.length > 0 && !_warnedLegacyBrand.has(sourcePath)) {
+    _warnedLegacyBrand.add(sourcePath)
+    logger.warn('Legacy brand: schema detected in purgetss/config.cjs — auto-migrated in memory:')
+    for (const hit of hits) logger.item(`  • ${hit}`)
+    logger.item('  Update purgetss/config.cjs to the new grouped schema to silence this warning.')
+  }
+}
+
 /**
  * Get configuration file with fallback to default template
  * Maintains exact same logic as original getConfigFile()
@@ -113,9 +178,10 @@ export function migrateConfigIfNeeded() {
  */
 export function getConfigFile() {
 
-  const configFile = (fs.existsSync(projectsConfigJS))
-    ? require(projectsConfigJS)
-    : require(srcConfigFile)
+  const sourcePath = fs.existsSync(projectsConfigJS) ? projectsConfigJS : srcConfigFile
+  const configFile = require(sourcePath)
+
+  normalizeLegacyBrand(configFile, sourcePath)
 
   // Apply default values following template structure
   configFile.purge = configFile.purge ?? {}
