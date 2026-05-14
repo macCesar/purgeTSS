@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 1600">
+  <rect x="0" y="0" width="4000" height="1600" fill="#10b981"/>
+  <text x="2000" y="900" font-family="Arial" font-size="400" fill="white" text-anchor="middle">v2</text>
+</svg>

@@ -36,7 +36,11 @@ module.exports = {
   images: {
     quality: 85,             // JPEG/WebP/AVIF quality (0-100)
     format: null,            // null = keep original; 'webp' | 'jpeg' | 'png' to convert every image
-    confirmOverwrites: true  // prompt before overwriting files (set false to skip)
+    confirmOverwrites: true, // prompt before overwriting files (set false to skip)
+    autoSync: true,          // false = SVG pipeline computes dims but doesn't write to images.files
+    files: [
+      { filename: 'images/logos/sample.svg', width: 800, height: 320 }
+    ]                // per-file overrides: [{ filename: 'images/<sub>/<name>.<ext>', width, height? }]
   },
   theme: {
     extend: {}

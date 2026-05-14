@@ -1,0 +1,17 @@
+{
+  "logos/sample.svg": {
+    "svgHash": "bab25533c28b3a584fba84196f9d9ccfd2d3c8fa",
+    "widthDp": 800,
+    "heightDp": 320,
+    "targets": [
+      "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/android/images/res-mdpi/logos/sample.png",
+      "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/android/images/res-hdpi/logos/sample.png",
+      "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/android/images/res-xhdpi/logos/sample.png",
+      "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/android/images/res-xxhdpi/logos/sample.png",
+      "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/android/images/res-xxxhdpi/logos/sample.png",
+      "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/iphone/images/logos/sample.png",
+      "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/iphone/images/logos/sample@2x.png",
+      "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/iphone/images/logos/sample@3x.png"
+    ]
+  }
+}

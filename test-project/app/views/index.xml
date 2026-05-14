@@ -1,5 +1,8 @@
 <Alloy>
   <Window id="index" class="w-full h-full bg-blue-500">
-    <Label class="text-white text-center">Hello PurgeTSS!</Label>
+    <View class="w-full h-full">
+      <ImageView class="w-(800) h-auto" image="/images/logos/sample.svg" top="20" />
+      <Label class="text-white text-center">Hello PurgeTSS!</Label>
+    </View>
   </Window>
 </Alloy>
