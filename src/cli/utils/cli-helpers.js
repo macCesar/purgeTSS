@@ -45,15 +45,25 @@ export function localStart() {
 }
 
 /**
- * Finish local timer and log execution time (only in debug mode)
- * Maintains exact same logic as original localFinish() function
+ * Finish local timer and log execution time (only in debug mode).
  *
- * @param {string} customMessage - Custom message to display
+ * Pass an empty string to print only the timing (without re-emitting the
+ * label) — useful when the caller already showed the section title via
+ * `logger.info` before calling `localStart()`. Anything else is printed
+ * verbatim with the timing appended.
+ *
+ * @param {string} customMessage - Label to print alongside the timing, or
+ *   `''` for timing-only mode.
  */
 export function localFinish(customMessage = 'Finished purging in') {
   const localEndTime = new Date(new Date() - localStartTime)
-  if (getDebugMode()) {
-    logger.info(customMessage, chalk.green(`${localEndTime.getSeconds()}s ${localEndTime.getMilliseconds()}ms`))
+  if (!getDebugMode()) return
+  const timing = chalk.green(`${localEndTime.getSeconds()}s ${localEndTime.getMilliseconds()}ms`)
+  if (customMessage === '') {
+    // Timing-only mode: caller already printed the label.
+    logger.info(timing)
+  } else {
+    logger.info(customMessage, timing)
   }
 }
 

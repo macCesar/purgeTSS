@@ -49,7 +49,7 @@ export function purgeFontAwesome(uniqueClasses, cleanUniqueClasses, debug = fals
     if (fs.existsSync(projectsFA_TSS_File)) {
       sourceFolder = projectsFA_TSS_File
       purgedClasses = '\n// Pro/Beta Font Awesome\n'
-      purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...')`
+      purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...`
     } else {
       sourceFolder = srcFontAwesomeTSSFile
       purgedClasses = '\n// Default Font Awesome\n'
@@ -128,9 +128,13 @@ export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUnique
 
   let purgedClasses = ''
   const sourceTSS = fs.readFileSync(sourceFolder, 'utf8')
+  const hasMatches = cleanUniqueClasses.some(element => sourceTSS.includes(`'.${element}'`))
 
-  if (cleanUniqueClasses.some(element => sourceTSS.includes(`'.${element}'`))) {
-    logger.info(message)
+  if (hasMatches) {
+    // In debug mode the label is emitted by localFinish inline with the timing.
+    // In non-debug mode this is the progress indicator (only shown when there's
+    // actual work for this font, matching pre-existing behavior).
+    if (!debug) logger.info(message)
     const sourceTSSFile = sourceTSS.split(/\r?\n/)
     uniqueClasses.forEach(className => {
       const cleanClassName = cleanClassNameFn(className)

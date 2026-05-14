@@ -48,7 +48,9 @@ function cleanClassNameFn(className) {
 export function purgeTailwind(uniqueClasses, debug = false) {
   if (debug) localStart()
 
-  logger.info('Purging', chalk.yellow('utilities.tss'), 'styles...')
+  // In debug mode, the section label is emitted by localFinish together with
+  // the timing (inline). In non-debug mode this line is the progress indicator.
+  if (!debug) logger.info('Purging', chalk.yellow('utilities.tss'), 'styles...')
 
   let purgedClasses = ''
   let tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/)
