@@ -199,7 +199,20 @@ function scaffoldGlossary() {
   }
 }
 
-let configFile = getConfigFile()
+// getConfigFile() runs at module import time, before bin/purgetss's catch
+// handler is wired up. If the config validator throws a presentable error
+// (isSyntaxError), print it cleanly and exit instead of letting Node surface
+// the raw stack on top of an already-formatted report.
+let configFile
+try {
+  configFile = getConfigFile()
+} catch (err) {
+  if (err && err.isSyntaxError) {
+    console.error(err.message)
+    process.exit(1)
+  }
+  throw err
+}
 configFile.purge = configFile.purge ?? { mode: 'all' }
 configFile.theme = configFile.theme ?? {}
 configFile.theme.extend = configFile.theme.extend ?? {}

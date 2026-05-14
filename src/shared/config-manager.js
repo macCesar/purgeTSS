@@ -23,6 +23,7 @@ import {
 } from './constants.js'
 import { logger } from './logger.js'
 import { makeSureFolderExists } from './utils.js'
+import { validateConfig } from './validation/config-validator.js'
 
 // Create require for ESM compatibility
 const require = createRequire(import.meta.url)
@@ -181,6 +182,7 @@ export function getConfigFile() {
   const sourcePath = fs.existsSync(projectsConfigJS) ? projectsConfigJS : srcConfigFile
   const configFile = require(sourcePath)
 
+  validateConfig(configFile, sourcePath)
   normalizeLegacyBrand(configFile, sourcePath)
 
   // Apply default values following template structure
