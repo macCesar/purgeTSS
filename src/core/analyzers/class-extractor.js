@@ -72,6 +72,60 @@ export function extractClasses(currentText, currentFile) {
 }
 
 /**
+ * Extract SVG image references from XML content.
+ *
+ * For each XML node whose `image` or `backgroundImage` attribute ends in `.svg`,
+ * capture the SVG src alongside the same node's `class` attribute (split into
+ * tokens). Powers the SVG image pipeline so it can pair each reference with the
+ * classes that determine its rendered size.
+ *
+ * Multiple references to the same SVG from different nodes are returned as
+ * separate entries — the caller is responsible for de-duplicating and reducing
+ * to a single resolved dimension.
+ *
+ * @param {string} currentText - XML content to parse.
+ * @param {string} currentFile - File path for error reporting.
+ * @returns {Array<{ src: string, classes: string[] }>} References found.
+ */
+export function extractSvgRefsFromXml(currentText, currentFile) {
+  try {
+    const jsontext = convert.xml2json(encodeHTML(currentText), { compact: true })
+    const json = JSON.parse(jsontext)
+    const refs = []
+    walkXmlForSvgRefs(json, refs)
+    return refs
+  } catch (error) {
+    throw chalk.red(`::PurgeTSS:: Error processing: "${currentFile}"\n`, error)
+  }
+}
+
+function walkXmlForSvgRefs(node, out) {
+  if (!node || typeof node !== 'object') return
+  if (Array.isArray(node)) {
+    for (const item of node) walkXmlForSvgRefs(item, out)
+    return
+  }
+
+  const attrs = node._attributes
+  if (attrs && typeof attrs === 'object') {
+    const candidates = []
+    if (typeof attrs.image === 'string') candidates.push(attrs.image)
+    if (typeof attrs.backgroundImage === 'string') candidates.push(attrs.backgroundImage)
+    for (const src of candidates) {
+      if (!src.toLowerCase().endsWith('.svg')) continue
+      const cls = typeof attrs.class === 'string' ? attrs.class : ''
+      const classes = cls.split(/\s+/).filter(Boolean)
+      out.push({ src, classes })
+    }
+  }
+
+  for (const key of Object.keys(node)) {
+    if (key === '_attributes') continue
+    walkXmlForSvgRefs(node[key], out)
+  }
+}
+
+/**
  * Extract only classes from XML content - COPIED exactly from original extractClassesOnly() function
  * NO CHANGES to logic, preserving 100% of original functionality
  *

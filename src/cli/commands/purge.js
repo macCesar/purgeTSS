@@ -32,6 +32,7 @@ import { getConfigOptions, getConfigFile, ensureConfig } from '../../shared/conf
 
 // Import purger functions from core modules
 import { processControllers } from '../../core/analyzers/class-extractor.js'
+import { runSvgPipeline } from '../../core/svg/index.js'
 import { purgeTailwind } from '../../core/purger/tailwind-purger.js'
 import { flushSemanticColors } from '../../shared/semantic-helpers.js'
 import {
@@ -667,7 +668,7 @@ function saveFile(file, data) {
  * @param {Object} options - Command options
  * @returns {boolean} - Success status
  */
-export function purgeClasses(options) {
+export async function purgeClasses(options) {
   // Initialize configOptions first (includes auto-migration)
   configOptions = getConfigOptions()
 
@@ -676,6 +677,9 @@ export function purgeClasses(options) {
   }
 
   purgingDebug = options.debug
+  // Propagate to the logger module so localFinish (cli-helpers.js) sees it.
+  // The local `purgingDebug` is still needed for the purger callees below.
+  setDebugMode(options.debug)
 
   const recentlyCreated = makeSureFileExists(projectsAppTSS)
 
@@ -738,6 +742,15 @@ export function purgeClasses(options) {
       saveFile(projectsAppTSS, tempPurged)
 
       logger.file('app.tss')
+
+      // Post-step: compile SVG references found in views/controllers into
+      // multi-density PNGs sized from the just-resolved app.tss classes.
+      await runSvgPipeline({
+        tssContent: tempPurged,
+        viewPaths: getViewPaths(),
+        controllerPaths: getControllerPaths(),
+        logger
+      })
 
       finish()
     } finally {
