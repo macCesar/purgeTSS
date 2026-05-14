@@ -78,7 +78,10 @@ export const IPHONE_SCALES = Object.freeze([
 // 1, 2, 3 for iPhone) only because every entry in *_SCALES is normalized to
 // n/4 with the largest scale (xxxhdpi/@4x) at 4/4. If a future density is
 // added beyond xxxhdpi, this conversion factor needs to be revisited.
-function computeScaleTarget(srcMeta, factor, baseWidth) {
+//
+// `baseHeight` pins the height explicitly (e.g. SVG pipeline resolved both
+// w-* and h-* to numbers); when omitted, height follows the source aspect.
+function computeScaleTarget(srcMeta, factor, baseWidth, baseHeight) {
   if (baseWidth == null) {
     return {
       targetWidth: Math.max(1, Math.round(srcMeta.width * factor)),
@@ -87,11 +90,17 @@ function computeScaleTarget(srcMeta, factor, baseWidth) {
   }
   const multiplier = factor * 4
   const aspect = srcMeta.width > 0 ? (srcMeta.height / srcMeta.width) : 1
-  return {
-    targetWidth: Math.max(1, Math.round(baseWidth * multiplier)),
-    targetHeight: Math.max(1, Math.round(baseWidth * multiplier * aspect))
-  }
+  const targetWidth = Math.max(1, Math.round(baseWidth * multiplier))
+  const targetHeight = baseHeight != null
+    ? Math.max(1, Math.round(baseHeight * multiplier))
+    : Math.max(1, Math.round(baseWidth * multiplier * aspect))
+  return { targetWidth, targetHeight }
 }
+
+// Hard ceiling for any individual PNG output. Mirrors the constant exported
+// from the SVG pipeline; centralizing it here would create a cycle, so we keep
+// a local copy and rely on derive-dimensions to enforce the dp-side budget.
+const MAX_OUTPUT_PIXELS = 4096
 
 /**
  * Scale a source image into all Android density variants.
@@ -105,12 +114,13 @@ function computeScaleTarget(srcMeta, factor, baseWidth) {
  * @returns {Promise<string[]>} Paths written
  */
 export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts = {}) {
-  const { format = null, quality = 85, baseWidth = null, opacity = null, padding = null } = opts
+  const { format = null, quality = 85, baseWidth = null, baseHeight = null, opacity = null, padding = null } = opts
   const src = await readSource(sourceFile)
   const written = []
 
   for (const { name, factor } of ANDROID_SCALES) {
-    const { targetWidth, targetHeight } = computeScaleTarget(src.meta, factor, baseWidth)
+    const { targetWidth, targetHeight } = computeScaleTarget(src.meta, factor, baseWidth, baseHeight)
+    assertWithinCap(targetWidth, targetHeight, sourceFile, name)
 
     const outDir = path.join(androidBaseDir, name, path.dirname(relPath))
     fs.mkdirSync(outDir, { recursive: true })
@@ -132,7 +142,7 @@ export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts
  * @returns {Promise<string[]>} Paths written
  */
 export async function genIphoneScales(sourceFile, relPath, iphoneBaseDir, opts = {}) {
-  const { format = null, quality = 85, baseWidth = null, opacity = null, padding = null } = opts
+  const { format = null, quality = 85, baseWidth = null, baseHeight = null, opacity = null, padding = null } = opts
   const src = await readSource(sourceFile)
   const written = []
 
@@ -141,7 +151,8 @@ export async function genIphoneScales(sourceFile, relPath, iphoneBaseDir, opts =
   fs.mkdirSync(outDir, { recursive: true })
 
   for (const { suffix, factor } of IPHONE_SCALES) {
-    const { targetWidth, targetHeight } = computeScaleTarget(src.meta, factor, baseWidth)
+    const { targetWidth, targetHeight } = computeScaleTarget(src.meta, factor, baseWidth, baseHeight)
+    assertWithinCap(targetWidth, targetHeight, sourceFile, suffix || '@1x')
 
     // SVG sources can't be written as SVG by Sharp — fall back to PNG if the
     // user didn't specify an explicit output format.
@@ -153,6 +164,15 @@ export async function genIphoneScales(sourceFile, relPath, iphoneBaseDir, opts =
     written.push(outPath)
   }
   return written
+}
+
+function assertWithinCap(width, height, sourceFile, label) {
+  if (width > MAX_OUTPUT_PIXELS || height > MAX_OUTPUT_PIXELS) {
+    throw new Error(
+      `${path.basename(sourceFile)} at ${label} would render ${width}×${height}px, ` +
+      `which exceeds the ${MAX_OUTPUT_PIXELS}px cap. Reduce the resolved width or override it manually in config.cjs > images.files.`
+    )
+  }
 }
 
 function renameWithFormat(filename, format, isSvg = false) {

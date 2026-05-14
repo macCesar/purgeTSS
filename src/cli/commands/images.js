@@ -105,7 +105,8 @@ export async function images(cliSource, options = {}) {
       outputRelpath,
       dryRun: Boolean(options.dryRun),
       yes: Boolean(options.yes),
-      confirmOverwrites: cfg.confirmOverwrites !== false
+      confirmOverwrites: cfg.confirmOverwrites !== false,
+      filesOverrides: Array.isArray(cfg.files) ? cfg.files : []
     })
   } catch (err) {
     logger.error(err.message)
@@ -151,7 +152,7 @@ function printMissingSourceHelp(projectRoot) {
   logger.error('No source images found.')
   console.log()
   console.log(`  Expected images inside ${chalk.cyan(rel(imagesDir) + '/')}.`)
-  console.log(`  The folder already exists — drop your images into it (subdirectories are preserved):`)
+  console.log('  The folder already exists — drop your images into it (subdirectories are preserved):')
   console.log(`     ${chalk.cyan('cp my-ui-asset.png ' + rel(imagesDir) + '/')}`)
   console.log()
   console.log('  Alternatives:')

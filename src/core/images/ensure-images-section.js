@@ -22,7 +22,9 @@ import { logger } from '../branding/branding-logger.js'
 const IMAGES_BLOCK = `  images: {
     quality: 85,             // JPEG/WebP/AVIF quality (0-100)
     format: null,            // null = keep original; 'webp' | 'jpeg' | 'png' to convert every image
-    confirmOverwrites: true  // prompt before overwriting files (set false to skip)
+    confirmOverwrites: true, // prompt before overwriting files (set false to skip)
+    autoSync: true,          // false = SVG pipeline computes dims but doesn't write to images.files
+    files: []                // per-file overrides: [{ filename: 'images/<sub>/<name>.<ext>', width, height? }]
   },
 `
 
@@ -47,11 +49,11 @@ export function ensureImagesSection() {
     fs.writeFileSync(projectsConfigJS, patched, 'utf8')
     console.log()
     logger.success(`Added ${chalk.cyan('images:')} section to ${chalk.cyan('./purgetss/config.cjs')} with default values.`)
-    console.log(`  Edit that block to customize defaults (quality, format).`)
-    console.log(`  CLI flags always win over config values.`)
+    console.log('  Edit that block to customize defaults (quality, format).')
+    console.log('  CLI flags always win over config values.')
     console.log()
   } catch (err) {
     logger.warning(`Could not auto-add images: section to config.cjs (${err.message}).`)
-    logger.warning(`The command will still run using built-in defaults.`)
+    logger.warning('The command will still run using built-in defaults.')
   }
 }

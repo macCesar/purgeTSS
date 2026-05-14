@@ -17,6 +17,7 @@
 
 import fs from 'fs'
 import path from 'path'
+import sharp from 'sharp'
 import { logger } from '../branding/branding-logger.js'
 import { logger as mainLogger } from '../../shared/logger.js'
 import { confirmWithAlways } from '../../shared/prompt.js'
@@ -41,7 +42,8 @@ export async function runImages(opts) {
     outputRelpath = null, // basename + subfolder relative to images root, no extension
     dryRun = false,
     yes = false,
-    confirmOverwrites = true
+    confirmOverwrites = true,
+    filesOverrides = []  // [{ filename: 'images/<relpath>', width, height? }, …]
   } = opts
 
   if (!fs.existsSync(source)) {
@@ -57,9 +59,24 @@ export async function runImages(opts) {
 
   const files = collectImageFiles(source)
 
-  if (baseWidth == null && files.some(f => path.extname(f).toLowerCase() === '.svg')) {
-    logger.warning('⚠  SVG source detected without --width. Output sizes will be derived from each SVG\'s viewBox (treated as a 4× master).')
-    logger.warning('   For SVGs from vector editors with disproportionate viewBoxes, pass --width <n> (e.g. --width 256) to pin the @1x/mdpi width.')
+  // Build a lookup keyed by `images/<subpath>` so per-file `width`/`height`
+  // declared in `config.cjs > images.files` can override the directory scan's
+  // default sizing. CLI `--width` still wins over both.
+  const overrides = buildOverridesMap(filesOverrides)
+  const imagesFolderForKey = projectRoot === process.cwd()
+    ? projectsPurge_TSS_Images_Folder
+    : path.join(projectRoot, 'purgetss', 'images')
+
+  if (baseWidth == null) {
+    const uncoveredSvgs = files.filter(f => {
+      if (path.extname(f).toLowerCase() !== '.svg') return false
+      const key = overrideKeyFor(f, imagesFolderForKey)
+      return !overrides.has(key)
+    })
+    if (uncoveredSvgs.length > 0) {
+      logger.warning('⚠  SVG source detected without --width and no entry in config.cjs > images.files. Output sizes will be derived from each SVG\'s viewBox (treated as a 4× master).')
+      logger.warning('   For SVGs from vector editors with disproportionate viewBoxes, pass --width <n> (e.g. --width 256) or add an entry to images.files to pin the @1x/mdpi width.')
+    }
   }
 
   console.log()
@@ -86,7 +103,7 @@ export async function runImages(opts) {
 
   if (!dryRun && confirmOverwrites) {
     logger.warning(`⚠  Scaled images will OVERWRITE existing variants under ${androidBaseDir} and ${iphoneBaseDir}.`)
-    logger.warning(`   Commit first if you want a rollback.`)
+    logger.warning('   Commit first if you want a rollback.')
     const choice = await confirmWithAlways('Continue? [y/N/a]', { yes })
     if (choice === 'no') {
       logger.info('Aborted.')
@@ -104,8 +121,8 @@ export async function runImages(opts) {
   }
 
   if (projectType === 'unknown') {
-    logger.warning(`Could not detect project layout. Expected 'app/' (Alloy) or 'Resources/' (Classic).`)
-    logger.warning(`Assets will still be written to the detected default paths — verify the output.`)
+    logger.warning('Could not detect project layout. Expected \'app/\' (Alloy) or \'Resources/\' (Classic).')
+    logger.warning('Assets will still be written to the detected default paths — verify the output.')
   }
 
   // Relative paths preserve the user's subdirectory structure inside purgetss/images/.
@@ -136,12 +153,36 @@ export async function runImages(opts) {
 
     if (dryRun) continue
 
+    // Per-file resolution: CLI --width wins; if absent, fall back to the
+    // entry in `images.files` (if any); else null (gen-scales reads viewBox).
+    const override = overrides.get(overrideKeyFor(file, imagesFolderForKey))
+    const effectiveBaseWidth = baseWidth ?? override?.width ?? null
+    const effectiveBaseHeight = baseWidth != null ? null : (override?.height ?? null)
+
+    // Quality warning: if the user pinned a width (via CLI or `files`), the
+    // source must carry at least `width × 4` pixels — that's what xxxhdpi/@4x
+    // needs. Anything smaller forces Sharp to upscale, producing blurry output.
+    // SVG sources are vector and exempt from this check.
+    if (effectiveBaseWidth != null && path.extname(file).toLowerCase() !== '.svg') {
+      const meta = await sharp(file).metadata()
+      const requiredXxxhdpi = effectiveBaseWidth * 4
+      if (Number.isFinite(meta.width) && meta.width < requiredXxxhdpi) {
+        logger.warning(
+          `⚠  ${relPath}: source is ${meta.width}px wide but xxxhdpi needs ${requiredXxxhdpi}px (4× of declared ${effectiveBaseWidth}dp @1x). Output will be upscaled and may look blurry — provide a source ≥ ${requiredXxxhdpi}px.`
+        )
+      }
+    }
+
     if (!iphoneOnly) {
-      const androidFiles = await genAndroidScales(file, relPath, androidBaseDir, { format, quality, baseWidth, opacity, padding })
+      const androidFiles = await genAndroidScales(file, relPath, androidBaseDir, {
+        format, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
+      })
       written.push(...androidFiles)
     }
     if (!androidOnly) {
-      const iphoneFiles = await genIphoneScales(file, relPath, iphoneBaseDir, { format, quality, baseWidth, opacity, padding })
+      const iphoneFiles = await genIphoneScales(file, relPath, iphoneBaseDir, {
+        format, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
+      })
       written.push(...iphoneFiles)
     }
   }
@@ -168,6 +209,31 @@ function resolveOutputDirs(projectRoot, projectType) {
     androidBaseDir: path.join(projectRoot, 'app', 'assets', 'android', 'images'),
     iphoneBaseDir: path.join(projectRoot, 'app', 'assets', 'iphone', 'images')
   }
+}
+
+// Normalize a config `images.files` entry list into a Map keyed by filename.
+// Invalid entries (missing filename, non-numeric width) are silently skipped
+// so a typo in config doesn't crash the whole pipeline.
+function buildOverridesMap(entries) {
+  const map = new Map()
+  if (!Array.isArray(entries)) return map
+  for (const entry of entries) {
+    if (!entry || typeof entry.filename !== 'string') continue
+    if (typeof entry.width !== 'number' || !Number.isFinite(entry.width)) continue
+    const key = entry.filename.replace(/^\/+/, '')
+    map.set(key, {
+      width: entry.width,
+      height: typeof entry.height === 'number' && Number.isFinite(entry.height) ? entry.height : null
+    })
+  }
+  return map
+}
+
+// Match the key shape stored in `config.cjs > images.files`:
+// `images/<subpath>/<name>.<ext>` relative to `purgetss/images/`.
+function overrideKeyFor(file, imagesFolder) {
+  const rel = path.relative(imagesFolder, file).split(path.sep).join('/')
+  return rel.startsWith('..') ? null : `images/${rel}`
 }
 
 function collectImageFiles(source) {
