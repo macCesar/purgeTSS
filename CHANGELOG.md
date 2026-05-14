@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.11.0] - 2026-05-14
+
+### Added
+- **SVG-aware compile-time image pipeline as a post-step of `purgetss`.** When views or controllers reference `image="/images/<sub>/<name>.svg"` (or `backgroundImage="..."`) alongside utility classes that resolve to numeric width/height (`w-32`, `w-(300)`, `h-auto`, …), purge now compiles those SVGs into the 8 Titanium density variants (5 Android + 3 iPhone PNGs) using dimensions resolved from `app.tss` after the regular purge finishes. Titanium loads the generated `.png` automatically at runtime when the XML/Controller references `.svg`. Cache lives at `purgetss/.cache/svg-images.json` (add to `.gitignore`). The SVG attribute stays untouched in your source — never rewritten.
+- **`images.files` array in `config.cjs` as per-file override.** Pin width/height for individual files in `purgetss/images/`: `[{ filename: 'images/logos/logo.png', width: 128, height: 52 }, ...]`. When `purgetss images` runs, entries override the source's natural dimensions; CLI `--width` still wins over both. For SVGs detected by the purge SVG pipeline, entries populate automatically (subject to `images.autoSync`). Raster entries you add by hand survive subsequent runs untouched.
+- **`images.autoSync` boolean (default `true`).** Opt-out for devs who manage `images.files` by hand — when `false`, purge still computes dimensions and generates PNGs, but never writes back to `config.cjs`.
+- **Quality warning when a raster source is too small for its declared width.** Sources smaller than `width × 4` (the xxxhdpi/@4x requirement) trigger a non-blocking warning with exact numbers. SVGs are exempt (vector, no upscale penalty).
+- **`config.cjs` syntax validator with formatted error block.** Type mismatches in known fields (currently `theme.fontFamily.*` and `theme.extend.fontFamily.*`) print a `Config Syntax Error` block with file, JSON path, context, issue, and a fix snippet — replacing cryptic downstream crashes like `rule.startsWith is not a function`. Validator runs at config load time in `getConfigFile()` and is wired into `auto-utilities-builder.js` so the formatted error survives module-import-time throws. Extend by adding entries to `FIELD_RULES` in `src/shared/validation/config-validator.js`.
+
+### Changed
+- **Debug logging inlines timing with section labels.** In `--debug` runs, `Purging utilities.tss styles… 0s 42ms` now renders as a single line instead of label + separate timing on the next line; non-debug output is unchanged. Driven by a new `''` mode on `localFinish` that prints timing-only when the caller already emitted the section label.
+
+### Other
+- `bin/purgetss` now prints the full stack trace under `PURGETSS_DEBUG=1` for unhandled command errors (no behavior change without the env var).
+- Internal proposals added under `docs/`: error-reporting consolidation and JIT class resolution refactor (drafts, no functional impact).
+
 ## [7.10.2] - 2026-05-11
 
 ### Fixed
