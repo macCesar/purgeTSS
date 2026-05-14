@@ -76,6 +76,7 @@ program
       }
     } catch (error) {
       console.error(chalk.red('Error running command:'), error.message)
+      if (process.env.PURGETSS_DEBUG) console.error(error.stack)
       process.exit(1)
     }
   })
