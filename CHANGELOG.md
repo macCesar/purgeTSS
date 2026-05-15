@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+- **`version` lifecycle hook in `package.json`.** Added in 7.11.1 to regenerate `dist/` and `assets/fonts/` on `npm version`, but npm 11.13.0 does not fire the hook when `--no-git-tag-version` is supplied (which is the mode `/release` uses). The hook never executed in practice; removed to avoid the misleading config.
+
 ## [7.11.1] - 2026-05-14
 
 ### Fixed
