@@ -134,6 +134,13 @@ async function generatePngs({ derived, imagesFolder, logger }) {
   let generated = 0
   let cached = 0
 
+  // The SVG pipeline always emits PNG, even if `images.format` is set to
+  // 'webp' / 'jpeg' / etc. for the standalone `purgetss images` command.
+  // Verified empirically: Titanium's `image="/.../foo.svg"` runtime fallback
+  // resolves to `.png` only — `.webp` and other formats are not picked up.
+  // Honoring images.format here would silently generate files Titanium can't
+  // load. The standalone command keeps respecting format for raster sources
+  // (where the reference uses the actual extension).
   for (const [relPath, { widthDp, heightDp }] of derived) {
     const absSvg = path.join(imagesFolder, relPath)
     const relForOutput = swapExt(relPath, '.png')
@@ -194,9 +201,9 @@ function swapExt(relPath, newExt) {
   return path.join(parsed.dir, parsed.name + newExt)
 }
 
-// Read `images.autoSync` from config; defaults to true. Anything goes wrong
-// (config missing, parse error) → assume autoSync stays on, mirroring V1
-// behavior so existing projects don't get a surprise opt-out.
+// Read `images.autoSync` from config; defaults to true. The SVG pipeline
+// ignores `images.format` / `images.quality` on purpose — see the comment in
+// generatePngs about Titanium's .svg → .png-only fallback.
 function readAutoSyncFlag() {
   try {
     const cfg = getConfigFile()

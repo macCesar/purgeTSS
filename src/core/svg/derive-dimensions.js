@@ -67,36 +67,33 @@ export async function deriveDimensions({ refsBySvg, tssMap, imagesFolder, logger
       }
     }
 
-    if (numericWidths.length === 0) {
+    if (numericWidths.length === 0 && numericHeights.length === 0) {
       logger.warning(
-        `⚠  ${relPath}: no class resolved width to a number (Ti.UI.SIZE / percentages / unknown classes) — skipping. ` +
-        'Add an entry under images.files in purgetss/config.cjs if you need this SVG generated.'
+        `⚠  ${relPath}: no class resolved width or height to a number — skipping. ` +
+        'Add a w-* or h-* utility on the view, or pin the size manually in purgetss/config.cjs > images.files.'
       )
       continue
     }
 
-    let viewBox
     try {
-      viewBox = await readViewBox(absPath)
+      await readViewBox(absPath)
     } catch (err) {
       logger.warning(`⚠  ${relPath}: ${err.message} — skipping`)
       continue
     }
 
-    const widthDp = Math.max(...numericWidths)
-    const heightDp = numericHeights.length > 0
-      ? Math.max(...numericHeights)
-      : proportionalHeight(widthDp, viewBox)
+    // Symmetric materialization: only the dimensions the developer pinned
+    // explicitly land in config.cjs. The other side is derived from the SVG
+    // aspect by gen-scales on every run, so it stays in sync with viewBox
+    // edits and class changes without stale "stuck" values getting cemented
+    // into config the way auto-derived heights used to.
+    const widthDp = numericWidths.length > 0 ? Math.max(...numericWidths) : null
+    const heightDp = numericHeights.length > 0 ? Math.max(...numericHeights) : null
 
     resolved.set(relPath, { widthDp, heightDp })
   }
 
   return resolved
-}
-
-function proportionalHeight(widthDp, { vbW, vbH }) {
-  if (!vbW || !vbH) return widthDp
-  return Math.max(1, Math.round(widthDp * (vbH / vbW)))
 }
 
 async function readViewBox(absPath) {

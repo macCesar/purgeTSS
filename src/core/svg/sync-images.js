@@ -59,23 +59,30 @@ export function syncConfigImages(derived, { logger, write = true } = {}) {
     const filename = toFilename(relPath)
     const existing = findEntry(source, filename)
     if (existing) {
-      const desired = { width: Math.max(existing.width || 0, widthDp) }
-      if (heightDp || existing.height) {
-        desired.height = Math.max(existing.height || 0, heightDp || 0)
-      }
+      // autoSync ON (this code path): config mirrors the current run. The
+      // derived numbers already reflect max() across every reference to this
+      // SVG in this run (see derive-dimensions.js) — sync just writes them
+      // through. No second max against the previous run, which would freeze
+      // shrunk classes at their old larger size. Users who want to pin a
+      // value by hand should set images.autoSync: false (write=false), which
+      // skips this file write entirely.
+      const desired = {}
+      if (widthDp != null) desired.width = widthDp
+      if (heightDp != null) desired.height = heightDp
 
-      const widthSame = (existing.width || 0) === desired.width
-      const heightSame = !desired.height || (existing.height || 0) === desired.height
+      const widthSame = (existing.width ?? null) === (desired.width ?? null)
+      const heightSame = (existing.height ?? null) === (desired.height ?? null)
       if (widthSame && heightSame) {
         stats.untouched++
       } else {
         source = replaceEntry(source, existing, filename, desired)
         stats.updated++
       }
-      effective.set(relPath, { widthDp: desired.width, heightDp: desired.height ?? null })
+      effective.set(relPath, { widthDp: desired.width ?? null, heightDp: desired.height ?? null })
     } else {
-      const entry = { width: widthDp }
-      if (heightDp) entry.height = heightDp
+      const entry = {}
+      if (widthDp != null) entry.width = widthDp
+      if (heightDp != null) entry.height = heightDp
       const next = insertEntry(source, filename, entry)
       if (next === null) {
         logger?.warning(`Could not insert ${filename} into images.files (section missing or unreadable).`)
@@ -88,7 +95,13 @@ export function syncConfigImages(derived, { logger, write = true } = {}) {
     }
   }
 
-  if (write) {
+  // Only write when we actually mutated `source`. The loop above only mutates
+  // it inside the inserted/updated branches; `untouched` leaves it byte-identical
+  // to disk. Skipping the write avoids touching the mtime, which other parts of
+  // PurgeTSS use to invalidate utilities.tss — gratuitous mtime bumps would
+  // trigger needless rebuilds. Derive + effective + the SVG cache still run
+  // either way, so generation/validation is unaffected.
+  if (write && (stats.inserted > 0 || stats.updated > 0)) {
     fs.writeFileSync(projectsConfigJS, source, 'utf8')
   }
   return { stats, effective }
@@ -127,8 +140,10 @@ function replaceEntry(source, existing, filename, desired) {
 }
 
 function renderEntry(filename, { width, height }) {
-  const heightPart = height != null ? `, height: ${height}` : ''
-  return `{ filename: '${filename}', width: ${width}${heightPart} }`
+  const parts = [`filename: '${filename}'`]
+  if (width != null) parts.push(`width: ${width}`)
+  if (height != null) parts.push(`height: ${height}`)
+  return `{ ${parts.join(', ')} }`
 }
 
 // Insert a new entry into the images.files array. Returns the mutated source
@@ -200,13 +215,24 @@ function appendTrailingCommaIfNeeded(text) {
 }
 
 function matchImagesSection(source) {
-  const m = source.match(/^([ \t]*)images\s*:\s*\{([\s\S]*?)\n([ \t]*)\}/m)
+  // Locate the `images:` key, then bracket-balance to its matching `}`.
+  // The previous lazy-regex approach mis-identified the closing brace whenever
+  // `images: { ... }` was written on a single line (no `\n indent }` to anchor
+  // on) — it swallowed sibling sections and dropped `files: []` into whichever
+  // nested block happened to close first. Bracket-balancing works regardless
+  // of formatting, matching what the rest of PurgeTSS expects from config.cjs.
+  const m = source.match(/^([ \t]*)images\s*:\s*\{/m)
   if (!m) return null
+
+  const openIdx = m.index + m[0].length - 1
+  const closeIdx = matchBracket(source, openIdx, '{', '}')
+  if (closeIdx === -1) return null
+
   return {
     start: m.index,
-    end: m.index + m[0].length, // index right after '}'
+    end: closeIdx + 1,
     indent: m[1],
-    body: m[2]
+    body: source.slice(openIdx + 1, closeIdx)
   }
 }
 

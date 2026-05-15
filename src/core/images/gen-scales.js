@@ -82,18 +82,32 @@ export const IPHONE_SCALES = Object.freeze([
 // `baseHeight` pins the height explicitly (e.g. SVG pipeline resolved both
 // w-* and h-* to numbers); when omitted, height follows the source aspect.
 function computeScaleTarget(srcMeta, factor, baseWidth, baseHeight) {
-  if (baseWidth == null) {
+  // No pin in either direction → fall back to the source as the 4× master.
+  if (baseWidth == null && baseHeight == null) {
     return {
       targetWidth: Math.max(1, Math.round(srcMeta.width * factor)),
       targetHeight: Math.max(1, Math.round(srcMeta.height * factor))
     }
   }
   const multiplier = factor * 4
-  const aspect = srcMeta.width > 0 ? (srcMeta.height / srcMeta.width) : 1
-  const targetWidth = Math.max(1, Math.round(baseWidth * multiplier))
-  const targetHeight = baseHeight != null
-    ? Math.max(1, Math.round(baseHeight * multiplier))
-    : Math.max(1, Math.round(baseWidth * multiplier * aspect))
+  const widthOverHeight = srcMeta.width > 0 && srcMeta.height > 0
+    ? srcMeta.width / srcMeta.height
+    : 1
+  const heightOverWidth = srcMeta.width > 0 && srcMeta.height > 0
+    ? srcMeta.height / srcMeta.width
+    : 1
+
+  if (baseWidth != null) {
+    const targetWidth = Math.max(1, Math.round(baseWidth * multiplier))
+    const targetHeight = baseHeight != null
+      ? Math.max(1, Math.round(baseHeight * multiplier))
+      : Math.max(1, Math.round(baseWidth * multiplier * heightOverWidth))
+    return { targetWidth, targetHeight }
+  }
+
+  // Height pinned, width derived from inverse aspect.
+  const targetHeight = Math.max(1, Math.round(baseHeight * multiplier))
+  const targetWidth = Math.max(1, Math.round(baseHeight * multiplier * widthOverHeight))
   return { targetWidth, targetHeight }
 }
 
