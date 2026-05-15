@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.11.1] - 2026-05-14
+
+### Fixed
+- **Symmetric width/height cascade in the SVG image pipeline.** `deriveDimensions` now accepts width-only, height-only, or both; the unpinned side stays `null` in `images.files` and `gen-scales` derives it from the SVG viewBox on every run (no more stale auto-derived heights cemented in config). `gen-scales` resolves height-only sources by computing width from the inverse aspect.
+- **`syncConfigImages` mirrors the current run instead of taking `max()` across runs.** Shrinking a class (e.g. `h-52` → `h-16`) now propagates to `config.cjs` instead of freezing the entry at the larger past size. Manual pinning still available via `images.autoSync: false`.
+- **Bracket-balanced `matchImagesSection` in `sync-images.js`.** The previous lazy regex mis-detected the closing brace when `images: { ... }` was written on a single line, dropping `files: []` into the first nested block to close (e.g. `theme.extend.colors.wheel`). Replaced with bracket counting.
+- **`syncConfigImages` no longer bumps `config.cjs` mtime on untouched runs.** Skips the file write when `inserted === 0 && updated === 0`, preventing gratuitous `utilities.tss` rebuilds triggered by mtime changes.
+- **`purgetss images` respects `--yes` for overwrite confirmations.** The prompt no longer reappears when `--yes` is supplied on the CLI.
+- **SVGs listed in `images.files` always emit PNG.** Titanium's `.svg → .png`-only runtime fallback means other formats wouldn't load; the standalone `purgetss images` command now forces `.png` for SVG sources in `images.files` regardless of `images.format`. Raster files and SVGs not in `images.files` still honor `format`.
+- **Per-file bullet log surfaces width source and output format.** `purgetss images` prints `<relPath> → <Ndp> (CLI --width | files | viewBox | source 4×) · <format>` so the active resolution and any forced format are visible per file.
+- **Restore `src/dev/builders/tailwind-builder.js` wrapper.** The file deleted as "orphan" in commit 0208a18 was actually the entry point for the `npm run build:tailwind` script. Restored and re-pointed at `src/core/builders/auto-utilities-builder.js` (the new home of `autoBuildUtilitiesTSS`).
+
+### Changed
+- **`npm version` runs `npm run build` and stages `dist/` + `assets/fonts/` via the `version` lifecycle script** so version-bearing build artifacts stay in sync with the bumped version. (Caveat: in npm 11.13.0, `--no-git-tag-version` does not fire this hook automatically; `/release` works around it by invoking the build manually.)
+
+### Other
+- autoSync ordering aligned between config template and `ensure-images-section.js` so the generated `images:` block matches the literal template.
+- Unit tests added for `sync-images.js` (11 cases covering bracket-balanced section detection, cascade policy, and symmetric width/height handling).
+
 ## [7.11.0] - 2026-05-14
 
 ### Added
