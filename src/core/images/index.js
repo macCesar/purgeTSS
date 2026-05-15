@@ -101,7 +101,7 @@ export async function runImages(opts) {
     return { written: [] }
   }
 
-  if (!dryRun && confirmOverwrites) {
+  if (!dryRun && confirmOverwrites && !yes) {
     logger.warning(`⚠  Scaled images will OVERWRITE existing variants under ${androidBaseDir} and ${iphoneBaseDir}.`)
     logger.warning('   Commit first if you want a rollback.')
     const choice = await confirmWithAlways('Continue? [y/N/a]', { yes })
@@ -149,9 +149,6 @@ export async function runImages(opts) {
     const relPath = outputRelpath != null
       ? outputRelpath + path.extname(file)
       : path.relative(sourceRoot, file)
-    logger.bullet(relPath)
-
-    if (dryRun) continue
 
     // Per-file resolution: CLI --width wins; if absent, fall back to the
     // entry in `images.files` (if any); else null (gen-scales reads viewBox).
@@ -159,11 +156,38 @@ export async function runImages(opts) {
     const effectiveBaseWidth = baseWidth ?? override?.width ?? null
     const effectiveBaseHeight = baseWidth != null ? null : (override?.height ?? null)
 
+    // SVGs listed in `images.files` are almost always referenced from views/
+    // controllers as `image="/.../foo.svg"`, and Titanium's runtime only falls
+    // back from a `.svg` reference to `.png` (verified empirically — not to
+    // .webp, .jpeg, etc.). Forcing PNG here prevents the standalone command
+    // from quietly emitting a format Titanium can't load via that fallback.
+    // Raster files in `files` and SVGs NOT in `files` still honor `format`.
+    const ext = path.extname(file).toLowerCase()
+    const isSvg = ext === '.svg'
+    const isSvgInFiles = override != null && isSvg
+    const effectiveFormat = isSvgInFiles ? null : format
+
+    // Build an informative bullet so the user can see which decisions applied
+    // per file: source of width, where it came from, and the actual output
+    // format (especially when PNG is forced for SVGs in `files`).
+    const widthSource = baseWidth != null
+      ? `${baseWidth}dp (CLI --width)`
+      : override
+        ? `${override.width}dp (files)`
+        : isSvg ? 'viewBox' : 'source 4×'
+    const outFormat = effectiveFormat ?? (isSvg ? 'png' : ext.slice(1))
+    const formatTag = isSvgInFiles && format && format !== 'png'
+      ? `${outFormat} (forced; ignores format: ${format})`
+      : outFormat
+    logger.bullet(`${relPath} → ${widthSource} · ${formatTag}`)
+
+    if (dryRun) continue
+
     // Quality warning: if the user pinned a width (via CLI or `files`), the
     // source must carry at least `width × 4` pixels — that's what xxxhdpi/@4x
     // needs. Anything smaller forces Sharp to upscale, producing blurry output.
     // SVG sources are vector and exempt from this check.
-    if (effectiveBaseWidth != null && path.extname(file).toLowerCase() !== '.svg') {
+    if (effectiveBaseWidth != null && !isSvg) {
       const meta = await sharp(file).metadata()
       const requiredXxxhdpi = effectiveBaseWidth * 4
       if (Number.isFinite(meta.width) && meta.width < requiredXxxhdpi) {
@@ -175,13 +199,13 @@ export async function runImages(opts) {
 
     if (!iphoneOnly) {
       const androidFiles = await genAndroidScales(file, relPath, androidBaseDir, {
-        format, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
+        format: effectiveFormat, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
       })
       written.push(...androidFiles)
     }
     if (!androidOnly) {
       const iphoneFiles = await genIphoneScales(file, relPath, iphoneBaseDir, {
-        format, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
+        format: effectiveFormat, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
       })
       written.push(...iphoneFiles)
     }
