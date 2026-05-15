@@ -35,6 +35,7 @@
     "test:install-global": "node tests/e2e/global-installation-simulation.test.js",
     "test:install": "npm run test:install-local && npm run test:install-global",
     "build": "npm run build:all",
+    "version": "npm run build && git add dist/ assets/fonts/",
     "notifier": "node ./lib/test-function",
     "build:module": "node ./src/dev/builders/module-builder.js",
     "build:tailwind": "node ./src/dev/builders/tailwind-builder.js",
