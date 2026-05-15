@@ -22,8 +22,8 @@ import { logger } from '../branding/branding-logger.js'
 const IMAGES_BLOCK = `  images: {
     quality: 85,             // JPEG/WebP/AVIF quality (0-100)
     format: null,            // null = keep original; 'webp' | 'jpeg' | 'png' to convert every image
-    confirmOverwrites: true, // prompt before overwriting files (set false to skip)
     autoSync: true,          // false = SVG pipeline computes dims but doesn't write to images.files
+    confirmOverwrites: true, // prompt before overwriting files (set false to skip)
     files: []                // per-file overrides: [{ filename: 'images/<sub>/<name>.<ext>', width, height? }]
   },
 `
