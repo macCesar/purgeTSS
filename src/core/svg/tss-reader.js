@@ -17,7 +17,11 @@
  * @author César Estrada
  */
 
-const CLASS_LINE = /^\s*'\.([^']+)'\s*:\s*\{([^}]*)\}\s*$/
+// Matches up to (and including) the opening brace. The body is delimited by
+// brace-balancing rather than a `[^}]*` character class, which could not see
+// past a nested object — `'.text-xs': { font: { fontSize: 12 } }` and every
+// other class carrying a `font: { ... }` never made it into the map.
+const CLASS_LINE_START = /^\s*'\.([^']+)'\s*:\s*\{/
 
 /**
  * Parse the controlled TSS string emitted by the purger into a class → props
@@ -40,29 +44,82 @@ export function parseTssMap(tssContent) {
 
   const lines = tssContent.split(/\r?\n/)
   for (const line of lines) {
-    const stripped = stripLineComment(line)
-    const match = stripped.match(CLASS_LINE)
-    if (!match) continue
+    const parsed = parseClassLine(stripLineComment(line))
+    if (!parsed) continue
 
-    const className = match[1]
-    const body = match[2]
-    const props = parsePropBody(body)
-    map.set(className, { ...props, _raw: body.trim() })
+    const props = parsePropBody(parsed.body)
+    map.set(parsed.className, { ...props, _raw: parsed.body.trim() })
   }
   return map
 }
 
-// Drop trailing `// comment` so it doesn't break the brace-matching regex.
-function stripLineComment(line) {
+// Yield only the characters that are structural — outside string literals and
+// past escape sequences. All scanners in this file share it so a single `\'`
+// or a backtick can't desynchronize one of them: before, an escaped quote
+// flipped the string state permanently and every property after it was
+// silently dropped.
+function * codeChars(text) {
   let inSingle = false
   let inDouble = false
-  for (let i = 0; i < line.length - 1; i++) {
-    const c = line[i]
-    if (c === '\'' && !inDouble) inSingle = !inSingle
-    else if (c === '"' && !inSingle) inDouble = !inDouble
-    else if (c === '/' && line[i + 1] === '/' && !inSingle && !inDouble) {
-      return line.slice(0, i)
+  let inBacktick = false
+
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i]
+    if ((inSingle || inDouble || inBacktick) && c === '\\') {
+      i++
+      continue
     }
+    if (c === '\'' && !inDouble && !inBacktick) {
+      inSingle = !inSingle
+      continue
+    }
+    if (c === '"' && !inSingle && !inBacktick) {
+      inDouble = !inDouble
+      continue
+    }
+    if (c === '`' && !inSingle && !inDouble) {
+      inBacktick = !inBacktick
+      continue
+    }
+    if (inSingle || inDouble || inBacktick) continue
+
+    yield [i, c]
+  }
+}
+
+// Split `'.name': { body }` into its class name and body, balancing braces so
+// nested objects stay inside the body. Returns null for anything that isn't a
+// class line (tag/id selectors, comments, blank lines, trailing junk).
+function parseClassLine(line) {
+  const match = line.match(CLASS_LINE_START)
+  if (!match) return null
+
+  const openIdx = match[0].length - 1
+  let depth = 0
+  let closeIdx = -1
+
+  for (const [i, c] of codeChars(line)) {
+    if (i < openIdx) continue
+    if (c === '{') depth++
+    else if (c === '}') {
+      depth--
+      if (depth === 0) {
+        closeIdx = i
+        break
+      }
+    }
+  }
+
+  if (closeIdx === -1) return null
+  if (line.slice(closeIdx + 1).trim() !== '') return null
+
+  return { className: match[1], body: line.slice(openIdx + 1, closeIdx) }
+}
+
+// Drop trailing `// comment` so it doesn't break brace matching.
+function stripLineComment(line) {
+  for (const [i, c] of codeChars(line)) {
+    if (c === '/' && line[i + 1] === '/') return line.slice(0, i)
   }
   return line
 }
@@ -84,20 +141,13 @@ function parsePropBody(body) {
 function splitTopLevelCommas(body) {
   const out = []
   let depth = 0
-  let inSingle = false
-  let inDouble = false
   let last = 0
-  for (let i = 0; i < body.length; i++) {
-    const c = body[i]
-    if (c === '\'' && !inDouble) inSingle = !inSingle
-    else if (c === '"' && !inSingle) inDouble = !inDouble
-    else if (!inSingle && !inDouble) {
-      if (c === '(' || c === '[' || c === '{') depth++
-      else if (c === ')' || c === ']' || c === '}') depth--
-      else if (c === ',' && depth === 0) {
-        out.push(body.slice(last, i))
-        last = i + 1
-      }
+  for (const [i, c] of codeChars(body)) {
+    if (c === '(' || c === '[' || c === '{') depth++
+    else if (c === ')' || c === ']' || c === '}') depth--
+    else if (c === ',' && depth === 0) {
+      out.push(body.slice(last, i))
+      last = i + 1
     }
   }
   out.push(body.slice(last))
@@ -105,18 +155,11 @@ function splitTopLevelCommas(body) {
 }
 
 function findTopLevelColon(pair) {
-  let inSingle = false
-  let inDouble = false
   let depth = 0
-  for (let i = 0; i < pair.length; i++) {
-    const c = pair[i]
-    if (c === '\'' && !inDouble) inSingle = !inSingle
-    else if (c === '"' && !inSingle) inDouble = !inDouble
-    else if (!inSingle && !inDouble) {
-      if (c === '(' || c === '[' || c === '{') depth++
-      else if (c === ')' || c === ']' || c === '}') depth--
-      else if (c === ':' && depth === 0) return i
-    }
+  for (const [i, c] of codeChars(pair)) {
+    if (c === '(' || c === '[' || c === '{') depth++
+    else if (c === ')' || c === ']' || c === '}') depth--
+    else if (c === ':' && depth === 0) return i
   }
   return -1
 }
