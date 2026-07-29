@@ -2,7 +2,7 @@
   "logos/sample.svg": {
     "svgHash": "bab25533c28b3a584fba84196f9d9ccfd2d3c8fa",
     "widthDp": 800,
-    "heightDp": 320,
+    "heightDp": null,
     "targets": [
       "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/android/images/res-mdpi/logos/sample.png",
       "/Users/cesar/Developer/openSource/purgeTSS/test-project/app/assets/android/images/res-hdpi/logos/sample.png",
