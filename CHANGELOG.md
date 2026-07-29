@@ -7,8 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.11.2] - 2026-07-29
+
+### Fixed
+- **`images.files` sync silently gave up on any config with comments — including the one `purgetss init` generates.** `matchBracket()` in `sync-images.js` tracked quotes but not comments, so the apostrophe in the template's own comment (`// false = SVG pipeline computes dims but doesn't write to images.files`) opened a string that never closed. From there the scanner missed the section's closing brace, `matchImagesSection()` returned `null`, and every run printed `Could not insert <file> into images.files (section missing or unreadable)` while `files` stayed `[]`. The SVG pipeline still generated PNGs and updated its cache, which is why the breakage went unnoticed: only the write-back to `config.cjs` was lost. `matchBracket()` now skips `//` and `/* */` comments and honors backslash escapes inside strings. Existing unit tests missed this because every fixture config was comment-free.
+- **`parseTssMap()` dropped every property following an escaped quote.** The three hand-written scanners in `tss-reader.js` tracked string state without honoring backslash escapes, so a single `\'` in a value flipped the scanner into "inside a string" permanently: `'.card': { title: 'it\'s here', width: 200 }` yielded no `width` at all, and the SVG pipeline resolved dimensions from an incomplete map. All scanners now share one `codeChars()` walker that skips string literals and escape sequences.
+- **Classes carrying a nested object never entered the TSS map.** `CLASS_LINE` delimited the body with `[^}]*`, which cannot see past an inner `}` — so `'.text-xs': { font: { fontSize: 12 } }`, and any custom class combining `font: { ... }` with `width`/`height`, was skipped entirely by the SVG pipeline. The body is now delimited by brace balancing.
+- **`fast-cli` E2E suite reported PASSED without checking anything.** It counted found files into `filesFound` and then hard-coded `success: true`, so a command that produced no output still passed. It now fails when an expected file is missing.
+- **Android `theme` values keep their quotes in custom rules.** A custom class such as `'.welcome-window': { android: { theme: 'Theme.AppDerived.NoTitleBar' } }` emitted `theme: Theme.AppDerived.NoTitleBar` (unquoted), which Alloy cannot compile. `checkTitanium()` matched `Alloy`, `Ti.`, `Theme`, `Titanium` and `L(` anywhere inside a value, so any Android theme name — including every `Theme.Titanium.*` name, via the `Titanium` substring — was treated as a JavaScript expression. Detection is now anchored to the start of the value (`Alloy.`, `Ti.`, `Titanium.`, `L(`, plus array literals like `[ Ti.UI.PORTRAIT ]`), so theme names stay strings while real expressions are still emitted raw. The built-in `theme` template no longer adds its own quotes, since `parseValue()` supplies them; generated `dist/utilities.tss` is byte-identical to the previous release.
+
 ### Removed
 - **`version` lifecycle hook in `package.json`.** Added in 7.11.1 to regenerate `dist/` and `assets/fonts/` on `npm version`, but npm 11.13.0 does not fire the hook when `--no-git-tag-version` is supplied (which is the mode `/release` uses). The hook never executed in practice; removed to avoid the misleading config.
+
+### Changed
+- **E2E suites run against a disposable copy of `test-project/`.** `cli-commands`, `configuration-options`, `fast-cli` and `simple-cli` executed the real CLI inside the versioned `test-project/`, so every `npm test` left the working tree dirty — and the first two `rm -f purgetss/config.cjs` as cleanup, which brought the file back as the bare template and dropped the `images.files` entries the SVG pipeline had synced. New `tests/helpers/sandbox-project.js` copies the project into a tmpdir per suite and removes it afterwards; the versioned baseline is now read-only during tests.
+- **`n/no-process-exit` disabled under `tests/**` in `eslint.config.js`.** The suite runner reads each script's exit code, so `process.exit()` there is the interface rather than a smell.
+
+### Other
+- Unit tests added for theme value quoting (`tests/unit/shared/theme-quoting.test.js`, 20 cases covering `checkTitanium()`, `parseValue()` and `customRules()` across theme names, Titanium/Alloy expressions, `L()` and constant array literals).
+- Unit tests added to `sync-images.test.js` for comment-bearing configs (the literal `purgetss init` template, plus an unbalanced apostrophe in a comment with a non-empty `files` array).
+- Unit tests added for `tss-reader.js` (`tests/unit/core/tss-reader.test.js`, 12 cases covering escapes, template literals, comment stripping and nested objects) — the module had no coverage before.
 
 ## [7.11.1] - 2026-05-14
 
