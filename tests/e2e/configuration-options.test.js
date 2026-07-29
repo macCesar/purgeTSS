@@ -10,12 +10,17 @@ import { exec } from 'child_process'
 import { promisify } from 'util'
 import fs from 'fs'
 import path from 'path'
+import { createSandboxProject } from '../helpers/sandbox-project.js'
 
 const execAsync = promisify(exec)
 
 console.log('🔧 Testing PurgeTSS Configuration Options\n')
 
-const PROJECT_PATH = 'test-project'
+// Disposable copy: this suite overwrites config.cjs with generated fixtures
+// and deletes it during cleanup, which would otherwise leave the versioned
+// test-project/ holding a bare template instead of its baseline config.
+const sandbox = createSandboxProject('configuration-options')
+const PROJECT_PATH = sandbox.projectPath
 const CONFIG_JS_PATH = `${PROJECT_PATH}/purgetss/config.js`
 const CONFIG_CJS_PATH = `${PROJECT_PATH}/purgetss/config.cjs`
 
@@ -48,7 +53,7 @@ async function testConfiguration(configName, configOptions, testDescription) {
     await createConfigFile(configOptions)
 
     // Run PurgeTSS
-    const { stdout, stderr } = await execAsync('../bin/purgetss build', { cwd: PROJECT_PATH })
+    const { stdout, stderr } = await execAsync(`${sandbox.purgetssBin} build`, { cwd: PROJECT_PATH })
 
     console.log('     📄 Build Output:')
     if (stdout) {
@@ -165,7 +170,7 @@ async function runConfigurationTests() {
     // Clean up between tests
     try {
       await execAsync('rm -f app/assets/utilities.tss', { cwd: PROJECT_PATH })
-    } catch (error) {
+    } catch {
       // Ignore cleanup errors
     }
 
@@ -207,24 +212,21 @@ async function main() {
   try {
     await execAsync('rm -rf app/assets/utilities.tss purgetss/config.js purgetss/config.cjs', { cwd: PROJECT_PATH })
     console.log('     🧹 Cleaned previous test artifacts\n')
-  } catch (error) {
+  } catch {
     // Ignore cleanup errors
   }
 
-  const success = await runConfigurationTests()
-
-  // Final cleanup
   try {
-    await execAsync('rm -rf purgetss/config.js purgetss/config.cjs app/assets/utilities.tss', { cwd: PROJECT_PATH })
-  } catch (error) {
-    // Ignore cleanup errors
-  }
+    const success = await runConfigurationTests()
 
-  if (!success) {
-    throw new Error('Some configuration tests failed')
-  }
+    if (!success) {
+      throw new Error('Some configuration tests failed')
+    }
 
-  return success
+    return success
+  } finally {
+    sandbox.cleanup()
+  }
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

@@ -3,10 +3,13 @@ import { exec } from 'child_process'
 import { promisify } from 'util'
 import fs from 'fs'
 import path from 'path'
+import { createSandboxProject } from '../helpers/sandbox-project.js'
 
 const execAsync = promisify(exec)
-const PROJECT_PATH = 'test-project'
-const PURGETSS_BIN = '../bin/purgetss'
+// Disposable copy — these commands write generated styles into the project.
+const sandbox = createSandboxProject('fast-cli')
+const PROJECT_PATH = sandbox.projectPath
+const PURGETSS_BIN = sandbox.purgetssBin
 
 console.log('🚀 Fast CLI Tests (Essential Commands Only)\n')
 
@@ -46,17 +49,20 @@ async function testEssentialCommands() {
       console.log(`     ⏱️  Completed in ${duration}ms`)
 
       // Check expected files
-      let filesFound = 0
+      const missing = []
       for (const file of test.expectedFiles) {
         const fullPath = path.join(PROJECT_PATH, file)
         if (fs.existsSync(fullPath)) {
           console.log(`     ✅ Created: ${file}`)
-          filesFound++
+        } else {
+          console.log(`     ❌ Missing: ${file}`)
+          missing.push(file)
         }
       }
 
-      console.log(`     ✅ ${test.description} - PASSED`)
-      results.push({ description: test.description, success: true })
+      const success = missing.length === 0
+      console.log(`     ${success ? '✅' : '❌'} ${test.description} - ${success ? 'PASSED' : 'FAILED'}`)
+      results.push({ description: test.description, success })
     } catch (error) {
       console.log(`     ❌ ${test.description} - FAILED: ${error.message}`)
       results.push({ description: test.description, success: false, error: error.message })
@@ -88,4 +94,10 @@ async function testEssentialCommands() {
 }
 
 // Run the tests
-testEssentialCommands().catch(console.error)
+try {
+  await testEssentialCommands()
+} catch (error) {
+  console.error(error)
+} finally {
+  sandbox.cleanup()
+}

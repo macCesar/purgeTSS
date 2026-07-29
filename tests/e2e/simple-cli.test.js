@@ -1,18 +1,21 @@
 // Simple CLI test to verify basic functionality
 import { exec } from 'child_process'
 import { promisify } from 'util'
+import { createSandboxProject } from '../helpers/sandbox-project.js'
 
 const execAsync = promisify(exec)
+// Disposable copy — a purge run writes app.tss and the generated styles.
+const sandbox = createSandboxProject('simple-cli')
 
 console.log('🧪 Testing Basic CLI Functionality\n')
 
 async function testBasicCLI() {
   try {
-    console.log('     Testing purgetss from test-project directory...')
+    console.log('     Testing purgetss from a sandboxed project copy...')
 
-    // Test basic command execution from test-project
-    const { stdout, stderr } = await execAsync('../bin/purgetss', {
-      cwd: 'test-project',
+    // Test basic command execution from the project copy
+    const { stdout, stderr } = await execAsync(sandbox.purgetssBin, {
+      cwd: sandbox.projectPath,
       timeout: 30000 // 30 second timeout
     })
 
@@ -35,15 +38,16 @@ async function testBasicCLI() {
 }
 
 // Run the test
-testBasicCLI().then(success => {
+try {
+  const success = await testBasicCLI()
+
   if (success) {
     console.log('\n     🎉 CLI functionality verified!')
-    return true
   } else {
     console.log('\n     ⚠️ CLI test had issues')
-    return false
   }
-}).catch(error => {
+} catch (error) {
   console.error('     Test execution failed:', error)
-  return false
-})
+} finally {
+  sandbox.cleanup()
+}

@@ -10,13 +10,18 @@ import fs from 'fs'
 import path from 'path'
 import { promisify } from 'util'
 import { spawn, exec } from 'child_process'
+import { createSandboxProject } from '../helpers/sandbox-project.js'
 
 const execAsync = promisify(exec)
 
 console.log('🚀 Testing PurgeTSS CLI Commands on Alloy Project (Real-time)\n')
 
-const PROJECT_PATH = 'test-project'
-const PURGETSS_BIN = '../bin/purgetss'
+// Run against a disposable copy: these commands rewrite config.cjs and the
+// generated styles, and the cleanup below deletes config.cjs outright. Doing
+// that in the versioned test-project/ left the repo dirty after every run.
+const sandbox = createSandboxProject('cli-commands')
+const PROJECT_PATH = sandbox.projectPath
+const PURGETSS_BIN = sandbox.purgetssBin
 
 async function testCommandRealTime(command, description, expectedFiles = []) {
   console.log('\n     ══════════════════════════════════════════════════════════════')
@@ -194,15 +199,19 @@ async function main() {
     await execAsync('rm -f purgetss/styles/utilities.tss purgetss/styles/fonts.tss purgetss/styles/definitions.css purgetss/config.cjs app/lib/purgetss.ui.js', { cwd: PROJECT_PATH })
     await execAsync('rm -f app/assets/fonts/*', { cwd: PROJECT_PATH })
     console.log('     🧹 Cleaned previous test artifacts (preserved purgetss/fonts/)\n')
-  } catch (error) {
+  } catch {
     // Ignore cleanup errors
   }
 
-  const success = await runAllCommandTests()
-  if (!success) {
-    throw new Error('Some CLI tests failed')
+  try {
+    const success = await runAllCommandTests()
+    if (!success) {
+      throw new Error('Some CLI tests failed')
+    }
+    return success
+  } finally {
+    sandbox.cleanup()
   }
-  return success
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
