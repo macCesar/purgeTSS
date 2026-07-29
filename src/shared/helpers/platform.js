@@ -46,7 +46,7 @@ export function theme() {
     prop: 'theme - Android Only',
     modules: 'Ti.UI.Window'
   }, {
-    theme: '{ theme: \'{value}\' }'
+    theme: '{ theme: {value} }'
   }, {
     default: {
       titanium: {

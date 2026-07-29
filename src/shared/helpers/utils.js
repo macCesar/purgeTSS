@@ -233,11 +233,18 @@ export function notDefaultRules(rule) {
  * @returns {string|*} 'titanium' if contains Titanium properties, processed value otherwise
  */
 export function checkTitanium(value) {
-  const substrings = ['Alloy', 'Ti.', 'Theme', 'Titanium', 'L(']
+  // Anchored at the start on purpose: Android theme names such as
+  // 'Theme.Titanium.Dark' are strings and must stay quoted, while
+  // 'Titanium.UI.SIZE' is an expression and must be emitted raw.
+  const expressions = ['Alloy.', 'Ti.', 'Titanium.', 'L(']
 
   if (typeof value === 'string') {
-    if (substrings.some(substring => {
-      return value.indexOf(substring) >= 0
+    // Array literals such as '[ Ti.UI.PORTRAIT ]' are expressions as well,
+    // so look past the opening bracket before matching the prefix.
+    const candidate = value.trim().startsWith('[') ? value.trim().slice(1).trim() : value.trim()
+
+    if (expressions.some(expression => {
+      return candidate.startsWith(expression)
     })) {
       return 'titanium'
     } else if (value.includes('#')) {
