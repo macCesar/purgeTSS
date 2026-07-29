@@ -45,5 +45,13 @@ export default [
     languageOptions: {
       sourceType: 'module'
     }
+  },
+  {
+    // Test scripts are standalone runners: the suite runner reads their exit
+    // code to decide pass/fail, so process.exit() is the interface, not a smell.
+    files: ['tests/**'],
+    rules: {
+      'n/no-process-exit': 'off'
+    }
   }
 ]
