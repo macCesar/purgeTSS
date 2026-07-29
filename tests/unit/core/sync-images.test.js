@@ -64,7 +64,7 @@ async function test(name, fn) {
 }
 
 // ── Regression: one-liner `images:` section ───────────────────────────────
-await test('one-liner images section: inserts files at correct level', async () => {
+await test('one-liner images section: inserts files at correct level', async() => {
   writeConfig(`module.exports = {
   images: { quality: 85, format: null, confirmOverwrites: true },
   theme: {
@@ -103,7 +103,7 @@ await test('one-liner images section: inserts files at correct level', async () 
 })
 
 // ── Control: multi-line `images:` section (must still work) ───────────────
-await test('multi-line images section: inserts files at correct level', async () => {
+await test('multi-line images section: inserts files at correct level', async() => {
   writeConfig(`module.exports = {
   images: {
     quality: 85,
@@ -130,7 +130,7 @@ await test('multi-line images section: inserts files at correct level', async ()
 })
 
 // ── Policy: autoSync ON mirrors the current run (no cross-run max) ────────
-await test('existing entry: width is overwritten when derived is larger', async () => {
+await test('existing entry: width is overwritten when derived is larger', async() => {
   writeConfig(`module.exports = {
   images: {
     quality: 85,
@@ -150,7 +150,7 @@ await test('existing entry: width is overwritten when derived is larger', async 
   }
 })
 
-await test('existing entry: width is overwritten when derived is SMALLER (shrink)', async () => {
+await test('existing entry: width is overwritten when derived is SMALLER (shrink)', async() => {
   // Regression: user shrinks class from h-52 (208) to h-16 (64). Old max()
   // policy would freeze the entry at 208; the new policy follows the cascade.
   writeConfig(`module.exports = {
@@ -171,7 +171,7 @@ await test('existing entry: width is overwritten when derived is SMALLER (shrink
   }
 })
 
-await test('untouched run: config mtime is not bumped (no gratuitous write)', async () => {
+await test('untouched run: config mtime is not bumped (no gratuitous write)', async() => {
   writeConfig(`module.exports = {
   images: {
     files: [
@@ -195,7 +195,7 @@ await test('untouched run: config mtime is not bumped (no gratuitous write)', as
   }
 })
 
-await test('autoSync OFF (write=false): config file is left untouched', async () => {
+await test('autoSync OFF (write=false): config file is left untouched', async() => {
   const initial = `module.exports = {
   images: {
     files: [
@@ -219,7 +219,7 @@ await test('autoSync OFF (write=false): config file is left untouched', async ()
 })
 
 // ── Auto-derived dimensions: heightDp/widthDp null ────────────────────────
-await test('auto-height: no height written when heightDp is null on insert', async () => {
+await test('auto-height: no height written when heightDp is null on insert', async() => {
   writeConfig(`module.exports = {
   images: {
     files: []
@@ -235,7 +235,7 @@ await test('auto-height: no height written when heightDp is null on insert', asy
   }
 })
 
-await test('auto-derived: existing dimension is dropped when cascade no longer pins it', async () => {
+await test('auto-derived: existing dimension is dropped when cascade no longer pins it', async() => {
   // User removes h-* from the view. New policy: config follows the views,
   // so the height field disappears (rather than freezing the previous value).
   writeConfig(`module.exports = {
@@ -260,7 +260,7 @@ await test('auto-derived: existing dimension is dropped when cascade no longer p
 })
 
 // ── Symmetric: height-only support (widthDp=null) ─────────────────────────
-await test('height-only insert: only height written, no width field', async () => {
+await test('height-only insert: only height written, no width field', async() => {
   writeConfig(`module.exports = {
   images: {
     files: []
@@ -279,7 +279,7 @@ await test('height-only insert: only height written, no width field', async () =
   }
 })
 
-await test('height-only update: drops stale width when cascade no longer pins it', async () => {
+await test('height-only update: drops stale width when cascade no longer pins it', async() => {
   // User changes class from `w-(1024)` to plain `h-50` (no w-*). New policy:
   // width disappears so generator derives it from viewBox.
   writeConfig(`module.exports = {
@@ -303,7 +303,7 @@ await test('height-only update: drops stale width when cascade no longer pins it
   }
 })
 
-await test('numeric height: explicit h-* overwrites existing height', async () => {
+await test('numeric height: explicit h-* overwrites existing height', async() => {
   writeConfig(`module.exports = {
   images: {
     files: [
@@ -317,9 +317,74 @@ await test('numeric height: explicit h-* overwrites existing height', async () =
 
   if (stats.updated !== 1) throw new Error(`expected 1 updated, got ${stats.updated}`)
   const cfg = loadConfig()
-  if (cfg.images.files[0].width !== 200) throw new Error(`width should be 200`)
+  if (cfg.images.files[0].width !== 200) throw new Error('width should be 200')
   if (cfg.images.files[0].height !== 100) {
     throw new Error(`height should be overwritten to 100, got ${cfg.images.files[0].height}`)
+  }
+})
+
+// ── Regression: comments inside the images section ────────────────────────
+// The block below is the literal template `purgetss init` writes (see
+// src/core/images/ensure-images-section.js). Its comments contain an
+// unbalanced apostrophe ("doesn't") plus brackets, which desynchronized the
+// string/bracket scanner and made the whole section unreadable.
+await test('template images section with comments: inserts files entry', async() => {
+  writeConfig(`module.exports = {
+  images: {
+    quality: 85,             // JPEG/WebP/AVIF quality (0-100)
+    format: null,            // null = keep original; 'webp' | 'jpeg' | 'png' to convert every image
+    autoSync: true,          // false = SVG pipeline computes dims but doesn't write to images.files
+    confirmOverwrites: true, // prompt before overwriting files (set false to skip)
+    files: []                // per-file overrides: [{ filename: 'images/<sub>/<name>.<ext>', width, height? }]
+  },
+  theme: {
+    extend: {}
+  }
+}
+`)
+  const derived = new Map([['logos/sample.svg', { widthDp: 800, heightDp: null }]])
+  const { stats } = syncConfigImages(derived)
+
+  if (stats.inserted !== 1) throw new Error(`expected 1 inserted, got ${stats.inserted}`)
+
+  const cfg = loadConfig()
+  if (cfg.images.files.length !== 1) {
+    throw new Error(`expected 1 entry in images.files, got ${cfg.images.files.length}`)
+  }
+  if (cfg.images.files[0].filename !== 'images/logos/sample.svg') {
+    throw new Error(`unexpected filename: ${cfg.images.files[0].filename}`)
+  }
+  if (cfg.images.files[0].width !== 800) {
+    throw new Error(`unexpected width: ${cfg.images.files[0].width}`)
+  }
+  if (cfg.images.files[0].height !== undefined) {
+    throw new Error(`h-auto must stay unpinned, got height: ${cfg.images.files[0].height}`)
+  }
+})
+
+await test('comment with an unbalanced apostrophe: appends to a non-empty files array', async() => {
+  writeConfig(`module.exports = {
+  images: {
+    autoSync: true, // pipeline doesn't write when false
+    files: [
+      { filename: 'images/logos/first.svg', width: 128 }
+    ]
+  }
+}
+`)
+  const derived = new Map([['logos/second.svg', { widthDp: 800, heightDp: null }]])
+  const { stats } = syncConfigImages(derived)
+
+  if (stats.inserted !== 1) throw new Error(`expected 1 inserted, got ${stats.inserted}`)
+  const cfg = loadConfig()
+  if (cfg.images.files.length !== 2) {
+    throw new Error(`expected 2 entries, got ${cfg.images.files.length}`)
+  }
+  if (cfg.images.files[0].filename !== 'images/logos/first.svg') {
+    throw new Error('existing entry was clobbered')
+  }
+  if (cfg.images.files[1].width !== 800) {
+    throw new Error(`unexpected width: ${cfg.images.files[1].width}`)
   }
 })
 

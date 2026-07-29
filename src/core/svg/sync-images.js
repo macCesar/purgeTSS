@@ -263,10 +263,37 @@ function matchBracket(source, startIdx, open, close) {
   let inBacktick = false
   for (let i = startIdx; i < source.length; i++) {
     const c = source[i]
+    const inString = inSingle || inDouble || inBacktick
+
+    // Comments must be skipped whole. config.cjs is a commented JS file, and
+    // the template PurgeTSS itself generates contains an apostrophe inside a
+    // comment ("doesn't write to images.files"). Treating that as a string
+    // delimiter desynchronized the scanner for the rest of the file, so the
+    // section's closing brace was never found and `images.files` silently
+    // stopped receiving entries.
+    if (!inString && c === '/' && source[i + 1] === '/') {
+      const nl = source.indexOf('\n', i)
+      if (nl === -1) return -1
+      i = nl
+      continue
+    }
+    if (!inString && c === '/' && source[i + 1] === '*') {
+      const end = source.indexOf('*/', i + 2)
+      if (end === -1) return -1
+      i = end + 1
+      continue
+    }
+
+    // Escaped characters inside strings never close them: 'it\'s' stays open.
+    if (inString && c === '\\') {
+      i++
+      continue
+    }
+
     if (c === '\'' && !inDouble && !inBacktick) inSingle = !inSingle
     else if (c === '"' && !inSingle && !inBacktick) inDouble = !inDouble
     else if (c === '`' && !inSingle && !inDouble) inBacktick = !inBacktick
-    else if (!inSingle && !inDouble && !inBacktick) {
+    else if (!inString) {
       if (c === open) depth++
       else if (c === close) {
         depth--
