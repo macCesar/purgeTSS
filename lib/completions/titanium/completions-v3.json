@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "sdkVersion": "13.2.0.GA",
+  "sdkVersion": "13.4.0.GA",
   "properties": {
     "ACCURACY_AUTHORIZATION_FULL": {
       "description": "The user authorized the app to access location data with full accuracy.",
