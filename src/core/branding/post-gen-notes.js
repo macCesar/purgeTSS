@@ -62,6 +62,14 @@ function printFullNotes(opts) {
   const code = (s) => chalk.gray(s)
   const flag = (s) => chalk.yellow(s)
   const num = (n) => chalk.cyan(n)
+  const androidValuesDir = projectType === 'alloy'
+    ? 'app/platform/android/res/values'
+    : projectType === 'classic'
+      ? 'platform/android/res/values'
+      : '<android-res-root>/values'
+  const legacySplashPath = projectType === 'classic'
+    ? 'Resources/android/default.png'
+    : 'app/assets/android/default.png'
 
   logger.section('Notes on what was generated')
   logger.bullet(`Brand color ${chalk.cyan(bgColor)} was baked into Android adaptive background layer`)
@@ -85,8 +93,8 @@ function printFullNotes(opts) {
   console.log('  The tool does NOT auto-edit tiapp.xml or Android theme resources.')
   console.log('  Snippets below are optional —')
   console.log('  paste only what you need, after reviewing.')
-  console.log('  If your app already uses a custom Android theme, merge these changes')
-  console.log('  into that theme instead of replacing it blindly.')
+  console.log('  Android uses a dedicated theme for the launcher Activity below, so the')
+  console.log('  app\'s existing <application> theme can stay unchanged.')
   console.log('  brand is designed around the modern Titanium icon pipeline, not around')
   console.log('  older Android splash themes such as background.png / background.9.png.')
   console.log()
@@ -110,26 +118,50 @@ function printFullNotes(opts) {
   console.log(code('                   android:usesCleartextTraffic="false"/>'))
 
   console.log()
-  console.log(`  ${num('3.')} ${chalk.cyan('Android launch background')} — add to your existing app theme:`)
-  console.log('     Android 12+ system splash:')
-  console.log(code(`       <item name="android:windowSplashScreenBackground">${bgColor}</item>`))
+  console.log(`  ${num('3.')} ${chalk.cyan('Android launch background')} — create ${flag(androidValuesDir + '/splashscreen.xml')}:`)
+  console.log('     Theme.Titanium is Titanium\'s launcher theme; Theme.AppDerived keeps')
+  console.log('     the <application> theme in its inheritance chain.')
+  console.log(code('       <?xml version="1.0" encoding="utf-8"?>'))
+  console.log(code('       <resources>'))
+  console.log(code(`         <color name="splashscreen_background">${bgColor}</color>`))
   console.log()
-  console.log('     Native window before Titanium draws the first Window:')
-  console.log(code(`       <item name="android:windowBackground">${bgColor}</item>`))
+  console.log(code('         <style name="Theme.SplashScreen" parent="@style/Theme.Titanium">'))
+  console.log(code('           <item name="android:windowSplashScreenBackground">@color/splashscreen_background</item>'))
+  console.log(code('           <item name="android:windowBackground">@color/splashscreen_background</item>'))
+  console.log(code('           <item name="android:colorBackground">@color/splashscreen_background</item>'))
+  if (withSplash) {
+    console.log(code('           <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>'))
+  }
+  console.log(code('         </style>'))
+  console.log(code('       </resources>'))
+  console.log('     Keep this <resources> block in that file; Android resources cannot')
+  console.log('     be declared inside tiapp.xml.')
   console.log()
-  console.log('     Keep the existing theme and make sure tiapp.xml <application>')
-  console.log('     references it with android:theme="@style/YourExistingTheme".')
+  console.log('     Then keep the existing <application> theme and apply the new theme')
+  console.log('     only to Titanium\'s launcher Activity in tiapp.xml:')
+  console.log(code('       <application ...>'))
+  console.log(code('         <activity android:name=".YourAppActivity"'))
+  console.log(code('                   android:theme="@style/Theme.SplashScreen"/>'))
+  console.log(code('       </application>'))
+  console.log()
+  console.log('     Theme.SplashScreen is a fixed, copy-ready resource name. To change')
+  console.log('     the launch color later, edit only splashscreen_background above.')
+  console.log('     The three theme attributes are separate consumers of that one color:')
+  console.log('     Android 12+ splash, native launch window, and the background value')
+  console.log('     referenced by Titanium\'s base splash theme.')
+  console.log('     Replace .YourAppActivity with the project\'s real launcher Activity.')
+  console.log('     If that Activity is already declared, add android:theme to the')
+  console.log('     existing element; do not paste a duplicate declaration.')
+  console.log('     If it already has a custom Activity theme, do not replace it blindly:')
+  console.log('     inherit from that theme or merge the items into that launcher-only theme.')
 
   if (withSplash) {
     console.log()
     console.log(`  ${num('4.')} ${chalk.cyan('Android 12+ splash artwork')} — ${chalk.yellow('OPTIONAL, advanced')}`)
     console.log()
     console.log('     Generated files: @drawable/splash_icon.png across densities.')
-    console.log('     Titanium SDK 13.x shows a system splash automatically using your')
-    console.log('     launcher icon unless you wire a custom splash theme.')
-    console.log('     If you want the Android 12+ splash to use splash_icon instead of')
-    console.log('     ic_launcher, add a custom theme and point')
-    console.log(code('       <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_icon</item>'))
+    console.log('     The Theme.SplashScreen snippet above already points Android 12+')
+    console.log('     to splash_icon instead of the default ic_launcher artwork.')
     console.log('     If you still see a brief flash during splash exit, the artifact may')
     console.log('     come from Titanium or the system splash transition rather than from')
     console.log('     the generated PNG assets themselves.')
@@ -137,11 +169,11 @@ function printFullNotes(opts) {
 
   console.log()
   console.log(`  ${num(withSplash ? '5.' : '4.')} ${chalk.cyan('Android <12 legacy splash')}`)
-  console.log('     PurgeTSS brand still regenerates app/assets/android/default.png as')
+  console.log(`     PurgeTSS brand still regenerates ${legacySplashPath} as`)
   console.log('     a compatibility fallback while Titanium continues to recognize it.')
-  console.log('     It is not the primary modern path. If your app uses a custom')
-  console.log('     windowBackground / background.9.png theme, that custom theme still')
-  console.log('     takes precedence and should be managed manually.')
+  console.log('     The solid windowBackground above takes precedence on Android <12.')
+  console.log('     Use a drawable or layer-list instead if the legacy splash must keep')
+  console.log('     artwork from default.png, background.png, or background.9.png.')
 
   if (withNotification) {
     const colorsDir = projectType === 'classic'
