@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.12.0] - 2026-08-05
+
+### Added
+- **Android launch background snippets in `purgetss brand --notes`.** The full notes covered the iOS launch image and the Android launcher icon, but never the color Android draws before Titanium creates the first Window — so a run that set a brand background still flashed the default theme color at launch. `--notes` now prints a step with both items to merge into the existing app theme: `android:windowSplashScreenBackground` (Android 12+ system splash) and `android:windowBackground` (native window), plus the reminder that `tiapp.xml` `<application>` must reference that theme with `android:theme="@style/YourExistingTheme"`. The Android 12+ artwork step (`splash_icon.png`) and the ones after it shift down one number.
+
+### Changed
+- **`--notes` wording no longer names only `tiapp.xml`.** The command edits neither `tiapp.xml` nor the Android theme resources, so the `--notes` help text and the compact summary now read "platform launch/theme snippets" instead of "tiapp.xml snippets".
+- **`completions-v3.json` reports SDK 13.4.0.GA.** Metadata label only — the properties map is unchanged.
+
+### Other
+- Unit tests added for `printPostGenNotes()` (`tests/unit/core/post-gen-notes.test.js`) — the module had no coverage before. They assert the brand color reaches the iOS `<default-background-color>` snippet and both Android theme items, and that the Android 12+ artwork block appears only when `withSplash` is set.
+
+---
+
 ## [7.11.2] - 2026-07-29
 
 ### Fixed
