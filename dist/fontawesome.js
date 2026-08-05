@@ -1,5 +1,5 @@
 /**
- * Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 */
 
@@ -1699,6 +1699,7 @@ const icons = {
 	'smileBeam': '\uf5b8',
 	'solarPanel': '\uf5ba',
 	'spa': '\uf5bb',
+	'lotus': '\uf5bb',
 	'splotch': '\uf5bc',
 	'sprayCan': '\uf5bd',
 	'stamp': '\uf5bf',
@@ -2192,6 +2193,28 @@ const icons = {
 	'zoom': '\ue87b',
 	'vim': '\ue88a',
 	'symfonycasts': '\ue8ab',
+	'buildAwesome': '\ue8ac',
+	'codeberg': '\ue8ad',
+	'devpost': '\ue8ae',
+	'internetArchive': '\ue8b1',
+	'letsEncrypt': '\ue8b2',
+	'matrix': '\ue8b3',
+	'mattermost': '\ue8b4',
+	'nextcloud': '\ue8b5',
+	'robloxCreatorStudio': '\ue8b6',
+	'squareBuildAwesomeStroke': '\ue8b7',
+	'substack': '\ue8b8',
+	'tesla': '\ue8b9',
+	'xrp': '\ue8ba',
+	'xrpl': '\ue8bb',
+	'youtubeShorts': '\ue8bc',
+	'ror': '\ue8bd',
+	'visualStudio': '\ue8be',
+	'dolibarr': '\ue8bf',
+	'obsStudio': '\ue8c0',
+	'storybook': '\ue8c1',
+	'a11yProject': '\ue8c2',
+	'copilot': '\ue8c7',
 	'squareTwitter': '\uf081',
 	'twitterSquare': '\uf081',
 	'squareFacebook': '\uf082',

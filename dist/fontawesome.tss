@@ -1,4 +1,4 @@
-// Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com
+// Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com
 // License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 
 // Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen readers do not read off random characters that represent icons
@@ -1675,6 +1675,7 @@
 '.fa-smile-beam': { text: '\uf5b8', title: '\uf5b8' }
 '.fa-solar-panel': { text: '\uf5ba', title: '\uf5ba' }
 '.fa-spa': { text: '\uf5bb', title: '\uf5bb' }
+'.fa-lotus': { text: '\uf5bb', title: '\uf5bb' }
 '.fa-splotch': { text: '\uf5bc', title: '\uf5bc' }
 '.fa-spray-can': { text: '\uf5bd', title: '\uf5bd' }
 '.fa-stamp': { text: '\uf5bf', title: '\uf5bf' }
@@ -2168,6 +2169,28 @@
 '.fa-zoom': { text: '\ue87b', title: '\ue87b' }
 '.fa-vim': { text: '\ue88a', title: '\ue88a' }
 '.fa-symfonycasts': { text: '\ue8ab', title: '\ue8ab' }
+'.fa-build-awesome': { text: '\ue8ac', title: '\ue8ac' }
+'.fa-codeberg': { text: '\ue8ad', title: '\ue8ad' }
+'.fa-devpost': { text: '\ue8ae', title: '\ue8ae' }
+'.fa-internet-archive': { text: '\ue8b1', title: '\ue8b1' }
+'.fa-lets-encrypt': { text: '\ue8b2', title: '\ue8b2' }
+'.fa-matrix': { text: '\ue8b3', title: '\ue8b3' }
+'.fa-mattermost': { text: '\ue8b4', title: '\ue8b4' }
+'.fa-nextcloud': { text: '\ue8b5', title: '\ue8b5' }
+'.fa-roblox-creator-studio': { text: '\ue8b6', title: '\ue8b6' }
+'.fa-square-build-awesome-stroke': { text: '\ue8b7', title: '\ue8b7' }
+'.fa-substack': { text: '\ue8b8', title: '\ue8b8' }
+'.fa-tesla': { text: '\ue8b9', title: '\ue8b9' }
+'.fa-xrp': { text: '\ue8ba', title: '\ue8ba' }
+'.fa-xrpl': { text: '\ue8bb', title: '\ue8bb' }
+'.fa-youtube-shorts': { text: '\ue8bc', title: '\ue8bc' }
+'.fa-ror': { text: '\ue8bd', title: '\ue8bd' }
+'.fa-visual-studio': { text: '\ue8be', title: '\ue8be' }
+'.fa-dolibarr': { text: '\ue8bf', title: '\ue8bf' }
+'.fa-obs-studio': { text: '\ue8c0', title: '\ue8c0' }
+'.fa-storybook': { text: '\ue8c1', title: '\ue8c1' }
+'.fa-a11y-project': { text: '\ue8c2', title: '\ue8c2' }
+'.fa-copilot': { text: '\ue8c7', title: '\ue8c7' }
 '.fa-square-twitter': { text: '\uf081', title: '\uf081' }
 '.fa-twitter-square': { text: '\uf081', title: '\uf081' }
 '.fa-square-facebook': { text: '\uf082', title: '\uf082' }
