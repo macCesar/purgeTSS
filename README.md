@@ -379,7 +379,7 @@ Button: {
 
 ### v7.12.0
 
-- **Android launch background snippets in `purgetss brand --notes`.** The full notes covered the iOS launch image and the Android launcher icon, but never the color Android draws before Titanium creates the first Window — so a run that set a brand background still flashed the default theme color at launch. `--notes` now prints a step with both items to merge into your existing app theme: `android:windowSplashScreenBackground` (Android 12+ system splash) and `android:windowBackground` (native window), plus the reminder that `tiapp.xml` `<application>` must reference that theme with `android:theme="@style/YourExistingTheme"`. PurgeTSS still edits neither `tiapp.xml` nor the Android theme resources — it only prints the snippets with your current `brand.colors.background` value.
+- **Android launch setup in `purgetss brand --notes`.** The full notes print a complete `splashscreen.xml` at the correct Alloy or Classic resource path. Its launcher-only `Theme.SplashScreen` inherits from `Theme.Titanium` and is assigned to Titanium's generated launcher Activity without replacing the theme already used by `<application>`. The three relevant attributes—`android:windowSplashScreenBackground`, `android:windowBackground`, and `android:colorBackground`—all reference one `splashscreen_background` color resource, so changing the launch color requires editing a single line. When `--splash` is enabled, the same style also points `android:windowSplashScreenAnimatedIcon` to the generated `splash_icon.png`. PurgeTSS prints this copy-ready setup with the current `brand.colors.background` value but does not edit `tiapp.xml` or Android theme resources automatically.
 
 ### v7.11.0
 

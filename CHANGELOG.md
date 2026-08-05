@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.12.1] - 2026-08-05
+
+### Fixed
+- **`purgetss brand --notes` now targets Titanium's launcher Activity instead of only the app theme.** Titanium applies `Theme.Titanium` directly to the generated launcher Activity, so adding splash items only to the `<application>` theme could still leave Android 12+ using the SDK's default background. The notes now print a complete `splashscreen.xml` at the correct Alloy or Classic resource path, define a launcher-only `Theme.SplashScreen` derived from `Theme.Titanium`, and show how to merge that theme into the existing launcher Activity declaration without changing the app's current theme. `windowSplashScreenBackground`, `windowBackground`, and `colorBackground` reference one `splashscreen_background` resource, so the launch color is changed in one place. When `--splash` is enabled, the same copy-ready style also includes `windowSplashScreenAnimatedIcon`.
+
+### Changed
+- **Font Awesome Free updated to 7.3.1.** 23 new icon classes (`.fa-lotus`, `.fa-codeberg`, `.fa-copilot`, `.fa-substack`, `.fa-tesla`, `.fa-storybook`, `.fa-matrix`, `.fa-nextcloud`, `.fa-visual-studio`, …), none removed. Regenerated across `dist/fontawesome.tss`, `dist/fontawesome.js`, the bundled TTF/OTF font files, the `lib/templates/fontawesome` templates and the `test-project/` baseline.
+- **`sharp` updated to 0.35.3 and `glob` to 13.0.6.**
+
 ## [7.12.0] - 2026-08-05
 
 ### Added
