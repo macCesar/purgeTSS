@@ -3,9 +3,9 @@
  *
  * Prints guidance after a successful branding run. Two modes:
  *   - default (compact): one-line per category + "Next steps" block
- *   - `--notes` (full):  adds brand color reminder, padding tips, and all
- *                         tiapp.xml snippets (iOS launch, Android launcher,
- *                         Android 12+ splash theme, FCM notification tint)
+ *   - `--notes` (full):  adds brand color reminder, padding tips, and platform
+ *                         configuration snippets (iOS launch, Android launcher,
+ *                         Android launch theme, FCM notification tint)
  *
  * @fileoverview Post-generation guidance output
  * @author César Estrada
@@ -49,13 +49,13 @@ function printCompactSummary(opts) {
     logger.bullet(`Review ${chalk.cyan(stagingRoot + '/')} and copy files to their final paths manually.`)
   }
   console.log()
-  console.log(`Pass ${chalk.yellow('--notes')} to print tiapp.xml snippets + padding tuning guide.`)
+  console.log(`Pass ${chalk.yellow('--notes')} to print platform launch/theme snippets + padding tuning guide.`)
   console.log()
 }
 
 function printFullNotes(opts) {
   const {
-    projectType, projectRoot, stagingRoot,
+    projectType, stagingRoot,
     bgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, withSplash, withNotification, inPlace
   } = opts
 
@@ -82,7 +82,8 @@ function printFullNotes(opts) {
   console.log(`      ${flag('--ios-padding 2-3')}                  (matches first-party apps like Mail, Safari)`)
 
   logger.section('Configuration reminders')
-  console.log('  The tool does NOT auto-edit tiapp.xml. Snippets below are optional —')
+  console.log('  The tool does NOT auto-edit tiapp.xml or Android theme resources.')
+  console.log('  Snippets below are optional —')
   console.log('  paste only what you need, after reviewing.')
   console.log('  If your app already uses a custom Android theme, merge these changes')
   console.log('  into that theme instead of replacing it blindly.')
@@ -108,9 +109,20 @@ function printFullNotes(opts) {
   console.log(code('      <application android:icon="@mipmap/ic_launcher"'))
   console.log(code('                   android:usesCleartextTraffic="false"/>'))
 
+  console.log()
+  console.log(`  ${num('3.')} ${chalk.cyan('Android launch background')} — add to your existing app theme:`)
+  console.log('     Android 12+ system splash:')
+  console.log(code(`       <item name="android:windowSplashScreenBackground">${bgColor}</item>`))
+  console.log()
+  console.log('     Native window before Titanium draws the first Window:')
+  console.log(code(`       <item name="android:windowBackground">${bgColor}</item>`))
+  console.log()
+  console.log('     Keep the existing theme and make sure tiapp.xml <application>')
+  console.log('     references it with android:theme="@style/YourExistingTheme".')
+
   if (withSplash) {
     console.log()
-    console.log(`  ${num('3.')} ${chalk.cyan('Android 12+ splash screen')} — ${chalk.yellow('OPTIONAL, advanced')}`)
+    console.log(`  ${num('4.')} ${chalk.cyan('Android 12+ splash artwork')} — ${chalk.yellow('OPTIONAL, advanced')}`)
     console.log()
     console.log('     Generated files: @drawable/splash_icon.png across densities.')
     console.log('     Titanium SDK 13.x shows a system splash automatically using your')
@@ -124,7 +136,7 @@ function printFullNotes(opts) {
   }
 
   console.log()
-  console.log(`  ${num(withSplash ? '4.' : '3.')} ${chalk.cyan('Android <12 legacy splash')}`)
+  console.log(`  ${num(withSplash ? '5.' : '4.')} ${chalk.cyan('Android <12 legacy splash')}`)
   console.log('     PurgeTSS brand still regenerates app/assets/android/default.png as')
   console.log('     a compatibility fallback while Titanium continues to recognize it.')
   console.log('     It is not the primary modern path. If your app uses a custom')
@@ -137,7 +149,7 @@ function printFullNotes(opts) {
       : 'app/platform/android/res/values'
 
     console.log()
-    console.log(`  ${num(withSplash ? '5.' : '4.')} ${chalk.cyan('FCM notification icon + tint')}`)
+    console.log(`  ${num(withSplash ? '6.' : '5.')} ${chalk.cyan('FCM notification icon + tint')}`)
     console.log('     Only needed if you use firebase.cloudmessaging for push.')
     console.log()
     console.log(`     Create ${flag(colorsDir + '/colors.xml')} (or merge):`)

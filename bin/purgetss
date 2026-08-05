@@ -326,7 +326,7 @@ Examples:
   .option('--no-tinted', 'Skip DefaultIcon-Tinted.png generation')
   .option('--project <path>', 'Project root (default: cwd)')
   .option('-o, --output <dir>', 'Stage to <dir> instead of writing in-place')
-  .option('--notes', 'Print full tiapp.xml snippets + tuning guide')
+  .option('--notes', 'Print platform launch/theme snippets + tuning guide')
   .option('--dry-run', 'Preview without writing any files')
   .option('--cleanup-legacy', 'Remove legacy branding artifacts (reads tiapp.xml)')
   .option('--aggressive', 'With --cleanup-legacy: also remove ldpi folders')
