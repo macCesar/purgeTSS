@@ -62,6 +62,7 @@ import { genIcLauncherXml } from './gen-ic-launcher-xml.js'
 import { detectProjectType } from './tiapp-reader.js'
 import { cleanupLegacy } from './cleanup-legacy.js'
 import { printPostGenNotes } from './post-gen-notes.js'
+import { optimizePngs, formatBytes } from './optimize-pngs.js'
 import { logoBox } from './splash-geometry.js'
 
 /** Side of the box a piece fits its logo into, for a square canvas. */
@@ -298,6 +299,7 @@ export async function runBranding(opts) {
     bgColor = '#FFFFFF',
     pieces = {},
     selection = [],
+    optimize = false,
     cleanupLegacy: runCleanup = false,
     aggressive = false,
     projectRoot = process.cwd(),
@@ -392,6 +394,7 @@ export async function runBranding(opts) {
 
   if (dryRun) {
     const lines = runnable.flatMap((name) => PIPELINE[name].describe(ctx, pieces[name]))
+    if (optimize) lines.push('...then re-encode every PNG above with a quantized palette (--optimize)')
     mainLogger.block('[dry-run] Would generate:', ...lines)
     if (runCleanup) {
       await cleanupLegacy({ projectRoot, projectType, aggressive, dryRun, keepPaths: plannedPaths(ctx, runnable) })
@@ -465,6 +468,17 @@ export async function runBranding(opts) {
     const masters = piece.logo ? await mastersFor(piece.logo, `_logo_${name}`) : mainMaster
     const written = await entry.run(ctx, piece, masters[entry.variant])
     generated.push(...written)
+  }
+
+  if (optimize) {
+    logger.section('Optimize')
+    const result = await optimizePngs(generated)
+    if (result.files === 0) {
+      logger.bullet('Nothing to shrink — the generated PNGs were already smaller than a palette version.')
+    } else {
+      const saved = Math.round((1 - result.after / result.before) * 100)
+      logger.bullet(`${result.files} file(s): ${formatBytes(result.before)} → ${formatBytes(result.after)} (${saved}% smaller)`)
+    }
   }
 
   if (runCleanup) {

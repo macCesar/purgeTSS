@@ -110,6 +110,7 @@ export function translateBrandSection(brand) {
   // ---- Already-current keys pass straight through -------------------------
   if (brand.background !== undefined) overrides.background = brand.background
   if (brand.confirmOverwrites !== undefined) overrides.confirmOverwrites = brand.confirmOverwrites
+  if (brand.optimize !== undefined) overrides.optimize = brand.optimize
   if (brand.logo !== undefined) overrides.logo = brand.logo
   if (brand.monochromeLogo !== undefined) overrides.monochromeLogo = brand.monochromeLogo
 

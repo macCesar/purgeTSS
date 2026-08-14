@@ -19,6 +19,11 @@ function resolve(brandConfig = {}, cliOptions = {}) {
   return resolvePieces(brandConfig, cliOptions, BRAND_DIR, PROJECT_ROOT)
 }
 
+/** Mirrors the one line in resolveBrandConfig() that settles `optimize`. */
+function resolveOptimize(brandConfig, cliOptions) {
+  return Boolean(cliOptions.optimize ?? brandConfig.optimize ?? false)
+}
+
 try {
   // ---- Padding precedence -------------------------------------------------
 
@@ -166,12 +171,24 @@ try {
   assert.throws(() => parseOnlySelection('foo'), /Groups:/, 'the error lists the valid selectors')
   assert.throws(() => parseOnlySelection(''), /at least one piece or group/)
 
+  // ---- optimize ------------------------------------------------------------
+
+  {
+    // Lossy, so it stays off until asked for — by config or by flag.
+    assert.strictEqual(resolveOptimize({}, {}), false)
+    assert.strictEqual(resolveOptimize({ optimize: true }, {}), true, 'config can turn it on')
+    assert.strictEqual(resolveOptimize({}, { optimize: true }), true, '--optimize turns it on')
+    assert.strictEqual(resolveOptimize({ optimize: true }, { optimize: false }), false, '--no-optimize wins over config')
+    assert.strictEqual(resolveOptimize({ optimize: false }, { optimize: true }), true, '--optimize wins over config')
+  }
+
   // ---- Unknown keys ------------------------------------------------------
 
   assert.doesNotThrow(() => assertKnownBrandKeys({}))
   assert.doesNotThrow(() => assertKnownBrandKeys({
     background: '#FFFFFF',
     confirmOverwrites: true,
+    optimize: true,
     logo: './a.svg',
     monochromeLogo: './b.svg',
     adaptive: { padding: '19%', logo: './c.svg', background: '#000000', enabled: true }

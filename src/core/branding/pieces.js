@@ -330,7 +330,7 @@ export const BRAND_GROUPS = {
 }
 
 /** Keys allowed at the top level of `brand:`, outside the piece blocks. */
-export const BRAND_TOP_LEVEL_KEYS = ['background', 'confirmOverwrites', 'logo', 'monochromeLogo']
+export const BRAND_TOP_LEVEL_KEYS = ['background', 'confirmOverwrites', 'optimize', 'logo', 'monochromeLogo']
 
 /** Keys allowed inside a piece block. */
 export const BRAND_PIECE_KEYS = ['logo', 'padding', 'background', 'enabled']

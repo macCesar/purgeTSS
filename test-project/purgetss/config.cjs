@@ -15,6 +15,7 @@ module.exports = {
   brand: {
     background: '#FFFFFF',   // inherited by every piece that doesn't set its own
     confirmOverwrites: true, // prompt before overwriting files (set false to skip)
+    optimize: false,         // true = quantize the generated PNGs to a palette (lossy, ~74% smaller)
 
     // One block per piece. Artwork comes from purgetss/brand/logo-<piece>.{svg,png};
     // these keys are for numbers, colors and activation. Padding is never inherited.

@@ -86,6 +86,8 @@ export function resolveBrandConfig(cliOptions, cliLogo, projectRoot) {
     selection,
     onlySelection,
 
+    optimize: Boolean(cliOptions.optimize ?? brandConfig.optimize ?? false),
+
     cleanupLegacy: Boolean(cliOptions.cleanupLegacy),
     aggressive: Boolean(cliOptions.aggressive),
     projectRoot,
