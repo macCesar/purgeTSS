@@ -17,7 +17,7 @@
 - 23,300+ utility classes for styling Titanium views
 - Parses XML files to generate a clean `app.tss` with only the classes your project uses
 - Customizable defaults via `config.cjs`, with JIT classes for arbitrary values
-- `brand` command for Titanium icons and branding assets, focused on the modern Titanium icon pipeline: Android adaptive icons, iOS icon variants, optional Android 12+ splash artwork, and a minimal `default.png` compatibility fallback
+- `brand` command for Titanium icons and branding assets: one run replaces every image the Titanium template ships — iOS icon variants, Android adaptive and legacy launcher icons, store artwork, and the iOS and Android splash sets — with `--only` to regenerate a single piece
 - Icon font support: Font Awesome, Material Icons, Material Symbols, Framework7-Icons
 - `build-fonts` command generates `fonts.tss` with class definitions and fontFamily selectors
 - `shades` command generates color shades from any hex color
@@ -392,7 +392,7 @@ Button: {
 
 Both `purgetss images` and `purgetss brand` treat each source file as the **xxxhdpi/@4x master**: your file's pixel dimensions ARE the largest density, and smaller densities derive at 1/4, 1.5/4, 2/4, 3/4. A 256 px PNG produces a 64 px `@1x/mdpi`. If you want 64 dp at `@1x`, drop a 256 px source.
 
-Override per file via `images.files` in `config.cjs` (or the brand-specific fields under `brand.logos`/`brand.padding`). The convention is the default fallback — entries override it on a per-file basis. CLI flags like `--width` always win over both.
+Override per file via `images.files` in `config.cjs` (or, for `brand`, the `padding` key of the piece you want to reframe — `brand.adaptive.padding`, `brand.icon.padding`, …). The convention is the default fallback — entries override it on a per-file basis. CLI flags like `--width` always win over both.
 
 ### v7.10.0
 
