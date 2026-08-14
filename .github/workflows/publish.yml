@@ -1,0 +1,52 @@
+name: Publish to npm
+
+# Publishes when a vX.Y.Z tag is pushed — which is the last thing /release does.
+# Authentication is trusted publishing (OIDC): no NPM_TOKEN, no secrets, no 2FA prompt.
+# The trusted publisher registered on npmjs.com must point at this exact filename,
+# so renaming this file breaks publishing until the registration is updated.
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write # required for OIDC — without it npm publish falls back to token auth
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24' # trusted publishing needs Node >= 22.14.0 and npm >= 11.5.1
+          registry-url: 'https://registry.npmjs.org'
+          # No NODE_AUTH_TOKEN anywhere: setting it puts the publish back on token
+          # auth and gives up provenance.
+
+      # A tag and a manifest can disagree, and npm would publish the manifest's
+      # version under a tag that says something else. This fails before npm ci, so
+      # a mismatched tag never reaches the registry.
+      - name: Verify the tag matches package.json
+        run: |
+          echo "node $(node --version) / npm $(npm --version)"
+          tag="${GITHUB_REF_NAME#v}"
+          pkg=$(node -p "require('./package.json').version")
+          echo "tag=$tag  package.json=$pkg"
+          [ "$tag" = "$pkg" ] || { echo "::error::tag $tag does not match package.json $pkg"; exit 1; }
+
+      - run: npm ci
+
+      # dist/*.js and dist/*.tss ship in the published package (see "files" in
+      # package.json) and carry the version in their header, so they are rebuilt
+      # here from the tagged source. The committed dist/ is not what gets published.
+      - run: npm run build
+
+      - run: npm test
+
+      # npm attaches provenance automatically when the publish is authenticated by
+      # OIDC: the published version links back to this commit and this run.
+      - run: npm publish
