@@ -24,6 +24,7 @@ import {
 import { logger } from './logger.js'
 import { makeSureFolderExists } from './utils.js'
 import { validateConfig } from './validation/config-validator.js'
+import { ensureBrandSection } from '../core/branding/ensure-brand-section.js'
 
 // Create require for ESM compatibility
 const require = createRequire(import.meta.url)
@@ -35,14 +36,14 @@ const require = createRequire(import.meta.url)
  *   '20'   → 20
  *   '20%'  → 20
  *
- * Used for the `brand.padding.*` values so users can write
- * self-documenting values like `androidAdaptive: '19%'` in their config.
+ * Used for the `brand.<piece>.padding` values so users can write
+ * self-documenting values like `adaptive: { padding: '19%' }` in their config.
  *
  * @param {number|string} value
- * @param {string} fieldName - Config path for error messages (e.g. 'brand.padding.androidAdaptive')
+ * @param {string} fieldName - Config path for error messages (e.g. 'brand.adaptive.padding')
  * @returns {number} Integer 0-40
  */
-function parsePadding(value, fieldName) {
+export function parsePadding(value, fieldName) {
   if (typeof value === 'number') return value
   if (typeof value === 'string') {
     const match = value.trim().match(/^(\d+)%?$/)
@@ -66,8 +67,12 @@ export function ensureConfig() {
   makeSureFolderExists(projectsPurge_TSS_Brand_Folder)
   makeSureFolderExists(projectsPurge_TSS_Images_Folder)
 
-  // 1. ¿Existe config.cjs? → Úsalo
+  // 1. ¿Existe config.cjs? → Úsalo, pero primero ponlo al día.
+  //    Same spirit as the config.js → config.cjs rename below: the file is
+  //    brought to the current structure once, on disk, so no command has to
+  //    understand an older one.
   if (fs.existsSync(projectsConfigJS)) {
+    ensureBrandSection({ createFolder: false })
     return
   }
 
@@ -106,71 +111,6 @@ export function migrateConfigIfNeeded() {
   }
 }
 
-// Tracks configs already warned about in this process so the deprecation
-// notice prints once per session even if getConfigFile() is called many times.
-const _warnedLegacyBrand = new Set()
-
-/**
- * Migrate the flat pre-7cb5890 `brand:` schema (padding as number, iosPadding,
- * bgColor, darkBgColor, top-level notification/splash) into the grouped
- * schema downstream code expects. Mutates in place; if both legacy and new
- * keys coexist, the new key wins. Emits ONE warning per config path per session.
- */
-function normalizeLegacyBrand(configFile, sourcePath) {
-  const brand = configFile.brand
-  if (!brand || typeof brand !== 'object') return
-
-  const hits = []
-
-  if (brand.padding != null && typeof brand.padding !== 'object') {
-    const value = brand.padding
-    brand.padding = { androidLegacy: value, androidAdaptive: value }
-    hits.push(`brand.padding: ${JSON.stringify(value)} → brand.padding.androidLegacy + brand.padding.androidAdaptive`)
-  }
-
-  if ('iosPadding' in brand) {
-    brand.padding = (brand.padding && typeof brand.padding === 'object') ? brand.padding : {}
-    brand.padding.ios = brand.padding.ios ?? brand.iosPadding
-    hits.push('brand.iosPadding → brand.padding.ios')
-    delete brand.iosPadding
-  }
-
-  if ('bgColor' in brand) {
-    brand.colors = brand.colors ?? {}
-    brand.colors.background = brand.colors.background ?? brand.bgColor
-    hits.push('brand.bgColor → brand.colors.background')
-    delete brand.bgColor
-  }
-
-  if ('darkBgColor' in brand) {
-    brand.ios = brand.ios ?? {}
-    brand.ios.darkBackground = brand.ios.darkBackground ?? brand.darkBgColor
-    hits.push('brand.darkBgColor → brand.ios.darkBackground')
-    delete brand.darkBgColor
-  }
-
-  if ('notification' in brand) {
-    brand.android = brand.android ?? {}
-    brand.android.notification = brand.android.notification ?? brand.notification
-    hits.push('brand.notification → brand.android.notification')
-    delete brand.notification
-  }
-
-  if ('splash' in brand) {
-    brand.android = brand.android ?? {}
-    brand.android.splash = brand.android.splash ?? brand.splash
-    hits.push('brand.splash → brand.android.splash')
-    delete brand.splash
-  }
-
-  if (hits.length > 0 && !_warnedLegacyBrand.has(sourcePath)) {
-    _warnedLegacyBrand.add(sourcePath)
-    logger.warn('Legacy brand: schema detected in purgetss/config.cjs — auto-migrated in memory:')
-    for (const hit of hits) logger.item(`  • ${hit}`)
-    logger.item('  Update purgetss/config.cjs to the new grouped schema to silence this warning.')
-  }
-}
-
 /**
  * Get configuration file with fallback to default template
  * Maintains exact same logic as original getConfigFile()
@@ -183,7 +123,6 @@ export function getConfigFile() {
   const configFile = require(sourcePath)
 
   validateConfig(configFile, sourcePath)
-  normalizeLegacyBrand(configFile, sourcePath)
 
   // Apply default values following template structure
   configFile.purge = configFile.purge ?? {}
@@ -195,22 +134,9 @@ export function getConfigFile() {
   configFile.purge.options.safelist = configFile.purge.options.safelist ?? []
   configFile.purge.options.plugins = configFile.purge.options.plugins ?? []
 
+  // Per-piece brand defaults are resolved in src/core/branding/brand-config.js,
+  // where the piece table lives. Here we only guarantee the section exists.
   configFile.brand = configFile.brand ?? {}
-  configFile.brand.logos = configFile.brand.logos ?? {}
-  configFile.brand.padding = configFile.brand.padding ?? {}
-  configFile.brand.padding.ios = parsePadding(configFile.brand.padding.ios ?? 4, 'brand.padding.ios')
-  configFile.brand.padding.androidLegacy = parsePadding(configFile.brand.padding.androidLegacy ?? 10, 'brand.padding.androidLegacy')
-  configFile.brand.padding.androidAdaptive = parsePadding(configFile.brand.padding.androidAdaptive ?? 19, 'brand.padding.androidAdaptive')
-  configFile.brand.padding.featureGraphic = parsePadding(configFile.brand.padding.featureGraphic ?? 12, 'brand.padding.featureGraphic')
-  configFile.brand.android = configFile.brand.android ?? {}
-  configFile.brand.android.notification = configFile.brand.android.notification ?? false
-  configFile.brand.android.splash = configFile.brand.android.splash ?? false
-  configFile.brand.ios = configFile.brand.ios ?? {}
-  configFile.brand.ios.dark = configFile.brand.ios.dark ?? true
-  configFile.brand.ios.tinted = configFile.brand.ios.tinted ?? true
-  configFile.brand.ios.darkBackground = configFile.brand.ios.darkBackground ?? null
-  configFile.brand.colors = configFile.brand.colors ?? {}
-  configFile.brand.colors.background = configFile.brand.colors.background ?? '#FFFFFF'
 
   configFile.images = configFile.images ?? {}
   configFile.images.quality = configFile.images.quality ?? 85

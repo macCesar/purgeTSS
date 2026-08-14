@@ -1,19 +1,22 @@
 /**
- * PurgeTSS - Ensure `brand:` section exists in purgetss/config.cjs
+ * PurgeTSS - Keep the `brand:` section of config.cjs present and current
  *
- * When a project was initialized before `brand` was introduced, its
- * config.cjs won't have a `brand:` section. On first invocation of
- * `purgetss brand`, we patch the file to insert the default block
- * between `purge:` and `theme:`. The user's existing keys are untouched.
+ * Two jobs, both on the file rather than in memory:
+ *
+ *   1. A config.cjs written before `brand` existed has no `brand:` section at
+ *      all — insert the default block between `purge:` and `theme:`.
+ *   2. A config.cjs whose `brand:` uses an older structure is rewritten to the
+ *      current one, carrying over every value its owner had customized.
  *
  * Rationale:
- * - Keeps the config self-documenting — the user sees the defaults in
+ * - Keeps the config self-documenting — the user sees the current defaults in
  *   their own file rather than having to look them up in docs.
- * - Mirrors how `ensureConfig()` creates the file from the template when
- *   it's missing altogether.
- * - Non-destructive: only adds if absent, never overwrites existing values.
+ * - Mirrors how `ensureConfig()` creates the file from the template when it is
+ *   missing, and how it renames config.js to config.cjs.
+ * - The command itself then reads exactly one structure. No fallbacks, no
+ *   translation on every run.
  *
- * @fileoverview Auto-injects the `brand:` section on first brand run
+ * @fileoverview Injects / updates the `brand:` section of config.cjs
  * @author César Estrada
  */
 
@@ -21,63 +24,48 @@ import fs from 'fs'
 import chalk from 'chalk'
 import { projectsConfigJS, projectsPurge_TSS_Brand_Folder } from '../../shared/constants.js'
 import { logger } from './branding-logger.js'
-
-const BRAND_BLOCK = `  brand: {
-    logos: {},               // empty = auto-discovers from purgetss/brand/
-    padding: {
-      ios: '4%',              // iOS aesthetic. Range: 2% bold — 8% conservative. No launcher mask.
-      androidLegacy: '10%',   // legacy ic_launcher.png padding
-      androidAdaptive: '19%', // adaptive foreground padding near the Android safe-zone
-      featureGraphic: '12%'   // Google Play Feature Graphic vertical padding (1024×500)
-    },
-    android: {
-      splash: false,         // also generate splash_icon.png × 5
-      notification: false    // also generate ic_stat_notify.png × 5
-    },
-    ios: {
-      dark: true,            // generate iOS 18+ Dark appearance icon
-      tinted: true,          // generate iOS 18+ Tinted appearance icon
-      darkBackground: null   // null = transparent per Apple HIG
-    },
-    colors: {
-      background: '#FFFFFF'  // Android adaptive bg + iOS/marketplace flatten
-    },
-    confirmOverwrites: true  // prompt before overwriting files (set false to skip)
-  },
-`
+import { renderBrandBlock } from './render-brand-block.js'
+import { migrateBrandSection } from './migrate-brand-section.js'
 
 /**
- * If the project's config.cjs exists but has no `brand:` key, inject the
- * default block between `purge:` and `theme:`. Prints a notice when it does.
+ * Make sure purgetss/brand/ exists, then make sure config.cjs carries a
+ * `brand:` block in the current structure.
  *
  * Silently skips if:
  *   - config.cjs doesn't exist (will be created by ensureConfig() elsewhere)
- *   - `brand:` is already present
- *   - file can't be patched safely (structure doesn't match expectation)
+ *   - the file can't be patched safely (structure doesn't match expectation)
+ *
+ * @param {Object} [opts]
+ * @param {boolean} [opts.createFolder] - Also create purgetss/brand/ (default true)
+ * @returns {boolean} True when config.cjs was written
  */
-export function ensureBrandSection() {
-  // Always make sure the logos folder exists — mirrors how init creates
-  // `purgetss/fonts/` empty so the user can see where assets go.
-  if (!fs.existsSync(projectsPurge_TSS_Brand_Folder)) {
+export function ensureBrandSection(opts = {}) {
+  const { createFolder = true } = opts
+
+  // Mirrors how init creates `purgetss/fonts/` empty so the user can see where
+  // assets go.
+  if (createFolder && !fs.existsSync(projectsPurge_TSS_Brand_Folder)) {
     fs.mkdirSync(projectsPurge_TSS_Brand_Folder, { recursive: true })
   }
 
-  if (!fs.existsSync(projectsConfigJS)) return
+  if (!fs.existsSync(projectsConfigJS)) return false
 
   const original = fs.readFileSync(projectsConfigJS, 'utf8')
 
-  // Already present — nothing to do.
-  if (/^\s*brand\s*:/m.test(original)) return
-
-  // Insert before the `theme:` key. Regex captures the indentation so we
-  // preserve whatever the user's style is (2-space, 4-space, etc.).
-  const match = original.match(/(^\s*)theme\s*:/m)
-  if (!match) {
-    // Non-standard layout — don't risk corrupting it. User can add manually.
-    return
+  // Present already — bring its structure up to date if needed.
+  if (/^\s*brand\s*:/m.test(original)) {
+    return migrateBrandSection(projectsConfigJS)
   }
 
-  const patched = original.replace(match[0], `${BRAND_BLOCK}${match[0]}`)
+  // Insert before the `theme:` key. The regex captures the indentation so we
+  // preserve whatever the user's style is (2-space, 4-space, etc.).
+  const match = original.match(/(^[ \t]*)theme\s*:/m)
+  if (!match) {
+    // Non-standard layout — don't risk corrupting it. User can add manually.
+    return false
+  }
+
+  const patched = original.replace(match[0], `${renderBrandBlock({}, { indent: match[1] })}${match[0]}`)
 
   try {
     fs.writeFileSync(projectsConfigJS, patched, 'utf8')
@@ -86,8 +74,10 @@ export function ensureBrandSection() {
     console.log('  Edit that block to customize brand defaults (logos, padding, colors, etc.).')
     console.log('  CLI flags always win over config values.')
     console.log()
+    return true
   } catch (err) {
     logger.warning(`Could not auto-add brand: section to config.cjs (${err.message}).`)
     logger.warning('The command will still run using built-in defaults.')
+    return false
   }
 }

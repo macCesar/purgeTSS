@@ -13,25 +13,27 @@ module.exports = {
     }
   },
   brand: {
-    logos: {},               // empty = auto-discovers from purgetss/brand/
-    padding: {
-      ios: '4%',             // iOS aesthetic. Range: 2% bold — 8% conservative. No launcher mask.
-      androidLegacy: '10%',  // legacy ic_launcher.png padding
-      androidAdaptive: '19%' // adaptive foreground padding near the Android safe-zone
-    },
-    android: {
-      splash: false,         // also generate splash_icon.png × 5
-      notification: false    // also generate ic_stat_notify.png × 5
-    },
-    ios: {
-      dark: true,            // generate iOS 18+ Dark appearance icon
-      tinted: true,          // generate iOS 18+ Tinted appearance icon
-      darkBackground: null   // null = transparent per Apple HIG
-    },
-    colors: {
-      background: '#FFFFFF'  // Android adaptive bg + iOS/marketplace flatten
-    },
-    confirmOverwrites: true  // prompt before overwriting files (set false to skip)
+    background: '#FFFFFF',   // inherited by every piece that doesn't set its own
+    confirmOverwrites: true, // prompt before overwriting files (set false to skip)
+
+    // One block per piece. Artwork comes from purgetss/brand/logo-<piece>.{svg,png};
+    // these keys are for numbers, colors and activation. Padding is never inherited.
+    icon:             { padding: '4%' },    // DefaultIcon.png + DefaultIcon-ios.png
+    dark:             { background: null }, // DefaultIcon-Dark.png
+    tinted:           {},                   // DefaultIcon-Tinted.png
+    iosSplash:        { padding: '26%' },   // assets/iphone/Default*.png × 16
+    launchLogo:       { padding: '12%' },   // LaunchLogo.png (1024×1024)
+    marketplace:      {},                   // iTunesConnect.png + MarketplaceArtwork.png
+    featureGraphic:   { padding: '12%' },   // MarketplaceArtworkFeature.png (1024×500)
+    adaptive:         { padding: '18%' },   // ic_launcher_{foreground,background,monochrome}.png × 5 + ic_launcher.xml
+    legacyIcon:       { padding: '10%' },   // ic_launcher.png × 5
+    appicon:          {},                   // appicon.png (128×128)
+    androidSplash:    { padding: '26%' },   // assets/android/default.png + images/res-*/default.png × 11
+
+    // Opt-in: inert until you edit the Android theme / FCM meta-data by hand.
+    splashIcon:       { enabled: false },   // drawable-*/splash_icon.png × 5
+    notificationIcon: { enabled: false },   // drawable-*/ic_stat_notify.png × 5
+    ninePatch:        { enabled: false }    // background.9.png (not implemented yet)
   },
   images: {
     quality: 85,             // JPEG/WebP/AVIF quality (0-100)

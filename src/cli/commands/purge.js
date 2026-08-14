@@ -28,7 +28,8 @@ import {
 import { logger, setDebugMode } from '../../shared/logger.js'
 import { start, finish, localStart, localFinish } from '../utils/cli-helpers.js'
 import { init } from './init.js'
-import { getConfigOptions, getConfigFile, ensureConfig } from '../../shared/config-manager.js'
+import { getConfigOptions, getConfigFile } from '../../shared/config-manager.js'
+import { ensureBrandSection } from '../../core/branding/ensure-brand-section.js'
 
 // Import purger functions from core modules
 import { processControllers } from '../../core/analyzers/class-extractor.js'
@@ -669,6 +670,11 @@ function saveFile(file, data) {
  * @returns {boolean} - Success status
  */
 export async function purgeClasses(options) {
+  // Bring the brand: block up to the current structure before anything reads
+  // the config. Writing it bumps the config mtime, which is what makes
+  // purgeTailwind() rebuild utilities.tss on the same run.
+  ensureBrandSection({ createFolder: false })
+
   // Initialize configOptions first (includes auto-migration)
   configOptions = getConfigOptions()
 
