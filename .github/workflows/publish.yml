@@ -10,6 +10,13 @@ on:
     tags:
       - 'v*'
 
+  # Manual re-run for a tag that is already pushed: a publish that failed on a
+  # flaky test or an unregistered publisher would otherwise need a burned
+  # version number to retry. Select the tag as the ref and the version guard
+  # below reads it exactly as it does on a tag push.
+  #   gh workflow run publish.yml --ref v1.2.3
+  workflow_dispatch:
+
 permissions:
   contents: read
   id-token: write # required for OIDC — without it npm publish falls back to token auth
