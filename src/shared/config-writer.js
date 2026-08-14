@@ -78,6 +78,41 @@ export function findSectionRange(source, section) {
 }
 
 /**
+ * Replace one whole top-level section of config.cjs with a serialized value,
+ * leaving every other byte of the file untouched.
+ *
+ * Written for the color commands, which used to serialize the entire config
+ * object and write it back. That reformats the file and drops every comment in
+ * it — including the ones `init` generates for sections the command never even
+ * looked at.
+ *
+ * @param {string} section - Top-level key to replace ('theme', 'brand', …)
+ * @param {*} value - The new value for that section
+ * @param {Function} serialize - (value) => string, the caller's serializer
+ * @returns {boolean} True when the file was patched; false when the section is
+ *   missing or the config does not exist, so the caller can fall back.
+ */
+export function setConfigSection(section, value, serialize) {
+  if (!fs.existsSync(projectsConfigJS)) return false
+  if (value === undefined) return false
+
+  const original = fs.readFileSync(projectsConfigJS, 'utf8')
+  const range = findSectionRange(original, section)
+  if (!range) return false
+
+  const body = serialize(value)
+    .split('\n')
+    .map((line, i) => (i === 0 ? line : range.indent + line))
+    .join('\n')
+
+  const trailingComma = original[range.end - 1] === ',' ? ',' : ''
+  const replacement = `${range.indent}${section}: ${body}${trailingComma}`
+
+  fs.writeFileSync(projectsConfigJS, original.slice(0, range.start) + replacement + original.slice(range.end), 'utf8')
+  return true
+}
+
+/**
  * @param {string} source
  * @param {number} openIdx - Index of the opening quote
  * @returns {number} Index just past the closing quote, or -1 if unterminated

@@ -21,6 +21,7 @@ import { getSemanticColorsPath, getSemanticColorsRelPath } from '../utils/projec
 import { logger } from '../../shared/logger.js'
 import { ensureConfig, getConfigFile } from '../../shared/config-manager.js'
 import { cleanDoubleQuotes } from '../utils/file-operations.js'
+import { setConfigSection } from '../../shared/config-writer.js'
 
 // Create require for ESM compatibility
 const require = createRequire(import.meta.url)
@@ -154,7 +155,7 @@ export async function shades(args, options) {
       }
     }
 
-    fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err })
+    saveThemeSection(configFile, options)
     checkIfColorModule()
     logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)}) saved in`, chalk.yellow('config.js'))
   } else if (options.json) {
@@ -471,8 +472,29 @@ export function writeConfigMapping(kebabName, configMapping, options) {
     }
   }
 
-  fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8', err => { throw err })
+  saveThemeSection(configFile, options)
   checkIfColorModule()
+}
+
+/**
+ * Persist the colors these commands just put into `configFile.theme`.
+ *
+ * Only the `theme:` section is rewritten. Serializing the whole config object
+ * and writing it back — which is what this used to do — reformats the file and
+ * drops every comment in it, including the ones `init` writes for `purge:`,
+ * `brand:` and `images:`, sections the color commands never touch.
+ *
+ * Falls back to the full rewrite when `theme:` cannot be located, so an
+ * unusual config still gets its colors saved.
+ *
+ * @param {Object} configFile - Config object with theme already updated
+ * @param {Object} options - Command options (only `quotes` matters here)
+ */
+function saveThemeSection(configFile, options) {
+  const patched = setConfigSection('theme', configFile.theme, (value) => cleanDoubleQuotes(value, options))
+  if (patched) return
+
+  fs.writeFileSync(projectsConfigJS, 'module.exports = ' + cleanDoubleQuotes(configFile, options), 'utf8')
 }
 
 /**
