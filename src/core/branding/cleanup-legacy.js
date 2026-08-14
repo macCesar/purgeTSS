@@ -13,6 +13,12 @@
  *
  * Always prints the plan before acting. Respects dryRun.
  *
+ * When it runs right after a generating pass, `keepPaths` holds what that pass
+ * just wrote. Several cleanup rules target the very files `brand` now
+ * regenerates — the iPhone launch images, the res-long/notlong splashes,
+ * appicon.png — so anything with fresh artwork in it is left alone rather than
+ * generated and deleted in the same command.
+ *
  * @fileoverview Legacy-artifact cleanup for Titanium branding
  * @author César Estrada
  */
@@ -22,7 +28,7 @@ import path from 'path'
 import { logger } from './branding-logger.js'
 import { readTiapp, hasAdaptiveIcons } from './tiapp-reader.js'
 
-export async function cleanupLegacy({ projectRoot, projectType, aggressive = false, dryRun = false }) {
+export async function cleanupLegacy({ projectRoot, projectType, aggressive = false, dryRun = false, keepPaths = [] }) {
   const tiappPath = path.join(projectRoot, 'tiapp.xml')
   const tiapp = readTiapp(tiappPath)
   const adaptive = hasAdaptiveIcons(projectRoot)
@@ -89,12 +95,32 @@ export async function cleanupLegacy({ projectRoot, projectType, aggressive = fal
     }
   }
 
-  printPlan({
-    projectRoot, projectType, tiapp, adaptive, aggressive,
-    safe, conditional, aggressiveTargets
+  const keep = keepPaths.map((p) => path.resolve(p))
+  const wasJustGenerated = (target) => {
+    const resolved = path.resolve(target)
+    return keep.some((written) => written === resolved || written.startsWith(resolved + path.sep))
+  }
+  const spared = []
+  const drop = (list) => list.filter((entry) => {
+    if (!wasJustGenerated(entry.path)) return true
+    spared.push(entry.path)
+    return false
   })
 
-  const total = safe.length + conditional.length + aggressiveTargets.length
+  const safeTargets = drop(safe)
+  const conditionalTargets = drop(conditional)
+  const aggressiveKept = drop(aggressiveTargets)
+
+  if (spared.length > 0) {
+    logger.info(`Keeping ${spared.length} path(s) this run just regenerated with your artwork.`)
+  }
+
+  printPlan({
+    projectRoot, projectType, tiapp, adaptive, aggressive,
+    safe: safeTargets, conditional: conditionalTargets, aggressiveTargets: aggressiveKept
+  })
+
+  const total = safeTargets.length + conditionalTargets.length + aggressiveKept.length
   if (total === 0) {
     logger.success('No legacy artifacts detected. Project is already clean.')
     return { removed: 0, bytes: 0 }
@@ -107,7 +133,7 @@ export async function cleanupLegacy({ projectRoot, projectType, aggressive = fal
 
   let removed = 0
   let bytes = 0
-  for (const bucket of [safe, conditional, aggressiveTargets]) {
+  for (const bucket of [safeTargets, conditionalTargets, aggressiveKept]) {
     for (const { path: target } of bucket) {
       const size = getSizeBytes(target)
       fs.rmSync(target, { recursive: true, force: true })
