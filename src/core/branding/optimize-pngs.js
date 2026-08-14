@@ -4,7 +4,7 @@
  * Re-encodes the generated PNGs with a quantized palette, the same trick
  * TinyPNG and pngquant use. Logos are flat artwork with few distinct colors,
  * which is exactly the case where a 256-color palette is indistinguishable
- * from truecolor at a fraction of the size — measured at ~74% smaller across
+ * from truecolor at a fraction of the size — measured at ~71% smaller across
  * a full brand set.
  *
  * It is lossy, which is why it is opt-in. A logo with wide gradients is the

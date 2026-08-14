@@ -348,7 +348,7 @@ Examples:
   .option('--dark-bg-color <hex>', 'Opt into opaque dark bg for DefaultIcon-Dark.png (default: transparent per Apple HIG)')
   .option('--no-dark', 'Skip DefaultIcon-Dark.png generation')
   .option('--no-tinted', 'Skip DefaultIcon-Tinted.png generation')
-  .option('--optimize', 'Re-encode the generated PNGs with a quantized palette (lossy, ~74% smaller)')
+  .option('--optimize', 'Re-encode the generated PNGs with a quantized palette (lossy, ~71% smaller)')
   .option('--no-optimize', 'Skip the palette pass even when brand.optimize is true')
   .option('--project <path>', 'Project root (default: cwd)')
   .option('-o, --output <dir>', 'Stage to <dir> instead of writing in-place')

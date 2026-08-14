@@ -47,7 +47,7 @@ export function renderBrandBlock(overrides = {}, opts = {}) {
   const top = [
     [`background: ${literal(overrides.background ?? DEFAULT_BACKGROUND)},`, 'inherited by every piece that doesn\'t set its own'],
     [`confirmOverwrites: ${overrides.confirmOverwrites ?? true},`, 'prompt before overwriting files (set false to skip)'],
-    [`optimize: ${overrides.optimize ?? false},`, 'true = quantize the generated PNGs to a palette (lossy, ~74% smaller)']
+    [`optimize: ${overrides.optimize ?? false},`, 'true = quantize the generated PNGs to a palette (lossy, ~71% smaller)']
   ]
   if (overrides.logo) top.push([`logo: ${literal(overrides.logo)},`, 'main logo, when it lives outside purgetss/brand/'])
   if (overrides.monochromeLogo) top.push([`monochromeLogo: ${literal(overrides.monochromeLogo)},`, 'monochrome layer + notification icons'])
