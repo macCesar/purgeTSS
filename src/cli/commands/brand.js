@@ -30,7 +30,14 @@ export async function brand(cliLogo, options = {}) {
   // project cwd, not against --project overrides (keeping ops localized).
   if (!options.project) ensureBrandSection()
 
-  const resolved = resolveBrandConfig(options, cliLogo, projectRoot)
+  let resolved
+  try {
+    resolved = resolveBrandConfig(options, cliLogo, projectRoot)
+  } catch (err) {
+    // Bad --only value, unparseable padding, … — abort before touching a file.
+    logger.error(err.message)
+    process.exit(1)
+  }
 
   // Helpful error when no logo is found and we're not in cleanup-only mode.
   if (!resolved.logo && !resolved.cleanupLegacy) {
@@ -64,6 +71,6 @@ function printMissingLogoHelp(projectRoot) {
   console.log()
   console.log('  Alternatives:')
   console.log(`    ${chalk.gray('•')} Pass the logo explicitly:       ${chalk.cyan('purgetss brand path/to/logo.svg')}`)
-  console.log(`    ${chalk.gray('•')} Point to it from config.cjs:    ${chalk.gray('brand: { logos: { primary: \'./docs/logo.svg\' } }')}`)
+  console.log(`    ${chalk.gray('•')} Point to it from config.cjs:    ${chalk.gray('brand: { logo: \'./docs/logo.svg\' }')}`)
   console.log()
 }

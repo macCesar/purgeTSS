@@ -1,9 +1,13 @@
 /**
  * PurgeTSS - gen-android-default
  *
- * Generates the legacy Android splash fallback used by Titanium projects via
- * app/assets/android/default.png. This path is still relevant on Android <12
- * when the app does not provide a custom windowBackground theme.
+ * Generates the Android splash Titanium projects carry at
+ * app/assets/android/default.png. Still read on Android <12 when the app does
+ * not provide a custom windowBackground theme.
+ *
+ * Sized by the same rule as its 11 per-qualifier siblings and as the iPhone
+ * launch images — see splash-geometry.js — so the whole splash set shows the
+ * logo at one consistent size.
  *
  * Output path:
  *   Alloy   -> app/assets/android/default.png
@@ -16,21 +20,28 @@
 import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
+import { logoBox } from './splash-geometry.js'
 
 const DEFAULT_WIDTH = 1440
 const DEFAULT_HEIGHT = 2560
 
-export async function genAndroidDefault(masterPng, bgColor, outDir) {
+/**
+ * @param {string} masterPng - Path to the prepared master logo (tight)
+ * @param {string|Object} bgColor - Background as sharp accepts it
+ * @param {string} outDir - Absolute path to <assets>/android
+ * @param {number} paddingPct - Padding per side, as a percentage of the shorter side
+ * @returns {Promise<string>} Absolute path of the file written
+ */
+export async function genAndroidDefault(masterPng, bgColor, outDir, paddingPct) {
   fs.mkdirSync(outDir, { recursive: true })
 
   const outPath = path.join(outDir, 'default.png')
-  const innerWidth = Math.floor(DEFAULT_WIDTH * 0.72)
-  const innerHeight = Math.floor(DEFAULT_HEIGHT * 0.26)
+  const logoSide = logoBox(DEFAULT_WIDTH, DEFAULT_HEIGHT, paddingPct)
 
   const innerLogo = await sharp(masterPng)
     .resize({
-      width: innerWidth,
-      height: innerHeight,
+      width: logoSide,
+      height: logoSide,
       fit: 'inside',
       background: { r: 0, g: 0, b: 0, alpha: 0 }
     })

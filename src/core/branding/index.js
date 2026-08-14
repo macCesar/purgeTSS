@@ -3,30 +3,33 @@
  *
  * Composes the branding pipeline for Titanium projects.
  *
- * Every invocation (kitchen-sink) generates:
+ * One rule decides what runs: if the project template ships the file, `brand`
+ * updates it. The 11 default pieces cover every image a fresh Alloy or Classic
+ * project inherits from the template, so a single run leaves nothing behind
+ * still wearing the grey Alloy logo.
  *
  *   iOS & marketplace:
- *     - DefaultIcon.png              (alpha preserved)
- *     - DefaultIcon-ios.png          (flattened on bg-color)
- *     - DefaultIcon-Dark.png         (iOS 18+, transparent by default)
- *     - DefaultIcon-Tinted.png       (iOS 18+, grayscale on black)
- *     - iTunesConnect.png            (1024²)
- *     - MarketplaceArtwork.png       (512²)
+ *     icon              DefaultIcon.png + DefaultIcon-ios.png
+ *     dark              DefaultIcon-Dark.png            (iOS 18+, transparent by default)
+ *     tinted            DefaultIcon-Tinted.png          (iOS 18+, grayscale on black)
+ *     ios-splash        assets/iphone/Default*.png × 16
+ *     launch-logo       LaunchLogo.png 1024²            (by convention: logo-launch.*)
+ *     marketplace       iTunesConnect.png + MarketplaceArtwork.png
+ *     feature-graphic   MarketplaceArtworkFeature.png   (1024×500)
  *
  *   Android:
- *     - ic_launcher_foreground.png   × 5 densities
- *     - ic_launcher_background.png   × 5 densities
- *     - ic_launcher_monochrome.png   × 5 densities  (themed icons / dark mode)
- *     - ic_launcher.png              × 5 densities  (legacy pre-adaptive)
- *     - mipmap-anydpi-v26/ic_launcher.xml
+ *     adaptive          ic_launcher_{foreground,background,monochrome}.png × 5 + ic_launcher.xml
+ *     legacy-icon       ic_launcher.png × 5
+ *     appicon           appicon.png (128²)
+ *     android-splash    assets/android/default.png + images/res-*\/default.png × 11
  *
- *   Optional (opt-in):
- *     - ic_stat_notify.png × 5       (--notification)
- *     - splash_icon.png × 5          (--splash)
+ *   Opt-in — inert until the user edits XML by hand, so they stay off:
+ *     splash-icon       drawable-*\/splash_icon.png × 5  (--splash-icon)
+ *     notification-icon drawable-*\/ic_stat_notify.png × 5 (--notification-icon)
+ *     nine-patch        background.9.png                (--nine-patch, not implemented)
  *
- *   Opt-out:
- *     - DefaultIcon-Dark.png         (--no-dark)
- *     - DefaultIcon-Tinted.png       (--no-tinted)
+ * The PIPELINE map below is the single source of truth for what each piece
+ * writes: the real run and the --dry-run listing both read it.
  *
  * @fileoverview Titanium branding pipeline orchestrator
  * @author César Estrada
@@ -44,9 +47,13 @@ import { prepareMaster } from './prepare-master.js'
 import { genIos } from './gen-ios.js'
 import { genIosDark } from './gen-ios-dark.js'
 import { genIosTinted } from './gen-ios-tinted.js'
+import { genIosSplashes, listIosSplashTargets, listIosSplashSizes } from './gen-ios-splashes.js'
+import { genLaunchLogo } from './gen-launch-logo.js'
 import { genAndroidAdaptive } from './gen-android-adaptive.js'
 import { genAndroidLegacy } from './gen-android-legacy.js'
 import { genAndroidDefault } from './gen-android-default.js'
+import { genAndroidSplashes, listSplashFolders, listSplashSizes } from './gen-android-splashes.js'
+import { genAppicon } from './gen-appicon.js'
 import { genMarketplace } from './gen-marketplace.js'
 import { genFeatureGraphic } from './gen-feature-graphic.js'
 import { genNotification } from './gen-notification.js'
@@ -55,27 +62,242 @@ import { genIcLauncherXml } from './gen-ic-launcher-xml.js'
 import { detectProjectType } from './tiapp-reader.js'
 import { cleanupLegacy } from './cleanup-legacy.js'
 import { printPostGenNotes } from './post-gen-notes.js'
+import { logoBox } from './splash-geometry.js'
+
+/** Side of the box a piece fits its logo into, for a square canvas. */
+function inner(canvas, paddingPct) {
+  return Math.max(1, Math.floor((canvas * (100 - 2 * (paddingPct ?? 0))) / 100))
+}
+
+/**
+ * Largest number of pixels any selected piece will ask of the master.
+ *
+ * The masters are rasterized to this, so every destination is a reduction and
+ * never an upscale. A default run needs ~950 px; lowering a padding raises the
+ * figure and the master grows with it, rather than the output going soft
+ * against a fixed ceiling.
+ *
+ * @param {string[]} names - Selected piece names
+ * @param {Object} pieces - Resolved pieces
+ * @returns {number} Longest side, in px
+ */
+function requiredMasterPx(names, pieces) {
+  const asked = names.map((name) => PIPELINE[name]?.maxLogoPx?.(pieces[name]) ?? 0)
+  return Math.max(MIN_MASTER_PX, ...asked)
+}
+
+/** Never build a master smaller than this — cheap, and keeps small runs sharp. */
+const MIN_MASTER_PX = 512
+
+/**
+ * pieza → generador. Each entry declares which prepared master it wants
+ * ('tight' keeps the logo's own aspect for presentation art, 'square' pads it
+ * for icon masks), where it writes, what it would write (dry-run) and how it
+ * writes it.
+ *
+ * @type {Object<string, {variant: string, root: string, describe: Function, run: Function}>}
+ */
+const PIPELINE = {
+  icon: {
+    variant: 'tight',
+    root: 'staging',
+    maxLogoPx: (piece) => inner(1024, piece.padding),
+    describe: (ctx) => [`${ctx.stagingRoot}/DefaultIcon.png + DefaultIcon-ios.png`],
+    run: async(ctx, piece, master) => {
+      const adaptivePadding = ctx.pieces.adaptive.padding
+      logger.bullet(`DefaultIcon.png (Android-safe padding ${adaptivePadding}%) + DefaultIcon-ios.png (iOS padding ${piece.padding}%)`)
+      const ios = await genIos(master, piece.background, adaptivePadding, piece.padding, ctx.stagingRoot)
+      return [ios.defaultIcon, ios.defaultIconIos]
+    }
+  },
+
+  dark: {
+    variant: 'tight',
+    root: 'staging',
+    maxLogoPx: (piece) => inner(1024, piece.padding),
+    describe: (ctx, piece) => {
+      const source = piece.logo
+        ? `from ${piece.logo}`
+        : (piece.background ? `opaque bg ${piece.background}` : 'transparent per Apple HIG')
+      return [`${ctx.stagingRoot}/DefaultIcon-Dark.png (${source})`]
+    },
+    run: async(ctx, piece, master) => {
+      const srcLabel = piece.logo ? 'from dark logo, ' : ''
+      const bgLabel = piece.background ? `opaque bg ${piece.background}` : 'transparent per Apple HIG'
+      logger.bullet(`DefaultIcon-Dark.png (${srcLabel}${bgLabel})`)
+      return [await genIosDark(master, piece.background, piece.padding, ctx.stagingRoot)]
+    }
+  },
+
+  tinted: {
+    variant: 'tight',
+    root: 'staging',
+    maxLogoPx: (piece) => inner(1024, piece.padding),
+    describe: (ctx, piece) => {
+      const source = piece.logo ? `from ${piece.logo}` : 'grayscale of logo, flattened on black'
+      return [`${ctx.stagingRoot}/DefaultIcon-Tinted.png (${source})`]
+    },
+    run: async(ctx, piece, master) => {
+      const srcLabel = piece.logo ? 'from tinted logo' : 'grayscale of logo'
+      logger.bullet(`DefaultIcon-Tinted.png (${srcLabel}, flattened on black)`)
+      return [await genIosTinted(master, piece.padding, ctx.stagingRoot)]
+    }
+  },
+
+  'ios-splash': {
+    variant: 'tight',
+    root: 'ios-assets',
+    maxLogoPx: (piece) => Math.max(...listIosSplashSizes().map(([w, h]) => logoBox(w, h, piece.padding))),
+    describe: (ctx, piece) => [`${ctx.iosAssetsRoot}/{${listIosSplashTargets().join(',')}} (${piece.padding}% padding)`],
+    keeps: (ctx) => listIosSplashTargets().map((file) => path.join(ctx.iosAssetsRoot, file)),
+    run: async(ctx, piece, master) => {
+      logger.bullet(`iPhone launch images × ${listIosSplashTargets().length} (padding ${piece.padding}%)`)
+      return genIosSplashes(master, piece.background, ctx.iosAssetsRoot, piece.padding)
+    }
+  },
+
+  'launch-logo': {
+    variant: 'tight',
+    root: 'ios-assets',
+    maxLogoPx: (piece) => inner(1024, piece.padding),
+    describe: (ctx, piece) => [`${ctx.iosAssetsRoot}/LaunchLogo.png (1024×1024, ${piece.padding}% padding)`],
+    run: async(ctx, piece, master) => {
+      logger.bullet(`LaunchLogo.png (1024×1024, padding ${piece.padding}%) — iOS launch screen source`)
+      return [await genLaunchLogo(master, piece.padding, ctx.iosAssetsRoot, { bgColor: piece.background })]
+    }
+  },
+
+  marketplace: {
+    variant: 'tight',
+    root: 'staging',
+    maxLogoPx: (piece) => inner(1024, piece.padding),
+    describe: (ctx) => [`${ctx.stagingRoot}/iTunesConnect.png + MarketplaceArtwork.png`],
+    run: async(ctx, piece, master) => {
+      const alphaMode = piece.backgroundExplicit ? `flattened on ${piece.background}` : 'alpha preserved'
+      logger.bullet(`iTunesConnect.png + MarketplaceArtwork.png (${alphaMode})`)
+      const mkt = await genMarketplace(master, piece.padding, ctx.stagingRoot, {
+        flatten: piece.backgroundExplicit,
+        bgColor: piece.background
+      })
+      return [mkt.itunesConnect, mkt.marketplaceArtwork]
+    }
+  },
+
+  'feature-graphic': {
+    variant: 'tight',
+    root: 'staging',
+    maxLogoPx: (piece) => inner(500, piece.padding),
+    describe: (ctx, piece) => {
+      const source = piece.logo ? `from ${piece.logo}` : 'from main logo'
+      return [`${ctx.stagingRoot}/MarketplaceArtworkFeature.png (${source}, ${piece.padding}% vertical padding)`]
+    },
+    run: async(ctx, piece, master) => {
+      const srcLabel = piece.logo ? 'from feature logo' : 'from main logo'
+      logger.bullet(`MarketplaceArtworkFeature.png (1024×500, ${srcLabel}, ${piece.padding}% vertical padding, flattened on ${piece.background})`)
+      return [await genFeatureGraphic(master, piece.padding, ctx.stagingRoot, { bgColor: piece.background })]
+    }
+  },
+
+  adaptive: {
+    variant: 'square',
+    root: 'android-res',
+    maxLogoPx: (piece) => inner(432, piece.padding),
+    describe: (ctx) => [
+      `${ctx.androidResRoot}/mipmap-{mdpi,hdpi,xhdpi,xxhdpi,xxxhdpi}/ic_launcher_{foreground,background,monochrome}.png`,
+      `${ctx.androidResRoot}/mipmap-anydpi-v26/ic_launcher.xml`
+    ],
+    run: async(ctx, piece, master) => {
+      const monoLabel = ctx.monoMaster ? ', monochrome from monochrome logo' : ''
+      logger.bullet(`Adaptive icons (foreground + background + monochrome${monoLabel}, padding ${piece.padding}%) × 5`)
+      const files = await genAndroidAdaptive(master, piece.background, piece.padding, ctx.androidResRoot, { monoMaster: ctx.monoMaster })
+      const xmlPath = genIcLauncherXml(ctx.androidResRoot)
+      logger.bullet(`Adaptive icon XML: ${xmlPath}`)
+      return [...files, xmlPath]
+    }
+  },
+
+  'legacy-icon': {
+    variant: 'square',
+    root: 'android-res',
+    maxLogoPx: (piece) => inner(432, piece.padding),
+    describe: (ctx) => [`${ctx.androidResRoot}/mipmap-{...}/ic_launcher.png (legacy)`],
+    run: async(ctx, piece, master) => {
+      logger.bullet(`Legacy ic_launcher.png × 5 (padding ${piece.padding}%)`)
+      return genAndroidLegacy(master, piece.background, piece.padding, ctx.androidResRoot)
+    }
+  },
+
+  appicon: {
+    variant: 'square',
+    root: 'android-assets',
+    maxLogoPx: (piece) => inner(128, piece.padding),
+    describe: (ctx, piece) => [`${ctx.androidAssetsRoot}/appicon.png (128×128, ${piece.padding}% padding)`],
+    keeps: (ctx) => [path.join(ctx.androidAssetsRoot, 'appicon.png')],
+    run: async(ctx, piece, master) => {
+      logger.bullet(`appicon.png (128×128, padding ${piece.padding}%)`)
+      return [await genAppicon(master, piece.background, piece.padding, ctx.androidAssetsRoot)]
+    }
+  },
+
+  'android-splash': {
+    variant: 'tight',
+    root: 'android-assets',
+    maxLogoPx: (piece) => Math.max(logoBox(1440, 2560, piece.padding), ...listSplashSizes().map(([w, h]) => logoBox(w, h, piece.padding))),
+    describe: (ctx, piece) => [
+      `${ctx.androidAssetsRoot}/default.png (${piece.padding}% padding)`,
+      `${ctx.androidAssetsRoot}/images/{${listSplashFolders().join(',')}}/default.png`
+    ],
+    keeps: (ctx) => listSplashFolders().map((folder) => path.join(ctx.androidAssetsRoot, 'images', folder, 'default.png')),
+    run: async(ctx, piece, master) => {
+      logger.bullet(`Android default.png splash (padding ${piece.padding}%)`)
+      const defaultSplash = await genAndroidDefault(master, piece.background, ctx.androidAssetsRoot, piece.padding)
+      logger.bullet(`Per-qualifier Android splashes × ${listSplashFolders().length} (Android <12)`)
+      const perQualifier = await genAndroidSplashes(master, piece.background, path.join(ctx.androidAssetsRoot, 'images'), piece.padding)
+      return [defaultSplash, ...perQualifier]
+    }
+  },
+
+  'splash-icon': {
+    variant: 'square',
+    root: 'android-res',
+    maxLogoPx: () => 288,
+    describe: (ctx) => [`${ctx.androidResRoot}/drawable-*/splash_icon.png × 5`],
+    run: async(ctx, piece, master) => {
+      logger.bullet('Splash icons × 5 (Android 12+ windowSplashScreenAnimatedIcon)')
+      return genSplash(master, ctx.androidResRoot)
+    }
+  },
+
+  'notification-icon': {
+    variant: 'square',
+    root: 'android-res',
+    maxLogoPx: () => 96,
+    describe: (ctx) => [`${ctx.androidResRoot}/drawable-*/ic_stat_notify.png × 5`],
+    run: async(ctx, piece, master) => {
+      const monoLabel = ctx.monoMaster ? ' from monochrome logo' : ' whitened from logo'
+      logger.bullet(`Notification icons (white+alpha, edge-to-edge${monoLabel}) × 5`)
+      return genNotification(ctx.monoMaster || master, ctx.androidResRoot)
+    }
+  },
+
+  'nine-patch': {
+    variant: 'tight',
+    root: 'android-res',
+    describe: () => ['background.9.png — not implemented yet, nothing will be written'],
+    run: async() => {
+      logger.warning('--nine-patch is declared but not implemented yet; no background.9.png was written.')
+      return []
+    }
+  }
+}
 
 export async function runBranding(opts) {
   const {
     logo,
-    iconLogo = null,
-    splashLogo = null,
-    featureLogo = null,
     monochromeLogo = null,
-    darkLogo = null,
-    darkBgColor = null,
-    withDark = true,
-    withTinted = true,
-    tintedLogo = null,
     bgColor = '#FFFFFF',
-    bgColorExplicit = false,
-    androidAdaptivePadding = 19,
-    androidLegacyPadding = 10,
-    iosPadding = 4,
-    featureGraphicPadding = 12,
-    notification = false,
-    splash = false,
+    pieces = {},
+    selection = [],
     cleanupLegacy: runCleanup = false,
     aggressive = false,
     projectRoot = process.cwd(),
@@ -87,7 +309,7 @@ export async function runBranding(opts) {
     confirmOverwrites = true
   } = opts
 
-  validateOptions({ logo, bgColor, darkBgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, featureGraphicPadding, cleanupLegacy: runCleanup })
+  validateOptions({ logo, bgColor, pieces, cleanupLegacy: runCleanup })
 
   const projectType = detectProjectType(projectRoot)
   const isInPlace = inPlace && !output
@@ -100,13 +322,13 @@ export async function runBranding(opts) {
   if (logo) {
     logger.property('Logo:       ', logo)
     logger.property('Background: ', bgColor)
-    logger.property('Padding:    ', `Android adaptive ${androidAdaptivePadding}% / Android legacy ${androidLegacyPadding}% / iOS ${iosPadding}% per side / Feature Graphic ${featureGraphicPadding}% vertical`)
+    logger.property('Pieces:     ', selection.length ? selection.join(', ') : '(none selected)')
     console.log()
     logger.property(isInPlace ? 'Writing IN PLACE to: ' : 'Staging:    ', isInPlace ? projectRoot : stagingRoot)
   }
   if (isInPlace && !dryRun && confirmOverwrites) {
     logger.warning(`⚠  In-place mode will OVERWRITE files in ${projectRoot}.`)
-    logger.warning(`   Commit first if you want a rollback.`)
+    logger.warning('   Commit first if you want a rollback.')
     const choice = await confirmWithAlways('Continue? [y/N/a]', { yes })
     if (choice === 'no') {
       logger.info('Aborted.')
@@ -141,39 +363,38 @@ export async function runBranding(opts) {
   }
 
   if (projectType === 'unknown') {
-    logger.warning(`Could not detect project layout. Expected 'app/' (Alloy) or 'Resources/' (Classic).`)
+    logger.warning('Could not detect project layout. Expected \'app/\' (Alloy) or \'Resources/\' (Classic).')
     logger.warning(`Assets will be staged under ${stagingRoot}/standalone/ — copy manually.`)
   }
 
-  const androidResStaging = getStagingAndroidResRoot(stagingRoot, projectType)
+  const ctx = {
+    projectType,
+    stagingRoot,
+    androidResRoot: getStagingAndroidResRoot(stagingRoot, projectType),
+    androidAssetsRoot: getStagingAndroidAssetsRoot(stagingRoot, projectType),
+    iosAssetsRoot: getStagingIosAssetsRoot(stagingRoot, projectType),
+    pieces,
+    monoMaster: null
+  }
+
+  const runnable = selection.filter((name) => {
+    const entry = PIPELINE[name]
+    if (!entry) return false
+    if (entry.root === 'android-assets' && !ctx.androidAssetsRoot) return false
+    if (entry.root === 'ios-assets' && !ctx.iosAssetsRoot) return false
+    return true
+  })
+
+  const skipped = selection.filter((name) => !runnable.includes(name))
+  if (skipped.length > 0) {
+    logger.warning(`Skipped (no project folder for them in a '${projectType}' layout): ${skipped.join(', ')}`)
+  }
 
   if (dryRun) {
-    const lines = [
-      `${stagingRoot}/DefaultIcon.png + DefaultIcon-ios.png`
-    ]
-    if (withDark) {
-      const darkSrc = darkLogo
-        ? `from ${darkLogo}`
-        : (darkBgColor ? `opaque bg ${darkBgColor}` : 'transparent per Apple HIG')
-      lines.push(`${stagingRoot}/DefaultIcon-Dark.png (${darkSrc})`)
-    }
-    if (withTinted) {
-      const tintedSrc = tintedLogo ? `from ${tintedLogo}` : 'grayscale of logo, flattened on black'
-      lines.push(`${stagingRoot}/DefaultIcon-Tinted.png (${tintedSrc})`)
-    }
-    lines.push(`${stagingRoot}/iTunesConnect.png + MarketplaceArtwork.png`)
-    const featureSrc = featureLogo ? `from ${featureLogo}` : 'from main logo'
-    lines.push(`${stagingRoot}/MarketplaceArtworkFeature.png (${featureSrc}, ${featureGraphicPadding}% vertical padding)`)
-    lines.push(`${androidResStaging}/mipmap-{mdpi,hdpi,xhdpi,xxhdpi,xxxhdpi}/ic_launcher_{foreground,background,monochrome}.png`)
-    lines.push(`${androidResStaging}/mipmap-{...}/ic_launcher.png (legacy)`)
-    lines.push(`${androidResStaging}/mipmap-anydpi-v26/ic_launcher.xml`)
-    const androidAssetsStaging = getStagingAndroidAssetsRoot(stagingRoot, projectType)
-    if (androidAssetsStaging) lines.push(`${androidAssetsStaging}/default.png (Android <12 legacy splash fallback)`)
-    if (notification) lines.push(`${androidResStaging}/drawable-*/ic_stat_notify.png × 5`)
-    if (splash) lines.push(`${androidResStaging}/drawable-*/splash_icon.png × 5`)
+    const lines = runnable.flatMap((name) => PIPELINE[name].describe(ctx, pieces[name]))
     mainLogger.block('[dry-run] Would generate:', ...lines)
     if (runCleanup) {
-      await cleanupLegacy({ projectRoot, projectType, aggressive, dryRun })
+      await cleanupLegacy({ projectRoot, projectType, aggressive, dryRun, keepPaths: plannedPaths(ctx, runnable) })
     }
     return { stagingRoot, generated }
   }
@@ -190,139 +411,65 @@ export async function runBranding(opts) {
   // ---- Section: Logos ---------------------------------------------------
   logger.section('Logos')
   logger.bullet('Dual logos (square + tight)')
-  const logoBase = path.join(tempDir, '_logo')
-  const { square, tight } = await prepareMaster(logo, logoBase)
 
-  let iconMaster = square
-  if (iconLogo) {
-    if (!fs.existsSync(iconLogo)) {
-      throw new Error(`Android icon logo not found: ${iconLogo}`)
+  const masterBases = []
+  const mastersByLogo = new Map()
+
+  /**
+   * Prepare (once) the square + tight masters for a logo path.
+   * @param {string} logoPath
+   * @param {string} label - Suffix for the temp file name
+   * @returns {Promise<{square: string, tight: string}>}
+   */
+  const masterPx = requiredMasterPx(runnable, pieces)
+  logger.bullet(`Masters at ${masterPx} px — the largest any selected piece asks for`)
+
+  const mastersFor = async(logoPath, label) => {
+    if (mastersByLogo.has(logoPath)) return mastersByLogo.get(logoPath)
+    if (!fs.existsSync(logoPath)) {
+      throw new Error(`Logo not found: ${logoPath}`)
     }
-    logger.bullet(`Android icon logo: ${iconLogo}`)
-    const iconBase = path.join(tempDir, '_logo_icon')
-    const iconResult = await prepareMaster(iconLogo, iconBase)
-    iconMaster = iconResult.square
-  }
-  await warnIfLogoAspectIsUnsafeForLauncher(tight)
-
-  let splashMaster = iconMaster
-  if (splashLogo) {
-    if (!fs.existsSync(splashLogo)) {
-      throw new Error(`Android splash logo not found: ${splashLogo}`)
-    }
-    logger.bullet(`Android splash logo: ${splashLogo}`)
-    const splashBase = path.join(tempDir, '_logo_splash')
-    const splashResult = await prepareMaster(splashLogo, splashBase)
-    splashMaster = splashResult.square
+    const base = path.join(tempDir, label)
+    masterBases.push(base)
+    const result = await prepareMaster(logoPath, base, masterPx)
+    mastersByLogo.set(logoPath, result)
+    return result
   }
 
-  let monoMaster = null
+  const mainMaster = await mastersFor(logo, '_logo')
+  await warnIfLogoAspectIsUnsafeForLauncher(mainMaster.tight)
+
   if (monochromeLogo) {
-    if (!fs.existsSync(monochromeLogo)) {
-      throw new Error(`Monochrome logo not found: ${monochromeLogo}`)
-    }
     logger.bullet(`Monochrome logo: ${monochromeLogo}`)
-    const monoBase = path.join(tempDir, '_logo_mono')
-    const monoResult = await prepareMaster(monochromeLogo, monoBase)
-    monoMaster = monoResult.square
+    const mono = await mastersFor(monochromeLogo, '_logo_mono')
+    ctx.monoMaster = mono.square
   }
 
-  // ---- Section: iOS & marketplace ----------------------------------------
-  logger.section('iOS & marketplace')
-  logger.bullet(`DefaultIcon.png (Android-safe padding ${androidAdaptivePadding}%) + DefaultIcon-ios.png (iOS padding ${iosPadding}%)`)
-  const ios = await genIos(tight, bgColor, androidAdaptivePadding, iosPadding, stagingRoot)
-  generated.push(ios.defaultIcon, ios.defaultIconIos)
+  for (const name of runnable) {
+    const piece = pieces[name]
+    if (piece?.logo) logger.bullet(`${name} logo: ${piece.logo}`)
+  }
 
-  if (withDark) {
-    let darkSource = tight
-    if (darkLogo) {
-      if (!fs.existsSync(darkLogo)) throw new Error(`Dark logo not found: ${darkLogo}`)
-      const darkBase = path.join(tempDir, '_logo_dark')
-      const darkResult = await prepareMaster(darkLogo, darkBase)
-      darkSource = darkResult.tight
+  // ---- Sections: one per piece, grouped by the piece's section ------------
+  let currentSection = null
+
+  for (const name of runnable) {
+    const piece = pieces[name]
+    const entry = PIPELINE[name]
+
+    if (piece.section !== currentSection) {
+      currentSection = piece.section
+      logger.section(currentSection)
     }
-    const darkSrcLabel = darkLogo ? 'from --dark-logo, ' : ''
-    const darkBgLabel = darkBgColor ? `opaque bg ${darkBgColor}` : 'transparent per Apple HIG'
-    logger.bullet(`DefaultIcon-Dark.png (${darkSrcLabel}${darkBgLabel})`)
-    const darkPath = await genIosDark(darkSource, darkBgColor, iosPadding, stagingRoot)
-    generated.push(darkPath)
-  }
 
-  if (withTinted) {
-    let tintedSource = tight
-    if (tintedLogo) {
-      if (!fs.existsSync(tintedLogo)) throw new Error(`Tinted logo not found: ${tintedLogo}`)
-      const tintedBase = path.join(tempDir, '_logo_tinted')
-      const tintedResult = await prepareMaster(tintedLogo, tintedBase)
-      tintedSource = tintedResult.tight
-    }
-    const tintedSrcLabel = tintedLogo ? 'from --tinted-logo' : 'grayscale of logo'
-    logger.bullet(`DefaultIcon-Tinted.png (${tintedSrcLabel}, flattened on black)`)
-    const tintedPath = await genIosTinted(tintedSource, iosPadding, stagingRoot)
-    generated.push(tintedPath)
-  }
-
-  const alphaMode = bgColorExplicit ? `flattened on ${bgColor}` : 'alpha preserved'
-  logger.bullet(`iTunesConnect.png + MarketplaceArtwork.png (${alphaMode})`)
-  const mkt = await genMarketplace(tight, iosPadding, stagingRoot, {
-    flatten: bgColorExplicit,
-    bgColor
-  })
-  generated.push(mkt.itunesConnect, mkt.marketplaceArtwork)
-
-  let featureMaster = tight
-  if (featureLogo) {
-    if (!fs.existsSync(featureLogo)) {
-      throw new Error(`Feature Graphic logo not found: ${featureLogo}`)
-    }
-    const featureBase = path.join(tempDir, '_logo_feature')
-    const featureResult = await prepareMaster(featureLogo, featureBase)
-    featureMaster = featureResult.tight
-  }
-  const featureSrcLabel = featureLogo ? 'from --feature-logo' : 'from main logo'
-  logger.bullet(`MarketplaceArtworkFeature.png (1024×500, ${featureSrcLabel}, ${featureGraphicPadding}% vertical padding, flattened on ${bgColor})`)
-  const featurePath = await genFeatureGraphic(featureMaster, featureGraphicPadding, stagingRoot, { bgColor })
-  generated.push(featurePath)
-
-  // ---- Section: Android --------------------------------------------------
-  logger.section('Android')
-
-  const monoLabel = monoMaster ? ', monochrome from --monochrome-logo' : ''
-  logger.bullet(`Adaptive icons (foreground + background + monochrome${monoLabel}, padding ${androidAdaptivePadding}%) × 5`)
-  const adaptiveFiles = await genAndroidAdaptive(iconMaster, bgColor, androidAdaptivePadding, androidResStaging, { monoMaster })
-  generated.push(...adaptiveFiles)
-
-  logger.bullet(`Legacy ic_launcher.png × 5 (padding ${androidLegacyPadding}%)`)
-  const legacyFiles = await genAndroidLegacy(iconMaster, bgColor, androidLegacyPadding, androidResStaging)
-  generated.push(...legacyFiles)
-
-  const xmlPath = genIcLauncherXml(androidResStaging)
-  generated.push(xmlPath)
-  logger.bullet(`Adaptive icon XML: ${xmlPath}`)
-
-  const androidDefaultDir = getStagingAndroidAssetsRoot(stagingRoot, projectType)
-  if (androidDefaultDir) {
-    logger.bullet('Legacy Android default.png splash fallback')
-    const defaultSplashPath = await genAndroidDefault(splashMaster, bgColor, androidDefaultDir)
-    generated.push(defaultSplashPath)
-  }
-
-  if (notification) {
-    const monoLabelNotif = monoMaster ? ' from --monochrome-logo' : ' whitened from logo'
-    logger.bullet(`Notification icons (white+alpha, edge-to-edge${monoLabelNotif}) × 5`)
-    const notifFiles = await genNotification(monoMaster || iconMaster, androidResStaging)
-    generated.push(...notifFiles)
-  }
-
-  if (splash) {
-    logger.bullet('Splash icons × 5')
-    const splashFiles = await genSplash(splashMaster, androidResStaging)
-    generated.push(...splashFiles)
+    const masters = piece.logo ? await mastersFor(piece.logo, `_logo_${name}`) : mainMaster
+    const written = await entry.run(ctx, piece, masters[entry.variant])
+    generated.push(...written)
   }
 
   if (runCleanup) {
     logger.info('Cleanup legacy artifacts')
-    await cleanupLegacy({ projectRoot, projectType, aggressive, dryRun })
+    await cleanupLegacy({ projectRoot, projectType, aggressive, dryRun, keepPaths: generated })
   }
 
   // Clean up temp _logo_* files in --in-place mode
@@ -330,24 +477,11 @@ export async function runBranding(opts) {
     if (weCreatedTempDir) {
       fs.rmSync(tempDir, { recursive: true, force: true })
     } else {
-      const tmpFiles = [
-        path.join(tempDir, '_logo_square.png'),
-        path.join(tempDir, '_logo_tight.png'),
-        path.join(tempDir, '_logo_icon_square.png'),
-        path.join(tempDir, '_logo_icon_tight.png'),
-        path.join(tempDir, '_logo_mono_square.png'),
-        path.join(tempDir, '_logo_mono_tight.png'),
-        path.join(tempDir, '_logo_dark_square.png'),
-        path.join(tempDir, '_logo_dark_tight.png'),
-        path.join(tempDir, '_logo_tinted_square.png'),
-        path.join(tempDir, '_logo_tinted_tight.png'),
-        path.join(tempDir, '_logo_splash_square.png'),
-        path.join(tempDir, '_logo_splash_tight.png'),
-        path.join(tempDir, '_logo_feature_square.png'),
-        path.join(tempDir, '_logo_feature_tight.png')
-      ]
-      for (const tmp of tmpFiles) {
-        if (fs.existsSync(tmp)) fs.unlinkSync(tmp)
+      for (const base of masterBases) {
+        for (const suffix of ['_square.png', '_tight.png']) {
+          const tmp = `${base}${suffix}`
+          if (fs.existsSync(tmp)) fs.unlinkSync(tmp)
+        }
       }
     }
     logger.info('')
@@ -362,11 +496,8 @@ export async function runBranding(opts) {
     projectRoot,
     stagingRoot,
     bgColor,
-    androidAdaptivePadding,
-    androidLegacyPadding,
-    iosPadding,
-    withSplash: splash,
-    withNotification: notification,
+    pieces,
+    generatedPieces: runnable,
     inPlace: isInPlace,
     fullNotes: notes
   })
@@ -394,6 +525,18 @@ async function warnIfLogoAspectIsUnsafeForLauncher(tightLogoPath) {
   logger.warning('Recommendation: use a dedicated square app-icon source for `purgetss brand`.')
 }
 
+/**
+ * Paths a --dry-run pass would write, for the pieces whose output overlaps what
+ * --cleanup-legacy deletes. Lets the dry-run plan match what a real run does.
+ *
+ * @param {Object} ctx - Pipeline context
+ * @param {string[]} names - Selected piece names
+ * @returns {string[]} Absolute paths
+ */
+function plannedPaths(ctx, names) {
+  return names.flatMap((name) => PIPELINE[name].keeps?.(ctx) ?? [])
+}
+
 function getStagingAndroidResRoot(stagingRoot, projectType) {
   if (projectType === 'alloy') return path.join(stagingRoot, 'app', 'platform', 'android', 'res')
   if (projectType === 'classic') return path.join(stagingRoot, 'platform', 'android', 'res')
@@ -406,26 +549,27 @@ function getStagingAndroidAssetsRoot(stagingRoot, projectType) {
   return null
 }
 
-function validateOptions({ logo, bgColor, darkBgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, featureGraphicPadding, cleanupLegacy }) {
+function getStagingIosAssetsRoot(stagingRoot, projectType) {
+  if (projectType === 'alloy') return path.join(stagingRoot, 'app', 'assets', 'iphone')
+  if (projectType === 'classic') return path.join(stagingRoot, 'Resources', 'iphone')
+  return null
+}
+
+function validateOptions({ logo, bgColor, pieces, cleanupLegacy }) {
   if (!logo && !cleanupLegacy) {
     throw new Error('Logo image path is required (unless using --cleanup-legacy alone).')
   }
   if (!/^#[0-9A-Fa-f]{6}$/.test(bgColor)) {
     throw new Error(`--bg-color must be a 6-digit hex like #0B1326 (got: ${bgColor}).`)
   }
-  if (darkBgColor && !/^#[0-9A-Fa-f]{6}$/.test(darkBgColor)) {
-    throw new Error(`--dark-bg-color must be a 6-digit hex like #1C1C1E (got: ${darkBgColor}).`)
-  }
-  if (androidAdaptivePadding < 0 || androidAdaptivePadding > 40) {
-    throw new Error(`--android-adaptive-padding must be between 0 and 40 (got: ${androidAdaptivePadding}).`)
-  }
-  if (androidLegacyPadding < 0 || androidLegacyPadding > 40) {
-    throw new Error(`--android-legacy-padding must be between 0 and 40 (got: ${androidLegacyPadding}).`)
-  }
-  if (iosPadding < 0 || iosPadding > 40) {
-    throw new Error(`--ios-padding must be between 0 and 40 (got: ${iosPadding}).`)
-  }
-  if (featureGraphicPadding < 0 || featureGraphicPadding > 40) {
-    throw new Error(`--feature-graphic-padding must be between 0 and 40 (got: ${featureGraphicPadding}).`)
+
+  for (const piece of Object.values(pieces)) {
+    if (piece.background != null && !/^#[0-9A-Fa-f]{6}$/.test(piece.background)) {
+      throw new Error(`brand.${piece.configKey}.background must be a 6-digit hex like #1C1C1E (got: ${piece.background}).`)
+    }
+    if (piece.padding == null) continue
+    if (!Number.isFinite(piece.padding) || piece.padding < 0 || piece.padding > 40) {
+      throw new Error(`brand.${piece.configKey}.padding must be a number between 0 and 40 (got: ${piece.padding}).`)
+    }
   }
 }

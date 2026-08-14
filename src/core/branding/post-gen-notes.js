@@ -2,10 +2,13 @@
  * PurgeTSS - post-gen-notes
  *
  * Prints guidance after a successful branding run. Two modes:
- *   - default (compact): one-line per category + "Next steps" block
+ *   - default (compact): what was generated + "Next steps" block
  *   - `--notes` (full):  adds brand color reminder, padding tips, and platform
  *                         configuration snippets (iOS launch, Android launcher,
  *                         Android launch theme, FCM notification tint)
+ *
+ * Both modes read the list of pieces the run actually generated, so nothing
+ * here has to be kept in sync by hand with the pipeline.
  *
  * @fileoverview Post-generation guidance output
  * @author César Estrada
@@ -14,20 +17,68 @@
 import chalk from 'chalk'
 import { logger } from './branding-logger.js'
 
+/** Pieces whose output lands at the staging/project root, in `cp` order. */
+const ROOT_FILES = {
+  icon: ['DefaultIcon', 'DefaultIcon-ios'],
+  dark: ['DefaultIcon-Dark'],
+  tinted: ['DefaultIcon-Tinted'],
+  marketplace: ['iTunesConnect', 'MarketplaceArtwork'],
+  'feature-graphic': ['MarketplaceArtworkFeature']
+}
+
 export function printPostGenNotes(opts) {
+  const view = buildView(opts)
+
   if (opts.fullNotes) {
-    printFullNotes(opts)
+    printFullNotes(view)
   } else {
-    printCompactSummary(opts)
+    printCompactSummary(view)
   }
 }
 
-function printCompactSummary(opts) {
-  const { projectType, projectRoot, stagingRoot, bgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, inPlace } = opts
+/**
+ * Everything the two printers need, derived from the resolved pieces so the
+ * callers only pass what the run produced.
+ */
+function buildView(opts) {
+  const pieces = opts.pieces ?? {}
+  const generatedPieces = opts.generatedPieces ?? []
+  const was = (name) => generatedPieces.includes(name)
+
+  return {
+    ...opts,
+    pieces,
+    generatedPieces,
+    was,
+    androidAdaptivePadding: pieces.adaptive?.padding ?? 19,
+    androidLegacyPadding: pieces['legacy-icon']?.padding ?? 10,
+    iosPadding: pieces.icon?.padding ?? 4,
+    withSplash: was('splash-icon'),
+    withNotification: was('notification-icon'),
+    withLaunchLogo: was('launch-logo'),
+    withIosAssets: was('ios-splash') || was('launch-logo'),
+    withAndroidAssets: was('appicon') || was('android-splash')
+  }
+}
+
+/**
+ * The `{A,B,C}.png` brace list for the root-level icons this run produced.
+ * @returns {string|null} null when no root-level file was generated
+ */
+function rootFilesBrace(view) {
+  const names = view.generatedPieces.flatMap((name) => ROOT_FILES[name] ?? [])
+  if (names.length === 0) return null
+  return names.length === 1 ? `${names[0]}.png` : `{${names.join(',')}}.png`
+}
+
+function printCompactSummary(view) {
+  const { projectType, projectRoot, stagingRoot, bgColor, pieces, generatedPieces, inPlace } = view
 
   logger.section('Summary')
   logger.bullet(`Background: ${chalk.cyan(bgColor)}`)
-  logger.bullet(`Padding: Android adaptive ${chalk.cyan(androidAdaptivePadding + '%')} / Android legacy ${chalk.cyan(androidLegacyPadding + '%')} / iOS ${chalk.cyan(iosPadding + '%')}`)
+  for (const name of generatedPieces) {
+    logger.bullet(`${chalk.cyan(name)} — ${pieces[name]?.generates ?? ''}`)
+  }
   logger.bullet(`${inPlace ? 'Written in place to' : 'Staged at'}: ${chalk.cyan(inPlace ? projectRoot : stagingRoot)}`)
 
   logger.section('Next steps')
@@ -35,15 +86,18 @@ function printCompactSummary(opts) {
     logger.bullet(`Preview the new icons in ${chalk.yellow('Preview.app')}.`)
     logger.bullet(`If something looks wrong: ${chalk.gray('git checkout -- .')}`)
     logger.bullet(`Rebuild: ${chalk.gray('ti clean && ti build -p android -T emulator')}`)
-  } else if (projectType === 'alloy') {
+  } else if (projectType === 'alloy' || projectType === 'classic') {
+    const alloy = projectType === 'alloy'
+    const resDir = alloy ? 'app/platform/android/res' : 'platform/android/res'
+    const androidAssets = alloy ? 'app/assets/android' : 'Resources/android'
+    const iosAssets = alloy ? 'app/assets/iphone' : 'Resources/iphone'
+    const brace = rootFilesBrace(view)
+
     logger.bullet(`Preview in ${chalk.yellow('Preview.app')}, then copy to project:`)
-    console.log(chalk.gray(`      cp ${stagingRoot}/{DefaultIcon,DefaultIcon-ios,DefaultIcon-Dark,DefaultIcon-Tinted,iTunesConnect,MarketplaceArtwork,MarketplaceArtworkFeature}.png ${projectRoot}/`))
-    console.log(chalk.gray(`      cp -R ${stagingRoot}/app/platform/android/res/. ${projectRoot}/app/platform/android/res/`))
-    logger.bullet(`Cleanup staging: ${chalk.gray('rm -rf ' + stagingRoot)}`)
-  } else if (projectType === 'classic') {
-    logger.bullet(`Preview in ${chalk.yellow('Preview.app')}, then copy to project:`)
-    console.log(chalk.gray(`      cp ${stagingRoot}/{DefaultIcon,DefaultIcon-ios,DefaultIcon-Dark,DefaultIcon-Tinted,iTunesConnect,MarketplaceArtwork,MarketplaceArtworkFeature}.png ${projectRoot}/`))
-    console.log(chalk.gray(`      cp -R ${stagingRoot}/platform/android/res/. ${projectRoot}/platform/android/res/`))
+    if (brace) console.log(chalk.gray(`      cp ${stagingRoot}/${brace} ${projectRoot}/`))
+    console.log(chalk.gray(`      cp -R ${stagingRoot}/${resDir}/. ${projectRoot}/${resDir}/`))
+    if (view.withAndroidAssets) console.log(chalk.gray(`      cp -R ${stagingRoot}/${androidAssets}/. ${projectRoot}/${androidAssets}/`))
+    if (view.withIosAssets) console.log(chalk.gray(`      cp -R ${stagingRoot}/${iosAssets}/. ${projectRoot}/${iosAssets}/`))
     logger.bullet(`Cleanup staging: ${chalk.gray('rm -rf ' + stagingRoot)}`)
   } else {
     logger.bullet(`Review ${chalk.cyan(stagingRoot + '/')} and copy files to their final paths manually.`)
@@ -53,15 +107,22 @@ function printCompactSummary(opts) {
   console.log()
 }
 
-function printFullNotes(opts) {
+function printFullNotes(view) {
   const {
     projectType, stagingRoot,
-    bgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding, withSplash, withNotification, inPlace
-  } = opts
+    bgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding,
+    withSplash, withNotification, withLaunchLogo, inPlace
+  } = view
 
   const code = (s) => chalk.gray(s)
   const flag = (s) => chalk.yellow(s)
   const num = (n) => chalk.cyan(n)
+
+  // The --notes blocks are numbered in the order they print, and which ones
+  // print depends on what the run generated — so the counter walks with them.
+  let step = 0
+  const nextStep = () => num(`${++step}.`)
+
   const androidValuesDir = projectType === 'alloy'
     ? 'app/platform/android/res/values'
     : projectType === 'classic'
@@ -70,6 +131,7 @@ function printFullNotes(opts) {
   const legacySplashPath = projectType === 'classic'
     ? 'Resources/android/default.png'
     : 'app/assets/android/default.png'
+  const iosAssetsDir = projectType === 'classic' ? 'Resources/iphone' : 'app/assets/iphone'
 
   logger.section('Notes on what was generated')
   logger.bullet(`Brand color ${chalk.cyan(bgColor)} was baked into Android adaptive background layer`)
@@ -78,6 +140,10 @@ function printFullNotes(opts) {
   logger.bullet(`Android legacy padding:   ${chalk.cyan(androidLegacyPadding + '%')}  (logo fills ${100 - 2 * androidLegacyPadding}% of each legacy launcher canvas)`)
   logger.bullet(`iOS padding:              ${chalk.cyan(iosPadding + '%')}  (logo fills ${100 - 2 * iosPadding}% of DefaultIcon-ios and marketplace art)`)
 
+  console.log()
+  console.log('  Padding is per piece and is never inherited: the adaptive floor')
+  console.log('  answers to the Android safe-zone, the iOS number is an aesthetic')
+  console.log('  choice. One global value would break the launcher mask silently.')
   console.log()
   console.log('  If the logo looks cramped: re-run with higher padding')
   console.log(`      ${flag('--android-adaptive-padding 25-30')}   (adaptive icon)`)
@@ -95,8 +161,6 @@ function printFullNotes(opts) {
   console.log('  paste only what you need, after reviewing.')
   console.log('  Android uses a dedicated theme for the launcher Activity below, so the')
   console.log('  app\'s existing <application> theme can stay unchanged.')
-  console.log('  brand is designed around the modern Titanium icon pipeline, not around')
-  console.log('  older Android splash themes such as background.png / background.9.png.')
   console.log()
   console.log(`  ${chalk.yellow('⚠')}  ${chalk.yellow('tiapp.xml <application> tag may be self-closing')}`)
   console.log('     If yours looks like:')
@@ -106,19 +170,30 @@ function printFullNotes(opts) {
   console.log(code('         </application>'))
 
   console.log()
-  console.log(`  ${num('1.')} ${chalk.cyan('iOS launch background')} — under ${flag('<ios>')} in tiapp.xml:`)
+  console.log(`  ${nextStep()} ${chalk.cyan('iOS launch background')} — under ${flag('<ios>')} in tiapp.xml:`)
   console.log(code('      <ios>'))
   console.log(code('        <enable-launch-screen-storyboard>true</enable-launch-screen-storyboard>'))
   console.log(code(`        <default-background-color>${bgColor}</default-background-color>`))
   console.log(code('      </ios>'))
 
+  if (withLaunchLogo) {
+    console.log()
+    console.log(`  ${nextStep()} ${chalk.cyan('iOS launch screen artwork')}`)
+    console.log(`     Generated ${flag(iosAssetsDir + '/LaunchLogo.png')} (1024×1024 exactly).`)
+    console.log('     Titanium resizes it into LaunchLogo.imageset on every iOS build,')
+    console.log('     and prefers it over DefaultIcon.png — so the launch screen now')
+    console.log('     shows the logotype instead of the padded app icon.')
+    console.log('     Nothing to configure; the size must stay 1024×1024 or the SDK')
+    console.log('     drops the file with a warning.')
+  }
+
   console.log()
-  console.log(`  ${num('2.')} ${chalk.cyan('Android launcher icon')} — under ${flag('<android><manifest><application>')}:`)
+  console.log(`  ${nextStep()} ${chalk.cyan('Android launcher icon')} — under ${flag('<android><manifest><application>')}:`)
   console.log(code('      <application android:icon="@mipmap/ic_launcher"'))
   console.log(code('                   android:usesCleartextTraffic="false"/>'))
 
   console.log()
-  console.log(`  ${num('3.')} ${chalk.cyan('Android launch background')} — create ${flag(androidValuesDir + '/splashscreen.xml')}:`)
+  console.log(`  ${nextStep()} ${chalk.cyan('Android launch background')} — create ${flag(androidValuesDir + '/splashscreen.xml')}:`)
   console.log('     Theme.Titanium is Titanium\'s launcher theme; Theme.AppDerived keeps')
   console.log('     the <application> theme in its inheritance chain.')
   console.log(code('       <?xml version="1.0" encoding="utf-8"?>'))
@@ -157,23 +232,26 @@ function printFullNotes(opts) {
 
   if (withSplash) {
     console.log()
-    console.log(`  ${num('4.')} ${chalk.cyan('Android 12+ splash artwork')} — ${chalk.yellow('OPTIONAL, advanced')}`)
+    console.log(`  ${nextStep()} ${chalk.cyan('Android 12+ splash artwork')} — ${chalk.yellow('OPTIONAL, advanced')}`)
     console.log()
     console.log('     Generated files: @drawable/splash_icon.png across densities.')
     console.log('     The Theme.SplashScreen snippet above already points Android 12+')
     console.log('     to splash_icon instead of the default ic_launcher artwork.')
+    console.log('     Android masks that icon into a circle, so a wide wordmark loses')
+    console.log('     its corners — use a square mark for this piece.')
     console.log('     If you still see a brief flash during splash exit, the artifact may')
     console.log('     come from Titanium or the system splash transition rather than from')
     console.log('     the generated PNG assets themselves.')
   }
 
-  console.log()
-  console.log(`  ${num(withSplash ? '5.' : '4.')} ${chalk.cyan('Android <12 legacy splash')}`)
-  console.log(`     PurgeTSS brand still regenerates ${legacySplashPath} as`)
-  console.log('     a compatibility fallback while Titanium continues to recognize it.')
-  console.log('     The solid windowBackground above takes precedence on Android <12.')
-  console.log('     Use a drawable or layer-list instead if the legacy splash must keep')
-  console.log('     artwork from default.png, background.png, or background.9.png.')
+  if (view.was('android-splash')) {
+    console.log()
+    console.log(`  ${nextStep()} ${chalk.cyan('Android <12 splash')}`)
+    console.log(`     Regenerated ${legacySplashPath} and the 11 per-qualifier`)
+    console.log('     images/res-*/default.png that Titanium maps to drawable-*/background.png.')
+    console.log('     The solid windowBackground above takes precedence on Android <12,')
+    console.log('     so drop the windowBackground item if you want that artwork to show.')
+  }
 
   if (withNotification) {
     const colorsDir = projectType === 'classic'
@@ -181,7 +259,7 @@ function printFullNotes(opts) {
       : 'app/platform/android/res/values'
 
     console.log()
-    console.log(`  ${num(withSplash ? '6.' : '5.')} ${chalk.cyan('FCM notification icon + tint')}`)
+    console.log(`  ${nextStep()} ${chalk.cyan('FCM notification icon + tint')}`)
     console.log('     Only needed if you use firebase.cloudmessaging for push.')
     console.log()
     console.log(`     Create ${flag(colorsDir + '/colors.xml')} (or merge):`)
