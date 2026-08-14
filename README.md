@@ -377,6 +377,15 @@ Button: {
 
 ## Recent changes
 
+### v7.13.0
+
+- **`purgetss brand` now covers every image the Titanium template ships.** A run on a fresh Alloy project used to leave 28 files still wearing the grey Alloy logo: the 16 `assets/iphone/Default*.png` launch images, the 11 `assets/android/images/res-*/default.png` splashes, and `assets/android/appicon.png`. The rule is now explicit — if the template ships the file, `brand` updates it.
+- **`--only <pieces>` filters a run** down to the pieces or groups you name (`--only icon`, `--only ios,notification-icon`), so a single tweak does not rewrite files you adjusted by hand. An unknown name aborts before anything is written.
+- **`LaunchLogo.png` as the iOS launch screen source.** Drop `purgetss/brand/logo-launch.{svg,png}` into the project and the launch screen shows your logotype instead of the app icon with its safe-zone padding.
+- **`brand.optimize` / `--optimize`** re-encodes the generated PNGs with a quantized palette — 71% smaller across a full brand set. Off by default, since it is lossy.
+- **Breaking:** the `brand:` config section is organized by piece, and several flags were renamed (`--splash` → `--splash-icon`, `--notification` → `--notification-icon`, …). Existing configs are rewritten to the new structure automatically on the next run, carrying over every value you had customized.
+- **`shades` and `semantic` no longer strip the comments from `config.cjs`.** They now rewrite only the `theme:` section, leaving every other byte of the file untouched.
+
 ### v7.12.0
 
 - **Android launch setup in `purgetss brand --notes`.** The full notes print a complete `splashscreen.xml` at the correct Alloy or Classic resource path. Its launcher-only `Theme.SplashScreen` inherits from `Theme.Titanium` and is assigned to Titanium's generated launcher Activity without replacing the theme already used by `<application>`. The three relevant attributes—`android:windowSplashScreenBackground`, `android:windowBackground`, and `android:colorBackground`—all reference one `splashscreen_background` color resource, so changing the launch color requires editing a single line. When `--splash` is enabled, the same style also points `android:windowSplashScreenAnimatedIcon` to the generated `splash_icon.png`. PurgeTSS prints this copy-ready setup with the current `brand.colors.background` value but does not edit `tiapp.xml` or Android theme resources automatically.

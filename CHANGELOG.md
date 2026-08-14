@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.13.0] - 2026-08-14
+
 ### Added
 - **`config.cjs` is kept up to date with the `brand:` structure, on disk.** When a project's `brand:` block uses an older shape, the next run rewrites it to the current one and carries over every value that had been customized — paddings, colors, logo paths, enabled flags — printing each one it moved. It happens on `purgetss brand`, and on any command that goes through `ensureConfig()` or rebuilds `utilities.tss`, the same way `config.js` → `config.cjs` was handled. Values already matching a default are not written, so a config that was never customized comes out clean.
 - **`purgetss brand` now covers every image the Titanium template ships.** A run on a fresh Alloy project used to leave 28 files still wearing the grey Alloy logo: the 16 `assets/iphone/Default*.png` launch images, the 11 `assets/android/images/res-*/default.png` splashes, and `assets/android/appicon.png`. Three new generators (`gen-ios-splashes.js`, `gen-appicon.js`, `gen-launch-logo.js`) close that gap, and the per-qualifier Android splashes moved from the opt-in `--legacy-splash` flag (now removed) into the default set. The rule is now explicit: if the template ships the file, `brand` updates it — whether or not current iOS/Android versions still read it is not the user's problem to track. Verified against a project created with `purgetss create` on SDK 14: every tracked template image is regenerated, none left over.
