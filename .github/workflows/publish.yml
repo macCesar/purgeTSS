@@ -12,10 +12,17 @@ on:
 
   # Manual re-run for a tag that is already pushed: a publish that failed on a
   # flaky test or an unregistered publisher would otherwise need a burned
-  # version number to retry. Select the tag as the ref and the version guard
-  # below reads it exactly as it does on a tag push.
-  #   gh workflow run publish.yml --ref v1.2.3
+  # version number to retry.
+  #
+  # Dispatch runs from the default branch — GitHub reads the workflow from the
+  # ref it is told to run, and an older tag may not contain this file at all —
+  # so the tag to build is an input, and the checkout below uses it.
+  #   gh workflow run publish.yml -f tag=v1.2.3
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to build and publish, e.g. v1.2.3'
+        required: true
 
 permissions:
   contents: read
@@ -26,6 +33,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          # On a tag push this is empty and checkout uses the pushed tag.
+          ref: ${{ inputs.tag }}
 
       - uses: actions/setup-node@v7
         with:
@@ -40,7 +50,8 @@ jobs:
       - name: Verify the tag matches package.json
         run: |
           echo "node $(node --version) / npm $(npm --version)"
-          tag="${GITHUB_REF_NAME#v}"
+          ref="${{ inputs.tag || github.ref_name }}"
+          tag="${ref#v}"
           pkg=$(node -p "require('./package.json').version")
           echo "tag=$tag  package.json=$pkg"
           [ "$tag" = "$pkg" ] || { echo "::error::tag $tag does not match package.json $pkg"; exit 1; }
