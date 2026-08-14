@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.13.1] - 2026-08-14
+
+### Fixed
+- **Four vulnerable transitive dependencies patched.** They shipped inside 7.13.0: `postcss` ≤8.5.22 → 8.5.26 (high — XSS via unescaped `</style>` in the stringify output, plus three path-traversal advisories around `sourceMappingURL`), `nanoid` 3.3.11 → 3.3.18 (high — non-secure generators can loop indefinitely on a negative size), `brace-expansion` 2.1.0 → 2.1.4 and 5.0.5 → 5.0.9 (high — a large numeric range defeats the documented `max` DoS protection), and `uuid` → 11.1.1 (moderate — missing buffer bounds check in v3/v5/v6 when `buf` is provided). All patch bumps within the same major; `package.json` is untouched and only the lockfile moves. `npm audit` reports zero vulnerabilities afterwards.
+
 ## [7.13.0] - 2026-08-14
 
 ### Added

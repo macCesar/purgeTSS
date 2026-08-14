@@ -377,6 +377,10 @@ Button: {
 
 ## Recent changes
 
+### v7.13.1
+
+- **Security:** patched four vulnerable transitive dependencies that shipped in 7.13.0 — `postcss`, `nanoid`, `brace-expansion` and `uuid`. All patch bumps; `package.json` unchanged.
+
 ### v7.13.0
 
 - **`purgetss brand` now covers every image the Titanium template ships.** A run on a fresh Alloy project used to leave 28 files still wearing the grey Alloy logo: the 16 `assets/iphone/Default*.png` launch images, the 11 `assets/android/images/res-*/default.png` splashes, and `assets/android/appicon.png`. The rule is now explicit — if the template ships the file, `brand` updates it.
