@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.13.2] - 2026-08-14
+
+### Fixed
+- **`purgetss brand --help` advertised padding defaults the command does not use.** It printed `default: 19` for `--android-adaptive-padding` and `default: 20` for `--android-splash-padding` and `--ios-splash-padding`; the pipeline applies `18`, `26` and `26`. The numbers live as data in `src/core/branding/pieces.js`, and `bin/purgetss` carried a second hand-typed copy in each option description with nothing linking them. The adaptive string dates to 2026-04-25 and was never revisited when 7.13.0 moved the value; the two splash strings were introduced by 7.13.0 itself already carrying the wrong figure, which is why its changelog entry stated `20` in one paragraph and `26` in another. All seven padding descriptions are now interpolated from the piece table, so the drift is no longer expressible. A new unit test parses the real `--help` output and compares every advertised default against the table.
+- **The 7.13.0 entry in this changelog said the splash paddings default to `20%`, "leaving the logo at 60%".** Corrected to `26%` and 48%, matching the code and the rest of that entry.
+
 ## [7.13.1] - 2026-08-14
 
 ### Fixed

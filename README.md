@@ -377,6 +377,10 @@ Button: {
 
 ## Recent changes
 
+### v7.13.2
+
+- **Fixed: `purgetss brand --help` advertised padding defaults the command does not use.** It printed `19` for `--android-adaptive-padding` and `20` for the two splash paddings, where the pipeline applies `18`, `26` and `26`. The help text carried a hand-typed copy of numbers that live in the piece table; all seven padding descriptions now read from that table, and a unit test compares the real `--help` output against it.
+
 ### v7.13.1
 
 - **Security:** patched four vulnerable transitive dependencies that shipped in 7.13.0 — `postcss`, `nanoid`, `brace-expansion` and `uuid`. All patch bumps; `package.json` unchanged.
