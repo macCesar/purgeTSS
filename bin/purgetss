@@ -22,6 +22,13 @@ import { buildFonts } from '../src/cli/commands/fonts.js'
 import { copyFonts } from '../src/cli/commands/icon-library.js'
 import { brand } from '../src/cli/commands/brand.js'
 import { images } from '../src/cli/commands/images.js'
+import { getPieceByConfigKey } from '../src/core/branding/pieces.js'
+
+// The padding defaults shown in `--help` are read from the piece table rather
+// than typed here. They were duplicated by hand until 7.13.2, and the copy in
+// this file went stale the moment 7.13.0 changed the numbers: --help promised
+// 19 and 20 where the pipeline had moved to 18 and 26.
+const padDefault = (configKey) => getPieceByConfigKey(configKey).defaultPadding
 
 // ESM equivalent of __dirname
 const __filename = fileURLToPath(import.meta.url)
@@ -318,14 +325,14 @@ Examples:
   .option('--only <pieces>', 'Comma-separated pieces or groups to generate (e.g. icon, ios, android)')
   .option('--bg-color <hex>', 'Background color for Android adaptive + iOS flatten (default: #FFFFFF)')
   .option('--padding <n>', 'Shortcut: sets both Android paddings to the same value', (v) => parseInt(v, 10))
-  .option('--android-adaptive-padding <n>', 'Adaptive icon safe-zone % (default: 19)', (v) => parseInt(v, 10))
-  .option('--android-legacy-padding <n>', 'Legacy ic_launcher.png padding % (default: 10)', (v) => parseInt(v, 10))
-  .option('--ios-padding <n>', 'iOS aesthetic % (typical 2-6, default: 4)', (v) => parseInt(v, 10))
-  .option('--feature-graphic-padding <n>', 'Feature Graphic vertical % (default: 12)', (v) => parseInt(v, 10))
-  .option('--launch-logo-padding <n>', 'LaunchLogo.png padding % (default: 12)', (v) => parseInt(v, 10))
+  .option('--android-adaptive-padding <n>', `Adaptive icon safe-zone % (default: ${padDefault('adaptive')})`, (v) => parseInt(v, 10))
+  .option('--android-legacy-padding <n>', `Legacy ic_launcher.png padding % (default: ${padDefault('legacyIcon')})`, (v) => parseInt(v, 10))
+  .option('--ios-padding <n>', `iOS aesthetic % (typical 2-6, default: ${padDefault('icon')})`, (v) => parseInt(v, 10))
+  .option('--feature-graphic-padding <n>', `Feature Graphic vertical % (default: ${padDefault('featureGraphic')})`, (v) => parseInt(v, 10))
+  .option('--launch-logo-padding <n>', `LaunchLogo.png padding % (default: ${padDefault('launchLogo')})`, (v) => parseInt(v, 10))
   .option('--splash-padding <n>', 'Shortcut: sets both splash paddings to the same value', (v) => parseInt(v, 10))
-  .option('--android-splash-padding <n>', 'Android splash padding %, share of the shorter side (default: 20)', (v) => parseInt(v, 10))
-  .option('--ios-splash-padding <n>', 'iPhone launch image padding %, share of the shorter side (default: 20)', (v) => parseInt(v, 10))
+  .option('--android-splash-padding <n>', `Android splash padding %, share of the shorter side (default: ${padDefault('androidSplash')})`, (v) => parseInt(v, 10))
+  .option('--ios-splash-padding <n>', `iPhone launch image padding %, share of the shorter side (default: ${padDefault('iosSplash')})`, (v) => parseInt(v, 10))
   .option('--notification-icon', 'Also generate ic_stat_notify.png × 5 densities')
   .option('--splash-icon', 'Also generate Android 12+ splash_icon.png × 5 densities')
   .option('--nine-patch', 'Also generate background.9.png (not implemented yet)')
