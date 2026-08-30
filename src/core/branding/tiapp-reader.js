@@ -25,7 +25,8 @@ export function readTiapp(tiappPath) {
     exists: false,
     storyboardEnabled: false,
     portraitOnly: false,
-    defaultBgColor: null
+    defaultBgColor: null,
+    deploymentTargets: { ios: true, android: true }
   }
 
   if (!fs.existsSync(tiappPath)) return result
@@ -33,8 +34,8 @@ export function readTiapp(tiappPath) {
   result.exists = true
   const xml = fs.readFileSync(tiappPath, 'utf8')
 
-  if (XMLParser) return parseWithFastXml(xml, result)
-  return parseWithRegex(xml, result)
+  const parsed = XMLParser ? parseWithFastXml(xml, result) : parseWithRegex(xml, result)
+  return parseDeploymentTargets(xml, parsed)
 }
 
 function parseWithFastXml(xml, result) {
@@ -86,6 +87,33 @@ function parseWithRegex(xml, result) {
     result.portraitOnly = true
   }
 
+  return result
+}
+
+/**
+ * Read <deployment-targets> independently of the optional XML parser so both
+ * code paths apply the same Titanium semantics. If the block is absent, keep
+ * both platforms enabled for backward compatibility.
+ */
+function parseDeploymentTargets(xml, result) {
+  const block = xml.match(/<deployment-targets\b[^>]*>([\s\S]*?)<\/deployment-targets>/i)
+  if (!block) return result
+
+  const devices = { android: false, ipad: false, iphone: false }
+  const target = /<target\b[^>]*\bdevice\s*=\s*["']([^"']+)["'][^>]*>\s*(true|false)\s*<\/target>/gi
+  let match
+
+  while ((match = target.exec(block[1])) !== null) {
+    const device = match[1].toLowerCase()
+    if (Object.prototype.hasOwnProperty.call(devices, device)) {
+      devices[device] = match[2].toLowerCase() === 'true'
+    }
+  }
+
+  result.deploymentTargets = {
+    ios: devices.iphone || devices.ipad,
+    android: devices.android
+  }
   return result
 }
 

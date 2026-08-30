@@ -49,10 +49,13 @@ function buildView(opts) {
     ...opts,
     pieces,
     generatedPieces,
+    generatedDescriptions: opts.generatedDescriptions ?? {},
+    generatedRootFiles: opts.generatedRootFiles,
+    platformTargets: opts.platformTargets ?? { ios: true, android: true },
     was,
     androidAdaptivePadding: pieces.adaptive?.padding ?? 19,
     androidLegacyPadding: pieces['legacy-icon']?.padding ?? 10,
-    iosPadding: pieces.icon?.padding ?? 4,
+    iosPadding: pieces.icon?.padding ?? 0,
     withSplash: was('splash-icon'),
     withNotification: was('notification-icon'),
     withLaunchLogo: was('launch-logo'),
@@ -66,18 +69,28 @@ function buildView(opts) {
  * @returns {string|null} null when no root-level file was generated
  */
 function rootFilesBrace(view) {
-  const names = view.generatedPieces.flatMap((name) => ROOT_FILES[name] ?? [])
+  const names = view.generatedRootFiles ?? view.generatedPieces.flatMap((name) => ROOT_FILES[name] ?? [])
   if (names.length === 0) return null
   return names.length === 1 ? `${names[0]}.png` : `{${names.join(',')}}.png`
 }
 
 function printCompactSummary(view) {
-  const { projectType, projectRoot, stagingRoot, bgColor, pieces, generatedPieces, inPlace } = view
+  const {
+    projectType,
+    projectRoot,
+    stagingRoot,
+    bgColor,
+    pieces,
+    generatedPieces,
+    generatedDescriptions,
+    platformTargets,
+    inPlace
+  } = view
 
   logger.section('Summary')
   logger.bullet(`Background: ${chalk.cyan(bgColor)}`)
   for (const name of generatedPieces) {
-    logger.bullet(`${chalk.cyan(name)} — ${pieces[name]?.generates ?? ''}`)
+    logger.bullet(`${chalk.cyan(name)} — ${generatedDescriptions[name] ?? pieces[name]?.generates ?? ''}`)
   }
   logger.bullet(`${inPlace ? 'Written in place to' : 'Staged at'}: ${chalk.cyan(inPlace ? projectRoot : stagingRoot)}`)
 
@@ -85,7 +98,9 @@ function printCompactSummary(view) {
   if (inPlace) {
     logger.bullet(`Preview the new icons in ${chalk.yellow('Preview.app')}.`)
     logger.bullet(`If something looks wrong: ${chalk.gray('git checkout -- .')}`)
-    logger.bullet(`Rebuild: ${chalk.gray('ti clean && ti build -p android -T emulator')}`)
+    for (const { platform, command } of rebuildCommands(platformTargets)) {
+      logger.bullet(`Rebuild ${platform}: ${chalk.gray(command)}`)
+    }
   } else if (projectType === 'alloy' || projectType === 'classic') {
     const alloy = projectType === 'alloy'
     const resDir = alloy ? 'app/platform/android/res' : 'platform/android/res'
@@ -95,7 +110,7 @@ function printCompactSummary(view) {
 
     logger.bullet(`Preview in ${chalk.yellow('Preview.app')}, then copy to project:`)
     if (brace) console.log(chalk.gray(`      cp ${stagingRoot}/${brace} ${projectRoot}/`))
-    console.log(chalk.gray(`      cp -R ${stagingRoot}/${resDir}/. ${projectRoot}/${resDir}/`))
+    if (platformTargets.android) console.log(chalk.gray(`      cp -R ${stagingRoot}/${resDir}/. ${projectRoot}/${resDir}/`))
     if (view.withAndroidAssets) console.log(chalk.gray(`      cp -R ${stagingRoot}/${androidAssets}/. ${projectRoot}/${androidAssets}/`))
     if (view.withIosAssets) console.log(chalk.gray(`      cp -R ${stagingRoot}/${iosAssets}/. ${projectRoot}/${iosAssets}/`))
     logger.bullet(`Cleanup staging: ${chalk.gray('rm -rf ' + stagingRoot)}`)
@@ -111,7 +126,7 @@ function printFullNotes(view) {
   const {
     projectType, stagingRoot,
     bgColor, androidAdaptivePadding, androidLegacyPadding, iosPadding,
-    withSplash, withNotification, withLaunchLogo, inPlace
+    withSplash, withNotification, withLaunchLogo, platformTargets, inPlace
   } = view
 
   const code = (s) => chalk.gray(s)
@@ -136,24 +151,28 @@ function printFullNotes(view) {
   logger.section('Notes on what was generated')
   logger.bullet(`Brand color ${chalk.cyan(bgColor)} was baked into Android adaptive background layer`)
   console.log('    and iOS/marketplace flattened masters (Apple rejects alpha).')
+  console.log('    This color is inherited by pieces unless they override it; white is')
+  console.log('    only the fallback, not a platform requirement.')
   logger.bullet(`Android adaptive padding: ${chalk.cyan(androidAdaptivePadding + '%')}  (logo fills ${100 - 2 * androidAdaptivePadding}% of each adaptive foreground canvas)`)
   logger.bullet(`Android legacy padding:   ${chalk.cyan(androidLegacyPadding + '%')}  (logo fills ${100 - 2 * androidLegacyPadding}% of each legacy launcher canvas)`)
   logger.bullet(`iOS padding:              ${chalk.cyan(iosPadding + '%')}  (logo fills ${100 - 2 * iosPadding}% of DefaultIcon-ios and marketplace art)`)
 
   console.log()
   console.log('  Padding is per piece and is never inherited: the adaptive floor')
-  console.log('  answers to the Android safe-zone, the iOS number is an aesthetic')
-  console.log('  choice. One global value would break the launcher mask silently.')
+  console.log('  answers to the Android safe-zone, while iOS/store icons default to')
+  console.log('  full-bleed at 0%. One global value would break the launcher mask.')
+  console.log('  Raise iOS padding only when the source is logo artwork that needs air;')
+  console.log('  Android adaptive foregrounds still need their own safe-zone padding.')
   console.log()
   console.log('  If the logo looks cramped: re-run with higher padding')
   console.log(`      ${flag('--android-adaptive-padding 25-30')}   (adaptive icon)`)
   console.log(`      ${flag('--android-legacy-padding 14-18')}     (legacy icon)`)
-  console.log(`      ${flag('--ios-padding 10-14')}                (iOS)`)
+  console.log(`      ${flag('--ios-padding 2-8')}                  (inset iOS/store logo artwork)`)
   console.log()
   console.log('  If the logo looks too small: re-run with lower padding')
   console.log(`      ${flag('--android-adaptive-padding 19')}      (adaptive spec floor)`)
   console.log(`      ${flag('--android-legacy-padding 8-12')}      (legacy icon)`)
-  console.log(`      ${flag('--ios-padding 2-3')}                  (matches first-party apps like Mail, Safari)`)
+  console.log(`      ${flag('--ios-padding 0')}                    (full-bleed finished iOS/store icon)`)
 
   logger.section('Configuration reminders')
   console.log('  The tool does NOT auto-edit tiapp.xml or Android theme resources.')
@@ -279,11 +298,24 @@ function printFullNotes(view) {
   if (inPlace) {
     console.log(`  ${num('1.')} Preview in ${flag('Preview.app')} — files were overwritten directly.`)
     console.log(`  ${num('2.')} If something looks wrong: ${code('git checkout -- .')}`)
-    console.log(`  ${num('3.')} Rebuild: ${code('ti clean && ti build -p android -T emulator')}`)
   } else {
     console.log(`  ${num('1.')} Preview the generated icons, then copy to project (see Summary).`)
     console.log(`  ${num('2.')} Cleanup staging: ${code('rm -rf ' + stagingRoot)}`)
-    console.log(`  ${num('3.')} Rebuild: ${code('ti clean && ti build -p android -T emulator')}`)
+  }
+  let next = 3
+  for (const { platform, command } of rebuildCommands(platformTargets)) {
+    console.log(`  ${num(next++ + '.')} Rebuild ${platform}: ${code(command)}`)
   }
   console.log()
+}
+
+function rebuildCommands(platformTargets) {
+  const commands = []
+  if (platformTargets.ios) {
+    commands.push({ platform: 'iOS', command: 'ti clean && ti build -p ios -T simulator' })
+  }
+  if (platformTargets.android) {
+    commands.push({ platform: 'Android', command: 'ti clean && ti build -p android -T emulator' })
+  }
+  return commands
 }

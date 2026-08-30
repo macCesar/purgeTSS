@@ -24,12 +24,9 @@ export const LEGACY_DENSITIES = [
 
 export async function genAndroidLegacy(masterPng, bgColor, paddingPct, resRoot) {
   const generated = []
-  // Legacy icons have no adaptive mask — they render as drawn. Use ~60% of
-  // the adaptive padding so the logo fills more of the canvas.
-  const legacyPadding = Math.floor((paddingPct * 60) / 100)
 
   for (const { name, size } of LEGACY_DENSITIES) {
-    const inner = Math.floor((size * (100 - 2 * legacyPadding)) / 100)
+    const inner = Math.floor((size * (100 - 2 * paddingPct)) / 100)
     const dir = path.join(resRoot, `mipmap-${name}`)
     fs.mkdirSync(dir, { recursive: true })
 

@@ -1,15 +1,13 @@
 /**
  * PurgeTSS - gen-ios
  *
- * Produces Titanium's two root-level iOS/Android icons:
+ * Produces Titanium's two root-level universal/iOS icons:
  *
- *   DefaultIcon.png       1024×1024, alpha preserved (universal fallback)
+ *   DefaultIcon.png       1024×1024, alpha flattened on bg-color (fallback)
  *   DefaultIcon-ios.png   1024×1024, alpha flattened on bg-color (iOS)
  *
- * Two distinct paddings — `DefaultIcon.png` is the universal fallback (iOS +
- * Android when no adaptive icons exist), so it uses the Android safe-zone
- * padding to stay inside launcher masks. `DefaultIcon-ios.png` is iOS-only
- * (no launcher mask), so it uses the looser aesthetic iOS padding.
+ * Both files belong to the `icon` piece and therefore use its one configured
+ * padding. Android safe-zone padding belongs to the separate `adaptive` piece.
  *
  * Apple rejects alpha on App Store icon uploads, so DefaultIcon-ios.png is
  * always flattened onto the bg-color.
@@ -24,18 +22,17 @@ import sharp from 'sharp'
 
 const CANVAS = 1024
 
-export async function genIos(tightMaster, bgColor, androidPadding, iosPadding, outRoot) {
+export async function genIos(tightMaster, bgColor, iconPadding, outRoot) {
   fs.mkdirSync(outRoot, { recursive: true })
 
   const defaultIconPath = path.join(outRoot, 'DefaultIcon.png')
   const defaultIconIosPath = path.join(outRoot, 'DefaultIcon-ios.png')
 
-  // DefaultIcon.png — alpha preserved, Android safe-zone padding so it stays
-  // launcher-mask-safe when Android falls back to it.
-  await renderSquare(tightMaster, androidPadding, null, defaultIconPath)
+  // Keep the universal fallback opaque so platform-generated variants never
+  // inherit transparent regions.
+  await renderSquare(tightMaster, iconPadding, bgColor, defaultIconPath)
 
-  // DefaultIcon-ios.png — flattened on bg-color, iOS aesthetic padding.
-  await renderSquare(tightMaster, iosPadding, bgColor, defaultIconIosPath)
+  await renderSquare(tightMaster, iconPadding, bgColor, defaultIconIosPath)
 
   return { defaultIcon: defaultIconPath, defaultIconIos: defaultIconIosPath }
 }

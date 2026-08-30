@@ -6,10 +6,10 @@
  * config.cjs, the CLI flags, `--only`, the dry-run listing and the post-run
  * summary — is derived from this table, so a new piece is added in one place.
  *
- * The rule behind the default set: if the project template ships the file, the
- * command updates it. Whether a given file still has an effect on current iOS
- * or Android versions is not the deciding factor — it lives in the tree and it
- * must carry the real logo.
+ * The default set covers the complete Titanium branding surface, but each
+ * piece declares which deployment target consumes it. The command can then
+ * omit an entire disabled platform without coupling that decision to whether
+ * the project uses Alloy or Classic.
  *
  * One name per thing, no aliases: the piece name drives the `--only` value, the
  * config key, the logo basename and every flag that touches it.
@@ -44,6 +44,7 @@
  * @property {boolean} inheritsBackground - whether brand.background applies
  * @property {string|null} defaultBackground - used when the piece does not inherit
  * @property {string[]} groups - --only group names this piece belongs to
+ * @property {Array<'ios'|'android'>} platforms - deployment targets that use the piece
  * @property {'default'|'convention'|'opt-in'} mode
  * @property {string} generates - human-readable description of the output
  * @property {string} section - heading used while logging
@@ -62,10 +63,11 @@ export const BRAND_PIECES = [
     cliDisableOptions: [],
     showsPadding: true,
     showsBackground: false,
-    defaultPadding: 4,
+    defaultPadding: 0,
     inheritsBackground: true,
     defaultBackground: null,
     groups: ['ios'],
+    platforms: ['ios'],
     mode: 'default',
     generates: 'DefaultIcon.png + DefaultIcon-ios.png',
     section: 'iOS & marketplace'
@@ -81,10 +83,11 @@ export const BRAND_PIECES = [
     cliDisableOptions: ['dark'],
     showsPadding: false,
     showsBackground: true,
-    defaultPadding: 4,
+    defaultPadding: 0,
     inheritsBackground: false, // transparent per Apple HIG unless asked otherwise
     defaultBackground: null,
     groups: ['ios'],
+    platforms: ['ios'],
     mode: 'default',
     generates: 'DefaultIcon-Dark.png',
     section: 'iOS & marketplace'
@@ -100,10 +103,11 @@ export const BRAND_PIECES = [
     cliDisableOptions: ['tinted'],
     showsPadding: false,
     showsBackground: false,
-    defaultPadding: 4,
+    defaultPadding: 0,
     inheritsBackground: false, // always flattened on black per Apple HIG
     defaultBackground: null,
     groups: ['ios'],
+    platforms: ['ios'],
     mode: 'default',
     generates: 'DefaultIcon-Tinted.png',
     section: 'iOS & marketplace'
@@ -123,6 +127,7 @@ export const BRAND_PIECES = [
     inheritsBackground: true,
     defaultBackground: null,
     groups: ['ios'],
+    platforms: ['ios'],
     mode: 'default',
     generates: 'assets/iphone/Default*.png × 16',
     section: 'iOS & marketplace'
@@ -142,6 +147,7 @@ export const BRAND_PIECES = [
     inheritsBackground: false, // transparent: the storyboard paints the background
     defaultBackground: null,
     groups: [],
+    platforms: ['ios'],
     mode: 'convention',
     generates: 'LaunchLogo.png (1024×1024)',
     section: 'iOS & marketplace'
@@ -157,10 +163,11 @@ export const BRAND_PIECES = [
     cliDisableOptions: [],
     showsPadding: false,
     showsBackground: false,
-    defaultPadding: 4,
+    defaultPadding: 0,
     inheritsBackground: true,
     defaultBackground: null,
     groups: ['store'],
+    platforms: ['ios', 'android'],
     mode: 'default',
     generates: 'iTunesConnect.png + MarketplaceArtwork.png',
     section: 'iOS & marketplace'
@@ -180,6 +187,7 @@ export const BRAND_PIECES = [
     inheritsBackground: true,
     defaultBackground: null,
     groups: ['store'],
+    platforms: ['android'],
     mode: 'default',
     generates: 'MarketplaceArtworkFeature.png (1024×500)',
     section: 'iOS & marketplace'
@@ -199,6 +207,7 @@ export const BRAND_PIECES = [
     inheritsBackground: true,
     defaultBackground: null,
     groups: ['android'],
+    platforms: ['android'],
     mode: 'default',
     generates: 'ic_launcher_{foreground,background,monochrome}.png × 5 + ic_launcher.xml',
     section: 'Android'
@@ -218,6 +227,7 @@ export const BRAND_PIECES = [
     inheritsBackground: true,
     defaultBackground: null,
     groups: ['android'],
+    platforms: ['android'],
     mode: 'default',
     generates: 'ic_launcher.png × 5',
     section: 'Android'
@@ -237,6 +247,7 @@ export const BRAND_PIECES = [
     inheritsBackground: true,
     defaultBackground: null,
     groups: ['android'],
+    platforms: ['android'],
     mode: 'default',
     generates: 'appicon.png (128×128)',
     section: 'Android'
@@ -256,6 +267,7 @@ export const BRAND_PIECES = [
     inheritsBackground: true,
     defaultBackground: null,
     groups: ['android'],
+    platforms: ['android'],
     mode: 'default',
     generates: 'assets/android/default.png + images/res-*/default.png × 11',
     section: 'Android'
@@ -275,6 +287,7 @@ export const BRAND_PIECES = [
     inheritsBackground: true,
     defaultBackground: null,
     groups: [],
+    platforms: ['android'],
     mode: 'opt-in',
     generates: 'drawable-*/splash_icon.png × 5',
     section: 'Android'
@@ -294,6 +307,7 @@ export const BRAND_PIECES = [
     inheritsBackground: false, // white + alpha, no background involved
     defaultBackground: null,
     groups: [],
+    platforms: ['android'],
     mode: 'opt-in',
     generates: 'drawable-*/ic_stat_notify.png × 5',
     section: 'Android'
@@ -313,6 +327,7 @@ export const BRAND_PIECES = [
     inheritsBackground: true,
     defaultBackground: null,
     groups: [],
+    platforms: ['android'],
     mode: 'opt-in',
     generates: 'background.9.png (not implemented yet)',
     section: 'Android'

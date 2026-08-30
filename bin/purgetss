@@ -280,8 +280,10 @@ Logos auto-discovered from ${chalk.cyan('purgetss/brand/')}:
 Defaults come from the ${chalk.cyan('brand:')} section in ${chalk.cyan('purgetss/config.cjs')}, one block per piece.
 The recommended workflow is: put files in ${chalk.cyan('purgetss/brand/')}, then only use config/CLI for overrides.
 CLI flags always win over config values.
+${chalk.cyan('brand.background')} is one inherited opaque fallback; white is the default, not a platform requirement.
+iOS/store icon artwork is full-bleed by default; increase ${chalk.cyan('brand.icon.padding')} only for an inset logo.
 
-Generates by default — if the Titanium template ships the file, ${chalk.green('brand')} updates it:
+Generates by default for each platform enabled in ${chalk.cyan('tiapp.xml')}:
   ${chalk.yellow('icon')}               DefaultIcon.png + DefaultIcon-ios.png
   ${chalk.yellow('dark')}               DefaultIcon-Dark.png (iOS 18+)
   ${chalk.yellow('tinted')}             DefaultIcon-Tinted.png (iOS 18+)
@@ -323,11 +325,11 @@ Examples:
   ${chalk.cyan('purgetss brand')} --cleanup-legacy --dry-run                # preview legacy cleanup
 `)
   .option('--only <pieces>', 'Comma-separated pieces or groups to generate (e.g. icon, ios, android)')
-  .option('--bg-color <hex>', 'Background color for Android adaptive + iOS flatten (default: #FFFFFF)')
+  .option('--bg-color <hex>', 'Inherited opaque fallback for icon canvases; white is configurable (default: #FFFFFF)')
   .option('--padding <n>', 'Shortcut: sets both Android paddings to the same value', (v) => parseInt(v, 10))
   .option('--android-adaptive-padding <n>', `Adaptive icon safe-zone % (default: ${padDefault('adaptive')})`, (v) => parseInt(v, 10))
   .option('--android-legacy-padding <n>', `Legacy ic_launcher.png padding % (default: ${padDefault('legacyIcon')})`, (v) => parseInt(v, 10))
-  .option('--ios-padding <n>', `iOS aesthetic % (typical 2-6, default: ${padDefault('icon')})`, (v) => parseInt(v, 10))
+  .option('--ios-padding <n>', `iOS/store inset %; 0 keeps finished art full-bleed (default: ${padDefault('icon')})`, (v) => parseInt(v, 10))
   .option('--feature-graphic-padding <n>', `Feature Graphic vertical % (default: ${padDefault('featureGraphic')})`, (v) => parseInt(v, 10))
   .option('--launch-logo-padding <n>', `LaunchLogo.png padding % (default: ${padDefault('launchLogo')})`, (v) => parseInt(v, 10))
   .option('--splash-padding <n>', 'Shortcut: sets both splash paddings to the same value', (v) => parseInt(v, 10))

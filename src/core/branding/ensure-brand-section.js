@@ -21,8 +21,13 @@
  */
 
 import fs from 'fs'
+import path from 'path'
 import chalk from 'chalk'
-import { projectsConfigJS, projectsPurge_TSS_Brand_Folder } from '../../shared/constants.js'
+import {
+  projectsConfigJS,
+  projectsPurge_TSS_Brand_Folder,
+  srcConfigFile
+} from '../../shared/constants.js'
 import { logger } from './branding-logger.js'
 import { renderBrandBlock } from './render-brand-block.js'
 import { migrateBrandSection } from './migrate-brand-section.js'
@@ -31,30 +36,53 @@ import { migrateBrandSection } from './migrate-brand-section.js'
  * Make sure purgetss/brand/ exists, then make sure config.cjs carries a
  * `brand:` block in the current structure.
  *
- * Silently skips if:
- *   - config.cjs doesn't exist (will be created by ensureConfig() elsewhere)
- *   - the file can't be patched safely (structure doesn't match expectation)
+ * When requested by a standalone command, copies the canonical config.cjs if
+ * it does not exist. Otherwise it only patches an existing file. A
+ * non-standard config layout is left untouched rather than risking damage.
  *
  * @param {Object} [opts]
  * @param {boolean} [opts.createFolder] - Also create purgetss/brand/ (default true)
+ * @param {boolean} [opts.createConfig] - Copy the canonical config when missing
+ * @param {string} [opts.projectRoot] - Override the current project root
  * @returns {boolean} True when config.cjs was written
  */
 export function ensureBrandSection(opts = {}) {
-  const { createFolder = true } = opts
+  const { createFolder = true, createConfig = false, projectRoot } = opts
+  const configPath = projectRoot
+    ? path.join(projectRoot, 'purgetss', 'config.cjs')
+    : projectsConfigJS
+  const brandFolder = projectRoot
+    ? path.join(projectRoot, 'purgetss', 'brand')
+    : projectsPurge_TSS_Brand_Folder
 
   // Mirrors how init creates `purgetss/fonts/` empty so the user can see where
   // assets go.
-  if (createFolder && !fs.existsSync(projectsPurge_TSS_Brand_Folder)) {
-    fs.mkdirSync(projectsPurge_TSS_Brand_Folder, { recursive: true })
+  if (createFolder && !fs.existsSync(brandFolder)) {
+    fs.mkdirSync(brandFolder, { recursive: true })
   }
 
-  if (!fs.existsSync(projectsConfigJS)) return false
+  if (!fs.existsSync(configPath)) {
+    if (!createConfig) return false
 
-  const original = fs.readFileSync(projectsConfigJS, 'utf8')
+    try {
+      fs.mkdirSync(path.dirname(configPath), { recursive: true })
+      fs.copyFileSync(srcConfigFile, configPath, fs.constants.COPYFILE_EXCL)
+      console.log()
+      logger.success(`Created ${chalk.cyan('./purgetss/config.cjs')} with the default brand values.`)
+      console.log()
+      return true
+    } catch (err) {
+      logger.warning(`Could not create config.cjs (${err.message}).`)
+      logger.warning('The command will still run using built-in defaults.')
+      return false
+    }
+  }
+
+  const original = fs.readFileSync(configPath, 'utf8')
 
   // Present already — bring its structure up to date if needed.
   if (/^\s*brand\s*:/m.test(original)) {
-    return migrateBrandSection(projectsConfigJS)
+    return migrateBrandSection(configPath)
   }
 
   // Insert before the `theme:` key. The regex captures the indentation so we
@@ -68,7 +96,7 @@ export function ensureBrandSection(opts = {}) {
   const patched = original.replace(match[0], `${renderBrandBlock({}, { indent: match[1] })}${match[0]}`)
 
   try {
-    fs.writeFileSync(projectsConfigJS, patched, 'utf8')
+    fs.writeFileSync(configPath, patched, 'utf8')
     console.log()
     logger.success(`Added ${chalk.cyan('brand:')} section to ${chalk.cyan('./purgetss/config.cjs')} with default values.`)
     console.log('  Edit that block to customize brand defaults (logos, padding, colors, etc.).')

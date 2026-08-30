@@ -6,9 +6,9 @@
  *   iTunesConnect.png      1024×1024 (App Store)
  *   MarketplaceArtwork.png 512×512   (Google Play)
  *
- * Alpha handling depends on whether --bg-color was explicitly provided:
- *   - not provided → alpha preserved (matches `ti create` default template)
- *   - provided     → alpha flattened onto bg-color (safer for dark-mode stores)
+ * Store masters default to opaque output on the resolved background. A direct
+ * generator caller may preserve alpha explicitly with `flatten: false`, but
+ * the brand pipeline never does so for submission artwork.
  *
  * @fileoverview Marketplace artwork for Titanium branding
  * @author César Estrada
@@ -19,23 +19,32 @@ import path from 'path'
 import sharp from 'sharp'
 
 export async function genMarketplace(tightMaster, paddingPct, outRoot, opts = {}) {
-  const { flatten = false, bgColor = '#FFFFFF' } = opts
+  const {
+    flatten = true,
+    bgColor = '#FFFFFF',
+    generateIos = true,
+    generateAndroid = true
+  } = opts
   fs.mkdirSync(outRoot, { recursive: true })
 
-  const itunesConnect = await renderSquare(
-    tightMaster,
-    paddingPct,
-    1024,
-    path.join(outRoot, 'iTunesConnect.png'),
-    { flatten, bgColor }
-  )
-  const marketplaceArtwork = await renderSquare(
-    tightMaster,
-    paddingPct,
-    512,
-    path.join(outRoot, 'MarketplaceArtwork.png'),
-    { flatten, bgColor }
-  )
+  const itunesConnect = generateIos
+    ? await renderSquare(
+      tightMaster,
+      paddingPct,
+      1024,
+      path.join(outRoot, 'iTunesConnect.png'),
+      { flatten, bgColor }
+    )
+    : null
+  const marketplaceArtwork = generateAndroid
+    ? await renderSquare(
+      tightMaster,
+      paddingPct,
+      512,
+      path.join(outRoot, 'MarketplaceArtwork.png'),
+      { flatten, bgColor }
+    )
+    : null
 
   return { itunesConnect, marketplaceArtwork }
 }

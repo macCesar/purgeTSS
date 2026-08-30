@@ -3,10 +3,11 @@
  *
  * Composes the branding pipeline for Titanium projects.
  *
- * One rule decides what runs: if the project template ships the file, `brand`
- * updates it. The 11 default pieces cover every image a fresh Alloy or Classic
- * project inherits from the template, so a single run leaves nothing behind
- * still wearing the grey Alloy logo.
+ * Two rules decide what runs: the piece must be enabled by config/CLI and its
+ * platform must be enabled in tiapp.xml. An explicit --only request may prepare
+ * a disabled platform deliberately. The defaults cover both fresh Alloy and
+ * Classic projects without making a Classic app depend on PurgeTSS at build
+ * time.
  *
  *   iOS & marketplace:
  *     icon              DefaultIcon.png + DefaultIcon-ios.png
@@ -59,11 +60,14 @@ import { genFeatureGraphic } from './gen-feature-graphic.js'
 import { genNotification } from './gen-notification.js'
 import { genSplash } from './gen-splash.js'
 import { genIcLauncherXml } from './gen-ic-launcher-xml.js'
-import { detectProjectType } from './tiapp-reader.js'
+import { detectProjectType, readTiapp } from './tiapp-reader.js'
 import { cleanupLegacy } from './cleanup-legacy.js'
 import { printPostGenNotes } from './post-gen-notes.js'
 import { optimizePngs, formatBytes } from './optimize-pngs.js'
 import { logoBox } from './splash-geometry.js'
+import { selectPiecesForTargets, targetsForExplicitSelection } from './platform-selection.js'
+import { adoptCliLogo } from './adopt-cli-logo.js'
+import { analyzeArtworkEdges, findVisibleFrameRisks } from './artwork-edges.js'
 
 /** Side of the box a piece fits its logo into, for a square canvas. */
 function inner(canvas, paddingPct) {
@@ -105,9 +109,8 @@ const PIPELINE = {
     maxLogoPx: (piece) => inner(1024, piece.padding),
     describe: (ctx) => [`${ctx.stagingRoot}/DefaultIcon.png + DefaultIcon-ios.png`],
     run: async(ctx, piece, master) => {
-      const adaptivePadding = ctx.pieces.adaptive.padding
-      logger.bullet(`DefaultIcon.png (Android-safe padding ${adaptivePadding}%) + DefaultIcon-ios.png (iOS padding ${piece.padding}%)`)
-      const ios = await genIos(master, piece.background, adaptivePadding, piece.padding, ctx.stagingRoot)
+      logger.bullet(`DefaultIcon.png + DefaultIcon-ios.png (padding ${piece.padding}%, opaque on ${piece.background})`)
+      const ios = await genIos(master, piece.background, piece.padding, ctx.stagingRoot)
       return [ios.defaultIcon, ios.defaultIconIos]
     }
   },
@@ -150,6 +153,7 @@ const PIPELINE = {
     root: 'ios-assets',
     maxLogoPx: (piece) => Math.max(...listIosSplashSizes().map(([w, h]) => logoBox(w, h, piece.padding))),
     describe: (ctx, piece) => [`${ctx.iosAssetsRoot}/{${listIosSplashTargets().join(',')}} (${piece.padding}% padding)`],
+    summary: (ctx) => `${relativeAssetRoot(ctx, 'iphone')}/Default*.png × ${listIosSplashTargets().length}`,
     keeps: (ctx) => listIosSplashTargets().map((file) => path.join(ctx.iosAssetsRoot, file)),
     run: async(ctx, piece, master) => {
       logger.bullet(`iPhone launch images × ${listIosSplashTargets().length} (padding ${piece.padding}%)`)
@@ -162,6 +166,7 @@ const PIPELINE = {
     root: 'ios-assets',
     maxLogoPx: (piece) => inner(1024, piece.padding),
     describe: (ctx, piece) => [`${ctx.iosAssetsRoot}/LaunchLogo.png (1024×1024, ${piece.padding}% padding)`],
+    summary: (ctx) => `${relativeAssetRoot(ctx, 'iphone')}/LaunchLogo.png (1024×1024)`,
     run: async(ctx, piece, master) => {
       logger.bullet(`LaunchLogo.png (1024×1024, padding ${piece.padding}%) — iOS launch screen source`)
       return [await genLaunchLogo(master, piece.padding, ctx.iosAssetsRoot, { bgColor: piece.background })]
@@ -172,15 +177,29 @@ const PIPELINE = {
     variant: 'tight',
     root: 'staging',
     maxLogoPx: (piece) => inner(1024, piece.padding),
-    describe: (ctx) => [`${ctx.stagingRoot}/iTunesConnect.png + MarketplaceArtwork.png`],
+    describe: (ctx) => {
+      const files = []
+      if (ctx.platformTargets.ios) files.push(`${ctx.stagingRoot}/iTunesConnect.png`)
+      if (ctx.platformTargets.android) files.push(`${ctx.stagingRoot}/MarketplaceArtwork.png`)
+      return files
+    },
+    summary: (ctx) => [
+      ctx.platformTargets.ios ? 'iTunesConnect.png' : null,
+      ctx.platformTargets.android ? 'MarketplaceArtwork.png' : null
+    ].filter(Boolean).join(' + '),
     run: async(ctx, piece, master) => {
-      const alphaMode = piece.backgroundExplicit ? `flattened on ${piece.background}` : 'alpha preserved'
-      logger.bullet(`iTunesConnect.png + MarketplaceArtwork.png (${alphaMode})`)
+      const names = [
+        ctx.platformTargets.ios ? 'iTunesConnect.png' : null,
+        ctx.platformTargets.android ? 'MarketplaceArtwork.png' : null
+      ].filter(Boolean).join(' + ')
+      logger.bullet(`${names} (opaque on ${piece.background})`)
       const mkt = await genMarketplace(master, piece.padding, ctx.stagingRoot, {
-        flatten: piece.backgroundExplicit,
-        bgColor: piece.background
+        flatten: true,
+        bgColor: piece.background,
+        generateIos: ctx.platformTargets.ios,
+        generateAndroid: ctx.platformTargets.android
       })
-      return [mkt.itunesConnect, mkt.marketplaceArtwork]
+      return [mkt.itunesConnect, mkt.marketplaceArtwork].filter(Boolean)
     }
   },
 
@@ -233,6 +252,7 @@ const PIPELINE = {
     root: 'android-assets',
     maxLogoPx: (piece) => inner(128, piece.padding),
     describe: (ctx, piece) => [`${ctx.androidAssetsRoot}/appicon.png (128×128, ${piece.padding}% padding)`],
+    summary: (ctx) => `${relativeAssetRoot(ctx, 'android')}/appicon.png (128×128)`,
     keeps: (ctx) => [path.join(ctx.androidAssetsRoot, 'appicon.png')],
     run: async(ctx, piece, master) => {
       logger.bullet(`appicon.png (128×128, padding ${piece.padding}%)`)
@@ -248,6 +268,7 @@ const PIPELINE = {
       `${ctx.androidAssetsRoot}/default.png (${piece.padding}% padding)`,
       `${ctx.androidAssetsRoot}/images/{${listSplashFolders().join(',')}}/default.png`
     ],
+    summary: (ctx) => `${relativeAssetRoot(ctx, 'android')}/default.png + ${relativeAssetRoot(ctx, 'android')}/images/res-*/default.png × ${listSplashFolders().length}`,
     keeps: (ctx) => listSplashFolders().map((folder) => path.join(ctx.androidAssetsRoot, 'images', folder, 'default.png')),
     run: async(ctx, piece, master) => {
       logger.bullet(`Android default.png splash (padding ${piece.padding}%)`)
@@ -299,6 +320,7 @@ export async function runBranding(opts) {
     bgColor = '#FFFFFF',
     pieces = {},
     selection = [],
+    onlySelection = null,
     optimize = false,
     cleanupLegacy: runCleanup = false,
     aggressive = false,
@@ -308,12 +330,20 @@ export async function runBranding(opts) {
     inPlace = false,
     notes = false,
     yes = false,
-    confirmOverwrites = true
+    confirmOverwrites = true,
+    adoptLogo = false
   } = opts
 
   validateOptions({ logo, bgColor, pieces, cleanupLegacy: runCleanup })
 
   const projectType = detectProjectType(projectRoot)
+  const tiapp = readTiapp(path.join(projectRoot, 'tiapp.xml'))
+  const targetFilter = selectPiecesForTargets(selection, pieces, tiapp.deploymentTargets, {
+    explicit: Boolean(onlySelection)
+  })
+  const platformTargets = onlySelection
+    ? targetsForExplicitSelection(targetFilter.selected, pieces)
+    : tiapp.deploymentTargets
   const isInPlace = inPlace && !output
   const stagingRoot = output || (isInPlace ? projectRoot : path.join(projectRoot, '.ti-branding'))
 
@@ -321,12 +351,18 @@ export async function runBranding(opts) {
   mainLogger.info('Generating branding assets...')
   console.log()
   logger.property('Project:    ', `${projectRoot} (${projectType})`)
+  logger.property('Targets:    ', formatTargets(platformTargets, Boolean(onlySelection)))
   if (logo) {
     logger.property('Logo:       ', logo)
-    logger.property('Background: ', bgColor)
-    logger.property('Pieces:     ', selection.length ? selection.join(', ') : '(none selected)')
+    logger.property('Background: ', `${bgColor} (opaque fallback, inherited by pieces)`)
+    logger.property('Pieces:     ', targetFilter.selected.length ? targetFilter.selected.join(', ') : '(none selected)')
     console.log()
     logger.property(isInPlace ? 'Writing IN PLACE to: ' : 'Staging:    ', isInPlace ? projectRoot : stagingRoot)
+  }
+  if (logo && targetFilter.selected.length === 0) {
+    logger.warning('No branding pieces match the enabled <deployment-targets> in tiapp.xml.')
+    logger.warning('Enable iphone/ipad or android, or use --only to prepare a platform explicitly.')
+    return { stagingRoot, generated: [] }
   }
   if (isInPlace && !dryRun && confirmOverwrites) {
     logger.warning(`⚠  In-place mode will OVERWRITE files in ${projectRoot}.`)
@@ -348,6 +384,10 @@ export async function runBranding(opts) {
   }
   if (dryRun) logger.warning('DRY RUN — no files will be written')
 
+  if (targetFilter.skipped.length > 0) {
+    logger.warning(`Skipped for disabled deployment target(s): ${targetFilter.skipped.join(', ')}`)
+  }
+
   const generated = []
 
   // Cleanup-only mode
@@ -360,8 +400,19 @@ export async function runBranding(opts) {
   if (!logo) {
     throw new Error('Logo image is required (unless running --cleanup-legacy alone).')
   }
-  if (!fs.existsSync(logo)) {
-    throw new Error(`Logo image not found: ${logo}`)
+  let activeLogo = logo
+  if (adoptLogo && isInPlace) {
+    const adopted = adoptCliLogo(activeLogo, projectRoot, { dryRun })
+    if (adopted.wouldMove) {
+      logger.info(`Would move source logo to: ${adopted.to}`)
+    } else if (adopted.moved) {
+      activeLogo = adopted.logo
+      logger.success(`Moved source logo to: ${adopted.to}`)
+    }
+  }
+
+  if (!fs.existsSync(activeLogo)) {
+    throw new Error(`Logo image not found: ${activeLogo}`)
   }
 
   if (projectType === 'unknown') {
@@ -375,11 +426,12 @@ export async function runBranding(opts) {
     androidResRoot: getStagingAndroidResRoot(stagingRoot, projectType),
     androidAssetsRoot: getStagingAndroidAssetsRoot(stagingRoot, projectType),
     iosAssetsRoot: getStagingIosAssetsRoot(stagingRoot, projectType),
+    platformTargets,
     pieces,
     monoMaster: null
   }
 
-  const runnable = selection.filter((name) => {
+  const runnable = targetFilter.selected.filter((name) => {
     const entry = PIPELINE[name]
     if (!entry) return false
     if (entry.root === 'android-assets' && !ctx.androidAssetsRoot) return false
@@ -387,7 +439,7 @@ export async function runBranding(opts) {
     return true
   })
 
-  const skipped = selection.filter((name) => !runnable.includes(name))
+  const skipped = targetFilter.selected.filter((name) => !runnable.includes(name))
   if (skipped.length > 0) {
     logger.warning(`Skipped (no project folder for them in a '${projectType}' layout): ${skipped.join(', ')}`)
   }
@@ -439,8 +491,9 @@ export async function runBranding(opts) {
     return result
   }
 
-  const mainMaster = await mastersFor(logo, '_logo')
+  const mainMaster = await mastersFor(activeLogo, '_logo')
   await warnIfLogoAspectIsUnsafeForLauncher(mainMaster.tight)
+  await warnIfArtworkWillShowAFrame(mainMaster.tight, runnable, pieces)
 
   if (monochromeLogo) {
     logger.bullet(`Monochrome logo: ${monochromeLogo}`)
@@ -512,11 +565,40 @@ export async function runBranding(opts) {
     bgColor,
     pieces,
     generatedPieces: runnable,
+    generatedDescriptions: Object.fromEntries(runnable.map((name) => [
+      name,
+      PIPELINE[name].summary?.(ctx, pieces[name]) ?? pieces[name]?.generates ?? ''
+    ])),
+    generatedRootFiles: generated
+      .filter((file) => path.dirname(file) === stagingRoot)
+      .map((file) => path.basename(file, path.extname(file))),
+    platformTargets,
     inPlace: isInPlace,
     fullNotes: notes
   })
 
   return { stagingRoot, generated }
+}
+
+async function warnIfArtworkWillShowAFrame(mainLogo, runnable, pieces) {
+  const analysis = await analyzeArtworkEdges(mainLogo)
+  const risks = findVisibleFrameRisks(analysis, runnable, pieces)
+  if (risks.length === 0) return
+
+  const affected = risks
+    .map(({ name, padding, background }) => `${name} (${padding}% on ${background})`)
+    .join(', ')
+
+  logger.warning(`The source is opaque to its edges (edge color ≈ ${analysis.edgeColor}).`)
+  logger.warning(`A contrasting frame will be visible in: ${affected}.`)
+  logger.warning('brand.background is inherited by these canvases: set it once to a matching color.')
+
+  if (risks.some(({ name }) => ['icon', 'dark', 'tinted', 'marketplace'].includes(name))) {
+    logger.warning('For finished iOS/store artwork, use --ios-padding 0 (the default) to keep it full-bleed.')
+  }
+  if (risks.some(({ name }) => ['adaptive', 'legacy-icon', 'appicon'].includes(name))) {
+    logger.warning('For Android launcher pieces, keep safe-zone padding and prefer transparent piece-specific logo artwork over a complete square icon.')
+  }
 }
 
 async function warnIfLogoAspectIsUnsafeForLauncher(tightLogoPath) {
@@ -567,6 +649,20 @@ function getStagingIosAssetsRoot(stagingRoot, projectType) {
   if (projectType === 'alloy') return path.join(stagingRoot, 'app', 'assets', 'iphone')
   if (projectType === 'classic') return path.join(stagingRoot, 'Resources', 'iphone')
   return null
+}
+
+function formatTargets(targets, explicit) {
+  const enabled = []
+  if (targets.ios) enabled.push('iOS')
+  if (targets.android) enabled.push('Android')
+  const label = enabled.length > 0 ? enabled.join(', ') : '(none enabled)'
+  return explicit ? `${label} (explicit --only)` : label
+}
+
+function relativeAssetRoot(ctx, platform) {
+  if (ctx.projectType === 'classic') return `Resources/${platform}`
+  if (ctx.projectType === 'alloy') return `app/assets/${platform}`
+  return `standalone/${platform}`
 }
 
 function validateOptions({ logo, bgColor, pieces, cleanupLegacy }) {

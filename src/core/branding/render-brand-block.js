@@ -45,7 +45,7 @@ export function renderBrandBlock(overrides = {}, opts = {}) {
   const pieceOverrides = overrides.pieces ?? {}
 
   const top = [
-    [`background: ${literal(overrides.background ?? DEFAULT_BACKGROUND)},`, 'inherited by every piece that doesn\'t set its own'],
+    [`background: ${literal(overrides.background ?? DEFAULT_BACKGROUND)},`, 'inherited by pieces that use an opaque background canvas'],
     [`confirmOverwrites: ${overrides.confirmOverwrites ?? true},`, 'prompt before overwriting files (set false to skip)'],
     [`optimize: ${overrides.optimize ?? false},`, 'true = quantize the generated PNGs to a palette (lossy, ~71% smaller)']
   ]
@@ -56,11 +56,13 @@ export function renderBrandBlock(overrides = {}, opts = {}) {
 
   const lines = []
   lines.push(`${indent}brand: {`)
+  lines.push(`${inner}// Opaque fallback fill; configurable, not required to be white by either platform.`)
   for (const [code, comment] of top) lines.push(`${inner}${code.padEnd(topWidth)} // ${comment}`)
 
   lines.push('')
   lines.push(`${inner}// One block per piece. Artwork comes from purgetss/brand/logo-<piece>.{svg,png};`)
   lines.push(`${inner}// these keys are for numbers, colors and activation. Padding is never inherited.`)
+  lines.push(`${inner}// iOS/store icons are full-bleed by default; increase padding only for logo artwork.`)
 
   const defaults = BRAND_PIECES.filter((piece) => piece.mode !== 'opt-in')
   const optIn = BRAND_PIECES.filter((piece) => piece.mode === 'opt-in')

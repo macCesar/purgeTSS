@@ -25,10 +25,12 @@ export async function brand(cliLogo, options = {}) {
 
   const projectRoot = options.project ? path.resolve(options.project) : process.cwd()
 
-  // Backfill the `brand:` block into older config.cjs files. No-op when
-  // config is missing or already has the section. Only runs against the
-  // project cwd, not against --project overrides (keeping ops localized).
-  if (!options.project) ensureBrandSection()
+  // A standalone brand run is valid even in a Classic project that has never
+  // initialized PurgeTSS. Create the canonical config on first use so the
+  // per-piece padding/background defaults are visible and editable.
+  if (!options.dryRun) {
+    ensureBrandSection({ projectRoot, createConfig: true })
+  }
 
   let resolved
   try {
@@ -50,7 +52,8 @@ export async function brand(cliLogo, options = {}) {
       ...resolved,
       // Always in-place unless --output <dir> is given (which runBranding handles).
       inPlace: !resolved.output,
-      yes: Boolean(options.yes)
+      yes: Boolean(options.yes),
+      adoptLogo: Boolean(cliLogo)
     })
   } catch (err) {
     logger.error(err.message)

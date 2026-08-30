@@ -18,9 +18,9 @@
  *   logo-<piece>.{svg,png}         optional — overrides that piece's artwork
  *
  * `background` is inherited from `brand.background`; `padding` is not — the
- * defaults answer to different constraints (19% is Android's safe-zone floor,
- * 4% is an iOS aesthetic choice), so one global number would silently break
- * the launcher mask.
+ * defaults answer to different constraints (Android launcher pieces need
+ * safe-zone padding while finished iOS/store artwork is full-bleed by default),
+ * so one global number would silently break the launcher mask.
  *
  * Unknown keys inside `brand:` are an error, not a shrug: a typo in a padding
  * key would otherwise be indistinguishable from a default.
@@ -31,6 +31,7 @@
 
 import fs from 'fs'
 import path from 'path'
+import { createRequire } from 'module'
 import { getConfigFile, parsePadding } from '../../shared/config-manager.js'
 import {
   BRAND_PIECES,
@@ -42,6 +43,7 @@ import {
 
 const BRAND_DIR = 'purgetss/brand'
 const SUPPORTED_EXTS = ['svg', 'png']
+const require = createRequire(import.meta.url)
 
 /**
  * Find the first existing file matching <baseName>.<ext> for each supported ext.
@@ -67,7 +69,7 @@ function findLogoFile(baseDir, baseName) {
  * @throws {Error} On an unknown key inside `brand:` or an unknown --only value
  */
 export function resolveBrandConfig(cliOptions, cliLogo, projectRoot) {
-  const brandConfig = loadBrandSection()
+  const brandConfig = loadBrandSection(projectRoot)
   const brandDir = path.join(projectRoot, BRAND_DIR)
 
   assertKnownBrandKeys(brandConfig)
@@ -217,6 +219,7 @@ function resolvePiece(piece, ctx) {
     generates: piece.generates,
     section: piece.section,
     mode: piece.mode,
+    platforms: piece.platforms,
     logo,
     padding,
     background,
@@ -280,9 +283,11 @@ function firstDefined(source, keys) {
 /**
  * @returns {Object} The `brand` section of the resolved config, or {} if missing/invalid.
  */
-function loadBrandSection() {
+function loadBrandSection(projectRoot) {
   try {
-    const cfg = getConfigFile()
+    const configPath = path.join(projectRoot, 'purgetss', 'config.cjs')
+    const isCurrentProject = path.resolve(projectRoot) === path.resolve(process.cwd())
+    const cfg = isCurrentProject ? getConfigFile() : require(configPath)
     if (cfg && typeof cfg === 'object' && cfg.brand && typeof cfg.brand === 'object') {
       return cfg.brand
     }
