@@ -69,6 +69,19 @@ export function buildFontAwesomeJS() {
 
   exportIcons += 'exports.icons = icons;\n'
 
+  exportIcons += `
+const families = {
+  default: 'FontAwesome7Free-Solid',
+  solid: 'FontAwesome7Free-Solid',
+  regular: 'FontAwesome7Free-Regular',
+  brands: 'FontAwesome7Brands-Regular'
+};
+exports.families = families;
+exports.solid = families.solid;
+exports.regular = families.regular;
+exports.brands = families.brands;
+`
+
   exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
   fontawesome += exportIcons

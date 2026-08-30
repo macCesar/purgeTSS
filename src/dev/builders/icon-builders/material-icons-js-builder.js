@@ -62,6 +62,23 @@ export function buildMaterialIconsJS() {
 
   exportIcons += 'exports.icons = icons;\n'
 
+  exportIcons += `
+const families = {
+  default: 'MaterialIcons-Regular',
+  regular: 'MaterialIcons-Regular',
+  outlined: 'MaterialIconsOutlined-Regular',
+  round: 'MaterialIconsRound-Regular',
+  sharp: 'MaterialIconsSharp-Regular',
+  twoTone: 'MaterialIconsTwoTone-Regular'
+};
+exports.families = families;
+exports.regular = families.regular;
+exports.outlined = families.outlined;
+exports.round = families.round;
+exports.sharp = families.sharp;
+exports.twoTone = families.twoTone;
+`
+
   exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
   fileContent += exportIcons

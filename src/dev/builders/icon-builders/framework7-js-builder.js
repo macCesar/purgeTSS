@@ -53,6 +53,14 @@ export function buildFramework7IconsJS() {
 
   exportIcons += 'exports.icons = icons;\n'
 
+  exportIcons += `
+const families = {
+  default: 'Framework7-Icons'
+};
+exports.families = families;
+exports.fontFamily = families.default;
+`
+
   exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
   framework7 += exportIcons
