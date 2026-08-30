@@ -1,39 +1,40 @@
 # Status — 2026-08-30
 
-**Phase:** release preparation
+**Phase:** v7.14.0 released; documentation handoff pending
 **Session by:** Codex · GPT-5
-**Deployed:** v7.13.2 is the last tag in this repository; external npm/GitHub publication was not rechecked in this session
-**Branch:** `main`, with uncommitted and unpushed release work
-**Sibling:** `/Users/cesar/Developer/openSource/purgetss-docs` — the matching brand documentation is updated, built, and still uncommitted
+**Deployed:** v7.14.0 is published on npm and GitHub; `publish.yml` completed successfully
+**Branch:** `main`; the v7.14.0 tag points to the release commit
+**Sibling:** `/Users/cesar/Developer/openSource/purgetss-docs` — brand documentation is committed locally at `94eb3e1`, one commit ahead of `origin/main`, but its site release and deployment are still pending
 
 ## Where things stand
 
-`purgetss brand` now works as a self-contained Alloy or Classic command: it follows `tiapp.xml` deployment targets, creates the canonical config on a standalone first run, adopts a positional logo, keeps Titanium-consumed Classic Android splash qualifiers, and diagnoses contrasting padded frames. Finished square iOS/store artwork defaults to `0%`; Android launcher safe-zone paddings remain platform-specific.
+`purgetss brand` is released as a self-contained Alloy or Classic command. It follows `tiapp.xml` deployment targets, creates the canonical config on a standalone first run, adopts a positional logo, retains Titanium-consumed Classic Android splash qualifiers, and diagnoses contrasting padded frames. Finished square iOS/store artwork defaults to `0%`; Android launcher safe-zone paddings remain platform-specific.
 
-The implementation, CLI help, repository README/CHANGELOG, and the Docusaurus source in the sibling repository are synchronized. No implementation commit, version bump, tag, push, GitHub release, npm publication, site deploy, or Markdown mirror sync has happened yet.
+The implementation, tests, CLI help, README, CHANGELOG, version bump, annotated tag, GitHub release, and npm publication are complete. The release URL is `https://github.com/macCesar/purgeTSS/releases/tag/v7.14.0`; the successful publication run is `https://github.com/macCesar/purgeTSS/actions/runs/33322400943`.
 
 ## In flight
 
-- The release skill is preparing the confirmation plan. Publication remains deliberately paused until the maintainer confirms that exact plan.
+Nothing remains in flight for the PurgeTSS v7.14.0 package release. The sibling documentation repository still needs its own versioned release, push, site deployment, and Markdown mirror synchronization.
 
 ## Requirements
 
-- R3–R6 in `requirements.md` are implemented and verified.
-- The broader Classic-compatible command inventory requested during this work has not been performed; it remains separate follow-up work rather than part of this brand release.
+- R3–R6 in `requirements.md` are implemented, verified, and shipped in v7.14.0.
+- The broader Classic-compatible command inventory requested during this work remains separate follow-up work.
 
 ## Next step
 
-Confirm or revise the semantic commit and release plan. After confirmation, release the CLI, then finish the sibling documentation release/deploy workflow recorded in its `project/status.md`.
+Resume in `/Users/cesar/Developer/openSource/purgetss-docs`: promote its `Unreleased` entry to PurgeTSS v7.14.0, update the homepage release window, run its checks, use its own release workflow, deploy the site, and synchronize the Markdown mirror. After that, inventory which PurgeTSS commands work in Classic projects without the Alloy hook and which others can be decoupled safely.
 
 ## Verified vs. assumed
 
-- Verified: `npm test` passed 23/23 unit suites, 5/5 integration suites, and 6/6 end-to-end suites.
-- Verified: a real Classic run in `/Users/cesar/Developer/Apps/TestingBrand` produced full-bleed root/store icons with zero white pixels along the sampled border; the test repository was restored clean with `sample-icon.png` present.
-- Verified: targeted branding ESLint checks and `git diff --check` passed.
-- Verified: `/Users/cesar/Developer/openSource/purgetss-docs` passed `npm run build` and `npm run docs:check`.
-- Assumed: no package, GitHub release, site deployment, or mirror publication has occurred for these uncommitted changes.
+- Verified: the tag-triggered `publish.yml` workflow passed its install, build, full test, and npm publication jobs.
+- Verified: the GitHub release exists at the URL above and the annotated `v7.14.0` tag points to the release commit.
+- Verified before release: local `npm test` passed 23/23 unit suites, 5/5 integration suites, and 6/6 end-to-end suites.
+- Verified before release: a real Classic run in `/Users/cesar/Developer/Apps/TestingBrand` produced full-bleed root/store icons with zero white pixels along the sampled border; the test repository was restored clean with `sample-icon.png` present.
+- Verified before release: targeted branding ESLint checks, documentation build/checks, and `git diff --check` passed.
+- Assumed: the sibling documentation site and Markdown mirrors have not been deployed with the v7.14.0 content.
 
 ## Known pending
 
-- Inventory which existing PurgeTSS commands work in Classic projects without installing the Alloy hook, and identify other commands that can be decoupled safely.
-- After the CLI version is released, promote the sibling documentation's Unreleased entry, update the three-release homepage window, release/deploy the site, and run its mirror sync workflow.
+- Release and deploy `/Users/cesar/Developer/openSource/purgetss-docs`, then synchronize `../purgetss-docs-context7`.
+- Inventory existing commands that work in Classic projects without installing the Alloy hook, and identify other commands that can be decoupled safely.
