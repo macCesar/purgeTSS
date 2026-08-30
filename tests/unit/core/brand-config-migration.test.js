@@ -33,7 +33,7 @@ const GROUPED = {
 
 const FLAT = { padding: 15, iosPadding: 7, bgColor: '#123456', darkBgColor: '#000011', splash: true, notification: true }
 
-const CURRENT = { background: '#FFFFFF', confirmOverwrites: true, icon: { padding: '4%' }, splashIcon: { enabled: false } }
+const CURRENT = { background: '#FFFFFF', confirmOverwrites: true, icon: { padding: '0%' }, splashIcon: { enabled: false } }
 
 /** Parse a rendered block by writing a throwaway module and requiring it. */
 function parseBlock(block) {

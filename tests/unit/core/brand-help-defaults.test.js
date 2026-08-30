@@ -46,7 +46,7 @@ try {
     const line = help.split('\n').find((l) => l.includes(`${flag} <n>`))
     assert.ok(line, `${flag} is missing from brand --help`)
 
-    // Not anchored to an opening paren: --ios-padding reads "(typical 2-6, default: 4)".
+    // Not anchored to an opening paren: descriptions may contain other text.
     const match = line.match(/default: (\d+)\)/)
     assert.ok(match, `${flag} does not state a default: ${line.trim()}`)
 

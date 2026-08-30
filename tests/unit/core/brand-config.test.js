@@ -31,7 +31,10 @@ try {
     const { pieces } = resolve()
     assert.strictEqual(pieces.adaptive.padding, 18, 'adaptive falls back to its built-in default')
     assert.strictEqual(pieces['legacy-icon'].padding, 10)
-    assert.strictEqual(pieces.icon.padding, 4)
+    assert.strictEqual(pieces.icon.padding, 0)
+    assert.strictEqual(pieces.dark.padding, 0)
+    assert.strictEqual(pieces.tinted.padding, 0)
+    assert.strictEqual(pieces.marketplace.padding, 0)
     assert.strictEqual(pieces['feature-graphic'].padding, 12)
     assert.strictEqual(pieces['launch-logo'].padding, 12)
   }
@@ -50,7 +53,7 @@ try {
     const { pieces } = resolve({}, { padding: 22 })
     assert.strictEqual(pieces.adaptive.padding, 22, '--padding is the shortcut for both Android paddings')
     assert.strictEqual(pieces['legacy-icon'].padding, 22)
-    assert.strictEqual(pieces.icon.padding, 4, '--padding does not reach the iOS pieces')
+    assert.strictEqual(pieces.icon.padding, 0, '--padding does not reach the iOS pieces')
   }
 
   {
@@ -68,7 +71,7 @@ try {
     assert.strictEqual(pieces.icon.padding, 8)
     assert.strictEqual(pieces.adaptive.padding, 18)
     assert.strictEqual(pieces['legacy-icon'].padding, 10)
-    assert.strictEqual(pieces.dark.padding, 4, 'padding does not spread across the iOS family from config')
+    assert.strictEqual(pieces.dark.padding, 0, 'padding does not spread across the iOS family from config')
   }
 
   // ---- background IS inherited -------------------------------------------
@@ -91,7 +94,7 @@ try {
   {
     const { pieces, bgColorExplicit } = resolve({})
     assert.strictEqual(bgColorExplicit, false, 'the built-in white is not an explicit choice')
-    assert.strictEqual(pieces.marketplace.backgroundExplicit, false, 'marketplace keeps alpha unless asked to flatten')
+    assert.strictEqual(pieces.marketplace.backgroundExplicit, false, 'piece resolution records that the built-in fallback was implicit')
   }
 
   {

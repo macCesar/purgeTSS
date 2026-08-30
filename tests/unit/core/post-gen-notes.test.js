@@ -131,6 +131,27 @@ try {
   assert.match(summaryClassic, /cp -R \/tmp\/example-stage\/Resources\/android\/\./)
   assert.match(summaryClassic, /cp -R \/tmp\/example-stage\/Resources\/iphone\/\./)
 
+  const summaryIosOnly = summaryFor({
+    inPlace: false,
+    platformTargets: { ios: true, android: false },
+    generatedPieces: ['icon', 'dark', 'tinted', 'ios-splash', 'marketplace']
+  })
+  assert.doesNotMatch(summaryIosOnly, /platform\/android\/res/)
+
+  const nextIosOnly = summaryFor({
+    platformTargets: { ios: true, android: false },
+    generatedPieces: ['icon', 'dark', 'tinted', 'ios-splash', 'marketplace']
+  })
+  assert.match(nextIosOnly, /Rebuild iOS:/)
+  assert.doesNotMatch(nextIosOnly, /Rebuild Android:/)
+
+  const nextAndroidOnly = summaryFor({
+    platformTargets: { ios: false, android: true },
+    generatedPieces: ['marketplace', 'feature-graphic', 'adaptive', 'legacy-icon', 'appicon', 'android-splash']
+  })
+  assert.match(nextAndroidOnly, /Rebuild Android:/)
+  assert.doesNotMatch(nextAndroidOnly, /Rebuild iOS:/)
+
   console.log('All post-generation branding note tests passed!')
 } catch (error) {
   console.error('Post-generation branding note test failed:', error.message)
