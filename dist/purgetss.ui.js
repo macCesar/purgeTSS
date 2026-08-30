@@ -1,4 +1,4 @@
-// PurgeTSS v7.13.1
+// PurgeTSS v7.15.0
 // Created by César Estrada
 // https://purgetss.com
 

@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.15.0] - 2026-08-30
+
+### Added
+- **Standalone asset and CommonJS commands now support Titanium Classic projects without installing the Alloy hook or utility-class lifecycle.** `images`, `semantic`, `shades`, `color-module`, `module`, `icon-library`, and `build-fonts` detect the project layout and use native `Resources/` destinations where appropriate.
+- **Official icon-font modules expose stable font-family aliases.** Every module exports `families.default`; Font Awesome adds `solid`, `regular`, and `brands`; Material Icons, Material Symbols, and Framework7 expose their installed variants. Existing `icons`, `getIcon`, `setText`, and other module APIs remain unchanged.
+
+### Changed
+- **`images` follows `<deployment-targets>` in `tiapp.xml` by default.** `--android` and `--ios` remain explicit overrides, and summaries list only the platform paths actually generated.
+
+### Fixed
+- **Classic semantic-color and external-image runs no longer bootstrap unrelated PurgeTSS artifacts.** `semantic` writes only `Resources/semantic.colors.json`; an external `images` source does not create an empty `purgetss/images/` or config file.
+
 ## [7.14.0] - 2026-08-30
 
 ### Added
