@@ -13,7 +13,6 @@
 import fs from 'fs'
 import path from 'path'
 import { alloyProject, classicProject } from '../../shared/utils.js'
-import { projectsConfigJS } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
 
 /**
@@ -37,12 +36,44 @@ export { classicProject } from '../../shared/utils.js'
 /**
  * Detect project type
  *
+ * @param {string} projectRoot - Project root to inspect
  * @returns {string} Project type: 'alloy', 'classic', or 'unknown'
  */
-export function detectProjectType() {
-  if (alloyProject(true)) return 'alloy'
-  if (classicProject(true)) return 'classic'
+export function detectProjectType(projectRoot = process.cwd()) {
+  if (fs.existsSync(path.join(projectRoot, 'app', 'views'))) return 'alloy'
+  if (fs.existsSync(path.join(projectRoot, 'Resources'))) return 'classic'
   return 'unknown'
+}
+
+/**
+ * Resolve the project-owned destinations used by standalone asset commands.
+ * Alloy sources are compiled from app/, while Classic resources are consumed
+ * directly from Resources/.
+ *
+ * @param {string} projectRoot - Project root to inspect
+ * @returns {Object} Project type and canonical destination paths
+ */
+export function getProjectPaths(projectRoot = process.cwd()) {
+  const root = path.resolve(projectRoot)
+  const projectType = detectProjectType(root)
+  const isClassic = projectType === 'classic'
+
+  return {
+    projectRoot: root,
+    projectType,
+    fontsFolder: isClassic
+      ? path.join(root, 'Resources', 'fonts')
+      : path.join(root, 'app', 'assets', 'fonts'),
+    libFolder: isClassic
+      ? path.join(root, 'Resources', 'lib')
+      : path.join(root, 'app', 'lib'),
+    semanticColorsPath: isClassic
+      ? path.join(root, 'Resources', 'semantic.colors.json')
+      : path.join(root, 'app', 'assets', 'semantic.colors.json'),
+    semanticColorsRelPath: isClassic
+      ? path.join('Resources', 'semantic.colors.json')
+      : path.join('app', 'assets', 'semantic.colors.json')
+  }
 }
 
 /**
@@ -58,12 +89,8 @@ export function detectProjectType() {
  *
  * @returns {string} Absolute path
  */
-export function getSemanticColorsPath() {
-  const projectType = detectProjectType()
-  if (projectType === 'classic') {
-    return path.join(process.cwd(), 'Resources', 'semantic.colors.json')
-  }
-  return path.join(process.cwd(), 'app', 'assets', 'semantic.colors.json')
+export function getSemanticColorsPath(projectRoot = process.cwd()) {
+  return getProjectPaths(projectRoot).semanticColorsPath
 }
 
 /**
@@ -72,11 +99,8 @@ export function getSemanticColorsPath() {
  *
  * @returns {string} Relative path from cwd
  */
-export function getSemanticColorsRelPath() {
-  const projectType = detectProjectType()
-  return projectType === 'classic'
-    ? 'Resources/semantic.colors.json'
-    : 'app/assets/semantic.colors.json'
+export function getSemanticColorsRelPath(projectRoot = process.cwd()) {
+  return getProjectPaths(projectRoot).semanticColorsRelPath
 }
 
 /**
@@ -84,8 +108,8 @@ export function getSemanticColorsRelPath() {
  *
  * @returns {boolean} True if config exists
  */
-export function hasProjectConfig() {
-  return fs.existsSync(projectsConfigJS)
+export function hasProjectConfig(projectRoot = process.cwd()) {
+  return fs.existsSync(path.join(projectRoot, 'purgetss', 'config.cjs'))
 }
 
 /**
@@ -94,8 +118,8 @@ export function hasProjectConfig() {
  * @param {boolean} silent - Suppress error messages
  * @returns {boolean} True if project is valid
  */
-export function validateProject(silent = false) {
-  const projectType = detectProjectType()
+export function validateProject(silent = false, projectRoot = process.cwd()) {
+  const projectType = detectProjectType(projectRoot)
 
   if (projectType === 'unknown') {
     if (!silent) {
@@ -117,6 +141,7 @@ export const projectUtils = {
   isAlloy: alloyProject,
   isClassic: classicProject,
   detectType: detectProjectType,
+  paths: getProjectPaths,
   hasConfig: hasProjectConfig,
   validate: validateProject
 }
@@ -128,6 +153,7 @@ export default {
   alloyProject,
   classicProject,
   detectProjectType,
+  getProjectPaths,
   getSemanticColorsPath,
   getSemanticColorsRelPath,
   hasProjectConfig,

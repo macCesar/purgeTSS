@@ -374,7 +374,12 @@ export async function runBranding(opts) {
       process.exit(0)
     }
     if (choice === 'always') {
-      const saved = setConfigProperty('brand', 'confirmOverwrites', false)
+      const saved = setConfigProperty(
+        'brand',
+        'confirmOverwrites',
+        false,
+        path.join(projectRoot, 'purgetss', 'config.cjs')
+      )
       if (saved) {
         logger.success('Saved brand.confirmOverwrites = false to purgetss/config.cjs — you won\'t be asked again.')
       } else {

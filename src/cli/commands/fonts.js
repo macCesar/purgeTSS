@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 /* eslint-disable no-useless-escape */
 /**
  * PurgeTSS v7.1 - Fonts Command
@@ -46,6 +45,7 @@ import { logger } from '../../shared/logger.js'
 import { start, finish } from '../utils/cli-helpers.js'
 import { createDefinitionsFile } from './init.js'
 import { buildFontAwesomeJS } from '../../dev/builders/fontawesome-builder.js'
+import { getProjectPaths, validateProject } from '../utils/project-detection.js'
 
 // Additional constants needed for font operations
 const srcFonts_Folder = path.resolve(projectRoot, './assets/fonts')
@@ -153,7 +153,7 @@ function getFontFamily(data) {
  * @returns {string} - Common prefix
  */
 function findPrefix(rules) {
-  const arrayOfRules = rules.map(function (item) {
+  const arrayOfRules = rules.map(function(item) {
     return item.selector.replace('.', '').split('-')
   })
 
@@ -299,7 +299,11 @@ function processFontFamilyNamesJS(data, fontFamily = '', prefix) {
  * @param {Object} options - Build options
  * @returns {boolean} - Success status
  */
-export function buildFonts(options) {
+export function buildFonts(options = {}) {
+  if (!validateProject()) return false
+
+  const { projectType, fontsFolder, libFolder } = getProjectPaths()
+
   if (fs.existsSync(projectsPurge_TSS_Fonts_Folder)) {
     start()
 
@@ -327,13 +331,9 @@ export function buildFonts(options) {
         }
 
         // Copy Font File
-        makeSureFolderExists(projectsFontsFolder)
+        makeSureFolderExists(fontsFolder)
         const fontExtension = file.split('.').pop()
-        fs.copyFile(file, `${projectsFontsFolder}/${fontFamilyName}.${fontExtension}`, err => {
-          if (err) {
-            throw err
-          }
-        })
+        fs.copyFileSync(file, path.join(fontsFolder, `${fontFamilyName}.${fontExtension}`))
         logger.info('Copying font', `${chalk.yellow(file.split('/').pop())}...`)
       }
     })
@@ -360,7 +360,7 @@ export function buildFonts(options) {
         tssClasses += processFontsCSS(cssFile, prefix)
 
         // JavaScript Module
-        if (options.module || fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
+        if (options.module || fs.existsSync(path.join(libFolder, 'purgetss.fonts.js'))) {
           fontJS += processFontsJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
           fontFamiliesJS += processFontFamilyNamesJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
         }
@@ -370,7 +370,7 @@ export function buildFonts(options) {
       }
     })
 
-    if (files.length > 0) {
+    if (files.length > 0 && projectType === 'alloy') {
       makeSureFolderExists(projectsPurgeTSSFolder)
       makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
 
@@ -380,7 +380,7 @@ export function buildFonts(options) {
     }
 
     if (fontJS) {
-      makeSureFolderExists(projectsLibFolder)
+      makeSureFolderExists(libFolder)
 
       let exportIcons = 'const icons = {'
       exportIcons += fontJS.slice(0, -1)
@@ -398,19 +398,23 @@ export function buildFonts(options) {
 
       exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 
-      fs.writeFileSync(`${projectsLibFolder}/purgetss.fonts.js`, exportIcons, { encoding: 'utf8' }, err => {
+      fs.writeFileSync(path.join(libFolder, 'purgetss.fonts.js'), exportIcons, { encoding: 'utf8' }, err => {
         throw err
       })
 
-      logger.info(`${chalk.yellow('./app/lib/purgetss.fonts.js')} file created!`)
-    } else if (fs.existsSync(`${projectsLibFolder}/purgetss.fonts.js`)) {
-      fs.unlinkSync(`${projectsLibFolder}/purgetss.fonts.js`)
+      logger.info(`${chalk.yellow(path.relative(cwd, path.join(libFolder, 'purgetss.fonts.js')))} file created!`)
+    } else if (fs.existsSync(path.join(libFolder, 'purgetss.fonts.js'))) {
+      fs.unlinkSync(path.join(libFolder, 'purgetss.fonts.js'))
     }
 
     if (files.length > 0) {
-      createDefinitionsFile()
+      if (projectType === 'alloy') createDefinitionsFile()
       console.log()
-      finish(`Finished building ${chalk.yellow('fonts.tss')} in`)
+      if (projectType === 'alloy') {
+        finish(`Finished building ${chalk.yellow('fonts.tss')} in`)
+      } else {
+        finish(`Finished copying fonts to ${chalk.yellow(path.relative(cwd, fontsFolder))} in`)
+      }
       return true
     } else {
       logger.info('No fonts found in', chalk.yellow('./purgetss/fonts'), 'folder!')

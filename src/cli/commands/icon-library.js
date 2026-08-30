@@ -1,4 +1,3 @@
-/* eslint-disable camelcase, semi */
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -6,11 +5,8 @@ import chalk from 'chalk'
 import _ from 'lodash'
 
 import { logger } from '../../shared/logger.js'
-import {
-  makeSureFolderExists,
-  alloyProject,
-  classicProject
-} from '../../shared/utils.js'
+import { makeSureFolderExists } from '../../shared/utils.js'
+import { getProjectPaths, validateProject } from '../utils/project-detection.js'
 
 // Get current directory info
 const __filename = fileURLToPath(import.meta.url)
@@ -19,15 +15,10 @@ const projectRoot = path.resolve(__dirname, '../../../')
 const cwd = process.cwd()
 
 // Folder paths
-const projectsFontsFolder = `${cwd}/app/assets/fonts`
-const projectsLibFolder = `${cwd}/app/lib`
-const classicProjectLibFolder = `${cwd}/Resources/lib`
 const projectsPurgeTSSFolder = `${cwd}/purgetss`
-// eslint-disable-next-line camelcase
 const projectsPurge_TSS_Styles_Folder = `${cwd}/purgetss/styles`
 
 // Source paths
-// eslint-disable-next-line camelcase
 const srcFonts_Folder = path.resolve(projectRoot, './assets/fonts')
 const srcLibFA = path.resolve(projectRoot, './dist/fontawesome.js')
 const srcLibMI = path.resolve(projectRoot, './dist/materialicons.js')
@@ -35,16 +26,11 @@ const srcLibMS = path.resolve(projectRoot, './dist/materialsymbols.js')
 const srcLibF7 = path.resolve(projectRoot, './dist/framework7icons.js')
 
 // Font Awesome paths
-// eslint-disable-next-line camelcase
 const srcFA_Beta_CSSFile = `${cwd}/purgetss/fontawesome-beta/css/all.css`
-// eslint-disable-next-line camelcase
 const srcFA_Pro_CSS = `${cwd}/node_modules/@fortawesome/fontawesome-pro/css/all.css`
-// eslint-disable-next-line camelcase
 const srcFA_Beta_Web_Fonts_Folder = `${cwd}/purgetss/fontawesome-beta/webfonts/`
-// eslint-disable-next-line camelcase
 const srcFA_Pro_Web_Fonts_Folder = `${cwd}/node_modules/@fortawesome/fontawesome-pro/webfonts/`
 
-// eslint-disable-next-line camelcase
 const srcFA_ProFontFamilies = {
   'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
   'fa-brands-400.woff2': 'FontAwesome7Brands-Regular.woff2',
@@ -54,7 +40,6 @@ const srcFA_ProFontFamilies = {
   'fa-solid-900.woff2': 'FontAwesome7Pro-Solid.woff2'
 }
 
-// eslint-disable-next-line camelcase
 const srcFA_Beta_FontFamilies = {
   'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
   'fa-brands-400.woff2': 'FontAwesome7Brands-Regular.woff2',
@@ -82,11 +67,12 @@ function callback(err) {
  * Copy a file from source to destination in fonts folder
  * @param {string} src - Source file path
  * @param {string} dest - Destination filename
+ * @param {string} fontsFolder - Destination fonts folder
  * @returns {boolean} - True if file exists and was copied
  */
-function copyFile(src, dest) {
+function copyFile(src, dest, fontsFolder) {
   if (fs.existsSync(src)) {
-    fs.copyFile(src, `${projectsFontsFolder}/${dest}`, callback)
+    fs.copyFile(src, path.join(fontsFolder, dest), callback)
     return true
   }
   return false
@@ -95,10 +81,10 @@ function copyFile(src, dest) {
 /**
  * Copy Font Awesome Free fonts to project
  */
-function copyFreeFonts() {
-  fs.copyFile(srcFonts_Folder + '/FontAwesome7Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome7Brands-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Regular.ttf', projectsFontsFolder + '/FontAwesome7Free-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Solid.ttf', projectsFontsFolder + '/FontAwesome7Free-Solid.ttf', callback)
+function copyFreeFonts(fontsFolder) {
+  fs.copyFile(srcFonts_Folder + '/FontAwesome7Brands-Regular.ttf', path.join(fontsFolder, 'FontAwesome7Brands-Regular.ttf'), callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Regular.ttf', path.join(fontsFolder, 'FontAwesome7Free-Regular.ttf'), callback)
+  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Solid.ttf', path.join(fontsFolder, 'FontAwesome7Free-Solid.ttf'), callback)
 
   logger.item(chalk.green('Font Awesome Free'))
 }
@@ -107,11 +93,12 @@ function copyFreeFonts() {
  * Copy Font Awesome Pro fonts to project
  * @param {Object} fontFamilies - Mapping of source to destination font names
  * @param {string} webFonts - Path to web fonts folder
+ * @param {string} fontsFolder - Destination fonts folder
  */
-function copyProFonts(fontFamilies, webFonts) {
+function copyProFonts(fontFamilies, webFonts, fontsFolder) {
   _.each(fontFamilies, (dest, src) => {
-    if (copyFile(`${webFonts}/${src}`, dest)) {
-      logger.item(`${dest} copied to ${chalk.yellow('./app/assets/fonts')}`)
+    if (copyFile(`${webFonts}/${src}`, dest, fontsFolder)) {
+      logger.item(`${dest} copied to ${chalk.yellow(path.relative(cwd, fontsFolder))}`)
     }
   })
 }
@@ -119,7 +106,7 @@ function copyProFonts(fontFamilies, webFonts) {
 /**
  * Copy Material Icons fonts to project
  */
-function copyMaterialIconsFonts() {
+function copyMaterialIconsFonts(fontsFolder) {
   // Material Icons Font
   const fontFamilies = [
     'MaterialIcons-Regular.ttf',
@@ -130,7 +117,7 @@ function copyMaterialIconsFonts() {
   ]
 
   _.each(fontFamilies, familyName => {
-    copyFile(`${srcFonts_Folder}/${familyName}`, familyName)
+    copyFile(`${srcFonts_Folder}/${familyName}`, familyName, fontsFolder)
   })
 
   logger.item(chalk.green('Material Icons'))
@@ -139,7 +126,7 @@ function copyMaterialIconsFonts() {
 /**
  * Copy Material Symbols fonts to project
  */
-function copyMaterialSymbolsFonts() {
+function copyMaterialSymbolsFonts(fontsFolder) {
   // Material Symbols Icons Font
   const fontFamilies = [
     'MaterialSymbolsOutlined-Regular.ttf',
@@ -148,7 +135,7 @@ function copyMaterialSymbolsFonts() {
   ]
 
   _.each(fontFamilies, familyName => {
-    copyFile(`${srcFonts_Folder}/${familyName}`, familyName)
+    copyFile(`${srcFonts_Folder}/${familyName}`, familyName, fontsFolder)
   })
 
   logger.item(chalk.green('Material Symbols'))
@@ -157,9 +144,9 @@ function copyMaterialSymbolsFonts() {
 /**
  * Copy Framework7 Icons font to project
  */
-function copyFramework7IconsFonts() {
+function copyFramework7IconsFonts(fontsFolder) {
   // Framework7 Font
-  copyFile(srcFonts_Folder + '/Framework7-Icons.ttf', 'Framework7-Icons.ttf')
+  copyFile(srcFonts_Folder + '/Framework7-Icons.ttf', 'Framework7-Icons.ttf', fontsFolder)
   logger.item(chalk.green('Framework 7'))
 }
 
@@ -176,32 +163,33 @@ function buildFontAwesomeJS() {
 /**
  * Copy font files based on vendor
  * @param {string} vendor - Font vendor (fa, mi, ms, f7)
+ * @param {string} fontsFolder - Destination fonts folder
  */
-function copyFont(vendor) {
-  makeSureFolderExists(projectsFontsFolder)
+function copyFont(vendor, fontsFolder) {
+  makeSureFolderExists(fontsFolder)
 
   switch (vendor) {
     case 'fa':
     case 'fontawesome':
       if (fs.existsSync(srcFA_Beta_CSSFile)) {
-        copyProFonts(srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder)
+        copyProFonts(srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder, fontsFolder)
       } else if (fs.existsSync(srcFA_Pro_CSS)) {
-        copyProFonts(srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder)
+        copyProFonts(srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder, fontsFolder)
       } else {
-        copyFreeFonts()
+        copyFreeFonts(fontsFolder)
       }
       break
     case 'mi':
     case 'materialicons':
-      copyMaterialIconsFonts()
+      copyMaterialIconsFonts(fontsFolder)
       break
     case 'ms':
     case 'materialsymbol':
-      copyMaterialSymbolsFonts()
+      copyMaterialSymbolsFonts(fontsFolder)
       break
     case 'f7':
     case 'framework7':
-      copyFramework7IconsFonts()
+      copyFramework7IconsFonts(fontsFolder)
       break
   }
 }
@@ -209,31 +197,32 @@ function copyFont(vendor) {
 /**
  * Copy font library modules based on vendor
  * @param {string} vendor - Font vendor (fa, mi, ms, f7)
+ * @param {string} libFolder - Destination module folder
  */
-function copyFontLibrary(vendor) {
+function copyFontLibrary(vendor, libFolder) {
   switch (vendor) {
     case 'fa':
     case 'fontawesome':
       if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
         buildFontAwesomeJS()
       } else {
-        fs.copyFileSync(srcLibFA, projectsLibFolder + '/fontawesome.js')
+        fs.copyFileSync(srcLibFA, path.join(libFolder, 'fontawesome.js'))
         logger.item(chalk.yellow('fontawesome.js'))
       }
       break
     case 'mi':
     case 'materialicons':
-      fs.copyFileSync(srcLibMI, projectsLibFolder + '/materialicons.js')
+      fs.copyFileSync(srcLibMI, path.join(libFolder, 'materialicons.js'))
       logger.item(chalk.yellow('materialicons.js'))
       break
     case 'ms':
     case 'materialsymbol':
-      fs.copyFileSync(srcLibMS, projectsLibFolder + '/materialsymbols.js')
+      fs.copyFileSync(srcLibMS, path.join(libFolder, 'materialsymbols.js'))
       logger.item(chalk.yellow('materialsymbols.js'))
       break
     case 'f7':
     case 'framework7':
-      fs.copyFileSync(srcLibF7, projectsLibFolder + '/framework7icons.js')
+      fs.copyFileSync(srcLibF7, path.join(libFolder, 'framework7icons.js'))
       logger.item(chalk.yellow('framework7icons.js'))
       break
   }
@@ -275,24 +264,23 @@ function copyFontStyle(vendor) {
 /**
  * Copy font libraries to project lib folder
  * @param {Object} options - Command options
+ * @param {string} libFolder - Destination module folder
  */
-function copyFontLibraries(options) {
-  if (alloyProject()) {
-    makeSureFolderExists(projectsLibFolder)
+function copyFontLibraries(options, libFolder) {
+  makeSureFolderExists(libFolder)
 
-    if (options.vendor && typeof options.vendor === 'string') {
-      // Clean vendor string - remove leading = and spaces
-      const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
-      const selected = _.uniq(cleanVendor.split(','))
-      _.each(selected, vendor => {
-        copyFontLibrary(vendor)
-      })
-    } else {
-      copyFontLibrary('fa')
-      copyFontLibrary('mi')
-      copyFontLibrary('ms')
-      copyFontLibrary('f7')
-    }
+  if (options.vendor && typeof options.vendor === 'string') {
+    // Clean vendor string - remove leading = and spaces
+    const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
+    const selected = _.uniq(cleanVendor.split(','))
+    _.each(selected, vendor => {
+      copyFontLibrary(vendor, libFolder)
+    })
+  } else {
+    copyFontLibrary('fa', libFolder)
+    copyFontLibrary('mi', libFolder)
+    copyFontLibrary('ms', libFolder)
+    copyFontLibrary('f7', libFolder)
   }
 }
 
@@ -301,23 +289,21 @@ function copyFontLibraries(options) {
  * @param {Object} options - Command options
  */
 function copyFontStyles(options) {
-  if (alloyProject()) {
-    makeSureFolderExists(projectsPurgeTSSFolder)
-    makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
+  makeSureFolderExists(projectsPurgeTSSFolder)
+  makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
 
-    if (options.vendor && typeof options.vendor === 'string') {
-      // Clean vendor string - remove leading = and spaces
-      const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
-      const selected = _.uniq(cleanVendor.split(','))
-      _.each(selected, vendor => {
-        copyFontStyle(vendor)
-      })
-    } else {
-      copyFontStyle('fa')
-      copyFontStyle('mi')
-      copyFontStyle('ms')
-      copyFontStyle('f7')
-    }
+  if (options.vendor && typeof options.vendor === 'string') {
+    // Clean vendor string - remove leading = and spaces
+    const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
+    const selected = _.uniq(cleanVendor.split(','))
+    _.each(selected, vendor => {
+      copyFontStyle(vendor)
+    })
+  } else {
+    copyFontStyle('fa')
+    copyFontStyle('mi')
+    copyFontStyle('ms')
+    copyFontStyle('f7')
   }
 }
 
@@ -331,11 +317,11 @@ function copyFontStyles(options) {
  */
 export async function copyFonts(options = {}) {
   try {
-    if (!alloyProject()) {
-      return false
-    }
+    if (!validateProject()) return false
 
-    makeSureFolderExists(projectsFontsFolder)
+    const { projectType, fontsFolder, libFolder } = getProjectPaths()
+
+    makeSureFolderExists(fontsFolder)
 
     if (options.vendor && typeof options.vendor === 'string') {
       // Clean vendor string - remove leading = and spaces
@@ -343,26 +329,30 @@ export async function copyFonts(options = {}) {
       const selected = _.uniq(cleanVendor.split(','))
       logger.info('Copying Icon Fonts...')
       _.each(selected, vendor => {
-        copyFont(vendor)
+        copyFont(vendor, fontsFolder)
       })
     } else {
-      logger.info('Copying Fonts to', chalk.yellow('./app/assets/fonts'), 'folder')
-      copyFont('fa')
-      copyFont('mi')
-      copyFont('ms')
-      copyFont('f7')
+      logger.info('Copying Fonts to', chalk.yellow(path.relative(cwd, fontsFolder)), 'folder')
+      copyFont('fa', fontsFolder)
+      copyFont('mi', fontsFolder)
+      copyFont('ms', fontsFolder)
+      copyFont('f7', fontsFolder)
     }
 
     if (options.module) {
       console.log()
-      logger.info('Copying Modules to', chalk.yellow('./app/lib'), 'folder')
-      copyFontLibraries(options)
+      logger.info('Copying Modules to', chalk.yellow(path.relative(cwd, libFolder)), 'folder')
+      copyFontLibraries(options, libFolder)
     }
 
     if (options.styles) {
-      console.log()
-      logger.info('Copying Styles to', chalk.yellow('./purgetss/styles'), 'folder')
-      copyFontStyles(options)
+      if (projectType === 'classic') {
+        logger.info(chalk.yellow('--styles is Alloy-only; no TSS files were created in this Classic project.'))
+      } else {
+        console.log()
+        logger.info('Copying Styles to', chalk.yellow('./purgetss/styles'), 'folder')
+        copyFontStyles(options)
+      }
     }
 
     return true
@@ -379,24 +369,13 @@ export async function copyFonts(options = {}) {
 export async function copyModulesLibrary() {
   try {
     const srcPurgeTSSLibrary = path.resolve(projectRoot, './dist/purgetss.ui.js')
+    if (!validateProject()) return false
 
-    if (alloyProject(true)) {
-      makeSureFolderExists(projectsLibFolder)
-      fs.copyFileSync(srcPurgeTSSLibrary, projectsLibFolder + '/purgetss.ui.js')
-      logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./app/lib'), 'folder')
-      return true
-    } else if (classicProject(true)) {
-      makeSureFolderExists(classicProjectLibFolder)
-      fs.copyFileSync(srcPurgeTSSLibrary, classicProjectLibFolder + '/purgetss.ui.js')
-      logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow('./Resources/lib'), 'folder')
-      return true
-    } else {
-      logger.block(
-        `Please make sure you are running ${chalk.green('purgetss')} within an Alloy or Classic Project.`,
-        `For more information, visit ${chalk.green('https://purgetss.com')}`
-      )
-      return false
-    }
+    const { libFolder } = getProjectPaths()
+    makeSureFolderExists(libFolder)
+    fs.copyFileSync(srcPurgeTSSLibrary, path.join(libFolder, 'purgetss.ui.js'))
+    logger.info(chalk.yellow('purgetss.ui'), 'module copied to', chalk.yellow(path.relative(cwd, libFolder)), 'folder')
+    return true
   } catch (error) {
     logger.error('Error in copyModulesLibrary:', error.message)
     return false

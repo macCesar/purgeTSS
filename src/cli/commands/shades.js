@@ -14,17 +14,18 @@
 import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
-import { createRequire } from 'module'
-import { alloyProject, makeSureFolderExists } from '../../shared/utils.js'
-import { projectsConfigJS, projectsLibFolder } from '../../shared/constants.js'
-import { getSemanticColorsPath, getSemanticColorsRelPath } from '../utils/project-detection.js'
+import { makeSureFolderExists } from '../../shared/utils.js'
+import { projectsConfigJS } from '../../shared/constants.js'
+import {
+  getProjectPaths,
+  getSemanticColorsPath,
+  getSemanticColorsRelPath,
+  validateProject
+} from '../utils/project-detection.js'
 import { logger } from '../../shared/logger.js'
 import { ensureConfig, getConfigFile } from '../../shared/config-manager.js'
 import { cleanDoubleQuotes } from '../utils/file-operations.js'
 import { setConfigSection } from '../../shared/config-writer.js'
-
-// Create require for ESM compatibility
-const require = createRequire(import.meta.url)
 
 /**
  * Create color module with all colors from config
@@ -33,29 +34,29 @@ const require = createRequire(import.meta.url)
  * @returns {boolean} Success status
  */
 export function colorModule() {
-  if (!alloyProject()) {
-    return false
-  }
+  if (!validateProject()) return false
 
   ensureConfig()
 
-  const colorModuleConfigFile = require(projectsConfigJS)
+  const colorModuleConfigFile = getConfigFile()
+  const { libFolder } = getProjectPaths()
+  const modulePath = path.join(libFolder, 'purgetss.colors.js')
 
-  makeSureFolderExists(projectsLibFolder)
+  makeSureFolderExists(libFolder)
 
   const mainColors = {
-    ...colorModuleConfigFile.theme.colors,
-    ...colorModuleConfigFile.theme.extend.colors
+    ...(colorModuleConfigFile.theme?.colors ?? {}),
+    ...(colorModuleConfigFile.theme?.extend?.colors ?? {})
   }
 
   fs.writeFileSync(
-    `${projectsLibFolder}/purgetss.colors.js`,
+    modulePath,
     'module.exports = ' + cleanDoubleQuotes(mainColors, {}),
     'utf8',
     err => { throw err }
   )
 
-  logger.info(`All colors copied to ${chalk.yellow('lib/purgetss.colors.js')}`)
+  logger.info(`All colors copied to ${chalk.yellow(path.relative(process.cwd(), modulePath))}`)
 
   return true
 }
@@ -65,7 +66,8 @@ export function colorModule() {
  * Maintains exact same logic as original checkIfColorModule() function
  */
 export function checkIfColorModule() {
-  if (fs.existsSync(`${projectsLibFolder}/purgetss.colors.js`)) {
+  const { projectType, libFolder } = getProjectPaths()
+  if (projectType !== 'unknown' && fs.existsSync(path.join(libFolder, 'purgetss.colors.js'))) {
     colorModule()
   }
 }
@@ -129,11 +131,12 @@ export async function shades(args, options) {
   colorFamily.name = colorFamily.name.replace(/'/g, '').replace(/\//g, '').replace(/\s+/g, ' ')
 
   const silent = options.tailwind || options.json || options.log
-  const inAlloyProject = !silent && alloyProject(silent)
+  const shouldSave = !silent
 
   const colorObject = createColorObject(colorFamily, colorFamily.hexcode, options)
 
-  if (inAlloyProject) {
+  if (shouldSave) {
+    if (!validateProject()) return false
     ensureConfig()
     const configFile = getConfigFile()
 
@@ -157,7 +160,7 @@ export async function shades(args, options) {
 
     saveThemeSection(configFile, options)
     checkIfColorModule()
-    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)}) saved in`, chalk.yellow('config.js'))
+    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)}) saved in`, chalk.yellow('purgetss/config.cjs'))
   } else if (options.json) {
     logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} (${chalk.bgHex(colorFamily.hexcode)(colorFamily.hexcode)})\n${JSON.stringify(colorObject, null, 2)}`)
   } else {

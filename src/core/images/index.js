@@ -24,7 +24,6 @@ import { confirmWithAlways } from '../../shared/prompt.js'
 import { setConfigProperty } from '../../shared/config-writer.js'
 import { detectProjectType } from '../branding/tiapp-reader.js'
 import { genAndroidScales, genIphoneScales } from './gen-scales.js'
-import { projectsPurge_TSS_Images_Folder } from '../../shared/constants.js'
 
 const SUPPORTED_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'])
 
@@ -63,9 +62,7 @@ export async function runImages(opts) {
   // declared in `config.cjs > images.files` can override the directory scan's
   // default sizing. CLI `--width` still wins over both.
   const overrides = buildOverridesMap(filesOverrides)
-  const imagesFolderForKey = projectRoot === process.cwd()
-    ? projectsPurge_TSS_Images_Folder
-    : path.join(projectRoot, 'purgetss', 'images')
+  const imagesFolderForKey = path.join(projectRoot, 'purgetss', 'images')
 
   if (baseWidth == null) {
     const uncoveredSvgs = files.filter(f => {
@@ -102,7 +99,10 @@ export async function runImages(opts) {
   }
 
   if (!dryRun && confirmOverwrites && !yes) {
-    logger.warning(`⚠  Scaled images will OVERWRITE existing variants under ${androidBaseDir} and ${iphoneBaseDir}.`)
+    const overwriteDirs = []
+    if (!iphoneOnly) overwriteDirs.push(androidBaseDir)
+    if (!androidOnly) overwriteDirs.push(iphoneBaseDir)
+    logger.warning(`⚠  Scaled images will OVERWRITE existing variants under ${overwriteDirs.join(' and ')}.`)
     logger.warning('   Commit first if you want a rollback.')
     const choice = await confirmWithAlways('Continue? [y/N/a]', { yes })
     if (choice === 'no') {
@@ -111,7 +111,12 @@ export async function runImages(opts) {
       process.exit(0)
     }
     if (choice === 'always') {
-      const saved = setConfigProperty('images', 'confirmOverwrites', false)
+      const saved = setConfigProperty(
+        'images',
+        'confirmOverwrites',
+        false,
+        path.join(projectRoot, 'purgetss', 'config.cjs')
+      )
       if (saved) {
         logger.success('Saved images.confirmOverwrites = false to purgetss/config.cjs — you won\'t be asked again.')
       } else {
@@ -129,9 +134,7 @@ export async function runImages(opts) {
   // If the source is inside purgetss/images/, compute relPath from that folder
   // so subdirectories are always preserved in the output — regardless of whether
   // the user passed the full folder, a subfolder, or a single file.
-  const imagesFolder = projectRoot === process.cwd()
-    ? projectsPurge_TSS_Images_Folder
-    : path.join(projectRoot, 'purgetss', 'images')
+  const imagesFolder = path.join(projectRoot, 'purgetss', 'images')
   const sourceIsInsideImagesFolder = source === imagesFolder
     || source.startsWith(imagesFolder + path.sep)
 
@@ -214,8 +217,8 @@ export async function runImages(opts) {
   if (!dryRun) {
     console.log()
     logger.success(`${written.length} file${written.length === 1 ? '' : 's'} written.`)
-    logger.property('Android:    ', androidBaseDir)
-    logger.property('iPhone:     ', iphoneBaseDir)
+    if (!iphoneOnly) logger.property('Android:    ', androidBaseDir)
+    if (!androidOnly) logger.property('iPhone:     ', iphoneBaseDir)
   }
 
   return { written }

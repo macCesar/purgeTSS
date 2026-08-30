@@ -29,7 +29,11 @@
 import chalk from 'chalk'
 import { logger } from '../../shared/logger.js'
 import { ensureConfig, getConfigFile } from '../../shared/config-manager.js'
-import { validateProject, getSemanticColorsRelPath } from '../utils/project-detection.js'
+import {
+  detectProjectType,
+  validateProject,
+  getSemanticColorsRelPath
+} from '../utils/project-detection.js'
 import {
   toCamelCase,
   buildSemanticPalette,
@@ -107,6 +111,14 @@ async function runPalette(args, options, silent) {
   }
 
   if (!validateProject(silent)) return false
+
+  if (detectProjectType() === 'classic') {
+    writeSemanticJSON(semanticEntries, toCamelCase(kebabName))
+    logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} palette (11 shades) saved to`, chalk.yellow(getSemanticColorsRelPath()))
+    logger.info('Classic project detected: no PurgeTSS config or utility-class mapping was created.')
+    return true
+  }
+
   ensureConfig()
   writeSemanticColors(semanticEntries, kebabName, configMapping, options)
   logger.info(`${chalk.hex(colorFamily.hexcode).bold(`"${colorFamily.name}"`)} palette (11 shades) saved to`, chalk.yellow(getSemanticColorsRelPath()))
@@ -118,11 +130,11 @@ function runSingle(args, options, silent) {
   const lightHex = args.hexcode
   const rawName = args.name || options.name
   if (!lightHex) {
-    logger.info(`${chalk.red('Missing light hex.')} Usage: ${chalk.green("pt semantic --single '#F9FAFB' surfaceColor [--dark '#0f172a'] [--alpha 50]")}`)
+    logger.info(`${chalk.red('Missing light hex.')} Usage: ${chalk.green('pt semantic --single \'#F9FAFB\' surfaceColor [--dark \'#0f172a\'] [--alpha 50]')}`)
     return false
   }
   if (!rawName) {
-    logger.info(`${chalk.red('Missing name.')} Usage: ${chalk.green("pt semantic --single '#F9FAFB' surfaceColor [--dark '#0f172a'] [--alpha 50]")}`)
+    logger.info(`${chalk.red('Missing name.')} Usage: ${chalk.green('pt semantic --single \'#F9FAFB\' surfaceColor [--dark \'#0f172a\'] [--alpha 50]')}`)
     return false
   }
 
@@ -138,6 +150,15 @@ function runSingle(args, options, silent) {
   }
 
   if (!validateProject(silent)) return false
+
+  const { semanticEntries } = buildSingleSemantic(camelName, lightHex, darkHex, alpha)
+  if (detectProjectType() === 'classic') {
+    writeSemanticJSON(semanticEntries, camelName)
+    logger.info(`${chalk.hex(lightHex).bold(`"${camelName}"`)} saved to ${chalk.yellow(getSemanticColorsRelPath())}.`)
+    logger.info('Classic project detected: no PurgeTSS config or utility-class mapping was created.')
+    return true
+  }
+
   ensureConfig()
 
   // If the name matches an existing palette shade (e.g. `amazon50` when palette
@@ -160,7 +181,6 @@ function runSingle(args, options, silent) {
   // pattern) and kebab-case the rest. Users who want a different class name
   // (`on-surface` for `textColor`, etc.) edit config.cjs after the fact —
   // overriding the auto-mapping is one keystroke; typing it from scratch is many.
-  const { semanticEntries } = buildSingleSemantic(camelName, lightHex, darkHex, alpha)
   const className = suggestClassName(camelName)
   writeSemanticJSON(semanticEntries, camelName)
   writeConfigMapping(className, camelName, options)

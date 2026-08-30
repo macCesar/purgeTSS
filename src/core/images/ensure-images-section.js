@@ -15,8 +15,8 @@
  */
 
 import fs from 'fs'
+import path from 'path'
 import chalk from 'chalk'
-import { projectsConfigJS, projectsPurge_TSS_Images_Folder } from '../../shared/constants.js'
 import { logger } from '../branding/branding-logger.js'
 
 const IMAGES_BLOCK = `  images: {
@@ -28,14 +28,17 @@ const IMAGES_BLOCK = `  images: {
   },
 `
 
-export function ensureImagesSection() {
-  if (!fs.existsSync(projectsPurge_TSS_Images_Folder)) {
-    fs.mkdirSync(projectsPurge_TSS_Images_Folder, { recursive: true })
+export function ensureImagesSection({ projectRoot = process.cwd(), createFolder = true } = {}) {
+  const configPath = path.join(projectRoot, 'purgetss', 'config.cjs')
+  const imagesFolder = path.join(projectRoot, 'purgetss', 'images')
+
+  if (createFolder && !fs.existsSync(imagesFolder)) {
+    fs.mkdirSync(imagesFolder, { recursive: true })
   }
 
-  if (!fs.existsSync(projectsConfigJS)) return
+  if (!fs.existsSync(configPath)) return
 
-  const original = fs.readFileSync(projectsConfigJS, 'utf8')
+  const original = fs.readFileSync(configPath, 'utf8')
 
   if (/^\s*images\s*:/m.test(original)) return
 
@@ -46,7 +49,7 @@ export function ensureImagesSection() {
   const patched = original.replace(match[0], `${IMAGES_BLOCK}${match[0]}`)
 
   try {
-    fs.writeFileSync(projectsConfigJS, patched, 'utf8')
+    fs.writeFileSync(configPath, patched, 'utf8')
     console.log()
     logger.success(`Added ${chalk.cyan('images:')} section to ${chalk.cyan('./purgetss/config.cjs')} with default values.`)
     console.log('  Edit that block to customize defaults (quality, format).')

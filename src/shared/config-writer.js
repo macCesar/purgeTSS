@@ -137,13 +137,14 @@ function skipString(source, openIdx) {
  * @param {string} section - Top-level section name (e.g. 'brand', 'images').
  * @param {string} key - Property key to set inside the section.
  * @param {*} value - JSON-serializable value (booleans, numbers, strings, null).
+ * @param {string} configPath - Config file to patch
  * @returns {boolean} True on success; false if config is missing or the
  *   section couldn't be located.
  */
-export function setConfigProperty(section, key, value) {
-  if (!fs.existsSync(projectsConfigJS)) return false
+export function setConfigProperty(section, key, value, configPath = projectsConfigJS) {
+  if (!fs.existsSync(configPath)) return false
 
-  const original = fs.readFileSync(projectsConfigJS, 'utf8')
+  const original = fs.readFileSync(configPath, 'utf8')
 
   // Capture the entire section: `<indent>section: { <body> \n<closeIndent>}`.
   // Non-greedy body match keeps us from swallowing sibling sections.
@@ -164,7 +165,7 @@ export function setConfigProperty(section, key, value) {
   if (keyRegex.test(body)) {
     const newBody = body.replace(keyRegex, `$1${valueLiteral}$3`)
     const replaced = `${sectionIndent}${section}: {${newBody}\n${closeIndent}}`
-    fs.writeFileSync(projectsConfigJS, original.replace(wholeMatch, replaced), 'utf8')
+    fs.writeFileSync(configPath, original.replace(wholeMatch, replaced), 'utf8')
     return true
   }
 
@@ -188,6 +189,6 @@ export function setConfigProperty(section, key, value) {
   newBody += `\n${propIndent}${key}: ${valueLiteral}`
 
   const replaced = `${sectionIndent}${section}: {${newBody}\n${closeIndent}}`
-  fs.writeFileSync(projectsConfigJS, original.replace(wholeMatch, replaced), 'utf8')
+  fs.writeFileSync(configPath, original.replace(wholeMatch, replaced), 'utf8')
   return true
 }

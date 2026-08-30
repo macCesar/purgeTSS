@@ -123,7 +123,7 @@ program.helpInformation = function () {
     output.push(`  ${chalk.green('Initial Setup:')}`)
     output.push(`  ${chalk.cyan('init|i')} ${chalk.gray('[options]')}                Create a ${chalk.yellow('config.cjs')} file for your project`)
     output.push(`  ${chalk.cyan('create|c')} ${chalk.gray('[options]')} ${chalk.gray('<name>')}       Create a new Alloy project with ${chalk.green('PurgeTSS')}`)
-    output.push(`  ${chalk.cyan('install-dependencies|id')}         Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')}`)
+    output.push(`  ${chalk.cyan('install-dependencies|id')}         Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} (Alloy)`)
     output.push(`  ${chalk.cyan('brand')} ${chalk.gray('[options]')} ${chalk.gray('<logo>')}          Generate Titanium app icons & splash from a logo SVG/PNG`)
     output.push(`  ${chalk.cyan('images')} ${chalk.gray('[options]')} ${chalk.gray('[source]')}       Generate Titanium multi-density UI images (Alloy + Classic)`)
     output.push('')
@@ -134,7 +134,7 @@ program.helpInformation = function () {
     output.push('')
     output.push(`  ${chalk.green('Asset Configuration:')}`)
     output.push(`  ${chalk.cyan('icon-library|il')} ${chalk.gray('[options]')}       Copy icon font libraries to your project`)
-    output.push(`  ${chalk.cyan('build-fonts|bf')} ${chalk.gray('[options]')}        Generate ${chalk.yellow('fonts.tss')} from fonts in ${chalk.yellow('./purgetss/fonts')}`)
+    output.push(`  ${chalk.cyan('build-fonts|bf')} ${chalk.gray('[options]')}        Install custom fonts; generate TSS only in Alloy`)
     output.push(`  ${chalk.cyan('color-module|cm')}                 Copy colors from ${chalk.yellow('config.cjs')} to ${chalk.yellow('lib')} folder`)
     output.push('')
     output.push(`  ${chalk.green('Utilities:')}`)
@@ -144,6 +144,11 @@ program.helpInformation = function () {
     output.push(`  ${chalk.green('Maintenance:')}`)
     output.push(`  ${chalk.cyan('update|u')}                        Update ${chalk.green('PurgeTSS')} to the latest version`)
     output.push(`  ${chalk.cyan('sudo-update|su')}                  Update ${chalk.green('PurgeTSS')} using ${chalk.red('sudo')} command`)
+    output.push('')
+    output.push(`${chalk.yellow('PROJECT COMPATIBILITY')}`)
+    output.push(`  ${chalk.green('Alloy + Classic:')} ${chalk.cyan('brand, images, semantic, shades, color-module, module, icon-library, build-fonts')}`)
+    output.push(`  ${chalk.green('Alloy only:')}      ${chalk.cyan('purgetss, --all, init, create, install-dependencies, build, watch')}`)
+    output.push(`  ${chalk.green('Global:')}          ${chalk.cyan('shades --log/--json/--tailwind, semantic --log, update, sudo-update')}`)
 
     return output.join('\n') + '\n'
   }
@@ -252,10 +257,11 @@ program
   .command('install-dependencies')
   .alias('id')
   .description(`Install ${chalk.green('ESLint')} and ${chalk.green('Tailwind CSS')} to existing project`)
-  .addHelpText('after', '\nInstalls ESLint and Tailwind CSS to improve development workflow with code linting and enhanced UI capabilities.')
+  .addHelpText('after', '\nAlloy only. Installs ESLint and Tailwind CSS for PurgeTSS utility-class development.')
   .action(async (options) => {
     try {
-      await dependencies(options)
+      const result = await dependencies(options)
+      if (!result) process.exit(1)
     } catch (error) {
       console.error(chalk.red('Error installing dependencies:'), error.message)
       process.exit(1)
@@ -284,16 +290,17 @@ ${chalk.cyan('brand.background')} is one inherited opaque fallback; white is the
 iOS/store icon artwork is full-bleed by default; increase ${chalk.cyan('brand.icon.padding')} only for an inset logo.
 
 Generates by default for each platform enabled in ${chalk.cyan('tiapp.xml')}:
+  ${chalk.gray('Alloy assets live under app/assets/; Classic assets live under Resources/.')}
   ${chalk.yellow('icon')}               DefaultIcon.png + DefaultIcon-ios.png
   ${chalk.yellow('dark')}               DefaultIcon-Dark.png (iOS 18+)
   ${chalk.yellow('tinted')}             DefaultIcon-Tinted.png (iOS 18+)
-  ${chalk.yellow('ios-splash')}         assets/iphone/Default*.png × 16
+  ${chalk.yellow('ios-splash')}         {app/assets,Resources}/iphone/Default*.png × 16
   ${chalk.yellow('marketplace')}        iTunesConnect.png + MarketplaceArtwork.png
   ${chalk.yellow('feature-graphic')}    MarketplaceArtworkFeature.png (1024×500)
   ${chalk.yellow('adaptive')}           mipmap-*/ic_launcher_{foreground,background,monochrome}.png × 5 + ic_launcher.xml
   ${chalk.yellow('legacy-icon')}        mipmap-*/ic_launcher.png × 5
-  ${chalk.yellow('appicon')}            assets/android/appicon.png (128×128)
-  ${chalk.yellow('android-splash')}     assets/android/default.png + images/res-*/default.png × 11
+  ${chalk.yellow('appicon')}            {app/assets,Resources}/android/appicon.png (128×128)
+  ${chalk.yellow('android-splash')}     {app/assets,Resources}/android/default.png + images/res-*/default.png × 11
 
 By convention (generated when its logo file is there, or with ${chalk.cyan('--only launch-logo')}):
   ${chalk.yellow('launch-logo')}        LaunchLogo.png 1024² — needs ${chalk.cyan('purgetss/brand/logo-launch.{svg,png}')}
@@ -394,6 +401,9 @@ Writes directly to the project (auto-detects Alloy vs Classic):
 
 Defaults come from the ${chalk.cyan('images:')} section in ${chalk.cyan('purgetss/config.cjs')}.
 CLI flags always win over config values.
+Without ${chalk.cyan('--android')} or ${chalk.cyan('--ios')}, enabled platforms come from ${chalk.cyan('tiapp.xml')}.
+Passing either platform flag is an explicit override.
+An explicit external source works without creating ${chalk.cyan('purgetss/')} or a config file.
 
 Sizing:
   By default, sources are treated as 4× masters (xxxhdpi/@4x); all other
@@ -481,10 +491,11 @@ program
   .command('module')
   .alias('m')
   .description(`Copy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('lib')} folder`)
-  .addHelpText('after', `\nCopy ${chalk.yellow('purgetss.ui.js')} module to your project's ${chalk.yellow('./app/lib/')} folder. This file contains the Animation module`)
+  .addHelpText('after', `\nAuto-detects the project: ${chalk.yellow('app/lib/')} in Alloy or ${chalk.yellow('Resources/lib/')} in Classic. This file contains the Animation module.`)
   .action(async (options) => {
     try {
-      await copyModulesLibrary(options)
+      const result = await copyModulesLibrary(options)
+      if (!result) process.exit(1)
     } catch (error) {
       console.error(chalk.red('Error copying module:'), error.message)
       process.exit(1)
@@ -498,17 +509,22 @@ program
   .command('icon-library')
   .alias('il')
   .description('Copy default icon font libraries to your project')
-  .addHelpText('after', `\nCopy Font Awesome, Material Icons, Material Symbols or Framework 7 icons to your project's ${chalk.yellow('./app/assets/fonts/')} folder`)
+  .addHelpText('after', `
+Auto-detects the project:
+  ${chalk.yellow('Alloy')}    → ${chalk.gray('app/assets/fonts/')} and optional modules in ${chalk.gray('app/lib/')}
+  ${chalk.yellow('Classic')}  → ${chalk.gray('Resources/fonts/')} and optional modules in ${chalk.gray('Resources/lib/')}
+${chalk.yellow('--styles')} is Alloy-only; it is skipped in Classic without creating TSS files.`)
   .option('-v, --vendor <arguments>', `Use any of the following arguments to copy specific font vendors:
    ${chalk.yellow('fa')} = Font Awesome Icons
    ${chalk.yellow('mi')} = Material Icons
    ${chalk.yellow('ms')} = Material Symbols
    ${chalk.yellow('f7')} = Framework7 Icons`)
-  .option('-m, --module', `To also copy the corresponding CommonJS modules in ${chalk.yellow('./app/lib/')} folder`)
-  .option('-s, --styles', `Copy the corresponding ${chalk.yellow('.tss')} files into ${chalk.yellow('./purgetss/styles/')} folder`)
+  .option('-m, --module', 'Also copy the corresponding CommonJS modules into the project lib folder')
+  .option('-s, --styles', `Copy the corresponding ${chalk.yellow('.tss')} files into ${chalk.yellow('./purgetss/styles/')} (Alloy only)`)
   .action(async (options) => {
     try {
-      await copyFonts(options)
+      const result = await copyFonts(options)
+      if (!result) process.exit(1)
     } catch (error) {
       console.error(chalk.red('Error copying icon libraries:'), error.message)
       process.exit(1)
@@ -519,10 +535,14 @@ program
 program
   .command('build-fonts')
   .alias('bf')
-  .description(`Generate ${chalk.yellow('fonts.tss')} from font and CSS files in ${chalk.yellow('./purgetss/fonts')}`)
-  .addHelpText('after', `\nGenerates ${chalk.yellow('./purgetss/styles/fonts.tss')} file from font and CSS files in ${chalk.yellow('./purgetss/fonts')} folder`)
+  .description(`Install custom fonts from ${chalk.yellow('./purgetss/fonts')} (Alloy & Classic)`)
+  .addHelpText('after', `
+Reads font and CSS files from ${chalk.yellow('./purgetss/fonts')}.
+  ${chalk.yellow('Alloy')}    → fonts in ${chalk.gray('app/assets/fonts/')}, plus ${chalk.gray('purgetss/styles/fonts.tss')}
+  ${chalk.yellow('Classic')}  → fonts in ${chalk.gray('Resources/fonts/')} with no TSS output
+With ${chalk.yellow('--module')}, writes ${chalk.gray('purgetss.fonts.js')} to the matching project lib folder.`)
   .option('-f, --font-class-from-filename', 'Use the font\'s filename as the name of the font class instead of the font family\'s name.')
-  .option('-m, --module', `Generate a CommonJS module in the ${chalk.yellow('./app/lib/')} folder called ${chalk.yellow('purgetss-fonts.js')} containing all font classes for both regular fonts and font icons.`)
+  .option('-m, --module', `Generate ${chalk.yellow('purgetss.fonts.js')} in the project lib folder with icon names and font families`)
   .action(async (options) => {
     try {
       const result = await buildFonts(options)
@@ -584,8 +604,12 @@ program
 // Semantic command — generates Titanium semantic colors (Light/Dark mode)
 program
   .command('semantic [hexcode] [name]')
-  .description(`Generate Titanium semantic colors in ${chalk.yellow('app/assets/semantic.colors.json')}`)
-  .addHelpText('after', `\nWithout ${chalk.yellow('--single')}: one hex → 11-shade palette with Light/Dark inversion.\nWith ${chalk.yellow('--single')}: explicit light + dark + optional alpha → one purpose-based color.`)
+  .description('Generate Titanium semantic colors (Alloy & Classic)')
+  .addHelpText('after', `
+Without ${chalk.yellow('--single')}: one hex → 11-shade palette with Light/Dark inversion.
+With ${chalk.yellow('--single')}: explicit light + dark + optional alpha → one purpose-based color.
+  ${chalk.yellow('Alloy')}    → ${chalk.gray('app/assets/semantic.colors.json')} + utility mapping in ${chalk.gray('purgetss/config.cjs')}
+  ${chalk.yellow('Classic')}  → ${chalk.gray('Resources/semantic.colors.json')} only; no PurgeTSS config or TSS is created.`)
   .option('-s, --single', 'Generate a single purpose-based semantic color (requires explicit per-mode hex values)')
   .option('-d, --dark <hex>', `With ${chalk.yellow('--single')}: dark-mode hex (defaults to the light value)`)
   .option('-a, --alpha <value>', `With ${chalk.yellow('--single')}: wrap values as ${chalk.yellow('{ color, alpha }')} (range ${chalk.yellow('0-100')}, integer or float)`)

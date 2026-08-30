@@ -11,30 +11,53 @@
  * @author César Estrada
  */
 
+/* eslint-disable n/no-process-exit */
+
 import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
+import { createRequire } from 'module'
 import { runImages } from '../../core/images/index.js'
 import { logger } from '../../core/branding/branding-logger.js'
+import { readTiapp } from '../../core/branding/tiapp-reader.js'
 import { ensureImagesSection } from '../../core/images/ensure-images-section.js'
-import { getConfigFile } from '../../shared/config-manager.js'
-import { projectsPurge_TSS_Images_Folder } from '../../shared/constants.js'
+import { detectProjectType } from '../utils/project-detection.js'
 
 const VALID_FORMATS = new Set(['webp', 'jpeg', 'jpg', 'png', 'avif', 'gif', 'tiff'])
+const require = createRequire(import.meta.url)
 
 export async function images(cliSource, options = {}) {
   if (options.debug) logger.setDebugMode(true)
 
   const projectRoot = options.project ? path.resolve(options.project) : process.cwd()
 
-  if (!options.project) ensureImagesSection()
+  if (detectProjectType(projectRoot) === 'unknown') {
+    logger.error(`Could not detect a Titanium Alloy or Classic project at ${projectRoot}.`)
+    process.exit(1)
+  }
 
-  const cfg = loadImagesSection()
+  // A positional source is self-contained. Do not create purgetss/images/ or
+  // patch config.cjs merely because the source lives elsewhere.
+  if (!cliSource) ensureImagesSection({ projectRoot })
+
+  const cfg = loadImagesSection(projectRoot)
 
   // --android and --ios are mutually exclusive.
   if (options.android && options.ios) {
     logger.error('--android and --ios are mutually exclusive. Pass neither to generate both, or pick one.')
     process.exit(1)
+  }
+
+  let androidOnly = Boolean(options.android)
+  let iphoneOnly = Boolean(options.ios)
+  if (!androidOnly && !iphoneOnly) {
+    const { deploymentTargets } = readTiapp(path.join(projectRoot, 'tiapp.xml'))
+    if (!deploymentTargets.android && !deploymentTargets.ios) {
+      logger.error('No Android or iOS deployment target is enabled in tiapp.xml.')
+      process.exit(1)
+    }
+    androidOnly = deploymentTargets.android && !deploymentTargets.ios
+    iphoneOnly = deploymentTargets.ios && !deploymentTargets.android
   }
 
   if (options.width !== undefined) {
@@ -95,8 +118,8 @@ export async function images(cliSource, options = {}) {
     await runImages({
       source,
       projectRoot,
-      androidOnly: Boolean(options.android),
-      iphoneOnly: Boolean(options.ios),
+      androidOnly,
+      iphoneOnly,
       format: format ? format.toLowerCase() : null,
       quality: options.quality ?? cfg.quality ?? 85,
       baseWidth: options.width ?? null,
@@ -115,18 +138,23 @@ export async function images(cliSource, options = {}) {
   }
 }
 
-function loadImagesSection() {
+function loadImagesSection(projectRoot) {
+  const configPath = path.join(projectRoot, 'purgetss', 'config.cjs')
+  if (!fs.existsSync(configPath)) return {}
+
   try {
-    const cfg = getConfigFile()
+    const resolved = require.resolve(configPath)
+    delete require.cache[resolved]
+    const cfg = require(resolved)
     if (cfg && typeof cfg.images === 'object') return cfg.images
-  } catch {}
+  } catch {
+    // Invalid or stale project configuration falls back to command defaults.
+  }
   return {}
 }
 
 function resolveSource(cliSource, projectRoot) {
-  const imagesFolder = projectRoot === process.cwd()
-    ? projectsPurge_TSS_Images_Folder
-    : path.join(projectRoot, 'purgetss', 'images')
+  const imagesFolder = path.join(projectRoot, 'purgetss', 'images')
 
   if (cliSource) {
     if (path.isAbsolute(cliSource)) {
