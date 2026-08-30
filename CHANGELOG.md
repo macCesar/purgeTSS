@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.14.0] - 2026-08-30
+
+### Added
+- **`purgetss brand` now initializes its own source/config convention in standalone Classic projects.** If `purgetss/config.cjs` is missing, the command creates it from the canonical template before resolving brand settings, so the `0%` iOS/store, `18%` adaptive, `10%` legacy and `26%` splash paddings are visible and editable instead of living only as internal fallbacks. A positional PNG/SVG such as `purgetss brand sample-icon.png` is moved to `purgetss/brand/logo.png` (or `.svg`) after overwrite confirmation when no canonical `logo.{svg,png}` exists, and the console reports the destination. Existing canonical logos are never replaced.
+
+### Changed
+- **Brand output now follows `<deployment-targets>` in `tiapp.xml`, independently of Alloy vs. Classic layout.** A normal run skips iOS pieces when both `iphone` and `ipad` are disabled, and skips Android pieces when `android` is disabled. Store artwork follows the same split: `iTunesConnect.png` is iOS, while `MarketplaceArtwork.png` and `MarketplaceArtworkFeature.png` are Android. An explicit `--only` remains an intentional override so a disabled platform can be prepared before it is enabled.
+- **Classic Android keeps the 11 `Resources/android/images/res-*` splash variants.** Although `ti create` does not seed those folders in a fresh Classic project, Titanium's Android build consumes them, maps them to density/orientation-specific `drawable-*` resources and uses them for the pre-Android-12 splash path. They are useful generated coverage, not Alloy-only leftovers.
+- **Square iOS/store artwork is full-bleed by default.** `icon`, `dark`, `tinted` and `marketplace` now default to `0%` instead of PurgeTSS's former `4%` aesthetic inset. `--ios-padding` still adjusts all four when the source is a logo that needs breathing room.
+
+### Fixed
+- **Classic `brand` runs no longer leave an empty `purgetss/brand/` next to a missing config.** The first run now leaves both the canonical logo source and the default `config.cjs`, and the compact summary reports Classic `Resources/...` destinations instead of Alloy `assets/...` labels.
+- **`brand.legacyIcon.padding` is now the actual per-side inset.** The legacy Android generator was silently multiplying the configured value by `60%`, so the documented `10%` rendered as `6%`; it now produces the same margin the config and console report.
+- **`DefaultIcon.png` no longer inherits Android adaptive padding.** The root fallback used `brand.adaptive.padding` (`18%` by default), which created the oversized inset even when `brand.icon.padding` was set to `0%`. Both root icon files now use `brand.icon.padding` and are flattened to opaque output.
+- **Opaque full-bleed artwork gets a visible-frame warning.** If a padded icon piece would expose a background that contrasts with the source perimeter, `brand` names the affected pieces and gives platform-specific guidance: set the inherited `brand.background` once to a matching color, keep finished iOS/store art full-bleed, and use transparent piece-specific artwork for padded Android launcher pieces. White remains the default fallback, not a platform mandate.
+
 ## [7.13.2] - 2026-08-14
 
 ### Fixed

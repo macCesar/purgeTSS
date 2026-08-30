@@ -17,7 +17,7 @@
 - 23,300+ utility classes for styling Titanium views
 - Parses XML files to generate a clean `app.tss` with only the classes your project uses
 - Customizable defaults via `config.cjs`, with JIT classes for arbitrary values
-- `brand` command for Titanium icons and branding assets: one run replaces every image the Titanium template ships — iOS icon variants, Android adaptive and legacy launcher icons, store artwork, and the iOS and Android splash sets — with `--only` to regenerate a single piece
+- `brand` command for Titanium icons and branding assets: works standalone in Alloy or Classic, follows `tiapp.xml` deployment targets, and generates the matching iOS/Android icon, store-artwork, and splash sets; use `--only` to prepare a specific piece or platform explicitly
 - Icon font support: Font Awesome, Material Icons, Material Symbols, Framework7-Icons
 - `build-fonts` command generates `fonts.tss` with class definitions and fontFamily selectors
 - `shades` command generates color shades from any hex color
@@ -376,6 +376,14 @@ Button: {
 - **Node.js 20+** (required for the CLI tool)
 
 ## Recent changes
+
+### v7.14.0
+
+- **`brand` is deployment-target aware.** Normal runs read `<deployment-targets>` and omit assets for disabled platforms, regardless of whether the layout is Alloy or Classic. `--only` is an explicit override for preparing a platform ahead of time.
+- **Standalone Classic first run is self-contained.** `purgetss brand sample-icon.png` creates `purgetss/config.cjs` with the canonical per-piece defaults and moves the supplied source to `purgetss/brand/logo.png` when no canonical logo exists, reporting the move in the console.
+- **Classic density-specific Android splashes stay enabled.** Titanium consumes `Resources/android/images/res-*` even though a new Classic template does not include those folders; they are compiled into the pre-Android-12 drawable resources.
+- **The two root iOS icons now obey the same `brand.icon.padding`, which defaults to `0%`.** `DefaultIcon.png` incorrectly used the Android adaptive padding (`18%`) while `DefaultIcon-ios.png` used the old iOS default (`4%`). Both are now opaque and full-bleed by default; increase the value only for inset logo artwork. Dark, tinted and marketplace square artwork follow the same `0%` family default.
+- **`brand` warns about visible icon frames.** When the shared source is opaque to its edges and padding would reveal a contrasting background, the console identifies the affected pieces. `brand.background` is inherited, so a matching color is set once; `#FFFFFF` remains a configurable fallback, not a requirement from Apple or Android.
 
 ### v7.13.2
 
