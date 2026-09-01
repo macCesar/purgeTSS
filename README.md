@@ -400,7 +400,12 @@ Button: {
 
 ## Recent changes
 
-### Unreleased
+### v7.16.0
+
+- **Rounded non-icon artwork is configurable without pre-masking app icons.** Set `brand.artworkCornerRadius: '22%'` for both legacy splash sets, `MarketplaceArtworkFeature.png`, and `LaunchLogo.png`; use `brand.splashCornerRadius` for a splash-only shared override or set `cornerRadius` on any of the four pieces. Store and launcher icon files stay square for Apple/Google masking. The public default remains `0%`, so existing projects keep identical output.
+- **`appicon.padding` is now visible and fully wired.** New configs show `appicon: { padding: '10%' }`; `--appicon-padding <n>` temporarily overrides it. `brand --help` tests cover all padding and corner-radius defaults.
+
+### v7.15.0
 
 - **Official icon modules expose font-family aliases.** Every module now exports `families.default`; Font Awesome adds `solid`, `regular`, and `brands`, Material Icons adds its five variants, Material Symbols adds `outlined`, `rounded`, and `sharp`, and Framework7 adds `fontFamily`. Classic apps can use `fontAwesome.icons.home` with `fontAwesome.solid` without repeating PostScript family strings.
 - **Standalone commands now share Alloy/Classic path detection.** `color-module`, `module`, `icon-library`, and `build-fonts` write modules or fonts to `app/` in Alloy and `Resources/` in Classic. Classic runs never create `app/`, `app/alloy.jmk`, or TSS files.

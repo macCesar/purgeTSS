@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.16.0] - 2026-08-31
+
+### Added
+- **Non-icon artwork can be rounded without pre-masking app icons.** `brand.artworkCornerRadius` (default `'0%'`) applies to the 16 iPhone launch images, 12 Android legacy splashes, `MarketplaceArtworkFeature.png`, and `LaunchLogo.png`. Each of those four pieces accepts `cornerRadius`; `brand.splashCornerRadius` remains a splash-only shared override. Six matching flags cover the shared artwork value, shared splash value, and each individual piece. Values are integers or percentage strings in the `0–50` range, measured against the shorter side of the resized artwork. `0%` preserves previous output byte for byte; `50%` produces a circle or capsule. `DefaultIcon*`, `iTunesConnect.png`, `MarketplaceArtwork.png`, adaptive/legacy/app icons, Android 12+ `splash_icon.png`, and notification icons stay square or otherwise unmasked for platform processing.
+- **`--appicon-padding <n>` completes the `appicon.padding` API.** The canonical config now shows `appicon: { padding: '10%' }`, while the flag provides a temporary `0–40` override.
+- **Titanium Classic demo and video kit.** Eight standalone Classic projects, a recording guide, and the finalized `brand` walkthrough demonstrate native assets and CommonJS workflows without Alloy; the `brand` video shows rounded non-icon artwork while platform-masked icons remain square.
+
+### Changed
+- **`brand` output and `--dry-run` now report effective padding and corner radius for every rounded artwork piece.** The help and documentation also distinguish one-run flags (artwork, geometry, shared background, temporary selection/activation, optimization) from persistent config-only preferences (`confirmOverwrites`, permanent `enabled`, and exceptional per-piece backgrounds).
+
+### Fixed
+- **`cornerRadius` is rejected outside `iosSplash`, `androidSplash`, `featureGraphic`, and `launchLogo`.** Invalid, negative, fractional, non-numeric, or greater-than-50 radii stop the command before branding assets are written.
+
 ## [7.15.0] - 2026-08-30
 
 ### Added
