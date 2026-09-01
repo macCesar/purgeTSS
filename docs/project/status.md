@@ -1,40 +1,33 @@
 # Status — 2026-08-30
 
-**Phase:** v7.14.0 released; documentation handoff pending
+**Phase:** v7.15.0 released; no implementation work in flight
 **Session by:** Codex · GPT-5
-**Deployed:** v7.14.0 is published on npm and GitHub; `publish.yml` completed successfully
-**Branch:** `main`; the v7.14.0 tag points to the release commit
-**Sibling:** `/Users/cesar/Developer/openSource/purgetss-docs` — brand documentation is committed locally at `94eb3e1`, one commit ahead of `origin/main`, but its site release and deployment are still pending
+**Deployed:** `purgetss@7.15.0` is published on npm and GitHub; the official documentation release is `purgetss-docs` v1.1.8
+**Branch:** `main`; working tree clean
 
 ## Where things stand
 
-`purgetss brand` is released as a self-contained Alloy or Classic command. It follows `tiapp.xml` deployment targets, creates the canonical config on a standalone first run, adopts a positional logo, retains Titanium-consumed Classic Android splash qualifiers, and diagnoses contrasting padded frames. Finished square iOS/store artwork defaults to `0%`; Android launcher safe-zone paddings remain platform-specific.
+PurgeTSS v7.15.0 extends standalone asset and CommonJS commands to Titanium Classic without adding the Alloy hook or utility-class lifecycle. `brand`, `images`, `semantic`, `shades`, `color-module`, `module`, `icon-library`, and `build-fonts` detect the layout and use the appropriate native locations. The Alloy-only lifecycle remains limited to root `purgetss`, `--all`, `init`, `create`, `install-dependencies`, `build`, and `watch`.
 
-The implementation, tests, CLI help, README, CHANGELOG, version bump, annotated tag, GitHub release, and npm publication are complete. The release URL is `https://github.com/macCesar/purgeTSS/releases/tag/v7.14.0`; the successful publication run is `https://github.com/macCesar/purgeTSS/actions/runs/33322400943`.
+`brand` now creates the default config on a standalone Classic first run, adopts a positional logo only when no canonical source exists, follows `tiapp.xml` deployment targets, preserves useful Classic Android splash qualifiers, and uses full-bleed defaults for completed iOS/store artwork. Icon CommonJS modules expose font-family aliases, including `fontAwesome.solid`.
+
+The package release was published as tag `v7.15.0` at `https://github.com/macCesar/purgeTSS/releases/tag/v7.15.0`; the npm publish workflow completed at `https://github.com/macCesar/purgeTSS/actions/runs/33333341045`.
+
+The official documentation changes were released as `purgetss-docs` v1.1.8 at `https://github.com/macCesar/purgetss-docs/releases/tag/v1.1.8`. The documentation site and Context7 Markdown mirror were intentionally not deployed or synchronized.
 
 ## In flight
 
-Nothing remains in flight for the PurgeTSS v7.14.0 package release. The sibling documentation repository still needs its own versioned release, push, site deployment, and Markdown mirror synchronization.
-
-## Requirements
-
-- R3–R6 in `requirements.md` are implemented, verified, and shipped in v7.14.0.
-- The broader Classic-compatible command inventory requested during this work remains separate follow-up work.
+No code, test, documentation, or release work remains in flight.
 
 ## Next step
 
-Resume in `/Users/cesar/Developer/openSource/purgetss-docs`: promote its `Unreleased` entry to PurgeTSS v7.14.0, update the homepage release window, run its checks, use its own release workflow, deploy the site, and synchronize the Markdown mirror. After that, inventory which PurgeTSS commands work in Classic projects without the Alloy hook and which others can be decoupled safely.
+If a Slack announcement is still wanted, start from the Classic compatibility matrix and publish in English. The previous stored Slack draft covered v7.3–v7.5; a new draft should cover v7.6–v7.15 without collapsing the detailed Classic command behavior into a vague summary.
 
 ## Verified vs. assumed
 
-- Verified: the tag-triggered `publish.yml` workflow passed its install, build, full test, and npm publication jobs.
-- Verified: the GitHub release exists at the URL above and the annotated `v7.14.0` tag points to the release commit.
-- Verified before release: local `npm test` passed 23/23 unit suites, 5/5 integration suites, and 6/6 end-to-end suites.
-- Verified before release: a real Classic run in `/Users/cesar/Developer/Apps/TestingBrand` produced full-bleed root/store icons with zero white pixels along the sampled border; the test repository was restored clean with `sample-icon.png` present.
-- Verified before release: targeted branding ESLint checks, documentation build/checks, and `git diff --check` passed.
-- Assumed: the sibling documentation site and Markdown mirrors have not been deployed with the v7.14.0 content.
-
-## Known pending
-
-- Release and deploy `/Users/cesar/Developer/openSource/purgetss-docs`, then synchronize `../purgetss-docs-context7`.
-- Inventory existing commands that work in Classic projects without installing the Alloy hook, and identify other commands that can be decoupled safely.
+- Verified: `npm test` passed, as did the documentation build and documentation checks.
+- Verified: the v7.15.0 GitHub release, tag, npm publication, and publishing workflow exist.
+- Verified: the v1.1.8 documentation GitHub release exists; both repositories were clean after release.
+- Verified: a real Classic run in `/Users/cesar/Developer/Apps/TestingBrand` was tested and restored cleanly.
+- Verified: Classic compatibility integration tests and icon-family module tests were added.
+- Assumed: the public documentation website and Context7 mirror remain unchanged because neither deployment action was requested.
