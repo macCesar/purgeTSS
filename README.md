@@ -31,6 +31,8 @@
 
 PurgeTSS utility classes and the purge/build lifecycle remain Alloy-only. Classic apps can use the independent asset and module commands without adding an `alloy.jmk` hook or making the app depend on PurgeTSS at compile time.
 
+When Alloy auto-purging fails, the build log forwards PurgeTSS diagnostics before Alloy's generic compiler error. It also tells you to run `purgetss` from the project root when you need the full cause.
+
 | Command | Alloy | Classic | Classic behavior |
 | --- | :---: | :---: | --- |
 | `brand` | ✅ | ✅ | Writes only assets for platforms enabled in `tiapp.xml`; `--only` is an explicit override. |
