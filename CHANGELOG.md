@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.16.1] - 2026-09-01
+
+### Added
+- **Titanium Classic video voice samples.** Added the reference script and Zoe Premium AIFF/M4A recordings used by the demo production kit.
+
 ### Fixed
 - **Alloy builds now show PurgeTSS diagnostics when auto-purging fails.** The synchronous `alloy.jmk` hook inherits the CLI's output, so XML validation details appear before Alloy's generic `Command failed: purgetss` message. A final hint tells users to run `purgetss` from the project root if they need the cause, and existing active or disabled hooks are updated automatically without changing their enabled state.
 

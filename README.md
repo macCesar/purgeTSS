@@ -402,6 +402,11 @@ Button: {
 
 ## Recent changes
 
+### v7.16.1
+
+- **Alloy auto-purge failures now surface PurgeTSS diagnostics.** The synchronous build hook forwards XML validation details before Alloy's generic compiler error and provides a fallback hint to run `purgetss` from the project root. Existing active or disabled hooks update automatically without changing their enabled state.
+- **The Titanium Classic video kit now includes production voice samples.** The reference script and Zoe Premium AIFF/M4A recordings are included with the demo assets.
+
 ### v7.16.0
 
 - **Rounded non-icon artwork is configurable without pre-masking app icons.** Set `brand.artworkCornerRadius: '22%'` for both legacy splash sets, `MarketplaceArtworkFeature.png`, and `LaunchLogo.png`; use `brand.splashCornerRadius` for a splash-only shared override or set `cornerRadius` on any of the four pieces. Store and launcher icon files stay square for Apple/Google masking. The public default remains `0%`, so existing projects keep identical output.
