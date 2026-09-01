@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+  <id>com.purgetss.classic.buildfontsvideo</id>
+  <name>Build Fonts Video</name>
+  <version>1.0.0</version>
+  <guid>98433657-DA90-419F-A6EB-E7279816E18A</guid>
+  <publisher>PurgeTSS</publisher>
+  <description>PurgeTSS Classic build-fonts command demo</description>
+  <copyright>2026 PurgeTSS</copyright>
+  <icon>appicon.png</icon>
+  <analytics>false</analytics>
+  <navbar-hidden>true</navbar-hidden>
+  <fullscreen>false</fullscreen>
+  <property name="ti.ui.defaultunit" type="string">dp</property>
+  <deployment-targets>
+    <target device="android">true</target>
+    <target device="iphone">true</target>
+  </deployment-targets>
+  <sdk-version>13.4.1.GA</sdk-version>
+</ti:app>

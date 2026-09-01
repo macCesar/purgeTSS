@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+  <id>com.purgetss.classic.brandvideo</id>
+  <name>Brand Video</name>
+  <version>1.0.0</version>
+  <guid>5DCA11C7-BE39-440F-B68D-3A70078F193C</guid>
+  <publisher>PurgeTSS</publisher>
+  <description>PurgeTSS Classic brand command demo</description>
+  <copyright>2026 PurgeTSS</copyright>
+  <icon>appicon.png</icon>
+  <analytics>false</analytics>
+  <navbar-hidden>true</navbar-hidden>
+  <fullscreen>false</fullscreen>
+  <property name="ti.ui.defaultunit" type="string">dp</property>
+  <deployment-targets>
+    <target device="android">true</target>
+    <target device="iphone">true</target>
+  </deployment-targets>
+  <sdk-version>13.4.1.GA</sdk-version>
+</ti:app>

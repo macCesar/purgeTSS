@@ -1,0 +1,11 @@
+A single SVG is all Purge T S S needs to brand a Titanium Classic project.
+
+From the integrated terminal, run: Purge T S S brand, dash dash yes.
+
+The command creates every branding asset for the enabled iOS and Android platforms.
+
+The iOS splash set now rounds only the artwork, while the master icon stays square.
+
+Android applies the same radius to its main launch image and every density and orientation variant.
+
+Feature Graphic gets the same rounded artwork. Store and launcher icons stay square for platform masking. That is Purge T S S: one logo, one command, and every branding asset.

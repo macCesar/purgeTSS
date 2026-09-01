@@ -1,0 +1,38 @@
+1
+00:00:00,200 --> 00:00:05,100
+A single SVG is all PurgeTSS needs to brand
+a Titanium Classic project.
+
+2
+00:00:05,400 --> 00:00:09,950
+From the integrated terminal, run:
+purgetss brand --yes.
+
+3
+00:00:10,300 --> 00:00:15,043
+The command creates every branding asset for the
+enabled iOS and Android platforms.
+
+4
+00:00:15,100 --> 00:00:19,900
+The iOS splash set now rounds only the artwork,
+while the master icon stays square.
+
+5
+00:00:21,300 --> 00:00:26,243
+Android applies the same radius to its main launch image
+and every density and orientation variant.
+
+6
+00:00:28,700 --> 00:00:31,100
+Feature Graphic gets the same rounded artwork.
+
+7
+00:00:31,450 --> 00:00:34,680
+Store and launcher icons stay square
+for platform masking.
+
+8
+00:00:35,100 --> 00:00:39,900
+That is PurgeTSS: one logo, one command,
+and every branding asset.
