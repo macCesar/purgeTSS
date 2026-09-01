@@ -16,32 +16,17 @@ import { alloyProject } from '../../shared/utils.js'
 import { projectsAlloyJMKFile } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
 import { getConfigFile, ensureConfig } from '../../shared/config-manager.js'
-import { disableHook, deleteHook, addHook, enableHook, createJMKFile } from '../utils/hook-management.js'
-
-/**
- * Get command configuration for hooks
- * Maintains exact same logic as original getCommands() function
- * TODO: Move this to a shared utility when extracting more hook-related functions
- *
- * @returns {Object} Command configuration object
- */
-function getCommands() {
-  // Use the already imported getConfigFile function
-  const configFile = getConfigFile()
-
-  let methodCommand
-  let oppositeCommand
-
-  if (configFile.purge.method === 'sync' || configFile.purge.method === '') {
-    oppositeCommand = 'require(\'child_process\').exec(\'purgetss'
-    methodCommand = '\trequire(\'child_process\').execSync(\'purgetss\', logger.warn(\'::PurgeTSS:: Auto-Purging \' + event.dir.project));'
-  } else {
-    oppositeCommand = 'require(\'child_process\').execSync(\'purgetss'
-    methodCommand = '\trequire(\'child_process\').exec(\'purgetss\', logger.warn(\'::PurgeTSS:: Auto-Purging \' + event.dir.project));'
-  }
-
-  return { methodCommand, oppositeCommand }
-}
+import {
+  addHook,
+  autoPurgeHookIsDisabled,
+  autoPurgeHookNeedsUpdate,
+  createJMKFile,
+  deleteHook,
+  disableHook,
+  enableHook,
+  getAutoPurgeCommands,
+  updateHook
+} from '../utils/hook-management.js'
 
 /**
  * Watch mode command for auto-purging setup
@@ -63,22 +48,27 @@ export function watchMode(options) {
 
   if (fs.existsSync(projectsAlloyJMKFile)) {
     // Get commands when needed
-    const { methodCommand } = getCommands()
+    const { methodCommand } = getAutoPurgeCommands(getConfigFile().purge.method)
+    const hookContents = fs.readFileSync(projectsAlloyJMKFile, 'utf8')
 
     // TODO: Refactor with readline or line-reader: https://stackabuse.com/reading-a-file-line-by-line-in-node-js/
     if (options.off) {
       disableHook()
     } else if (options.delete) {
       deleteHook()
-    } else if (!fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
+    } else if (!hookContents.includes('::PurgeTSS::')) {
       addHook(methodCommand)
-    } else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes(`//${methodCommand}`)) {
+    } else if (autoPurgeHookNeedsUpdate(hookContents, methodCommand)) {
+      const wasDisabled = autoPurgeHookIsDisabled(hookContents)
+      updateHook(methodCommand)
+      if (wasDisabled) enableHook()
+    } else if (autoPurgeHookIsDisabled(hookContents)) {
       enableHook()
     } else {
       logger.warn(chalk.yellow('Auto-Purging hook already present!'))
     }
   } else if (!options.off) {
-    const { methodCommand } = getCommands()
+    const { methodCommand } = getAutoPurgeCommands(getConfigFile().purge.method)
     createJMKFile(methodCommand)
   }
 

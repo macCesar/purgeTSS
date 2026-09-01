@@ -33,36 +33,12 @@ import {
 } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
 import { getConfigOptions, getConfigFile, ensureConfig } from '../../shared/config-manager.js'
-import { addHook, deleteHook, createJMKFile } from '../utils/hook-management.js'
+import { addHook, autoPurgeHookNeedsUpdate, createJMKFile, getAutoPurgeCommands, updateHook } from '../utils/hook-management.js'
 import { getFiles } from '../utils/font-utilities.js'
 import { buildTailwindBasedOnConfigOptions } from '../../core/builders/tailwind-builder.js'
 
 const cwd = process.cwd()
 
-
-/**
- * Get command configuration for hooks
- * COPIED exactly from original getCommands() function
- *
- * @returns {Object} Command configuration object
- */
-function getCommands() {
-  // Use the already imported getConfigFile function
-  const configFile = getConfigFile()
-
-  let methodCommand
-  let oppositeCommand
-
-  if (configFile.purge.method === 'sync' || configFile.purge.method === '') {
-    oppositeCommand = 'require(\'child_process\').exec(\'purgetss'
-    methodCommand = '\trequire(\'child_process\').execSync(\'purgetss\', logger.warn(\'::PurgeTSS:: Auto-Purging \' + event.dir.project));'
-  } else {
-    oppositeCommand = 'require(\'child_process\').execSync(\'purgetss'
-    methodCommand = '\trequire(\'child_process\').exec(\'purgetss\', logger.warn(\'::PurgeTSS:: Auto-Purging \' + event.dir.project));'
-  }
-
-  return { methodCommand, oppositeCommand }
-}
 
 /**
  * Create PurgeTSS config file
@@ -179,7 +155,7 @@ export function init(options = {}) {
   }
 
   // Get commands when needed
-  const { methodCommand, oppositeCommand } = getCommands()
+  const { methodCommand } = getAutoPurgeCommands(getConfigFile().purge.method)
 
   // utilities.tss
   if (!fs.existsSync(projectsTailwind_TSS)) {
@@ -193,11 +169,11 @@ export function init(options = {}) {
 
   // auto purge hook
   if (fs.existsSync(projectsAlloyJMKFile)) {
-    if (!fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes('::PurgeTSS::')) {
+    const hookContents = fs.readFileSync(projectsAlloyJMKFile, 'utf8')
+    if (!hookContents.includes('::PurgeTSS::')) {
       addHook(methodCommand)
-    } else if (fs.readFileSync(projectsAlloyJMKFile, 'utf8').includes(oppositeCommand)) {
-      deleteHook()
-      addHook(methodCommand)
+    } else if (autoPurgeHookNeedsUpdate(hookContents, methodCommand)) {
+      updateHook(methodCommand)
     }
   } else {
     createJMKFile(methodCommand)

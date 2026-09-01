@@ -18,6 +18,52 @@ import { logger } from '../../shared/logger.js'
 
 // Source JMK template file
 const srcJMKFile = path.resolve(projectRoot, './lib/templates/alloy.jmk')
+const autoPurgeMarker = '::PurgeTSS::'
+const autoPurgeStartMessage = '::PurgeTSS:: Auto-Purging '
+export const autoPurgeFailureHint = '::PurgeTSS:: Auto-Purge failed. Run `purgetss` from the project root to see the cause.'
+
+const syncHookCommand = `\tlogger.warn('${autoPurgeStartMessage}' + event.dir.project); try { require('child_process').execSync('purgetss', { stdio: 'inherit' }); } catch (error) { logger.error('${autoPurgeFailureHint}'); throw error; }`
+const asyncHookCommand = `\tlogger.warn('${autoPurgeStartMessage}' + event.dir.project); require('child_process').exec('purgetss', (error, stdout, stderr) => { if (stdout) process.stdout.write(stdout); if (stderr) process.stderr.write(stderr); if (error) logger.error('${autoPurgeFailureHint}'); });`
+
+/**
+ * Get the command inserted into Alloy's pre-compile hook.
+ *
+ * The synchronous hook inherits stdio so PurgeTSS diagnostics are visible in
+ * the Titanium build log before Alloy reports the generic command failure.
+ *
+ * @param {string} method - Purge method from config.cjs
+ * @returns {{ methodCommand: string }} Hook command
+ */
+export function getAutoPurgeCommands(method) {
+  const useSync = method === 'sync' || method === ''
+
+  return { methodCommand: useSync ? syncHookCommand : asyncHookCommand }
+}
+
+/**
+ * Check whether an installed PurgeTSS hook needs its command refreshed.
+ *
+ * @param {string} content - alloy.jmk contents
+ * @param {string} methodCommand - Current generated hook command
+ * @returns {boolean} Whether an existing PurgeTSS hook is outdated
+ */
+export function autoPurgeHookNeedsUpdate(content, methodCommand) {
+  const expectedCommand = methodCommand.trim()
+  const hookLine = content.split(/\r?\n/).find(line => line.includes(autoPurgeMarker))
+
+  return Boolean(hookLine && !hookLine.includes(expectedCommand))
+}
+
+/**
+ * Check whether the PurgeTSS hook is commented out.
+ *
+ * @param {string} content - alloy.jmk contents
+ * @returns {boolean} Whether the hook is disabled
+ */
+export function autoPurgeHookIsDisabled(content) {
+  const hookLine = content.split(/\r?\n/).find(line => line.includes(autoPurgeMarker))
+  return Boolean(hookLine && /^\s*\/\//.test(hookLine))
+}
 
 /**
  * Save file utility (will be moved to shared later)
@@ -61,6 +107,28 @@ export function addHook(methodCommand) {
     })
 
     saveFile(projectsAlloyJMKFile, updatedJMKFile.join('\n'))
+  }
+}
+
+/**
+ * Replace an existing PurgeTSS hook while preserving its enabled state.
+ *
+ * @param {string} methodCommand - Current command to write into alloy.jmk
+ */
+export function updateHook(methodCommand) {
+  const originalJMKFile = fs.readFileSync(projectsAlloyJMKFile, 'utf8')
+  let updated = false
+
+  const updatedJMKFile = originalJMKFile.split(/\r?\n/).map(line => {
+    if (!line.includes(autoPurgeMarker)) return line
+
+    updated = true
+    return autoPurgeHookIsDisabled(line) ? `\t//${methodCommand}` : methodCommand
+  })
+
+  if (updated) {
+    saveFile(projectsAlloyJMKFile, updatedJMKFile.join('\n'))
+    logger.warn(chalk.green('Auto-Purging hook updated!'))
   }
 }
 
@@ -150,6 +218,7 @@ export function createJMKFile(methodCommand) {
  */
 export const hookUtils = {
   add: addHook,
+  update: updateHook,
   delete: deleteHook,
   enable: enableHook,
   disable: disableHook,
@@ -161,6 +230,7 @@ export const hookUtils = {
  */
 export default {
   addHook,
+  updateHook,
   deleteHook,
   enableHook,
   disableHook,
