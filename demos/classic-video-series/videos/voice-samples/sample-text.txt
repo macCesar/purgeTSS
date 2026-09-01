@@ -1,0 +1,1 @@
+Starting with a single SVG, PurgeTSS generates the complete branding set for a Titanium Classic project: icons, splash screens, adaptive Android assets, and store artwork.
