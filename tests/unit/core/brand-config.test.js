@@ -9,7 +9,7 @@
 import assert from 'assert'
 import path from 'path'
 
-import { resolvePieces, assertKnownBrandKeys } from '../../../src/core/branding/brand-config.js'
+import { resolvePieces, assertKnownBrandKeys, parseCornerRadius } from '../../../src/core/branding/brand-config.js'
 import { parseOnlySelection, listDefaultPieceNames } from '../../../src/core/branding/pieces.js'
 
 const PROJECT_ROOT = '/tmp/brand-config-test'
@@ -37,6 +37,7 @@ try {
     assert.strictEqual(pieces.marketplace.padding, 0)
     assert.strictEqual(pieces['feature-graphic'].padding, 12)
     assert.strictEqual(pieces['launch-logo'].padding, 12)
+    assert.strictEqual(pieces.appicon.padding, 10)
   }
 
   {
@@ -60,6 +61,95 @@ try {
     const { pieces } = resolve({}, { padding: 22, androidAdaptivePadding: 30 })
     assert.strictEqual(pieces.adaptive.padding, 30, 'the specific flag wins over the shortcut')
   }
+
+  {
+    const { pieces } = resolve({ appicon: { padding: '16%' } })
+    assert.strictEqual(pieces.appicon.padding, 16, 'appicon.padding is configurable')
+  }
+
+  {
+    const { pieces } = resolve({ appicon: { padding: '16%' } }, { appiconPadding: 7 })
+    assert.strictEqual(pieces.appicon.padding, 7, '--appicon-padding wins over config')
+  }
+
+  // ---- Splash corner-radius precedence ----------------------------------
+
+  {
+    const { pieces } = resolve()
+    assert.strictEqual(pieces['ios-splash'].cornerRadius, 0)
+    assert.strictEqual(pieces['android-splash'].cornerRadius, 0)
+    assert.strictEqual(pieces['feature-graphic'].cornerRadius, 0)
+    assert.strictEqual(pieces['launch-logo'].cornerRadius, 0)
+    assert.strictEqual(pieces.icon.cornerRadius, null)
+    assert.strictEqual(pieces.marketplace.cornerRadius, null)
+    assert.strictEqual(pieces.adaptive.cornerRadius, null)
+    assert.strictEqual(pieces.appicon.cornerRadius, null)
+  }
+
+  {
+    const { pieces } = resolve({ artworkCornerRadius: '9%' })
+    assert.strictEqual(pieces['ios-splash'].cornerRadius, 9, 'global artwork radius reaches iOS splash artwork')
+    assert.strictEqual(pieces['android-splash'].cornerRadius, 9, 'global artwork radius reaches Android splash artwork')
+    assert.strictEqual(pieces['feature-graphic'].cornerRadius, 9, 'global artwork radius reaches Feature Graphic artwork')
+    assert.strictEqual(pieces['launch-logo'].cornerRadius, 9, 'global artwork radius reaches LaunchLogo artwork')
+    for (const name of ['icon', 'dark', 'tinted', 'marketplace', 'adaptive', 'legacy-icon', 'appicon', 'splash-icon', 'notification-icon', 'nine-patch']) {
+      assert.strictEqual(pieces[name].cornerRadius, null, `${name} must stay outside the non-icon artwork radius pipeline`)
+    }
+  }
+
+  {
+    const { pieces } = resolve({ artworkCornerRadius: '9%', splashCornerRadius: '12%' })
+    assert.strictEqual(pieces['ios-splash'].cornerRadius, 12, 'global radius reaches iOS splash artwork')
+    assert.strictEqual(pieces['android-splash'].cornerRadius, 12, 'global radius reaches Android splash artwork')
+    assert.strictEqual(pieces['feature-graphic'].cornerRadius, 9, 'splash radius does not affect Feature Graphic artwork')
+    assert.strictEqual(pieces['launch-logo'].cornerRadius, 9, 'splash radius does not affect LaunchLogo artwork')
+  }
+
+  {
+    const config = {
+      artworkCornerRadius: '8%',
+      splashCornerRadius: '12%',
+      iosSplash: { cornerRadius: '18%' },
+      androidSplash: { cornerRadius: 20 },
+      featureGraphic: { cornerRadius: '14%' },
+      launchLogo: { cornerRadius: '16%' }
+    }
+    const { pieces } = resolve(config, {
+      artworkCornerRadius: 21,
+      splashCornerRadius: 24,
+      iosSplashCornerRadius: 30,
+      featureGraphicCornerRadius: 32
+    })
+    assert.strictEqual(pieces['ios-splash'].cornerRadius, 30, 'specific flag wins over shared flag and config')
+    assert.strictEqual(pieces['android-splash'].cornerRadius, 24, 'shared flag wins over piece and global config')
+    assert.strictEqual(pieces['feature-graphic'].cornerRadius, 32, 'specific Feature Graphic flag wins')
+    assert.strictEqual(pieces['launch-logo'].cornerRadius, 21, 'shared artwork flag wins over piece config')
+  }
+
+  {
+    const config = {
+      artworkCornerRadius: '8%',
+      splashCornerRadius: '12%',
+      iosSplash: { cornerRadius: '18%' },
+      androidSplash: { cornerRadius: 20 },
+      featureGraphic: { cornerRadius: '14%' },
+      launchLogo: { cornerRadius: '16%' }
+    }
+    const { pieces } = resolve(config)
+    assert.strictEqual(pieces['ios-splash'].cornerRadius, 18, 'piece radius wins over global config')
+    assert.strictEqual(pieces['android-splash'].cornerRadius, 20)
+    assert.strictEqual(pieces['feature-graphic'].cornerRadius, 14)
+    assert.strictEqual(pieces['launch-logo'].cornerRadius, 16)
+  }
+
+  assert.strictEqual(parseCornerRadius(0, 'radius'), 0)
+  assert.strictEqual(parseCornerRadius(50, 'radius'), 50)
+  assert.strictEqual(parseCornerRadius('22%', 'radius'), 22)
+  assert.throws(() => parseCornerRadius(-1, 'radius'), /between 0 and 50/)
+  assert.throws(() => parseCornerRadius(51, 'radius'), /between 0 and 50/)
+  assert.throws(() => parseCornerRadius(2.5, 'radius'), /between 0 and 50/)
+  assert.throws(() => parseCornerRadius('22', 'radius'), /between 0 and 50/)
+  assert.throws(() => parseCornerRadius('round', 'radius'), /between 0 and 50/)
 
   // ---- padding is NOT inherited ------------------------------------------
 
@@ -190,17 +280,25 @@ try {
   assert.doesNotThrow(() => assertKnownBrandKeys({}))
   assert.doesNotThrow(() => assertKnownBrandKeys({
     background: '#FFFFFF',
+    artworkCornerRadius: '0%',
+    splashCornerRadius: '0%',
     confirmOverwrites: true,
     optimize: true,
     logo: './a.svg',
     monochromeLogo: './b.svg',
-    adaptive: { padding: '19%', logo: './c.svg', background: '#000000', enabled: true }
+    adaptive: { padding: '19%', logo: './c.svg', background: '#000000', enabled: true },
+    featureGraphic: { padding: '12%', cornerRadius: '22%' },
+    launchLogo: { padding: '12%', cornerRadius: 22 },
+    iosSplash: { padding: '26%', cornerRadius: '22%' },
+    androidSplash: { padding: '26%', cornerRadius: 22 }
   }))
 
   // Keys from an older structure never reach the validator — the config file is
   // rewritten first (see brand-config-migration.test.js). What lands here is a
   // typo, and ignoring it would render the icon set at the wrong size.
   assert.throws(() => assertKnownBrandKeys({ adaptive: { paddig: 19 } }), /brand\.adaptive\.paddig/, 'a typo inside a piece is caught')
+  assert.throws(() => assertKnownBrandKeys({ appicon: { cornerRadius: '22%' } }), /only valid inside brand\.iosSplash, brand\.androidSplash, brand\.featureGraphic and brand\.launchLogo/)
+  assert.throws(() => assertKnownBrandKeys({ marketplace: { cornerRadius: '22%' } }), /only valid inside brand\.iosSplash, brand\.androidSplash, brand\.featureGraphic and brand\.launchLogo/)
   assert.throws(() => assertKnownBrandKeys({ nonsense: 1 }), /brand\.nonsense/)
   assert.throws(() => assertKnownBrandKeys({ adaptive: 19 }), /expected an object/)
   assert.throws(() => assertKnownBrandKeys({ nonsense: 1 }), /Piece blocks:/, 'the error lists what is valid')

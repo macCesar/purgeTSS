@@ -152,12 +152,12 @@ const PIPELINE = {
     variant: 'tight',
     root: 'ios-assets',
     maxLogoPx: (piece) => Math.max(...listIosSplashSizes().map(([w, h]) => logoBox(w, h, piece.padding))),
-    describe: (ctx, piece) => [`${ctx.iosAssetsRoot}/{${listIosSplashTargets().join(',')}} (${piece.padding}% padding)`],
+    describe: (ctx, piece) => [`${ctx.iosAssetsRoot}/{${listIosSplashTargets().join(',')}} (${piece.padding}% padding, ${piece.cornerRadius}% corner radius)`],
     summary: (ctx) => `${relativeAssetRoot(ctx, 'iphone')}/Default*.png × ${listIosSplashTargets().length}`,
     keeps: (ctx) => listIosSplashTargets().map((file) => path.join(ctx.iosAssetsRoot, file)),
     run: async(ctx, piece, master) => {
-      logger.bullet(`iPhone launch images × ${listIosSplashTargets().length} (padding ${piece.padding}%)`)
-      return genIosSplashes(master, piece.background, ctx.iosAssetsRoot, piece.padding)
+      logger.bullet(`iPhone launch images × ${listIosSplashTargets().length} (padding ${piece.padding}%, corner radius ${piece.cornerRadius}%)`)
+      return genIosSplashes(master, piece.background, ctx.iosAssetsRoot, piece.padding, piece.cornerRadius)
     }
   },
 
@@ -165,11 +165,14 @@ const PIPELINE = {
     variant: 'tight',
     root: 'ios-assets',
     maxLogoPx: (piece) => inner(1024, piece.padding),
-    describe: (ctx, piece) => [`${ctx.iosAssetsRoot}/LaunchLogo.png (1024×1024, ${piece.padding}% padding)`],
+    describe: (ctx, piece) => [`${ctx.iosAssetsRoot}/LaunchLogo.png (1024×1024, ${piece.padding}% padding, ${piece.cornerRadius}% corner radius)`],
     summary: (ctx) => `${relativeAssetRoot(ctx, 'iphone')}/LaunchLogo.png (1024×1024)`,
     run: async(ctx, piece, master) => {
-      logger.bullet(`LaunchLogo.png (1024×1024, padding ${piece.padding}%) — iOS launch screen source`)
-      return [await genLaunchLogo(master, piece.padding, ctx.iosAssetsRoot, { bgColor: piece.background })]
+      logger.bullet(`LaunchLogo.png (1024×1024, padding ${piece.padding}%, corner radius ${piece.cornerRadius}%) — iOS launch screen source`)
+      return [await genLaunchLogo(master, piece.padding, ctx.iosAssetsRoot, {
+        bgColor: piece.background,
+        cornerRadiusPct: piece.cornerRadius
+      })]
     }
   },
 
@@ -209,12 +212,15 @@ const PIPELINE = {
     maxLogoPx: (piece) => inner(500, piece.padding),
     describe: (ctx, piece) => {
       const source = piece.logo ? `from ${piece.logo}` : 'from main logo'
-      return [`${ctx.stagingRoot}/MarketplaceArtworkFeature.png (${source}, ${piece.padding}% vertical padding)`]
+      return [`${ctx.stagingRoot}/MarketplaceArtworkFeature.png (${source}, ${piece.padding}% vertical padding, ${piece.cornerRadius}% corner radius)`]
     },
     run: async(ctx, piece, master) => {
       const srcLabel = piece.logo ? 'from feature logo' : 'from main logo'
-      logger.bullet(`MarketplaceArtworkFeature.png (1024×500, ${srcLabel}, ${piece.padding}% vertical padding, flattened on ${piece.background})`)
-      return [await genFeatureGraphic(master, piece.padding, ctx.stagingRoot, { bgColor: piece.background })]
+      logger.bullet(`MarketplaceArtworkFeature.png (1024×500, ${srcLabel}, ${piece.padding}% vertical padding, corner radius ${piece.cornerRadius}%, flattened on ${piece.background})`)
+      return [await genFeatureGraphic(master, piece.padding, ctx.stagingRoot, {
+        bgColor: piece.background,
+        cornerRadiusPct: piece.cornerRadius
+      })]
     }
   },
 
@@ -265,16 +271,16 @@ const PIPELINE = {
     root: 'android-assets',
     maxLogoPx: (piece) => Math.max(logoBox(1440, 2560, piece.padding), ...listSplashSizes().map(([w, h]) => logoBox(w, h, piece.padding))),
     describe: (ctx, piece) => [
-      `${ctx.androidAssetsRoot}/default.png (${piece.padding}% padding)`,
-      `${ctx.androidAssetsRoot}/images/{${listSplashFolders().join(',')}}/default.png`
+      `${ctx.androidAssetsRoot}/default.png (${piece.padding}% padding, ${piece.cornerRadius}% corner radius)`,
+      `${ctx.androidAssetsRoot}/images/{${listSplashFolders().join(',')}}/default.png (${piece.padding}% padding, ${piece.cornerRadius}% corner radius)`
     ],
     summary: (ctx) => `${relativeAssetRoot(ctx, 'android')}/default.png + ${relativeAssetRoot(ctx, 'android')}/images/res-*/default.png × ${listSplashFolders().length}`,
     keeps: (ctx) => listSplashFolders().map((folder) => path.join(ctx.androidAssetsRoot, 'images', folder, 'default.png')),
     run: async(ctx, piece, master) => {
-      logger.bullet(`Android default.png splash (padding ${piece.padding}%)`)
-      const defaultSplash = await genAndroidDefault(master, piece.background, ctx.androidAssetsRoot, piece.padding)
-      logger.bullet(`Per-qualifier Android splashes × ${listSplashFolders().length} (Android <12)`)
-      const perQualifier = await genAndroidSplashes(master, piece.background, path.join(ctx.androidAssetsRoot, 'images'), piece.padding)
+      logger.bullet(`Android default.png splash (padding ${piece.padding}%, corner radius ${piece.cornerRadius}%)`)
+      const defaultSplash = await genAndroidDefault(master, piece.background, ctx.androidAssetsRoot, piece.padding, piece.cornerRadius)
+      logger.bullet(`Per-qualifier Android splashes × ${listSplashFolders().length} (padding ${piece.padding}%, corner radius ${piece.cornerRadius}%, Android <12)`)
+      const perQualifier = await genAndroidSplashes(master, piece.background, path.join(ctx.androidAssetsRoot, 'images'), piece.padding, piece.cornerRadius)
       return [defaultSplash, ...perQualifier]
     }
   },
@@ -685,6 +691,9 @@ function validateOptions({ logo, bgColor, pieces, cleanupLegacy }) {
     if (piece.padding == null) continue
     if (!Number.isFinite(piece.padding) || piece.padding < 0 || piece.padding > 40) {
       throw new Error(`brand.${piece.configKey}.padding must be a number between 0 and 40 (got: ${piece.padding}).`)
+    }
+    if (piece.cornerRadius != null && (!Number.isInteger(piece.cornerRadius) || piece.cornerRadius < 0 || piece.cornerRadius > 50)) {
+      throw new Error(`brand.${piece.configKey}.cornerRadius must be an integer between 0 and 50 (got: ${piece.cornerRadius}).`)
     }
   }
 }

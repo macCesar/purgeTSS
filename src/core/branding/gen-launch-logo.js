@@ -28,6 +28,7 @@
 import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
+import { roundArtworkCorners } from './round-artwork-corners.js'
 
 const CANVAS = 1024
 
@@ -37,16 +38,17 @@ const CANVAS = 1024
  * @param {string} iphoneDir - Absolute path to <assets>/iphone
  * @param {Object} [opts]
  * @param {string|null} [opts.bgColor] - Flatten on this color instead of keeping alpha
+ * @param {number} [opts.cornerRadiusPct=0] - Artwork corner radius as a percentage of its shorter side
  * @returns {Promise<string>} Absolute path of the file written
  */
 export async function genLaunchLogo(masterPng, paddingPct, iphoneDir, opts = {}) {
-  const { bgColor = null } = opts
+  const { bgColor = null, cornerRadiusPct = 0 } = opts
   fs.mkdirSync(iphoneDir, { recursive: true })
 
   const outPath = path.join(iphoneDir, 'LaunchLogo.png')
   const inner = Math.max(1, Math.floor((CANVAS * (100 - 2 * paddingPct)) / 100))
 
-  const logo = await sharp(masterPng)
+  const resizedLogo = await sharp(masterPng)
     .resize({
       width: inner,
       height: inner,
@@ -54,6 +56,7 @@ export async function genLaunchLogo(masterPng, paddingPct, iphoneDir, opts = {})
       background: { r: 0, g: 0, b: 0, alpha: 0 }
     })
     .toBuffer()
+  const logo = await roundArtworkCorners(resizedLogo, cornerRadiusPct)
 
   const pipeline = sharp({
     create: {

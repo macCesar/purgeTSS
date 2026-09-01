@@ -8,8 +8,8 @@
  *   4. Built-in defaults
  *
  * The vocabulary is the one in pieces.js: one block per piece, each accepting
- * the same four keys when they apply — `logo`, `padding`, `background`,
- * `enabled`. Files decide the artwork, config decides numbers, colors and
+ * the same keys when they apply — `logo`, `padding`, `cornerRadius`,
+ * `background`, `enabled`. Files decide the artwork, config decides numbers, colors and
  * activation.
  *
  * Auto-discovery inside `./purgetss/brand/`:
@@ -37,6 +37,7 @@ import {
   BRAND_PIECES,
   BRAND_PIECE_KEYS,
   BRAND_TOP_LEVEL_KEYS,
+  DEFAULT_ARTWORK_CORNER_RADIUS,
   getPieceByConfigKey,
   parseOnlySelection
 } from './pieces.js'
@@ -131,7 +132,11 @@ export function assertKnownBrandKeys(brandConfig) {
     }
 
     for (const inner of Object.keys(block)) {
-      if (!BRAND_PIECE_KEYS.includes(inner)) problems.push(`brand.${key}.${inner}`)
+      if (!BRAND_PIECE_KEYS.includes(inner)) {
+        problems.push(`brand.${key}.${inner}`)
+      } else if (inner === 'cornerRadius' && !piece.supportsCornerRadius) {
+        problems.push(`brand.${key}.cornerRadius (only valid inside brand.iosSplash, brand.androidSplash, brand.featureGraphic and brand.launchLogo)`)
+      }
     }
   }
 
@@ -162,6 +167,12 @@ export function assertKnownBrandKeys(brandConfig) {
 export function resolvePieces(brandConfig, cliOptions, brandDir, projectRoot) {
   const bgColor = cliOptions.bgColor ?? brandConfig.background ?? '#FFFFFF'
   const bgColorExplicit = Boolean(cliOptions.bgColor ?? brandConfig.background)
+  const globalArtworkCornerRadius = brandConfig.artworkCornerRadius != null
+    ? parseCornerRadius(brandConfig.artworkCornerRadius, 'brand.artworkCornerRadius')
+    : DEFAULT_ARTWORK_CORNER_RADIUS
+  const globalSplashCornerRadius = brandConfig.splashCornerRadius != null
+    ? parseCornerRadius(brandConfig.splashCornerRadius, 'brand.splashCornerRadius')
+    : globalArtworkCornerRadius
 
   const pieces = {}
   for (const piece of BRAND_PIECES) {
@@ -171,7 +182,9 @@ export function resolvePieces(brandConfig, cliOptions, brandDir, projectRoot) {
       brandDir,
       projectRoot,
       bgColor,
-      bgColorExplicit
+      bgColorExplicit,
+      globalArtworkCornerRadius,
+      globalSplashCornerRadius
     })
   }
 
@@ -198,7 +211,16 @@ export function resolvePieces(brandConfig, cliOptions, brandDir, projectRoot) {
  * @returns {Object} Resolved piece
  */
 function resolvePiece(piece, ctx) {
-  const { cliOptions, brandConfig, brandDir, projectRoot, bgColor, bgColorExplicit } = ctx
+  const {
+    cliOptions,
+    brandConfig,
+    brandDir,
+    projectRoot,
+    bgColor,
+    bgColorExplicit,
+    globalArtworkCornerRadius,
+    globalSplashCornerRadius
+  } = ctx
   const cfg = brandConfig[piece.configKey] ?? {}
 
   const cliLogoValue = firstDefined(cliOptions, piece.cliLogoOptions)
@@ -211,6 +233,18 @@ function resolvePiece(piece, ctx) {
       ? parsePadding(cfg.padding, `brand.${piece.configKey}.padding`)
       : piece.defaultPadding
 
+  const cliCornerRadius = firstDefined(cliOptions, piece.cliCornerRadiusOptions)
+  const sharedCornerRadius = piece.cornerRadiusScope === 'splash'
+    ? globalSplashCornerRadius
+    : globalArtworkCornerRadius
+  const cornerRadius = piece.supportsCornerRadius
+    ? cliCornerRadius != null
+      ? parseCornerRadius(cliCornerRadius, `CLI corner radius for ${piece.name}`)
+      : cfg.cornerRadius != null
+        ? parseCornerRadius(cfg.cornerRadius, `brand.${piece.configKey}.cornerRadius`)
+        : sharedCornerRadius
+    : null
+
   const { background, backgroundExplicit } = resolveBackground(piece, cfg, cliOptions, bgColor, bgColorExplicit)
 
   return {
@@ -222,10 +256,36 @@ function resolvePiece(piece, ctx) {
     platforms: piece.platforms,
     logo,
     padding,
+    cornerRadius,
     background,
     backgroundExplicit,
     enabled: resolveEnabled(piece, cfg, cliOptions, { logo })
   }
+}
+
+/**
+ * Parse an artwork corner radius from an integer or percentage string.
+ * The value is a percentage of the resized artwork's shorter side.
+ *
+ * @param {number|string} value
+ * @param {string} fieldName
+ * @returns {number} Integer 0-50
+ */
+export function parseCornerRadius(value, fieldName) {
+  let parsed = null
+
+  if (typeof value === 'number' && Number.isInteger(value)) {
+    parsed = value
+  } else if (typeof value === 'string') {
+    const match = value.trim().match(/^(\d+)%$/)
+    if (match) parsed = Number(match[1])
+  }
+
+  if (parsed == null || parsed < 0 || parsed > 50) {
+    throw new Error(`Invalid ${fieldName}: expected an integer or '<N>%' string between 0 and 50, got ${JSON.stringify(value)}`)
+  }
+
+  return parsed
 }
 
 /**

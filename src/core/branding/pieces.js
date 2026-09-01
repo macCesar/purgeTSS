@@ -35,10 +35,13 @@
  * @property {string} logoBase - basename in purgetss/brand/ ('logo-dark')
  * @property {string[]} cliLogoOptions - Commander keys that override the art
  * @property {string[]} cliPaddingOptions - Commander keys that override padding
+ * @property {string[]} cliCornerRadiusOptions - Commander keys that override artwork radius
  * @property {string[]} cliBackgroundOptions - Commander keys that override the background
  * @property {string[]} cliEnableOptions - Commander keys that switch an opt-in piece on
  * @property {string[]} cliDisableOptions - Commander keys (--no-x) that switch a default piece off
  * @property {boolean} showsPadding - whether the generated config block spells its padding out
+ * @property {boolean} supportsCornerRadius - whether this piece may round its artwork
+ * @property {'artwork'|'splash'|null} cornerRadiusScope - shared config fallback used by this piece
  * @property {boolean} showsBackground - whether the generated config block spells its background out
  * @property {number|null} defaultPadding - built-in padding %, or null when the piece has none
  * @property {boolean} inheritsBackground - whether brand.background applies
@@ -58,10 +61,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-icon',
     cliLogoOptions: ['iconLogo'],
     cliPaddingOptions: ['iosPadding'],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: [],
     showsPadding: true,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: false,
     defaultPadding: 0,
     inheritsBackground: true,
@@ -78,10 +84,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-dark',
     cliLogoOptions: ['darkLogo'],
     cliPaddingOptions: ['iosPadding'],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: ['darkBgColor'],
     cliEnableOptions: [],
     cliDisableOptions: ['dark'],
     showsPadding: false,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: true,
     defaultPadding: 0,
     inheritsBackground: false, // transparent per Apple HIG unless asked otherwise
@@ -98,10 +107,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-tinted',
     cliLogoOptions: ['tintedLogo'],
     cliPaddingOptions: ['iosPadding'],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: ['tinted'],
     showsPadding: false,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: false,
     defaultPadding: 0,
     inheritsBackground: false, // always flattened on black per Apple HIG
@@ -118,10 +130,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-ios-splash',
     cliLogoOptions: ['iosSplashLogo'],
     cliPaddingOptions: ['iosSplashPadding', 'splashPadding'],
+    cliCornerRadiusOptions: ['iosSplashCornerRadius', 'splashCornerRadius', 'artworkCornerRadius'],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: [],
     showsPadding: true,
+    supportsCornerRadius: true,
+    cornerRadiusScope: 'splash',
     showsBackground: false,
     defaultPadding: 26,
     inheritsBackground: true,
@@ -138,10 +153,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-launch',
     cliLogoOptions: ['launchLogo'],
     cliPaddingOptions: ['launchLogoPadding'],
+    cliCornerRadiusOptions: ['launchLogoCornerRadius', 'artworkCornerRadius'],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: [],
     showsPadding: true,
+    supportsCornerRadius: true,
+    cornerRadiusScope: 'artwork',
     showsBackground: false,
     defaultPadding: 12,
     inheritsBackground: false, // transparent: the storyboard paints the background
@@ -158,10 +176,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-marketplace',
     cliLogoOptions: ['marketplaceLogo'],
     cliPaddingOptions: ['iosPadding'],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: [],
     showsPadding: false,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: false,
     defaultPadding: 0,
     inheritsBackground: true,
@@ -178,10 +199,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-feature-graphic',
     cliLogoOptions: ['featureGraphicLogo'],
     cliPaddingOptions: ['featureGraphicPadding'],
+    cliCornerRadiusOptions: ['featureGraphicCornerRadius', 'artworkCornerRadius'],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: [],
     showsPadding: true,
+    supportsCornerRadius: true,
+    cornerRadiusScope: 'artwork',
     showsBackground: false,
     defaultPadding: 12,
     inheritsBackground: true,
@@ -198,10 +222,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-adaptive',
     cliLogoOptions: ['adaptiveLogo'],
     cliPaddingOptions: ['androidAdaptivePadding', 'padding'],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: [],
     showsPadding: true,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: false,
     defaultPadding: 18,
     inheritsBackground: true,
@@ -218,10 +245,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-legacy-icon',
     cliLogoOptions: ['legacyIconLogo'],
     cliPaddingOptions: ['androidLegacyPadding', 'padding'],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: [],
     showsPadding: true,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: false,
     defaultPadding: 10,
     inheritsBackground: true,
@@ -237,11 +267,14 @@ export const BRAND_PIECES = [
     configKey: 'appicon',
     logoBase: 'logo-appicon',
     cliLogoOptions: ['appiconLogo'],
-    cliPaddingOptions: [],
+    cliPaddingOptions: ['appiconPadding'],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: [],
-    showsPadding: false,
+    showsPadding: true,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: false,
     defaultPadding: 10,
     inheritsBackground: true,
@@ -258,10 +291,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-android-splash',
     cliLogoOptions: ['androidSplashLogo'],
     cliPaddingOptions: ['androidSplashPadding', 'splashPadding'],
+    cliCornerRadiusOptions: ['androidSplashCornerRadius', 'splashCornerRadius', 'artworkCornerRadius'],
     cliBackgroundOptions: [],
     cliEnableOptions: [],
     cliDisableOptions: [],
     showsPadding: true,
+    supportsCornerRadius: true,
+    cornerRadiusScope: 'splash',
     showsBackground: false,
     defaultPadding: 26,
     inheritsBackground: true,
@@ -278,10 +314,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-splash-icon',
     cliLogoOptions: ['splashIconLogo'],
     cliPaddingOptions: [],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: [],
     cliEnableOptions: ['splashIcon'],
     cliDisableOptions: [],
     showsPadding: false,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: false,
     defaultPadding: null,
     inheritsBackground: true,
@@ -298,10 +337,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-notification-icon',
     cliLogoOptions: ['notificationIconLogo'],
     cliPaddingOptions: [],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: [],
     cliEnableOptions: ['notificationIcon'],
     cliDisableOptions: [],
     showsPadding: false,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: false,
     defaultPadding: null,
     inheritsBackground: false, // white + alpha, no background involved
@@ -318,10 +360,13 @@ export const BRAND_PIECES = [
     logoBase: 'logo-nine-patch',
     cliLogoOptions: [],
     cliPaddingOptions: [],
+    cliCornerRadiusOptions: [],
     cliBackgroundOptions: [],
     cliEnableOptions: ['ninePatch'],
     cliDisableOptions: [],
     showsPadding: false,
+    supportsCornerRadius: false,
+    cornerRadiusScope: null,
     showsBackground: false,
     defaultPadding: null,
     inheritsBackground: true,
@@ -344,11 +389,17 @@ export const BRAND_GROUPS = {
   android: ['adaptive', 'legacy-icon', 'appicon', 'android-splash']
 }
 
+/** Shared non-icon artwork radius when config and CLI do not override it. */
+export const DEFAULT_ARTWORK_CORNER_RADIUS = 0
+
+/** Backward-compatible name used by the splash-only shortcut. */
+export const DEFAULT_SPLASH_CORNER_RADIUS = DEFAULT_ARTWORK_CORNER_RADIUS
+
 /** Keys allowed at the top level of `brand:`, outside the piece blocks. */
-export const BRAND_TOP_LEVEL_KEYS = ['background', 'confirmOverwrites', 'optimize', 'logo', 'monochromeLogo']
+export const BRAND_TOP_LEVEL_KEYS = ['background', 'artworkCornerRadius', 'splashCornerRadius', 'confirmOverwrites', 'optimize', 'logo', 'monochromeLogo']
 
 /** Keys allowed inside a piece block. */
-export const BRAND_PIECE_KEYS = ['logo', 'padding', 'background', 'enabled']
+export const BRAND_PIECE_KEYS = ['logo', 'padding', 'cornerRadius', 'background', 'enabled']
 
 const BY_NAME = new Map(BRAND_PIECES.map((piece) => [piece.name, piece]))
 const BY_CONFIG_KEY = new Map(BRAND_PIECES.map((piece) => [piece.configKey, piece]))

@@ -14,10 +14,10 @@
 
 import assert from 'assert'
 import path from 'path'
-import { execFileSync } from 'child_process'
+import { execFileSync, spawnSync } from 'child_process'
 import { fileURLToPath } from 'url'
 
-import { getPieceByConfigKey } from '../../../src/core/branding/pieces.js'
+import { DEFAULT_ARTWORK_CORNER_RADIUS, getPieceByConfigKey } from '../../../src/core/branding/pieces.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const BIN = path.resolve(__dirname, '../../../bin/purgetss')
@@ -26,6 +26,7 @@ const BIN = path.resolve(__dirname, '../../../bin/purgetss')
 const FLAG_TO_PIECE = {
   '--android-adaptive-padding': 'adaptive',
   '--android-legacy-padding': 'legacyIcon',
+  '--appicon-padding': 'appicon',
   '--ios-padding': 'icon',
   '--feature-graphic-padding': 'featureGraphic',
   '--launch-logo-padding': 'launchLogo',
@@ -35,6 +36,14 @@ const FLAG_TO_PIECE = {
 
 // The two shortcuts fan out to several pieces and carry no default of their own.
 const SHORTCUTS = ['--padding', '--splash-padding']
+const CORNER_RADIUS_FLAGS = [
+  '--artwork-corner-radius',
+  '--splash-corner-radius',
+  '--ios-splash-corner-radius',
+  '--android-splash-corner-radius',
+  '--feature-graphic-corner-radius',
+  '--launch-logo-corner-radius'
+]
 
 try {
   const help = execFileSync(process.execPath, [BIN, 'brand', '--help'], {
@@ -65,7 +74,28 @@ try {
     assert.ok(covered.includes(flag), `${flag} is not covered by this test — add it to FLAG_TO_PIECE`)
   }
 
-  console.log(`All brand --help default tests passed! (${Object.keys(FLAG_TO_PIECE).length} flags checked against the piece table)`)
+  for (const flag of CORNER_RADIUS_FLAGS) {
+    const line = help.split('\n').find((l) => l.includes(`${flag} <n>`))
+    assert.ok(line, `${flag} is missing from brand --help`)
+    assert.match(line, new RegExp(`default: ${DEFAULT_ARTWORK_CORNER_RADIUS}\\)`), `${flag} must advertise the canonical default`)
+  }
+
+  const advertisedCornerRadius = help
+    .split('\n')
+    .filter((line) => /^\s+--[a-z-]+-corner-radius <n>/.test(line))
+    .map((line) => line.trim().split(/\s+/)[0])
+  assert.deepStrictEqual(advertisedCornerRadius.sort(), [...CORNER_RADIUS_FLAGS].sort(), 'every corner-radius flag is covered')
+
+  for (const value of ['-1', '51', '2.5', 'round']) {
+    const result = spawnSync(process.execPath, [BIN, 'brand', '--splash-corner-radius', value], {
+      encoding: 'utf8',
+      env: { ...process.env, NO_UPDATE_NOTIFIER: '1' }
+    })
+    assert.notStrictEqual(result.status, 0, `--splash-corner-radius ${value} must fail`)
+    assert.match(`${result.stdout}${result.stderr}`, /must be an integer between 0 and 50/)
+  }
+
+  console.log(`All brand --help default tests passed! (${Object.keys(FLAG_TO_PIECE).length} padding flags + ${CORNER_RADIUS_FLAGS.length} radius flags checked)`)
 } catch (error) {
   console.error('Brand --help default test failed:', error.message)
   process.exit(1)

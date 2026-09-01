@@ -21,6 +21,7 @@ import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
 import { logoBox } from './splash-geometry.js'
+import { roundArtworkCorners } from './round-artwork-corners.js'
 
 const DEFAULT_WIDTH = 1440
 const DEFAULT_HEIGHT = 2560
@@ -30,15 +31,16 @@ const DEFAULT_HEIGHT = 2560
  * @param {string|Object} bgColor - Background as sharp accepts it
  * @param {string} outDir - Absolute path to <assets>/android
  * @param {number} paddingPct - Padding per side, as a percentage of the shorter side
+ * @param {number} [cornerRadiusPct=0] - Artwork corner radius as a percentage of its shorter side
  * @returns {Promise<string>} Absolute path of the file written
  */
-export async function genAndroidDefault(masterPng, bgColor, outDir, paddingPct) {
+export async function genAndroidDefault(masterPng, bgColor, outDir, paddingPct, cornerRadiusPct = 0) {
   fs.mkdirSync(outDir, { recursive: true })
 
   const outPath = path.join(outDir, 'default.png')
   const logoSide = logoBox(DEFAULT_WIDTH, DEFAULT_HEIGHT, paddingPct)
 
-  const innerLogo = await sharp(masterPng)
+  const resizedLogo = await sharp(masterPng)
     .resize({
       width: logoSide,
       height: logoSide,
@@ -46,6 +48,7 @@ export async function genAndroidDefault(masterPng, bgColor, outDir, paddingPct) 
       background: { r: 0, g: 0, b: 0, alpha: 0 }
     })
     .toBuffer()
+  const innerLogo = await roundArtworkCorners(resizedLogo, cornerRadiusPct)
 
   await sharp({
     create: {

@@ -259,8 +259,10 @@ try {
     const config = require(configPath)
     assert.strictEqual(config.brand.icon.padding, '0%')
     assert.strictEqual(config.brand.adaptive.padding, '18%')
+    assert.strictEqual(config.brand.appicon.padding, '10%')
     assert.strictEqual(config.brand.iosSplash.padding, '26%')
     assert.strictEqual(config.brand.androidSplash.padding, '26%')
+    assert.strictEqual(config.brand.artworkCornerRadius, '0%')
 
     fs.rmSync(root, { recursive: true, force: true })
   }

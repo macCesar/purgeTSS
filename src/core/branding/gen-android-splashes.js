@@ -25,6 +25,7 @@ import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
 import { logoBox } from './splash-geometry.js'
+import { roundArtworkCorners } from './round-artwork-corners.js'
 
 /**
  * The exact set shipped by the Titanium template, with the sizes it uses.
@@ -55,9 +56,10 @@ const SPLASH_TARGETS = [
  * @param {string|Object} bgColor - Background as sharp accepts it
  * @param {string} imagesDir - Absolute path to <assets>/android/images
  * @param {number} paddingPct - Padding per side, as a percentage of the shorter side
+ * @param {number} [cornerRadiusPct=0] - Artwork corner radius as a percentage of its shorter side
  * @returns {Promise<string[]>} Absolute paths of the files written
  */
-export async function genAndroidSplashes(masterPng, bgColor, imagesDir, paddingPct) {
+export async function genAndroidSplashes(masterPng, bgColor, imagesDir, paddingPct, cornerRadiusPct = 0) {
   const written = []
 
   for (const target of SPLASH_TARGETS) {
@@ -66,7 +68,7 @@ export async function genAndroidSplashes(masterPng, bgColor, imagesDir, paddingP
 
     const logoSide = logoBox(target.width, target.height, paddingPct)
 
-    const logo = await sharp(masterPng)
+    const resizedLogo = await sharp(masterPng)
       .resize({
         width: logoSide,
         height: logoSide,
@@ -74,6 +76,7 @@ export async function genAndroidSplashes(masterPng, bgColor, imagesDir, paddingP
         background: { r: 0, g: 0, b: 0, alpha: 0 }
       })
       .toBuffer()
+    const logo = await roundArtworkCorners(resizedLogo, cornerRadiusPct)
 
     const outPath = path.join(outDir, 'default.png')
 

@@ -14,7 +14,7 @@
  * @author César Estrada
  */
 
-import { BRAND_PIECES } from './pieces.js'
+import { BRAND_PIECES, DEFAULT_ARTWORK_CORNER_RADIUS } from './pieces.js'
 
 const DEFAULT_BACKGROUND = '#FFFFFF'
 
@@ -24,6 +24,8 @@ const MAX_BODY_COLUMN = 26
 /**
  * @typedef {Object} BrandBlockOverrides
  * @property {string} [background] - top-level brand.background
+ * @property {number|string} [artworkCornerRadius] - shared non-icon artwork radius
+ * @property {number|string} [splashCornerRadius] - optional splash-only shared override
  * @property {boolean} [confirmOverwrites]
  * @property {boolean} [optimize]
  * @property {string} [logo] - main logo path
@@ -46,9 +48,13 @@ export function renderBrandBlock(overrides = {}, opts = {}) {
 
   const top = [
     [`background: ${literal(overrides.background ?? DEFAULT_BACKGROUND)},`, 'inherited by pieces that use an opaque background canvas'],
+    [`artworkCornerRadius: ${literal(overrides.artworkCornerRadius ?? `${DEFAULT_ARTWORK_CORNER_RADIUS}%`)},`, 'rounded non-icon artwork: splashes, Feature Graphic and LaunchLogo (0-50)'],
     [`confirmOverwrites: ${overrides.confirmOverwrites ?? true},`, 'prompt before overwriting files (set false to skip)'],
     [`optimize: ${overrides.optimize ?? false},`, 'true = quantize the generated PNGs to a palette (lossy, ~71% smaller)']
   ]
+  if (overrides.splashCornerRadius !== undefined) {
+    top.splice(2, 0, [`splashCornerRadius: ${literal(overrides.splashCornerRadius)},`, 'optional splash-only override'])
+  }
   if (overrides.logo) top.push([`logo: ${literal(overrides.logo)},`, 'main logo, when it lives outside purgetss/brand/'])
   if (overrides.monochromeLogo) top.push([`monochromeLogo: ${literal(overrides.monochromeLogo)},`, 'monochrome layer + notification icons'])
 
@@ -62,6 +68,8 @@ export function renderBrandBlock(overrides = {}, opts = {}) {
   lines.push('')
   lines.push(`${inner}// One block per piece. Artwork comes from purgetss/brand/logo-<piece>.{svg,png};`)
   lines.push(`${inner}// these keys are for numbers, colors and activation. Padding is never inherited.`)
+  lines.push(`${inner}// iosSplash, androidSplash, featureGraphic and launchLogo accept cornerRadius.`)
+  lines.push(`${inner}// Store and launcher icons stay square for platform masking.`)
   lines.push(`${inner}// iOS/store icons are full-bleed by default; increase padding only for logo artwork.`)
 
   const defaults = BRAND_PIECES.filter((piece) => piece.mode !== 'opt-in')
@@ -100,7 +108,7 @@ export function renderBrandBlock(overrides = {}, opts = {}) {
  * the caller is carrying over from an older config.
  *
  * @param {import('./pieces.js').BrandPiece} piece
- * @param {Object} [override] - { logo, padding, background, enabled }
+ * @param {Object} [override] - { logo, padding, cornerRadius, background, enabled }
  * @returns {string}
  */
 function renderPieceBody(piece, override = {}) {
@@ -110,6 +118,8 @@ function renderPieceBody(piece, override = {}) {
 
   const padding = override.padding ?? (piece.showsPadding ? `${piece.defaultPadding}%` : undefined)
   if (padding !== undefined) parts.push(`padding: ${literal(padding)}`)
+
+  if (override.cornerRadius !== undefined) parts.push(`cornerRadius: ${literal(override.cornerRadius)}`)
 
   const background = override.background !== undefined
     ? override.background

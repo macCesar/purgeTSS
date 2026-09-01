@@ -18,12 +18,13 @@
 import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
+import { roundArtworkCorners } from './round-artwork-corners.js'
 
 const CANVAS_WIDTH = 1024
 const CANVAS_HEIGHT = 500
 
 export async function genFeatureGraphic(featureMaster, paddingPct, outRoot, opts = {}) {
-  const { bgColor = '#FFFFFF' } = opts
+  const { bgColor = '#FFFFFF', cornerRadiusPct = 0 } = opts
   fs.mkdirSync(outRoot, { recursive: true })
 
   const padPx = Math.floor((CANVAS_HEIGHT * paddingPct) / 100)
@@ -38,6 +39,7 @@ export async function genFeatureGraphic(featureMaster, paddingPct, outRoot, opts
       background: { r: 0, g: 0, b: 0, alpha: 0 }
     })
     .toBuffer()
+  const artwork = await roundArtworkCorners(resized, cornerRadiusPct)
 
   await sharp({
     create: {
@@ -47,7 +49,7 @@ export async function genFeatureGraphic(featureMaster, paddingPct, outRoot, opts
       background: { r: 0, g: 0, b: 0, alpha: 0 }
     }
   })
-    .composite([{ input: resized, gravity: 'center' }])
+    .composite([{ input: artwork, gravity: 'center' }])
     .flatten({ background: bgColor })
     .removeAlpha()
     .png({ compressionLevel: 9 })
