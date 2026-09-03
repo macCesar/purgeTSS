@@ -272,24 +272,25 @@ function processFontsJS(data, fontFamily = '', prefix) {
 }
 
 /**
- * Process font family names for JavaScript module
- * COPIED exactly from original processFontFamilyNamesJS() function
+ * Resolve a CSS font family entry for the JavaScript module
  *
  * @param {Object} data - CSS data object
  * @param {string} fontFamily - Font family name
  * @param {string} prefix - Font prefix
- * @returns {string} - Font family JavaScript string
+ * @returns {{ key: string, value: string } | null} - Module family entry
  */
-function processFontFamilyNamesJS(data, fontFamily = '', prefix) {
+function getCSSFontFamilyEntry(data, fontFamily = '', prefix) {
   const rules = getRules(data)
-
   let fontsPrefix = prefix ?? findPrefix(rules)
-
   if (fontsPrefix === undefined) {
     fontsPrefix = fontFamily
   }
-
-  return `${fontFamily}\n\t'${_.camelCase(fontsPrefix)}': '${getFontFamily(data)}',`
+  const [fontFamilyName] = getFontFamily(data)
+  if (!fontFamilyName) return null
+  return {
+    key: _.camelCase(fontsPrefix),
+    value: fontFamilyName
+  }
 }
 
 /**
@@ -313,7 +314,9 @@ export function buildFonts(options = {}) {
 
     let fontMeta = ''
     let fontJS = ''
-    let fontFamiliesJS = ''
+    const modulePath = path.join(libFolder, 'purgetss.fonts.js')
+    const shouldBuildModule = options.module || fs.existsSync(modulePath)
+    const fontFamilies = new Map()
     let tssClasses = '// Fonts TSS file generated with PurgeTSS\n// https://purgetss.com/docs/commands#build-fonts-command\n'
 
     // Process font files
@@ -324,6 +327,12 @@ export function buildFonts(options = {}) {
         tssClasses += processFontMeta(fontMeta)
 
         const fontFamilyName = fontMeta.postScriptName.replace(/\//g, '')
+        if (shouldBuildModule) {
+          const familyKey = options.fontClassFromFilename
+            ? path.basename(file, path.extname(file)).replace(/ /g, '-')
+            : fontFamilyName
+          fontFamilies.set(_.camelCase(familyKey), fontFamilyName)
+        }
         if (options.fontClassFromFilename) {
           tssClasses += `\n'.${getFileName(file)}': { font: { fontFamily: '${fontFamilyName}' } }\n`
         } else {
@@ -360,9 +369,14 @@ export function buildFonts(options = {}) {
         tssClasses += processFontsCSS(cssFile, prefix)
 
         // JavaScript Module
-        if (options.module || fs.existsSync(path.join(libFolder, 'purgetss.fonts.js'))) {
+        if (shouldBuildModule) {
           fontJS += processFontsJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
-          fontFamiliesJS += processFontFamilyNamesJS(cssFile, `\n\t// ${theCSSFileName}`, prefix)
+          const familyEntry = getCSSFontFamilyEntry(
+            cssFile, `\n\t// ${theCSSFileName}`, prefix
+          )
+          if (familyEntry) {
+            fontFamilies.set(familyEntry.key, familyEntry.value)
+          }
         }
 
         // Done processing stylesheet
@@ -379,11 +393,11 @@ export function buildFonts(options = {}) {
       })
     }
 
-    if (fontJS) {
+    if (shouldBuildModule && (fontJS || fontFamilies.size > 0)) {
       makeSureFolderExists(libFolder)
 
       let exportIcons = 'const icons = {'
-      exportIcons += fontJS.slice(0, -1)
+      if (fontJS) exportIcons += fontJS.slice(0, -1)
       exportIcons += '\n}\n'
       exportIcons += 'exports.icon = icons;\n'
       exportIcons += 'exports.icons = icons;\n'
@@ -391,20 +405,22 @@ export function buildFonts(options = {}) {
       exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
       exportIcons += '\nconst families = {'
-      exportIcons += fontFamiliesJS.slice(0, -1)
+      exportIcons += [...fontFamilies.entries()]
+        .map(([key, value]) => `\n\t'${key}': '${value}'`)
+        .join(',')
       exportIcons += '\n}\n'
       exportIcons += 'exports.family = families;\n'
       exportIcons += 'exports.families = families;\n'
 
       exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 
-      fs.writeFileSync(path.join(libFolder, 'purgetss.fonts.js'), exportIcons, { encoding: 'utf8' }, err => {
+      fs.writeFileSync(modulePath, exportIcons, { encoding: 'utf8' }, err => {
         throw err
       })
 
-      logger.info(`${chalk.yellow(path.relative(cwd, path.join(libFolder, 'purgetss.fonts.js')))} file created!`)
-    } else if (fs.existsSync(path.join(libFolder, 'purgetss.fonts.js'))) {
-      fs.unlinkSync(path.join(libFolder, 'purgetss.fonts.js'))
+      logger.info(`${chalk.yellow(path.relative(cwd, modulePath))} file created!`)
+    } else if (fs.existsSync(modulePath)) {
+      fs.unlinkSync(modulePath)
     }
 
     if (files.length > 0) {
