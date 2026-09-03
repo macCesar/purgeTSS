@@ -57,15 +57,22 @@ export function parsePadding(value, fieldName) {
  * 1. If config.cjs exists → use it
  * 2. If config.js exists → rename to config.cjs
  * 3. If nothing exists → create config.cjs
+ *
+ * @param {Object} [options]
+ * @param {boolean} [options.createAssetFolders=true] - Create the empty
+ *   fonts/, brand/, and images/ convention folders used by Alloy setup.
  */
-export function ensureConfig() {
-  // Ensure the full purgetss/ subfolder layout exists on every init — keeps
-  // fonts/, brand/, and images/ discoverable from day one instead of
-  // appearing lazily on first use of their respective commands.
+export function ensureConfig(options = {}) {
+  const { createAssetFolders = true } = options
+
   makeSureFolderExists(projectsPurgeTSSFolder)
-  makeSureFolderExists(projectsPurge_TSS_Fonts_Folder)
-  makeSureFolderExists(projectsPurge_TSS_Brand_Folder)
-  makeSureFolderExists(projectsPurge_TSS_Images_Folder)
+  if (createAssetFolders) {
+    // Alloy setup keeps these conventions discoverable from day one. A
+    // standalone Classic command opts out so it creates only its own output.
+    makeSureFolderExists(projectsPurge_TSS_Fonts_Folder)
+    makeSureFolderExists(projectsPurge_TSS_Brand_Folder)
+    makeSureFolderExists(projectsPurge_TSS_Images_Folder)
+  }
 
   // 1. ¿Existe config.cjs? → Úsalo, pero primero ponlo al día.
   //    Same spirit as the config.js → config.cjs rename below: the file is

@@ -36,10 +36,10 @@ import { setConfigSection } from '../../shared/config-writer.js'
 export function colorModule() {
   if (!validateProject()) return false
 
-  ensureConfig()
+  const { projectType, libFolder } = getProjectPaths()
+  ensureConfig({ createAssetFolders: projectType === 'alloy' })
 
   const colorModuleConfigFile = getConfigFile()
-  const { libFolder } = getProjectPaths()
   const modulePath = path.join(libFolder, 'purgetss.colors.js')
 
   makeSureFolderExists(libFolder)
@@ -137,7 +137,8 @@ export async function shades(args, options) {
 
   if (shouldSave) {
     if (!validateProject()) return false
-    ensureConfig()
+    const { projectType } = getProjectPaths()
+    ensureConfig({ createAssetFolders: projectType === 'alloy' })
     const configFile = getConfigFile()
 
     if (options.override) {
