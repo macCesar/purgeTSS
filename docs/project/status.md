@@ -1,15 +1,15 @@
 # Status — 2026-09-03
 
-**Phase:** v7.16.2 release finalized; video series published and moving into packaging and cleanup
+**Phase:** v7.16.2 released; Classic video series published and production workspace migrated
 **Session by:** Codex · GPT-5
 **Branch:** `main`
-**Repository state:** release changes committed on `main`; the ignored local `demos/` workspace remains available for video production
+**Repository state:** release changes committed on `main`; `demos/` has been removed after its verified migration
 
 ## Where things stand
 
 PurgeTSS v7.16.2 makes generated custom-font modules expose every processed TTF/OTF family, including text-only collections, and prevents Classic `shades` and `color-module` runs from creating unrelated empty source folders. The release keeps the tutorial-production workspace outside source control.
 
-Episodes `01-brand` through `06-icon-library` have final MP4, selectable English SRT, publishing metadata, and reproducible production files under `demos/classic-video-series/videos/<slug>/`. The episode roots contain only the three upload-ready deliverables; recording sources, recipes, narration, returned audio, accepted raw takes, cues, manifests, and receipts live under `production/`.
+Episodes `01-brand` through `08-purgetss-module` have final MP4, selectable English SRT, publishing metadata, and reproducible production files under `/Users/cesar/Developer/openSource/purgetss-classic-apps/videos/<slug>/`. The ignored local `videos/` tree lives beside the tracked `projects/` fixtures, so recorder-relative paths keep working while GitHub receives only the examples and public documentation.
 
 `06-icon-library` was accepted and uploaded to YouTube as `MUr4pkUVdOU`. It is processed, public, in playlist `PLBgzic3Fjodc`, and its English caption track is serving. `07-build-fonts` was uploaded as `aCOWlH4LOOE`; it is processed, public, in the same playlist, and its English caption track is serving. The corrected English caption files for episodes 01 through 05 were uploaded over their existing tracks; those five videos remain public and processed.
 
@@ -29,14 +29,14 @@ The reusable technical-video skill now documents background simulator preparatio
 - `08-purgetss-module` was finalized from approved take 02 and uploaded to YouTube as `f3-OiPASRp8`. Its permanent recorder uses a fresh disposable copy, controls Motion, Layout and Appearance, then hands off one continuous bounded drag to the presenter before holding `Snapped to BUILD`. The video is public, belongs to playlist `PLBgzic3Fjodc`, its English caption track is serving, and YouTube finished processing the complete 1:46 upload through 4K.
 - Keep the existing YouTube upload of `05-color-module` unchanged so its URL, views and comments remain attached. A future corrected master that ends on the compiled purple palette screen is optional for later platforms or a supplemental video; YouTube cannot replace the uploaded media in place.
 - Episodes 01 through 06 need their delivery masters regenerated later from the best available raw capture and reproducible edit, using the same 4K/CFR 30/H.264 High/BT.709/AAC 48 kHz/fast-start gate as episode 07. Never obtain these replacements by transcoding the already compressed final MP4 merely to raise its nominal bitrate; preserve each approved edit and verify it again before any replacement upload.
-- Create a separate repository from pristine copies of `demos/classic-video-series/projects`. Its README must explain prerequisites, commands, per-episode usage, build steps where applicable, and link to `https://www.youtube.com/playlist?list=PLBgzic3Fjodc`. Do not include generated outputs, recording temporaries, or VS Code state.
-- The entire `demos/` tree is temporary local production material and must not be included in the final PurgeTSS repository. Keep it in place until the series and the separate examples repository are complete, then remove it from PurgeTSS only after verifying the migration.
-- After refining the recording skill and proving it with at least one tutorial unrelated to PurgeTSS, generalize and publish it. AISkills is the preferred home for the generic tutorial producer/director workflow; TiTools should contain only a Titanium/PurgeTSS specialization if one remains necessary.
+- The public example repository is `https://github.com/macCesar/purgetss-classic-apps`. Its tracked `projects/` directory contains all eight clean starting fixtures; its local ignored `videos/` directory contains the matching production packages. All eight permanent recorders pass `--check` from the new location.
+- The old ignored `demos/` tree has been removed from PurgeTSS. The migrated production workspace contains eight final MP4 files, eight SRT files, eight metadata documents, eight `production/` directories, recording guides, and voice samples.
+- The generic `technical-demo-videos` source now lives in the AISkills repository with configurable workstation paths and display selection, cross-domain eval specifications, packaging checks, and no dependency on this PurgeTSS repository. It is committed separately from any future AISkills release.
 - Vertical 9:16 derivatives remain an optional future experiment for Shorts and Reels, not a pending requirement for TikTok; the horizontal masters have already been accepted there.
 
 ## Next step
 
-Create and verify the separate repository of pristine Classic examples, then remove the ignored local `demos/` workspace only after confirming that every required source and production artifact has a safe destination.
+Regenerate episodes 01 through 06 from their best source captures when a uniform delivery-master refresh is desired. Keep the current YouTube uploads unchanged unless a separate replacement/publication decision is made.
 
 ## Verified vs. assumed
 
@@ -64,4 +64,5 @@ Create and verify the separate repository of pristine Classic examples, then rem
 - Verified after the user's final `Resources/app.js` formatting pass: a fresh disposable copy generated only `Resources/lib/purgetss.ui.js`, compiled with Titanium SDK 13.4.1.GA, and ran Motion, transformed/restored Layout, collision plus `snapTo`, and the three-state appearance cycle on the iPhone 17 Pro and physical Android device.
 - Verified: a clean iOS install opens Motion Lab with the visible `SYSTEM` state. On the physical Android device, the corrected appearance control completed `SYSTEM → LIGHT → DARK → SYSTEM → LIGHT` and then another `LIGHT → DARK → SYSTEM`, repainted every semantic color, and remained interactive after each native Activity recreation; the user independently observed `SYSTEM` on the Android first run.
 - Verified on a real `04-shades` fragment: the new master normalizer produced 3840×2160 H.264 High Profile at constant 30 FPS, approximately 30 Mbps, yuv420p/BT.709, AAC at 48 kHz, and fast start; temporary test media was removed.
-- Not verified with `quick_validate.py`: the system Python lacks the `yaml` module. The edited skill files were inspected and their executable Python was syntax-checked.
+- Verified: `macCesar/purgetss-classic-apps` is public on GitHub with the eight fixtures under `projects/`, while `/videos/` is ignored locally. All fixture XML and JavaScript files validate, and all eight permanent recorders resolve the new paths and pass `--check`.
+- Verified: migration preserved all 190 original series files before duplicate project copies and Finder metadata were separated; the final colocated `videos/` workspace is 1.1 GB with all eight final MP4/SRT/metadata sets and eight production directories.
