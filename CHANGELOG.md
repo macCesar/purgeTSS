@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.16.2] - 2026-09-03
+
+### Fixed
+- **`build-fonts --module` now exports normal font families, including text-only collections.** Every processed TTF/OTF contributes its PostScript name to `families`; `--font-class-from-filename` produces readable keys such as `poppinsSemiBold`. Icon CSS continues to add Unicode maps and may provide a shorter family alias.
+- **Classic color commands no longer create unrelated empty source folders.** Saving a palette with `shades` creates or updates only `purgetss/config.cjs`, and `color-module` adds only `Resources/lib/purgetss.colors.js`. The empty `purgetss/brand/`, `purgetss/fonts/`, and `purgetss/images/` conventions remain part of Alloy initialization.
+
 ## [7.16.1] - 2026-09-01
 
 ### Added

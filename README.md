@@ -19,7 +19,7 @@
 - Customizable defaults via `config.cjs`, with JIT classes for arbitrary values
 - `brand` command for Titanium icons and branding assets: works standalone in Alloy or Classic, follows `tiapp.xml` deployment targets, and generates the matching iOS/Android icon, store-artwork, and splash sets; use `--only` to prepare a specific piece or platform explicitly
 - Icon font support: Font Awesome, Material Icons, Material Symbols, Framework7-Icons in Alloy and Classic projects
-- `build-fonts` installs custom fonts in Alloy or Classic; TSS class definitions are generated only for Alloy
+- `build-fonts` installs custom fonts in Alloy or Classic; `--module` exports every processed PostScript family, while TSS class definitions remain Alloy-only
 - `shades` command generates color shades from any hex color
 - `semantic` command generates Titanium semantic colors (Light/Dark mode) — tonal palettes with mirror inversion, or single purpose-based colors with optional alpha
 - Animation module for 2D matrix animations on views or arrays of views
@@ -39,16 +39,18 @@ When Alloy auto-purging fails, the build log forwards PurgeTSS diagnostics befor
 | `images` | ✅ | ✅ | Writes to `Resources/{android,iphone}/images/` and follows `tiapp.xml` unless `--android` or `--ios` is passed. An external source does not create `purgetss/`. |
 | `semantic` | ✅ | ✅ | Writes only `Resources/semantic.colors.json`; it does not create `config.cjs`, utility mappings, or TSS. |
 | `shades` | ✅ | ✅ | Console modes work anywhere. Saving a palette creates/updates `purgetss/config.cjs`. |
-| `color-module` | ✅ | ✅ | Writes `purgetss.colors.js` to `app/lib/` or `Resources/lib/`. |
+| `color-module` | ✅ | ✅ | Writes `purgetss.colors.js` to `app/lib/` or `Resources/lib/`; Classic creates no unrelated empty source folders. |
 | `module` | ✅ | ✅ | Writes `purgetss.ui.js` to the project-specific `lib` folder. |
 | `icon-library` | ✅ | ✅ | Fonts go to `Resources/fonts/`; `--module` uses `Resources/lib/`; `--styles` is skipped because TSS is Alloy-only. |
-| `build-fonts` | ✅ | ✅ | Fonts go to `Resources/fonts/`; `--module` uses `Resources/lib/`; no TSS or definitions file is generated. |
+| `build-fonts` | ✅ | ✅ | Fonts go to `Resources/fonts/`; `--module` exports every family through `Resources/lib/purgetss.fonts.js`; no TSS or definitions file is generated. |
 | `purgetss`, `--all`, `init`, `create`, `install-dependencies`, `build`, `watch` | ✅ | — | Alloy/PurgeTSS lifecycle only. |
 | `update`, `sudo-update` | ✅ | ✅ | Global CLI maintenance; no project layout required. |
 
 Generated CommonJS modules and assets are ordinary Titanium files. A Classic app consumes them directly from `Resources/`; the source folders under `purgetss/`, when a command needs them, are development inputs only.
 
-Official icon modules expose Unicode values in `icons` and their Titanium font families in `families`. Font Awesome also offers direct aliases: `fontAwesome.icons.home` with `fontAwesome.solid`, `fontAwesome.regular`, or `fontAwesome.brands`.
+In Classic, saving with `shades` creates or updates only `purgetss/config.cjs`. Running `color-module` reads `theme.colors` and `theme.extend.colors`, then writes `Resources/lib/purgetss.colors.js`; neither command scaffolds empty `purgetss/brand/`, `purgetss/fonts/`, or `purgetss/images/` folders.
+
+Official icon modules expose Unicode values in `icons` and their Titanium font families in `families`. In Classic, load Font Awesome with `require('lib/fontawesome')`, then combine a lookup such as `fontAwesome.icons.home` with `fontAwesome.solid`, `fontAwesome.regular`, or `fontAwesome.brands`.
 
 ---
 
@@ -401,6 +403,11 @@ Button: {
 - **Node.js 20+** (required for the CLI tool)
 
 ## Recent changes
+
+### v7.16.2
+
+- **Custom-font modules now include every processed font family.** `purgetss build-fonts --module` exports TTF/OTF PostScript names through `families`, even when no icon CSS exists. With `--font-class-from-filename`, readable filename-derived keys such as `poppinsSemiBold` map to the exact Titanium `fontFamily` value.
+- **Classic color commands now create only what they need.** Saving a palette with `shades` creates or updates `purgetss/config.cjs`, and `color-module` writes `Resources/lib/purgetss.colors.js`, without scaffolding unrelated empty `brand`, `fonts`, or `images` source folders.
 
 ### v7.16.1
 

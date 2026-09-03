@@ -1,33 +1,54 @@
-# Status — 2026-08-30
+# Status — 2026-09-03
 
-**Phase:** v7.15.0 released; no implementation work in flight
+**Phase:** v7.16.2 release finalized; producing and publishing the PurgeTSS in Classic Apps video series
 **Session by:** Codex · GPT-5
-**Deployed:** `purgetss@7.15.0` is published on npm and GitHub; the official documentation release is `purgetss-docs` v1.1.8
-**Branch:** `main`; working tree clean
+**Branch:** `main`
+**Repository state:** release changes committed on `main`; the ignored local `demos/` workspace remains available for video production
 
 ## Where things stand
 
-PurgeTSS v7.15.0 extends standalone asset and CommonJS commands to Titanium Classic without adding the Alloy hook or utility-class lifecycle. `brand`, `images`, `semantic`, `shades`, `color-module`, `module`, `icon-library`, and `build-fonts` detect the layout and use the appropriate native locations. The Alloy-only lifecycle remains limited to root `purgetss`, `--all`, `init`, `create`, `install-dependencies`, `build`, and `watch`.
+PurgeTSS v7.16.2 makes generated custom-font modules expose every processed TTF/OTF family, including text-only collections, and prevents Classic `shades` and `color-module` runs from creating unrelated empty source folders. The release keeps the tutorial-production workspace outside source control.
 
-`brand` now creates the default config on a standalone Classic first run, adopts a positional logo only when no canonical source exists, follows `tiapp.xml` deployment targets, preserves useful Classic Android splash qualifiers, and uses full-bleed defaults for completed iOS/store artwork. Icon CommonJS modules expose font-family aliases, including `fontAwesome.solid`.
+Episodes `01-brand` through `06-icon-library` have final MP4, selectable English SRT, publishing metadata, and reproducible production files under `demos/classic-video-series/videos/<slug>/`. The episode roots contain only the three upload-ready deliverables; recording sources, recipes, narration, returned audio, accepted raw takes, cues, manifests, and receipts live under `production/`.
 
-The package release was published as tag `v7.15.0` at `https://github.com/macCesar/purgeTSS/releases/tag/v7.15.0`; the npm publish workflow completed at `https://github.com/macCesar/purgeTSS/actions/runs/33333341045`.
+`06-icon-library` was accepted and uploaded to YouTube as `MUr4pkUVdOU`. It is processed, public, in playlist `PLBgzic3Fjodc`, and its English caption track is serving. `07-build-fonts` was uploaded as `aCOWlH4LOOE`; it is processed, private, in the same playlist, and its English caption track is serving. The corrected English caption files for episodes 01 through 05 were uploaded over their existing tracks; those five videos remain public and processed.
 
-The official documentation changes were released as `purgetss-docs` v1.1.8 at `https://github.com/macCesar/purgetss-docs/releases/tag/v1.1.8`. The documentation site and Context7 Markdown mirror were intentionally not deployed or synchronized.
+The 06 recorder expands only `Resources/fonts/`, showing the three generated Font Awesome TTF filenames without opening a font preview. Its Classic runtime uses `require('lib/fontawesome')` and proves Solid, Regular, and Brands on an iPhone 17 Pro simulator. The recorder also boots and warms the simulator in the background, terminates the disposable app before capture, and activates Simulator only for the scheduled runtime proof.
+
+The reusable technical-video skill now documents background simulator preparation, supports replacing an existing YouTube caption track through `captions.update`, and requires a normalized YouTube delivery master before a preview can become `<slug>-final.mp4`. The new quality gate checks CFR, bitrate, H.264 High Profile, yuv420p, BT.709, AAC/48 kHz, and MP4 fast start.
 
 ## In flight
 
-No code, test, documentation, or release work remains in flight.
+- `07-build-fonts` is finalized and uploaded privately with its measured ElevenLabs audio, external English SRT, publishing metadata, reproducible accepted take, cue sheet, and validated 4K YouTube master. The CLI, tests, official docs, TiTools source skill, fixture, and recording plan include the corrected normal-font family exports. The final edit uses the iPhone 17 Pro on iOS 26.5, removes passive build time, starts the intact final narration paragraph at `01:09` with the visible `ti build` typing, preserves its original volume, and holds the finished interface after narration.
+- The series still needs the user's visibility decision for `07-build-fonts` and the complete `08-purgetss-module` episode.
+- `08-purgetss-module` is intentionally last and should be a longer demonstration of the generated `purgetss.ui.js` module, including its broader UI, state, movement, color, position, and animation capabilities.
+- Episodes 01 through 06 need their delivery masters regenerated later from the best available raw capture and reproducible edit, using the same 4K/CFR 30/H.264 High/BT.709/AAC 48 kHz/fast-start gate as episode 07. Never obtain these replacements by transcoding the already compressed final MP4 merely to raise its nominal bitrate; preserve each approved edit and verify it again before any replacement upload.
+- Add the required ElevenLabs attribution and link to the publishing metadata for episodes 01 through 06, then update the descriptions of their existing YouTube videos. Episode 07 already includes the attribution. Do not put the attribution in the video title.
+- After all eight videos and their publication are complete, create a separate repository from pristine copies of `demos/classic-video-series/projects`. Its README must explain prerequisites, commands, per-episode usage, build steps where applicable, and link to `https://www.youtube.com/playlist?list=PLBgzic3Fjodc`. Do not include generated outputs, recording temporaries, or VS Code state.
+- The entire `demos/` tree is temporary local production material and must not be included in the final PurgeTSS repository. Keep it in place until the series and the separate examples repository are complete, then remove it from PurgeTSS only after verifying the migration.
+- After refining the recording skill and proving it with at least one tutorial unrelated to PurgeTSS, generalize and publish it. AISkills is the preferred home for the generic tutorial producer/director workflow; TiTools should contain only a Titanium/PurgeTSS specialization if one remains necessary.
+- Treat vertical delivery as a later phase: generate dedicated 9:16 versions for YouTube Shorts, TikTok, and Instagram Reels, with optional word-synchronized on-screen text, intelligent point-of-interest reframing, and split layouts for programming demos. Keep the horizontal 4K masters unchanged while that workflow is designed and tested.
 
 ## Next step
 
-If a Slack announcement is still wanted, start from the Classic compatibility matrix and publish in English. The previous stored Slack draft covered v7.3–v7.5; a new draft should cover v7.6–v7.15 without collapsing the detailed Classic command behavior into a vague summary.
+Let César choose when to make `07-build-fonts` public, then begin planning `08-purgetss-module`.
 
 ## Verified vs. assumed
 
-- Verified: `npm test` passed, as did the documentation build and documentation checks.
-- Verified: the v7.15.0 GitHub release, tag, npm publication, and publishing workflow exist.
-- Verified: the v1.1.8 documentation GitHub release exists; both repositories were clean after release.
-- Verified: a real Classic run in `/Users/cesar/Developer/Apps/TestingBrand` was tested and restored cleanly.
-- Verified: Classic compatibility integration tests and icon-family module tests were added.
-- Assumed: the public documentation website and Context7 mirror remain unchanged because neither deployment action was requested.
+- Verified: `06-icon-library-final.mp4` is H.264/AAC and 84.485 seconds long.
+- Verified: the 06 recipe is finalized/synchronized; the approved narration text hash remained unchanged.
+- Verified through YouTube Data API: episodes 01–05 are public and processed; their corrected English caption tracks are `serving` and not drafts.
+- Verified through YouTube Data API: episode 06 is processed, public, present in playlist `PLBgzic3Fjodc`, and its English caption track is `serving` and not a draft.
+- Verified through YouTube Data API: episode 07 is processed, private, present in playlist `PLBgzic3Fjodc`, and its English caption track is `serving` and not a draft. Its title, English description with ElevenLabs attribution, 15 tags, Science & Technology category, English language, standard license, embedding, and not-made-for-kids declaration were applied.
+- Verified: disposable recording copies were removed and no font-preview extension remains installed.
+- Verified: the updated uploader and 06 recorder compile with Python; JSON and JavaScript source checks passed.
+- Verified: Poppins Light through Bold, Lora Regular through SemiBold, and ILI have valid PostScript metadata; both text families include their SIL OFL license files.
+- Verified: the exact 07 command copied nine native fonts, generated the `ili`-prefixed CommonJS lookup, and created no Alloy/TSS outputs.
+- Verified: the corrected generated module exposes every Poppins and Lora weight plus ILI through `families`, while retaining `icons.ili`; the full PurgeTSS test suite and ESLint pass.
+- Verified: the official documentation builds and the TiTools source skill test suite passes after documenting the corrected font-module contract.
+- Verified: the corrected 07 audio keeps paragraph 5 as one continuous source segment at its original level, beginning at `01:09` with the visible `ti build` typing. Its measured mean level is within `0.1 dB` of the preceding paragraph, with no gain or normalization applied.
+- Verified: `07-build-fonts-final.mp4` is 3840×2160 CFR 30 FPS, H.264 High/yuv420p at approximately 34.93 Mbps, BT.709, AAC 48 kHz, fast-start enabled, and 88.133 seconds long. The finished app remains visible for approximately 12.8 seconds, including roughly 3.1 seconds after narration.
+- Audited: episodes 01 through 06 are all 3840×2160 with BT.709 and retain their original high-resolution screen captures, but they predate the uniform delivery gate added for 07. Their container FPS/profile/audio/bitrate settings therefore vary; do not transcode those already compressed finals merely to inflate their nominal bitrate.
+- Verified: the redesigned 07 Classic app compiled with Titanium SDK 13.4.1.GA and rendered both text families, five visible Poppins weights, and four ILI icons on an iPhone 16 Pro simulator.
+- Verified on a real `04-shades` fragment: the new master normalizer produced 3840×2160 H.264 High Profile at constant 30 FPS, approximately 30 Mbps, yuv420p/BT.709, AAC at 48 kHz, and fast start; temporary test media was removed.
+- Not verified with `quick_validate.py`: the system Python lacks the `yaml` module. The edited skill files were inspected and their executable Python was syntax-checked.
