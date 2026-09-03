@@ -1,6 +1,6 @@
 # Status — 2026-09-03
 
-**Phase:** v7.16.2 release finalized; producing and publishing the PurgeTSS in Classic Apps video series
+**Phase:** v7.16.2 release finalized; video series published and moving into packaging and cleanup
 **Session by:** Codex · GPT-5
 **Branch:** `main`
 **Repository state:** release changes committed on `main`; the ignored local `demos/` workspace remains available for video production
@@ -12,6 +12,8 @@ PurgeTSS v7.16.2 makes generated custom-font modules expose every processed TTF/
 Episodes `01-brand` through `06-icon-library` have final MP4, selectable English SRT, publishing metadata, and reproducible production files under `demos/classic-video-series/videos/<slug>/`. The episode roots contain only the three upload-ready deliverables; recording sources, recipes, narration, returned audio, accepted raw takes, cues, manifests, and receipts live under `production/`.
 
 `06-icon-library` was accepted and uploaded to YouTube as `MUr4pkUVdOU`. It is processed, public, in playlist `PLBgzic3Fjodc`, and its English caption track is serving. `07-build-fonts` was uploaded as `aCOWlH4LOOE`; it is processed, public, in the same playlist, and its English caption track is serving. The corrected English caption files for episodes 01 through 05 were uploaded over their existing tracks; those five videos remain public and processed.
+
+All eight horizontal masters were also uploaded to TikTok. TikTok accepted the landscape format and exposes its native full-screen control. TikTok Studio Web does not import the external SRT files, so those uploads rely on TikTok's caption workflow instead of the selectable tracks used on YouTube.
 
 The 06 recorder expands only `Resources/fonts/`, showing the three generated Font Awesome TTF filenames without opening a font preview. Its Classic runtime uses `require('lib/fontawesome')` and proves Solid, Regular, and Brands on an iPhone 17 Pro simulator. The recorder also boots and warms the simulator in the background, terminates the disposable app before capture, and activates Simulator only for the scheduled runtime proof.
 
@@ -25,16 +27,16 @@ The reusable technical-video skill now documents background simulator preparatio
 - Motion Lab demonstrates `sequence`, `pulse`, `shake`, `transition`, `draggable`, `detectCollisions`, `snapTo`, and `Appearance.init/get/set/toggle`. Its visible appearance control now preserves the real first-run `SYSTEM` mode and cycles `SYSTEM → LIGHT → DARK → SYSTEM`. Android theme changes recreate the Activity, so the app distinguishes that transient lifecycle event from a final window close and keeps its controls active; recording actions must still allow the repaint to finish between selections. It keeps explicit animation durations, initializes drag only after the DRAG panel has visible geometry, and removes drag listeners on a genuine close.
 - All eight initial Classic fixtures now enable the iOS Launch Screen storyboard. Stable processed copies live at `/Users/PurgeTSS/01-brand` through `/Users/PurgeTSS/08-purgetss-module`; recording copies must continue to use short random suffixes and remain disposable.
 - `08-purgetss-module` was finalized from approved take 02 and uploaded to YouTube as `f3-OiPASRp8`. Its permanent recorder uses a fresh disposable copy, controls Motion, Layout and Appearance, then hands off one continuous bounded drag to the presenter before holding `Snapped to BUILD`. The video is public, belongs to playlist `PLBgzic3Fjodc`, its English caption track is serving, and YouTube finished processing the complete 1:46 upload through 4K.
+- Keep the existing YouTube upload of `05-color-module` unchanged so its URL, views and comments remain attached. A future corrected master that ends on the compiled purple palette screen is optional for later platforms or a supplemental video; YouTube cannot replace the uploaded media in place.
 - Episodes 01 through 06 need their delivery masters regenerated later from the best available raw capture and reproducible edit, using the same 4K/CFR 30/H.264 High/BT.709/AAC 48 kHz/fast-start gate as episode 07. Never obtain these replacements by transcoding the already compressed final MP4 merely to raise its nominal bitrate; preserve each approved edit and verify it again before any replacement upload.
-- Add the required ElevenLabs attribution and link to the publishing metadata for episodes 01 through 06, then update the descriptions of their existing YouTube videos. Episode 07 already includes the attribution. Do not put the attribution in the video title.
-- After all eight videos and their publication are complete, create a separate repository from pristine copies of `demos/classic-video-series/projects`. Its README must explain prerequisites, commands, per-episode usage, build steps where applicable, and link to `https://www.youtube.com/playlist?list=PLBgzic3Fjodc`. Do not include generated outputs, recording temporaries, or VS Code state.
+- Create a separate repository from pristine copies of `demos/classic-video-series/projects`. Its README must explain prerequisites, commands, per-episode usage, build steps where applicable, and link to `https://www.youtube.com/playlist?list=PLBgzic3Fjodc`. Do not include generated outputs, recording temporaries, or VS Code state.
 - The entire `demos/` tree is temporary local production material and must not be included in the final PurgeTSS repository. Keep it in place until the series and the separate examples repository are complete, then remove it from PurgeTSS only after verifying the migration.
 - After refining the recording skill and proving it with at least one tutorial unrelated to PurgeTSS, generalize and publish it. AISkills is the preferred home for the generic tutorial producer/director workflow; TiTools should contain only a Titanium/PurgeTSS specialization if one remains necessary.
-- Treat vertical delivery as a later phase: generate dedicated 9:16 versions for YouTube Shorts, TikTok, and Instagram Reels, with optional word-synchronized on-screen text, intelligent point-of-interest reframing, and split layouts for programming demos. Keep the horizontal 4K masters unchanged while that workflow is designed and tested.
+- Vertical 9:16 derivatives remain an optional future experiment for Shorts and Reels, not a pending requirement for TikTok; the horizontal masters have already been accepted there.
 
 ## Next step
 
-Continue with the deferred series cleanup and delivery tasks now that all eight videos are public and episode 08 is fully processed.
+Create and verify the separate repository of pristine Classic examples, then remove the ignored local `demos/` workspace only after confirming that every required source and production artifact has a safe destination.
 
 ## Verified vs. assumed
 
@@ -53,6 +55,8 @@ Continue with the deferred series cleanup and delivery tasks now that all eight 
 - Verified: `07-build-fonts-final.mp4` is 3840×2160 CFR 30 FPS, H.264 High/yuv420p at approximately 34.93 Mbps, BT.709, AAC 48 kHz, fast-start enabled, and 88.133 seconds long. The finished app remains visible for approximately 12.8 seconds, including roughly 3.1 seconds after narration.
 - Verified: `08-purgetss-module-final.mp4` is 3840×2160 CFR 30 FPS, H.264 High/yuv420p at approximately 34.93 Mbps, BT.709, AAC mono at 48 kHz, fast-start enabled, and 105.226 seconds long. The approved take ends on `Snapped to BUILD`; its disposable project was removed.
 - Verified through YouTube Data API and YouTube's published format listing: episode 08 is public as `f3-OiPASRp8`, appears once in playlist `PLBgzic3Fjodc`, its English caption track is `serving` and not a draft, processing succeeded, the complete duration is 1:46, and renditions are available through 3840×2160 at 30 FPS.
+- Verified through YouTube Data API: all eight remote descriptions include `elevenlabs.io` and exactly match their local upload manifests; no metadata update remains pending.
+- Verified by the user: all eight horizontal masters were uploaded to TikTok. The first upload preview displayed TikTok's native `Full screen` control and `Everyone` visibility. TikTok caption generation and correction were not independently verified from this session.
 - Audited: episodes 01 through 06 are all 3840×2160 with BT.709 and retain their original high-resolution screen captures, but they predate the uniform delivery gate added for 07. Their container FPS/profile/audio/bitrate settings therefore vary; do not transcode those already compressed finals merely to inflate their nominal bitrate.
 - Verified: the redesigned 07 Classic app compiled with Titanium SDK 13.4.1.GA and rendered both text families, five visible Poppins weights, and four ILI icons on the iPhone 17 Pro simulator.
 - Verified: all eight processed Classic sample projects compile, install, and launch on the iPhone 17 Pro simulator with iOS 26.5 and on the physical Android `CPH2639` device. Their launch screens and runtime screens were captured for visual inspection.
