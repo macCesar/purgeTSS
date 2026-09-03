@@ -9,3 +9,6 @@ CLAUDE.md
 GEMINI.md
 # Generated documentation that shouldn't be versioned
 dist/glossary/
+
+# Local tutorial production workspace (published separately)
+/demos/
