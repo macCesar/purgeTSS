@@ -2,6 +2,12 @@
 
 Append-only. Most recent entries first.
 
+## 2026-09-03 — Tutorial fixtures stay pristine; stable processed samples live outside the repository
+
+**Chose:** keep initial projects under the ignored `demos/` workspace without generated command outputs, enable the iOS Launch Screen storyboard in all eight `tiapp.xml` files, and keep separately processed copies named `01-brand` through `08-purgetss-module` under `/Users/PurgeTSS`.
+**Over:** compiling directly in the initial fixtures or using disposable hash-named copies as the long-lived test projects.
+**Because:** viewers need reproducible starting points, recordings need fresh VS Code state, and César also needs stable installed/output-complete projects for repeated iOS and Android tests.
+
 ## 2026-08-30 — Finished iOS/store square artwork is full-bleed by default
 
 **Chose:** `0%` as the default for `icon`, `dark`, `tinted`, and `marketplace`.
