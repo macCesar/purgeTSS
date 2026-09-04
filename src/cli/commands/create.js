@@ -14,7 +14,7 @@ import fs from 'fs'
 import path from 'path'
 import chalk from 'chalk'
 import inquirer from 'inquirer'
-import { exec, execSync } from 'child_process'
+import { exec, execFileSync } from 'child_process'
 import commandExistsSync from 'command-exists'
 import { logger } from '../../shared/logger.js'
 import { projectRoot } from '../../shared/constants.js'
@@ -26,13 +26,13 @@ import { start, finish } from '../utils/cli-helpers.js'
  * @param {Function} callback - Callback function
  */
 function robustDelete(folderPath, callback) {
-  const deleteCommand = `chown -R $USER "${folderPath}" 2>/dev/null; rm -rf "${folderPath}"`
-
-  exec(deleteCommand, (error) => {
+  // Use fs.rm instead of shelling out to `chown`/`rm`, avoiding command
+  // injection via folderPath (which can contain user-supplied project names).
+  fs.rm(folderPath, { recursive: true, force: true }, (error) => {
     if (error) {
       // Retry once after a brief delay for stubborn node_modules
       setTimeout(() => {
-        exec(`rm -rf "${folderPath}"`, (retryError) => {
+        fs.rm(folderPath, { recursive: true, force: true }, (retryError) => {
           if (retryError) {
             logger.error(`Failed to delete folder: ${retryError.message}`)
             return callback(retryError)
@@ -57,13 +57,13 @@ function robustDelete(folderPath, callback) {
  * @param {Object} options - Creation options
  */
 function createProject(workspace, argsName, projectID, options) {
-  const projectName = `"${argsName}"`
-  const projectDirectory = `${workspace}/${projectName}`
+  const projectDirectory = `${workspace}/${argsName}`
 
   logger.startSection()
   logger.info('Creating Titanium project', chalk.yellow(`'${argsName}'`), 'in', chalk.yellow(workspace))
-  execSync(`ti create -n ${projectName} -t app -p all --alloy --no-prompt --id ${projectID}`)
-  execSync(`cd ${projectDirectory} && purgetss w && purgetss b`)
+  execFileSync('ti', ['create', '-n', argsName, '-t', 'app', '-p', 'all', '--alloy', '--no-prompt', '--id', projectID])
+  execFileSync('purgetss', ['w'], { cwd: projectDirectory })
+  execFileSync('purgetss', ['b'], { cwd: projectDirectory })
 
   // Remove default index.tss file (not needed with PurgeTSS - app.tss is auto-generated)
   // Use argsName instead of projectName because projectName includes quotes for shell commands
@@ -92,29 +92,30 @@ function createProject(workspace, argsName, projectID, options) {
 
   if (options.vendor) {
     logger.info('Installing Fonts')
-    execSync(`cd ${projectDirectory} && purgetss il -m -v=${options.vendor}`)
+    execFileSync('purgetss', ['il', '-m', `-v=${options.vendor}`], { cwd: projectDirectory })
   }
 
   if (options.module) {
     logger.info(`Installing ${chalk.green('purgetss.ui')}`)
-    execSync(`cd ${projectDirectory} && purgetss m`)
+    execFileSync('purgetss', ['m'], { cwd: projectDirectory })
   }
 
   if (options.dependencies) {
     logger.info(`Creating a new ${chalk.yellow('package.json')} file`)
-    execSync(`cd ${projectDirectory} && npm init -y`)
-    execSync(`cd ${projectDirectory} && echo "/node_modules" >>.gitignore`)
+    execFileSync('npm', ['init', '-y'], { cwd: projectDirectory })
+    fs.appendFileSync(`${projectDirectory}/.gitignore`, '/node_modules\n')
     if (commandExistsSync.sync('code')) {
-      execSync(`cp -R ${path.resolve(projectRoot)}/dist/configs/vscode/ ${projectDirectory}/.vscode`)
+      fs.cpSync(`${path.resolve(projectRoot)}/dist/configs/vscode`, `${projectDirectory}/.vscode`, { recursive: true })
     }
-    execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.editorconfig ${projectDirectory}`)
+    fs.copyFileSync(`${path.resolve(projectRoot)}/dist/configs/invisible/.editorconfig`, `${projectDirectory}/.editorconfig`)
 
     logger.info(`Installing ${chalk.green('ESLint')}`)
-    execSync(`cd ${projectDirectory} && npm i -D eslint eslint-config-axway eslint-plugin-alloy --silent`)
-    execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.eslintrc.js ${projectDirectory}`)
+    execFileSync('npm', ['i', '-D', 'eslint', 'eslint-config-axway', 'eslint-plugin-alloy', '--silent'], { cwd: projectDirectory })
+    fs.copyFileSync(`${path.resolve(projectRoot)}/dist/configs/invisible/.eslintrc.js`, `${projectDirectory}/.eslintrc.js`)
 
     logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
-    execSync(`cd ${projectDirectory} && npm i -D tailwindcss@3 --silent && npx tailwindcss init`)
+    execFileSync('npm', ['i', '-D', 'tailwindcss@3', '--silent'], { cwd: projectDirectory })
+    execFileSync('npx', ['tailwindcss', 'init'], { cwd: projectDirectory })
   }
 
   finish(`The ${chalk.yellow(`'${argsName}'`)} project was created successfully in`)
@@ -122,11 +123,11 @@ function createProject(workspace, argsName, projectID, options) {
 
   // Auto-open editor like original v6
   if (commandExistsSync.sync('code')) {
-    execSync(`cd ${projectDirectory} && code .`)
+    execFileSync('code', ['.'], { cwd: projectDirectory })
   } else if (commandExistsSync.sync('subl')) {
-    execSync(`cd ${projectDirectory} && subl .`)
+    execFileSync('subl', ['.'], { cwd: projectDirectory })
   } else {
-    execSync(`cd ${projectDirectory} && open .`)
+    execFileSync('open', ['.'], { cwd: projectDirectory })
   }
 }
 
