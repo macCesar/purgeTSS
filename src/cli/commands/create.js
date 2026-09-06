@@ -110,8 +110,8 @@ function createProject(workspace, argsName, projectID, options) {
     execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.editorconfig ${projectDirectory}`)
 
     logger.info(`Installing ${chalk.green('ESLint')}`)
-    execSync(`cd ${projectDirectory} && npm i -D eslint eslint-config-axway eslint-plugin-alloy --silent`)
-    execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.eslintrc.js ${projectDirectory}`)
+    execSync(`cd ${projectDirectory} && npm i -D eslint @eslint/js --silent`)
+    execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/eslint.config.mjs ${projectDirectory}`)
 
     logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
     execSync(`cd ${projectDirectory} && npm i -D tailwindcss@3 --silent && npx tailwindcss init`)

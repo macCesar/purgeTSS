@@ -54,8 +54,8 @@ export function dependencies(options) {
 
   // Install ESLint
   logger.info(`Installing ${chalk.green('ESLint')}`)
-  execSync(`cd "${cwd}" && npm i -D eslint eslint-config-axway eslint-plugin-alloy`)
-  execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.eslintrc.js "${cwd}"`)
+  execSync(`cd "${cwd}" && npm i -D eslint @eslint/js`)
+  execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/eslint.config.mjs "${cwd}"`)
 
   // Install Tailwind CSS
   logger.info(`Installing ${chalk.green('Tailwind CSS')}`)
