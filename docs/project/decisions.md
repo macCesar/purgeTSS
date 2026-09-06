@@ -2,6 +2,18 @@
 
 Append-only. Most recent entries first.
 
+## 2026-09-05 — The `images:` section stays small; a source file carries its own configuration
+
+**Chose:** validate the five existing keys and add none.
+**Over:** promoting the `--width`, `--opacity`, `--padding` and `--output` flags into `images:` config keys.
+**Because:** `brand:` needs config because it generates a fixed set of 15 pieces with platform-dictated geometry from one logo, and per-piece variation has nowhere else to live. `images:` processes an open set of files the developer places, and each source already states most of its own configuration: its pixels are the width, its subfolder is the destination, its extension is the format. A semi-transparent padded logo is stored that way in the PNG. Adding those keys would reproduce in `config.cjs` what the file already says, which is how `brand:` grew to 24 lines with four empty piece blocks. The one case a file genuinely cannot answer is an SVG, which has no natural pixels; `files[]` already covers it.
+
+## 2026-09-05 — Unknown keys in `images:` are an error, matching `brand:`
+
+**Chose:** abort the run and list the valid keys, generating nothing.
+**Over:** ignoring unknown keys, as the section did before.
+**Because:** an ignored `qualty: 95` is indistinguishable from the default, so the typo produced the wrong output without reporting anything. `brand:` reached the same conclusion in 7.13.0 for the same reason. The check extends into `files[]` entries, where a missing `filename` matched no file and was skipped the same way.
+
 ## 2026-09-03 — Tutorial fixtures stay pristine; stable processed samples live outside the repository
 
 **Chose:** keep initial projects under the ignored `demos/` workspace without generated command outputs, enable the iOS Launch Screen storyboard in all eight `tiapp.xml` files, and keep separately processed copies named `01-brand` through `08-purgetss-module` under `/Users/PurgeTSS`.

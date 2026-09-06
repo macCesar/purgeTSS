@@ -42,4 +42,5 @@ Branding behavior is data-driven from `src/core/branding/pieces.js`. Project lay
 
 | When | Assistant · model | What it produced |
 | --- | --- | --- |
+| 2026-09-05 | Claude Code · Opus 5 (`claude-opus-5`) | `images:` key validation, the 4× convention in the generated config block, the eslint 9 flat-config scaffolding, and the tests that keep each duplicated shipped string in sync. |
 | 2026-08-30 | Codex · GPT-5 | Classic/deployment-aware brand pipeline, full-bleed iOS/store defaults, frame diagnostics, tests, and synchronized documentation. |

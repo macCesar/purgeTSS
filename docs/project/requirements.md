@@ -32,11 +32,19 @@ Source: `README.md`, `CHANGELOG.md`, CLI help, tests, and the official documenta
 | R9 | Generalize the technical tutorial video skill only after the current workflow is refined and proven with at least one non-PurgeTSS tutorial. | The reusable skill contains no PurgeTSS-specific project assumptions, can prepare another kind of technical tutorial from a conversational brief, and is published in the appropriate skills repository. Prefer AISkills for the generic producer/director workflow; keep only Titanium- or PurgeTSS-specific guidance in TiTools if an overlay is still useful. |
 | R10 | Keep every distributed Classic tutorial fixture directly runnable on current iOS and Android layouts, without placing generated command outputs in the pristine source. | Every `tiapp.xml` enables the iOS Launch Screen storyboard; a clean copy can run its documented PurgeTSS command and then compile, install, and launch on both target platforms. |
 
+## Images command
+
+| # | Must do | Accepted when |
+| --- | --- | --- |
+| R11 | Reject unknown keys in the `images:` section of `purgetss/config.cjs`, at the top level and inside each `files[]` entry, instead of ignoring them. | An unknown key aborts the run before anything is written, every problem is listed in one pass with the offending entry index, and the error names the valid keys. |
+| R12 | State in the generated config block where the output sizes come from, so the 4× master convention is readable without `--help`. | Every shipped copy of the block carries the convention with worked numbers, and a test proves the copies are identical and validate against the same whitelist. |
+
 ## Invariants
 
 - `brand.background` is inherited only by pieces that use an opaque canvas; piece padding is never globally inherited.
 - Project layout answers where files go. Deployment targets answer which platform families are generated. Neither substitutes for the other.
 - `dist/` is generated through the build scripts, never edited by hand.
+- A shipped string that exists in more than one file has a test tying the copies together. Two are covered: the `images:` config block and the ESLint template filename.
 - Root-level screenshots and temporary sample PNGs are not release artifacts.
 
 ## Out of scope for the current release
