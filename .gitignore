@@ -12,3 +12,10 @@ dist/glossary/
 
 # Local tutorial production workspace (published separately)
 /demos/
+
+# Conversation screenshots dropped in the project root (never release artifacts)
+/*.png
+/*.jpg
+/*.jpeg
+/screen-capture*
+/Captura*
