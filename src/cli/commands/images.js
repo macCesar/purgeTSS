@@ -21,6 +21,7 @@ import { runImages } from '../../core/images/index.js'
 import { logger } from '../../core/branding/branding-logger.js'
 import { readTiapp } from '../../core/branding/tiapp-reader.js'
 import { ensureImagesSection } from '../../core/images/ensure-images-section.js'
+import { assertKnownImagesKeys } from '../../core/images/images-config.js'
 import { detectProjectType } from '../utils/project-detection.js'
 
 const VALID_FORMATS = new Set(['webp', 'jpeg', 'jpg', 'png', 'avif', 'gif', 'tiff'])
@@ -41,6 +42,7 @@ export async function images(cliSource, options = {}) {
   if (!cliSource) ensureImagesSection({ projectRoot })
 
   const cfg = loadImagesSection(projectRoot)
+  assertKnownImagesKeys(cfg)
 
   // --android and --ios are mutually exclusive.
   if (options.android && options.ios) {
