@@ -19,8 +19,15 @@ import path from 'path'
 import chalk from 'chalk'
 import { logger } from '../branding/branding-logger.js'
 
-const IMAGES_BLOCK = `  images: {
-    quality: 85,             // JPEG/WebP/AVIF quality (0-100)
+// Exported so the test suite can validate the shipped block against the
+// whitelist in images-config.js — a drift between the two would ship a config
+// PurgeTSS itself generates and then rejects.
+export const IMAGES_BLOCK = `  // Sources in purgetss/images/ are 4x masters: a 1024px file yields
+  // 256 (mdpi/@1x), 384 (hdpi), 512 (xhdpi/@2x), 768 (xxhdpi/@3x), 1024 (xxxhdpi).
+  // There is no width to configure here — the source's own pixels decide.
+  // SVGs have no natural pixels; pin theirs in files: [] below.
+  images: {
+    quality: 85,             // webp/jpeg/avif/tiff quality (0-100); PNG and GIF ignore it
     format: null,            // null = keep original; 'webp' | 'jpeg' | 'png' to convert every image
     autoSync: true,          // false = SVG pipeline computes dims but doesn't write to images.files
     confirmOverwrites: true, // prompt before overwriting files (set false to skip)
