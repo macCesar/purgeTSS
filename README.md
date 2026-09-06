@@ -404,6 +404,11 @@ Button: {
 
 ## Recent changes
 
+### v7.17.0
+
+- **New projects get an ESLint setup that actually runs.** `install-dependencies` and `create --dependencies` now ship `eslint.config.mjs`, a flat config for eslint 9 that declares the Titanium and Alloy globals itself and installs only `eslint` and `@eslint/js`. The previous `.eslintrc.js` template stopped working when eslint 9 dropped eslintrc support and `eslint-config-axway@10.0.0` removed the `env-alloy` environment, so any project scaffolded since December 2025 had a lint that could not run. Generated libraries such as `materialsymbols.js` are ignored by name, leaving your own files in `app/lib/` linted.
+- **The `images:` config section reports typos instead of ignoring them.** An unknown key such as `qualty: 95` now aborts `purgetss images` before anything is written, listing the five valid top-level keys and the three valid keys inside a `files[]` entry. Previously the typo looked exactly like the default and quietly produced the wrong output. The generated block also documents the 4x master convention: a 1024px source yields 256, 384, 512, 768 and 1024, which is why there is no `width` key to configure.
+
 ### v7.16.2
 
 - **Custom-font modules now include every processed font family.** `purgetss build-fonts --module` exports TTF/OTF PostScript names through `families`, even when no icon CSS exists. With `--font-class-from-filename`, readable filename-derived keys such as `poppinsSemiBold` map to the exact Titanium `fontFamily` value.
