@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.17.1] - 2026-09-11
+
+### Changed
+- **The `notification-icon` piece now writes `notificationicon.png` instead of `ic_stat_notify.png`.** `ic_stat_notify` follows the Android convention for status-bar drawables, but in Titanium this piece exists to feed `firebase.cloudmessaging`, and that module hardcodes the name: `TiFirebaseMessagingService.showNotification()` calls `getResource("notificationicon")`, falls back to `appicon` when the drawable is missing — the opaque launcher icon, which the status bar renders as a white blob because only the alpha channel survives — and then to `android.R.drawable.stat_sys_warning`. Under the old name a data message never found the icon no matter what the manifest said, because the `default_notification_icon` meta-data is the only configurable path and it covers notification messages alone. The new name serves both routes: data messages resolve it by its hardcoded name, and the meta-data snippet printed after the run now points at `@drawable/notificationicon`. The filename stays fixed rather than becoming a config key for the same reason `appicon.png` and `DefaultIcon.png` are fixed — the consumer dictates it, so any other value would only produce a build that quietly loses its icon. Projects that already wired `@drawable/ic_stat_notify` by hand need to update that one meta-data line and delete the five stale files.
+
 ## [7.17.0] - 2026-09-05
 
 ### Fixed

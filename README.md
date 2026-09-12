@@ -404,6 +404,10 @@ Button: {
 
 ## Recent changes
 
+### v7.17.1
+
+- **The Android notification icon is now generated as `notificationicon.png`.** `firebase.cloudmessaging` resolves that drawable by name, so under the old `ic_stat_notify.png` a data message never found it and fell back to the opaque `appicon` — which the status bar renders as a white blob. The `default_notification_icon` meta-data, the only configurable path, covers notification messages alone, so no manifest entry could fix it. The snippet printed after a run now points at `@drawable/notificationicon`. If you already wired `@drawable/ic_stat_notify` by hand, update that one line and delete the five stale files.
+
 ### v7.17.0
 
 - **New projects get an ESLint setup that actually runs.** `install-dependencies` and `create --dependencies` now ship `eslint.config.mjs`, a flat config for eslint 9 that declares the Titanium and Alloy globals itself and installs only `eslint` and `@eslint/js`. The previous `.eslintrc.js` template stopped working when eslint 9 dropped eslintrc support and `eslint-config-axway@10.0.0` removed the `env-alloy` environment, so any project scaffolded since December 2025 had a lint that could not run. Generated libraries such as `materialsymbols.js` are ignored by name, leaving your own files in `app/lib/` linted.
