@@ -7,7 +7,13 @@
  * property, so all non-transparent pixels become white. Color info is discarded.
  *
  * Sizes: mdpi=24, hdpi=36, xhdpi=48, xxhdpi=72, xxxhdpi=96.
- * Output path: drawable-<density>/ic_stat_notify.png
+ * Output path: drawable-<density>/notificationicon.png
+ *
+ * The filename is fixed, not configurable: firebase.cloudmessaging resolves it
+ * by name in TiFirebaseMessagingService.showNotification() via
+ * getResource('notificationicon'), and falls back to the opaque appicon when it
+ * is missing. Only the default_notification_icon meta-data is configurable, and
+ * that path covers notification messages alone, not data messages.
  *
  * Notification icons are NOT masked by the launcher, so they render as drawn.
  * Trim any transparent padding in the master first, then scale the logo to
@@ -44,7 +50,7 @@ export async function genNotification(tightMaster, resRoot) {
     const dir = path.join(resRoot, `drawable-${name}`)
     fs.mkdirSync(dir, { recursive: true })
 
-    const outPath = path.join(dir, 'ic_stat_notify.png')
+    const outPath = path.join(dir, 'notificationicon.png')
 
     const whitened = await sharp(trimmedMaster)
       .resize({

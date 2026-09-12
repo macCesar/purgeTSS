@@ -38,7 +38,7 @@ module.exports = {
 
     // Opt-in: inert until you edit the Android theme / FCM meta-data by hand.
     splashIcon:       { enabled: false },   // drawable-*/splash_icon.png × 5
-    notificationIcon: { enabled: false },   // drawable-*/ic_stat_notify.png × 5
+    notificationIcon: { enabled: false },   // drawable-*/notificationicon.png × 5
     ninePatch:        { enabled: false }    // background.9.png (not implemented yet)
   },
   images: {

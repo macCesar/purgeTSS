@@ -26,7 +26,7 @@
  *
  *   Opt-in — inert until the user edits XML by hand, so they stay off:
  *     splash-icon       drawable-*\/splash_icon.png × 5  (--splash-icon)
- *     notification-icon drawable-*\/ic_stat_notify.png × 5 (--notification-icon)
+ *     notification-icon drawable-*\/notificationicon.png × 5 (--notification-icon)
  *     nine-patch        background.9.png                (--nine-patch, not implemented)
  *
  * The PIPELINE map below is the single source of truth for what each piece
@@ -300,7 +300,7 @@ const PIPELINE = {
     variant: 'square',
     root: 'android-res',
     maxLogoPx: () => 96,
-    describe: (ctx) => [`${ctx.androidResRoot}/drawable-*/ic_stat_notify.png × 5`],
+    describe: (ctx) => [`${ctx.androidResRoot}/drawable-*/notificationicon.png × 5`],
     run: async(ctx, piece, master) => {
       const monoLabel = ctx.monoMaster ? ' from monochrome logo' : ' whitened from logo'
       logger.bullet(`Notification icons (white+alpha, edge-to-edge${monoLabel}) × 5`)

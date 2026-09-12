@@ -289,7 +289,7 @@ function printFullNotes(view) {
     console.log()
     console.log('     Then under <application> in tiapp.xml:')
     console.log(code('       <meta-data android:name="com.google.firebase.messaging.default_notification_icon"'))
-    console.log(code('                  android:resource="@drawable/ic_stat_notify"/>'))
+    console.log(code('                  android:resource="@drawable/notificationicon"/>'))
     console.log(code('       <meta-data android:name="com.google.firebase.messaging.default_notification_color"'))
     console.log(code('                  android:resource="@color/notification_tint"/>'))
   }

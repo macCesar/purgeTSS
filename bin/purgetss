@@ -326,7 +326,7 @@ By convention (generated when its logo file is there, or with ${chalk.cyan('--on
 
 Opt-in (inert until you edit the Android theme / FCM meta-data by hand):
   ${chalk.yellow('splash-icon')}        drawable-*/splash_icon.png × 5      (${chalk.cyan('--splash-icon')})
-  ${chalk.yellow('notification-icon')}  drawable-*/ic_stat_notify.png × 5   (${chalk.cyan('--notification-icon')})
+  ${chalk.yellow('notification-icon')}  drawable-*/notificationicon.png × 5   (${chalk.cyan('--notification-icon')})
   ${chalk.yellow('nine-patch')}         background.9.png                    (${chalk.cyan('--nine-patch')}, not implemented yet)
 
 ${chalk.cyan('--only')} filters that list. Groups: ${chalk.yellow('ios')}, ${chalk.yellow('store')}, ${chalk.yellow('android')}.
@@ -369,7 +369,7 @@ Examples:
   .option('--android-splash-corner-radius <n>', `Android <12 splash artwork corner radius % (default: ${DEFAULT_ARTWORK_CORNER_RADIUS})`, cornerRadiusFlag)
   .option('--feature-graphic-corner-radius <n>', `Feature Graphic artwork corner radius % (default: ${DEFAULT_ARTWORK_CORNER_RADIUS})`, cornerRadiusFlag)
   .option('--launch-logo-corner-radius <n>', `LaunchLogo artwork corner radius % (default: ${DEFAULT_ARTWORK_CORNER_RADIUS})`, cornerRadiusFlag)
-  .option('--notification-icon', 'Also generate ic_stat_notify.png × 5 densities')
+  .option('--notification-icon', 'Also generate notificationicon.png × 5 densities')
   .option('--splash-icon', 'Also generate Android 12+ splash_icon.png × 5 densities')
   .option('--nine-patch', 'Also generate background.9.png (not implemented yet)')
   // One --<piece>-logo per piece, no exceptions: each overrides the matching

@@ -351,7 +351,7 @@ export const BRAND_PIECES = [
     groups: [],
     platforms: ['android'],
     mode: 'opt-in',
-    generates: 'drawable-*/ic_stat_notify.png × 5',
+    generates: 'drawable-*/notificationicon.png × 5',
     section: 'Android'
   },
   {
