@@ -2,6 +2,12 @@
 
 Append-only. Most recent entries first.
 
+## 2026-09-11 — The notification icon's filename is fixed, not configurable
+
+**Chose:** generate `notificationicon.png` and hardcode that name.
+**Over:** keeping `ic_stat_notify.png`, or exposing the name as a `brand.notificationIcon` config key.
+**Because:** the consumer dictates it. `firebase.cloudmessaging` resolves the drawable through `getResource("notificationicon")` in `TiFirebaseMessagingService.showNotification()`, and the `default_notification_icon` meta-data — the only configurable path — covers notification messages alone, so it cannot rescue a data message. Any other value would produce a build that quietly falls back to the opaque `appicon` and renders a white blob in the status bar. This is the same reason `appicon.png` and `DefaultIcon.png` are fixed: a config key here would only let a project misconfigure itself silently.
+
 ## 2026-09-05 — The `images:` section stays small; a source file carries its own configuration
 
 **Chose:** validate the five existing keys and add none.

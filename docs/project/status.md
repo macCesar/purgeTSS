@@ -1,43 +1,42 @@
-# Status — 2026-09-05
+# Status — 2026-09-11
 
-**Phase:** v7.17.0 released and published to npm
-**Session by:** Claude Code · Opus 5 (`claude-opus-5`)
-**Branch:** `main`, clean, pushed
-**Repository state:** 5 commits landed, tag `v7.17.0` pushed, `publish.yml` published to npm
+**Phase:** v7.17.1 released and published to npm
+**Session by:** Claude Code · Opus 5 (`claude-opus-5[1m]`)
+**Branch:** `main`, clean, pushed, level with `origin/main`
+**Repository state:** 2 commits landed (`85cb0c3`, `9fa4a6a`), tag `v7.17.1` pushed, `publish.yml` published to npm
 
 ## Where things stand
 
-v7.17.0 shipped. It carries two independent pieces of work.
+v7.17.1 is a single-purpose patch. The `notification-icon` piece now writes `notificationicon.png` instead of `ic_stat_notify.png`.
 
-The `images:` config section now rejects unknown keys instead of ignoring them, mirroring what `brand:` has done since 7.13.0. The generated block also documents the 4× master convention with worked numbers, because that rule lived only in `--help` and in the official docs, never in the file someone reads while wondering why a 1024px source produced a 256px output.
+`ic_stat_notify` is the Android convention for status-bar drawables, and it was the wrong convention here: in Titanium this piece exists to feed `firebase.cloudmessaging`, and that module hardcodes the name. `TiFirebaseMessagingService.showNotification()` calls `getResource("notificationicon")` and falls back to `appicon` when the drawable is missing — the opaque launcher icon, which the status bar renders as a white blob, since only the alpha channel survives. So a data message never found the icon regardless of what the manifest said: the `default_notification_icon` meta-data is the only configurable path, and it covers notification messages alone. The new name serves both routes, and the meta-data snippet printed after a run now points at `@drawable/notificationicon`.
 
-The ESLint scaffolding shipped by `install-dependencies` and `create --dependencies` was broken and silent: the `.eslintrc.js` template stopped working when eslint 9 dropped eslintrc and `eslint-config-axway@10.0.0` removed `env-alloy`. Any project scaffolded since December 2025 had a lint that could not run. It now ships `eslint.config.mjs`, a flat config that declares the Titanium and Alloy globals itself.
-
-The design conversation behind the first piece matters more than the code: the decision was to *not* add config keys. See `decisions.md` 2026-09-05.
-
-The official docs shipped separately as `purgetss-docs` v1.1.13, deployed and mirrored. That release's recorded blocker — documenting a PurgeTSS version that was not yet published — is resolved by this one.
+The change reached seven files: the generator, the piece table, the pipeline description, the post-run notes, `brand --help`, the config template, and the fixture config. The code was already in the working tree when this session started; this session grouped it into one semantic commit, promoted the CHANGELOG entry, wrote the README section, and shipped it.
 
 ## In flight
 
 Nothing in this repository.
 
-The Classic video series is complete and published; its remaining optional item is regenerating the delivery masters for episodes 01 through 06 from their best source captures, using the same 4K/CFR 30/H.264 High/BT.709/AAC 48 kHz/fast-start gate as episode 07. Never obtain those replacements by transcoding an already compressed final merely to raise its nominal bitrate. Keep the current YouTube uploads unchanged unless a separate replacement decision is made. The per-episode verification record for that finished work is in the git history of this file (`git log docs/project/status.md`); it was compressed here because it documents completed work.
+The sibling `purgetss-docs` still documents the old filename in three files: `docs/commands.md`, `docs/app-assets/1-app-icons-and-branding.md`, and `docs/customization/1-configuring-guide.md`. Those edits were not made here and are the one open item this release created.
+
+The Classic video series is complete and published; its remaining optional item is regenerating the delivery masters for episodes 01 through 06 from their best source captures, using the same 4K/CFR 30/H.264 High/BT.709/AAC 48 kHz/fast-start gate as episode 07. Never obtain those replacements by transcoding an already compressed final merely to raise its nominal bitrate. Keep the current YouTube uploads unchanged unless a separate replacement decision is made.
 
 ## Next step
 
-Nothing pending. The next natural piece of work is the drift risk this session surfaced twice: a shipped string that lives in more than one file with nothing tying the copies together. Two instances were found and closed with tests (the `images:` block in two places, the ESLint template filename in three). Whether others exist has not been audited.
+Update the three `purgetss-docs` pages and release that site, so the documentation stops naming a file PurgeTSS no longer generates.
+
+The drift risk recorded on 2026-09-05 is still open and unaudited: whether any shipped string other than the two already closed with tests lives in more than one file with nothing tying the copies together. This release is a fresh example of the shape — one filename spread across seven files plus a sibling repository — though here the spread is descriptive text rather than a value a test could compare.
 
 ## Verified vs. assumed
 
-- Verified: `npm test` passed in full before the tag was pushed — unit 27/27, integration 7/7, e2e 6/6.
-- Verified: `npm view purgetss version` returns `7.17.0`; `dist-tags.latest` is `7.17.0`.
-- Verified: `publish.yml` run 34004815426 finished green, including its tag-vs-`package.json` guard.
-- Verified: the GitHub release exists at `https://github.com/macCesar/purgeTSS/releases/tag/v7.17.0`.
-- Verified by the user: `purgetss images` ran in a real project (`~/Developer/Apps/tombola`) with the new code and the generated images were inspected and accepted.
-- Verified: both new tests fail when the thing they guard drifts. Deliberately desynchronizing one copy of the `images:` block, dropping a key from the whitelist, and renaming the ESLint template in `create.js` each produced the expected failure; all were restored.
-- Verified: the error output quoted in the official docs is a byte-for-byte copy of a real run, not composed by hand.
-- Verified: a 1024×1024 source produces 256/384/512/768/1024 on Android and 256/512/768 on iPhone, measured with `sips` on generated files.
-- Verified: the sibling `purgetss-docs` edits from this session are committed in `a5547b3` and released as v1.1.13.
-- Assumed, not verified: that no other shipped string is duplicated across files without a test. Only the two found were checked.
-- Assumed, not verified: the ESLint scaffolding was reviewed and covered by tests here, but no one ran `purgetss create` end to end against a real npm install in this session.
-- Pre-existing and untouched: `tests/unit/shared/helpers.test.js` prints `Some modules failed validation!` (15/16). Confirmed present before this session's changes by stashing them; the runner still counts the file as passing.
+- Verified: `npm test` passed in full before the first commit — unit 27/27, integration and e2e green — and the working tree was unchanged by the run.
+- Verified: `publish.yml` run 34665290402 finished green in 1m0s, including its tag-vs-`package.json` guard, `npm ci`, `npm run build`, `npm test` and `npm publish`.
+- Verified: `npm view purgetss version` returns `7.17.1` and `dist-tags.latest` is `7.17.1`.
+- Verified: the GitHub release exists at `https://github.com/macCesar/purgeTSS/releases/tag/v7.17.1`.
+- Verified: `git status --short --branch` reports `## main...origin/main` with no divergence and no dirty files; `git log @{u}..HEAD` is empty.
+- Verified: `package.json` `files` does not include `docs/`, so this session note lands outside the published tarball.
+- Verified: `grep -rn ic_stat_notify` over this repository returns only the CHANGELOG — the new 7.17.1 entry, which names the old file deliberately, and the historical 7.13.0 entry.
+- Verified: the three stale `purgetss-docs` files were found by grep in that repository; nothing in them was changed.
+- Assumed, not verified: no one ran `purgetss brand --notification-icon` against a real Android project with `firebase.cloudmessaging` in this session. The fix is reasoned from the module's source and tested only through the shipped suite, which does not cover this piece's filename.
+- Assumed, not verified: that projects which wired `@drawable/ic_stat_notify` by hand will notice the migration note. Nothing in the CLI detects or reports the stale files.
+- Pre-existing and untouched: `tests/unit/shared/helpers.test.js` prints `Some modules failed validation!` (15/16); the runner still counts the file as passing.
