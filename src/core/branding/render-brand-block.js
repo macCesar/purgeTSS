@@ -95,7 +95,8 @@ export function renderBrandBlock(overrides = {}, opts = {}) {
   defaults.forEach((piece) => lines.push(pieceLine(piece, false)))
 
   lines.push('')
-  lines.push(`${inner}// Opt-in: inert until you edit the Android theme / FCM meta-data by hand.`)
+  lines.push(`${inner}// Opt-in: splash_icon stays inert until the Android theme points at it.`)
+  lines.push(`${inner}// notificationicon is read by firebase.cloudmessaging, by that exact name.`)
   optIn.forEach((piece, i) => lines.push(pieceLine(piece, i === optIn.length - 1)))
 
   lines.push(`${indent}},`)

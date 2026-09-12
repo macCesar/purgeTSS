@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **The comment above the opt-in pieces in the generated config now says what each one needs.** It read `Opt-in: inert until you edit the Android theme / FCM meta-data by hand`, which stopped being true for the notification icon in 7.17.1: `firebase.cloudmessaging` resolves `notificationicon` by name, so a data message finds the drawable with no XML at all, and the `default_notification_icon` meta-data covers notification messages alone. The two lines now name the consumer of each piece. `renderBrandBlock()` and the two shipped copies of the block are updated together, as the migration test requires.
+
 ## [7.17.1] - 2026-09-11
 
 ### Changed

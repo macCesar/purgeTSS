@@ -36,7 +36,8 @@ module.exports = {
     appicon:          { padding: '10%' },   // appicon.png (128×128)
     androidSplash:    { padding: '26%' },   // assets/android/default.png + images/res-*/default.png × 11
 
-    // Opt-in: inert until you edit the Android theme / FCM meta-data by hand.
+    // Opt-in: splash_icon stays inert until the Android theme points at it.
+    // notificationicon is read by firebase.cloudmessaging, by that exact name.
     splashIcon:       { enabled: false },   // drawable-*/splash_icon.png × 5
     notificationIcon: { enabled: false },   // drawable-*/notificationicon.png × 5
     ninePatch:        { enabled: false }    // background.9.png (not implemented yet)
