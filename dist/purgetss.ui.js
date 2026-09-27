@@ -97,7 +97,7 @@ function Animation(args = {}) {
 
     // Read REAL positions — rect gives actual rendered position, no stale variables
     const targetRect = view2.rect
-    const sourceHome = { top: view1._originTop ?? view1.top, left: view1._originLeft ?? view1.left }
+    const sourceHome = resolvePosition(view1)
 
     // Source goes to target's real position, target goes to source's home
     const dest1Top = targetRect.y
