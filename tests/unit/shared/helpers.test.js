@@ -246,10 +246,10 @@ async function testUtilsModule() {
     const functions = Object.keys(utils)
 
     console.log('✅ Utils Module test:')
-    console.log(`   Functions found: ${functions.length}/33 expected`)
+    console.log(`   Functions found: ${functions.length}/34 expected`)
     console.log(`   Functions: ${functions.slice(0, 5).join(', ')}${functions.length > 5 ? '...' : ''}`)
 
-    return functions.length === 33  // Updated to actual count
+    return functions.length === 34  // Updated to actual count
   } catch (error) {
     console.error('❌ Error in utils module test:', error.message)
     return false
@@ -313,7 +313,7 @@ async function runTests() {
     testScrollingModule(),          // 20 functions
     testTypographyModule(),         // 12 functions
     testUIPropertiesModule(),       // 69 functions
-    testUtilsModule(),              // 33 functions (actual count)
+    testUtilsModule(),              // 34 functions (actual count)
     testConfigManager(),            // Supporting module
     testSharedUtils()               // Supporting module
   ])
@@ -326,7 +326,7 @@ async function runTests() {
   console.log('📋 Summary:')
   console.log('   • All module counts match actual implementation')
   console.log('   • Core module: globalOptions (1 item)')
-  console.log('   • Utils module: 33 functions (post-migration actual count)')
+  console.log('   • Utils module: 34 functions (post-migration actual count)')
   console.log('   • Media module: 31 functions (duplicate addNegativeValues cleaned!)')
   console.log('   • Total functions: 381 across 14 helper modules')
 

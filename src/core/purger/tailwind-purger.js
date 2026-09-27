@@ -100,6 +100,14 @@ export function purgeTailwind(uniqueClasses, debug = false) {
   // if (line) purgedClasses += line;
   // });
 
+  // Classes written with platform/device prefixes (ios:, tablet:, ios:tablet:…), keyed by their base class
+  const conditionVariants = {}
+  cleanUniqueClasses.forEach(className => {
+    if (!helpers.conditionModifiers(className)) return
+    const baseClass = className.split(':').pop()
+    ;(conditionVariants[baseClass] = conditionVariants[baseClass] || []).push(className)
+  })
+
   const deviceClasses = []
   const titaniumClasses = []
   const anArrayOfCustomClasses = []
@@ -128,20 +136,10 @@ export function purgeTailwind(uniqueClasses, debug = false) {
         }
       }
 
-      if (cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`) > -1) {
-        deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`ios:${cleanTailwindClass}`)]))
-      }
-
-      if (cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`) > -1) {
-        deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`android:${cleanTailwindClass}`)]))
-      }
-
-      if (cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`) > -1) {
-        deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`tablet:${cleanTailwindClass}`)]))
-      }
-
-      if (cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`) > -1) {
-        deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`handheld:${cleanTailwindClass}`)]))
+      if (conditionVariants[cleanTailwindClass]) {
+        conditionVariants[cleanTailwindClass].forEach(className => {
+          deviceClasses.push(helpers.checkPlatformAndDevice(tailwindClass, className))
+        })
       }
 
       if (cleanUniqueClasses.indexOf(`children:${cleanTailwindClass}`) > -1) {

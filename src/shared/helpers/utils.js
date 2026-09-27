@@ -773,24 +773,57 @@ export function formatArbitraryValues(arbitraryValue, fromXMLs = false) {
   return (fromXMLs) ? `// Property not yet supported: ${arbitraryValue}` : null
 }
 
+const CONDITION_MODIFIERS = {
+  ios: ['platform', 'ios'],
+  android: ['platform', 'android'],
+  handheld: ['formFactor', 'handheld'],
+  tablet: ['formFactor', 'tablet']
+}
+
+/**
+ * Platform and device prefixes of a class name, e.g. ['ios', 'tablet'] for
+ * "ios:tablet:bg-red-500". Returns null when the class has no prefix or any
+ * prefix is not a platform/device modifier.
+ * @param {string} className - Class name as written in the view
+ * @returns {string[]|null} Modifiers in the order they were written
+ */
+export function conditionModifiers(className) {
+  const modifiers = className.split(':').slice(0, -1)
+  return (modifiers.length && modifiers.every(modifier => CONDITION_MODIFIERS[modifier])) ? modifiers : null
+}
+
+// Alloy keeps only the last [...] of a selector, so every condition must share
+// one bracket: '.ios:tablet:x[platform=ios formFactor=tablet]'
+function applyConditionModifiers(line, modifiers) {
+  const match = line.match(/^'([.#]?)([^'[]+)(?:\[([^\]]*)\])?'(.*)$/s)
+  if (!match) return `${line}\n`
+
+  const [, prefix, name, existing, rest] = match
+  const conditions = {}
+  if (existing) {
+    existing.trim().split(/\s+/).forEach(query => {
+      const [key, value] = query.split('=')
+      conditions[key] = value
+    })
+  }
+
+  const selector = `${modifiers.join(':')}:${name}`
+  for (const modifier of modifiers) {
+    const [key, value] = CONDITION_MODIFIERS[modifier]
+    if (conditions[key] && conditions[key] !== value) {
+      return `// Conflicting modifiers, class not generated: '${prefix}${selector}' (${key} is already ${conditions[key]})\n`
+    }
+    conditions[key] = value
+  }
+
+  const query = Object.entries(conditions).map(([key, value]) => `${key}=${value}`).join(' ')
+  return `'${prefix}${selector}[${query}]'${rest}\n`
+}
+
 export function checkPlatformAndDevice(line, className) {
-  // https://regex101.com/r/6VTh23/1
-  if (className.includes('ios:')) {
-    return (line.includes('platform=ios'))
-      ? `${line.replace(/[^'.][^']+|1/, 'ios:$&')}\n`
-      : `${line.replace(/[^'.][^']+|1/, 'ios:$&[platform=ios]')}\n`
-  } else if (className.includes('android:')) {
-    return (line.includes('platform=android'))
-      ? `${line.replace(/[^'.][^']+|1/, 'android:$&')}\n`
-      : `${line.replace(/[^'.][^']+|1/, 'android:$&[platform=android]')}\n`
-  } else if (className.includes('handheld:')) {
-    return (line.includes('formFactor=handheld'))
-      ? `${line.replace(/[^'.][^']+|1/, 'handheld:$&')}\n`
-      : `${line.replace(/[^'.][^']+|1/, 'handheld:$&[formFactor=handheld]')}\n`
-  } else if (className.includes('tablet:')) {
-    return (line.includes('formFactor=tablet'))
-      ? `${line.replace(/[^'.][^']+|1/, 'tablet:$&')}\n`
-      : `${line.replace(/[^'.][^']+|1/, 'tablet:$&[formFactor=tablet]')}\n`
+  const modifiers = conditionModifiers(className)
+  if (modifiers) {
+    return applyConditionModifiers(line, modifiers)
   } else if (className.includes('child:')) {
     return `${line.replace(/[^'.][^']+|1/, 'child:$&').replace(/{(.*)}/, '{ animationProperties: { child: $& } }')}\n`
   } else if (className.includes('children:')) {

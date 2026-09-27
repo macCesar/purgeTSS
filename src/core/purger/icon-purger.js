@@ -128,7 +128,7 @@ export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUnique
 
   let purgedClasses = ''
   const sourceTSS = fs.readFileSync(sourceFolder, 'utf8')
-  const hasMatches = cleanUniqueClasses.some(element => sourceTSS.includes(`'.${element}'`))
+  const hasMatches = cleanUniqueClasses.some(element => sourceTSS.includes(`'.${cleanClassNameFn(element)}'`))
 
   if (hasMatches) {
     // In debug mode the label is emitted by localFinish inline with the timing.
