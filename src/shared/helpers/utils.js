@@ -731,6 +731,10 @@ export function formatArbitraryValues(arbitraryValue, fromXMLs = false) {
     let properties = arbitraryValuesTable[rule]
 
     if (properties) {
+      if (rule === 'bg-from') {
+        properties = _.replace(properties, /{value1}/g, addTransparencyToHex(parseValue(value)))
+      }
+
       if (ruleParts[0] === 'rounded') {
         if (!value.includes(',')) {
           properties = _.replace(properties, /{value1}/g, parseValue(parseValue(value) / 2, sign))
