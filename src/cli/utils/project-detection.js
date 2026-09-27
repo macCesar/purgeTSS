@@ -14,6 +14,7 @@ import fs from 'fs'
 import path from 'path'
 import { alloyProject, classicProject } from '../../shared/utils.js'
 import { logger } from '../../shared/logger.js'
+import { detectProjectType } from '../../core/branding/tiapp-reader.js'
 
 /**
  * Check if current directory is an Alloy project
@@ -33,17 +34,7 @@ export { alloyProject } from '../../shared/utils.js'
  */
 export { classicProject } from '../../shared/utils.js'
 
-/**
- * Detect project type
- *
- * @param {string} projectRoot - Project root to inspect
- * @returns {string} Project type: 'alloy', 'classic', or 'unknown'
- */
-export function detectProjectType(projectRoot = process.cwd()) {
-  if (fs.existsSync(path.join(projectRoot, 'app', 'views'))) return 'alloy'
-  if (fs.existsSync(path.join(projectRoot, 'Resources'))) return 'classic'
-  return 'unknown'
-}
+export { detectProjectType }
 
 /**
  * Resolve the project-owned destinations used by standalone asset commands.

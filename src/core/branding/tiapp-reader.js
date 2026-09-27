@@ -117,8 +117,15 @@ function parseDeploymentTargets(xml, result) {
   return result
 }
 
-export function detectProjectType(projectRoot) {
-  if (fs.existsSync(path.join(projectRoot, 'app'))) return 'alloy'
+/**
+ * Detect project type. The only detector in the codebase: every command must
+ * agree on where a project's files go.
+ *
+ * @param {string} projectRoot - Project root to inspect
+ * @returns {string} Project type: 'alloy', 'classic', or 'unknown'
+ */
+export function detectProjectType(projectRoot = process.cwd()) {
+  if (fs.existsSync(path.join(projectRoot, 'app', 'views'))) return 'alloy'
   if (fs.existsSync(path.join(projectRoot, 'Resources'))) return 'classic'
   return 'unknown'
 }
