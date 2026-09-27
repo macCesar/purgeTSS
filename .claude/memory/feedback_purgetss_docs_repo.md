@@ -1,0 +1,11 @@
+---
+name: PurgeTSS docs live in a separate Docusaurus repo — check on every change
+description: Whenever changing purgeTSS at all (feat, fix, refactor, adjustment), grep the companion docs repo at /Users/cesar/Developer/openSource/purgetss-docs and update any referenced pages in the same workflow.
+type: feedback
+originSessionId: 3ab8460e-d5f2-4ce4-8a1a-0f8a663baaf0
+---
+The official PurgeTSS documentation site lives in a **separate Docusaurus repo** at `/Users/cesar/Developer/openSource/purgetss-docs` — NOT under the `purgeTSS` repo itself. Any change made in `/Users/cesar/Developer/openSource/purgeTSS` (fix, ajuste, new feature, refactor) must be paired with a check (and, if applicable, an edit) in the docs repo. Default assumption is that docs need to stay aligned; "I didn't see it in README, so nothing to update" is NOT a valid conclusion because the public docs are not in this repo at all.
+
+**Why:** During the v7.10.2 release I claimed "no docs to update" by pure reasoning, without grepping anything. The user challenged me, I admitted it was speculation, and only then did I discover the README never documented the legacy schema in the first place. The user then made the rule explicit and pointed me to the docs repo so I'd never default to that assumption again. Documentation drift between repos is invisible to grep when you don't even know the second repo exists. CLAUDE.md REGLA #1 ("no inventar respuestas para sonar inteligente") applies here too — claiming "no docs to update" without verifying IS inventing a claim.
+
+**How to apply:** On any task that modifies purgeTSS source, after the code change and before declaring done: cd into `/Users/cesar/Developer/openSource/purgetss-docs/docs/` and grep for the affected symbol (command name, flag name, config key, schema field, error-message string, public function name). If referenced, propose the doc patch alongside the code patch and treat it as part of the same unit of work (separate commit in the docs repo, since it's a different git repo). For genuinely internal changes (private function rename, dead-code removal, no behavioral change), the grep returns empty and no doc touch is needed — but the grep still happens. For `/release` runs, this check expands Step 1.6 (README documentation gaps) to include the external docs repo, not just `README.md` in the source repo.
