@@ -37,11 +37,15 @@ Branding behavior is data-driven from `src/core/branding/pieces.js`. Project lay
 - An opaque full-bleed source already contains its own background. Adding padding exposes PurgeTSS's canvas background and can create a contrasting frame.
 - The official docs are a sibling repository with a separate version, release, rsync deployment, and mirror-sync workflow. A clean CLI release does not publish those docs automatically.
 - `tests/README.md`, `tests/TESTING-GUIDE.md`, and some assistant context describe historical test counts; trust the current runner output.
+- `dist/utilities.tss` comes from `src/core/builders/auto-utilities-builder.js`: Titanium properties from `lib/completions/titanium/completions-v3.json`, plus the helpers that builder calls by name. Most helpers in `src/shared/helpers/` (for example `keyboardType()` in `input.js`) are reached only through `helperToBuildTailwindClasses()`, which nothing calls, so editing them changes no output. Check the `dist/` diff after `npm run build:tailwind`.
+- The completions data is not authoritative: it listed `KEYBOARD_APPEARANCE_*` under `keyboardType`. Verify generated values against the Titanium API before trusting them.
+- Alloy keeps only the last `[...]` of a TSS selector. Combined conditions go in one bracket: `[platform=ios formFactor=tablet]`.
 
 ## Provenance
 
 | When | Assistant · model | What it produced |
 | --- | --- | --- |
+| 2026-09-26 | Claude Code · Opus 5.5 (`claude-opus-5-5`) | Fixes from the TiTools skill audit: stacked platform/device modifiers, Font Awesome Pro/Beta module builds, `--vendor` validation, keyboard and `snap-magnet` class removals, `bg-from-(…)`, `images --width` bound, single project detector; the matching `purgetss-docs` corrections and `tests/unit/shared/generator-fixes.test.js`. |
 | 2026-09-11 | Claude Code · Opus 5 (`claude-opus-5[1m]`) | The v7.17.1 release: grouped the `notificationicon.png` rename already present in the working tree into one semantic commit, wrote the README entry, and shipped the tag. The rename itself was authored earlier, outside this session. |
 | 2026-09-05 | Claude Code · Opus 5 (`claude-opus-5`) | `images:` key validation, the 4× convention in the generated config block, the eslint 9 flat-config scaffolding, and the tests that keep each duplicated shipped string in sync. |
 | 2026-08-30 | Codex · GPT-5 | Classic/deployment-aware brand pipeline, full-bleed iOS/store defaults, frame diagnostics, tests, and synchronized documentation. |

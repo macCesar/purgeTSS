@@ -2,6 +2,30 @@
 
 Append-only. Most recent entries first.
 
+## 2026-09-26 — Platform and device conditions share one bracket; contradictions generate nothing
+
+**Chose:** stack one platform and one device modifier in either order and emit `'.ios:tablet:x[platform=ios formFactor=tablet]'`. A modifier that contradicts a condition the class already carries produces a comment in `app.tss` instead of a class.
+**Over:** one modifier per class, or appending a second `[...]`.
+**Because:** Alloy's styler (`STYLE_REGEX` in `commands/compile/styler.js`, Alloy 3.0.1) captures only the last bracket of a selector, so `[platform=ios][formFactor=tablet]` silently lost the platform. A class such as `[platform=ios][platform=android]` can never apply, and emitting it only hides the mistake.
+
+## 2026-09-26 — `(Npx)` arbitrary values are valid
+
+**Chose:** remove the class-syntax check that rejected `w-(100px)`.
+**Over:** keeping the check with a corrected message.
+**Because:** `w-(100px)` generates `width: '100px'`, explicit pixels that Titanium honors, while `w-(100)` is resolved with `ti.ui.defaultunit` (normally `dp`). The check called the unit redundant and suggested a fix that changed the rendered size.
+
+## 2026-09-26 — `snap-magnet` is removed until it is implemented
+
+**Chose:** delete `snap-magnet` and `snap-magnet-false` from the generator.
+**Over:** keeping them as reserved classes, or implementing the magnet now.
+**Because:** the classes were added on 2026-04-06 for a planned feature (the docs said "(planned) magnetic attraction while dragging near a target"), and `purgetss.ui.js` never read `snap.magnet` in any revision. A class that does nothing looks supported. If the magnet is built, the classes return with it.
+
+## 2026-09-26 — Unknown `--vendor` values stop `icon-library`
+
+**Chose:** accept every documented spelling (`materialsymbols` included) and abort before writing anything on an unrecognized value.
+**Over:** skipping unknown vendors silently, as before.
+**Because:** the documented plural copied nothing and exited 0, which is indistinguishable from success. Same reasoning as the `images:` and `brand:` key validation.
+
 ## 2026-09-11 — The notification icon's filename is fixed, not configurable
 
 **Chose:** generate `notificationicon.png` and hardcode that name.
