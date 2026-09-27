@@ -231,7 +231,6 @@ program
   .alias('i')
   .description(`Create a ${chalk.yellow('config.cjs')} file for your project`)
   .addHelpText('after', `\nCreate a minimal ${chalk.yellow('./purgetss/config.cjs')} file, allowing you to define customizations for new or existing classes`)
-  .option('--all', 'Create all files')
   .action(async (options) => {
     try {
       // Pass flag to indicate this is an explicit init command
