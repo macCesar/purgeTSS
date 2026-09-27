@@ -9,7 +9,6 @@
  *   - Square brackets:         top-[10px]  → top-(10px)
  *   - Empty parentheses:       wh-()       → wh-(<value>)
  *   - Whitespace in parens:    wh-( 200 )  → wh-(200)
- *   - Redundant px units:      top-(10px)  → top-(10)
  *
  * On any match the validator collects every offender, prints one block per
  * offender (file + line + fix, mirroring throwPreValidationError) and throws
@@ -76,18 +75,6 @@ const detectors = [
     return {
       issue: 'Whitespace inside parentheses',
       suggestion: `Remove the spaces: ${chalk.green(`"${rule}-(${value})"`)}`
-    }
-  },
-
-  // top-(10px) — units inside parens that PurgeTSS would strip anyway.
-  // Only flag when value is purely numeric+unit; never blanket-flag because
-  // some properties (durations, percentages) accept units.
-  function detectRedundantUnits(className) {
-    const m = className.match(/^([\w-]+)-\((-?\d+(?:\.\d+)?)px\)$/)
-    if (!m) return null
-    return {
-      issue: 'Explicit "px" unit is redundant',
-      suggestion: `PurgeTSS treats unit-less values as pixels: ${chalk.green(`"${m[1]}-(${m[2]})"`)}`
     }
   }
 ]
