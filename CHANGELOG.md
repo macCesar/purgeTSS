@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.18.0] - 2026-09-26
+
+### Fixed
+- **Stacked platform and device modifiers now generate their class.** `ios:tablet:bg-red-500` (in either order) was left in the unused-classes list; it now produces `'.ios:tablet:bg-red-500[platform=ios formFactor=tablet]'`. All conditions share one bracket because Alloy's styler keeps only the last `[...]` of a selector: the previous output for `tablet:` on an iOS-only class, `[platform=ios][formFactor=tablet]`, silently dropped the platform condition. A modifier that contradicts the class, such as `android:status-bar-dark` on the iOS-only `status-bar-dark`, is no longer emitted as `[platform=ios][platform=android]`; `app.tss` gets a comment naming the conflict instead.
+- **Icon classes written only with a modifier are generated.** `android:ms-home` produced nothing unless the bare `ms-home` also appeared somewhere, because the icon purger checked for matches before stripping the prefix.
+- **`bg-from-(#hex)` writes a real gradient.** It emitted the placeholder `{value1}` into `app.tss`; it now matches `from-(#hex)`, with the transparent start color filled in.
+- **`purgetss build` with Font Awesome Pro or Beta no longer fails with `ENOENT`.** The JS module builder looked for its templates under `src/dev/builders/lib/templates/` and without the `.cjs` extension, so the build stopped after `fontawesome.tss` and never wrote `fontawesome.js` or `definitions.css`.
+- **`icon-library --module` and `--styles` build the Font Awesome Pro/Beta files.** Both printed `Font Awesome JS module would be built` from a placeholder and wrote nothing. They now run the same builders as `purgetss build`; in Classic, `--module` writes `Resources/lib/fontawesome.js`.
+- **`icon-library --vendor` accepts `materialsymbols` and rejects unknown values.** Only `ms` and `materialsymbol` were recognized, so the plural the documentation uses copied nothing and still exited 0. Any unrecognized vendor now stops the command before it writes a file and lists the valid values.
+- **`keyboard-type-appearance*`, `login-keyboard-type-appearance*` and `password-keyboard-type-appearance*` are gone.** Titanium's completions list the `KEYBOARD_APPEARANCE_*` constants under the keyboard type properties, so these nine classes assigned an appearance constant to `keyboardType`. Use `keyboard-appearance`, `keyboard-appearance-dark` or `keyboard-appearance-light`.
+- **`swap()` resolves the source view's position from `rect` when it has no explicit `top`/`left`.** A view that was never dragged and had no position properties sent the target view to `top: undefined`.
+- **`images` writes to the same folders as every other command.** It detected Alloy from `app/` alone while the rest of the CLI requires `app/views/`, so a Classic project with a stray `app/` folder got its images in `app/assets/`. There is now a single `detectProjectType()`.
+- **`images --width` accepts 1 to 1024.** The limit was 8192, but `xxxhdpi` renders at 4× the width and every output is capped at 4096 px per side, so anything above 1024 passed validation, wrote the smaller densities, and then failed at the first one over the cap.
+- **The `padding` block in `utilities.tss` is no longer labeled Android-only.** `TextField` and `TextArea` accept `padding` on both platforms.
+
+### Removed
+- **`snap-magnet` and `snap-magnet-false`.** The animation module never read `snap.magnet`, so the classes did nothing.
+- **`init --all`.** The option was declared in 7.0.0 and never implemented.
+- **The class-syntax check that rejected `(Npx)` values.** It claimed PurgeTSS treats unit-less values as pixels, but unit-less values use `ti.ui.defaultunit` (normally `dp`), while `w-(100px)` generates `width: '100px'`, explicit pixels. The suggested fix changed the size. `(Npx)` values are valid again, as they were before 7.8.0.
+
 ### Changed
 - **The comment above the opt-in pieces in the generated config now says what each one needs.** It read `Opt-in: inert until you edit the Android theme / FCM meta-data by hand`, which stopped being true for the notification icon in 7.17.1: `firebase.cloudmessaging` resolves `notificationicon` by name, so a data message finds the drawable with no XML at all, and the `default_notification_icon` meta-data covers notification messages alone. The two lines now name the consumer of each piece. `renderBrandBlock()` and the two shipped copies of the block are updated together, as the migration test requires.
 
