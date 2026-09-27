@@ -7,6 +7,7 @@ import _ from 'lodash'
 import { logger } from '../../shared/logger.js'
 import { makeSureFolderExists } from '../../shared/utils.js'
 import { getProjectPaths, validateProject } from '../utils/project-detection.js'
+import { buildFontAwesome, buildFontAwesomeJS } from '../../dev/builders/fontawesome-builder.js'
 
 // Get current directory info
 const __filename = fileURLToPath(import.meta.url)
@@ -150,14 +151,30 @@ function copyFramework7IconsFonts(fontsFolder) {
   logger.item(chalk.green('Framework 7'))
 }
 
+// Every accepted --vendor spelling, mapped to its canonical code
+const VENDOR_ALIASES = {
+  fa: 'fa',
+  fontawesome: 'fa',
+  mi: 'mi',
+  materialicons: 'mi',
+  ms: 'ms',
+  materialsymbol: 'ms',
+  materialsymbols: 'ms',
+  f7: 'f7',
+  framework7: 'f7'
+}
+
 /**
- * Build Font Awesome JS module (imported from fonts.js)
- * This is a placeholder - actual implementation should be imported from fonts module
+ * Parse the --vendor option into canonical vendor codes
+ * @param {string} vendorOption - Comma-separated vendors, e.g. "fa,materialsymbols"
+ * @returns {{ vendors: string[], unknown: string[] }} Canonical codes and unrecognized values
  */
-function buildFontAwesomeJS() {
-  // This function should be imported from the fonts module
-  // For now, just log that it would be called
-  logger.item(chalk.yellow('Font Awesome JS module would be built'))
+export function parseVendors(vendorOption) {
+  // Clean vendor string - remove leading = and spaces
+  const names = vendorOption.replace(/^=/, '').replace(/ /g, '').split(',').filter(Boolean)
+  const unknown = names.filter(name => !VENDOR_ALIASES[name.toLowerCase()])
+  const vendors = _.uniq(names.map(name => VENDOR_ALIASES[name.toLowerCase()]).filter(Boolean))
+  return { vendors, unknown }
 }
 
 /**
@@ -170,7 +187,6 @@ function copyFont(vendor, fontsFolder) {
 
   switch (vendor) {
     case 'fa':
-    case 'fontawesome':
       if (fs.existsSync(srcFA_Beta_CSSFile)) {
         copyProFonts(srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder, fontsFolder)
       } else if (fs.existsSync(srcFA_Pro_CSS)) {
@@ -180,15 +196,12 @@ function copyFont(vendor, fontsFolder) {
       }
       break
     case 'mi':
-    case 'materialicons':
       copyMaterialIconsFonts(fontsFolder)
       break
     case 'ms':
-    case 'materialsymbol':
       copyMaterialSymbolsFonts(fontsFolder)
       break
     case 'f7':
-    case 'framework7':
       copyFramework7IconsFonts(fontsFolder)
       break
   }
@@ -202,26 +215,22 @@ function copyFont(vendor, fontsFolder) {
 function copyFontLibrary(vendor, libFolder) {
   switch (vendor) {
     case 'fa':
-    case 'fontawesome':
       if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
-        buildFontAwesomeJS()
+        buildFontAwesomeJS(libFolder)
       } else {
         fs.copyFileSync(srcLibFA, path.join(libFolder, 'fontawesome.js'))
         logger.item(chalk.yellow('fontawesome.js'))
       }
       break
     case 'mi':
-    case 'materialicons':
       fs.copyFileSync(srcLibMI, path.join(libFolder, 'materialicons.js'))
       logger.item(chalk.yellow('materialicons.js'))
       break
     case 'ms':
-    case 'materialsymbol':
       fs.copyFileSync(srcLibMS, path.join(libFolder, 'materialsymbols.js'))
       logger.item(chalk.yellow('materialsymbols.js'))
       break
     case 'f7':
-    case 'framework7':
       fs.copyFileSync(srcLibF7, path.join(libFolder, 'framework7icons.js'))
       logger.item(chalk.yellow('framework7icons.js'))
       break
@@ -235,26 +244,22 @@ function copyFontLibrary(vendor, libFolder) {
 function copyFontStyle(vendor) {
   switch (vendor) {
     case 'fa':
-    case 'fontawesome':
       if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
-        buildFontAwesomeJS()
+        buildFontAwesome()
       } else {
         fs.copyFileSync(srcFontAwesomeTSSFile, projectsPurge_TSS_Styles_Folder + '/fontawesome.tss')
         logger.item(chalk.yellow('fontawesome.tss'))
       }
       break
     case 'mi':
-    case 'materialicons':
       fs.copyFileSync(srcMaterialIconsTSSFile, projectsPurge_TSS_Styles_Folder + '/materialicons.tss')
       logger.item(chalk.yellow('materialicons.tss'))
       break
     case 'ms':
-    case 'materialsymbol':
       fs.copyFileSync(srcMaterialSymbolsTSSFile, projectsPurge_TSS_Styles_Folder + '/materialsymbols.tss')
       logger.item(chalk.yellow('materialsymbols.tss'))
       break
     case 'f7':
-    case 'framework7':
       fs.copyFileSync(srcFramework7FontTSSFile, projectsPurge_TSS_Styles_Folder + '/framework7icons.tss')
       logger.item(chalk.yellow('framework7icons.tss'))
       break
@@ -263,48 +268,22 @@ function copyFontStyle(vendor) {
 
 /**
  * Copy font libraries to project lib folder
- * @param {Object} options - Command options
+ * @param {string[]} vendors - Canonical vendor codes
  * @param {string} libFolder - Destination module folder
  */
-function copyFontLibraries(options, libFolder) {
+function copyFontLibraries(vendors, libFolder) {
   makeSureFolderExists(libFolder)
-
-  if (options.vendor && typeof options.vendor === 'string') {
-    // Clean vendor string - remove leading = and spaces
-    const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
-    const selected = _.uniq(cleanVendor.split(','))
-    _.each(selected, vendor => {
-      copyFontLibrary(vendor, libFolder)
-    })
-  } else {
-    copyFontLibrary('fa', libFolder)
-    copyFontLibrary('mi', libFolder)
-    copyFontLibrary('ms', libFolder)
-    copyFontLibrary('f7', libFolder)
-  }
+  _.each(vendors, vendor => copyFontLibrary(vendor, libFolder))
 }
 
 /**
  * Copy font styles to project styles folder
- * @param {Object} options - Command options
+ * @param {string[]} vendors - Canonical vendor codes
  */
-function copyFontStyles(options) {
+function copyFontStyles(vendors) {
   makeSureFolderExists(projectsPurgeTSSFolder)
   makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
-
-  if (options.vendor && typeof options.vendor === 'string') {
-    // Clean vendor string - remove leading = and spaces
-    const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
-    const selected = _.uniq(cleanVendor.split(','))
-    _.each(selected, vendor => {
-      copyFontStyle(vendor)
-    })
-  } else {
-    copyFontStyle('fa')
-    copyFontStyle('mi')
-    copyFontStyle('ms')
-    copyFontStyle('f7')
-  }
+  _.each(vendors, vendor => copyFontStyle(vendor))
 }
 
 /**
@@ -321,28 +300,32 @@ export async function copyFonts(options = {}) {
 
     const { projectType, fontsFolder, libFolder } = getProjectPaths()
 
+    const hasVendorOption = options.vendor && typeof options.vendor === 'string'
+    let vendors = ['fa', 'mi', 'ms', 'f7']
+
+    if (hasVendorOption) {
+      const parsed = parseVendors(options.vendor)
+      if (parsed.unknown.length || !parsed.vendors.length) {
+        const invalid = parsed.unknown.length ? parsed.unknown.join(', ') : options.vendor
+        logger.error(`Unknown --vendor value: ${chalk.yellow(invalid)}. Valid values: ${Object.keys(VENDOR_ALIASES).join(', ')}`)
+        return false
+      }
+      vendors = parsed.vendors
+    }
+
     makeSureFolderExists(fontsFolder)
 
-    if (options.vendor && typeof options.vendor === 'string') {
-      // Clean vendor string - remove leading = and spaces
-      const cleanVendor = options.vendor.replace(/^=/, '').replace(/ /g, '')
-      const selected = _.uniq(cleanVendor.split(','))
+    if (hasVendorOption) {
       logger.info('Copying Icon Fonts...')
-      _.each(selected, vendor => {
-        copyFont(vendor, fontsFolder)
-      })
     } else {
       logger.info('Copying Fonts to', chalk.yellow(path.relative(cwd, fontsFolder)), 'folder')
-      copyFont('fa', fontsFolder)
-      copyFont('mi', fontsFolder)
-      copyFont('ms', fontsFolder)
-      copyFont('f7', fontsFolder)
     }
+    _.each(vendors, vendor => copyFont(vendor, fontsFolder))
 
     if (options.module) {
       console.log()
       logger.info('Copying Modules to', chalk.yellow(path.relative(cwd, libFolder)), 'folder')
-      copyFontLibraries(options, libFolder)
+      copyFontLibraries(vendors, libFolder)
     }
 
     if (options.styles) {
@@ -351,7 +334,7 @@ export async function copyFonts(options = {}) {
       } else {
         console.log()
         logger.info('Copying Styles to', chalk.yellow('./purgetss/styles'), 'folder')
-        copyFontStyles(options)
+        copyFontStyles(vendors)
       }
     }
 

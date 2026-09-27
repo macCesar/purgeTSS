@@ -27,7 +27,6 @@ const cwd = process.cwd()
 const projectsFA_TSS_File = `${cwd}/purgetss/styles/fontawesome.tss`
 const projectsFontsFolder = `${cwd}/app/assets/fonts`
 const projectsLibFolder = `${cwd}/app/lib`
-const projectsFontAwesomeJS = `${cwd}/app/lib/fontawesome.js`
 
 // FontAwesome Pro CSS paths
 const srcFA_Pro_CSS = `${cwd}/node_modules/@fortawesome/fontawesome-pro/css/all.css`
@@ -198,8 +197,9 @@ export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamili
  * Process FontAwesome JS generation
  * @param {string} CSSFile - Path to CSS file
  * @param {string} faJS - Path to FontAwesome JS template
+ * @param {string} libFolder - Destination module folder
  */
-export function processFontAwesomeJS(CSSFile, faJS) {
+export function processFontAwesomeJS(CSSFile, faJS, libFolder = projectsLibFolder) {
   try {
     const cssContent = fs.readFileSync(CSSFile, 'utf8')
     const data = css.parse(cssContent)
@@ -238,9 +238,9 @@ export function processFontAwesomeJS(CSSFile, faJS) {
       }
     })
 
-    let fontAwesomeContent = fs.readFileSync(path.resolve(__dirname, faJS), 'utf8')
+    let fontAwesomeContent = fs.readFileSync(path.resolve(projectRoot, faJS), 'utf8')
 
-    fontAwesomeContent += '\n' + fs.readFileSync(path.resolve(__dirname, './lib/templates/icon-functions.js.cjs'), 'utf8')
+    fontAwesomeContent += '\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 
     let exportIcons = '\nconst icons = {\n'
 
@@ -258,13 +258,14 @@ export function processFontAwesomeJS(CSSFile, faJS) {
 
     fontAwesomeContent += exportIcons
 
-    makeSureFolderExists(projectsLibFolder)
+    makeSureFolderExists(libFolder)
 
-    fs.writeFileSync(projectsFontAwesomeJS, fontAwesomeContent, err2 => {
+    const fontAwesomeJS = path.join(libFolder, 'fontawesome.js')
+    fs.writeFileSync(fontAwesomeJS, fontAwesomeContent, err2 => {
       throw err2
     })
 
-    logger.file('./app/lib/fontawesome.js')
+    logger.file(`./${path.relative(cwd, fontAwesomeJS)}`)
   } catch (err) {
     throw err
   }
@@ -287,12 +288,13 @@ export function buildFontAwesome() {
 /**
  * Main FontAwesome JS builder function
  * Supports Beta and Pro versions
+ * @param {string} libFolder - Destination module folder (Alloy app/lib by default)
  */
-export function buildFontAwesomeJS() {
+export function buildFontAwesomeJS(libFolder = projectsLibFolder) {
   if (fs.existsSync(srcFA_Beta_CSSFile)) {
-    processFontAwesomeJS(srcFA_Beta_CSSFile, './lib/templates/fontawesome/beta-template.js')
+    processFontAwesomeJS(srcFA_Beta_CSSFile, './lib/templates/fontawesome/beta-template.js.cjs', libFolder)
   } else if (fs.existsSync(srcFA_Pro_CSS)) {
-    processFontAwesomeJS(srcFA_Pro_CSS, './lib/templates/fontawesome/pro-template.js')
+    processFontAwesomeJS(srcFA_Pro_CSS, './lib/templates/fontawesome/pro-template.js.cjs', libFolder)
   }
 }
 
