@@ -125,6 +125,19 @@ function testIconLibrary() {
   assertNoAlloyArtifacts(projectPath)
 }
 
+function testIconLibraryVendorAliases() {
+  const projectPath = createClassicProject('icon-aliases')
+
+  run(projectPath, 'icon-library', '--vendor=materialsymbols', '--module')
+
+  assert.ok(fs.existsSync(path.join(projectPath, 'Resources', 'fonts', 'MaterialSymbolsRounded-Regular.ttf')))
+  assert.ok(fs.existsSync(path.join(projectPath, 'Resources', 'lib', 'materialsymbols.js')))
+
+  const unknownPath = createClassicProject('icon-unknown')
+  assert.throws(() => run(unknownPath, 'icon-library', '--vendor=ms,bogus'), err => err.status === 1 && err.stdout.includes('bogus'))
+  assert.ok(!fs.existsSync(path.join(unknownPath, 'Resources', 'fonts')), 'unknown vendor wrote fonts before failing')
+}
+
 function testModule() {
   const projectPath = createClassicProject('module')
 
@@ -196,6 +209,7 @@ try {
   testExternalImageWithoutPurgeTSS()
   testImageDeploymentTargets()
   testIconLibrary()
+  testIconLibraryVendorAliases()
   testModule()
   testShadesAndColorModule()
   testCustomFonts()
