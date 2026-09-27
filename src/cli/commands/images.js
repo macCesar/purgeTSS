@@ -62,9 +62,10 @@ export async function images(cliSource, options = {}) {
     iphoneOnly = deploymentTargets.ios && !deploymentTargets.android
   }
 
+  // xxxhdpi renders at 4× --width, and gen-scales caps every output at 4096px per side
   if (options.width !== undefined) {
-    if (!Number.isFinite(options.width) || !Number.isInteger(options.width) || options.width < 1 || options.width > 8192) {
-      logger.error(`Invalid --width '${options.width}'. Must be an integer between 1 and 8192.`)
+    if (!Number.isFinite(options.width) || !Number.isInteger(options.width) || options.width < 1 || options.width > 1024) {
+      logger.error(`Invalid --width '${options.width}'. Must be an integer between 1 and 1024.`)
       process.exit(1)
     }
   }
