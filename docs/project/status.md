@@ -1,42 +1,49 @@
-# Status — 2026-09-11
+# Status — 2026-09-26
 
-**Phase:** v7.17.1 released and published to npm
-**Session by:** Claude Code · Opus 5 (`claude-opus-5[1m]`)
-**Branch:** `main`, clean, pushed, level with `origin/main`
-**Repository state:** 2 commits landed (`85cb0c3`, `9fa4a6a`), tag `v7.17.1` pushed, `publish.yml` published to npm
+**Phase:** v7.18.0 released and published to npm
+**Session by:** Claude Code · Opus 5.5 (`claude-opus-5-5`)
+**Branch:** `main`, pushed, level with `origin/main`; only `.claude/memory/` is untracked (César's, deliberately left out)
+**Repository state:** 11 semantic commits (`0616b78`..`8872b64`) plus release commit `ca48eb0`, tag `v7.18.0`, `publish.yml` run 36291062640 green
 
 ## Where things stand
 
-v7.17.1 is a single-purpose patch. The `notification-icon` piece now writes `notificationicon.png` instead of `ic_stat_notify.png`.
+v7.18.0 closes the CLI defects found while auditing the TiTools `purgetss` skill against this repo. Each one was reproduced with the CLI in a disposable project before it was fixed, except `swap()`, which was confirmed by reading the code only.
 
-`ic_stat_notify` is the Android convention for status-bar drawables, and it was the wrong convention here: in Titanium this piece exists to feed `firebase.cloudmessaging`, and that module hardcodes the name. `TiFirebaseMessagingService.showNotification()` calls `getResource("notificationicon")` and falls back to `appicon` when the drawable is missing — the opaque launcher icon, which the status bar renders as a white blob, since only the alpha channel survives. So a data message never found the icon regardless of what the manifest said: the `default_notification_icon` meta-data is the only configurable path, and it covers notification messages alone. The new name serves both routes, and the meta-data snippet printed after a run now points at `@drawable/notificationicon`.
+- Platform and device modifiers stack (`ios:tablet:`) and share one condition bracket; contradictions leave a comment in `app.tss`. Icons written only with a modifier are generated.
+- `bg-from-(#hex)` no longer writes `{value1}`.
+- `(Npx)` arbitrary values are accepted again.
+- `dist/utilities.tss` lost the nine `*-keyboard-type-appearance*` classes, `snap-magnet`, and the "Android Only" label on `padding`.
+- `icon-library`: every `--vendor` alias works, unknown values abort; Font Awesome Pro/Beta `--module`/`--styles` and `purgetss build` work (the builder had a wrong template path).
+- `images --width` is bounded at 1024; one `detectProjectType()` serves every command.
+- `init --all` removed.
 
-The change reached seven files: the generator, the piece table, the pipeline description, the post-run notes, `brand --help`, the config template, and the fixture config. The code was already in the working tree when this session started; this session grouped it into one semantic commit, promoted the CHANGELOG entry, wrote the README section, and shipped it.
+The reasoning is in `decisions.md` (2026-09-26 entries); the traps found along the way (dead helpers, unreliable completions data, Alloy's single-bracket selector) are in `context.md`.
 
 ## In flight
 
-Nothing in this repository.
+`purgetss-docs` has 20 uncommitted files from this session: corrections to 15 pages matching the list in the audit handoff, the new stacked-modifier section, and five glossary files synced from the regenerated `dist/glossary/`. They document v7.18.0 behavior and have not been released or deployed; that repo has its own release, rsync deploy and mirror sync. It also still names `ic_stat_notify` in `docs/app-assets/1-app-icons-and-branding.md`, open since v7.17.1.
 
-The sibling `purgetss-docs` still documents the old filename in three files: `docs/commands.md`, `docs/app-assets/1-app-icons-and-branding.md`, and `docs/customization/1-configuring-guide.md`. Those edits were not made here and are the one open item this release created.
-
-The Classic video series is complete and published; its remaining optional item is regenerating the delivery masters for episodes 01 through 06 from their best source captures, using the same 4K/CFR 30/H.264 High/BT.709/AAC 48 kHz/fast-start gate as episode 07. Never obtain those replacements by transcoding an already compressed final merely to raise its nominal bitrate. Keep the current YouTube uploads unchanged unless a separate replacement decision is made.
+TiTools' `purgetss` skill describes the pre-7.18.0 behavior in the passages listed at the end of the audit handoff (vendor aliases, `snap-magnet`, the `px` message, `bg-from-`, the `padding` label, grid class names). Its class indexes need regenerating after its `.purgetss-source` cache is updated. Nothing in TiTools was edited from here.
 
 ## Next step
 
-Update the three `purgetss-docs` pages and release that site, so the documentation stops naming a file PurgeTSS no longer generates.
+Review and release `purgetss-docs` (commit, `npm run build`, deploy, `npm run clean:md`), fixing the `ic_stat_notify` reference in the same pass. Then update TiTools.
 
-The drift risk recorded on 2026-09-05 is still open and unaudited: whether any shipped string other than the two already closed with tests lives in more than one file with nothing tying the copies together. This release is a fresh example of the shape — one filename spread across seven files plus a sibling repository — though here the spread is descriptive text rather than a value a test could compare.
+Open questions left for César:
+- `snap-magnet` was a planned feature (docs said "(planned)" in April). It was removed; if the magnet is wanted, it returns with an implementation.
+- The Font Awesome Pro/Beta reset templates use `FontAwesome6Pro-*` family names while the fonts are copied as `FontAwesome7Pro-*`; needs a test with real Pro fonts.
+- Dead code noted, not removed: `helperToBuildTailwindClasses()` and the helpers only it reaches; `copyFont`/`copyFontLibraries` in `src/cli/commands/fonts.js`.
+- The class-syntax validator still rejects `top-(-10)`, which `formatArbitraryValues` supports.
 
 ## Verified vs. assumed
 
-- Verified: `npm test` passed in full before the first commit — unit 27/27, integration and e2e green — and the working tree was unchanged by the run.
-- Verified: `publish.yml` run 34665290402 finished green in 1m0s, including its tag-vs-`package.json` guard, `npm ci`, `npm run build`, `npm test` and `npm publish`.
-- Verified: `npm view purgetss version` returns `7.17.1` and `dist-tags.latest` is `7.17.1`.
-- Verified: the GitHub release exists at `https://github.com/macCesar/purgeTSS/releases/tag/v7.17.1`.
-- Verified: `git status --short --branch` reports `## main...origin/main` with no divergence and no dirty files; `git log @{u}..HEAD` is empty.
-- Verified: `package.json` `files` does not include `docs/`, so this session note lands outside the published tarball.
-- Verified: `grep -rn ic_stat_notify` over this repository returns only the CHANGELOG — the new 7.17.1 entry, which names the old file deliberately, and the historical 7.13.0 entry.
-- Verified: the three stale `purgetss-docs` files were found by grep in that repository; nothing in them was changed.
-- Assumed, not verified: no one ran `purgetss brand --notification-icon` against a real Android project with `firebase.cloudmessaging` in this session. The fix is reasoned from the module's source and tested only through the shipped suite, which does not cover this piece's filename.
-- Assumed, not verified: that projects which wired `@drawable/ic_stat_notify` by hand will notice the migration note. Nothing in the CLI detects or reports the stale files.
-- Pre-existing and untouched: `tests/unit/shared/helpers.test.js` prints `Some modules failed validation!` (15/16); the runner still counts the file as passing.
+- Verified: `npm test` passed before the release commit (unit, integration, e2e all green).
+- Verified: `tests/unit/shared/generator-fixes.test.js` fails in all six sections against the v7.17.1 code and passes now.
+- Verified: `publish.yml` run 36291062640 concluded `success`; its log shows `+ purgetss@7.18.0` with a provenance statement; `npm view purgetss dist-tags.latest` returns `7.18.0`.
+- Verified: GitHub release at `https://github.com/macCesar/purgeTSS/releases/tag/v7.18.0`.
+- Verified: `git status --short --branch` reports `## main...origin/main`, `git log @{u}..HEAD` is empty before this note's commit.
+- Verified: `package.json` `files` excludes `docs/`, so this note is outside the tarball.
+- Verified: `npm run docs:check` in `purgetss-docs` passed against v7.17.1, before the bump; not rerun against v7.18.0.
+- Assumed, not verified: `swap()` behavior on a device; stacked modifiers on a real Alloy build (verified against Alloy 3.0.1's `STYLE_REGEX` and generated `app.tss` only); Font Awesome Pro output with genuine Pro fonts (tested with a fake Beta CSS).
+- Assumed, not verified: the `purgetss-docs` site builds with the edited pages; `npm run build` was not run there.
+- Pre-existing and untouched: `tests/unit/shared/helpers.test.js` reports 15/16 (Animation module count 28/27); the runner still counts it as passing.
