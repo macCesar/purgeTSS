@@ -1707,8 +1707,6 @@
 '.snap-back-false': { animationProperties: { snap: { back: false } } }
 '.snap-center': { animationProperties: { snap: { center: true } } }
 '.snap-center-false': { animationProperties: { snap: { center: false } } }
-'.snap-magnet': { animationProperties: { snap: { magnet: true } } }
-'.snap-magnet-false': { animationProperties: { snap: { magnet: false } } }
 '.keep-z-index': { animationProperties: { keepZIndex: true } }
 '.keep-z-index-false': { animationProperties: { keepZIndex: false } }
 
@@ -2564,7 +2562,7 @@
 '.minimum-text-8xl': { minimumFontSize: 96 }
 '.minimum-text-9xl': { minimumFontSize: 128 }
 
-// Property(ies): padding - Android Only
+// Property(ies): padding
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField
 '.p-0': { padding: { top: 0, right: 0, bottom: 0, left: 0 } }
 '.p-1': { padding: { top: 4, right: 4, bottom: 4, left: 4 } }
@@ -10924,9 +10922,6 @@
 '.keyboard-type-websearch': { keyboardType: Ti.UI.KEYBOARD_TYPE_WEBSEARCH }
 '.keyboard-type-twitter': { keyboardType: Ti.UI.KEYBOARD_TYPE_TWITTER }
 '.keyboard-type-url': { keyboardType: Ti.UI.KEYBOARD_TYPE_URL }
-'.keyboard-type-appearance': { keyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
-'.keyboard-type-appearance-dark': { keyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
-'.keyboard-type-appearance-light': { keyboardType: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
 
 // Property: keyboardAppearance
 // Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
@@ -10953,9 +10948,6 @@
 // Property: loginKeyboardType
 // Description: Keyboard type to display when this text field inside the dialog is focused.
 // Component(s): Ti.UI.AlertDialog
-'.login-keyboard-type-appearance': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
-'.login-keyboard-type-appearance-dark': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
-'.login-keyboard-type-appearance-light': { loginKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
 '.login-keyboard-type-decimal-pad': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
 '.login-keyboard-type-ascii': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.login-keyboard-type': { loginKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }
@@ -10987,9 +10979,6 @@
 // Property: passwordKeyboardType
 // Description: Keyboard type to display when this text field inside the dialog is focused.
 // Component(s): Ti.UI.AlertDialog
-'.password-keyboard-type-appearance': { passwordKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
-'.password-keyboard-type-appearance-dark': { passwordKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_DARK }
-'.password-keyboard-type-appearance-light': { passwordKeyboardType: Ti.UI.KEYBOARD_APPEARANCE_LIGHT }
 '.password-keyboard-type-decimal-pad': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
 '.password-keyboard-type-ascii': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
 '.password-keyboard-type': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_DEFAULT }

@@ -138,7 +138,7 @@ export function padding(modifiersAndValues) {
   delete modifiersAndValues['max-content']
 
   return processProperties({
-    prop: 'padding - Android Only',
+    prop: 'padding',
     modules: 'Ti.UI.Android.CardView, Ti.UI.TextArea, Ti.UI.TextField'
   }, objectPosition, {
     default: modifiersAndValues

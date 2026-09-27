@@ -803,6 +803,14 @@ function getPropertiesFromTiCompletionsFile() {
     })
   })
 
+  // The completions list KEYBOARD_APPEARANCE_* under the keyboard type
+  // properties; those constants belong to keyboardAppearance only.
+  _.each(['keyboardType', 'loginKeyboardType', 'passwordKeyboardType'], property => {
+    if (propertiesOnly[property]) {
+      propertiesOnly[property].values = propertiesOnly[property].values.filter(value => !value.includes('KEYBOARD_APPEARANCE'))
+    }
+  })
+
   return propertiesOnly
 }
 

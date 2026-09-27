@@ -257,8 +257,6 @@ export function snap() {
   convertedStyles += '\'.snap-back-false\': { animationProperties: { snap: { back: false } } }\n'
   convertedStyles += '\'.snap-center\': { animationProperties: { snap: { center: true } } }\n'
   convertedStyles += '\'.snap-center-false\': { animationProperties: { snap: { center: false } } }\n'
-  convertedStyles += '\'.snap-magnet\': { animationProperties: { snap: { magnet: true } } }\n'
-  convertedStyles += '\'.snap-magnet-false\': { animationProperties: { snap: { magnet: false } } }\n'
   convertedStyles += '\'.keep-z-index\': { animationProperties: { keepZIndex: true } }\n'
   convertedStyles += '\'.keep-z-index-false\': { animationProperties: { keepZIndex: false } }\n'
 
