@@ -21,13 +21,13 @@ The reasoning is in `decisions.md` (2026-09-26 entries); the traps found along t
 
 ## In flight
 
-`purgetss-docs` has 20 uncommitted files from this session: corrections to 15 pages matching the list in the audit handoff, the new stacked-modifier section, and five glossary files synced from the regenerated `dist/glossary/`. They document v7.18.0 behavior and have not been released or deployed; that repo has its own release, rsync deploy and mirror sync. It also still names `ic_stat_notify` in `docs/app-assets/1-app-icons-and-branding.md`, open since v7.17.1.
+`purgetss-docs` v1.1.14 documents v7.18.0: released (`1523500`, tag `v1.1.14`), deployed to purgetss.com and synced to `purgetss-docs-context7` (`c5c2055`). Its `project/status.md` has the verification. The `ic_stat_notify` mention left in its branding page is the deliberate migration note, not a stale reference.
 
 TiTools' `purgetss` skill describes the pre-7.18.0 behavior in the passages listed at the end of the audit handoff (vendor aliases, `snap-magnet`, the `px` message, `bg-from-`, the `padding` label, grid class names). Its class indexes need regenerating after its `.purgetss-source` cache is updated. Nothing in TiTools was edited from here.
 
 ## Next step
 
-Review and release `purgetss-docs` (commit, `npm run build`, deploy, `npm run clean:md`), fixing the `ic_stat_notify` reference in the same pass. Then update TiTools.
+Update TiTools' `purgetss` skill and regenerate its class indexes.
 
 Open questions left for César:
 - `snap-magnet` was a planned feature (docs said "(planned)" in April). It was removed; if the magnet is wanted, it returns with an implementation.
