@@ -10,18 +10,18 @@
 
 </div>
 
-**PurgeTSS** is a toolkit for building mobile apps with the [Titanium framework](https://titaniumsdk.com). It gives you utility classes, icon font support, an Animation module, a grid system, and color generation commands (`shades` for tonal palettes, `semantic` for Light/Dark mode semantic colors).
+**PurgeTSS** is a toolkit for building mobile apps with the [Titanium framework](https://titaniumsdk.com). It includes utility classes, icon fonts, an animation module and a grid system. Use its color commands to generate tonal palettes (`shades`) or Light/Dark mode semantic colors (`semantic`).
 
 ---
 
 - 23,300+ utility classes for styling Titanium views
 - Parses XML files to generate a clean `app.tss` with only the classes your project uses
 - Customizable defaults via `config.cjs`, with JIT classes for arbitrary values
-- `brand` command for Titanium icons and branding assets: works standalone in Alloy or Classic, follows `tiapp.xml` deployment targets, and generates the matching iOS/Android icon, store-artwork, and splash sets; use `--only` to prepare a specific piece or platform explicitly
+- `brand` generates Titanium icons, store artwork and splash assets for the iOS/Android deployment targets in `tiapp.xml`. It works as a standalone command in Alloy or Classic; use `--only` to select a specific piece or platform
 - Icon font support: Font Awesome, Material Icons, Material Symbols, Framework7-Icons in Alloy and Classic projects
 - `build-fonts` installs custom fonts in Alloy or Classic; `--module` exports every processed PostScript family, while TSS class definitions remain Alloy-only
 - `shades` command generates color shades from any hex color
-- `semantic` command generates Titanium semantic colors (Light/Dark mode) — tonal palettes with mirror inversion, or single purpose-based colors with optional alpha
+- `semantic` generates Titanium semantic colors for Light/Dark mode: tonal palettes with mirror inversion, or single purpose-based colors with optional alpha
 - Animation module for 2D matrix animations on views or arrays of views
 - Grid system for aligning and distributing elements within views
 
@@ -29,7 +29,7 @@
 
 ## Alloy and Classic compatibility
 
-PurgeTSS utility classes and the purge/build lifecycle remain Alloy-only. Classic apps can use the independent asset and module commands without adding an `alloy.jmk` hook or making the app depend on PurgeTSS at compile time.
+Utility classes and the purge/build lifecycle require Alloy. Classic apps can use the asset and module commands without an `alloy.jmk` hook or a compile-time dependency on PurgeTSS.
 
 When Alloy auto-purging fails, the build log forwards PurgeTSS diagnostics before Alloy's generic compiler error. It also tells you to run `purgetss` from the project root when you need the full cause.
 
@@ -46,7 +46,7 @@ When Alloy auto-purging fails, the build log forwards PurgeTSS diagnostics befor
 | `purgetss`, `--all`, `init`, `create`, `install-dependencies`, `build`, `watch` | ✅ | — | Alloy/PurgeTSS lifecycle only. |
 | `update`, `sudo-update` | ✅ | ✅ | Global CLI maintenance; no project layout required. |
 
-Generated CommonJS modules and assets are ordinary Titanium files. A Classic app consumes them directly from `Resources/`; the source folders under `purgetss/`, when a command needs them, are development inputs only.
+The generated CommonJS modules and assets are ordinary Titanium files that Classic apps load directly from `Resources/`. Commands use source folders under `purgetss/` as development inputs.
 
 In Classic, saving with `shades` creates or updates only `purgetss/config.cjs`. Running `color-module` reads `theme.colors` and `theme.extend.colors`, then writes `Resources/lib/purgetss.colors.js`; neither command scaffolds empty `purgetss/brand/`, `purgetss/fonts/`, or `purgetss/images/` folders.
 
@@ -54,7 +54,7 @@ Official icon modules expose Unicode values in `icons` and their Titanium font f
 
 ---
 
-## Animation Module (`purgetss.ui.js`)
+## Animation module (`purgetss.ui.js`)
 
 Install with `purgetss module` (or `purgetss m`). This places `purgetss.ui.js` in your project's `lib` folder.
 
@@ -87,7 +87,7 @@ You can use any position, size, color, opacity, or transformation class from `ut
 
 ### Callback event object
 
-All callbacks (`play`, `open`, `close`, `apply`) receive an enriched event object:
+All callbacks (`play`, `open`, `close`, `apply`) receive an event object with these fields:
 
 ```js
 {
@@ -104,7 +104,7 @@ All callbacks (`play`, `open`, `close`, `apply`) receive an enriched event objec
 }
 ```
 
-When animating an **array of views**, the callback is called once per view with the corresponding `index` and `total` values.
+When animating an array of views, the callback runs once per view with its `index` and the array's `total` count.
 
 ```js
 $.myAnimation.play([$.card1, $.card2, $.card3], (e) => {
@@ -147,11 +147,11 @@ $.myAnimation.draggable(views)
 $.myAnimation.detectCollisions(views, onHover, onDrop)
 ```
 
-**`dragCB(source, target)`** is called during drag:
+`dragCB(source, target)` is called during drag:
 - `target` is the view under the drag center, or `null` when leaving all targets
 - Use this to show visual feedback (highlights, borders, scaling)
 
-**`dropCB(source, target)`** is called on drop:
+`dropCB(source, target)` is called on drop:
 - `target` is the view where the source was released
 - If no target is found, the source automatically snaps back to its original position with a 200ms animation
 
@@ -179,7 +179,7 @@ $.fadeIn.sequence([$.title, $.subtitle, $.button], () => {
 })
 ```
 
-- Each view fully completes before the next starts
+- Each view finishes animating before the next starts
 - Callback fires once after the last view
 - Respects `open`/`close` state (set once for the entire sequence)
 
@@ -226,7 +226,7 @@ $.myAnimation.undraggable(cardViews)
 
 ### Property inheritance
 
-The `swap`, `reorder`, `snapTo`, and `shake` methods inherit animation properties from the `<Animation>` object's classes. This means you can configure behavior declaratively in XML:
+The `swap`, `reorder`, `snapTo`, and `shake` methods inherit animation properties from the `<Animation>` object's classes. Configure them in XML:
 
 ```xml
 <Animation id="myAnim" module="purgetss.ui" class="curve-animation-ease-out delay-100 duration-150" />
@@ -240,7 +240,7 @@ The `swap`, `reorder`, `snapTo`, and `shake` methods inherit animation propertie
 | `autoreverse` |                     ✅                     |             —             |    fixed `true`     |
 | `repeat`      |                     ✅                     |             —             |      fixed `3`      |
 
-Fallback defaults when not set: `swap`/`reorder`/`snapTo` → 200ms; `shake` → 400ms. All animation timing is controlled declaratively via the `<Animation>` object's classes.
+If no duration is set, `swap`/`reorder`/`snapTo` default to 200ms and `shake` defaults to 400ms. Set animation timing through the `<Animation>` object's classes.
 
 - Removes touch and orientation listeners
 - Removes views from collision detection registry
@@ -346,7 +346,7 @@ theme: {
 
 ## Customizing default components
 
-PurgeTSS sets defaults for three components out of the box:
+PurgeTSS sets defaults for three components:
 
 | Component   | Default                                 |
 | ----------- | --------------------------------------- |
@@ -394,111 +394,111 @@ Button: {
 
 ---
 
-### Visit the official documentation site at [purgetss.com](https://purgetss.com) to learn more.
+The official documentation is at [purgetss.com](https://purgetss.com).
 
 ## Requirements
 
-- **Titanium SDK** (Compatible with all versions; 13.1.1.GA recommended for full property support)
-- **Alloy Framework** (for most commands)
-- **Node.js 20.12+ (20.x), 22.13+ (22.x), or 23.5+** (required by the CLI dependencies; the supported range is `^20.12.0 || ^22.13.0 || >=23.5.0`)
+- Titanium SDK (Compatible with all versions; 13.1.1.GA recommended for full property support)
+- Alloy Framework (for most commands)
+- Node.js 20.12+ (20.x), 22.13+ (22.x), or 23.5+ (required by the CLI dependencies; the supported range is `^20.12.0 || ^22.13.0 || >=23.5.0`)
 
 ## Recent changes
 
 ### v7.18.0
 
-- **Platform and device modifiers stack.** `ios:tablet:bg-red-500` (in either order) now generates `[platform=ios formFactor=tablet]`. Alloy reads only the last bracket of a selector, so `tablet:` on an iOS-only class used to lose its platform condition. A modifier that contradicts the class, such as `android:status-bar-dark`, now leaves a comment in `app.tss` instead of a selector that never applies.
-- **Font Awesome Pro and Beta work again.** `purgetss build` no longer stops with `ENOENT`, and `icon-library --module` / `--styles` generate `fontawesome.js` and `fontawesome.tss` instead of printing a placeholder.
-- **Stricter flags.** `icon-library --vendor` accepts `materialsymbols` and rejects unknown values before copying anything. `images --width` accepts 1 to 1024, the largest value whose `xxxhdpi` output fits the 4096px cap.
-- **Removed:** the `*-keyboard-type-appearance*` classes (they assigned an appearance constant to `keyboardType`; use `keyboard-appearance-*`), `snap-magnet` (never read by the animation module), and `init --all` (never implemented). `(Npx)` arbitrary values are accepted again: `w-(100px)` means explicit pixels, not a redundant unit.
+- Platform and device modifiers stack. `ios:tablet:bg-red-500` (in either order) now generates `[platform=ios formFactor=tablet]`. Alloy reads only the last bracket of a selector, so `tablet:` on an iOS-only class used to lose its platform condition. A modifier that contradicts the class, such as `android:status-bar-dark`, now leaves a comment in `app.tss` instead of a selector that never applies.
+- Font Awesome Pro and Beta work again. `purgetss build` no longer stops with `ENOENT`, and `icon-library --module` / `--styles` generate `fontawesome.js` and `fontawesome.tss` instead of printing a placeholder.
+- `icon-library --vendor` accepts `materialsymbols` and rejects unknown values before copying anything. `images --width` accepts 1 to 1024, the largest value whose `xxxhdpi` output fits the 4096px cap.
+- Removed: the `*-keyboard-type-appearance*` classes (they assigned an appearance constant to `keyboardType`; use `keyboard-appearance-*`), `snap-magnet` (never read by the animation module), and `init --all` (never implemented). `(Npx)` arbitrary values are accepted again: `w-(100px)` means explicit pixels, not a redundant unit.
 
 ### v7.17.1
 
-- **The Android notification icon is now generated as `notificationicon.png`.** `firebase.cloudmessaging` resolves that drawable by name, so under the old `ic_stat_notify.png` a data message never found it and fell back to the opaque `appicon` — which the status bar renders as a white blob. The `default_notification_icon` meta-data, the only configurable path, covers notification messages alone, so no manifest entry could fix it. The snippet printed after a run now points at `@drawable/notificationicon`. If you already wired `@drawable/ic_stat_notify` by hand, update that one line and delete the five stale files.
+- The Android notification icon is now generated as `notificationicon.png`. `firebase.cloudmessaging` resolves that drawable by name, so under the old `ic_stat_notify.png` a data message never found it and fell back to the opaque `appicon`, which the status bar renders as a white blob. The `default_notification_icon` meta-data, the only configurable path, covers notification messages alone, so no manifest entry could fix it. The snippet printed after a run now points at `@drawable/notificationicon`. If you already wired `@drawable/ic_stat_notify` by hand, update that one line and delete the five stale files.
 
 ### v7.17.0
 
-- **New projects get an ESLint setup that actually runs.** `install-dependencies` and `create --dependencies` now ship `eslint.config.mjs`, a flat config for eslint 9 that declares the Titanium and Alloy globals itself and installs only `eslint` and `@eslint/js`. The previous `.eslintrc.js` template stopped working when eslint 9 dropped eslintrc support and `eslint-config-axway@10.0.0` removed the `env-alloy` environment, so any project scaffolded since December 2025 had a lint that could not run. Generated libraries such as `materialsymbols.js` are ignored by name, leaving your own files in `app/lib/` linted.
-- **The `images:` config section reports typos instead of ignoring them.** An unknown key such as `qualty: 95` now aborts `purgetss images` before anything is written, listing the five valid top-level keys and the three valid keys inside a `files[]` entry. Previously the typo looked exactly like the default and quietly produced the wrong output. The generated block also documents the 4x master convention: a 1024px source yields 256, 384, 512, 768 and 1024, which is why there is no `width` key to configure.
+- New projects get a working ESLint setup. `install-dependencies` and `create --dependencies` now ship `eslint.config.mjs`, a flat config for eslint 9 that declares the Titanium and Alloy globals and installs only `eslint` and `@eslint/js`. The previous `.eslintrc.js` template stopped working when eslint 9 dropped eslintrc support and `eslint-config-axway@10.0.0` removed the `env-alloy` environment. Projects scaffolded since December 2025 therefore had a lint setup that could not run. Generated libraries such as `materialsymbols.js` are ignored by name; your own files in `app/lib/` are still linted.
+- The `images:` config section reports unknown keys. A typo such as `qualty: 95` now aborts `purgetss images` before anything is written and lists the five valid top-level keys and the three valid keys inside a `files[]` entry. Previously it was silently ignored, producing the default output. The generated block also documents the 4x master convention: a 1024px source yields 256, 384, 512, 768 and 1024, which is why there is no `width` key to configure.
 
 ### v7.16.2
 
-- **Custom-font modules now include every processed font family.** `purgetss build-fonts --module` exports TTF/OTF PostScript names through `families`, even when no icon CSS exists. With `--font-class-from-filename`, readable filename-derived keys such as `poppinsSemiBold` map to the exact Titanium `fontFamily` value.
-- **Classic color commands now create only what they need.** Saving a palette with `shades` creates or updates `purgetss/config.cjs`, and `color-module` writes `Resources/lib/purgetss.colors.js`, without scaffolding unrelated empty `brand`, `fonts`, or `images` source folders.
+- Custom-font modules now include every processed font family. `purgetss build-fonts --module` exports TTF/OTF PostScript names through `families`, even when no icon CSS exists. With `--font-class-from-filename`, readable filename-derived keys such as `poppinsSemiBold` map to the exact Titanium `fontFamily` value.
+- Classic color commands now create only what they need. Saving a palette with `shades` creates or updates `purgetss/config.cjs`, and `color-module` writes `Resources/lib/purgetss.colors.js`, without scaffolding unrelated empty `brand`, `fonts`, or `images` source folders.
 
 ### v7.16.1
 
-- **Alloy auto-purge failures now surface PurgeTSS diagnostics.** The synchronous build hook forwards XML validation details before Alloy's generic compiler error and provides a fallback hint to run `purgetss` from the project root. Existing active or disabled hooks update automatically without changing their enabled state.
-- **The Titanium Classic video kit now includes production voice samples.** The reference script and Zoe Premium AIFF/M4A recordings are included with the demo assets.
+- Alloy auto-purge failures now surface PurgeTSS diagnostics. The synchronous build hook forwards XML validation details before Alloy's generic compiler error and provides a fallback hint to run `purgetss` from the project root. Existing active or disabled hooks update automatically without changing their enabled state.
+- The Titanium Classic video kit now includes production voice samples. The reference script and Zoe Premium AIFF/M4A recordings are included with the demo assets.
 
 ### v7.16.0
 
-- **Rounded non-icon artwork is configurable without pre-masking app icons.** Set `brand.artworkCornerRadius: '22%'` for both legacy splash sets, `MarketplaceArtworkFeature.png`, and `LaunchLogo.png`; use `brand.splashCornerRadius` for a splash-only shared override or set `cornerRadius` on any of the four pieces. Store and launcher icon files stay square for Apple/Google masking. The public default remains `0%`, so existing projects keep identical output.
-- **`appicon.padding` is now visible and fully wired.** New configs show `appicon: { padding: '10%' }`; `--appicon-padding <n>` temporarily overrides it. `brand --help` tests cover all padding and corner-radius defaults.
+- Rounded non-icon artwork is configurable without pre-masking app icons. Set `brand.artworkCornerRadius: '22%'` for both legacy splash sets, `MarketplaceArtworkFeature.png`, and `LaunchLogo.png`; use `brand.splashCornerRadius` for a splash-only shared override or set `cornerRadius` on any of the four pieces. Store and launcher icon files stay square for Apple/Google masking. The public default remains `0%`, so existing projects keep identical output.
+- `appicon.padding` is now exposed in the generated config and the CLI. New configs show `appicon: { padding: '10%' }`; `--appicon-padding <n>` temporarily overrides it. `brand --help` tests cover all padding and corner-radius defaults.
 
 ### v7.15.0
 
-- **Official icon modules expose font-family aliases.** Every module now exports `families.default`; Font Awesome adds `solid`, `regular`, and `brands`, Material Icons adds its five variants, Material Symbols adds `outlined`, `rounded`, and `sharp`, and Framework7 adds `fontFamily`. Classic apps can use `fontAwesome.icons.home` with `fontAwesome.solid` without repeating PostScript family strings.
-- **Standalone commands now share Alloy/Classic path detection.** `color-module`, `module`, `icon-library`, and `build-fonts` write modules or fonts to `app/` in Alloy and `Resources/` in Classic. Classic runs never create `app/`, `app/alloy.jmk`, or TSS files.
-- **Classic semantic colors no longer bootstrap PurgeTSS.** `semantic` writes `Resources/semantic.colors.json` without creating `purgetss/config.cjs` or the empty `brand/`, `fonts/`, and `images/` folders.
-- **External `images` sources no longer create an empty `purgetss/images/`.** Default platform selection now follows `tiapp.xml`; `--android` and `--ios` explicitly override it.
-- **Classic remains independent from the PurgeTSS build lifecycle.** The root command, `--all`, `init`, `create`, `install-dependencies`, `build`, and `watch` remain Alloy-only.
+- Official icon modules expose font-family aliases. Every module now exports `families.default`; Font Awesome adds `solid`, `regular`, and `brands`, Material Icons adds its five variants, Material Symbols adds `outlined`, `rounded`, and `sharp`, and Framework7 adds `fontFamily`. Classic apps can use `fontAwesome.icons.home` with `fontAwesome.solid` without repeating PostScript family strings.
+- Standalone commands now share Alloy/Classic path detection. `color-module`, `module`, `icon-library`, and `build-fonts` write modules or fonts to `app/` in Alloy and `Resources/` in Classic. Classic runs never create `app/`, `app/alloy.jmk`, or TSS files.
+- Classic semantic colors no longer bootstrap PurgeTSS. `semantic` writes `Resources/semantic.colors.json` without creating `purgetss/config.cjs` or the empty `brand/`, `fonts/`, and `images/` folders.
+- External `images` sources no longer create an empty `purgetss/images/`. Default platform selection now follows `tiapp.xml`; `--android` and `--ios` explicitly override it.
+- Classic remains independent from the PurgeTSS build lifecycle. The root command, `--all`, `init`, `create`, `install-dependencies`, `build`, and `watch` remain Alloy-only.
 
 ### v7.14.0
 
-- **`brand` is deployment-target aware.** Normal runs read `<deployment-targets>` and omit assets for disabled platforms, regardless of whether the layout is Alloy or Classic. `--only` is an explicit override for preparing a platform ahead of time.
-- **Standalone Classic first run is self-contained.** `purgetss brand sample-icon.png` creates `purgetss/config.cjs` with the canonical per-piece defaults and moves the supplied source to `purgetss/brand/logo.png` when no canonical logo exists, reporting the move in the console.
-- **Classic density-specific Android splashes stay enabled.** Titanium consumes `Resources/android/images/res-*` even though a new Classic template does not include those folders; they are compiled into the pre-Android-12 drawable resources.
-- **The two root iOS icons now obey the same `brand.icon.padding`, which defaults to `0%`.** `DefaultIcon.png` incorrectly used the Android adaptive padding (`18%`) while `DefaultIcon-ios.png` used the old iOS default (`4%`). Both are now opaque and full-bleed by default; increase the value only for inset logo artwork. Dark, tinted and marketplace square artwork follow the same `0%` family default.
-- **`brand` warns about visible icon frames.** When the shared source is opaque to its edges and padding would reveal a contrasting background, the console identifies the affected pieces. `brand.background` is inherited, so a matching color is set once; `#FFFFFF` remains a configurable fallback, not a requirement from Apple or Android.
+- `brand` is deployment-target aware. Normal runs read `<deployment-targets>` and omit assets for disabled platforms, regardless of whether the layout is Alloy or Classic. `--only` is an explicit override for preparing a platform ahead of time.
+- Standalone Classic first run is self-contained. `purgetss brand sample-icon.png` creates `purgetss/config.cjs` with the canonical per-piece defaults and moves the supplied source to `purgetss/brand/logo.png` when no canonical logo exists, reporting the move in the console.
+- Classic density-specific Android splashes stay enabled. Titanium consumes `Resources/android/images/res-*` even though a new Classic template does not include those folders; they are compiled into the pre-Android-12 drawable resources.
+- The two root iOS icons now obey the same `brand.icon.padding`, which defaults to `0%`. `DefaultIcon.png` incorrectly used the Android adaptive padding (`18%`) while `DefaultIcon-ios.png` used the old iOS default (`4%`). Both are now opaque and full-bleed by default; increase the value only for inset logo artwork. Dark, tinted and marketplace square artwork follow the same `0%` family default.
+- `brand` warns about visible icon frames. When the shared source is opaque to its edges and padding would reveal a contrasting background, the console identifies the affected pieces. `brand.background` is inherited, so a matching color is set once; `#FFFFFF` remains a configurable fallback, not a requirement from Apple or Android.
 
 ### v7.13.2
 
-- **Fixed: `purgetss brand --help` advertised padding defaults the command does not use.** It printed `19` for `--android-adaptive-padding` and `20` for the two splash paddings, where the pipeline applies `18`, `26` and `26`. The help text carried a hand-typed copy of numbers that live in the piece table; all seven padding descriptions now read from that table, and a unit test compares the real `--help` output against it.
+- Fixed: `purgetss brand --help` advertised padding defaults the command does not use. It printed `19` for `--android-adaptive-padding` and `20` for the two splash paddings, where the pipeline applies `18`, `26` and `26`. The help text carried a hand-typed copy of numbers that live in the piece table; all seven padding descriptions now read from that table, and a unit test compares the real `--help` output against it.
 
 ### v7.13.1
 
-- **Security:** patched four vulnerable transitive dependencies that shipped in 7.13.0 — `postcss`, `nanoid`, `brace-expansion` and `uuid`. All patch bumps; `package.json` unchanged.
+- Security: patched four vulnerable transitive dependencies that shipped in 7.13.0: `postcss`, `nanoid`, `brace-expansion` and `uuid`. All patch bumps; `package.json` unchanged.
 
 ### v7.13.0
 
-- **`purgetss brand` now covers every image the Titanium template ships.** A run on a fresh Alloy project used to leave 28 files still wearing the grey Alloy logo: the 16 `assets/iphone/Default*.png` launch images, the 11 `assets/android/images/res-*/default.png` splashes, and `assets/android/appicon.png`. The rule is now explicit — if the template ships the file, `brand` updates it.
-- **`--only <pieces>` filters a run** down to the pieces or groups you name (`--only icon`, `--only ios,notification-icon`), so a single tweak does not rewrite files you adjusted by hand. An unknown name aborts before anything is written.
-- **`LaunchLogo.png` as the iOS launch screen source.** Drop `purgetss/brand/logo-launch.{svg,png}` into the project and the launch screen shows your logotype instead of the app icon with its safe-zone padding.
-- **`brand.optimize` / `--optimize`** re-encodes the generated PNGs with a quantized palette — 71% smaller across a full brand set. Off by default, since it is lossy.
-- **Breaking:** the `brand:` config section is organized by piece, and several flags were renamed (`--splash` → `--splash-icon`, `--notification` → `--notification-icon`, …). Existing configs are rewritten to the new structure automatically on the next run, carrying over every value you had customized.
-- **`shades` and `semantic` no longer strip the comments from `config.cjs`.** They now rewrite only the `theme:` section, leaving every other byte of the file untouched.
+- `purgetss brand` now covers every image the Titanium template ships. A run on a fresh Alloy project used to leave 28 files still wearing the grey Alloy logo: the 16 `assets/iphone/Default*.png` launch images, the 11 `assets/android/images/res-*/default.png` splashes, and `assets/android/appicon.png`. If the template ships the file, `brand` updates it.
+- `--only <pieces>` filters a run down to the pieces or groups you name (`--only icon`, `--only ios,notification-icon`), so a single tweak does not rewrite files you adjusted by hand. An unknown name aborts before anything is written.
+- `LaunchLogo.png` as the iOS launch screen source. Drop `purgetss/brand/logo-launch.{svg,png}` into the project and the launch screen shows your logotype instead of the app icon with its safe-zone padding.
+- `brand.optimize` / `--optimize` re-encodes the generated PNGs with a quantized palette, making a full brand set 71% smaller. Off by default, since it is lossy.
+- Breaking: the `brand:` config section is organized by piece, and several flags were renamed (`--splash` → `--splash-icon`, `--notification` → `--notification-icon`, …). Existing configs are rewritten to the new structure automatically on the next run, carrying over every value you had customized.
+- `shades` and `semantic` no longer strip the comments from `config.cjs`. They now rewrite only the `theme:` section, leaving every other byte of the file untouched.
 
 ### v7.12.0
 
-- **Android launch setup in `purgetss brand --notes`.** The full notes print a complete `splashscreen.xml` at the correct Alloy or Classic resource path. Its launcher-only `Theme.SplashScreen` inherits from `Theme.Titanium` and is assigned to Titanium's generated launcher Activity without replacing the theme already used by `<application>`. The three relevant attributes—`android:windowSplashScreenBackground`, `android:windowBackground`, and `android:colorBackground`—all reference one `splashscreen_background` color resource, so changing the launch color requires editing a single line. When `--splash` is enabled, the same style also points `android:windowSplashScreenAnimatedIcon` to the generated `splash_icon.png`. PurgeTSS prints this copy-ready setup with the current `brand.colors.background` value but does not edit `tiapp.xml` or Android theme resources automatically.
+- Android launch setup in `purgetss brand --notes`. The full notes print a complete `splashscreen.xml` at the correct Alloy or Classic resource path. Its launcher-only `Theme.SplashScreen` inherits from `Theme.Titanium` and is assigned to Titanium's generated launcher Activity without replacing the theme already used by `<application>`. The three relevant attributes (`android:windowSplashScreenBackground`, `android:windowBackground`, and `android:colorBackground`) all reference one `splashscreen_background` color resource, so changing the launch color requires editing a single line. When `--splash` is enabled, the same style also points `android:windowSplashScreenAnimatedIcon` to the generated `splash_icon.png`. PurgeTSS prints this copy-ready setup with the current `brand.colors.background` value but does not edit `tiapp.xml` or Android theme resources automatically.
 
 ### v7.11.0
 
-- **SVG-aware compile-time image pipeline as a post-step of `purgetss`.** When views or controllers reference `image="/images/<sub>/<name>.svg"` (or `backgroundImage="..."`) alongside utility classes that resolve to numeric width/height (`w-32`, `w-(300)`, `h-auto`, …), purge now compiles those SVGs into the 8 Titanium density variants (5 Android + 3 iPhone PNGs) using dimensions resolved from `app.tss` after the regular purge finishes. Titanium loads the generated `.png` automatically at runtime when the XML/Controller references `.svg`. Cache lives at `purgetss/.cache/svg-images.json` (add to `.gitignore`). The SVG attribute stays untouched in your source — never rewritten.
-- **`images.files` array in `config.cjs` as per-file override.** Pin width/height for individual files in `purgetss/images/`: `[{ filename: 'images/logos/logo.png', width: 128, height: 52 }, ...]`. When `purgetss images` runs, entries override the source's natural dimensions; CLI `--width` still wins over both. For SVGs detected by the purge SVG pipeline, entries populate automatically (subject to `images.autoSync`). Raster entries you add by hand survive subsequent runs untouched.
-- **`images.autoSync` boolean (default `true`).** Opt-out for devs who manage `images.files` by hand — when `false`, purge still computes dimensions and generates PNGs, but never writes back to `config.cjs`.
-- **Quality warning when a raster source is too small for its declared width.** Sources smaller than `width × 4` (the xxxhdpi/@4x requirement) trigger a non-blocking warning with exact numbers. SVGs are exempt (vector, no upscale penalty).
+- SVG-aware compile-time image pipeline as a post-step of `purgetss`. When views or controllers reference `image="/images/<sub>/<name>.svg"` (or `backgroundImage="..."`) alongside utility classes that resolve to numeric width/height (`w-32`, `w-(300)`, `h-auto`, …), purge now compiles those SVGs into the 8 Titanium density variants (5 Android + 3 iPhone PNGs) using dimensions resolved from `app.tss` after the regular purge finishes. Titanium loads the generated `.png` automatically at runtime when the XML/Controller references `.svg`. Cache lives at `purgetss/.cache/svg-images.json` (add to `.gitignore`). The SVG attribute stays untouched in your source; PurgeTSS never rewrites it.
+- `images.files` array in `config.cjs` as per-file override. Pin width/height for individual files in `purgetss/images/`: `[{ filename: 'images/logos/logo.png', width: 128, height: 52 }, ...]`. When `purgetss images` runs, entries override the source's natural dimensions; CLI `--width` still wins over both. For SVGs detected by the purge SVG pipeline, entries populate automatically (subject to `images.autoSync`). Raster entries you add by hand survive subsequent runs untouched.
+- `images.autoSync` boolean (default `true`). Opt-out for devs who manage `images.files` by hand. When `false`, purge still computes dimensions and generates PNGs, but never writes back to `config.cjs`.
+- Quality warning when a raster source is too small for its declared width. Sources smaller than `width × 4` (the xxxhdpi/@4x requirement) trigger a non-blocking warning with exact numbers. SVGs are exempt (vector, no upscale penalty).
 
 ### The 4× source convention
 
-Both `purgetss images` and `purgetss brand` treat each source file as the **xxxhdpi/@4x master**: your file's pixel dimensions ARE the largest density, and smaller densities derive at 1/4, 1.5/4, 2/4, 3/4. A 256 px PNG produces a 64 px `@1x/mdpi`. If you want 64 dp at `@1x`, drop a 256 px source.
+Both `purgetss images` and `purgetss brand` treat each source file as the xxxhdpi/@4x master. The file's pixel dimensions define the largest density; smaller densities use 1/4, 1.5/4, 2/4 and 3/4 of that size. A 256 px PNG produces a 64 px `@1x/mdpi`. For 64 dp at `@1x`, use a 256 px source.
 
-Override per file via `images.files` in `config.cjs` (or, for `brand`, the `padding` key of the piece you want to reframe — `brand.adaptive.padding`, `brand.icon.padding`, …). The convention is the default fallback — entries override it on a per-file basis. CLI flags like `--width` always win over both.
+Override per file via `images.files` in `config.cjs` (or, for `brand`, the `padding` key of the piece you want to reframe: `brand.adaptive.padding`, `brand.icon.padding`, …). The convention is the default fallback; entries override it on a per-file basis. CLI flags like `--width` always win over both.
 
 ### v7.10.0
 
-- **`MarketplaceArtworkFeature.png` (Google Play Feature Graphic) auto-generated by `purgetss brand`.** Every brand run now writes a 1024×500 banner to the project root alongside the existing `iTunesConnect.png` and `MarketplaceArtwork.png` submission assets. Master logo centered both axes inside the rectangular canvas with 12% vertical padding default, flattened on `brand.colors.background`. Override paths: CLI `--feature-graphic-padding <n>`, config `brand.padding.featureGraphic`, and optional `purgetss/brand/logo-feature.{svg,png}` (or CLI `--feature-logo` / `brand.logos.featureGraphic`) for a dedicated source. Submission artwork only — file goes to the project root for upload to the Play Console, not bundled into the APK.
-- **`--opacity <n>`, `--padding <n>`, and `--output <relpath>` flags for `purgetss images`.** Three CLI-only per-asset transformations. `--opacity` multiplies the alpha channel of every generated density (0–100, integer). `--padding` shrinks the rendered image inside each density canvas with symmetric transparent borders (0–40%). `--output` overrides basename + subpath relative to the images output root (single-file source only; no extension, no absolute paths, no `..`). All three preserve the multi-density plural-output convention. Combines naturally for placeholder images: `purgetss images purgetss/brand/logo.svg --opacity 30 --padding 15 --output 'logos/default' --format png`.
-- **`brand --padding <n>` shortcut bug fix.** Pre-existing bug: help text and docs described `--padding` as a shortcut that "sets BOTH Android paddings to the same value", but only `androidAdaptivePadding` read the shortcut from the fallback chain — `androidLegacyPadding` skipped it. `purgetss brand --padding 17` actually produced `androidAdaptive=17, androidLegacy=10` silently. Fix adds the missing fallback so `--padding` now sets both Android paddings to the same value as documented.
-- **`purgetss images --format png` now writes truecolor RGBA, not palette-quantized PNG-8.** Passing `quality` to Sharp's `.png()` was silently triggering palette mode, banding subtle gradients in logos, placeholders, and any image with smooth color transitions. Drop of one parameter (`quality` is meaningless for PNG anyway — only `compressionLevel` matters, and that stays at 9 lossless). Brand outputs (icons, splash, marketplace) were never affected because their generators don't pass `quality` to `.png()`.
+- `MarketplaceArtworkFeature.png` (Google Play Feature Graphic) auto-generated by `purgetss brand`. Every brand run now writes a 1024×500 banner to the project root alongside the existing `iTunesConnect.png` and `MarketplaceArtwork.png` submission assets. Master logo centered both axes inside the rectangular canvas with 12% vertical padding default, flattened on `brand.colors.background`. Override paths: CLI `--feature-graphic-padding <n>`, config `brand.padding.featureGraphic`, and optional `purgetss/brand/logo-feature.{svg,png}` (or CLI `--feature-logo` / `brand.logos.featureGraphic`) for a dedicated source. This is submission artwork: the file goes to the project root for upload to the Play Console, not bundled into the APK.
+- `--opacity <n>`, `--padding <n>`, and `--output <relpath>` flags for `purgetss images` add three CLI-only transformations per asset. `--opacity` multiplies the alpha channel of every generated density (0 to 100, integer). `--padding` shrinks the rendered image inside each density canvas with symmetric transparent borders (0 to 40%). `--output` overrides the basename and subpath relative to the images output root (single-file source only; no extension, no absolute paths, no `..`). All three preserve the multi-density plural-output convention. You can combine them for placeholder images: `purgetss images purgetss/brand/logo.svg --opacity 30 --padding 15 --output 'logos/default' --format png`.
+- `brand --padding <n>` shortcut bug fix. Pre-existing bug: help text and docs described `--padding` as a shortcut that "sets BOTH Android paddings to the same value", but only `androidAdaptivePadding` read the shortcut from the fallback chain; `androidLegacyPadding` skipped it. `purgetss brand --padding 17` actually produced `androidAdaptive=17, androidLegacy=10` silently. Fix adds the missing fallback so `--padding` now sets both Android paddings to the same value as documented.
+- `purgetss images --format png` now writes truecolor RGBA, not palette-quantized PNG-8. Passing `quality` to Sharp's `.png()` was silently triggering palette mode, banding subtle gradients in logos, placeholders, and any image with smooth color transitions. The fix removes that parameter (`quality` has no effect on PNG; only `compressionLevel` matters, and that stays at 9 lossless). Brand outputs (icons, splash, marketplace) were never affected because their generators don't pass `quality` to `.png()`.
 
 ### v7.8.0
 
-- **`--width <n>` flag for `images`.** Pin Android `mdpi` / iPhone `@1x` to a specific width in pixels (e.g. `purgetss images logo.svg --width 256`); larger scales derive at ×1.5, ×2, ×3, ×4 with height staying proportional. Recommended when the source is an SVG export from Affinity / Illustrator with a disproportionate viewBox — the legacy 4× master convention produces unpredictable sizes there, and the new flag pins the result exactly. When you pass an SVG without `--width`, `images` now prints a one-time hint suggesting the flag, then falls back to the legacy behavior.
-- **Class syntax pre-validation.** `purgetss` now halts with a structured `Class Syntax Error` block (file + line + suggested fix) when it detects known authoring mistakes in your class names: inverted negative sign (`top-(-10)` → `-top-(10)`), square brackets (`top-[10px]` → `top-(10px)`), empty parentheses (`wh-()`), whitespace inside parentheses (`wh-( 200 )`), and redundant `px` unit (`top-(10px)` → `top-(10)`).
+- `--width <n>` flag for `images`. Pin Android `mdpi` / iPhone `@1x` to a specific width in pixels (e.g. `purgetss images logo.svg --width 256`); larger scales derive at ×1.5, ×2, ×3, ×4 with height staying proportional. Recommended when the source is an SVG export from Affinity / Illustrator with a disproportionate viewBox. The legacy 4× master convention produces unpredictable sizes there, and the new flag pins the result exactly. When you pass an SVG without `--width`, `images` now prints a one-time hint suggesting the flag, then falls back to the legacy behavior.
+- Class syntax pre-validation. `purgetss` now halts with a structured `Class Syntax Error` block (file + line + suggested fix) when it detects known authoring mistakes in your class names: inverted negative sign (`top-(-10)` → `-top-(10)`), square brackets (`top-[10px]` → `top-(10px)`), empty parentheses (`wh-()`), whitespace inside parentheses (`wh-( 200 )`), and redundant `px` unit (`top-(10px)` → `top-(10)`).
 - All offenders are reported in a single run, so you can fix them in one pass.
-- Generic unknown classes (typos, vendor utilities not enabled, custom classes not yet declared) are NOT flagged by the validator — they continue to flow silently into the `// Unused or unsupported classes` block in `app.tss`, exactly as in previous versions.
-- **Arbitrary-value parser no longer crashes on negative values inside parentheses.** Classes like `top-(-10)`, `mt-(-5)`, or `origin-(-10,-20)` used to trigger a `Cannot read properties of null (reading 'pop')` exception. The parser was rewritten to extract the `(...)` portion first, so a `-` inside the value never breaks the split — and the new pre-validator catches the inverted-sign form before it gets that far.
+- The validator leaves generic unknown classes (typos, vendor utilities not enabled, custom classes not yet declared) in the `// Unused or unsupported classes` block in `app.tss`, without reporting an error, as in previous versions.
+- Arbitrary-value parser no longer crashes on negative values inside parentheses. Classes like `top-(-10)`, `mt-(-5)`, or `origin-(-10,-20)` used to trigger a `Cannot read properties of null (reading 'pop')` exception. The parser was rewritten to extract the `(...)` portion first, so a `-` inside the value never breaks the split, and the new pre-validator catches the inverted-sign form before it gets that far.
 
 ### v7.7.0
 
@@ -512,7 +512,7 @@ Override per file via `images.files` in `config.cjs` (or, for `brand`, the `padd
 
 See the full release notes in [CHANGELOG.md](./CHANGELOG.md).
 
-## Table of Content
+## Table of contents
 
 - [Installation](https://purgetss.com/docs/installation)
 - [Commands](https://purgetss.com/docs/commands)
@@ -547,7 +547,7 @@ See the full release notes in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Execution profiles and incremental generation
 
-Add `--profile <file.json>` to any command or alias to write machine-readable execution metrics:
+Add `--profile <file.json>` to any command or alias to save execution metrics as JSON:
 
 ```sh
 purgetss --profile purge-profile.json
@@ -556,19 +556,25 @@ purgetss bf --module --profile fonts-profile.json
 purgetss --all --profile all-profile.json
 ```
 
-Profiles use `schemaVersion: 1` and report the canonical command, `completed`, `skipped`, or `failed` status, `durationMs`, CPU time (`user`/`system`, in microseconds), memory in bytes, phases, and counters. `memory.peakRssBytes` is the process peak. File-operation counters cover attempted reads, writes, and copies during command execution; `sourceReads`, `xmlParses`, and `jsParses` identify work in the shared source analyzer. A run skipped by LiveView has `skipReason: "liveview-2s"`. Profiles are also written for controlled failures. If the destination cannot be written, stderr explains the problem and the command keeps its original exit code. `--debug` and normal progress messages remain available.
+Profiles use `schemaVersion: 1`. They record the canonical command, its status (`completed`, `skipped`, or `failed`), `durationMs`, CPU time (`user`/`system`, in microseconds), memory in bytes, phases and counters. `memory.peakRssBytes` records the process peak.
 
-XML text, controller text, XML parse results, controller ASTs, and extractions are shared only within one invocation. The next invocation reads the sources again. There is no persistent XML/JavaScript/AST cache.
+File-operation counters count attempted reads, writes and copies during command execution. The shared source analyzer reports its work through `sourceReads`, `xmlParses`, and `jsParses`. LiveView skips have `skipReason: "liveview-2s"`.
 
-Generated utilities use a signature of the evaluated configuration and generator inputs in `purgetss/.cache/generator-signature.json`. The metadata is smaller than 4 KiB. Calculated configurations are evaluated for each invocation; values that cannot be signed reliably cause a conservative rebuild. Configuration changes within the same second are detected. Generated text is written when its bytes change. `app.tss` is still written after each completed purge so its modification time continues to enforce LiveView's two-second guard.
+PurgeTSS also saves profiles for controlled failures. If it cannot write the profile, it reports the problem to stderr and keeps the command's original exit code. You can still use `--debug` and the normal progress messages.
 
-Generation messages distinguish `file created!`, `file updated!`, and `unchanged (not written)`. An unchanged file keeps its modification time even when you explicitly run `build` or `build-fonts`. Rebuild messages identify missing/unreadable signatures or changed generator inputs; they do not imply that you edited the configuration file.
+Within one invocation, PurgeTSS reuses XML and controller text, XML parse results, controller ASTs and extractions. Each invocation reads the sources again; XML/JavaScript/AST data is never cached between runs.
 
-The distribution build runs its generators in the existing order in one process, sharing CSS/codepoint inputs and waiting for font copies. Image generation shares source metadata and identical renders within each image, with at most two renders running at once. Output order, codecs, sizing, alpha, supersampling, compression, and optional quantization are preserved.
+PurgeTSS stores a signature of the evaluated configuration and generator inputs in `purgetss/.cache/generator-signature.json`, using less than 4 KiB of metadata. It evaluates calculated configurations on each invocation and detects changes made within the same second. If a value cannot be signed reliably, it rebuilds the utilities.
+
+Generated text is written when its bytes change. Each completed purge writes `app.tss` to renew its modification time, which enforces LiveView's two-second guard.
+
+Generation messages report `file created!`, `file updated!`, or `unchanged (not written)`. An unchanged file keeps its modification time even when you run `build` or `build-fonts` explicitly. Rebuild messages explain whether the signature is missing or unreadable, or the generator inputs changed. A rebuild can happen without an edit to the configuration file.
+
+The distribution build runs its generators in the existing order within one process. They share CSS/codepoint inputs, and the build waits for font copies to finish. Image generation reuses source metadata and identical renders for each image, with at most two renders running at once. It preserves output order, codecs, sizing, alpha, supersampling, compression and optional quantization.
 
 ### Measured optimization results
 
-Measured on the same Mac with Node 22.23.2, directly in three real projects and a minimal fixture. Each variant had a separate initial run and five subsequent samples in alternating order. These are median process times for completed purges; LiveView skips were measured separately.
+Both versions were measured on the same Mac with Node 22.23.2, directly in three real projects and a minimal fixture. Each variant had a separate initial run, followed by five samples in alternating order. The table shows median process times for completed purges. LiveView skips were measured separately.
 
 | Project | Before | After | Reduction |
 | --- | ---: | ---: | ---: |
@@ -577,8 +583,10 @@ Measured on the same Mac with Node 22.23.2, directly in three real projects and 
 | EM Industrial | 1591.3 ms | 547.1 ms | 65.6% |
 | Minimal fixture | 480.3 ms | 388.4 ms | 19.1% |
 
-Generated project outputs matched byte for byte; the new signature metadata was checked separately. All 43 unit test files, 7 integration files and 6 e2e files passed. An additional comparison across image codecs confirmed identical bytes, pixels, dimensions and alpha for all 56 outputs, including the Sharp 0.35.3 → 0.35.5 update. Compatible dependency fixes reduced npm audit's affected-package count from 12 to 5; the remaining incompatible upgrades are documented in the report.
+Generated project outputs matched byte for byte. The new signature metadata was checked separately. All 43 unit test files, 7 integration files and 6 e2e files passed.
 
-An existing project without signature metadata rebuilds its utility catalog once. In the minimal fixture, that first call increased from 398.3 to 481.2 ms; the subsequent median is shown above. Results describe these fixtures and this machine, and are not a guaranteed speedup for every project. The two-second LiveView guard and `app.tss` mtime renewal remain unchanged.
+Across image codecs, all 56 outputs had identical bytes, pixels, dimensions and alpha, including after the Sharp 0.35.3 to 0.35.5 update. Compatible dependency fixes reduced npm audit's affected-package count from 12 to 5. The report documents the remaining incompatible upgrades.
+
+An existing project without signature metadata rebuilds its utility catalog once. In the minimal fixture, that first call increased from 398.3 to 481.2 ms; the table shows the median for subsequent runs. These measurements apply to the tested fixtures and machine. Other projects may see different results. The two-second LiveView guard and `app.tss` mtime renewal remain unchanged.
 
 For the differential benchmark procedure and measured limits, see [the optimization implementation report](docs/project/optimization.md).
