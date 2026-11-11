@@ -9,7 +9,6 @@
  */
 
 import fs from 'fs'
-import path from 'path'
 import _ from 'lodash'
 import chalk from 'chalk'
 import convert from 'xml-js'
@@ -87,10 +86,9 @@ export function extractClasses(currentText, currentFile) {
  * @param {string} currentFile - File path for error reporting.
  * @returns {Array<{ src: string, classes: string[] }>} References found.
  */
-export function extractSvgRefsFromXml(currentText, currentFile) {
+export function extractSvgRefsFromXml(currentText, currentFile, context) {
   try {
-    const jsontext = convert.xml2json(encodeHTML(currentText), { compact: true })
-    const json = JSON.parse(jsontext)
+    const json = context ? context.xml(currentText) : JSON.parse(convert.xml2json(encodeHTML(currentText), { compact: true }))
     const refs = []
     walkXmlForSvgRefs(json, refs)
     return refs
@@ -312,9 +310,14 @@ function walkAST(node, out) {
  * @param {string} data - Controller file content
  * @returns {Array} Array of class name tokens
  */
-export function processControllers(data) {
+export function processControllers(data, context) {
+  if (context) return context.extract('classes', data, () => processControllerSource(data, context))
+  return processControllerSource(data)
+}
+
+function processControllerSource(data, context) {
   try {
-    const ast = acorn.parse(data, {
+    const ast = context ? context.controller(data) : acorn.parse(data, {
       ecmaVersion: 'latest',
       sourceType: 'script',
       allowReturnOutsideFunction: true,

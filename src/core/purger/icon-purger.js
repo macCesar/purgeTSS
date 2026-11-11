@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+
 /**
  * PurgeTSS v7.1.0 - Core Purger: Icon Fonts
  * Icon font purging engines for FontAwesome, Material Icons, Material Symbols, Framework7
@@ -105,6 +105,7 @@ export function purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, debug = 
  * @returns {string} Purged Framework7 CSS classes as string
  */
 export function purgeFramework7(uniqueClasses, cleanUniqueClasses, debug = false) {
+  void debug
   let purgedClasses = '\n// Framework7\n'
 
   purgedClasses += purgeFontIcons(srcFramework7FontTSSFile, uniqueClasses, 'Purging Framework7 Icons styles...', cleanUniqueClasses, ['f7', 'f7i', 'framework7'])
@@ -128,7 +129,16 @@ export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUnique
 
   let purgedClasses = ''
   const sourceTSS = fs.readFileSync(sourceFolder, 'utf8')
-  const hasMatches = cleanUniqueClasses.some(element => sourceTSS.includes(`'.${cleanClassNameFn(element)}'`))
+  const sourceIndex = uniqueClasses.length > 32 ? new Map() : null
+  if (sourceIndex) {
+    for (const line of sourceTSS.split(/\r?\n/)) {
+      for (const match of line.matchAll(/'\.([^']*)'/g)) {
+        if (!sourceIndex.has(match[1])) sourceIndex.set(match[1], line)
+      }
+    }
+  }
+  const canIndex = name => sourceIndex && !/[\\']/.test(name)
+  const hasMatches = cleanUniqueClasses.some(element => canIndex(cleanClassNameFn(element)) ? sourceIndex.has(cleanClassNameFn(element)) : sourceTSS.includes(`'.${cleanClassNameFn(element)}'`))
 
   if (hasMatches) {
     // In debug mode the label is emitted by localFinish inline with the timing.
@@ -138,8 +148,8 @@ export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUnique
     const sourceTSSFile = sourceTSS.split(/\r?\n/)
     uniqueClasses.forEach(className => {
       const cleanClassName = cleanClassNameFn(className)
-      if (sourceTSS.includes(`'.${cleanClassName}'`)) {
-        const newLine = _.filter(sourceTSSFile, s => s.indexOf(`'.${cleanClassName}'`) !== -1)[0]
+      if (canIndex(cleanClassName) ? sourceIndex.has(cleanClassName) : sourceTSS.includes(`'.${cleanClassName}'`)) {
+        const newLine = canIndex(cleanClassName) ? sourceIndex.get(cleanClassName) : _.filter(sourceTSSFile, s => s.indexOf(`'.${cleanClassName}'`) !== -1)[0]
         purgedClasses += helpers.checkPlatformAndDevice(newLine, className)
       }
     })

@@ -1,3 +1,5 @@
+import { generatorSignature, saveGeneratorSignature } from './generator-signature.js'
+import { writeIfChanged } from '../../shared/generated-files.js'
 /**
  * Completions2 - ESM Migration v7
  * Migrated from v6 with identical functionality
@@ -22,6 +24,7 @@ import { projectsConfigJS } from '../../shared/constants.js'
 import { logger } from '../../shared/logger.js'
 import { registerSemanticName } from '../../shared/semantic-helpers.js'
 const tiCompletionsFile = require('../../../lib/completions/titanium/completions-v3.json')
+const propertyPrefixes = new Map(Object.keys(tiCompletionsFile.properties).map(name => [name, camelCaseToDash(name)]))
 
 // Keys whose numeric values are interpreted with `ti.ui.defaultunit` from tiapp.xml.
 // The glossary .md files for these keys receive an inline "// Unit: ..." note
@@ -199,35 +202,25 @@ function scaffoldGlossary() {
   }
 }
 
-// getConfigFile() runs at module import time, before bin/purgetss's catch
-// handler is wired up. If the config validator throws a presentable error
-// (isSyntaxError), print it cleanly and exit instead of letting Node surface
-// the raw stack on top of an already-formatted report.
 let configFile
-try {
-  configFile = getConfigFile()
-} catch (err) {
-  if (err && err.isSyntaxError) {
-    console.error(err.message)
-    process.exit(1)
-  }
-  throw err
-}
-configFile.purge = configFile.purge ?? { mode: 'all' }
-configFile.theme = configFile.theme ?? {}
-configFile.theme.extend = configFile.theme.extend ?? {}
-
-let configOptions = (configFile.purge && configFile.purge.options) ? configFile.purge.options : {}
-if (configOptions) {
-  configOptions.plugins = configOptions.plugins ?? []
-  configOptions.safelist = configOptions.safelist ?? []
-  configOptions.missing = configOptions.missing ?? true
-  configOptions.widgets = configOptions.widgets ?? false
-}
+let configOptions
 
 function autoBuildUtilitiesTSS(options = {}) {
+  try {
+    return generateUtilities(options)
+  } finally {
+    for (const key of Object.keys(helpers._applyClasses)) delete helpers._applyClasses[key]
+    configFile = undefined
+    configOptions = undefined
+    saveGlossary = false
+  }
+}
+
+function generateUtilities(options) {
+  for (const key of Object.keys(helpers._applyClasses)) delete helpers._applyClasses[key]
   // Refresh config at the start of the function to ensure it's up-to-date
   configFile = getConfigFile()
+  const signature = generatorSignature(configFile)
   configFile.purge = configFile.purge ?? { mode: 'all' }
   configFile.theme = configFile.theme ?? {}
   configFile.theme.extend = configFile.theme.extend ?? {}
@@ -260,6 +253,7 @@ function autoBuildUtilitiesTSS(options = {}) {
     makeSureFolderExists(cwd + '/purgetss/styles/')
     saveFile(cwd + '/purgetss/styles/utilities.tss', tailwindStyles)
     logger.file('./purgetss/styles/utilities.tss')
+    saveGeneratorSignature(signature)
   } else {
     saveFile(path.resolve(__dirname, '../../../dist/utilities.tss'), tailwindStyles)
     logger.file('./dist/utilities.tss')
@@ -287,18 +281,20 @@ function processCustomClasses() {
 function processTitaniumRules(_propertiesOnly) {
   const currentLegacyOption = helpers.globalOptions.legacy
   helpers.globalOptions.legacy = true
-  let customRules = '\n// Ti Elements'
-  _.each(_propertiesOnly, (value, key) => {
-    const property = `\n// Property: ${key}\n`
-    const description = `// Description: ${value.description.replace(/\n/g, ' ')}\n`
-    customRules += property + description + helpers.customRules(value.base, key, false)
-  })
+  try {
+    let customRules = '\n// Ti Elements'
+    _.each(_propertiesOnly, (value, key) => {
+      const property = `\n// Property: ${key}\n`
+      const description = `// Description: ${value.description.replace(/\n/g, ' ')}\n`
+      customRules += property + description + helpers.customRules(value.base, key, false)
+    })
 
-  helpers.globalOptions.legacy = currentLegacyOption
+    if (customRules !== '\n// Ti Elements\n') return customRules
 
-  if (customRules !== '\n// Ti Elements\n') return customRules
-
-  return ''
+    return ''
+  } finally {
+    helpers.globalOptions.legacy = currentLegacyOption
+  }
 }
 
 function processCompletionsClasses(_completionsWithBaseValues) {
@@ -352,6 +348,8 @@ function generateGlossary(_key, _theClasses, _keyName = null) {
 
 function setBaseValuesToProperties(_allProperties, _base) {
   let allKeys = ''
+  // allKeys remains the optional diagnostic accumulation below.
+  void allKeys
   _.each(_allProperties, (data, key) => {
     const activeKey = findBaseKey(key, data)
     allKeys += `${key}\n`
@@ -703,6 +701,7 @@ function removePxFromDefaultTheme(theObject) {
   return theObject
 }
 
+// eslint-disable-next-line no-unused-vars -- Preserve the existing generator helper.
 function fixfontSize(theObject) {
   _.each(theObject, value => {
     if (value.length > 1) value.pop()
@@ -713,7 +712,9 @@ function combineKeys(values, base, key) {
   return (values[key]) ? { ...values[key], ...values.extend[key] } : { ...base, ...values.extend[key] }
 }
 
+let propertyDescriptors
 function getPropertiesFromTiCompletionsFile() {
+  if (propertyDescriptors) return _.cloneDeep(propertyDescriptors)
   const propertiesOnly = {}
 
   const properties = [
@@ -795,7 +796,7 @@ function getPropertiesFromTiCompletionsFile() {
         if (!propDef) return
 
         if (!propertiesOnly[property]) {
-          propertiesOnly[property] = propDef
+          propertiesOnly[property] = _.cloneDeep(propDef)
           propertiesOnly[property].modules = []
         }
         propertiesOnly[property].modules.push(key)
@@ -811,6 +812,7 @@ function getPropertiesFromTiCompletionsFile() {
     }
   })
 
+  propertyDescriptors = _.cloneDeep(propertiesOnly)
   return propertiesOnly
 }
 
@@ -819,9 +821,7 @@ function getFileUpdatedDate(_path) {
 }
 
 function saveFile(file, data) {
-  fs.writeFileSync(file, data, err => {
-    throw err
-  })
+  writeIfChanged(file, data)
 }
 
 function validTypesOnly(property, key) {
@@ -867,7 +867,7 @@ function generateCombinedClasses(key, data) {
     }
     walk(data.base, [key])
   } else {
-    _.each(data.values, (_value, _key) => {
+    _.each(data.values, (_value) => {
       if (!_value.includes('deprecated')) myClasses += formatClass(key, _value, data.type === 'Array')
     })
   }
@@ -886,7 +886,10 @@ function formatClass(key, value, isArray = false) {
 }
 
 function formatClassName(property, value) {
-  return setModifier(removeUneededVariablesFromPropertyName(camelCaseToDash(`${property}-${removeModuleName(value, property)}`)))
+  const valueName = removeModuleName(value, property)
+  const combined = `${property}-${valueName}`
+  const dashed = combined.includes('[') ? combined : `${propertyPrefixes.get(property) ?? camelCaseToDash(property)}-${camelCaseToDash(String(valueName))}`
+  return setModifier(removeUneededVariablesFromPropertyName(dashed))
 }
 
 function removeUneededVariablesFromPropertyName(property) {
@@ -947,10 +950,12 @@ function setModifier(_modifier) {
   return _modifier
 }
 
+// eslint-disable-next-line no-unused-vars -- Preserve the existing generator helper.
 function defaultModifier(modifier) {
   return modifier === '' || modifier === null || modifier === 'global' || modifier === 'default' || modifier === 'DEFAULT'
 }
 
+// eslint-disable-next-line no-unused-vars -- Preserve the existing generator helper.
 function notDefaultRules(rule) {
   return rule !== '' && rule !== null && rule !== 'global' && rule !== 'default' && rule !== 'DEFAULT' && rule !== 'ios' && rule !== 'android' && rule !== 'android' && rule !== 'handheld' && rule !== 'tablet' && !rule.startsWith('[if=')
 }

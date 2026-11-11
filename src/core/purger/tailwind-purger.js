@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+
 /**
  * PurgeTSS v7.1.0 - Core Purger: Tailwind
  * utilities.tss purging engine - removes unused classes
@@ -16,11 +16,10 @@ import * as helpers from '../../shared/helpers.js'
 import { logger } from '../../shared/logger.js'
 import { deriveAlphaKey } from '../../shared/semantic-helpers.js'
 import {
-  // eslint-disable-next-line camelcase
-  projectsTailwind_TSS,
-  projectsConfigJS
+
+  projectsTailwind_TSS
 } from '../../shared/constants.js'
-import { getFileUpdatedDate } from '../../shared/utils.js'
+import { generatorNeedsBuild } from '../builders/generator-signature.js'
 
 // Import timing helpers
 import { localStart, localFinish } from '../../cli/utils/cli-helpers.js'
@@ -55,7 +54,7 @@ export function purgeTailwind(uniqueClasses, debug = false) {
   let purgedClasses = ''
   let tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/)
 
-  if (`// config.js file updated on: ${getFileUpdatedDate(projectsConfigJS)}` !== tailwindClasses[3]) {
+  if (generatorNeedsBuild()) {
     logger.info(chalk.yellow('config.js'), 'file changed!, rebuilding utilities.tss...')
     checkIfColorModule()
     buildTailwindBasedOnConfigOptions()
@@ -101,6 +100,11 @@ export function purgeTailwind(uniqueClasses, debug = false) {
   // });
 
   // Classes written with platform/device prefixes (ios:, tablet:, ios:tablet:…), keyed by their base class
+  const classIndex = cleanUniqueClasses.length > 32 ? new Map() : null
+  if (classIndex) cleanUniqueClasses.forEach((name, index) => {
+    if (!classIndex.has(name)) classIndex.set(name, index)
+  })
+  const indexOfClass = name => classIndex ? (classIndex.get(name) ?? -1) : cleanUniqueClasses.indexOf(name)
   const conditionVariants = {}
   cleanUniqueClasses.forEach(className => {
     if (!helpers.conditionModifiers(className)) return
@@ -123,7 +127,7 @@ export function purgeTailwind(uniqueClasses, debug = false) {
 
       const cleanTailwindClass = `${tailwindClass.split(':')[0].replace('.', '').replace(/'/g, '').replace(/ *\[[^\]]*]/, '').replace(/^#/, '')}`
 
-      const classIndex = cleanUniqueClasses.indexOf(cleanTailwindClass)
+      const classIndex = indexOfClass(cleanTailwindClass)
       if (classIndex > -1) {
         if (cleanTailwindClass.charAt(0) === cleanTailwindClass.charAt(0).toUpperCase() && cleanTailwindClass.charAt(0) !== '-') {
           titaniumClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[classIndex]))
@@ -142,36 +146,36 @@ export function purgeTailwind(uniqueClasses, debug = false) {
         })
       }
 
-      if (cleanUniqueClasses.indexOf(`children:${cleanTailwindClass}`) > -1) {
-        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`children:${cleanTailwindClass}`)]))
+      if (indexOfClass(`children:${cleanTailwindClass}`) > -1) {
+        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[indexOfClass(`children:${cleanTailwindClass}`)]))
       }
 
-      if (cleanUniqueClasses.indexOf(`child:${cleanTailwindClass}`) > -1) {
-        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`child:${cleanTailwindClass}`)]))
+      if (indexOfClass(`child:${cleanTailwindClass}`) > -1) {
+        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[indexOfClass(`child:${cleanTailwindClass}`)]))
       }
 
-      if (cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`) > -1) {
-        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`open:${cleanTailwindClass}`)]))
+      if (indexOfClass(`open:${cleanTailwindClass}`) > -1) {
+        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[indexOfClass(`open:${cleanTailwindClass}`)]))
       }
 
-      if (cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`) > -1) {
-        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`close:${cleanTailwindClass}`)]))
+      if (indexOfClass(`close:${cleanTailwindClass}`) > -1) {
+        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[indexOfClass(`close:${cleanTailwindClass}`)]))
       }
 
-      if (cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`) > -1) {
-        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drag:${cleanTailwindClass}`)]))
+      if (indexOfClass(`drag:${cleanTailwindClass}`) > -1) {
+        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[indexOfClass(`drag:${cleanTailwindClass}`)]))
       }
 
-      if (cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`) > -1) {
-        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`drop:${cleanTailwindClass}`)]))
+      if (indexOfClass(`drop:${cleanTailwindClass}`) > -1) {
+        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[indexOfClass(`drop:${cleanTailwindClass}`)]))
       }
 
-      if (cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`) > -1) {
-        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`complete:${cleanTailwindClass}`)]))
+      if (indexOfClass(`complete:${cleanTailwindClass}`) > -1) {
+        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[indexOfClass(`complete:${cleanTailwindClass}`)]))
       }
 
-      if (cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`) > -1) {
-        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[cleanUniqueClasses.indexOf(`bounds:${cleanTailwindClass}`)]))
+      if (indexOfClass(`bounds:${cleanTailwindClass}`) > -1) {
+        anArrayOfAnimationClasses.push(helpers.checkPlatformAndDevice(tailwindClass, cleanUniqueClasses[indexOfClass(`bounds:${cleanTailwindClass}`)]))
       }
     }
   })

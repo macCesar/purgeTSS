@@ -51,12 +51,12 @@ import { getConfigFile } from '../../shared/config-manager.js'
  * @param {Object} args.logger - Logger with `.info/.warning/.success/.file`.
  * @returns {Promise<void>}
  */
-export async function runSvgPipeline({ tssContent, viewPaths, controllerPaths, logger }) {
+export async function runSvgPipeline({ tssContent, viewPaths, controllerPaths, logger, context }) {
    
   const imagesFolder = projectsPurge_TSS_Images_Folder
   if (!fs.existsSync(imagesFolder)) return
 
-  const refsBySvg = collectRefs({ viewPaths, controllerPaths })
+  const refsBySvg = collectRefs({ viewPaths, controllerPaths, context })
   if (refsBySvg.size === 0) return
 
   logger.info('Resolving SVG dimensions from app.tss...')
@@ -85,7 +85,7 @@ export async function runSvgPipeline({ tssContent, viewPaths, controllerPaths, l
   await generatePngs({ derived: effective, imagesFolder, logger })
 }
 
-function collectRefs({ viewPaths, controllerPaths }) {
+function collectRefs({ viewPaths, controllerPaths, context }) {
   const refsBySvg = new Map()
   const push = (src, classes) => {
     const relPath = normalizeSvgSrc(src)
@@ -95,11 +95,11 @@ function collectRefs({ viewPaths, controllerPaths }) {
   }
 
   for (const file of viewPaths) {
-    const text = fs.readFileSync(file, 'utf8')
+    const text = context ? context.read(file) : fs.readFileSync(file, 'utf8')
     if (!text) continue
     let refs
     try {
-      refs = extractSvgRefsFromXml(text, file)
+      refs = extractSvgRefsFromXml(text, file, context)
     } catch {
       // Malformed XML is reported by the regular purge path already; the SVG
       // pipeline silently skips so we don't double-error on the same file.
@@ -109,9 +109,9 @@ function collectRefs({ viewPaths, controllerPaths }) {
   }
 
   for (const file of controllerPaths) {
-    const text = fs.readFileSync(file, 'utf8')
+    const text = context ? context.read(file) : fs.readFileSync(file, 'utf8')
     if (!text) continue
-    const refs = extractSvgRefsFromController(text)
+    const refs = extractSvgRefsFromController(text, context)
     for (const ref of refs) push(ref.src, ref.classes)
   }
 

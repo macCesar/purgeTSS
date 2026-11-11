@@ -1,3 +1,4 @@
+import { writeIfChanged } from '../../shared/generated-files.js'
 
 /**
  * PurgeTSS v7.1 - Init Command
@@ -119,7 +120,7 @@ function createDefinitionsFile() {
   // Ensure styles folder exists before writing
   makeSureFolderExists(`${cwd}/purgetss/styles`)
 
-  fs.writeFileSync(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v${PurgeTSSPackageJSON.version}) */${classDefinitions}`)
+  writeIfChanged(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v${PurgeTSSPackageJSON.version}) */${classDefinitions}`)
 
   logger.file('./purgetss/styles/definitions.css')
 }

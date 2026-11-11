@@ -15,7 +15,9 @@ const cwd = process.cwd()
 const regexUnicode = /[^\u0000-\u00FF]/ // eslint-disable-line no-control-regex
 const HEX_3_REGEX = /^#?([a-f\d])([a-f\d])([a-f\d])$/i // i.e. #0F3
 const HEX_4_REGEX = /^#?([a-f\d])([a-f\d])([a-f\d])([a-f\d])$/i // i.e. #80F3
+// eslint-disable-next-line no-unused-vars -- Preserve existing value validators.
 const HEX_6_REGEX = /^#?([a-f\d]){6}$/i // i.e. #00FF33
+// eslint-disable-next-line no-unused-vars -- Preserve existing value validators.
 const HEX_8_REGEX = /^#?([a-f\d]){8}$/i // i.e. #8800FF33
 
 /**
@@ -125,7 +127,7 @@ export function parseValue(value, sign = '') {
   }
 
   if (typeof value === 'string' && value.includes('/') && /^\d+\/\d+$/.test(value)) {
-    /* eslint-disable no-eval */
+
     let parsedFloat = parseFloat(eval(value)) * 100
     const splittedValues = parsedFloat.toString().split('.')
 
@@ -486,23 +488,42 @@ export function fixPercentages(theObject) {
  */
 
 export function compileApplyDirectives(twClasses) {
+  if (!Object.keys(_applyClasses).length) return twClasses.split(/\r?\n/).join('\n')
   const twClassesArray = twClasses.split(/\r?\n/)
-  const fontsClassesArray = (fs.existsSync(cwd + '/purgetss/styles/fonts.tss')) ? fs.readFileSync(cwd + '/purgetss/styles/fonts.tss', 'utf8').split(/\r?\n/) : null
-
-  // Default icon font sources (FontAwesome, Material Icons/Symbols, Framework7).
-  // Project-level fontawesome.tss (Pro/Beta) takes precedence over the bundled default,
-  // matching the precedence used by purgeFontAwesome().
-  const iconClassesArrays = [
-    fs.existsSync(projectsFA_TSS_File) ? projectsFA_TSS_File : srcFontAwesomeTSSFile,
-    srcMaterialIconsTSSFile,
-    srcMaterialSymbolsTSSFile,
-    srcFramework7FontTSSFile
-  ]
-    .filter(p => fs.existsSync(p))
-    .map(p => fs.readFileSync(p, 'utf8').split(/\r?\n/))
+  const indexes = new WeakMap()
+  const lookup = (selector, lines) => {
+    if (!selector.endsWith('\':') || /[\\']/.test(selector.slice(1, -2))) return findIndexOfClassName(selector, lines)
+    if (!indexes.has(lines)) {
+      const index = new Map()
+      lines.forEach((line, position) => {
+        const match = line.match(/^'[^']*':/)
+        if (match && !index.has(match[0])) index.set(match[0], position)
+      })
+      indexes.set(lines, index)
+    }
+    return indexes.get(lines).get(selector) ?? -1
+  }
+  let fontsClassesArray
+  const fonts = () => {
+    if (fontsClassesArray === undefined) {
+      const file = cwd + '/purgetss/styles/fonts.tss'
+      fontsClassesArray = fs.existsSync(file) ? fs.readFileSync(file, 'utf8').split(/\r?\n/) : null
+    }
+    return fontsClassesArray
+  }
+  let iconClassesArrays
+  const icons = () => {
+    iconClassesArrays ??= [
+      fs.existsSync(projectsFA_TSS_File) ? projectsFA_TSS_File : srcFontAwesomeTSSFile,
+      srcMaterialIconsTSSFile,
+      srcMaterialSymbolsTSSFile,
+      srcFramework7FontTSSFile
+    ].filter(file => fs.existsSync(file)).map(file => fs.readFileSync(file, 'utf8').split(/\r?\n/))
+    return iconClassesArrays
+  }
 
   _.each(_applyClasses, (values, className) => {
-    const indexOfModifier = findIndexOfClassName(`'${className}':`, twClassesArray)
+    const indexOfModifier = lookup(`'${className}':`, twClassesArray)
 
     if (indexOfModifier !== -1) {
       const compoundClasses = []
@@ -543,24 +564,24 @@ export function compileApplyDirectives(twClasses) {
           // If the target has a platform, try platform-specific class first
           if (targetPlatform && !searchClass.includes('[platform=')) {
             const platformClassName = `'.${searchClass}[platform=${targetPlatform}]':`
-            foundClass = twClassesArray[findIndexOfClassName(platformClassName, twClassesArray)]
-            if (!foundClass && fontsClassesArray) {
-              foundClass = fontsClassesArray[findIndexOfClassName(platformClassName, fontsClassesArray)]
+            foundClass = twClassesArray[lookup(platformClassName, twClassesArray)]
+            if (!foundClass && fonts()) {
+              foundClass = fontsClassesArray[lookup(platformClassName, fontsClassesArray)]
             }
           }
 
           // Fall back to generic class (no platform suffix)
           if (!foundClass) {
             const genericClassName = `'.${searchClass}':`
-            foundClass = twClassesArray[findIndexOfClassName(genericClassName, twClassesArray)]
-            if (!foundClass && fontsClassesArray) {
-              foundClass = fontsClassesArray[findIndexOfClassName(genericClassName, fontsClassesArray)]
+            foundClass = twClassesArray[lookup(genericClassName, twClassesArray)]
+            if (!foundClass && fonts()) {
+              foundClass = fontsClassesArray[lookup(genericClassName, fontsClassesArray)]
             }
             // Last resort: search default icon font sources (FontAwesome, Material Icons/Symbols, Framework7)
             // so apply: directives can use fas, fa-*, mi-*, ms-*, f7-* without requiring fonts.tss
             if (!foundClass) {
-              for (const arr of iconClassesArrays) {
-                const idx = findIndexOfClassName(genericClassName, arr)
+              for (const arr of icons()) {
+                const idx = lookup(genericClassName, arr)
                 if (idx !== -1) { foundClass = arr[idx]; break }
               }
             }
@@ -573,7 +594,7 @@ export function compileApplyDirectives(twClasses) {
       // Handle opacity values
       if (classesWithOpacityValues.length) {
         classesWithOpacityValues.forEach(opacityValue => {
-          const opacityIndex = findIndexOfClassName(`'.${opacityValue.classNameWithTransparency}`, twClassesArray)
+          const opacityIndex = lookup(`'.${opacityValue.classNameWithTransparency}`, twClassesArray)
 
           if (opacityIndex > -1) {
             const targetLine = twClassesArray[opacityIndex]

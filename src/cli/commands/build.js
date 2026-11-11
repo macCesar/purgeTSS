@@ -1,3 +1,4 @@
+import { withConfigInvocation, ensureConfig } from '../../shared/config-manager.js'
 /**
  * PurgeTSS v7.1 - Build Command
  *
@@ -11,7 +12,6 @@
  */
 
 import { alloyProject } from '../../shared/utils.js'
-import { ensureConfig } from '../../shared/config-manager.js'
 import { buildTailwindBasedOnConfigOptions } from '../../core/builders/tailwind-builder.js'
 import { createDefinitionsFile } from './init.js'
 import { flushSemanticColors } from '../../shared/semantic-helpers.js'
@@ -26,7 +26,7 @@ import { buildFontAwesome, buildFontAwesomeJS } from '../../dev/builders/fontawe
  * @param {Object} options - Command options
  * @returns {boolean} - Success status
  */
-export function build(options) {
+function runBuild(options) {
   if (alloyProject()) {
     ensureConfig()
     try {
@@ -40,4 +40,8 @@ export function build(options) {
     return true
   }
   return false
+}
+
+export function build(options = {}) {
+  return withConfigInvocation(() => runBuild(options))
 }

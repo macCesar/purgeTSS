@@ -94,14 +94,14 @@ function detectIssue(className) {
  * "top-(-10)" — which contain regex-special characters — do not need escaping
  * and cannot false-match a partial substring.
  */
-function findLocations(className, paths) {
+function findLocations(className, paths, context) {
   const locations = []
   const attrRe = /class\s*=\s*["']([^"']*)["']/g
 
   for (const filePath of paths) {
     let content
     try {
-      content = fs.readFileSync(filePath, 'utf8')
+      content = context ? context.read(filePath) : fs.readFileSync(filePath, 'utf8')
     } catch {
       continue
     }
@@ -143,7 +143,7 @@ function relativePath(filePath) {
  * @param {string[]} [args.controllerPaths] Absolute paths to JS controller files.
  * @throws {Error} with `isClassSyntaxError === true` if any class matches a detector.
  */
-export function validateClassSyntax({ classes, viewPaths, controllerPaths = [] }) {
+export function validateClassSyntax({ classes, viewPaths, controllerPaths = [], context }) {
   if (!classes || classes.length === 0) return
 
   const allPaths = [...viewPaths, ...controllerPaths]
@@ -155,7 +155,7 @@ export function validateClassSyntax({ classes, viewPaths, controllerPaths = [] }
     offenders.push({
       className,
       issue,
-      locations: findLocations(className, allPaths)
+      locations: findLocations(className, allPaths, context)
     })
   }
 

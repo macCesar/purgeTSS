@@ -32,9 +32,9 @@ const AST_META_KEYS = new Set(['type', 'loc', 'range', 'start', 'end', 'sourceTy
  * @param {string} data - Controller file content.
  * @returns {Array<{ src: string, classes: string[] }>}
  */
-export function extractSvgRefsFromController(data) {
+export function extractSvgRefsFromController(data, context) {
   try {
-    const ast = acorn.parse(data, {
+    const ast = context ? context.controller(data) : acorn.parse(data, {
       ecmaVersion: 'latest',
       sourceType: 'script',
       allowReturnOutsideFunction: true,

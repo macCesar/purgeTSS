@@ -1,3 +1,4 @@
+import { withConfigInvocation, getConfigOptions, getConfigFile } from '../../shared/config-manager.js'
 
 /**
  * PurgeTSS v7.1 - Purge Command
@@ -12,6 +13,8 @@
  */
 
 import fs from 'fs'
+import { findSubstrings } from '../../core/analyzers/substring-matcher.js'
+import { InvocationContext } from '../../core/analyzers/invocation-context.js'
 import { currentProfile } from '../utils/profile.js'
 import _ from 'lodash'
 import chalk from 'chalk'
@@ -29,7 +32,6 @@ import {
 import { logger, setDebugMode } from '../../shared/logger.js'
 import { start, finish, localStart, localFinish } from '../utils/cli-helpers.js'
 import { init } from './init.js'
-import { getConfigOptions, getConfigFile } from '../../shared/config-manager.js'
 import { ensureBrandSection } from '../../core/branding/ensure-brand-section.js'
 
 // Import purger functions from core modules
@@ -46,9 +48,6 @@ import {
 import { purgeFonts } from '../../core/purger/fonts-purger.js'
 import { validateClassSyntax } from '../utils/unsupported-class-reporter.js'
 
-// Global variables (EXACT copies from original src/index.js)
-let configOptions = {}
-let purgingDebug = false
 
 /**
  * Make sure a file exists, create it if it doesn't
@@ -79,16 +78,17 @@ function backupOriginalAppTss() {
 
 /**
  * Get view file paths from the project
- * COPIED exactly from original getViewPaths() function
+ * COPIED exactly from original getViewPaths(context) function
  */
-function getViewPaths() {
+function getViewPaths(context) {
+  if (context?.paths.has('views')) return context.paths.get('views')
   const viewPaths = []
 
   // ! Parse Views from App
   viewPaths.push(...globSync(`${cwd}/app/views/**/*.xml`))
 
   // ! Parse Views from Widgets
-  if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
+  if (context.configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
     viewPaths.push(...globSync(`${cwd}/app/widgets/**/views/*.xml`))
   }
 
@@ -97,24 +97,27 @@ function getViewPaths() {
     viewPaths.push(...globSync(`${cwd}/app/themes/**/views/*.xml`))
   }
 
+  context?.paths.set('views', viewPaths)
   return viewPaths
 }
 
 /**
  * Get controller file paths from the project
- * COPIED exactly from original getControllerPaths() function
+ * COPIED exactly from original getControllerPaths(context) function
  */
-function getControllerPaths() {
+function getControllerPaths(context) {
+  if (context?.paths.has('controllers')) return context.paths.get('controllers')
   const controllerPaths = []
 
   // ! Parse Controllers from App
   controllerPaths.push(...globSync(`${cwd}/app/controllers/**/*.js`))
 
   // ! Parse Controllers from Widgets
-  if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
+  if (context.configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
     controllerPaths.push(...globSync(`${cwd}/app/widgets/**/controllers/*.js`))
   }
 
+  context?.paths.set('controllers', controllerPaths)
   return controllerPaths
 }
 
@@ -133,7 +136,7 @@ function encodeHTML(str) {
  * Validate XML syntax before processing
  * Returns true if valid, throws error if invalid
  */
-function validateXML(xmlText, filePath) {
+function validateXML(xmlText, filePath, context) {
   // Pre-validate: check for common Alloy XML malformations
   // preValidateXML will throw a special error that should be caught at a higher level
   const preValidationError = preValidateXML(xmlText, filePath)
@@ -142,13 +145,11 @@ function validateXML(xmlText, filePath) {
   }
 
   try {
-    convert.xml2json(encodeHTML(xmlText), { compact: true })
+    context ? context.xml(xmlText) : convert.xml2json(encodeHTML(xmlText), { compact: true })
     return true
   } catch (error) {
     // Parse line/column from error message
     const lineMatch = error.message.match(/Line:\s*(\d+)/)
-    const columnMatch = error.message.match(/Column:\s*(\d+)/)
-    const charMatch = error.message.match(/Char:\s*(.+)/)
 
     const lines = xmlText.split('\n')
     const parserLine = lineMatch ? parseInt(lineMatch[1]) : null
@@ -160,7 +161,7 @@ function validateXML(xmlText, filePath) {
 
     const reportLine = suspectLine || parserLine
 
-    let errorMessage = chalk.red(`\n::PurgeTSS:: XML Syntax Error\n`) +
+    let errorMessage = chalk.red('\n::PurgeTSS:: XML Syntax Error\n') +
       chalk.yellow(`File: "${filePath}"\n`)
 
     if (reportLine) {
@@ -181,7 +182,7 @@ function validateXML(xmlText, filePath) {
       }
       errorMessage += '\n'
 
-      errorMessage += chalk.red(`Error: Unmatched or malformed tag (missing < or >)\n`)
+      errorMessage += chalk.red('Error: Unmatched or malformed tag (missing < or >)\n')
     } else {
       errorMessage += chalk.yellow(`Error details: ${error.message}\n`)
     }
@@ -266,7 +267,7 @@ function preValidateXML(xmlText, filePath) {
           lineNumber: i + 1,
           lineContent: trimmed,
           message: `XML comment contains illegal "--" sequence ("${offender}")`,
-          fix: `Replace "--" with "—" (em-dash) or reword the comment to avoid double dashes`
+          fix: 'Replace "--" with "—" (em-dash) or reword the comment to avoid double dashes'
         })
       }
       continue
@@ -339,8 +340,8 @@ function preValidateXML(xmlText, filePath) {
         relativePath,
         lineNumber: i + 1,
         lineContent: trimmed,
-        message: `Attribute is missing "=" sign`,
-        fix: `Check attributes in this tag — each one needs an "=" before its value`
+        message: 'Attribute is missing "=" sign',
+        fix: 'Check attributes in this tag — each one needs an "=" before its value'
       })
     }
 
@@ -350,8 +351,8 @@ function preValidateXML(xmlText, filePath) {
         relativePath,
         lineNumber: i + 1,
         lineContent: trimmed,
-        message: `Tag has a backslash "\\>" instead of forward slash "/>"`,
-        fix: `Change "\\>" to "/>"`
+        message: 'Tag has a backslash "\\>" instead of forward slash "/>"',
+        fix: 'Change "\\>" to "/>"'
       })
     }
 
@@ -361,8 +362,8 @@ function preValidateXML(xmlText, filePath) {
         relativePath,
         lineNumber: i + 1,
         lineContent: trimmed,
-        message: `Tag has a double ">>" closing bracket`,
-        fix: `Remove the extra ">"`
+        message: 'Tag has a double ">>" closing bracket',
+        fix: 'Remove the extra ">"'
       })
     }
 
@@ -374,8 +375,8 @@ function preValidateXML(xmlText, filePath) {
           relativePath,
           lineNumber: i + 1,
           lineContent: trimmed,
-          message: `Tag is missing its closing ">"`,
-          fix: `Add ">" at the end of this tag`
+          message: 'Tag is missing its closing ">"',
+          fix: 'Add ">" at the end of this tag'
         })
       }
     }
@@ -409,11 +410,11 @@ function throwPreValidationError({ relativePath, lineNumber, lineContent, messag
  * Extract classes from file content
  * COPIED exactly from original extractClasses() function
  */
-function extractClasses(currentText, currentFile) {
+function extractClasses(currentText, currentFile, context) {
   try {
-    const jsontext = convert.xml2json(encodeHTML(currentText), { compact: true })
+    const parsed = context ? context.xml(currentText) : JSON.parse(convert.xml2json(encodeHTML(currentText), { compact: true }))
 
-    return traverse(JSON.parse(jsontext)).reduce(function (acc, value) {
+    return traverse(parsed).reduce(function(acc, value) {
       if (this.key === 'class' || this.key === 'id') acc.push(value.split(' '))
       return acc
     }, [])
@@ -455,36 +456,36 @@ function filterCharacters(uniqueClass) {
 
 /**
  * Get unique classes from all project files
- * COPIED exactly from original getUniqueClasses() function
+ * COPIED exactly from original getUniqueClasses(context) function
  */
-function getUniqueClasses() {
+function getUniqueClasses(context) {
   const timing = localStart()
 
   const allClasses = []
-  const viewPaths = getViewPaths()
+  const viewPaths = getViewPaths(context)
   const configFile = getConfigFile()
   _.each(viewPaths, viewPath => {
-    const file = fs.readFileSync(viewPath, 'utf8')
+    const file = context.read(viewPath)
     if (file) {
       // Validate XML syntax first, regardless of mode
-      validateXML(file, viewPath)
+      validateXML(file, viewPath, context)
 
       // Then extract classes based on mode
       if (configFile.purge.mode === 'all') {
         allClasses.push(file.match(/[^<>"'`\s]*[^<>"'`\s:]/g))
       } else {
-        allClasses.push(extractClasses(file, viewPath))
+        allClasses.push(extractClasses(file, viewPath, context))
       }
     }
   })
 
-  const controllerPaths = getControllerPaths()
+  const controllerPaths = getControllerPaths(context)
   _.each(controllerPaths, controllerPath => {
-    const data = fs.readFileSync(controllerPath, 'utf8')
-    if (data) allClasses.push(processControllers(data))
+    const data = context.read(controllerPath)
+    if (data) allClasses.push(processControllers(data, context))
   })
 
-  if (configOptions.safelist) _.each(configOptions.safelist, safe => allClasses.push(safe))
+  if (context.configOptions.safelist) _.each(context.configOptions.safelist, safe => allClasses.push(safe))
 
   const uniqueClasses = []
   _.each(_.uniq(_.flattenDeep(allClasses)).sort(), uniqueClass => {
@@ -540,11 +541,11 @@ function getFiles(dir) {
  * Extract classes only (for missing classes detection)
  * COPIED exactly from original extractClassesOnly() function
  */
-function extractClassesOnly(currentText, currentFile) {
+function extractClassesOnly(currentText, currentFile, context) {
   try {
-    const jsontext = convert.xml2json(encodeHTML(currentText), { compact: true })
+    const parsed = context ? context.xml(currentText) : JSON.parse(convert.xml2json(encodeHTML(currentText), { compact: true }))
 
-    return traverse(JSON.parse(jsontext)).reduce(function (acc, value) {
+    return traverse(parsed).reduce(function(acc, value) {
       if (this.key === 'class' || this.key === 'classes' || this.key === 'icon' || this.key === 'activeIcon') acc.push(value.split(' '))
       return acc
     }, [])
@@ -555,16 +556,16 @@ function extractClassesOnly(currentText, currentFile) {
 
 /**
  * Get classes only from XML files
- * COPIED exactly from original getClassesOnlyFromXMLFiles() function
+ * COPIED exactly from original getClassesOnlyFromXMLFiles(context) function
  */
-function getClassesOnlyFromXMLFiles() {
+function getClassesOnlyFromXMLFiles(context) {
   const allClasses = []
-  const viewPaths = getViewPaths()
+  const viewPaths = getViewPaths(context)
   _.each(viewPaths, viewPath => {
-    const file = fs.readFileSync(viewPath, 'utf8')
+    const file = context.read(viewPath)
     // Validate XML before processing
-    validateXML(file, viewPath)
-    allClasses.push(extractClassesOnly(file, viewPath))
+    validateXML(file, viewPath, context)
+    allClasses.push(extractClassesOnly(file, viewPath, context))
   })
 
   const uniqueClasses = []
@@ -579,7 +580,7 @@ function getClassesOnlyFromXMLFiles() {
  * Find missing classes in the purged output
  * COPIED exactly from original findMissingClasses() function
  */
-function findMissingClasses(tempPurged) {
+function findMissingClasses(tempPurged, context) {
   // ! Get Styles from App - Minus `app.tss`
   if (fs.existsSync(`${cwd}/app/styles`)) {
     _.each(getFiles(`${cwd}/app/styles`).filter(file => file.endsWith('.tss') && !file.endsWith('app.tss') && !file.endsWith('_app.tss')), file => {
@@ -588,7 +589,7 @@ function findMissingClasses(tempPurged) {
   }
 
   // ! Get Styles from Widgets
-  if (configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
+  if (context.configOptions.widgets && fs.existsSync(`${cwd}/app/widgets/`)) {
     _.each(getFiles(`${cwd}/app/widgets`).filter(file => file.endsWith('.tss')), file => {
       tempPurged += '\n' + fs.readFileSync(file, 'utf8')
     })
@@ -601,37 +602,39 @@ function findMissingClasses(tempPurged) {
     })
   }
 
-  if (configOptions.safelist) {
-    _.each(configOptions.safelist, safe => {
+  if (context.configOptions.safelist) {
+    _.each(context.configOptions.safelist, safe => {
       tempPurged += safe + '\n'
     })
   }
 
-  const classesFromXmlFiles = getClassesOnlyFromXMLFiles().filter(item => !tempPurged.includes(item))
+  const classesFromXmlFiles = getClassesOnlyFromXMLFiles(context)
 
   let classesFromJsFiles = []
-  const controllerPaths = getControllerPaths()
+  const controllerPaths = getControllerPaths(context)
   _.each(controllerPaths, controllerPath => {
-    const data = fs.readFileSync(controllerPath, 'utf8')
-    if (data) classesFromJsFiles.push(processControllers(data))
+    const data = context.read(controllerPath)
+    if (data) classesFromJsFiles.push(processControllers(data, context))
   })
   const reservedWords = 'Alloy.isTablet Alloy.isHandheld ? ,'
   classesFromJsFiles = [...new Set([...classesFromJsFiles.flat().filter(item => !reservedWords.includes(item))])]
 
   classesFromJsFiles = classesFromJsFiles.filter(item => !reservedWords.includes(item))
 
-  return [...new Set([...classesFromJsFiles.filter(item => !tempPurged.includes(item)), ...classesFromXmlFiles])]
+  const candidates = [...new Set([...classesFromJsFiles, ...classesFromXmlFiles])]
+  const found = findSubstrings(tempPurged, candidates)
+  return candidates.filter(item => !found.has(item))
 }
 
 /**
  * Process missing classes and add them as comments
  * COPIED exactly from original processMissingClasses() function
  */
-function processMissingClasses(tempPurged) {
+function processMissingClasses(tempPurged, context) {
   let unusedOrMissingClasses = ''
 
-  if (configOptions.missing) {
-    const missingClasses = findMissingClasses(tempPurged)
+  if (context.configOptions.missing) {
+    const missingClasses = findMissingClasses(tempPurged, context)
 
     if (missingClasses.length > 0) {
       unusedOrMissingClasses += '\n'
@@ -656,9 +659,7 @@ function processMissingClasses(tempPurged) {
 function saveFile(file, data) {
   const timing = localStart()
 
-  fs.writeFileSync(file, data, err => {
-    throw err
-  })
+  fs.writeFileSync(file, data)
 
   localFinish(`Saving ${chalk.yellow('app.tss')}...`, timing)
 }
@@ -670,20 +671,20 @@ function saveFile(file, data) {
  * @param {Object} options - Command options
  * @returns {boolean} - Success status
  */
-export async function purgeClasses(options) {
+async function runPurge(options) {
   // Bring the brand: block up to the current structure before anything reads
   // the config. Writing it bumps the config mtime, which is what makes
   // purgeTailwind() rebuild utilities.tss on the same run.
   ensureBrandSection({ createFolder: false })
 
   // Initialize configOptions first (includes auto-migration)
-  configOptions = getConfigOptions()
+  const configOptions = getConfigOptions()
 
   if (!alloyProject()) {
     return false
   }
 
-  purgingDebug = options.debug
+  const purgingDebug = options.debug
   // Propagate to the logger module so localFinish (cli-helpers.js) sees it.
   // The local `purgingDebug` is still needed for the purger callees below.
   setDebugMode(options.debug)
@@ -691,6 +692,8 @@ export async function purgeClasses(options) {
   const recentlyCreated = makeSureFileExists(projectsAppTSS)
 
   if (Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 2000) || recentlyCreated) {
+    const context = new InvocationContext()
+    context.configOptions = configOptions
     const totalTiming = start()
     logger.startSection()
     try {
@@ -705,15 +708,16 @@ export async function purgeClasses(options) {
       let uniqueClasses
 
       try {
-        uniqueClasses = getUniqueClasses()
+        uniqueClasses = getUniqueClasses(context)
 
         // Pre-validate class syntax. Halts on inverted negatives, square
         // brackets, empty parens, etc. — but NOT on generic unknown classes
         // (those fall through silently to "// Unused or unsupported classes").
         validateClassSyntax({
           classes: uniqueClasses,
-          viewPaths: getViewPaths(),
-          controllerPaths: getControllerPaths()
+          context,
+          viewPaths: getViewPaths(context),
+          controllerPaths: getControllerPaths(context)
         })
       } catch (error) {
         // Handle pre-validation errors (XML syntax errors detected before
@@ -743,7 +747,7 @@ export async function purgeClasses(options) {
 
       tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses, purgingDebug)
 
-      tempPurged += processMissingClasses(tempPurged)
+      tempPurged += processMissingClasses(tempPurged, context)
 
       saveFile(projectsAppTSS, tempPurged)
 
@@ -753,13 +757,15 @@ export async function purgeClasses(options) {
       // multi-density PNGs sized from the just-resolved app.tss classes.
       await runSvgPipeline({
         tssContent: tempPurged,
-        viewPaths: getViewPaths(),
-        controllerPaths: getControllerPaths(),
+        context,
+        viewPaths: getViewPaths(context),
+        controllerPaths: getControllerPaths(context),
         logger
       })
 
       finish(undefined, totalTiming)
     } finally {
+      context.dispose()
       flushSemanticColors()
       logger.endSection()
     }
@@ -776,4 +782,8 @@ export async function purgeClasses(options) {
     logger.warn('Project purged less than 2 seconds ago!')
     return true
   }
+}
+
+export function purgeClasses(options = {}) {
+  return withConfigInvocation(() => runPurge(options))
 }
