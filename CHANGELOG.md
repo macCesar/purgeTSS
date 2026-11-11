@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.19.0] - 2026-11-11
+
 ### Added
 - Global `--profile <file.json>` for commands, aliases, and `--all`, with versioned JSON metrics and explicit LiveView skips and controlled failures.
 - Reproducible differential benchmarks for real projects and image outputs, including CPU, memory, file operations, parse counts, and restoration of affected project files. References stay anchored to the audited revision across commits; color unit tests use frozen fixtures without requiring Git history.
