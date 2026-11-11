@@ -17,13 +17,12 @@
 
 import fs from 'fs'
 import path from 'path'
-import sharp from 'sharp'
 import { logger } from '../branding/branding-logger.js'
 import { logger as mainLogger } from '../../shared/logger.js'
 import { confirmWithAlways } from '../../shared/prompt.js'
 import { setConfigProperty } from '../../shared/config-writer.js'
 import { detectProjectType } from '../branding/tiapp-reader.js'
-import { genAndroidScales, genIphoneScales } from './gen-scales.js'
+import { createScaleContext, readSource, genAndroidScales, genIphoneScales } from './gen-scales.js'
 
 const SUPPORTED_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg'])
 
@@ -186,12 +185,14 @@ export async function runImages(opts) {
 
     if (dryRun) continue
 
+    const context = createScaleContext()
+
     // Quality warning: if the user pinned a width (via CLI or `files`), the
     // source must carry at least `width × 4` pixels — that's what xxxhdpi/@4x
     // needs. Anything smaller forces Sharp to upscale, producing blurry output.
     // SVG sources are vector and exempt from this check.
     if (effectiveBaseWidth != null && !isSvg) {
-      const meta = await sharp(file).metadata()
+      const { meta } = await readSource(file, context)
       const requiredXxxhdpi = effectiveBaseWidth * 4
       if (Number.isFinite(meta.width) && meta.width < requiredXxxhdpi) {
         logger.warning(
@@ -202,13 +203,13 @@ export async function runImages(opts) {
 
     if (!iphoneOnly) {
       const androidFiles = await genAndroidScales(file, relPath, androidBaseDir, {
-        format: effectiveFormat, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
+        context, format: effectiveFormat, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
       })
       written.push(...androidFiles)
     }
     if (!androidOnly) {
       const iphoneFiles = await genIphoneScales(file, relPath, iphoneBaseDir, {
-        format: effectiveFormat, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
+        context, format: effectiveFormat, quality, baseWidth: effectiveBaseWidth, baseHeight: effectiveBaseHeight, opacity, padding
       })
       written.push(...iphoneFiles)
     }

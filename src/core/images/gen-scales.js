@@ -34,14 +34,23 @@ import { computeSvgDensity, readSvgSafely } from '../../shared/svg-utils.js'
  *
  * @returns {Promise<{path: string, meta: Object, isSvg: boolean, buffer: Buffer|null}>}
  */
-async function readSource(sourceFile) {
+export function createScaleContext(concurrency = 2) {
+  return { sources: new Map(), renders: new Map(), concurrency: Math.max(1, Math.min(2, Math.trunc(concurrency) || 1)) }
+}
+
+export async function readSource(sourceFile, context) {
+  if (context) {
+    if (!context.sources.has(sourceFile)) context.sources.set(sourceFile, readSource(sourceFile))
+    return context.sources.get(sourceFile)
+  }
   const isSvg = path.extname(sourceFile).toLowerCase() === '.svg'
   if (isSvg) {
     const { buffer, meta } = await readSvgSafely(sourceFile, { logger })
     return { path: sourceFile, meta, isSvg: true, buffer }
   }
-  const meta = await sharp(sourceFile).metadata()
-  return { path: sourceFile, meta, isSvg: false, buffer: null }
+  const buffer = fs.readFileSync(sourceFile)
+  const meta = await sharp(buffer).metadata()
+  return { path: sourceFile, meta, isSvg: false, buffer }
 }
 
 /**
@@ -56,7 +65,7 @@ function buildScalePipeline(src, targetMax) {
     const density = computeSvgDensity(naturalMax, targetMax * 2)
     return sharp(src.buffer, { density, limitInputPixels: false })
   }
-  return sharp(src.path)
+  return sharp(src.buffer ?? src.path)
 }
 
 export const ANDROID_SCALES = Object.freeze([
@@ -129,10 +138,11 @@ const MAX_OUTPUT_PIXELS = 4096
  */
 export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts = {}) {
   const { format = null, quality = 85, baseWidth = null, baseHeight = null, opacity = null, padding = null } = opts
-  const src = await readSource(sourceFile)
-  const written = []
+  const src = await readSource(sourceFile, opts.context)
+  const jobs = []
 
   for (const { name, factor } of ANDROID_SCALES) {
+    jobs.push(async() => {
     const { targetWidth, targetHeight } = computeScaleTarget(src.meta, factor, baseWidth, baseHeight)
     assertWithinCap(targetWidth, targetHeight, sourceFile, name)
 
@@ -140,10 +150,11 @@ export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts
     fs.mkdirSync(outDir, { recursive: true })
 
     const outPath = path.join(outDir, renameWithFormat(path.basename(relPath), format, src.isSvg))
-    await writeScaled(src, outPath, targetWidth, targetHeight, format, quality, opacity, padding)
-    written.push(outPath)
+    await writeScaled(src, outPath, targetWidth, targetHeight, format, quality, opacity, padding, opts.context)
+    return outPath
+    })
   }
-  return written
+  return runScaleJobs(jobs, opts.context?.concurrency ?? 1)
 }
 
 /**
@@ -157,14 +168,15 @@ export async function genAndroidScales(sourceFile, relPath, androidBaseDir, opts
  */
 export async function genIphoneScales(sourceFile, relPath, iphoneBaseDir, opts = {}) {
   const { format = null, quality = 85, baseWidth = null, baseHeight = null, opacity = null, padding = null } = opts
-  const src = await readSource(sourceFile)
-  const written = []
+  const src = await readSource(sourceFile, opts.context)
+  const jobs = []
 
   const parsed = path.parse(relPath)
   const outDir = path.join(iphoneBaseDir, parsed.dir)
   fs.mkdirSync(outDir, { recursive: true })
 
   for (const { suffix, factor } of IPHONE_SCALES) {
+    jobs.push(async() => {
     const { targetWidth, targetHeight } = computeScaleTarget(src.meta, factor, baseWidth, baseHeight)
     assertWithinCap(targetWidth, targetHeight, sourceFile, suffix || '@1x')
 
@@ -174,10 +186,11 @@ export async function genIphoneScales(sourceFile, relPath, iphoneBaseDir, opts =
     const outName = `${parsed.name}${suffix}${ext}`
     const outPath = path.join(outDir, outName)
 
-    await writeScaled(src, outPath, targetWidth, targetHeight, format, quality, opacity, padding)
-    written.push(outPath)
+    await writeScaled(src, outPath, targetWidth, targetHeight, format, quality, opacity, padding, opts.context)
+    return outPath
+    })
   }
-  return written
+  return runScaleJobs(jobs, opts.context?.concurrency ?? 1)
 }
 
 function assertWithinCap(width, height, sourceFile, label) {
@@ -202,7 +215,22 @@ function renameWithFormat(filename, format, isSvg = false) {
   return filename
 }
 
-async function writeScaled(src, outPath, width, height, format, quality, opacity, paddingPct) {
+async function writeScaled(src, outPath, width, height, format, quality, opacity, paddingPct, context) {
+  const key = JSON.stringify([src.path, width, height, format, quality, opacity, paddingPct])
+  if (context?.renders.has(key)) {
+    fs.writeFileSync(outPath, await context.renders.get(key))
+    return
+  }
+  if (context) {
+    const render = renderScaled(src, width, height, format, quality, opacity, paddingPct)
+    context.renders.set(key, render)
+    fs.writeFileSync(outPath, await render)
+    return
+  }
+  await renderScaled(src, width, height, format, quality, opacity, paddingPct, outPath)
+}
+
+async function renderScaled(src, width, height, format, quality, opacity, paddingPct, outPath) {
   // Padding shrinks the rendered image inside the same canvas so each density
   // gets symmetric transparent borders. Computed from the canvas dimensions so
   // the visual ratio (e.g. 15%) is identical across every density variant.
@@ -248,7 +276,7 @@ async function writeScaled(src, outPath, width, height, format, quality, opacity
   const fmt = format || fallbackExt
   pipeline = applyFormat(pipeline, fmt === 'jpg' ? 'jpeg' : fmt, quality)
 
-  await pipeline.toFile(outPath)
+  return outPath ? pipeline.toFile(outPath) : pipeline.toBuffer()
 }
 
 function applyFormat(pipeline, format, quality) {
@@ -261,4 +289,18 @@ function applyFormat(pipeline, format, quality) {
     case 'jpeg': return pipeline.flatten({ background: '#ffffff' }).jpeg({ quality })
     default:     return pipeline
   }
+}
+
+async function runScaleJobs(jobs, concurrency = 1) {
+  let next = 0
+  let failure
+  const results = new Array(jobs.length)
+  await Promise.all(Array.from({ length: Math.min(concurrency, jobs.length) }, async() => {
+    while (!failure && next < jobs.length) {
+      const index = next++
+      try { results[index] = await jobs[index]() } catch (error) { failure ??= error }
+    }
+  }))
+  if (failure) throw failure
+  return results
 }

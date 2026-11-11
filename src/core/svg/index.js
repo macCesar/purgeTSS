@@ -29,7 +29,7 @@ import {
   projectsPurge_TSS_Images_Folder  
 } from '../../shared/constants.js'
 import { detectProjectType } from '../branding/tiapp-reader.js'
-import { genAndroidScales, genIphoneScales, ANDROID_SCALES, IPHONE_SCALES } from '../images/gen-scales.js'
+import { createScaleContext, genAndroidScales, genIphoneScales, ANDROID_SCALES, IPHONE_SCALES } from '../images/gen-scales.js'
 import { parseTssMap } from './tss-reader.js'
 import { deriveDimensions } from './derive-dimensions.js'
 import { syncConfigImages } from './sync-images.js'
@@ -153,8 +153,9 @@ async function generatePngs({ derived, imagesFolder, logger }) {
     }
 
     try {
-      await genAndroidScales(absSvg, relPath, androidBaseDir, { baseWidth: widthDp, baseHeight: heightDp })
-      await genIphoneScales(absSvg, relPath, iphoneBaseDir, { baseWidth: widthDp, baseHeight: heightDp })
+      const context = createScaleContext()
+      await genAndroidScales(absSvg, relPath, androidBaseDir, { context, baseWidth: widthDp, baseHeight: heightDp })
+      await genIphoneScales(absSvg, relPath, iphoneBaseDir, { context, baseWidth: widthDp, baseHeight: heightDp })
     } catch (err) {
       logger.warning(`✗ ${relPath}: ${err.message}`)
       continue
