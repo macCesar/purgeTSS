@@ -5,10 +5,10 @@
 
 import fs from 'fs'
 import { promisify } from 'util'
-import { exec } from 'child_process'
+import { execFile } from 'child_process'
 import path from 'path'
 
-const execAsync = promisify(exec)
+const execAsync = promisify(execFile)
 
 // Handle EPIPE errors globally (when output is piped to head, etc.)
 process.stdout.on('error', (err) => {
@@ -65,7 +65,7 @@ async function findTestFiles(dir) {
     }
     return files
   } catch (error) {
-    return []
+    throw new Error(`Cannot discover tests in ${dir}: ${error.message}`)
   }
 }
 
@@ -75,7 +75,7 @@ async function runTestFile(filePath) {
     console.log(`  🧪 Running ${path.basename(filePath)}`)
     console.log('  ═════════════════════════════════════════════════════════════════')
 
-    const { stdout, stderr } = await execAsync(`node ${filePath}`)
+    const { stdout, stderr } = await execAsync(process.execPath, [filePath])
 
     // Indent all output from the test file
     if (stdout) {
@@ -167,13 +167,14 @@ switch (command) {
   case 'unit':
   case 'integration':
   case 'e2e':
-    runTestCategory(command).catch(console.error)
+    process.exitCode = await runTestCategory(command).catch(error => { console.error(error); return false }) ? 0 : 1
     break
   case 'all':
   case undefined:
-    runAllTests().catch(console.error)
+    process.exitCode = await runAllTests().catch(error => { console.error(error); return false }) ? 0 : 1
     break
   default:
+    process.exitCode = 1
     console.log(`
 🧪 PurgeTSS Test Runner
 

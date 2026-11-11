@@ -76,14 +76,14 @@ async function testCommandRealTime(command, description, expectedFiles = []) {
         console.log(`\n     📊 Files: ${filesCreated}/${expectedFiles.length} created`)
       }
 
-      const success = code === 0
+      const success = code === 0 && filesCreated === expectedFiles.length
       console.log(`     ${success ? '✅' : '❌'} Command ${success ? 'completed' : 'failed'} (exit code: ${code})`)
       console.log('     ' + '─'.repeat(58))
 
       if (success) {
         resolve(true)
       } else {
-        reject(new Error(`Command failed with exit code ${code}`))
+        reject(new Error(code !== 0 ? `Command failed with exit code ${code}` : `Expected files missing (${filesCreated}/${expectedFiles.length} created)`))
       }
     })
 
@@ -142,6 +142,10 @@ async function runAllCommandTests() {
 
   for (const test of tests) {
     try {
+      if (test.command === PURGETSS_BIN) {
+        const appTss = path.join(PROJECT_PATH, 'app/styles/app.tss')
+        if (fs.existsSync(appTss)) await new Promise(resolve => setTimeout(resolve, Math.max(0, fs.statSync(appTss).mtimeMs + 2050 - Date.now())))
+      }
       const success = await testCommandRealTime(test.command, test.description, test.expectedFiles)
       results.push({ ...test, success })
     } catch (error) {
@@ -215,7 +219,10 @@ async function main() {
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  main().catch(console.error)
+  main().catch(error => {
+    console.error(error)
+    process.exitCode = 1
+  })
 }
 
 export { testCommandRealTime, runAllCommandTests }

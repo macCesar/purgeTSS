@@ -97,7 +97,11 @@ async function runTests() {
     console.log('🎉 All tests passed!')
   } else {
     console.log('⚠️  Some tests failed!')
+    process.exitCode = 1
   }
 }
 
-runTests().catch(console.error)
+runTests().catch(error => {
+  console.error(error)
+  process.exitCode = 1
+})

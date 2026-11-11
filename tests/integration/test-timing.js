@@ -10,7 +10,7 @@ try {
   if (timingModule.localStart && timingModule.localFinish) {
     console.log('✅ Timing functions available')
   } else {
-    console.log('❌ Timing functions not found')
+    throw new Error('Timing functions not found')
   }
 
   console.log('📊 Integration test completed successfully')

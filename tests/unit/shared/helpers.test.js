@@ -43,10 +43,10 @@ async function testAnimationModule() {
     const functions = Object.keys(animation)
 
     console.log('✅ Animation Module test:')
-    console.log(`   Functions found: ${functions.length}/27 expected`)
+    console.log(`   Functions found: ${functions.length}/28 expected`)
     console.log(`   Functions: ${functions.slice(0, 5).join(', ')}${functions.length > 5 ? '...' : ''}`)
 
-    return functions.length === 27
+    return functions.length === 28
   } catch (error) {
     console.error('❌ Error in animation module test:', error.message)
     return false
@@ -301,7 +301,7 @@ async function runTests() {
 
   const results = await Promise.all([
     testAccessibilityModule(),      // 11 functions
-    testAnimationModule(),          // 27 functions  
+    testAnimationModule(),          // 28 functions
     testColorsModule(),             // 46 functions
     testCoreModule(),               // 1 export (globalOptions)
     testFormControlsModule(),       // 11 functions
@@ -328,7 +328,7 @@ async function runTests() {
   console.log('   • Core module: globalOptions (1 item)')
   console.log('   • Utils module: 34 functions (post-migration actual count)')
   console.log('   • Media module: 31 functions (duplicate addNegativeValues cleaned!)')
-  console.log('   • Total functions: 381 across 14 helper modules')
+  console.log('   • Total functions: 382 across 14 helper modules')
 
   if (passed === total) {
     console.log('🎉 ALL MODULES PASSED! The migration is COMPLETE!')
@@ -336,7 +336,11 @@ async function runTests() {
     console.log('✅ Duplicate function successfully removed from media.js!')
   } else {
     console.log('⚠️  Some modules failed validation!')
+    process.exitCode = 1
   }
 }
 
-runTests().catch(console.error)
+runTests().catch(error => {
+  console.error(error)
+  process.exitCode = 1
+})

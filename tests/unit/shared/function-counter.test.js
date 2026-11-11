@@ -46,5 +46,11 @@ export async function countHelperFunctions() {
 
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  countHelperFunctions().catch(console.error)
+  countHelperFunctions().then(({ results }) => {
+    if (Object.values(results).some(result => result.error)) process.exitCode = 1
+    return results
+  }).catch(error => {
+    console.error(error)
+    process.exitCode = 1
+  })
 }
