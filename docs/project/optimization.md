@@ -25,25 +25,25 @@ The guard interval was allowed to pass naturally, without aging `app.tss`. Skipp
 
 | Project | Baseline ms | Implementation ms | Reduction | Files compared |
 | --- | ---: | ---: | ---: | ---: |
-| notiGAPE | 1140.2 | 471.9 | 58.6% | 81 |
-| LM - Generador de Tablas | 680.5 | 448.8 | 34.1% | 442 |
-| EM Industrial | 1591.3 | 547.1 | 65.6% | 107 |
+| Real project A | 1140.2 | 471.9 | 58.6% | 81 |
+| Real project B | 680.5 | 448.8 | 34.1% | 442 |
+| Real project C | 1591.3 | 547.1 | 65.6% | 107 |
 | Minimal fixture | 480.3 | 388.4 | 19.1% | 6 |
 
 Initial and subsequent files matched byte for byte. Only the new `generator-signature.json` metadata was excluded from this comparison; its contract is tested separately. The existing SVG cache is included. The JSON files retain all samples, CPU (`user`/`system`, microseconds), peak RSS, reads/writes, total time and time inside the Node process between preload and exit. That internal time includes imports; it is not presented as time spent exclusively in the purge core.
 
 | Project | Instrumented reads | XML parses | JS parses |
 | --- | ---: | ---: | ---: |
-| notiGAPE | 920 → 468 | 280 → 70 | 168 → 54 |
-| LM - Generador de Tablas | 600 → 360 | 40 → 10 | 30 → 10 |
-| EM Industrial | 1242 → 574 | 792 → 198 | 108 → 36 |
+| Real project A | 920 → 468 | 280 → 70 | 168 → 54 |
+| Real project B | 600 → 360 | 40 → 10 | 30 → 10 |
+| Real project C | 1242 → 574 | 792 → 198 | 108 → 36 |
 | Minimal fixture | 540 → 337 | 4 → 1 | 0 → 0 |
 
 | Project | Baseline CPU ms | Implementation CPU ms | Baseline RSS MiB | Implementation RSS MiB |
 | --- | ---: | ---: | ---: | ---: |
-| notiGAPE | 1395.2 | 686.7 | 163.4 | 159.3 |
-| LM - Generador de Tablas | 915.9 | 600.9 | 163.8 | 158.0 |
-| EM Industrial | 1926.6 | 830.4 | 165.4 | 167.1 |
+| Real project A | 1395.2 | 686.7 | 163.4 | 159.3 |
+| Real project B | 915.9 | 600.9 | 163.8 | 158.0 |
+| Real project C | 1926.6 | 830.4 | 165.4 | 167.1 |
 | Minimal fixture | 565.8 | 455.4 | 153.1 | 143.5 |
 
 Reads include startup and signatures as well as app sources. Subsequent purges write `app.tss` once. Invocations skipped by LiveView recorded zero XML/JS parses and zero writes.
@@ -90,13 +90,13 @@ The supported range was aligned with actual dependencies: `^20.12.0 || ^22.13.0 
 - An independent review found regressions involving CRLF, escaped selectors, deferred-import errors and asynchronous profiles, as well as temporary state after errors. They were corrected with tests that failed first and passed afterward. Review of those corrections found no further major issue; the configuration test was subsequently extended to cover symlink retargeting.
 - All three real projects ended with their prior Git state. Protected files were restored individually in `finally` (bytes and access/modification times); no blanket Git restore was performed. Benchmark temporaries and the local baseline installation were removed.
 - At closure, the differential baseline was pinned so commits would not change it. The color-equivalence test using frozen original fixtures and the runner-failure test passed. A startup smoke test after the eight code/test commits confirmed the audited revision, initial invocations, five alternating samples per variant and equivalent bytes. It does not replace earlier measurements; full suites and real-project benchmarks were not repeated merely to make commits. Lint of this reference tooling had no errors; an import-style warning remained in the frozen copy of the original code.
-- The read-only closing check found notiGAPE and Generador de Tablas clean. EM Industrial had a new untracked signature and `app.tss` renewed at 12:18, after the validation archive was finalized at 12:14 and before this commit session. That later activity was preserved rather than removed as test residue.
+- The read-only closing check found Real project A and Real project B clean. Real project C had a new untracked signature and `app.tss` renewed at 12:18, after the validation archive was finalized at 12:14 and before this commit session. That later activity was preserved rather than removed as test residue.
 
 Measurements apply to these fixtures and this Mac; they are not extrapolated as a guaranteed percentage for every project. Initial cost and measurement conditions are recorded so the comparison can be repeated.
 
 ## Evidence and reproduction
 
-Small evidence files in `/Users/cesar/Developer/validation-evidence/purgeTSS/`:
+Small evidence files retained locally (not included in the repository), shown here under the example path `/path/to/benchmark-evidence/`:
 
 - `implementation-final-benchmark.json`: real projects, minimal fixture, initial invocations, five samples and skips.
 - `implementation-startup.json`, `implementation-build.json`, `implementation-colors.json`.
@@ -105,13 +105,15 @@ Small evidence files in `/Users/cesar/Developer/validation-evidence/purgeTSS/`:
 - `implementation-commit-startup-smoke.json`, `implementation-commit-validation.json`: pinned-baseline check after the commits and targeted closure validation.
 
 ```sh
-node tests/performance/benchmark.mjs /tmp/purge-results.json   '/Users/cesar/Developer/Apps/notiGAPE'   '/Users/cesar/Developer/Apps/LM - Generador de Tablas'   '/Users/cesar/Developer/Apps/EM Industrial'
+node tests/performance/benchmark.mjs /tmp/purge-results.json   '/path/to/project-a'   '/path/to/project-b'   '/path/to/project-c'
 PURGETSS_BENCH_COMMAND='["--version"]' node tests/performance/benchmark.mjs /tmp/startup-results.json
 PURGETSS_BENCH_COMMAND='["build"]' PURGETSS_BENCH_STRESS=1 node tests/performance/benchmark.mjs /tmp/build-results.json
 node tests/performance/color-benchmark.mjs /tmp/color-results.json
 node tests/performance/images-benchmark.mjs /tmp/image-results.json 512
 node tests/performance/images-benchmark.mjs /tmp/all-codecs-results.json 32 all
 ```
+
+Replace `/path/to/project-a`, `/path/to/project-b` and `/path/to/project-c` with the Alloy project directories you want to measure. The labels Real project A, B and C anonymize the original projects and match the README; the minimal fixture is generated by the benchmark.
 
 Source and image benchmarks default to `c5f735ad3387a028f8c21627eaf433085e9d283f`, rather than the changing HEAD. That revision must be available in history; `PURGETSS_BENCH_BASELINE=<revision>` explicitly selects another, and the JSON records the reference used. Only modified files that existed at that revision are substituted. The color unit test and benchmark import the frozen original implementations in `tests/fixtures/color-shades/` and do not require Git history, including in a shallow CI checkout.
 

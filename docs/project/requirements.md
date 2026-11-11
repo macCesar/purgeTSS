@@ -1,6 +1,6 @@
 # Requirements
 
-Source: `README.md`, `CHANGELOG.md`, CLI help, tests, and the official documentation in `/Users/cesar/Developer/openSource/purgetss-docs`. This is an index of load-bearing product behavior, not a replacement for those detailed documents.
+Source: `README.md`, `CHANGELOG.md`, CLI help, tests, and the official documentation in `../purgetss-docs`. This is an index of load-bearing product behavior, not a replacement for those detailed documents.
 
 ## Core PurgeTSS behavior
 
@@ -61,7 +61,7 @@ Source: `README.md`, `CHANGELOG.md`, CLI help, tests, and the official documenta
 - Profile commands and aliases through `--profile`, including controlled failures, without overriding the original command exit code when saving the profile fails.
 - Sign effective evaluated configuration and generator inputs, not second-resolution file dates. Store only signature metadata (maximum 4 KiB); rebuild when values cannot be represented reliably.
 - Preserve image codecs, dimensions, pixels, alpha, supersampling, compression, and optional quantization. Enable a queue of at most two jobs only with faster measured runs and no more than 20% extra peak memory against the reference.
-- Validate directly on notiGAPE, Generador de Tablas, and EM Industrial, restoring affected bytes and timestamps and preserving previous changes. No real-project copies, worktrees, commits, global installations, publication, or version changes belong to this implementation. Preserve `docs/rust-port.md`.
+- Validate directly on Real project A, Real project B, and Real project C, restoring affected bytes and timestamps and preserving previous changes. No real-project copies, worktrees, commits, global installations, publication, or version changes belong to this implementation. Preserve `docs/rust-port.md`.
 - Keep the supported Node range aligned with actual dependencies: `^20.12.0 || ^22.13.0 || >=23.5.0`; CI covers Node 20.12, 22.13 and 24.
 
 **Closure authorization — 2026-11-11:** after implementation and verification, César explicitly requested semantic commits and session-document updates. This authorizes those commits; the original restrictions on real-project copies, worktrees, global installations, publication and version changes remain. No Git push was requested. Differential references must remain fixed when HEAD advances, and color unit tests must work without the original commit in a shallow CI checkout.

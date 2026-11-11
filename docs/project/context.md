@@ -16,7 +16,7 @@
 | `tests/TESTING-GUIDE.md` | Detailed test-runner output and structure. | When changing the test harness or debugging suite output. |
 | `slack-posts/long-post.md` | Long-form announcement draft for older v7.3–v7.5 changes. | When reusing historical release communication. |
 | `slack-posts/short-post.md` | Short announcement draft for the same older releases. | When reusing historical release communication. |
-| `/Users/cesar/Developer/openSource/purgetss-docs` | Official Docusaurus documentation source and its release/deploy workflow. | Every time public behavior, configuration, or help changes. |
+| `../purgetss-docs` | Official Docusaurus documentation source and its release/deploy workflow. | Every time public behavior, configuration, or help changes. |
 
 ## Architecture
 
