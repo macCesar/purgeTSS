@@ -389,7 +389,7 @@ export function buildFonts(options = {}) {
       makeSureFolderExists(projectsPurgeTSSFolder)
       makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
 
-      writeIfChanged(`${cwd}/purgetss/styles/fonts.tss`, tssClasses, { encoding: 'utf8' })
+      writeIfChanged(`${cwd}/purgetss/styles/fonts.tss`, tssClasses, { label: './purgetss/styles/fonts.tss' })
     }
 
     if (shouldBuildModule && (fontJS || fontFamilies.size > 0)) {
@@ -413,9 +413,7 @@ export function buildFonts(options = {}) {
 
       exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 
-      writeIfChanged(modulePath, exportIcons, { encoding: 'utf8' })
-
-      logger.info(`${chalk.yellow(path.relative(cwd, modulePath))} file created!`)
+      writeIfChanged(modulePath, exportIcons, { label: path.relative(cwd, modulePath) })
     } else if (fs.existsSync(modulePath)) {
       fs.unlinkSync(modulePath)
     }

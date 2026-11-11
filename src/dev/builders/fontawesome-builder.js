@@ -183,9 +183,7 @@ export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamili
 
   tssClasses += processFontawesomeStyles(data)
 
-  writeIfChanged(projectsFA_TSS_File, tssClasses)
-
-  logger.file('./purgetss/styles/fontawesome.tss')
+  writeIfChanged(projectsFA_TSS_File, tssClasses, { label: './purgetss/styles/fontawesome.tss' })
 
   makeSureFolderExists(projectsFontsFolder)
 
@@ -258,9 +256,7 @@ export function processFontAwesomeJS(CSSFile, faJS, libFolder = projectsLibFolde
   makeSureFolderExists(libFolder)
 
   const fontAwesomeJS = path.join(libFolder, 'fontawesome.js')
-  writeIfChanged(fontAwesomeJS, fontAwesomeContent)
-
-  logger.file(`./${path.relative(cwd, fontAwesomeJS)}`)
+  writeIfChanged(fontAwesomeJS, fontAwesomeContent, { label: `./${path.relative(cwd, fontAwesomeJS)}` })
 
 }
 

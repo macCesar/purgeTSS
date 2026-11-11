@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Reproducible differential benchmarks for real projects and image outputs, including CPU, memory, file operations, parse counts, and restoration of affected project files. References stay anchored to the audited revision across commits; color unit tests use frozen fixtures without requiring Git history.
 
 ### Fixed
+- Generated-file messages now distinguish creation, updates, and unchanged bytes without writing. Utility rebuild messages report signature/input conditions instead of incorrectly claiming `config.js` changed.
 - Test runners and legacy aggregate checks now return a failing exit code when a category, file, or checked component fails.
 - Configuration is reevaluated between invocations and cloned before generation. Repeated builds do not retain mutated configuration, descriptor data, or `apply` directives.
 - Configuration changes within the same second now invalidate generated utilities using effective configuration and generator signatures.

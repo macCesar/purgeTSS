@@ -16,6 +16,7 @@ try {
   const run = args => {
     const result = spawnSync(process.execPath, [bin, ...args], { cwd: root, encoding: 'utf8', env: { ...process.env, NO_UPDATE_NOTIFIER: '1' } })
     assert.equal(result.status, 0, result.stdout + result.stderr)
+    return result.stdout
   }
   const stamp = Math.floor(Date.now() / 1000)
   fs.writeFileSync(config, 'module.exports = { theme: { extend: { colors: { stamp: \'#112233\' } } } }')
@@ -24,7 +25,7 @@ try {
   // Keep the same second and the same string length.
   fs.writeFileSync(config, fs.readFileSync(config, 'utf8').replace('#112233', '#445566'))
   fs.utimesSync(config, stamp + 0.8, stamp + 0.8)
-  run([])
+  assert.match(run([]), /Generator inputs changed; rebuilding utilities\.tss/)
   assert.match(fs.readFileSync(path.join(root, 'app/styles/app.tss'), 'utf8'), /#445566/)
   const metadata = path.join(root, 'purgetss/.cache/generator-signature.json')
   assert.ok(fs.statSync(metadata).size <= 4096)

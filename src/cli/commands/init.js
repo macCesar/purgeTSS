@@ -120,9 +120,7 @@ function createDefinitionsFile() {
   // Ensure styles folder exists before writing
   makeSureFolderExists(`${cwd}/purgetss/styles`)
 
-  writeIfChanged(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v${PurgeTSSPackageJSON.version}) */${classDefinitions}`)
-
-  logger.file('./purgetss/styles/definitions.css')
+  writeIfChanged(`${cwd}/purgetss/styles/definitions.css`, `/* Class definitions (v${PurgeTSSPackageJSON.version}) */${classDefinitions}`, { label: './purgetss/styles/definitions.css' })
 }
 
 /**

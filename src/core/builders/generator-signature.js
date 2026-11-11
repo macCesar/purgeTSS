@@ -52,14 +52,20 @@ export function generatorSignature(config = getConfigFile()) {
   return hash.digest('hex')
 }
 
-export function generatorNeedsBuild() {
+export function generatorBuildReason() {
   const signature = generatorSignature()
-  if (!signature) return true
+  if (!signature) return 'Generator inputs cannot be signed reliably'
   try {
-    return JSON.parse(fs.readFileSync(metadata, 'utf8')).signature !== signature
-  } catch {
-    return true
+    const saved = JSON.parse(fs.readFileSync(metadata, 'utf8'))
+    if (typeof saved.signature !== 'string') return 'Generator signature invalid'
+    return saved.signature !== signature ? 'Generator inputs changed' : null
+  } catch (error) {
+    return error.code === 'ENOENT' ? 'Generator signature missing' : 'Generator signature unreadable'
   }
+}
+
+export function generatorNeedsBuild() {
+  return generatorBuildReason() !== null
 }
 
 export function saveGeneratorSignature(signature) {

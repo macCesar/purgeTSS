@@ -21,7 +21,6 @@ export { colores }
 import * as helpers from '../../shared/helpers.js'
 import { getConfigFile } from '../../shared/config-manager.js'
 import { projectsConfigJS } from '../../shared/constants.js'
-import { logger } from '../../shared/logger.js'
 import { registerSemanticName } from '../../shared/semantic-helpers.js'
 const tiCompletionsFile = require('../../../lib/completions/titanium/completions-v3.json')
 const propertyPrefixes = new Map(Object.keys(tiCompletionsFile.properties).map(name => [name, camelCaseToDash(name)]))
@@ -251,12 +250,10 @@ function generateUtilities(options) {
 
   if (fs.existsSync(projectsConfigJS)) {
     makeSureFolderExists(cwd + '/purgetss/styles/')
-    saveFile(cwd + '/purgetss/styles/utilities.tss', tailwindStyles)
-    logger.file('./purgetss/styles/utilities.tss')
+    saveFile(cwd + '/purgetss/styles/utilities.tss', tailwindStyles, './purgetss/styles/utilities.tss')
     saveGeneratorSignature(signature)
   } else {
-    saveFile(path.resolve(__dirname, '../../../dist/utilities.tss'), tailwindStyles)
-    logger.file('./dist/utilities.tss')
+    saveFile(path.resolve(__dirname, '../../../dist/utilities.tss'), tailwindStyles, './dist/utilities.tss')
   }
 }
 export { autoBuildUtilitiesTSS }
@@ -820,8 +817,8 @@ function getFileUpdatedDate(_path) {
   return fs.statSync(_path).mtime
 }
 
-function saveFile(file, data) {
-  writeIfChanged(file, data)
+function saveFile(file, data, label) {
+  writeIfChanged(file, data, { label })
 }
 
 function validTypesOnly(property, key) {

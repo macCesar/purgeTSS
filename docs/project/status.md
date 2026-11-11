@@ -5,6 +5,8 @@
 **Version:** 7.18.0 unchanged.
 **Branch:** `main`; this session's commits have not been pushed.
 
+**Follow-up — generated-file diagnostics:** César confirmed that the 12:18 EM Industrial activity was his manual `pt`, `pt b` and `pt bf` check. He found the retained `file created!` messages misleading when unchanged bytes preserved mtimes. Before optimization those generators wrote on each run; the new comparison skipped writes while retaining the old messages. The follow-up now reports created/updated/unchanged from the actual write decision, including fonts, definitions, utilities, paired Font Awesome outputs and the distribution module. Rebuild messages distinguish missing, unreadable/invalid signatures, changed inputs and conservative rebuilding. The `app.tss` write and LiveView guard remain intact. Targeted CLI message/mtime tests, same-second/LiveView tests, repeated-config tests, signature tests and lint cover the correction; earlier benchmark numbers describe the implementation validation, not a fresh benchmark of this logging follow-up.
+
 The 16 audit findings are covered by the implementation or an explicitly preserved condition/deferred incompatible dependency fix. See [optimization.md](optimization.md) for the stage mapping, measurements, exact coverage and remaining five npm advisories.
 
 - Direct medians: notiGAPE 1140.2 → 471.9; Generador de Tablas 680.5 → 448.8; EM Industrial 1591.3 → 547.1; minimal fixture 480.3 → 388.4. First-call costs are reported separately; an existing project without signature metadata rebuilds once.

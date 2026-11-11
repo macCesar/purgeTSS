@@ -562,6 +562,8 @@ XML text, controller text, XML parse results, controller ASTs, and extractions a
 
 Generated utilities use a signature of the evaluated configuration and generator inputs in `purgetss/.cache/generator-signature.json`. The metadata is smaller than 4 KiB. Calculated configurations are evaluated for each invocation; values that cannot be signed reliably cause a conservative rebuild. Configuration changes within the same second are detected. Generated text is written when its bytes change. `app.tss` is still written after each completed purge so its modification time continues to enforce LiveView's two-second guard.
 
+Generation messages distinguish `file created!`, `file updated!`, and `unchanged (not written)`. An unchanged file keeps its modification time even when you explicitly run `build` or `build-fonts`. Rebuild messages identify missing/unreadable signatures or changed generator inputs; they do not imply that you edited the configuration file.
+
 The distribution build runs its generators in the existing order in one process, sharing CSS/codepoint inputs and waiting for font copies. Image generation shares source metadata and identical renders within each image, with at most two renders running at once. Output order, codecs, sizing, alpha, supersampling, compression, and optional quantization are preserved.
 
 ### Measured optimization results

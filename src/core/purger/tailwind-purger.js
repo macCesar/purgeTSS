@@ -19,7 +19,7 @@ import {
 
   projectsTailwind_TSS
 } from '../../shared/constants.js'
-import { generatorNeedsBuild } from '../builders/generator-signature.js'
+import { generatorBuildReason } from '../builders/generator-signature.js'
 
 // Import timing helpers
 import { localStart, localFinish } from '../../cli/utils/cli-helpers.js'
@@ -54,8 +54,9 @@ export function purgeTailwind(uniqueClasses, debug = false) {
   let purgedClasses = ''
   let tailwindClasses = fs.readFileSync(projectsTailwind_TSS, 'utf8').split(/\r?\n/)
 
-  if (generatorNeedsBuild()) {
-    logger.info(chalk.yellow('config.js'), 'file changed!, rebuilding utilities.tss...')
+  const rebuildReason = generatorBuildReason()
+  if (rebuildReason) {
+    logger.info(`${rebuildReason}; rebuilding utilities.tss...`)
     checkIfColorModule()
     buildTailwindBasedOnConfigOptions()
     createDefinitionsFile()
