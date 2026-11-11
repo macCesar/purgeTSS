@@ -5228,7 +5228,7 @@
 
 // Property: bubbleParent
 // Description: Indicates if the proxy will bubble an event to its parent.
-// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewScrollPosition, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.ButtonConfiguration, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
+// Component(s): Ti.Proxy, Ti.Module, Ti.UI.View, Ti.API, Ti.Accelerometer, Ti.Android.ActionBar, Ti.Android.Activity, Ti.Android, Ti.Android.BigPictureStyle, Ti.Android.BigTextStyle, Ti.Android.BroadcastReceiver, Ti.Android.Intent, Ti.Android.Menu, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.NotificationChannel, Ti.Android.NotificationManager, Ti.Android.PendingIntent, Ti.Android.QuickSettingsService, Ti.Android.R, Ti.Android.RemoteViews, Ti.Android.Service, Ti.App.Android, Ti.App, Ti.App.Properties, Ti.App.iOS.BackgroundService, Ti.App.iOS.LocalNotification, Ti.App.iOS.SceneProxy, Ti.App.iOS.SearchQuery, Ti.App.iOS.SearchableIndex, Ti.App.iOS.SearchableItem, Ti.App.iOS.SearchableItemAttributeSet, Ti.App.iOS.UserActivity, Ti.App.iOS.UserDefaults, Ti.App.iOS, Ti.Blob, Ti.BlobStream, Ti.Buffer, Ti.BufferStream, Ti.Calendar.Alert, Ti.Calendar.Attendee, Ti.Calendar, Ti.Calendar.Calendar, Ti.Calendar.Event, Ti.Calendar.RecurrenceRule, Ti.Calendar.Reminder, Ti.Codec, Ti.Contacts, Ti.Contacts.Group, Ti.Contacts.Person, Ti.Database.DB, Ti.Database, Ti.Database.ResultSet, Ti.Filesystem.File, Ti.Filesystem.FileStream, Ti.Filesystem, Ti.Geolocation.Android, Ti.Geolocation.Android.LocationProvider, Ti.Geolocation.Android.LocationRule, Ti.Geolocation, Ti.Gesture, Ti.IOStream, Ti.Locale, Ti.Media.Android, Ti.Media.AudioPlayer, Ti.Media.AudioRecorder, Ti.Media.Item, Ti.Media, Ti.Media.MusicPlayer, Ti.Media.Sound, Ti.Media.VideoPlayer, Ti.Network.BonjourBrowser, Ti.Network.BonjourService, Ti.Network.Cookie, Ti.Network.HTTPClient, Ti.Network, Ti.Network.Socket, Ti.Network.Socket.TCP, Ti.Platform.Android, Ti.Platform.DisplayCaps, Ti.Platform, Ti.Stream, Titanium, Ti.UI.ActivityIndicator, Ti.UI.ActivityIndicatorStyle, Ti.UI.AlertDialog, Ti.UI.Android, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.AttributedString, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.Clipboard, Ti.UI.Color, Ti.UI.DashboardItem, Ti.UI.DashboardView, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.Matrix2D, Ti.UI.Matrix3D, Ti.UI.NavigationWindow, Ti.UI.Notification, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerColumn, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Shortcut, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TableViewScrollPosition, Ti.UI.TableViewSection, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.AlertDialogStyle, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.AnimationStyle, Ti.UI.iOS.Animator, Ti.UI.iOS.BlurView, Ti.UI.iOS.ButtonConfiguration, Ti.UI.iOS.CollisionBehavior, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.DocumentViewer, Ti.UI.iOS.DynamicItemBehavior, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.GravityBehavior, Ti.UI.iOS.LivePhoto, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.MenuPopup, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup, Ti.UI.iOS.PreviewContext, Ti.UI.iOS.ProgressBarStyle, Ti.UI.iOS.PushBehavior, Ti.UI.iOS.RowAnimationStyle, Ti.UI.iOS.ScrollIndicatorStyle, Ti.UI.iOS.SnapBehavior, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.StatusBar, Ti.UI.iOS.Stepper, Ti.UI.iOS.SystemButton, Ti.UI.iOS.SystemIcon, Ti.UI.iOS.TableViewStyle, Ti.UI.iOS.TransitionAnimation, Ti.UI.iOS.ViewAttachmentBehavior, Ti.UI.iOS.WebViewConfiguration, Ti.UI.iOS.WebViewDecisionHandler, Ti.UI.iOS.WebViewProcessPool, Ti.UI.iOS, Ti.UI.iPad.Popover, Ti.UI.iPad, Ti.Utils, Ti.WatchSession, Ti.XML.Attr, Ti.XML.CDATASection, Ti.XML.CharacterData, Ti.XML.Comment, Ti.XML.DOMImplementation, Ti.XML.Document, Ti.XML.DocumentFragment, Ti.XML.DocumentType, Ti.XML.Element, Ti.XML.Entity, Ti.XML.EntityReference, Ti.XML.NamedNodeMap, Ti.XML.Node, Ti.XML.NodeList, Ti.XML.Notation, Ti.XML.ProcessingInstruction, Ti.XML.Text, Ti.XML
 '.bubble-parent': { bubbleParent: true }
 '.bubble-parent-false': { bubbleParent: false }
 
@@ -5245,6 +5245,7 @@
 '.accessibility-disable-long-press-false': { accessibilityDisableLongPress: false }
 
 // Property: backgroundColor
+// Description: Ti.UI.View: Background color of the view, as a color name or hex triplet.  Ti.UI.Android.CardView: Background color for CardView as a color name or hex triplet.  Ti.UI.Animation: Value of the backgroundColor property at the end of the animation, as a color name or hex triplet.  Ti.UI.NavigationWindow: Background color of the window, as a color name or hex triplet.  Ti.UI.Picker: Background color of the picker, as a color name or hex triplet.  Ti.UI.RefreshControl: The background color for the refresh control, as a color name or hex triplet.  Ti.UI.Tab: Sets the color of the tab when it is inactive.  Ti.UI: Sets the background color of the master view (when there are no windows or other top-level controls displayed).  Ti.UI.iOS.ButtonConfiguration: The background color of the button.  Ti.UI.iPad.Popover: Sets the background color of the popover.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.RefreshControl, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.ButtonConfiguration, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
 '.bg-transparent': { backgroundColor: 'transparent' }
 '.bg-black': { backgroundColor: '#000000' }
@@ -5742,6 +5743,7 @@
 '.bg-disabled-rose-950': { backgroundDisabledColor: '#4c0519' }
 
 // Property: backgroundFocusedColor
+// Description: Ti.UI.View: Focused background color of the view, as a color name or hex triplet.  Ti.UI.Tab: Sets the color of the tab when it is focused.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.WebView, Ti.UI.Window
 '.bg-focused-transparent': { backgroundFocusedColor: 'transparent' }
 '.bg-focused-black': { backgroundFocusedColor: '#000000' }
@@ -6035,6 +6037,7 @@
 '.bg-left-cap-3.5': { backgroundLeftCap: 14 }
 
 // Property: backgroundSelectedColor
+// Description: Ti.UI.View: Selected background color of the view, as a color name or hex triplet.  Ti.UI.ListItem: Background color of the view, as a color name or hex triplet when item is selected.  Ti.UI.TableViewRow: Background color to render when the row is selected, as a color name or hex triplet.  Ti.UI.iOS.ButtonConfiguration: Background color to use while the button is highlighted (pressed).
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabbedBar, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.ButtonConfiguration, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.bg-selected-transparent': { backgroundSelectedColor: 'transparent' }
 '.bg-selected-black': { backgroundSelectedColor: '#000000' }
@@ -6571,6 +6574,7 @@
 '.border-rose-950': { borderColor: '#4c0519' }
 
 // Property: borderRadius
+// Description: Ti.UI.View: Radius for the rounded corners of the view's border.  Ti.UI.Android.CardView: Corner radius for CardView.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.border-radius-0': { borderRadius: 0 }
 '.border-radius-1': { borderRadius: 2 }
@@ -6635,7 +6639,8 @@
 '.border': { borderWidth: 1 }
 
 // Property: bottom
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Description: Ti.UI.View: View's bottom position, in platform-specific units.  Ti.UI.ActivityIndicator: Bottom position of the view.  Ti.UI.Animation: Value of the bottom property at the end of the animation.  Ti.UI.NavigationWindow: Window's bottom position, in platform-specific units.  Padding: Bottom padding/inset  TextFieldPadding: Bottom padding (Android only, since 6.1.0)
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, ScrollablePadding, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.bottom-0': { bottom: 0 }
 '.bottom-1': { bottom: 4 }
 '.bottom-2': { bottom: 8 }
@@ -6701,6 +6706,7 @@
 '.bottom-full': { bottom: '100%' }
 
 // Property: elevation
+// Description: Ti.UI.View: Base elevation of the view relative to its parent in pixels.  Ti.UI.Android.CardView: Elevation for CardView.  Ti.UI.Animation: Value of the elevation property at the end of the animation.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.ProgressIndicator, Ti.UI.Android.SearchView, Ti.UI.Android.Snackbar, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.EmailDialog, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.OptionDialog, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window
 '.elevation-0': { elevation: 0 }
 '.elevation-1': { elevation: 4 }
@@ -6751,6 +6757,7 @@
 '.focusable-false': { focusable: false }
 
 // Property: height
+// Description: Ti.UI.View: View height, in platform-specific units.  Ti.Blob: If this blob represents an image, this is the height of the image in pixels.  CameraOpen: Height of the preview camera image  MovieSize: Height of the movie.  Ti.UI.ActivityIndicator: Width of the view. Only accepts value of Titanium.UI.SIZE, which must be explicitly set in order to display the message and to position the view correctly.  Ti.UI.Animation: Value of the height property at the end of the animation.  Dimension: The height measurement.  Ti.UI.ListItem: Row height in platform-specific units.  CutoutSize: The height of the cutout  openWindowParams: Window's height, in platform-specific units.  CoverFlowImageType: Display height of the image, in Apple points.
 // Component(s): Ti.UI.View, Ti.Blob, CameraOpen, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListItem, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, Ti.UI.iPad.Popover
 '.h-0': { height: 0 }
 '.h-1': { height: 4 }
@@ -6824,7 +6831,8 @@
 '.hidden-behavior-gone': { hiddenBehavior: Ti.UI.HIDDEN_BEHAVIOR_GONE }
 
 // Property: left
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, HorizontalInsets, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, TabIconInsets, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Description: Ti.UI.View: View's left position, in platform-specific units.  Ti.UI.ActivityIndicator: Left position of the view.  Ti.UI.Animation: Value of the left property at the end of the animation.  Ti.UI.NavigationWindow: Window's left position, in platform-specific units.  HorizontalInsets: Left padding/inset  TabIconInsets: Left inset.  TextFieldPadding: Left padding  CutoutSize: The left position of the cutout.
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, HorizontalInsets, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, ScrollablePadding, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, TabIconInsets, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.left-0': { left: 0 }
 '.left-1': { left: 4 }
 '.left-2': { left: 8 }
@@ -6896,12 +6904,14 @@
 '.keep-hardware-mode-false': { keepHardwareMode: false }
 
 // Property: layout
+// Description: Ti.UI.View: Specifies how the view positions its children. One of: 'composite', 'vertical', or 'horizontal'.  Ti.Android.R: Layout resources. See R.layout in the Android Developer Reference.  Ti.UI.OptionBar: Specifies the layout direction such as 'horizontal' or 'vertical'.
 // Component(s): Ti.UI.View, Ti.Android.R, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.vertical': { layout: 'vertical' }
 '.horizontal': { layout: 'horizontal' }
 '.composite': { layout: 'composite' }
 
 // Property: opacity
+// Description: Ti.UI.View: Opacity of this view, from 0.0 (transparent) to 1.0 (opaque). Defaults to 1.0 (opaque).  Ti.UI.Animation: Value of the opacity property at the end of the animation.  Ti.UI.NavigationWindow: The opacity from 0.0-1.0.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.opacity-0': { opacity: 0 }
 '.opacity-5': { opacity: 0.05 }
@@ -7181,7 +7191,8 @@
 '.pull-bg-rose-950': { pullBackgroundColor: '#4c0519' }
 
 // Property: right
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, HorizontalInsets, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Description: Ti.UI.View: View's right position, in platform-specific units.  Ti.UI.ActivityIndicator: Right position of the view.  Ti.UI.Animation: Value of the right property at the end of the animation.  Ti.UI.NavigationWindow: Window's right position, in platform-specific units.  HorizontalInsets: Right padding/inset  TextFieldPadding: Right padding
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, HorizontalInsets, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, ScrollablePadding, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.right-0': { right: 0 }
 '.right-1': { right: 4 }
 '.right-2': { right: 8 }
@@ -7292,7 +7303,8 @@
 '.soft-keyboard-on-focus-show[platform=android]': { softKeyboardOnFocus: Ti.UI.Android.SOFT_KEYBOARD_SHOW_ON_FOCUS }
 
 // Property: top
-// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, TabIconInsets, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
+// Description: Ti.UI.View: The view's top position.  Ti.UI.ActivityIndicator: Top position of the view.  Ti.UI.Animation: Value of the top property at the end of the animation.  Ti.UI.NavigationWindow: Window's top position, in platform-specific units.  Padding: Top padding/inset  TabIconInsets: Top inset.  TextFieldPadding: Top padding (Android only, since 6.1.0)  CutoutSize: The top position of the cutout.
+// Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Padding, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, ScrollablePadding, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, TabIconInsets, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, TextFieldPadding, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.top-0': { top: 0 }
 '.top-1': { top: 4 }
 '.top-2': { top: 8 }
@@ -7868,11 +7880,13 @@
 '.view-shadow-rose-950': { viewShadowColor: '#4c0519' }
 
 // Property: visible
+// Description: Ti.UI.View: Determines whether the view is visible.  Ti.Android.ActionBar: Gets or sets the action bar visibility state.  Ti.Android.MenuItem: Determines whether the menu item is visible.  Ti.UI.Animation: Value of the visible property at the end of the animation.  Ti.UI.ShortcutItem: Shortcut visibility. Deprecated since 9.1.0. Use Titanium.UI.Shortcut.items to determine if shortcut is active.
 // Component(s): Ti.UI.View, Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.FloatingActionButton, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.ShortcutItem, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.visible': { visible: true }
 '.visible-false': { visible: false }
 
 // Property: width
+// Description: Ti.UI.View: View's width, in platform-specific units.  Ti.Blob: If this blob represents an image, this is the width of the image in pixels.  CameraOpen: Width of the preview camera image  MovieSize: Width of the movie.  Ti.UI.ActivityIndicator: Width of the view. Only accepts value of Titanium.UI.SIZE, which must be explicitly set in order to display the message and to position the view correctly.  Ti.UI.Animation: Value of the width property at the end of the animation.  Dimension: The width measurement.  CutoutSize: The width of the cutout  openWindowParams: Window's width, in platform-specific units.  CoverFlowImageType: Display width for the image, in Apple points.  BarItemType: Width for this button.
 // Component(s): Ti.UI.View, Ti.Blob, CameraOpen, Ti.Media.VideoPlayer, MovieSize, Ti.UI.ActivityIndicator, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Dimension, DimensionWithAbsolutes, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Size, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, CutoutSize, Ti.UI.WebView, Ti.UI.Window, openWindowParams, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, CoverFlowImageType, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper, BarItemType, Ti.UI.iPad.Popover
 '.w-0': { width: 0 }
 '.w-1': { width: 4 }
@@ -7946,6 +7960,7 @@
 '.horizontal-wrap-false': { horizontalWrap: false }
 
 // Property: zIndex
+// Description: Ti.UI.View: Z-index stack order position, relative to other sibling views.  Ti.UI.Animation: Value of the zIndex property at the end of the animation.
 // Component(s): Ti.UI.View, Ti.Media.VideoPlayer, Ti.UI.Android.CardView, Ti.UI.Android.DrawerLayout, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.ButtonBar, Ti.UI.DashboardView, Ti.UI.ImageView, Ti.UI.Label, Ti.UI.ListView, Ti.UI.MaskedImage, Ti.UI.NavigationWindow, Ti.UI.OptionBar, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabbedBar, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Toolbar, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.BlurView, Ti.UI.iOS.CoverFlowView, Ti.UI.iOS.LivePhotoView, Ti.UI.iOS.SplitWindow, Ti.UI.iOS.Stepper
 '.z-index-0': { zIndex: 0 }
 '.z-index-10': { zIndex: 10 }
@@ -7979,6 +7994,7 @@
 '.hour12-false': { hour12: false }
 
 // Property: type
+// Description: DateTimeFormattedPart: The type of the locale-specific token. See MDN formatToParts documentation for details on the possible types and typical values.  NumberFormattedPart: The type of the locale-specific token. See MDN formatToParts documentation for details on the possible types and typical values.  EmitWarningOptions: When warning is a String, type is the name to use for the type of warning being emitted.  Ti.Android.Intent: The MIME type for this Intent.  Ti.Buffer: The type of data encoding to use with value.  Ti.Calendar.Attendee: The type of the attendee.  EncodeNumberDict: Encoding type to use.  DecodeNumberDict: The encoding type to use.  Ti.Event: Name of the event fired.  Ti.Network.BonjourService: the type of the service  PushNotificationSuccessArg: The value of this string is always &quot;remote&quot;.  Ti.UI.Android.ProgressIndicator: Type for the progress indicator.  Attribute: Attribute to apply to the text.  ViewTemplate: View's class name, for example, Ti.UI.Button.  Ti.UI.Picker: Determines the type of picker displayed  Gradient: Type of gradient, either 'linear' or 'radial'.  Ti.UI.iOS.FeedbackGenerator: The type of feedback generator you want to create.
 // Component(s): DateTimeFormattedPart, NumberFormattedPart, EmitWarningOptions, Ti.Android.Intent, Ti.Buffer, Ti.Calendar.Attendee, EncodeNumberDict, DecodeNumberDict, Ti.Event, Ti.Network.BonjourService, PushNotificationSuccessArg, PushNotificationErrorArg, CreateBufferArgs, Ti.UI.Android.ProgressIndicator, Attribute, ViewTemplate, Ti.UI.Picker, Gradient, Ti.UI.iOS.FeedbackGenerator
 '.type-calendar-attendee-unknown': { type: Ti.Calendar.ATTENDEE_TYPE_UNKNOWN }
 '.type-calendar-attendee-person': { type: Ti.Calendar.ATTENDEE_TYPE_PERSON }
@@ -8023,6 +8039,7 @@
 '.type-feedback-generator-notification[platform=ios]': { type: Ti.UI.iOS.FEEDBACK_GENERATOR_TYPE_NOTIFICATION }
 
 // Property: value
+// Description: DateTimeFormattedPart: The locale-specific token value  Ti.Buffer: Data to be encoded.  TiMetadataItemType: The value of the metadata item. Can be represented as various types.  MediaQueryInfoType: The value for the given predicate. See the descriptions in MediaQueryType for information about which properties require which values.  Ti.Network.Cookie: The value of the cookie.  CreateBufferArgs: An initial value which will be encoded and placed in the buffer. If value is a Number, type must also be set. (this is simply a convenient way of calling Titanium.Codec.encodeString or Titanium.Codec.encodeNumber and placing the encoded value in the returned buffer.)  Ti.UI.AlertDialog: Value of the text field inside the dialog.  Ti.UI.Android.SearchView: Value of the search view.  Attribute: Attribute value.  Ti.UI.Picker: Date and time value for Date and Time pickers.  Ti.UI.ProgressBar: Current value of the progress bar.  Ti.UI.SearchBar: Value of the search bar.  Ti.UI.Slider: Current value of the slider.  Ti.UI.Switch: Indicates whether the switch has been turned on or off by the user. May also be set programmatically.  Ti.UI.TextArea: Value of this text area, which may be set programmatically and modified by the user.  Ti.UI.TextField: Value of this text field, which may be set programmatically and modified by the user.  Ti.UI.iOS.Stepper: The current value of the stepper.  Ti.XML.Attr: The attribute value as a string.
 // Component(s): DateTimeFormattedPart, NumberFormattedPart, Ti.Buffer, TiMetadataItemType, MediaQueryInfoType, Ti.Network.Cookie, CreateBufferArgs, Ti.UI.AlertDialog, Ti.UI.Android.SearchView, Attribute, Ti.UI.Picker, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.iOS.Stepper, Ti.XML.Attr
 '.value-attribute-underline-style-none': { value: Ti.UI.ATTRIBUTE_UNDERLINE_STYLE_NONE }
 '.value-attribute-underline-style-single': { value: Ti.UI.ATTRIBUTE_UNDERLINE_STYLE_SINGLE }
@@ -8036,6 +8053,7 @@
 '.value-attribute-letterpress-style': { value: Ti.UI.ATTRIBUTE_LETTERPRESS_STYLE }
 
 // Property: style
+// Description: NumberFormatOptions: Specifies the format style such as decimal, currency, or percentage.  Ti.Android.Notification: Style object that can apply a rich notification style.  Ti.Android.R: Style resources. See R.style in the Android Developer Reference.  Ti.UI.ActivityIndicator: The style for the activity indicator.  Ti.UI.AlertDialog: The style for the alert dialog.  Ti.UI.Button: The border and fill style the button will use.  RowActionType: The style of the row action.  Ti.UI.ListView: Style of the list view.  Ti.UI.ProgressBar: Style of the progress bar.  Ti.UI.SearchBar: Determines the style of the search bar.  Ti.UI.Switch: Style of the switch.  Ti.UI.TabGroup: Property defining which style for the TabGroup to be used.  Ti.UI.TabbedBar: Style of the tabbed bar.  Ti.UI.TableView: Style of the table view, specified using one of the constants from Titanium.UI.iOS.TableViewStyle.  GlassEffectConfiguration: The style of the glass effect.  Ti.UI.iOS.ButtonConfiguration: The style of button configuration to create.  Ti.UI.iOS.FeedbackGenerator: The style of the feedback generator you want to create. This property is only required when using Titanium.UI.iOS.FEEDBACK_GENERATOR_TYPE_IMPACT.  Ti.UI.iOS.PreviewAction: The style of the action.  Ti.UI.iOS.PreviewActionGroup: The style of the action group.
 // Component(s): NumberFormatOptions, Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.AlertDialog, Ti.UI.Button, RowActionType, Ti.UI.ListView, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TabGroup, Ti.UI.TabbedBar, Ti.UI.TableView, GlassEffectConfiguration, Ti.UI.iOS.ButtonConfiguration, Ti.UI.iOS.FeedbackGenerator, Ti.UI.iOS.PreviewAction, Ti.UI.iOS.PreviewActionGroup
 '.style-activity-indicator-big': { style: Ti.UI.ActivityIndicatorStyle.BIG }
 '.style-activity-indicator-dark': { style: Ti.UI.ActivityIndicatorStyle.DARK }
@@ -8083,6 +8101,7 @@
 '.generated-message-false': { generatedMessage: false }
 
 // Property: code
+// Description: assert.AssertionError: Value is always ERR_ASSERTION to show that the error is an assertion error.  EmitWarningOptions: A unique identifier for the warning instance being emitted.  RequestPermissionAccessResult: Error code. Returns 0 if success is true.  EventsAuthorizationResponse: Error code, if any returned.  SuccessResponse: Error code. Returns 0.  FailureResponse: Error code. Returns a non-zero value.  HeadingResponse: Error code.  PreviewImageError: Error code, if applicable.  ThumbnailResponse: Error code. Returns 0 if success is true.
 // Component(s): assert.AssertionError, EmitWarningOptions, RequestPermissionAccessResult, EventsAuthorizationResponse, ContactsAuthorizationResponse, ErrorResponse, SuccessResponse, FailureResponse, RequestStorageAccessResult, LocationResults, ForwardGeocodeResponse, HeadingResponse, ReverseGeocodeResponse, LocationAuthorizationResponse, LocationAccuracyAuthorizationResponse, CameraMediaMultipleItemsType, CameraMediaItemType, PreviewImageError, MediaAuthorizationResponse, RequestCameraAccessResult, RequestMusicLibraryAccessResult, RequestPhotoGalleryAccessResult, ThumbnailResponse, PushNotificationSuccessArg, PushNotificationErrorArg, ErrorCallbackArgs, ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs, MessageReply
 '.code-device-busy': { code: Ti.Media.DEVICE_BUSY }
 '.code-no-camera': { code: Ti.Media.NO_CAMERA }
@@ -8090,6 +8109,7 @@
 '.code-no-focus': { code: Ti.Media.NO_FOCUS }
 
 // Property: mode
+// Description: fs.Stats: A bit-field describing the file type and mode. Always returns 0 on Titanium.  fs.appendFile.options: file permissions/mode  fs.mkdir.options: Not supported on Windows.  CreateStreamArgs: Mode to open the stream in.  Ti.UI.MaskedImage: Blend mode to use to combine layers.
 // Component(s): fs.Stats, fs.appendFile.options, fs.mkdir.options, fs.writeFile.options, CreateStreamArgs, Ti.UI.MaskedImage
 '.mode-stream-read': { mode: Ti.Stream.MODE_READ }
 '.mode-stream-write': { mode: Ti.Stream.MODE_WRITE }
@@ -8124,6 +8144,7 @@
 '.mode-blend-xor': { mode: Ti.UI.BLEND_MODE_XOR }
 
 // Property: connected
+// Description: process: Always false in Titanium.  Ti.Network.HTTPClient: Indicates whether the response was successful.  Ti.Network.Socket.TCP: Callback to be fired when the socket enters the &quot;connected&quot; state.
 // Component(s): process, Ti.Network.HTTPClient, Ti.Network.Socket.TCP
 '.connected': { connected: true }
 '.connected-false': { connected: false }
@@ -8153,6 +8174,7 @@
 '.show-hidden-false': { showHidden: false }
 
 // Property: colors
+// Description: UtilInspectOptions: If true, the output is styled with ANSI color codes. Colors are customizable.  Gradient: An array of colors, as a color name or hex triplet.
 // Component(s): UtilInspectOptions, Gradient
 '.colors-transparent': { colors: 'transparent' }
 '.colors-black': { colors: '#000000' }
@@ -8443,6 +8465,7 @@
 '.home-button-enabled-false': { homeButtonEnabled: false }
 
 // Property: icon
+// Description: Ti.Android.ActionBar: Sets the application icon displayed in the &quot;home&quot; area of the action bar.  Ti.Android.MenuItem: Icon to display for the this menu item.  Ti.Android.Notification: Notification icon, specified as an Android resource ID, or a local URL to a density-specific image.  Ti.Android.QuickSettingsService: Changes the Tile's icon.  Ti.UI.ShortcutItem: Shortcut icon.  Ti.UI.Tab: Icon URL for this tab.  ShortcutParams: The icon to be displayed on the application shortcut. You can either use one of the constants like Titanium.UI.iOS.SHORTCUT_ICON_TYPE_COMPOSE, a local image specified by the image path or a reference to a Titanium.Contacts.Person.
 // Component(s): Ti.Android.ActionBar, Ti.Android.MenuItem, Ti.Android.Notification, Ti.Android.QuickSettingsService, Ti.UI.ShortcutItem, Ti.UI.Tab, ShortcutParams
 '.icon-shortcut-type-compose[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_COMPOSE }
 '.icon-shortcut-type-play[platform=ios]': { icon: Ti.UI.iOS.SHORTCUT_ICON_TYPE_PLAY }
@@ -8492,11 +8515,13 @@
 '.start-mode-redeliver-intent[platform=android]': { startMode: Ti.Android.START_REDELIVER_INTENT }
 
 // Property: success
+// Description: RequestPermissionAccessResult: Indicates if the operation succeeded.  EventsAuthorizationResponse: Indicates whether the request succeeded.  SuccessResponse: Indicates if the operation succeeded. Returns true.  FailureResponse: Indicates if the operation succeeded. Returns false.  HeadingResponse: Indicates a successful operation.  MusicLibraryOptionsType: Function to call when the music library selection is made.  CameraOptionsType: Function to call when the camera is closed after a successful capture/selection.  PhotoGalleryOptionsType: Function to call when the photo gallery is closed after a successful selection.  PreviewImageOptions: Function to be called back if the preview succeeds. No info is passed.  PushNotificationConfig: Callback function called when the push registration is successfully completed.  SnapshotResult: Indicates if the snapshot taken.  DataCreationResult: Indicates if the data creation successful or not.  SearchResult: Indicates if string found or not.
 // Component(s): RequestPermissionAccessResult, EventsAuthorizationResponse, ContactsAuthorizationResponse, ErrorResponse, SuccessResponse, FailureResponse, RequestStorageAccessResult, LocationResults, ForwardGeocodeResponse, HeadingResponse, ReverseGeocodeResponse, LocationAuthorizationResponse, LocationAccuracyAuthorizationResponse, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, CameraMediaMultipleItemsType, CameraMediaItemType, PreviewImageOptions, PreviewImageError, MediaAuthorizationResponse, RequestCameraAccessResult, RequestMusicLibraryAccessResult, RequestPhotoGalleryAccessResult, ThumbnailResponse, PushNotificationConfig, PushNotificationSuccessArg, PushNotificationErrorArg, ErrorCallbackArgs, ReadCallbackArgs, WriteCallbackArgs, WriteStreamCallbackArgs, PumpCallbackArgs, SnapshotResult, DataCreationResult, SearchResult, MessageReply
 '.success': { success: true }
 '.success-false': { success: false }
 
 // Property: flags
+// Description: Ti.Android.Intent: Intent flags.  Ti.Android.Notification: Set of flags for the notification.  wakeLockOptions: Wake lock level and flag. See PowerManager.newWakeLock in the Android API Reference  Ti.Android.PendingIntent: Flags used for creating the Pending Intent.  Ti.UI.Android.CollapseToolbar: Scroll flags. Check Android documentation for more details.  Ti.UI.TabGroup: Additional flags to set on the TabGroup.
 // Component(s): Ti.Android.Intent, Ti.Android.Notification, wakeLockOptions, Ti.Android.PendingIntent, Ti.UI.Android.CollapseToolbar, Ti.UI.TabGroup
 '.flags-activity-brought-to-front[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT }
 '.flags-activity-clear-top[platform=android]': { flags: Ti.Android.FLAG_ACTIVITY_CLEAR_TOP }
@@ -8563,6 +8588,7 @@
 '.checked-false': { checked: false }
 
 // Property: enabled
+// Description: Ti.Android.MenuItem: Determines if the item is enabled.  Ti.UI.Button: Set to true to enable the button, false to disable the button.  Ti.UI.Slider: Boolean to indicate the enabled state of the slider.  Ti.UI.Switch: Determines whether the switch is enabled.  Ti.UI.TabGroup: Enables or disables the menu in a BottomNavigation. If disabled you can't change to a different tab.  disableTabOptions: Show or hide the navigation bar.  Ti.UI.iOS.Stepper: Determines if the stepper is enabled or disabled.  BarItemType: Whether the button is enabled initially.
 // Component(s): Ti.Android.MenuItem, Ti.UI.Button, Ti.UI.Slider, Ti.UI.Switch, Ti.UI.TabGroup, disableTabOptions, Ti.UI.iOS.Stepper, BarItemType
 '.enabled': { enabled: true }
 '.enabled-false': { enabled: false }
@@ -8588,6 +8614,7 @@
 '.audio-stream-type-voice-call[platform=android]': { audioStreamType: Ti.Android.STREAM_VOICE_CALL }
 
 // Property: category
+// Description: Ti.Android.Notification: Sets the notification's category.  UserNotificationDictionary: Category identifier of the notification.  NotificationParams: String identifier of category of actions to be displayed for an interactive notification.
 // Component(s): Ti.Android.Notification, UserNotificationDictionary, NotificationParams
 '.category-alternative[platform=android]': { category: Ti.Android.CATEGORY_ALTERNATIVE }
 '.category-browsable[platform=android]': { category: Ti.Android.CATEGORY_BROWSABLE }
@@ -8635,6 +8662,7 @@
 '.group-summary-false': { groupSummary: false }
 
 // Property: color
+// Description: Ti.Android.Notification: Accent color used behind icon.  Ti.Android.R: Color resources. See R.color in the Android Developer Reference.  Ti.UI.ActivityIndicator: Color of the message text, as a color name or hex triplet.  Ti.UI.Android.CollapseToolbar: Color of the title.  Ti.UI.Android.SearchView: Color of the text in this SearchView, as a color name or hex triplet.  Ti.UI.Animation: Value of the color property at the end of the animation, as a color name or hex triplet.  Ti.UI.Button: Default button text color, as a color name or hex triplet.  Ti.UI.Label: Color of the label text, as a color name or hex triplet.  Ti.UI.ListItem: Default text color of the item when not selected, as a color name or hex triplet.  RowActionType: The background color of the row action.  Ti.UI.OptionBar: Text color of the unselected button  Ti.UI.Picker: Text color of the Picker  Ti.UI.PickerRow: Color of the item text, as a color name or hex triplet.  Ti.UI.ProgressBar: Color of the progress bar message, as a color name or hex triplet.  Ti.UI.SearchBar: Color of the text in this text field, as a color name or hex triplet.  Ti.UI.Switch: Color to use for switch text, as a color name or hex triplet.  Ti.UI.TableViewRow: Default text color of the row when not selected, as a color name or hex triplet.  Ti.UI.TextArea: Color of the text in this text area, as a color name or hex triplet.  GradientColorRef: Color value at this point in the gradient, as a color name or hex triplet.  titleAttributesParams: Color of the window title, as a color name or hex triplet.  shadowDict: Color name or hex triplet specifying the color of the shadow.  Ti.UI.iOS.ButtonConfiguration: The foreground color of the button's content.
 // Component(s): Ti.Android.Notification, Ti.Android.R, Ti.UI.ActivityIndicator, Ti.UI.Android.CollapseToolbar, Ti.UI.Android.SearchView, Ti.UI.Animation, Ti.UI.Button, Ti.UI.Label, Ti.UI.ListItem, RowActionType, Ti.UI.OptionBar, Ti.UI.Picker, Ti.UI.PickerRow, Ti.UI.ProgressBar, Ti.UI.SearchBar, Ti.UI.Switch, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField, GradientColorRef, titleAttributesParams, shadowDict, Ti.UI.iOS.ButtonConfiguration
 '.transparent': { color: 'transparent' }
 '.black': { color: '#000000' }
@@ -8883,6 +8911,7 @@
 '.rose-950': { color: '#4c0519' }
 
 // Property: visibility
+// Description: Ti.Android.Notification: Allows user to conceal private information of the notification on the lock screen.  Ti.Calendar.Event: Visibility of this event.
 // Component(s): Ti.Android.Notification, Ti.Calendar.Event
 '.visibility-private[platform=android]': { visibility: Ti.Android.VISIBILITY_PRIVATE }
 '.visibility-public[platform=android]': { visibility: Ti.Android.VISIBILITY_PUBLIC }
@@ -9190,6 +9219,7 @@
 '.update-current-intent-false': { updateCurrentIntent: false }
 
 // Property: state
+// Description: Ti.Android.QuickSettingsService: Sets the state of the Tile.  Ti.Calendar.Alert: The current state of the alert.  GeocodedAddress: State name.  Ti.Media.AudioPlayer: Current state of playback, specified using one of the STATE constants defined on this object.  Ti.Network.Socket.TCP: Current state of the socket.  RowActionType: The state to show this edit action. Either &quot;trailing&quot; (default) or &quot;leading&quot;.
 // Component(s): Ti.Android.QuickSettingsService, Ti.Calendar.Alert, GeocodedAddress, Ti.Media.AudioPlayer, Ti.Network.Socket.TCP, RowActionType
 '.state-tile-unavailable[platform=android]': { state: Ti.Android.TILE_STATE_UNAVAILABLE }
 '.state-tile-inactive[platform=android]': { state: Ti.Android.TILE_STATE_INACTIVE }
@@ -9205,6 +9235,7 @@
 '.state-audio-stopped': { state: Ti.Media.AUDIO_STATE_STOPPED }
 '.state-audio-stopping': { state: Ti.Media.AUDIO_STATE_STOPPING }
 '.state-audio-waiting-for-data': { state: Ti.Media.AUDIO_STATE_WAITING_FOR_DATA }
+'.state-audio-waiting-for-queue': { state: Ti.Media.AUDIO_STATE_WAITING_FOR_QUEUE }
 '.state-network-socket-initialized': { state: Ti.Network.Socket.INITIALIZED }
 '.state-network-socket-connected': { state: Ti.Network.Socket.CONNECTED }
 '.state-network-socket-listening': { state: Ti.Network.Socket.LISTENING }
@@ -9212,17 +9243,13 @@
 '.state-network-socket-error': { state: Ti.Network.Socket.ERROR }
 
 // Property: options
-// Component(s): showParams, Ti.App.iOS.UserNotificationCategory, UserNotificationAttachment, ClipboardItemsType, Ti.UI.OptionDialog
+// Description: QuickSettingsServiceShowParams: Array of String instances.  Ti.App.iOS.UserNotificationCategory: Options for how to handle notifications of this type.  UserNotificationAttachment: An additional dictionary of options to provide.  ClipboardItemsType: The privacy options to apply to all the items on the clipboard. The available options are described in Ti.UI.CLIPBOARD_OPTION_*. Depending on the key, the value can be a Date or Boolean.  Ti.UI.OptionDialog: List of option names to display in the dialog.
+// Component(s): QuickSettingsServiceShowParams, Ti.App.iOS.UserNotificationCategory, UserNotificationAttachment, ClipboardItemsType, Ti.UI.OptionDialog
 '.options-category-none[platform=ios]': { options: [ Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_NONE ] }
 '.options-category-custom-dismiss-action[platform=ios]': { options: [ Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_CUSTOM_DISMISS_ACTION ] }
 '.options-category-allow-in-carplay[platform=ios]': { options: [ Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_ALLOW_IN_CARPLAY ] }
 '.options-category-hidden-previews-show-title[platform=ios]': { options: [ Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_TITLE ] }
 '.options-category-hidden-previews-show-subtitle[platform=ios]': { options: [ Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_SUBTITLE ] }
-
-// Property: animated
-// Component(s): showParams, showContactsParams, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, AnimatedOptions, AnimatedWithDurationOptions, ListViewAnimationProperties, hideParams, Ti.UI.ProgressBar, Ti.UI.Switch, disableTabOptions, TableViewAnimationProperties, openWindowParams, windowToolbarParam, closeWindowParams, DocumentViewerOptions, MenuPopupShowParams, ShowPopoverParams
-'.animated': { animated: true }
-'.animated-false': { animated: false }
 
 // Property: accessibilityEnabled
 // Description: Indicates whether Accessibility is enabled by the system.
@@ -9277,6 +9304,30 @@
 // Component(s): launchOptions
 '.launch-options-location-key': { launchOptionsLocationKey: true }
 '.launch-options-location-key-false': { launchOptionsLocationKey: false }
+
+// Property: isActive
+// Description: Whether the scene is currently active and receiving input.
+// Component(s): Ti.App.iOS.SceneProxy
+'.is-active': { isActive: true }
+'.is-active-false': { isActive: false }
+
+// Property: isForeground
+// Description: Whether the scene is in the foreground (visible but may not be active).
+// Component(s): Ti.App.iOS.SceneProxy
+'.is-foreground': { isForeground: true }
+'.is-foreground-false': { isForeground: false }
+
+// Property: isPrimary
+// Description: Whether this scene is the primary (first) scene.
+// Component(s): Ti.App.iOS.SceneProxy
+'.is-primary': { isPrimary: true }
+'.is-primary-false': { isPrimary: false }
+
+// Property: isKey
+// Description: Whether this scene's window is the one the user is currently interacting with.
+// Component(s): Ti.App.iOS.SceneProxy
+'.is-key': { isKey: true }
+'.is-key-false': { isKey: false }
 
 // Property: itemContentType
 // Description: Content type of the attribute set.
@@ -9394,11 +9445,13 @@
 '.page-h-3.5': { pageHeight: 14 }
 
 // Property: kind
-// Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Contacts.Person
+// Description: Ti.App.iOS.SearchableItemAttributeSet: Kind that the item represents.  Ti.Contacts.Person: Determines the type of information the person record contains; either person or organization. Read-only on Android.  ReservedRegion: The kind of the region. division is the fold of the device and occlusion is the inner camera.
+// Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Contacts.Person, ReservedRegion
 '.kind-contacts-organization': { kind: Ti.Contacts.CONTACTS_KIND_ORGANIZATION }
 '.kind-contacts-person': { kind: Ti.Contacts.CONTACTS_KIND_PERSON }
 
 // Property: duration
+// Description: Ti.App.iOS.SearchableItemAttributeSet: Duration in seconds of the content of the item (if appropriate).  Ti.Media.AudioPlayer: Estimated duration in milliseconds of the file being played.  CameraRecordingCallback: Length in milliseconds  Ti.Media.Sound: Duration of the audio resource.  Ti.Media.VideoPlayer: The duration of the current movie in milliseconds, or 0.0 if not known.  AnimatedWithDurationOptions: The duration in milliseconds for animation  Ti.UI.Animation: Duration of the animation, in milliseconds.  Ti.UI.ImageView: Amount of time in milliseconds to animate one cycle.  Ti.UI.Notification: Determines how long the notification stays on screen.  Ti.UI.iOS.TransitionAnimation: Length of the transition in milliseconds.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Media.AudioPlayer, CameraRecordingCallback, Ti.Media.Sound, Ti.Media.VideoPlayer, AnimatedWithDurationOptions, Ti.UI.Animation, Ti.UI.ImageView, Ti.UI.Notification, Ti.UI.iOS.TransitionAnimation
 '.duration-0': { duration: 0 }
 '.duration-25': { duration: 25 }
@@ -9424,6 +9477,7 @@
 '.duration-5000': { duration: 5000 }
 
 // Property: mediaTypes
+// Description: Ti.App.iOS.SearchableItemAttributeSet: Media types present in the content.  MusicLibraryOptionsType: An array of media type constants defining selectable media.  CameraOptionsType: Array of media type constants to allow. Note: If you want to select live photos, iOS only  allows you to select existing live photos from the gallery, capturing new live photos is not supported by iOS public API, yet.  PhotoGalleryOptionsType: Array of media type constants to allow. Live photos is only supported on the iOS platform, starting with iOS 9.1. If you want to allow live photos with Titanium.Media.MEDIA_TYPE_LIVEPHOTO, you also need to specify at least Titanium.Media.MEDIA_TYPE_PHOTO as a fallback. If you do not allow live photos, they still can be selected, but will be represented as a normal static photo.  Ti.Media.VideoPlayer: The type of media in the player's current item first track.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, Ti.Media.VideoPlayer
 '.media-types-music-type-all': { mediaTypes: [ Ti.Media.MUSIC_MEDIA_TYPE_ALL ] }
 '.media-types-music-type-any-audio': { mediaTypes: [ Ti.Media.MUSIC_MEDIA_TYPE_ANY_AUDIO ] }
@@ -9445,6 +9499,7 @@
 '.media-types-video-type': { mediaTypes: [ Ti.Media.VIDEO_MEDIA_TYPE_VIDEO ] }
 
 // Property: role
+// Description: Ti.App.iOS.SearchableItemAttributeSet: Used to indicate the role of the document creator.  Ti.Calendar.Attendee: The role of the attendee.
 // Component(s): Ti.App.iOS.SearchableItemAttributeSet, Ti.Calendar.Attendee
 '.role-calendar-attendee-unknown': { role: Ti.Calendar.ATTENDEE_ROLE_UNKNOWN }
 '.role-calendar-attendee-optional': { role: Ti.Calendar.ATTENDEE_ROLE_OPTIONAL }
@@ -9453,6 +9508,7 @@
 '.role-calendar-attendee-non-participant': { role: Ti.Calendar.ATTENDEE_ROLE_NON_PARTICIPANT }
 
 // Property: activityType
+// Description: Ti.App.iOS.UserActivity: Name of the activity type.  Ti.Geolocation: The type of user activity to be associated with the location updates.
 // Component(s): Ti.App.iOS.UserActivity, Ti.Geolocation
 '.activity-type-activitytype-other': { activityType: Ti.Geolocation.ACTIVITYTYPE_OTHER }
 '.activity-type-activitytype-automotive-navigation': { activityType: Ti.Geolocation.ACTIVITYTYPE_AUTOMOTIVE_NAVIGATION }
@@ -9508,6 +9564,7 @@
 '.authentication-required-false': { authenticationRequired: false }
 
 // Property: destructive
+// Description: Ti.App.iOS.UserNotificationAction: Set to true if the action causes destructive behavior to the user's data or the application.  Ti.UI.AlertDialog: Index to define the destructive button.  Ti.UI.OptionDialog: Index to define the destructive option, indicated by a visual cue when rendered.
 // Component(s): Ti.App.iOS.UserNotificationAction, Ti.UI.AlertDialog, Ti.UI.OptionDialog
 '.destructive': { destructive: true }
 '.destructive-false': { destructive: false }
@@ -9584,12 +9641,14 @@
 '.alert-style-banner[platform=ios]': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_BANNER }
 
 // Property: userInterfaceStyle
+// Description: Ti.App.iOS: The style associated with the user interface. Deprecated since 9.1.0. Use Titanium.UI.userInterfaceStyle instead, which is supported cross-platform.  Ti.UI: The style associated with the user interface.
 // Component(s): Ti.App.iOS, Ti.UI
 '.user-interface-style-unspecified': { userInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_UNSPECIFIED }
 '.user-interface-style-light': { userInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_LIGHT }
 '.user-interface-style-dark': { userInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_DARK }
 
 // Property: repeat
+// Description: NotificationParams: Interval to repeat the notification. One of weekly, daily, yearly, monthly.  Ti.UI.Animation: Number of times the animation should be performed.
 // Component(s): NotificationParams, Ti.UI.Animation
 '.repeat-0': { repeat: 0 }
 '.repeat-1': { repeat: 1 }
@@ -9690,6 +9749,7 @@
 '.is-organizer-false': { isOrganizer: false }
 
 // Property: status
+// Description: Ti.Calendar.Attendee: The status of the attendee.  Ti.Calendar.Event: Status of this event.  Ti.Network.HTTPClient: Response HTTP status code.
 // Component(s): Ti.Calendar.Attendee, Ti.Calendar.Event, Ti.Network.HTTPClient
 '.status-calendar-attendee-unknown': { status: Ti.Calendar.ATTENDEE_STATUS_UNKNOWN }
 '.status-calendar-attendee-pending': { status: Ti.Calendar.ATTENDEE_STATUS_PENDING }
@@ -9714,6 +9774,7 @@
 '.calendar-authorization-unknown': { calendarAuthorization: Ti.Calendar.AUTHORIZATION_UNKNOWN }
 
 // Property: selected
+// Description: Ti.Calendar.Calendar: Indicates whether the calendar is selected.  Ti.UI.iOS.CoverFlowView: Index to make selected.
 // Component(s): Ti.Calendar.Calendar, Ti.UI.iOS.CoverFlowView
 '.selected': { selected: true }
 '.selected-false': { selected: false }
@@ -9741,6 +9802,7 @@
 '.has-alarm-false': { hasAlarm: false }
 
 // Property: location
+// Description: Ti.Calendar.Event: Location of this event.  Ti.Network.HTTPClient: Absolute URL of the request.  Ti.UI.Android.ProgressIndicator: Location for the progress indicator.  textAreaSelectedParams: Starting position of selected text.
 // Component(s): Ti.Calendar.Event, Ti.Network.HTTPClient, Ti.UI.Android.ProgressIndicator, textAreaSelectedParams, textFieldSelectedParams
 '.location-progress-indicator-dialog[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_DIALOG }
 '.location-progress-indicator-status-bar[platform=android]': { location: Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR }
@@ -9761,6 +9823,7 @@
 '.is-detached-false': { isDetached: false }
 
 // Property: frequency
+// Description: Ti.Calendar.RecurrenceRule: Frequency of the recurrence rule.  Ti.UI.iOS.AnchorAttachmentBehavior: Frequency of oscillation for the behavior.
 // Component(s): Ti.Calendar.RecurrenceRule, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.ViewAttachmentBehavior
 '.frequency-calendar-recurrence-daily': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_DAILY }
 '.frequency-calendar-recurrence-weekly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_WEEKLY }
@@ -9776,6 +9839,7 @@
 '.method-calendar-sms': { method: Ti.Calendar.METHOD_SMS }
 
 // Property: position
+// Description: EncodeNumberDict: Index in the dest buffer of the first byte of encoded data.  DecodeNumberDict: Index in the source buffer of the first byte of data to decode.  ListViewAnimationProperties: Specifies what position to scroll the selected cell to.  TableViewAnimationProperties: Specifies what position to scroll the selected row to.  ViewPositionOptions: Position in the children array of the view element to replace.
 // Component(s): EncodeNumberDict, DecodeNumberDict, DecodeStringDict, ListViewAnimationProperties, TableViewAnimationProperties, ViewPositionOptions
 '.position-list-view-scroll-bottom[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.BOTTOM }
 '.position-list-view-scroll-middle[platform=ios]': { position: Ti.UI.iOS.ListViewScrollPosition.MIDDLE }
@@ -9791,6 +9855,7 @@
 '.position-table-view-scroll-top': { position: Ti.UI.TableViewScrollPosition.TOP }
 
 // Property: charset
+// Description: EncodeStringDict: Character encoding to use when encoding this string to bytes.  DecodeStringDict: Character set to use when encoding this string to bytes.
 // Component(s): EncodeStringDict, DecodeStringDict
 '.charset-codec-ascii': { charset: Ti.Codec.CHARSET_ASCII }
 '.charset-codec-iso-latin-1': { charset: Ti.Codec.CHARSET_ISO_LATIN_1 }
@@ -9812,7 +9877,14 @@
 '.contacts-authorization-denied': { contactsAuthorization: Ti.Contacts.AUTHORIZATION_DENIED }
 '.contacts-authorization-unknown': { contactsAuthorization: Ti.Contacts.AUTHORIZATION_UNKNOWN }
 
+// Property: animated
+// Description: showContactsParams: Determines whether to animate the show/hide of the contacts picker (iPhone, iPad only.)  MusicLibraryOptionsType: Boolean if the dialog should be animated when showing and hiding.  CameraOptionsType: Specifies if the dialog should be animated upon showing and hiding.  AnimatedOptions: If true, animate a transition for the method/value change. Note that for most uses cases the default is assumed to be false. The exceptions tend to be Titanium.UI.Window methods.  ListViewAnimationProperties: Whether this list change should be animated. Ignored if any animationStyle value is specified.  hideParams: Determines whether to animate the dialog as it is dismissed.  OptionDialogShowParams: Determines whether to animate the dialog as it is shown.  Ti.UI.ProgressBar: Enables smooth progress change animation when changing the value.  Ti.UI.Switch: Determines if there is animation when the switch value changes.  disableTabOptions: Determines whether to use an animated effect to hide/show the navigation bar.  TableViewAnimationProperties: Whether this table change should be animated. Ignored if any animationStyle value is specified.  openWindowParams: Determines whether to use an animated effect when the window is shown.  windowToolbarParam: Defines if the toolbar appearance is animated.  closeWindowParams: Determines whether to use an animated effect when the window is closed. Defaults to true on Android, false on iOS.  DocumentViewerOptions: Indicates whether to animate the transition.  MenuPopupShowParams: Determines whether the menu popup should be opened or closed animated.  ShowPopoverParams: Indicates whether to animate showing the popover.
+// Component(s): showContactsParams, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, AnimatedOptions, AnimatedWithDurationOptions, ListViewAnimationProperties, hideParams, OptionDialogShowParams, Ti.UI.ProgressBar, Ti.UI.Switch, disableTabOptions, TableViewAnimationProperties, openWindowParams, windowToolbarParam, closeWindowParams, DocumentViewerOptions, MenuPopupShowParams, ShowPopoverParams
+'.animated': { animated: true }
+'.animated-false': { animated: false }
+
 // Property: rowCount
+// Description: Ti.Database.ResultSet: The number of rows in this result set.  Ti.UI.DashboardView: The number of rows of items in the view.  Ti.UI.PickerColumn: Number of rows in this column.  Ti.UI.TableViewSection: Number of rows in this section.
 // Component(s): Ti.Database.ResultSet, Ti.UI.DashboardView, Ti.UI.PickerColumn, Ti.UI.TableViewSection
 '.row-count-1': { rowCount: 1 }
 '.row-count-2': { rowCount: 2 }
@@ -9852,6 +9924,7 @@
 '.manual-mode-false': { manualMode: false }
 
 // Property: accuracy
+// Description: Ti.Geolocation.Android.LocationRule: Minimum accuracy required for a location update.  Ti.Geolocation: Specifies the requested accuracy for location updates.  LocationCoordinates: Accuracy of the location update, in meters.  ForwardGeocodeResponse: Estimated accuracy of the geocoding, in meters.  HeadingData: Accuracy of the compass heading, in platform-specific units.  LocationProviderDict: Accuracy of the location provider, either fine (1) or coarse (2).
 // Component(s): Ti.Geolocation.Android.LocationRule, Ti.Geolocation, LocationCoordinates, ForwardGeocodeResponse, HeadingData, LocationProviderDict
 '.accuracy-high': { accuracy: Ti.Geolocation.ACCURACY_HIGH }
 '.accuracy-best-for-navigation': { accuracy: Ti.Geolocation.ACCURACY_BEST_FOR_NAVIGATION }
@@ -9927,6 +10000,7 @@
 '.accuracy-authorization-reduced': { accuracyAuthorization: Ti.Geolocation.ACCURACY_AUTHORIZATION_REDUCED }
 
 // Property: allowBackground
+// Description: Ti.Media.AudioPlayer: Boolean to indicate if audio should continue playing even if the associated Android Activity is paused.  Ti.Media.Sound: Determines whether the audio should continue playing even when its activity is paused.
 // Component(s): Ti.Media.AudioPlayer, Ti.Media.Sound
 '.allow-background': { allowBackground: true }
 '.allow-background-false': { allowBackground: false }
@@ -9978,6 +10052,7 @@
 '.format-audio-fileformat-wave': { format: Ti.Media.AUDIO_FILEFORMAT_WAVE }
 
 // Property: recording
+// Description: Ti.Media.AudioRecorder: Indicates if the audio recorder is recording.  CameraOptionsType: Function to call during recording. Returns size and duration.
 // Component(s): Ti.Media.AudioRecorder, CameraOptionsType
 '.recording': { recording: true }
 '.recording-false': { recording: false }
@@ -9989,16 +10064,19 @@
 '.stopped-false': { stopped: false }
 
 // Property: hasProtectedAsset
+// Description: Ti.Media.Item: True if the item represents a protected asset.  MediaQueryType: Filter by whether or not the item is a protected asset. Value should be a Boolean.
 // Component(s): Ti.Media.Item, MediaQueryType
 '.has-protected-asset': { hasProtectedAsset: true }
 '.has-protected-asset-false': { hasProtectedAsset: false }
 
 // Property: isCloudItem
+// Description: Ti.Media.Item: True if the media item is an iCloud item.  MediaQueryType: Filter by whether or not the item is a cloud item. Value should be a Boolean.
 // Component(s): Ti.Media.Item, MediaQueryType
 '.is-cloud-item': { isCloudItem: true }
 '.is-cloud-item-false': { isCloudItem: false }
 
 // Property: isCompilation
+// Description: Ti.Media.Item: True if this item is part of a compilation album.  MediaQueryType: Filter by whether or not the item is a compilation. The value should be a Boolean.
 // Component(s): Ti.Media.Item, MediaQueryType
 '.is-compilation': { isCompilation: true }
 '.is-compilation-false': { isCompilation: false }
@@ -10010,6 +10088,7 @@
 '.is-explicit-false': { isExplicit: false }
 
 // Property: mediaType
+// Description: Ti.Media.Item: The type of the media.  MediaQueryType: The media type to filter on.  CameraMediaItemType: The type of media, either MEDIA_TYPE_PHOTO, MEDIA_TYPE_LIVEPHOTO or MEDIA_TYPE_VIDEO defined in Titanium.Media.
 // Component(s): Ti.Media.Item, MediaQueryType, CameraMediaItemType
 '.media-type-music-all': { mediaType: Ti.Media.MUSIC_MEDIA_TYPE_ALL }
 '.media-type-music-any-audio': { mediaType: Ti.Media.MUSIC_MEDIA_TYPE_ANY_AUDIO }
@@ -10045,6 +10124,7 @@
 '.aspect-ratio-16-9': { aspectRatio: Ti.Media.ASPECT_RATIO_16_9 }
 
 // Property: scalingMode
+// Description: Ti.Media: Scaling mode of the preview image.  Ti.Media.VideoPlayer: Determines how the content scales to fit the view.  Ti.UI.ImageView: Determines how the image is scaled within the view.
 // Component(s): Ti.Media, Ti.Media.VideoPlayer, Ti.UI.ImageView
 '.scaling-mode-image-aspect-fit': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FIT }
 '.scaling-mode-image-aspect-fill': { scalingMode: Ti.Media.IMAGE_SCALING_ASPECT_FILL }
@@ -10056,6 +10136,7 @@
 '.scaling-mode-image-fill': { scalingMode: Ti.Media.IMAGE_SCALING_FILL }
 
 // Property: verticalAlign
+// Description: Ti.Media: Vertical align of the preview image for aspect fit.  Ti.UI.Button: Vertical alignment for the text field, specified using one of the vertical alignment constants from Titanium.UI.  Ti.UI.Label: Vertical text alignment, specified using one of the  vertical alignment constants from Titanium.UI.  Ti.UI.Switch: Vertical alignment for the text field.  Ti.UI.TextArea: Vertical alignment within this text area.  Ti.UI.TextField: Vertical alignment within this text field.
 // Component(s): Ti.Media, Ti.UI.Button, Ti.UI.Label, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField
 '.vertical-align-center': { verticalAlign: Ti.Media.VERTICAL_ALIGN_CENTER }
 '.vertical-align-top': { verticalAlign: Ti.Media.VERTICAL_ALIGN_TOP }
@@ -10125,6 +10206,7 @@
 '.torch-false': { torch: false }
 
 // Property: autohide
+// Description: MusicLibraryOptionsType: Specifies that the library should be hidden automatically after media selection is completed.  CameraOptionsType: Specifies if the camera should be hidden automatically after the media capture is completed.  PhotoGalleryOptionsType: Specifies if the photo gallery should be hidden automatically after the media selection is completed.
 // Component(s): MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType
 '.autohide': { autohide: true }
 '.autohide-false': { autohide: false }
@@ -10337,6 +10419,7 @@
 '.in-pop-over-false': { inPopOver: false }
 
 // Property: arrowDirection
+// Description: CameraOptionsType: Controls the type of arrow and position of the popover.  MenuPopupShowParams: Indicates the arrow direction of the menu popup.  Ti.UI.iPad.Popover: Indicates the arrow direction of the popover.
 // Component(s): CameraOptionsType, PhotoGalleryOptionsType, MenuPopupShowParams, Ti.UI.iPad.Popover
 '.arrow-direction-popover-any': { arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_ANY }
 '.arrow-direction-popover-down': { arrowDirection: Ti.UI.iPad.POPOVER_ARROW_DIRECTION_DOWN }
@@ -10351,6 +10434,7 @@
 '.arrow-direction-menu-popup[platform=ios]': { arrowDirection: Ti.UI.iOS.MENU_POPUP_ARROW_DIRECTION_DEFAULT }
 
 // Property: autorotate
+// Description: CameraOptionsType: Determines if the camera preview should rotate or not.  Ti.UI.ImageView: Indicates whether the image should be rotated based on EXIF orientation data. Before Titanium 10.1.0, this defaulted to false on Android.
 // Component(s): CameraOptionsType, Ti.UI.ImageView
 '.autorotate': { autorotate: true }
 '.autorotate-false': { autorotate: false }
@@ -10422,6 +10506,7 @@
 '.outputs-audio-session-port-caraudio': { outputs: [ Ti.Media.AUDIO_SESSION_PORT_CARAUDIO ] }
 
 // Property: playbackState
+// Description: Ti.Media.MusicPlayer: Playback state.  Ti.Media.VideoPlayer: Current playback state of the video player.
 // Component(s): Ti.Media.MusicPlayer, Ti.Media.VideoPlayer
 '.playback-state-music-player-interrupted': { playbackState: Ti.Media.MUSIC_PLAYER_STATE_INTERRUPTED }
 '.playback-state-music-player-paused': { playbackState: Ti.Media.MUSIC_PLAYER_STATE_PAUSED }
@@ -10437,6 +10522,7 @@
 '.playback-state-video-stopped': { playbackState: Ti.Media.VIDEO_PLAYBACK_STATE_STOPPED }
 
 // Property: repeatMode
+// Description: Ti.Media.MusicPlayer: Repeat setting.  Ti.Media.VideoPlayer: Determines how the movie player repeats when reaching the end of playback.
 // Component(s): Ti.Media.MusicPlayer, Ti.Media.VideoPlayer
 '.repeat-mode-music-player-all': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_ALL }
 '.repeat-mode-music-player': { repeatMode: Ti.Media.MUSIC_PLAYER_REPEAT_DEFAULT }
@@ -10478,6 +10564,7 @@
 '.auto-hide-false': { autoHide: false }
 
 // Property: fullscreen
+// Description: Ti.Media.VideoPlayer: Determines if the movie is presented in the entire screen (obscuring all other application content). Deprecated since 7.0.0. This property has been removed for iOS in Titanium SDK 7.0.0 as of the official deprecation by Apple.  Ti.UI.NavigationWindow: Boolean value indicating if the window is fullscreen.  Ti.UI.TextArea: Leave some space above the keyboard in landscape mode or not.  openWindowParams: Determines if the window is fullscreen.
 // Component(s): Ti.Media.VideoPlayer, Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Window, openWindowParams, Ti.UI.iOS.SplitWindow
 '.fullscreen': { fullscreen: true }
 '.fullscreen-false': { fullscreen: false }
@@ -10520,6 +10607,7 @@
 '.httponly-false': { httponly: false }
 
 // Property: secure
+// Description: Ti.Network.Cookie: The secure attribute of the cookie.  Ti.Network.Socket.TCP: Creates a secure socket.  Ti.UI.WebView: A Boolean value indicating whether all resources on the page have been loaded through securely encrypted connections.
 // Component(s): Ti.Network.Cookie, Ti.Network.Socket.TCP, Ti.UI.WebView
 '.secure': { secure: true }
 '.secure-false': { secure: false }
@@ -10543,6 +10631,7 @@
 '.enable-keep-alive-false': { enableKeepAlive: false }
 
 // Property: readyState
+// Description: Ti.Network.HTTPClient: The current ready state of this HTTP request.  ReadyStatePayload: The state for which onreadystatechange was invoked. Set to one of Titanium.Network.HTTPClient ready-state constants
 // Component(s): Ti.Network.HTTPClient, ReadyStatePayload
 '.ready-state-network-httpclient-unsent': { readyState: Ti.Network.HTTPClient.UNSENT }
 '.ready-state-network-httpclient-opened': { readyState: Ti.Network.HTTPClient.OPENED }
@@ -10551,6 +10640,7 @@
 '.ready-state-network-httpclient-done': { readyState: Ti.Network.HTTPClient.DONE }
 
 // Property: timeout
+// Description: Ti.Network.HTTPClient: Timeout in milliseconds when the connection should be aborted.  Ti.Network.Socket.TCP: Timeout, in milliseconds, for connect and all write operations.  AcceptDict: Timeout, in milliseconds, for all write operations.  Ti.UI.WebView: The timeout interval for the request, in seconds.
 // Component(s): Ti.Network.HTTPClient, Ti.Network.Socket.TCP, AcceptDict, Ti.UI.WebView
 '.timeout-0': { timeout: 0 }
 '.timeout-25': { timeout: 25 }
@@ -10905,11 +10995,13 @@
 '.button-click-required-false': { buttonClickRequired: false }
 
 // Property: canceledOnTouchOutside
+// Description: Ti.UI.AlertDialog: When this is set to true, the dialog is canceled when touched outside the window's bounds.  Ti.UI.Android.ProgressIndicator: When cancelable is set to true and this is set to true, the dialog is canceled when touched outside the window's bounds.
 // Component(s): Ti.UI.AlertDialog, Ti.UI.Android.ProgressIndicator
 '.canceled-on-touch-outside': { canceledOnTouchOutside: true }
 '.canceled-on-touch-outside-false': { canceledOnTouchOutside: false }
 
 // Property: keyboardType
+// Description: Ti.UI.AlertDialog: Keyboard type to display when this text field inside the dialog is focused.  Ti.UI.SearchBar: Keyboard type constant to use when the field is focused.  Ti.UI.TextArea: Keyboard type to display when this text area is focused.  Ti.UI.TextField: Keyboard type to display when this text field is focused.
 // Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-type-decimal-pad': { keyboardType: Ti.UI.KEYBOARD_TYPE_DECIMAL_PAD }
 '.keyboard-type-ascii': { keyboardType: Ti.UI.KEYBOARD_TYPE_ASCII }
@@ -10924,6 +11016,7 @@
 '.keyboard-type-url': { keyboardType: Ti.UI.KEYBOARD_TYPE_URL }
 
 // Property: keyboardAppearance
+// Description: Ti.UI.AlertDialog: Keyboard appearance to be displayed when the text field inside the dialog is focused.  Ti.UI.SearchBar: Determines the appearance of the keyboard to be displayed the field is focused.  Ti.UI.TextArea: Determines the appearance of the keyboard displayed when this text area is focused.  Ti.UI.TextField: Determines the appearance of the keyboard displayed when this field is focused.
 // Component(s): Ti.UI.AlertDialog, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.keyboard-appearance': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DEFAULT }
 '.keyboard-appearance-dark': { keyboardAppearance: Ti.UI.KEYBOARD_APPEARANCE_DARK }
@@ -10992,11 +11085,13 @@
 '.password-keyboard-type-url': { passwordKeyboardType: Ti.UI.KEYBOARD_TYPE_URL }
 
 // Property: persistent
+// Description: Ti.UI.AlertDialog: Boolean value indicating if the alert dialog should only be cancelled by user gesture or by hide method.  Ti.UI.OptionDialog: Boolean value indicating if the option dialog should only be cancelled by user gesture or by hide method.
 // Component(s): Ti.UI.AlertDialog, Ti.UI.OptionDialog
 '.persistent': { persistent: true }
 '.persistent-false': { persistent: false }
 
 // Property: returnKeyType
+// Description: Ti.UI.AlertDialog: Specifies the text to display on the keyboard Return key when this field is focused.  Ti.UI.TextArea: Specifies the text to display on the keyboard Return key when this text area is focused.
 // Component(s): Ti.UI.AlertDialog, Ti.UI.TextArea, Ti.UI.TextField
 '.return-key-type-continue': { returnKeyType: Ti.UI.RETURNKEY_CONTINUE }
 '.return-key-type-returnkey': { returnKeyType: Ti.UI.RETURNKEY_DEFAULT }
@@ -11069,7 +11164,8 @@
 '.use-compat-padding-false': { useCompatPadding: false }
 
 // Property: padding
-// Component(s): Ti.UI.Android.CardView, Ti.UI.ScrollableView, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.iOS.ButtonConfiguration
+// Description: Ti.UI.Android.CardView: Inner padding between the edges of the Card and children of the CardView.  Ti.UI.Label: Padding between the label's edges and its text.  Ti.UI.ScrollableView: The padding applied to the scrollable view.  Ti.UI.TextArea: Sets the left and right padding of this TextArea. The text will always be vertically centered.  Ti.UI.TextField: Sets the padding of this text field.  Ti.UI.iOS.ButtonConfiguration: The padding around the button's content.
+// Component(s): Ti.UI.Android.CardView, Ti.UI.Label, Ti.UI.ScrollableView, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.iOS.ButtonConfiguration
 '.padding-0': { padding: 0 }
 '.padding-1': { padding: 4 }
 '.padding-2': { padding: 8 }
@@ -11107,6 +11203,7 @@
 '.padding-3.5': { padding: 14 }
 
 // Property: paddingBottom
+// Description: Ti.UI.Android.CardView: Inner padding between the bottom edge of the Card and children of the CardView.  Ti.UI.TabGroup: Bottom padding of bottom navigation
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
 '.padding-bottom-0': { paddingBottom: 0 }
 '.padding-bottom-1': { paddingBottom: 4 }
@@ -11145,6 +11242,7 @@
 '.padding-bottom-3.5': { paddingBottom: 14 }
 
 // Property: paddingLeft
+// Description: Ti.UI.Android.CardView: Inner padding between the left edge of the Card and children of the CardView.  Ti.UI.TabGroup: Left padding of bottom navigation
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
 '.padding-left-0': { paddingLeft: 0 }
 '.padding-left-1': { paddingLeft: 4 }
@@ -11183,6 +11281,7 @@
 '.padding-left-3.5': { paddingLeft: 14 }
 
 // Property: paddingRight
+// Description: Ti.UI.Android.CardView: Inner padding between the right edge of the Card and children of the CardView.  Ti.UI.TabGroup: Right padding of bottom navigation
 // Component(s): Ti.UI.Android.CardView, Ti.UI.TabGroup
 '.padding-right-0': { paddingRight: 0 }
 '.padding-right-1': { paddingRight: 4 }
@@ -11260,6 +11359,7 @@
 '.padding-top-3.5': { paddingTop: 14 }
 
 // Property: barColor
+// Description: Ti.UI.Android.CollapseToolbar: Background color of the extended toolbar when no image is shown.  Ti.UI.EmailDialog: Bar color of the email dialog window, as a color name or hex triplet.  Ti.UI.SearchBar: Bar color of the search bar view, as a color name or hex triplet.  Ti.UI.TabGroup: Default navigation bar color (typically for the More tab), as a color name or hex triplet.  Ti.UI.Toolbar: Background color for the toolbar, as a color name or hex triplet.  Ti.UI.Window: Background color for the nav bar, as a color name or hex triplet.
 // Component(s): Ti.UI.Android.CollapseToolbar, Ti.UI.EmailDialog, Ti.UI.SearchBar, Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.SplitWindow
 '.bar-transparent': { barColor: 'transparent' }
 '.bar-black': { barColor: '#000000' }
@@ -11825,6 +11925,7 @@
 '.image-h-screen': { imageHeight: Ti.UI.FILL }
 
 // Property: navigationIconColor
+// Description: Ti.UI.Android.CollapseToolbar: Color of the back arrow.  Ti.UI.Toolbar: Tint color of the navigation icon (e.g. home arrow)
 // Component(s): Ti.UI.Android.CollapseToolbar, Ti.UI.Toolbar
 '.navigation-icon-transparent': { navigationIconColor: 'transparent' }
 '.navigation-icon-black': { navigationIconColor: '#000000' }
@@ -12275,6 +12376,7 @@
 '.cancelable-false': { cancelable: false }
 
 // Property: hintTextColor
+// Description: Ti.UI.Android.SearchView: Color of hint text that displays when field is empty.  Ti.UI.SearchBar: Hint text color to display when the field is empty.
 // Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.hint-text-transparent': { hintTextColor: 'transparent' }
 '.hint-text-black': { hintTextColor: '#000000' }
@@ -12523,11 +12625,13 @@
 '.hint-text-rose-950': { hintTextColor: '#4c0519' }
 
 // Property: iconified
+// Description: Ti.UI.Android.SearchView: Iconifies or expands the search view  Ti.UI.SearchBar: Collapses/expands the search view to/from a search icon.
 // Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar
 '.iconified': { iconified: true }
 '.iconified-false': { iconified: false }
 
 // Property: iconifiedByDefault
+// Description: Ti.UI.Android.SearchView: Sets the default or resting state of the search view  Ti.UI.SearchBar: Set true show as a search icon that expands to a search view when tapped on.
 // Component(s): Ti.UI.Android.SearchView, Ti.UI.SearchBar
 '.iconified-by': { iconifiedByDefault: true }
 '.iconified-by-false': { iconifiedByDefault: false }
@@ -12585,6 +12689,7 @@
 '.opaque-false': { opaque: false }
 
 // Property: transition
+// Description: Ti.Android.R: Transition resources. See R.transition in the Android Developer Reference.  Ti.UI.Animation: Transition type to use during a transition animation.  openWindowParams: Transition style of this non-modal window.
 // Component(s): Ti.UI.Animation
 '.transition-animation-style-curl-down[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_DOWN }
 '.transition-animation-style-curl-up[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CURL_UP }
@@ -12594,6 +12699,12 @@
 '.transition-animation-style-flip-from-bottom[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.FLIP_FROM_BOTTOM }
 '.transition-animation-style-cross-dissolve[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.CROSS_DISSOLVE }
 '.transition-animation-style-none[platform=ios]': { transition: Ti.UI.iOS.AnimationStyle.NONE }
+
+// Property: underline
+// Description: Enable or disable the ATTRIBUTE_LINK underline.
+// Component(s): Attribute
+'.underline': { underline: true }
+'.underline-false': { underline: false }
 
 // Property: alignment
 // Description: The text alignment of the receiver.
@@ -12721,6 +12832,7 @@
 '.minimum-line-h-screen': { minimumLineHeight: Ti.UI.FILL }
 
 // Property: lineSpacing
+// Description: ParagraphAttribute: The distance in points between the bottom of one line fragment and the top of the next.  Ti.UI.Label: Line spacing of the text, as a dictionary with the properties add and multiply.
 // Component(s): ParagraphAttribute, Ti.UI.Label
 '.line-spacing-0': { lineSpacing: 0 }
 '.line-spacing-1': { lineSpacing: 4 }
@@ -12997,6 +13109,13 @@
 '.allows-tightening-for-truncation': { allowsDefaultTighteningForTruncation: true }
 '.allows-tightening-for-truncation-false': { allowsDefaultTighteningForTruncation: false }
 
+// Property: axisBehavior
+// Description: Whether the button prefers to be shown in a horizontal or a vertical bar.
+// Component(s): Ti.UI.Button
+'.axis-behavior-bar-button-automatic[platform=ios]': { axisBehavior: Ti.UI.iOS.BAR_BUTTON_AXIS_BEHAVIOR_AUTOMATIC }
+'.axis-behavior-bar-button-horizontal-only[platform=ios]': { axisBehavior: Ti.UI.iOS.BAR_BUTTON_AXIS_BEHAVIOR_HORIZONTAL_ONLY }
+'.axis-behavior-bar-button-vertical-preferred[platform=ios]': { axisBehavior: Ti.UI.iOS.BAR_BUTTON_AXIS_BEHAVIOR_VERTICAL_PREFERRED }
+
 // Property: disabledColor
 // Description: Text color of the button in its disabled state, as a color name or hex triplet.
 // Component(s): Ti.UI.Button
@@ -13253,6 +13372,7 @@
 '.image-is-mask-false': { imageIsMask: false }
 
 // Property: selectedColor
+// Description: Ti.UI.Button: Button text color used to indicate the selected state, as a color name or hex triplet.  Ti.UI.ListItem: Color to use for the item title when the item is selected, as a color name or hex triplet.  Ti.UI.TableViewRow: Color of the row text when the row is selected, as a color name or hex triplet.
 // Component(s): Ti.UI.Button, Ti.UI.ListItem, Ti.UI.TableViewRow
 '.selected-transparent': { selectedColor: 'transparent' }
 '.selected-black': { selectedColor: '#000000' }
@@ -13501,6 +13621,7 @@
 '.selected-rose-950': { selectedColor: '#4c0519' }
 
 // Property: shadowColor
+// Description: Ti.UI.Button: Shadow color of the title, as a color name or hex triplet.  Ti.UI.Label: Shadow color of the text, as a color name or hex triplet.
 // Component(s): Ti.UI.Button, Ti.UI.Label
 '.shadow-transparent': { shadowColor: 'transparent' }
 '.shadow-black': { shadowColor: '#000000' }
@@ -13749,6 +13870,7 @@
 '.shadow-rose-950': { shadowColor: '#4c0519' }
 
 // Property: shadowRadius
+// Description: Ti.UI.Button: Shadow radius of the title.  Ti.UI.Label: Shadow radius of the text.
 // Component(s): Ti.UI.Button, Ti.UI.Label
 '.shadow-radius-0': { shadowRadius: 0 }
 '.shadow-radius-1': { shadowRadius: 4 }
@@ -13817,13 +13939,22 @@
 '.system-button-trash[platform=ios]': { systemButton: Ti.UI.iOS.SystemButton.TRASH }
 
 // Property: textAlign
+// Description: Ti.UI.Button: Text alignment, specified using one of the Titanium.UI text alignment constants.  Ti.UI.Label: Text alignment.  Ti.UI.Picker: Horizontal text alignment of the date picker when using Titanium.UI.PICKER_TYPE_DATE.  Ti.UI.Switch: Horizontal text alignment of the switch title.  Ti.UI.TextArea: Text alignment within this text area. This has no effect on hintText when hintType is Ti.UI.HINT_TYPE_ANIMATED.  Ti.UI.TextField: Text alignment within this text field. This has no effect on hintText when hintType is Ti.UI.HINT_TYPE_ANIMATED.  Ti.UI.iOS.ButtonConfiguration: Text alignment of the configuration title.
 // Component(s): Ti.UI.Button, Ti.UI.Label, Ti.UI.Picker, Ti.UI.Switch, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.iOS.ButtonConfiguration
 '.text-center': { textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER }
 '.text-justify': { textAlign: Ti.UI.TEXT_ALIGNMENT_JUSTIFY }
 '.text-left': { textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT }
 '.text-right': { textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT }
 
+// Property: visibilityPriority
+// Description: Defines which buttons are moved into the overflow menu first when a bar runs out of space.
+// Component(s): Ti.UI.Button
+'.visibility-priority-bar-button-low[platform=ios]': { visibilityPriority: Ti.UI.iOS.BAR_BUTTON_VISIBILITY_PRIORITY_LOW }
+'.visibility-priority-bar-button-standard[platform=ios]': { visibilityPriority: Ti.UI.iOS.BAR_BUTTON_VISIBILITY_PRIORITY_STANDARD }
+'.visibility-priority-bar-button-high[platform=ios]': { visibilityPriority: Ti.UI.iOS.BAR_BUTTON_VISIBILITY_PRIORITY_HIGH }
+
 // Property: selectedTextColor
+// Description: Ti.UI.ButtonBar: Color of title of button when it is selected, as a color name or hex triplet.  Ti.UI.OptionBar: Text color of the selected button  Ti.UI.TabbedBar: Color of the selected text
 // Component(s): Ti.UI.ButtonBar, Ti.UI.OptionBar, Ti.UI.TabbedBar
 '.selected-text-transparent': { selectedTextColor: 'transparent' }
 '.selected-text-black': { selectedTextColor: '#000000' }
@@ -14355,6 +14486,7 @@
 '.col-count-12': { columnCount: 12 }
 
 // Property: editable
+// Description: Ti.UI.DashboardView: Determines whether edit mode is activated by a longpress of an item.  Ti.UI.TableView: Determines the rows' default editable behavior, which allows them to be deleted by the user when the table is in editing or moving mode.  Ti.UI.TableViewRow: Determines the rows' editable behavior, which allows them to be deleted by the user when the table is in editing or moving mode.  Ti.UI.TextArea: Determines whether this field can be edited.
 // Component(s): Ti.UI.DashboardView, Ti.UI.TableView, Ti.UI.TableViewRow, Ti.UI.TextArea, Ti.UI.TextField
 '.editable': { editable: true }
 '.editable-false': { editable: false }
@@ -14366,6 +14498,7 @@
 '.wobble-false': { wobble: false }
 
 // Property: html
+// Description: Ti.UI.EmailDialog: Determines whether the email message, specifically the contents of messageBody, should be sent as HTML content type rather than plain text.  Ti.UI.Label: Pass a HTML-based string and it will be formatted accordingly.  Ti.UI.WebView: HTML content of this web view.
 // Component(s): Ti.UI.EmailDialog, Ti.UI.Label, Ti.UI.TextArea, Ti.UI.WebView
 '.html': { html: true }
 '.html-false': { html: false }
@@ -14386,6 +14519,7 @@
 '.text-style-large-title': { textStyle: Ti.UI.TEXT_STYLE_LARGE_TITLE }
 
 // Property: enableZoomControls
+// Description: Ti.UI.ImageView: Show zoom controls when the user touches the image view.  Ti.UI.WebView: If true, zoom controls are enabled.
 // Component(s): Ti.UI.ImageView, Ti.UI.WebView
 '.enable-zoom-controls': { enableZoomControls: true }
 '.enable-zoom-controls-false': { enableZoomControls: false }
@@ -14680,6 +14814,7 @@
 '.reverse-false': { reverse: false }
 
 // Property: autoLink
+// Description: Ti.UI.Label: Automatically convert certain text items in the label to clickable links.  Ti.UI.TextArea: Automatically convert text to clickable links.
 // Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
 '.auto-link-map-addresses': { autoLink: Ti.UI.AUTOLINK_MAP_ADDRESSES }
 '.auto-link-all': { autoLink: Ti.UI.AUTOLINK_ALL }
@@ -14856,7 +14991,257 @@
 '.bg-padding-top-2.5': { backgroundPaddingTop: 10 }
 '.bg-padding-top-3.5': { backgroundPaddingTop: 14 }
 
+// Property: linkColor
+// Description: Color of the link inside a label, as a color name or hex triplet.
+// Component(s): Ti.UI.Label
+'.link-transparent': { linkColor: 'transparent' }
+'.link-black': { linkColor: '#000000' }
+'.link-white': { linkColor: '#ffffff' }
+'.link-slate-50': { linkColor: '#f8fafc' }
+'.link-slate-100': { linkColor: '#f1f5f9' }
+'.link-slate-200': { linkColor: '#e2e8f0' }
+'.link-slate-300': { linkColor: '#cbd5e1' }
+'.link-slate-400': { linkColor: '#94a3b8' }
+'.link-slate-500': { linkColor: '#64748b' }
+'.link-slate-600': { linkColor: '#475569' }
+'.link-slate-700': { linkColor: '#334155' }
+'.link-slate-800': { linkColor: '#1e293b' }
+'.link-slate-900': { linkColor: '#0f172a' }
+'.link-slate-950': { linkColor: '#020617' }
+'.link-gray-50': { linkColor: '#f9fafb' }
+'.link-gray-100': { linkColor: '#f3f4f6' }
+'.link-gray-200': { linkColor: '#e5e7eb' }
+'.link-gray-300': { linkColor: '#d1d5db' }
+'.link-gray-400': { linkColor: '#9ca3af' }
+'.link-gray-500': { linkColor: '#6b7280' }
+'.link-gray-600': { linkColor: '#4b5563' }
+'.link-gray-700': { linkColor: '#374151' }
+'.link-gray-800': { linkColor: '#1f2937' }
+'.link-gray-900': { linkColor: '#111827' }
+'.link-gray-950': { linkColor: '#030712' }
+'.link-zinc-50': { linkColor: '#fafafa' }
+'.link-zinc-100': { linkColor: '#f4f4f5' }
+'.link-zinc-200': { linkColor: '#e4e4e7' }
+'.link-zinc-300': { linkColor: '#d4d4d8' }
+'.link-zinc-400': { linkColor: '#a1a1aa' }
+'.link-zinc-500': { linkColor: '#71717a' }
+'.link-zinc-600': { linkColor: '#52525b' }
+'.link-zinc-700': { linkColor: '#3f3f46' }
+'.link-zinc-800': { linkColor: '#27272a' }
+'.link-zinc-900': { linkColor: '#18181b' }
+'.link-zinc-950': { linkColor: '#09090b' }
+'.link-neutral-50': { linkColor: '#fafafa' }
+'.link-neutral-100': { linkColor: '#f5f5f5' }
+'.link-neutral-200': { linkColor: '#e5e5e5' }
+'.link-neutral-300': { linkColor: '#d4d4d4' }
+'.link-neutral-400': { linkColor: '#a3a3a3' }
+'.link-neutral-500': { linkColor: '#737373' }
+'.link-neutral-600': { linkColor: '#525252' }
+'.link-neutral-700': { linkColor: '#404040' }
+'.link-neutral-800': { linkColor: '#262626' }
+'.link-neutral-900': { linkColor: '#171717' }
+'.link-neutral-950': { linkColor: '#0a0a0a' }
+'.link-stone-50': { linkColor: '#fafaf9' }
+'.link-stone-100': { linkColor: '#f5f5f4' }
+'.link-stone-200': { linkColor: '#e7e5e4' }
+'.link-stone-300': { linkColor: '#d6d3d1' }
+'.link-stone-400': { linkColor: '#a8a29e' }
+'.link-stone-500': { linkColor: '#78716c' }
+'.link-stone-600': { linkColor: '#57534e' }
+'.link-stone-700': { linkColor: '#44403c' }
+'.link-stone-800': { linkColor: '#292524' }
+'.link-stone-900': { linkColor: '#1c1917' }
+'.link-stone-950': { linkColor: '#0c0a09' }
+'.link-red-50': { linkColor: '#fef2f2' }
+'.link-red-100': { linkColor: '#fee2e2' }
+'.link-red-200': { linkColor: '#fecaca' }
+'.link-red-300': { linkColor: '#fca5a5' }
+'.link-red-400': { linkColor: '#f87171' }
+'.link-red-500': { linkColor: '#ef4444' }
+'.link-red-600': { linkColor: '#dc2626' }
+'.link-red-700': { linkColor: '#b91c1c' }
+'.link-red-800': { linkColor: '#991b1b' }
+'.link-red-900': { linkColor: '#7f1d1d' }
+'.link-red-950': { linkColor: '#450a0a' }
+'.link-orange-50': { linkColor: '#fff7ed' }
+'.link-orange-100': { linkColor: '#ffedd5' }
+'.link-orange-200': { linkColor: '#fed7aa' }
+'.link-orange-300': { linkColor: '#fdba74' }
+'.link-orange-400': { linkColor: '#fb923c' }
+'.link-orange-500': { linkColor: '#f97316' }
+'.link-orange-600': { linkColor: '#ea580c' }
+'.link-orange-700': { linkColor: '#c2410c' }
+'.link-orange-800': { linkColor: '#9a3412' }
+'.link-orange-900': { linkColor: '#7c2d12' }
+'.link-orange-950': { linkColor: '#431407' }
+'.link-amber-50': { linkColor: '#fffbeb' }
+'.link-amber-100': { linkColor: '#fef3c7' }
+'.link-amber-200': { linkColor: '#fde68a' }
+'.link-amber-300': { linkColor: '#fcd34d' }
+'.link-amber-400': { linkColor: '#fbbf24' }
+'.link-amber-500': { linkColor: '#f59e0b' }
+'.link-amber-600': { linkColor: '#d97706' }
+'.link-amber-700': { linkColor: '#b45309' }
+'.link-amber-800': { linkColor: '#92400e' }
+'.link-amber-900': { linkColor: '#78350f' }
+'.link-amber-950': { linkColor: '#451a03' }
+'.link-yellow-50': { linkColor: '#fefce8' }
+'.link-yellow-100': { linkColor: '#fef9c3' }
+'.link-yellow-200': { linkColor: '#fef08a' }
+'.link-yellow-300': { linkColor: '#fde047' }
+'.link-yellow-400': { linkColor: '#facc15' }
+'.link-yellow-500': { linkColor: '#eab308' }
+'.link-yellow-600': { linkColor: '#ca8a04' }
+'.link-yellow-700': { linkColor: '#a16207' }
+'.link-yellow-800': { linkColor: '#854d0e' }
+'.link-yellow-900': { linkColor: '#713f12' }
+'.link-yellow-950': { linkColor: '#422006' }
+'.link-lime-50': { linkColor: '#f7fee7' }
+'.link-lime-100': { linkColor: '#ecfccb' }
+'.link-lime-200': { linkColor: '#d9f99d' }
+'.link-lime-300': { linkColor: '#bef264' }
+'.link-lime-400': { linkColor: '#a3e635' }
+'.link-lime-500': { linkColor: '#84cc16' }
+'.link-lime-600': { linkColor: '#65a30d' }
+'.link-lime-700': { linkColor: '#4d7c0f' }
+'.link-lime-800': { linkColor: '#3f6212' }
+'.link-lime-900': { linkColor: '#365314' }
+'.link-lime-950': { linkColor: '#1a2e05' }
+'.link-green-50': { linkColor: '#f0fdf4' }
+'.link-green-100': { linkColor: '#dcfce7' }
+'.link-green-200': { linkColor: '#bbf7d0' }
+'.link-green-300': { linkColor: '#86efac' }
+'.link-green-400': { linkColor: '#4ade80' }
+'.link-green-500': { linkColor: '#22c55e' }
+'.link-green-600': { linkColor: '#16a34a' }
+'.link-green-700': { linkColor: '#15803d' }
+'.link-green-800': { linkColor: '#166534' }
+'.link-green-900': { linkColor: '#14532d' }
+'.link-green-950': { linkColor: '#052e16' }
+'.link-emerald-50': { linkColor: '#ecfdf5' }
+'.link-emerald-100': { linkColor: '#d1fae5' }
+'.link-emerald-200': { linkColor: '#a7f3d0' }
+'.link-emerald-300': { linkColor: '#6ee7b7' }
+'.link-emerald-400': { linkColor: '#34d399' }
+'.link-emerald-500': { linkColor: '#10b981' }
+'.link-emerald-600': { linkColor: '#059669' }
+'.link-emerald-700': { linkColor: '#047857' }
+'.link-emerald-800': { linkColor: '#065f46' }
+'.link-emerald-900': { linkColor: '#064e3b' }
+'.link-emerald-950': { linkColor: '#022c22' }
+'.link-teal-50': { linkColor: '#f0fdfa' }
+'.link-teal-100': { linkColor: '#ccfbf1' }
+'.link-teal-200': { linkColor: '#99f6e4' }
+'.link-teal-300': { linkColor: '#5eead4' }
+'.link-teal-400': { linkColor: '#2dd4bf' }
+'.link-teal-500': { linkColor: '#14b8a6' }
+'.link-teal-600': { linkColor: '#0d9488' }
+'.link-teal-700': { linkColor: '#0f766e' }
+'.link-teal-800': { linkColor: '#115e59' }
+'.link-teal-900': { linkColor: '#134e4a' }
+'.link-teal-950': { linkColor: '#042f2e' }
+'.link-cyan-50': { linkColor: '#ecfeff' }
+'.link-cyan-100': { linkColor: '#cffafe' }
+'.link-cyan-200': { linkColor: '#a5f3fc' }
+'.link-cyan-300': { linkColor: '#67e8f9' }
+'.link-cyan-400': { linkColor: '#22d3ee' }
+'.link-cyan-500': { linkColor: '#06b6d4' }
+'.link-cyan-600': { linkColor: '#0891b2' }
+'.link-cyan-700': { linkColor: '#0e7490' }
+'.link-cyan-800': { linkColor: '#155e75' }
+'.link-cyan-900': { linkColor: '#164e63' }
+'.link-cyan-950': { linkColor: '#083344' }
+'.link-sky-50': { linkColor: '#f0f9ff' }
+'.link-sky-100': { linkColor: '#e0f2fe' }
+'.link-sky-200': { linkColor: '#bae6fd' }
+'.link-sky-300': { linkColor: '#7dd3fc' }
+'.link-sky-400': { linkColor: '#38bdf8' }
+'.link-sky-500': { linkColor: '#0ea5e9' }
+'.link-sky-600': { linkColor: '#0284c7' }
+'.link-sky-700': { linkColor: '#0369a1' }
+'.link-sky-800': { linkColor: '#075985' }
+'.link-sky-900': { linkColor: '#0c4a6e' }
+'.link-sky-950': { linkColor: '#082f49' }
+'.link-blue-50': { linkColor: '#eff6ff' }
+'.link-blue-100': { linkColor: '#dbeafe' }
+'.link-blue-200': { linkColor: '#bfdbfe' }
+'.link-blue-300': { linkColor: '#93c5fd' }
+'.link-blue-400': { linkColor: '#60a5fa' }
+'.link-blue-500': { linkColor: '#3b82f6' }
+'.link-blue-600': { linkColor: '#2563eb' }
+'.link-blue-700': { linkColor: '#1d4ed8' }
+'.link-blue-800': { linkColor: '#1e40af' }
+'.link-blue-900': { linkColor: '#1e3a8a' }
+'.link-blue-950': { linkColor: '#172554' }
+'.link-indigo-50': { linkColor: '#eef2ff' }
+'.link-indigo-100': { linkColor: '#e0e7ff' }
+'.link-indigo-200': { linkColor: '#c7d2fe' }
+'.link-indigo-300': { linkColor: '#a5b4fc' }
+'.link-indigo-400': { linkColor: '#818cf8' }
+'.link-indigo-500': { linkColor: '#6366f1' }
+'.link-indigo-600': { linkColor: '#4f46e5' }
+'.link-indigo-700': { linkColor: '#4338ca' }
+'.link-indigo-800': { linkColor: '#3730a3' }
+'.link-indigo-900': { linkColor: '#312e81' }
+'.link-indigo-950': { linkColor: '#1e1b4b' }
+'.link-violet-50': { linkColor: '#f5f3ff' }
+'.link-violet-100': { linkColor: '#ede9fe' }
+'.link-violet-200': { linkColor: '#ddd6fe' }
+'.link-violet-300': { linkColor: '#c4b5fd' }
+'.link-violet-400': { linkColor: '#a78bfa' }
+'.link-violet-500': { linkColor: '#8b5cf6' }
+'.link-violet-600': { linkColor: '#7c3aed' }
+'.link-violet-700': { linkColor: '#6d28d9' }
+'.link-violet-800': { linkColor: '#5b21b6' }
+'.link-violet-900': { linkColor: '#4c1d95' }
+'.link-violet-950': { linkColor: '#2e1065' }
+'.link-purple-50': { linkColor: '#faf5ff' }
+'.link-purple-100': { linkColor: '#f3e8ff' }
+'.link-purple-200': { linkColor: '#e9d5ff' }
+'.link-purple-300': { linkColor: '#d8b4fe' }
+'.link-purple-400': { linkColor: '#c084fc' }
+'.link-purple-500': { linkColor: '#a855f7' }
+'.link-purple-600': { linkColor: '#9333ea' }
+'.link-purple-700': { linkColor: '#7e22ce' }
+'.link-purple-800': { linkColor: '#6b21a8' }
+'.link-purple-900': { linkColor: '#581c87' }
+'.link-purple-950': { linkColor: '#3b0764' }
+'.link-fuchsia-50': { linkColor: '#fdf4ff' }
+'.link-fuchsia-100': { linkColor: '#fae8ff' }
+'.link-fuchsia-200': { linkColor: '#f5d0fe' }
+'.link-fuchsia-300': { linkColor: '#f0abfc' }
+'.link-fuchsia-400': { linkColor: '#e879f9' }
+'.link-fuchsia-500': { linkColor: '#d946ef' }
+'.link-fuchsia-600': { linkColor: '#c026d3' }
+'.link-fuchsia-700': { linkColor: '#a21caf' }
+'.link-fuchsia-800': { linkColor: '#86198f' }
+'.link-fuchsia-900': { linkColor: '#701a75' }
+'.link-fuchsia-950': { linkColor: '#4a044e' }
+'.link-pink-50': { linkColor: '#fdf2f8' }
+'.link-pink-100': { linkColor: '#fce7f3' }
+'.link-pink-200': { linkColor: '#fbcfe8' }
+'.link-pink-300': { linkColor: '#f9a8d4' }
+'.link-pink-400': { linkColor: '#f472b6' }
+'.link-pink-500': { linkColor: '#ec4899' }
+'.link-pink-600': { linkColor: '#db2777' }
+'.link-pink-700': { linkColor: '#be185d' }
+'.link-pink-800': { linkColor: '#9d174d' }
+'.link-pink-900': { linkColor: '#831843' }
+'.link-pink-950': { linkColor: '#500724' }
+'.link-rose-50': { linkColor: '#fff1f2' }
+'.link-rose-100': { linkColor: '#ffe4e6' }
+'.link-rose-200': { linkColor: '#fecdd3' }
+'.link-rose-300': { linkColor: '#fda4af' }
+'.link-rose-400': { linkColor: '#fb7185' }
+'.link-rose-500': { linkColor: '#f43f5e' }
+'.link-rose-600': { linkColor: '#e11d48' }
+'.link-rose-700': { linkColor: '#be123c' }
+'.link-rose-800': { linkColor: '#9f1239' }
+'.link-rose-900': { linkColor: '#881337' }
+'.link-rose-950': { linkColor: '#4c0519' }
+
 // Property: ellipsize
+// Description: Ti.UI.Label: Causes words in the text that are longer than the view is wide to be ellipsized instead of broken in the middle.  Ti.UI.TextArea: Determines whether an ellipsis (...) should be used to indicate truncated text.
 // Component(s): Ti.UI.Label, Ti.UI.TextArea, Ti.UI.TextField
 '.ellipsize-text-truncate-word-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_WORD_WRAP }
 '.ellipsize-text-truncate-char-wrap': { ellipsize: Ti.UI.TEXT_ELLIPSIZE_TRUNCATE_CHAR_WRAP }
@@ -15139,6 +15524,7 @@
 '.include-font-padding-false': { includeFontPadding: false }
 
 // Property: lines
+// Description: Ti.UI.Label: Makes the label be exactly this many lines tall.  Ti.UI.TextArea: Number of lines tall the text area height will be, if set.
 // Component(s): Ti.UI.Label, Ti.UI.TextArea
 '.lines-1': { lines: 1 }
 '.lines-2': { lines: 2 }
@@ -15222,6 +15608,7 @@
 '.letter-spacing-screen': { letterSpacing: Ti.UI.FILL }
 
 // Property: maxLines
+// Description: Ti.UI.Label: Makes the label at most this many lines tall.  Ti.UI.TextArea: Maximum line count of text field input.
 // Component(s): Ti.UI.Label, Ti.UI.TextArea
 '.max-lines-1': { maxLines: 1 }
 '.max-lines-2': { maxLines: 2 }
@@ -15245,6 +15632,7 @@
 '.accessory-type-list-disclosure': { accessoryType: Ti.UI.LIST_ACCESSORY_TYPE_DISCLOSURE }
 
 // Property: selectedBackgroundColor
+// Description: Ti.UI.ListItem: Background color of the view, as a color name or hex triplet when item is selected. Deprecated since 10.0.0. This property has been deprecated in favor of Titanium.UI.ListItem.backgroundSelectedColor.  Ti.UI.OptionBar: Background color of the selected button  Ti.UI.TabbedBar: Background color of the selected tab indicator.  Ti.UI.TableViewRow: Background color to render when the row is selected, as a color name or hex triplet. Deprecated since 10.0.0. This property has been deprecated in favor of Titanium.UI.TableViewRow.backgroundSelectedColor.
 // Component(s): Ti.UI.ListItem, Ti.UI.OptionBar, Ti.UI.TabbedBar, Ti.UI.TableViewRow
 '.selected-bg-transparent': { selectedBackgroundColor: 'transparent' }
 '.selected-bg-black': { selectedBackgroundColor: '#000000' }
@@ -16015,6 +16403,7 @@
 '.selection-style': { selectionStyle: Ti.UI.SELECTION_STYLE_DEFAULT }
 
 // Property: allowsSelection
+// Description: Ti.UI.ListView: Determines whether this item can be selected.  Ti.UI.TableView: Determines whether this table's rows can be selected.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.allows-selection': { allowsSelection: true }
 '.allows-selection-false': { allowsSelection: false }
@@ -16026,11 +16415,13 @@
 '.can-scroll-false': { canScroll: false }
 
 // Property: disableBounce
+// Description: Ti.UI.ListView: Determines whether the scroll-bounce of the list view should be disabled.  Ti.UI.ScrollView: Determines whether scroll bounce of the scrollable region is enabled.  Ti.UI.ScrollableView: Determines whether page bouncing effect is disabled.  Ti.UI.WebView: Determines whether the view will bounce when scrolling to the edge of the scrollable region.
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.WebView
 '.disable-bounce': { disableBounce: true }
 '.disable-bounce-false': { disableBounce: false }
 
 // Property: editing
+// Description: Ti.UI.ListView: Determines if the list view is currently in editing mode.  Ti.UI.TableView: Determines whether row editing mode is active.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.editing': { editing: true }
 '.editing-false': { editing: false }
@@ -16048,16 +16439,19 @@
 '.fast-scroll-false': { fastScroll: false }
 
 // Property: fixedSize
+// Description: Ti.UI.ListView: Sets fixedSize mode on Android ListViews.  Ti.UI.TableView: Sets fixedSize mode on Android TableView.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.fixed-size': { fixedSize: true }
 '.fixed-size-false': { fixedSize: false }
 
 // Property: allowsSelectionDuringEditing
+// Description: Ti.UI.ListView: Determines whether this list view items can be selected while editing the table.  Ti.UI.TableView: Determines whether this table's rows can be selected while editing the table.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.allows-selection-during-editing': { allowsSelectionDuringEditing: true }
 '.allows-selection-during-editing-false': { allowsSelectionDuringEditing: false }
 
 // Property: allowsMultipleSelectionDuringEditing
+// Description: Ti.UI.ListView: Determines whether multiple items of this list view can be selected at the same time while editing the table.  Ti.UI.TableView: Determines whether multiple items of this table view can be selected at the same time while editing the table.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.allows-multiple-selection-during-editing': { allowsMultipleSelectionDuringEditing: true }
 '.allows-multiple-selection-during-editing-false': { allowsMultipleSelectionDuringEditing: false }
@@ -16069,8 +16463,8 @@
 '.allows-multiple-selection-interaction-false': { allowsMultipleSelectionInteraction: false }
 
 // Property: lazyLoadingEnabled
-// Description: Determines if the list view should use lazy loading to load remote images.
-// Component(s): Ti.UI.ListView
+// Description: Ti.UI.ListView: Determines if the list view should use lazy loading to load remote images.  Ti.UI.TabGroup: Lazily opens each tab's root window only when that tab becomes active/selected.
+// Component(s): Ti.UI.ListView, Ti.UI.TabGroup
 '.lazy-loading-enabled': { lazyLoadingEnabled: true }
 '.lazy-loading-enabled-false': { lazyLoadingEnabled: false }
 
@@ -16156,6 +16550,7 @@
 '.keep-sections-in-search-false': { keepSectionsInSearch: false }
 
 // Property: keyboardDismissMode
+// Description: Ti.UI.ListView: The manner in which the keyboard is dismissed when a drag begins in the list view.  Ti.UI.ScrollView: The manner in which the keyboard is dismissed when a drag begins in the scroll view.  Ti.UI.TableView: The manner in which the keyboard is dismissed when a drag begins in the table view.
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
 '.keyboard-dismiss-mode-none[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_NONE }
 '.keyboard-dismiss-mode-on-drag[platform=ios]': { keyboardDismissMode: Ti.UI.iOS.KEYBOARD_DISMISS_MODE_ON_DRAG }
@@ -16214,16 +16609,19 @@
 '.section-header-top-padding-3.5': { sectionHeaderTopPadding: 14 }
 
 // Property: showSelectionCheck
+// Description: Ti.UI.ListView: Determines whether the selection checkmark is displayed on selected items.  Ti.UI.TableView: Determines whether the selection checkmark is displayed on selected rows.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.show-selection-check': { showSelectionCheck: true }
 '.show-selection-check-false': { showSelectionCheck: false }
 
 // Property: showVerticalScrollIndicator
+// Description: Ti.UI.ListView: Determines whether this list view displays a vertical scroll indicator.  Ti.UI.ScrollView: Determines whether the vertical scroll indicator is visible.  Ti.UI.TableView: Determines whether this table view displays a vertical scroll indicator.
 // Component(s): Ti.UI.ListView, Ti.UI.ScrollView, Ti.UI.TableView
 '.show-vertical-scroll-indicator': { showVerticalScrollIndicator: true }
 '.show-vertical-scroll-indicator-false': { showVerticalScrollIndicator: false }
 
 // Property: separatorColor
+// Description: Ti.UI.ListView: Separator line color between items, as a color name or hex triplet.  Ti.UI.TableView: Separator line color between rows, as a color name or hex triplet.
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.separator-transparent': { separatorColor: 'transparent' }
 '.separator-black': { separatorColor: '#000000' }
@@ -16476,6 +16874,12 @@
 // Component(s): Ti.UI.ListView, Ti.UI.TableView
 '.separator-style-table-view-none': { separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_NONE }
 '.separator-style-table-view-single-line': { separatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_SINGLE_LINE }
+
+// Property: snapping
+// Description: Ti.UI.ListView: Determines whether items snap into place when scrolling stops.  Ti.UI.TableView: Determines whether rows snap into place when scrolling stops.
+// Component(s): Ti.UI.ListView, Ti.UI.TableView
+'.snapping': { snapping: true }
+'.snapping-false': { snapping: false }
 
 // Property: dimBackgroundForSearch
 // Description: A Boolean indicating whether the underlying content is dimmed during a search.
@@ -16994,6 +17398,7 @@
 '.results-separator-style-table-view-single-line': { resultsSeparatorStyle: Ti.UI.TABLE_VIEW_SEPARATOR_STYLE_SINGLE_LINE }
 
 // Property: animationStyle
+// Description: ListViewAnimationProperties: Type of animation to use for cell insertions and deletions.  TableViewAnimationProperties: Type of animation to use for row insertions and deletions.  closeWindowParams: Transition type to use during a transition animation.
 // Component(s): ListViewAnimationProperties, TableViewAnimationProperties, closeWindowParams
 '.animation-style-row-bottom[platform=ios]': { animationStyle: Ti.UI.iOS.RowAnimationStyle.BOTTOM }
 '.animation-style-row-fade[platform=ios]': { animationStyle: Ti.UI.iOS.RowAnimationStyle.FADE }
@@ -17260,6 +17665,7 @@
 '.tint-rose-950': { tint: '#4c0519' }
 
 // Property: scale
+// Description: Matrix2DCreationDict: Scale the matrix by the specified scaling factor. The same scaling factor is used for both horizontal and vertical scaling.  Matrix3DCreationDict: Scale the matrix by the specified scaling factor.
 // Component(s): Matrix2DCreationDict, Matrix3DCreationDict
 '.scale-0': { scale: 0 }
 '.scale-1': { scale: 0.01 }
@@ -17302,6 +17708,7 @@
 '.closed-false': { closed: false }
 
 // Property: exitOnClose
+// Description: Ti.UI.NavigationWindow: Boolean value indicating if the application should exit when the Android Back button is pressed while the window is being shown or when the window is closed programmatically.  Ti.UI.TabGroup: Boolean value indicating if the application should exit when closing the tab group, whether via Android back button or the close method.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
 '.exit-on-close': { exitOnClose: true }
 '.exit-on-close-false': { exitOnClose: false }
@@ -17329,7 +17736,7 @@
 '.include-opaque-bars-false': { includeOpaqueBars: false }
 
 // Property: autoAdjustScrollViewInsets
-// Description: Specifies whether or not the view controller should automatically adjust its scroll view insets.
+// Description: Ti.UI.NavigationWindow: Specifies whether or not the view controller should automatically adjust its scroll view insets.  Ti.UI.WebView: Specifies whether or not the web view should automatically adjust its scroll view insets.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.WebView, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 '.auto-adjust-scroll-view-insets': { autoAdjustScrollViewInsets: true }
 '.auto-adjust-scroll-view-insets-false': { autoAdjustScrollViewInsets: false }
@@ -17390,6 +17797,7 @@
 '.large-title-display-mode-never[platform=ios]': { largeTitleDisplayMode: Ti.UI.iOS.LARGE_TITLE_DISPLAY_MODE_NEVER }
 
 // Property: modal
+// Description: Ti.UI.NavigationWindow: Indicates to open a modal window or not.  openWindowParams: Determines whether to open the window modal in front of other windows.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, openWindowParams, Ti.UI.iOS.SplitWindow
 '.modal': { modal: true }
 '.modal-false': { modal: false }
@@ -17905,6 +18313,7 @@
 '.sustained-performance-mode-false': { sustainedPerformanceMode: false }
 
 // Property: windowSoftInputMode
+// Description: Ti.UI.NavigationWindow: Determines whether a window's soft input area (ie software keyboard) is visible as it receives focus and how the window behaves in order to accommodate it while keeping its contents in view.  Ti.UI.TabGroup: Determines how the tab group is treated when a soft input method (such as a virtual keyboard) is displayed.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window
 '.window-soft-input-mode-state-always-hidden[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_HIDDEN }
 '.window-soft-input-mode-state-always-visible[platform=android]': { windowSoftInputMode: Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_VISIBLE }
@@ -18019,6 +18428,7 @@
 '.activity-shared-element-reenter-transition-none[platform=android]': { activitySharedElementReenterTransition: Ti.UI.Android.TRANSITION_NONE }
 
 // Property: interactiveDismissModeEnabled
+// Description: Ti.UI.NavigationWindow: A boolean indicating whether or not child windows of this navigation window should have the ability to be swipe-to-closed over the full width of it's window or not. Removed in 13.0.0. This is handled by the operation system in newer versions of iOS.  Ti.UI.TabGroup: A boolean indicating whether or not child windows of this tab group should have the ability to be swipe-to-closed over the full width of it's window or not. Removed in 13.0.0. This is handled by the operation system in newer versions of iOS.
 // Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup
 '.interactive-dismiss-mode-enabled': { interactiveDismissModeEnabled: true }
 '.interactive-dismiss-mode-enabled-false': { interactiveDismissModeEnabled: false }
@@ -18402,6 +18812,7 @@
 '.opaquebg-false': { opaquebackground: false }
 
 // Property: borderStyle
+// Description: Ti.UI.Picker: Border style to use when picker is shown as a text field or drop-down field.  Ti.UI.TextArea: Border style for the text area.  Ti.UI.TextField: Border style for the field.
 // Component(s): Ti.UI.Picker, Ti.UI.TextArea, Ti.UI.TextField
 '.border-style-bezel': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_BEZEL }
 '.border-style-line': { borderStyle: Ti.UI.INPUT_BORDERSTYLE_LINE }
@@ -18687,7 +19098,7 @@
 '.date-time-rose-950': { dateTimeColor: '#4c0519' }
 
 // Property: overrideUserInterfaceStyle
-// Description: Forces the app to used assigned theme instead of the system theme.
+// Description: Ti.UI.Picker: Forces the picker to used assigned theme instead of the system theme.  Ti.UI: Forces the app to used assigned theme instead of the system theme.
 // Component(s): Ti.UI.Picker, Ti.UI
 '.override-user-interface-style-unspecified': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_UNSPECIFIED }
 '.override-user-interface-style-light': { overrideUserInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_LIGHT }
@@ -18993,6 +19404,7 @@
 '.can-cancel-events-false': { canCancelEvents: false }
 
 // Property: contentHeight
+// Description: Ti.UI.ScrollView: Height of the scrollable region.  Ti.UI.iOS.PreviewContext: The height of the preview.
 // Component(s): Ti.UI.ScrollView, Ti.UI.iOS.PreviewContext
 '.content-h-0': { contentHeight: 0 }
 '.content-h-1': { contentHeight: 4 }
@@ -19120,6 +19532,7 @@
 '.min-zoom-scale-200': { minZoomScale: 2 }
 
 // Property: overScrollMode
+// Description: Ti.UI.ScrollView: Determines the behavior when the user overscolls the view.  Ti.UI.TableView: Determines the behavior when the user overscrolls the view.
 // Component(s): Ti.UI.ScrollView, Ti.UI.ScrollableView, Ti.UI.TableView, Ti.UI.WebView
 '.over-scroll-mode-always[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_ALWAYS }
 '.over-scroll-mode-if-content-scrolls[platform=android]': { overScrollMode: Ti.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS }
@@ -20055,6 +20468,7 @@
 '.autocapitalization-text-words': { autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS }
 
 // Property: autocorrect
+// Description: Ti.UI.SearchBar: Determines whether the text in the search bar is autocorrected during typing.  Ti.UI.TextArea: Determines whether to automatically correct text entered into this text area.  Ti.UI.TextField: Determines whether to automatically correct text entered into this text field.
 // Component(s): Ti.UI.SearchBar, Ti.UI.TextArea, Ti.UI.TextField
 '.autocorrect': { autocorrect: true }
 '.autocorrect-false': { autocorrect: false }
@@ -21477,7 +21891,8 @@
 '.thumb-tint-rose-950': { thumbTintColor: '#4c0519' }
 
 // Property: active
-// Component(s): Ti.UI.Tab, Ti.UI.iOS.PushBehavior
+// Description: Ti.UI.Tab: true if this tab is active, false if it is not.  ReservedRegion: Whether the region currently applies. The division region is only active while the device is partially folded.  Ti.UI.iOS.PushBehavior: State of the push behavior's force.
+// Component(s): Ti.UI.Tab, ReservedRegion, Ti.UI.iOS.PushBehavior
 '.active': { active: true }
 '.active-false': { active: false }
 
@@ -22241,6 +22656,7 @@
 '.active-icon-is-mask-false': { activeIconIsMask: false }
 
 // Property: activeTintColor
+// Description: Ti.UI.Tab: Defines the color of the tab icon when it is active.  Ti.UI.TabGroup: The activeTintColor to apply to tabs.  Ti.UI.TabbedBar: Icon tint color of the selected tab
 // Component(s): Ti.UI.Tab, Ti.UI.TabGroup, Ti.UI.TabbedBar
 '.active-tint-transparent': { activeTintColor: 'transparent' }
 '.active-tint-black': { activeTintColor: '#000000' }
@@ -22993,11 +23409,13 @@
 '.hide-shadow-false': { hideShadow: false }
 
 // Property: navBarHidden
+// Description: Ti.UI.TabGroup: Hides the action bar (true) or shows the action bar (false).  Ti.UI.Window: Hides the navigation bar (true) or shows the navigation bar (false).  openWindowParams: For modal windows, hides the nav bar (true) or shows the nav bar (false).
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window, openWindowParams, Ti.UI.iOS.SplitWindow
 '.nav-bar-hidden': { navBarHidden: true }
 '.nav-bar-hidden-false': { navBarHidden: false }
 
 // Property: navTintColor
+// Description: Ti.UI.TabGroup: The tintColor to apply to the navigation bar (typically for the More tab).  Ti.UI.Window: The tintColor to apply to the navigation bar.
 // Component(s): Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
 '.nav-tint-transparent': { navTintColor: 'transparent' }
 '.nav-tint-black': { navTintColor: '#000000' }
@@ -23258,6 +23676,7 @@
 '.tab-bar-hidden-false': { tabBarHidden: false }
 
 // Property: translucent
+// Description: Ti.UI.TabGroup: Boolean value indicating if the nav bar (typically for the More tab), is translucent.  Ti.UI.Toolbar: If true, a translucent background color is used for the toolbar.  Ti.UI.Window: Boolean value indicating if the nav bar is translucent.  windowToolbarParam: Defines if the toolbar is translucent.
 // Component(s): Ti.UI.TabGroup, Ti.UI.Toolbar, Ti.UI.Window, windowToolbarParam, Ti.UI.iOS.SplitWindow
 '.translucent': { translucent: true }
 '.translucent-false': { translucent: false }
@@ -23943,6 +24362,7 @@
 '.min-row-h-3.5': { minRowHeight: 14 }
 
 // Property: moveable
+// Description: Ti.UI.TableView: Determines the rows' default moveable behavior, which allows them to be re-ordered by the user when the table is in editing or moving mode.  Ti.UI.TableViewRow: Determines the rows' moveable behavior, which allows them to be re-ordered by the user when the table is in editing or moving mode.
 // Component(s): Ti.UI.TableView, Ti.UI.TableViewRow
 '.moveable': { moveable: true }
 '.moveable-false': { moveable: false }
@@ -23993,6 +24413,7 @@
 '.row-h-3.5': { rowHeight: 14 }
 
 // Property: scrollable
+// Description: Ti.UI.TableView: If true, the table view can be scrolled.  Ti.UI.TextArea: Determines whether this text area can be scrolled.
 // Component(s): Ti.UI.TableView, Ti.UI.TextArea
 '.scrollable': { scrollable: true }
 '.scrollable-false': { scrollable: false }
@@ -24073,6 +24494,7 @@
 '.indention-level-3.5': { indentionLevel: 14 }
 
 // Property: autofillType
+// Description: Ti.UI.TextArea: Sets the autofill type for the text area.  Ti.UI.TextField: Sets the autofill type for the text field.
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.autofill-type-username': { autofillType: Ti.UI.AUTOFILL_TYPE_USERNAME }
 '.autofill-type-password': { autofillType: Ti.UI.AUTOFILL_TYPE_PASSWORD }
@@ -24108,16 +24530,19 @@
 '.autofill-type-one-time-code': { autofillType: Ti.UI.AUTOFILL_TYPE_ONE_TIME_CODE }
 
 // Property: clearOnEdit
+// Description: Ti.UI.TextArea: Determines whether the value of this text area should be cleared when it is focused.  Ti.UI.TextField: Determines whether the value of this text field should be cleared when it is focused.
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.clear-on-edit': { clearOnEdit: true }
 '.clear-on-edit-false': { clearOnEdit: false }
 
 // Property: enableCopy
+// Description: Ti.UI.TextArea: Determines if user can copy or cut text from the text area.  Ti.UI.TextField: Determines if user can copy or cut text from the text field.
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.enable-copy': { enableCopy: true }
 '.enable-copy-false': { enableCopy: false }
 
 // Property: enableReturnKey
+// Description: Ti.UI.TextArea: Determines whether the return key is enabled automatically when there is text in this text area.  Ti.UI.TextField: Determines whether the return key is enabled automatically when there is text in this text field.
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.enable-return-key': { enableReturnKey: true }
 '.enable-return-key-false': { enableReturnKey: false }
@@ -24423,11 +24848,13 @@
 '.keyboard-toolbar-h-3.5': { keyboardToolbarHeight: 14 }
 
 // Property: showUndoRedoActions
+// Description: Ti.UI.TextArea: Determines if the undo and redo buttons on the left side of the keyboard should be displayed or not. Only valid on iOS 9 and above. This property can only be set upon creation.  Ti.UI.TextField: Determines if the undo and redo buttons on the left side of the keyboard should be displayed or not. Only valid on iOS 9 and above.
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.show-undo-redo-actions': { showUndoRedoActions: true }
 '.show-undo-redo-actions-false': { showUndoRedoActions: false }
 
 // Property: suppressReturn
+// Description: Ti.UI.TextArea: Determines if the return key should be suppressed during text entry.  Ti.UI.TextField: Determines whether the return key should be suppressed during entry.
 // Component(s): Ti.UI.TextArea, Ti.UI.TextField
 '.suppress-return': { suppressReturn: true }
 '.suppress-return-false': { suppressReturn: false }
@@ -24551,6 +24978,12 @@
 // Component(s): Ti.UI.Toolbar
 '.extend-background': { extendBackground: true }
 '.extend-background-false': { extendBackground: false }
+
+// Property: hideSharedBackground
+// Description: If true, each toolbar item is rendered in its own separate visual container.
+// Component(s): Ti.UI.Toolbar
+'.hide-shared-background': { hideSharedBackground: true }
+'.hide-shared-background-false': { hideSharedBackground: false }
 
 // Property: subtitleTextColor
 // Description: Color for toolbar's subtitle
@@ -25179,7 +25612,7 @@
 '.ignore-ssl-error-false': { ignoreSslError: false }
 
 // Property: loading
-// Description: Indicates if the webview is loading content.
+// Description: Ti.UI.WebView: Indicates if the webview is loading content.  Ti.UI.iOS.ButtonConfiguration: Whether or not a loading indicator should be shown
 // Component(s): Ti.UI.WebView, Ti.UI.iOS.ButtonConfiguration
 '.loading': { loading: true }
 '.loading-false': { loading: false }
@@ -25277,6 +25710,7 @@
 '.backward-false': { backward: false }
 
 // Property: wraps
+// Description: StringSearchOptions: Whether the search should start at the beginning of the document once it reaches the end.  Ti.UI.iOS.Stepper: If YES, incrementing beyond Titanium.UI.iOS.Stepper.maximum sets value to Titanium.UI.iOS.Stepper.minimum. likewise, decrementing below Titanium.UI.iOS.Stepper.minimum sets value to Titanium.UI.iOS.Stepper.maximum. If NO, the stepper does not increment beyond Titanium.UI.iOS.Stepper.maximum nor does it decrement below Titanium.UI.iOS.Stepper.minimum but rather holds at those values. The default value is NO.
 // Component(s): StringSearchOptions, Ti.UI.iOS.Stepper
 '.wraps': { wraps: true }
 '.wraps-false': { wraps: false }
@@ -25316,6 +25750,19 @@
 '.modal-transition-style-cross-dissolve[platform=ios]': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_CROSS_DISSOLVE }
 '.modal-transition-style-flip-horizontal[platform=ios]': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL }
 '.modal-transition-style-partial-curl[platform=ios]': { modalTransitionStyle: Ti.UI.iOS.MODAL_TRANSITION_STYLE_PARTIAL_CURL }
+
+// Property: verticalBarBehavior
+// Description: Whether the system may lay out the bars of this window vertically.
+// Component(s): openWindowParams
+'.vertical-bar-behavior-automatic[platform=ios]': { verticalBarBehavior: Ti.UI.iOS.VERTICAL_BAR_BEHAVIOR_AUTOMATIC }
+'.vertical-bar-behavior-disabled[platform=ios]': { verticalBarBehavior: Ti.UI.iOS.VERTICAL_BAR_BEHAVIOR_DISABLED }
+
+// Property: verticalBarCompressionBehavior
+// Description: Defines whether the bar items or the tab bar compress first when the vertical bar runs out of space.
+// Component(s): openWindowParams
+'.vertical-bar-compression-behavior-automatic[platform=ios]': { verticalBarCompressionBehavior: Ti.UI.iOS.VERTICAL_BAR_COMPRESSION_BEHAVIOR_AUTOMATIC }
+'.vertical-bar-compression-behavior-prefers-items[platform=ios]': { verticalBarCompressionBehavior: Ti.UI.iOS.VERTICAL_BAR_COMPRESSION_BEHAVIOR_PREFERS_BAR_ITEMS }
+'.vertical-bar-compression-behavior-prefers-tab[platform=ios]': { verticalBarCompressionBehavior: Ti.UI.iOS.VERTICAL_BAR_COMPRESSION_BEHAVIOR_PREFERS_TAB_BAR }
 
 // Property: running
 // Description: Returns true if the animator is running else false.
@@ -25456,20 +25903,246 @@
 '.push-mode-continuous[platform=ios]': { pushMode: Ti.UI.iOS.PUSH_MODE_CONTINUOUS }
 '.push-mode-instantaneous[platform=ios]': { pushMode: Ti.UI.iOS.PUSH_MODE_INSTANTANEOUS }
 
+// Property: displayMode
+// Description: The arrangement of the master view and the detail view.
+// Component(s): Ti.UI.iOS.SplitWindow
+'.display-mode-split-window-automatic[platform=ios]': { displayMode: Ti.UI.iOS.SPLIT_WINDOW_DISPLAY_MODE_AUTOMATIC }
+'.display-mode-split-window-secondary-only[platform=ios]': { displayMode: Ti.UI.iOS.SPLIT_WINDOW_DISPLAY_MODE_SECONDARY_ONLY }
+'.display-mode-split-window-one-beside-secondary[platform=ios]': { displayMode: Ti.UI.iOS.SPLIT_WINDOW_DISPLAY_MODE_ONE_BESIDE_SECONDARY }
+'.display-mode-split-window-one-over-secondary[platform=ios]': { displayMode: Ti.UI.iOS.SPLIT_WINDOW_DISPLAY_MODE_ONE_OVER_SECONDARY }
+
+// Property: splitBehavior
+// Description: How the master view and the detail view share the width when both are visible.
+// Component(s): Ti.UI.iOS.SplitWindow
+'.split-behavior-window-automatic[platform=ios]': { splitBehavior: Ti.UI.iOS.SPLIT_WINDOW_SPLIT_BEHAVIOR_AUTOMATIC }
+'.split-behavior-window-tile[platform=ios]': { splitBehavior: Ti.UI.iOS.SPLIT_WINDOW_SPLIT_BEHAVIOR_TILE }
+'.split-behavior-window-overlay[platform=ios]': { splitBehavior: Ti.UI.iOS.SPLIT_WINDOW_SPLIT_BEHAVIOR_OVERLAY }
+'.split-behavior-window-displace[platform=ios]': { splitBehavior: Ti.UI.iOS.SPLIT_WINDOW_SPLIT_BEHAVIOR_DISPLACE }
+
+// Property: presentsWithGesture
+// Description: Determines whether a swipe from the leading edge shows the hidden master view.
+// Component(s): Ti.UI.iOS.SplitWindow
+'.presents-with-gesture': { presentsWithGesture: true }
+'.presents-with-gesture-false': { presentsWithGesture: false }
+
+// Property: primaryColumnWidthFraction
+// Description: The width of the master view as a fraction of the width of the split window.
+// Component(s): Ti.UI.iOS.SplitWindow
+'.primary-col-w-fraction-0': { primaryColumnWidthFraction: 0 }
+'.primary-col-w-fraction-1': { primaryColumnWidthFraction: 4 }
+'.primary-col-w-fraction-2': { primaryColumnWidthFraction: 8 }
+'.primary-col-w-fraction-3': { primaryColumnWidthFraction: 12 }
+'.primary-col-w-fraction-4': { primaryColumnWidthFraction: 16 }
+'.primary-col-w-fraction-5': { primaryColumnWidthFraction: 20 }
+'.primary-col-w-fraction-6': { primaryColumnWidthFraction: 24 }
+'.primary-col-w-fraction-7': { primaryColumnWidthFraction: 28 }
+'.primary-col-w-fraction-8': { primaryColumnWidthFraction: 32 }
+'.primary-col-w-fraction-9': { primaryColumnWidthFraction: 36 }
+'.primary-col-w-fraction-10': { primaryColumnWidthFraction: 40 }
+'.primary-col-w-fraction-11': { primaryColumnWidthFraction: 44 }
+'.primary-col-w-fraction-12': { primaryColumnWidthFraction: 48 }
+'.primary-col-w-fraction-14': { primaryColumnWidthFraction: 56 }
+'.primary-col-w-fraction-16': { primaryColumnWidthFraction: 64 }
+'.primary-col-w-fraction-20': { primaryColumnWidthFraction: 80 }
+'.primary-col-w-fraction-24': { primaryColumnWidthFraction: 96 }
+'.primary-col-w-fraction-28': { primaryColumnWidthFraction: 112 }
+'.primary-col-w-fraction-32': { primaryColumnWidthFraction: 128 }
+'.primary-col-w-fraction-36': { primaryColumnWidthFraction: 144 }
+'.primary-col-w-fraction-40': { primaryColumnWidthFraction: 160 }
+'.primary-col-w-fraction-44': { primaryColumnWidthFraction: 176 }
+'.primary-col-w-fraction-48': { primaryColumnWidthFraction: 192 }
+'.primary-col-w-fraction-52': { primaryColumnWidthFraction: 208 }
+'.primary-col-w-fraction-56': { primaryColumnWidthFraction: 224 }
+'.primary-col-w-fraction-60': { primaryColumnWidthFraction: 240 }
+'.primary-col-w-fraction-64': { primaryColumnWidthFraction: 256 }
+'.primary-col-w-fraction-72': { primaryColumnWidthFraction: 288 }
+'.primary-col-w-fraction-80': { primaryColumnWidthFraction: 320 }
+'.primary-col-w-fraction-96': { primaryColumnWidthFraction: 384 }
+'.primary-col-w-fraction-auto': { primaryColumnWidthFraction: Ti.UI.SIZE }
+'.primary-col-w-fraction-px': { primaryColumnWidthFraction: '1px' }
+'.primary-col-w-fraction-0.5': { primaryColumnWidthFraction: 2 }
+'.primary-col-w-fraction-1.5': { primaryColumnWidthFraction: 6 }
+'.primary-col-w-fraction-2.5': { primaryColumnWidthFraction: 10 }
+'.primary-col-w-fraction-3.5': { primaryColumnWidthFraction: 14 }
+'.primary-col-w-fraction-1/2': { primaryColumnWidthFraction: '50%' }
+'.primary-col-w-fraction-1/3': { primaryColumnWidthFraction: '33.333334%' }
+'.primary-col-w-fraction-2/3': { primaryColumnWidthFraction: '66.666667%' }
+'.primary-col-w-fraction-1/4': { primaryColumnWidthFraction: '25%' }
+'.primary-col-w-fraction-2/4': { primaryColumnWidthFraction: '50%' }
+'.primary-col-w-fraction-3/4': { primaryColumnWidthFraction: '75%' }
+'.primary-col-w-fraction-1/5': { primaryColumnWidthFraction: '20%' }
+'.primary-col-w-fraction-2/5': { primaryColumnWidthFraction: '40%' }
+'.primary-col-w-fraction-3/5': { primaryColumnWidthFraction: '60%' }
+'.primary-col-w-fraction-4/5': { primaryColumnWidthFraction: '80%' }
+'.primary-col-w-fraction-1/6': { primaryColumnWidthFraction: '16.666667%' }
+'.primary-col-w-fraction-2/6': { primaryColumnWidthFraction: '33.333334%' }
+'.primary-col-w-fraction-3/6': { primaryColumnWidthFraction: '50%' }
+'.primary-col-w-fraction-4/6': { primaryColumnWidthFraction: '66.666667%' }
+'.primary-col-w-fraction-5/6': { primaryColumnWidthFraction: '83.333334%' }
+'.primary-col-w-fraction-1/12': { primaryColumnWidthFraction: '8.333334%' }
+'.primary-col-w-fraction-2/12': { primaryColumnWidthFraction: '16.666667%' }
+'.primary-col-w-fraction-3/12': { primaryColumnWidthFraction: '25%' }
+'.primary-col-w-fraction-4/12': { primaryColumnWidthFraction: '33.333334%' }
+'.primary-col-w-fraction-5/12': { primaryColumnWidthFraction: '41.666667%' }
+'.primary-col-w-fraction-6/12': { primaryColumnWidthFraction: '50%' }
+'.primary-col-w-fraction-7/12': { primaryColumnWidthFraction: '58.333334%' }
+'.primary-col-w-fraction-8/12': { primaryColumnWidthFraction: '66.666667%' }
+'.primary-col-w-fraction-9/12': { primaryColumnWidthFraction: '75%' }
+'.primary-col-w-fraction-10/12': { primaryColumnWidthFraction: '83.333334%' }
+'.primary-col-w-fraction-11/12': { primaryColumnWidthFraction: '91.666667%' }
+'.primary-col-w-fraction-full': { primaryColumnWidthFraction: '100%' }
+'.primary-col-w-fraction-screen': { primaryColumnWidthFraction: Ti.UI.FILL }
+
+// Property: minimumPrimaryColumnWidth
+// Description: The minimum width of the master view in points.
+// Component(s): Ti.UI.iOS.SplitWindow
+'.minimum-primary-col-w-0': { minimumPrimaryColumnWidth: 0 }
+'.minimum-primary-col-w-1': { minimumPrimaryColumnWidth: 4 }
+'.minimum-primary-col-w-2': { minimumPrimaryColumnWidth: 8 }
+'.minimum-primary-col-w-3': { minimumPrimaryColumnWidth: 12 }
+'.minimum-primary-col-w-4': { minimumPrimaryColumnWidth: 16 }
+'.minimum-primary-col-w-5': { minimumPrimaryColumnWidth: 20 }
+'.minimum-primary-col-w-6': { minimumPrimaryColumnWidth: 24 }
+'.minimum-primary-col-w-7': { minimumPrimaryColumnWidth: 28 }
+'.minimum-primary-col-w-8': { minimumPrimaryColumnWidth: 32 }
+'.minimum-primary-col-w-9': { minimumPrimaryColumnWidth: 36 }
+'.minimum-primary-col-w-10': { minimumPrimaryColumnWidth: 40 }
+'.minimum-primary-col-w-11': { minimumPrimaryColumnWidth: 44 }
+'.minimum-primary-col-w-12': { minimumPrimaryColumnWidth: 48 }
+'.minimum-primary-col-w-14': { minimumPrimaryColumnWidth: 56 }
+'.minimum-primary-col-w-16': { minimumPrimaryColumnWidth: 64 }
+'.minimum-primary-col-w-20': { minimumPrimaryColumnWidth: 80 }
+'.minimum-primary-col-w-24': { minimumPrimaryColumnWidth: 96 }
+'.minimum-primary-col-w-28': { minimumPrimaryColumnWidth: 112 }
+'.minimum-primary-col-w-32': { minimumPrimaryColumnWidth: 128 }
+'.minimum-primary-col-w-36': { minimumPrimaryColumnWidth: 144 }
+'.minimum-primary-col-w-40': { minimumPrimaryColumnWidth: 160 }
+'.minimum-primary-col-w-44': { minimumPrimaryColumnWidth: 176 }
+'.minimum-primary-col-w-48': { minimumPrimaryColumnWidth: 192 }
+'.minimum-primary-col-w-52': { minimumPrimaryColumnWidth: 208 }
+'.minimum-primary-col-w-56': { minimumPrimaryColumnWidth: 224 }
+'.minimum-primary-col-w-60': { minimumPrimaryColumnWidth: 240 }
+'.minimum-primary-col-w-64': { minimumPrimaryColumnWidth: 256 }
+'.minimum-primary-col-w-72': { minimumPrimaryColumnWidth: 288 }
+'.minimum-primary-col-w-80': { minimumPrimaryColumnWidth: 320 }
+'.minimum-primary-col-w-96': { minimumPrimaryColumnWidth: 384 }
+'.minimum-primary-col-w-auto': { minimumPrimaryColumnWidth: Ti.UI.SIZE }
+'.minimum-primary-col-w-px': { minimumPrimaryColumnWidth: '1px' }
+'.minimum-primary-col-w-0.5': { minimumPrimaryColumnWidth: 2 }
+'.minimum-primary-col-w-1.5': { minimumPrimaryColumnWidth: 6 }
+'.minimum-primary-col-w-2.5': { minimumPrimaryColumnWidth: 10 }
+'.minimum-primary-col-w-3.5': { minimumPrimaryColumnWidth: 14 }
+'.minimum-primary-col-w-1/2': { minimumPrimaryColumnWidth: '50%' }
+'.minimum-primary-col-w-1/3': { minimumPrimaryColumnWidth: '33.333334%' }
+'.minimum-primary-col-w-2/3': { minimumPrimaryColumnWidth: '66.666667%' }
+'.minimum-primary-col-w-1/4': { minimumPrimaryColumnWidth: '25%' }
+'.minimum-primary-col-w-2/4': { minimumPrimaryColumnWidth: '50%' }
+'.minimum-primary-col-w-3/4': { minimumPrimaryColumnWidth: '75%' }
+'.minimum-primary-col-w-1/5': { minimumPrimaryColumnWidth: '20%' }
+'.minimum-primary-col-w-2/5': { minimumPrimaryColumnWidth: '40%' }
+'.minimum-primary-col-w-3/5': { minimumPrimaryColumnWidth: '60%' }
+'.minimum-primary-col-w-4/5': { minimumPrimaryColumnWidth: '80%' }
+'.minimum-primary-col-w-1/6': { minimumPrimaryColumnWidth: '16.666667%' }
+'.minimum-primary-col-w-2/6': { minimumPrimaryColumnWidth: '33.333334%' }
+'.minimum-primary-col-w-3/6': { minimumPrimaryColumnWidth: '50%' }
+'.minimum-primary-col-w-4/6': { minimumPrimaryColumnWidth: '66.666667%' }
+'.minimum-primary-col-w-5/6': { minimumPrimaryColumnWidth: '83.333334%' }
+'.minimum-primary-col-w-1/12': { minimumPrimaryColumnWidth: '8.333334%' }
+'.minimum-primary-col-w-2/12': { minimumPrimaryColumnWidth: '16.666667%' }
+'.minimum-primary-col-w-3/12': { minimumPrimaryColumnWidth: '25%' }
+'.minimum-primary-col-w-4/12': { minimumPrimaryColumnWidth: '33.333334%' }
+'.minimum-primary-col-w-5/12': { minimumPrimaryColumnWidth: '41.666667%' }
+'.minimum-primary-col-w-6/12': { minimumPrimaryColumnWidth: '50%' }
+'.minimum-primary-col-w-7/12': { minimumPrimaryColumnWidth: '58.333334%' }
+'.minimum-primary-col-w-8/12': { minimumPrimaryColumnWidth: '66.666667%' }
+'.minimum-primary-col-w-9/12': { minimumPrimaryColumnWidth: '75%' }
+'.minimum-primary-col-w-10/12': { minimumPrimaryColumnWidth: '83.333334%' }
+'.minimum-primary-col-w-11/12': { minimumPrimaryColumnWidth: '91.666667%' }
+'.minimum-primary-col-w-full': { minimumPrimaryColumnWidth: '100%' }
+'.minimum-primary-col-w-screen': { minimumPrimaryColumnWidth: Ti.UI.FILL }
+
+// Property: maximumPrimaryColumnWidth
+// Description: The maximum width of the master view in points.
+// Component(s): Ti.UI.iOS.SplitWindow
+'.maximum-primary-col-w-0': { maximumPrimaryColumnWidth: 0 }
+'.maximum-primary-col-w-1': { maximumPrimaryColumnWidth: 4 }
+'.maximum-primary-col-w-2': { maximumPrimaryColumnWidth: 8 }
+'.maximum-primary-col-w-3': { maximumPrimaryColumnWidth: 12 }
+'.maximum-primary-col-w-4': { maximumPrimaryColumnWidth: 16 }
+'.maximum-primary-col-w-5': { maximumPrimaryColumnWidth: 20 }
+'.maximum-primary-col-w-6': { maximumPrimaryColumnWidth: 24 }
+'.maximum-primary-col-w-7': { maximumPrimaryColumnWidth: 28 }
+'.maximum-primary-col-w-8': { maximumPrimaryColumnWidth: 32 }
+'.maximum-primary-col-w-9': { maximumPrimaryColumnWidth: 36 }
+'.maximum-primary-col-w-10': { maximumPrimaryColumnWidth: 40 }
+'.maximum-primary-col-w-11': { maximumPrimaryColumnWidth: 44 }
+'.maximum-primary-col-w-12': { maximumPrimaryColumnWidth: 48 }
+'.maximum-primary-col-w-14': { maximumPrimaryColumnWidth: 56 }
+'.maximum-primary-col-w-16': { maximumPrimaryColumnWidth: 64 }
+'.maximum-primary-col-w-20': { maximumPrimaryColumnWidth: 80 }
+'.maximum-primary-col-w-24': { maximumPrimaryColumnWidth: 96 }
+'.maximum-primary-col-w-28': { maximumPrimaryColumnWidth: 112 }
+'.maximum-primary-col-w-32': { maximumPrimaryColumnWidth: 128 }
+'.maximum-primary-col-w-36': { maximumPrimaryColumnWidth: 144 }
+'.maximum-primary-col-w-40': { maximumPrimaryColumnWidth: 160 }
+'.maximum-primary-col-w-44': { maximumPrimaryColumnWidth: 176 }
+'.maximum-primary-col-w-48': { maximumPrimaryColumnWidth: 192 }
+'.maximum-primary-col-w-52': { maximumPrimaryColumnWidth: 208 }
+'.maximum-primary-col-w-56': { maximumPrimaryColumnWidth: 224 }
+'.maximum-primary-col-w-60': { maximumPrimaryColumnWidth: 240 }
+'.maximum-primary-col-w-64': { maximumPrimaryColumnWidth: 256 }
+'.maximum-primary-col-w-72': { maximumPrimaryColumnWidth: 288 }
+'.maximum-primary-col-w-80': { maximumPrimaryColumnWidth: 320 }
+'.maximum-primary-col-w-96': { maximumPrimaryColumnWidth: 384 }
+'.maximum-primary-col-w-auto': { maximumPrimaryColumnWidth: Ti.UI.SIZE }
+'.maximum-primary-col-w-px': { maximumPrimaryColumnWidth: '1px' }
+'.maximum-primary-col-w-0.5': { maximumPrimaryColumnWidth: 2 }
+'.maximum-primary-col-w-1.5': { maximumPrimaryColumnWidth: 6 }
+'.maximum-primary-col-w-2.5': { maximumPrimaryColumnWidth: 10 }
+'.maximum-primary-col-w-3.5': { maximumPrimaryColumnWidth: 14 }
+'.maximum-primary-col-w-1/2': { maximumPrimaryColumnWidth: '50%' }
+'.maximum-primary-col-w-1/3': { maximumPrimaryColumnWidth: '33.333334%' }
+'.maximum-primary-col-w-2/3': { maximumPrimaryColumnWidth: '66.666667%' }
+'.maximum-primary-col-w-1/4': { maximumPrimaryColumnWidth: '25%' }
+'.maximum-primary-col-w-2/4': { maximumPrimaryColumnWidth: '50%' }
+'.maximum-primary-col-w-3/4': { maximumPrimaryColumnWidth: '75%' }
+'.maximum-primary-col-w-1/5': { maximumPrimaryColumnWidth: '20%' }
+'.maximum-primary-col-w-2/5': { maximumPrimaryColumnWidth: '40%' }
+'.maximum-primary-col-w-3/5': { maximumPrimaryColumnWidth: '60%' }
+'.maximum-primary-col-w-4/5': { maximumPrimaryColumnWidth: '80%' }
+'.maximum-primary-col-w-1/6': { maximumPrimaryColumnWidth: '16.666667%' }
+'.maximum-primary-col-w-2/6': { maximumPrimaryColumnWidth: '33.333334%' }
+'.maximum-primary-col-w-3/6': { maximumPrimaryColumnWidth: '50%' }
+'.maximum-primary-col-w-4/6': { maximumPrimaryColumnWidth: '66.666667%' }
+'.maximum-primary-col-w-5/6': { maximumPrimaryColumnWidth: '83.333334%' }
+'.maximum-primary-col-w-1/12': { maximumPrimaryColumnWidth: '8.333334%' }
+'.maximum-primary-col-w-2/12': { maximumPrimaryColumnWidth: '16.666667%' }
+'.maximum-primary-col-w-3/12': { maximumPrimaryColumnWidth: '25%' }
+'.maximum-primary-col-w-4/12': { maximumPrimaryColumnWidth: '33.333334%' }
+'.maximum-primary-col-w-5/12': { maximumPrimaryColumnWidth: '41.666667%' }
+'.maximum-primary-col-w-6/12': { maximumPrimaryColumnWidth: '50%' }
+'.maximum-primary-col-w-7/12': { maximumPrimaryColumnWidth: '58.333334%' }
+'.maximum-primary-col-w-8/12': { maximumPrimaryColumnWidth: '66.666667%' }
+'.maximum-primary-col-w-9/12': { maximumPrimaryColumnWidth: '75%' }
+'.maximum-primary-col-w-10/12': { maximumPrimaryColumnWidth: '83.333334%' }
+'.maximum-primary-col-w-11/12': { maximumPrimaryColumnWidth: '91.666667%' }
+'.maximum-primary-col-w-full': { maximumPrimaryColumnWidth: '100%' }
+'.maximum-primary-col-w-screen': { maximumPrimaryColumnWidth: Ti.UI.FILL }
+
 // Property: showMasterInPortrait
-// Description: Determines whether to show the master view in portrait orientation.
+// Description: Determines whether to show the master view in portrait orientation. Deprecated since 14.0.0. The layout is owned by the system and this property has no effect. Use Titanium.UI.iOS.SplitWindow.displayMode with Titanium.UI.iOS.SPLIT_WINDOW_DISPLAY_MODE_ONE_BESIDE_SECONDARY to always show the master view.
 // Component(s): Ti.UI.iOS.SplitWindow
 '.show-master-in-portrait': { showMasterInPortrait: true }
 '.show-master-in-portrait-false': { showMasterInPortrait: false }
 
 // Property: masterIsOverlayed
-// Description: Determines whether to show the master view is overlayed in portrait orientation.
+// Description: Determines whether to show the master view is overlayed in portrait orientation. Deprecated since 14.0.0. The layout is owned by the system and this property has no effect. Use Titanium.UI.iOS.SplitWindow.splitBehavior with Titanium.UI.iOS.SPLIT_WINDOW_SPLIT_BEHAVIOR_OVERLAY.
 // Component(s): Ti.UI.iOS.SplitWindow
 '.master-is-overlayed': { masterIsOverlayed: true }
 '.master-is-overlayed-false': { masterIsOverlayed: false }
 
 // Property: masterViewVisible
-// Description: Determines whether to show the master view or hide.
+// Description: Determines whether to show the master view or hide. Deprecated since 14.0.0. The layout is owned by the system and this property has no effect. Use Titanium.UI.iOS.SplitWindow.showMasterView and Titanium.UI.iOS.SplitWindow.hideMasterView.
 // Component(s): Ti.UI.iOS.SplitWindow
 '.master-view-visible': { masterViewVisible: true }
 '.master-view-visible-false': { masterViewVisible: false }
