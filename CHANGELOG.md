@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Global `--profile <file.json>` for commands, aliases, and `--all`, with versioned JSON metrics and explicit LiveView skips and controlled failures.
+- Reproducible differential benchmarks for real projects and image outputs, including CPU, memory, file operations, parse counts, and restoration of affected project files. References stay anchored to the audited revision across commits; color unit tests use frozen fixtures without requiring Git history.
+
+### Fixed
+- Test runners and legacy aggregate checks now return a failing exit code when a category, file, or checked component fails.
+- Configuration is reevaluated between invocations and cloned before generation. Repeated builds do not retain mutated configuration, descriptor data, or `apply` directives.
+- Configuration changes within the same second now invalidate generated utilities using effective configuration and generator signatures.
+- Independent monotonic timings replace shared timers, preserving normal and debug messages.
+
+### Changed
+- Reuse source text, XML parsing, controller ASTs, and extractions within each purge; preserve XML diagnostics and JavaScript fallback behavior.
+- Index larger utility/icon selections and exact `apply` lookups while retaining order, duplicates, first matches, font priorities, and prefix searches. Missing-class detection uses a UTF-16 substring matcher.
+- Load command implementations on demand; help and version do not evaluate project configuration. Font catalogs are read on demand for `apply`.
+- Share CSS/codepoint inputs in the distribution build, await copies, and share image metadata and identical renders with a bounded queue. Preserve generated outputs and image quality.
+- Skip unchanged writes to generated text while retaining every completed `app.tss` write and its two-second LiveView guard.
+- Use Node filesystem APIs for creation/installation file operations. Remove the unused npm `path` dependency; align supported Node versions with installed dependencies (`^20.12.0 || ^22.13.0 || >=23.5.0`) and CI.
+- Apply compatible dependency fixes, including Sharp 0.35.5; retain incompatible `css`/`glob` upgrades for separate work. See `docs/project/optimization.md` for the remaining advisories and validation.
+
 ## [7.18.0] - 2026-09-26
 
 ### Fixed

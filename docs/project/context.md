@@ -6,6 +6,7 @@
 | --- | --- | --- |
 | `README.md` | Public product overview, installation, command surface, and recent changes. | Before changing user-visible CLI behavior. |
 | `CHANGELOG.md` | Canonical release history and current Unreleased work. | When planning or publishing a release. |
+| `docs/project/optimization.md` | Five-stage audit implementation, compatibility contracts, measurements, remaining dependency advisories, and benchmark reproduction. | Before changing these optimizations or comparing against the audited revision. |
 | `CONTRIBUTING.md` | Animation module implementation invariants. | Before changing `purgetss.ui` animation methods. |
 | `docs/error-reporting-consolidation.md` | Partially implemented proposal to unify CLI error reporting. | Before touching syntax/config error presentation. |
 | `docs/jit-class-resolution-proposal.md` | Proposed staged migration from prebuilt utilities to JIT class resolution. | Before starting any JIT resolver phase. |
@@ -45,7 +46,19 @@ Branding behavior is data-driven from `src/core/branding/pieces.js`. Project lay
 
 | When | Assistant · model | What it produced |
 | --- | --- | --- |
+| 2026-11-11 | Codex · GPT-6 family (exact model identifier not exposed) | Five-stage optimization, differential verification, compatible dependency updates, semantic commits authorized at closure, and session documentation. |
 | 2026-09-26 | Claude Code · Opus 5.5 (`claude-opus-5-5`) | Fixes from the TiTools skill audit: stacked platform/device modifiers, Font Awesome Pro/Beta module builds, `--vendor` validation, keyboard and `snap-magnet` class removals, `bg-from-(…)`, `images --width` bound, single project detector; the matching `purgetss-docs` corrections and `tests/unit/shared/generator-fixes.test.js`. |
 | 2026-09-11 | Claude Code · Opus 5 (`claude-opus-5[1m]`) | The v7.17.1 release: grouped the `notificationicon.png` rename already present in the working tree into one semantic commit, wrote the README entry, and shipped the tag. The rename itself was authored earlier, outside this session. |
 | 2026-09-05 | Claude Code · Opus 5 (`claude-opus-5`) | `images:` key validation, the 4× convention in the generated config block, the eslint 9 flat-config scaffolding, and the tests that keep each duplicated shipped string in sync. |
 | 2026-08-30 | Codex · GPT-5 | Classic/deployment-aware brand pipeline, full-bleed iOS/store defaults, frame diagnostics, tests, and synchronized documentation. |
+
+
+## Invocation and generator lifetimes — 2026-11-11
+
+`InvocationContext` owns source lists, text, XML trees, Acorn ASTs (including cached parse failures), and class extractions. `purgeClasses` passes it explicitly to extraction, diagnostics, and the SVG pipeline and clears it in `finally`. XML lists used for normal class/id extraction and missing-class detection remain separate. Configuration evaluation is scoped by `withConfigInvocation`; consumers receive deep copies so utility generation cannot mutate the evaluated configuration.
+
+`generator-signature.js` signs effective configuration and relevant generator sources/tables. Unsupported values cause conservative rebuilding. The signature file is metadata only. Human-readable date comments remain in generated utilities for compatibility; they are no longer the invalidation key. `generated-files.js` compares bytes for independent generated text. Never route `app.tss` through it: LiveView uses its mtime as the execution guard.
+
+`GeneratorInputs` shares CSS trees, codepoint rules, and icon names between TSS and JavaScript distribution builders in one orchestrated build. It is also used for paired Font Awesome Pro/Beta generation. Image contexts belong to one input image, share metadata/render buffers across Android and iPhone scales, and limit the render queue to two jobs. They are not persistent caches.
+
+The test runner executes Node using `execFile(process.execPath, [file])`, propagates aggregate failures, and treats discovery errors as failures. `tests/performance/benchmark.mjs` compares source modules from the fixed audited revision `c5f735ad3387a028f8c21627eaf433085e9d283f` through a loader against the working implementation without copying or checking out projects. `PURGETSS_BENCH_BASELINE` can select another reference; the chosen revision must exist in Git history. It protects affected generated/config/asset files in memory and restores them in `finally`; exclude signature metadata from output equivalence and test it separately. Color differential tests and their benchmark use frozen original implementations in `tests/fixtures/color-shades/`, so those checks need no Git history. Existing unit/e2e fixtures remain separate from direct real-project benchmarks.

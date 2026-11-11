@@ -400,7 +400,7 @@ Button: {
 
 - **Titanium SDK** (Compatible with all versions; 13.1.1.GA recommended for full property support)
 - **Alloy Framework** (for most commands)
-- **Node.js 20+** (required for the CLI tool)
+- **Node.js 20.12+ (20.x), 22.13+ (22.x), or 23.5+** (required by the CLI dependencies; the supported range is `^20.12.0 || ^22.13.0 || >=23.5.0`)
 
 ## Recent changes
 
@@ -543,3 +543,40 @@ See the full release notes in [CHANGELOG.md](./CHANGELOG.md).
   - [Semantic Colors](https://purgetss.com/docs/best-practices/semantic-colors)
   - [Large Titles on iOS](https://purgetss.com/docs/best-practices/large-titles-on-ios)
 - [Grid System](https://purgetss.com/docs/grid-system)
+
+
+## Execution profiles and incremental generation
+
+Add `--profile <file.json>` to any command or alias to write machine-readable execution metrics:
+
+```sh
+purgetss --profile purge-profile.json
+purgetss build --profile build-profile.json
+purgetss bf --module --profile fonts-profile.json
+purgetss --all --profile all-profile.json
+```
+
+Profiles use `schemaVersion: 1` and report the canonical command, `completed`, `skipped`, or `failed` status, `durationMs`, CPU time (`user`/`system`, in microseconds), memory in bytes, phases, and counters. `memory.peakRssBytes` is the process peak. File-operation counters cover attempted reads, writes, and copies during command execution; `sourceReads`, `xmlParses`, and `jsParses` identify work in the shared source analyzer. A run skipped by LiveView has `skipReason: "liveview-2s"`. Profiles are also written for controlled failures. If the destination cannot be written, stderr explains the problem and the command keeps its original exit code. `--debug` and normal progress messages remain available.
+
+XML text, controller text, XML parse results, controller ASTs, and extractions are shared only within one invocation. The next invocation reads the sources again. There is no persistent XML/JavaScript/AST cache.
+
+Generated utilities use a signature of the evaluated configuration and generator inputs in `purgetss/.cache/generator-signature.json`. The metadata is smaller than 4 KiB. Calculated configurations are evaluated for each invocation; values that cannot be signed reliably cause a conservative rebuild. Configuration changes within the same second are detected. Generated text is written when its bytes change. `app.tss` is still written after each completed purge so its modification time continues to enforce LiveView's two-second guard.
+
+The distribution build runs its generators in the existing order in one process, sharing CSS/codepoint inputs and waiting for font copies. Image generation shares source metadata and identical renders within each image, with at most two renders running at once. Output order, codecs, sizing, alpha, supersampling, compression, and optional quantization are preserved.
+
+### Measured optimization results
+
+Measured on the same Mac with Node 22.23.2, directly in three real projects and a minimal fixture. Each variant had a separate initial run and five subsequent samples in alternating order. These are median process times for completed purges; LiveView skips were measured separately.
+
+| Project | Before | After | Reduction |
+| --- | ---: | ---: | ---: |
+| notiGAPE | 1140.2 ms | 471.9 ms | 58.6% |
+| Generador de Tablas | 680.5 ms | 448.8 ms | 34.1% |
+| EM Industrial | 1591.3 ms | 547.1 ms | 65.6% |
+| Minimal fixture | 480.3 ms | 388.4 ms | 19.1% |
+
+Generated project outputs matched byte for byte; the new signature metadata was checked separately. All 43 unit test files, 7 integration files and 6 e2e files passed. An additional comparison across image codecs confirmed identical bytes, pixels, dimensions and alpha for all 56 outputs, including the Sharp 0.35.3 → 0.35.5 update. Compatible dependency fixes reduced npm audit's affected-package count from 12 to 5; the remaining incompatible upgrades are documented in the report.
+
+An existing project without signature metadata rebuilds its utility catalog once. In the minimal fixture, that first call increased from 398.3 to 481.2 ms; the subsequent median is shown above. Results describe these fixtures and this machine, and are not a guaranteed speedup for every project. The two-second LiveView guard and `app.tss` mtime renewal remain unchanged.
+
+For the differential benchmark procedure and measured limits, see [the optimization implementation report](docs/project/optimization.md).

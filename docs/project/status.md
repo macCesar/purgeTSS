@@ -1,4 +1,47 @@
-# Status — 2026-09-26
+# Status — 2026-11-11
+
+**Phase:** five-stage optimization completed and recorded in semantic commits at César's explicit request; no npm release/publication.
+**Session by:** Codex · GPT-6 family (exact model identifier not exposed).
+**Version:** 7.18.0 unchanged.
+**Branch:** `main`; this session's commits have not been pushed.
+
+The 16 audit findings are covered by the implementation or an explicitly preserved condition/deferred incompatible dependency fix. See [optimization.md](optimization.md) for the stage mapping, measurements, exact coverage and remaining five npm advisories.
+
+- Direct medians: notiGAPE 1140.2 → 471.9; Generador de Tablas 680.5 → 448.8; EM Industrial 1591.3 → 547.1; minimal fixture 480.3 → 388.4. First-call costs are reported separately; an existing project without signature metadata rebuilds once.
+- Full suite: 43 unit files, 7 integration files, 6 e2e files passed. Later focused regressions verify profile argument semantics, handled prompt failures, symlink retargeting, unchanged derived mtimes, image failure-stop and color ties. JS/MJS and the CLI entry point pass lint; CI YAML and package dry-run were checked.
+- All 56 codec outputs match in bytes/pixels/dimensions/alpha. The image queue passed the 20% maximum-RSS acceptance criterion; it remains capped at two.
+- Config is evaluated per invocation and cloned; source analysis is shared only within a purge. Only signature metadata persists. The two-second LiveView guard and every completed `app.tss` write remain intact.
+- Compatible dependency fixes are included, including Sharp 0.35.5. Five css/source-map/glob-chain advisories need incompatible upgrades and remain documented. Engines preserve valid Node 20.12 support and CI covers the declared minimum branches; local validation used Node 22.23.2, and no remote workflow was triggered.
+- All three real projects were restored individually to their previous files/timestamps and Git state. No real-project copies, worktrees, global installations, pushes or version changes were made. The pre-existing untracked `docs/rust-port.md` is retained outside the commits.
+
+## Semantic commits and session closure
+
+The implementation initially remained uncommitted under the original plan. César then explicitly requested semantic commits and session-document updates on 2026-11-11. The implementation/test commits are:
+
+| Commit | Scope |
+| --- | --- |
+| `ebd8b4a` | `fix(tests)`: propagate runner and aggregate assertion failures. |
+| `e544d19` | `chore(deps)`: compatible dependency fixes and supported Node versions/CI. |
+| `6841cb6` | `feat(cli)`: structured profiles, independent timers, lazy commands and awaited maintenance operations. |
+| `04ebcf4` | `perf(core)`: invocation analysis reuse, class/apply indexes and generator signatures. |
+| `8a4a7e9` | `perf(build)`: shared generator inputs and ordered distribution orchestration. |
+| `7ecaef8` | `perf(images)`: shared renders and bounded concurrency. |
+| `0964399` | `perf(colors)`: palette conversion reuse and frozen differential fixtures. |
+| `7eca5e5` | `test(perf)`: reproducible benchmarks anchored to the audited revision. |
+
+The closing `docs(project)` commit records these hashes and updates README, CHANGELOG, requirements, context, decisions, this status and the detailed optimization report. At César's request, README includes a measured before/after table, equivalence results and the initial signature setup cost. The original reference remains `c5f735ad3387a028f8c21627eaf433085e9d283f`, independently of HEAD. Color tests import frozen reference fixtures so they also run in shallow CI checkouts without Git history.
+
+Closure validation was limited to the new reference handling: color equivalence and runner failure tests passed; a startup benchmark smoke test after the eight commits retained the audited SHA, separate initial calls and five alternating samples per variant, with equivalent output bytes. Lint reported no errors in the changed reference tooling (one existing-style warning in the frozen color reference). The completed full suite and real-project/image measurements above were not repeated merely to make commits. Small closure evidence is saved alongside the implementation evidence; benchmark temporaries were removed.
+
+The read-only closing check found notiGAPE and Generador de Tablas clean. EM Industrial has an untracked `purgetss/.cache/generator-signature.json` created at 12:18, with `app.tss` renewed at the same time, after the implementation validation archive was finalized at 12:14 and before this commit session. That later project activity was preserved, not deleted as benchmark residue.
+
+Session documents are tracked; CLAUDE/GEMINI startup imports reach only the stable project documents, with no direct or transitive import of `status.md`. Existing historical documentation remains intact. Saving files follows César's existing SFTP auto-upload workflow; Git push and npm publication were not performed.
+
+No implementation task from these stages remains open. A separate dependency-compatibility task can address the documented major-version changes; release/publication is outside this task.
+
+The prior release record below is retained as historical context, including its then-current next steps.
+
+## Historical status — 2026-09-26
 
 **Phase:** v7.18.0 released and published to npm
 **Session by:** Claude Code · Opus 5.5 (`claude-opus-5-5`)
