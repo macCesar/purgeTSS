@@ -494,12 +494,14 @@ The distribution build runs its generators in the existing order within one proc
 
 Both versions were measured on the same Mac with Node 22.23.2, directly in three real projects and a minimal fixture. Each variant had a separate initial run, followed by five samples in alternating order. The table shows median process times for completed purges. LiveView skips were measured separately.
 
-| Project | Before | After | Reduction |
-| --- | ---: | ---: | ---: |
-| notiGAPE | 1140.2 ms | 471.9 ms | 58.6% |
-| Generador de Tablas | 680.5 ms | 448.8 ms | 34.1% |
-| EM Industrial | 1591.3 ms | 547.1 ms | 65.6% |
-| Minimal fixture | 480.3 ms | 388.4 ms | 19.1% |
+| Project | XML parses | JS parses | Before | After | Reduction |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Real project A | 70 | 54 | 1140.2 ms | 471.9 ms | 58.6% |
+| Real project B | 10 | 10 | 680.5 ms | 448.8 ms | 34.1% |
+| Real project C | 198 | 36 | 1591.3 ms | 547.1 ms | 65.6% |
+| Minimal fixture | 1 | 0 | 480.3 ms | 388.4 ms | 19.1% |
+
+XML and JS counts are parse operations per completed purge after optimization, included to give a reference for each workload. They do not measure class counts or overall application complexity.
 
 Generated project outputs matched byte for byte. The new signature metadata was checked separately. All 43 unit test files, 7 integration files and 6 e2e files passed.
 
