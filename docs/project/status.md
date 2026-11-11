@@ -6,6 +6,8 @@
 **Branch:** `main`; the release and all preceding work have been pushed to `origin/main`.
 **Release commit:** `7d44f9100afa4d588adbdbb853849c19d5c7336f`; annotated tag `v7.19.0` resolves to the same commit locally and on origin.
 
+**README follow-up — 2026-11-11:** at César's request, `Recent changes` now contains only the three latest published versions (7.19.0, 7.18.0, 7.17.1) and links to the unchanged full CHANGELOG. The 4× source convention was moved out of the historical entries into its own usage section. Scoped checks verified the version window, unchanged retained entries and surrounding README content, preserved source-convention text, link target and unchanged CHANGELOG; no runtime tests were needed for this documentation edit.
+
 ## Publication and verification
 
 - César made the version bump in `9a4815a`. The confirmed release plan preserved 7.19.0, committed the Rust feasibility document in `dc9e520`, regenerated/checked the module after the bump, and promoted the complete Unreleased entry in `7d44f91`. The local tag was moved to that final release commit before its first remote push, as explicitly approved.

@@ -30,6 +30,7 @@ Branding behavior is data-driven from `src/core/branding/pieces.js`. Project lay
 - Add user-visible behavior to CLI help, `README.md`, `CHANGELOG.md`, and the sibling Docusaurus source in the same stretch of work.
 - Use `apply_patch` for hand edits; regenerate `dist/` only through npm build scripts.
 - Keep commits semantic and atomic. Root screenshots and temporary example PNGs stay out of commits.
+- Keep only the three latest published versions in README's `Recent changes`, with a link to the complete `CHANGELOG.md`. Keep usage explanations outside that release summary so rotating versions does not remove current guidance (César, 2026-11-11).
 - Test destructive asset generation in a committed fixture project and restore only that fixture afterward.
 
 ## Traps
