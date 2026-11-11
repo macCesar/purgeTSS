@@ -11,18 +11,16 @@
  */
 
 import chalk from 'chalk'
+import { beginPhase, endPhase } from './profile.js'
 import { logger, getDebugMode } from '../../shared/logger.js'
 
-// Global timing variables
-let startTime
-let localStartTime
 
 /**
  * Start global timer for command execution
  * Maintains exact same logic as original start() function
  */
 export function start() {
-  startTime = new Date()
+  return beginPhase()
 }
 
 /**
@@ -31,9 +29,9 @@ export function start() {
  *
  * @param {string} customMessage - Custom message to display
  */
-export function finish(customMessage = 'Finished purging in') {
-  const endTime = new Date(new Date() - startTime)
-  logger.info(customMessage, chalk.green(`${endTime.getSeconds()}s ${endTime.getMilliseconds()}ms`))
+export function finish(customMessage = 'Finished purging in', token = beginPhase()) {
+  const elapsed = Math.round(endPhase(token, customMessage))
+  logger.info(customMessage, chalk.green(`${Math.floor(elapsed / 1000)}s ${elapsed % 1000}ms`))
 }
 
 /**
@@ -41,7 +39,7 @@ export function finish(customMessage = 'Finished purging in') {
  * Maintains exact same logic as original localStart() function
  */
 export function localStart() {
-  localStartTime = new Date()
+  return beginPhase()
 }
 
 /**
@@ -55,10 +53,10 @@ export function localStart() {
  * @param {string} customMessage - Label to print alongside the timing, or
  *   `''` for timing-only mode.
  */
-export function localFinish(customMessage = 'Finished purging in') {
-  const localEndTime = new Date(new Date() - localStartTime)
+export function localFinish(customMessage = 'Finished purging in', token = beginPhase()) {
+  const elapsed = Math.round(endPhase(token, customMessage))
   if (!getDebugMode()) return
-  const timing = chalk.green(`${localEndTime.getSeconds()}s ${localEndTime.getMilliseconds()}ms`)
+  const timing = chalk.green(`${Math.floor(elapsed / 1000)}s ${elapsed % 1000}ms`)
   if (customMessage === '') {
     // Timing-only mode: caller already printed the label.
     logger.info(timing)

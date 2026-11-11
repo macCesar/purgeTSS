@@ -23,7 +23,7 @@ import * as acorn from 'acorn'
  * @returns {Array} Array of unique class names found in project files
  */
 export function getUniqueClasses() {
-  localStart()
+  const timing = localStart()
 
   const allClasses = []
   const viewPaths = getViewPaths()
@@ -45,7 +45,7 @@ export function getUniqueClasses() {
     if (filterCharacters(uniqueClass)) uniqueClasses.push(uniqueClass)
   })
 
-  localFinish('Get Unique Classes')
+  localFinish('Get Unique Classes', timing)
 
   return uniqueClasses.sort()
 }

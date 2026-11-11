@@ -124,7 +124,7 @@ export function purgeFramework7(uniqueClasses, cleanUniqueClasses, debug = false
  * @returns {string} Purged icon CSS classes as string
  */
 export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, _prefixes, debug = false) {
-  if (debug) localStart()
+  const timing = localStart()
 
   let purgedClasses = ''
   const sourceTSS = fs.readFileSync(sourceFolder, 'utf8')
@@ -145,7 +145,7 @@ export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUnique
     })
   }
 
-  if (debug) localFinish(message)
+  if (debug) localFinish(message, timing)
 
   return purgedClasses
 }

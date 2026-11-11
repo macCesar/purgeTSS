@@ -1,3 +1,5 @@
+import _ from 'lodash'
+import { AsyncLocalStorage } from 'node:async_hooks'
 /**
  * PurgeTSS v7.1 - Configuration Manager
  *
@@ -28,6 +30,23 @@ import { ensureBrandSection } from '../core/branding/ensure-brand-section.js'
 
 // Create require for ESM compatibility
 const require = createRequire(import.meta.url)
+const invocations = new AsyncLocalStorage()
+
+export function withConfigInvocation(action) {
+  return invocations.getStore() ? action() : invocations.run(new Map(), action)
+}
+
+function invalidateConfigModule(filename, seen = new Set()) {
+  if (seen.has(filename)) return
+  seen.add(filename)
+  const loaded = require.cache[filename]
+  if (!loaded) return
+  for (const child of loaded.children) {
+    if (!child.filename.includes('/node_modules/')) invalidateConfigModule(child.filename, seen)
+  }
+  delete require.cache[filename]
+}
+
 
 /**
  * Parse a padding value from either a number or a percentage string.
@@ -127,7 +146,19 @@ export function migrateConfigIfNeeded() {
 export function getConfigFile() {
 
   const sourcePath = fs.existsSync(projectsConfigJS) ? projectsConfigJS : srcConfigFile
-  const configFile = require(sourcePath)
+  const invocation = invocations.getStore()
+  const physicalPath = fs.realpathSync(sourcePath)
+  const text = fs.readFileSync(physicalPath, 'utf8')
+  const cached = invocation?.get(sourcePath)
+  let evaluated
+  if (cached?.text === text && cached.path === physicalPath) {
+    evaluated = cached.value
+  } else {
+    invalidateConfigModule(physicalPath)
+    evaluated = require(physicalPath)
+    invocation?.set(sourcePath, { text, path: physicalPath, value: evaluated })
+  }
+  const configFile = _.cloneDeep(evaluated)
 
   validateConfig(configFile, sourcePath)
 

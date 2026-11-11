@@ -1,3 +1,4 @@
+import { writeIfChanged } from '../../shared/generated-files.js'
 /* eslint-disable no-useless-escape */
 /**
  * PurgeTSS v7.1 - Fonts Command
@@ -306,7 +307,7 @@ export function buildFonts(options = {}) {
   const { projectType, fontsFolder, libFolder } = getProjectPaths()
 
   if (fs.existsSync(projectsPurge_TSS_Fonts_Folder)) {
-    start()
+    const timing = start()
 
     const files = getFiles(projectsPurge_TSS_Fonts_Folder).filter(file => {
       return file.endsWith('.ttf') || file.endsWith('.otf') || file.endsWith('.css') || file.endsWith('.TTF') || file.endsWith('.OTF') || file.endsWith('.CSS')
@@ -388,9 +389,7 @@ export function buildFonts(options = {}) {
       makeSureFolderExists(projectsPurgeTSSFolder)
       makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
 
-      fs.writeFileSync(`${cwd}/purgetss/styles/fonts.tss`, tssClasses, { encoding: 'utf8' }, err => {
-        throw err
-      })
+      writeIfChanged(`${cwd}/purgetss/styles/fonts.tss`, tssClasses, { encoding: 'utf8' })
     }
 
     if (shouldBuildModule && (fontJS || fontFamilies.size > 0)) {
@@ -414,9 +413,7 @@ export function buildFonts(options = {}) {
 
       exportIcons += '\n// Helper Functions\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 
-      fs.writeFileSync(modulePath, exportIcons, { encoding: 'utf8' }, err => {
-        throw err
-      })
+      writeIfChanged(modulePath, exportIcons, { encoding: 'utf8' })
 
       logger.info(`${chalk.yellow(path.relative(cwd, modulePath))} file created!`)
     } else if (fs.existsSync(modulePath)) {
@@ -427,9 +424,9 @@ export function buildFonts(options = {}) {
       if (projectType === 'alloy') createDefinitionsFile()
       console.log()
       if (projectType === 'alloy') {
-        finish(`Finished building ${chalk.yellow('fonts.tss')} in`)
+        finish(`Finished building ${chalk.yellow('fonts.tss')} in`, timing)
       } else {
-        finish(`Finished copying fonts to ${chalk.yellow(path.relative(cwd, fontsFolder))} in`)
+        finish(`Finished copying fonts to ${chalk.yellow(path.relative(cwd, fontsFolder))} in`, timing)
       }
       return true
     } else {

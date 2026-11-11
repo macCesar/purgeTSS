@@ -27,6 +27,7 @@ import { logger } from '../../shared/logger.js'
  * @returns {boolean} Success status
  */
 export function dependencies(options) {
+  void options
   if (!alloyProject()) {
     return false
   }
@@ -35,7 +36,7 @@ export function dependencies(options) {
 
   // Add node_modules to .gitignore if not present
   if (fs.existsSync(`${cwd}/.gitignore`) && !fs.readFileSync(`${cwd}/.gitignore`).includes('/node_modules')) {
-    execSync('echo "/node_modules" >>.gitignore')
+    fs.appendFileSync(path.join(cwd, '.gitignore'), '/node_modules\n')
   }
 
   // Create package.json if it doesn't exist
@@ -46,16 +47,17 @@ export function dependencies(options) {
 
   // Copy VS Code configuration if VS Code is available
   if (commandExistsSync('code')) {
-    execSync(`cp -R ${path.resolve(projectRoot)}/dist/configs/vscode/ "${cwd}"/.vscode`)
+    // eslint-disable-next-line n/no-unsupported-features/node-builtins -- cpSync exists on Node 20; its stable label starts in 22.3.
+    fs.cpSync(path.join(projectRoot, 'dist/configs/vscode'), path.join(cwd, '.vscode'), { recursive: true })
   }
 
   // Copy .editorconfig
-  execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/.editorconfig "${cwd}"`)
+  fs.copyFileSync(path.join(projectRoot, 'dist/configs/invisible/.editorconfig'), path.join(cwd, '.editorconfig'))
 
   // Install ESLint
   logger.info(`Installing ${chalk.green('ESLint')}`)
   execSync(`cd "${cwd}" && npm i -D eslint @eslint/js`)
-  execSync(`cp ${path.resolve(projectRoot)}/dist/configs/invisible/eslint.config.mjs "${cwd}"`)
+  fs.copyFileSync(path.join(projectRoot, 'dist/configs/invisible/eslint.config.mjs'), path.join(cwd, 'eslint.config.mjs'))
 
   // Install Tailwind CSS
   logger.info(`Installing ${chalk.green('Tailwind CSS')}`)

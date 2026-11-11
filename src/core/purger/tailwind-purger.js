@@ -46,7 +46,7 @@ function cleanClassNameFn(className) {
  * @returns {string} Purged utilities.tss classes as string
  */
 export function purgeTailwind(uniqueClasses, debug = false) {
-  if (debug) localStart()
+  const timing = localStart()
 
   // In debug mode, the section label is emitted by localFinish together with
   // the timing (inline). In non-debug mode this line is the progress indicator.
@@ -222,7 +222,7 @@ export function purgeTailwind(uniqueClasses, debug = false) {
   // Add arbitrary values
   purgedClasses += (arbitraryValues !== '\n// Arbitrary Values\n') ? arbitraryValues : ''
 
-  if (debug) localFinish('Purging ' + chalk.yellow('utilities.tss') + ' styles...')
+  if (debug) localFinish('Purging ' + chalk.yellow('utilities.tss') + ' styles...', timing)
 
   return purgedClasses
 }

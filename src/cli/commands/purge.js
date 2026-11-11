@@ -12,6 +12,7 @@
  */
 
 import fs from 'fs'
+import { currentProfile } from '../utils/profile.js'
 import _ from 'lodash'
 import chalk from 'chalk'
 import { globSync } from 'glob'
@@ -457,7 +458,7 @@ function filterCharacters(uniqueClass) {
  * COPIED exactly from original getUniqueClasses() function
  */
 function getUniqueClasses() {
-  localStart()
+  const timing = localStart()
 
   const allClasses = []
   const viewPaths = getViewPaths()
@@ -490,7 +491,7 @@ function getUniqueClasses() {
     if (filterCharacters(uniqueClass)) uniqueClasses.push(uniqueClass)
   })
 
-  localFinish('Get Unique Classes')
+  localFinish('Get Unique Classes', timing)
 
   return uniqueClasses.sort()
 }
@@ -500,7 +501,7 @@ function getUniqueClasses() {
  * COPIED exactly from original copyResetTemplateAnd_appTSS() function
  */
 function copyResetTemplateAnd_appTSS() {
-  localStart()
+  const timing = localStart()
 
   logger.info('Copying Reset styles...')
 
@@ -515,7 +516,7 @@ function copyResetTemplateAnd_appTSS() {
     }
   }
 
-  localFinish('Copying Reset and ' + chalk.yellow('_app.tss') + ' styles...')
+  localFinish('Copying Reset and ' + chalk.yellow('_app.tss') + ' styles...', timing)
 
   return tempPurged
 }
@@ -653,13 +654,13 @@ function processMissingClasses(tempPurged) {
  * @param {string} data - File content
  */
 function saveFile(file, data) {
-  localStart()
+  const timing = localStart()
 
   fs.writeFileSync(file, data, err => {
     throw err
   })
 
-  localFinish(`Saving ${chalk.yellow('app.tss')}...`)
+  localFinish(`Saving ${chalk.yellow('app.tss')}...`, timing)
 }
 
 /**
@@ -690,7 +691,7 @@ export async function purgeClasses(options) {
   const recentlyCreated = makeSureFileExists(projectsAppTSS)
 
   if (Date.now() > (fs.statSync(projectsAppTSS).mtimeMs + 2000) || recentlyCreated) {
-    start()
+    const totalTiming = start()
     logger.startSection()
     try {
       // Explicit header so every purge run shows which project is being
@@ -720,8 +721,7 @@ export async function purgeClasses(options) {
         // before purging). In both cases the error block was already
         // printed; just exit cleanly.
         if (error.isPreValidationError || error.isClassSyntaxError) {
-          // eslint-disable-next-line n/no-process-exit
-          process.exit(1)
+          return false
         }
         // Re-throw other errors
         throw error
@@ -758,7 +758,7 @@ export async function purgeClasses(options) {
         logger
       })
 
-      finish()
+      finish(undefined, totalTiming)
     } finally {
       flushSemanticColors()
       logger.endSection()
@@ -766,6 +766,13 @@ export async function purgeClasses(options) {
 
     return true
   } else {
+    const profile = currentProfile()
+    if (profile) {
+      if (profile.command !== '--all') profile.status = 'skipped'
+      profile.skipReason = 'liveview-2s'
+      profile.phases.push({ name: 'purge', status: 'skipped', skipReason: 'liveview-2s', durationMs: 0 })
+      profile.increment('liveviewSkips')
+    }
     logger.warn('Project purged less than 2 seconds ago!')
     return true
   }
