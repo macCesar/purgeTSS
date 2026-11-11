@@ -8,6 +8,8 @@
 
 **README follow-up — 2026-11-11:** at César's request, `Recent changes` now contains only the three latest published versions (7.19.0, 7.18.0, 7.17.1) and links to the unchanged full CHANGELOG. The 4× source convention was moved out of the historical entries into its own usage section. Scoped checks verified the version window, unchanged retained entries and surrounding README content, preserved source-convention text, link target and unchanged CHANGELOG; no runtime tests were needed for this documentation edit.
 
+**Report language correction — 2026-11-11:** at César's request, the public `docs/project/optimization.md` report was translated in full into English. Numeric data, reproduction commands, technical references, section/table/list counts and paragraph layout were checked against the preceding revision; no technical content was removed. César explicitly chose to keep the report public. The documentation site must link to the translated revision rather than the unchanged `v7.19.0` tag, which retains the historical Spanish report.
+
 ## Publication and verification
 
 - César made the version bump in `9a4815a`. The confirmed release plan preserved 7.19.0, committed the Rust feasibility document in `dc9e520`, regenerated/checked the module after the bump, and promoted the complete Unreleased entry in `7d44f91`. The local tag was moved to that final release commit before its first remote push, as explicitly approved.
