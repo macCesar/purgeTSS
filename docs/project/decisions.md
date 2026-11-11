@@ -2,6 +2,11 @@
 
 Append-only. Most recent entries first.
 
+## 2026-11-11 — Release SDK 14 Completions as v7.20.0
+
+**Chose:** retain the 7.20.0 minor bump already made by César for new utility-property support, update release documentation, align the unpublished local tag with the final release notes and publish through the existing npm workflow. Launch the Docusaurus content and push its Context7 mirror under the same request, without changing the site's separate 1.1.14 version.
+**Because:** new property support adds functionality without changing the existing CLI interface. The SDK version of the Completions does not make SDK 14 mandatory for existing applications. Generated glossary content originates in this CLI repository and must be imported into the documentation site before building it.
+
 ## 2026-11-11 — Publish the compatible optimization as v7.19.0
 
 **Chose:** use the minor version César had already bumped, include the complete working tree including the Rust feasibility document, and publish through the existing tag-triggered OIDC workflow. Align the unpublished local tag with the final release commit before its first push, under the explicitly confirmed release plan.

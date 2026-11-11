@@ -1,3 +1,32 @@
+# Status — PurgeTSS 7.20.0
+
+**2026-11-11 · Phase:** v7.20.0 released on GitHub, available on npm as latest, and documented on the deployed Docusaurus site.
+**Session by:** Codex · GPT-6 family (exact model identifier not exposed).
+**Branch:** `main`. **Release commit/tag:** `dbc4c223d06c957411fbf6a0399541f31835c3d7` / `v7.20.0`, verified on origin.
+
+## SDK 14 release
+
+César committed the SDK Completions and generated utilities in `d73ad34`, bumped both manifests in `34d8270`, and regenerated the module header in `ce3c6d4`. This release adds notes in `dbc4c22` and aligns the previously unpublished local tag with that final commit before pushing it. Compared with v7.19.0, the Completions add 63 property entries and recover 356 previously empty property descriptions. The glossary gains 18 pages and updates 135 existing property pages.
+
+- [GitHub release v7.20.0](https://github.com/macCesar/purgeTSS/releases/tag/v7.20.0) is published.
+- [Publish workflow 43112803168](https://github.com/macCesar/purgeTSS/actions/runs/43112803168) succeeded: build, 44/44 unit files, 7/7 integration files, 6/6 e2e files and npm publication. npm reported `+ purgetss@7.20.0`, signed provenance and explicitly reported package processing.
+- Both supported-Node workflows passed all three jobs (20.12.0, 22.13.0, 24): [tag 43112803176](https://github.com/macCesar/purgeTSS/actions/runs/43112803176) and [main 43112800128](https://github.com/macCesar/purgeTSS/actions/runs/43112800128).
+- Local full distribution build, configuration-invocation tests, generator-contract tests, CLI version/help and diff checks passed. Existing diagnostic output in the syntax test is expected. Full test suites were run by CI rather than repeated locally.
+- Package dry run: 202 files; SHA-1 `bb785508078c72254172eeba7240ab555c8de622`, matching the publishing log. `docs/` is excluded from the package.
+- Registry availability verified after processing: `/purgetss/7.20.0` and `/purgetss/latest` both return 7.20.0, with `gitHead` equal to the release commit and SLSA provenance attestations. The downloaded 13,049,383-byte tarball matches SHA-1 `bb785508078c72254172eeba7240ab555c8de622`, identical to the local build and publishing log. The first bare tarball requests hit a cached 404; a cache-busting request downloaded and verified the package.
+
+## Documentation launch
+
+The Docusaurus site documents 7.20.0 and the SDK 14 glossary. `73aa24c` fixes glossary import by `clean:md`; `36c8fbf` adds release pages and generated glossary; `f07ff51` records the verified launch. All are pushed. Site version remains 1.1.14. Context7 documents and README are pushed in `4df9bfc`; glossary import does not extend the mirrors' content scope.
+
+Site build, version check and two sync regressions passed. `npm run deploy` succeeded. Six live routes returned HTTP 200 and matched the build through `</body>`: home, changelog, installation, new snapping/linkColor glossary pages and the recovered allowBackground description. The 675 imported glossary files match their generated sources byte for byte. README/home retain the latest three versions; 7.17.1 remains in the full changelog. No current API or usage documentation was removed.
+
+The release skill was explicitly named mid-execution; it was absent from the initial skill catalog and was then read from the installed aiskills source. Its invocation policy is explicit-only. The existing publication authorization was retained. No skill configuration was changed.
+
+No release or site-launch work remains. Session notes land after the release tag and do not change the npm package because `docs/` is excluded. Earlier records below are retained as historical context.
+
+---
+
 # Status — 2026-11-11
 
 **Phase:** v7.19.0 released on GitHub and published to npm through trusted publishing.
