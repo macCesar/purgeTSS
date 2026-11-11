@@ -398,11 +398,16 @@ The official documentation is at [purgetss.com](https://purgetss.com).
 
 ## Requirements
 
-- Titanium SDK (Compatible with all versions; 13.1.1.GA recommended for full property support)
+- Titanium SDK (Compatible with all versions; 14.0.0.GA recommended for full property support)
 - Alloy Framework (for most commands)
 - Node.js 20.12+ (20.x), 22.13+ (22.x), or 23.5+ (required by the CLI dependencies; the supported range is `^20.12.0 || ^22.13.0 || >=23.5.0`)
 
 ## Recent changes
+
+### v7.20.0
+
+- Update Titanium Completions to SDK 14.0.0.GA: 63 new property entries and 356 recovered property descriptions.
+- Regenerate utility classes and the glossary, including 18 new property pages for boolean, color, split-view and layout settings.
 
 ### v7.19.0
 
@@ -417,10 +422,6 @@ The official documentation is at [purgetss.com](https://purgetss.com).
 - Font Awesome Pro and Beta work again. `purgetss build` no longer stops with `ENOENT`, and `icon-library --module` / `--styles` generate `fontawesome.js` and `fontawesome.tss` instead of printing a placeholder.
 - `icon-library --vendor` accepts `materialsymbols` and rejects unknown values before copying anything. `images --width` accepts 1 to 1024, the largest value whose `xxxhdpi` output fits the 4096px cap.
 - Removed: the `*-keyboard-type-appearance*` classes (they assigned an appearance constant to `keyboardType`; use `keyboard-appearance-*`), `snap-magnet` (never read by the animation module), and `init --all` (never implemented). `(Npx)` arbitrary values are accepted again: `w-(100px)` means explicit pixels, not a redundant unit.
-
-### v7.17.1
-
-- The Android notification icon is now generated as `notificationicon.png`. `firebase.cloudmessaging` resolves that drawable by name, so under the old `ic_stat_notify.png` a data message never found it and fell back to the opaque `appicon`, which the status bar renders as a white blob. The `default_notification_icon` meta-data, the only configurable path, covers notification messages alone, so no manifest entry could fix it. The snippet printed after a run now points at `@drawable/notificationicon`. If you already wired `@drawable/ic_stat_notify` by hand, update that one line and delete the five stale files.
 
 See the full release notes in [CHANGELOG.md](./CHANGELOG.md).
 

@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.20.0] - 2026-11-11
+
+### Added
+- Utility classes generated from the Titanium SDK 14.0.0.GA Completions, including new boolean, color, split-view and layout properties. The generated glossary adds 18 property pages.
+
+### Changed
+- Update Titanium Completions to SDK 14.0.0.GA, adding 63 property entries and recovering 356 previously missing property descriptions. Regenerate `utilities.tss` and the glossary with the updated class definitions, descriptions and component references.
+
 ## [7.19.0] - 2026-11-11
 
 ### Added
