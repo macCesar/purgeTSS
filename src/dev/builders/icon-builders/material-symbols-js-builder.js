@@ -1,3 +1,5 @@
+import { GeneratorInputs } from '../../utils/generator-inputs.js'
+import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
  * PurgeTSS v7.1 - Material Symbols JS Builder (Development)
  *
@@ -29,20 +31,12 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * Main builder function
  * COPIED exactly from original constructor() function
  */
-export function buildMaterialSymbolsJS() {
-  let codepoints = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].codepoints'), 'utf8')
-
-  const uniqueCodepoints = _.map(_.uniq(codepoints.split('\n').sort()), rule => {
-    if (rule !== '') {
-      const separado = rule.split(' ')
-      return {
-        selector: separado[0],
-        property: separado[1]
-      }
-    }
-  })
+export function buildMaterialSymbolsJS(inputs = new GeneratorInputs()) {
+  const uniqueCodepoints = inputs.codepoints([
+    path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].codepoints'),
+  ])
 
   let fileContent = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/template.js.cjs'), 'utf8')
 
@@ -77,9 +71,7 @@ exports.sharp = families.sharp;
 
   fileContent += exportIcons
 
-  fs.writeFileSync(path.resolve(projectRoot, './dist/materialsymbols.js'), fileContent, err => {
-    throw err
-  })
+  writeIfChanged(path.resolve(projectRoot, './dist/materialsymbols.js'), fileContent)
 
   logger.file('./dist/materialsymbols.js')
 }

@@ -47,7 +47,7 @@
     "build:symbols-js": "node ./src/dev/builders/icon-builders/material-symbols-js-builder.js",
     "build:framework7": "node ./src/dev/builders/icon-builders/framework7-builder.js",
     "build:framework7-js": "node ./src/dev/builders/icon-builders/framework7-js-builder.js",
-    "build:all": "npm run build:module && npm run build:tailwind && npm run build:fa && npm run build:fa-js && npm run build:material && npm run build:material-js && npm run build:symbols && npm run build:symbols-js && npm run build:framework7 && npm run build:framework7-js && npm run build:fonts"
+    "build:all": "node ./src/dev/builders/build-all.js"
   },
   "repository": {
     "type": "git",
@@ -60,7 +60,7 @@
     "fontawesome.tss",
     "cli"
   ],
-  "author": "C\u00e9sar Estrada",
+  "author": "César Estrada",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/macCesar/purgeTSS/issues"

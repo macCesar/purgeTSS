@@ -1,3 +1,5 @@
+import { GeneratorInputs } from '../../utils/generator-inputs.js'
+import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
  * PurgeTSS v7.1 - Material Icons JS Builder (Development)
  *
@@ -29,22 +31,14 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * Main builder function
  * COPIED exactly from original constructor() function
  */
-export function buildMaterialIconsJS() {
-  let codepoints = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIcons-Regular.codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsOutlined-Regular.codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsRound-Regular.codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsSharp-Regular.codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsTwoTone-Regular.codepoints'), 'utf8')
-
-  const uniqueCodepoints = _.map(_.uniq(codepoints.split('\n').sort()), rule => {
-    if (rule !== '') {
-      const separado = rule.split(' ')
-      return {
-        selector: separado[0],
-        property: separado[1]
-      }
-    }
-  })
+export function buildMaterialIconsJS(inputs = new GeneratorInputs()) {
+  const uniqueCodepoints = inputs.codepoints([
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIcons-Regular.codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsOutlined-Regular.codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsRound-Regular.codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsSharp-Regular.codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsTwoTone-Regular.codepoints'),
+  ])
 
   let fileContent = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/template.js.cjs'), 'utf8')
 
@@ -83,9 +77,7 @@ exports.twoTone = families.twoTone;
 
   fileContent += exportIcons
 
-  fs.writeFileSync(path.resolve(projectRoot, './dist/materialicons.js'), fileContent, err => {
-    throw err
-  })
+  writeIfChanged(path.resolve(projectRoot, './dist/materialicons.js'), fileContent)
 
   logger.file('./dist/materialicons.js')
 }

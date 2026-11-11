@@ -1,3 +1,5 @@
+import { GeneratorInputs } from '../utils/generator-inputs.js'
+import { writeIfChanged } from '../../shared/generated-files.js'
 /**
  * PurgeTSS v7.1 - FontAwesome Builder (Development)
  *
@@ -12,7 +14,6 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import _ from 'lodash'
-import css from 'css'
 import { logger } from '../../shared/logger.js'
 import { extractUnicodeValue } from '../../shared/utils.js'
 
@@ -72,6 +73,7 @@ function makeSureFolderExists(folder) {
  * Callback function for file operations
  * @param {Error} err - Error object
  */
+// eslint-disable-next-line no-unused-vars -- Retain the existing compatibility helper.
 function callback(err) {
   if (err) throw err
 }
@@ -83,7 +85,7 @@ function callback(err) {
  */
 function copyProFonts(fontFamilies, webFonts) {
   _.each(fontFamilies, (dest, src) => {
-    fs.copyFile(webFonts + src, projectsFontsFolder + '/' + dest, callback)
+    fs.copyFileSync(webFonts + src, projectsFontsFolder + '/' + dest)
   })
   logger.warn(' - Font Awesome Pro')
 }
@@ -172,9 +174,8 @@ export function processFontawesomeStyles(data) {
  * @param {Object} fontFamilies - Font family mappings
  * @param {string} webFonts - Web fonts folder path
  */
-export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilies, webFonts) {
-  const cssContent = fs.readFileSync(CSSFile, 'utf8')
-  const data = css.parse(cssContent)
+export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilies, webFonts, inputs = new GeneratorInputs()) {
+  const data = inputs.css(CSSFile)
 
   let tssClasses = fs.readFileSync(path.resolve(projectRoot, templateTSS), 'utf8') + '\n'
 
@@ -182,9 +183,7 @@ export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamili
 
   tssClasses += processFontawesomeStyles(data)
 
-  fs.writeFileSync(projectsFA_TSS_File, tssClasses, err2 => {
-    throw err2
-  })
+  writeIfChanged(projectsFA_TSS_File, tssClasses)
 
   logger.file('./purgetss/styles/fontawesome.tss')
 
@@ -199,18 +198,31 @@ export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamili
  * @param {string} faJS - Path to FontAwesome JS template
  * @param {string} libFolder - Destination module folder
  */
-export function processFontAwesomeJS(CSSFile, faJS, libFolder = projectsLibFolder) {
-  try {
-    const cssContent = fs.readFileSync(CSSFile, 'utf8')
-    const data = css.parse(cssContent)
+export function processFontAwesomeJS(CSSFile, faJS, libFolder = projectsLibFolder, inputs = new GeneratorInputs()) {
+  const data = inputs.css(CSSFile)
 
-    const rules = _.map(data.stylesheet.rules, rule => {
-      if (rule.type === 'rule' && rule.selectors && rule.declarations && rule.declarations.length > 0) {
-        // FontAwesome 7: CSS custom properties (--fa:)
-        const faDeclaration = rule.declarations.find(decl => decl.property === '--fa')
-        if (faDeclaration && faDeclaration.value) {
-          const selector = rule.selectors[0].replace('::before', '').replace(':before', '').replace('.', '').replace(':', '')
-          const unicodeValue = extractUnicodeValue(faDeclaration.value)
+  const rules = _.map(data.stylesheet.rules, rule => {
+    if (rule.type === 'rule' && rule.selectors && rule.declarations && rule.declarations.length > 0) {
+      // FontAwesome 7: CSS custom properties (--fa:)
+      const faDeclaration = rule.declarations.find(decl => decl.property === '--fa')
+      if (faDeclaration && faDeclaration.value) {
+        const selector = rule.selectors[0].replace('::before', '').replace(':before', '').replace('.', '').replace(':', '')
+        const unicodeValue = extractUnicodeValue(faDeclaration.value)
+
+        if (unicodeValue) {
+          return {
+            selector: selector,
+            property: unicodeValue
+          }
+        }
+      }
+
+      // FontAwesome 6: Traditional :before with content: (fallback)
+      if (rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
+        const contentDecl = rule.declarations.find(decl => decl.property === 'content')
+        if (contentDecl && contentDecl.value) {
+          const selector = rule.selectors[0].replace(':before', '').replace('.', '').replace(':', '')
+          const unicodeValue = extractUnicodeValue(contentDecl.value)
           
           if (unicodeValue) {
             return {
@@ -219,69 +231,50 @@ export function processFontAwesomeJS(CSSFile, faJS, libFolder = projectsLibFolde
             }
           }
         }
-        
-        // FontAwesome 6: Traditional :before with content: (fallback)
-        if (rule.selectors[0].includes(':before') && !rule.selectors[0].includes('.fad')) {
-          const contentDecl = rule.declarations.find(decl => decl.property === 'content')
-          if (contentDecl && contentDecl.value) {
-            const selector = rule.selectors[0].replace(':before', '').replace('.', '').replace(':', '')
-            const unicodeValue = extractUnicodeValue(contentDecl.value)
-            
-            if (unicodeValue) {
-              return {
-                selector: selector,
-                property: unicodeValue
-              }
-            }
-          }
-        }
       }
-    })
+    }
+  })
 
-    let fontAwesomeContent = fs.readFileSync(path.resolve(projectRoot, faJS), 'utf8')
+  let fontAwesomeContent = fs.readFileSync(path.resolve(projectRoot, faJS), 'utf8')
 
-    fontAwesomeContent += '\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
+  fontAwesomeContent += '\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 
-    let exportIcons = '\nconst icons = {\n'
+  let exportIcons = '\nconst icons = {\n'
 
-    _.each(rules, rule => {
-      if (rule) {
-        exportIcons += `\t'${prettifyFontName(rule.selector, 'fa')}': '\\u${rule.property}',\n`
-      }
-    })
+  _.each(rules, rule => {
+    if (rule) {
+      exportIcons += `\t'${prettifyFontName(rule.selector, 'fa')}': '\\u${rule.property}',\n`
+    }
+  })
 
-    exportIcons += '}\n'
+  exportIcons += '}\n'
 
-    exportIcons += 'exports.icons = icons;\n'
+  exportIcons += 'exports.icons = icons;\n'
 
-    exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
+  exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
-    fontAwesomeContent += exportIcons
+  fontAwesomeContent += exportIcons
 
-    makeSureFolderExists(libFolder)
+  makeSureFolderExists(libFolder)
 
-    const fontAwesomeJS = path.join(libFolder, 'fontawesome.js')
-    fs.writeFileSync(fontAwesomeJS, fontAwesomeContent, err2 => {
-      throw err2
-    })
+  const fontAwesomeJS = path.join(libFolder, 'fontawesome.js')
+  writeIfChanged(fontAwesomeJS, fontAwesomeContent)
 
-    logger.file(`./${path.relative(cwd, fontAwesomeJS)}`)
-  } catch (err) {
-    throw err
-  }
+  logger.file(`./${path.relative(cwd, fontAwesomeJS)}`)
+
 }
 
 /**
  * Main FontAwesome TSS builder function
  * Supports Beta, Pro, and Pro Alt locations
  */
-export function buildFontAwesome() {
+export function buildFontAwesome(inputs = new GeneratorInputs()) {
   if (fs.existsSync(srcFA_Beta_CSSFile)) {
-    processFontAwesomeTSS(srcFA_Beta_CSSFile, srcFA_Beta_TemplateTSS, srcFA_Beta_ResetTSS, srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder)
+    processFontAwesomeTSS(srcFA_Beta_CSSFile, srcFA_Beta_TemplateTSS, srcFA_Beta_ResetTSS, srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder, inputs)
   } else if (fs.existsSync(srcFA_Pro_CSS)) {
-    processFontAwesomeTSS(srcFA_Pro_CSS, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder)
+    processFontAwesomeTSS(srcFA_Pro_CSS, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder, inputs)
   } else if (fs.existsSync(srcFA_Pro_CSS_Alt)) {
-    processFontAwesomeTSS(srcFA_Pro_CSS_Alt, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder_Alt)
+    processFontAwesomeTSS(srcFA_Pro_CSS_Alt, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder_Alt, inputs)
   }
 }
 
@@ -290,11 +283,11 @@ export function buildFontAwesome() {
  * Supports Beta and Pro versions
  * @param {string} libFolder - Destination module folder (Alloy app/lib by default)
  */
-export function buildFontAwesomeJS(libFolder = projectsLibFolder) {
+export function buildFontAwesomeJS(libFolder = projectsLibFolder, inputs = new GeneratorInputs()) {
   if (fs.existsSync(srcFA_Beta_CSSFile)) {
-    processFontAwesomeJS(srcFA_Beta_CSSFile, './lib/templates/fontawesome/beta-template.js.cjs', libFolder)
+    processFontAwesomeJS(srcFA_Beta_CSSFile, './lib/templates/fontawesome/beta-template.js.cjs', libFolder, inputs)
   } else if (fs.existsSync(srcFA_Pro_CSS)) {
-    processFontAwesomeJS(srcFA_Pro_CSS, './lib/templates/fontawesome/pro-template.js.cjs', libFolder)
+    processFontAwesomeJS(srcFA_Pro_CSS, './lib/templates/fontawesome/pro-template.js.cjs', libFolder, inputs)
   }
 }
 

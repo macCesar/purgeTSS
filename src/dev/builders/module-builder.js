@@ -1,3 +1,4 @@
+import { writeIfChanged } from '../../shared/generated-files.js'
 /**
  * PurgeTSS v7.1 - Module Builder (Development)
  *
@@ -28,9 +29,7 @@ export function buildModule() {
   const PurgeTSSPackageJSON = JSON.parse(fs.readFileSync(path.resolve(projectRoot, './package.json'), 'utf8'))
   const PurgeTSSPackageVersion = `// PurgeTSS v${PurgeTSSPackageJSON.version}\n`
 
-  fs.writeFileSync(path.resolve(projectRoot, './dist/purgetss.ui.js'), PurgeTSSPackageVersion + fs.readFileSync(PurgeTSSModule, 'utf8'), err => {
-    throw err
-  })
+  writeIfChanged(path.resolve(projectRoot, './dist/purgetss.ui.js'), PurgeTSSPackageVersion + fs.readFileSync(PurgeTSSModule, 'utf8'))
 
   logger.file('./dist/purgetss.ui.js')
 }

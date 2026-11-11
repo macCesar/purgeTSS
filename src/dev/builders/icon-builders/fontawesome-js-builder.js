@@ -1,3 +1,5 @@
+import { GeneratorInputs } from '../../utils/generator-inputs.js'
+import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
  * PurgeTSS v7.1 - FontAwesome JS Builder (Development)
  *
@@ -14,7 +16,6 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import _ from 'lodash'
-import css from 'css'
 import { logger } from '../../../shared/logger.js'
 import { extractUnicodeValue } from '../../../shared/utils.js'
 
@@ -31,9 +32,8 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * Main builder function
  * COPIED exactly from original constructor() function
  */
-export function buildFontAwesomeJS() {
-  const cssContent = fs.readFileSync(path.resolve(projectRoot, './node_modules/@fortawesome/fontawesome-free/css/all.css'), 'utf8')
-  const data = css.parse(cssContent)
+export function buildFontAwesomeJS(inputs = new GeneratorInputs()) {
+  const data = inputs.css(path.resolve(projectRoot, './node_modules/@fortawesome/fontawesome-free/css/all.css'))
 
   const rules = _.map(data.stylesheet.rules, rule => {
     if (rule.type === 'rule' && rule.selectors && rule.declarations && rule.declarations.length > 0) {
@@ -86,9 +86,7 @@ exports.brands = families.brands;
 
   fontawesome += exportIcons
 
-  fs.writeFileSync(path.resolve(projectRoot, './dist/fontawesome.js'), fontawesome, _err => {
-    throw _err
-  })
+  writeIfChanged(path.resolve(projectRoot, './dist/fontawesome.js'), fontawesome)
 
   logger.file('./dist/fontawesome.js')
 }

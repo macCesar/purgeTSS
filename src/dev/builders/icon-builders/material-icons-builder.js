@@ -1,3 +1,5 @@
+import { GeneratorInputs } from '../../utils/generator-inputs.js'
+import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
  * PurgeTSS v7.1 - Material Icons Builder (Development)
  * 
@@ -13,7 +15,6 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import _ from 'lodash'
 import { logger } from '../../../shared/logger.js'
 import { processCodePoints } from '../../utils/codepoints-processor.js'
 
@@ -30,24 +31,23 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * Main builder function
  * COPIED exactly from original constructor() function
  */
-export function buildMaterialIcons() {
+export function buildMaterialIcons(inputs = new GeneratorInputs()) {
   let tssClasses = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/template.tss'), 'utf8') + '\n'
 
   tssClasses += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/reset.tss'), 'utf8')
 
-  let codepoints = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIcons-Regular.codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsOutlined-Regular.codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsRound-Regular.codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsSharp-Regular.codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsTwoTone-Regular.codepoints'), 'utf8')
+  const codepoints = inputs.codepoints([
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIcons-Regular.codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsOutlined-Regular.codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsRound-Regular.codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsSharp-Regular.codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsTwoTone-Regular.codepoints'),
+  ])
 
-  codepoints = codepoints.split('\n').sort()
 
-  tssClasses += processCodePoints(_.uniq(codepoints), 'mi-')
+  tssClasses += processCodePoints(codepoints, 'mi-')
 
-  fs.writeFileSync(path.resolve(projectRoot, './dist/materialicons.tss'), tssClasses, err => {
-    throw err
-  })
+  writeIfChanged(path.resolve(projectRoot, './dist/materialicons.tss'), tssClasses)
 
   logger.file('./dist/materialicons.tss')
 }

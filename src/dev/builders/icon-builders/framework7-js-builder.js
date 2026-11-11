@@ -1,3 +1,7 @@
+// eslint-disable-next-line n/no-unpublished-import -- Distribution build only.
+import { isNotJunk } from 'junk'
+import { GeneratorInputs } from '../../utils/generator-inputs.js'
+import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
  * PurgeTSS v7.1 - Framework7 Icons JS Builder (Development)
  *
@@ -14,7 +18,6 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import _ from 'lodash'
-import { isNotJunk } from 'junk'
 import { logger } from '../../../shared/logger.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -30,14 +33,8 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * Main builder function
  * COPIED exactly from original constructor() function
  */
-export function buildFramework7IconsJS() {
-  const files = fs.readdirSync(path.resolve(projectRoot, './node_modules/framework7-icons/svg'))
-
-  const justNames = []
-
-  files.filter(isNotJunk).forEach(name => {
-    justNames.push(name.replace('.svg', ''))
-  })
+export function buildFramework7IconsJS(inputs = new GeneratorInputs()) {
+  const justNames = inputs.names(path.resolve(projectRoot, './node_modules/framework7-icons/svg'), isNotJunk)
 
   let framework7 = fs.readFileSync(path.resolve(projectRoot, './lib/templates/framework7/template.js.cjs'), 'utf8')
 
@@ -65,9 +62,7 @@ exports.fontFamily = families.default;
 
   framework7 += exportIcons
 
-  fs.writeFileSync(path.resolve(projectRoot, './dist/framework7icons.js'), framework7, err => {
-    throw err
-  })
+  writeIfChanged(path.resolve(projectRoot, './dist/framework7icons.js'), framework7)
 
   logger.file('./dist/framework7icons.js')
 }

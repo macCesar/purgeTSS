@@ -1,3 +1,4 @@
+import { GeneratorInputs } from '../../dev/utils/generator-inputs.js'
 import { withConfigInvocation, ensureConfig } from '../../shared/config-manager.js'
 /**
  * PurgeTSS v7.1 - Build Command
@@ -31,8 +32,9 @@ function runBuild(options) {
     ensureConfig()
     try {
       buildTailwindBasedOnConfigOptions(options)
-      buildFontAwesome()
-      buildFontAwesomeJS()
+      const inputs = new GeneratorInputs()
+      buildFontAwesome(inputs)
+      buildFontAwesomeJS(undefined, inputs)
       createDefinitionsFile()
     } finally {
       flushSemanticColors()

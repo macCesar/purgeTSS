@@ -33,7 +33,7 @@ export function callback(err) {
  * Main builder function
  * COPIED exactly from original constructor() function
  */
-export function buildFontsFolder() {
+export async function buildFontsFolder() {
   const detinationFontsFolder = path.resolve(projectRoot, './assets/fonts')
 
   // FontAwesome
@@ -43,21 +43,21 @@ export function buildFontsFolder() {
     fs.mkdirSync(detinationFontsFolder)
   }
 
-  fs.copyFile(sourceFontsFolder + '/Font Awesome 7 Brands-Regular-400.otf', detinationFontsFolder + '/FontAwesome7Brands-Regular.ttf', callback)
-  fs.copyFile(sourceFontsFolder + '/Font Awesome 7 Free-Regular-400.otf', detinationFontsFolder + '/FontAwesome7Free-Regular.ttf', callback)
-  fs.copyFile(sourceFontsFolder + '/Font Awesome 7 Free-Solid-900.otf', detinationFontsFolder + '/FontAwesome7Free-Solid.ttf', callback)
+  await fs.promises.copyFile(sourceFontsFolder + '/Font Awesome 7 Brands-Regular-400.otf', detinationFontsFolder + '/FontAwesome7Brands-Regular.ttf')
+  await fs.promises.copyFile(sourceFontsFolder + '/Font Awesome 7 Free-Regular-400.otf', detinationFontsFolder + '/FontAwesome7Free-Regular.ttf')
+  await fs.promises.copyFile(sourceFontsFolder + '/Font Awesome 7 Free-Solid-900.otf', detinationFontsFolder + '/FontAwesome7Free-Solid.ttf')
 
   console.log(`${purgeLabel} Font Awesome Free copied to './assets/fonts'`)
 
   // framework7Icons-Regular
   sourceFontsFolder = path.resolve(projectRoot, './node_modules/framework7-icons/fonts')
 
-  fs.copyFile(sourceFontsFolder + '/Framework7Icons-Regular.ttf', detinationFontsFolder + '/Framework7-Icons.ttf', callback)
+  await fs.promises.copyFile(sourceFontsFolder + '/Framework7Icons-Regular.ttf', detinationFontsFolder + '/Framework7-Icons.ttf')
 
   console.log(`${purgeLabel} Framework7-Icons.ttf copied to './assets/fonts'`)
 }
 
 // Execute if run directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  buildFontsFolder()
+  await buildFontsFolder()
 }

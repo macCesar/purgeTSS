@@ -1,3 +1,7 @@
+// eslint-disable-next-line n/no-unpublished-import -- Distribution build only.
+import { isNotJunk } from 'junk'
+import { GeneratorInputs } from '../../utils/generator-inputs.js'
+import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
  * PurgeTSS v7.1 - Framework7 Icons Builder (Development)
  * 
@@ -14,7 +18,6 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import _ from 'lodash'
-import { isNotJunk } from 'junk'
 import { logger } from '../../../shared/logger.js'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -30,14 +33,8 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * Main builder function
  * COPIED exactly from original constructor() function
  */
-export function buildFramework7Icons() {
-  const files = fs.readdirSync(path.resolve(projectRoot, './node_modules/framework7-icons/svg'))
-
-  const justNames = []
-
-  files.filter(isNotJunk).forEach(name => {
-    justNames.push(name.replace('.svg', ''))
-  })
+export function buildFramework7Icons(inputs = new GeneratorInputs()) {
+  const justNames = inputs.names(path.resolve(projectRoot, './node_modules/framework7-icons/svg'), isNotJunk)
 
   let tssClasses = fs.readFileSync(path.resolve(projectRoot, './lib/templates/framework7/template.tss'), 'utf8') + '\n'
 
@@ -45,9 +42,7 @@ export function buildFramework7Icons() {
 
   tssClasses += processNames(justNames)
 
-  fs.writeFileSync(path.resolve(projectRoot, './dist/framework7icons.tss'), tssClasses, err => {
-    throw err
-  })
+  writeIfChanged(path.resolve(projectRoot, './dist/framework7icons.tss'), tssClasses)
 
   logger.file('./dist/framework7icons.tss')
 }

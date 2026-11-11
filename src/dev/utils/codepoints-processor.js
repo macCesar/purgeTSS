@@ -10,7 +10,8 @@ import _ from 'lodash'
  */
 export function processCodePoints(data, addSelector) {
   const rules = _.map(data, rule => {
-    if (rule !== '') {
+    if (rule && typeof rule === 'object') return rule
+    if (rule != null && rule !== '') {
       const separado = rule.split(' ')
       return {
         selector: separado[0],

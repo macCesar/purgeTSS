@@ -1,3 +1,4 @@
+import { GeneratorInputs } from '../../dev/utils/generator-inputs.js'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -212,11 +213,11 @@ function copyFont(vendor, fontsFolder) {
  * @param {string} vendor - Font vendor (fa, mi, ms, f7)
  * @param {string} libFolder - Destination module folder
  */
-function copyFontLibrary(vendor, libFolder) {
+function copyFontLibrary(vendor, libFolder, inputs) {
   switch (vendor) {
     case 'fa':
       if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
-        buildFontAwesomeJS(libFolder)
+        buildFontAwesomeJS(libFolder, inputs)
       } else {
         fs.copyFileSync(srcLibFA, path.join(libFolder, 'fontawesome.js'))
         logger.item(chalk.yellow('fontawesome.js'))
@@ -241,11 +242,11 @@ function copyFontLibrary(vendor, libFolder) {
  * Copy font style files based on vendor
  * @param {string} vendor - Font vendor (fa, mi, ms, f7)
  */
-function copyFontStyle(vendor) {
+function copyFontStyle(vendor, inputs) {
   switch (vendor) {
     case 'fa':
       if (fs.existsSync(srcFA_Beta_CSSFile) || fs.existsSync(srcFA_Pro_CSS)) {
-        buildFontAwesome()
+        buildFontAwesome(inputs)
       } else {
         fs.copyFileSync(srcFontAwesomeTSSFile, projectsPurge_TSS_Styles_Folder + '/fontawesome.tss')
         logger.item(chalk.yellow('fontawesome.tss'))
@@ -271,19 +272,19 @@ function copyFontStyle(vendor) {
  * @param {string[]} vendors - Canonical vendor codes
  * @param {string} libFolder - Destination module folder
  */
-function copyFontLibraries(vendors, libFolder) {
+function copyFontLibraries(vendors, libFolder, inputs) {
   makeSureFolderExists(libFolder)
-  _.each(vendors, vendor => copyFontLibrary(vendor, libFolder))
+  _.each(vendors, vendor => copyFontLibrary(vendor, libFolder, inputs))
 }
 
 /**
  * Copy font styles to project styles folder
  * @param {string[]} vendors - Canonical vendor codes
  */
-function copyFontStyles(vendors) {
+function copyFontStyles(vendors, inputs) {
   makeSureFolderExists(projectsPurgeTSSFolder)
   makeSureFolderExists(projectsPurge_TSS_Styles_Folder)
-  _.each(vendors, vendor => copyFontStyle(vendor))
+  _.each(vendors, vendor => copyFontStyle(vendor, inputs))
 }
 
 /**
@@ -298,6 +299,7 @@ export async function copyFonts(options = {}) {
   try {
     if (!validateProject()) return false
 
+    const inputs = new GeneratorInputs()
     const { projectType, fontsFolder, libFolder } = getProjectPaths()
 
     const hasVendorOption = options.vendor && typeof options.vendor === 'string'
@@ -325,7 +327,7 @@ export async function copyFonts(options = {}) {
     if (options.module) {
       console.log()
       logger.info('Copying Modules to', chalk.yellow(path.relative(cwd, libFolder)), 'folder')
-      copyFontLibraries(vendors, libFolder)
+      copyFontLibraries(vendors, libFolder, inputs)
     }
 
     if (options.styles) {
@@ -334,7 +336,7 @@ export async function copyFonts(options = {}) {
       } else {
         console.log()
         logger.info('Copying Styles to', chalk.yellow('./purgetss/styles'), 'folder')
-        copyFontStyles(vendors)
+        copyFontStyles(vendors, inputs)
       }
     }
 

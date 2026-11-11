@@ -1,3 +1,5 @@
+import { GeneratorInputs } from '../../utils/generator-inputs.js'
+import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
  * PurgeTSS v7.1 - Material Symbols Builder (Development)
  * 
@@ -13,7 +15,6 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import _ from 'lodash'
 import { logger } from '../../../shared/logger.js'
 import { processCodePoints } from '../../utils/codepoints-processor.js'
 
@@ -30,22 +31,21 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * Main builder function
  * COPIED exactly from original constructor() function
  */
-export function buildMaterialSymbols() {
+export function buildMaterialSymbols(inputs = new GeneratorInputs()) {
   let tssClasses = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/template.tss'), 'utf8') + '\n'
 
   tssClasses += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/reset.tss'), 'utf8')
 
-  let codepoints = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].codepoints'), 'utf8')
-  codepoints += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].codepoints'), 'utf8')
+  const codepoints = inputs.codepoints([
+    path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].codepoints'),
+    path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].codepoints'),
+  ])
 
-  codepoints = codepoints.split('\n').sort()
 
-  tssClasses += processCodePoints(_.uniq(codepoints), 'ms-')
+  tssClasses += processCodePoints(codepoints, 'ms-')
 
-  fs.writeFileSync(path.resolve(projectRoot, './dist/materialsymbols.tss'), tssClasses, err => {
-    throw err
-  })
+  writeIfChanged(path.resolve(projectRoot, './dist/materialsymbols.tss'), tssClasses)
 
   logger.file('./dist/materialsymbols.tss')
 }
