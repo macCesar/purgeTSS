@@ -7,6 +7,7 @@
 | `README.md` | Public product overview, installation, command surface, and recent changes. | Before changing user-visible CLI behavior. |
 | `CHANGELOG.md` | Canonical release history and current Unreleased work. | When planning or publishing a release. |
 | `docs/project/optimization.md` | Five-stage audit implementation, compatibility contracts, measurements, remaining dependency advisories, and benchmark reproduction. | Before changing these optimizations or comparing against the audited revision. |
+| `docs/rust-port.md` | Rust-port feasibility assessment of v7.18.0, before the JavaScript optimization; historical architecture analysis, not an approved implementation plan. | Before revisiting a Rust port; recheck code references and performance assumptions against the current implementation. |
 | `CONTRIBUTING.md` | Animation module implementation invariants. | Before changing `purgetss.ui` animation methods. |
 | `docs/error-reporting-consolidation.md` | Partially implemented proposal to unify CLI error reporting. | Before touching syntax/config error presentation. |
 | `docs/jit-class-resolution-proposal.md` | Proposed staged migration from prebuilt utilities to JIT class resolution. | Before starting any JIT resolver phase. |

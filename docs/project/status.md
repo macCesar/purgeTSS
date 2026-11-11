@@ -1,5 +1,27 @@
 # Status — 2026-11-11
 
+**Phase:** v7.19.0 released on GitHub and published to npm through trusted publishing.
+**Session by:** Codex · GPT-6 family (exact model identifier not exposed).
+**Version:** 7.19.0; `npm view purgetss version dist-tags.latest --json --prefer-online` returned 7.19.0 for both values.
+**Branch:** `main`; the release and all preceding work have been pushed to `origin/main`.
+**Release commit:** `7d44f9100afa4d588adbdbb853849c19d5c7336f`; annotated tag `v7.19.0` resolves to the same commit locally and on origin.
+
+## Publication and verification
+
+- César made the version bump in `9a4815a`. The confirmed release plan preserved 7.19.0, committed the Rust feasibility document in `dc9e520`, regenerated/checked the module after the bump, and promoted the complete Unreleased entry in `7d44f91`. The local tag was moved to that final release commit before its first remote push, as explicitly approved.
+- [GitHub release v7.19.0](https://github.com/macCesar/purgeTSS/releases/tag/v7.19.0) is published, not a draft or prerelease, with the exact CHANGELOG notes.
+- [Publish workflow 43083479984](https://github.com/macCesar/purgeTSS/actions/runs/43083479984) succeeded. It ran install, full distribution build, tests and npm publication. The test log reports **44/44 unit files, 7/7 integration files and 6/6 e2e files**. npm signed a provenance statement and reported `+ purgetss@7.19.0`.
+- Both supported-Node workflows passed all three jobs: Node **20.12.0, 22.13.0 and 24**, on [the tag](https://github.com/macCesar/purgeTSS/actions/runs/43083480000) and [main](https://github.com/macCesar/purgeTSS/actions/runs/43083454929).
+- npm initially reported that the package was processing. Registry availability was checked separately after that completed: `latest` is **7.19.0**, `gitHead` is the release commit, and the registry SHA-1 `932cdf57076129437dd2060550bbad422cf45612` matches the checked local package and publishing log. The package has **202 files**, and the registry advertises SLSA provenance attestations. Verified at **2026-11-11 19:06:12 UTC**.
+- `npm run build:module`, version/header consistency and `git diff --check` passed locally. The package dry run excludes `docs/`, so this session-note commit does not change the published tarball. This note follows the release tag in its own `docs(project)` commit.
+- All work was included as requested, including `docs/rust-port.md`; no files were excluded. Before writing this note, the working tree was clean and `main` matched `origin/main`. No global installation or real-project test mutation was performed for the release.
+
+The five documented incompatible dependency advisories remain separate follow-up work. README and CHANGELOG document 7.19.0's public behavior. The sibling Docusaurus site and TiTools skill were not updated or published by this release; their historical follow-up notes remain below. Previous real-project and image benchmark evidence is retained in [optimization.md](optimization.md); those benchmarks were not repeated for publication.
+
+The implementation and earlier release records below are preserved as historical context. Their then-current statements about unpublished changes and pending work describe those earlier stages.
+
+## Historical optimization implementation and commit closure — 2026-11-11
+
 **Phase:** five-stage optimization completed and recorded in semantic commits at César's explicit request; no npm release/publication.
 **Session by:** Codex · GPT-6 family (exact model identifier not exposed).
 **Version:** 7.18.0 unchanged.

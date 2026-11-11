@@ -2,6 +2,11 @@
 
 Append-only. Most recent entries first.
 
+## 2026-11-11 — Publish the compatible optimization as v7.19.0
+
+**Chose:** use the minor version César had already bumped, include the complete working tree including the Rust feasibility document, and publish through the existing tag-triggered OIDC workflow. Align the unpublished local tag with the final release commit before its first push, under the explicitly confirmed release plan.
+**Because:** the global `--profile` option adds a public feature; the optimization retains the existing syntax and generated-output contracts. Generated-file diagnostics intentionally distinguish created, updated and unchanged results following César's report. Release verification includes the actual registry version and artifact checksum after npm processing, not just a successful workflow. The publication result belongs in `status.md`.
+
 ## 2026-11-11 — Record authorized semantic commits and freeze differential references
 
 **Chose:** follow César's explicit closing request to create semantic commits and update the session documents, superseding the initial no-commits condition only for this closure. Keep version 7.18.0, with no push or npm publication.
