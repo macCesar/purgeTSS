@@ -18,6 +18,8 @@
 
 The five documented incompatible dependency advisories remain separate follow-up work. README and CHANGELOG document 7.19.0's public behavior. The sibling Docusaurus site and TiTools skill were not updated or published by this release; their historical follow-up notes remain below. Previous real-project and image benchmark evidence is retained in [optimization.md](optimization.md); those benchmarks were not repeated for publication.
 
+**Documentation follow-up — 2026-11-11:** after the CLI release, César requested the official documentation update. `purgetss-docs` content commit `9d4e338` documents 7.19.0, including [execution profiles and performance](https://purgetss.com/docs/performance), Node requirements, configuration signatures and created/updated/unchanged messages. The site build and version check passed; six live pages were verified against the generated content. Both documentation copies were synchronized and the Context7 mirror was pushed in `ca7859e`. The site's own version remains 1.1.14; no additional CLI/npm release or GitHub Pages deployment was made. Detailed session state is in the sibling repository's `project/status.md`; TiTools remains a separate follow-up.
+
 The implementation and earlier release records below are preserved as historical context. Their then-current statements about unpublished changes and pending work describe those earlier stages.
 
 ## Historical optimization implementation and commit closure — 2026-11-11
