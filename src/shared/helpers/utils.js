@@ -657,13 +657,23 @@ function deduplicateLineProperties(line) {
   const propsStr = match[2]
   const suffix = match[3]
 
-  // Split by comma respecting nested braces
+  // Split property delimiters without cutting quoted colors or nested values.
   const props = []
   let depth = 0
+  let quote = null
+  let escaped = false
   let current = ''
   for (const char of propsStr) {
-    if (char === '{' || char === '[') depth++
-    else if (char === '}' || char === ']') depth--
+    if (quote) {
+      current += char
+      if (escaped) escaped = false
+      else if (char === '\\') escaped = true
+      else if (char === quote) quote = null
+      continue
+    }
+    if (char === '\'' || char === '"') quote = char
+    else if (char === '{' || char === '[' || char === '(') depth++
+    else if (char === '}' || char === ']' || char === ')') depth--
     else if (char === ',' && depth === 0) {
       if (current.trim()) props.push(current.trim())
       current = ''
@@ -696,8 +706,20 @@ export function formatArbitraryValues(arbitraryValue, fromXMLs = false) {
 
   // Keep compound rule names intact. Negative values use the leading class prefix,
   // never an inverted sign inside parentheses (top-(-10)).
-  const parenMatch = stripped.match(/^(.+)-\(([^()]*)\)$/)
+  const parenMatch = stripped.match(/^([^()]+)-\((.*)\)$/)
   if (!parenMatch || parenMatch[2].trim() === '' || parenMatch[2].startsWith('-')) {
+    return (fromXMLs) ? `// Property not yet supported: ${arbitraryValue}` : null
+  }
+
+  // Color functions contain their own parentheses. Allow balanced nesting without
+  // accepting missing closers or a closing parenthesis before its opener.
+  let depth = 0
+  for (const character of parenMatch[2]) {
+    if (character === '(') depth++
+    if (character === ')') depth--
+    if (depth < 0) break
+  }
+  if (depth !== 0) {
     return (fromXMLs) ? `// Property not yet supported: ${arbitraryValue}` : null
   }
 
