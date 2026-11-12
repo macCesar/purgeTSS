@@ -1,3 +1,4 @@
+import { createFontCatalogs } from '../../shared/font-catalogs.js'
 /**
  * PurgeTSS v7.1.0 - Core Purger: Custom Fonts
  * Custom font purging engine for user-generated font styles
@@ -20,10 +21,10 @@ import { purgeFontIcons } from './icon-purger.js'
  * @param {Array} cleanUniqueClasses - Array of cleaned unique class names
  * @returns {string} Purged custom font CSS classes as string
  */
-export function purgeFonts(uniqueClasses, cleanUniqueClasses) {
+export function purgeFonts(uniqueClasses, cleanUniqueClasses, debug = false, catalogs = createFontCatalogs()) {
   if (fs.existsSync(`${cwd}/purgetss/styles/fonts.tss`)) {
     let purgedClasses = '\n// Font Styles\n'
-    purgedClasses += purgeFontIcons(`${cwd}/purgetss/styles/fonts.tss`, uniqueClasses, 'Purging Font styles...', cleanUniqueClasses, [])
+    purgedClasses += purgeFontIcons(`${cwd}/purgetss/styles/fonts.tss`, uniqueClasses, 'Purging Font styles...', cleanUniqueClasses, [], debug, catalogs)
     return (purgedClasses === '\n// Font Styles\n') ? '' : purgedClasses
   }
 

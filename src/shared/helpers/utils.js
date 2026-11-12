@@ -1,13 +1,7 @@
 import fs from 'fs'
 import _ from 'lodash'
 import { deriveAlphaKey } from '../semantic-helpers.js'
-import {
-  projectsFA_TSS_File,
-  srcFontAwesomeTSSFile,
-  srcMaterialIconsTSSFile,
-  srcMaterialSymbolsTSSFile,
-  srcFramework7FontTSSFile
-} from '../constants.js'
+import { iconFontSources } from '../font-catalogs.js'
 
 // Internal variables and constants
 const _applyClasses = {}
@@ -513,12 +507,7 @@ export function compileApplyDirectives(twClasses) {
   }
   let iconClassesArrays
   const icons = () => {
-    iconClassesArrays ??= [
-      fs.existsSync(projectsFA_TSS_File) ? projectsFA_TSS_File : srcFontAwesomeTSSFile,
-      srcMaterialIconsTSSFile,
-      srcMaterialSymbolsTSSFile,
-      srcFramework7FontTSSFile
-    ].filter(file => fs.existsSync(file)).map(file => fs.readFileSync(file, 'utf8').split(/\r?\n/))
+    iconClassesArrays ??= iconFontSources().filter(file => fs.existsSync(file)).map(file => fs.readFileSync(file, 'utf8').split(/\r?\n/))
     return iconClassesArrays
   }
 

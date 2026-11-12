@@ -1,3 +1,4 @@
+import { createFontCatalogs } from '../../shared/font-catalogs.js'
 import { withConfigInvocation, getConfigOptions, getConfigFile } from '../../shared/config-manager.js'
 
 /**
@@ -736,16 +737,17 @@ async function runPurge(options) {
       tempPurged += purgeTailwind(uniqueClasses, purgingDebug)
 
       const cleanUniqueClasses = cleanClasses(uniqueClasses)
+      const fontCatalogs = createFontCatalogs()
 
-      tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses, purgingDebug)
+      tempPurged += purgeFontAwesome(uniqueClasses, cleanUniqueClasses, purgingDebug, fontCatalogs)
 
-      tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, purgingDebug)
+      tempPurged += purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, purgingDebug, fontCatalogs)
 
-      tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, purgingDebug)
+      tempPurged += purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, purgingDebug, fontCatalogs)
 
-      tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses, purgingDebug)
+      tempPurged += purgeFramework7(uniqueClasses, cleanUniqueClasses, purgingDebug, fontCatalogs)
 
-      tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses, purgingDebug)
+      tempPurged += purgeFonts(uniqueClasses, cleanUniqueClasses, purgingDebug, fontCatalogs)
 
       tempPurged += processMissingClasses(tempPurged, context)
 

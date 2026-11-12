@@ -3,14 +3,14 @@
  * PurgeTSS v7.1.0 - Core Purger: Icon Fonts
  * Icon font purging engines for FontAwesome, Material Icons, Material Symbols, Framework7
  *
- * COPIED from src/index.js during refactorization - NO CHANGES to logic.
+ * Resolve icon selectors by source priority, with per-purge catalog caching.
  *
  * @since 7.1.0
  * @author César Estrada
  */
 
-import fs from 'fs'
 import _ from 'lodash'
+import { createFontCatalogs, higherPriorityFontSources } from '../../shared/font-catalogs.js'
 import chalk from 'chalk'
 import * as helpers from '../../shared/helpers.js'
 import { logger } from '../../shared/logger.js'
@@ -20,102 +20,72 @@ import {
   srcFontAwesomeTSSFile,
   srcMaterialIconsTSSFile,
   srcMaterialSymbolsTSSFile,
-  srcFramework7FontTSSFile,
-  cwd
+  srcFramework7FontTSSFile
 } from '../../shared/constants.js'
 
 /**
- * Purge FontAwesome classes - COPIED exactly from original purgeFontAwesome() function
- * NO CHANGES to logic, preserving 100% of original functionality
+ * Purge FontAwesome classes
  *
  * @param {Array} uniqueClasses - Array of unique class names found in XML files
  * @param {Array} cleanUniqueClasses - Array of cleaned unique class names
  * @returns {string} Purged FontAwesome CSS classes as string
  */
-export function purgeFontAwesome(uniqueClasses, cleanUniqueClasses, debug = false) {
-  let fontAwesome = false
-
-  // check if fonts.tss exists and if it includes Font Awesome
-  if (fs.existsSync(`${cwd}/purgetss/styles/fonts.tss`)) {
-    const fontsTSS = fs.readFileSync(`${cwd}/purgetss/styles/fonts.tss`, 'utf8')
-    fontAwesome = fontsTSS.includes('Font Awesome')
+export function purgeFontAwesome(uniqueClasses, cleanUniqueClasses, debug = false, catalogs = createFontCatalogs()) {
+  let purged = ''
+  for (const [file, label] of [[projectsFA_TSS_File, 'Pro/Beta Font Awesome'], [srcFontAwesomeTSSFile, 'Default Font Awesome']]) {
+    const classes = purgeFontIcons(file, uniqueClasses, `Purging ${chalk.yellow(label)} styles...`, cleanUniqueClasses, [], debug, catalogs)
+    if (classes) purged += `\n// ${label}\n` + classes
   }
-
-  if (!fontAwesome) {
-    let sourceFolder = ''
-    let purgedClasses = ''
-    let purgingMessage = ''
-
-    if (fs.existsSync(projectsFA_TSS_File)) {
-      sourceFolder = projectsFA_TSS_File
-      purgedClasses = '\n// Pro/Beta Font Awesome\n'
-      purgingMessage = `Purging ${chalk.yellow('Pro/Beta Font Awesome')} styles...`
-    } else {
-      sourceFolder = srcFontAwesomeTSSFile
-      purgedClasses = '\n// Default Font Awesome\n'
-      purgingMessage = 'Purging Default Font Awesome styles...'
-    }
-
-    purgedClasses += purgeFontIcons(sourceFolder, uniqueClasses, purgingMessage, cleanUniqueClasses, ['fa', 'fat', 'fas', 'fal', 'far', 'fab', 'fa-thin', 'fa-solid', 'fa-light', 'fa-regular', 'fa-brands', 'fontawesome', 'fontawesome-thin', 'fontawesome-solid', 'fontawesome-light', 'fontawesome-regular', 'fontawesome-brands'], debug)
-
-    return (purgedClasses === '\n// Pro/Beta Font Awesome\n' || purgedClasses === '\n// Default Font Awesome\n') ? '' : purgedClasses
-  }
-
-  return ''
+  return purged
 }
 
 /**
- * Purge Material Icons classes - COPIED exactly from original purgeMaterialIcons() function
- * NO CHANGES to logic, preserving 100% of original functionality
+ * Purge Material Icons classes
  *
  * @param {Array} uniqueClasses - Array of unique class names found in XML files
  * @param {Array} cleanUniqueClasses - Array of cleaned unique class names
  * @returns {string} Purged Material Icons CSS classes as string
  */
-export function purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, debug = false) {
+export function purgeMaterialIcons(uniqueClasses, cleanUniqueClasses, debug = false, catalogs = createFontCatalogs()) {
   let purgedClasses = '\n// Material Icons\n'
 
-  purgedClasses += purgeFontIcons(srcMaterialIconsTSSFile, uniqueClasses, 'Purging Material Icons styles...', cleanUniqueClasses, ['mi', 'mio', 'mir', 'mis', 'mit', 'material-icons', 'material-icons-round', 'material-icons-sharp', 'material-icons-two-tone', 'material-icons-outlined'], debug)
+  purgedClasses += purgeFontIcons(srcMaterialIconsTSSFile, uniqueClasses, 'Purging Material Icons styles...', cleanUniqueClasses, ['mi', 'mio', 'mir', 'mis', 'mit', 'material-icons', 'material-icons-round', 'material-icons-sharp', 'material-icons-two-tone', 'material-icons-outlined'], debug, catalogs)
 
   return (purgedClasses === '\n// Material Icons\n') ? '' : purgedClasses
 }
 
 /**
- * Purge Material Symbols classes - COPIED exactly from original purgeMaterialSymbols() function
- * NO CHANGES to logic, preserving 100% of original functionality
+ * Purge Material Symbols classes
  *
  * @param {Array} uniqueClasses - Array of unique class names found in XML files
  * @param {Array} cleanUniqueClasses - Array of cleaned unique class names
  * @returns {string} Purged Material Symbols CSS classes as string
  */
-export function purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, debug = false) {
+export function purgeMaterialSymbols(uniqueClasses, cleanUniqueClasses, debug = false, catalogs = createFontCatalogs()) {
   let purgedClasses = '\n// Material Symbols\n'
 
-  purgedClasses += purgeFontIcons(srcMaterialSymbolsTSSFile, uniqueClasses, 'Purging Material Symbols styles...', cleanUniqueClasses, ['ms', 'msr', 'mss', 'mso', 'materialsymbol', 'materialsymbol-rounded', 'materialsymbol-sharp', 'materialsymbol-outlined', 'material-symbol', 'material-symbol-rounded', 'material-symbol-sharp', 'material-symbol-outlined'], debug)
+  purgedClasses += purgeFontIcons(srcMaterialSymbolsTSSFile, uniqueClasses, 'Purging Material Symbols styles...', cleanUniqueClasses, ['ms', 'msr', 'mss', 'mso', 'materialsymbol', 'materialsymbol-rounded', 'materialsymbol-sharp', 'materialsymbol-outlined', 'material-symbol', 'material-symbol-rounded', 'material-symbol-sharp', 'material-symbol-outlined'], debug, catalogs)
 
   return (purgedClasses === '\n// Material Symbols\n') ? '' : purgedClasses
 }
 
 /**
- * Purge Framework7 classes - COPIED exactly from original purgeFramework7() function
- * NO CHANGES to logic, preserving 100% of original functionality
+ * Purge Framework7 classes
  *
  * @param {Array} uniqueClasses - Array of unique class names found in XML files
  * @param {Array} cleanUniqueClasses - Array of cleaned unique class names
  * @returns {string} Purged Framework7 CSS classes as string
  */
-export function purgeFramework7(uniqueClasses, cleanUniqueClasses, debug = false) {
-  void debug
+export function purgeFramework7(uniqueClasses, cleanUniqueClasses, debug = false, catalogs = createFontCatalogs()) {
   let purgedClasses = '\n// Framework7\n'
 
-  purgedClasses += purgeFontIcons(srcFramework7FontTSSFile, uniqueClasses, 'Purging Framework7 Icons styles...', cleanUniqueClasses, ['f7', 'f7i', 'framework7'])
+  purgedClasses += purgeFontIcons(srcFramework7FontTSSFile, uniqueClasses, 'Purging Framework7 Icons styles...', cleanUniqueClasses, ['f7', 'f7i', 'framework7'], debug, catalogs)
 
   return (purgedClasses === '\n// Framework7\n') ? '' : purgedClasses
 }
 
 /**
- * Purge font icons from source file - COPIED exactly from original purgeFontIcons() function
- * NO CHANGES to logic, preserving 100% of original functionality
+ * Purge font icons from source file
  *
  * @param {string} sourceFolder - Path to source TSS file
  * @param {Array} uniqueClasses - Array of unique class names found in XML files
@@ -124,30 +94,36 @@ export function purgeFramework7(uniqueClasses, cleanUniqueClasses, debug = false
  * @param {Array} _prefixes - Array of icon prefixes (not used in original)
  * @returns {string} Purged icon CSS classes as string
  */
-export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, _prefixes, debug = false) {
+export function purgeFontIcons(sourceFolder, uniqueClasses, message, cleanUniqueClasses, _prefixes, debug = false, catalogs = createFontCatalogs()) {
   const timing = localStart()
 
   let purgedClasses = ''
-  const sourceTSS = fs.readFileSync(sourceFolder, 'utf8')
+  const sourceTSSFile = catalogs.lines(sourceFolder)
+  const sourceTSS = sourceTSSFile.join('\n')
+  const higherSources = higherPriorityFontSources(sourceFolder)
+  const isOverridden = name => higherSources.some(file => catalogs.has(file, name))
   const sourceIndex = uniqueClasses.length > 32 ? new Map() : null
   if (sourceIndex) {
-    for (const line of sourceTSS.split(/\r?\n/)) {
+    for (const line of sourceTSSFile) {
       for (const match of line.matchAll(/'\.([^']*)'/g)) {
         if (!sourceIndex.has(match[1])) sourceIndex.set(match[1], line)
       }
     }
   }
   const canIndex = name => sourceIndex && !/[\\']/.test(name)
-  const hasMatches = cleanUniqueClasses.some(element => canIndex(cleanClassNameFn(element)) ? sourceIndex.has(cleanClassNameFn(element)) : sourceTSS.includes(`'.${cleanClassNameFn(element)}'`))
+  const hasMatches = cleanUniqueClasses.some(element => {
+    const name = cleanClassNameFn(element)
+    return !isOverridden(name) && (canIndex(name) ? sourceIndex.has(name) : sourceTSS.includes(`'.${name}'`))
+  })
 
   if (hasMatches) {
     // In debug mode the label is emitted by localFinish inline with the timing.
     // In non-debug mode this is the progress indicator (only shown when there's
     // actual work for this font, matching pre-existing behavior).
     if (!debug) logger.info(message)
-    const sourceTSSFile = sourceTSS.split(/\r?\n/)
     uniqueClasses.forEach(className => {
       const cleanClassName = cleanClassNameFn(className)
+      if (isOverridden(cleanClassName)) return
       if (canIndex(cleanClassName) ? sourceIndex.has(cleanClassName) : sourceTSS.includes(`'.${cleanClassName}'`)) {
         const newLine = canIndex(cleanClassName) ? sourceIndex.get(cleanClassName) : _.filter(sourceTSSFile, s => s.indexOf(`'.${cleanClassName}'`) !== -1)[0]
         purgedClasses += helpers.checkPlatformAndDevice(newLine, className)
