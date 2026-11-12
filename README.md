@@ -14,7 +14,7 @@
 
 ---
 
-- 23,300+ utility classes for styling Titanium views
+- 23,400+ utility classes for styling Titanium views
 - Parses XML files to generate a clean `app.tss` with only the classes your project uses
 - Customizable defaults via `config.cjs`, with JIT classes for arbitrary values
 - `brand` generates Titanium icons, store artwork and splash assets for the iOS/Android deployment targets in `tiapp.xml`. It works as a standalone command in Alloy or Classic; use `--only` to select a specific piece or platform
@@ -395,6 +395,30 @@ Button: {
 ---
 
 The official documentation is at [purgetss.com](https://purgetss.com).
+
+## Maintaining the bundled Font Awesome Free fonts
+
+This workflow is for contributors building PurgeTSS itself, not for Titanium app projects. App projects receive the bundled fonts through `purgetss icon-library --vendor=fa`.
+
+1. Update/install `@fortawesome/fontawesome-free` in this repository. The npm package supplies the CSS used to generate icon classes; its webfonts do not supply the desktop OTFs used here.
+2. Download the matching Font Awesome Free desktop fonts and replace the previous set in `src/fonts/` with the Solid, Regular and Brands OTFs. Keep exactly one of each face. Filenames need not contain a fixed major version; the build reads their internal PostScript names.
+3. Run `npm run build:fa`, `npm run build:fa-js` and `npm run build:fonts`, or the normal full distribution build when preparing a release.
+
+The generators validate that all three fonts match the **installed** npm package version before writing their Free outputs. Missing faces, duplicate faces, unknown versions and mismatches stop those builders with an error. TSS families, JavaScript aliases and copied font filenames come from the OTF metadata. Both Free header templates receive the installed package version automatically, so do not update their version text manually. As before, distributed font copies use `.ttf` filenames; the OTF bytes are copied without format conversion. The font-folder builder removes only obsolete generated Free font filenames when the family names change.
+
+## Maintaining other bundled icon libraries
+
+The Framework7 TSS and JavaScript header version comes from the installed `framework7-icons/package.json`. Update that dependency and run its builders; do not edit the header templates manually.
+
+Material Icons and Material Symbols continue to generate classes from the `.codepoints` files in `lib/templates/materialicons/` and `lib/templates/materialsymbols/`. Keep each codepoint file and its corresponding desktop font in `assets/fonts/` from the same upstream revision when updating them manually. Their TSS and JavaScript headers list the version metadata of each bundled font variant, including timestamp-shaped values when that is what the font contains. The codepoint files have no package release version, so the headers do not claim one. They no longer contain a manually maintained update date. Header metadata alone does not verify that a font and its codepoints correspond.
+
+Run `build:framework7` / `build:framework7-js`, `build:material` / `build:material-js`, or `build:symbols` / `build:symbols-js` after updating the relevant inputs. The full distribution build also runs these stages. Missing package versions or missing/unreadable font version metadata stop the affected builders; they do not guess a version or use the current date. The class-generation inputs and public family aliases are unchanged.
+
+## Unreleased generator corrections
+
+The source checkout after 7.20.0 uses SDK Completions regenerated through the corrected v3 extractor, retaining all recovered descriptions. Utility generation reads `readOnly: true` and excludes those properties rather than relying on a new list of SDK state names. A name shared by writable and read-only types stays eligible, so check the owning SDK type before assigning it. Generated Completions are refreshed through the extractor, not hand-edited. SplitWindow ratios use numeric fractions (`primary-col-w-fraction-1/2` sets `0.5`); minimum/maximum column widths use numeric points, and these classes carry iOS conditions. Custom ratio values must be finite Numbers from 0 to 1; column bounds must be finite nonnegative Numbers.
+
+Pro/Beta icon generation resolves font families from installed TTF PostScript names for TSS, module aliases and copied filenames, including the alternate Pro installation path. The arbitrary-value formatter rejects `top-(-10)`; use `-top-(10)`. These corrections are not included in the published 7.20.0 package yet. Dependency major-version updates remain separate work.
 
 ## Requirements
 

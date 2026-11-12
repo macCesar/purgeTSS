@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Generate Framework7 TSS/JS header versions from the installed npm package and Material Icons/Symbols header versions from each bundled font metadata record. Remove fixed update dates and the fixed single Material Icons release label; preserve codepoint/ligature generation and all runtime exports.
+- Resolve bundled Font Awesome Free families and copied filenames from the manually supplied desktop font metadata. Generate Free version headers from the installed npm package and reject missing, duplicate or mismatched source fonts before writing Free outputs; keep manual OTF installation in `src/fonts/`.
+- Read the `readOnly` flag and exclude read-only properties from utility/glossary generation. Refresh the SDK 14 input through the corrected Completions extractor, preserving descriptions and all other fields; do not hand-edit generated metadata. Generate numeric SplitWindow width ratios, numeric point bounds and iOS conditions; reject invalid custom numeric values before writing utilities.
+- Resolve Font Awesome Pro/Beta TSS, module families and copied filenames from the installed TTF PostScript metadata instead of version-specific guesses. Generate the module from the alternate Pro installation path and omit missing optional font faces.
+- Reject inverted negatives such as `top-(-10)` in the arbitrary-value formatter as well as the CLI validator; retain `-top-(10)`.
+
 ## [7.20.0] - 2026-11-11
 
 ### Added
