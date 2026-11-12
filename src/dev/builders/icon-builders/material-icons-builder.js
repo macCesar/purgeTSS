@@ -1,3 +1,4 @@
+import { renderIconFontHeader } from '../../utils/icon-font-headers.js'
 import { GeneratorInputs } from '../../utils/generator-inputs.js'
 import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
@@ -32,7 +33,7 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * COPIED exactly from original constructor() function
  */
 export function buildMaterialIcons(inputs = new GeneratorInputs()) {
-  let tssClasses = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/template.tss'), 'utf8') + '\n'
+  let tssClasses = renderIconFontHeader(fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/template.tss'), 'utf8'), 'materialicons', projectRoot, inputs) + '\n'
 
   tssClasses += fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/reset.tss'), 'utf8')
 

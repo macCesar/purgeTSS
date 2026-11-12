@@ -1,3 +1,4 @@
+import { renderIconFontHeader } from '../../utils/icon-font-headers.js'
 import { GeneratorInputs } from '../../utils/generator-inputs.js'
 import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
@@ -40,7 +41,7 @@ export function buildMaterialIconsJS(inputs = new GeneratorInputs()) {
     path.resolve(projectRoot, './lib/templates/materialicons/MaterialIconsTwoTone-Regular.codepoints'),
   ])
 
-  let fileContent = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/template.js.cjs'), 'utf8')
+  let fileContent = renderIconFontHeader(fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialicons/template.js.cjs'), 'utf8'), 'materialicons', projectRoot, inputs)
 
   fileContent += '\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 

@@ -1,3 +1,4 @@
+import { renderIconFontHeader } from '../../utils/icon-font-headers.js'
 import { GeneratorInputs } from '../../utils/generator-inputs.js'
 import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
@@ -38,7 +39,7 @@ export function buildMaterialSymbolsJS(inputs = new GeneratorInputs()) {
     path.resolve(projectRoot, './lib/templates/materialsymbols/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].codepoints'),
   ])
 
-  let fileContent = fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/template.js.cjs'), 'utf8')
+  let fileContent = renderIconFontHeader(fs.readFileSync(path.resolve(projectRoot, './lib/templates/materialsymbols/template.js.cjs'), 'utf8'), 'materialsymbols', projectRoot, inputs)
 
   fileContent += '\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 

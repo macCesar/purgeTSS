@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import css from 'css'
+import FontName from 'fontname'
 
 export class GeneratorInputs {
   constructor() {
@@ -7,6 +8,16 @@ export class GeneratorInputs {
     this.parsedCss = new Map()
     this.codes = new Map()
     this.directories = new Map()
+    this.fontVersions = new Map()
+  }
+
+  fontVersion(file) {
+    if (!this.fontVersions.has(file)) {
+      const version = FontName.parse(fs.readFileSync(file))[0]?.version?.trim()
+      if (!version) throw new Error(`Missing font version metadata in ${file}`)
+      this.fontVersions.set(file, version)
+    }
+    return this.fontVersions.get(file)
   }
 
   text(file) {

@@ -1,3 +1,4 @@
+import { renderIconFontHeader } from '../../utils/icon-font-headers.js'
 // eslint-disable-next-line n/no-unpublished-import -- Distribution build only.
 import { isNotJunk } from 'junk'
 import { GeneratorInputs } from '../../utils/generator-inputs.js'
@@ -36,7 +37,7 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
 export function buildFramework7Icons(inputs = new GeneratorInputs()) {
   const justNames = inputs.names(path.resolve(projectRoot, './node_modules/framework7-icons/svg'), isNotJunk)
 
-  let tssClasses = fs.readFileSync(path.resolve(projectRoot, './lib/templates/framework7/template.tss'), 'utf8') + '\n'
+  let tssClasses = renderIconFontHeader(fs.readFileSync(path.resolve(projectRoot, './lib/templates/framework7/template.tss'), 'utf8'), 'framework7', projectRoot, inputs) + '\n'
 
   tssClasses += fs.readFileSync(path.resolve(projectRoot, './lib/templates/framework7/reset.tss'), 'utf8')
 
