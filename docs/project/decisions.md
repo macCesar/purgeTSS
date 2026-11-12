@@ -2,6 +2,11 @@
 
 Append-only. Most recent entries first.
 
+## 2026-11-11 — Publish the prepared corrections as v7.20.1
+
+**Chose:** retain the already aligned 7.20.1 package/lock/module versions, promote the complete Unreleased entry and update README's release status and latest-three summary. Publish through the existing tag-triggered OIDC workflow after César explicitly invoked `aiskills:release` and confirmed its reviewable plan.
+**Because:** these are patch corrections to SDK permissions, numeric values, font metadata, icon-source priority and CSS glyph parsing. The confirmed release plan supersedes the earlier no-push restriction for the release and its session-note closure. Keep current usage documentation intact; rotate 7.18.0 out of the README summary only, retaining it in the full changelog. Release facts and registry verification belong in `status.md` after publication.
+
 ## 2026-11-11 — Resolve icon priority per selector and parse literal modern CSS glyphs
 
 **Chose:** share the ordered catalog sources between direct purging and `apply`: custom `fonts.tss`, project Font Awesome Pro/Beta, then bundled catalogs. Suppress only selectors supplied by a higher-priority source, retain fallback for missing selectors and cache catalog contents only within each purge. Remove the Font Awesome comment substring gate.

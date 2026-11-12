@@ -1,3 +1,26 @@
+# PurgeTSS 7.20.1 released — 2026-11-11
+
+**Phase:** released on GitHub and published to npm as `latest`. **Branch:** `main`. **Release commit:** `290438fcbfa9df503db3b1b61838e71f31037e01`; annotated tag `v7.20.1` resolves to that commit locally and on origin. Publication occurred at 2026-11-12 00:58 UTC, still November 11 in the project's America/Matamoros timezone.
+
+César explicitly invoked `aiskills:release` and confirmed the reviewable publication plan. That authorization superseded the earlier no-push instruction for this release and its session-note closure. The package, lockfile and generated module were already aligned at 7.20.1; no extra version bump was applied. `290438f` promotes all seven Unreleased corrections and updates README's release wording and latest-three summary to 7.20.1/7.20.0/7.19.0. The only removed README release entry is 7.18.0, retained in the complete changelog; current usage details and examples remain intact.
+
+## Verified publication
+
+- [GitHub release v7.20.1](https://github.com/macCesar/purgeTSS/releases/tag/v7.20.1) is published, not a draft or prerelease. Remote `main` and the peeled release tag were verified at the release commit before session closure.
+- [Publish workflow 43131097166](https://github.com/macCesar/purgeTSS/actions/runs/43131097166) succeeded: tag/version guard, dependency installation, full distribution build, 50/50 unit files, 7/7 integration files and 6/6 e2e files, then `npm publish`. The log reports `+ purgetss@7.20.1` and signed GitHub Actions provenance.
+- Both supported-Node workflows succeeded for 20.12.0, 22.13.0 and 24: [tag 43131097130](https://github.com/macCesar/purgeTSS/actions/runs/43131097130) and [main 43131094323](https://github.com/macCesar/purgeTSS/actions/runs/43131094323). Full builds/tests ran in CI; earlier successful focused implementation tests were not repeated locally solely for release metadata.
+- Registry endpoints for `/purgetss/7.20.1` and `/purgetss/latest` both returned 7.20.1, with `gitHead` equal to the release commit. Initial requests returned 404/old latest while npm processed the publication; retry verification completed successfully without republishing.
+- Downloaded the 13,049,791-byte registry tarball and verified SHA-1 `02249a99bf4fefc1f4037f9fbe06296a934accde`, matching registry metadata, the publishing log and the local package dry run. SLSA provenance metadata is present in the registry response. Package dry run contains 205 files and excludes all `docs/` session files.
+- Local release checks verified package/lock/module version agreement, CLI `--version`, unchanged historical CHANGELOG content, README's three-version window and preserved surrounding usage content, plus clean diff/staged checks. Startup import traversal checked seven context/import files and found no import of volatile `status.md`.
+
+The following `docs(project)` commit records this publication and its release decision, then is pushed under the same confirmation. Context and requirements remain valid and needed no release-specific edits. Session files are excluded from the npm payload; this documentation commit follows the tag and does not change the published artifact.
+
+No release task remains. The official site's prior 7.20.1 documentation publication is recorded in the sibling repository; this CLI release did not redeploy it. Incompatible dependency upgrades, fixed Pro/Beta header versions and genuine Pro/Beta/device glyph rendering remain separate follow-up scope. Existing automatic save/upload workflow applies; it is distinct from the verified GitHub/npm publication above. No global package installation was performed.
+
+Earlier implementation and release records follow as historical context. Their statements about pending publication, uncommitted changes and no-push restrictions describe those earlier stages.
+
+---
+
 # Icon class priority and custom CSS corrections — 2026-11-11
 
 **Phase:** the three follow-up fixes are committed for 7.20.1; CLI/npm publication remains pending. **Branch:** `main`; closure base: `6f67b62`. César requested semantic commits and session updates; the no-push instruction remains in effect.
