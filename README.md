@@ -426,6 +426,10 @@ PurgeTSS 7.20.1 uses SDK Completions regenerated through the corrected v3 extrac
 
 Pro/Beta icon generation resolves font families from installed TTF PostScript names for TSS, module aliases and copied filenames, including the alternate Pro installation path. The arbitrary-value formatter rejects `top-(-10)`; use `-top-(10)`. These corrections ship in 7.20.1 and were not included in 7.20.0. Dependency major-version updates remain separate work.
 
+## Arbitrary RGB/RGBA colors (7.20.2)
+
+PurgeTSS 7.20.2 restores arbitrary color classes such as `bg-(rgb(100,200,50))` and `text-(rgba(10,20,30,0.5))` in Alloy XML, controller classes and `apply` directives. Versions 7.8.0 through 7.20.1 reject these forms because the parser disallows nested parentheses. The corrected parser accepts balanced parentheses, and `apply` preserves the commas inside color values. Keep each class free of spaces. Hexadecimal arbitrary colors and named theme colors remain supported; malformed parentheses and inverted negatives such as `top-(-10)` remain rejected.
+
 ## Requirements
 
 - Titanium SDK (Compatible with all versions; 14.0.0.GA recommended for full property support)
@@ -433,6 +437,10 @@ Pro/Beta icon generation resolves font families from installed TTF PostScript na
 - Node.js 20.12+ (20.x), 22.13+ (22.x), or 23.5+ (required by the CLI dependencies; the supported range is `^20.12.0 || ^22.13.0 || >=23.5.0`)
 
 ## Recent changes
+
+### v7.20.2
+
+- Restore arbitrary RGB/RGBA colors in XML, controllers and `apply`, fixing the regression introduced in 7.8.0. Validate balanced parentheses and preserve commas and quoted strings in `apply`.
 
 ### v7.20.1
 
@@ -445,13 +453,6 @@ Pro/Beta icon generation resolves font families from installed TTF PostScript na
 
 - Update Titanium Completions to SDK 14.0.0.GA: 63 new property entries and 356 recovered property descriptions.
 - Regenerate utility classes and the glossary, including 18 new property pages for boolean, color, split-view and layout settings.
-
-### v7.19.0
-
-- Global `--profile <file.json>` saves timings, CPU, memory, phases and counters for commands, aliases and `--all`, including controlled failures and LiveView skips.
-- Purges reuse XML/controller analysis within each run. Class and `apply` lookups use indexes, commands load on demand, and font/image generators reuse inputs while preserving output contracts and image quality. See the [measured results](#measured-optimization-results).
-- Configuration is evaluated per invocation. Generator signatures detect changes within the same second, and logs distinguish created, updated and unchanged files. The two-second LiveView guard and completed `app.tss` writes remain intact.
-- Supported Node versions are `^20.12.0 || ^22.13.0 || >=23.5.0`. Compatible dependency fixes include Sharp 0.35.5; test runners now propagate failures.
 
 See the full release notes in [CHANGELOG.md](./CHANGELOG.md).
 

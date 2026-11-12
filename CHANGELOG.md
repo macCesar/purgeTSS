@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.20.2] - 2026-11-11
+
+### Fixed
+- Restore arbitrary RGB/RGBA color classes such as `bg-(rgb(100,200,50))` and `text-(rgba(10,20,30,0.5))`, regressed in 7.8.0 when the parser started rejecting nested parentheses. Accept balanced parentheses while continuing to reject malformed values and inverted negatives. Preserve color commas and quoted strings when deduplicating properties in `apply` directives.
+
 ## [7.20.1] - 2026-11-11
 
 ### Fixed
