@@ -1,3 +1,27 @@
+# PurgeTSS 7.20.2 released — 2026-11-11
+
+**Phase:** published on GitHub and npm as `latest`. **Branch:** `main`.
+**Session by:** Codex · GPT-6 (exact model identifier not exposed).
+**Release commit:** `2079fffdfd8c2ec35298b00cf5576e29fe1faa46`; annotated tag `v7.20.2` resolves to it locally and on origin. César invoked `aiskills:release` and explicitly confirmed the complete release plan, including this pushed session-note closure.
+
+Restored arbitrary RGB/RGBA colors in XML, controller classes and `apply`. The regression started in `edc733d` / 7.8.0, whose value regex prohibited nested parentheses. The formatter now checks balanced nesting while retaining rejection of malformed parentheses and inverted negatives. A second observed defect in `apply` truncated colors at their first comma; property deduplication now respects quoted strings, escapes and nested expressions. Commit `6a09363` contains the implementation and regression tests.
+
+## Verified publication
+
+- [GitHub release v7.20.2](https://github.com/macCesar/purgeTSS/releases/tag/v7.20.2) is published, neither draft nor prerelease. Remote main and the peeled tag matched the release commit before closure.
+- [Publish workflow 43135644814](https://github.com/macCesar/purgeTSS/actions/runs/43135644814) succeeded: version guard, install, full distribution build, 51/51 unit files, 7/7 integration files and 7/7 e2e files, then npm publication with signed provenance. Both supported-Node runs succeeded: main `43135641467` and tag `43135645965` (20.12.0, 22.13.0 and 24).
+- Registry version and latest endpoints returned 7.20.2 with `gitHead` matching the release commit. npm initially returned 404/old latest during processing; verification succeeded after waiting, without republishing.
+- Downloaded registry tarball: 13,050,227 bytes, SHA-1 `6a64066c8ca8d440818a233261fcab6239927833`, matching registry metadata, workflow log and local dry run. SLSA provenance metadata is present. Its parser source is byte-identical to the corrected repository source.
+- Implementation verification: new tests failed before their corresponding fixes, then all five new cases passed, including the real CLI XML/controller/modifier/apply fixture. Existing apply-index and generator-fixes scripts passed; touched-file ESLint passed. CI performed the full suites; they were not repeated locally just for release metadata.
+- Package, lockfile and generated module agree at 7.20.2. `build:module` ran after the bump. CLI version and diff checks passed. README retains current usage guidance and summarizes 7.20.2/7.20.1/7.20.0; only the older 7.19.0 summary was rotated out, retaining its full CHANGELOG entry.
+- Package dry run contains 205 files and excludes `docs/`. Startup import traversal checked seven files from AGENTS/CLAUDE/GEMINI and found no volatile status import. This following docs commit does not change the published payload.
+
+No release work remains. No global installation or device rendering test was performed. The sibling official guide already describes RGB/RGBA arbitrary syntax; this release did not redeploy that separate site or update the installed TiTools skill, whose 7.20.1 limitation is historical after upgrading. Incompatible dependency upgrades, fixed Pro/Beta header versions and genuine Pro/Beta device rendering remain separate follow-up scope. Existing save/upload workflow applies independently of the verified npm/GitHub publication.
+
+Earlier records below are historical; pending-release and no-push statements describe their own earlier stages.
+
+---
+
 # PurgeTSS 7.20.1 released — 2026-11-11
 
 **Phase:** released on GitHub and published to npm as `latest`. **Branch:** `main`. **Release commit:** `290438fcbfa9df503db3b1b61838e71f31037e01`; annotated tag `v7.20.1` resolves to that commit locally and on origin. Publication occurred at 2026-11-12 00:58 UTC, still November 11 in the project's America/Matamoros timezone.

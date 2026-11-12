@@ -2,6 +2,14 @@
 
 Append-only. Most recent entries first.
 
+## 2026-11-11 — Restore nested color syntax and publish v7.20.2
+
+**Chose:** validate balanced parentheses in arbitrary values rather than prohibit all inner parentheses; preserve quoted commas and escapes while deduplicating `apply` properties. Keep inverted negative rejection and the supported leading negative prefix.
+**Because:** RGB/RGBA worked before 7.8.0 and remain documented; the rejection was a regression, not an intentional removal. A real CLI regression covers XML, controllers, platform modifiers and `apply`, alongside formatter and malformed-input tests.
+
+**Chose:** ship the correction as patch 7.20.2 through the existing tag-triggered OIDC workflow after César confirmed the release plan. Bump package and lock before regenerating the module; retain the three-version README summary and record verified publication facts in status after the tag.
+**Because:** this restores existing behavior without a new command or breaking interface. The confirmation includes pushing the session-note closure.
+
 ## 2026-11-11 — Publish the prepared corrections as v7.20.1
 
 **Chose:** retain the already aligned 7.20.1 package/lock/module versions, promote the complete Unreleased entry and update README's release status and latest-three summary. Publish through the existing tag-triggered OIDC workflow after César explicitly invoked `aiskills:release` and confirmed its reviewable plan.
