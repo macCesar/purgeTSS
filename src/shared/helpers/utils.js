@@ -705,10 +705,10 @@ export function formatArbitraryValues(arbitraryValue, fromXMLs = false) {
   const sign = (arbitraryValue.startsWith('-')) ? '-' : ''
   const stripped = sign ? arbitraryValue.substring(1) : arbitraryValue
 
-  // Extract the value inside the last (...) so a negative value like top-(-10)
-  // is not mis-split by the hyphen inside the parentheses.
+  // Keep compound rule names intact. Negative values use the leading class prefix,
+  // never an inverted sign inside parentheses (top-(-10)).
   const parenMatch = stripped.match(/^(.+)-\(([^()]*)\)$/)
-  if (!parenMatch || parenMatch[2].trim() === '') {
+  if (!parenMatch || parenMatch[2].trim() === '' || parenMatch[2].startsWith('-')) {
     return (fromXMLs) ? `// Property not yet supported: ${arbitraryValue}` : null
   }
 

@@ -38,6 +38,9 @@ function assertModifiers() {
 }
 
 function assertArbitraryGradient() {
+  assert.strictEqual(formatArbitraryValues('top-(-10)'), null, 'formatter must not process inverted negatives')
+  assert.ok(formatArbitraryValues('top-(-10)', true).startsWith('// Property not yet supported:'))
+  assert.strictEqual(formatArbitraryValues('-top-(10)'), 'top: -10')
   const bgFrom = formatArbitraryValues('bg-from-(#ccc)', true)
   assert.ok(!bgFrom.includes('{value1}'), bgFrom)
   assert.strictEqual(bgFrom, formatArbitraryValues('from-(#ccc)', true).replace('.from-', '.bg-from-'))
@@ -58,7 +61,8 @@ function assertKeyboardAndSnap() {
 function assertSyntaxValidator() {
   // Positive control: a known mistake still halts
   assert.throws(() => validateClassSyntax({ classes: ['top-[10]'], viewPaths: [] }), err => err.isClassSyntaxError)
-  assert.doesNotThrow(() => validateClassSyntax({ classes: ['w-(100px)', 'top-(10px)'], viewPaths: [] }))
+  assert.throws(() => validateClassSyntax({ classes: ['top-(-10)'], viewPaths: [] }), err => err.isClassSyntaxError)
+  assert.doesNotThrow(() => validateClassSyntax({ classes: ['-top-(10)', 'w-(100px)', 'top-(10px)'], viewPaths: [] }))
   console.log('   ✓ (Npx) is accepted by the class syntax validator')
 }
 
