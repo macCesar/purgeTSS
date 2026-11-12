@@ -414,6 +414,12 @@ Material Icons and Material Symbols continue to generate classes from the `.code
 
 Run `build:framework7` / `build:framework7-js`, `build:material` / `build:material-js`, or `build:symbols` / `build:symbols-js` after updating the relevant inputs. The full distribution build also runs these stages. Missing package versions or missing/unreadable font version metadata stop the affected builders; they do not guess a version or use the current date. The class-generation inputs and public family aliases are unchanged.
 
+## Custom icon class priority
+
+For each icon selector used in an Alloy project, PurgeTSS resolves `purgetss/styles/fonts.tss` first, then `purgetss/styles/fontawesome.tss` for project Pro/Beta classes, then the bundled icon catalogs. A missing class falls through to the next source; an existing custom class is emitted once. This order applies to direct XML/controller classes and icon lookups in `apply`. Comments mentioning Font Awesome do not disable a catalog. Source lookups are cached within one purge and refreshed on the next invocation.
+
+`build-fonts` reads both modern `--fa` and legacy literal `content` declarations in custom icon CSS, preserving aliases and supplementary Unicode in TSS and CommonJS glyph maps. Declaration order does not matter; `content: var(--fa)` is a reference, not a literal glyph. Font-family classes still come from PostScript metadata (or filenames with `-f`), so combine each custom glyph with the appropriate generated family class. The same CSS parser supplies the glyph maps in Classic modules.
+
 ## Unreleased generator corrections
 
 The source checkout after 7.20.0 uses SDK Completions regenerated through the corrected v3 extractor, retaining all recovered descriptions. Utility generation reads `readOnly: true` and excludes those properties rather than relying on a new list of SDK state names. A name shared by writable and read-only types stays eligible, so check the owning SDK type before assigning it. Generated Completions are refreshed through the extractor, not hand-edited. SplitWindow ratios use numeric fractions (`primary-col-w-fraction-1/2` sets `0.5`); minimum/maximum column widths use numeric points, and these classes carry iOS conditions. Custom ratio values must be finite Numbers from 0 to 1; column bounds must be finite nonnegative Numbers.
