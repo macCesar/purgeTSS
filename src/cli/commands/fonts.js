@@ -1,6 +1,5 @@
 import { getFreeFontAwesomeFonts } from '../../dev/utils/fontawesome-fonts.js'
 import { writeIfChanged } from '../../shared/generated-files.js'
-/* eslint-disable no-useless-escape */
 /**
  * PurgeTSS v7.1 - Fonts Command
  *
@@ -112,21 +111,25 @@ function processFontMeta(fontMeta) {
 }
 
 /**
- * Get CSS rules for icon fonts
- * COPIED exactly from original getRules() function
+ * Read literal icon glyphs from modern custom properties or legacy content rules.
  *
  * @param {Object} data - CSS data object
  * @returns {Array} - Array of font rules
  */
 function getRules(data) {
-  return _.map(data.stylesheet.rules, rule => {
-    if (rule.type === 'rule' && rule.declarations[0].property === 'content' && rule.selectors[0].includes('before')) {
-      return {
-        selector: '.' + rule.selectors[0].replace('.', '').replace('::before', '').replace(':before', ''),
-        property: ('0000' + rule.declarations[0].value.replace('\"\\', '').replace('\"', '').replace('\'\\', '').replace('\'', '')).slice(-4)
-      }
-    }
-  }).filter(rule => rule)
+  return data.stylesheet.rules.flatMap(rule => {
+    if (rule.type !== 'rule') return []
+    const declaration = rule.declarations?.find(item => item.property === '--fa') ??
+      rule.declarations?.find(item => item.property === 'content')
+    if (!declaration) return []
+    const value = declaration.value.trim().replace(/^['"]|['"]$/g, '')
+    const hex = /^\\+([0-9a-f]{1,6})\s?$/i.exec(value)
+    const codePoint = hex ? parseInt(hex[1], 16) : Array.from(value).length === 1 ? value.codePointAt(0) : null
+    if (codePoint === null || codePoint > 0x10ffff || (codePoint >= 0xd800 && codePoint <= 0xdfff)) return []
+    // Emit surrogate escapes for supplementary Unicode rather than truncating it.
+    const property = String.fromCodePoint(codePoint).split('').map(unit => unit.charCodeAt(0).toString(16).padStart(4, '0')).join('\\u')
+    return rule.selectors.map(selector => selector.replace(/::?before$/, '')).filter(selector => /^\.[\w-]+$/.test(selector)).map(selector => ({ selector, property }))
+  })
 }
 
 /**
