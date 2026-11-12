@@ -420,11 +420,11 @@ For each icon selector used in an Alloy project, PurgeTSS resolves `purgetss/sty
 
 `build-fonts` reads both modern `--fa` and legacy literal `content` declarations in custom icon CSS, preserving aliases and supplementary Unicode in TSS and CommonJS glyph maps. Declaration order does not matter; `content: var(--fa)` is a reference, not a literal glyph. Font-family classes still come from PostScript metadata (or filenames with `-f`), so combine each custom glyph with the appropriate generated family class. The same CSS parser supplies the glyph maps in Classic modules.
 
-## Unreleased generator corrections
+## Generator corrections in 7.20.1
 
-The source checkout after 7.20.0 uses SDK Completions regenerated through the corrected v3 extractor, retaining all recovered descriptions. Utility generation reads `readOnly: true` and excludes those properties rather than relying on a new list of SDK state names. A name shared by writable and read-only types stays eligible, so check the owning SDK type before assigning it. Generated Completions are refreshed through the extractor, not hand-edited. SplitWindow ratios use numeric fractions (`primary-col-w-fraction-1/2` sets `0.5`); minimum/maximum column widths use numeric points, and these classes carry iOS conditions. Custom ratio values must be finite Numbers from 0 to 1; column bounds must be finite nonnegative Numbers.
+PurgeTSS 7.20.1 uses SDK Completions regenerated through the corrected v3 extractor, retaining all recovered descriptions. Utility generation reads `readOnly: true` and excludes those properties rather than relying on a new list of SDK state names. A name shared by writable and read-only types stays eligible, so check the owning SDK type before assigning it. Generated Completions are refreshed through the extractor, not hand-edited. SplitWindow ratios use numeric fractions (`primary-col-w-fraction-1/2` sets `0.5`); minimum/maximum column widths use numeric points, and these classes carry iOS conditions. Custom ratio values must be finite Numbers from 0 to 1; column bounds must be finite nonnegative Numbers.
 
-Pro/Beta icon generation resolves font families from installed TTF PostScript names for TSS, module aliases and copied filenames, including the alternate Pro installation path. The arbitrary-value formatter rejects `top-(-10)`; use `-top-(10)`. These corrections are not included in the published 7.20.0 package yet. Dependency major-version updates remain separate work.
+Pro/Beta icon generation resolves font families from installed TTF PostScript names for TSS, module aliases and copied filenames, including the alternate Pro installation path. The arbitrary-value formatter rejects `top-(-10)`; use `-top-(10)`. These corrections ship in 7.20.1 and were not included in 7.20.0. Dependency major-version updates remain separate work.
 
 ## Requirements
 
@@ -433,6 +433,13 @@ Pro/Beta icon generation resolves font families from installed TTF PostScript na
 - Node.js 20.12+ (20.x), 22.13+ (22.x), or 23.5+ (required by the CLI dependencies; the supported range is `^20.12.0 || ^22.13.0 || >=23.5.0`)
 
 ## Recent changes
+
+### v7.20.1
+
+- Correct SDK Completions permissions, remove utilities for read-only properties and generate valid numeric SplitWindow ratios and widths. Reject inverted negatives such as `top-(-10)`; use `-top-(10)`.
+- Resolve icon classes individually from custom fonts, project Font Awesome Pro/Beta and bundled catalogs, with fallback in direct purging and `apply`. Comments no longer disable Font Awesome.
+- Read modern `--fa` and legacy `content` CSS in `build-fonts`, preserving aliases, custom prefixes and supplementary Unicode in Alloy and Classic.
+- Derive Font Awesome families and filenames from font metadata, validate manually supplied Free desktop fonts against the installed npm version, and generate Free/Framework7/Material headers from package or font versions.
 
 ### v7.20.0
 
@@ -445,13 +452,6 @@ Pro/Beta icon generation resolves font families from installed TTF PostScript na
 - Purges reuse XML/controller analysis within each run. Class and `apply` lookups use indexes, commands load on demand, and font/image generators reuse inputs while preserving output contracts and image quality. See the [measured results](#measured-optimization-results).
 - Configuration is evaluated per invocation. Generator signatures detect changes within the same second, and logs distinguish created, updated and unchanged files. The two-second LiveView guard and completed `app.tss` writes remain intact.
 - Supported Node versions are `^20.12.0 || ^22.13.0 || >=23.5.0`. Compatible dependency fixes include Sharp 0.35.5; test runners now propagate failures.
-
-### v7.18.0
-
-- Platform and device modifiers stack. `ios:tablet:bg-red-500` (in either order) now generates `[platform=ios formFactor=tablet]`. Alloy reads only the last bracket of a selector, so `tablet:` on an iOS-only class used to lose its platform condition. A modifier that contradicts the class, such as `android:status-bar-dark`, now leaves a comment in `app.tss` instead of a selector that never applies.
-- Font Awesome Pro and Beta work again. `purgetss build` no longer stops with `ENOENT`, and `icon-library --module` / `--styles` generate `fontawesome.js` and `fontawesome.tss` instead of printing a placeholder.
-- `icon-library --vendor` accepts `materialsymbols` and rejects unknown values before copying anything. `images --width` accepts 1 to 1024, the largest value whose `xxxhdpi` output fits the 4096px cap.
-- Removed: the `*-keyboard-type-appearance*` classes (they assigned an appearance constant to `keyboardType`; use `keyboard-appearance-*`), `snap-magnet` (never read by the animation module), and `init --all` (never implemented). `(Npx)` arbitrary values are accepted again: `w-(100px)` means explicit pixels, not a redundant unit.
 
 See the full release notes in [CHANGELOG.md](./CHANGELOG.md).
 

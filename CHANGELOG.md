@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [7.20.1] - 2026-11-11
+
 ### Fixed
 - Resolve icon classes individually with `fonts.tss` > project Font Awesome Pro/Beta > bundled catalogs in both direct purging and `apply`. Preserve fallback for missing classes, avoid duplicate selectors and remove comment-based suppression of the entire Font Awesome catalog.
 - Read modern `--fa` and legacy `content` glyph declarations in `build-fonts`, regardless of declaration order. Preserve selector aliases and supplementary Unicode in TSS and generated modules, including filename-based prefixes; ignore `content: var(--fa)` as a nonliteral glyph.
