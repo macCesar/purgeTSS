@@ -1,3 +1,4 @@
+import { getFreeFontAwesomeBuildInfo, renderFreeFontAwesomeHeader } from '../../utils/fontawesome-fonts.js'
 import { GeneratorInputs } from '../../utils/generator-inputs.js'
 import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
@@ -33,6 +34,7 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * COPIED exactly from original constructor() function
  */
 export function buildFontAwesomeJS(inputs = new GeneratorInputs()) {
+  const { families, version } = getFreeFontAwesomeBuildInfo(projectRoot)
   const data = inputs.css(path.resolve(projectRoot, './node_modules/@fortawesome/fontawesome-free/css/all.css'))
 
   const rules = _.map(data.stylesheet.rules, rule => {
@@ -53,7 +55,7 @@ export function buildFontAwesomeJS(inputs = new GeneratorInputs()) {
     }
   })
 
-  let fontawesome = fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-template.js.cjs'), 'utf8')
+  let fontawesome = renderFreeFontAwesomeHeader(fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-template.js.cjs'), 'utf8'), version)
 
   fontawesome += '\n' + fs.readFileSync(path.resolve(projectRoot, './lib/templates/icon-functions.js.cjs'), 'utf8')
 
@@ -70,12 +72,7 @@ export function buildFontAwesomeJS(inputs = new GeneratorInputs()) {
   exportIcons += 'exports.icons = icons;\n'
 
   exportIcons += `
-const families = {
-  default: 'FontAwesome7Free-Solid',
-  solid: 'FontAwesome7Free-Solid',
-  regular: 'FontAwesome7Free-Regular',
-  brands: 'FontAwesome7Brands-Regular'
-};
+const families = ${JSON.stringify(families, null, 2)};
 exports.families = families;
 exports.solid = families.solid;
 exports.regular = families.regular;

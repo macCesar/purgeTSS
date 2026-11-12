@@ -1,3 +1,4 @@
+import { getFreeFontAwesomeFonts } from '../../dev/utils/fontawesome-fonts.js'
 import { writeIfChanged } from '../../shared/generated-files.js'
 /* eslint-disable no-useless-escape */
 /**
@@ -50,7 +51,6 @@ import { getProjectPaths, validateProject } from '../utils/project-detection.js'
 
 // Additional constants needed for font operations
 const srcFonts_Folder = path.resolve(projectRoot, './assets/fonts')
-const callback = (err) => { if (err) throw err }
 
 /**
  * Copy file helper function
@@ -442,9 +442,10 @@ export function buildFonts(options = {}) {
  * COPIED exactly from original copyFreeFonts() function
  */
 function copyFreeFonts() {
-  fs.copyFile(srcFonts_Folder + '/FontAwesome7Brands-Regular.ttf', projectsFontsFolder + '/FontAwesome7Brands-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Regular.ttf', projectsFontsFolder + '/FontAwesome7Free-Regular.ttf', callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Solid.ttf', projectsFontsFolder + '/FontAwesome7Free-Solid.ttf', callback)
+  const { copies } = getFreeFontAwesomeFonts(srcFonts_Folder)
+  for (const [source, destination] of Object.entries(copies)) {
+    fs.copyFileSync(path.join(srcFonts_Folder, source), path.join(projectsFontsFolder, destination))
+  }
 
   logger.item(chalk.green('Font Awesome Free'))
 }

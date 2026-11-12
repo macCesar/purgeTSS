@@ -1,3 +1,4 @@
+import { getFontAwesomeFonts, renderFontAwesomeReset } from '../utils/fontawesome-fonts.js'
 import { GeneratorInputs } from '../utils/generator-inputs.js'
 import { writeIfChanged } from '../../shared/generated-files.js'
 /**
@@ -38,34 +39,18 @@ const srcFA_Pro_Web_Fonts_Folder_Alt = `${cwd}/app/lib/node_modules/@fortawesome
 // FontAwesome Pro template paths
 const srcFA_ProReset_TSS_File = './lib/templates/fontawesome/pro-reset.tss'
 const srcFA_ProTemplateTSS_File = './lib/templates/fontawesome/pro-template.tss'
-const srcFA_ProFontFamilies = {
-  'fa-thin-100.ttf': 'FontAwesome7Pro-Thin.ttf',
-  'fa-light-300.ttf': 'FontAwesome7Pro-Light.ttf',
-  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
-  'fa-regular-400.ttf': 'FontAwesome7Pro-Regular.ttf',
-  'fa-solid-900.ttf': 'FontAwesome7Pro-Solid.ttf'
-}
-
 // FontAwesome Beta paths
 const srcFA_Beta_CSSFile = `${cwd}/purgetss/fontawesome-beta/css/all.css`
 const srcFA_Beta_Web_Fonts_Folder = `${cwd}/purgetss/fontawesome-beta/webfonts/`
 const srcFA_Beta_ResetTSS = './lib/templates/fontawesome/beta-reset.tss'
 const srcFA_Beta_TemplateTSS = './lib/templates/fontawesome/beta-template.tss'
-const srcFA_Beta_FontFamilies = {
-  'fa-thin-100.ttf': 'FontAwesome7Pro-Thin.ttf',
-  'fa-light-300.ttf': 'FontAwesome7Pro-Light.ttf',
-  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
-  'fa-regular-400.ttf': 'FontAwesome7Pro-Regular.ttf',
-  'fa-solid-900.ttf': 'FontAwesome7Pro-Solid.ttf'
-}
-
 /**
  * Helper function to ensure folder exists
  * @param {string} folder - Folder path to create if it doesn't exist
  */
 function makeSureFolderExists(folder) {
   if (!fs.existsSync(folder)) {
-    fs.mkdirSync(folder)
+    fs.mkdirSync(folder, { recursive: true })
   }
 }
 
@@ -80,7 +65,6 @@ function callback(err) {
 
 /**
  * Copy Pro fonts to project folder
- * @param {Object} fontFamilies - Font family mappings
  * @param {string} webFonts - Source web fonts folder
  */
 function copyProFonts(fontFamilies, webFonts) {
@@ -171,15 +155,15 @@ export function processFontawesomeStyles(data) {
  * @param {string} CSSFile - Path to CSS file
  * @param {string} templateTSS - Path to template TSS file
  * @param {string} resetTSS - Path to reset TSS file
- * @param {Object} fontFamilies - Font family mappings
  * @param {string} webFonts - Web fonts folder path
  */
-export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamilies, webFonts, inputs = new GeneratorInputs()) {
+export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, webFonts, inputs = new GeneratorInputs()) {
   const data = inputs.css(CSSFile)
 
   let tssClasses = fs.readFileSync(path.resolve(projectRoot, templateTSS), 'utf8') + '\n'
 
-  tssClasses += fs.readFileSync(path.resolve(projectRoot, resetTSS), 'utf8') + '\n'
+  const fontInfo = getFontAwesomeFonts(webFonts)
+  tssClasses += renderFontAwesomeReset(fs.readFileSync(path.resolve(projectRoot, resetTSS), 'utf8'), fontInfo.families) + '\n'
 
   tssClasses += processFontawesomeStyles(data)
 
@@ -187,7 +171,7 @@ export function processFontAwesomeTSS(CSSFile, templateTSS, resetTSS, fontFamili
 
   makeSureFolderExists(projectsFontsFolder)
 
-  copyProFonts(fontFamilies, webFonts)
+  copyProFonts(fontInfo.copies, webFonts)
 }
 
 /**
@@ -248,6 +232,11 @@ export function processFontAwesomeJS(CSSFile, faJS, libFolder = projectsLibFolde
   exportIcons += '}\n'
 
   exportIcons += 'exports.icons = icons;\n'
+  const { families } = getFontAwesomeFonts(path.resolve(path.dirname(CSSFile), '../webfonts'))
+  exportIcons += `exports.families = ${JSON.stringify(families)};\n`
+  for (const face of Object.keys(families)) {
+    if (face !== 'default') exportIcons += `exports.${face} = exports.families.${face};\n`
+  }
 
   exportIcons += '\nconst iconKeys = Object.keys(icons)\n'
 
@@ -266,11 +255,11 @@ export function processFontAwesomeJS(CSSFile, faJS, libFolder = projectsLibFolde
  */
 export function buildFontAwesome(inputs = new GeneratorInputs()) {
   if (fs.existsSync(srcFA_Beta_CSSFile)) {
-    processFontAwesomeTSS(srcFA_Beta_CSSFile, srcFA_Beta_TemplateTSS, srcFA_Beta_ResetTSS, srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder, inputs)
+    processFontAwesomeTSS(srcFA_Beta_CSSFile, srcFA_Beta_TemplateTSS, srcFA_Beta_ResetTSS, srcFA_Beta_Web_Fonts_Folder, inputs)
   } else if (fs.existsSync(srcFA_Pro_CSS)) {
-    processFontAwesomeTSS(srcFA_Pro_CSS, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder, inputs)
+    processFontAwesomeTSS(srcFA_Pro_CSS, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_Pro_Web_Fonts_Folder, inputs)
   } else if (fs.existsSync(srcFA_Pro_CSS_Alt)) {
-    processFontAwesomeTSS(srcFA_Pro_CSS_Alt, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder_Alt, inputs)
+    processFontAwesomeTSS(srcFA_Pro_CSS_Alt, srcFA_ProTemplateTSS_File, srcFA_ProReset_TSS_File, srcFA_Pro_Web_Fonts_Folder_Alt, inputs)
   }
 }
 
@@ -284,6 +273,8 @@ export function buildFontAwesomeJS(libFolder = projectsLibFolder, inputs = new G
     processFontAwesomeJS(srcFA_Beta_CSSFile, './lib/templates/fontawesome/beta-template.js.cjs', libFolder, inputs)
   } else if (fs.existsSync(srcFA_Pro_CSS)) {
     processFontAwesomeJS(srcFA_Pro_CSS, './lib/templates/fontawesome/pro-template.js.cjs', libFolder, inputs)
+  } else if (fs.existsSync(srcFA_Pro_CSS_Alt)) {
+    processFontAwesomeJS(srcFA_Pro_CSS_Alt, './lib/templates/fontawesome/pro-template.js.cjs', libFolder, inputs)
   }
 }
 

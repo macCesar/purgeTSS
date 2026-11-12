@@ -1,3 +1,4 @@
+import { getFreeFontAwesomeFonts, getFontAwesomeFonts } from '../../dev/utils/fontawesome-fonts.js'
 import { GeneratorInputs } from '../../dev/utils/generator-inputs.js'
 import fs from 'fs'
 import path from 'path'
@@ -33,24 +34,6 @@ const srcFA_Pro_CSS = `${cwd}/node_modules/@fortawesome/fontawesome-pro/css/all.
 const srcFA_Beta_Web_Fonts_Folder = `${cwd}/purgetss/fontawesome-beta/webfonts/`
 const srcFA_Pro_Web_Fonts_Folder = `${cwd}/node_modules/@fortawesome/fontawesome-pro/webfonts/`
 
-const srcFA_ProFontFamilies = {
-  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
-  'fa-brands-400.woff2': 'FontAwesome7Brands-Regular.woff2',
-  'fa-regular-400.ttf': 'FontAwesome7Pro-Regular.ttf',
-  'fa-regular-400.woff2': 'FontAwesome7Pro-Regular.woff2',
-  'fa-solid-900.ttf': 'FontAwesome7Pro-Solid.ttf',
-  'fa-solid-900.woff2': 'FontAwesome7Pro-Solid.woff2'
-}
-
-const srcFA_Beta_FontFamilies = {
-  'fa-brands-400.ttf': 'FontAwesome7Brands-Regular.ttf',
-  'fa-brands-400.woff2': 'FontAwesome7Brands-Regular.woff2',
-  'fa-regular-400.ttf': 'FontAwesome7Beta-Regular.ttf',
-  'fa-regular-400.woff2': 'FontAwesome7Beta-Regular.woff2',
-  'fa-solid-900.ttf': 'FontAwesome7Beta-Solid.ttf',
-  'fa-solid-900.woff2': 'FontAwesome7Beta-Solid.woff2'
-}
-
 // TSS file paths
 const srcFontAwesomeTSSFile = path.resolve(projectRoot, './dist/fontawesome.tss')
 const srcFramework7FontTSSFile = path.resolve(projectRoot, './dist/framework7icons.tss')
@@ -84,20 +67,21 @@ function copyFile(src, dest, fontsFolder) {
  * Copy Font Awesome Free fonts to project
  */
 function copyFreeFonts(fontsFolder) {
-  fs.copyFile(srcFonts_Folder + '/FontAwesome7Brands-Regular.ttf', path.join(fontsFolder, 'FontAwesome7Brands-Regular.ttf'), callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Regular.ttf', path.join(fontsFolder, 'FontAwesome7Free-Regular.ttf'), callback)
-  fs.copyFile(srcFonts_Folder + '/FontAwesome7Free-Solid.ttf', path.join(fontsFolder, 'FontAwesome7Free-Solid.ttf'), callback)
+  const { copies } = getFreeFontAwesomeFonts(srcFonts_Folder)
+  for (const [source, destination] of Object.entries(copies)) {
+    fs.copyFileSync(path.join(srcFonts_Folder, source), path.join(fontsFolder, destination))
+  }
 
   logger.item(chalk.green('Font Awesome Free'))
 }
 
 /**
  * Copy Font Awesome Pro fonts to project
- * @param {Object} fontFamilies - Mapping of source to destination font names
  * @param {string} webFonts - Path to web fonts folder
  * @param {string} fontsFolder - Destination fonts folder
  */
-function copyProFonts(fontFamilies, webFonts, fontsFolder) {
+function copyProFonts(webFonts, fontsFolder) {
+  const { copies: fontFamilies } = getFontAwesomeFonts(webFonts)
   _.each(fontFamilies, (dest, src) => {
     if (copyFile(`${webFonts}/${src}`, dest, fontsFolder)) {
       logger.item(`${dest} copied to ${chalk.yellow(path.relative(cwd, fontsFolder))}`)
@@ -189,9 +173,9 @@ function copyFont(vendor, fontsFolder) {
   switch (vendor) {
     case 'fa':
       if (fs.existsSync(srcFA_Beta_CSSFile)) {
-        copyProFonts(srcFA_Beta_FontFamilies, srcFA_Beta_Web_Fonts_Folder, fontsFolder)
+        copyProFonts(srcFA_Beta_Web_Fonts_Folder, fontsFolder)
       } else if (fs.existsSync(srcFA_Pro_CSS)) {
-        copyProFonts(srcFA_ProFontFamilies, srcFA_Pro_Web_Fonts_Folder, fontsFolder)
+        copyProFonts(srcFA_Pro_Web_Fonts_Folder, fontsFolder)
       } else {
         copyFreeFonts(fontsFolder)
       }

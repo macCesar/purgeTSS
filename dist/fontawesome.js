@@ -2673,10 +2673,10 @@ const icons = {
 exports.icons = icons;
 
 const families = {
-  default: 'FontAwesome7Free-Solid',
-  solid: 'FontAwesome7Free-Solid',
-  regular: 'FontAwesome7Free-Regular',
-  brands: 'FontAwesome7Brands-Regular'
+  "brands": "FontAwesome7Brands-Regular",
+  "regular": "FontAwesome7Free-Regular",
+  "solid": "FontAwesome7Free-Solid",
+  "default": "FontAwesome7Free-Solid"
 };
 exports.families = families;
 exports.solid = families.solid;

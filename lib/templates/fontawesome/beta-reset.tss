@@ -1,23 +1,23 @@
-// Font Families Beta 6
-'.fa': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
-'.fat': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
-'.fas': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
-'.fal': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
-'.far': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
-'.fab': { font: { fontFamily: 'FontAwesome7Brands-Regular' } }
+// Font families resolved from installed TTF metadata
+'.fa': { font: { fontFamily: '__FA_SOLID__' } }
+'.fat': { font: { fontFamily: '__FA_THIN__' } }
+'.fas': { font: { fontFamily: '__FA_SOLID__' } }
+'.fal': { font: { fontFamily: '__FA_LIGHT__' } }
+'.far': { font: { fontFamily: '__FA_REGULAR__' } }
+'.fab': { font: { fontFamily: '__FA_BRANDS__' } }
 
-'.fa-thin': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
-'.fa-solid': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
-'.fa-light': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
-'.fa-regular': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
-'.fa-brands': { font: { fontFamily: 'FontAwesome7Brands-Regular' } }
+'.fa-thin': { font: { fontFamily: '__FA_THIN__' } }
+'.fa-solid': { font: { fontFamily: '__FA_SOLID__' } }
+'.fa-light': { font: { fontFamily: '__FA_LIGHT__' } }
+'.fa-regular': { font: { fontFamily: '__FA_REGULAR__' } }
+'.fa-brands': { font: { fontFamily: '__FA_BRANDS__' } }
 
-'.fontawesome': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
-'.fontawesome-thin': { font: { fontFamily: 'FontAwesome6Pro-Thin' } }
-'.fontawesome-solid': { font: { fontFamily: 'FontAwesome6Pro-Solid' } }
-'.fontawesome-light': { font: { fontFamily: 'FontAwesome6Pro-Light' } }
-'.fontawesome-regular': { font: { fontFamily: 'FontAwesome6Pro-Regular' } }
-'.fontawesome-brands': { font: { fontFamily: 'FontAwesome7Brands-Regular' } }
+'.fontawesome': { font: { fontFamily: '__FA_SOLID__' } }
+'.fontawesome-thin': { font: { fontFamily: '__FA_THIN__' } }
+'.fontawesome-solid': { font: { fontFamily: '__FA_SOLID__' } }
+'.fontawesome-light': { font: { fontFamily: '__FA_LIGHT__' } }
+'.fontawesome-regular': { font: { fontFamily: '__FA_REGULAR__' } }
+'.fontawesome-brands': { font: { fontFamily: '__FA_BRANDS__' } }
 
 // Font Sizes
 '.fa-1x': { font: { fontSize: 16 } }

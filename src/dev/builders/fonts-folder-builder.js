@@ -1,3 +1,4 @@
+import { getFreeFontAwesomeBuildInfo } from '../utils/fontawesome-fonts.js'
 /**
  * PurgeTSS v7.1 - Fonts Folder Builder (Development)
  *
@@ -34,6 +35,7 @@ export function callback(err) {
  * COPIED exactly from original constructor() function
  */
 export async function buildFontsFolder() {
+  const { copies } = getFreeFontAwesomeBuildInfo(projectRoot)
   const detinationFontsFolder = path.resolve(projectRoot, './assets/fonts')
 
   // FontAwesome
@@ -43,9 +45,15 @@ export async function buildFontsFolder() {
     fs.mkdirSync(detinationFontsFolder)
   }
 
-  await fs.promises.copyFile(sourceFontsFolder + '/Font Awesome 7 Brands-Regular-400.otf', detinationFontsFolder + '/FontAwesome7Brands-Regular.ttf')
-  await fs.promises.copyFile(sourceFontsFolder + '/Font Awesome 7 Free-Regular-400.otf', detinationFontsFolder + '/FontAwesome7Free-Regular.ttf')
-  await fs.promises.copyFile(sourceFontsFolder + '/Font Awesome 7 Free-Solid-900.otf', detinationFontsFolder + '/FontAwesome7Free-Solid.ttf')
+  for (const [source, destination] of Object.entries(copies)) {
+    await fs.promises.copyFile(path.join(sourceFontsFolder, source), path.join(detinationFontsFolder, destination))
+  }
+  // Remove only obsolete generated Free font filenames after a major upgrade.
+  for (const file of fs.readdirSync(detinationFontsFolder)) {
+    if (/^FontAwesome\d+(?:Free-(?:Solid|Regular)|Brands-Regular)\.ttf$/.test(file) && !Object.values(copies).includes(file)) {
+      fs.unlinkSync(path.join(detinationFontsFolder, file))
+    }
+  }
 
   console.log(`${purgeLabel} Font Awesome Free copied to './assets/fonts'`)
 

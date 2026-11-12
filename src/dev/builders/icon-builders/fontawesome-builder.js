@@ -1,3 +1,4 @@
+import { getFreeFontAwesomeBuildInfo, renderFreeFontAwesomeHeader, renderFontAwesomeReset } from '../../utils/fontawesome-fonts.js'
 import { GeneratorInputs } from '../../utils/generator-inputs.js'
 import { writeIfChanged } from '../../../shared/generated-files.js'
 /**
@@ -33,11 +34,12 @@ if (!fs.existsSync(path.resolve(projectRoot, './dist'))) {
  * COPIED exactly from original constructor() function
  */
 export function buildFontAwesome(inputs = new GeneratorInputs()) {
+  const { families, version } = getFreeFontAwesomeBuildInfo(projectRoot)
   const data = inputs.css(path.resolve(projectRoot, './node_modules/@fortawesome/fontawesome-free/css/all.css'))
 
-  let tssClasses = fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-template.tss'), 'utf8') + '\n'
+  let tssClasses = renderFreeFontAwesomeHeader(fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-template.tss'), 'utf8'), version) + '\n'
 
-  tssClasses += fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-reset.tss'), 'utf8')
+  tssClasses += renderFontAwesomeReset(fs.readFileSync(path.resolve(projectRoot, './lib/templates/fontawesome/free-reset.tss'), 'utf8'), families)
 
   tssClasses += processCSS(data)
 
