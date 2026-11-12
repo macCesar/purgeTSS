@@ -351,6 +351,13 @@ function setBaseValuesToProperties(_allProperties, _base) {
     const activeKey = findBaseKey(key, data)
     allKeys += `${key}\n`
     _allProperties[key].base = combineKeys(configFile.theme, _base[key] ?? _base[activeKey], key)
+    if (['primaryColumnWidthFraction', 'minimumPrimaryColumnWidth', 'maximumPrimaryColumnWidth'].includes(key)) {
+      for (const value of Object.values(_allProperties[key].base)) {
+        if (typeof value !== 'number' || !Number.isFinite(value) || value < 0 || (key === 'primaryColumnWidthFraction' && value > 1)) {
+          throw new Error(`${key} requires finite numeric ${key === 'primaryColumnWidthFraction' ? 'ratios from 0 to 1' : 'widths in points'}`)
+        }
+      }
+    }
   })
 
   return _allProperties
@@ -450,6 +457,8 @@ function processCompoundClasses({ ..._base }) {
 }
 
 function findBaseKey(_key, _data) {
+  if (_key === 'primaryColumnWidthFraction') return 'primaryColumnWidthFraction'
+  if (_key === 'minimumPrimaryColumnWidth' || _key === 'maximumPrimaryColumnWidth') return 'splitColumnWidth'
   if (_key.includes('color') || _key.includes('Color') || _key === 'tint') {
     return 'colors'
   } else if (_key.includes('spacing') || _key.includes('Spacing')) {
@@ -516,6 +525,15 @@ function combineDefaultThemeWithConfigFile() {
     widthHeight: {},
     boolean: { default: true, false: false },
     shiftMode: { none: 0, title: 1, icon: 2 },
+    primaryColumnWidthFraction: {
+      0: 0,
+      1: 1,
+      full: 1,
+      ...Object.fromEntries(Object.keys(defaultThemeWidth).filter(key => /^\d+\/\d+$/.test(key)).map(key => {
+        const [numerator, denominator] = key.split('/').map(Number)
+        return [key, numerator / denominator]
+      }))
+    },
     rotate: combineKeys(configFile.theme, { ...defaultTheme.rotate, ...{ 135: '135deg', 225: '225deg', 270: '270deg', 315: '315deg', 360: '360deg' } }, 'rotate'),
     zIndex: defaultTheme.zIndex,
     opacity: defaultTheme.opacity,
@@ -564,6 +582,11 @@ function combineDefaultThemeWithConfigFile() {
   base.padding = combineKeys(configFile.theme, helpers.removeFractions(base.spacing, ['full', 'auto', 'screen']), 'padding')
   base.countDownDuration = { ...base.delay, ...defaultTheme.transitionDuration }
   base.noFractions = helpers.removeFractions(base.spacing, ['full', 'auto', 'screen'])
+  // SplitWindow bounds are numeric points, not percentages, FILL/SIZE or px strings.
+  base.primaryColumnWidthFraction = combineKeys(configFile.theme, base.primaryColumnWidthFraction, 'primaryColumnWidthFraction')
+  base.splitColumnWidth = Object.fromEntries(Object.entries(base.noFractions)
+    .map(([key, value]) => [key, Number(helpers.parseValue(value))])
+    .filter(([, value]) => Number.isFinite(value)))
   base.minimumFontSize = combineKeys(configFile.theme, base.fontSize, 'minimumFontSize')
 
   // combineKeys(configFile.theme, (configFile.theme.spacing || configFile.theme.borderRadius) ? {} : { ...defaultTheme.borderRadius, ...base.spacing }, 'borderRadius');
@@ -785,12 +808,11 @@ function getPropertiesFromTiCompletionsFile() {
 
   _.each(tiCompletionsFile.types, (value, key) => {
     _.each(value.properties, property => {
+      const propDef = tiCompletionsFile.properties[property]
+      // Completions from the corrected v3 extractor mark only all-read-only names true.
+      // Shared names that are writable on at least one type remain eligible.
+      if (!propDef || propDef.readOnly === true) return
       if (validTypesOnly(property, key) && !properties.includes(property)) {
-        // Guard: some properties referenced in `types[].properties` may be missing
-        // from `tiCompletionsFile.properties`. Skip those to avoid setting
-        // propertiesOnly[property] to undefined.
-        const propDef = tiCompletionsFile.properties[property]
-        if (!propDef) return
 
         if (!propertiesOnly[property]) {
           propertiesOnly[property] = _.cloneDeep(propDef)
@@ -869,6 +891,9 @@ function generateCombinedClasses(key, data) {
     })
   }
 
+  if (['primaryColumnWidthFraction', 'minimumPrimaryColumnWidth', 'maximumPrimaryColumnWidth', 'presentsWithGesture'].includes(key)) {
+    myClasses = myClasses.replace(/'\.([^']+)':/g, '\'.$1[platform=ios]\':')
+  }
   if (myClasses !== '') return comments + myClasses
 
   return false

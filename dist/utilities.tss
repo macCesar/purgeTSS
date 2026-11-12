@@ -8569,12 +8569,6 @@
 '.flags-scroll-snap[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_SNAP }
 '.flags-scroll-snap-margins[platform=android]': { flags: Ti.UI.Android.SCROLL_FLAG_SNAP_MARGINS }
 
-// Property: actionViewExpanded
-// Description: True if this menu item's action view has been expanded.
-// Component(s): Ti.Android.MenuItem
-'.action-view-expanded': { actionViewExpanded: true }
-'.action-view-expanded-false': { actionViewExpanded: false }
-
 // Property: checkable
 // Description: Determines if the item can be checked.
 // Component(s): Ti.Android.MenuItem
@@ -9251,12 +9245,6 @@
 '.options-category-hidden-previews-show-title[platform=ios]': { options: [ Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_TITLE ] }
 '.options-category-hidden-previews-show-subtitle[platform=ios]': { options: [ Ti.App.iOS.USER_NOTIFICATION_CATEGORY_OPTION_HIDDEN_PREVIEWS_SHOW_SUBTITLE ] }
 
-// Property: accessibilityEnabled
-// Description: Indicates whether Accessibility is enabled by the system.
-// Component(s): Ti.App
-'.accessibility-enabled': { accessibilityEnabled: true }
-'.accessibility-enabled-false': { accessibilityEnabled: false }
-
 // Property: forceSplashAsSnapshot
 // Description: Shows the application's splash screen on app resume.
 // Component(s): Ti.App
@@ -9275,23 +9263,11 @@
 '.proximity-detection': { proximityDetection: true }
 '.proximity-detection-false': { proximityDetection: false }
 
-// Property: proximityState
-// Description: Indicates the state of the device's proximity sensor, according to the Titanium.App.proximity event.
-// Component(s): Ti.App
-'.proximity-state': { proximityState: true }
-'.proximity-state-false': { proximityState: false }
-
 // Property: disableNetworkActivityIndicator
 // Description: Prevents network activity indicator from being displayed.
 // Component(s): Ti.App
 '.disable-network-activity-indicator': { disableNetworkActivityIndicator: true }
 '.disable-network-activity-indicator-false': { disableNetworkActivityIndicator: false }
-
-// Property: keyboardVisible
-// Description: Indicates whether or not the soft keyboard is visible.
-// Component(s): Ti.App
-'.keyboard-visible': { keyboardVisible: true }
-'.keyboard-visible-false': { keyboardVisible: false }
 
 // Property: trackUserInteraction
 // Description: Indicates whether or not the user interaction should be tracked.
@@ -9304,30 +9280,6 @@
 // Component(s): launchOptions
 '.launch-options-location-key': { launchOptionsLocationKey: true }
 '.launch-options-location-key-false': { launchOptionsLocationKey: false }
-
-// Property: isActive
-// Description: Whether the scene is currently active and receiving input.
-// Component(s): Ti.App.iOS.SceneProxy
-'.is-active': { isActive: true }
-'.is-active-false': { isActive: false }
-
-// Property: isForeground
-// Description: Whether the scene is in the foreground (visible but may not be active).
-// Component(s): Ti.App.iOS.SceneProxy
-'.is-foreground': { isForeground: true }
-'.is-foreground-false': { isForeground: false }
-
-// Property: isPrimary
-// Description: Whether this scene is the primary (first) scene.
-// Component(s): Ti.App.iOS.SceneProxy
-'.is-primary': { isPrimary: true }
-'.is-primary-false': { isPrimary: false }
-
-// Property: isKey
-// Description: Whether this scene's window is the one the user is currently interacting with.
-// Component(s): Ti.App.iOS.SceneProxy
-'.is-key': { isKey: true }
-'.is-key-false': { isKey: false }
 
 // Property: itemContentType
 // Description: Content type of the attribute set.
@@ -9640,13 +9592,6 @@
 '.alert-style[platform=ios]': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_ALERT }
 '.alert-style-banner[platform=ios]': { alertStyle: Ti.App.iOS.USER_NOTIFICATION_ALERT_STYLE_BANNER }
 
-// Property: userInterfaceStyle
-// Description: Ti.App.iOS: The style associated with the user interface. Deprecated since 9.1.0. Use Titanium.UI.userInterfaceStyle instead, which is supported cross-platform.  Ti.UI: The style associated with the user interface.
-// Component(s): Ti.App.iOS, Ti.UI
-'.user-interface-style-unspecified': { userInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_UNSPECIFIED }
-'.user-interface-style-light': { userInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_LIGHT }
-'.user-interface-style-dark': { userInterfaceStyle: Ti.UI.USER_INTERFACE_STYLE_DARK }
-
 // Property: repeat
 // Description: NotificationParams: Interval to repeat the notification. One of weekly, daily, yearly, monthly.  Ti.UI.Animation: Number of times the animation should be performed.
 // Component(s): NotificationParams, Ti.UI.Animation
@@ -9664,142 +9609,17 @@
 '.repeat-11': { repeat: 11 }
 '.repeat-12': { repeat: 12 }
 
-// Property: uprightHeight
-// Description: If the blob references an image, this provides the height in pixels after factoring in EXIF orientation.
-// Component(s): Ti.Blob
-'.upright-h-0': { uprightHeight: 0 }
-'.upright-h-1': { uprightHeight: 4 }
-'.upright-h-2': { uprightHeight: 8 }
-'.upright-h-3': { uprightHeight: 12 }
-'.upright-h-4': { uprightHeight: 16 }
-'.upright-h-5': { uprightHeight: 20 }
-'.upright-h-6': { uprightHeight: 24 }
-'.upright-h-7': { uprightHeight: 28 }
-'.upright-h-8': { uprightHeight: 32 }
-'.upright-h-9': { uprightHeight: 36 }
-'.upright-h-10': { uprightHeight: 40 }
-'.upright-h-11': { uprightHeight: 44 }
-'.upright-h-12': { uprightHeight: 48 }
-'.upright-h-14': { uprightHeight: 56 }
-'.upright-h-16': { uprightHeight: 64 }
-'.upright-h-20': { uprightHeight: 80 }
-'.upright-h-24': { uprightHeight: 96 }
-'.upright-h-28': { uprightHeight: 112 }
-'.upright-h-32': { uprightHeight: 128 }
-'.upright-h-36': { uprightHeight: 144 }
-'.upright-h-40': { uprightHeight: 160 }
-'.upright-h-44': { uprightHeight: 176 }
-'.upright-h-48': { uprightHeight: 192 }
-'.upright-h-52': { uprightHeight: 208 }
-'.upright-h-56': { uprightHeight: 224 }
-'.upright-h-60': { uprightHeight: 240 }
-'.upright-h-64': { uprightHeight: 256 }
-'.upright-h-72': { uprightHeight: 288 }
-'.upright-h-80': { uprightHeight: 320 }
-'.upright-h-96': { uprightHeight: 384 }
-'.upright-h-px': { uprightHeight: '1px' }
-'.upright-h-0.5': { uprightHeight: 2 }
-'.upright-h-1.5': { uprightHeight: 6 }
-'.upright-h-2.5': { uprightHeight: 10 }
-'.upright-h-3.5': { uprightHeight: 14 }
-
-// Property: uprightWidth
-// Description: If the blob references an image, this provides the width in pixels after factoring in EXIF orientation.
-// Component(s): Ti.Blob
-'.upright-w-0': { uprightWidth: 0 }
-'.upright-w-1': { uprightWidth: 4 }
-'.upright-w-2': { uprightWidth: 8 }
-'.upright-w-3': { uprightWidth: 12 }
-'.upright-w-4': { uprightWidth: 16 }
-'.upright-w-5': { uprightWidth: 20 }
-'.upright-w-6': { uprightWidth: 24 }
-'.upright-w-7': { uprightWidth: 28 }
-'.upright-w-8': { uprightWidth: 32 }
-'.upright-w-9': { uprightWidth: 36 }
-'.upright-w-10': { uprightWidth: 40 }
-'.upright-w-11': { uprightWidth: 44 }
-'.upright-w-12': { uprightWidth: 48 }
-'.upright-w-14': { uprightWidth: 56 }
-'.upright-w-16': { uprightWidth: 64 }
-'.upright-w-20': { uprightWidth: 80 }
-'.upright-w-24': { uprightWidth: 96 }
-'.upright-w-28': { uprightWidth: 112 }
-'.upright-w-32': { uprightWidth: 128 }
-'.upright-w-36': { uprightWidth: 144 }
-'.upright-w-40': { uprightWidth: 160 }
-'.upright-w-44': { uprightWidth: 176 }
-'.upright-w-48': { uprightWidth: 192 }
-'.upright-w-52': { uprightWidth: 208 }
-'.upright-w-56': { uprightWidth: 224 }
-'.upright-w-60': { uprightWidth: 240 }
-'.upright-w-64': { uprightWidth: 256 }
-'.upright-w-72': { uprightWidth: 288 }
-'.upright-w-80': { uprightWidth: 320 }
-'.upright-w-96': { uprightWidth: 384 }
-'.upright-w-px': { uprightWidth: '1px' }
-'.upright-w-0.5': { uprightWidth: 2 }
-'.upright-w-1.5': { uprightWidth: 6 }
-'.upright-w-2.5': { uprightWidth: 10 }
-'.upright-w-3.5': { uprightWidth: 14 }
-
-// Property: isOrganizer
-// Description: Indicates whether this attendee is the event organizer.
-// Component(s): Ti.Calendar.Attendee
-'.is-organizer': { isOrganizer: true }
-'.is-organizer-false': { isOrganizer: false }
-
-// Property: status
-// Description: Ti.Calendar.Attendee: The status of the attendee.  Ti.Calendar.Event: Status of this event.  Ti.Network.HTTPClient: Response HTTP status code.
-// Component(s): Ti.Calendar.Attendee, Ti.Calendar.Event, Ti.Network.HTTPClient
-'.status-calendar-attendee-unknown': { status: Ti.Calendar.ATTENDEE_STATUS_UNKNOWN }
-'.status-calendar-attendee-pending': { status: Ti.Calendar.ATTENDEE_STATUS_PENDING }
-'.status-calendar-attendee-accepted': { status: Ti.Calendar.ATTENDEE_STATUS_ACCEPTED }
-'.status-calendar-attendee-declined': { status: Ti.Calendar.ATTENDEE_STATUS_DECLINED }
-'.status-calendar-attendee-tentative': { status: Ti.Calendar.ATTENDEE_STATUS_TENTATIVE }
-'.status-calendar-attendee-invited': { status: Ti.Calendar.ATTENDEE_STATUS_INVITED }
-'.status-calendar-attendee-none': { status: Ti.Calendar.ATTENDEE_STATUS_NONE }
-'.status-calendar-attendee-delegated': { status: Ti.Calendar.ATTENDEE_STATUS_DELEGATED }
-'.status-calendar-attendee-in-process': { status: Ti.Calendar.ATTENDEE_STATUS_IN_PROCESS }
-'.status-calendar-none': { status: Ti.Calendar.STATUS_NONE }
-'.status-calendar-canceled': { status: Ti.Calendar.STATUS_CANCELED }
-'.status-calendar-confirmed': { status: Ti.Calendar.STATUS_CONFIRMED }
-'.status-calendar-tentative': { status: Ti.Calendar.STATUS_TENTATIVE }
-
-// Property: calendarAuthorization
-// Description: Returns an authorization constant indicating if the application has access to the events in the EventKit.
-// Component(s): Ti.Calendar
-'.calendar-authorization-authorized': { calendarAuthorization: Ti.Calendar.AUTHORIZATION_AUTHORIZED }
-'.calendar-authorization-denied': { calendarAuthorization: Ti.Calendar.AUTHORIZATION_DENIED }
-'.calendar-authorization-restricted': { calendarAuthorization: Ti.Calendar.AUTHORIZATION_RESTRICTED }
-'.calendar-authorization-unknown': { calendarAuthorization: Ti.Calendar.AUTHORIZATION_UNKNOWN }
-
 // Property: selected
 // Description: Ti.Calendar.Calendar: Indicates whether the calendar is selected.  Ti.UI.iOS.CoverFlowView: Index to make selected.
 // Component(s): Ti.Calendar.Calendar, Ti.UI.iOS.CoverFlowView
 '.selected': { selected: true }
 '.selected-false': { selected: false }
 
-// Property: sourceType
-// Description: Displays the source type.
-// Component(s): Ti.Calendar.Calendar
-'.source-type-calendar-local': { sourceType: Ti.Calendar.SOURCE_TYPE_LOCAL }
-'.source-type-calendar-exchange': { sourceType: Ti.Calendar.SOURCE_TYPE_EXCHANGE }
-'.source-type-calendar-caldav': { sourceType: Ti.Calendar.SOURCE_TYPE_CALDAV }
-'.source-type-calendar-mobileme': { sourceType: Ti.Calendar.SOURCE_TYPE_MOBILEME }
-'.source-type-calendar-subscribed': { sourceType: Ti.Calendar.SOURCE_TYPE_SUBSCRIBED }
-'.source-type-calendar-birthdays': { sourceType: Ti.Calendar.SOURCE_TYPE_BIRTHDAYS }
-
 // Property: allDay
 // Description: Indicates whether this event is all day.
 // Component(s): Ti.Calendar.Event
 '.all-day': { allDay: true }
 '.all-day-false': { allDay: false }
-
-// Property: hasAlarm
-// Description: Indicates whether an alarm is scheduled for this event.
-// Component(s): Ti.Calendar.Event
-'.has-alarm': { hasAlarm: true }
-'.has-alarm-false': { hasAlarm: false }
 
 // Property: location
 // Description: Ti.Calendar.Event: Location of this event.  Ti.Network.HTTPClient: Absolute URL of the request.  Ti.UI.Android.ProgressIndicator: Location for the progress indicator.  textAreaSelectedParams: Starting position of selected text.
@@ -9816,12 +9636,6 @@
 '.availability-calendar-tentative': { availability: Ti.Calendar.AVAILABILITY_TENTATIVE }
 '.availability-calendar-unavailable': { availability: Ti.Calendar.AVAILABILITY_UNAVAILABLE }
 
-// Property: isDetached
-// Description: Boolean value that indicates whether an event is a detached instance of a repeating event.
-// Component(s): Ti.Calendar.Event
-'.is-detached': { isDetached: true }
-'.is-detached-false': { isDetached: false }
-
 // Property: frequency
 // Description: Ti.Calendar.RecurrenceRule: Frequency of the recurrence rule.  Ti.UI.iOS.AnchorAttachmentBehavior: Frequency of oscillation for the behavior.
 // Component(s): Ti.Calendar.RecurrenceRule, Ti.UI.iOS.AnchorAttachmentBehavior, Ti.UI.iOS.ViewAttachmentBehavior
@@ -9829,14 +9643,6 @@
 '.frequency-calendar-recurrence-weekly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_WEEKLY }
 '.frequency-calendar-recurrence-monthly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_MONTHLY }
 '.frequency-calendar-recurrence-yearly': { frequency: Ti.Calendar.RECURRENCEFREQUENCY_YEARLY }
-
-// Property: method
-// Description: Method by which this reminder will be delivered.
-// Component(s): Ti.Calendar.Reminder
-'.method-calendar-alert': { method: Ti.Calendar.METHOD_ALERT }
-'.method-calendar': { method: Ti.Calendar.METHOD_DEFAULT }
-'.method-calendar-email': { method: Ti.Calendar.METHOD_EMAIL }
-'.method-calendar-sms': { method: Ti.Calendar.METHOD_SMS }
 
 // Property: position
 // Description: EncodeNumberDict: Index in the dest buffer of the first byte of encoded data.  DecodeNumberDict: Index in the source buffer of the first byte of data to decode.  ListViewAnimationProperties: Specifies what position to scroll the selected cell to.  TableViewAnimationProperties: Specifies what position to scroll the selected row to.  ViewPositionOptions: Position in the children array of the view element to replace.
@@ -9870,13 +9676,6 @@
 '.include-note': { includeNote: true }
 '.include-note-false': { includeNote: false }
 
-// Property: contactsAuthorization
-// Description: Returns an authorization constant indicating if the application has access to the address book.
-// Component(s): Ti.Contacts
-'.contacts-authorization-authorized': { contactsAuthorization: Ti.Contacts.AUTHORIZATION_AUTHORIZED }
-'.contacts-authorization-denied': { contactsAuthorization: Ti.Contacts.AUTHORIZATION_DENIED }
-'.contacts-authorization-unknown': { contactsAuthorization: Ti.Contacts.AUTHORIZATION_UNKNOWN }
-
 // Property: animated
 // Description: showContactsParams: Determines whether to animate the show/hide of the contacts picker (iPhone, iPad only.)  MusicLibraryOptionsType: Boolean if the dialog should be animated when showing and hiding.  CameraOptionsType: Specifies if the dialog should be animated upon showing and hiding.  AnimatedOptions: If true, animate a transition for the method/value change. Note that for most uses cases the default is assumed to be false. The exceptions tend to be Titanium.UI.Window methods.  ListViewAnimationProperties: Whether this list change should be animated. Ignored if any animationStyle value is specified.  hideParams: Determines whether to animate the dialog as it is dismissed.  OptionDialogShowParams: Determines whether to animate the dialog as it is shown.  Ti.UI.ProgressBar: Enables smooth progress change animation when changing the value.  Ti.UI.Switch: Determines if there is animation when the switch value changes.  disableTabOptions: Determines whether to use an animated effect to hide/show the navigation bar.  TableViewAnimationProperties: Whether this table change should be animated. Ignored if any animationStyle value is specified.  openWindowParams: Determines whether to use an animated effect when the window is shown.  windowToolbarParam: Defines if the toolbar appearance is animated.  closeWindowParams: Determines whether to use an animated effect when the window is closed. Defaults to true on Android, false on iOS.  DocumentViewerOptions: Indicates whether to animate the transition.  MenuPopupShowParams: Determines whether the menu popup should be opened or closed animated.  ShowPopoverParams: Indicates whether to animate showing the popover.
 // Component(s): showContactsParams, MusicLibraryOptionsType, CameraOptionsType, PhotoGalleryOptionsType, AnimatedOptions, AnimatedWithDurationOptions, ListViewAnimationProperties, hideParams, OptionDialogShowParams, Ti.UI.ProgressBar, Ti.UI.Switch, disableTabOptions, TableViewAnimationProperties, openWindowParams, windowToolbarParam, closeWindowParams, DocumentViewerOptions, MenuPopupShowParams, ShowPopoverParams
@@ -9898,18 +9697,6 @@
 '.row-count-10': { rowCount: 10 }
 '.row-count-11': { rowCount: 11 }
 '.row-count-12': { rowCount: 12 }
-
-// Property: validRow
-// Description: Indicates whether the current row is valid.
-// Component(s): Ti.Database.ResultSet
-'.valid-row': { validRow: true }
-'.valid-row-false': { validRow: false }
-
-// Property: bubbles
-// Description: True if the event will try to bubble up if possible.
-// Component(s): Ti.Event
-'.bubbles': { bubbles: true }
-'.bubbles-false': { bubbles: false }
 
 // Property: cancelBubble
 // Description: Set to true to stop the event from bubbling.
@@ -9936,27 +9723,6 @@
 '.accuracy-three-kilometers': { accuracy: Ti.Geolocation.ACCURACY_THREE_KILOMETERS }
 '.accuracy-reduced': { accuracy: Ti.Geolocation.ACCURACY_REDUCED }
 
-// Property: hasCompass
-// Description: Indicates whether the current device supports a compass.
-// Component(s): Ti.Geolocation
-'.has-compass': { hasCompass: true }
-'.has-compass-false': { hasCompass: false }
-
-// Property: locationServicesAuthorization
-// Description: Returns an authorization constant indicating if the application has access to location services.
-// Component(s): Ti.Geolocation
-'.location-services-authorization-denied': { locationServicesAuthorization: Ti.Geolocation.AUTHORIZATION_DENIED }
-'.location-services-authorization-restricted': { locationServicesAuthorization: Ti.Geolocation.AUTHORIZATION_RESTRICTED }
-'.location-services-authorization-unknown': { locationServicesAuthorization: Ti.Geolocation.AUTHORIZATION_UNKNOWN }
-'.location-services-authorization-always': { locationServicesAuthorization: Ti.Geolocation.AUTHORIZATION_ALWAYS }
-'.location-services-authorization-when-in-use': { locationServicesAuthorization: Ti.Geolocation.AUTHORIZATION_WHEN_IN_USE }
-
-// Property: locationServicesEnabled
-// Description: Indicates if the user has enabled or disabled location services for the device (not the application).
-// Component(s): Ti.Geolocation
-'.location-services-enabled': { locationServicesEnabled: true }
-'.location-services-enabled-false': { locationServicesEnabled: false }
-
 // Property: showCalibration
 // Description: Determines whether the compass calibration UI is shown if needed.
 // Component(s): Ti.Geolocation
@@ -9980,12 +9746,6 @@
 // Component(s): Ti.Geolocation
 '.allows-bg-location-updates': { allowsBackgroundLocationUpdates: true }
 '.allows-bg-location-updates-false': { allowsBackgroundLocationUpdates: false }
-
-// Property: locationAccuracyAuthorization
-// Description: A value that indicates the level of location accuracy the app has permission to use.
-// Component(s): Ti.Geolocation
-'.location-accuracy-authorization-full': { locationAccuracyAuthorization: Ti.Geolocation.ACCURACY_AUTHORIZATION_FULL }
-'.location-accuracy-authorization-reduced': { locationAccuracyAuthorization: Ti.Geolocation.ACCURACY_AUTHORIZATION_REDUCED }
 
 // Property: pauseLocationUpdateAutomatically
 // Description: Indicates whether the location updates may be paused.
@@ -10057,12 +9817,6 @@
 '.recording': { recording: true }
 '.recording-false': { recording: false }
 
-// Property: stopped
-// Description: Indicates if the audio recorder is stopped.
-// Component(s): Ti.Media.AudioRecorder
-'.stopped': { stopped: true }
-'.stopped-false': { stopped: false }
-
 // Property: hasProtectedAsset
 // Description: Ti.Media.Item: True if the item represents a protected asset.  MediaQueryType: Filter by whether or not the item is a protected asset. Value should be a Boolean.
 // Component(s): Ti.Media.Item, MediaQueryType
@@ -10081,12 +9835,6 @@
 '.is-compilation': { isCompilation: true }
 '.is-compilation-false': { isCompilation: false }
 
-// Property: isExplicit
-// Description: True if this item is marked as &quot;Explicit&quot;.
-// Component(s): Ti.Media.Item
-'.is-explicit': { isExplicit: true }
-'.is-explicit-false': { isExplicit: false }
-
 // Property: mediaType
 // Description: Ti.Media.Item: The type of the media.  MediaQueryType: The media type to filter on.  CameraMediaItemType: The type of media, either MEDIA_TYPE_PHOTO, MEDIA_TYPE_LIVEPHOTO or MEDIA_TYPE_VIDEO defined in Titanium.Media.
 // Component(s): Ti.Media.Item, MediaQueryType, CameraMediaItemType
@@ -10096,12 +9844,6 @@
 '.media-type-music': { mediaType: Ti.Media.MUSIC_MEDIA_TYPE_MUSIC }
 '.media-type-music-podcast': { mediaType: Ti.Media.MUSIC_MEDIA_TYPE_PODCAST }
 
-// Property: audioPlaying
-// Description: Returns true if the device is playing audio.
-// Component(s): Ti.Media
-'.audio-playing': { audioPlaying: true }
-'.audio-playing-false': { audioPlaying: false }
-
 // Property: audioSessionCategory
 // Description: A constant for the audio session category to be used.
 // Component(s): Ti.Media
@@ -10110,18 +9852,6 @@
 '.audio-session-category-play-and-record': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD }
 '.audio-session-category-record': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_RECORD }
 '.audio-session-category-solo-ambient': { audioSessionCategory: Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT }
-
-// Property: availableCameras
-// Description: Array indicating which cameras are available, CAMERA_FRONT, CAMERA_REAR or both.
-// Component(s): Ti.Media
-'.available-cameras-camera-front': { availableCameras: [ Ti.Media.CAMERA_FRONT ] }
-'.available-cameras-camera-rear': { availableCameras: [ Ti.Media.CAMERA_REAR ] }
-
-// Property: aspectRatio
-// Description: Aspect ratio of the image.
-// Component(s): Ti.Media
-'.aspect-ratio-4-3': { aspectRatio: Ti.Media.ASPECT_RATIO_4_3 }
-'.aspect-ratio-16-9': { aspectRatio: Ti.Media.ASPECT_RATIO_16_9 }
 
 // Property: scalingMode
 // Description: Ti.Media: Scaling mode of the preview image.  Ti.Media.VideoPlayer: Determines how the content scales to fit the view.  Ti.UI.ImageView: Determines how the image is scaled within the view.
@@ -10144,12 +9874,6 @@
 '.vertical-align-text-bottom': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM }
 '.vertical-align-text-center': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER }
 '.vertical-align-text-top': { verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP }
-
-// Property: useCameraX
-// Description: To use the new CameraX classes for &quot;camera with overlay&quot; set useCameraX to true
-// Component(s): Ti.Media
-'.use-camera-x': { useCameraX: true }
-'.use-camera-x-false': { useCameraX: false }
 
 // Property: availableCameraMediaTypes
 // Description: Array of media type constants supported for the camera.
@@ -10178,26 +9902,6 @@
 '.camera-flash-mode-auto': { cameraFlashMode: Ti.Media.CAMERA_FLASH_AUTO }
 '.camera-flash-mode-off': { cameraFlashMode: Ti.Media.CAMERA_FLASH_OFF }
 '.camera-flash-mode-on': { cameraFlashMode: Ti.Media.CAMERA_FLASH_ON }
-
-// Property: canRecord
-// Description: true if the device has a recording input device available.
-// Component(s): Ti.Media
-'.can-record': { canRecord: true }
-'.can-record-false': { canRecord: false }
-
-// Property: isCameraSupported
-// Description: true if the device has camera support.
-// Component(s): Ti.Media
-'.is-camera-supported': { isCameraSupported: true }
-'.is-camera-supported-false': { isCameraSupported: false }
-
-// Property: cameraAuthorization
-// Description: Returns the authorization status for the camera.
-// Component(s): Ti.Media
-'.camera-authorization-authorized': { cameraAuthorization: Ti.Media.CAMERA_AUTHORIZATION_AUTHORIZED }
-'.camera-authorization-denied': { cameraAuthorization: Ti.Media.CAMERA_AUTHORIZATION_DENIED }
-'.camera-authorization-restricted': { cameraAuthorization: Ti.Media.CAMERA_AUTHORIZATION_RESTRICTED }
-'.camera-authorization-unknown': { cameraAuthorization: Ti.Media.CAMERA_AUTHORIZATION_UNKNOWN }
 
 // Property: torch
 // Description: Enable or disable the camera torch.
@@ -10505,22 +10209,6 @@
 '.outputs-audio-session-port-bluetoothle': { outputs: [ Ti.Media.AUDIO_SESSION_PORT_BLUETOOTHLE ] }
 '.outputs-audio-session-port-caraudio': { outputs: [ Ti.Media.AUDIO_SESSION_PORT_CARAUDIO ] }
 
-// Property: playbackState
-// Description: Ti.Media.MusicPlayer: Playback state.  Ti.Media.VideoPlayer: Current playback state of the video player.
-// Component(s): Ti.Media.MusicPlayer, Ti.Media.VideoPlayer
-'.playback-state-music-player-interrupted': { playbackState: Ti.Media.MUSIC_PLAYER_STATE_INTERRUPTED }
-'.playback-state-music-player-paused': { playbackState: Ti.Media.MUSIC_PLAYER_STATE_PAUSED }
-'.playback-state-music-player-playing': { playbackState: Ti.Media.MUSIC_PLAYER_STATE_PLAYING }
-'.playback-state-music-player-seek-backward': { playbackState: Ti.Media.MUSIC_PLAYER_STATE_SEEK_BACKWARD }
-'.playback-state-music-player-seek-forward': { playbackState: Ti.Media.MUSIC_PLAYER_STATE_SEEK_FORWARD }
-'.playback-state-music-player-stopped': { playbackState: Ti.Media.MUSIC_PLAYER_STATE_STOPPED }
-'.playback-state-video-interrupted': { playbackState: Ti.Media.VIDEO_PLAYBACK_STATE_INTERRUPTED }
-'.playback-state-video-paused': { playbackState: Ti.Media.VIDEO_PLAYBACK_STATE_PAUSED }
-'.playback-state-video-playing': { playbackState: Ti.Media.VIDEO_PLAYBACK_STATE_PLAYING }
-'.playback-state-video-seeking-backward': { playbackState: Ti.Media.VIDEO_PLAYBACK_STATE_SEEKING_BACKWARD }
-'.playback-state-video-seeking-forward': { playbackState: Ti.Media.VIDEO_PLAYBACK_STATE_SEEKING_FORWARD }
-'.playback-state-video-stopped': { playbackState: Ti.Media.VIDEO_PLAYBACK_STATE_STOPPED }
-
 // Property: repeatMode
 // Description: Ti.Media.MusicPlayer: Repeat setting.  Ti.Media.VideoPlayer: Determines how the movie player repeats when reaching the end of playback.
 // Component(s): Ti.Media.MusicPlayer, Ti.Media.VideoPlayer
@@ -10568,13 +10256,6 @@
 // Component(s): Ti.Media.VideoPlayer, Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.TextArea, Ti.UI.TextField, Ti.UI.Window, openWindowParams, Ti.UI.iOS.SplitWindow
 '.fullscreen': { fullscreen: true }
 '.fullscreen-false': { fullscreen: false }
-
-// Property: moviePlayerStatus
-// Description: Returns the status of the movie player.
-// Component(s): Ti.Media.VideoPlayer
-'.movie-player-status-video-load-state-failed': { moviePlayerStatus: Ti.Media.VIDEO_LOAD_STATE_FAILED }
-'.movie-player-status-video-load-state-playable': { moviePlayerStatus: Ti.Media.VIDEO_LOAD_STATE_PLAYABLE }
-'.movie-player-status-video-load-state-unknown': { moviePlayerStatus: Ti.Media.VIDEO_LOAD_STATE_UNKNOWN }
 
 // Property: pictureInPictureEnabled
 // Description: Whether or not the receiver allows Picture in Picture playback.
@@ -10691,53 +10372,17 @@
 '.cache': { cache: true }
 '.cache-false': { cache: false }
 
-// Property: networkType
-// Description: Network type value as a constant.
-// Component(s): Ti.Network
-'.network-type-lan': { networkType: Ti.Network.NETWORK_LAN }
-'.network-type-mobile': { networkType: Ti.Network.NETWORK_MOBILE }
-'.network-type-none': { networkType: Ti.Network.NETWORK_NONE }
-'.network-type-unknown': { networkType: Ti.Network.NETWORK_UNKNOWN }
-'.network-type-wifi': { networkType: Ti.Network.NETWORK_WIFI }
-
-// Property: online
-// Description: Boolean value indicating if the device is connected to the network.
-// Component(s): Ti.Network
-'.online': { online: true }
-'.online-false': { online: false }
-
-// Property: remoteNotificationsEnabled
-// Description: Indicates whether push  notifications have been enabled using registerForPushNotifications.
-// Component(s): Ti.Network
-'.remote-notifications-enabled': { remoteNotificationsEnabled: true }
-'.remote-notifications-enabled-false': { remoteNotificationsEnabled: false }
-
 // Property: inBackground
 // Description: Boolean indicating if notification was received while app was in background.
 // Component(s): PushNotificationData
 '.in-background': { inBackground: true }
 '.in-background-false': { inBackground: false }
 
-// Property: physicalSizeCategory
-// Description: The physical size category of the Android device or emulator.
-// Component(s): Ti.Platform.Android
-'.physical-size-category-large[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_LARGE }
-'.physical-size-category-normal[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_NORMAL }
-'.physical-size-category-small[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_SMALL }
-'.physical-size-category-undefined[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_UNDEFINED }
-'.physical-size-category-xlarge[platform=android]': { physicalSizeCategory: Ti.Platform.Android.PHYSICAL_SIZE_CATEGORY_XLARGE }
-
 // Property: batteryMonitoring
 // Description: Determines whether battery monitoring is enabled.
 // Component(s): Ti.Platform
 '.battery-monitoring': { batteryMonitoring: true }
 '.battery-monitoring-false': { batteryMonitoring: false }
-
-// Property: isTranslatedBinaryOnAppleSilicon
-// Description: A Boolean value that indicates whether the current app is running as a translated binary using Rosetta on an Apple Silicon device.
-// Component(s): Ti.Platform
-'.is-translated-binary-on-apple-silicon': { isTranslatedBinaryOnAppleSilicon: true }
-'.is-translated-binary-on-apple-silicon-false': { isTranslatedBinaryOnAppleSilicon: false }
 
 // Property: indicatorColor
 // Description: Color of the animated indicator.
@@ -17700,12 +17345,6 @@
 '.rotate-270': { rotate: 270 }
 '.rotate-315': { rotate: 315 }
 '.rotate-360': { rotate: 360 }
-
-// Property: closed
-// Description: Determines whether this Window is closed.
-// Component(s): Ti.UI.NavigationWindow, Ti.UI.TabGroup, Ti.UI.Window, Ti.UI.iOS.SplitWindow
-'.closed': { closed: true }
-'.closed-false': { closed: false }
 
 // Property: exitOnClose
 // Description: Ti.UI.NavigationWindow: Boolean value indicating if the application should exit when the Android Back button is pressed while the window is being shown or when the window is closed programmatically.  Ti.UI.TabGroup: Boolean value indicating if the application should exit when closing the tab group, whether via Android back button or the close method.
@@ -25483,74 +25122,6 @@
 '.title-text-rose-900': { titleTextColor: '#881337' }
 '.title-text-rose-950': { titleTextColor: '#4c0519' }
 
-// Property: statusBarHeight
-// Description: The total height of the status bar including safe area padding.
-// Component(s): Ti.UI
-'.status-bar-h-0': { statusBarHeight: 0 }
-'.status-bar-h-1': { statusBarHeight: 4 }
-'.status-bar-h-2': { statusBarHeight: 8 }
-'.status-bar-h-3': { statusBarHeight: 12 }
-'.status-bar-h-4': { statusBarHeight: 16 }
-'.status-bar-h-5': { statusBarHeight: 20 }
-'.status-bar-h-6': { statusBarHeight: 24 }
-'.status-bar-h-7': { statusBarHeight: 28 }
-'.status-bar-h-8': { statusBarHeight: 32 }
-'.status-bar-h-9': { statusBarHeight: 36 }
-'.status-bar-h-10': { statusBarHeight: 40 }
-'.status-bar-h-11': { statusBarHeight: 44 }
-'.status-bar-h-12': { statusBarHeight: 48 }
-'.status-bar-h-14': { statusBarHeight: 56 }
-'.status-bar-h-16': { statusBarHeight: 64 }
-'.status-bar-h-20': { statusBarHeight: 80 }
-'.status-bar-h-24': { statusBarHeight: 96 }
-'.status-bar-h-28': { statusBarHeight: 112 }
-'.status-bar-h-32': { statusBarHeight: 128 }
-'.status-bar-h-36': { statusBarHeight: 144 }
-'.status-bar-h-40': { statusBarHeight: 160 }
-'.status-bar-h-44': { statusBarHeight: 176 }
-'.status-bar-h-48': { statusBarHeight: 192 }
-'.status-bar-h-52': { statusBarHeight: 208 }
-'.status-bar-h-56': { statusBarHeight: 224 }
-'.status-bar-h-60': { statusBarHeight: 240 }
-'.status-bar-h-64': { statusBarHeight: 256 }
-'.status-bar-h-72': { statusBarHeight: 288 }
-'.status-bar-h-80': { statusBarHeight: 320 }
-'.status-bar-h-96': { statusBarHeight: 384 }
-'.status-bar-h-auto': { statusBarHeight: Ti.UI.SIZE }
-'.status-bar-h-px': { statusBarHeight: '1px' }
-'.status-bar-h-0.5': { statusBarHeight: 2 }
-'.status-bar-h-1.5': { statusBarHeight: 6 }
-'.status-bar-h-2.5': { statusBarHeight: 10 }
-'.status-bar-h-3.5': { statusBarHeight: 14 }
-'.status-bar-h-1/2': { statusBarHeight: '50%' }
-'.status-bar-h-1/3': { statusBarHeight: '33.333334%' }
-'.status-bar-h-2/3': { statusBarHeight: '66.666667%' }
-'.status-bar-h-1/4': { statusBarHeight: '25%' }
-'.status-bar-h-2/4': { statusBarHeight: '50%' }
-'.status-bar-h-3/4': { statusBarHeight: '75%' }
-'.status-bar-h-1/5': { statusBarHeight: '20%' }
-'.status-bar-h-2/5': { statusBarHeight: '40%' }
-'.status-bar-h-3/5': { statusBarHeight: '60%' }
-'.status-bar-h-4/5': { statusBarHeight: '80%' }
-'.status-bar-h-1/6': { statusBarHeight: '16.666667%' }
-'.status-bar-h-2/6': { statusBarHeight: '33.333334%' }
-'.status-bar-h-3/6': { statusBarHeight: '50%' }
-'.status-bar-h-4/6': { statusBarHeight: '66.666667%' }
-'.status-bar-h-5/6': { statusBarHeight: '83.333334%' }
-'.status-bar-h-1/12': { statusBarHeight: '8.333334%' }
-'.status-bar-h-2/12': { statusBarHeight: '16.666667%' }
-'.status-bar-h-3/12': { statusBarHeight: '25%' }
-'.status-bar-h-4/12': { statusBarHeight: '33.333334%' }
-'.status-bar-h-5/12': { statusBarHeight: '41.666667%' }
-'.status-bar-h-6/12': { statusBarHeight: '50%' }
-'.status-bar-h-7/12': { statusBarHeight: '58.333334%' }
-'.status-bar-h-8/12': { statusBarHeight: '66.666667%' }
-'.status-bar-h-9/12': { statusBarHeight: '75%' }
-'.status-bar-h-10/12': { statusBarHeight: '83.333334%' }
-'.status-bar-h-11/12': { statusBarHeight: '91.666667%' }
-'.status-bar-h-full': { statusBarHeight: '100%' }
-'.status-bar-h-screen': { statusBarHeight: Ti.UI.FILL }
-
 // Property: backfillStart
 // Description: Set to true to continue filling with the starting color beyond the startPoint.
 // Component(s): Gradient
@@ -25764,12 +25335,6 @@
 '.vertical-bar-compression-behavior-prefers-items[platform=ios]': { verticalBarCompressionBehavior: Ti.UI.iOS.VERTICAL_BAR_COMPRESSION_BEHAVIOR_PREFERS_BAR_ITEMS }
 '.vertical-bar-compression-behavior-prefers-tab[platform=ios]': { verticalBarCompressionBehavior: Ti.UI.iOS.VERTICAL_BAR_COMPRESSION_BEHAVIOR_PREFERS_TAB_BAR }
 
-// Property: running
-// Description: Returns true if the animator is running else false.
-// Component(s): Ti.UI.iOS.Animator
-'.running': { running: true }
-'.running-false': { running: false }
-
 // Property: effect
 // Description: The blur effect to apply to the effect view.
 // Component(s): Ti.UI.iOS.BlurView
@@ -25922,212 +25487,117 @@
 // Property: presentsWithGesture
 // Description: Determines whether a swipe from the leading edge shows the hidden master view.
 // Component(s): Ti.UI.iOS.SplitWindow
-'.presents-with-gesture': { presentsWithGesture: true }
-'.presents-with-gesture-false': { presentsWithGesture: false }
+'.presents-with-gesture[platform=ios]': { presentsWithGesture: true }
+'.presents-with-gesture-false[platform=ios]': { presentsWithGesture: false }
 
 // Property: primaryColumnWidthFraction
 // Description: The width of the master view as a fraction of the width of the split window.
 // Component(s): Ti.UI.iOS.SplitWindow
-'.primary-col-w-fraction-0': { primaryColumnWidthFraction: 0 }
-'.primary-col-w-fraction-1': { primaryColumnWidthFraction: 4 }
-'.primary-col-w-fraction-2': { primaryColumnWidthFraction: 8 }
-'.primary-col-w-fraction-3': { primaryColumnWidthFraction: 12 }
-'.primary-col-w-fraction-4': { primaryColumnWidthFraction: 16 }
-'.primary-col-w-fraction-5': { primaryColumnWidthFraction: 20 }
-'.primary-col-w-fraction-6': { primaryColumnWidthFraction: 24 }
-'.primary-col-w-fraction-7': { primaryColumnWidthFraction: 28 }
-'.primary-col-w-fraction-8': { primaryColumnWidthFraction: 32 }
-'.primary-col-w-fraction-9': { primaryColumnWidthFraction: 36 }
-'.primary-col-w-fraction-10': { primaryColumnWidthFraction: 40 }
-'.primary-col-w-fraction-11': { primaryColumnWidthFraction: 44 }
-'.primary-col-w-fraction-12': { primaryColumnWidthFraction: 48 }
-'.primary-col-w-fraction-14': { primaryColumnWidthFraction: 56 }
-'.primary-col-w-fraction-16': { primaryColumnWidthFraction: 64 }
-'.primary-col-w-fraction-20': { primaryColumnWidthFraction: 80 }
-'.primary-col-w-fraction-24': { primaryColumnWidthFraction: 96 }
-'.primary-col-w-fraction-28': { primaryColumnWidthFraction: 112 }
-'.primary-col-w-fraction-32': { primaryColumnWidthFraction: 128 }
-'.primary-col-w-fraction-36': { primaryColumnWidthFraction: 144 }
-'.primary-col-w-fraction-40': { primaryColumnWidthFraction: 160 }
-'.primary-col-w-fraction-44': { primaryColumnWidthFraction: 176 }
-'.primary-col-w-fraction-48': { primaryColumnWidthFraction: 192 }
-'.primary-col-w-fraction-52': { primaryColumnWidthFraction: 208 }
-'.primary-col-w-fraction-56': { primaryColumnWidthFraction: 224 }
-'.primary-col-w-fraction-60': { primaryColumnWidthFraction: 240 }
-'.primary-col-w-fraction-64': { primaryColumnWidthFraction: 256 }
-'.primary-col-w-fraction-72': { primaryColumnWidthFraction: 288 }
-'.primary-col-w-fraction-80': { primaryColumnWidthFraction: 320 }
-'.primary-col-w-fraction-96': { primaryColumnWidthFraction: 384 }
-'.primary-col-w-fraction-auto': { primaryColumnWidthFraction: Ti.UI.SIZE }
-'.primary-col-w-fraction-px': { primaryColumnWidthFraction: '1px' }
-'.primary-col-w-fraction-0.5': { primaryColumnWidthFraction: 2 }
-'.primary-col-w-fraction-1.5': { primaryColumnWidthFraction: 6 }
-'.primary-col-w-fraction-2.5': { primaryColumnWidthFraction: 10 }
-'.primary-col-w-fraction-3.5': { primaryColumnWidthFraction: 14 }
-'.primary-col-w-fraction-1/2': { primaryColumnWidthFraction: '50%' }
-'.primary-col-w-fraction-1/3': { primaryColumnWidthFraction: '33.333334%' }
-'.primary-col-w-fraction-2/3': { primaryColumnWidthFraction: '66.666667%' }
-'.primary-col-w-fraction-1/4': { primaryColumnWidthFraction: '25%' }
-'.primary-col-w-fraction-2/4': { primaryColumnWidthFraction: '50%' }
-'.primary-col-w-fraction-3/4': { primaryColumnWidthFraction: '75%' }
-'.primary-col-w-fraction-1/5': { primaryColumnWidthFraction: '20%' }
-'.primary-col-w-fraction-2/5': { primaryColumnWidthFraction: '40%' }
-'.primary-col-w-fraction-3/5': { primaryColumnWidthFraction: '60%' }
-'.primary-col-w-fraction-4/5': { primaryColumnWidthFraction: '80%' }
-'.primary-col-w-fraction-1/6': { primaryColumnWidthFraction: '16.666667%' }
-'.primary-col-w-fraction-2/6': { primaryColumnWidthFraction: '33.333334%' }
-'.primary-col-w-fraction-3/6': { primaryColumnWidthFraction: '50%' }
-'.primary-col-w-fraction-4/6': { primaryColumnWidthFraction: '66.666667%' }
-'.primary-col-w-fraction-5/6': { primaryColumnWidthFraction: '83.333334%' }
-'.primary-col-w-fraction-1/12': { primaryColumnWidthFraction: '8.333334%' }
-'.primary-col-w-fraction-2/12': { primaryColumnWidthFraction: '16.666667%' }
-'.primary-col-w-fraction-3/12': { primaryColumnWidthFraction: '25%' }
-'.primary-col-w-fraction-4/12': { primaryColumnWidthFraction: '33.333334%' }
-'.primary-col-w-fraction-5/12': { primaryColumnWidthFraction: '41.666667%' }
-'.primary-col-w-fraction-6/12': { primaryColumnWidthFraction: '50%' }
-'.primary-col-w-fraction-7/12': { primaryColumnWidthFraction: '58.333334%' }
-'.primary-col-w-fraction-8/12': { primaryColumnWidthFraction: '66.666667%' }
-'.primary-col-w-fraction-9/12': { primaryColumnWidthFraction: '75%' }
-'.primary-col-w-fraction-10/12': { primaryColumnWidthFraction: '83.333334%' }
-'.primary-col-w-fraction-11/12': { primaryColumnWidthFraction: '91.666667%' }
-'.primary-col-w-fraction-full': { primaryColumnWidthFraction: '100%' }
-'.primary-col-w-fraction-screen': { primaryColumnWidthFraction: Ti.UI.FILL }
+'.primary-col-w-fraction-0[platform=ios]': { primaryColumnWidthFraction: 0 }
+'.primary-col-w-fraction-1[platform=ios]': { primaryColumnWidthFraction: 1 }
+'.primary-col-w-fraction-full[platform=ios]': { primaryColumnWidthFraction: 1 }
+'.primary-col-w-fraction-1/2[platform=ios]': { primaryColumnWidthFraction: 0.5 }
+'.primary-col-w-fraction-1/3[platform=ios]': { primaryColumnWidthFraction: 0.3333333333333333 }
+'.primary-col-w-fraction-2/3[platform=ios]': { primaryColumnWidthFraction: 0.6666666666666666 }
+'.primary-col-w-fraction-1/4[platform=ios]': { primaryColumnWidthFraction: 0.25 }
+'.primary-col-w-fraction-2/4[platform=ios]': { primaryColumnWidthFraction: 0.5 }
+'.primary-col-w-fraction-3/4[platform=ios]': { primaryColumnWidthFraction: 0.75 }
+'.primary-col-w-fraction-1/5[platform=ios]': { primaryColumnWidthFraction: 0.2 }
+'.primary-col-w-fraction-2/5[platform=ios]': { primaryColumnWidthFraction: 0.4 }
+'.primary-col-w-fraction-3/5[platform=ios]': { primaryColumnWidthFraction: 0.6 }
+'.primary-col-w-fraction-4/5[platform=ios]': { primaryColumnWidthFraction: 0.8 }
+'.primary-col-w-fraction-1/6[platform=ios]': { primaryColumnWidthFraction: 0.16666666666666666 }
+'.primary-col-w-fraction-2/6[platform=ios]': { primaryColumnWidthFraction: 0.3333333333333333 }
+'.primary-col-w-fraction-3/6[platform=ios]': { primaryColumnWidthFraction: 0.5 }
+'.primary-col-w-fraction-4/6[platform=ios]': { primaryColumnWidthFraction: 0.6666666666666666 }
+'.primary-col-w-fraction-5/6[platform=ios]': { primaryColumnWidthFraction: 0.8333333333333334 }
+'.primary-col-w-fraction-1/12[platform=ios]': { primaryColumnWidthFraction: 0.08333333333333333 }
+'.primary-col-w-fraction-2/12[platform=ios]': { primaryColumnWidthFraction: 0.16666666666666666 }
+'.primary-col-w-fraction-3/12[platform=ios]': { primaryColumnWidthFraction: 0.25 }
+'.primary-col-w-fraction-4/12[platform=ios]': { primaryColumnWidthFraction: 0.3333333333333333 }
+'.primary-col-w-fraction-5/12[platform=ios]': { primaryColumnWidthFraction: 0.4166666666666667 }
+'.primary-col-w-fraction-6/12[platform=ios]': { primaryColumnWidthFraction: 0.5 }
+'.primary-col-w-fraction-7/12[platform=ios]': { primaryColumnWidthFraction: 0.5833333333333334 }
+'.primary-col-w-fraction-8/12[platform=ios]': { primaryColumnWidthFraction: 0.6666666666666666 }
+'.primary-col-w-fraction-9/12[platform=ios]': { primaryColumnWidthFraction: 0.75 }
+'.primary-col-w-fraction-10/12[platform=ios]': { primaryColumnWidthFraction: 0.8333333333333334 }
+'.primary-col-w-fraction-11/12[platform=ios]': { primaryColumnWidthFraction: 0.9166666666666666 }
 
 // Property: minimumPrimaryColumnWidth
 // Description: The minimum width of the master view in points.
 // Component(s): Ti.UI.iOS.SplitWindow
-'.minimum-primary-col-w-0': { minimumPrimaryColumnWidth: 0 }
-'.minimum-primary-col-w-1': { minimumPrimaryColumnWidth: 4 }
-'.minimum-primary-col-w-2': { minimumPrimaryColumnWidth: 8 }
-'.minimum-primary-col-w-3': { minimumPrimaryColumnWidth: 12 }
-'.minimum-primary-col-w-4': { minimumPrimaryColumnWidth: 16 }
-'.minimum-primary-col-w-5': { minimumPrimaryColumnWidth: 20 }
-'.minimum-primary-col-w-6': { minimumPrimaryColumnWidth: 24 }
-'.minimum-primary-col-w-7': { minimumPrimaryColumnWidth: 28 }
-'.minimum-primary-col-w-8': { minimumPrimaryColumnWidth: 32 }
-'.minimum-primary-col-w-9': { minimumPrimaryColumnWidth: 36 }
-'.minimum-primary-col-w-10': { minimumPrimaryColumnWidth: 40 }
-'.minimum-primary-col-w-11': { minimumPrimaryColumnWidth: 44 }
-'.minimum-primary-col-w-12': { minimumPrimaryColumnWidth: 48 }
-'.minimum-primary-col-w-14': { minimumPrimaryColumnWidth: 56 }
-'.minimum-primary-col-w-16': { minimumPrimaryColumnWidth: 64 }
-'.minimum-primary-col-w-20': { minimumPrimaryColumnWidth: 80 }
-'.minimum-primary-col-w-24': { minimumPrimaryColumnWidth: 96 }
-'.minimum-primary-col-w-28': { minimumPrimaryColumnWidth: 112 }
-'.minimum-primary-col-w-32': { minimumPrimaryColumnWidth: 128 }
-'.minimum-primary-col-w-36': { minimumPrimaryColumnWidth: 144 }
-'.minimum-primary-col-w-40': { minimumPrimaryColumnWidth: 160 }
-'.minimum-primary-col-w-44': { minimumPrimaryColumnWidth: 176 }
-'.minimum-primary-col-w-48': { minimumPrimaryColumnWidth: 192 }
-'.minimum-primary-col-w-52': { minimumPrimaryColumnWidth: 208 }
-'.minimum-primary-col-w-56': { minimumPrimaryColumnWidth: 224 }
-'.minimum-primary-col-w-60': { minimumPrimaryColumnWidth: 240 }
-'.minimum-primary-col-w-64': { minimumPrimaryColumnWidth: 256 }
-'.minimum-primary-col-w-72': { minimumPrimaryColumnWidth: 288 }
-'.minimum-primary-col-w-80': { minimumPrimaryColumnWidth: 320 }
-'.minimum-primary-col-w-96': { minimumPrimaryColumnWidth: 384 }
-'.minimum-primary-col-w-auto': { minimumPrimaryColumnWidth: Ti.UI.SIZE }
-'.minimum-primary-col-w-px': { minimumPrimaryColumnWidth: '1px' }
-'.minimum-primary-col-w-0.5': { minimumPrimaryColumnWidth: 2 }
-'.minimum-primary-col-w-1.5': { minimumPrimaryColumnWidth: 6 }
-'.minimum-primary-col-w-2.5': { minimumPrimaryColumnWidth: 10 }
-'.minimum-primary-col-w-3.5': { minimumPrimaryColumnWidth: 14 }
-'.minimum-primary-col-w-1/2': { minimumPrimaryColumnWidth: '50%' }
-'.minimum-primary-col-w-1/3': { minimumPrimaryColumnWidth: '33.333334%' }
-'.minimum-primary-col-w-2/3': { minimumPrimaryColumnWidth: '66.666667%' }
-'.minimum-primary-col-w-1/4': { minimumPrimaryColumnWidth: '25%' }
-'.minimum-primary-col-w-2/4': { minimumPrimaryColumnWidth: '50%' }
-'.minimum-primary-col-w-3/4': { minimumPrimaryColumnWidth: '75%' }
-'.minimum-primary-col-w-1/5': { minimumPrimaryColumnWidth: '20%' }
-'.minimum-primary-col-w-2/5': { minimumPrimaryColumnWidth: '40%' }
-'.minimum-primary-col-w-3/5': { minimumPrimaryColumnWidth: '60%' }
-'.minimum-primary-col-w-4/5': { minimumPrimaryColumnWidth: '80%' }
-'.minimum-primary-col-w-1/6': { minimumPrimaryColumnWidth: '16.666667%' }
-'.minimum-primary-col-w-2/6': { minimumPrimaryColumnWidth: '33.333334%' }
-'.minimum-primary-col-w-3/6': { minimumPrimaryColumnWidth: '50%' }
-'.minimum-primary-col-w-4/6': { minimumPrimaryColumnWidth: '66.666667%' }
-'.minimum-primary-col-w-5/6': { minimumPrimaryColumnWidth: '83.333334%' }
-'.minimum-primary-col-w-1/12': { minimumPrimaryColumnWidth: '8.333334%' }
-'.minimum-primary-col-w-2/12': { minimumPrimaryColumnWidth: '16.666667%' }
-'.minimum-primary-col-w-3/12': { minimumPrimaryColumnWidth: '25%' }
-'.minimum-primary-col-w-4/12': { minimumPrimaryColumnWidth: '33.333334%' }
-'.minimum-primary-col-w-5/12': { minimumPrimaryColumnWidth: '41.666667%' }
-'.minimum-primary-col-w-6/12': { minimumPrimaryColumnWidth: '50%' }
-'.minimum-primary-col-w-7/12': { minimumPrimaryColumnWidth: '58.333334%' }
-'.minimum-primary-col-w-8/12': { minimumPrimaryColumnWidth: '66.666667%' }
-'.minimum-primary-col-w-9/12': { minimumPrimaryColumnWidth: '75%' }
-'.minimum-primary-col-w-10/12': { minimumPrimaryColumnWidth: '83.333334%' }
-'.minimum-primary-col-w-11/12': { minimumPrimaryColumnWidth: '91.666667%' }
-'.minimum-primary-col-w-full': { minimumPrimaryColumnWidth: '100%' }
-'.minimum-primary-col-w-screen': { minimumPrimaryColumnWidth: Ti.UI.FILL }
+'.minimum-primary-col-w-0[platform=ios]': { minimumPrimaryColumnWidth: 0 }
+'.minimum-primary-col-w-1[platform=ios]': { minimumPrimaryColumnWidth: 4 }
+'.minimum-primary-col-w-2[platform=ios]': { minimumPrimaryColumnWidth: 8 }
+'.minimum-primary-col-w-3[platform=ios]': { minimumPrimaryColumnWidth: 12 }
+'.minimum-primary-col-w-4[platform=ios]': { minimumPrimaryColumnWidth: 16 }
+'.minimum-primary-col-w-5[platform=ios]': { minimumPrimaryColumnWidth: 20 }
+'.minimum-primary-col-w-6[platform=ios]': { minimumPrimaryColumnWidth: 24 }
+'.minimum-primary-col-w-7[platform=ios]': { minimumPrimaryColumnWidth: 28 }
+'.minimum-primary-col-w-8[platform=ios]': { minimumPrimaryColumnWidth: 32 }
+'.minimum-primary-col-w-9[platform=ios]': { minimumPrimaryColumnWidth: 36 }
+'.minimum-primary-col-w-10[platform=ios]': { minimumPrimaryColumnWidth: 40 }
+'.minimum-primary-col-w-11[platform=ios]': { minimumPrimaryColumnWidth: 44 }
+'.minimum-primary-col-w-12[platform=ios]': { minimumPrimaryColumnWidth: 48 }
+'.minimum-primary-col-w-14[platform=ios]': { minimumPrimaryColumnWidth: 56 }
+'.minimum-primary-col-w-16[platform=ios]': { minimumPrimaryColumnWidth: 64 }
+'.minimum-primary-col-w-20[platform=ios]': { minimumPrimaryColumnWidth: 80 }
+'.minimum-primary-col-w-24[platform=ios]': { minimumPrimaryColumnWidth: 96 }
+'.minimum-primary-col-w-28[platform=ios]': { minimumPrimaryColumnWidth: 112 }
+'.minimum-primary-col-w-32[platform=ios]': { minimumPrimaryColumnWidth: 128 }
+'.minimum-primary-col-w-36[platform=ios]': { minimumPrimaryColumnWidth: 144 }
+'.minimum-primary-col-w-40[platform=ios]': { minimumPrimaryColumnWidth: 160 }
+'.minimum-primary-col-w-44[platform=ios]': { minimumPrimaryColumnWidth: 176 }
+'.minimum-primary-col-w-48[platform=ios]': { minimumPrimaryColumnWidth: 192 }
+'.minimum-primary-col-w-52[platform=ios]': { minimumPrimaryColumnWidth: 208 }
+'.minimum-primary-col-w-56[platform=ios]': { minimumPrimaryColumnWidth: 224 }
+'.minimum-primary-col-w-60[platform=ios]': { minimumPrimaryColumnWidth: 240 }
+'.minimum-primary-col-w-64[platform=ios]': { minimumPrimaryColumnWidth: 256 }
+'.minimum-primary-col-w-72[platform=ios]': { minimumPrimaryColumnWidth: 288 }
+'.minimum-primary-col-w-80[platform=ios]': { minimumPrimaryColumnWidth: 320 }
+'.minimum-primary-col-w-96[platform=ios]': { minimumPrimaryColumnWidth: 384 }
+'.minimum-primary-col-w-0.5[platform=ios]': { minimumPrimaryColumnWidth: 2 }
+'.minimum-primary-col-w-1.5[platform=ios]': { minimumPrimaryColumnWidth: 6 }
+'.minimum-primary-col-w-2.5[platform=ios]': { minimumPrimaryColumnWidth: 10 }
+'.minimum-primary-col-w-3.5[platform=ios]': { minimumPrimaryColumnWidth: 14 }
 
 // Property: maximumPrimaryColumnWidth
 // Description: The maximum width of the master view in points.
 // Component(s): Ti.UI.iOS.SplitWindow
-'.maximum-primary-col-w-0': { maximumPrimaryColumnWidth: 0 }
-'.maximum-primary-col-w-1': { maximumPrimaryColumnWidth: 4 }
-'.maximum-primary-col-w-2': { maximumPrimaryColumnWidth: 8 }
-'.maximum-primary-col-w-3': { maximumPrimaryColumnWidth: 12 }
-'.maximum-primary-col-w-4': { maximumPrimaryColumnWidth: 16 }
-'.maximum-primary-col-w-5': { maximumPrimaryColumnWidth: 20 }
-'.maximum-primary-col-w-6': { maximumPrimaryColumnWidth: 24 }
-'.maximum-primary-col-w-7': { maximumPrimaryColumnWidth: 28 }
-'.maximum-primary-col-w-8': { maximumPrimaryColumnWidth: 32 }
-'.maximum-primary-col-w-9': { maximumPrimaryColumnWidth: 36 }
-'.maximum-primary-col-w-10': { maximumPrimaryColumnWidth: 40 }
-'.maximum-primary-col-w-11': { maximumPrimaryColumnWidth: 44 }
-'.maximum-primary-col-w-12': { maximumPrimaryColumnWidth: 48 }
-'.maximum-primary-col-w-14': { maximumPrimaryColumnWidth: 56 }
-'.maximum-primary-col-w-16': { maximumPrimaryColumnWidth: 64 }
-'.maximum-primary-col-w-20': { maximumPrimaryColumnWidth: 80 }
-'.maximum-primary-col-w-24': { maximumPrimaryColumnWidth: 96 }
-'.maximum-primary-col-w-28': { maximumPrimaryColumnWidth: 112 }
-'.maximum-primary-col-w-32': { maximumPrimaryColumnWidth: 128 }
-'.maximum-primary-col-w-36': { maximumPrimaryColumnWidth: 144 }
-'.maximum-primary-col-w-40': { maximumPrimaryColumnWidth: 160 }
-'.maximum-primary-col-w-44': { maximumPrimaryColumnWidth: 176 }
-'.maximum-primary-col-w-48': { maximumPrimaryColumnWidth: 192 }
-'.maximum-primary-col-w-52': { maximumPrimaryColumnWidth: 208 }
-'.maximum-primary-col-w-56': { maximumPrimaryColumnWidth: 224 }
-'.maximum-primary-col-w-60': { maximumPrimaryColumnWidth: 240 }
-'.maximum-primary-col-w-64': { maximumPrimaryColumnWidth: 256 }
-'.maximum-primary-col-w-72': { maximumPrimaryColumnWidth: 288 }
-'.maximum-primary-col-w-80': { maximumPrimaryColumnWidth: 320 }
-'.maximum-primary-col-w-96': { maximumPrimaryColumnWidth: 384 }
-'.maximum-primary-col-w-auto': { maximumPrimaryColumnWidth: Ti.UI.SIZE }
-'.maximum-primary-col-w-px': { maximumPrimaryColumnWidth: '1px' }
-'.maximum-primary-col-w-0.5': { maximumPrimaryColumnWidth: 2 }
-'.maximum-primary-col-w-1.5': { maximumPrimaryColumnWidth: 6 }
-'.maximum-primary-col-w-2.5': { maximumPrimaryColumnWidth: 10 }
-'.maximum-primary-col-w-3.5': { maximumPrimaryColumnWidth: 14 }
-'.maximum-primary-col-w-1/2': { maximumPrimaryColumnWidth: '50%' }
-'.maximum-primary-col-w-1/3': { maximumPrimaryColumnWidth: '33.333334%' }
-'.maximum-primary-col-w-2/3': { maximumPrimaryColumnWidth: '66.666667%' }
-'.maximum-primary-col-w-1/4': { maximumPrimaryColumnWidth: '25%' }
-'.maximum-primary-col-w-2/4': { maximumPrimaryColumnWidth: '50%' }
-'.maximum-primary-col-w-3/4': { maximumPrimaryColumnWidth: '75%' }
-'.maximum-primary-col-w-1/5': { maximumPrimaryColumnWidth: '20%' }
-'.maximum-primary-col-w-2/5': { maximumPrimaryColumnWidth: '40%' }
-'.maximum-primary-col-w-3/5': { maximumPrimaryColumnWidth: '60%' }
-'.maximum-primary-col-w-4/5': { maximumPrimaryColumnWidth: '80%' }
-'.maximum-primary-col-w-1/6': { maximumPrimaryColumnWidth: '16.666667%' }
-'.maximum-primary-col-w-2/6': { maximumPrimaryColumnWidth: '33.333334%' }
-'.maximum-primary-col-w-3/6': { maximumPrimaryColumnWidth: '50%' }
-'.maximum-primary-col-w-4/6': { maximumPrimaryColumnWidth: '66.666667%' }
-'.maximum-primary-col-w-5/6': { maximumPrimaryColumnWidth: '83.333334%' }
-'.maximum-primary-col-w-1/12': { maximumPrimaryColumnWidth: '8.333334%' }
-'.maximum-primary-col-w-2/12': { maximumPrimaryColumnWidth: '16.666667%' }
-'.maximum-primary-col-w-3/12': { maximumPrimaryColumnWidth: '25%' }
-'.maximum-primary-col-w-4/12': { maximumPrimaryColumnWidth: '33.333334%' }
-'.maximum-primary-col-w-5/12': { maximumPrimaryColumnWidth: '41.666667%' }
-'.maximum-primary-col-w-6/12': { maximumPrimaryColumnWidth: '50%' }
-'.maximum-primary-col-w-7/12': { maximumPrimaryColumnWidth: '58.333334%' }
-'.maximum-primary-col-w-8/12': { maximumPrimaryColumnWidth: '66.666667%' }
-'.maximum-primary-col-w-9/12': { maximumPrimaryColumnWidth: '75%' }
-'.maximum-primary-col-w-10/12': { maximumPrimaryColumnWidth: '83.333334%' }
-'.maximum-primary-col-w-11/12': { maximumPrimaryColumnWidth: '91.666667%' }
-'.maximum-primary-col-w-full': { maximumPrimaryColumnWidth: '100%' }
-'.maximum-primary-col-w-screen': { maximumPrimaryColumnWidth: Ti.UI.FILL }
+'.maximum-primary-col-w-0[platform=ios]': { maximumPrimaryColumnWidth: 0 }
+'.maximum-primary-col-w-1[platform=ios]': { maximumPrimaryColumnWidth: 4 }
+'.maximum-primary-col-w-2[platform=ios]': { maximumPrimaryColumnWidth: 8 }
+'.maximum-primary-col-w-3[platform=ios]': { maximumPrimaryColumnWidth: 12 }
+'.maximum-primary-col-w-4[platform=ios]': { maximumPrimaryColumnWidth: 16 }
+'.maximum-primary-col-w-5[platform=ios]': { maximumPrimaryColumnWidth: 20 }
+'.maximum-primary-col-w-6[platform=ios]': { maximumPrimaryColumnWidth: 24 }
+'.maximum-primary-col-w-7[platform=ios]': { maximumPrimaryColumnWidth: 28 }
+'.maximum-primary-col-w-8[platform=ios]': { maximumPrimaryColumnWidth: 32 }
+'.maximum-primary-col-w-9[platform=ios]': { maximumPrimaryColumnWidth: 36 }
+'.maximum-primary-col-w-10[platform=ios]': { maximumPrimaryColumnWidth: 40 }
+'.maximum-primary-col-w-11[platform=ios]': { maximumPrimaryColumnWidth: 44 }
+'.maximum-primary-col-w-12[platform=ios]': { maximumPrimaryColumnWidth: 48 }
+'.maximum-primary-col-w-14[platform=ios]': { maximumPrimaryColumnWidth: 56 }
+'.maximum-primary-col-w-16[platform=ios]': { maximumPrimaryColumnWidth: 64 }
+'.maximum-primary-col-w-20[platform=ios]': { maximumPrimaryColumnWidth: 80 }
+'.maximum-primary-col-w-24[platform=ios]': { maximumPrimaryColumnWidth: 96 }
+'.maximum-primary-col-w-28[platform=ios]': { maximumPrimaryColumnWidth: 112 }
+'.maximum-primary-col-w-32[platform=ios]': { maximumPrimaryColumnWidth: 128 }
+'.maximum-primary-col-w-36[platform=ios]': { maximumPrimaryColumnWidth: 144 }
+'.maximum-primary-col-w-40[platform=ios]': { maximumPrimaryColumnWidth: 160 }
+'.maximum-primary-col-w-44[platform=ios]': { maximumPrimaryColumnWidth: 176 }
+'.maximum-primary-col-w-48[platform=ios]': { maximumPrimaryColumnWidth: 192 }
+'.maximum-primary-col-w-52[platform=ios]': { maximumPrimaryColumnWidth: 208 }
+'.maximum-primary-col-w-56[platform=ios]': { maximumPrimaryColumnWidth: 224 }
+'.maximum-primary-col-w-60[platform=ios]': { maximumPrimaryColumnWidth: 240 }
+'.maximum-primary-col-w-64[platform=ios]': { maximumPrimaryColumnWidth: 256 }
+'.maximum-primary-col-w-72[platform=ios]': { maximumPrimaryColumnWidth: 288 }
+'.maximum-primary-col-w-80[platform=ios]': { maximumPrimaryColumnWidth: 320 }
+'.maximum-primary-col-w-96[platform=ios]': { maximumPrimaryColumnWidth: 384 }
+'.maximum-primary-col-w-0.5[platform=ios]': { maximumPrimaryColumnWidth: 2 }
+'.maximum-primary-col-w-1.5[platform=ios]': { maximumPrimaryColumnWidth: 6 }
+'.maximum-primary-col-w-2.5[platform=ios]': { maximumPrimaryColumnWidth: 10 }
+'.maximum-primary-col-w-3.5[platform=ios]': { maximumPrimaryColumnWidth: 14 }
 
 // Property: showMasterInPortrait
 // Description: Determines whether to show the master view in portrait orientation. Deprecated since 14.0.0. The layout is owned by the system and this property has no effect. Use Titanium.UI.iOS.SplitWindow.displayMode with Titanium.UI.iOS.SPLIT_WINDOW_DISPLAY_MODE_ONE_BESIDE_SECONDARY to always show the master view.
@@ -26202,12 +25672,6 @@
 // Component(s): WebViewPreferencesObject
 '.java-script-can-open-windows-automatically': { javaScriptCanOpenWindowsAutomatically: true }
 '.java-script-can-open-windows-automatically-false': { javaScriptCanOpenWindowsAutomatically: false }
-
-// Property: forceTouchSupported
-// Description: Determines if the 3D-Touch capability &quot;Force Touch&quot; is supported (true) or not (false) by the device.
-// Component(s): Ti.UI.iOS
-'.force-touch-supported': { forceTouchSupported: true }
-'.force-touch-supported-false': { forceTouchSupported: false }
 
 // Property: appSupportsShakeToEdit
 // Description: Determines whether the shake to edit system-wide capability is enabled.
