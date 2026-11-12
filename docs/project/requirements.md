@@ -48,6 +48,13 @@ Source: `README.md`, `CHANGELOG.md`, CLI help, tests, and the official documenta
 | R15 | Resolve Pro/Beta font identities from installed TTF PostScript metadata, omit absent optional faces and generate the module through either supported Pro installation path. | Pro/Beta contract fixtures cover both layouts, optional faces and invalid metadata. Device rendering with genuine Pro/Beta fonts is a separate check. |
 | R16 | Derive TSS/JavaScript header versions from installed packages for Free/Framework7 and per-variant font metadata for Material Icons/Symbols, without fixed Material update dates. | Header contracts change package/font versions in isolated fixtures, preserve glyph/class/export data and reject missing metadata. Material `.codepoints` and fonts remain manually paired inputs; automated Pro/Beta header versions are outside this contract. |
 
+## Icon resolution and custom font CSS
+
+| # | Must do | Accepted when |
+| --- | --- | --- |
+| R17 | Resolve icon selectors consistently in direct purging and `apply`, with `fonts.tss` before project Font Awesome Pro/Beta before bundled catalogs. Retain per-class fallback and avoid duplicate overridden selectors; comments cannot disable a catalog. | The font-source-priority regression covers collisions, partial catalogs, comments, bundled families, small/indexed selections, modifiers, platform-specific apply targets and real CLI assembly. Catalog edits are visible on the next invocation. |
+| R18 | Parse modern literal `--fa` and legacy `content` in custom font CSS while preserving aliases, custom filename prefixes and supplementary Unicode in Alloy TSS and Classic modules. | The build-fonts-css regression covers declaration order, quoted literals, nonliteral references, aliases, supplementary Unicode and real Font Awesome 7 CSS. Classic generation does not create an Alloy app tree. |
+
 ## Invariants
 
 - `brand.background` is inherited only by pieces that use an opaque canvas; piece padding is never globally inherited.

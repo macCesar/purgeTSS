@@ -2,6 +2,14 @@
 
 Append-only. Most recent entries first.
 
+## 2026-11-11 — Resolve icon priority per selector and parse literal modern CSS glyphs
+
+**Chose:** share the ordered catalog sources between direct purging and `apply`: custom `fonts.tss`, project Font Awesome Pro/Beta, then bundled catalogs. Suppress only selectors supplied by a higher-priority source, retain fallback for missing selectors and cache catalog contents only within each purge. Remove the Font Awesome comment substring gate.
+**Because:** a partial custom catalog or a comment must not disable unrelated bundled classes; class collisions need consistent resolution without duplicate output. Glyph definitions do not implicitly supply font-family aliases.
+
+**Chose:** read literal `--fa` and legacy `content` declarations regardless of order, preserve simple selector aliases and filename prefixes, and emit surrogate escapes for supplementary Unicode. Keep the existing family-metadata/filename behavior and use the same parser for Alloy and Classic.
+**Because:** Font Awesome 7 CSS stores glyphs in custom properties; treating `var(--fa)` as a glyph or truncating codepoints loses valid output. Existing legacy CSS remains supported.
+
 ## 2026-11-11 — Commit the correction groups without pushing
 
 **Chose:** create semantic commits for the accumulated corrections and session documents after César clarified that his restriction meant no push, not no commits. Align the two lockfile version fields with the existing 7.20.1 package version before regenerating the module; preserve dependency resolutions.

@@ -1,3 +1,32 @@
+# Icon class priority and custom CSS corrections — 2026-11-11
+
+**Phase:** the three follow-up fixes are committed for 7.20.1; CLI/npm publication remains pending. **Branch:** `main`; closure base: `6f67b62`. César requested semantic commits and session updates; the no-push instruction remains in effect.
+
+Completed the three typography follow-ups explicitly authorized by César: per-selector priority, removal of Font Awesome comment suppression, and modern custom CSS parsing. For direct purging, `fonts.tss` takes precedence over project `fontawesome.tss`, then bundled catalogs; missing selectors fall through and overridden selectors are not emitted again. `apply` now uses the same ordered project-plus-bundled source list, retaining Free fallback even when the project Font Awesome catalog exists. Catalog content/selector sets are cached within a purge, not across invocations. Font-family classes remain separate from glyphs; custom Pro glyphs do not automatically create a `fas` family alias.
+
+`build-fonts` now reads literal `--fa` and legacy `content` declarations regardless of order, processes all simple class aliases in a selector group, ignores nonliteral `var(--fa)` references and preserves supplementary Unicode through surrogate escapes in TSS and CommonJS. Filename-derived prefixes and normal text-font handling are retained. Both Alloy and Classic were exercised with the actual installed Free 7.3.1 CSS and bundled font fixtures. No genuine Pro rendering or device glyph verification is claimed.
+
+Verification: both new regression scripts failed before implementation and pass after it. `font-source-priority.test.js` covers local/project/bundled collisions, partial-catalog fallback, Font Awesome comments, four bundled families, small/indexed selections, platform/device modifiers, platform-specific apply targets, and actual CLI app.tss assembly. `build-fonts-css.test.js` covers modern/legacy/single-quoted CSS, aliases, declaration order, supplementary Unicode, filename prefixes, actual FA7 catalog output and Classic module generation without creating an Alloy app tree. Existing icon-index, apply-index and generated-file-messages tests pass. Focused ESLint and diff checks pass. No whole CLI suite or unrelated distribution rebuild was needed.
+
+README/CHANGELOG and official custom-font/apply guides document the behavior, preserving examples and the warning about collisions within user-supplied prefixes. The three previously pending review findings are resolved by this change. CLI version stays 7.20.1. Before this closure the changes were uncommitted; the following records supersede that state.
+
+## Semantic commits and closure
+
+- `2893587` — per-selector icon source priority, fallback and removal of comment-based catalog suppression, with the shared catalog helper and regression coverage.
+- `571b885` — modern/legacy font CSS parsing, aliases and supplementary Unicode, with its Alloy/Classic regression script.
+- `b0c8b61` — README/CHANGELOG explanations of priority and custom CSS behavior.
+- The following `docs(project)` commit records this closure and the stable context, decisions and requirements R17–R18.
+
+Closure reviewed the actual diff, helper and source changes against the recorded behavior. `git diff --check` and staged diff checks passed. The successful focused tests, related regressions, lint and real CLI/FA 7.3.1 checks above are implementation evidence reported by César and retained from the implementation notes; they were not repeated solely to create commits. No unrelated distribution rebuild was needed.
+
+The sibling `../purgetss-docs/project/status.md` confirms the official guides and mirrors were updated, the site build/docs check passed, rsync deployment exited 0 and the three affected live routes matched the build. Those are prior deployment results, not a new deployment or live verification in this closure. Existing save/upload workflow applies. No push, tag, npm publication or global installation was performed here.
+
+Next: continue any further 7.20.1 adjustments or begin a separately authorized release. The three typography findings are resolved; incompatible dependency work and the fixed Pro/Beta header version remain separate. Prior records below describe their own point in time, including then-pending findings and uncommitted states.
+
+Earlier records follow.
+
+---
+
 # Current session — 2026-11-11
 
 **Phase:** accumulated corrections committed after the 7.20.0 release, preparing 7.20.1; further adjustments may follow. **Branch:** `main`; closure base: `4153caa`.
