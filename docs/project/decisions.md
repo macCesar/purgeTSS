@@ -2,6 +2,19 @@
 
 Append-only. Most recent entries first.
 
+## 2026-11-11 — Commit the correction groups without pushing
+
+**Chose:** create semantic commits for the accumulated corrections and session documents after César clarified that his restriction meant no push, not no commits. Align the two lockfile version fields with the existing 7.20.1 package version before regenerating the module; preserve dependency resolutions.
+**Because:** the requested outcome is a reviewable local Git history while further adjustments can continue. This clarification does not authorize push, tags or npm publication. Keep prior targeted validation evidence and use scoped closure checks rather than repeating the full suite solely for commits.
+
+## 2026-11-11 — Correct permissions at the extractor and derive font identity from metadata
+
+**Chose:** refresh the generated Completions through the corrected v3 extractor and filter `readOnly: true` in the utility generator. Preserve descriptions and other input fields. Keep names shared with a writable SDK type eligible rather than applying a new list of read-only property names.
+**Because:** the earlier permission flags were incorrect and produced classes for properties that cannot be assigned. Removing those classes is the intended correction; the global name-level representation still requires checking the owner when permissions differ by type.
+
+**Chose:** use internal font PostScript names for Free/Pro/Beta families, module aliases and copied filenames. Validate manually supplied Free desktop fonts against the installed npm version; retain byte copies with `.ttf` filenames. Derive Free/Framework7 headers from installed packages and Material headers from each bundled font's version metadata, in TSS and JavaScript.
+**Because:** package majors and source filenames are not reliable font-family identities. Google codepoint lists have no package release version and remain manually maintained together with their fonts. Pro/Beta header automation is not part of these completed changes; their fixed 7 remains documented.
+
 ## 2026-11-11 — Release SDK 14 Completions as v7.20.0
 
 **Chose:** retain the 7.20.0 minor bump already made by César for new utility-property support, update release documentation, align the unpublished local tag with the final release notes and publish through the existing npm workflow. Launch the Docusaurus content and push its Context7 mirror under the same request, without changing the site's separate 1.1.14 version.

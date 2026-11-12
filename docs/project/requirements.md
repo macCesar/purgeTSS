@@ -39,6 +39,15 @@ Source: `README.md`, `CHANGELOG.md`, CLI help, tests, and the official documenta
 | R11 | Reject unknown keys in the `images:` section of `purgetss/config.cjs`, at the top level and inside each `files[]` entry, instead of ignoring them. | An unknown key aborts the run before anything is written, every problem is listed in one pass with the offending entry index, and the error names the valid keys. |
 | R12 | State in the generated config block where the output sizes come from, so the 4× master convention is readable without `--help`. | Every shipped copy of the block carries the convention with worked numbers, and a test proves the copies are identical and validate against the same whitelist. |
 
+## Generated Completions and bundled icon fonts
+
+| # | Must do | Accepted when |
+| --- | --- | --- |
+| R13 | Generate Completions permissions through the corrected v3 extractor and exclude properties marked `readOnly: true` from utilities and the glossary. Preserve descriptions and other fields; keep names writable on at least one owning SDK type eligible. | Read-only/writable/mixed-name regression probes pass, generated read-only assignments are absent, and the input was regenerated rather than hand-edited. Removing invalid read-only classes is expected. |
+| R14 | Resolve Font Awesome Free families, module aliases and copied filenames from manually supplied Solid/Regular/Brands font metadata; validate the faces against the installed npm version before replacing Free outputs. | The isolated Free contract covers generation, Alloy/Classic copying, version mismatch, missing/duplicate faces and obsolete generated filenames. OTF bytes retain the existing `.ttf` copy convention. |
+| R15 | Resolve Pro/Beta font identities from installed TTF PostScript metadata, omit absent optional faces and generate the module through either supported Pro installation path. | Pro/Beta contract fixtures cover both layouts, optional faces and invalid metadata. Device rendering with genuine Pro/Beta fonts is a separate check. |
+| R16 | Derive TSS/JavaScript header versions from installed packages for Free/Framework7 and per-variant font metadata for Material Icons/Symbols, without fixed Material update dates. | Header contracts change package/font versions in isolated fixtures, preserve glyph/class/export data and reject missing metadata. Material `.codepoints` and fonts remain manually paired inputs; automated Pro/Beta header versions are outside this contract. |
+
 ## Invariants
 
 - `brand.background` is inherited only by pieces that use an opaque canvas; piece padding is never globally inherited.

@@ -43,7 +43,14 @@ Branding behavior is data-driven from `src/core/branding/pieces.js`. Project lay
 - `dist/utilities.tss` comes from `src/core/builders/auto-utilities-builder.js`: Titanium properties from `lib/completions/titanium/completions-v3.json`, plus the helpers that builder calls by name. Most helpers in `src/shared/helpers/` (for example `keyboardType()` in `input.js`) are reached only through `helperToBuildTailwindClasses()`, which nothing calls, so editing them changes no output. Check the `dist/` diff after `npm run build:tailwind`.
 - `npm run build:tailwind` (also included in `npm run build`) generates `dist/glossary/` alongside `dist/utilities.tss`. The glossary is ignored by Git in this repo. In the sibling documentation repository, `npm run clean:md` imports it into `glossary/` before converting handwritten docs/pages for the mirrors. The generated root/category indexes contain Docusaurus metadata and unit admonitions; the site import preserves them.
 - The completions data is not authoritative: it listed `KEYBOARD_APPEARANCE_*` under `keyboardType`. Verify generated values against the Titanium API before trusting them.
+- Refresh `lib/completions/titanium/completions-v3.json` through the corrected v3 Completions extractor, never through manual permission edits. The corrected `readOnly: true` means the name is read-only across its owning types; names writable on at least one type remain eligible. Utility generation filters these flags. Verify the owning SDK type for mixed names.
 - Alloy keeps only the last `[...]` of a TSS selector. Combined conditions go in one bracket: `[platform=ios formFactor=tablet]`.
+
+## Icon font metadata and maintenance
+
+`src/dev/utils/fontawesome-fonts.js` centralizes Font Awesome PostScript families and copied filenames. Free reads the manually installed Solid/Regular/Brands OTFs in `src/fonts/`, validates all three against the installed npm version and retains the historical `.ttf` copy extension without converting bytes. Regenerate with `build:fa`, `build:fa-js` and `build:fonts`; obsolete generated Free filenames are removed by the font-folder builder. Pro/Beta read installed TTF names, omit absent optional faces and support the alternate Pro installation path. Their header templates still have a fixed version 7.
+
+Free header versions come from the installed `@fortawesome/fontawesome-free` package. `src/dev/utils/icon-font-headers.js` renders Framework7 versions from its installed npm package and Material Icons/Symbols versions from each bundled font variant. `GeneratorInputs.fontVersion()` caches parsed metadata only within an invocation. Google classes still originate in `.codepoints`; update those files and the corresponding desktop fonts together manually. Font header metadata does not validate codepoint/font correspondence. The README contributor sections describe these workflows in detail.
 
 ## Provenance
 

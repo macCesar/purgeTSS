@@ -1,3 +1,91 @@
+# Current session — 2026-11-11
+
+**Phase:** accumulated corrections committed after the 7.20.0 release, preparing 7.20.1; further adjustments may follow. **Branch:** `main`; closure base: `4153caa`.
+**Instruction:** César clarified that he meant **do not push**, and explicitly requested semantic commits plus updated session documents. This supersedes the earlier no-commits interpretation. Commit the accumulated corrections and these notes; no push, tag or publication is authorized by this closure.
+
+## Accumulated corrections
+
+- **Correct Completions permissions and remove invalid utilities:** the v3 extractor was corrected to generate the `readOnly` indicators in `lib/completions/titanium/completions-v3.json` correctly, then the generated input was refreshed through that extractor, not by hand-editing JSON. PurgeTSS now excludes properties marked `readOnly: true`. The previous session evidence records 2,865 corrected flags across 2,905 entries, preserving descriptions and other fields. Names shared with a writable SDK type remain eligible; this global flag is not a per-owner permission guarantee. César explicitly reaffirmed that removing classes for read-only properties is an intended correction, not lost supported functionality.
+- **Generated catalog:** the earlier measured comparison against published 7.20.0 is 23,805 → 23,449 classes: 261 read-only classes and 95 invalid numeric variants removed, with no new class names. The generated glossary removed 45 property pages. These figures and the sibling-site checks below are prior-session evidence, not newly rerun measurements in this documentation pass.
+- **SDK 14 values:** SplitWindow fractions are numeric ratios from 0 to 1; minimum/maximum widths are numeric points, with iOS conditions. Invalid custom values fail before replacing utilities. Inverted negatives such as `top-(-10)` are rejected by the formatter as well as the validator; `-top-(10)` remains supported.
+- **Font Awesome Free:** Solid, Regular and Brands desktop OTFs are still supplied manually in `src/fonts/`. Internal PostScript metadata supplies families, JavaScript aliases and copied filenames. Builders validate the fonts against the installed npm package version and reject mismatches, missing faces or duplicate faces. Obsolete generated Free filenames are removed when families change. Copies keep the `.ttf` extension without converting the OTF bytes.
+- **Font Awesome Pro/Beta:** TSS, JavaScript families/aliases and copied filenames use the installed TTF PostScript names; missing optional faces are omitted and the alternate Pro installation path generates JavaScript too. Their TSS/JavaScript header templates still contain a fixed **7**; metadata-driven family names do not imply automated Pro/Beta header versions.
+- **Other icon headers:** Free uses the installed Font Awesome npm version validated against the OTFs; Framework7 uses its installed npm package version. Material Icons and Material Symbols use each bundled font variant's version metadata in both TSS and JavaScript, with fixed update dates removed. Material classes still come from manually maintained `.codepoints`, which must be updated together with the corresponding fonts; a header does not establish that they match.
+
+## Verification and next step
+
+This pass inspected Git status/diffs, the metadata helpers, active generator changes and header templates, plus the four project documents. Earlier targeted test/build/lint results remain recorded below as historical evidence; no runtime tests or builds were repeated for this documentation-only update. Existing source, generated outputs, tests, README and CHANGELOG changes were already present on arrival and were preserved.
+
+**Semantic-commit closure:** after César clarified the no-push instruction, the accumulated changes were committed by responsibility:
+
+- `4ddda43` — filter read-only SDK properties, correct SplitWindow values and regenerate utilities.
+- `7012925` — reject inverted negative arbitrary values.
+- `6041508` — derive Font Awesome families, aliases and copied filenames from font metadata, with Free validation and Pro/Beta support.
+- `9c05c48` — generate icon headers from installed package and bundled font versions.
+- `1cd3840` — align the existing 7.20.1 package version, lockfile and generated module header.
+- `ba0400a` — document generator corrections and icon font maintenance in README/CHANGELOG.
+
+The following `docs(project)` closure commit records these four session documents. Fresh closure checks: `git diff --check` and staged diff checks passed; a structural JSON comparison confirmed exactly 2,865 `readOnly` changes and no other Completions data changes. Manifest/module versions agree at 7.20.1 and lockfile dependency resolutions are unchanged. `npm run build:module` succeeded after manifest alignment and reported byte-identical generated output. Prior successful targeted tests were not repeated solely to create commits, following the repository's proportional-validation rule. No push, tag or npm publication was performed.
+
+The earlier documentation pass found `package.json` and the generated module header at **7.20.1**, with both lockfile version entries still at **7.20.0**. During semantic-commit closure, both lock entries were aligned to the existing **7.20.1** package version before regenerating `dist/purgetss.ui.js` through `build:module`. Dependency resolutions remain unchanged. Existing save/upload workflow applies; this pass did not independently verify file transfer or server runtime, and automatic upload is separate from npm publication.
+
+Next: César continues the remaining adjustments from the semantic commits. Keep them unpushed. The earlier font precedence, Font Awesome substring suppression, modern CSS parsing and incompatible dependency findings below remain separate follow-up work. No external blocker was identified for this closure. Prior release and implementation records follow; their version, count and authorization statements describe their own point in time, not the current session instruction.
+
+---
+
+# Remaining bundled icon header automation — 2026-11-11
+
+Implemented the requested Framework7, Material Icons and Material Symbols TSS/JS header automation for 7.20.1. Framework7 takes the installed npm package version; both Google libraries report the name-table version of each bundled font variant from `assets/fonts/`. The manually maintained 2023 update dates and fixed Material Icons 4.0.0 header label were replaced by this input metadata. Some Icons variants carry ISO timestamps, not semver; Symbols variants currently report Version 2.637. These values describe the bundled fonts, not an inferred release of the separately maintained codepoint lists. Sources still require manual matching font/codepoint updates. Codepoint and SVG/ligature class generation, reset families, runtime exports and font-copy behavior are preserved.
+
+`GeneratorInputs.fontVersion()` caches parsed font versions within one shared invocation; missing metadata fails rather than guessing. Framework7 rejects missing package version metadata before replacing its generated outputs. New `icon-font-headers.test.js` failed on the old fixed header and now passes after changing package/font versions in a disposable copy, checking both TSS/JS headers, unchanged class/export data and preservation of outputs when package metadata is missing. Existing generator-inputs and icon-module family tests pass; focused ESLint passes. Ran only the six affected builders. Independent comparisons against HEAD confirm the generated classes, glyph catalogs, families and aliases are equal; generated Google changes are header-only, and Framework7 output remains byte-identical with the current package. No full CLI suite, commit, push, tag or CLI publication was performed.
+
+CLI README/CHANGELOG and official icon documentation now explain the version sources and contributor workflow. Earlier review findings about fonts.tss/catalog precedence, the Font Awesome substring suppression and modern CSS parsing in build-fonts remain a separate follow-up; this header work does not resolve those findings.
+
+Earlier notes follow.
+
+---
+
+# Font Awesome Free metadata automation — 2026-11-11
+
+Implemented for the 7.20.1 preparation at César's request. Free now resolves Solid/Regular/Brands PostScript names from the manually supplied desktop fonts in `src/fonts/`, uses them in TSS and JavaScript families/aliases, builds matching distributed filenames, and resolves bundled Free filenames in both copy paths. Header templates use `__FA_VERSION__` filled from the installed `@fortawesome/fontawesome-free/package.json` version. Contributors still download and replace the OTFs manually. Source metadata versions must match the installed npm version; missing/duplicate faces and mismatches fail the affected Free builders before writing their outputs. Old generated Free major-version filenames are removed from `assets/fonts/` after validated copies; other font assets are preserved. OTF bytes retain the existing `.ttf` distribution filename convention without format conversion.
+
+Verification: the new isolated Free contract failed before implementation and now passes five scenarios (metadata-driven generation/headers and Alloy copying, Classic copying, mismatch, missing face, duplicate face). Tests derive fixture versions/names dynamically from the current dependency and fonts. Pro/Beta contract and existing icon-module family test pass. Focused ESLint passes. Ran `build:fa`, `build:fa-js`, `build:fonts`; current TSS and font binaries are identical to HEAD and JS exports, families and full icon catalog are equal (generated family-object formatting/order changes only). No full CLI suite was needed. README/CHANGELOG describe the contributor workflow and preserved manual steps; sibling official docs cover it under 7.20.1. No CLI commit, push, tag or publication was performed here.
+
+Earlier notes follow.
+
+---
+
+# Generic readOnly filter and regenerated input — 2026-11-11
+
+Supersedes the earlier four-name exclusion/unchanged-input status below. Installed VSCode1.5.0 commons generator patched and SDK14 JSON regenerated through it, then imported to lib/completions/titanium/completions-v3.json.2865flagschanged; descriptions and all other fields retained. No manual JSON metadata editing. Backup ~/.titanium/backups/completion-permissions-s9dv9awk retained. No user/notiGAPE language-server config change; workbench generation not observed, direct installed-generator invocation verified.
+
+getPropertiesFromTiCompletionsFile now reads readOnly===true; arbitrary readonly/writable/mixed probe tests pass, replacing the four newly added hardcoded SceneProxy exclusions. SDK14valid ratios/bounds tests, config-invocations, generator-fixes, generator-signature and touched code lint pass. Targeted build generated utilities23449classes/593paths/391prefixes with0readonlyassignments. Published23805→23449 removes261readonlyclasses+95invalidnumericvariants; no class names added. Generated glossary removed45oldpages. Source/site630files now match, after docs importer stale-generated-page fix and3regressions. All45deletednames independently verified read-only in original api.jsca, not inferred from the changed flags.
+
+TiTools indexes and practical guidance refreshed; source & installed Completions data equal despite source formatter changing whitespace. Dependencies/version/lock unchanged; no commit/push/release. Shared evidence TiTools docs/project/purgetss-installed-permissions-2026-11-11.md. Prior source-only records preserved below.
+
+# Unreleased SDK14 and Font Awesome corrections — 2026-11-11
+
+Authorized from the TiTools PurgeTSS audit: fix the identified generator/font issues, leave incompatible dependency work pending, no commits/push/release. Package/lock remain7.20.0. Existing official release record below is historical; these worktree changes have not been published.
+
+Implemented:
+- `src/core/builders/auto-utilities-builder.js`: exclude the four read-only SceneProxy states through the existing exclusion policy; numeric ratio scale includes all fraction suffixes plus0/1/full, SplitWindow bounds contain numeric points only, iOS conditions added. Invalid ratio/bounds overrides fail before replacing utilities. No blanket trust in the legacy inverted global readOnly flag.
+- `src/shared/helpers/utils.js`: inverted negatives return no properties/comment even on direct formatter calls. CLI rejection remains intentional; -top-(10) is supported.
+- New `src/dev/utils/fontawesome-fonts.js` resolves installed TTF PostScript metadata for both font-copy routes, reset TSS and JS family/face exports. Replaced version guesses in Pro/Beta resets and active builders; alternate Pro location now generates JS. Optional faces omitted; invalid font metadata stops generation before output. Built-in Free artifacts unchanged.
+- Generated `dist/utilities.tss` rebuilt using `npm run build:tailwind`; no hand edits. TiTools indexes regenerated from this output:23702unique names,634properties,409prefixes. SDK14 compatibility, migration/version notes and font guidance distinguish these source corrections from published7.20.0.
+
+Completions boundary and origin:
+César corrected an attempted manual metadata edit. All seven readOnly edits were reverted; `git diff --exit-code -- lib/completions/titanium/completions-v3.json` passes. Do not hand-edit or normalize this extension-generated input on SDK updates. The installed SDK14 api.jsca already has permission=read-only for isActive/isForeground/isPrimary/isKey and read-write for three SplitWindow widths. Separate local titanium-editor-commons fix changes the inverted permission comparison and duplicate merge;2865flags corrected across2905entries, all other fields including descriptions identical in isolated SDK generation. No extension patch or completion replacement performed. Its original description PR820 remains untouched remotely; recommend a separate permissions PR. Global metadata cannot express all per-owner permissions for80mixed names. Exact SDK GA YAML pin269fc733a813ea4ef0b27a36b34a63e8a5107aa0.
+
+Validation:
+- Red/green: new sdk14-utilities and fontawesome-family-contract tests failed on original source; strengthened generator-fixes failed on direct inverted negatives. All pass after fixes.
+- Eight focused files pass: SDK14/FontAwesome contracts, generator-fixes, cli/config-invocations, core/generator-inputs, core/generator-signature, integration/classic-command-compatibility and icon-module-families. Six font fixture variants cover Pro/Beta, alternate, Classic, optional faces and invalid metadata using real bundled TTFs; no genuine Pro/Beta/device rendering claim.
+- Eight touched JS/test files ESLint clean, targeted distribution build clean and repeat output unchanged, diff check clean. No full-suite/release testing was needed; shared generation/config and Classic font paths were explicitly checked.
+- npm dry-run203files includes new metadata helper; tests/docs/private notes absent. README and Unreleased changelog updated without removing existing usage. Dependencies/package/lock unchanged by user choice. Review deleted output classes as invalid old read-only/spacing or unsupported values; no unrelated valid generated family removed.
+
+TiTools docs/project/purgetss-source-fixes-2026-11-11.md records the cross-repo evidence and final index/link checks. Existing save/upload workflow applies. No global install, device test, dependency fix, commit, push, tag, PR edit or release.
+
+---
+
 # Status — PurgeTSS 7.20.0
 
 **2026-11-11 · Phase:** v7.20.0 released on GitHub, available on npm as latest, and documented on the deployed Docusaurus site.
