@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Recommend Tailwind Raw Reorder Next (`KevinYouu.tailwind-raw-reorder-next`) and migrate the VS Code class-matching template to `tailwind-raw-reorder-next.classRegex`.
+
+### Fixed
+- Match complete XML attribute names in the VS Code class-sorting configuration so `icon` does not also match `activeIcon` and generate overlapping edits.
+
 ## [7.20.2] - 2026-11-11
 
 ### Fixed
@@ -746,7 +752,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Users receive pre-built fonts and don't need source packages
   - FontAwesome PRO users install it separately in their own projects
 - Recommended VS Code extension for class reordering
-  - Now recommending `KevinYouu.tailwind-raw-reorder-tw4` instead of `Trapfether.tailwind-raw-reorder`
+  - Now recommending `KevinYouu.tailwind-raw-reorder-next` instead of `Trapfether.tailwind-raw-reorder`
   - Trapfether extension has not been updated for Tailwind CSS 4 compatibility
   - New extension works with both TW3 and TW4, and reorders classes in XML views correctly
 

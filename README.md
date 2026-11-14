@@ -396,6 +396,8 @@ Button: {
 
 The official documentation is at [purgetss.com](https://purgetss.com).
 
+For VS Code class sorting, the editor setup recommends [Tailwind Raw Reorder Next](https://marketplace.visualstudio.com/items?itemName=KevinYouu.tailwind-raw-reorder-next). Its settings use the `tailwind-raw-reorder-next.*` prefix; see the [commands guide](https://purgetss.com/docs/commands) for migration details.
+
 ## Maintaining the bundled Font Awesome Free fonts
 
 This workflow is for contributors building PurgeTSS itself, not for Titanium app projects. App projects receive the bundled fonts through `purgetss icon-library --vendor=fa`.
