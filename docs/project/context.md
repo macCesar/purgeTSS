@@ -80,3 +80,9 @@ The test runner executes Node using `execFile(process.execPath, [file])`, propag
 ## Arbitrary colors
 
 `formatArbitraryValues` in `src/shared/helpers/utils.js` validates balanced nested parentheses so RGB/RGBA color functions survive value extraction. Keep malformed parentheses and inverted negatives rejected. `deduplicateLineProperties` must ignore delimiters inside quoted strings (including escaped quotes) and nested values, otherwise `apply` truncates color channels. Focused contracts: `tests/unit/shared/arbitrary-colors.test.js` and `tests/e2e/arbitrary-colors.test.js`; the latter exercises the actual CLI with XML, controller classes, a platform modifier and config `apply`.
+
+## VS Code class sorting
+
+The distributed editor templates are `dist/configs/vscode/extensions.json` and `settings.json`, copied into projects by create/dependency installation. Recommend `KevinYouu.tailwind-raw-reorder-next`; its option prefix is `tailwind-raw-reorder-next.*`. Bound XML attribute names so `icon` cannot duplicate `activeIcon` edits. Unknown PurgeTSS classes retain their relative order ahead of known Tailwind utilities; editor sorting does not infer icon font-family priority.
+
+The handwritten guide lives in `../purgetss-docs/docs/commands.md`. `.dev/docs` is an ignored generated mirror that `clean:md` replaces; correct the source guide first. The original KevinYouu repository remains at `https://github.com/KevinYouu/tailwind-raw-reorder`; Next continues the older `-tw4` extension under a new Marketplace identifier. Check publisher listings and Git history before concluding that an extension or repository disappeared.

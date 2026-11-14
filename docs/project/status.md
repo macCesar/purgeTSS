@@ -1,3 +1,21 @@
+# Tailwind Raw Reorder Next editor migration — 2026-11-13
+
+**Phase:** completed; semantic commits authorized by César. **Branch:** `main`.
+**Session by:** Codex · GPT-6 (exact model identifier not exposed).
+**Related repositories:** official guides in `../purgetss-docs`; a separate Alloy app received only the matching editor-configuration change in this closure.
+
+The final recommendation is `KevinYouu.tailwind-raw-reorder-next`, installed from the VS Code Marketplace at 3.7.0. The previous `-tw4` listing was superseded by Next; the KevinYouu repository remains accessible. Compared the installed 3.6.0 sources against upstream commit `f2c98e0` (identical) and confirmed the 3.7.0 rename/version history. The temporary Trapfether substitution and installed font-priority patch are superseded: Trapfether was initially uninstalled, then restored after César objected; its exact pre-patch source and bundle were restored, the reapply script was removed, and Next is unmodified. A recommendation change does not by itself authorize uninstalling an installed extension. Enablement of the restored extension was not verified because the user was concurrently interacting with VS Code. No upstream PR or `preferredClasses` option was created; that proposal was rejected.
+
+`dist/configs/vscode/extensions.json` changes only the recommended identifier, preserving list order. `settings.json` uses `tailwind-raw-reorder-next.classRegex` and adds word boundaries to XML attribute matchers so `icon` does not also match `activeIcon`. Existing XML `class`/`classes`/`icon`/`activeIcon` and JavaScript `class:`/`apply:` coverage is retained. README/CHANGELOG and the official commands guide reflect the migration; `.dev/docs` is an ignored generated copy, not the source of truth.
+
+**Verified:** JSON/JSONC parsing, expected recommendation/key names, unique XML capture ranges, exact class extraction, installed-bundle sorting of both icon-family input orders, duplicate removal and Tailwind ordering during the investigation, and clean diff checks. Executed Next's own file-sort command followed by Save in VS Code on the separate Alloy app: `ms` stayed first when already first. Both 3.6.0 and unmodified 3.7.0 preserve the relative order of unknown classes: `ms-person_outline text-2xl ms` becomes `ms-person_outline ms text-2xl`, not a font-family-first order. César confirmed that this explains the observation. No new sorting behavior is requested.
+
+**Delivery limits:** no npm/version/tag/release, push, upstream PR, site build/deploy, or full CLI suite was requested or performed in this editor-only session. Saved files follow the existing automatic SFTP workflow; that does not establish that the separately built documentation website changed. The official guide's Context7 mirror was not regenerated in this session. Prior release and app-acceptance work remains as recorded below, independently of this completed migration.
+
+**Semantic commits:** `4b4e9e5` contains the CLI editor templates and public README/CHANGELOG. The matching official guide is `7bcc767` in `purgetss-docs`; the separate Alloy app editor configuration is `158e07a`. This following `docs(project)` commit records the closure. MDX compilation of the commands guide and comparison of its updated guidance with the ignored local mirror passed; no existing usage content was removed.
+
+---
+
 # PurgeTSS 7.20.2 released — 2026-11-11
 
 **Phase:** published on GitHub and npm as `latest`. **Branch:** `main`.

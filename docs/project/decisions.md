@@ -2,6 +2,12 @@
 
 Append-only. Most recent entries first.
 
+## 2026-11-13 — Use KevinYouu Next without custom icon-priority rules
+
+**Chose:** recommend `KevinYouu.tailwind-raw-reorder-next` and migrate the existing matchers to its namespace, correcting XML attribute overlap independently. Preserve the extension's native stable ordering of unknown classes.
+**Over:** switching to Trapfether, retaining the temporary installed priority patch, or introducing a `preferredClasses` option/PR.
+**Because:** Next 3.7.0 is the Marketplace continuation of the previously used KevinYouu extension; the repository and matching 3.6.0 sources are available. The reported ordering is explained by preserving unknown-class order, not by recognizing PurgeTSS font-family semantics. César explicitly chose the Next recommendation after this was established. Changing repository recommendations is separate from uninstalling extensions in the editor; César objected to the latter, so Andrew's extension was restored without the temporary patch.
+
 ## 2026-11-11 — Restore nested color syntax and publish v7.20.2
 
 **Chose:** validate balanced parentheses in arbitrary values rather than prohibit all inner parentheses; preserve quoted commas and escapes while deduplicating `apply` properties. Keep inverted negative rejection and the supported leading negative prefix.
