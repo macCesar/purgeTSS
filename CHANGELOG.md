@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Match complete XML attribute names in the VS Code class-sorting configuration so `icon` does not also match `activeIcon` and generate overlapping edits.
+- Resolve SVG dimensions from each unqualified class in a comma-separated Alloy 3.1.0 TSS selector, such as `'.logo-small, .logo-compact'`. Later rules for the same class override only the dimensions they declare.
 
 ## [7.20.2] - 2026-11-11
 

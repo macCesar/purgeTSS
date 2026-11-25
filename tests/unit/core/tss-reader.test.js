@@ -14,6 +14,7 @@ process.stderr.on('error', err => { if (err.code === 'EPIPE') process.exit(0) })
 
 console.log('🧪 Testing tss-reader.js (parseTssMap)...')
 
+const { deepStrictEqual, equal } = await import('node:assert/strict')
 const { parseTssMap } = await import('../../../src/core/svg/tss-reader.js')
 
 let passed = 0
@@ -45,6 +46,58 @@ test('plain class: width and height are recovered', () => {
   const p = props('\'.hero\': { width: 320, height: 240 }', 'hero')
   if (p.width !== 320) throw new Error(`width should be 320, got ${p.width}`)
   if (p.height !== 240) throw new Error(`height should be 240, got ${p.height}`)
+})
+
+test('grouped classes each provide the shared size', () => {
+  const map = parseTssMap('\'.logo-small, .logo-compact\': { width: 48, height: 48 }')
+  deepStrictEqual([...map.keys()], ['logo-small', 'logo-compact'])
+  for (const { width, height } of map.values()) {
+    deepStrictEqual({ width, height }, { width: 48, height: 48 })
+  }
+})
+
+test('double-quoted selector lists accept a trailing rule comma', () => {
+  const map = parseTssMap('".logo-small , .logo-compact": { width: 48 }, // shared')
+  equal(map.get('logo-small')?.width, 48)
+  equal(map.get('logo-compact')?.width, 48)
+})
+
+test('grouped rules resolve only unqualified class selectors', () => {
+  const map = parseTssMap('\'ImageView, #logo, .logo-small[platform=ios,android], .logo-compact\': { width: 48 }')
+  deepStrictEqual([...map.keys()], ['logo-compact'])
+  equal(map.get('logo-compact').width, 48)
+})
+
+test('a later width declaration preserves the shared height', () => {
+  const laterRule = '\'.logo-small\': { width: 64 }'
+  const grouped = parseTssMap(`'.logo-small, .logo-compact': { width: 48, height: 48 }\n${laterRule}`)
+  const individual = parseTssMap([
+    '\'.logo-small\': { width: 48, height: 48 }',
+    '\'.logo-compact\': { width: 48, height: 48 }',
+    laterRule
+  ].join('\n'))
+  deepStrictEqual(grouped, individual)
+  const { width, height } = grouped.get('logo-small')
+  deepStrictEqual({ width, height }, { width: 64, height: 48 })
+  equal(grouped.get('logo-compact').width, 48)
+})
+
+test('a later color declaration preserves the shared width and height', () => {
+  const tss = [
+    '\'.logo-small, .logo-compact\': { width: 48, height: 32, color: \'blue\' },',
+    '\'.logo-compact\': { color: \'green\' }'
+  ].join('\n')
+  const { width, height } = props(tss, 'logo-compact')
+  deepStrictEqual({ width, height }, { width: 48, height: 32 })
+})
+
+test('a later percentage width replaces the earlier numeric width', () => {
+  const tss = [
+    '\'.logo-small\': { width: 48, height: 32 },',
+    '\'.logo-small\': { width: \'50%\' }'
+  ].join('\n')
+  const { width, height } = props(tss, 'logo-small')
+  deepStrictEqual({ width, height }, { width: 'percent', height: 32 })
 })
 
 // ── Escapes: the dropped-property bug ─────────────────────────────────────

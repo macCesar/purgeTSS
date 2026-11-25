@@ -3,15 +3,12 @@
  *
  * Lightweight parser for the controlled TSS output PurgeTSS generates. Used by
  * the SVG image pipeline to resolve final width/height per class after a
- * regular purge run. NOT a general-purpose TSS parser — only the shapes the
- * purger emits are recognized.
+ * regular purge run. It reads single-line rules from the generated stylesheet.
  *
  * Recognized line shape:
- *   '.classname': { prop: value, prop: value }
+ *   '.classname, .another-class': { prop: value, prop: value },
  *
- * Tag selectors (e.g. 'View': { ... }, 'ImageView[platform=ios]': { ... }) and
- * '#id': { ... } selectors are skipped — the SVG pipeline resolves only by
- * class cascade in V1.
+ * The SVG pipeline resolves dimensions from unqualified class selectors.
  *
  * @fileoverview Class → properties map extracted from purged app.tss
  * @author César Estrada
@@ -21,7 +18,8 @@
 // brace-balancing rather than a `[^}]*` character class, which could not see
 // past a nested object — `'.text-xs': { font: { fontSize: 12 } }` and every
 // other class carrying a `font: { ... }` never made it into the map.
-const CLASS_LINE_START = /^\s*'\.([^']+)'\s*:\s*\{/
+const STYLE_LINE_START = /^\s*(?:'([^']+)'|"([^"]+)")\s*:\s*\{/
+const SIMPLE_CLASS_SELECTOR = /^\.([^\s[\],]+)$/
 
 /**
  * Parse the controlled TSS string emitted by the purger into a class → props
@@ -32,8 +30,8 @@ const CLASS_LINE_START = /^\s*'\.([^']+)'\s*:\s*\{/
  *   - 'fill'             → Ti.UI.FILL
  *   - 'percent'          → percentage or any other non-resolvable value
  *
- * Only the `width` and `height` properties are normalized; other props are
- * captured verbatim as the raw RHS string (callers don't currently need them).
+ * Later rules replace only the dimensions they declare for the same class.
+ * `_raw` contains the body of the last rule for that class.
  *
  * @param {string} tssContent - The full purged TSS (in-memory string).
  * @returns {Map<string, { width?: number|'auto'|'fill'|'percent', height?: number|'auto'|'fill'|'percent', _raw: string }>}
@@ -44,11 +42,13 @@ export function parseTssMap(tssContent) {
 
   const lines = tssContent.split(/\r?\n/)
   for (const line of lines) {
-    const parsed = parseClassLine(stripLineComment(line))
+    const parsed = parseStyleLine(stripLineComment(line))
     if (!parsed) continue
 
-    const props = parsePropBody(parsed.body)
-    map.set(parsed.className, { ...props, _raw: parsed.body.trim() })
+    const props = { ...parsePropBody(parsed.body), _raw: parsed.body.trim() }
+    for (const className of parsed.classes) {
+      map.set(className, { ...map.get(className), ...props })
+    }
   }
   return map
 }
@@ -87,12 +87,15 @@ function * codeChars(text) {
   }
 }
 
-// Split `'.name': { body }` into its class name and body, balancing braces so
-// nested objects stay inside the body. Returns null for anything that isn't a
-// class line (tag/id selectors, comments, blank lines, trailing junk).
-function parseClassLine(line) {
-  const match = line.match(CLASS_LINE_START)
+// Find the class selectors and balance braces around the rule body.
+function parseStyleLine(line) {
+  const match = line.match(STYLE_LINE_START)
   if (!match) return null
+
+  const classes = splitSelectors(match[1] ?? match[2])
+    .map(selector => selector.trim().match(SIMPLE_CLASS_SELECTOR)?.[1])
+    .filter(Boolean)
+  if (classes.length === 0) return null
 
   const openIdx = match[0].length - 1
   let depth = 0
@@ -111,9 +114,27 @@ function parseClassLine(line) {
   }
 
   if (closeIdx === -1) return null
-  if (line.slice(closeIdx + 1).trim() !== '') return null
+  const trailing = line.slice(closeIdx + 1).trim()
+  if (trailing && trailing !== ',') return null
 
-  return { className: match[1], body: line.slice(openIdx + 1, closeIdx) }
+  return { classes, body: line.slice(openIdx + 1, closeIdx) }
+}
+
+function splitSelectors(selectors) {
+  const list = []
+  let depth = 0
+  let start = 0
+  for (let index = 0; index < selectors.length; index++) {
+    const char = selectors[index]
+    if (char === '[') depth++
+    else if (char === ']') depth--
+    else if (char === ',' && depth === 0) {
+      list.push(selectors.slice(start, index))
+      start = index + 1
+    }
+  }
+  list.push(selectors.slice(start))
+  return list
 }
 
 // Drop trailing `// comment` so it doesn't break brace matching.

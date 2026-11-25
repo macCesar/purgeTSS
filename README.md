@@ -464,6 +464,18 @@ Both `purgetss images` and `purgetss brand` treat each source file as the xxxhdp
 
 Override per file via `images.files` in `config.cjs` (or, for `brand`, the `padding` key of the piece you want to reframe: `brand.adaptive.padding`, `brand.icon.padding`, …). The convention is the default fallback; entries override it on a per-file basis. CLI flags like `--width` always win over both.
 
+### Size SVGs with shared class styles
+
+In Alloy 3.1.0 and later, you can define a shared size on one line in `app/styles/_app.tss`:
+
+```tss
+'.logo-small, .logo-compact': { width: 48, height: 48 }
+```
+
+Place `logo.svg` in `purgetss/images/` and reference it from a view using either class, for example `<ImageView image="/images/logo.svg" class="logo-small" />`. During a purge, PurgeTSS reads the size from the generated `app.tss` and creates PNGs such as `48 × 48` at `@1x` and `96 × 96` at `@2x`.
+
+A later rule for `.logo-compact` can change its color and keep both shared dimensions. If it sets `width: 64`, the PNG for that class uses the new width and keeps the shared height of 48.
+
 ## Table of contents
 
 - [Installation](https://purgetss.com/docs/installation)

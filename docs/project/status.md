@@ -1,3 +1,15 @@
+# Alloy 3.1.0 grouped TSS selectors for SVG sizing — 2026-11-24
+
+**Phase:** CLI change implemented and verified, awaiting a PurgeTSS release. **Branch:** `main`. **Session by:** Codex · GPT-6 (exact model identifier not exposed). **Related repository:** `../purgetss-docs`, whose public guides are already live.
+
+The post-purge SVG reader recognizes each unqualified class in a single-line comma-separated selector carried from `app/styles/_app.tss` into `app.tss`. Later rules for the same class replace only the width or height they declare. This covers a shared size followed by a color-only rule or a one-dimension override. README and Unreleased changelog cover the change. The existing `config.cjs` composition with one key per class and `apply: 'btn1 text-green-500'` remains the chosen workflow.
+
+**Verified:** 18 focused reader tests, ESLint on both touched JavaScript files and `git diff --check` passed. The additional dimension regressions failed before the fix. In disposable Alloy projects, the real CLI generated 48 × 48 at `@1x` and 96 × 96 at `@2x` for each of two grouped classes. The follow-up produced 48 × 32 after a color-only override and 64 × 32 after a width-only override, plus their doubled `@2x` variants. The documented `apply` example generated a red background for both classes with blue and green text respectively. `build:module` reported unchanged output.
+
+**Delivery:** the official guides were built, deployed and verified by HTTP. At verification, npm `latest` was 7.20.2 and the new SVG support was marked unreleased in the guide. This session made no release, version bump, commit or push. The CLI changes and these notes are in the working tree. When the CLI change ships, replace the unreleased notice in the site guide with the actual minimum PurgeTSS version.
+
+---
+
 # Tailwind Raw Reorder Next editor migration — 2026-11-13
 
 **Phase:** completed; semantic commits authorized by César. **Branch:** `main`.

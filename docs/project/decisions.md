@@ -2,6 +2,12 @@
 
 Append-only. Most recent entries first.
 
+## 2026-11-24 — Read Alloy selector lists in SVG sizing and keep `apply` composition
+
+Recognize comma-separated, unqualified class selectors in the SVG sizing pass. Respect commas inside Alloy conditions and keep conditional, element and ID selectors outside dimension resolution. A later rule for the same class overrides each dimension it declares, including an explicit nonnumeric value, while an omitted dimension keeps its earlier value. This matches the shared-rule and per-class override case that the original equivalence test missed.
+
+Use Alloy 3.1.0+ selector lists in handwritten `_app.tss`. PurgeTSS copies those rules into `app.tss` and reads their dimensions without detecting the installed Alloy version. César chose to keep one `theme` key per class in `config.cjs` and reuse the base class through `apply`. A selector list in the config can reach `utilities.tss`, but the purge tests confirmed that lookup by individual class omits that rule from `app.tss`.
+
 ## 2026-11-13 — Use KevinYouu Next without custom icon-priority rules
 
 **Chose:** recommend `KevinYouu.tailwind-raw-reorder-next` and migrate the existing matchers to its namespace, correcting XML attribute overlap independently. Preserve the extension's native stable ordering of unknown classes.
